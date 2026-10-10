@@ -239,8 +239,10 @@ void main() {
       );
       final state = stateFor();
       final gateway = LiveRevenueCatGateway(sdk: sdk, entitlementState: state);
+      await gateway.logIn('test-account');
       await gateway.initialize();
 
+      await gateway.logIn('test-account');
       final result = await gateway.purchase(monthlyPackage);
 
       expect(result.status, PaymentOperationStatus.success);
@@ -254,8 +256,10 @@ void main() {
         sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(),
       );
+      await gateway.logIn('test-account');
       await gateway.initialize();
 
+      await gateway.logIn('test-account');
       final result = await gateway.purchase(monthlyPackage);
 
       expect(result.status, PaymentOperationStatus.entitlementNotActive);
@@ -284,6 +288,7 @@ void main() {
 
       for (final entry in cases.entries) {
         final state = stateFor();
+        await state.writeOwner('test-account');
         await state.acceptAuthoritative(
           const Entitlement(
             plan: EntitlementPlan.yearly,
@@ -295,6 +300,7 @@ void main() {
           entitlementState: state,
         );
 
+        await gateway.logIn('test-account');
         final result = await gateway.purchase(monthlyPackage);
 
         expect(result.status, entry.value, reason: entry.key.name);
@@ -316,6 +322,8 @@ void main() {
         entitlementState: stateFor(),
       );
 
+      await proGateway.logIn('test-account');
+      await freeGateway.logIn('test-account');
       expect(
         (await proGateway.restorePurchases()).status,
         PaymentOperationStatus.success,
@@ -334,6 +342,7 @@ void main() {
         entitlementState: stateFor(),
       );
 
+      await gateway.logIn('test-account');
       expect(
         (await gateway.restorePurchases()).status,
         PaymentOperationStatus.networkFailure,
@@ -353,6 +362,7 @@ void main() {
         ),
         entitlementState: firstState,
       );
+      await firstGateway.logIn('test-account');
       await firstGateway.initialize();
       await firstGateway.purchase(yearlyPackage);
 
@@ -361,6 +371,7 @@ void main() {
         sdk: FakeRevenueCatSdk(),
         entitlementState: secondState,
       );
+      await secondGateway.logIn('test-account');
       await secondGateway.initialize();
 
       expect(secondGateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
@@ -370,6 +381,7 @@ void main() {
         () async {
       final values = <String, String>{};
       final seededState = stateFor(values);
+      await seededState.writeOwner('test-account');
       await seededState.acceptAuthoritative(
         const Entitlement(
           plan: EntitlementPlan.monthly,
@@ -383,6 +395,7 @@ void main() {
         ),
         entitlementState: stateFor(values),
       );
+      await failedRefresh.logIn('test-account');
       await failedRefresh.initialize();
       await expectLater(
         failedRefresh.configure(androidApiKey: 'rc_key'),
@@ -400,7 +413,9 @@ void main() {
         entitlementState: stateFor(values),
         referenceTime: () => referenceTime,
       );
+      await authoritativeFree.logIn('test-account');
       await authoritativeFree.initialize();
+      await authoritativeFree.logIn('test-account');
       await authoritativeFree.configure(androidApiKey: 'rc_key');
       expect(authoritativeFree.cachedEntitlement?.plan, EntitlementPlan.free);
 
@@ -408,6 +423,7 @@ void main() {
         sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(values),
       );
+      await fresh.logIn('test-account');
       await fresh.initialize();
       expect(fresh.cachedEntitlement?.plan, EntitlementPlan.free);
     });
@@ -463,6 +479,9 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
   }
 
   @override
+  Future<void> logOut() async {}
+
+  @override
   Future<void> invalidateCustomerInfoCache() async {}
 
   @override
@@ -484,7 +503,7 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
-      verifiedFixture(customerInfo);
+      verifiedFixture(customerInfo, supplyInactiveDate: false);
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(

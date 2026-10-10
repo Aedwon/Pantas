@@ -125,6 +125,7 @@ abstract interface class RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo();
   Future<RevenueCatOfferingSnapshot?> getCurrentOffering();
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid);
+  Future<void> logOut();
   Future<RevenueCatCustomerInfoSnapshot> purchase(
     String productId, {
     String? oldProductId,
@@ -288,6 +289,21 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
               EntitlementVerificationMode.informational,
       ),
     );
+  }
+
+  @override
+  Future<void> logOut() async {
+    try {
+      await Purchases.logOut();
+    } on PlatformException catch (error) {
+      if (PurchasesErrorHelper.getErrorCode(error) !=
+          PurchasesErrorCode.logOutWithAnonymousUserError) {
+        throw RevenueCatSdkException(
+          classifyRevenueCatErrorCode(PurchasesErrorHelper.getErrorCode(error)),
+          error,
+        );
+      }
+    }
   }
 
   @override

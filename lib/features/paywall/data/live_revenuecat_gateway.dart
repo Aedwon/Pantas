@@ -146,7 +146,7 @@ Entitlement entitlementFromCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
   );
 }
 
-class LiveRevenueCatGateway implements RevenueCatGateway {
+class LiveRevenueCatGateway implements RevenueCatAccountGateway {
   LiveRevenueCatGateway({
     RevenueCatSdk? sdk,
     PaymentEntitlementState? entitlementState,
@@ -168,6 +168,8 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   final TrustedClock _clock;
   String? _uid;
   bool _listening = false;
+  bool _identityBusy = true;
+  int _identityEpoch = 0;
 
   @override
   Future<void> initialize() async {
@@ -225,10 +227,18 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   }
 
   Future<Entitlement> _acceptCustomerInfo(
-    RevenueCatCustomerInfoSnapshot info,
-  ) async {
+    RevenueCatCustomerInfoSnapshot info, {
+    bool identityAnswer = false,
+    int? expectedEpoch,
+  }) async {
+    final epoch = expectedEpoch ?? _identityEpoch;
+    if (epoch != _identityEpoch) return const Entitlement.free();
+    if (_identityBusy && !identityAnswer) {
+      return cachedEntitlement ?? const Entitlement.free();
+    }
     await initialize();
     await _clock.observe();
+    if (epoch != _identityEpoch) return const Entitlement.free();
     final current = _entitlementState.current ?? const Entitlement.free();
     final requestDate = info.requestDate?.toUtc();
     if (info.verification != VerificationResult.verified ||
@@ -241,10 +251,14 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       return cachedEntitlement ?? const Entitlement.free();
     }
     if (await _clock.confirm(requestDate) &&
-        _clock.trustedTime == requestDate) {
+        _clock.trustedTime == requestDate &&
+        epoch == _identityEpoch) {
       final reported =
           entitlementFromCustomerInfo(info).withEvidence(requestDate);
-      await _entitlementState.acceptAuthoritative(reported);
+      await _entitlementState.acceptAuthoritative(
+        reported,
+        shouldContinue: () => epoch == _identityEpoch,
+      );
       final uid = _uid;
       if (uid != null) {
         final pending = await _pendingStore.read(uid);
@@ -259,11 +273,39 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   }
 
   @override
+  Future<void> clearIdentity() {
+    _identityEpoch++;
+    _identityBusy = true;
+    _uid = null;
+    return _entitlementState.clear();
+  }
+
+  @override
+  Future<void> logOut() async {
+    await clearIdentity();
+    await _sdk.logOut();
+  }
+
+  @override
   Future<void> logIn(String uid) async {
+    _identityBusy = true;
+    var epoch = _identityEpoch;
     await initialize();
+    if (epoch != _identityEpoch) return;
+    final owner = _uid ?? await _entitlementState.readOwner();
+    if (epoch != _identityEpoch) return;
+    if (owner != uid) {
+      final clearing = clearIdentity();
+      epoch = _identityEpoch;
+      await clearing;
+      if (epoch != _identityEpoch) return;
+    }
     final info = await _sdk.logIn(uid);
+    if (epoch != _identityEpoch) return;
     _uid = uid;
-    await _acceptCustomerInfo(info);
+    await _entitlementState.writeOwner(uid);
+    await _acceptCustomerInfo(info, identityAnswer: true, expectedEpoch: epoch);
+    if (epoch == _identityEpoch) _identityBusy = false;
   }
 
   @override
@@ -339,9 +381,20 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
 
   @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) async {
+    if (_identityBusy) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.operationAlreadyInProgress,
+      );
+    }
     final uid = _uid;
+    final epoch = _identityEpoch;
     try {
       if (uid != null && await _pendingStore.read(uid) != null) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
+      if (epoch != _identityEpoch || _identityBusy) {
         return const PaymentOperationResult.failure(
           status: PaymentOperationStatus.operationAlreadyInProgress,
         );
@@ -357,9 +410,10 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         oldProductId: isUpgrade ? current?.productId : null,
         allowTrial: !isUpgrade && package.trialEligible,
       );
-      final confirmed = await _acceptCustomerInfo(info);
+      final confirmed = await _acceptCustomerInfo(info, expectedEpoch: epoch);
       return PaymentOperationResult.authoritative(
-        status: info.verification == VerificationResult.verified &&
+        status: epoch == _identityEpoch &&
+                info.verification == VerificationResult.verified &&
                 info.requestDate == confirmed.verifiedAt &&
                 _productIsActive(info, package.productId)
             ? PaymentOperationStatus.success
@@ -388,11 +442,23 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
 
   @override
   Future<PaymentOperationResult> restorePurchases() async {
+    if (_identityBusy) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.operationAlreadyInProgress,
+      );
+    }
+    final epoch = _identityEpoch;
     try {
       await _prepareFreshRead();
+      if (epoch != _identityEpoch || _identityBusy) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
       final info = await _sdk.restorePurchases();
-      final confirmed = await _acceptCustomerInfo(info);
-      if (info.verification != VerificationResult.verified ||
+      final confirmed = await _acceptCustomerInfo(info, expectedEpoch: epoch);
+      if (epoch != _identityEpoch ||
+          info.verification != VerificationResult.verified ||
           info.requestDate != confirmed.verifiedAt) {
         return PaymentOperationResult.authoritative(
           status: info.proIsActive

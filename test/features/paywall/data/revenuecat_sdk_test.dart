@@ -5,6 +5,27 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  test('AC-5 anonymous-user logout error is ignored, other errors propagate',
+      () async {
+    const channel = MethodChannel('purchases_flutter');
+    var error = PurchasesErrorCode.logOutWithAnonymousUserError;
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (call) async {
+      expect(call.method, 'logOut');
+      throw PlatformException(code: error.index.toString());
+    });
+    addTearDown(
+      () => TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, null),
+    );
+    await expectLater(PurchasesRevenueCatSdk().logOut(), completes);
+    error = PurchasesErrorCode.networkError;
+    await expectLater(
+      PurchasesRevenueCatSdk().logOut(),
+      throwsA(isA<RevenueCatSdkException>()),
+    );
+  });
+
   test('Restore syncs purchases before reading customer info', () async {
     final calls = <String>[];
     const channel = MethodChannel('purchases_flutter');

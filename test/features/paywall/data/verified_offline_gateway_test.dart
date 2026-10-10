@@ -62,6 +62,7 @@ void main() {
           wall.add(const Duration(days: 30)),
         );
       final g = gateway(sdk);
+      await g.logIn('test-account');
       await g.configure(androidApiKey: 'test-only-key');
       expect(g.cachedEntitlement!.proIsActive, isFalse);
       expect(clock.trustedTime, isNull);
@@ -78,6 +79,7 @@ void main() {
       ..purchaseInfo = response
       ..restoreInfo = response;
     final g = gateway(sdk);
+    await g.logIn('test-account');
     expect(
       (await g.purchase(monthlyPackage)).status,
       PaymentOperationStatus.entitlementNotActive,
@@ -99,6 +101,7 @@ void main() {
         trusted.add(const Duration(days: 30)),
       );
     final g = gateway(sdk);
+    await g.logIn('test-account');
     await g.configure(androidApiKey: 'test-only-key');
     wall = wall.subtract(const Duration(minutes: 11));
     elapsed += const Duration(seconds: 1);
@@ -127,6 +130,7 @@ void main() {
   test('AC-1 clearing SDK cache and failed fetch keeps the app snapshot',
       () async {
     final state = PaymentEntitlementState(EntitlementSnapshotStore.inMemory());
+    await state.writeOwner('test-account');
     await state.acceptAuthoritative(
       Entitlement(
         plan: EntitlementPlan.monthly,
@@ -136,6 +140,7 @@ void main() {
     );
     final sdk = _RawSdk()..customerInfoFailure = RevenueCatFailureKind.network;
     final g = gateway(sdk, state: state);
+    await g.logIn('test-account');
     await expectLater(
       g.configure(androidApiKey: 'test-only-key'),
       throwsA(isA<RevenueCatSdkException>()),
@@ -159,6 +164,7 @@ void main() {
         wall.add(const Duration(days: 30)),
       );
     final g = gateway(sdk);
+    await g.logIn('test-account');
     await g.configure(androidApiKey: 'test-only-key');
     sdk.customerInfo = RevenueCatCustomerInfoSnapshot.inactive(
       requestDate: wall.subtract(const Duration(minutes: 1)),
@@ -171,6 +177,9 @@ void main() {
 
 class _RawSdk extends FakeRevenueCatSdk {
   int invalidations = 0;
+  @override
+  Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
+      customerInfo;
   @override
   Future<RevenueCatCustomerInfoSnapshot> purchase(
     String productId, {

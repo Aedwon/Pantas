@@ -2,6 +2,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 
 void main() {
+  test('AC-5 payment state clears before Firebase sign-out', () async {
+    final operations = <String>[];
+    final gateway = SignOutAuthGateway(operations);
+    final repo = AuthRepository(gateway: gateway)
+      ..beforeIdentityChange = () async {
+        operations.add('clearPayment');
+      };
+    await repo.signOut();
+    expect(operations.first, 'clearPayment');
+  });
+
   test('signOut prepares transition before wiping local state', () async {
     final operations = <String>[];
     final repo = AuthRepository(

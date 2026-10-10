@@ -37,6 +37,7 @@ void main() {
         sdk: sdk,
         entitlementState: stateFor(),
       );
+      await gateway.logIn('test-account');
       await gateway.initialize();
       final container = ProviderContainer(
         overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
@@ -72,6 +73,7 @@ void main() {
         sdk: sdk,
         entitlementState: stateFor(),
       );
+      await gateway.logIn('test-account');
       await gateway.initialize();
       final container = ProviderContainer(
         overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
@@ -106,6 +108,7 @@ void main() {
       sdk: sdk,
       entitlementState: stateFor(),
     );
+    await gateway.logIn('test-account');
     await gateway.initialize();
     final container = ProviderContainer(
       overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
@@ -169,6 +172,7 @@ void main() {
       readValue: (key) async => values[key],
       writeValue: (key, value) async => values[key] = value,
     );
+    await seedStore.writeOwner('test-account');
     await seedStore.writeConfirmed(
       const Entitlement(
         plan: EntitlementPlan.yearly,
@@ -229,6 +233,9 @@ class RuntimeSdk implements RevenueCatSdk {
 
   void emit(RevenueCatCustomerInfoSnapshot info) =>
       listener?.call(verifiedFixture(info));
+
+  @override
+  Future<void> logOut() async {}
 
   @override
   Future<void> invalidateCustomerInfoCache() async {}

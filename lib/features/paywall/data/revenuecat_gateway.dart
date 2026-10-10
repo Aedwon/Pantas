@@ -19,7 +19,12 @@ abstract interface class RevenueCatGateway {
   Future<PaymentOperationResult> restorePurchases();
 }
 
-class DisabledRevenueCatGateway implements RevenueCatGateway {
+abstract interface class RevenueCatAccountGateway implements RevenueCatGateway {
+  Future<void> clearIdentity();
+  Future<void> logOut();
+}
+
+class DisabledRevenueCatGateway implements RevenueCatAccountGateway {
   const DisabledRevenueCatGateway([this._entitlementState, this._clock]);
 
   final TrustedClock? _clock;
@@ -68,7 +73,21 @@ class DisabledRevenueCatGateway implements RevenueCatGateway {
       const PaywallOfferingResult.noCurrentOffering();
 
   @override
-  Future<void> logIn(String uid) async {}
+  Future<void> logIn(String uid) async {
+    await initialize();
+    final state = _entitlementState;
+    if (state != null && await state.readOwner() != uid) {
+      await state.clear();
+    }
+  }
+
+  @override
+  Future<void> clearIdentity() async {
+    await _entitlementState?.clear();
+  }
+
+  @override
+  Future<void> logOut() => clearIdentity();
 
   @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) async {

@@ -27,6 +27,7 @@ void main() {
       ),
       entitlementState: state,
     );
+    await gateway.logIn('test-account');
     await gateway.initialize();
     final container = ProviderContainer(
       overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
@@ -35,6 +36,7 @@ void main() {
     container.listen(entitlementProvider, (_, __) {});
     await container.read(entitlementProvider.future);
 
+    await gateway.logIn('test-account');
     final result = await gateway.purchase(monthlyPackage);
     await pumpEventQueue();
 
@@ -59,6 +61,7 @@ void main() {
       ),
       entitlementState: state,
     );
+    await gateway.logIn('test-account');
     await gateway.initialize();
     final container = ProviderContainer(
       overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
@@ -67,6 +70,7 @@ void main() {
     container.listen(entitlementProvider, (_, __) {});
     await container.read(entitlementProvider.future);
 
+    await gateway.logIn('test-account');
     final result = await gateway.restorePurchases();
     await pumpEventQueue();
 
@@ -92,6 +96,7 @@ void main() {
       },
     );
     final state = PaymentEntitlementState(store);
+    await state.writeOwner('test-account');
     await state.acceptAuthoritative(
       const Entitlement(
         plan: EntitlementPlan.monthly,
@@ -108,6 +113,7 @@ void main() {
     expect(state.hasPendingPersistence, isTrue);
 
     failWrites = false;
+    await state.writeOwner('test-account');
     await state.acceptAuthoritative(const Entitlement.free());
     expect(await store.readConfirmed(), const Entitlement.free());
     expect(state.hasPendingPersistence, isFalse);
@@ -128,6 +134,7 @@ void main() {
       RevenueCatConfig.fromEnvironment(androidApiKey: 'rc_key'),
     );
 
+    await gateway.logIn('test-account');
     expect(gateway.cachedEntitlement?.plan, EntitlementPlan.monthly);
   });
 
@@ -141,8 +148,10 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     await gateway.initialize();
     expect(gateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
+    await gateway.logIn('test-account');
     await gateway.configure(androidApiKey: 'rc_key');
 
     expect(gateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
@@ -164,6 +173,7 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     await gateway.configure(androidApiKey: 'rc_key');
 
     expect(gateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
@@ -185,6 +195,7 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     await gateway.configure(androidApiKey: 'rc_key');
 
     expect(gateway.cachedEntitlement?.plan, EntitlementPlan.free);
@@ -209,6 +220,7 @@ void main() {
       entitlementState: stateFor(values),
       referenceTime: () => referenceTime,
     );
+    await gateway.logIn('test-account');
     await gateway.configure(androidApiKey: 'rc_key');
 
     sdk.emit(const RevenueCatCustomerInfoSnapshot.inactive());
@@ -233,6 +245,7 @@ void main() {
       entitlementState: stateFor(values),
       referenceTime: () => referenceTime,
     );
+    await gateway.logIn('test-account');
     await gateway.configure(androidApiKey: 'rc_key');
 
     sdk.emit(
@@ -264,6 +277,7 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     final result = await gateway.purchase(monthlyPackage);
 
     expect(result.status, PaymentOperationStatus.entitlementNotActive);
@@ -285,6 +299,7 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     final result = await gateway.purchase(monthlyPackage);
 
     expect(result.status, PaymentOperationStatus.entitlementNotActive);
@@ -308,6 +323,7 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     final result = await gateway.restorePurchases();
 
     expect(result.status, PaymentOperationStatus.noActiveSubscription);
@@ -329,6 +345,7 @@ void main() {
       referenceTime: () => referenceTime,
     );
 
+    await gateway.logIn('test-account');
     final result = await gateway.restorePurchases();
 
     expect(result.status, PaymentOperationStatus.noActiveSubscription);
@@ -366,6 +383,7 @@ PaymentEntitlementState stateFor(Map<String, String> values) {
 
 Future<void> seedPro(Map<String, String> values) async {
   final state = stateFor(values);
+  await state.writeOwner('test-account');
   await state.acceptAuthoritative(
     Entitlement(
       verifiedAt: referenceTime.subtract(const Duration(minutes: 5)),
@@ -396,6 +414,9 @@ class FinalHardeningSdk implements RevenueCatSdk {
 
   void emit(RevenueCatCustomerInfoSnapshot info) =>
       listener?.call(verifiedFixture(info, supplyInactiveDate: false));
+
+  @override
+  Future<void> logOut() async {}
 
   @override
   Future<void> invalidateCustomerInfoCache() async {}

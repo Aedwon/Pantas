@@ -25,6 +25,31 @@ class EntitlementSnapshotStore {
     );
   }
 
+  String? _owner;
+
+  Future<String?> readOwner() async {
+    if (_owner != null) return _owner;
+    final raw = await _readValue(storageKey);
+    if (raw == null || raw.isEmpty) return null;
+    try {
+      final json = jsonDecode(raw) as Map<String, dynamic>;
+      return _owner = json['uid'] as String?;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Ownership is written atomically with the next confirmed snapshot. Setting
+  /// it alone must never relabel another account's durable evidence.
+  Future<void> writeOwner(String uid) async {
+    _owner = uid;
+  }
+
+  Future<void> clear() async {
+    _owner = null;
+    await _writeValue(storageKey, '');
+  }
+
   static const storageKey = 'payment_last_confirmed_entitlement_v1';
 
   final EntitlementSnapshotRead _readValue;
@@ -87,6 +112,7 @@ class EntitlementSnapshotStore {
 
   Future<void> writeConfirmed(Entitlement entitlement) {
     final value = jsonEncode({
+      'uid': _owner,
       'plan': entitlement.plan.name,
       'productId': entitlement.productId,
       'expiresAt': entitlement.expiresAt?.toUtc().toIso8601String(),

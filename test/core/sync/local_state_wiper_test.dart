@@ -23,6 +23,25 @@ void main() {
     expect(await db.select(db.attemptsLocal).get(), isEmpty);
   });
 
+  test('AC-5 wipe removes payment cache but preserves trusted device time',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    for (final key in [
+      'payment_last_confirmed_entitlement_v1',
+      'payment_trusted_clock_v1',
+    ]) {
+      await db
+          .into(db.devicePrefs)
+          .insert(DevicePrefsCompanion.insert(key: key, value: 'test-record'));
+    }
+    await SyncLocalStateWiper(db).wipeAll();
+    expect(
+      (await db.select(db.devicePrefs).get()).map((row) => row.key),
+      ['payment_trusted_clock_v1'],
+    );
+  });
+
   test('wipeAll removes the study-days preference', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
