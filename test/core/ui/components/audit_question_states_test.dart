@@ -18,23 +18,33 @@ void main() {
           ChoiceRowState.wrong,
         ]) {
           await pumpAccessibilitySurface(
-              tester,
-              ChoiceRow(
-                  letter: 'B', text: 'The answer', state: state, onTap: () {},),
-              brightness: brightness,);
+            tester,
+            ChoiceRow(
+              letter: 'B',
+              text: 'The answer',
+              state: state,
+              onTap: () {},
+            ),
+            brightness: brightness,
+          );
           final word = state == ChoiceRowState.picked
               ? 'selected'
               : state == ChoiceRowState.right
                   ? 'correct'
                   : 'wrong';
-          expect(find.bySemanticsLabel(RegExp('B.*$word.*The answer')),
-              findsOneWidget,);
+          expect(
+            find.bySemanticsLabel(RegExp('B.*$word.*The answer')),
+            findsOneWidget,
+          );
           if (state != ChoiceRowState.picked) {
             expect(
-                find.byIcon(state == ChoiceRowState.right
+              find.byIcon(
+                state == ChoiceRowState.right
                     ? PantasIcons.check
-                    : PantasIcons.close,),
-                findsOneWidget,);
+                    : PantasIcons.close,
+              ),
+              findsOneWidget,
+            );
             expect(find.text('B'), findsNothing);
           }
         }
@@ -48,31 +58,39 @@ void main() {
       final semantics = tester.ensureSemantics();
       try {
         await pumpAccessibilitySurface(
-            tester,
-            QuestionGridSheet(
-                page: const Text('Page'),
-                open: true,
-                onDismiss: () {},
-                parts: const [
-                  QuestionGridPart(title: 'Quiz', questions: [
-                    GridQuestion(
-                        number: 1,
-                        state: GridQuestionState.right,
-                        current: true,
-                        flagged: true,),
-                    GridQuestion(number: 2, state: GridQuestionState.wrong),
-                    GridQuestion(number: 3, state: GridQuestionState.answered),
-                    GridQuestion(number: 4, state: GridQuestionState.unreached),
-                  ],),
+          tester,
+          QuestionGridSheet(
+            page: const Text('Page'),
+            open: true,
+            onDismiss: () {},
+            parts: const [
+              QuestionGridPart(
+                title: 'Quiz',
+                questions: [
+                  GridQuestion(
+                    number: 1,
+                    state: GridQuestionState.right,
+                    current: true,
+                    flagged: true,
+                  ),
+                  GridQuestion(number: 2, state: GridQuestionState.wrong),
+                  GridQuestion(number: 3, state: GridQuestionState.answered),
+                  GridQuestion(number: 4, state: GridQuestionState.unreached),
                 ],
-                onSelected: (_) {},),
-            brightness: brightness,
-            disableAnimations: true,);
+              ),
+            ],
+            onSelected: (_) {},
+          ),
+          brightness: brightness,
+          disableAnimations: true,
+        );
         final current = find
             .bySemanticsLabel(RegExp('Question 1.*current.*correct.*flagged'));
         expect(current, findsOneWidget);
-        expect(tester.getSemantics(current).flagsCollection.isSelected,
-            Tristate.isTrue,);
+        expect(
+          tester.getSemantics(current).flagsCollection.isSelected,
+          Tristate.isTrue,
+        );
         for (final label in [
           'Question 2, wrong',
           'Question 3, answered',

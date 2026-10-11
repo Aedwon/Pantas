@@ -9,13 +9,19 @@ void main() {
     var undo = 0;
     var other = 0;
     await pumpAccessibilitySurface(
-        tester,
-        Column(mainAxisSize: MainAxisSize.min, children: [
+      tester,
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
           Toast(message: 'Hidden', visible: false, onUndo: () => undo++),
           TextButton(
-              onPressed: () => other++, child: const Text('Visible action'),),
-        ],),
-        disableAnimations: true,);
+            onPressed: () => other++,
+            child: const Text('Visible action'),
+          ),
+        ],
+      ),
+      disableAnimations: true,
+    );
     await tester.sendKeyEvent(LogicalKeyboardKey.tab);
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     expect(undo, 0);

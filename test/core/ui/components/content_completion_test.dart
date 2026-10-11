@@ -167,10 +167,11 @@ void main() {
         expect(
           tester.getTopLeft(letter).dx - tester.getTopLeft(outer).dx,
           closeTo(
-              state == ChoiceRowState.right || state == ChoiceRowState.wrong
-                  ? 14
-                  : 14 + (30 - 15) / 2,
-              2,),
+            state == ChoiceRowState.right || state == ChoiceRowState.wrong
+                ? 14
+                : 14 + (30 - 15) / 2,
+            2,
+          ),
         );
         final body = tester.widget<Text>(find.text('The answer'));
         expect(body.style!.fontSize, 17);
