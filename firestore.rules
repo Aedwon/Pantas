@@ -298,7 +298,8 @@ service cloud.firestore {
     }
 
     match /examTracks/{trackId}/proContent/{contentId} {
-      allow read: if isProUser();
+      // Tiered server content is not available yet.
+      allow read: if false;
       allow write: if false;
     }
 
