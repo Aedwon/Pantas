@@ -14,7 +14,7 @@ String _indexSignature(Map<String, dynamic> index) {
 }
 
 void main() {
-  test('Firebase config declares the complete cleanup index contract', () {
+  test('Firebase config declares cleanup and claims repair indexes', () {
     final firebaseConfig = jsonDecode(File('firebase.json').readAsStringSync())
         as Map<String, dynamic>;
     final firestore = firebaseConfig['firestore']! as Map<String, dynamic>;
@@ -49,9 +49,11 @@ void main() {
         ].join('|'),
       'sync_generations|COLLECTION_GROUP|status:ASCENDING,createdAt:ASCENDING',
       'sync_generations|COLLECTION_GROUP|status:ASCENDING,retiredAt:ASCENDING',
+      'server|COLLECTION_GROUP|claimsPending:ASCENDING,__name__:ASCENDING',
+      'server|COLLECTION_GROUP|updatedAt:ASCENDING,__name__:ASCENDING',
     };
 
-    expect(indexes, hasLength(12));
+    expect(indexes, hasLength(14));
     expect(indexes.map(_indexSignature), unorderedEquals(expectedSignatures));
   });
 }
