@@ -159,11 +159,18 @@ void main() {
           onTap: () => picked++,
         );
         await pumpAccessibilitySurface(tester, row, brightness: brightness);
-        final letter = find.text('A');
+        final letter =
+            state == ChoiceRowState.right || state == ChoiceRowState.wrong
+                ? find.byKey(const ValueKey('choice-mark'))
+                : find.text('A');
         final outer = find.byType(ChoiceRow);
         expect(
           tester.getTopLeft(letter).dx - tester.getTopLeft(outer).dx,
-          closeTo(14 + (30 - 15) / 2, 2),
+          closeTo(
+              state == ChoiceRowState.right || state == ChoiceRowState.wrong
+                  ? 14
+                  : 14 + (30 - 15) / 2,
+              2),
         );
         final body = tester.widget<Text>(find.text('The answer'));
         expect(body.style!.fontSize, 17);

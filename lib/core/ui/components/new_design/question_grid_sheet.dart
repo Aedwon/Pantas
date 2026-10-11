@@ -67,6 +67,27 @@ class QuestionGridSheet extends StatelessWidget {
       };
     }
 
+    String questionLabel(GridQuestion question) {
+      final result = switch (question.state) {
+        GridQuestionState.right => 'correct',
+        GridQuestionState.wrong => 'wrong',
+        GridQuestionState.answered => 'answered',
+        GridQuestionState.unreached => 'not reached',
+      };
+      return 'Question ${question.number}${question.current ? ', current' : ''}, $result${question.flagged ? ', flagged' : ''}';
+    }
+
+    VoidCallback? actionFor(GridQuestion question, {required bool enabled}) {
+      if (!enabled ||
+          (!mock &&
+              question.state == GridQuestionState.unreached &&
+              !question.current)) return null;
+      return () {
+        onSelected(question.number);
+        onDismiss();
+      };
+    }
+
     return PantasSheet(
       page: page,
       open: open,
@@ -138,95 +159,96 @@ class QuestionGridSheet extends StatelessWidget {
                               opacity: parts[p].enabled ? 1 : .5,
                               child: SizedBox.square(
                                 dimension: diameter,
-                                child: Material(
-                                  color: Colors.transparent,
-                                  child: InkWell(
-                                    key: ValueKey(
-                                      'grid-question-$p-${question.number}',
-                                    ),
-                                    onTap: parts[p].enabled &&
-                                            (mock ||
-                                                question.state !=
-                                                    GridQuestionState
-                                                        .unreached ||
-                                                question.current)
-                                        ? () {
-                                            onSelected(
-                                              question.number,
-                                            );
-                                            onDismiss();
-                                          }
-                                        : null,
-                                    customBorder: const CircleBorder(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: question.state ==
-                                                GridQuestionState.right
-                                            ? c.accentTint
-                                            : question.state ==
-                                                    GridQuestionState.wrong
-                                                ? c.wrongTint
-                                                : question.state ==
-                                                        GridQuestionState
-                                                            .answered
-                                                    ? c.fill
-                                                    : null,
-                                        border: Border.all(
-                                          color: question.current
-                                              ? c.label
-                                              : question.state ==
-                                                      GridQuestionState
-                                                          .unreached
-                                                  ? c.separator
-                                                  : Colors.transparent,
-                                          width: question.current ? 2 : 1.5,
+                                child: Semantics(
+                                    label: questionLabel(question),
+                                    selected: question.current,
+                                    button: true,
+                                    enabled: actionFor(question,
+                                            enabled: parts[p].enabled) !=
+                                        null,
+                                    onTap: actionFor(question,
+                                        enabled: parts[p].enabled),
+                                    child: ExcludeSemantics(
+                                        child: Material(
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        key: ValueKey(
+                                          'grid-question-$p-${question.number}',
                                         ),
-                                      ),
-                                      child: Stack(
-                                        clipBehavior: Clip.none,
-                                        alignment: Alignment.center,
-                                        children: [
-                                          FittedBox(
-                                            fit: BoxFit.scaleDown,
-                                            child: Text(
-                                              '${question.number}',
-                                              maxLines: 1,
-                                              style: context.type.body.copyWith(
-                                                fontWeight: question.current
-                                                    ? FontWeight.w800
+                                        onTap: actionFor(question,
+                                            enabled: parts[p].enabled),
+                                        customBorder: const CircleBorder(),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: question.state ==
+                                                    GridQuestionState.right
+                                                ? c.accentTint
+                                                : question.state ==
+                                                        GridQuestionState.wrong
+                                                    ? c.wrongTint
                                                     : question.state ==
                                                             GridQuestionState
-                                                                .unreached
-                                                        ? FontWeight.w400
-                                                        : FontWeight.w600,
-                                                color: numberColor(question),
-                                              ),
+                                                                .answered
+                                                        ? c.fill
+                                                        : null,
+                                            border: Border.all(
+                                              color: question.current
+                                                  ? c.label
+                                                  : question.state ==
+                                                          GridQuestionState
+                                                              .unreached
+                                                      ? c.separator
+                                                      : Colors.transparent,
+                                              width: question.current ? 2 : 1.5,
                                             ),
                                           ),
-                                          if (question.flagged)
-                                            Positioned(
-                                              top: -4,
-                                              right: -4,
-                                              child: Container(
-                                                width: 18,
-                                                height: 18,
-                                                decoration: BoxDecoration(
-                                                  color: c.surface,
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Icon(
-                                                  PantasIcons.flag,
-                                                  size: 12,
-                                                  color: c.label,
+                                          child: Stack(
+                                            clipBehavior: Clip.none,
+                                            alignment: Alignment.center,
+                                            children: [
+                                              FittedBox(
+                                                fit: BoxFit.scaleDown,
+                                                child: Text(
+                                                  '${question.number}',
+                                                  maxLines: 1,
+                                                  style: context.type.body
+                                                      .copyWith(
+                                                    fontWeight: question.current
+                                                        ? FontWeight.w800
+                                                        : question.state ==
+                                                                GridQuestionState
+                                                                    .unreached
+                                                            ? FontWeight.w400
+                                                            : FontWeight.w600,
+                                                    color:
+                                                        numberColor(question),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                        ],
+                                              if (question.flagged)
+                                                Positioned(
+                                                  top: -4,
+                                                  right: -4,
+                                                  child: Container(
+                                                    width: 18,
+                                                    height: 18,
+                                                    decoration: BoxDecoration(
+                                                      color: c.surface,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Icon(
+                                                      PantasIcons.flag,
+                                                      size: 12,
+                                                      color: c.label,
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ),
+                                    ))),
                               ),
                             ),
                           ),
