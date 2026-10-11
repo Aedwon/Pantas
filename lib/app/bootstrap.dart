@@ -26,7 +26,6 @@ import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/app_check.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/core/storage/data/database_opener.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
@@ -119,6 +118,16 @@ void handleBootstrapError(
   debugPrint('Uncaught: $error\n$stack');
 }
 
+/// Report while consent and telemetry still exist, then stop failed services.
+void disposeFailedStartup(
+  Object error,
+  StackTrace stack, {
+  ProviderContainer? container,
+}) {
+  handleBootstrapError(error, stack, container: container);
+  container?.dispose();
+}
+
 typedef BootstrapInitializer = Future<void> Function(
   Flavor flavor,
   void Function(ProviderContainer) onContainerReady,
@@ -183,8 +192,7 @@ Future<void> bootstrap(
       await (initialize ?? _bootstrap)(flavor, (built) => container = built);
       startupPage.dispose();
     } catch (error, stack) {
-      handleBootstrapError(error, stack, container: container);
-      container?.dispose();
+      disposeFailedStartup(error, stack, container: container);
       container = null;
       showStartup(StateView.fullScreen(error: error, onRetry: retry));
     } finally {
@@ -228,8 +236,11 @@ Future<void> _bootstrap(
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     await activateAppCheck(flavor);
 
-    database = await openEncryptedDatabase();
-    final overrides = [appDatabaseProvider.overrideWithValue(database)];
+    final overrides = await bootstrapStorageOverrides();
+    // Capture the facade's handle. Its value override has no auto-disposal.
+    final storageLookup = ProviderContainer(overrides: overrides);
+    database = storageLookup.read(appDatabaseProvider);
+    storageLookup.dispose();
     await ensureProtectedContentInstalled(
       verifier: const BundledContentPackageVerifier(
         loadAssetBytes: _loadContentPackageAssetBytes,
@@ -237,10 +248,13 @@ Future<void> _bootstrap(
         bootstrapKeyLookup: _lookupContentBootstrapKey,
       ),
     );
-    contentDatabase = await openProtectedContentDatabase();
-    final contentOverrides = [
-      contentDatabaseProvider.overrideWithValue(contentDatabase),
-    ];
+    final contentOverrides = await bootstrapContentOverrides(
+      open: () async {
+        final opened = await openProtectedContentDatabase();
+        contentDatabase = opened;
+        return opened;
+      },
+    );
     final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
     final authOverrides = authRepositoryOverrides(firebaseResult);
 
@@ -295,12 +309,15 @@ Future<void> _bootstrap(
         child: App(flavor: flavor),
       ),
     );
-  } catch (_) {
-    // A retry opens fresh handles. Stop subscriptions before closing either DB.
-    ownedContainer?.dispose();
-    if (contentDatabase != null) {
+  } catch (error, stack) {
+    // A retry opens fresh handles. Report before disposing consent/services.
+    if (ownedContainer != null) {
+      disposeFailedStartup(error, stack, container: ownedContainer);
+    }
+    final failedContent = contentDatabase;
+    if (failedContent != null) {
       try {
-        await contentDatabase.close();
+        await failedContent.close();
       } catch (error) {
         debugPrint('Startup content cleanup failed: $error');
       }

@@ -1,6 +1,6 @@
 # W4h app-wide states: worker evidence
 
-Current continuation: Task 1 landing is **51b044803d1879ceee83a1c9e5eb59b515c93103**. Task 2 is implemented and verified in this continuation. Task 5 cleanup/final checks follow. The initial blocked report below is historical.
+Current continuation: Task 1 landing is **51b044803d1879ceee83a1c9e5eb59b515c93103**; Task 2 is **737c1de1fc36964bea412e7fd697aea6049b00b2**; Task 3 is **b8de9e05e933ee2d341ac00247b039c9defbc894**. Task 5 retirement and verification corrections are implemented. The single full run had three failures, all resolved by the renewed 140-test check. No second full run was performed. Independent review, integrated full verification and visual acceptance remain with the lead. Task 4 remains deferred. Historical blocked sections below are superseded by this continuation.
 
 Date: October 11, 2026. Assignment: L3 Tasks 1, 2, 3 and 5. Task 4 is deferred to the lead's later dispatch.
 
@@ -236,3 +236,93 @@ exit 0
 `flutter analyze`, exit 1: only the accepted onReorder notice at bookmarks_sheet.dart:238:21; `1 issue found. (ran in 3.3s)`. No new findings. The final two amendments after the 102-test run changed only a comment and test-name string wrapping; no behavior changed. The final full checks cover that exact result.
 
 Code/test staged patch against the Task 1 landing, SHA-256: ab6066f84b3932184ac8c6fa3b950b71227b5f490abc8630231f185e00223fff. Documentation is excluded from this identity. This task commit preserves the patch. AppErrorView has no remaining production caller, so Task 5 can delete it and its legacy tests. No other family was edited. Independent review and Aedwon's visual checking remain with the lead.
+
+
+### Task 5: retirement, verification correction and final checks
+
+Base: Task 2 at 737c1de1fc36964bea412e7fd697aea6049b00b2. Policy remains b039f66df5609d2361778799718f568e69174be4. This task saves cleanup and verification evidence; it does not claim workstream acceptance or publication.
+
+Files: `lib/app/bootstrap.dart`; deletion of `lib/core/ui/components/app_error_view.dart`; `test/app/telemetry_consent_bootstrap_test.dart`; `test/core/ui/components/accessibility_test.dart`; deletion of `test/core/ui/components/app_error_view_test.dart`; `test/core/ui/icons/pantas_icons_test.dart`; `test/tool/firebase_collection_defaults_test.dart`; this evidence. The additional icon/consent tests are affected checks, not changes to another screen family.
+
+Before retirement, the only production references were the legacy component's own definition/installer. Its dedicated tests and one legacy large-text case were its remaining test callers. Deleted those files/case/import. The new full-state and recovery tests already cover the replacement. The final exact-name search `rg -n 'app_error_view|AppErrorView|installAppErrorView' lib test` produced no lines (exit 1, meaning no matches). This is the retirement inventory, not the deferred Task 4 raw-error sweep.
+
+Review found one cleanup-order regression introduced by Task 2: the default initializer disposed its partial container before the outer boundary tried to record telemetry. Added disposeFailedStartup to report through the existing consent gate before disposal, used by both failure paths. The real consent-controller/recording-sink test enables consent, triggers cleanup, then asserts one recorded original error and actual provider disposal. Inert disposal-only code failed: **21 passed, 1 failed**, on the missing recorded error; the corrected behavior passed. No new telemetry event, payload or consent rule was introduced.
+
+Focused correction check:
+
+```text
+flutter test test/app/telemetry_consent_bootstrap_test.dart test/app/bootstrap_recovery_test.dart
+00:00 +27: All tests passed!
+exit 0
+```
+
+#### Single full run and its findings
+
+Ran `flutter test` once in this continuation, on Task 2 plus the initial retirement/report-order patch. It was not green:
+
+```text
+03:31 +3727 -3: Some tests failed.
+exit 1
+
+Failing tests:
+  test/core/content/content_providers_test.dart:
+    shipping bootstrap installs protected content before opening final content overrides
+  test/core/ui/icons/pantas_icons_test.dart:
+    exactly the 45 approved getters resolve without a lock
+  test/tool/firebase_collection_defaults_test.dart:
+    production bootstrap wires and applies persisted telemetry consent
+```
+
+All three were caused by this work and resolved:
+
+1. The protected-content source guard requires the existing bootstrapContentOverrides facade after installation. Restored that call and bootstrapStorageOverrides. A short-lived value-provider lookup captures the storage handle for failure cleanup; the existing content facade's open callback captures its handle. The facade contracts, original openers and protected-install-before-open ordering are preserved. No W0/data file was edited.
+2. The approved warning-circle adds one getter. Updated the exact inventory to 46 and the pinned regular-glyph map to 37, with appError 0xe4e2. The no-lock assertions and every preexisting shape/glyph assertion remain intact. No golden was changed.
+3. The source check's first global runApp now sees startup recovery/loading UI, which has no data/services. Scoped the ordering assertion to the shipping _bootstrap initializer, retaining the requirement that consent overrides and application precede the real App runApp. The disabled Firebase defaults and runtime consent tests remain intact.
+
+One intermediate renewal hit a Dart null-promotion error because the content opener callback captures the handle. Used a final local snapshot during cleanup; then all affected checks passed. The trailing-parameter comma and two line-length issues were also corrected.
+
+The failed full run is historical evidence, not a current-candidate pass. Its early dirty patch was not saved before repair, so no exact hash is asserted for that failed snapshot. The final renewed check has the exact source identity below. Per the instruction to run the full suite only once, no second full run is claimed. The lead must perform combined full verification on the integrated candidate before acceptance.
+
+#### Renewed affected checks on final source
+
+```text
+flutter test test/core/error test/app test/core/content/content_providers_test.dart test/core/ui/icons/pantas_icons_test.dart test/tool/firebase_collection_defaults_test.dart test/core/ui/components/full_state_board_test.dart test/core/ui/components/state_patterns_test.dart
+00:08 +140: All tests passed!
+exit 0
+```
+
+This renewal covers all three full-run findings, every app test, every new recovery/helper test, real content migration/override checks, all icon goldens and codepoints, Firebase defaults, and the board metrics. No unresolved test failure is known. A complete full-suite pass on the final candidate is not claimed.
+
+Final `flutter analyze`, exit 1, actual tail:
+
+```text
+Analyzing Pantas-wt-new-design-w4h-r1...
+
+   info • 'onReorder' is deprecated and shouldn't be used. Use the onReorderItem callback instead. The onReorderItem callback adjusts the newIndex parameter for a removed item at the oldIndex. This feature was deprecated after v3.41.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:238:21 • deprecated_member_use
+
+1 issue found. (ran in 2.8s)
+```
+
+Only the explicitly accepted W4c bookmarks exception remains. No new analysis finding.
+
+```text
+dart format --output=none --set-exit-if-changed lib test
+Formatted 1397 files (0 changed) in 1.29 seconds.
+exit 0
+
+dart run tool/check_layering.dart
+Running build hooks...Running build hooks...check_layering: OK
+exit 0
+
+dart run tool/check_no_ai_attribution.dart
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+exit 0
+```
+
+All commands ran serially. Final code/test staged patch against 737c1de1, SHA-256: 760437122ae84b863d6c8233b7be04f0cd1e33bc370ff8855efdb0c41e52094d. Pre-evidence staged tree: 7495fdc87593a2072e1cd1776485bc308c911ba6; lib tree e55fc071ad4994e9badb8f80b6ef7643d9de842b; test tree 84052251c1aee9965167c97b5623b5a9d95e0752. The Task 5 commit preserves these exact lib/test trees. The attribution check is also renewed after that commit.
+
+Seed hashes rechecked after testing and unchanged: content.db 0ef89a64f2d2f63854b3d22048a7d992d5c04fb03df4fec2e7f4e898e6d083dc; manifest 51bc0a766558879e540475ab972f03df7e3077241bab8f688c1b50ece5874f23; signature e0853df259529031344f14d5a5fe6628e1b92c367a96c584894058fe13199f31. No generated/localization/seed file is committed. Functions remain unchanged from the lead's green b935cbd2 input; no backend repeat, credential access, package regeneration, deployment, device run or screenshot review is claimed.
+
+#### Final handoff
+
+No open product/design question or conflicting board remains. Task 1 is the complete landing other families need. Tasks 2 and 3 are implemented. Task 5 retirement and verification corrections are saved; independent review, integrated full-suite verification and Aedwon's SY_Error/SY_Update visual checks remain pending. Task 4 is explicitly deferred until the other families finish. The lead updates main-owned STATUS/SSOT and reviews/integrates/pushes. This worker performed no push, merge, remote mutation or main-checkout edit. Other paused engineering and the application-code freeze remain intact.

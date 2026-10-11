@@ -36,6 +36,7 @@ void main() {
     'addDate': PantasIcons.addDate,
     'pro': PantasIcons.pro,
     'progressError': PantasIcons.progressError,
+    'appError': PantasIcons.appError,
     'tendencies': PantasIcons.tendencies,
     'answerStreak': PantasIcons.answerStreak,
     'search': PantasIcons.search,
@@ -54,13 +55,13 @@ void main() {
     'proSettings': PantasIcons.proSettings,
     'profile': PantasIcons.profile,
   };
-  test('exactly the 45 approved getters resolve without a lock', () {
+  test('exactly the 46 approved getters resolve without a lock', () {
     final source =
         File('lib/core/ui/icons/pantas_icons.dart').readAsStringSync();
     final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
         .allMatches(source)
         .map((match) => match.group(1));
-    expect(icons, hasLength(45));
+    expect(icons, hasLength(46));
     expect(names, unorderedEquals(icons.keys));
     expect(names, isNot(contains('locked')));
     expect(names, isNot(contains('lock')));
@@ -769,6 +770,7 @@ void main() {
   });
   test('regular glyphs keep their pinned 2.1.0 codepoints', () {
     const codepoints = <String, int>{
+      'appError': 0xe4e2,
       'homeTab': 0xe2c2,
       'studyTab': 0xe0e6,
       'quizTab': 0xe184,
@@ -806,7 +808,7 @@ void main() {
       'proSettings': 0xe6a2,
       'profile': 0xe4c2,
     };
-    expect(codepoints, hasLength(36));
+    expect(codepoints, hasLength(37));
     for (final entry in codepoints.entries) {
       final icon = icons[entry.key]! as IconData;
       expect(icon.codePoint, entry.value, reason: entry.key);
