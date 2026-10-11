@@ -84,8 +84,11 @@ void main() {
   testWidgets('a title match is weighted, not filled', (tester) async {
     await pumpResults(tester);
 
-    final title = tester.widget<RichText>(find.byWidgetPredicate(
-        (w) => w is RichText && w.text.toPlainText() == 'Venn diagrams'));
+    final title = tester.widget<RichText>(
+      find.byWidgetPredicate(
+        (w) => w is RichText && w.text.toPlainText() == 'Venn diagrams',
+      ),
+    );
     final leafSpans = <TextSpan>[];
     void collect(TextSpan span) {
       if (span.text != null) leafSpans.add(span);

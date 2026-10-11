@@ -14,12 +14,14 @@ class ContentRenderer extends StatelessWidget {
     this.text,
     this.style,
     this.figureBuilder,
+    this.readerFigures = false,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
   final String? text;
   final TextStyle? style;
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
+  final bool readerFigures;
   static List<Map<String, Object?>> _parseTextToBlocks(String text) {
     final children = <Map<String, Object?>>[];
     final markerBuffer = StringBuffer('\uE000');
@@ -308,6 +310,7 @@ class ContentRenderer extends StatelessWidget {
             : string(block['url']);
         if (url.isEmpty) return const _ImageFailure(onRetry: null);
         return _ContentImage(
+          reader: readerFigures,
           url: url,
           label: string(block['alt']),
           credit: string(block['credit']),
@@ -360,8 +363,10 @@ class _FigureFrame extends StatelessWidget {
     required this.label,
     required this.credit,
     this.imageSemantics = true,
+    this.expandable = true,
   });
   final bool imageSemantics;
+  final bool expandable;
   final Widget figure;
   final String label;
   final String credit;
@@ -445,32 +450,33 @@ class _FigureFrame extends StatelessWidget {
                         )
                       : Theme(data: buildLightTheme(), child: figure),
                 ),
-                Positioned(
-                  right: 1,
-                  top: 1,
-                  child: SizedBox.square(
-                    dimension: 44,
-                    child: IconButton(
-                      tooltip: 'Expand figure',
-                      onPressed: () => expand(context),
-                      padding: EdgeInsets.zero,
-                      icon: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: context.colors.shadow.withValues(alpha: .5),
-                        ),
-                        alignment: Alignment.center,
-                        child: Icon(
-                          PantasIcons.expandFigure,
-                          size: 16,
-                          color: context.colors.onFigureViewer,
+                if (expandable)
+                  Positioned(
+                    right: 1,
+                    top: 1,
+                    child: SizedBox.square(
+                      dimension: 44,
+                      child: IconButton(
+                        tooltip: 'Expand figure',
+                        onPressed: () => expand(context),
+                        padding: EdgeInsets.zero,
+                        icon: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: context.colors.shadow.withValues(alpha: .5),
+                          ),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            PantasIcons.expandFigure,
+                            size: 16,
+                            color: context.colors.onFigureViewer,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
               ],
             ),
           ),
@@ -493,7 +499,9 @@ class _ContentImage extends StatefulWidget {
     required this.url,
     required this.label,
     required this.credit,
+    this.reader = false,
   });
+  final bool reader;
   final String url;
   final String label;
   final String credit;
@@ -504,51 +512,94 @@ class _ContentImage extends StatefulWidget {
 class _ContentImageState extends State<_ContentImage> {
   int _retry = 0;
   @override
-  Widget build(BuildContext context) => _FigureFrame(
-        label: widget.label,
-        credit: widget.credit,
-        imageSemantics: false,
-        figure: Image.network(
-          widget.url,
-          key: ValueKey(_retry),
-          fit: BoxFit.contain,
-          semanticLabel: widget.label,
-          excludeFromSemantics: widget.label.isEmpty,
-          errorBuilder: (context, error, stackTrace) =>
-              _ImageFailure(onRetry: () => setState(() => _retry++)),
-        ),
-      );
+  Widget build(BuildContext context) {
+    final image = Image.network(
+      widget.url,
+      key: ValueKey(_retry),
+      fit: BoxFit.contain,
+      semanticLabel: widget.label,
+      excludeFromSemantics: widget.label.isEmpty,
+      frameBuilder: widget.reader
+          ? (context, child, frame, synchronous) => _FigureFrame(
+                label: widget.label,
+                credit: widget.credit,
+                imageSemantics: false,
+                expandable: frame != null || synchronous,
+                figure: frame == null && !synchronous
+                    ? SizedBox(height: 223, child: child)
+                    : child,
+              )
+          : null,
+      errorBuilder: (context, error, stackTrace) => _ImageFailure(
+        reader: widget.reader,
+        onRetry: () => setState(() => _retry++),
+      ),
+    );
+    if (widget.reader) return image;
+    return _FigureFrame(
+      label: widget.label,
+      credit: widget.credit,
+      imageSemantics: false,
+      figure: image,
+    );
+  }
 }
 
 class _ImageFailure extends StatelessWidget {
-  const _ImageFailure({required this.onRetry});
+  const _ImageFailure({required this.onRetry, this.reader = false});
+  final bool reader;
   final VoidCallback? onRetry;
   @override
-  Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-          color: context.colors.fill,
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              PantasIcons.imageFailed,
-              size: 32,
-              color: context.colors.chevron,
-            ),
-            const SizedBox(height: 10),
-            Text('Image could not load.', style: context.type.subhead),
-            TextButton(
-              onPressed: onRetry,
-              child: Text(
-                'Retry',
-                style: context.type.subheadStrong
-                    .copyWith(color: context.colors.accent),
+  Widget build(BuildContext context) => Semantics(
+        liveRegion: true,
+        child: Container(
+          key: reader ? const ValueKey('reader-image-failure') : null,
+          constraints: reader ? const BoxConstraints(minHeight: 223) : null,
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: reader ? context.colors.background : context.colors.fill,
+            borderRadius: BorderRadius.circular(14),
+            border: reader
+                ? Border.all(color: context.colors.separator, width: .5)
+                : null,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ExcludeSemantics(
+                child: Icon(
+                  PantasIcons.imageFailed,
+                  size: reader ? 30 : 32,
+                  color: context.colors.chevron,
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: reader ? 6 : 10),
+              Text(
+                reader
+                    ? 'This illustration didn’t load.'
+                    : 'Image could not load.',
+                textAlign: TextAlign.center,
+                style: reader ? context.type.footnote : context.type.subhead,
+              ),
+              if (reader) const SizedBox(height: 6),
+              if (!reader || onRetry != null)
+                TextButton(
+                  onPressed: onRetry,
+                  style: reader
+                      ? TextButton.styleFrom(minimumSize: const Size(44, 44))
+                      : null,
+                  child: Text(
+                    reader ? 'Try Again' : 'Retry',
+                    style: (reader
+                            ? context.type.footnote
+                                .copyWith(fontWeight: FontWeight.w600)
+                            : context.type.subheadStrong)
+                        .copyWith(color: context.colors.accent),
+                  ),
+                ),
+            ],
+          ),
         ),
       );
 }

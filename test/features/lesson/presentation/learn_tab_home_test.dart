@@ -8,7 +8,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 
@@ -146,7 +146,7 @@ void main() {
       ],
     );
     await tester.pumpAndSettle();
-    expect(find.byType(ErrorBanner), findsOneWidget);
+    expect(find.byType(StateView), findsOneWidget);
   });
 
   testWidgets('missing selected focus shows choose exam fallback',
@@ -184,10 +184,12 @@ void main() {
     );
     expect(
       tester
-          .widget<AnimatedOpacity>(find.descendant(
-            of: find.byType(AnimatedSlide),
-            matching: find.byType(AnimatedOpacity),
-          ))
+          .widget<AnimatedOpacity>(
+            find.descendant(
+              of: find.byType(AnimatedSlide),
+              matching: find.byType(AnimatedOpacity),
+            ),
+          )
           .duration,
       Duration.zero,
     );

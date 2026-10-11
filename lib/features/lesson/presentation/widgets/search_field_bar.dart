@@ -4,8 +4,11 @@ import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 
 class SearchFieldBar extends ConsumerWidget {
-  const SearchFieldBar(
-      {required this.onCancel, this.onEditingChanged, super.key});
+  const SearchFieldBar({
+    required this.onCancel,
+    this.onEditingChanged,
+    super.key,
+  });
 
   final VoidCallback onCancel;
   final ValueChanged<bool>? onEditingChanged;

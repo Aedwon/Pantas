@@ -22,9 +22,11 @@ class SearchResults extends ConsumerWidget {
       final recent = ref.watch(recentlyOpenedLessonsProvider);
       return recent.when(
         loading: () => loadingFor(recent),
-        error: (error, _) => errorFor('recent lessons',
-            () => ref.invalidate(recentlyOpenedLessonsProvider),
-            error: error),
+        error: (error, _) => errorFor(
+          'recent lessons',
+          () => ref.invalidate(recentlyOpenedLessonsProvider),
+          error: error,
+        ),
         data: (lessons) {
           if (lessons.isEmpty) return const SizedBox.shrink();
           final map = ref.watch(studyMapProvider).valueOrNull;
@@ -47,8 +49,11 @@ class SearchResults extends ConsumerWidget {
                   leading: SizedBox.square(
                     dimension: 24,
                     child: lesson.isRead
-                        ? Icon(PantasIcons.check,
-                            size: 18, color: context.colors.accent)
+                        ? Icon(
+                            PantasIcons.check,
+                            size: 18,
+                            color: context.colors.accent,
+                          )
                         : null,
                   ),
                   value:
@@ -66,45 +71,53 @@ class SearchResults extends ConsumerWidget {
     return hits.when(
       loading: () => loadingFor(hits),
       error: (error, _) => errorFor(
-          'search results', () => ref.invalidate(searchResultsProvider),
-          error: error),
+        'search results',
+        () => ref.invalidate(searchResultsProvider),
+        error: error,
+      ),
       data: (results) {
         if (results.isEmpty) {
           return Semantics(
             liveRegion: true,
             child: LayoutBuilder(
-                builder: (context, constraints) => SingleChildScrollView(
-                      child: ConstrainedBox(
-                        constraints:
-                            BoxConstraints(minHeight: constraints.maxHeight),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(24, 0, 24, 150),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Nothing matched “$query”',
-                                  textAlign: TextAlign.center,
-                                  style: context.type.emphasized.copyWith(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700,
-                                      letterSpacing: -.24)),
-                              const SizedBox(height: 6),
-                              Text('Try a shorter word, or part of one.',
-                                  textAlign: TextAlign.center,
-                                  style: context.type.subhead.copyWith(
-                                      color: context.colors.secondaryLabel)),
-                            ],
+              builder: (context, constraints) => SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 150),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Nothing matched “$query”',
+                          textAlign: TextAlign.center,
+                          style: context.type.emphasized.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -.24,
                           ),
                         ),
-                      ),
-                    )),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Try a shorter word, or part of one.',
+                          textAlign: TextAlign.center,
+                          style: context.type.subhead.copyWith(
+                            color: context.colors.secondaryLabel,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           );
         }
         return _ResultGroup(
           label:
               '${results.length} ${results.length == 1 ? 'LESSON' : 'LESSONS'}',
           children: [
-            for (final hit in results) _HitRow(hit: hit, query: query)
+            for (final hit in results) _HitRow(hit: hit, query: query),
           ],
         );
       },
@@ -113,10 +126,11 @@ class SearchResults extends ConsumerWidget {
 }
 
 class _ResultGroup extends StatelessWidget {
-  const _ResultGroup(
-      {required this.label,
-      required this.children,
-      this.delay = Duration.zero});
+  const _ResultGroup({
+    required this.label,
+    required this.children,
+    this.delay = Duration.zero,
+  });
   final String label;
   final List<Widget> children;
   final Duration delay;
@@ -124,12 +138,6 @@ class _ResultGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListView(
         children: [
-          Semantics(
-              liveRegion: true,
-              child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(label, style: context.type.sectionHeader))),
-          const SizedBox(height: 7),
           TweenAnimationBuilder<double>(
             key: ValueKey(label),
             tween: Tween(begin: 0, end: 1),
@@ -137,15 +145,32 @@ class _ResultGroup extends StatelessWidget {
                 ? Duration.zero
                 : Duration(milliseconds: 300 + delay.inMilliseconds),
             curve: Interval(
-                delay.inMilliseconds / (300 + delay.inMilliseconds), 1,
-                curve: PantasCurves.houseOut),
+              delay.inMilliseconds / (300 + delay.inMilliseconds),
+              1,
+              curve: PantasCurves.houseOut,
+            ),
             builder: (context, value, child) => Opacity(
-                opacity: value,
-                child: ExcludeFocus(
-                    excluding: value == 0,
-                    child:
-                        ExcludeSemantics(excluding: value == 0, child: child))),
-            child: GroupedSection(children: children),
+              key: const ValueKey('search-results-opacity'),
+              opacity: value,
+              child: ExcludeFocus(
+                excluding: value == 0,
+                child: ExcludeSemantics(excluding: value == 0, child: child),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Semantics(
+                  liveRegion: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(label, style: context.type.sectionHeader),
+                  ),
+                ),
+                const SizedBox(height: 7),
+                GroupedSection(children: children),
+              ],
+            ),
           ),
         ],
       );
@@ -168,18 +193,24 @@ class _HitRow extends StatelessWidget {
                 ? null
                 : _spans(
                     buildSearchSnippet(source: hit.topicName, query: query)!,
-                    context.type.footnote),
+                    context.type.footnote,
+                  ),
         value: '${hit.estimatedMinutes} min',
         valueStyle: context.type.subhead.copyWith(
-            color: context.colors.secondaryLabel,
-            fontFeatures: const [FontFeature.tabularFigures()]),
+          color: context.colors.secondaryLabel,
+          fontFeatures: const [FontFeature.tabularFigures()],
+        ),
         verticalPadding: 12,
         footer: hit.titleMatch == null && hit.bodySnippet != null
             ? Text.rich(
-                _spans(hit.bodySnippet!, context.type.footnote,
-                    matchColor: context.colors.label),
+                _spans(
+                  hit.bodySnippet!,
+                  context.type.footnote,
+                  matchColor: context.colors.label,
+                ),
                 maxLines: 2,
-                overflow: TextOverflow.ellipsis)
+                overflow: TextOverflow.ellipsis,
+              )
             : null,
         onTap: () => context.push('/lesson/${hit.lessonId}?from=search'),
       );
@@ -190,13 +221,16 @@ class _HitRow extends StatelessWidget {
     if (start < 0 || end > match.text.length) {
       return TextSpan(text: match.text, style: style);
     }
-    return TextSpan(style: style, children: [
-      TextSpan(text: match.text.substring(0, start)),
-      TextSpan(
+    return TextSpan(
+      style: style,
+      children: [
+        TextSpan(text: match.text.substring(0, start)),
+        TextSpan(
           text: match.text.substring(start, end),
-          style:
-              style.copyWith(fontWeight: FontWeight.w700, color: matchColor)),
-      TextSpan(text: match.text.substring(end)),
-    ]);
+          style: style.copyWith(fontWeight: FontWeight.w700, color: matchColor),
+        ),
+        TextSpan(text: match.text.substring(end)),
+      ],
+    );
   }
 }

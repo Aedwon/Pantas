@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
@@ -95,6 +97,17 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     return Scaffold(
       backgroundColor: context.colors.background,
       body: switch ((reader, asyncReader)) {
+        (_, AsyncError(:final error)) => _ReaderFallback(
+            origin: origin,
+            child: errorFor(
+              'lesson',
+              () => ref.invalidate(readerContextProvider(lessonId)),
+              error: error,
+              message: 'Could not load this lesson.',
+              icon: Icon(PantasIcons.studyTab),
+              boardLayout: true,
+            ),
+          ),
         (final ReaderContext reader, _) => Builder(
             builder: (context) {
               WidgetsBinding.instance.addPostFrameCallback(
@@ -107,29 +120,75 @@ class _LessonPageState extends ConsumerState<LessonPage> {
               );
             },
           ),
-        (_, AsyncError()) => Padding(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-            child: ErrorBanner(
-              variant: ErrorBannerVariant.error,
-              message: 'Failed to load lesson.',
-              actionLabel: 'Retry',
-              onAction: () => ref.refresh(readerContextProvider(lessonId)),
-            ),
+        (_, AsyncLoading()) => _ReaderFallback(
+            origin: origin,
+            child: SingleChildScrollView(child: loadingFor(asyncReader)),
           ),
-        (_, AsyncLoading()) => ListView(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-            children: const [FaintBars()],
-          ),
-        _ => Center(
-            child: Text(
-              'Lesson not found.',
-              style: context.textStyles.bodyMedium
-                  .copyWith(color: context.colors.inkMuted),
+        _ => _ReaderFallback(
+            origin: origin,
+            child: StateView(
+              message: 'Lesson not found.',
+              boardLayout: true,
+              icon: Icon(PantasIcons.studyTab),
             ),
           ),
       },
     );
   }
+}
+
+class _ReaderFallback extends StatelessWidget {
+  const _ReaderFallback({required this.origin, required this.child});
+  final ReaderOrigin origin;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Material(
+              color: context.colors.surface,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(44, 44),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                  ),
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      context
+                          .go(origin == ReaderOrigin.home ? '/home' : '/study');
+                    }
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        PantasIcons.back,
+                        size: 24,
+                        color: context.colors.accent,
+                      ),
+                      const SizedBox(width: 2),
+                      Text(
+                        origin == ReaderOrigin.home ? 'Home' : 'Study',
+                        style: context.type.body
+                            .copyWith(color: context.colors.accent),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(child: child),
+          ],
+        ),
+      );
 }
 
 class _ReaderBody extends ConsumerStatefulWidget {
@@ -287,7 +346,10 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                       style: textStyles.displaySmall,
                     ),
                     const SizedBox(height: 8),
-                    PortableTextRenderer(blocks: reader.lesson.bodyJson),
+                    ContentRenderer(
+                      blocks: reader.lesson.bodyJson,
+                      readerFigures: true,
+                    ),
                     const SizedBox(height: 24),
                     Text(
                       '${reader.lesson.estimatedMinutes} min read',

@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/empty_state.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
@@ -12,7 +12,7 @@ import '../../../helpers/pump_app.dart';
 import 'fake_open_topic.dart';
 
 void main() {
-  testWidgets('loading state shows FaintBars', (tester) async {
+  testWidgets('loading state shows LoadingShapes', (tester) async {
     final completer = Completer<StudyMap?>();
 
     await tester.pumpAppWithProviders(
@@ -23,7 +23,14 @@ void main() {
       ],
     );
 
-    expect(find.byType(FaintBars), findsWidgets);
+    expect(find.byType(LoadingShapes), findsOneWidget);
+    expect(find.byKey(const ValueKey('loading-shapes-opacity')), findsNothing);
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(
+      find.byKey(const ValueKey('loading-shapes-opacity')),
+      findsOneWidget,
+    );
+    await tester.pumpWidget(const SizedBox.shrink());
   });
 
   testWidgets('an error never shows the exception to a student',
@@ -40,14 +47,14 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text('Could not load your topics. Pull down to try again.'),
+      find.text('Could not load your topics.'),
       findsOneWidget,
     );
-    expect(find.byType(ErrorBanner), findsOneWidget);
+    expect(find.byType(StateView), findsOneWidget);
     expect(find.textContaining('SqliteException'), findsNothing);
   });
 
-  testWidgets('an exam with no lessons shows EmptyState', (tester) async {
+  testWidgets('an exam with no lessons shows StateView', (tester) async {
     const map = StudyMap(
       examShortName: 'UPCAT',
       subjects: [],
@@ -65,7 +72,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byType(EmptyState), findsOneWidget);
+    expect(find.byType(StateView), findsOneWidget);
     expect(find.text('Nothing to study yet'), findsOneWidget);
   });
 

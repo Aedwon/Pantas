@@ -19,36 +19,46 @@ void main() {
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
         final colors = dark ? PantasColors.dark : PantasColors.light;
-        await tester.pumpWidget(ProviderScope(
-          overrides: [
-            searchQueryProvider.overrideWith((_) => 'stoich'),
-            searchResultsProvider.overrideWith((_) async => const [
+        await tester.pumpWidget(
+          ProviderScope(
+            overrides: [
+              searchQueryProvider.overrideWith((_) => 'stoich'),
+              searchResultsProvider.overrideWith(
+                (_) async => const [
                   LessonSearchHit(
-                      lessonId: 'l1',
-                      title: 'Stoichiometry',
-                      topicName: 'Chemistry',
-                      estimatedMinutes: 13,
-                      titleMatch: SearchSnippet(
-                          text: 'Stoichiometry',
-                          matchStart: 0,
-                          matchLength: 6)),
-                ]),
-          ],
-          child: MaterialApp(
-            theme: ThemeData(
+                    lessonId: 'l1',
+                    title: 'Stoichiometry',
+                    topicName: 'Chemistry',
+                    estimatedMinutes: 13,
+                    titleMatch: SearchSnippet(
+                      text: 'Stoichiometry',
+                      matchStart: 0,
+                      matchLength: 6,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+            child: MaterialApp(
+              theme: ThemeData(
                 scaffoldBackgroundColor: colors.background,
-                extensions: [colors, PantasType.create(colors: colors)]),
-            home: MediaQuery(
-              data: MediaQueryData(
+                extensions: [colors, PantasType.create(colors: colors)],
+              ),
+              home: MediaQuery(
+                data: MediaQueryData(
                   textScaler: TextScaler.linear(scale),
-                  disableAnimations: true),
-              child: const Scaffold(
+                  disableAnimations: true,
+                ),
+                child: const Scaffold(
                   body: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: SearchResults())),
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: SearchResults(),
+                  ),
+                ),
+              ),
             ),
           ),
-        ));
+        );
         await tester.pumpAndSettle();
         final label = tester.widget<Text>(find.text('1 LESSON'));
         expect(label.style!.fontSize, 13);
@@ -70,8 +80,10 @@ void main() {
           final background = text == label ? colors.background : colors.surface;
           final a = foreground.computeLuminance();
           final b = background.computeLuminance();
-          expect((a > b ? (a + .05) / (b + .05) : (b + .05) / (a + .05)),
-              greaterThanOrEqualTo(4.5));
+          expect(
+            (a > b ? (a + .05) / (b + .05) : (b + .05) / (a + .05)),
+            greaterThanOrEqualTo(4.5),
+          );
         }
         expect(tester.takeException(), isNull);
       });

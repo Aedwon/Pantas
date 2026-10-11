@@ -156,8 +156,9 @@ class ListRow extends StatelessWidget {
                             label,
                             if (subtitle != null || richSubtitle != null)
                               Text.rich(
-                                  richSubtitle ?? TextSpan(text: subtitle),
-                                  style: context.type.footnote),
+                                richSubtitle ?? TextSpan(text: subtitle),
+                                style: context.type.footnote,
+                              ),
                             if (footer != null) footer!,
                             if (stack && detail != null) detail,
                           ],

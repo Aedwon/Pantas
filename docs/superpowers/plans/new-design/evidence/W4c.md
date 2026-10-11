@@ -2,7 +2,8 @@
 
 ## Assignment and source identity
 
-- Policy retrieved from main after fetch: `da314d1e8bb1d68f617ef50ee0b23aea46ee605b`.
+- Current policy retrieved on the final October 12 resumption: `9e8e029d7edb38859a63aec4e906ed4685ed931b`. The earlier October 12 resumption read `1b42368085918a1cdf6df3e905b156b01387c451`. AGENTS.md, WORKFLOW.md and SUBAGENTS.md read again. Their contents and the W4c plans, amendment spec, traceability and parallel map are unchanged from the prior read. The later restart-log entry concerns the W3 audit and scheduling.
+- Prior implementation policy: `da314d1e8bb1d68f617ef50ee0b23aea46ee605b`.
 - Read current AGENTS.md, WORKFLOW.md and SUBAGENTS.md. The initial startup read used `56f642543e9c04de7dc673f8d1674c6cc222c4d6`; the user resumed before implementation, so main was fetched again.
 - Code base: `cee7a9c55387674787030c722967104705d7bb3a`, branch `web/new-design-w4c-r1`, assigned worktree.
 - Plans L2-W4c and L3-W4c, amendment spec, traceability W4c rows, current parallel map and W2 lead rulings read from main. Shared state-pattern notes read from the assigned worktree.
@@ -15,9 +16,13 @@
 2. Task 5 depends on W4b Task 3's `LessonDayContext`. It is absent from this code base. No local substitute will be added.
 3. Task 7 depends on W4d Task 1's `startLessonQuiz(lessonId)` and `startQuickQuiz()` entry contracts. They are absent from this code base. The existing `startQuickQuizProvider` is a different interface.
 
+4. Task 4: RD_Real draws the eyebrow `EARTH SCIENCE AND ASTRONOMY` only, at 13 px/600 with 0.04em tracking, above the 30 px title. L3 Task 4 asks for a “Subject and topic eyebrow.” The lead must clarify whether the eyebrow stays topic-only as drawn or includes the subject too. No alternative eyebrow has been implemented.
+5. Task 8: BM_Edit and BM_ScreenReader draw the enabled drag handles at 20 px, stroke 2, `#AEAEB2` on `#FFFFFF`. This is 2.21:1, below the binding 3:1 rule for meaningful icons. The unchecked circles also use `#C7C7CC`, but W2's explicit `controlOutline` ruling already covers unchecked selection boundaries. That ruling does not cover drag handles. The lead must approve a darker handle token or explicitly exempt this control.
+6. Task 6's complete Home/day ending depends on the missing Task 5 day context. Task 9's deletions depend on Tasks 1 and 6; the reader still uses the older plates. Do not delete live callers.
+
 ## Task 2: search
 
-Implemented and task checks pass. Independent acceptance remains with the lead.
+Commit: `537d9ef894811c67b9d59c9a4b71b90d290b85d0`. Implemented and task checks pass. Independent acceptance remains with the lead.
 
 Behavior: the W2 search field folds Study over 300 ms using the board's house curve; Cancel clears the query and restores the map. Search includes every lesson of a matching topic in corpus order without duplicate hits. Results show uppercase counts, bold matches, snippets, grouped rows and 15 px tabular minutes. Empty query with no recents shows nothing. Recents show at most three lessons. Result routes identify search as origin.
 
@@ -40,6 +45,112 @@ Verification, run serially through the Mac relay:
 
 The full Flutter suite has not run; these are the plan's focused checks only.
 
+Task 2 file manifest:
+
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/search_field.dart`
+- `lib/features/lesson/application/lesson_search_providers.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/widgets/search_field_bar.dart`
+- `lib/features/lesson/presentation/widgets/search_results.dart`
+- `test/core/ui/components/study_search_extensions_test.dart`
+- `test/features/lesson/application/lesson_search_providers_test.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`
+- `test/features/lesson/presentation/search_board_test.dart`
+- `test/features/lesson/presentation/search_field_bar_test.dart`
+- `test/features/lesson/presentation/search_results_test.dart`
+
+## Task 3: shared states
+
+Implemented with passing focused checks. This evidence is saved in the Task 3 commit. Independent review and the held tasks remain. The prescribed focused command last passed in relay issue 9425: `00:37 +877: All tests passed!`, exit 0. The earlier 9422 run also passed 877 tests before two additional frame/back metrics exposed defects.
+
+Behavior: Study keeps its title on every state, announces loading immediately, delays loading shapes for 300 ms, uses the shared retryable load failure and no-exam picker, and draws the no-lessons Quick Quiz action only in that state. Reader failures and missing lessons keep their back control. Retry re-reads the failed lesson. An advance failure is no longer hidden by the retained previous reader. Reader illustration failures keep the 223 px frame through Retry and expose no expand control while failed or waiting.
+
+Shared extensions authorized by the dispatch:
+- `StateView.boardLayout`: ST_Error, ST_NoLessons and RD_Error use the 40 px faint mark, 6 px gaps, 20/700 message at height 1.35 with -0.2 spacing, 36 px side insets and 150 px bottom inset. The secondary action uses a 44 px pill, radius 99, 22 px horizontal inset and 15/600 text. Other callers keep existing defaults.
+- `errorFor`: optional approved message, icon and board layout allow RD_Error's exact “Could not load this lesson.” without a feature-local state copy. Defaults and exception privacy remain unchanged.
+- `ContentRenderer.readerFigures`: RD_ImageFail uses a 223 px minimum frame, radius 14, 0.5 px separator border, background token, faint 30 px icon, 13 px secondary text and “Try Again” action. It announces its state. Pending and failed images have no expand control. Other screen families retain the default renderer presentation.
+- The lesson uses ContentRenderer now because its illustration failure must use the shared variant. Task 4's eyebrow, credits, text scaling, body gutters and remaining figure work are not claimed complete.
+
+Failing-first evidence:
+- Issue 9418: state tests before state implementation, exit 1, `00:01 +1 -5: Some tests failed.` All five failures were the missing W4h states/back controls.
+- Issue 9419: missing readerFigures constructor parameter, exit 1. This compilation result was not counted as the presentation test.
+- Issue 9420: after adding the interface but before its behavior, exit 1, `00:00 +4 -4: Some tests failed.` All four light/dark and 100%/200% cases found the old image failure presentation.
+- Issue 9421: focused check, exit 1, `00:33 +861 -4: Some tests failed.` The four image tests read the failure element after Retry removed it. Their contrast checks now run before Retry.
+- Issue 9422: focused check, exit 0, `00:33 +877: All tests passed!`
+- Issue 9423: new stable-frame and 44 px reader back checks, exit 1, `00:00 +5 -5: Some tests failed.` Retry collapsed the image frame, and the back control was too tall. Both corrected.
+- Issue 9424: focused check, exit 1, `00:34 +876 -1: Some tests failed.` Flutter padded the back control's tap area to 48 px. Its tap target now uses the board's 44 px minimum without the added padding and can grow for large text.
+- Issue 9425: prescribed focused check, exit 0, `00:37 +877: All tests passed!`
+- Issue 9426: analysis initially found 103 issues: 100 missing commas, one unused import, one import-order issue in my changes, and the existing R-21 bookmark onReorder notice. The 102 new style issues were corrected. This also corrects Task 2 formatting in the same owned files; no Task 2 behavior changes.
+- Issue 9426: `dart format --output=none --set-exit-if-changed lib test`, exit 0, `Formatted 1402 files (0 changed) in 1.35 seconds.` Layering and attribution both exit 0 with their OK output.
+
+Final verification is recorded below. The one full-suite run preceded a final search-transition correction; the complete prescribed focused checks were repeated after that correction.
+
+Task 3 file manifest (includes Task 2 lint and search-transition corrections):
+
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+- `lib/core/error/state_patterns.dart`
+- `lib/core/ui/components/content_renderer.dart`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/state_view.dart`
+- `lib/features/lesson/application/lesson_search_providers.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `lib/features/lesson/presentation/widgets/search_field_bar.dart`
+- `lib/features/lesson/presentation/widgets/search_results.dart`
+- `test/core/ui/components/study_search_extensions_test.dart`
+- `test/core/ui/components/study_state_extensions_test.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`
+- `test/features/lesson/presentation/reader_states_test.dart`
+- `test/features/lesson/presentation/search_board_test.dart`
+- `test/features/lesson/presentation/search_results_test.dart`
+- `test/features/lesson/presentation/search_transition_test.dart`
+- `test/features/lesson/presentation/study_map_page_test.dart`
+- `test/features/lesson/presentation/study_states_board_test.dart`
+
+Candidate source identity for final checks: HEAD `537d9ef894811c67b9d59c9a4b71b90d290b85d0` plus the staged lib/test diff, SHA-256 `92449b1a48373bfcb281b4105be07597152d753171950f8750babcee3332dc52`. Exact patch is preserved locally at `.dart_tool/w4c-final-source.patch`. No generated or seed files are staged.
+
+## Remaining task status
+
+- Task 1: held for the Today tag contrast ruling; no Study map rebuild committed.
+- Task 2: implemented, focused checks passed and committed; independent review pending.
+- Task 3: implemented and focused checks passed; saved in the commit carrying this evidence. Independent review pending.
+- Task 4: held for the eyebrow ruling. The full reader body and figure contract is not complete.
+- Task 5: held for the absent W4b day-context contract.
+- Task 6: held for the complete reader/day context. Existing end, pull and plates remain.
+- Task 7: held for the absent W4d quiz entry contracts. Existing direct quiz routes remain until that task can run.
+- Task 8: held for the drag-handle contrast ruling. Per-exam prefs, Undo and the reorder notice remain unfinished.
+- Task 9: unfinished. Live widgets have not been deleted; the full suite and static gates below check the partial candidate only.
+
+The lead owns independent review, integration, the shared main STATUS update and visual acceptance. The STATUS file exists only on main, outside this worker's code base and assigned file set; no main update is authorized. Its W4c row needs the lead's handoff update. No screenshot, device check, merge or push has run.
+
+## Final verification of the partial candidate
+
+All commands ran serially through the Mac relay. No backend file changed and backend checks were not repeated.
+
+- Issue 9427, `flutter test --reporter expanded`: exit 0, `03:52 +3758: All tests passed!` This was the only full-suite run. It applies to the pre-transition-fix source patch `92449b1a48373bfcb281b4105be07597152d753171950f8750babcee3332dc52`, not a claim of a full-suite run on the later source.
+- The final board-source check found that the outgoing map disappeared immediately and the incoming search heading did not fade with its rows. ST_Search draws a 200 ms outgoing fade and a 300 ms incoming fade starting 100 ms later. Those two details were corrected. The outgoing map stays mounted to preserve its scroll and is excluded from focus, pointer input and semantics during search.
+- Issue 9428, new transition test before the correction: exit 1, `00:00 +0 -1: Some tests failed.` The outgoing opacity widget did not exist.
+- Issue 9429, transition assertions passed, but test cleanup failed because its semantics handle was disposed too late. Cleanup now uses finally.
+- Issue 9430, `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`: exit 0, `00:38 +878: All tests passed!` This covers the final behavioral source, including 100 ms outgoing opacity 0.057725, incoming opacity 0 at 100 ms and 0.942275 at 250 ms, heading fade, hidden map semantics and Cancel restoration.
+- Issue 9430, `flutter analyze`: exit 1, `1 issue found. (ran in 3.7s)`. Exact remaining diagnostic: `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:238:21`, `deprecated_member_use`, onReorder. This is R-21, assigned to the held Task 8. There are no remaining new analysis findings. The family is not accepted as analyzer-clean.
+- Issue 9430, format check: exit 1, `Formatted 1403 files (1 changed) in 1.42 seconds.` The Task 2 search-field wrapper needed formatting after the mechanical comma fixes. Its formatting was corrected with no behavior change.
+- Issue 9435, `dart format --output=none --set-exit-if-changed lib test`: exit 0, `Formatted 1403 files (0 changed) in 1.48 seconds.`
+- Issue 9430, `dart run tool/check_layering.dart`: exit 0, `Running build hooks...Running build hooks...check_layering: OK`.
+- Issue 9430, `dart run tool/check_no_ai_attribution.dart`: exit 0, `Running build hooks...Running build hooks...check_no_ai_attribution: OK`.
+- `git diff --check`: exit 0.
+
+Final source identity: HEAD `537d9ef894811c67b9d59c9a4b71b90d290b85d0` plus staged lib/test patch SHA-256 `49c387d8404b182763c3bdd24f0d13498069fef9b92d504f40d5a1a068ae2732`, preserved at `.dart_tool/w4c-handoff-source.patch`. The only source change after the 878-test run was whitespace formatting of the search-field wrapper. The earlier patch and all raw logs remain in `.dart_tool/` for the lead.
+
+Environment: Flutter 3.44.6 stable, framework ee80f08bbf, Dart 3.12.2, DevTools 2.57.0. The lead-prepared ignored seed inputs were not rebuilt or staged. SHA-256 identities:
+
+- `assets/seed/content.db`: `0ef89a64f2d2f63854b3d22048a7d992d5c04fb03df4fec2e7f4e898e6d083dc`
+- `assets/seed/content.manifest.json`: `51bc0a766558879e540475ab972f03df7e3077241bab8f688c1b50ece5874f23`
+- `assets/seed/content.manifest.sig`: `e0853df259529031344f14d5a5fe6628e1b92c367a96c584894058fe13199f31`
+
+The branch contains the two task commits only. No merge or push is authorized or performed. No generated files or seed assets are committed. The full workstream remains incomplete because of the recorded design rulings and missing contracts.
+
 ## Acceptance
 
-No tasks accepted yet. Independent review and Aedwon's Android/iPhone visual checks have not run. Full Flutter suite has not run.
+Tasks 2 and 3 are implemented, checked and saved locally. No tasks have independent or visual acceptance yet. Aedwon's Android/iPhone visual checks have not run. Tasks 1 and 4 to 9 remain held or unfinished as listed above. The partial candidate is not ready to integrate.

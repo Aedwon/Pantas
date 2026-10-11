@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/empty_state.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -150,31 +150,67 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   GlobalKey _keyFor(TopicId topicId) =>
       _topicKeys.putIfAbsent(topicId, GlobalKey.new);
 
+  Widget _stateFrame(
+    BuildContext context,
+    Widget state, {
+    bool loading = false,
+  }) =>
+      Scaffold(
+        backgroundColor: context.colors.background,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (loading)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: SearchFieldBar(onCancel: () {}),
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text('Study', style: context.type.largeTitle),
+                ),
+              if (loading) const SizedBox(height: 24),
+              Expanded(
+                child: loading ? SingleChildScrollView(child: state) : state,
+              ),
+            ],
+          ),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     final asyncMap = ref.watch(studyMapProvider);
 
     return asyncMap.when(
-      loading: () => const PageScaffold(body: FaintBars()),
-      error: (e, _) => const PageScaffold(
-        body: ErrorBanner(
-          variant: ErrorBannerVariant.error,
-          message: 'Could not load your topics. Pull down to try again.',
+      loading: () => _stateFrame(context, loadingFor(asyncMap), loading: true),
+      error: (error, _) => _stateFrame(
+        context,
+        errorFor(
+          'topics',
+          () => ref.invalidate(studyMapProvider),
+          error: error,
+          icon: Icon(PantasIcons.studyTab),
+          boardLayout: true,
         ),
       ),
       data: (map) {
         if (map == null) {
-          return const PageScaffold(body: _ChooseExamFallback());
+          return _stateFrame(context, chooseExamFallback(context));
         }
-
         if (map.isEmpty) {
-          return PageScaffold(
-            body: EmptyState(
-              headline: 'Nothing to study yet',
-              body: 'This exam has no lessons on your device yet. Check back '
+          return _stateFrame(
+            context,
+            StateView(
+              message: 'Nothing to study yet',
+              detail: 'This exam has no lessons on your device yet. Check back '
                   'after the next content update.',
-              ctaLabel: 'Try a quick quiz',
-              onCta: () => context.push('/quiz'),
+              actionLabel: 'Try a Quick Quiz',
+              icon: Icon(PantasIcons.studyTab),
+              boardLayout: true,
+              onRetry: () => context.push('/quiz'),
             ),
           );
         }
@@ -204,98 +240,90 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                     setState(() => _searching = editing),
               ),
               const SizedBox(height: 24),
-              if (_searching)
-                const Expanded(
-                  child: SearchResults(),
-                )
-              else ...[
-                Expanded(
-                  // The bar is stacked over the list, not placed above it.
-                  // Inserting it changed the list's height the moment a topic
-                  // opened, which is the snap.
-                  child: Stack(
-                    key: _listKey,
-                    children: [
-                      ListView(
-                        controller: _scrollController,
-                        children: [
-                          StudyHeadBlock(map: map),
-                          const BookmarksSection(),
-                          for (final subject in map.subjects)
-                            StudySubjectSection(
-                              subject: subject,
-                              onToggleTopic: (topicId) =>
-                                  unawaited(_toggleTopic(topicId)),
-                              keyForTopic: _keyFor,
-                            ),
-                        ],
-                      ),
-                      if (openTopic != null)
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          child: ValueListenableBuilder<bool>(
-                            valueListenable: _openTopicOffScreen,
-                            builder: (context, offScreen, child) =>
-                                IgnorePointer(
-                              ignoring: !offScreen,
-                              child: AnimatedSlide(
-                                offset: Offset(0, offScreen ? 0 : -1),
-                                duration: disableAnimations
-                                    ? Duration.zero
-                                    : const Duration(milliseconds: 220),
-                                curve: Curves.easeOutCubic,
-                                child: AnimatedOpacity(
-                                  opacity: offScreen ? 1 : 0,
-                                  duration: disableAnimations
-                                      ? Duration.zero
-                                      : const Duration(milliseconds: 180),
-                                  child: child,
-                                ),
-                              ),
-                            ),
-                            child: PinnedTopicBar(
-                              topic: openTopic,
-                              onScrollBack: () => _scrollBackTo(openTopic!.id),
+              Expanded(
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    TweenAnimationBuilder<double>(
+                      tween: Tween(begin: 1, end: _searching ? 0 : 1),
+                      duration: disableAnimations
+                          ? Duration.zero
+                          : const Duration(milliseconds: 200),
+                      curve: PantasCurves.houseOut,
+                      builder: (context, value, child) => IgnorePointer(
+                        ignoring: _searching,
+                        child: ExcludeFocus(
+                          excluding: _searching,
+                          child: ExcludeSemantics(
+                            excluding: _searching,
+                            child: Opacity(
+                              key: const ValueKey('study-map-opacity'),
+                              opacity: value,
+                              child: child,
                             ),
                           ),
                         ),
-                    ],
-                  ),
+                      ),
+                      child: Stack(
+                        key: _listKey,
+                        children: [
+                          ListView(
+                            controller: _scrollController,
+                            children: [
+                              StudyHeadBlock(map: map),
+                              const BookmarksSection(),
+                              for (final subject in map.subjects)
+                                StudySubjectSection(
+                                  subject: subject,
+                                  onToggleTopic: (topicId) =>
+                                      unawaited(_toggleTopic(topicId)),
+                                  keyForTopic: _keyFor,
+                                ),
+                            ],
+                          ),
+                          if (openTopic != null)
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              child: ValueListenableBuilder<bool>(
+                                valueListenable: _openTopicOffScreen,
+                                builder: (context, offScreen, child) =>
+                                    IgnorePointer(
+                                  ignoring: !offScreen,
+                                  child: AnimatedSlide(
+                                    offset: Offset(0, offScreen ? 0 : -1),
+                                    duration: disableAnimations
+                                        ? Duration.zero
+                                        : const Duration(milliseconds: 220),
+                                    curve: Curves.easeOutCubic,
+                                    child: AnimatedOpacity(
+                                      opacity: offScreen ? 1 : 0,
+                                      duration: disableAnimations
+                                          ? Duration.zero
+                                          : const Duration(milliseconds: 180),
+                                      child: child,
+                                    ),
+                                  ),
+                                ),
+                                child: PinnedTopicBar(
+                                  topic: openTopic,
+                                  onScrollBack: () =>
+                                      _scrollBackTo(openTopic!.id),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                    if (_searching) const SearchResults(),
+                  ],
                 ),
-              ],
+              ),
             ],
           ),
         );
       },
-    );
-  }
-}
-
-class _ChooseExamFallback extends StatelessWidget {
-  const _ChooseExamFallback();
-
-  @override
-  Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Choose your exam', style: styles.headlineMedium),
-        const SizedBox(height: 6),
-        Text(
-          'Pick the exam you are reviewing for.',
-          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-        ),
-        const SizedBox(height: 20),
-        BoardButton(
-          label: 'Choose exam',
-          onPressed: () => context.go('/onboarding'),
-        ),
-      ],
     );
   }
 }

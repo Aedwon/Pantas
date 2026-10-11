@@ -84,12 +84,14 @@ final searchResultsProvider =
     for (final topicLessons in lessons.values) {
       for (final lesson in topicLessons) {
         if (!included.add(lesson.id)) continue;
-        hits.add(LessonSearchHit(
-          lessonId: lesson.id,
-          title: lesson.title,
-          topicName: topicNameByLessonId[lesson.id] ?? '',
-          estimatedMinutes: lesson.estimatedMinutes,
-        ));
+        hits.add(
+          LessonSearchHit(
+            lessonId: lesson.id,
+            title: lesson.title,
+            topicName: topicNameByLessonId[lesson.id] ?? '',
+            estimatedMinutes: lesson.estimatedMinutes,
+          ),
+        );
       }
     }
   }
