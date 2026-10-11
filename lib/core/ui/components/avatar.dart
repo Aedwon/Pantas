@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({this.name = '', this.photo, super.key});
+  static final _letter = RegExp(r'^\p{L}', unicode: true);
   final String name;
   final ImageProvider<Object>? photo;
   @override
@@ -15,7 +16,8 @@ class Avatar extends StatelessWidget {
             initial.runes.contains(0xFE0F) ||
             initial.runes.contains(0x20E3));
     final c = context.colors;
-    final fallback = initial.isEmpty
+    final plain = !emoji && !_letter.hasMatch(initial);
+    final fallback = plain
         ? Icon(PantasIcons.profile, size: 30, color: c.secondaryLabel)
         : FittedBox(
             fit: BoxFit.scaleDown,
@@ -35,7 +37,7 @@ class Avatar extends StatelessWidget {
         child: Container(
           width: 58,
           height: 58,
-          color: initial.isEmpty
+          color: plain
               ? c.fill
               : emoji
                   ? c.accentTint
