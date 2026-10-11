@@ -12,6 +12,21 @@ test/features/lesson test/app/study_route_test.dart test/core/ui`), commit. Scre
 theme API and W2's components (the reader body uses W2's `ContentRenderer` and `MathText`, wrapped
 in W1's `LessonTextScale`).
 
+## Lead rulings, October 12 (W4c stop at 2eae3d9f)
+
+1. ST_TopicOpen Today tag (`#6E6E73` on `#EDEDF0`, 4.34:1): text on the `fill` color uses a new
+   token `onFillLabel`, light `#636366` (5.1:1 on fill), dark `#98989D` (same as secondary label,
+   4.9:1 on dark fill). Add it to `pantas_colors.dart` with a token test; background as drawn. Lead
+   default, reported to Aedwon, who may change it. Use this token wherever a board draws secondary
+   text on `fill`.
+2. BM_Edit and BM_ScreenReader drag handles (`#AEAEB2` on white, 2.21:1): use the existing
+   `controlOutline` token (light `#8A8A8E`, 3.44:1; dark `#8E8E93`). A handle is a meaningful icon.
+3. Reader eyebrow (Task 4): as RD_Real draws it, one line. Do not add a second name.
+4. Order: do Tasks 1, 4 and 8 now, and the parts of Task 6 that do not need the day context. Tasks
+   5, 7, 9 and the Home endings of Task 6 wait for W4b Task 3 (`LessonDayContext`) and W4d Task 1
+   (quiz entry functions) to reach the integration branch; the lead resumes this worker then. No
+   local substitutes.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
