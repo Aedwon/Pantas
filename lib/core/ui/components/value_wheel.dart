@@ -35,6 +35,17 @@ class _ValueWheelState extends State<ValueWheel> {
   late final ScrollController _horizontalScroll =
       ScrollController(initialScrollOffset: widget.selectedIndex * 56);
   double _cellWidth = 56;
+  bool _jumping = false;
+
+  void jumpHorizontal(double offset) {
+    _jumping = true;
+    try {
+      _horizontalScroll.jumpTo(offset);
+    } finally {
+      _jumping = false;
+    }
+  }
+
   @override
   void dispose() {
     _scroll.dispose();
@@ -50,7 +61,7 @@ class _ValueWheelState extends State<ValueWheel> {
     }
     if (oldWidget.selectedIndex != widget.selectedIndex &&
         _horizontalScroll.hasClients) {
-      _horizontalScroll.jumpTo(widget.selectedIndex * _cellWidth);
+      jumpHorizontal(widget.selectedIndex * _cellWidth);
     }
   }
 
@@ -68,7 +79,7 @@ class _ValueWheelState extends State<ValueWheel> {
     final next = nextIndex(direction);
     if (next == null) return;
     if (widget.horizontal) {
-      _horizontalScroll.jumpTo(next * _cellWidth);
+      jumpHorizontal(next * _cellWidth);
     } else {
       _scroll.jumpToItem(next);
     }
@@ -168,7 +179,7 @@ class _ValueWheelState extends State<ValueWheel> {
     if (widthChanged) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted && _horizontalScroll.hasClients) {
-          _horizontalScroll.jumpTo(widget.selectedIndex * _cellWidth);
+          jumpHorizontal(widget.selectedIndex * _cellWidth);
         }
       });
     }
@@ -189,6 +200,7 @@ class _ValueWheelState extends State<ValueWheel> {
             ),
             NotificationListener<ScrollEndNotification>(
               onNotification: (notification) {
+                if (_jumping) return false;
                 final raw = (_horizontalScroll.offset / _cellWidth).round();
                 final valid = [
                   for (var i = 0; i < widget.values.length; i++)
@@ -201,7 +213,7 @@ class _ValueWheelState extends State<ValueWheel> {
                 if (next != widget.selectedIndex) widget.onSelected(next);
                 final target = next * _cellWidth;
                 if ((_horizontalScroll.offset - target).abs() > .1) {
-                  _horizontalScroll.jumpTo(target);
+                  jumpHorizontal(target);
                 }
                 return false;
               },
