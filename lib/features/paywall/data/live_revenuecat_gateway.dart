@@ -181,6 +181,8 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
   final TrustedClock _clock;
   String? _uid;
   bool _listening = false;
+  bool _refreshRunning = false;
+  int? _queuedRefreshEpoch;
   bool _identityBusy = true;
   int _identityEpoch = 0;
 
@@ -211,6 +213,7 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
       _entitlementState.updates,
       confirmed: () => _entitlementState.current ?? const Entitlement.free(),
       clock: _clock,
+      onFreshCheckRequired: () => unawaited(_refreshPasses(_identityEpoch)),
     );
   }
 
@@ -299,6 +302,7 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
     _identityBusy = true;
     _uid = null;
     _ledgerPasses = null;
+    _queuedRefreshEpoch = null;
     _ledgerRevision++;
     final clearing = _entitlementState.clear();
     await _passSubscription?.cancel();
@@ -343,7 +347,10 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
       },
     );
     await _acceptCustomerInfo(info, identityAnswer: true, expectedEpoch: epoch);
-    if (epoch == _identityEpoch) _identityBusy = false;
+    if (epoch == _identityEpoch) {
+      _identityBusy = false;
+      if (_queuedRefreshEpoch == epoch) unawaited(_refreshPasses(epoch));
+    }
   }
 
   Future<void> _readPasses(int epoch) async {
@@ -362,6 +369,13 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
   }
 
   Future<void> _refreshPasses(int epoch) async {
+    if (epoch != _identityEpoch) return;
+    if (_refreshRunning || _identityBusy) {
+      _queuedRefreshEpoch = epoch;
+      return;
+    }
+    _refreshRunning = true;
+    _queuedRefreshEpoch = null;
     try {
       await _sdk.invalidateCustomerInfoCache();
       if (epoch != _identityEpoch) return;
@@ -370,7 +384,16 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
         expectedEpoch: epoch,
       );
     } catch (_) {
-      // Cached evidence keeps the existing bounded offline window.
+      // No retry loop. A later non-cache ledger snapshot also signals that
+      // the existing owner query has reconnected, and requests a new check.
+    } finally {
+      _refreshRunning = false;
+      final queued = _queuedRefreshEpoch;
+      _queuedRefreshEpoch = null;
+      // Coalesce new events arriving during a request into one serial check.
+      if (queued != null && queued == _identityEpoch && !_identityBusy) {
+        unawaited(_refreshPasses(queued));
+      }
     }
   }
 

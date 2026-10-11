@@ -10,6 +10,7 @@ class OfflineWindow {
     Stream<Entitlement> updates, {
     required Entitlement Function() confirmed,
     required TrustedClock clock,
+    void Function()? onFreshCheckRequired,
   }) async* {
     await clock.start();
     final events = StreamController<void>();
@@ -19,6 +20,8 @@ class OfflineWindow {
     );
     var observing = false;
     List<Object?>? lastAccess;
+    var wasPaused = false;
+    var lastRollback = Duration.zero;
     final timer = Timer.periodic(const Duration(seconds: 1), (_) async {
       if (observing) return;
       observing = true;
@@ -40,6 +43,12 @@ class OfflineWindow {
           effectiveTime: clock.effectiveTime,
           windowConsumed: clock.windowConsumed,
         );
+        final paused = view.state == EntitlementState.paused;
+        final rollback = clock.rollbackTotal;
+        final needsCheck = paused && !wasPaused || rollback > lastRollback;
+        wasPaused = paused;
+        lastRollback = rollback;
+        if (needsCheck) onFreshCheckRequired?.call();
         final coverage = view.coverage();
         final access = <Object?>[
           raw,
