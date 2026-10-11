@@ -85,6 +85,30 @@ class Entitlement {
 
   Entitlement withEvidence(DateTime at) => _copy(verifiedAt: at);
 
+  Entitlement withPasses(Map<String, DateTime> records) => Entitlement(
+        plan: plan,
+        productId: productId,
+        expiresAt: expiresAt,
+        isTrial: isTrial,
+        willRenew: willRenew,
+        isUnknownPlan: isUnknownPlan && records.isEmpty,
+        tier: tier,
+        state: records.isNotEmpty &&
+                (state == EntitlementState.free ||
+                    state == EntitlementState.unknown)
+            ? EntitlementState.active
+            : state,
+        passes: Map.unmodifiable(records),
+        subscriptions: subscriptions,
+        promotions: promotions,
+        examTiers: examTiers,
+        renewsAt: _renewsAt,
+        chargesAt: _chargesAt,
+        verifiedAt: verifiedAt,
+        effectiveAt: _effectiveAt,
+        offlineGrace: _offlineGrace,
+      );
+
   Entitlement withOfflineWindow(DateTime at, {required bool paused}) => _copy(
         effectiveAt: at,
         offlineGrace: const Duration(days: 3),

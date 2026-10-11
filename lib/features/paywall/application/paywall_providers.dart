@@ -15,11 +15,13 @@ import 'package:pantas/features/paywall/application/paywall_controller.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/pass_ledger_source.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/pass_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
@@ -85,12 +87,15 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
   if (!config.isEnabled) {
     return DisabledRevenueCatGateway(entitlementState, clock);
   }
-  return LiveRevenueCatGateway(
+  final gateway = LiveRevenueCatGateway(
     entitlementState: entitlementState,
     pendingStore: ref.watch(pendingPurchaseStoreProvider),
     trustedClock: clock,
     refreshClaims: refreshPaymentClaimToken,
+    passLedger: const FirestorePassLedgerSource(),
   );
+  ref.onDispose(() => unawaited(gateway.clearIdentity()));
+  return gateway;
 });
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {
@@ -119,8 +124,23 @@ final entitlementProvider = StreamProvider<Entitlement>((ref) {
       .startWith(cached);
 });
 
-final paywallOfferingProvider = FutureProvider<PaywallOfferingResult>((ref) {
-  return ref.watch(revenueCatGatewayProvider).currentOffering();
+final paywallOfferingProvider =
+    FutureProvider<PaywallOfferingResult>((ref) async {
+  final offering = await ref.watch(revenueCatGatewayProvider).currentOffering();
+  if (offering.passPackages.isEmpty) return offering;
+  final focus = await ref.watch(activeExamFocusProvider.future);
+  final catalog =
+      await ref.watch(examCatalogRepositoryProvider).watchAll().first;
+  final exam = catalog.where((entry) => entry.id == focus.exam?.id).firstOrNull;
+  final pass = exam == null
+      ? null
+      : passForExam(offering, exam, at: DateTime.now().toUtc());
+  return PaywallOfferingResult(
+    status: offering.status,
+    recognizedPackages: offering.recognizedPackages,
+    passPackages: pass == null ? const [] : [pass],
+    unrecognizedProductIds: offering.unrecognizedProductIds,
+  );
 });
 
 final examCatalogRepositoryProvider = Provider<ExamCatalogRepository>((ref) {

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -81,6 +82,33 @@ class PaywallController {
     _operationInFlight = true;
     try {
       return _commandResult(await _gateway.restorePurchases());
+    } catch (_) {
+      return _commandResult(
+        const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.unknownFailure,
+        ),
+      );
+    } finally {
+      _operationInFlight = false;
+    }
+  }
+
+  Future<PaywallCommandResult> purchasePass(
+    PaywallPassPackage package, {
+    required ExamCatalogEntry exam,
+  }) async {
+    if (_operationInFlight) return _alreadyInProgress();
+    final gateway = _gateway;
+    if (gateway is! RevenueCatPassGateway) {
+      return _commandResult(
+        const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.configurationFailure,
+        ),
+      );
+    }
+    _operationInFlight = true;
+    try {
+      return _commandResult(await gateway.purchasePass(package, exam: exam));
     } catch (_) {
       return _commandResult(
         const PaymentOperationResult.failure(

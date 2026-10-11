@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/features/paywall/application/offline_window.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
@@ -22,6 +23,14 @@ abstract interface class RevenueCatGateway {
 abstract interface class RevenueCatAccountGateway implements RevenueCatGateway {
   Future<void> clearIdentity();
   Future<void> logOut();
+}
+
+abstract interface class RevenueCatPassGateway
+    implements RevenueCatAccountGateway {
+  Future<PaymentOperationResult> purchasePass(
+    PaywallPassPackage package, {
+    required ExamCatalogEntry exam,
+  });
 }
 
 class DisabledRevenueCatGateway implements RevenueCatAccountGateway {

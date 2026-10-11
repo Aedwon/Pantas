@@ -1,19 +1,25 @@
 // Firestore owns the decision; Auth is repaired after commit, never inside it.
-import { FieldPath, FieldValue, type Firestore } from 'firebase-admin/firestore';
+import { FieldPath, FieldValue, type Firestore, type Transaction } from 'firebase-admin/firestore';
 import type { Auth } from 'firebase-admin/auth';
 
 type ClaimAuth = Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
 
+type Claims = {pro: boolean; proUntil: number};
 export async function commitRevenueCatAnswer(db: Firestore, uid: string, eventId: string,
-  answerAt: number, claims: {pro: boolean; proUntil: number}, facts: object): Promise<boolean> {
+  answerAt: number, claims: Claims | ((transaction: Transaction) => Promise<{claims:Claims; apply():void}>),
+  facts: object): Promise<boolean> {
   const record = db.doc(`users/${uid}/server/entitlement`);
   const event = db.doc(`webhookEvents/${eventId}/users/${uid}`);
   return db.runTransaction(async transaction => {
     const [previous, dedupe] = await transaction.getAll(record, event);
     if (dedupe.exists) return false;
+    if (previous.exists && previous.get('answerAt') > answerAt) {
+      transaction.set(event, {answerAt,facts}); return false;
+    }
+    const prepared = typeof claims === 'function' ? await claims(transaction) : {claims,apply:()=>{}};
+    prepared.apply();
     transaction.set(event, {answerAt, facts});
-    if (previous.exists && previous.get('answerAt') > answerAt) return false;
-    transaction.set(record, {...claims, answerAt, facts,
+    transaction.set(record, {...prepared.claims, answerAt, facts,
       version: Number(previous.get('version') ?? 0) + 1,
       claimsVersion: Number(previous.get('claimsVersion') ?? 0)});
     return true;

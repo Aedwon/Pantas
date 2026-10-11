@@ -136,6 +136,11 @@ service cloud.firestore {
         allow read, write: if false;
       }
 
+      match /passes/{transactionId} {
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow write: if false;
+      }
+
       match /sync_state/{stateId} {
         allow read: if stateId == 'current' && isProOwner(uid);
         allow write: if false;

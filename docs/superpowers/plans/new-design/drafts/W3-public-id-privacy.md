@@ -13,6 +13,8 @@ Your data export includes this ID. When you delete your account, we remove its
 link to your account and retire the ID. We never give a retired ID to another
 account.
 We keep a protected account reference to prevent new IDs for a deleted account.
+We also keep protected purchase references and published exam dates. This stops
+one pass purchase from being reused for a later exam sitting.
 
 ## Agent notes
 
@@ -33,3 +35,9 @@ We keep a protected account reference to prevent new IDs for a deleted account.
   work. Their actual use has not been verified. Do not claim the draft is
   approved, the legal document changed, or the manual export was performed.
 - Pass selection, grant issuance and legal text are outside this helper.
+- The pass ownership index uses a SHA-256 receipt reference. Account deletion
+  removes its UID and reconciliation time. Only the reference, product/exam
+  binding and public sitting/end dates remain, so a verified transfer cannot
+  reset the paid sitting after deletion. No client can read this index.
+- A manual DPO export also includes the user's pass records and any linked
+  ownership entries. Their actual export has not been performed in this run.
