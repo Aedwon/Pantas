@@ -49,7 +49,7 @@ class CenteredDialog extends StatelessWidget {
         backgroundColor: context.colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        insetPadding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+        insetPadding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
         child: DecoratedBox(
           key: const ValueKey('centered-dialog-surface'),
           decoration: BoxDecoration(
@@ -83,9 +83,10 @@ class CenteredDialog extends StatelessWidget {
                   style: context.type.subhead
                       .copyWith(color: c.secondaryLabel, height: 1.45),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: destructive ? 20 : 18),
                 ButtonPair(
                   stacked: !destructive,
+                  gap: 8,
                   primary: destructive
                       ? pill(primaryLabel, onConfirm, red: true)
                       : PantasButton(

@@ -5,22 +5,24 @@ class ButtonPair extends StatelessWidget {
     required this.primary,
     required this.secondary,
     this.stacked = false,
+    this.gap = 10,
     super.key,
   });
   final Widget primary;
   final Widget secondary;
   final bool stacked;
+  final double gap;
   @override
   Widget build(BuildContext context) =>
       stacked || MediaQuery.textScalerOf(context).scale(17) > 25.5
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [primary, const SizedBox(height: 10), secondary],
+              children: [primary, SizedBox(height: gap), secondary],
             )
           : Row(
               children: [
                 Expanded(child: secondary),
-                const SizedBox(width: 10),
+                SizedBox(width: gap),
                 Expanded(child: primary),
               ],
             );
