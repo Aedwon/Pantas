@@ -120,14 +120,17 @@ void main() {
       final middleHeight = tester.getSize(find.byType(NoticeStrip)).height;
       await tester.pump(const Duration(milliseconds: 175));
       final finalHeight = tester.getSize(find.byType(NoticeStrip)).height;
-      expect((middleHeight - closedHeight) / (finalHeight - closedHeight),
-          closeTo(.9423, .025),);
       expect(
-          tester
-              .widget<Text>(find.text('Your plan paces each day to it.'))
-              .style!
-              .fontSize,
-          13,);
+        (middleHeight - closedHeight) / (finalHeight - closedHeight),
+        closeTo(.9423, .025),
+      );
+      expect(
+        tester
+            .widget<Text>(find.text('Your plan paces each day to it.'))
+            .style!
+            .fontSize,
+        13,
+      );
       expect(tester.widget<Text>(find.text('Add date')).style!.fontSize, 15);
       expect(
         find.text('Your plan paces each day to it.').hitTestable(),
@@ -165,8 +168,11 @@ void main() {
     });
     testWidgets('grid modes columns, all states and keyboard $brightness',
         (tester) async {
-      int? picked;
       for (final mock in [false, true]) {
+        int? picked;
+        var calls = 0;
+        var dismissed = 0;
+        await tester.pumpWidget(const SizedBox());
         final entries = List.generate(
           12,
           (i) => GridQuestion(
@@ -180,7 +186,7 @@ void main() {
         final grid = QuestionGridSheet(
           page: const Text('Page'),
           open: true,
-          onDismiss: () {},
+          onDismiss: () => dismissed++,
           mock: mock,
           parts: [
             QuestionGridPart(title: 'Part 1', questions: entries),
@@ -190,7 +196,10 @@ void main() {
               enabled: false,
             ),
           ],
-          onSelected: (n) => picked = n,
+          onSelected: (n) {
+            picked = n;
+            calls++;
+          },
         );
         await pumpAccessibilitySurface(
           tester,
@@ -207,7 +216,9 @@ void main() {
         );
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.sendKeyEvent(LogicalKeyboardKey.enter);
-        expect(picked, isNotNull);
+        expect(picked, 1);
+        expect(calls, 1);
+        expect(dismissed, 1);
         await expectSurvivesTextScale(
           tester,
           grid,

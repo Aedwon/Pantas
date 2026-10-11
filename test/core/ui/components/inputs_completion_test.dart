@@ -138,6 +138,7 @@ void main() {
     testWidgets('scope marks, last-item shake and keyboard $brightness',
         (tester) async {
       var selection = {'l1'};
+      var changes = 0;
       final picker = StatefulBuilder(
         builder: (context, setState) => ScopePicker(
           subjects: const [
@@ -165,7 +166,10 @@ void main() {
             ),
           ],
           selectedIds: selection,
-          onChanged: (v) => setState(() => selection = v),
+          onChanged: (v) => setState(() {
+            changes++;
+            selection = v;
+          }),
         ),
       );
       await pumpAccessibilitySurface(tester, picker, brightness: brightness);
@@ -182,7 +186,9 @@ void main() {
       expect(unread.style!.fontWeight, FontWeight.w500);
       expectContrast(
         unread.style!.color!,
-        brightness == Brightness.light ? const Color(0xFFF5F5F7) : Colors.black,
+        brightness == Brightness.light
+            ? const Color(0xFFFBFBFC)
+            : const Color(0xFF18181A),
       );
       await tester.tap(find.byKey(const ValueKey('scope-select-l1')));
       await tester.pump();
@@ -191,8 +197,13 @@ void main() {
           .widget<Transform>(find.byKey(const ValueKey('scope-shake-l1')));
       expect(transform.transform.storage[12], closeTo(-5, .01));
       expect(selection, {'l1'});
+      expect(changes, 0);
+      await tester.pumpWidget(const SizedBox());
+      await pumpAccessibilitySurface(tester, picker, brightness: brightness);
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(selection, {'l1', 'l2'});
+      expect(changes, 1);
       await expectSurvivesTextScale(
         tester,
         picker,
