@@ -171,3 +171,25 @@ test('finding 3 daily consistency repairs actual Auth mismatches even when marke
   assert.equal(values.get(old).pro,false);
   assert.equal(reads.includes(old),false);
 });
+
+
+test('finding 4 dedupe records retain only identity, version and time for 30 days; rate records expire in one hour', async()=>{
+  const uid = 'w3-retention';
+  const before = Date.now();
+  await helper('commitRevenueCatAnswer')(db,uid,'retention-event',before,result,{secretFact:'must not be duplicated'});
+  const event = (await db.doc(`webhookEvents/retention-event/users/${uid}`).get()).data();
+  assert.deepEqual(Object.keys(event).sort(),['answerAt','eventId','expireAt','version']);
+  assert.equal(event.eventId,'retention-event');
+  assert.equal(event.version,1);
+  assert.ok(event.expireAt.toMillis() >= before+30*86400000);
+  assert.ok(event.expireAt.toMillis() <= Date.now()+30*86400000);
+  const a = auth(uid);
+  const deps = {db,auth:a,appId:'app-pantas-test',firebaseProjectId:'pantas-prod',signingSecret:'test-secret',readCustomer:async()=>[]};
+  assert.equal(await request({id:'retention-rate-event',type:'EXPIRATION',app_user_id:uid},deps),200);
+  const rows = await db.collection('webhookRateLimits').where('uid','==',uid).get();
+  assert.equal(rows.size,1);
+  const expireAt = rows.docs[0].get('expireAt');
+  assert.ok(expireAt instanceof Timestamp);
+  assert.ok(expireAt.toMillis() >= before+3600000);
+  assert.ok(expireAt.toMillis() <= Date.now()+3600000);
+});

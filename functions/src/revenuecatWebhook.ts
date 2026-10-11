@@ -1,4 +1,4 @@
-import { getFirestore, type Firestore } from 'firebase-admin/firestore';
+import { getFirestore, Timestamp, type Firestore } from 'firebase-admin/firestore';
 import { getAuth, type Auth } from 'firebase-admin/auth';
 import { defineSecret } from 'firebase-functions/params';
 import { onRequest } from 'firebase-functions/v2/https';
@@ -46,7 +46,8 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
           const snapshot = await transaction.get(rate);
           const count = Number(snapshot.get('count') ?? 0);
           if (count >= MAX_EVENTS_PER_MINUTE) return false;
-          transaction.set(rate, {uid, count:count + 1});
+          transaction.set(rate, {uid, count:count + 1,
+            expireAt:Timestamp.fromMillis(now()+3600000)});
           return true;
         });
         if (!available) return 429;

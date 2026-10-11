@@ -29,3 +29,12 @@ test('finding 3 repair queries have their collection-group indexes',()=>{
       index.fields.some(item=>item.fieldPath===field)),field);
   }
 });
+
+
+test('finding 4 TTL is declared on the actual event child group and rate-limit group',()=>{
+  const config=JSON.parse(readFileSync(new URL('../../firestore.indexes.json',import.meta.url)));
+  for(const group of ['users','webhookRateLimits']) {
+    assert.ok(config.fieldOverrides?.some(field=>field.collectionGroup===group &&
+      field.fieldPath==='expireAt' && field.ttl===true),group);
+  }
+});

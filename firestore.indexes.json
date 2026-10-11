@@ -112,5 +112,9 @@
         { "fieldPath": "__name__", "order": "ASCENDING" }
       ]
     }
+  ],
+  "fieldOverrides": [
+    { "collectionGroup": "users", "fieldPath": "expireAt", "ttl": true, "indexes": [] },
+    { "collectionGroup": "webhookRateLimits", "fieldPath": "expireAt", "ttl": true, "indexes": [] }
   ]
 }

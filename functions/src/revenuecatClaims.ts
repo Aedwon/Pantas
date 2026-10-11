@@ -15,11 +15,13 @@ export async function commitRevenueCatAnswer(db: Firestore, uid: string, eventId
     const [previous, dedupe] = await transaction.getAll(record, event);
     if (dedupe.exists) return false;
     if (previous.exists && previous.get('answerAt') > answerAt) {
-      transaction.set(event, {answerAt,facts}); return false;
+      transaction.set(event, {eventId,answerAt,version:Number(previous.get('version')),
+        expireAt:Timestamp.fromMillis(Date.now()+30*86400000)}); return false;
     }
     const prepared = typeof claims === 'function' ? await claims(transaction) : {claims,apply:()=>{}};
     prepared.apply();
-    transaction.set(event, {answerAt, facts});
+    transaction.set(event, {eventId,answerAt,version:Number(previous.get('version') ?? 0)+1,
+      expireAt:Timestamp.fromMillis(Date.now()+30*86400000)});
     transaction.set(record, {...prepared.claims, answerAt, facts,
       version: Number(previous.get('version') ?? 0) + 1,
       claimsVersion: Number(previous.get('claimsVersion') ?? 0), claimsPending:true,
