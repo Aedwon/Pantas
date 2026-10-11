@@ -147,6 +147,25 @@ no new issues.
 All required checks; evidence in `evidence/W2.md`; GPT-6 Astra audit and the Opus lead's review; lead
 integrates. Old components and their tests stay green until close-out.
 
+## Task 8b. Audit fixes (GPT-6 Astra audit 1, Oct 11; lead agrees with all 19)
+
+Source: `gates/w2-astra-audit-1.md`. One commit per finding or closely related group, failing test
+first; then `dart format` on the two unformatted W2 files (`steps_screen.dart`,
+`containers_completion_test.dart`) and the full checks.
+Rulings for the findings that need one:
+- Finding 7: figure credit text uses `secondaryLabel`. Unchecked selection outlines (ListRow,
+  ScopePicker) use a new token `controlOutline`: light `#8A8A8E` (3.44:1), dark `#8E8E93`; a control
+  boundary carries meaning, so it is not exempt.
+- Finding 16: no local color literals in components. Add each needed board color as a named token
+  in `pantas_colors.dart` with the board it comes from in a comment (`pickerBackground` `#FBFBFC`
+  from QZ_Picker, the warning text `#B25000`, and any other), light and dark; test the token values.
+- Finding 5: correct and wrong ChoiceRows show the check and cross as QV_MissPro draws them and
+  announce "correct", "wrong" and "selected".
+- Finding 8: add the horizontal ValueWheel variant from QZE_Short; keep the vertical one if a board
+  uses it, otherwise remove it.
+- Findings 9 and 10: follow the board timelines exactly; tests assert intermediate values.
+Checks: the named tests green; full checks recorded in `evidence/W2.md`.
+
 ## Task 9. Close-out (runs after the last W4 family integrates)
 
 Delete every superseded file listed in Tasks 1 to 6 whose `grep -rln` caller count in `lib/` is 0,

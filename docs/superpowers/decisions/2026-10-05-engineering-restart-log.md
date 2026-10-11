@@ -1065,3 +1065,13 @@ the lead could not split. Consequence for Aedwon to decide: Astra for every work
 window per audit with no building in it. W2's worker finished all components (d2edde76; lead-run
 checks: 3,675 tests passed, layering and attribution pass, analysis shows the known notice, two W2
 files need formatting). W3 resumes at 10:29 AM.
+
+## October 11, 2026: W2 audit 1 and W3 build complete
+
+Astra resumed the W2 audit at 10:29 AM and finished in 2 minutes (about 7,000 more tokens; the
+interrupted run had done the reading). No blocker; 10 major (math corrupted by Markdown parsing,
+screen-reader and keyboard gaps, missing answer marks, a missing horizontal wheel, motion that
+differs from the boards, two contrast pairs), 9 minor. The lead agrees with all; fixes are L3 W2
+Task 8b with rulings for the token and outline questions. W3 then finished Tasks 5, 13, 10 and 14
+(5b23689d; 81 plain and 89 emulator tests pass). Remaining for W3: the router edits held back for
+W1, the Astra audit, Aedwon's setup steps and the deploys.
