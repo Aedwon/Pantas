@@ -1,10 +1,12 @@
-abstract final class AppDimensions {
-  // Tap targets
-  static const double minTapTarget = 48;
+import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/pantas_shape.dart';
 
-  // Ink & Rule tokens
-  static const double radiusButton = 5;
-  static const double radiusSurface = 8;
-  static const double hairline = 1;
+@Deprecated('W1 adapter, removed in W2 close-out')
+abstract final class AppDimensions {
+  // A 44-point row is separate from the platform touch target.
+  static const double minTapTarget = kMinInteractiveDimension;
+  static const double radiusButton = PantasShape.buttonRadius;
+  static const double radiusSurface = PantasShape.cardRadius;
+  static const double hairline = 0.5;
   static const double progressHeight = 3;
 }

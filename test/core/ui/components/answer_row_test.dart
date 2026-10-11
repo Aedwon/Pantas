@@ -31,7 +31,7 @@ void main() {
     final decoration = box.decoration! as BoxDecoration;
     expect(decoration.color, AppColors.light.boardTint);
     expect(decoration.border!.top.color, AppColors.light.board);
-    expect(decoration.borderRadius, BorderRadius.circular(5));
+    expect(decoration.borderRadius, BorderRadius.circular(14));
   });
 
   testWidgets('plain row has no fill and a faint bottom rule', (tester) async {

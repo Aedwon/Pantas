@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
@@ -16,6 +17,13 @@ import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  setUpAll(() async {
+    final fonts = FontLoader('Geist');
+    for (final weight in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Geist-$weight.ttf'));
+    }
+    await fonts.load();
+  });
   late AppDatabase db;
   late ContentDatabase contentDb;
   late LessonBookmarksRepository repo;

@@ -41,6 +41,8 @@ void main() {
   testWidgets('the CTA opens the plans screen', (tester) async {
     var tapped = 0;
     await pump(tester, onSeePlans: () => tapped++);
+    await tester.ensureVisible(find.text('See plans'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('See plans'));
     await tester.pump();
     expect(tapped, 1);

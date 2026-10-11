@@ -36,7 +36,7 @@ void main() {
     expect(find.text('Home'), findsWidgets);
     expect(find.text('Study'), findsWidgets);
     expect(find.text('Quiz'), findsWidgets);
-    expect(find.text('Progress'), findsWidgets);
+    expect(find.text('Settings'), findsWidgets);
     expect(find.text('Learn'), findsNothing);
   });
 
