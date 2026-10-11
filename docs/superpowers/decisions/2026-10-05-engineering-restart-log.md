@@ -1104,3 +1104,15 @@ confirm); a screen family may extend a W2 component in place, with tests, when a
   check when access pauses, and the Restore result taken from confirmed coverage.
 - Usage note: the audit used about 129,000 tokens in 3 minutes; two Sol workers then ran 30 minutes
   (about 850,000 tokens reported) before the window ran out.
+
+## October 12, 2026: W3 accepted and integrated
+
+- Sol fixed all five audit findings (Task 14b). The lead's review found the two new `server`
+  indexes written as one-field composites, which Firestore rejects at deploy; fixed as Task 14c
+  (field overrides). The lead merged the integration branch into W3, ran the full checks
+  (3,858 Flutter, 84 plain and 92 emulator backend tests), and fast-forwarded the integration
+  branch to 2d438daf.
+- Note for the deploy: the TTL override on collection group `users` (field `expireAt`) also
+  covers top-level user documents; a test now asserts no source writes that field there.
+- Aedwon confirmed on October 11 that GPT-6 Astra keeps auditing every workstream (he considered
+  Sol High for audits and chose to keep Astra).

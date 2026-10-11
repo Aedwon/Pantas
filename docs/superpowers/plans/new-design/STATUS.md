@@ -47,7 +47,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Abuse review amendment | done: level 2 gate passed (review 7), level 3 gate passed (review 3) | gates/l3-abuse-gate-3.md |
 | Level 4: W0 integration | accepted Oct 6 (Astra audit, lead review); Task 6 not run | integration/new-design-r1 at 13e4f830; evidence/W0.md |
 | Level 4: W1 design foundation | accepted and integrated Oct 10 (Astra audit 1 fixed, lead review) | integration/new-design-r1 at 3f0863ab; gates/w1-astra-audit-1.md |
-| Level 4: W3 payments and identity | built; Astra audit 1 fixed (Task 14b, 53199765); lead review found one index-form fix (Task 14c); integration branch merged in; then integration and deploys | web/new-design-w3-r1; gates/w3-astra-audit-1.md |
+| Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
 | Level 4: W4a onboarding, W4c study and reader | started Oct 11 (Sol, parallel); in progress, stopped twice by the Codex limit | web/new-design-w4a-r1, web/new-design-w4c-r1 from cee7a9c5 |
@@ -55,19 +55,18 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 
 ## Last completed step
 
-W4h Tasks 1, 2, 3 and 5 reviewed and integrated (integration/new-design-r1 at cee7a9c5, Oct 11).
-W0, W1, W2, W6 Tasks 1 to 5c and those W4h tasks are integrated. W3 is built
-(web/new-design-w3-r1 at 4a36a3b3; lead-run checks pass) and waits for its Astra audit.
+W3 accepted and integrated (integration/new-design-r1 at 2d438daf, Oct 12). Lead-run checks on the
+merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend tests; Task 14c
+after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
+and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 12, 1:00 AM)
+## Running or scheduled (Oct 12, 4:20 AM)
 
-- Codex ran out at 12:41 AM (resets 4:01 AM). Two scheduled jobs in the lead scratchpad start at
-  4:02 AM: `run-0402.sh` resumes the W4a and W4c Sol workers; `run-0402b.sh` has the W3 Sol worker
-  do Task 14c. Session ids: `w3-sid`, `w4a-sid`, `w4c-sid`.
-- W4a has one commit (da8a3020) and uncommitted work; W4c has one commit (537d9ef8) and
-  uncommitted work. Sol started both, so Sonnet must not pick them up.
-- After Task 14c: lead runs the full checks on W3, merges it into the integration branch, pushes.
-  Then W4b, W4d, W4e, W4f and W4g can start.
+- W4a and W4c Sol workers resumed at 4:02 AM (session ids `w4a-sid`, `w4c-sid` in the lead
+  scratchpad). Their branches are based on cee7a9c5; merge the integration branch into each before
+  integrating. Sol started both, so Sonnet must not pick them up.
+- Not started: W4b, W4d, W4e, W4f, W4g (all unblocked now). Start them on Sol as the two running
+  workers finish; base them on the integration branch.
 
 ## Next step
 
