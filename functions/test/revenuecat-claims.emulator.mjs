@@ -55,7 +55,7 @@ test('AC-3 concurrent copies end with the newest record; older answers and repla
   const oldCopy = helper('copyEntitlementClaims')(db, a, uid);
   await began;
   await helper('commitRevenueCatAnswer')(db, uid, 'new', at + 1000, {pro:false,proUntil:0}, facts);
-  await helper('copyEntitlementClaims')(db, a, uid);
+  await assert.rejects(helper('copyEntitlementClaims')(db, a, uid), /lease/i);
   release();
   await oldCopy;
   assert.equal(a.current().pro, false);
@@ -69,6 +69,8 @@ test('AC-3 hourly repair finds and copies a mismatch', async () => {
   const a = auth(uid);
   await helper('repairClaims')(db, a);
   assert.equal((await db.doc(`users/${uid}/server/entitlement`).get()).get('claimsVersion'), 1);
+  assert.equal(a.current().pro, true);
+  assert.equal(a.current().proUntil, result.proUntil);
 });
 import {reconcileWebhook} from '../lib/revenuecatWebhook.js';
 import {createHmac} from 'node:crypto';
@@ -109,4 +111,41 @@ test('AC-11 TRANSFER reconciles both accounts so one account holds the purchase'
   assert.equal(await request({id:'transfer',type:'TRANSFER',transferred_from:[from],transferred_to:[to]},deps),200);
   assert.equal(current.get(from).pro,false);
   assert.equal(current.get(to).pro,true);
+});
+
+
+test('AC-3 a terminated copier leaves durable pending work and an expired lease recovers the newest Auth values', async () => {
+  const uid = 'w3-copy-terminated';
+  const record = db.doc(`users/${uid}/server/entitlement`);
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  let now = at;
+  let stored = {otherClaim:'kept'};
+  let wrote;
+  const written = new Promise(resolve=>wrote=resolve);
+  let calls = 0;
+  const a = {
+    getUser:async()=>({customClaims:stored}),
+    setCustomUserClaims:async(_,value)=>{
+      stored = value;
+      if (++calls === 1) {wrote(); await new Promise(()=>{});}
+    },
+  };
+  await helper('commitRevenueCatAnswer')(db,uid,'crash-old',at,result,facts);
+  // A never-returning Auth response models process termination immediately
+  // after the external write, without allowing corrective/finally code to run.
+  void helper('copyEntitlementClaims')(db,a,uid,()=>now);
+  await written;
+  await helper('commitRevenueCatAnswer')(db,uid,'crash-new',at+1000,{pro:false,proUntil:0},facts);
+  assert.equal((await record.get()).get('claimsPending'),true);
+  await assert.rejects(helper('copyEntitlementClaims')(db,a,uid,()=>now),/lease/i);
+  now += 60001;
+  await helper('copyEntitlementClaims')(db,a,uid,()=>now);
+  const latest = (await record.get()).data();
+  assert.equal(stored.pro,latest.pro);
+  assert.equal(stored.proUntil,latest.proUntil);
+  assert.equal(stored.pro,false);
+  assert.equal(stored.otherClaim,'kept');
+  assert.equal(latest.claimsPending,false);
+  assert.equal(latest.claimsVersion,latest.version);
+  assert.equal(latest.claimsLeaseHolder,undefined);
 });

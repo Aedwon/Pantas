@@ -1,6 +1,7 @@
 // Firestore owns the decision; Auth is repaired after commit, never inside it.
-import { FieldPath, FieldValue, type Firestore, type Transaction } from 'firebase-admin/firestore';
+import { FieldPath, FieldValue, Timestamp, type Firestore, type Transaction } from 'firebase-admin/firestore';
 import type { Auth } from 'firebase-admin/auth';
+import {randomUUID} from 'node:crypto';
 
 type ClaimAuth = Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
 
@@ -21,46 +22,65 @@ export async function commitRevenueCatAnswer(db: Firestore, uid: string, eventId
     transaction.set(event, {answerAt, facts});
     transaction.set(record, {...prepared.claims, answerAt, facts,
       version: Number(previous.get('version') ?? 0) + 1,
-      claimsVersion: Number(previous.get('claimsVersion') ?? 0)});
+      claimsVersion: Number(previous.get('claimsVersion') ?? 0), claimsPending:true}, {merge:true});
     return true;
   });
 }
 
-export async function copyEntitlementClaims(db: Firestore, auth: ClaimAuth, uid: string): Promise<void> {
+export async function copyEntitlementClaims(db: Firestore, auth: ClaimAuth, uid: string,
+  now: () => number = Date.now): Promise<void> {
   const record = db.doc(`users/${uid}/server/entitlement`);
-  for (let attempt = 0; attempt < 3; attempt++) {
-    const snapshot = await record.get();
-    if (!snapshot.exists || snapshot.get('claimsVersion') === snapshot.get('version')) return;
-    const version = snapshot.get('version') as number;
-    try {
-      const user = await auth.getUser(uid);
-      await auth.setCustomUserClaims(uid, {...user.customClaims,
-        pro: snapshot.get('pro') === true, proUntil: Number(snapshot.get('proUntil'))});
-    } catch (error) {
-      await db.runTransaction(async transaction => {
-        const latest = await transaction.get(record);
-        if (latest.exists) transaction.update(record, {claimsVersion: 0});
-      });
-      throw error;
+  const holder = randomUUID();
+  const acquired = await db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(record);
+    if (!snapshot.exists || (snapshot.get('claimsPending') !== true &&
+        snapshot.get('claimsVersion') === snapshot.get('version'))) return false;
+    const expiry = snapshot.get('claimsLeaseUntil') as Timestamp | undefined;
+    if (snapshot.get('claimsLeaseHolder') && expiry && expiry.toMillis() > now()) {
+      throw new Error('Entitlement claims lease is held; retry required');
     }
-    const applied = await db.runTransaction(async transaction => {
+    transaction.update(record, {claimsPending:true, claimsLeaseHolder:holder,
+      claimsLeaseUntil:Timestamp.fromMillis(now()+60_000)});
+    return true;
+  });
+  if (!acquired) return;
+  const holdsLease = (snapshot: import('firebase-admin/firestore').DocumentSnapshot) =>
+    snapshot.get('claimsLeaseHolder') === holder &&
+    (snapshot.get('claimsLeaseUntil') as Timestamp).toMillis() > now();
+  try {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const user = await auth.getUser(uid);
+      // Re-read under the lease after other async work, never copy event values.
+      const snapshot = await record.get();
+      if (!snapshot.exists || !holdsLease(snapshot)) throw new Error('Entitlement claims lease expired');
+      const version = snapshot.get('version') as number;
+      await auth.setCustomUserClaims(uid, {...user.customClaims,
+        pro:snapshot.get('pro') === true, proUntil:Number(snapshot.get('proUntil'))});
+      const applied = await db.runTransaction(async transaction => {
+        const latest = await transaction.get(record);
+        if (!latest.exists || !holdsLease(latest)) throw new Error('Entitlement claims lease lost');
+        if (latest.get('version') !== version) return false;
+        transaction.update(record, {claimsVersion:version,claimsPending:false,
+          claimsLeaseHolder:FieldValue.delete(),claimsLeaseUntil:FieldValue.delete()});
+        transaction.set(db.doc(`users/${uid}`), {
+          claimsVersion:version,claimsChangedAt:FieldValue.serverTimestamp(),
+        }, {merge:true});
+        return true;
+      });
+      if (applied) return;
+    }
+    throw new Error('Entitlement changed during claim copy; retry required');
+  } catch (error) {
+    await db.runTransaction(async transaction => {
       const latest = await transaction.get(record);
-      if (!latest.exists) return true;
-      if (latest.get('version') !== version) {
-        // An older in-flight copy can overwrite a newer acknowledged copy.
-        // Leave a mismatch for retry/hourly repair even if that newer copy ran.
-        transaction.update(record, {claimsVersion: 0});
-        return false;
+      // A stale holder never releases a successor's lease or clears its work.
+      if (latest.exists && latest.get('claimsLeaseHolder') === holder) {
+        transaction.update(record, {claimsPending:true,
+          claimsLeaseHolder:FieldValue.delete(),claimsLeaseUntil:FieldValue.delete()});
       }
-      transaction.update(record, {claimsVersion: version});
-      transaction.set(db.doc(`users/${uid}`), {
-        claimsVersion: version, claimsChangedAt: FieldValue.serverTimestamp(),
-      }, {merge:true});
-      return true;
     });
-    if (applied) return;
+    throw error;
   }
-  throw new Error('Entitlement changed during claim copy; retry required');
 }
 
 export async function repairClaims(db: Firestore, auth: ClaimAuth): Promise<void> {

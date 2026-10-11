@@ -78,7 +78,7 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
         });
       }
       const current = await record.get();
-      if (current.get('claimsVersion') !== current.get('version')) {
+      if (current.get('claimsPending') === true || current.get('claimsVersion') !== current.get('version')) {
         await copyEntitlementClaims(deps.db, deps.auth, uid);
       }
     }
