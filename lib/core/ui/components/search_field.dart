@@ -25,6 +25,7 @@ class SearchField extends StatefulWidget {
 class _SearchFieldState extends State<SearchField> {
   late final TextEditingController _owned = TextEditingController();
   final FocusNode _focus = FocusNode();
+  bool _editing = false;
   TextEditingController get _text => widget.controller ?? _owned;
   @override
   void initState() {
@@ -33,7 +34,7 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   void _focusChanged() {
-    setState(() {});
+    if (_focus.hasFocus && !_editing) setState(() => _editing = true);
   }
 
   @override
@@ -82,7 +83,7 @@ class _SearchFieldState extends State<SearchField> {
       ),
     );
     final cancel = TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: _focus.hasFocus ? 1 : 0),
+      tween: Tween(begin: 0, end: _editing ? 1 : 0),
       duration: duration,
       curve: PantasCurves.houseOut,
       builder: (context, value, child) => ClipRect(
@@ -91,9 +92,9 @@ class _SearchFieldState extends State<SearchField> {
           child: Opacity(
             opacity: value,
             child: ExcludeFocus(
-              excluding: !_focus.hasFocus,
+              excluding: !_editing,
               child: ExcludeSemantics(
-                excluding: !_focus.hasFocus,
+                excluding: !_editing,
                 child: child,
               ),
             ),
@@ -104,7 +105,8 @@ class _SearchFieldState extends State<SearchField> {
         onPressed: () {
           _text.clear();
           widget.onChanged('');
-          _focus.unfocus();
+          FocusManager.instance.primaryFocus?.unfocus();
+          setState(() => _editing = false);
         },
         child: Text(
           'Cancel',
@@ -118,7 +120,7 @@ class _SearchFieldState extends State<SearchField> {
       children: [
         if (widget.title != null)
           TweenAnimationBuilder<double>(
-            tween: Tween(begin: 1, end: _focus.hasFocus ? 0 : 1),
+            tween: Tween(begin: 1, end: _editing ? 0 : 1),
             duration: duration,
             curve: PantasCurves.houseOut,
             builder: (context, value, child) => ClipRect(
@@ -127,7 +129,7 @@ class _SearchFieldState extends State<SearchField> {
                 child: Opacity(
                   opacity: value,
                   child: ExcludeSemantics(
-                    excluding: _focus.hasFocus,
+                    excluding: _editing,
                     child: child,
                   ),
                 ),
