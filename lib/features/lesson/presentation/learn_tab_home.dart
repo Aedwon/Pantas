@@ -8,9 +8,7 @@ import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/empty_state.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/ink_magnifier.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
-import 'package:pantas/core/ui/components/tab_header.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
@@ -196,40 +194,16 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
         }
 
         return PageScaffold(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (_searching)
-                SearchFieldBar(
-                  onCancel: () {
-                    setState(() => _searching = false);
-                  },
-                )
-              else
-                Stack(
-                  children: [
-                    const TabHeader(title: 'Study'),
-                    Positioned(
-                      top: 5,
-                      right: 0,
-                      child: Semantics(
-                        button: true,
-                        label: 'Search lessons',
-                        onTap: () => setState(() => _searching = true),
-                        child: ExcludeSemantics(
-                          child: GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () => setState(() => _searching = true),
-                            child: const SizedBox.square(
-                              dimension: 48,
-                              child: Center(child: InkMagnifier()),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              SearchFieldBar(
+                onCancel: () => setState(() => _searching = false),
+                onEditingChanged: (editing) =>
+                    setState(() => _searching = editing),
+              ),
+              const SizedBox(height: 24),
               if (_searching)
                 const Expanded(
                   child: SearchResults(),

@@ -26,6 +26,13 @@ class ListRow extends StatelessWidget {
     this.editor,
     this.onTap,
     this.divider = false,
+    this.richTitle,
+    this.footer,
+    this.leading,
+    this.titleColor,
+    this.verticalPadding = 11,
+    this.richSubtitle,
+    this.valueStyle,
     super.key,
   });
   final String title;
@@ -39,23 +46,33 @@ class ListRow extends StatelessWidget {
   final Widget? editor;
   final VoidCallback? onTap;
   final bool divider;
+  final InlineSpan? richTitle;
+  final Widget? footer;
+  final Widget? leading;
+  final Color? titleColor;
+  final double verticalPadding;
+  final InlineSpan? richSubtitle;
+  final TextStyle? valueStyle;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
-    final label = Text(
-      title,
+    final labelStyle = context.type.body.copyWith(
+      color: variant == ListRowVariant.destructive
+          ? c.wrongText
+          : titleColor ?? c.label,
+    );
+    final label = Text.rich(
+      richTitle ?? TextSpan(text: title),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: context.type.body.copyWith(
-        color: variant == ListRowVariant.destructive ? c.wrongText : c.label,
-      ),
+      style: labelStyle,
     );
     final detail = value == null
         ? null
         : Text(
             value!,
-            style: context.type.rowValue,
+            style: valueStyle ?? context.type.rowValue,
             textAlign: stack ? TextAlign.start : TextAlign.end,
           );
     final trailing = switch (variant) {
@@ -112,9 +129,9 @@ class ListRow extends StatelessWidget {
                 onTap: onTap,
                 child: Container(
                   constraints: const BoxConstraints(minHeight: 44),
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 16,
-                    vertical: 11,
+                    vertical: verticalPadding,
                   ),
                   decoration: BoxDecoration(
                     border: divider
@@ -125,7 +142,10 @@ class ListRow extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      if (icon != null) ...[
+                      if (leading != null) ...[
+                        leading!,
+                        const SizedBox(width: 12),
+                      ] else if (icon != null) ...[
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),
                       ],
@@ -134,8 +154,11 @@ class ListRow extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             label,
-                            if (subtitle != null)
-                              Text(subtitle!, style: context.type.footnote),
+                            if (subtitle != null || richSubtitle != null)
+                              Text.rich(
+                                  richSubtitle ?? TextSpan(text: subtitle),
+                                  style: context.type.footnote),
+                            if (footer != null) footer!,
                             if (stack && detail != null) detail,
                           ],
                         ),

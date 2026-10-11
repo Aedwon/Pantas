@@ -144,6 +144,14 @@ void main() {
     expect(hits, isEmpty);
   });
 
+  test('a topic name returns every lesson in that topic in corpus order',
+      () async {
+    container.read(searchQueryProvider.notifier).state = 'VOCAB';
+    final hits = await container.read(searchResultsProvider.future);
+    expect(hits.map((hit) => hit.lessonId), ['l1', 'l2']);
+    expect(hits.every((hit) => hit.topicName == 'Vocabulary'), isTrue);
+  });
+
   test('searchCorpusSizeProvider counts the exam lessons', () async {
     final count = await container.read(searchCorpusSizeProvider.future);
     expect(count, 2);

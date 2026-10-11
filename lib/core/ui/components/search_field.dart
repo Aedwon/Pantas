@@ -11,12 +11,16 @@ class SearchField extends StatefulWidget {
     this.hint = 'Search',
     this.title,
     this.controller,
+    this.onEditingChanged,
+    this.titleInset = 0,
     super.key,
   });
   final ValueChanged<String> onChanged;
   final String hint;
   final String? title;
   final TextEditingController? controller;
+  final ValueChanged<bool>? onEditingChanged;
+  final double titleInset;
   @override
   State<SearchField> createState() => _SearchFieldState();
 }
@@ -33,7 +37,10 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   void _focusChanged() {
-    if (_focus.hasFocus && !_editing) setState(() => _editing = true);
+    if (_focus.hasFocus && !_editing) {
+      setState(() => _editing = true);
+      widget.onEditingChanged?.call(true);
+    }
   }
 
   @override
@@ -110,6 +117,7 @@ class _SearchFieldState extends State<SearchField> {
           widget.onChanged('');
           FocusManager.instance.primaryFocus?.unfocus();
           setState(() => _editing = false);
+          widget.onEditingChanged?.call(false);
         },
         child: Text(
           'Cancel',
@@ -139,7 +147,7 @@ class _SearchFieldState extends State<SearchField> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 14),
+              padding: EdgeInsets.only(left: widget.titleInset, bottom: 14),
               child: Text(widget.title!, style: context.type.largeTitle),
             ),
           ),

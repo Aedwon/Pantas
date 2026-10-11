@@ -183,7 +183,12 @@ void main() {
       Duration.zero,
     );
     expect(
-      tester.widget<AnimatedOpacity>(find.byType(AnimatedOpacity)).duration,
+      tester
+          .widget<AnimatedOpacity>(find.descendant(
+            of: find.byType(AnimatedSlide),
+            matching: find.byType(AnimatedOpacity),
+          ))
+          .duration,
       Duration.zero,
     );
   });
