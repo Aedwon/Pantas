@@ -4,6 +4,20 @@ Level 3. Date: October 6, 2026. Author: lead. Policy revision: origin/main 1958c
 Level 2 plan: `L2-W4h-app-wide-states.md`. Base: integration branch after W2. Executor: one
 worker, own worktree (strategy B7 as amended Oct 6: GPT-6.1 Sol High through Codex; GPT-6 Astra audits; Opus lead reviews). Task 1 lands before any other family's state screens.
 
+## Lead rulings, October 11 (W4h stop at b8de9e05)
+
+1. Save-failure line: "Could not save your progress." with "Try Again" (lead default in the style
+   of the approved load line; reported to Aedwon, who may change the wording).
+2. Shared components: a screen family may extend a W2 component when a board needs something the
+   component lacks, in the component's own file with tests beside W2's, and lists the change in its
+   evidence. Never a local copy. For this family: `StateView` gains an optional detail paragraph,
+   an action label, and a primary-button action, with ST_NoExam's metrics (40 px faint icon, 6 px
+   gaps, 20/700 title at 1.35 and -0.2, 15/400 paragraph at 1.45, 48 px primary button, radius 14,
+   26 inset, bottom padding 150); `StateView.fullScreen` follows SY_Error (72 px circle `#EDEDF0`,
+   36 px glyph `#6E6E73` through tokens, 14 px gaps, content padding top 8 and bottom 120, the
+   button overlaid at the bottom with 16 px side gutters, 14 top and 30 bottom). The earlier
+   38 px `#C7C7CC` mark was W2's error; boards rule.
+
 ## Task 1. Pattern guide and helpers (lands first)
 
 Traceability: S0-32, S0-33, S0-34, G-a-22, G-d-3, G-h-13, G-h-17.

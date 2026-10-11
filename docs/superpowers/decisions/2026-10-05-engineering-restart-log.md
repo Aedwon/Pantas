@@ -1083,3 +1083,10 @@ branch (18399e61, evidence commit b935cbd2): 3,712 Flutter tests and the backend
 states) starts next because its first task sets the pattern for the other screen families. The
 lead added `docs/design/tools/outline.py`, which prints a board's text and key style values, so
 screen workers read less.
+
+## October 11, 2026: W4h rulings
+
+W4h finished Task 3 (b8de9e05; full suite 3,715 passed) and stopped on Tasks 1 and 2. Rulings: the
+save-failure line is "Could not save your progress." with "Try Again" (lead default, for Aedwon to
+confirm); a screen family may extend a W2 component in place, with tests, when a board needs more
+(never a local copy); `StateView` follows ST_NoExam and SY_Error exactly (L3 W4h amended).
