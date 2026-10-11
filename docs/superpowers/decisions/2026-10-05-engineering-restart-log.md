@@ -1081,5 +1081,5 @@ W1, the Astra audit, Aedwon's setup steps and the deploys.
 All 19 audit findings fixed (Task 8b, through 9e149234). The lead merged W2 into the integration
 branch (18399e61, evidence commit b935cbd2): 3,712 Flutter tests and the backend tests pass. W4h (app-wide
 states) starts next because its first task sets the pattern for the other screen families. The
-lead added , which prints a board's text and key style values, so
+lead added `docs/design/tools/outline.py`, which prints a board's text and key style values, so
 screen workers read less.
