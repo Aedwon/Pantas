@@ -591,7 +591,6 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
           entitlement: confirmed,
         );
       }
-      final reported = entitlementFromCustomerInfo(info);
       final uid = _uid;
       if (uid != null) {
         final pending = await _pendingStore.read(uid);
@@ -607,7 +606,8 @@ class LiveRevenueCatGateway implements RevenueCatPassGateway {
         }
       }
       return PaymentOperationResult.authoritative(
-        status: reported.proIsActive
+        status: confirmed.state != EntitlementState.paused &&
+                confirmed.coverage().hasKnownCoverage
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.noActiveSubscription,
         entitlement: confirmed,

@@ -7,6 +7,7 @@ import 'package:pantas/features/paywall/data/pass_ledger_source.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/pass_offering.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 
 import 'live_revenuecat_gateway_hardening_test.dart';
@@ -197,6 +198,27 @@ void main() {
     await gateway.logIn('expired-pass');
     expect(gateway.cachedEntitlement!.passes, isEmpty);
     expect(gateway.cachedEntitlement!.state, EntitlementState.free);
+    await gateway.clearIdentity();
+    await ledger.close();
+  });
+
+  test('finding 5 pass-only Restore returns success from confirmed coverage',
+      () async {
+    final ledger = FakePassLedger();
+    ledger.values['pass-only-restore'] = {'exam_cse_pro': end};
+    final sdk = PassSdk()
+      ..customerInfo = answer(at)
+      ..restoreInfo = answer(at.add(const Duration(seconds: 1)));
+    final gateway = LiveRevenueCatGateway(
+      sdk: sdk,
+      passLedger: ledger,
+      referenceTime: () => at,
+    );
+    await gateway.logIn('pass-only-restore');
+    final result = await gateway.restorePurchases();
+    expect(result.confirmedEntitlement!.coversExam('exam_cse_pro'), isTrue);
+    expect(result.confirmedEntitlement!.coversExam('exam_cse_sub'), isFalse);
+    expect(result.status, PaymentOperationStatus.success);
     await gateway.clearIdentity();
     await ledger.close();
   });

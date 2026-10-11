@@ -311,8 +311,9 @@ void main() {
     test('restore distinguishes Pro from no active subscription', () async {
       final proGateway = LiveRevenueCatGateway(
         sdk: FakeRevenueCatSdk(
-          restoreInfo: const RevenueCatCustomerInfoSnapshot.active(
+          restoreInfo: RevenueCatCustomerInfoSnapshot.active(
             productId: 'pantas_pro_yearly',
+            expiresAt: DateTime.utc(2030),
           ),
         ),
         entitlementState: stateFor(),

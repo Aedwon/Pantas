@@ -65,8 +65,9 @@ void main() {
     'successful restore is immediately observable through entitlementProvider',
     () async {
       final sdk = RuntimeSdk(
-        restoreInfo: const RevenueCatCustomerInfoSnapshot.active(
+        restoreInfo: RevenueCatCustomerInfoSnapshot.active(
           productId: 'pantas_pro_yearly',
+          expiresAt: DateTime.utc(2030),
         ),
       );
       final gateway = LiveRevenueCatGateway(

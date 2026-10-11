@@ -55,8 +55,9 @@ void main() {
     final state = PaymentEntitlementState(failingWriteStore());
     final gateway = LiveRevenueCatGateway(
       sdk: FinalHardeningSdk(
-        restoreInfo: const RevenueCatCustomerInfoSnapshot.active(
+        restoreInfo: RevenueCatCustomerInfoSnapshot.active(
           productId: 'pantas_pro_yearly',
+          expiresAt: DateTime.utc(2030),
         ),
       ),
       entitlementState: state,

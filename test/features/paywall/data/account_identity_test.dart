@@ -160,8 +160,9 @@ void main() {
     await gateway.logIn('account-a');
     await gateway.logIn('account-b');
     expect(gateway.cachedEntitlement?.proIsActive, isFalse);
-    sdk.restoreInfo = const RevenueCatCustomerInfoSnapshot.active(
+    sdk.restoreInfo = RevenueCatCustomerInfoSnapshot.active(
       productId: 'pantas_pro_monthly',
+      expiresAt: DateTime.utc(2030),
     );
     expect(
       (await gateway.restorePurchases()).status,
