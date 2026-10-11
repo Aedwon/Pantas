@@ -23,7 +23,7 @@ class QuestionCard extends StatelessWidget {
         children: [
           if (passage != null) ...[passage!, const SizedBox(height: 20)],
           Text(subject.toUpperCase(), style: context.type.sectionHeader),
-          const SizedBox(height: 20),
+          const SizedBox(height: 8),
           ContentRenderer(
             text: stem,
             style: context.type.emphasized.copyWith(
