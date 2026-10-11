@@ -136,7 +136,7 @@ class QuestionGridSheet extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: Opacity(
-                    opacity: parts[p].enabled ? 1 : .5,
+                    opacity: parts[p].enabled ? 1 : .32,
                     child: Text(
                       parts[p].title,
                       style: context.type.sectionHeader,
@@ -158,7 +158,7 @@ class QuestionGridSheet extends StatelessWidget {
                           width: constraints.maxWidth / columns,
                           child: Center(
                             child: Opacity(
-                              opacity: parts[p].enabled ? 1 : .5,
+                              opacity: parts[p].enabled ? 1 : .32,
                               child: SizedBox.square(
                                 dimension: diameter,
                                 child: Semantics(
