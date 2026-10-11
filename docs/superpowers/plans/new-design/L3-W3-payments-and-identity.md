@@ -350,6 +350,36 @@ Traceability: X-10.
 server content exists (W6 removes `getProContent`). Test: a Pro user's read is denied.
 Checks: `npm test` in `functions/` green.
 
+## Task 14b. Audit fixes (GPT-6 Astra audit 1, Oct 11; lead agrees with all 5)
+
+Source: `gates/w3-astra-audit-1.md`. One commit per finding, failing test first, then the full
+checks. Lead rulings on the design of each fix:
+
+1. Claims copy (finding 1). The entitlement commit sets `claimsPending: true` in the same
+   transaction. One copier per account at a time: a lease field on the entitlement document
+   (holder id, expiry 60 seconds), taken in a transaction. The holder re-reads the newest
+   entitlement under the lease, writes those values to Auth (never its own event's values), checks
+   it still holds the lease, then clears `claimsPending` only if the version is unchanged, and
+   releases. A copier that cannot take the lease returns 500 so RevenueCat retries. Tests: the
+   older copy terminates right after its Auth write (the audit's case) and the final Auth claims
+   equal the newest Firestore record; the repair test asserts the repaired Auth values.
+2. Hourly repair (finding 3). `repairEntitlementClaims` queries only `claimsPending == true`
+   through a collection-group index (add it to `firestore.indexes.json`); no full scan. A second
+   scheduled job, once a day, compares Auth claims with Firestore for records whose `updatedAt` is
+   within the last 48 hours (indexed) and repairs mismatches, including records marked
+   synchronized. Test that an unchanged population costs zero entitlement reads in the hourly job.
+3. Retention (finding 4). Add an `expireAt` timestamp to each `webhookEvents/{eventId}/users/{uid}`
+   record (30 days) and each rate-limit record (1 hour), and declare Firestore TTL on those fields
+   in `firestore.indexes.json` field overrides. Store only what dedupe needs in the event record
+   (event id, version, time), not the full reconciliation facts. The TTL policy goes live with the
+   Task 15 deploy; add it to the deploy list.
+4. Paused access (finding 2). When the offline window pauses access, or a counted clock setback
+   occurs, the client runs one invalidate-and-fetch of customer information; if that fails it runs
+   again when connectivity returns. One request at a time, no loop. Tests must not call
+   configuration by hand.
+5. Restore result (finding 5). Restore reports success from confirmed coverage, ledger passes
+   included. Test the returned status for a pass-only customer.
+
 ## Task 15. Deploy steps (each with Aedwon's approval)
 
 Traceability: AC-3 deploy checks.

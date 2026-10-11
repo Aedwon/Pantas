@@ -47,10 +47,10 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Abuse review amendment | done: level 2 gate passed (review 7), level 3 gate passed (review 3) | gates/l3-abuse-gate-3.md |
 | Level 4: W0 integration | accepted Oct 6 (Astra audit, lead review); Task 6 not run | integration/new-design-r1 at 13e4f830; evidence/W0.md |
 | Level 4: W1 design foundation | accepted and integrated Oct 10 (Astra audit 1 fixed, lead review) | integration/new-design-r1 at 3f0863ab; gates/w1-astra-audit-1.md |
-| Level 4: W3 payments and identity | Tasks 1 to 14 built (5b23689d; 81 plain, 89 emulator tests); router edits for Tasks 3 and 8, Astra audit, deploys remain | web/new-design-w3-r1 |
+| Level 4: W3 payments and identity | built (4a36a3b3); Astra audit 1 done Oct 11 (no blocker, 3 major, 2 minor); fixes are Task 14b; then lead review, integration, deploys | web/new-design-w3-r1; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4a onboarding, W4c study and reader | started Oct 11 (Sol, parallel); stopped by the Codex limit before any commit; resume after the W3 audit | web/new-design-w4a-r1, web/new-design-w4c-r1 from cee7a9c5 |
+| Level 4: W4a onboarding, W4c study and reader | started Oct 11 (Sol, parallel); in progress, stopped twice by the Codex limit | web/new-design-w4a-r1, web/new-design-w4c-r1 from cee7a9c5 |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -59,16 +59,15 @@ W4h Tasks 1, 2, 3 and 5 reviewed and integrated (integration/new-design-r1 at ce
 W0, W1, W2, W6 Tasks 1 to 5c and those W4h tasks are integrated. W3 is built
 (web/new-design-w3-r1 at 4a36a3b3; lead-run checks pass) and waits for its Astra audit.
 
-## Running or scheduled (Oct 11, 3:20 PM)
+## Running or scheduled (Oct 11, 6:45 PM)
 
-- Codex ran out at 3:06 PM (resets 5:58 PM). The W4a and W4c Sol workers had only read their
-  plans; nothing committed. Sol started both, so Sonnet must not pick them up.
-- One scheduled job (`run-1759.sh` in the lead scratchpad): at 5:59 PM the GPT-6 Astra audit of W3
-  runs alone; when it ends, both Sol workers resume (session ids in `w4a-sid`, `w4c-sid`). If they
-  hit the limit again, resume them at the next reset (about 10:58 PM).
-- Worker and audit prompts, logs, reports and Codex session ids are in the lead session's
-  scratchpad (`w<N>-dispatch.md`, `w<N>.log`, `w<N>-report.md`, `w3-audit.md`); branches hold all
-  committed work.
+- Codex ran out at 6:32 PM (resets 10:59 PM). One scheduled job (`run-2300.sh` in the lead
+  scratchpad): at 11:00 PM the W3 Sol worker does Task 14b (audit fixes); when it ends, the W4a and
+  W4c Sol workers resume in parallel (session ids in `w3-sid`, `w4a-sid`, `w4c-sid`).
+- W4a has uncommitted work in its worktree; W4c has one commit (537d9ef8) and uncommitted work.
+  Sol started both, so Sonnet must not pick them up.
+- Prompts, logs, reports and session ids are in the lead session's scratchpad; branches and
+  worktrees hold the work.
 
 ## Next step
 

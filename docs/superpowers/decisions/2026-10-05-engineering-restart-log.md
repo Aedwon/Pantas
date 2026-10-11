@@ -1090,3 +1090,17 @@ W4h finished Task 3 (b8de9e05; full suite 3,715 passed) and stopped on Tasks 1 a
 save-failure line is "Could not save your progress." with "Try Again" (lead default, for Aedwon to
 confirm); a screen family may extend a W2 component in place, with tests, when a board needs more
 (never a local copy); `StateView` follows ST_NoExam and SY_Error exactly (L3 W4h amended).
+
+## October 11, 2026: W4h integrated; W3 audit 1
+
+- W4h Tasks 1, 2, 3 and 5 reviewed by the lead and integrated (integration/new-design-r1 at
+  cee7a9c5; 3,730 Flutter tests pass). Start-up failures of storage, content install or Firebase
+  setup now show "Something went wrong." with Try Again, as the plan requires. Task 4 waits for the
+  other screen families.
+- GPT-6 Astra audit 1 of W3 at 4a36a3b3: no blocker, 3 major, 2 minor
+  (`gates/w3-astra-audit-1.md`). The lead agrees with all five and wrote the fix designs as L3 W3
+  Task 14b: one claims copier per account with a lease and a pending flag, an indexed hourly repair
+  plus a daily check of recently changed records, expiry on webhook records, an automatic fresh
+  check when access pauses, and the Restore result taken from confirmed coverage.
+- Usage note: the audit used about 129,000 tokens in 3 minutes; two Sol workers then ran 30 minutes
+  (about 850,000 tokens reported) before the window ran out.
