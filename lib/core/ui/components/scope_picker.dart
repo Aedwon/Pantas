@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -109,39 +110,67 @@ class _ScopePickerState extends State<ScopePicker>
     final count = ids.where(widget.selectedIds.contains).length;
     final checked = count == ids.length;
     final partial = count > 0 && !checked;
-    final mark = Container(
+    final mark = SizedBox(
       width: 22,
       height: 22,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: count > 0 ? c.accentFill : null,
-        border: Border.all(
-          color: count > 0 ? c.accent : c.controlOutline,
-          width: 1.5,
-        ),
-      ),
-      child: partial
-          ? Center(
-              child: Container(
-                key: ValueKey('scope-partial-$id'),
-                width: 10,
-                height: 2.5,
-                decoration: BoxDecoration(
-                  color: c.onAccent,
-                  borderRadius: BorderRadius.circular(2),
-                ),
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: c.controlOutline, width: 1.5),
               ),
-            )
-          : checked
-              ? Icon(
-                  PantasIcons.check,
-                  size: 14,
-                  color: c.onAccent,
-                )
-              : null,
+            ),
+          ),
+          TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: count > 0 ? 1 : 0),
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : const Duration(milliseconds: 220),
+            curve: PantasCurves.popB,
+            builder: (context, value, child) => Transform.scale(
+              key: ValueKey('scope-mark-scale-$id'),
+              scale: .5 + .5 * value,
+              child: Opacity(
+                key: ValueKey('scope-mark-opacity-$id'),
+                opacity: value.clamp(0.0, 1.0),
+                child: child,
+              ),
+            ),
+            child: Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: c.accentFill,
+              ),
+              child: partial
+                  ? Center(
+                      child: Container(
+                        key: ValueKey('scope-partial-$id'),
+                        width: 10,
+                        height: 2.5,
+                        decoration: BoxDecoration(
+                          color: c.onAccent,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    )
+                  : checked
+                      ? Icon(
+                          PantasIcons.check,
+                          size: 14,
+                          color: c.onAccent,
+                        )
+                      : null,
+            ),
+          ),
+        ],
+      ),
     );
     final body = Material(
-      color: lesson ? c.background : c.surface,
+      color: lesson ? c.pickerBackground : c.surface,
       child: Row(
         children: [
           Expanded(
@@ -150,7 +179,7 @@ class _ScopePickerState extends State<ScopePicker>
               onTap: enabled ? () => toggle(id, ids) : null,
               child: Padding(
                 padding: EdgeInsets.fromLTRB(
-                  lesson ? 44 : 16,
+                  lesson ? 42 : 16,
                   12,
                   expand == null ? 16 : 0,
                   12,
@@ -160,35 +189,37 @@ class _ScopePickerState extends State<ScopePicker>
                     mark,
                     const SizedBox(width: 12),
                     Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: context.type.body.copyWith(
-                              fontSize: lesson ? 16 : 17,
-                              letterSpacing: lesson ? 0 : -.204,
-                            ),
-                          ),
-                          if (!enabled)
-                            Text(
-                              'No questions yet',
-                              style: context.type.footnote,
-                            ),
-                          if (unread)
-                            Text(
-                              'Unread',
-                              style: context.type.footnote.copyWith(
-                                fontWeight: FontWeight.w500,
-                                color: c.warningText,
-                              ),
-                            ),
-                        ],
+                      child: Text(
+                        title,
+                        style: context.type.body.copyWith(
+                          fontSize: lesson ? 16 : 17,
+                          letterSpacing: lesson ? 0 : -.204,
+                        ),
                       ),
                     ),
+                    if (!enabled)
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Text(
+                            'No questions yet',
+                            style: context.type.footnote,
+                          ),
+                        ),
+                      ),
+                    if (unread)
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Text(
+                            'Unread',
+                            style: context.type.footnote.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color: c.warningText,
+                            ),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -203,14 +234,20 @@ class _ScopePickerState extends State<ScopePicker>
                 onPressed: expand,
                 tooltip: expanded ? 'Hide lessons' : 'Show lessons',
                 icon: AnimatedRotation(
-                  turns: expanded ? .25 : 0,
+                  key: ValueKey('scope-caret-$id'),
+                  turns: expanded ? .5 : 0,
+                  curve: PantasCurves.houseOut,
                   duration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero
                       : const Duration(milliseconds: 300),
-                  child: Icon(
-                    PantasIcons.next,
-                    size: 16,
-                    color: c.tertiaryLabel,
+                  child: Transform.rotate(
+                    key: ValueKey('scope-caret-base-$id'),
+                    angle: math.pi / 2,
+                    child: Icon(
+                      PantasIcons.next,
+                      size: 16,
+                      color: c.tertiaryLabel,
+                    ),
                   ),
                 ),
               ),
@@ -233,6 +270,22 @@ class _ScopePickerState extends State<ScopePicker>
     );
   }
 
+  Widget lessons(ScopeTopic topic) => _expanded.contains(topic.id)
+      ? Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            for (final (index, lesson) in topic.lessons.indexed) ...[
+              row(lesson.id, lesson.title, {lesson.id},
+                  enabled: topic.hasQuestions,
+                  unread: lesson.unread,
+                  lesson: true),
+              if (index < topic.lessons.length - 1)
+                Container(height: .5, color: context.colors.separator),
+            ],
+          ],
+        )
+      : const SizedBox.shrink();
+
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -251,7 +304,7 @@ class _ScopePickerState extends State<ScopePicker>
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  for (final topic in subject.topics) ...[
+                  for (final (index, topic) in subject.topics.indexed) ...[
                     row(
                       topic.id,
                       topic.title,
@@ -268,28 +321,21 @@ class _ScopePickerState extends State<ScopePicker>
                               ),
                       expanded: _expanded.contains(topic.id),
                     ),
-                    AnimatedSize(
-                      duration: MediaQuery.disableAnimationsOf(context)
-                          ? Duration.zero
-                          : const Duration(milliseconds: 300),
-                      curve: PantasCurves.houseOut,
-                      child: _expanded.contains(topic.id)
-                          ? Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                for (final lesson in topic.lessons)
-                                  row(
-                                    lesson.id,
-                                    lesson.title,
-                                    {lesson.id},
-                                    enabled: topic.hasQuestions,
-                                    unread: lesson.unread,
-                                    lesson: true,
-                                  ),
-                              ],
-                            )
-                          : const SizedBox.shrink(),
-                    ),
+                    if (MediaQuery.disableAnimationsOf(context))
+                      lessons(topic)
+                    else
+                      AnimatedSize(
+                        key: ValueKey('scope-lessons-${topic.id}'),
+                        duration: const Duration(milliseconds: 600),
+                        curve: PantasCurves.houseOut,
+                        child: lessons(topic),
+                      ),
+                    if (index < subject.topics.length - 1)
+                      Container(
+                        key: ValueKey('scope-rule-${topic.id}'),
+                        height: .5,
+                        color: context.colors.separator,
+                      ),
                   ],
                 ],
               ),
