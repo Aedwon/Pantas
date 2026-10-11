@@ -1,5 +1,5 @@
 import '../lib/index.js';
-import {getFirestore} from 'firebase-admin/firestore';
+import {getFirestore,Timestamp} from 'firebase-admin/firestore';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import * as claims from '../lib/revenuecatClaims.js';
@@ -148,4 +148,26 @@ test('AC-3 a terminated copier leaves durable pending work and an expired lease 
   assert.equal(latest.claimsPending,false);
   assert.equal(latest.claimsVersion,latest.version);
   assert.equal(latest.claimsLeaseHolder,undefined);
+});
+
+
+test('finding 3 daily consistency repairs actual Auth mismatches even when marked synchronized, within 48 hours only', async()=>{
+  const recent = 'w3-daily-recent', old = 'w3-daily-old';
+  const now = Date.now();
+  for(const [uid,hours] of [[recent,1],[old,49]]) {
+    await db.doc(`users/${uid}/server/entitlement`).set({
+      ...result,version:1,claimsVersion:1,claimsPending:false,
+      updatedAt:Timestamp.fromMillis(now-hours*3600000),
+    });
+  }
+  const values = new Map([[recent,{pro:false,proUntil:0}],[old,{pro:false,proUntil:0}]]);
+  const reads = [];
+  const a = {getUser:async uid=>{reads.push(uid);if(!values.has(uid)) throw Error('unrelated fixture');return {customClaims:values.get(uid)};},
+    setCustomUserClaims:async(uid,value)=>values.set(uid,value)};
+  await helper('checkRecentClaims')(db,a,()=>now);
+  assert.equal(values.get(recent).pro,true);
+  assert.equal(values.get(recent).proUntil,result.proUntil);
+  assert.equal((await db.doc(`users/${recent}/server/entitlement`).get()).get('claimsPending'),false);
+  assert.equal(values.get(old).pro,false);
+  assert.equal(reads.includes(old),false);
 });

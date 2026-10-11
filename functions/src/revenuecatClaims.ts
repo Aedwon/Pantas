@@ -22,7 +22,8 @@ export async function commitRevenueCatAnswer(db: Firestore, uid: string, eventId
     transaction.set(event, {answerAt, facts});
     transaction.set(record, {...prepared.claims, answerAt, facts,
       version: Number(previous.get('version') ?? 0) + 1,
-      claimsVersion: Number(previous.get('claimsVersion') ?? 0), claimsPending:true}, {merge:true});
+      claimsVersion: Number(previous.get('claimsVersion') ?? 0), claimsPending:true,
+      updatedAt:FieldValue.serverTimestamp()}, {merge:true});
     return true;
   });
 }
@@ -86,15 +87,49 @@ export async function copyEntitlementClaims(db: Firestore, auth: ClaimAuth, uid:
 export async function repairClaims(db: Firestore, auth: ClaimAuth): Promise<void> {
   let last;
   while (true) {
-    let query = db.collectionGroup('server').orderBy(FieldPath.documentId()).limit(500);
+    let query = db.collectionGroup('server').where('claimsPending','==',true)
+      .orderBy(FieldPath.documentId()).limit(500);
     if (last) query = query.startAfter(last);
     const page = await query.get();
     for (const doc of page.docs) {
-      if (doc.id !== 'entitlement' || doc.get('claimsVersion') === doc.get('version')) continue;
+      if (doc.id !== 'entitlement') continue;
       const user = doc.ref.parent.parent;
       if (user?.parent.id !== 'users') continue;
       try { await copyEntitlementClaims(db, auth, user.id); }
       catch (error) { console.error('Entitlement claim repair failed', {uid:user.id, error}); }
+    }
+    if (page.size < 500) return;
+    last = page.docs.at(-1);
+  }
+}
+
+
+/** Bounded daily backstop for a terminated external Auth write. */
+export async function checkRecentClaims(db: Firestore, auth: ClaimAuth,
+  now: () => number = Date.now): Promise<void> {
+  const since = Timestamp.fromMillis(now()-48*60*60*1000);
+  let last;
+  while (true) {
+    let query = db.collectionGroup('server').where('updatedAt','>=',since)
+      .orderBy('updatedAt').orderBy(FieldPath.documentId()).limit(500);
+    if (last) query = query.startAfter(last);
+    const page = await query.get();
+    for (const doc of page.docs) {
+      const user = doc.ref.parent.parent;
+      if (doc.id !== 'entitlement' || user?.parent.id !== 'users') continue;
+      try {
+        const actual = (await auth.getUser(user.id)).customClaims ?? {};
+        if (actual.pro === doc.get('pro') && actual.proUntil === doc.get('proUntil')) continue;
+        const pending = await db.runTransaction(async transaction => {
+          const latest = await transaction.get(doc.ref);
+          if (!latest.exists || latest.get('version') !== doc.get('version')) return false;
+          transaction.update(doc.ref, {claimsPending:true});
+          return true;
+        });
+        if (pending) await copyEntitlementClaims(db,auth,user.id,now);
+      } catch (error) {
+        console.error('Entitlement consistency repair failed', {uid:user.id,error});
+      }
     }
     if (page.size < 500) return;
     last = page.docs.at(-1);

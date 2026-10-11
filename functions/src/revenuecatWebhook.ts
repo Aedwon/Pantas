@@ -3,7 +3,7 @@ import { getAuth, type Auth } from 'firebase-admin/auth';
 import { defineSecret } from 'firebase-functions/params';
 import { onRequest } from 'firebase-functions/v2/https';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
-import { commitRevenueCatAnswer, copyEntitlementClaims, repairClaims } from './revenuecatClaims.js';
+import { commitRevenueCatAnswer, copyEntitlementClaims, repairClaims, checkRecentClaims } from './revenuecatClaims.js';
 import { claimsForRevenueCatAnswer, normalizeRevenueCatEvent, requireExactRevenueCatRawBody,
   verifyRevenueCatSignature, isUnresolvedFirebaseIdentityError, type RevenueCatAccessSource } from './revenuecatPolicy.js';
 import { readRevenueCatCustomer, readRevenueCatPurchases, type RevenueCatPurchase } from './revenuecatSubscriber.js';
@@ -105,3 +105,6 @@ export const revenuecatWebhook = onRequest({region:'asia-southeast1', secrets:[a
 
 export const repairEntitlementClaims = onSchedule({schedule:'every 60 minutes',region:'asia-southeast1'},
   () => repairClaims(getFirestore(), getAuth()));
+
+export const checkRecentEntitlementClaims = onSchedule({schedule:'every 24 hours',region:'asia-southeast1'},
+  () => checkRecentClaims(getFirestore(), getAuth()));

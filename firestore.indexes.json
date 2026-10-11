@@ -95,6 +95,22 @@
         { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "retiredAt", "order": "ASCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "server",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "claimsPending", "order": "ASCENDING" },
+        { "fieldPath": "__name__", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "server",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "updatedAt", "order": "ASCENDING" },
+        { "fieldPath": "__name__", "order": "ASCENDING" }
+      ]
     }
   ]
 }

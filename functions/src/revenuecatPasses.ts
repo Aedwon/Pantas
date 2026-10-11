@@ -127,7 +127,7 @@ export async function recomputePassRecords(db: Firestore, catalog: CatalogExam[]
         transaction.update(doc.ref, {endsAt,sitting});
         transaction.set(db.doc(`passOwners/${receiptKey(pass.transactionId)}`),
           {endsAt,sitting}, {merge:true});
-        transaction.update(record.ref, {...claims,claimsPending:true,version:Number(record.get('version'))+1});
+        transaction.update(record.ref, {...claims,claimsPending:true,updatedAt:FieldValue.serverTimestamp(),version:Number(record.get('version'))+1});
         transaction.create(db.collection('audit_logs').doc(), {
           uid:user.id,event:'passEndMoved',timestamp:FieldValue.serverTimestamp(),
           metadata:{transactionId:pass.transactionId,from:pass.endsAt,to:endsAt},
