@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
 
 import '../helpers/in_memory_database.dart';
 
@@ -34,6 +35,8 @@ void main() {
   Future<void> pumpApp(
     WidgetTester tester, {
     AuthUser? currentUser,
+    Entitlement entitlement = const Entitlement.free(),
+    bool proForExam = false,
   }) async {
     await tester.pumpWidget(
       ProviderScope(
@@ -41,8 +44,9 @@ void main() {
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
-            (_) => Stream.value(const Entitlement.free()),
+            (_) => Stream.value(entitlement),
           ),
+          proForActiveExamProvider.overrideWith((_) async => proForExam),
           currentUserProvider.overrideWith((_) async => currentUser),
         ],
         child: const App(flavor: Flavor.dev),
@@ -120,4 +124,51 @@ void main() {
     final route = tester.widget<MockStartRoute>(find.byType(MockStartRoute));
     expect(route.resumeAttemptId, 'mock_local');
   });
+
+  for (final covered in [false, true]) {
+    for (final route in [
+      '/quiz',
+      '/quiz/flagged/upcat',
+      '/mock/review/mock_local',
+    ]) {
+      testWidgets('route $route uses active-exam coverage $covered',
+          (tester) async {
+        await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+        await AppPreferencesRepository(db).setSelectedExamId('upcat');
+        await pumpApp(
+          tester,
+          entitlement: Entitlement(
+            plan: EntitlementPlan.monthly,
+            productId: 'pantas_pro_monthly',
+            expiresAt: DateTime.utc(2030),
+          ),
+          proForExam: covered,
+        );
+        final container =
+            ProviderScope.containerOf(tester.element(find.byType(App)));
+        container.read(routerProvider).go(route);
+        await tester.pumpAndSettle();
+        expect(
+          container
+              .read(routerProvider)
+              .routeInformationProvider
+              .value
+              .uri
+              .path,
+          route,
+        );
+        final actual = switch (route) {
+          '/quiz' =>
+            tester.widget<MockPanel>(find.byType(MockPanel)).proIsActive,
+          '/quiz/flagged/upcat' => tester
+              .widget<FlaggedListPage>(find.byType(FlaggedListPage))
+              .proIsActive,
+          _ => tester
+              .widget<MockReviewPage>(find.byType(MockReviewPage))
+              .proIsActive,
+        };
+        expect(actual, covered);
+      });
+    }
+  }
 }

@@ -56,14 +56,12 @@ List<RouteBase> mockRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/mock/review/:attemptId',
-        builder: (_, state) {
-          final attemptId = state.pathParameters['attemptId']!;
-          final proIsActive =
-              ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
-          return MockReviewPage(
-            attemptId: attemptId,
-            proIsActive: proIsActive,
-          );
-        },
+        builder: (_, state) => Consumer(
+          builder: (_, ref, __) => MockReviewPage(
+            attemptId: state.pathParameters['attemptId']!,
+            proIsActive:
+                ref.watch(proForActiveExamProvider).valueOrNull ?? false,
+          ),
+        ),
       ),
     ];
