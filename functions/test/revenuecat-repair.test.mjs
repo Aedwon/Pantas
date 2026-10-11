@@ -21,12 +21,16 @@ test('finding 3 hourly repair reads zero entitlement documents in an unchanged p
   assert.equal(documentReads,0);
 });
 
-test('finding 3 repair queries have their collection-group indexes',()=>{
+test('finding 3 repair queries have single-field collection-group overrides',()=>{
   const config=JSON.parse(readFileSync(new URL('../../firestore.indexes.json',import.meta.url)));
   for(const field of ['claimsPending','updatedAt']) {
-    assert.ok(config.indexes.some(index=>index.collectionGroup==='server' &&
-      index.queryScope==='COLLECTION_GROUP' &&
-      index.fields.some(item=>item.fieldPath===field)),field);
+    const overrides=config.fieldOverrides.filter(override=>
+      override.collectionGroup==='server' && override.fieldPath===field);
+    assert.equal(overrides.length,1,field);
+    assert.deepEqual(overrides[0].indexes,[
+      {order:'ASCENDING',queryScope:'COLLECTION'},
+      {order:'ASCENDING',queryScope:'COLLECTION_GROUP'},
+    ],field);
   }
 });
 

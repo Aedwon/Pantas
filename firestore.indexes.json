@@ -95,25 +95,25 @@
         { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "retiredAt", "order": "ASCENDING" }
       ]
-    },
-    {
-      "collectionGroup": "server",
-      "queryScope": "COLLECTION_GROUP",
-      "fields": [
-        { "fieldPath": "claimsPending", "order": "ASCENDING" },
-        { "fieldPath": "__name__", "order": "ASCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "server",
-      "queryScope": "COLLECTION_GROUP",
-      "fields": [
-        { "fieldPath": "updatedAt", "order": "ASCENDING" },
-        { "fieldPath": "__name__", "order": "ASCENDING" }
-      ]
     }
   ],
   "fieldOverrides": [
+    {
+      "collectionGroup": "server",
+      "fieldPath": "claimsPending",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
+      "collectionGroup": "server",
+      "fieldPath": "updatedAt",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
     { "collectionGroup": "users", "fieldPath": "expireAt", "ttl": true, "indexes": [] },
     { "collectionGroup": "webhookRateLimits", "fieldPath": "expireAt", "ttl": true, "indexes": [] }
   ]
