@@ -58,7 +58,15 @@ export async function retirePublicId(db: Firestore, uid: string): Promise<void> 
   await db.runTransaction(async transaction => {
     const snapshot = await transaction.get(user);
     const id: unknown = snapshot.get('publicId');
-    if (!isValidPublicId(id)) return;
+    if (!isValidPublicId(id)) {
+      // Deletion can precede the first sign-in audit/ID allocation. Preserve
+      // the same retirement guard through user-root cleanup in that case.
+      const ownerHash = createHash('sha256').update(uid).digest('hex');
+      transaction.set(db.doc(`retiredPublicIds/account_${ownerHash}`),
+        {ownerHash,retiredAt:FieldValue.serverTimestamp()});
+      transaction.set(user, {publicIdRetired:true}, {merge:true});
+      return;
+    }
     const mapping = db.doc(`publicIds/${id}`);
     const current = await transaction.get(mapping);
     if (current.exists && current.get('uid') !== uid) throw new Error('Public ID owner mismatch');

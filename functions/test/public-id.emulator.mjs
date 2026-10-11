@@ -102,3 +102,13 @@ test('R-5 deletion retires before Auth deletion, prevents recreation and never r
   await db.recursiveDelete(db.doc('users/public-id-after-delete'));
   assert.equal(await ensurePublicId(db, named('public-id-after-delete'), () => sequence.shift()), '100000009');
 });
+
+test('R-5 deletion before first ID allocation prevents a late sign-in from creating an orphan mapping', async () => {
+  const {ensurePublicId,retirePublicId} = await module();
+  const uid = 'public-id-delete-before-first-id';
+  await db.recursiveDelete(db.doc('users/'+uid));
+  await retirePublicId(db,uid);
+  await db.recursiveDelete(db.doc('users/'+uid));
+  assert.equal(await ensurePublicId(db,named(uid)),null);
+  assert.equal((await db.collection('publicIds').where('uid','==',uid).get()).empty,true);
+});
