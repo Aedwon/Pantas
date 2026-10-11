@@ -359,7 +359,9 @@ class _FigureFrame extends StatelessWidget {
     required this.figure,
     required this.label,
     required this.credit,
+    this.imageSemantics = true,
   });
+  final bool imageSemantics;
   final Widget figure;
   final String label;
   final String credit;
@@ -433,12 +435,14 @@ class _FigureFrame extends StatelessWidget {
               children: [
                 ColoredBox(
                   color: Colors.white,
-                  child: Semantics(
-                    label: label,
-                    image: true,
-                    excludeSemantics: true,
-                    child: Theme(data: buildLightTheme(), child: figure),
-                  ),
+                  child: imageSemantics
+                      ? Semantics(
+                          label: label,
+                          image: true,
+                          excludeSemantics: true,
+                          child: Theme(data: buildLightTheme(), child: figure),
+                        )
+                      : Theme(data: buildLightTheme(), child: figure),
                 ),
                 Positioned(
                   right: 1,
@@ -504,10 +508,13 @@ class _ContentImageState extends State<_ContentImage> {
   Widget build(BuildContext context) => _FigureFrame(
         label: widget.label,
         credit: widget.credit,
+        imageSemantics: false,
         figure: Image.network(
           widget.url,
           key: ValueKey(_retry),
           fit: BoxFit.contain,
+          semanticLabel: widget.label,
+          excludeFromSemantics: widget.label.isEmpty,
           errorBuilder: (context, error, stackTrace) =>
               _ImageFailure(onRetry: () => setState(() => _retry++)),
         ),
