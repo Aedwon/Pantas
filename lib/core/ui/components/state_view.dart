@@ -9,26 +9,52 @@ class StateView extends StatelessWidget {
     this.onRetry,
     this.error,
     this.icon,
+    this.detail,
+    this.actionLabel = 'Try Again',
+    this.primaryAction = false,
     super.key,
   }) : fullScreen = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
       : message = 'Something went wrong.',
         fullScreen = true,
-        icon = null;
+        icon = null,
+        detail = null,
+        actionLabel = 'Try Again',
+        primaryAction = true;
   final String message;
   final VoidCallback? onRetry;
   // Error is deliberately not rendered. Callers keep diagnostic handling.
   final Object? error;
   final Widget? icon;
   final bool fullScreen;
+  final String? detail;
+  final String actionLabel;
+  final bool primaryAction;
   @override
   Widget build(BuildContext context) {
-    final mark = IconTheme(
-      data: IconThemeData(
-        size: fullScreen ? 38 : 60,
-        color: context.colors.chevron,
+    final primary = !fullScreen && primaryAction;
+    final gap = primary ? 6.0 : 14.0;
+    final mark = ExcludeSemantics(
+      child: IconTheme(
+        key: const ValueKey('state-icon-theme'),
+        data: IconThemeData(
+          size: fullScreen
+              ? 38
+              : primary
+                  ? 40
+                  : 60,
+          color: context.colors.chevron,
+        ),
+        child: SizedBox.square(
+          key: const ValueKey('state-mark'),
+          dimension: fullScreen
+              ? 38
+              : primary
+                  ? 40
+                  : 60,
+          child: icon ?? PantasIcons.progressError,
+        ),
       ),
-      child: icon ?? PantasIcons.progressError,
     );
     final content = Column(
       mainAxisSize: MainAxisSize.min,
@@ -46,7 +72,7 @@ class StateView extends StatelessWidget {
           )
         else
           mark,
-        const SizedBox(height: 14),
+        SizedBox(height: gap),
         Text(
           message,
           textAlign: TextAlign.center,
@@ -67,26 +93,71 @@ class StateView extends StatelessWidget {
               height: 1.45,
             ),
           ),
-        ] else if (onRetry != null) ...[
-          const SizedBox(height: 20),
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 220),
-            child: PantasButton(
-              label: 'Try Again',
-              variant: PantasButtonVariant.secondary,
-              height: 44,
-              fontSize: 15,
-              radius: 99,
-              onPressed: onRetry,
+        ] else ...[
+          if (detail != null) ...[
+            SizedBox(height: gap),
+            Text(
+              detail!,
+              textAlign: TextAlign.center,
+              style: context.type.subhead.copyWith(
+                color: context.colors.secondaryLabel,
+                height: 1.45,
+              ),
             ),
-          ),
+          ],
+          if (primary && onRetry != null) ...[
+            const SizedBox(height: 6),
+            PantasButton(
+              label: actionLabel,
+              onPressed: onRetry,
+              height: 48,
+              fullWidth: false,
+              horizontalPadding: 26,
+            ),
+          ] else if (onRetry != null) ...[
+            const SizedBox(height: 20),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 220),
+              child: PantasButton(
+                label: actionLabel,
+                variant: PantasButtonVariant.secondary,
+                height: 44,
+                fontSize: 15,
+                radius: 99,
+                onPressed: onRetry,
+              ),
+            ),
+          ],
         ],
       ],
     );
+    if (primary) {
+      return Semantics(
+        liveRegion: true,
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight:
+                    constraints.hasBoundedHeight ? constraints.maxHeight : 0,
+              ),
+              child: Padding(
+                key: const ValueKey('state-primary-content'),
+                padding: const EdgeInsets.fromLTRB(36, 0, 36, 150),
+                child: Center(child: content),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
     if (!fullScreen) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 36),
-        child: content,
+      return Semantics(
+        liveRegion: true,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 36),
+          child: content,
+        ),
       );
     }
     return Scaffold(

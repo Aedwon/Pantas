@@ -14,6 +14,8 @@ class PantasButton extends StatefulWidget {
     this.height = 52,
     this.fontSize = 17,
     this.radius = 14,
+    this.fullWidth = true,
+    this.horizontalPadding = 16,
     super.key,
   });
   final String label;
@@ -23,6 +25,8 @@ class PantasButton extends StatefulWidget {
   final double height;
   final double fontSize;
   final double radius;
+  final bool fullWidth;
+  final double horizontalPadding;
   @override
   State<PantasButton> createState() => _PantasButtonState();
 }
@@ -103,10 +107,12 @@ class _PantasButtonState extends State<PantasButton> {
           statesController: _states,
           onPressed: busy ? null : onPressed,
           style: ButtonStyle(
-            minimumSize: WidgetStatePropertyAll(Size(double.infinity, height)),
+            minimumSize: WidgetStatePropertyAll(
+              Size(widget.fullWidth ? double.infinity : 0, height),
+            ),
             padding: WidgetStatePropertyAll(
               EdgeInsets.symmetric(
-                horizontal: 16,
+                horizontal: widget.horizontalPadding,
                 vertical: height == 44 ? 10 : 12,
               ),
             ),
@@ -122,6 +128,8 @@ class _PantasButtonState extends State<PantasButton> {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize:
+                widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
             children: [
               if (busy) ...[
                 SizedBox.square(
