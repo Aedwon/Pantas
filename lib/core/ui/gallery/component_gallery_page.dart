@@ -333,6 +333,13 @@ class _ComponentGalleryPageState extends State<ComponentGalleryPage> {
           ),
       ],
       'ValueWheel': [
+        ValueWheel.horizontal(
+          values: const ['5', '10', '15', '20', '25'],
+          selectedIndex: _wheel,
+          label: 'Questions',
+          invalidIndices: const {0, 4},
+          onSelected: (v) => setState(() => _wheel = v),
+        ),
         ValueWheel(
           values: const ['5', '10', '15', '20', '25'],
           selectedIndex: _wheel,
