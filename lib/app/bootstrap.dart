@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,21 +9,28 @@ import 'package:pantas/app/app.dart';
 import 'package:pantas/app/auth_bootstrap.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/router.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/content/bundle/protected_content_installer.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/content_database_opener.dart';
 import 'package:pantas/core/content/security/content_package_verifier.dart';
 import 'package:pantas/core/content/security/content_signing_keys.dart';
 import 'package:pantas/core/dev/dev_demo_switch.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/core/error/app_error_recovery.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/app_check.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/database_opener.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
-import 'package:pantas/core/ui/components/app_error_view.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/font_licenses.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
@@ -111,95 +119,201 @@ void handleBootstrapError(
   debugPrint('Uncaught: $error\n$stack');
 }
 
-Future<void> bootstrap(Flavor flavor) async {
-  // Late-bound on purpose. The boundary has to be live before the container
-  // exists, because the container is built by the very code it guards: an
-  // error during storage or Firebase setup is exactly the one worth catching.
+typedef BootstrapInitializer = Future<void> Function(
+  Flavor flavor,
+  void Function(ProviderContainer) onContainerReady,
+);
+
+Future<void> bootstrap(
+  Flavor flavor, {
+  BootstrapInitializer? initialize,
+  bool releaseMode = kReleaseMode,
+}) async {
   ProviderContainer? container;
+  var starting = false;
+  var surfaceMounted = false;
+  final startupPage = ValueNotifier<Widget>(const SizedBox.shrink());
+  late VoidCallback retry;
+
+  Widget surface(Widget page) => MaterialApp(
+        key: UniqueKey(),
+        title: flavor.displayName,
+        theme: appLightTheme(),
+        darkTheme: appDarkTheme(),
+        home: page,
+      );
+
+  void showStartup(Widget page) {
+    startupPage.value = page;
+    if (surfaceMounted) return;
+    surfaceMounted = true;
+    runApp(
+      surface(
+        ValueListenableBuilder<Widget>(
+          valueListenable: startupPage,
+          builder: (context, page, _) => page,
+        ),
+      ),
+    );
+  }
+
+  Future<void> attempt() async {
+    if (starting) return;
+    starting = true;
+    try {
+      WidgetsFlutterBinding.ensureInitialized();
+      registerBundledFontLicenses();
+      installAppErrorRecovery(
+        releaseMode: releaseMode,
+        onRetry: () {
+          final ready = container;
+          if (ready == null) {
+            retry();
+          } else {
+            // Rebuild the root route, keeping the running data/services intact.
+            ready.invalidate(routerProvider);
+          }
+        },
+      );
+      showStartup(
+        Scaffold(
+          body: Center(child: loadingFor(const AsyncLoading<void>())),
+        ),
+      );
+      await (initialize ?? _bootstrap)(flavor, (built) => container = built);
+      startupPage.dispose();
+    } catch (error, stack) {
+      handleBootstrapError(error, stack, container: container);
+      container?.dispose();
+      container = null;
+      showStartup(StateView.fullScreen(error: error, onRetry: retry));
+    } finally {
+      starting = false;
+    }
+  }
 
   await runGuarded(
-    () => _bootstrap(flavor, (built) => container = built),
-    onError: (error, stack) => handleBootstrapError(
-      error,
-      stack,
-      container: container,
-    ),
+    () async {
+      // Retry events can arrive through a different event zone. Binding keeps
+      // runApp in the zone that initialized Flutter.
+      retry = Zone.current.bindCallback(() => attempt().ignore());
+      await attempt();
+    },
+    onError: (error, stack) =>
+        handleBootstrapError(error, stack, container: container),
   );
+}
+
+/// Firebase's low-level bootstrap intentionally reports unavailable. At startup
+/// that result needs the same recovery screen as storage/content failures.
+Future<FirebaseBootstrapResult> bootstrapFirebaseForStartup(
+  Flavor flavor, {
+  FirebaseBootAdapter adapter = const FirebaseSdkBootAdapter(),
+}) async {
+  final result = await bootstrapFirebase(flavor, adapter: adapter);
+  if (result == FirebaseBootstrapResult.unavailable) {
+    throw StateError('Firebase setup failed.');
+  }
+  return result;
 }
 
 Future<void> _bootstrap(
   Flavor flavor,
   void Function(ProviderContainer) onContainerReady,
 ) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  registerBundledFontLicenses();
-  installAppErrorView();
+  AppDatabase? database;
+  ContentDatabase? contentDatabase;
+  ProviderContainer? ownedContainer;
+  try {
+    final firebaseResult = await bootstrapFirebaseForStartup(flavor);
+    await activateAppCheck(flavor);
 
-  final firebaseResult = await bootstrapFirebase(flavor);
-  await activateAppCheck(flavor);
-
-  final overrides = await bootstrapStorageOverrides();
-  await ensureProtectedContentInstalled(
-    verifier: const BundledContentPackageVerifier(
-      loadAssetBytes: _loadContentPackageAssetBytes,
-      signingKeyLookup: ContentSigningKeys.lookupEntry,
-      bootstrapKeyLookup: _lookupContentBootstrapKey,
-    ),
-  );
-  final contentOverrides = await bootstrapContentOverrides();
-  final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
-  final authOverrides = authRepositoryOverrides(firebaseResult);
-
-  final container = ProviderContainer(
-    overrides: [
-      ...overrides,
-      ...contentOverrides,
-      ...remoteFlagsOverrides,
-      ...authOverrides,
-      ...mockEntitlementOverrides,
-      ...telemetryConsentOverrides,
-      // Install the Firebase telemetry sink only when live Firebase instances
-      // are available. User consent still gates anything reaching the sink.
-      telemetrySinkProvider.overrideWithValue(
-        FirebaseTelemetry.instancesIfAvailable(),
+    database = await openEncryptedDatabase();
+    final overrides = [appDatabaseProvider.overrideWithValue(database)];
+    await ensureProtectedContentInstalled(
+      verifier: const BundledContentPackageVerifier(
+        loadAssetBytes: _loadContentPackageAssetBytes,
+        signingKeyLookup: ContentSigningKeys.lookupEntry,
+        bootstrapKeyLookup: _lookupContentBootstrapKey,
       ),
-      // The review popup and the record of having asked. Both are inert
-      // until this runs, so nothing pops in a test.
-      appReviewGatewayProvider.overrideWith((ref) => InAppReviewGateway()),
-      reviewPromptStoreProvider.overrideWith(
-        (ref) => DriftReviewPromptStore(ref.watch(appDatabaseProvider)),
-      ),
-      notificationsGatewayProvider.overrideWith(
-        (ref) => ref.watch(liveNotificationsGatewayProvider),
-      ),
-      notificationServiceProvider.overrideWith(
-        (ref) => ref.watch(featureNotificationServiceProvider),
-      ),
-      notificationPermissionStatusProvider.overrideWith(
-        (ref) => ref.watch(featurePermissionStatusStreamProvider),
-      ),
-    ],
-  );
-  onContainerReady(container);
+    );
+    contentDatabase = await openProtectedContentDatabase();
+    final contentOverrides = [
+      contentDatabaseProvider.overrideWithValue(contentDatabase),
+    ];
+    final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
+    final authOverrides = authRepositoryOverrides(firebaseResult);
 
-  await bootstrapAuthSession(container, firebaseResult);
-  await applyPersistedTelemetryConsent(container);
-  await registerDevProSwitch(container);
-  await registerDevDemoSwitch(container);
-  await bootstrapRevenueCat(container);
-  await bootstrapSyncRuntime(container, firebaseResult);
+    final container = ProviderContainer(
+      overrides: [
+        ...overrides,
+        ...contentOverrides,
+        ...remoteFlagsOverrides,
+        ...authOverrides,
+        ...mockEntitlementOverrides,
+        ...telemetryConsentOverrides,
+        // Install the Firebase telemetry sink only when live Firebase instances
+        // are available. User consent still gates anything reaching the sink.
+        telemetrySinkProvider.overrideWithValue(
+          FirebaseTelemetry.instancesIfAvailable(),
+        ),
+        // The review popup and the record of having asked. Both are inert
+        // until this runs, so nothing pops in a test.
+        appReviewGatewayProvider.overrideWith((ref) => InAppReviewGateway()),
+        reviewPromptStoreProvider.overrideWith(
+          (ref) => DriftReviewPromptStore(ref.watch(appDatabaseProvider)),
+        ),
+        notificationsGatewayProvider.overrideWith(
+          (ref) => ref.watch(liveNotificationsGatewayProvider),
+        ),
+        notificationServiceProvider.overrideWith(
+          (ref) => ref.watch(featureNotificationServiceProvider),
+        ),
+        notificationPermissionStatusProvider.overrideWith(
+          (ref) => ref.watch(featurePermissionStatusStreamProvider),
+        ),
+      ],
+    );
+    ownedContainer = container;
+    onContainerReady(container);
 
-  final notificationsLifecycleObserver = NotificationsLifecycleObserver(
-    service: container.read(notificationServiceProvider),
-  );
-  WidgetsBinding.instance.addObserver(notificationsLifecycleObserver);
+    await bootstrapAuthSession(container, firebaseResult);
+    await applyPersistedTelemetryConsent(container);
+    await registerDevProSwitch(container);
+    await registerDevDemoSwitch(container);
+    await bootstrapRevenueCat(container);
+    await bootstrapSyncRuntime(container, firebaseResult);
 
-  runApp(
-    UncontrolledProviderScope(
-      container: container,
-      child: App(flavor: flavor),
-    ),
-  );
+    final notificationsLifecycleObserver = NotificationsLifecycleObserver(
+      service: container.read(notificationServiceProvider),
+    );
+    WidgetsBinding.instance.addObserver(notificationsLifecycleObserver);
+
+    runApp(
+      UncontrolledProviderScope(
+        container: container,
+        child: App(flavor: flavor),
+      ),
+    );
+  } catch (_) {
+    // A retry opens fresh handles. Stop subscriptions before closing either DB.
+    ownedContainer?.dispose();
+    if (contentDatabase != null) {
+      try {
+        await contentDatabase.close();
+      } catch (error) {
+        debugPrint('Startup content cleanup failed: $error');
+      }
+    }
+    if (database != null) {
+      try {
+        await database.close();
+      } catch (error) {
+        debugPrint('Startup storage cleanup failed: $error');
+      }
+    }
+    rethrow;
+  }
 }
 
 /// Reads persisted telemetry preference and applies it to the telemetry consent

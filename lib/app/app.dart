@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
+import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
 import 'package:pantas/features/settings/presentation/widgets/sync_reconciliation_gate.dart';
@@ -30,12 +31,14 @@ class App extends ConsumerWidget {
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
       routerConfig: router,
-      builder: (context, child) => SyncReconciliationGate(
-        child: NotificationTapRouter(
-          gateway: gateway,
-          router: router,
-          now: DateTime.now,
-          child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => AppErrorRecovery(
+        child: SyncReconciliationGate(
+          child: NotificationTapRouter(
+            gateway: gateway,
+            router: router,
+            now: DateTime.now,
+            child: child ?? const SizedBox.shrink(),
+          ),
         ),
       ),
     );

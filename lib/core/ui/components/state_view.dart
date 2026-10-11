@@ -39,20 +39,25 @@ class StateView extends StatelessWidget {
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
           size: fullScreen
-              ? 38
+              ? 36
               : primary
                   ? 40
                   : 60,
-          color: context.colors.chevron,
+          color: fullScreen
+              ? context.colors.secondaryLabel
+              : context.colors.chevron,
         ),
         child: SizedBox.square(
           key: const ValueKey('state-mark'),
           dimension: fullScreen
-              ? 38
+              ? 36
               : primary
                   ? 40
                   : 60,
-          child: icon ?? PantasIcons.progressError,
+          child: icon ??
+              (fullScreen
+                  ? Icon(PantasIcons.appError)
+                  : PantasIcons.progressError),
         ),
       ),
     );
@@ -61,6 +66,7 @@ class StateView extends StatelessWidget {
       children: [
         if (fullScreen)
           Container(
+            key: const ValueKey('state-mark-circle'),
             width: 72,
             height: 72,
             decoration: BoxDecoration(
@@ -163,17 +169,43 @@ class StateView extends StatelessWidget {
     return Scaffold(
       backgroundColor: context.colors.background,
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(36),
-            child: content,
-          ),
-        ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
-          child: PantasButton(label: 'Try Again', onPressed: onRetry),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            LayoutBuilder(
+              builder: (context, constraints) => SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(36, 8, 36, 120),
+                    child: Center(
+                      child: Semantics(liveRegion: true, child: content),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      context.colors.background.withValues(alpha: 0),
+                      context.colors.background,
+                    ],
+                    stops: const [0, .26],
+                  ),
+                ),
+                child: PantasButton(label: actionLabel, onPressed: onRetry),
+              ),
+            ),
+          ],
         ),
       ),
     );

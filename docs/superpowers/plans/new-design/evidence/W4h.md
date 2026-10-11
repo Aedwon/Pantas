@@ -1,6 +1,6 @@
 # W4h app-wide states: worker evidence
 
-Current continuation: Task 1 is implemented and its landing is the commit containing the October 11 continuation section below. Task 2 and Task 5 continue next. The initial blocked report below is historical.
+Current continuation: Task 1 landing is **51b044803d1879ceee83a1c9e5eb59b515c93103**. Task 2 is implemented and verified in this continuation. Task 5 cleanup/final checks follow. The initial blocked report below is historical.
 
 Date: October 11, 2026. Assignment: L3 Tasks 1, 2, 3 and 5. Task 4 is deferred to the lead's later dispatch.
 
@@ -195,3 +195,44 @@ exit 0
 `flutter analyze`, exit 1: the sole accepted onReorder notice at bookmarks_sheet.dart:238:21; `1 issue found. (ran in 2.3s)`. No new findings. Full checks are reserved for the end of this continuation.
 
 Code/test staged patch identity against b8de9e05, SHA-256: a31a4858cfc1ea302f96de8778e22c6e0d6c4e493bd7963747cf6a674f306515. This excludes documentation to avoid a self-referential hash. The task commit preserves this patch. The current worker checkpoint is this evidence; the lead updates main-owned STATUS/SSOT when it accepts/integrates the landing. Independent review and visual acceptance are not claimed.
+
+
+### Task 2: full-screen error and bootstrap recovery
+
+Base: Task 1 landing 51b044803d1879ceee83a1c9e5eb59b515c93103. Policy remains b039f66df5609d2361778799718f568e69174be4. Task 3 remains b8de9e05e933ee2d341ac00247b039c9defbc894. The earlier blocked questions are resolved; there are no open product/design questions in this implementation.
+
+Files: `lib/app/bootstrap.dart`, `lib/app/app.dart`, `lib/core/error/app_error_recovery.dart`, `lib/core/ui/components/state_view.dart`, `lib/core/ui/icons/pantas_icons.dart`, `test/app/bootstrap_recovery_test.dart`, `test/core/error/app_error_recovery_test.dart`, `test/core/ui/components/full_state_board_test.dart`, this evidence.
+
+StateView.fullScreen now follows SY_Error: 72 px circle in fill, 36 px Phosphor warning-circle glyph in secondaryLabel, 14 px gaps, 24/700 at 1.25/-.288, 16/400 detail at 1.45. Content uses 36/8/36/120 padding and the action overlays the bottom at 16/14/16/30. The measured action is 358 by 52 at x16/y762 in a 390 by 844 viewport. The test loads the shipped Geist files before measuring absolute layout, allowing at most one pixel for paragraph-height rounding. The board mark was previously the wrong symbol/color/size. The new named icon appError is the bundled regular Phosphor warning-circle (0xe4e2), checked against the installed font package's mapping, not a new package or asset.
+
+Scope extensions and why: `app.dart` registers the error recovery host in the existing MaterialApp builder. A failing child in a Column gives its replacement unbounded height; returning a full-screen Scaffold there produces more layout errors. A failing test demonstrated this. The release ErrorWidget builder now signals the root host and leaves a zero-size child placeholder for one frame. The root host renders W2 StateView at page constraints and removes the partial page. Before a host exists, the builder returns its own W1-themed MaterialApp with the same StateView. Debug preserves the framework builder. This is the ErrorWidget setup owned by the L2 amendment, not a screen-family copy. A ValueListenableBuilder owns and removes its signal subscription on disposal; the signal itself belongs to the process-global ErrorWidget builder. The named icon addition and root app wiring are listed explicitly outside the original abbreviated file table.
+
+Try Again on a running app clears the root failure and invalidates only routerProvider. It recreates the initial root route without restarting storage/services or invalidating the student's other state. Tests change a real StateProvider to 17 before the failure and verify it remains 17 after recovery, with exactly one startup and two router constructions. Tests exercise both whole-page and nested-child failures.
+
+Startup failures render the same error screen and retry the whole initialization. The retry is bound to the Flutter initialization zone; repeated failures retain that zone. In-flight attempts cannot overlap. One startup surface changes its page through a local ValueNotifier instead of repeatedly replacing MaterialApp; the notifier is disposed after success. It uses the Task 1 loading helper while initialization actually runs, with no artificial wait. Tests exposed stale-frame/in-flight behavior with repeated root runApp calls; the single startup surface fixes it. The injected initializer is a bounded startup dependency, so tests can exercise this boundary without native credentials or side effects.
+
+Firebase's existing helper returns unavailable rather than throwing. The new startup adapter converts that result into a recoverable startup failure, while preserving the low-level helper's existing contract. A real Firebase adapter test first throws, then succeeds; the test would show an unavailable app instead of recovery if this new check were removed. Storage/content failures use the same real bootstrap boundary.
+
+Failed default startup closes its opened app/content database handles after disposing partial service subscriptions. The existing encrypted/protected openers, arguments and content verifier remain unchanged. Bootstrap owns handles explicitly so a retry does not leave prior connections open. No database schema, encryption method, protected package, key, or student data was changed or regenerated. Runtime recovery does not close these handles.
+
+Test-first evidence: absent installer/initializer APIs initially failed compilation. With only inert API declarations/forwarding, the focused run failed all six recovery/board cases while the existing core checks passed. The nested-child case then failed with no error text after layout errors, and the pre-host case failed without a themed root. Both passed after their production fixes. Intermediate issues corrected: missing AppDatabase import, restoring ErrorWidget.builder before widget-test end checks, test-font substitution, and transient lint/format findings. Temporary debugging statements were removed.
+
+Task and shared-extension checks, run serially:
+
+```text
+flutter test test/core/error test/app test/core/ui/components/full_state_board_test.dart
+00:05 +102: All tests passed!
+exit 0
+
+dart format --output=none --set-exit-if-changed <eight task Dart files>
+Formatted 8 files (0 changed) in 0.01 seconds.
+exit 0
+
+dart run tool/check_layering.dart
+Running build hooks...Running build hooks...check_layering: OK
+exit 0
+```
+
+`flutter analyze`, exit 1: only the accepted onReorder notice at bookmarks_sheet.dart:238:21; `1 issue found. (ran in 3.3s)`. No new findings. The final two amendments after the 102-test run changed only a comment and test-name string wrapping; no behavior changed. The final full checks cover that exact result.
+
+Code/test staged patch against the Task 1 landing, SHA-256: ab6066f84b3932184ac8c6fa3b950b71227b5f490abc8630231f185e00223fff. Documentation is excluded from this identity. This task commit preserves the patch. AppErrorView has no remaining production caller, so Task 5 can delete it and its legacy tests. No other family was edited. Independent review and Aedwon's visual checking remain with the lead.
