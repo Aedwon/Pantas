@@ -27,16 +27,19 @@ class Toast extends StatelessWidget {
             ? Duration.zero
             : Duration(milliseconds: visible ? 250 : 300),
         curve: PantasCurves.houseOut,
-        builder: (context, value, child) => IgnorePointer(
-          ignoring: !visible,
-          child: ExcludeSemantics(
-            excluding: !visible,
-            child: Opacity(
-              opacity: value,
-              child: Transform.translate(
-                key: const ValueKey('toast-rise'),
-                offset: Offset(0, 12 * (1 - value)),
-                child: child,
+        builder: (context, value, child) => ExcludeFocus(
+          excluding: !visible,
+          child: IgnorePointer(
+            ignoring: !visible,
+            child: ExcludeSemantics(
+              excluding: !visible,
+              child: Opacity(
+                opacity: value,
+                child: Transform.translate(
+                  key: const ValueKey('toast-rise'),
+                  offset: Offset(0, 12 * (1 - value)),
+                  child: child,
+                ),
               ),
             ),
           ),
