@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -69,8 +70,8 @@ void main() {
     await pumpPage(tester);
 
     // Step 1: Welcome
-    expect(find.text('Build your study plan'), findsOneWidget);
-    await tester.tap(find.widgetWithText(BoardButton, 'Get started'));
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
+    await tester.tap(find.widgetWithText(PantasButton, 'Get Started'));
     await tester.pumpAndSettle();
 
     // Step 2: Age gate
@@ -109,6 +110,31 @@ void main() {
 
     // Step 6: Name
     expect(find.text('What should we call you?'), findsOneWidget);
+  });
+
+  testWidgets('step push follows the 380ms O_Flow curve', (tester) async {
+    await pumpPage(tester);
+    await tester.tap(find.text('Get Started'));
+    await tester.pump();
+    expect(
+      tester.widget<AnimatedSwitcher>(find.byType(AnimatedSwitcher)).duration,
+      const Duration(milliseconds: 380),
+    );
+    await tester.pump(const Duration(milliseconds: 190));
+    final move = tester.widget<Transform>(
+      find.byKey(const ValueKey('onboarding-incoming-offset')).last,
+    );
+    expect(move.transform.storage[12], closeTo(2.00213, .03));
+    await tester.pump(const Duration(milliseconds: 190));
+    expect(
+      tester
+          .widget<Transform>(
+            find.byKey(const ValueKey('onboarding-incoming-offset')).last,
+          )
+          .transform
+          .storage[12],
+      0,
+    );
   });
 
   testWidgets('step transitions are instant when animations are disabled',

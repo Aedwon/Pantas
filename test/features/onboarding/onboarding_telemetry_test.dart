@@ -30,8 +30,16 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(sink.loggedEvents, [TelemetryEvent.onboardingStepReached]);
+    // Rebuild the mounted page without reaching another step.
+    tester.element(find.byType(OnboardingPage)).markNeedsBuild();
+    await tester.pumpAndSettle();
+
+    expect(sink.loggedEvents, [
+      TelemetryEvent.onboardingStepReached,
+      TelemetryEvent.onboardingStepReached,
+    ]);
     expect(sink.loggedProperties, [
+      {'step': 'launch'},
       {'step': 'welcome'},
     ]);
   });

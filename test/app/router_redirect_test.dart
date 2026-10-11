@@ -62,7 +62,7 @@ void main() {
   testWidgets('age gate not passed → boot lands on onboarding welcome',
       (tester) async {
     await pumpApp(tester);
-    expect(find.text('Build your study plan'), findsOneWidget);
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
   });
 
   testWidgets(

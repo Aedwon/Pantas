@@ -4,6 +4,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
@@ -11,7 +12,15 @@ import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dar
 import 'package:pantas/features/onboarding/presentation/onboarding_picker_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
-enum _OnboardingStep { welcome, ageGate, consent, picker, examDate, name }
+enum _OnboardingStep {
+  launch,
+  welcome,
+  ageGate,
+  consent,
+  picker,
+  examDate,
+  name
+}
 
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
@@ -22,9 +31,11 @@ class OnboardingPage extends ConsumerStatefulWidget {
 
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   _OnboardingStep? _step;
+  final Set<_OnboardingStep> _loggedSteps = {};
 
   void _logStep(_OnboardingStep step) {
     final stepName = switch (step) {
+      _OnboardingStep.launch => 'launch',
       _OnboardingStep.welcome => 'welcome',
       _OnboardingStep.ageGate => 'age_gate',
       _OnboardingStep.consent => 'consent',
@@ -50,7 +61,36 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       body: AnimatedSwitcher(
         duration: disableAnimations
             ? Duration.zero
-            : const Duration(milliseconds: 220),
+            : Duration(
+                milliseconds: _step == _OnboardingStep.welcome ? 300 : 380,
+              ),
+        reverseDuration: Duration.zero,
+        transitionBuilder: (child, animation) {
+          final fade = child.key == const ValueKey('welcome') ||
+              child.key == const ValueKey('launch');
+          return AnimatedBuilder(
+            animation: animation,
+            child: child,
+            builder: (context, child) {
+              final progress = (fade ? PantasCurves.ease : PantasCurves.riseIn)
+                  .transform(animation.value);
+              return ExcludeFocus(
+                excluding: progress == 0,
+                child: ExcludeSemantics(
+                  excluding: progress == 0,
+                  child: Opacity(
+                    opacity: progress,
+                    child: Transform.translate(
+                      key: const ValueKey('onboarding-incoming-offset'),
+                      offset: Offset(fade ? 0 : 40 * (1 - progress), 0),
+                      child: child,
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        },
         child: _buildStep(_step!),
       ),
     );
@@ -58,7 +98,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   _OnboardingStep _initialStep() {
     final passed = ref.read(passedAgeGateProvider).valueOrNull ?? false;
-    if (!passed) return _OnboardingStep.welcome;
+    if (!passed) {
+      return MediaQuery.disableAnimationsOf(context)
+          ? _OnboardingStep.welcome
+          : _OnboardingStep.launch;
+    }
     final focus = ref.read(activeExamFocusProvider).valueOrNull;
     if (focus?.needsSelection ?? true) return _OnboardingStep.picker;
     // The exam is chosen but onboarding is not complete, or the router would
@@ -67,8 +111,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   }
 
   Widget _buildStep(_OnboardingStep step) {
-    _logStep(step);
+    if (_loggedSteps.add(step)) _logStep(step);
     switch (step) {
+      case _OnboardingStep.launch:
+        return OnboardingLaunchStep(
+          key: const ValueKey('launch'),
+          onCompleted: () => _setStep(_OnboardingStep.welcome),
+        );
       case _OnboardingStep.welcome:
         return KeyedSubtree(
           key: const ValueKey('welcome'),
