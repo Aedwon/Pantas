@@ -1075,3 +1075,11 @@ differs from the boards, two contrast pairs), 9 minor. The lead agrees with all;
 Task 8b with rulings for the token and outline questions. W3 then finished Tasks 5, 13, 10 and 14
 (5b23689d; 81 plain and 89 emulator tests pass). Remaining for W3: the router edits held back for
 W1, the Astra audit, Aedwon's setup steps and the deploys.
+
+## October 11, 2026: W2 accepted and integrated
+
+All 19 audit findings fixed (Task 8b, through 9e149234). The lead merged W2 into the integration
+branch (18399e61, evidence commit b935cbd2): 3,712 Flutter tests and the backend tests pass. W4h (app-wide
+states) starts next because its first task sets the pattern for the other screen families. The
+lead added , which prints a board's text and key style values, so
+screen workers read less.

@@ -175,3 +175,4 @@ today) and `ink_sheet.dart`; delete W1's theme adapters (`AppColors`, `AppTextSt
 retired routes. Then `grep` for every deleted name returns nothing in `lib/` and `test/`, and
 `flutter analyze` is clean with no deprecation infos. A remaining caller means a W4 family missed a
 call site: report it to the lead; do not edit the feature file.
+Close-out addition (Oct 11): remove the Source Serif 4 font files, their license registration and the pubspec entries, because math now uses the KaTeX fonts (Aedwon, Oct 10); the fonts test changes with it.

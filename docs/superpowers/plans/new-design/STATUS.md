@@ -61,7 +61,8 @@ upload for lesson images; E14 risk acceptance at the end.
 | Level 4: W0 integration | accepted Oct 6 (Astra audit, lead review); Task 6 not run | integration/new-design-r1 at 13e4f830; evidence/W0.md |
 | Level 4: W1 design foundation | accepted and integrated Oct 10 (Astra audit 1 fixed, lead review) | integration/new-design-r1 at 3f0863ab; gates/w1-astra-audit-1.md |
 | Level 4: W3 payments and identity | Tasks 1 to 14 built (5b23689d; 81 plain, 89 emulator tests); router edits for Tasks 3 and 8, Astra audit, deploys remain | web/new-design-w3-r1 |
-| Level 4: W2 shared components | Tasks 1 to 8 built (d2edde76); Astra audit 1: 10 major, 9 minor; Task 8b (fixes) next | web/new-design-w2-r1; gates/w2-astra-audit-1.md |
+| Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
+| Level 4: W4h app-wide states | started Oct 11 (Sol) | web/new-design-w4h-r1 from b935cbd2 |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
