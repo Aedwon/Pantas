@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
@@ -26,7 +27,7 @@ void main() {
     contentDb = openTestContentDatabase();
     await seedContentExam(
       contentDb,
-      examId: 'cse',
+      examId: 'exam_cse_pro',
       code: 'CSE',
       name: 'Civil Service Exam',
       shortName: 'CSE',
@@ -39,10 +40,14 @@ void main() {
     WidgetTester tester, {
     bool disableAnimations = false,
   }) async {
+    final catalog = await tester
+        .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
           settingsRepositoryProvider.overrideWithValue(
             DriftSettingsRepository(db),
@@ -86,10 +91,11 @@ void main() {
     await tester.pumpAndSettle();
 
     // Step 4: Exam picker
-    expect(find.text('Choose your exam'), findsOneWidget);
-    await tester.tap(find.text('Civil Service Exam'));
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
+    await tester.ensureVisible(find.text('CSE Professional'));
+    await tester.tap(find.text('CSE Professional'));
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+    await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     // Step 5: Exam date
@@ -101,7 +107,7 @@ void main() {
       const Offset(0, -32),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+    await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     // Step 6: Name
@@ -131,6 +137,23 @@ void main() {
     await tester.tap(find.text('Back'));
     await tester.pumpAndSettle();
     expect(find.text('Welcome to Pantas'), findsOneWidget);
+  });
+
+  testWidgets('picker system Back returns to Terms exactly once',
+      (tester) async {
+    await pumpPage(tester, disableAnimations: true);
+    await tester.tap(find.text('Get Started'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('I agree to the '));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.text('Terms and Privacy'), findsOneWidget);
   });
 
   testWidgets('step push follows the 380ms O_Flow curve', (tester) async {

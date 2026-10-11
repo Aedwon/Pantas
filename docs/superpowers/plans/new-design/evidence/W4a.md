@@ -109,3 +109,41 @@ The family runs still include seven uncommitted Task 1 draft tests. No full suit
 O_DateKnown's selected weekday uses 11/600 rgba(255,255,255,0.85) on #0B7A68. The composite is RGB (218.4,235.05,232.35), contrast 4.265127309719463:1. Active small text requires 4.5:1. Full-opacity W1 on-accent text gives 5.252707549062497:1. The same pair appears on O_DateToday. This needs a lead design ruling before reproducing or changing that pair.
 
 D-34 permits an exam today and reaching the exam-day Home state. D-39 and Task 7 require a study day before the exam. There is no calendar day in [today,today). The plan does not state the today exception for Study days. The lead must choose that behavior; it is not inferred by the worker.
+
+## October 12 picker resumption
+
+Policy refreshed and read at origin/main 2d3fd381598fefbd0570b048c019aa7500ae1d30. The assigned branch remains web/new-design-w4a-r1, based on cee7a9c5. The remote has no matching working branch. Existing commits da8a3020 and eea651c0 and all uncommitted drafts were preserved. L2/L3 W4a and the amendment spec are unchanged. The later restart-log entry records W3 integration at 2d438daf; no integration into this worker's branch is authorized or performed.
+
+## Task 5: ExamPickerScreen
+
+Implemented O_Picker and ST_ExamPick modes. The W0 catalog supplies groups, names, published metadata and selectable/Coming soon status. Onboarding chooses locally, then writes the exam selection on Continue without completing onboarding. Settings returns the selection to its caller without changing onboarding preferences, so W4f retains ownership of switching. Search matches the supplied exam and organization names. All clears the group filter. The custom action stays first. Loading, failure, empty and save-failure states use W4h helpers or W2 StateView, with retained selection and live announcements. Back and system Back agree in both modes; the embedded picker returns to Terms exactly once.
+
+Boards read with outline.py first and timeline.py. O_Picker uses the shared 300 ms ease fade; ST_ExamPick has no CSS animation. Existing W2 SearchField retains Aedwon's accepted placeholder contrast ruling. PUPCET's organization line is explicitly supplied by O_Custom and is included. No new package, local color literal, generated file or other family's screen change.
+
+Shared extensions and metrics:
+
+- PantasButton.filterChip: 32 minimum height, radius 99, horizontal inset 14, text 14/600, selected label/surface colors reversed. At 200% text it grows to 38. Existing button variants keep their behavior.
+- ListRow.exam: onboard vertical inset 11, settings 10, horizontal 16, title 17/400/1.35/-0.204 with the existing one-line title rule; detail 13/400/1.35; selected check 18 with the board's 2.4-unit stroke. Disabled rows use opacity .45 and Coming soon 13/500, stacking the status below labels at large text. Optional divider is .5, inset 16 for onboarding and full width for Settings.
+- GroupedSection.headerStyle: optional override supports onboarding header 13/500 and Settings 13/600, leaving the default unchanged.
+- ListRow.titleColor: optional override supplies the custom-exam action's accent text.
+- PantasPage.settingsPicker: header 44, insets 4/6/8/0; body 16/8/16/32; title 28/700/1.2, gap 22. Onboarding adds optional detailLineHeight; O_Picker uses 1.35 and bodyGap 24.
+
+Files: lib/features/onboarding/presentation/exam_picker_screen.dart and onboarding_page.dart; lib/core/ui/components/grouped_section.dart, list_row.dart, pantas_button.dart and pantas_page.dart; test/core/ui/components/exam_picker_extensions_test.dart; test/features/onboarding/presentation/exam_picker_screen_test.dart and onboarding_page_test.dart; test/app/router_onboarding_completion_test.dart and router_redirect_test.dart. The consent test additionally scrolls to the actual checkbox before tapping at 200% and asserts the resulting choice; this removes a missed-tap warning found during the required family checks.
+
+### Observed checks
+
+- RED before the earlier interrupted implementation: the new picker and shared extension APIs were absent. Detail line-height and row-divider tests also failed before their changes.
+- PUPCET organization RED: exit 1, expected Polytechnic University of the Philippines, found none. GREEN in the final run below.
+- Initial resumed family run exposed asset loading under a fake clock and off-screen CSE taps in existing router/page fixtures. Tests now preload the actual W0 catalog outside that clock and scroll to the row before tapping. The interrupted run is not counted as green.
+- New check paint verification initially failed on float32 representation of 2.4; the assertion now pins the board width through Paint's actual stored representation.
+- `flutter test test/features/onboarding test/features/assessment test/app test/core/ui/components/exam_picker_extensions_test.dart`: exit 0, `00:21 +211: All tests passed!`. This includes seven uncommitted Task 1 foundation tests and the existing legacy picker tests pending Task 11 deletion.
+- `flutter test test/core/ui/components/structure_completion_test.dart test/core/ui/components/row_dialog_accessibility_test.dart test/core/ui/components/exam_picker_extensions_test.dart`: exit 0, `00:02 +17: All tests passed!`.
+- Focused Dart analysis of the twelve changed source/test files: `No issues found!` before the final formatting-only trailing-comma correction to the consent test. The correction is rechecked before commit.
+- Scoped formatting and git diff --check: exit 0.
+- Source/test identity for the named twelve files, sorted paths and contents with NUL separators: SHA256 db8ebd061419898773ccab1961ad9b659458bd83cfd4250b01f9091f857d4ff0 before the final formatting-only comma correction.
+
+Task 5 is implemented and checked. Independent review and Aedwon's visual acceptance remain pending. No full suite, push or merge.
+
+## Task 6 preflight contrast finding
+
+O_Custom draws the active Exam name placeholder at 19/500 in #AEAEB2 on #FFFFFF: 2.211218681144401:1. This is below 4.5:1 for active text. The SearchField exception is specific to search. W1 secondaryLabel #6E6E73 gives 5.071321606018516:1 on white. Asked for either that token or an explicit exemption; no answer has arrived. Dependent input styling is held.

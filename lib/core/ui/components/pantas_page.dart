@@ -10,12 +10,14 @@ class PantasPage extends StatelessWidget {
     this.onBack,
     this.bottom,
     super.key,
-  })  : onboarding = false,
+  })  : settingsPicker = false,
+        onboarding = false,
         progress = null,
         detail = null,
         bodyGap = 28,
         centerBody = false,
-        surfaceBackground = false;
+        surfaceBackground = false,
+        detailLineHeight = 1.4;
   const PantasPage.onboarding({
     required this.title,
     required this.children,
@@ -26,9 +28,28 @@ class PantasPage extends StatelessWidget {
     this.bodyGap = 28,
     this.centerBody = false,
     this.surfaceBackground = false,
+    this.detailLineHeight = 1.4,
     super.key,
-  })  : onboarding = true,
+  })  : settingsPicker = false,
+        onboarding = true,
         backLabel = 'Back';
+  const PantasPage.settingsPicker({
+    required this.onBack,
+    required this.children,
+    super.key,
+  })  : settingsPicker = true,
+        onboarding = true,
+        title = 'Exam',
+        backLabel = 'Your exam',
+        bottom = null,
+        progress = null,
+        detail = null,
+        bodyGap = 22,
+        centerBody = false,
+        surfaceBackground = false,
+        detailLineHeight = 1.4;
+  final double detailLineHeight;
+  final bool settingsPicker;
   final bool onboarding;
   final int? progress;
   final String? detail;
@@ -104,9 +125,11 @@ class PantasPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: 52,
+                height: settingsPicker ? 44 : 52,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
+                  padding: settingsPicker
+                      ? const EdgeInsets.fromLTRB(4, 6, 8, 0)
+                      : const EdgeInsets.fromLTRB(8, 4, 8, 0),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton(
@@ -125,7 +148,7 @@ class PantasPage extends StatelessWidget {
                           ),
                           const SizedBox(width: 2),
                           Text(
-                            'Back',
+                            backLabel!,
                             style: context.type.body
                                 .copyWith(color: context.colors.accent),
                           ),
@@ -165,7 +188,8 @@ class PantasPage extends StatelessWidget {
               Expanded(
                 child: LayoutBuilder(
                   builder: (context, constraints) => SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
+                    padding:
+                        EdgeInsets.fromLTRB(16, settingsPicker ? 8 : 4, 16, 32),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: centerBody
@@ -187,8 +211,13 @@ class PantasPage extends StatelessWidget {
                               child: Semantics(
                                 header: true,
                                 liveRegion: true,
-                                child:
-                                    Text(title, style: context.type.pageTitle),
+                                child: Text(
+                                  title,
+                                  style: settingsPicker
+                                      ? context.type.pageTitleCompact
+                                          .copyWith(height: 1.2)
+                                      : context.type.pageTitle,
+                                ),
                               ),
                             ),
                           if (detail != null) ...[
@@ -200,7 +229,7 @@ class PantasPage extends StatelessWidget {
                                 detail!,
                                 style: context.type.body.copyWith(
                                   color: context.colors.secondaryLabel,
-                                  height: 1.4,
+                                  height: detailLineHeight,
                                 ),
                               ),
                             ),

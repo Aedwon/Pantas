@@ -70,8 +70,14 @@ void main() {
               .onPressed,
           isNull,
         );
+        await tester
+            .ensureVisible(find.byKey(const ValueKey('checkbox-mark')).first);
         await tester.tap(find.byKey(const ValueKey('checkbox-mark')).first);
         await tester.pump();
+        expect(
+          tester.widgetList<ListRow>(find.byType(ListRow)).first.selected,
+          isTrue,
+        );
         expect(
           tester
               .widget<PantasButton>(

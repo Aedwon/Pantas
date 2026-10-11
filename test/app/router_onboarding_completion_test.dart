@@ -4,9 +4,11 @@ import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
 import '../helpers/in_memory_database.dart';
@@ -22,21 +24,21 @@ void main() {
     contentDb = openTestContentDatabase();
     await seedContentExam(
       contentDb,
-      examId: 'cse',
+      examId: 'exam_cse_pro',
       code: 'CSE',
       name: 'Civil Service Exam',
       shortName: 'CSE',
     );
     await seedContentExam(
       contentDb,
-      examId: 'upcat',
+      examId: 'exam_upcat',
       code: 'UPCAT',
       name: 'UPCAT',
       shortName: 'UPCAT',
     );
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
-            id: 'cse',
+            id: 'exam_cse_pro',
             code: 'CSE',
             name: 'Civil Service Exam',
             shortName: 'CSE',
@@ -48,10 +50,14 @@ void main() {
   tearDown(() => db.close());
 
   Future<void> pumpApp(WidgetTester tester) async {
+    final catalog = await tester
+        .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
@@ -70,8 +76,9 @@ void main() {
 
     await pumpApp(tester);
 
-    expect(find.text('Choose your exam'), findsOneWidget);
-    await tester.tap(find.text('Civil Service Exam'));
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
+    await tester.ensureVisible(find.text('CSE Professional'));
+    await tester.tap(find.text('CSE Professional'));
     await tester.pump();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -86,7 +93,7 @@ void main() {
       '/onboarding',
     );
     expect(find.text('When is your exam?'), findsOneWidget);
-    expect(await repo.selectedExamId(), equals('cse'));
+    expect(await repo.selectedExamId(), equals('exam_cse_pro'));
     expect(await repo.hasCompletedOnboarding(), isFalse);
   });
 
@@ -94,7 +101,7 @@ void main() {
       'passedAgeGate = true, exam selected, onboardingComplete = false '
       '-> stay on onboarding', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
     await AppPreferencesRepository(db).setCompletedOnboarding(value: false);
 
     await pumpApp(tester);
@@ -116,7 +123,7 @@ void main() {
       'passedAgeGate = true, exam selected, onboardingComplete = true '
       '-> leaves onboarding', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
     await AppPreferencesRepository(db).setCompletedOnboarding(value: true);
     await NotificationRationaleRepository(db).markShown();
 
@@ -153,7 +160,7 @@ void main() {
       router.routerDelegate.currentConfiguration.uri.toString(),
       '/onboarding',
     );
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
 
     router.go('/home');
     await tester.pumpAndSettle();
@@ -168,7 +175,7 @@ void main() {
       'legacy install with selected exam but no onboarding_complete key '
       'is treated as complete', (tester) async {
     final repo = AppPreferencesRepository(db);
-    await repo.setSelectedExamId('cse');
+    await repo.setSelectedExamId('exam_cse_pro');
 
     expect(await repo.hasCompletedOnboarding(), isTrue);
   });

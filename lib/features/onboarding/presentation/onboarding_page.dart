@@ -5,11 +5,11 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
-import 'package:pantas/features/onboarding/presentation/onboarding_picker_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
 enum _OnboardingStep {
@@ -69,23 +69,28 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   Widget build(BuildContext context) {
     _step ??= _initialStep();
     final disableAnimations = MediaQuery.disableAnimationsOf(context);
+    final displayedStep = _step;
     return PopScope<void>(
       canPop:
           _step == _OnboardingStep.welcome || _step == _OnboardingStep.launch,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) _back();
+        if (!didPop && _step == displayedStep) _back();
       },
       child: Scaffold(
         body: AnimatedSwitcher(
           duration: disableAnimations
               ? Duration.zero
               : Duration(
-                  milliseconds: _step == _OnboardingStep.welcome ? 300 : 380,
+                  milliseconds: _step == _OnboardingStep.welcome ||
+                          _step == _OnboardingStep.picker
+                      ? 300
+                      : 380,
                 ),
           reverseDuration: Duration.zero,
           transitionBuilder: (child, animation) {
             final fade = child.key == const ValueKey('welcome') ||
-                child.key == const ValueKey('launch');
+                child.key == const ValueKey('launch') ||
+                child.key == const ValueKey('picker');
             return AnimatedBuilder(
               animation: animation,
               child: child,
@@ -173,8 +178,16 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       case _OnboardingStep.picker:
         return KeyedSubtree(
           key: const ValueKey('picker'),
-          child: OnboardingPickerStep(
-            onCompleted: () => setState(() => _step = _OnboardingStep.examDate),
+          child: ExamPickerScreen(
+            mode: ExamPickerMode.onboarding,
+            onBack: () {
+              if (_step == _OnboardingStep.picker) _back();
+            },
+            onPicked: (_) {
+              if (_step == _OnboardingStep.picker) {
+                _setStep(_OnboardingStep.examDate);
+              }
+            },
           ),
         );
       case _OnboardingStep.examDate:
