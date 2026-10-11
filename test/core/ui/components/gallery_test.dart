@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/router.dart';
@@ -27,12 +28,12 @@ void main() {
       expect(tester.takeException(), isNull, reason: name);
     }
   });
-  test('gallery route exists only in debug configuration', () {
-    expect(collectRoutePaths(), contains('/settings/_gallery'));
-    expect(
-      collectRoutePaths(includeDebugGallery: false),
-      isNot(contains('/settings/_gallery')),
-    );
+  test('gallery route follows the compiled debug condition', () {
+    if (const bool.fromEnvironment('W2_REQUIRE_RELEASE')) {
+      expect(kReleaseMode, isTrue);
+      expect(kDebugMode, isFalse);
+    }
+    expect(collectRoutePaths().contains('/settings/_gallery'), kDebugMode);
   });
   testWidgets('gallery lists every contract and toggles the real theme',
       (tester) async {
