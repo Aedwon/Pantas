@@ -60,13 +60,18 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 12, 4:20 AM)
+## Running or scheduled (Oct 12, 5:50 AM)
 
-- W4a and W4c Sol workers resumed at 4:02 AM (session ids `w4a-sid`, `w4c-sid` in the lead
-  scratchpad). Their branches are based on cee7a9c5; merge the integration branch into each before
-  integrating. Sol started both, so Sonnet must not pick them up.
-- Not started: W4b, W4d, W4e, W4f, W4g (all unblocked now). Start them on Sol as the two running
-  workers finish; base them on the integration branch.
+- Codex ran out at 5:36 AM (resets 9:03 AM). One scheduled job (`run-0904.sh`, lead scratchpad)
+  starts at 9:04 AM with two lanes: W4a resume then W4b new; W4c resume then W4d new.
+- W4a (web/new-design-w4a-r1 at 1af8dc0b, plus uncommitted work): in progress.
+- W4c (2eae3d9f): Tasks 2 and 3 done; lead rulings of Oct 12 answer its questions; it does Tasks 1,
+  4, 8 and part of 6 next. Tasks 5, 7, 9 wait for W4b Task 3 and W4d Task 1 on the integration
+  branch.
+- W4b and W4d: worktrees ready at 2d438daf, prompts `w4b-dispatch.md`, `w4d-dispatch.md`; not
+  started by any worker yet.
+- W4a and W4c are based on cee7a9c5; merge the integration branch into each before integrating.
+- Not started: W4e, W4f, W4g.
 
 ## Next step
 
