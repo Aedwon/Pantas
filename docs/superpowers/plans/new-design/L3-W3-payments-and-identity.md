@@ -380,6 +380,19 @@ checks. Lead rulings on the design of each fix:
 5. Restore result (finding 5). Restore reports success from confirmed coverage, ledger passes
    included. Test the returned status for a pass-only customer.
 
+## Task 14c. Index form (lead review of Task 14b, Oct 12)
+
+The two `server` entries added to `firestore.indexes.json` are single-field collection-group
+indexes written as composite indexes (`claimsPending` + `__name__`, `updatedAt` + `__name__`).
+Firestore rejects a one-field composite at deploy ("this index is not necessary, configure using
+single field index controls"); the emulator does not check this. Move both to `fieldOverrides`:
+collection group `server`, field `claimsPending` and field `updatedAt`, each with indexes
+`ASCENDING` in `COLLECTION` and `COLLECTION_GROUP` scope. Update
+`test/tool/firebase_indexes_layout_test.dart` to assert the two overrides and the two TTL overrides,
+and the composite count back to 12. Also add a test that no source under `functions/src` or `lib`
+writes an `expireAt` field to a top-level `users/{uid}` document: the TTL override on collection
+group `users` would delete such a document. One commit; run the tool tests and `npm test`.
+
 ## Task 15. Deploy steps (each with Aedwon's approval)
 
 Traceability: AC-3 deploy checks.
