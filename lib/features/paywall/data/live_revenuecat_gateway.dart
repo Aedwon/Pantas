@@ -16,8 +16,6 @@ import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
-import 'package:purchases_flutter/purchases_flutter.dart'
-    show VerificationResult;
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
 /// One entitlement covers all three SKUs.

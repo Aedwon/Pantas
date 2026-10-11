@@ -4,6 +4,9 @@ import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
+export 'package:purchases_flutter/purchases_flutter.dart'
+    show VerificationResult;
+
 const _proEntitlementId = 'pro';
 
 enum RevenueCatFailureKind {

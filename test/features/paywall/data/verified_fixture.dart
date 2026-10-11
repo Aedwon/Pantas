@@ -1,5 +1,4 @@
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
 
 /// Old success cases now model signed server answers. Raw verification tests
 /// bypass this fixture and return the exact untrusted answer under test.

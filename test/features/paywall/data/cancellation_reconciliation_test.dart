@@ -5,7 +5,6 @@ import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
 
 import 'live_revenuecat_gateway_hardening_test.dart';
 
