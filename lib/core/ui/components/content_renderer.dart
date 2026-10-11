@@ -24,48 +24,46 @@ class ContentRenderer extends StatelessWidget {
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
   static List<Map<String, Object?>> _parseTextToBlocks(String text) {
     final children = <Map<String, Object?>>[];
-    final regex = RegExp(r'\*\*(.*?)\*\*|\*(.*?)\*|(?<!_)_([^_]+?)_(?!_)');
-    var lastMatchEnd = 0;
-    for (final match in regex.allMatches(text)) {
-      if (match.start > lastMatchEnd) {
+    var marker = '\uE000';
+    while (text.contains(marker)) {
+      marker += '\uE000';
+    }
+    final math = <String, String>{};
+    final protected = text.replaceAllMapped(RegExp(r'\$([^$]+)\$'), (match) {
+      final token = '$marker${math.length}$marker';
+      math[token] = match.group(0)!;
+      return token;
+    });
+    String restore(String run) {
+      for (final entry in math.entries) {
+        run = run.replaceAll(entry.key, entry.value);
+      }
+      return run;
+    }
+
+    final markdown = RegExp(r'\*\*(.*?)\*\*|\*(.*?)\*|(?<!_)_([^_]+?)_(?!_)');
+    var end = 0;
+    for (final match in markdown.allMatches(protected)) {
+      if (match.start > end) {
         children.add({
-          'text': text.substring(lastMatchEnd, match.start),
+          'text': restore(protected.substring(end, match.start)),
           'marks': <String>[],
         });
       }
       final strong = match.group(1);
-      final starEmphasis = match.group(2);
-      final underscoreEmphasis = match.group(3);
-      if (strong != null) {
-        children.add({
-          'text': strong,
-          'marks': <String>['strong'],
-        });
-      } else if (starEmphasis != null) {
-        children.add({
-          'text': starEmphasis,
-          'marks': <String>['em'],
-        });
-      } else if (underscoreEmphasis != null) {
-        children.add({
-          'text': underscoreEmphasis,
-          'marks': <String>['em'],
-        });
-      }
-      lastMatchEnd = match.end;
-    }
-    if (lastMatchEnd < text.length) {
       children.add({
-        'text': text.substring(lastMatchEnd),
-        'marks': <String>[],
+        'text': restore(strong ?? match.group(2) ?? match.group(3) ?? ''),
+        'marks': <String>[strong == null ? 'em' : 'strong'],
       });
+      end = match.end;
+    }
+    if (end < protected.length) {
+      children.add(
+        {'text': restore(protected.substring(end)), 'marks': <String>[]},
+      );
     }
     return [
-      {
-        '_type': 'block',
-        'style': 'normal',
-        'children': children,
-      }
+      {'_type': 'block', 'style': 'normal', 'children': children},
     ];
   }
 
