@@ -41,6 +41,11 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('scope-expand-t')));
       await tester.pumpAndSettle();
+      expect(tester.widget<Text>(find.text('Circles')).maxLines, 1);
+      expect(
+        tester.widget<Text>(find.text('Circles')).overflow,
+        TextOverflow.ellipsis,
+      );
       final lesson = find.byKey(const ValueKey('scope-select-l'));
       final padding = tester.widget<Padding>(
         find.descendant(of: lesson, matching: find.byType(Padding)).first,

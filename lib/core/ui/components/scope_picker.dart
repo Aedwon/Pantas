@@ -107,6 +107,7 @@ class _ScopePickerState extends State<ScopePicker>
     bool lesson = false,
   }) {
     final c = context.colors;
+    final largeText = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final count = ids.where(widget.selectedIds.contains).length;
     final checked = count == ids.length;
     final partial = count > 0 && !checked;
@@ -191,6 +192,10 @@ class _ScopePickerState extends State<ScopePicker>
                     Expanded(
                       child: Text(
                         title,
+                        maxLines: largeText ? null : 1,
+                        overflow: largeText
+                            ? TextOverflow.visible
+                            : TextOverflow.ellipsis,
                         style: context.type.body.copyWith(
                           fontSize: lesson ? 16 : 17,
                           letterSpacing: lesson ? 0 : -.204,
