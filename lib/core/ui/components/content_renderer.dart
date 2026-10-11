@@ -22,10 +22,11 @@ class ContentRenderer extends StatelessWidget {
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
   static List<Map<String, Object?>> _parseTextToBlocks(String text) {
     final children = <Map<String, Object?>>[];
-    var marker = '\uE000';
-    while (text.contains(marker)) {
-      marker += '\uE000';
+    final markerBuffer = StringBuffer('\uE000');
+    while (text.contains(markerBuffer.toString())) {
+      markerBuffer.write('\uE000');
     }
+    final marker = markerBuffer.toString();
     final math = <String, String>{};
     final protected = text.replaceAllMapped(RegExp(r'\$([^$]+)\$'), (match) {
       final token = '$marker${math.length}$marker';
@@ -33,10 +34,11 @@ class ContentRenderer extends StatelessWidget {
       return token;
     });
     String restore(String run) {
+      var restored = run;
       for (final entry in math.entries) {
-        run = run.replaceAll(entry.key, entry.value);
+        restored = restored.replaceAll(entry.key, entry.value);
       }
-      return run;
+      return restored;
     }
 
     final markdown = RegExp(r'\*\*(.*?)\*\*|\*(.*?)\*|(?<!_)_([^_]+?)_(?!_)');
@@ -51,7 +53,7 @@ class ContentRenderer extends StatelessWidget {
       final strong = match.group(1);
       children.add({
         'text': restore(strong ?? match.group(2) ?? match.group(3) ?? ''),
-        'marks': <String>[strong == null ? 'em' : 'strong'],
+        'marks': <String>[if (strong == null) 'em' else 'strong'],
       });
       end = match.end;
     }

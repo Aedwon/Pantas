@@ -8,13 +8,16 @@ void main() {
   for (final brightness in Brightness.values) {
     testWidgets('question subject has the board eight pixel gap $brightness',
         (tester) async {
-      await pumpAccessibilitySurface(tester,
-          const QuestionCard(subject: 'Science', stem: 'What is inside?'),
-          brightness: brightness);
+      await pumpAccessibilitySurface(
+        tester,
+        const QuestionCard(subject: 'Science', stem: 'What is inside?'),
+        brightness: brightness,
+      );
       expect(
-          tester.getTopLeft(find.byType(ContentRenderer)).dy -
-              tester.getBottomLeft(find.text('SCIENCE')).dy,
-          8);
+        tester.getTopLeft(find.byType(ContentRenderer)).dy -
+            tester.getBottomLeft(find.text('SCIENCE')).dy,
+        8,
+      );
     });
   }
 }

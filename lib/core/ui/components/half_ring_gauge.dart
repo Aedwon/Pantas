@@ -13,8 +13,10 @@ class HalfRingGauge extends StatefulWidget {
     this.overlayBuilder,
     this.decimalPlaces = 0,
     super.key,
-  }) : assert(fraction >= 0 && fraction <= 1,
-            'Accuracy must be between zero and one.');
+  }) : assert(
+          fraction >= 0 && fraction <= 1,
+          'Accuracy must be between zero and one.',
+        );
   final int decimalPlaces;
   final double fraction;
   final String label;
@@ -51,10 +53,13 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
   }
 
   void animate(double begin) {
-    _fill = _controller.drive(Tween(begin: begin, end: widget.fraction).chain(
-      CurveTween(
-          curve: const Interval(3 / 14, 1, curve: PantasCurves.houseOut)),
-    ));
+    _fill = _controller.drive(
+      Tween(begin: begin, end: widget.fraction).chain(
+        CurveTween(
+          curve: const Interval(3 / 14, 1, curve: PantasCurves.houseOut),
+        ),
+      ),
+    );
     if (_still!) {
       _controller
         ..stop()
@@ -79,11 +84,15 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         _painter!.fill != colors.accent ||
         _painter!.track != colors.fill) {
       _painter = _GaugePainter(
-          fraction: _fill, fill: colors.accent, track: colors.fill);
+        fraction: _fill,
+        fill: colors.accent,
+        track: colors.fill,
+      );
     }
+    final percentage =
+        (widget.fraction * 100).toStringAsFixed(widget.decimalPlaces);
     return Semantics(
-      label:
-          '${widget.label} ${(widget.fraction * 100).toStringAsFixed(widget.decimalPlaces)} percent',
+      label: '${widget.label} $percentage percent',
       excludeSemantics: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -113,28 +122,33 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                         textBaseline: TextBaseline.alphabetic,
                         children: [
                           Text(
-                              (_fill.value * 100)
-                                  .toStringAsFixed(widget.decimalPlaces),
-                              style: type.largeTitle
-                                  .copyWith(fontSize: 44, letterSpacing: -1.32)
-                                  .tabular),
+                            (_fill.value * 100)
+                                .toStringAsFixed(widget.decimalPlaces),
+                            style: type.largeTitle
+                                .copyWith(fontSize: 44, letterSpacing: -1.32)
+                                .tabular,
+                          ),
                           const SizedBox(width: 1),
                           percent!,
                         ],
                       ),
-                      child: Text('%',
-                          style: type.emphasized.copyWith(
-                              fontSize: 20,
-                              letterSpacing: -.24,
-                              color: colors.secondaryLabel)),
+                      child: Text(
+                        '%',
+                        style: type.emphasized.copyWith(
+                          fontSize: 20,
+                          letterSpacing: -.24,
+                          color: colors.secondaryLabel,
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 if (widget.overlayBuilder != null)
                   AnimatedBuilder(
-                      animation: _fill,
-                      builder: (context, _) =>
-                          widget.overlayBuilder!(context, _fill.value)),
+                    animation: _fill,
+                    builder: (context, _) =>
+                        widget.overlayBuilder!(context, _fill.value),
+                  ),
               ],
             ),
           ),
@@ -147,9 +161,11 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 }
 
 class _GaugePainter extends CustomPainter {
-  _GaugePainter(
-      {required this.fraction, required this.fill, required this.track})
-      : trackPaint = (Paint()
+  _GaugePainter({
+    required this.fraction,
+    required this.fill,
+    required this.track,
+  })  : trackPaint = (Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = 16
           ..strokeCap = StrokeCap.round

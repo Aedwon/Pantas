@@ -84,7 +84,7 @@ class PantasColors extends AppColors {
   final Color shadow;
   // Board states with no fill or border.
   final Color transparent;
-  // Filled accent marks and actions; dark retains the readable surface foreground.
+  // Filled accent marks and actions. Dark retains the readable foreground.
   final Color onAccent;
   // MK_Discard and QV_MissPro filled red action/mark.
   final Color onDestructive;

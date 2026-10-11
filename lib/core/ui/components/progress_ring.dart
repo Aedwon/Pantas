@@ -57,20 +57,24 @@ class _ProgressRingState extends State<ProgressRing>
     _fill = _controller.drive(
       Tween(begin: begin, end: widget.fraction).chain(
         CurveTween(
-            curve: Interval(
-          widget.size == 34 ? 300 / endMs : 0,
-          fillMs / endMs,
-          curve: PantasCurves.houseOut,
-        )),
+          curve: Interval(
+            widget.size == 34 ? 300 / endMs : 0,
+            fillMs / endMs,
+            curve: PantasCurves.houseOut,
+          ),
+        ),
       ),
     );
     // HP_Day: the 420ms check begins 100ms before the 600ms fill ends.
-    _check = _controller.drive(CurveTween(
+    _check = _controller.drive(
+      CurveTween(
         curve: Interval(
-      (fillMs - 100) / endMs,
-      1,
-      curve: PantasCurves.popC,
-    )));
+          (fillMs - 100) / endMs,
+          1,
+          curve: PantasCurves.popC,
+        ),
+      ),
+    );
     if (_still!) {
       _controller
         ..stop()
@@ -163,8 +167,13 @@ class _RingPainter extends CustomPainter {
     final radius = stroke == 1.5 ? size.width / 2 - .75 : size.width / 2 - 1.5;
     canvas.drawCircle(center, radius, trackPaint);
     if (fraction.value > 0) {
-      canvas.drawArc(Rect.fromCircle(center: center, radius: radius),
-          -math.pi / 2, math.pi * 2 * fraction.value, false, fillPaint);
+      canvas.drawArc(
+        Rect.fromCircle(center: center, radius: radius),
+        -math.pi / 2,
+        math.pi * 2 * fraction.value,
+        false,
+        fillPaint,
+      );
     }
   }
 

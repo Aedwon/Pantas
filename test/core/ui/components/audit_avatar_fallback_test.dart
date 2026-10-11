@@ -10,23 +10,34 @@ void main() {
     testWidgets('ST_Avatars uses people for nonletters $brightness',
         (tester) async {
       for (final name in ['123', '@me', '']) {
-        await pumpAccessibilitySurface(tester, Avatar(name: name),
-            brightness: brightness);
+        await pumpAccessibilitySurface(
+          tester,
+          Avatar(name: name),
+          brightness: brightness,
+        );
         expect(find.byIcon(PantasIcons.profile), findsOneWidget);
-        final box = tester.widget<Container>(find
-            .descendant(
-                of: find.byType(Avatar), matching: find.byType(Container))
-            .first);
+        final box = tester.widget<Container>(
+          find
+              .descendant(
+                of: find.byType(Avatar),
+                matching: find.byType(Container),
+              )
+              .first,
+        );
         expect(
-            box.color,
-            brightness == Brightness.light
-                ? PantasColors.light.fill
-                : PantasColors.dark.fill);
+          box.color,
+          brightness == Brightness.light
+              ? PantasColors.light.fill
+              : PantasColors.dark.fill,
+        );
       }
       for (final entry
           in {'alice': 'A', 'Émile': 'É', '林': '林', '👩‍🔬': '👩‍🔬'}.entries) {
-        await pumpAccessibilitySurface(tester, Avatar(name: entry.key),
-            brightness: brightness);
+        await pumpAccessibilitySurface(
+          tester,
+          Avatar(name: entry.key),
+          brightness: brightness,
+        );
         expect(find.text(entry.value), findsOneWidget);
         expect(find.byIcon(PantasIcons.profile), findsNothing);
       }

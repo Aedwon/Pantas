@@ -67,6 +67,12 @@ class QuestionGridSheet extends StatelessWidget {
       };
     }
 
+    FontWeight numberWeight(GridQuestion question) => question.current
+        ? FontWeight.w800
+        : question.state == GridQuestionState.unreached
+            ? FontWeight.w400
+            : FontWeight.w600;
+
     String questionLabel(GridQuestion question) {
       final result = switch (question.state) {
         GridQuestionState.right => 'correct',
@@ -74,7 +80,9 @@ class QuestionGridSheet extends StatelessWidget {
         GridQuestionState.answered => 'answered',
         GridQuestionState.unreached => 'not reached',
       };
-      return 'Question ${question.number}${question.current ? ', current' : ''}, $result${question.flagged ? ', flagged' : ''}';
+      return 'Question ${question.number}'
+          '${question.current ? ', current' : ''}, $result'
+          '${question.flagged ? ', flagged' : ''}';
     }
 
     VoidCallback? actionFor(GridQuestion question, {required bool enabled}) {
@@ -223,13 +231,8 @@ class QuestionGridSheet extends StatelessWidget {
                                                   maxLines: 1,
                                                   style: context.type.body
                                                       .copyWith(
-                                                    fontWeight: question.current
-                                                        ? FontWeight.w800
-                                                        : question.state ==
-                                                                GridQuestionState
-                                                                    .unreached
-                                                            ? FontWeight.w400
-                                                            : FontWeight.w600,
+                                                    fontWeight:
+                                                        numberWeight(question),
                                                     color:
                                                         numberColor(question),
                                                   ),

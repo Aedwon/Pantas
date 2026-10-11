@@ -275,10 +275,14 @@ class _ScopePickerState extends State<ScopePicker>
           mainAxisSize: MainAxisSize.min,
           children: [
             for (final (index, lesson) in topic.lessons.indexed) ...[
-              row(lesson.id, lesson.title, {lesson.id},
-                  enabled: topic.hasQuestions,
-                  unread: lesson.unread,
-                  lesson: true),
+              row(
+                lesson.id,
+                lesson.title,
+                {lesson.id},
+                enabled: topic.hasQuestions,
+                unread: lesson.unread,
+                lesson: true,
+              ),
               if (index < topic.lessons.length - 1)
                 Container(height: .5, color: context.colors.separator),
             ],

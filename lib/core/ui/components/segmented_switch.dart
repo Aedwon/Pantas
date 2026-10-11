@@ -70,7 +70,7 @@ class SegmentedSwitch extends StatelessWidget {
                                         BoxShadow(
                                           color: context.colors.segmentedShadow,
                                           blurRadius: 3,
-                                          offset: Offset(0, 1),
+                                          offset: const Offset(0, 1),
                                         ),
                                       ],
                               ),
