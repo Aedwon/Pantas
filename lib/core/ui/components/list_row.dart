@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum ListRowVariant {
@@ -27,7 +28,25 @@ class ListRow extends StatelessWidget {
     this.onTap,
     this.divider = false,
     super.key,
-  });
+  })  : content = null,
+        _checkbox = false;
+  const ListRow.checkbox({
+    required this.title,
+    required this.selected,
+    required this.onTap,
+    this.content,
+    super.key,
+  })  : _checkbox = true,
+        variant = ListRowVariant.check,
+        value = null,
+        subtitle = null,
+        icon = null,
+        iconColor = null,
+        expanded = false,
+        editor = null,
+        divider = false;
+  final bool _checkbox;
+  final Widget? content;
   final String title;
   final ListRowVariant variant;
   final String? value;
@@ -42,6 +61,73 @@ class ListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    if (_checkbox) {
+      return Semantics(
+        container: true,
+        explicitChildNodes: content != null,
+        label: content == null ? null : title,
+        checked: selected,
+        onTap: onTap,
+        child: Material(
+          color: c.transparent,
+          child: InkWell(
+            onTap: onTap,
+            excludeFromSemantics: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              child: Row(
+                children: [
+                  ExcludeSemantics(
+                    child: Container(
+                      key: const ValueKey('checkbox-mark'),
+                      width: 24,
+                      height: 24,
+                      decoration: BoxDecoration(
+                        color: selected ? c.accentFill : null,
+                        borderRadius: BorderRadius.circular(7),
+                        border: Border.all(
+                          color: selected ? c.accentFill : c.controlOutline,
+                          width: 1.5,
+                        ),
+                      ),
+                      child: selected
+                          ? PantasEffects.pop(
+                              duration: const Duration(milliseconds: 500),
+                              builder: (_, __, child) => child!,
+                              child: Center(
+                                child: SizedBox.square(
+                                  dimension: 15,
+                                  child: CustomPaint(
+                                    key: const ValueKey('checkbox-check'),
+                                    painter: _CheckboxCheckPainter(
+                                      c.onAccent,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : null,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: content ??
+                        Text(
+                          title,
+                          style: context.type.body.copyWith(
+                            fontSize: 16,
+                            letterSpacing: 0,
+                            height: 1.4,
+                          ),
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final label = Text(
       title,
@@ -171,4 +257,30 @@ class ListRow extends StatelessWidget {
       ],
     );
   }
+}
+
+// O_Consent's 15 px SVG uses a 24-unit viewBox and a 3-unit check stroke.
+class _CheckboxCheckPainter extends CustomPainter {
+  const _CheckboxCheckPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas
+      ..scale(size.width / 24, size.height / 24)
+      ..drawPath(
+        Path()
+          ..moveTo(5, 12.5)
+          ..lineTo(9.5, 17)
+          ..lineTo(19, 7),
+        Paint()
+          ..color = color
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 3
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_CheckboxCheckPainter old) => old.color != color;
 }

@@ -19,7 +19,7 @@ class OnboardingWelcomeStep extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 180, 20, 24),
                   child: Column(
                     children: [
-                      const _OnboardingLogo(size: 104),
+                      const OnboardingLogo(size: 104),
                       const SizedBox(height: 28),
                       Semantics(
                         header: true,
@@ -133,7 +133,7 @@ class _OnboardingLaunchStepState extends State<OnboardingLaunchStep>
                   ),
                 );
               },
-              child: const _OnboardingLogo(
+              child: const OnboardingLogo(
                 key: ValueKey('launch-logo'),
                 size: 120,
               ),
@@ -143,8 +143,8 @@ class _OnboardingLaunchStepState extends State<OnboardingLaunchStep>
       );
 }
 
-class _OnboardingLogo extends StatelessWidget {
-  const _OnboardingLogo({required this.size, super.key});
+class OnboardingLogo extends StatelessWidget {
+  const OnboardingLogo({required this.size, super.key});
   final double size;
 
   @override

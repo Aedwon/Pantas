@@ -66,3 +66,46 @@ Files: onboarding_page.dart, onboarding_welcome_step.dart; onboarding telemetry,
 - `git diff --check`: exit 0.
 
 The full suite has not run. No device screenshots, autonomous visual review, pushes or merges occurred.
+
+## Latest resumption and Task 3
+
+Policy refreshed and read from main at 9e8e029d7edb38859a63aec4e906ed4685ed931b. AGENTS, WORKFLOW and SUBAGENTS read in full. Product spec, L2/L3 W4a, traceability and W2 rulings are unchanged from the earlier references. No main merge.
+
+Task 3 implements O_Age and O_Consent. Age opens on 2012 for the fixed 2026 fixture, allows the default value, blocks a year newer than 2013, and writes only the age-passed boolean. No birth year is stored. The blocked state has the 72 px logo, 26/700 title, 17 px detail and Try a Different Year. The whole blocked frame fades for 300 ms ease; returning pushes 40 px over 380 ms riseIn. State transitions hide inactive controls from focus.
+
+Usage consent comes first and starts off. Terms comes last and enables Continue. Both legal links activate and return without clearing either choice, including keyboard activation. Usage choice saves before policy acceptance, so a failed write cannot leave the acceptance resume marker ahead of an unfinished choice. The existing acceptance writer records policy version 1. Both screens use the shared saveFailureLine and retain their input for retry.
+
+Shared extensions, permitted by the dispatch:
+
+- PantasPage.onboarding: O_Age/O_Consent header 52 high, Back target 44 with 24 icon, six progress segments height 4/radius 9/gap 6/inset 20; title 30/700/1.12/-0.66, detail 17/400/1.4, body inset 16/4/16/32, footer 20/12/20/34. Optional progress, detail, bodyGap, centered body and surface background serve the drawn variants. Existing constructor behavior stays unchanged.
+- ValueWheel.birthYear: O_Age seven rows, row height 44 at ordinary text, selected 22/600, other years 19/400, tabular figures, selected background fill/radius 10. Rows grow to 73.4 at 200% text. Adjacent years use label, farther years secondaryLabel. No local colors.
+- ListRow.checkbox: O_Consent 24 square/radius 7/controlOutline 1.5, gap 14, inset 16/14, body label 16/400/1.4 with wrapping. Selected check uses the exact 15 px SVG with 24-unit viewBox and 3-unit stroke, popping over 500 ms. Optional content supports independently focusable legal links. A private style flag preserves the existing ListRowVariant enum and ordinary row contracts.
+- StateView.onboardingBlocked: O_Age 72 mark, gap 12, title 26/700/1.35/-0.312, detail 17/400/1.35. It announces the state. Existing empty/error variants retain their behavior.
+
+Extensions have tests beside W2's tests. Color pairs are checked against the actual surface/selection backgrounds in light/dark. The unchecked boundary uses W2's controlOutline ruling, not the board's low-contrast chevron color. The logo widget is exposed within this family for Age to reuse the exact Launch paths. No other family's screen is restyled.
+
+Two existing ValueWheel defects were reproduced and fixed in the shared component: controlled vertical updates echoed a selection while an ancestor was rebuilding; vertical keyboard moves emitted two callbacks. Programmatic jumps now suppress the scroll notification, and a keyboard move emits its explicit callback once. Tests failed before each fix.
+
+Visible and system Back from Age/Terms return to the same preceding step. Completion and resume wiring for the later screens remain part of unfinished Task 1. Callback guards prevent an old Age/Terms save from advancing a screen after Back.
+
+### Exact observed checks
+
+- New board/API tests failed before the shared extensions and rebuilt screens existed.
+- Save-failure tests failed without the handlers, then passed with the shared retry line and retained input.
+- Age/Terms Back test failed before wiring and PopScope, then passed.
+- Blocked whole-frame fade test failed before the full frame animated.
+- Tabular-figure and recorded check-stroke tests failed before those board details were implemented.
+- Controlled vertical update and keyboard callback tests failed before their respective fixes.
+- Focused new UI/shared tests: exit 0, `00:01 +33: All tests passed!` before the final added keyboard/stroke cases.
+- Task checks plus extension tests: `flutter test test/features/onboarding test/features/assessment test/app test/core/ui/components/onboarding_extensions_test.dart`, exit 0, `00:19 +205: All tests passed!`.
+- Existing affected W2 suites plus extensions: `flutter test test/core/ui/components/onboarding_extensions_test.dart test/core/ui/components/structure_completion_test.dart test/core/ui/components/inputs_completion_test.dart test/core/ui/components/states_completion_test.dart test/core/ui/components/row_dialog_accessibility_test.dart test/core/ui/components/audit_horizontal_wheel_test.dart`, exit 0, `00:03 +54: All tests passed!`.
+- Focused analysis of changed shared components and onboarding files/tests: exit 0, `No issues found!`.
+- Scoped formatting and `git diff --check`: exit 0.
+
+The family runs still include seven uncommitted Task 1 draft tests. No full suite, device check, independent acceptance, push or merge is claimed.
+
+## Task 4 preflight findings
+
+O_DateKnown's selected weekday uses 11/600 rgba(255,255,255,0.85) on #0B7A68. The composite is RGB (218.4,235.05,232.35), contrast 4.265127309719463:1. Active small text requires 4.5:1. Full-opacity W1 on-accent text gives 5.252707549062497:1. The same pair appears on O_DateToday. This needs a lead design ruling before reproducing or changing that pair.
+
+D-34 permits an exam today and reaching the exam-day Home state. D-39 and Task 7 require a study day before the exam. There is no calendar day in [today,today). The plan does not state the today exception for Study days. The lead must choose that behavior; it is not inferred by the worker.

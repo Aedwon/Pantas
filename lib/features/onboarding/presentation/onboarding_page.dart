@@ -53,45 +53,65 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     setState(() => _step = next);
   }
 
+  void _back() {
+    final previous = switch (_step) {
+      _OnboardingStep.ageGate => _OnboardingStep.welcome,
+      _OnboardingStep.consent => _OnboardingStep.ageGate,
+      _OnboardingStep.picker => _OnboardingStep.consent,
+      _OnboardingStep.examDate => _OnboardingStep.picker,
+      _OnboardingStep.name => _OnboardingStep.examDate,
+      _ => null,
+    };
+    if (previous != null) _setStep(previous);
+  }
+
   @override
   Widget build(BuildContext context) {
     _step ??= _initialStep();
     final disableAnimations = MediaQuery.disableAnimationsOf(context);
-    return Scaffold(
-      body: AnimatedSwitcher(
-        duration: disableAnimations
-            ? Duration.zero
-            : Duration(
-                milliseconds: _step == _OnboardingStep.welcome ? 300 : 380,
-              ),
-        reverseDuration: Duration.zero,
-        transitionBuilder: (child, animation) {
-          final fade = child.key == const ValueKey('welcome') ||
-              child.key == const ValueKey('launch');
-          return AnimatedBuilder(
-            animation: animation,
-            child: child,
-            builder: (context, child) {
-              final progress = (fade ? PantasCurves.ease : PantasCurves.riseIn)
-                  .transform(animation.value);
-              return ExcludeFocus(
-                excluding: progress == 0,
-                child: ExcludeSemantics(
+    return PopScope<void>(
+      canPop:
+          _step == _OnboardingStep.welcome || _step == _OnboardingStep.launch,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _back();
+      },
+      child: Scaffold(
+        body: AnimatedSwitcher(
+          duration: disableAnimations
+              ? Duration.zero
+              : Duration(
+                  milliseconds: _step == _OnboardingStep.welcome ? 300 : 380,
+                ),
+          reverseDuration: Duration.zero,
+          transitionBuilder: (child, animation) {
+            final fade = child.key == const ValueKey('welcome') ||
+                child.key == const ValueKey('launch');
+            return AnimatedBuilder(
+              animation: animation,
+              child: child,
+              builder: (context, child) {
+                final progress =
+                    (fade ? PantasCurves.ease : PantasCurves.riseIn)
+                        .transform(animation.value);
+                return ExcludeFocus(
                   excluding: progress == 0,
-                  child: Opacity(
-                    opacity: progress,
-                    child: Transform.translate(
-                      key: const ValueKey('onboarding-incoming-offset'),
-                      offset: Offset(fade ? 0 : 40 * (1 - progress), 0),
-                      child: child,
+                  child: ExcludeSemantics(
+                    excluding: progress == 0,
+                    child: Opacity(
+                      opacity: progress,
+                      child: Transform.translate(
+                        key: const ValueKey('onboarding-incoming-offset'),
+                        offset: Offset(fade ? 0 : 40 * (1 - progress), 0),
+                        child: child,
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-          );
-        },
-        child: _buildStep(_step!),
+                );
+              },
+            );
+          },
+          child: _buildStep(_step!),
+        ),
       ),
     );
   }
@@ -130,14 +150,24 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           key: const ValueKey('ageGate'),
           child: OnboardingAgeGateStep(
             currentYear: DateTime.now().year,
-            onAgeGatePassed: () => _setStep(_OnboardingStep.consent),
+            onBack: _back,
+            onAgeGatePassed: () {
+              if (_step == _OnboardingStep.ageGate) {
+                _setStep(_OnboardingStep.consent);
+              }
+            },
           ),
         );
       case _OnboardingStep.consent:
         return KeyedSubtree(
           key: const ValueKey('consent'),
           child: OnboardingConsentStep(
-            onCompleted: () => _setStep(_OnboardingStep.picker),
+            onBack: _back,
+            onCompleted: () {
+              if (_step == _OnboardingStep.consent) {
+                _setStep(_OnboardingStep.picker);
+              }
+            },
           ),
         );
       case _OnboardingStep.picker:

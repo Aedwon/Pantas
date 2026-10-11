@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -75,18 +74,15 @@ void main() {
     await tester.pumpAndSettle();
 
     // Step 2: Age gate
-    expect(find.text('Quick check'), findsOneWidget);
-    final agePicker = find.byType(CupertinoPicker);
-    await tester.drag(agePicker, const Offset(0, -32));
-    await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+    expect(find.text('When were you born?'), findsOneWidget);
+    await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     // Step 3: Consent
-    expect(find.text('Terms & Privacy'), findsOneWidget);
+    expect(find.text('Terms and Privacy'), findsOneWidget);
     await tester.tap(find.text('I agree to the '));
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+    await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     // Step 4: Exam picker
@@ -110,6 +106,31 @@ void main() {
 
     // Step 6: Name
     expect(find.text('What should we call you?'), findsOneWidget);
+  });
+
+  testWidgets('Age and Terms Back links match system back', (tester) async {
+    await pumpPage(tester);
+    await tester.tap(find.text('Get Started'));
+    await tester.pumpAndSettle();
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
+    await tester.tap(find.text('Get Started'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Terms and Privacy'), findsOneWidget);
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+    expect(find.text('When were you born?'), findsOneWidget);
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.text('When were you born?'), findsOneWidget);
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
   });
 
   testWidgets('step push follows the 380ms O_Flow curve', (tester) async {

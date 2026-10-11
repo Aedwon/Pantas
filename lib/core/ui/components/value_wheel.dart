@@ -10,7 +10,17 @@ class ValueWheel extends StatefulWidget {
     required this.label,
     this.invalidIndices = const {},
     super.key,
-  }) : horizontal = false;
+  })  : horizontal = false,
+        birthYear = false;
+  const ValueWheel.birthYear({
+    required this.values,
+    required this.selectedIndex,
+    required this.onSelected,
+    required this.label,
+    super.key,
+  })  : horizontal = false,
+        birthYear = true,
+        invalidIndices = const {};
   const ValueWheel.horizontal({
     required this.values,
     required this.selectedIndex,
@@ -18,8 +28,10 @@ class ValueWheel extends StatefulWidget {
     required this.label,
     this.invalidIndices = const {},
     super.key,
-  }) : horizontal = true;
+  })  : horizontal = true,
+        birthYear = false;
   final bool horizontal;
+  final bool birthYear;
   final List<String> values;
   final int selectedIndex;
   final ValueChanged<int> onSelected;
@@ -57,11 +69,20 @@ class _ValueWheelState extends State<ValueWheel> {
   void didUpdateWidget(ValueWheel oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.selectedIndex != widget.selectedIndex && _scroll.hasClients) {
-      _scroll.jumpToItem(widget.selectedIndex);
+      _jumpVertical(widget.selectedIndex);
     }
     if (oldWidget.selectedIndex != widget.selectedIndex &&
         _horizontalScroll.hasClients) {
       jumpHorizontal(widget.selectedIndex * _cellWidth);
+    }
+  }
+
+  void _jumpVertical(int index) {
+    _jumping = true;
+    try {
+      _scroll.jumpToItem(index);
+    } finally {
+      _jumping = false;
     }
   }
 
@@ -81,7 +102,7 @@ class _ValueWheelState extends State<ValueWheel> {
     if (widget.horizontal) {
       jumpHorizontal(next * _cellWidth);
     } else {
-      _scroll.jumpToItem(next);
+      _jumpVertical(next);
     }
     widget.onSelected(next);
   }
@@ -89,8 +110,12 @@ class _ValueWheelState extends State<ValueWheel> {
   @override
   Widget build(BuildContext context) {
     if (widget.values.isEmpty) return const SizedBox.shrink();
-    final extent = MediaQuery.textScalerOf(context).scale(20) * 1.35 + 6;
-    final row = extent > 36 ? extent : 36.0;
+    final extent =
+        MediaQuery.textScalerOf(context).scale(widget.birthYear ? 22 : 20) *
+                1.35 +
+            (widget.birthYear ? 14 : 6);
+    final minimum = widget.birthYear ? 44.0 : 36.0;
+    final row = extent > minimum ? extent : minimum;
     return Semantics(
       label: widget.label,
       value: widget.values[widget.selectedIndex],
@@ -116,29 +141,34 @@ class _ValueWheelState extends State<ValueWheel> {
           child: widget.horizontal
               ? horizontalWheel(context)
               : SizedBox(
-                  height: row * 5,
+                  height: row * (widget.birthYear ? 7 : 5),
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
                       Positioned(
-                        left: 12,
-                        right: 12,
+                        left: widget.birthYear ? 0 : 12,
+                        right: widget.birthYear ? 0 : 12,
                         child: Container(
+                          key: const ValueKey('wheel-selection'),
                           height: row,
                           decoration: BoxDecoration(
-                            color: context.colors.background,
-                            borderRadius: BorderRadius.circular(9),
+                            color: widget.birthYear
+                                ? context.colors.fill
+                                : context.colors.background,
+                            borderRadius: BorderRadius.circular(
+                              widget.birthYear ? 10 : 9,
+                            ),
                           ),
                         ),
                       ),
                       ListWheelScrollView.useDelegate(
                         controller: _scroll,
                         itemExtent: row,
-                        diameterRatio: 2.4,
+                        diameterRatio: widget.birthYear ? 1000 : 2.4,
                         perspective: .002,
                         physics: const FixedExtentScrollPhysics(),
                         onSelectedItemChanged: (i) {
-                          if (!widget.invalidIndices.contains(i)) {
+                          if (!_jumping && !widget.invalidIndices.contains(i)) {
                             widget.onSelected(i);
                           }
                         },
@@ -148,14 +178,30 @@ class _ValueWheelState extends State<ValueWheel> {
                             child: Text(
                               widget.values[i],
                               style: context.type.body.copyWith(
-                                fontSize: 20,
-                                letterSpacing: -.24,
+                                fontFeatures: widget.birthYear
+                                    ? const [FontFeature.tabularFigures()]
+                                    : null,
+                                fontSize: widget.birthYear
+                                    ? (i == widget.selectedIndex ? 22 : 19)
+                                    : 20,
+                                letterSpacing: widget.birthYear
+                                    ? (i == widget.selectedIndex
+                                        ? -.264
+                                        : -.228)
+                                    : -.24,
                                 fontWeight: i == widget.selectedIndex
-                                    ? FontWeight.w500
+                                    ? (widget.birthYear
+                                        ? FontWeight.w600
+                                        : FontWeight.w500)
                                     : FontWeight.w400,
-                                color: i == widget.selectedIndex
+                                color: i == widget.selectedIndex ||
+                                        (widget.birthYear &&
+                                            (i - widget.selectedIndex).abs() ==
+                                                1)
                                     ? context.colors.label
-                                    : context.colors.tertiaryLabel,
+                                    : widget.birthYear
+                                        ? context.colors.secondaryLabel
+                                        : context.colors.tertiaryLabel,
                                 decoration: widget.invalidIndices.contains(i)
                                     ? TextDecoration.lineThrough
                                     : null,
