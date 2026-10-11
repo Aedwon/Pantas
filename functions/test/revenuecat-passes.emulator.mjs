@@ -29,7 +29,7 @@ async function deliver(uid,id,rows,extra={}) {
   const sig = createHmac('sha256','test-secret').update(t + '.').update(raw).digest('hex');
   return reconcileWebhook(body,raw,`t=${t},v1=${sig}`,{db,auth,appId:'app-pantas-test',
     firebaseProjectId:extra.project ?? 'demo-pantas-test',signingSecret:'test-secret',now:()=>extra.at ?? at,
-    readCustomer:async()=>[],readPurchases:async user=>typeof rows === 'function' ? rows(user) : rows,
+    readCustomer:async()=>extra.sources ?? [],readPurchases:async user=>typeof rows === 'function' ? rows(user) : rows,
     catalog:extra.catalog ?? catalog});
 }
 
@@ -146,4 +146,26 @@ test('AC-2 sandbox passes count only on staging or an allowlisted production acc
     console.info = log;
     await db.doc('config/testers').delete();
   }
+});
+
+
+test('AC-7 real pass records union with known subscriptions and promotions; unknown purchases log without coverage', async () => {
+  const uid = 'pass-coverage-union';
+  const p = purchase(uid,'GPA.coverage-union');
+  const unknown = {...purchase(uid,'GPA.coverage-unknown'),productId:'pantas_future'};
+  const sources = [
+    {productId:'pantas_pro_monthly',entitlementIds:['pro'],appId:'app-pantas-test',environment:'production',store:'play_store',endsAt:at+86400000,active:true},
+    {productId:null,entitlementIds:['promo_student'],appId:null,environment:'production',store:'promotional',endsAt:at+172800000,active:true},
+  ];
+  const log = console.info; const logs = [];
+  console.info = (...args)=>logs.push(args);
+  try {
+    assert.equal(await deliver(uid,'pass-coverage-union-event',[p,unknown],{sources}),200);
+    assert.deepEqual({...seenClaims.get(uid)}, {pro:true,proUntil:Date.parse('2027-03-14T15:59:59.999Z')+86400000});
+    assert.ok(logs.some(args=>args[0]==='Unknown payment item' && args[1].id==='pantas_future'));
+    assert.equal((await ownPass(uid,unknown.transactionId).get()).exists,false);
+    assert.equal(await deliver(uid,'pass-coverage-refund-event',[{...p,status:'refunded'},unknown],{sources,at:at+1000}),200);
+    assert.equal((await ownPass(uid,p.transactionId).get()).get('state'),'revoked');
+    assert.deepEqual({...seenClaims.get(uid)}, {pro:true,proUntil:at+259200000});
+  } finally {console.info = log;}
 });

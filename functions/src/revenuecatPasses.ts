@@ -44,6 +44,9 @@ export async function preparePassReconciliation(transaction: Transaction, db: Fi
   const moved: string[] = [];
   const audits: string[] = [];
   for (const purchase of purchases) {
+    if (purchase.productId && !products.some(product => product.id === purchase.productId)) {
+      console.info('Unknown payment item', {id:purchase.productId});
+    }
     const examId = purchase.productId ? binding(purchase.productId) : undefined;
     if (!examId || !purchase.productId || purchase.customerId !== uid) continue;
     if (!Number.isFinite(purchase.purchasedAt) || purchase.purchasedAt > answerAt) {
