@@ -23,9 +23,7 @@ class Avatar extends StatelessWidget {
               emoji ? initial : initial.toUpperCase(),
               style: context.type.emphasized.copyWith(
                 fontSize: 25,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? c.surface
-                    : Colors.white,
+                color: c.onAccent,
                 letterSpacing: -.3,
               ),
             ),

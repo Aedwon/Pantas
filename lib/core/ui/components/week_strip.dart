@@ -4,7 +4,6 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 // Pending Aedwon decision, October 10 lead ruling. HP_Free's day-off text.
-const weekStripDayOffColor = Color(0xFFC7C7CC);
 
 enum WeekDayState { done, partial, missed, dayOff, today, plain }
 
@@ -63,7 +62,7 @@ class _WeekStripState extends State<WeekStrip> {
                 final today = state == WeekDayState.today;
                 final dayOff = state == WeekDayState.dayOff;
                 final color = dayOff
-                    ? weekStripDayOffColor
+                    ? c.inactiveDateLabel
                     : today
                         ? c.accent
                         : c.secondaryLabel;
@@ -75,11 +74,9 @@ class _WeekStripState extends State<WeekStrip> {
                     fontWeight: today ? FontWeight.w700 : FontWeight.w500,
                     letterSpacing: 0,
                     color: dayOff
-                        ? weekStripDayOffColor
+                        ? c.inactiveDateLabel
                         : today
-                            ? (Theme.of(context).brightness == Brightness.dark
-                                ? c.surface
-                                : Colors.white)
+                            ? (c.onAccent)
                             : c.label,
                   ),
                 );
@@ -89,7 +86,7 @@ class _WeekStripState extends State<WeekStrip> {
                     label: PantasDates.heading(date),
                     selected: selected,
                     child: Material(
-                      color: Colors.transparent,
+                      color: context.colors.transparent,
                       child: InkWell(
                         key: ValueKey('week-day-$i'),
                         onTap: () => widget.onSelected(date),

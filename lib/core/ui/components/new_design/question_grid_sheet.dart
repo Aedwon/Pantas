@@ -81,7 +81,9 @@ class QuestionGridSheet extends StatelessWidget {
       if (!enabled ||
           (!mock &&
               question.state == GridQuestionState.unreached &&
-              !question.current)) return null;
+              !question.current)) {
+        return null;
+      }
       return () {
         onSelected(question.number);
         onDismiss();
@@ -160,23 +162,29 @@ class QuestionGridSheet extends StatelessWidget {
                               child: SizedBox.square(
                                 dimension: diameter,
                                 child: Semantics(
-                                    label: questionLabel(question),
-                                    selected: question.current,
-                                    button: true,
-                                    enabled: actionFor(question,
-                                            enabled: parts[p].enabled) !=
-                                        null,
-                                    onTap: actionFor(question,
-                                        enabled: parts[p].enabled),
-                                    child: ExcludeSemantics(
-                                        child: Material(
-                                      color: Colors.transparent,
+                                  label: questionLabel(question),
+                                  selected: question.current,
+                                  button: true,
+                                  enabled: actionFor(
+                                        question,
+                                        enabled: parts[p].enabled,
+                                      ) !=
+                                      null,
+                                  onTap: actionFor(
+                                    question,
+                                    enabled: parts[p].enabled,
+                                  ),
+                                  child: ExcludeSemantics(
+                                    child: Material(
+                                      color: context.colors.transparent,
                                       child: InkWell(
                                         key: ValueKey(
                                           'grid-question-$p-${question.number}',
                                         ),
-                                        onTap: actionFor(question,
-                                            enabled: parts[p].enabled),
+                                        onTap: actionFor(
+                                          question,
+                                          enabled: parts[p].enabled,
+                                        ),
                                         customBorder: const CircleBorder(),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -199,7 +207,8 @@ class QuestionGridSheet extends StatelessWidget {
                                                           GridQuestionState
                                                               .unreached
                                                       ? c.separator
-                                                      : Colors.transparent,
+                                                      : context
+                                                          .colors.transparent,
                                               width: question.current ? 2 : 1.5,
                                             ),
                                           ),
@@ -248,7 +257,9 @@ class QuestionGridSheet extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                    ))),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),

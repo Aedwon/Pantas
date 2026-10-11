@@ -30,21 +30,23 @@ class CenteredDialog extends StatelessWidget {
           onPressed: action,
           style: TextButton.styleFrom(
             backgroundColor: red ? c.destructive : c.fill,
-            foregroundColor: red ? Colors.white : c.label,
+            foregroundColor: red ? context.colors.onDestructive : c.label,
             minimumSize: const Size(0, 46),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             shape: const StadiumBorder(),
           ),
           child: Text(
             label,
-            style: context.type.emphasized
-                .copyWith(fontSize: 16, color: red ? Colors.white : c.label),
+            style: context.type.emphasized.copyWith(
+              fontSize: 16,
+              color: red ? context.colors.onDestructive : c.label,
+            ),
           ),
         );
     return CallbackShortcuts(
       bindings: {const SingleActivator(LogicalKeyboardKey.escape): onCancel},
       child: Dialog(
-        backgroundColor: Colors.transparent,
+        backgroundColor: context.colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         insetPadding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
@@ -55,7 +57,7 @@ class CenteredDialog extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: .2),
+                color: context.colors.shadow.withValues(alpha: .2),
                 blurRadius: 40,
                 offset: const Offset(0, 10),
               ),

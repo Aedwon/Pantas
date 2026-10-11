@@ -22,6 +22,28 @@ class PantasColors extends AppColors {
     required this.pro,
     required this.liquidStart,
     required this.liquidEnd,
+    required this.controlOutline,
+    required this.pickerBackground,
+    required this.warningText,
+    required this.choiceOutline,
+    required this.toastBackground,
+    required this.toastAction,
+    required this.onToast,
+    required this.shadow,
+    required this.transparent,
+    required this.onAccent,
+    required this.onDestructive,
+    required this.figureBackground,
+    required this.figureViewerBackground,
+    required this.onFigureViewer,
+    required this.floatingRight,
+    required this.floatingWrong,
+    required this.inactiveDateLabel,
+    required this.searchPlaceholder,
+    required this.pendingMark,
+    required this.switchThumb,
+    required this.switchThumbShadow,
+    required this.segmentedShadow,
   });
 
   @override
@@ -44,6 +66,50 @@ class PantasColors extends AppColors {
   final Color pro;
   final Color liquidStart;
   final Color liquidEnd;
+  // Task8b ruling7: meaningful unchecked control boundaries.
+  final Color controlOutline;
+  // QZ_Picker lesson band; dark uses inset gray next to the group surface.
+  final Color pickerBackground;
+  // QZ_Picker Unread; dark retains the existing high-contrast amber.
+  final Color warningText;
+  // QV_Answer empty letter-circle outline.
+  final Color choiceOutline;
+  // QV_Flag inverted toast, both themes.
+  final Color toastBackground;
+  // QV_Flag Undo.
+  final Color toastAction;
+  // QV_Flag message.
+  final Color onToast;
+  // QV_Flag, QV_Leave, QV_Answer and RD_Figure shadows and washes.
+  final Color shadow;
+  // Board states with no fill or border.
+  final Color transparent;
+  // Filled accent marks and actions; dark retains the readable surface foreground.
+  final Color onAccent;
+  // MK_Discard and QV_MissPro filled red action/mark.
+  final Color onDestructive;
+  // QV_Figure and RD_Figure retain white backing in dark mode.
+  final Color figureBackground;
+  // RD_Figure expanded viewer.
+  final Color figureViewerBackground;
+  // RD_Figure viewer controls.
+  final Color onFigureViewer;
+  // QV_Answer floating correct surface.
+  final Color floatingRight;
+  // QV_MissPro floating wrong surface.
+  final Color floatingWrong;
+  // HP_Free day-off dates, Aedwon decision Oct10.
+  final Color inactiveDateLabel;
+  // ST_Search inactive placeholder, Aedwon decision Oct10.
+  final Color searchPlaceholder;
+  // L_Restore pending dot.
+  final Color pendingMark;
+  // ST_Root and ST_DarkRoot white switch knob.
+  final Color switchThumb;
+  // ST_Root switch knob shadow.
+  final Color switchThumbShadow;
+  // DT_TopicsA selected segment shadow.
+  final Color segmentedShadow;
 
   static const light = PantasColors(
     background: Color(0xFFF5F5F7),
@@ -64,6 +130,28 @@ class PantasColors extends AppColors {
     pro: Color(0xFFD9A400),
     liquidStart: Color(0xFF14937D),
     liquidEnd: Color(0xFF0B7A68),
+    controlOutline: Color(0xFF8A8A8E),
+    pickerBackground: Color(0xFFFBFBFC),
+    warningText: Color(0xFFB25000),
+    choiceOutline: Color(0xFFD1D1D6),
+    toastBackground: Color(0xFF1D1D1F),
+    toastAction: Color(0xFF7FD4C4),
+    onToast: Color(0xFFFFFFFF),
+    shadow: Color(0xFF000000),
+    transparent: Color(0x00000000),
+    onAccent: Color(0xFFFFFFFF),
+    onDestructive: Color(0xFFFFFFFF),
+    figureBackground: Color(0xFFFFFFFF),
+    figureViewerBackground: Color(0xFF000000),
+    onFigureViewer: Color(0xFFFFFFFF),
+    floatingRight: Color(0xFFEFF7F5),
+    floatingWrong: Color(0xFFFFF3F4),
+    inactiveDateLabel: Color(0xFFC7C7CC),
+    searchPlaceholder: Color(0xFF8E8E93),
+    pendingMark: Color(0xFFD1D1D6),
+    switchThumb: Color(0xFFFFFFFF),
+    switchThumbShadow: Color(0x33000000),
+    segmentedShadow: Color(0x1A000000),
   );
 
   static const dark = PantasColors(
@@ -85,6 +173,28 @@ class PantasColors extends AppColors {
     pro: Color(0xFFD9A400),
     liquidStart: Color(0xFF14937D),
     liquidEnd: Color(0xFF0B7A68),
+    controlOutline: Color(0xFF8E8E93),
+    pickerBackground: Color(0xFF18181A),
+    warningText: Color(0xFFD9A400),
+    choiceOutline: Color(0xFF48484A),
+    toastBackground: Color(0xFF1D1D1F),
+    toastAction: Color(0xFF7FD4C4),
+    onToast: Color(0xFFFFFFFF),
+    shadow: Color(0xFF000000),
+    transparent: Color(0x00000000),
+    onAccent: Color(0xFF1C1C1E),
+    onDestructive: Color(0xFFFFFFFF),
+    figureBackground: Color(0xFFFFFFFF),
+    figureViewerBackground: Color(0xFF000000),
+    onFigureViewer: Color(0xFFFFFFFF),
+    floatingRight: Color(0xFF123F37),
+    floatingWrong: Color(0xFF3A1215),
+    inactiveDateLabel: Color(0xFFC7C7CC),
+    searchPlaceholder: Color(0xFF8E8E93),
+    pendingMark: Color(0xFF48484A),
+    switchThumb: Color(0xFFFFFFFF),
+    switchThumbShadow: Color(0x33000000),
+    segmentedShadow: Color(0x1A000000),
   );
 
   /// Board accuracy colors, clamped below 40% and above 80%.
@@ -152,6 +262,28 @@ class PantasColors extends AppColors {
     Color? pro,
     Color? liquidStart,
     Color? liquidEnd,
+    Color? controlOutline,
+    Color? pickerBackground,
+    Color? warningText,
+    Color? choiceOutline,
+    Color? toastBackground,
+    Color? toastAction,
+    Color? onToast,
+    Color? shadow,
+    Color? transparent,
+    Color? onAccent,
+    Color? onDestructive,
+    Color? figureBackground,
+    Color? figureViewerBackground,
+    Color? onFigureViewer,
+    Color? floatingRight,
+    Color? floatingWrong,
+    Color? inactiveDateLabel,
+    Color? searchPlaceholder,
+    Color? pendingMark,
+    Color? switchThumb,
+    Color? switchThumbShadow,
+    Color? segmentedShadow,
     @Deprecated('W1 adapter, removed in W2 close-out') Color? ink,
     @Deprecated('W1 adapter, removed in W2 close-out') Color? inkMuted,
     @Deprecated('W1 adapter, removed in W2 close-out') Color? rule,
@@ -181,6 +313,29 @@ class PantasColors extends AppColors {
         pro: pro ?? amber ?? this.pro,
         liquidStart: liquidStart ?? this.liquidStart,
         liquidEnd: liquidEnd ?? this.liquidEnd,
+        controlOutline: controlOutline ?? this.controlOutline,
+        pickerBackground: pickerBackground ?? this.pickerBackground,
+        warningText: warningText ?? this.warningText,
+        choiceOutline: choiceOutline ?? this.choiceOutline,
+        toastBackground: toastBackground ?? this.toastBackground,
+        toastAction: toastAction ?? this.toastAction,
+        onToast: onToast ?? this.onToast,
+        shadow: shadow ?? this.shadow,
+        transparent: transparent ?? this.transparent,
+        onAccent: onAccent ?? this.onAccent,
+        onDestructive: onDestructive ?? this.onDestructive,
+        figureBackground: figureBackground ?? this.figureBackground,
+        figureViewerBackground:
+            figureViewerBackground ?? this.figureViewerBackground,
+        onFigureViewer: onFigureViewer ?? this.onFigureViewer,
+        floatingRight: floatingRight ?? this.floatingRight,
+        floatingWrong: floatingWrong ?? this.floatingWrong,
+        inactiveDateLabel: inactiveDateLabel ?? this.inactiveDateLabel,
+        searchPlaceholder: searchPlaceholder ?? this.searchPlaceholder,
+        pendingMark: pendingMark ?? this.pendingMark,
+        switchThumb: switchThumb ?? this.switchThumb,
+        switchThumbShadow: switchThumbShadow ?? this.switchThumbShadow,
+        segmentedShadow: segmentedShadow ?? this.segmentedShadow,
       );
 
   @override
@@ -205,6 +360,34 @@ class PantasColors extends AppColors {
       pro: Color.lerp(pro, other.pro, t)!,
       liquidStart: Color.lerp(liquidStart, other.liquidStart, t)!,
       liquidEnd: Color.lerp(liquidEnd, other.liquidEnd, t)!,
+      controlOutline: Color.lerp(controlOutline, other.controlOutline, t)!,
+      pickerBackground:
+          Color.lerp(pickerBackground, other.pickerBackground, t)!,
+      warningText: Color.lerp(warningText, other.warningText, t)!,
+      choiceOutline: Color.lerp(choiceOutline, other.choiceOutline, t)!,
+      toastBackground: Color.lerp(toastBackground, other.toastBackground, t)!,
+      toastAction: Color.lerp(toastAction, other.toastAction, t)!,
+      onToast: Color.lerp(onToast, other.onToast, t)!,
+      shadow: Color.lerp(shadow, other.shadow, t)!,
+      transparent: Color.lerp(transparent, other.transparent, t)!,
+      onAccent: Color.lerp(onAccent, other.onAccent, t)!,
+      onDestructive: Color.lerp(onDestructive, other.onDestructive, t)!,
+      figureBackground:
+          Color.lerp(figureBackground, other.figureBackground, t)!,
+      figureViewerBackground:
+          Color.lerp(figureViewerBackground, other.figureViewerBackground, t)!,
+      onFigureViewer: Color.lerp(onFigureViewer, other.onFigureViewer, t)!,
+      floatingRight: Color.lerp(floatingRight, other.floatingRight, t)!,
+      floatingWrong: Color.lerp(floatingWrong, other.floatingWrong, t)!,
+      inactiveDateLabel:
+          Color.lerp(inactiveDateLabel, other.inactiveDateLabel, t)!,
+      searchPlaceholder:
+          Color.lerp(searchPlaceholder, other.searchPlaceholder, t)!,
+      pendingMark: Color.lerp(pendingMark, other.pendingMark, t)!,
+      switchThumb: Color.lerp(switchThumb, other.switchThumb, t)!,
+      switchThumbShadow:
+          Color.lerp(switchThumbShadow, other.switchThumbShadow, t)!,
+      segmentedShadow: Color.lerp(segmentedShadow, other.segmentedShadow, t)!,
     );
   }
 }

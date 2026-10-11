@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
 class PantasSwitch extends StatelessWidget {
   const PantasSwitch({
@@ -66,13 +65,13 @@ class PantasSwitch extends StatelessWidget {
                             child: DecoratedBox(
                               key: const ValueKey('pantas-switch-knob'),
                               decoration: BoxDecoration(
-                                color: PantasColors.light.surface,
+                                color: context.colors.switchThumb,
                                 shape: BoxShape.circle,
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
-                                    color: Color(0x33000000),
+                                    color: context.colors.switchThumbShadow,
                                     blurRadius: 4,
-                                    offset: Offset(0, 2),
+                                    offset: const Offset(0, 2),
                                   ),
                                 ],
                               ),

@@ -15,26 +15,26 @@ void main() {
         for (final state in [
           ChoiceRowState.picked,
           ChoiceRowState.right,
-          ChoiceRowState.wrong
+          ChoiceRowState.wrong,
         ]) {
           await pumpAccessibilitySurface(
               tester,
               ChoiceRow(
-                  letter: 'B', text: 'The answer', state: state, onTap: () {}),
-              brightness: brightness);
+                  letter: 'B', text: 'The answer', state: state, onTap: () {},),
+              brightness: brightness,);
           final word = state == ChoiceRowState.picked
               ? 'selected'
               : state == ChoiceRowState.right
                   ? 'correct'
                   : 'wrong';
           expect(find.bySemanticsLabel(RegExp('B.*$word.*The answer')),
-              findsOneWidget);
+              findsOneWidget,);
           if (state != ChoiceRowState.picked) {
             expect(
                 find.byIcon(state == ChoiceRowState.right
                     ? PantasIcons.check
-                    : PantasIcons.close),
-                findsOneWidget);
+                    : PantasIcons.close,),
+                findsOneWidget,);
             expect(find.text('B'), findsNothing);
           }
         }
@@ -59,24 +59,24 @@ void main() {
                         number: 1,
                         state: GridQuestionState.right,
                         current: true,
-                        flagged: true),
+                        flagged: true,),
                     GridQuestion(number: 2, state: GridQuestionState.wrong),
                     GridQuestion(number: 3, state: GridQuestionState.answered),
-                    GridQuestion(number: 4, state: GridQuestionState.unreached)
-                  ])
+                    GridQuestion(number: 4, state: GridQuestionState.unreached),
+                  ],),
                 ],
-                onSelected: (_) {}),
+                onSelected: (_) {},),
             brightness: brightness,
-            disableAnimations: true);
+            disableAnimations: true,);
         final current = find
             .bySemanticsLabel(RegExp('Question 1.*current.*correct.*flagged'));
         expect(current, findsOneWidget);
         expect(tester.getSemantics(current).flagsCollection.isSelected,
-            Tristate.isTrue);
+            Tristate.isTrue,);
         for (final label in [
           'Question 2, wrong',
           'Question 3, answered',
-          'Question 4, not reached'
+          'Question 4, not reached',
         ]) {
           expect(find.bySemanticsLabel(label), findsOneWidget);
         }

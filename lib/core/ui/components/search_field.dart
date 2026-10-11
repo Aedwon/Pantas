@@ -4,7 +4,6 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 // Aedwon accepted ST_Search's inactive placeholder pair, October 10.
-const searchPlaceholderColor = Color(0xFF8E8E93);
 
 class SearchField extends StatefulWidget {
   const SearchField({
@@ -61,7 +60,11 @@ class _SearchFieldState extends State<SearchField> {
       ),
       child: Row(
         children: [
-          Icon(PantasIcons.search, size: 17, color: searchPlaceholderColor),
+          Icon(
+            PantasIcons.search,
+            size: 17,
+            color: context.colors.searchPlaceholder,
+          ),
           const SizedBox(width: 8),
           Expanded(
             child: TextField(
@@ -71,8 +74,8 @@ class _SearchFieldState extends State<SearchField> {
               style: context.type.body,
               decoration: InputDecoration(
                 hintText: widget.hint,
-                hintStyle:
-                    context.type.body.copyWith(color: searchPlaceholderColor),
+                hintStyle: context.type.body
+                    .copyWith(color: context.colors.searchPlaceholder),
                 border: InputBorder.none,
                 isDense: true,
                 contentPadding: const EdgeInsets.symmetric(vertical: 7),

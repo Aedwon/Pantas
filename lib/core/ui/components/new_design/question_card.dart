@@ -38,11 +38,14 @@ class QuestionCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
               child: Container(
                 key: const ValueKey('question-figure-frame'),
-                color: Colors.white,
+                color: context.colors.figureBackground,
                 padding: const EdgeInsets.fromLTRB(14, 14, 14, 10),
                 child: Theme(
                   data: buildLightTheme(),
-                  child: Material(color: Colors.white, child: figure),
+                  child: Material(
+                    color: context.colors.figureBackground,
+                    child: figure,
+                  ),
                 ),
               ),
             ),

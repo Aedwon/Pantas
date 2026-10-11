@@ -60,10 +60,7 @@ class MonthFirstDatePicker extends StatelessWidget {
                         color: year == today.year && month < today.month
                             ? c.chevron
                             : value.month == month
-                                ? (Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? c.surface
-                                    : Colors.white)
+                                ? (c.onAccent)
                                 : c.label,
                       ),
                     ),
@@ -124,7 +121,7 @@ class MonthFirstDatePicker extends StatelessWidget {
                         side: BorderSide(
                           color: isToday && !selected
                               ? c.accent
-                              : Colors.transparent,
+                              : context.colors.transparent,
                           width: 1.5,
                         ),
                       ),
@@ -139,10 +136,7 @@ class MonthFirstDatePicker extends StatelessWidget {
                             color: past
                                 ? c.chevron
                                 : selected
-                                    ? (Theme.of(context).brightness ==
-                                            Brightness.dark
-                                        ? c.surface
-                                        : Colors.white)
+                                    ? (c.onAccent)
                                     : isToday
                                         ? c.accent
                                         : c.secondaryLabel,
@@ -158,10 +152,7 @@ class MonthFirstDatePicker extends StatelessWidget {
                             color: past
                                 ? c.chevron
                                 : selected
-                                    ? (Theme.of(context).brightness ==
-                                            Brightness.dark
-                                        ? c.surface
-                                        : Colors.white)
+                                    ? (c.onAccent)
                                     : c.label,
                             letterSpacing: -.228,
                           ),

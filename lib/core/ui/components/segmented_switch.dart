@@ -66,9 +66,9 @@ class SegmentedSwitch extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8),
                                 boxShadow: i != selected
                                     ? null
-                                    : const [
+                                    : [
                                         BoxShadow(
-                                          color: Color(0x1A000000),
+                                          color: context.colors.segmentedShadow,
                                           blurRadius: 3,
                                           offset: Offset(0, 1),
                                         ),

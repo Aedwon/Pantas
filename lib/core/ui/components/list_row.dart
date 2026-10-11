@@ -80,12 +80,12 @@ class ListRow extends StatelessWidget {
             shape: BoxShape.circle,
             color: selected ? c.accentFill : null,
             border: Border.all(
-              color: selected ? c.accent : c.chevron,
+              color: selected ? c.accent : c.controlOutline,
               width: 1.5,
             ),
           ),
           child: selected
-              ? const Icon(Icons.circle, size: 8, color: Colors.white)
+              ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
               : null,
         ),
       ListRowVariant.inlineEditor => Icon(
@@ -107,7 +107,7 @@ class ListRow extends StatelessWidget {
             toggled: variant == ListRowVariant.switchControl ? selected : null,
             inMutuallyExclusiveGroup: variant == ListRowVariant.radio,
             child: Material(
-              color: Colors.transparent,
+              color: context.colors.transparent,
               child: InkWell(
                 onTap: onTap,
                 child: Container(

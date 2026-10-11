@@ -70,16 +70,13 @@ class _PantasButtonState extends State<PantasButton> {
     final foreground = !enabled
         ? c.tertiaryLabel
         : solid
-            ? variant == PantasButtonVariant.primary &&
+            ? (variant == PantasButtonVariant.destructive
+                ? c.onDestructive
+                : c.onAccent)
+            : variant == PantasButtonVariant.secondary &&
                     Theme.of(context).brightness == Brightness.dark
-                ? c.surface
-                : Colors.white
-            : variant == PantasButtonVariant.destructive
-                ? c.destructive
-                : variant == PantasButtonVariant.secondary &&
-                        Theme.of(context).brightness == Brightness.dark
-                    ? c.label
-                    : c.accent;
+                ? c.label
+                : c.accent;
     final background = !enabled
         ? c.fill
         : solid
@@ -88,7 +85,7 @@ class _PantasButtonState extends State<PantasButton> {
                 : c.accentFill
             : variant == PantasButtonVariant.secondary
                 ? c.accentTint
-                : Colors.transparent;
+                : context.colors.transparent;
     return AnimatedScale(
       key: const ValueKey('pantas-button-scale'),
       scale: MediaQuery.disableAnimationsOf(context)

@@ -9,7 +9,7 @@ void main() {
       (tester) async {
     var value = '';
     await pumpAccessibilitySurface(
-        tester, SearchField(title: 'Study', onChanged: (v) => value = v));
+        tester, SearchField(title: 'Study', onChanged: (v) => value = v),);
     await tester.tap(find.byType(TextField));
     await tester.enterText(find.byType(TextField), 'math');
     await tester.pumpAndSettle();
@@ -20,7 +20,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(value, '');
     expect(
-        tester.widget<TextField>(find.byType(TextField)).controller!.text, '');
+        tester.widget<TextField>(find.byType(TextField)).controller!.text, '',);
     expect(find.text('Study').hitTestable(), findsOneWidget);
   });
 }

@@ -3,8 +3,6 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 // QV_Flag's toast uses the same inverted pair in both themes.
-const toastSurface = Color(0xFF1D1D1F);
-const toastUndoColor = Color(0xFF7FD4C4);
 
 class Toast extends StatelessWidget {
   const Toast({
@@ -49,11 +47,11 @@ class Toast extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
             decoration: BoxDecoration(
-              color: toastSurface,
+              color: context.colors.toastBackground,
               borderRadius: BorderRadius.circular(14),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: .18),
+                  color: context.colors.shadow.withValues(alpha: .18),
                   blurRadius: 20,
                   offset: const Offset(0, 6),
                 ),
@@ -66,7 +64,7 @@ class Toast extends StatelessWidget {
                     message,
                     style: context.type.subhead.copyWith(
                       fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                      color: context.colors.onToast,
                     ),
                   ),
                 ),
@@ -74,13 +72,13 @@ class Toast extends StatelessWidget {
                   TextButton(
                     onPressed: onUndo,
                     style: TextButton.styleFrom(
-                      foregroundColor: toastUndoColor,
+                      foregroundColor: context.colors.toastAction,
                       minimumSize: const Size(44, 44),
                     ),
                     child: Text(
                       'Undo',
                       style: context.type.subheadStrong
-                          .copyWith(color: toastUndoColor),
+                          .copyWith(color: context.colors.toastAction),
                     ),
                   ),
               ],

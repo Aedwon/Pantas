@@ -6,9 +6,7 @@ import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
-// RD_Real's credit is small secondary text.
-// Keep its board color visible to review.
-const figureCreditColor = Color(0xFF8E8E93);
+// Credits use secondaryLabel under the Task8b contrast ruling.
 
 class ContentRenderer extends StatelessWidget {
   const ContentRenderer({
@@ -373,7 +371,7 @@ class _FigureFrame extends StatelessWidget {
                 Navigator.of(context).pop(),
           },
           child: Dialog.fullscreen(
-            backgroundColor: Colors.black,
+            backgroundColor: context.colors.figureViewerBackground,
             child: SafeArea(
               child: Column(
                 children: [
@@ -384,7 +382,7 @@ class _FigureFrame extends StatelessWidget {
                       onPressed: () => Navigator.of(context).pop(),
                       icon: Icon(
                         PantasIcons.close,
-                        color: Colors.white,
+                        color: context.colors.onFigureViewer,
                         size: 22,
                       ),
                     ),
@@ -397,7 +395,7 @@ class _FigureFrame extends StatelessWidget {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width,
                           child: ColoredBox(
-                            color: Colors.white,
+                            color: context.colors.figureBackground,
                             child: Theme(
                               data: buildLightTheme(),
                               child: figure,
@@ -413,7 +411,8 @@ class _FigureFrame extends StatelessWidget {
                       child: Text(
                         credit,
                         style: context.type.caption.copyWith(
-                          color: Colors.white.withValues(alpha: .6),
+                          color: context.colors.onFigureViewer
+                              .withValues(alpha: .6),
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -434,7 +433,7 @@ class _FigureFrame extends StatelessWidget {
             child: Stack(
               children: [
                 ColoredBox(
-                  color: Colors.white,
+                  color: context.colors.figureBackground,
                   child: imageSemantics
                       ? Semantics(
                           label: label,
@@ -458,13 +457,13 @@ class _FigureFrame extends StatelessWidget {
                         height: 30,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.black.withValues(alpha: .5),
+                          color: context.colors.shadow.withValues(alpha: .5),
                         ),
                         alignment: Alignment.center,
                         child: Icon(
                           PantasIcons.expandFigure,
                           size: 16,
-                          color: Colors.white,
+                          color: context.colors.onFigureViewer,
                         ),
                       ),
                     ),
@@ -479,9 +478,7 @@ class _FigureFrame extends StatelessWidget {
               credit,
               style: context.type.caption.copyWith(
                 fontWeight: FontWeight.w400,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? figureCreditColor
-                    : context.colors.secondaryLabel,
+                color: context.colors.secondaryLabel,
               ),
             ),
           ],

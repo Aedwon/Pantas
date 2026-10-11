@@ -116,7 +116,7 @@ class _ScopePickerState extends State<ScopePicker>
         shape: BoxShape.circle,
         color: count > 0 ? c.accentFill : null,
         border: Border.all(
-          color: count > 0 ? c.accent : c.chevron,
+          color: count > 0 ? c.accent : c.controlOutline,
           width: 1.5,
         ),
       ),
@@ -127,9 +127,7 @@ class _ScopePickerState extends State<ScopePicker>
                 width: 10,
                 height: 2.5,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? c.surface
-                      : Colors.white,
+                  color: c.onAccent,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -138,9 +136,7 @@ class _ScopePickerState extends State<ScopePicker>
               ? Icon(
                   PantasIcons.check,
                   size: 14,
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? c.surface
-                      : Colors.white,
+                  color: c.onAccent,
                 )
               : null,
     );
@@ -187,10 +183,7 @@ class _ScopePickerState extends State<ScopePicker>
                               'Unread',
                               style: context.type.footnote.copyWith(
                                 fontWeight: FontWeight.w500,
-                                color: Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? c.pro
-                                    : const Color(0xFFB25000),
+                                color: c.warningText,
                               ),
                             ),
                         ],
