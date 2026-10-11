@@ -61,6 +61,29 @@ class RecordingTelemetrySink implements Telemetry {
 }
 
 void main() {
+  test('failed startup records its error before disposing the consent scope',
+      () async {
+    final sink = RecordingTelemetrySink();
+    var disposed = false;
+    final lifecycle = Provider<void>((ref) {
+      ref.onDispose(() => disposed = true);
+    });
+    final container = ProviderContainer(
+      overrides: [
+        telemetrySinkProvider.overrideWithValue(sink),
+      ],
+    );
+    addTearDown(container.dispose);
+    container.read(lifecycle);
+    await container
+        .read(telemetryConsentControllerProvider.notifier)
+        .applyStartupConsent(enabled: true);
+    final error = StateError('startup fixture failure');
+    disposeFailedStartup(error, StackTrace.empty, container: container);
+    expect(sink.recordedErrors, [error]);
+    expect(disposed, isTrue);
+  });
+
   group('TelemetryConsentController effective runtime consent and transitions',
       () {
     test('starts false and stays false before consent is applied', () async {

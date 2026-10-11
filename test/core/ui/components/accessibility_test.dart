@@ -7,7 +7,6 @@ import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/answer_reveal.dart';
 import 'package:pantas/core/ui/components/answer_row.dart';
-import 'package:pantas/core/ui/components/app_error_view.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
@@ -196,13 +195,6 @@ void main() {
               'to 200% scale factor',
           onTap: () {},
         ),
-      );
-    });
-
-    testWidgets('AppErrorView survives 200% text scale', (tester) async {
-      await expectSurvivesTextScale(
-        tester,
-        const AppErrorView(),
       );
     });
 

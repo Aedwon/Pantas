@@ -70,7 +70,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   return router;
 });
 
-List<RouteBase> buildAppRoutes(Ref ref) {
+List<RouteBase> buildAppRoutes(Ref ref, {bool includeDebugGallery = true}) {
   final home = homeRoutes(ref);
   final study = studyRoutes(ref);
   final quiz = quizRoutes(ref);
@@ -97,7 +97,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ...onboardingRoutes(ref),
     ...wrappedRoutes(ref),
     ...statesRoutes(ref),
-    ...devRoutes(),
+    ...devRoutes(includeDebugGallery: includeDebugGallery),
   ];
 }
 
@@ -111,7 +111,7 @@ class _FakeRef implements Ref {
 
 /// Flattens the router's declared paths. Exists so a test can assert that
 /// every Settings row has somewhere to land.
-List<String> collectRoutePaths() {
+List<String> collectRoutePaths({bool includeDebugGallery = true}) {
   final paths = <String>[];
   void visit(List<RouteBase> routes) {
     for (final route in routes) {
@@ -120,6 +120,6 @@ List<String> collectRoutePaths() {
     }
   }
 
-  visit(buildAppRoutes(_FakeRef()));
+  visit(buildAppRoutes(_FakeRef(), includeDebugGallery: includeDebugGallery));
   return paths;
 }

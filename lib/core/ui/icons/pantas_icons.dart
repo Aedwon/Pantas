@@ -35,6 +35,9 @@ abstract final class PantasIcons {
   static IconData get restDay => const IconData(0xe330, fontFamily: 'Phosphor');
   static IconData get addDate => const IconData(0xe10a, fontFamily: 'Phosphor');
   static IconData get pro => const IconData(0xe6a2, fontFamily: 'Phosphor');
+  // SY_Error uses Phosphor's regular warning-circle glyph.
+  static IconData get appError =>
+      const IconData(0xe4e2, fontFamily: 'Phosphor');
   static Widget get progressError => const OwnIcon(OwnIconKind.progressError);
   static IconData get tendencies =>
       const IconData(0xe2dc, fontFamily: 'Phosphor');

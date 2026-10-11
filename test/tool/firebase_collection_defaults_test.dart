@@ -35,7 +35,12 @@ void main() {
     final bootstrapFile = File('lib/app/bootstrap.dart');
     expect(bootstrapFile.existsSync(), isTrue);
 
-    final content = bootstrapFile.readAsStringSync();
+    final source = bootstrapFile.readAsStringSync();
+    // Startup recovery can render before data exists. Consent still precedes
+    // the real App inside the shipping initializer.
+    final initializer = source.indexOf('Future<void> _bootstrap(');
+    expect(initializer, greaterThanOrEqualTo(0));
+    final content = source.substring(initializer);
     final overrideIndex = content.indexOf('...telemetryConsentOverrides');
     final applyIndex =
         content.indexOf('applyPersistedTelemetryConsent(container)');
