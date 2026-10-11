@@ -57,7 +57,10 @@ void main() {
       '/settings/_debug',
       '/legal/:doc',
     ];
-    expect(collectRoutePaths(), unorderedEquals(before));
+    expect(
+      collectRoutePaths(includeDebugGallery: false),
+      unorderedEquals(before),
+    );
   });
   test('branch roots are selected by path, not family list position', () {
     final shell =
