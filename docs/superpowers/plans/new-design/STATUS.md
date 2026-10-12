@@ -62,10 +62,10 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
 
 ## Running or scheduled (Oct 12, 7:30 PM)
 
-- BLOCKED ON CODEX: at 7:25 PM Codex reported the weekly limit: "try again at Oct 18th, 2026
-  12:58 PM". No Sol or Astra run is possible before then unless Aedwon adds credits or the limit is
-  reset. Nothing is scheduled. Aedwon has been asked how to proceed (wait, add credits, or let
-  Sonnet 5.5 continue Sol's unfinished families, which his Oct 10 rule forbids today).
+- PAUSED UNTIL OCT 18: at 7:25 PM on Oct 12 Codex reported the weekly limit: "try again at Oct
+  18th, 2026 12:58 PM". Aedwon chose to wait (Oct 12): no credits, and Sonnet does not pick up
+  Sol's families. Resume on Oct 18 after 12:58 PM with the two lanes (lane 1 W4d, W4f, W4a; lane 2
+  W4c, W4b, W4e), Astra audits alone. Nothing is scheduled; the lead session must start it.
 - New commits from the 7:07 PM window (unreviewed, not integrated): W4c 287a640b (reading
   fraction contract); W4d 4ce76695 (Task 1 start functions) and a2a0cb80 (report entry).
 - Uncommitted work sits in the worktrees of W4a (5 files), W4c (13), W4d (10), W4f (29, Task 1).

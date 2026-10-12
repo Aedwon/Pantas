@@ -1127,3 +1127,6 @@ confirm); a screen family may extend a W2 component in place, with tests, when a
   progress on their branches and worktrees.
 - Lead also wrote standing rulings for the W4 families (L3-parallel-map.md) after W4a, W4b and W4c
   stopped for contrast gaps and cross-family contracts.
+- Aedwon's decision (Oct 12): wait for the weekly reset on October 18. He declined adding credits
+  and declined letting Sonnet 5.5 continue Sol's unfinished families. Until then the lead does only
+  lead work (review, integration, records).
