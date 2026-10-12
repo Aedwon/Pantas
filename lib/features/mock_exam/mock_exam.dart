@@ -3,6 +3,7 @@ export 'application/mock_blueprint_providers.dart';
 export 'application/mock_exam_preferences.dart';
 export 'application/mock_panel_providers.dart';
 export 'application/mock_persistence_scheduler.dart';
+export 'application/mock_results_providers.dart';
 export 'application/mock_review_providers.dart';
 export 'application/mock_session_controller.dart';
 export 'application/strict_mode_lifecycle.dart';

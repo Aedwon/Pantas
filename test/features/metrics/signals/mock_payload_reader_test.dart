@@ -63,4 +63,24 @@ void main() {
     expect(payload.flaggedQuestionIds, isEmpty);
     expect(payload.sectionResults, isEmpty);
   });
+
+  test('new result counts and review reasons do not change metric inputs', () {
+    final payload = const MockPayloadReader().read(
+      sampledQuestionsJson:
+          '[{"sectionId":"s1","name":"Part 1","questionIds":["q1"]}]',
+      answersJson: '{"q1":{"selectedIndex":1,"atSec":42,"missReason":"other",'
+          '"blankReason":null,"reasonNote":"Wrong line"}}',
+      flagsJson: '["q1"]',
+      sectionResultsJson:
+          '{"sections":[{"sectionId":"s1","name":"Part 1","correct":0, '
+          '"wrong":1,"blank":0,"total":1,"retiredCount":0, '
+          '"timeSeconds":42}]}',
+    );
+    expect(payload.answers['q1']!.selectedIndex, 1);
+    expect(payload.answers['q1']!.atSec, 42);
+    expect(payload.flaggedQuestionIds, {'q1'});
+    expect(payload.sectionResults.single.correct, 0);
+    expect(payload.sectionResults.single.total, 1);
+    expect(payload.sectionResults.single.timeSeconds, 42);
+  });
 }
