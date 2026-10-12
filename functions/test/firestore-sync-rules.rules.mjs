@@ -92,7 +92,7 @@ after(async () => {
 });
 
 function context(uid, claims) {
-  return testEnv.authenticatedContext(uid, claims).firestore();
+  return testEnv.authenticatedContext(uid, {...claims, proUntil: Date.now()+86400000}).firestore();
 }
 
 function rowData(overrides = {}) {
@@ -367,7 +367,9 @@ test('recordSignInEvent creates the real minimal user-root payload', async () =>
   assert.deepEqual(result, { logged: true });
   const db = context(uid, { firebase: { sign_in_provider: 'google.com' } });
   const snapshot = await assertSucceeds(getDoc(doc(db, `users/${uid}`)));
-  assert.deepEqual(Object.keys(snapshot.data()), ['createdAt']);
+  assert.deepEqual(Object.keys(snapshot.data()).sort(), ['createdAt', 'publicId']);
+  const {isValidPublicId} = await import('../lib/publicId.js');
+  assert.equal(isValidPublicId(snapshot.data().publicId), true);
   assert.ok(snapshot.data().createdAt.toMillis() > 0);
 });
 
@@ -519,7 +521,7 @@ test('activation racing the cleanup delete leaves the active generation intact',
       raced = true;
       try {
         await activateSyncGeneration.run({ data: { generationId: 'staging', expectedActiveGenerationId: 'active' },
-          auth: { uid: 'pro', token: { pro: true, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } });
+          auth: { uid: 'pro', token: { pro: true, proUntil: Date.now()+86400000, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } });
       } catch (error) {
         assert.equal(error.code, 'failed-precondition');
       }
@@ -547,7 +549,7 @@ test('activation committed before the deletion claim is preserved', async () => 
     if (this._queryOptions.collectionId === 'sync_generations' && this._queryOptions.allDescendants && !raced) {
       raced = true;
       await activateSyncGeneration.run({ data: { generationId: 'staging', expectedActiveGenerationId: 'active' },
-        auth: { uid: 'pro', token: { pro: true, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } });
+        auth: { uid: 'pro', token: { pro: true, proUntil: Date.now()+86400000, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } });
     }
     return snapshot;
   });
@@ -574,7 +576,7 @@ test('deleting generations cannot be activated or accessed by clients', async ()
   await db.doc('users/pro/sync_generations/deleting/lesson_progress/row').set({ lessonId: 'row' });
   const { activateSyncGeneration } = await import('../lib/index.js');
   await assert.rejects(activateSyncGeneration.run({ data: { generationId: 'deleting', expectedActiveGenerationId: 'deleting' },
-    auth: { uid: 'pro', token: { pro: true, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } }), { code: 'failed-precondition' });
+    auth: { uid: 'pro', token: { pro: true, proUntil: Date.now()+86400000, firebase: { sign_in_provider: 'google.com' } } }, app: { appId: 'demo-app' } }), { code: 'failed-precondition' });
   const client = proDb();
   await assertFails(getDoc(doc(client, 'users/pro/sync_generations/deleting')));
   await assertFails(getDoc(doc(client, 'users/pro/sync_generations/deleting/lesson_progress/row')));
@@ -609,4 +611,18 @@ test('tombstone restored after the cleanup query is kept while unchanged tombsto
     assert.equal(retained.get('deleted'), false);
     assert.equal((await expired.get()).exists, false);
   } finally { mock.restoreAll(); }
+});
+
+test('AC-3 missing or expired proUntil denies sync, but owner metadata stays readable', async () => {
+  for (const extra of [{}, {proUntil:Date.now()-1000}]) {
+    const db = testEnv.authenticatedContext('pro', {pro:true,
+      firebase:{sign_in_provider:'google.com'}, ...extra}).firestore();
+    await assertFails(getDoc(doc(db,'users/pro/sync_state/current')));
+    await assertSucceeds(getDoc(doc(db,'users/pro')));
+  }
+});
+test('AC-3 all client access to the server entitlement namespace is denied', async () => {
+  const db = context('pro',{pro:true,firebase:{sign_in_provider:'google.com'}});
+  await assertFails(getDoc(doc(db,'users/pro/server/entitlement')));
+  await assertFails(setDoc(doc(db,'users/pro/server/entitlement'),{pro:true,version:1}));
 });

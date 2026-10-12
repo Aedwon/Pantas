@@ -7,9 +7,9 @@ import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/components/section_header.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
-import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 import 'package:pantas/features/progress/presentation/widgets/gap_comparison.dart';
 
 class HowYouWorkPage extends ConsumerWidget {

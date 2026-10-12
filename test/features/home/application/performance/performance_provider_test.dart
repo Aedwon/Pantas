@@ -7,10 +7,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/features/progress/application/performance_provider.dart';
-import 'package:pantas/features/progress/application/table_order_prefs.dart';
+import 'package:pantas/features/home/application/performance/performance_provider.dart';
+import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
 
-import '../../../helpers/in_memory_database.dart';
+import '../../../../helpers/in_memory_database.dart';
 
 const examId = 'exam_upcat';
 

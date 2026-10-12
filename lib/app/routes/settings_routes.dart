@@ -98,6 +98,10 @@ List<RouteBase> settingsRoutes(Ref ref) => [
     ];
 
 SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
+  // Passes, grants and unknown products are not recurring subscriptions.
+  if (entitlement.plan == EntitlementPlan.free) {
+    return const SettingsEntitlementSnapshot.free();
+  }
   return SettingsEntitlementSnapshot(
     plan: switch (entitlement.plan) {
       EntitlementPlan.free => SettingsEntitlementPlan.free,

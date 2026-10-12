@@ -14,12 +14,18 @@ service cloud.firestore {
       return isNamedUser() && request.auth.uid == uid;
     }
 
+    function hasLivePro() {
+      return request.auth.token.pro == true
+          && request.auth.token.proUntil is number
+          && request.auth.token.proUntil > request.time.toMillis();
+    }
+
     function isProUser() {
-      return isNamedUser() && request.auth.token.pro == true;
+      return isNamedUser() && hasLivePro();
     }
 
     function isProOwner(uid) {
-      return isOwner(uid) && request.auth.token.pro == true;
+      return isOwner(uid) && hasLivePro();
     }
 
     function activeGenerationId(uid) {
@@ -125,6 +131,15 @@ service cloud.firestore {
             'schemaVersion'
           ]);
       allow delete: if false;
+
+      match /server/{document=**} {
+        allow read, write: if false;
+      }
+
+      match /passes/{transactionId} {
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow write: if false;
+      }
 
       match /sync_state/{stateId} {
         allow read: if stateId == 'current' && isProOwner(uid);
@@ -277,17 +292,26 @@ service cloud.firestore {
       }
 
       match /proDossiers/{dossierId} {
-        allow read: if isOwner(uid) && request.auth.token.pro == true;
+        allow read: if isProOwner(uid);
         allow write: if false;
       }
     }
 
     match /examTracks/{trackId}/proContent/{contentId} {
-      allow read: if isProUser();
+      // Tiered server content is not available yet.
+      allow read: if false;
       allow write: if false;
     }
 
     match /audit_logs/{logId} {
+      allow read, write: if false;
+    }
+
+    match /publicIds/{publicId} {
+      allow read, write: if false;
+    }
+
+    match /retiredPublicIds/{publicId} {
       allow read, write: if false;
     }
 

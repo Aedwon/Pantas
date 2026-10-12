@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/miss_causes_provider.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
-import 'package:pantas/features/progress/application/miss_causes_provider.dart';
 
 class WhyYouMissSection extends ConsumerWidget {
   const WhyYouMissSection({super.key});

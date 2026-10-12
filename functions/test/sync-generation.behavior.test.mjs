@@ -20,7 +20,7 @@ test('anonymous and named Free identities are rejected', () => {
   assert.throws(() => assertNamedPro(undefined));
   assert.throws(() => assertNamedPro({
     uid: 'u1',
-    token: {firebase: {sign_in_provider: 'anonymous'}, pro: true},
+    token: {firebase: {sign_in_provider: 'anonymous'}, pro: true, proUntil: Date.now()+86400000},
   }));
   assert.throws(() => assertNamedPro({
     uid: 'u1',
@@ -31,7 +31,7 @@ test('anonymous and named Free identities are rejected', () => {
 test('named Pro identity returns its uid', () => {
   assert.equal(assertNamedPro({
     uid: 'u1',
-    token: {firebase: {sign_in_provider: 'google.com'}, pro: true},
+    token: {firebase: {sign_in_provider: 'google.com'}, pro: true, proUntil: Date.now()+86400000},
   }), 'u1');
 });
 

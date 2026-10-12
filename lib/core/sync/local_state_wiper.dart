@@ -54,6 +54,13 @@ class SyncLocalStateWiper implements LocalStateWiper {
   Future<void> wipeAll() async {
     await _notifications?.cancelAll();
     await _db.transaction(() async {
+      // Payment evidence belongs to the account. Trusted clock and pending
+      // markers belong to the device and must survive this wipe.
+      await (_db.delete(_db.devicePrefs)
+            ..where(
+              (row) => row.key.equals('payment_last_confirmed_entitlement_v1'),
+            ))
+          .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();
       await _db.delete(_db.reviewStateLocal).go();

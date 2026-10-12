@@ -66,7 +66,7 @@ void main() {
       );
     });
 
-    test('Yearly sends student to trial screen instead of naming a price', () {
+    test('Yearly names the store price and never promises a trial', () {
       expect(
         ctaCopyFor(
           const PaywallPackage(
@@ -76,7 +76,7 @@ void main() {
             priceAmount: 999,
           ),
         ),
-        'Start my free trial',
+        'Get Pro. ₱799 a year.',
       );
     });
 

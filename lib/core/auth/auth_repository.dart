@@ -58,6 +58,11 @@ class AuthRepository {
   final LocalStateWiper _localStateWiper;
   final Clock _clock;
 
+  /// Installed by the payment bootstrap without importing a feature into core.
+  Future<void> Function()? beforeIdentityChange;
+
+  AuthSession? get currentSession => _gateway.currentSession;
+
   Stream<AuthState> get authState {
     return _gateway.authStateChanges.map(AuthState.fromSession);
   }
@@ -85,6 +90,7 @@ class AuthRepository {
 
   Future<void> signOut() async {
     await _accountTransitionGateway.prepareForSignOut();
+    await beforeIdentityChange?.call();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
     await _signOutGoogleBestEffort();
@@ -109,6 +115,7 @@ class AuthRepository {
 
     await _accountTransitionGateway.prepareForDeleteAccount();
     await _functionsGateway.deleteAccount();
+    await beforeIdentityChange?.call();
     await _localStateWiper.wipeAll();
     await _gateway.signOut();
     await _signOutGoogleBestEffort();
@@ -119,6 +126,7 @@ class AuthRepository {
     GoogleAuthTokens tokens,
   ) async {
     await _accountTransitionGateway.prepareForAccountSwitch();
+    await beforeIdentityChange?.call();
     try {
       await _gateway.signOut();
       await _gateway.signInWithGoogleCredential(tokens);

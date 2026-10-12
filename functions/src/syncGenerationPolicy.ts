@@ -20,7 +20,9 @@ export function assertNamedPro(auth: SyncAuthLike | undefined): string {
       ? (firebase as Record<string, unknown>).sign_in_provider
       : undefined;
 
-  if (signInProvider === 'anonymous' || auth.token.pro !== true) {
+  if (signInProvider === 'anonymous' || auth.token.pro !== true ||
+      typeof auth.token.proUntil !== 'number' || !Number.isFinite(auth.token.proUntil) ||
+      auth.token.proUntil <= Date.now()) {
     throw new Error('Named Pro authentication is required.');
   }
 

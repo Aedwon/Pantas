@@ -74,7 +74,7 @@ ContentBootstrapKeyEntry? _lookupContentBootstrapKey(String keyId) {
   );
 }
 
-/// Feeds the real subscription into the mock cooldown.
+/// Feeds active-exam coverage into the mock cooldown and roadmap.
 ///
 /// `mockEntitlementProvider` ships hardcoded to false because
 /// `features/mock_exam` cannot import `features/paywall` without breaking the
@@ -85,8 +85,7 @@ ContentBootstrapKeyEntry? _lookupContentBootstrapKey(String keyId) {
 final mockEntitlementOverrides = <Override>[
   mockEntitlementProvider.overrideWith(
     (ref) => MockEntitlementSnapshot(
-      proIsActive:
-          ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false,
+      proIsActive: ref.watch(proForActiveExamProvider).valueOrNull ?? false,
     ),
   ),
 ];
