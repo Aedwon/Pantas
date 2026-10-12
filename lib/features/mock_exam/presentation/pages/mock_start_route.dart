@@ -5,13 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_persistence_scheduler.dart';
+import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/strict_mode_lifecycle.dart';
@@ -60,7 +59,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   String? _errorMessage;
   String? _recoverableAttemptId;
   late MockSample _sample;
-  List<String> _questionIds = const [];
+  late String _examId;
   ScoreBands? _scoreBands;
   var _strictMode = false;
   bool _submitting = false;
@@ -126,11 +125,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       final pools =
           await ref.read(mockQuestionPoolsProvider(widget.examId!).future);
       final sampler = ref.read(mockSamplerProvider);
+      final recentIds = await ref
+          .read(mockAttemptRepoProvider)
+          .recentQuestionIds(mockAttemptLocalUserId, widget.examId!);
 
       final sample = sampler.sample(
         sections: parsed.sections,
         poolsByTopic: pools.poolsByTopic,
-        recentlySampledQuestionIds: const {},
+        recentlySampledQuestionIds: recentIds,
         seed: DateTime.now().millisecondsSinceEpoch,
         passageSetsByTopic: pools.passageSetsByTopic,
       );
@@ -193,7 +195,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       if (!mounted) return;
 
       _sample = sample;
-      _questionIds = questionIds;
+      _examId = widget.examId!;
       _scoreBands = parsed.blueprint.scoreBands;
       _strictMode = strictMode;
       final controller = MockSessionController.initial(
@@ -264,7 +266,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
       if (!mounted) return;
       _sample = restored.sample;
-      _questionIds = questionIds;
+      _examId = attempt.examId;
       _scoreBands = currentBlueprint?.blueprint.scoreBands;
       _strictMode = attempt.strictMode;
       _elapsedBaseSeconds = attempt.elapsedSeconds;
@@ -408,13 +410,11 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     try {
       final snapshot = _sessionSnapshot(_controller!);
       await _forceFlush();
-      final contentRepo = ref.read(contentRepositoryProvider);
-      final questionsById = <String, Question>{};
-      for (final questionId in _questionIds) {
-        final question = await contentRepo.questionById(questionId);
-        if (question != null) questionsById[questionId] = question;
-      }
+      final questionsById = await ref.read(
+        mockScoringQuestionsProvider(snapshot.attemptId).future,
+      );
       final results = ref.read(computeMockResultsUseCaseProvider)(
+        examId: _examId,
         sample: _sample,
         questionsById: questionsById,
         answers: snapshot.answers,
@@ -430,6 +430,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
             ? MockAttemptStatus.forfeited
             : MockAttemptStatus.completed,
       );
+      ref.invalidate(mockResultsProvider(snapshot.attemptId));
       // The mock is saved; recording its answers for reviews must never
       // block the results screen. A failure here is healed by
       // MockAnswerRecorder.reconcile before the next plan is built.

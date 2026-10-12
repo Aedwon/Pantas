@@ -33,6 +33,8 @@ class SubmitMock {
             'sectionId': section.sectionId,
             'name': section.name,
             'correct': section.correct,
+            'wrong': section.wrong,
+            'blank': section.blank,
             'total': section.total,
             'retiredCount': section.retiredCount,
             'timeSeconds': section.timeSeconds,

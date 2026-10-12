@@ -96,6 +96,12 @@ class MockSessionSnapshotCodec {
         entry.key: {
           'selectedIndex': entry.value.selectedIndex,
           'atSec': entry.value.atSec,
+          if (entry.value.missReason != null)
+            'missReason': entry.value.missReason!.name,
+          if (entry.value.blankReason != null)
+            'blankReason': entry.value.blankReason!.name,
+          if (entry.value.reasonNote != null)
+            'reasonNote': entry.value.reasonNote,
         },
     });
   }
@@ -181,6 +187,9 @@ class MockSessionSnapshotCodec {
       answers[entry.key] = MockAnswer(
         selectedIndex: selectedIndex,
         atSec: atSec,
+        missReason: _reason(answer['missReason'], MissReason.values),
+        blankReason: _reason(answer['blankReason'], BlankReason.values),
+        reasonNote: answer['reasonNote'] as String?,
       );
     }
 
@@ -255,6 +264,14 @@ class MockSessionSnapshotCodec {
     final decoded = jsonDecode(raw);
     if (decoded is! List) throw FormatException('$label must be a list');
     return decoded.cast<Object?>();
+  }
+
+  T? _reason<T extends Enum>(Object? raw, List<T> values) {
+    if (raw == null) return null;
+    for (final value in values) {
+      if (value.name == raw) return value;
+    }
+    throw const FormatException('invalid review reason');
   }
 
   Map<String, Object?> _map(Object? raw, String label) {

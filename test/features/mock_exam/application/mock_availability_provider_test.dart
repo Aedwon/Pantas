@@ -102,6 +102,18 @@ void main() {
     expect(result.state, MockAvailabilityState.available);
   });
 
+  test('an exam without a blueprint has no take action', () async {
+    final result =
+        await availability(proIsActive: true, examId: 'exam_no_blueprint');
+    expect(result.state, MockAvailabilityState.noBlueprint);
+  });
+
+  test('another exam does not inherit a finished mock cooldown', () async {
+    await insertTerminal(submittedAt: now);
+    final result = await availability(proIsActive: false, examId: 'exam_other');
+    expect(result.state, MockAvailabilityState.available);
+  });
+
   test('free user with in-progress attempt must resume', () async {
     await insertStarted();
 
