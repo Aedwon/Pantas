@@ -60,20 +60,19 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 12, 3:30 PM)
+## Running or scheduled (Oct 12, 7:30 PM)
 
-- Codex ran out at 2:54 PM (resets 7:06 PM). Two lane jobs (`lane.sh`, lead scratchpad) start at
-  7:07 PM: lane 1 W4d, W4f, W4a; lane 2 W4c, W4b, W4e (all resumes; session ids in `w<N>-sid`;
-  prompts `w4d-resume2.md`, `w4f-resume.md`, `w4x-resume.md`, `w4b-resume2.md`, `w4e-resume.md`).
-- Integration branch 958ed879 (pushed; 3,902 Flutter tests pass): adds W4b Task 1, the
-  `LessonDayContext` type, W4e Tasks 1 and 2 (`MockCard`, mock history). Merged into every family
-  branch on Oct 12, 3:30 PM.
-- Branch states: W4a 50689ccb plus drafts (Tasks 1, 2, 3, 5 done); W4b Task 1 and the Task 3 type;
-  W4c Tasks 1 to 4 committed plus uncommitted work; W4d no commit; W4e Tasks 1, 2; W4f Task 1
-  uncommitted in its worktree.
-- Contracts still to land: W4f Task 1 (`ReminderPrefs`), W4d Task 1 and report entry, W4c reading
-  fraction. When they do: lead reviews, merges into integration, merges that into the others.
-- W4g is the only family no Sol worker has started; it waits for W4b Task 8 and W4f Task 5.
+- BLOCKED ON CODEX: at 7:25 PM Codex reported the weekly limit: "try again at Oct 18th, 2026
+  12:58 PM". No Sol or Astra run is possible before then unless Aedwon adds credits or the limit is
+  reset. Nothing is scheduled. Aedwon has been asked how to proceed (wait, add credits, or let
+  Sonnet 5.5 continue Sol's unfinished families, which his Oct 10 rule forbids today).
+- New commits from the 7:07 PM window (unreviewed, not integrated): W4c 287a640b (reading
+  fraction contract); W4d 4ce76695 (Task 1 start functions) and a2a0cb80 (report entry).
+- Uncommitted work sits in the worktrees of W4a (5 files), W4c (13), W4d (10), W4f (29, Task 1).
+  Do not clean these worktrees.
+- Integration branch 958ed879 is merged into every family branch. Session ids in `w<N>-sid`
+  (lead scratchpad); resume prompts `w4x-resume.md`, `w4d-resume2.md`, `w4f-resume.md`,
+  `w4b-resume2.md`, `w4e-resume.md`; runner `lane.sh HH:MM job...`.
 
 ## Next step
 

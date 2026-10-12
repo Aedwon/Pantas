@@ -1116,3 +1116,14 @@ confirm); a screen family may extend a W2 component in place, with tests, when a
   covers top-level user documents; a test now asserts no source writes that field there.
 - Aedwon confirmed on October 11 that GPT-6 Astra keeps auditing every workstream (he considered
   Sol High for audits and chose to keep Astra).
+
+## October 12, 2026: Codex weekly limit reached
+
+- At 7:25 PM all Sol workers stopped with "try again at Oct 18th, 2026 12:58 PM" (the weekly
+  limit, not the 5-hour window). Since October 11 the windows had lasted 20 to 100 minutes with
+  two workers.
+- State then: W0, W1, W2, W3, W6 Tasks 1 to 5c, W4h (Tasks 1, 2, 3, 5), W4b Task 1 and the
+  day-context type, and W4e Tasks 1 and 2 integrated at 958ed879. W4a, W4b, W4c, W4d, W4e, W4f in
+  progress on their branches and worktrees.
+- Lead also wrote standing rulings for the W4 families (L3-parallel-map.md) after W4a, W4b and W4c
+  stopped for contrast gaps and cross-family contracts.
