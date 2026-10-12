@@ -6,8 +6,8 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/paywall/paywall.dart';
-import 'package:pantas/features/progress/application/record_provider.dart';
 import 'package:pantas/features/progress/presentation/pages/your_record_page.dart';
 import 'package:pantas/features/progress/presentation/progress_page.dart';
 

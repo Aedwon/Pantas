@@ -7,7 +7,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
-import 'package:pantas/features/progress/application/record_provider.dart';
+import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';

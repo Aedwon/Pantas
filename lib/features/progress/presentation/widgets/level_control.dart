@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/progress/application/table_order_prefs.dart';
+import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
 
 /// Subject, Topic, Lesson, separated by rule ticks. No pills, and nothing
 /// hidden behind a picker.

@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/home/application/how_you_work_provider.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
@@ -14,7 +15,6 @@ import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
-import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
