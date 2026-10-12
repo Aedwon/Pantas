@@ -9,7 +9,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/progress/application/performance_provider.dart';
+import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/progress/presentation/widgets/performance_section.dart';
 
 import '../../helpers/in_memory_database.dart';

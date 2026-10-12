@@ -10,7 +10,7 @@ import 'package:pantas/core/ui/components/inline_meter.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/severity.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
+import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 

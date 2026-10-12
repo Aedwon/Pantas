@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/model/sync_causal_base.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
@@ -56,6 +57,10 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
+    await refreshOnceAfterPermissionDenied(() => _commitBatch(writes));
+  }
+
+  Future<void> _commitBatch(List<FirestoreWrite> writes) async {
     final batch = _firestore.batch();
     for (final write in writes) {
       final reference = _firestore.doc(write.path);
@@ -74,7 +79,9 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Future<List<FirebaseFirestoreRawDocument>> readCollection(String path) async {
-    final snapshot = await _firestore.collection(path).get();
+    final snapshot = await refreshOnceAfterPermissionDenied(
+      () => _firestore.collection(path).get(),
+    );
     return [
       for (final document in snapshot.docs) _raw(document),
     ];
@@ -87,8 +94,10 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
   }) async {
     final reference = _firestore.doc(path);
     final snapshot = serverOnly
-        ? await reference.get(const GetOptions(source: Source.server))
-        : await reference.get();
+        ? await refreshOnceAfterPermissionDenied(
+            () => reference.get(const GetOptions(source: Source.server)),
+          )
+        : await refreshOnceAfterPermissionDenied(reference.get);
     if (!snapshot.exists) {
       return null;
     }
@@ -118,9 +127,11 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
   Future<T> runTransaction<T>(
     Future<T> Function(FirebaseFirestoreTransaction transaction) action,
   ) {
-    return _firestore.runTransaction(
-      (transaction) => action(
-        _FirebaseFirestoreSdkTransaction(_firestore, transaction),
+    return refreshOnceAfterPermissionDenied(
+      () => _firestore.runTransaction(
+        (transaction) => action(
+          _FirebaseFirestoreSdkTransaction(_firestore, transaction),
+        ),
       ),
     );
   }

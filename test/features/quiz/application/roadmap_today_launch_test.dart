@@ -12,7 +12,7 @@ import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
-import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
+import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';

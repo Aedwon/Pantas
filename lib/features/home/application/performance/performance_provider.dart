@@ -7,8 +7,8 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
-import 'package:pantas/features/progress/application/table_order_prefs.dart';
 
 @immutable
 class PerformanceRow {

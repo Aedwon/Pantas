@@ -14,7 +14,7 @@ import 'package:pantas/core/ui/components/inline_meter.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_text_styles.dart';
-import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
+import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/practice_panel.dart';
 import 'package:pantas/features/quiz/application/quiz_preparation_stamp.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';

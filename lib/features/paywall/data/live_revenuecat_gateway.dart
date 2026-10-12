@@ -1,38 +1,49 @@
 import 'dart:async';
 
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/features/paywall/application/offline_window.dart';
+import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
+import 'package:pantas/features/paywall/data/pass_ledger_source.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
+import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/pass_offering.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
+import 'package:pantas/features/paywall/domain/products.dart';
 
 /// The RevenueCat entitlement identifier configured in the dashboard.
 /// One entitlement covers all three SKUs.
 const proEntitlementId = 'pro';
 
-/// RevenueCat refreshes foreground CustomerInfo cache entries after five
-/// minutes.
-const revenueCatInactiveAuthorityWindow = Duration(minutes: 5);
-
-/// The permanent Google Play product ids chosen before the first submission.
-const _weeklyProductId = 'pantas_pro_weekly';
-const _monthlyProductId = 'pantas_pro_monthly';
-const _yearlyProductId = 'pantas_pro_yearly';
-
 DateTime _systemReferenceTime() => DateTime.now().toUtc();
+
+TrustedClock _memoryClock(DateTime Function() referenceTime) {
+  final values = <String, String>{};
+  return TrustedClock(
+    readValue: (key) async => values[key],
+    writeValue: (key, value) async => values[key] = value,
+    deviceNow: referenceTime,
+    elapsedNow: () async => null,
+  );
+}
+
+bool _productIsActive(RevenueCatCustomerInfoSnapshot info, String productId) {
+  final base = productId.split(':').first;
+  return (info.proIsActive && info.productId?.split(':').first == base) ||
+      info.subscriptions
+          .any((source) => source.productId.split(':').first == base);
+}
 
 /// Google Play can append a base-plan id, for example
 /// `pantas_pro_monthly:monthly-autorenewing`.
 PaywallSku? skuFromProductId(String productId) {
-  final base = productId.split(':').first;
-  return switch (base) {
-    _weeklyProductId => PaywallSku.weekly,
-    _monthlyProductId => PaywallSku.monthly,
-    _yearlyProductId => PaywallSku.yearly,
-    _ => null,
-  };
+  return productForId(productId)?.period;
 }
 
 EntitlementPlan planForSku(PaywallSku sku) {
@@ -44,14 +55,81 @@ EntitlementPlan planForSku(PaywallSku sku) {
 }
 
 Entitlement entitlementFromCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
-  final productId = info.productId;
-  if (!info.proIsActive || productId == null) return const Entitlement.free();
+  if (!info.proIsActive) return const Entitlement.free();
+  final sources = [
+    ...info.subscriptions,
+    if (info.productId != null &&
+        !info.subscriptions
+            .any((source) => source.productId == info.productId) &&
+        productForId(info.productId!)?.kind != ProductKind.pass &&
+        info.promotions.isEmpty)
+      RevenueCatSubscriptionSnapshot(
+        productId: info.productId!,
+        expiresAt: info.expiresAt,
+        isTrial: info.isTrial,
+        willRenew: info.willRenew,
+        billingIssuesDetectedAt: info.billingIssuesDetectedAt,
+      ),
+  ];
+  final known = sources
+      .where(
+        (source) =>
+            productForId(source.productId)?.kind == ProductKind.subscription,
+      )
+      .toList()
+    ..sort(
+      (a, b) => productForId(b.productId)!
+          .tier
+          .index
+          .compareTo(productForId(a.productId)!.tier.index),
+    );
+  final selected = known.isEmpty ? null : known.first;
+  final productId = selected?.productId ??
+      info.productId ??
+      (sources.isEmpty ? null : sources.first.productId);
+  final subscriptions = [
+    for (final source in sources)
+      if (source.expiresAt != null)
+        CoveragePeriod(id: source.productId, endsAt: source.expiresAt!),
+  ];
+  final knownPromotions = info.promotions
+      .where(
+        (source) => productForId(source.id)?.kind == ProductKind.promotional,
+      )
+      .toList();
+  if (selected == null && knownPromotions.isNotEmpty) {
+    return Entitlement(
+      plan: EntitlementPlan.free,
+      willRenew: false,
+      state: EntitlementState.grant,
+      promotions: info.promotions,
+      subscriptions: subscriptions,
+    );
+  }
+  if (selected == null && info.promotions.isNotEmpty) {
+    // A promotional entitlement is not a subscription, regardless of its
+    // displayed product identifier. Unknown grants cover nothing.
+    final unknown = info.promotions.first;
+    return Entitlement(
+      plan: EntitlementPlan.free,
+      productId: unknown.id,
+      expiresAt: unknown.endsAt,
+      willRenew: false,
+      isUnknownPlan: true,
+      promotions: info.promotions,
+      state: EntitlementState.unknown,
+    );
+  }
+  if (productId == null) return const Entitlement.free();
+  if (productForId(productId)?.kind == ProductKind.pass) {
+    return const Entitlement.free();
+  }
 
   final sku = skuFromProductId(productId);
   if (sku == null) {
     return Entitlement.activeUnknown(
       productId: productId,
-      expiresAt: info.expiresAt,
+      expiresAt: info.expiresAt ?? sources.firstOrNull?.expiresAt,
       isTrial: info.isTrial,
       willRenew: info.willRenew,
     );
@@ -60,35 +138,84 @@ Entitlement entitlementFromCustomerInfo(RevenueCatCustomerInfoSnapshot info) {
   return Entitlement(
     plan: planForSku(sku),
     productId: productId,
-    expiresAt: info.expiresAt,
-    isTrial: info.isTrial,
-    willRenew: info.willRenew,
+    expiresAt: selected?.expiresAt ?? info.expiresAt,
+    isTrial: selected?.isTrial ?? info.isTrial,
+    willRenew: selected?.willRenew ?? info.willRenew,
+    tier: productForId(productId)?.tier,
+    state: selected?.billingIssuesDetectedAt != null
+        ? EntitlementState.billingIssue
+        : null,
+    subscriptions: subscriptions,
+    promotions: info.promotions,
   );
 }
 
-class LiveRevenueCatGateway implements RevenueCatGateway {
+class LiveRevenueCatGateway implements RevenueCatPassGateway {
   LiveRevenueCatGateway({
     RevenueCatSdk? sdk,
     PaymentEntitlementState? entitlementState,
     DateTime Function()? referenceTime,
-  })  : _sdk = sdk ?? PurchasesRevenueCatSdk(),
+    PendingPurchaseStore? pendingStore,
+    TrustedClock? trustedClock,
+    Future<void> Function(String? uid)? refreshClaims,
+    PassLedgerSource? passLedger,
+  })  : _passLedger = passLedger,
+        _refreshClaims = refreshClaims,
+        _sdk = sdk ?? PurchasesRevenueCatSdk(),
         _entitlementState = entitlementState ??
             PaymentEntitlementState(EntitlementSnapshotStore.inMemory()),
-        _referenceTime = referenceTime ?? _systemReferenceTime;
+        _referenceTime = referenceTime ?? _systemReferenceTime,
+        _pendingStore = pendingStore ?? PendingPurchaseStore.inMemory(),
+        _clock =
+            trustedClock ?? _memoryClock(referenceTime ?? _systemReferenceTime);
 
   final RevenueCatSdk _sdk;
+  final PassLedgerSource? _passLedger;
+  StreamSubscription<Map<String, DateTime>>? _passSubscription;
+  Map<String, DateTime>? _ledgerPasses;
+  int _ledgerRevision = 0;
+  final Future<void> Function(String? uid)? _refreshClaims;
   final PaymentEntitlementState _entitlementState;
   final DateTime Function() _referenceTime;
+  final PendingPurchaseStore _pendingStore;
+  final TrustedClock _clock;
+  String? _uid;
   bool _listening = false;
+  bool _refreshRunning = false;
+  int? _queuedRefreshEpoch;
+  bool _identityBusy = true;
+  int _identityEpoch = 0;
 
   @override
-  Future<void> initialize() => _entitlementState.initialize();
+  Future<void> initialize() async {
+    await _clock.start();
+    await _entitlementState.initialize();
+  }
 
   @override
-  Entitlement? get cachedEntitlement => _entitlementState.current;
+  Entitlement? get cachedEntitlement {
+    final current = _entitlementState.current;
+    return current == null
+        ? null
+        : OfflineWindow.apply(
+            current,
+            effectiveTime: _clock.effectiveTime,
+            windowConsumed: _clock.windowConsumed,
+          );
+  }
 
   @override
-  Stream<Entitlement> get customerInfoUpdates => _entitlementState.updates;
+  Stream<Entitlement> get customerInfoUpdates => _contextualUpdates();
+
+  Stream<Entitlement> _contextualUpdates() async* {
+    await initialize();
+    yield* OfflineWindow.watch(
+      _entitlementState.updates,
+      confirmed: () => _entitlementState.current ?? const Entitlement.free(),
+      clock: _clock,
+      onFreshCheckRequired: () => unawaited(_refreshPasses(_identityEpoch)),
+    );
+  }
 
   @override
   Future<void> configure({required String androidApiKey}) async {
@@ -100,41 +227,185 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         unawaited(_acceptCustomerInfo(info));
       });
     }
+    await _prepareFreshRead();
     await _acceptCustomerInfo(await _sdk.getCustomerInfo());
   }
 
-  Future<Entitlement> _acceptCustomerInfo(
-    RevenueCatCustomerInfoSnapshot info,
-  ) async {
+  Future<void> _prepareFreshRead() async {
     await initialize();
-    final reported = entitlementFromCustomerInfo(info);
-    final current = _entitlementState.current ?? const Entitlement.free();
-
-    if (reported.proIsActive ||
-        !current.proIsActive ||
-        _inactiveCustomerInfoCanRevoke(info)) {
-      await _entitlementState.acceptAuthoritative(reported);
-      return reported;
+    await _clock.observe();
+    if (cachedEntitlement?.state == EntitlementState.paused ||
+        _clock.hadSetbackSinceCheck ||
+        ((_entitlementState.current?.proIsActive ?? false) &&
+            _clock.trustedTime == null)) {
+      await _sdk.invalidateCustomerInfoCache();
     }
-
-    return current;
   }
 
-  bool _inactiveCustomerInfoCanRevoke(RevenueCatCustomerInfoSnapshot info) {
+  Future<Entitlement> _acceptCustomerInfo(
+    RevenueCatCustomerInfoSnapshot info, {
+    bool identityAnswer = false,
+    int? expectedEpoch,
+  }) async {
+    final epoch = expectedEpoch ?? _identityEpoch;
+    if (epoch != _identityEpoch) return const Entitlement.free();
+    if (_identityBusy && !identityAnswer) {
+      return cachedEntitlement ?? const Entitlement.free();
+    }
+    await initialize();
+    await _clock.observe();
+    if (epoch != _identityEpoch) return const Entitlement.free();
+    final current = _entitlementState.current ?? const Entitlement.free();
     final requestDate = info.requestDate?.toUtc();
-    if (requestDate == null) return false;
+    if (info.verification != VerificationResult.verified ||
+        requestDate == null) {
+      return cachedEntitlement ?? const Entitlement.free();
+    }
+    if (!info.proIsActive &&
+        current.verifiedAt != null &&
+        !requestDate.isAfter(current.verifiedAt!)) {
+      return cachedEntitlement ?? const Entitlement.free();
+    }
+    if (await _clock.confirm(requestDate) &&
+        _clock.trustedTime == requestDate &&
+        epoch == _identityEpoch) {
+      await _readPasses(epoch);
+      if (epoch != _identityEpoch || _clock.trustedTime != requestDate) {
+        return cachedEntitlement ?? const Entitlement.free();
+      }
+      final passes = _ledgerPasses ?? current.passes;
+      final reported = entitlementFromCustomerInfo(info).withPasses({
+        for (final entry in passes.entries)
+          if (entry.value.isAfter(requestDate)) entry.key: entry.value,
+      }).withEvidence(requestDate);
+      await _entitlementState.acceptAuthoritative(
+        reported,
+        shouldContinue: () => epoch == _identityEpoch,
+      );
+      final uid = _uid;
+      if (uid != null) {
+        final pending = await _pendingStore.read(uid);
+        if (pending != null &&
+            _hasProductCoverage(info, pending.productId, reported)) {
+          await _pendingStore.clear(uid);
+        }
+      }
+      return cachedEntitlement ?? const Entitlement.free();
+    }
 
-    final referenceTime = _referenceTime().toUtc();
-    if (requestDate.isAfter(referenceTime)) return false;
+    return cachedEntitlement ?? const Entitlement.free();
+  }
 
-    return referenceTime.difference(requestDate) <=
-        revenueCatInactiveAuthorityWindow;
+  @override
+  Future<void> clearIdentity() async {
+    _identityEpoch++;
+    _identityBusy = true;
+    _uid = null;
+    _ledgerPasses = null;
+    _queuedRefreshEpoch = null;
+    _ledgerRevision++;
+    final clearing = _entitlementState.clear();
+    await _passSubscription?.cancel();
+    _passSubscription = null;
+    await clearing;
+  }
+
+  @override
+  Future<void> logOut() async {
+    await clearIdentity();
+    await _sdk.logOut();
   }
 
   @override
   Future<void> logIn(String uid) async {
+    _identityBusy = true;
+    var epoch = _identityEpoch;
     await initialize();
-    await _acceptCustomerInfo(await _sdk.logIn(uid));
+    if (epoch != _identityEpoch) return;
+    final owner = _uid ?? await _entitlementState.readOwner();
+    if (epoch != _identityEpoch) return;
+    if (owner != uid) {
+      final clearing = clearIdentity();
+      epoch = _identityEpoch;
+      await clearing;
+      if (epoch != _identityEpoch) return;
+    }
+    final info = await _sdk.logIn(uid);
+    if (epoch != _identityEpoch) return;
+    _uid = uid;
+    await _entitlementState.writeOwner(uid);
+    await _passSubscription?.cancel();
+    _passSubscription = _passLedger?.watch(uid).listen(
+      (passes) {
+        if (epoch != _identityEpoch || _uid != uid) return;
+        _ledgerRevision++;
+        _ledgerPasses = Map.unmodifiable(passes);
+        if (!_identityBusy) unawaited(_refreshPasses(epoch));
+      },
+      onError: (Object error, StackTrace stack) {
+        // Keep the owner's confirmed snapshot through a failed server read.
+      },
+    );
+    await _acceptCustomerInfo(info, identityAnswer: true, expectedEpoch: epoch);
+    if (epoch == _identityEpoch) {
+      _identityBusy = false;
+      if (_queuedRefreshEpoch == epoch) unawaited(_refreshPasses(epoch));
+    }
+  }
+
+  Future<void> _readPasses(int epoch) async {
+    final source = _passLedger;
+    final uid = _uid;
+    if (source == null || uid == null) return;
+    final revision = _ledgerRevision;
+    try {
+      final passes = await source.read(uid);
+      if (epoch == _identityEpoch && revision == _ledgerRevision) {
+        _ledgerPasses = Map.unmodifiable(passes);
+      }
+    } catch (_) {
+      // A failed read is no news, not an empty authoritative ledger.
+    }
+  }
+
+  Future<void> _refreshPasses(int epoch) async {
+    if (epoch != _identityEpoch) return;
+    if (_refreshRunning || _identityBusy) {
+      _queuedRefreshEpoch = epoch;
+      return;
+    }
+    _refreshRunning = true;
+    _queuedRefreshEpoch = null;
+    try {
+      await _sdk.invalidateCustomerInfoCache();
+      if (epoch != _identityEpoch) return;
+      await _acceptCustomerInfo(
+        await _sdk.getCustomerInfo(),
+        expectedEpoch: epoch,
+      );
+    } catch (_) {
+      // No retry loop. A later non-cache ledger snapshot also signals that
+      // the existing owner query has reconnected, and requests a new check.
+    } finally {
+      _refreshRunning = false;
+      final queued = _queuedRefreshEpoch;
+      _queuedRefreshEpoch = null;
+      // Coalesce new events arriving during a request into one serial check.
+      if (queued != null && queued == _identityEpoch && !_identityBusy) {
+        unawaited(_refreshPasses(queued));
+      }
+    }
+  }
+
+  bool _hasProductCoverage(
+    RevenueCatCustomerInfoSnapshot info,
+    String productId,
+    Entitlement confirmed,
+  ) {
+    final product = productForId(productId);
+    return product?.kind == ProductKind.pass
+        ? confirmed.passes.containsKey(product?.examId)
+        : _productIsActive(info, productId);
   }
 
   @override
@@ -149,8 +420,19 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       }
 
       final recognized = <PaywallPackage>[];
+      final passes = <PaywallPassPackage>[];
       final unrecognized = <String>[];
       for (final product in offering.products) {
+        if (productForId(product.productId)?.kind == ProductKind.pass) {
+          passes.add(
+            PaywallPassPackage(
+              productId: product.productId,
+              priceString: product.priceString,
+              priceAmount: product.priceAmount,
+            ),
+          );
+          continue;
+        }
         final sku = skuFromProductId(product.productId);
         if (sku == null) {
           unrecognized.add(product.productId);
@@ -162,11 +444,12 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
             productId: product.productId,
             priceString: product.priceString,
             priceAmount: product.priceAmount,
+            trialEligible: product.trialEligible,
           ),
         );
       }
 
-      if (recognized.isEmpty) {
+      if (recognized.isEmpty && passes.isEmpty) {
         return PaywallOfferingResult(
           status: PaywallOfferingStatus.allProductsUnrecognized,
           unrecognizedProductIds: unrecognized,
@@ -176,12 +459,14 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
         return PaywallOfferingResult(
           status: PaywallOfferingStatus.mixedProducts,
           recognizedPackages: recognized,
+          passPackages: passes,
           unrecognizedProductIds: unrecognized,
         );
       }
       return PaywallOfferingResult(
         status: PaywallOfferingStatus.available,
         recognizedPackages: recognized,
+        passPackages: passes,
       );
     } on RevenueCatSdkException catch (error) {
       return PaywallOfferingResult(
@@ -195,18 +480,75 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
   }
 
   @override
-  Future<PaymentOperationResult> purchase(PaywallPackage package) async {
+  Future<PaymentOperationResult> purchase(PaywallPackage package) =>
+      _purchaseProduct(package.productId, allowTrial: package.trialEligible);
+
+  @override
+  Future<PaymentOperationResult> purchasePass(
+    PaywallPassPackage package, {
+    required ExamCatalogEntry exam,
+  }) async {
+    if (!passAllowedForExam(package.productId, exam, at: _referenceTime())) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.developerFailure,
+      );
+    }
+    return _purchaseProduct(package.productId, allowTrial: false);
+  }
+
+  Future<PaymentOperationResult> _purchaseProduct(
+    String productId, {
+    required bool allowTrial,
+  }) async {
+    if (_identityBusy) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.operationAlreadyInProgress,
+      );
+    }
+    final uid = _uid;
+    final epoch = _identityEpoch;
     try {
-      final info = await _sdk.purchase(package.productId);
-      final reported = entitlementFromCustomerInfo(info);
-      final confirmed = await _acceptCustomerInfo(info);
+      if (uid != null && await _pendingStore.read(uid) != null) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
+      if (epoch != _identityEpoch || _identityBusy) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
+      final current = _entitlementState.current;
+      final isUpgrade =
+          current?.coverage(at: _referenceTime()).subscriptionTier ==
+                  PriceTier.student &&
+              productForId(productId)?.tier == PriceTier.civilService &&
+              productForId(productId)?.kind == ProductKind.subscription;
+      final info = await _sdk.purchase(
+        productId,
+        oldProductId: isUpgrade ? current?.productId : null,
+        allowTrial: !isUpgrade && allowTrial,
+      );
+      final confirmed = await _acceptCustomerInfo(info, expectedEpoch: epoch);
       return PaymentOperationResult.authoritative(
-        status: reported.proIsActive
+        status: epoch == _identityEpoch &&
+                info.verification == VerificationResult.verified &&
+                info.requestDate == confirmed.verifiedAt &&
+                _hasProductCoverage(info, productId, confirmed)
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.entitlementNotActive,
         entitlement: confirmed,
       );
     } on RevenueCatSdkException catch (error) {
+      if (error.kind == RevenueCatFailureKind.pending && uid != null) {
+        await _pendingStore.save(
+          PendingPurchase(
+            uid: uid,
+            productId: productId,
+            startedAt: _referenceTime().toUtc(),
+          ),
+        );
+      }
       return PaymentOperationResult.failure(
         status: _operationStatusForFailure(error.kind),
       );
@@ -214,17 +556,58 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       return const PaymentOperationResult.failure(
         status: PaymentOperationStatus.unknownFailure,
       );
+    } finally {
+      try {
+        await _refreshClaims?.call(uid);
+      } catch (_) {/* Sync will retry. */}
     }
   }
 
   @override
   Future<PaymentOperationResult> restorePurchases() async {
+    if (_identityBusy) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.operationAlreadyInProgress,
+      );
+    }
+    final uid = _uid;
+    final epoch = _identityEpoch;
     try {
+      await _prepareFreshRead();
+      if (epoch != _identityEpoch || _identityBusy) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
       final info = await _sdk.restorePurchases();
-      final reported = entitlementFromCustomerInfo(info);
-      final confirmed = await _acceptCustomerInfo(info);
+      final confirmed = await _acceptCustomerInfo(info, expectedEpoch: epoch);
+      if (epoch != _identityEpoch ||
+          info.verification != VerificationResult.verified ||
+          info.requestDate != confirmed.verifiedAt) {
+        return PaymentOperationResult.authoritative(
+          status: info.proIsActive
+              ? PaymentOperationStatus.entitlementNotActive
+              : PaymentOperationStatus.noActiveSubscription,
+          entitlement: confirmed,
+        );
+      }
+      final uid = _uid;
+      if (uid != null) {
+        final pending = await _pendingStore.read(uid);
+        if (pending != null && !_productIsActive(info, pending.productId)) {
+          if (_referenceTime().toUtc().difference(pending.startedAt) >
+              const Duration(hours: 72)) {
+            await _pendingStore.clear(uid);
+          } else {
+            return const PaymentOperationResult.failure(
+              status: PaymentOperationStatus.operationAlreadyInProgress,
+            );
+          }
+        }
+      }
       return PaymentOperationResult.authoritative(
-        status: reported.proIsActive
+        status: confirmed.state != EntitlementState.paused &&
+                confirmed.coverage().hasKnownCoverage
             ? PaymentOperationStatus.success
             : PaymentOperationStatus.noActiveSubscription,
         entitlement: confirmed,
@@ -237,6 +620,10 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       return const PaymentOperationResult.failure(
         status: PaymentOperationStatus.unknownFailure,
       );
+    } finally {
+      try {
+        await _refreshClaims?.call(uid);
+      } catch (_) {/* Sync will retry. */}
     }
   }
 }
@@ -246,6 +633,8 @@ PaymentOperationStatus _operationStatusForFailure(RevenueCatFailureKind kind) {
     RevenueCatFailureKind.userCancelled => PaymentOperationStatus.userCancelled,
     RevenueCatFailureKind.network => PaymentOperationStatus.networkFailure,
     RevenueCatFailureKind.store => PaymentOperationStatus.storeFailure,
+    RevenueCatFailureKind.pending =>
+      PaymentOperationStatus.operationAlreadyInProgress,
     RevenueCatFailureKind.revenueCat =>
       PaymentOperationStatus.revenueCatFailure,
     RevenueCatFailureKind.configuration =>
@@ -261,6 +650,7 @@ PaywallOfferingStatus _offeringStatusForFailure(RevenueCatFailureKind kind) {
   return switch (kind) {
     RevenueCatFailureKind.network => PaywallOfferingStatus.networkFailure,
     RevenueCatFailureKind.store => PaywallOfferingStatus.storeFailure,
+    RevenueCatFailureKind.pending => PaywallOfferingStatus.storeFailure,
     RevenueCatFailureKind.revenueCat => PaywallOfferingStatus.revenueCatFailure,
     RevenueCatFailureKind.configuration =>
       PaywallOfferingStatus.configurationFailure,

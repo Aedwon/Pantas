@@ -7,6 +7,8 @@ import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 
+import 'verified_fixture.dart';
+
 void main() {
   PaymentEntitlementState stateFor([Map<String, String>? values]) {
     final backing = values ?? <String, String>{};
@@ -80,6 +82,29 @@ void main() {
   });
 
   group('offering states', () {
+    test('known pass is offered separately without being treated as unknown',
+        () async {
+      final gateway = LiveRevenueCatGateway(
+        sdk: FakeRevenueCatSdk(
+          offering: const RevenueCatOfferingSnapshot([
+            RevenueCatProductSnapshot(
+              productId: 'pantas_pass_cse_pro',
+              priceString: '₱499',
+              priceAmount: 499,
+            ),
+          ]),
+        ),
+        entitlementState: stateFor(),
+      );
+      final result = await gateway.currentOffering();
+      expect(result.status, PaywallOfferingStatus.available);
+      expect(result.unrecognizedProductIds, isEmpty);
+      expect(result.recognizedPackages, isEmpty);
+      expect(result.passPackages.single.productId, 'pantas_pass_cse_pro');
+      expect(result.passPackages.single.priceString, '₱499');
+      expect(result.passPackages.single.priceAmount, 499);
+    });
+
     test('recognized packages are available', () async {
       final sdk = FakeRevenueCatSdk(
         offering: const RevenueCatOfferingSnapshot([
@@ -214,8 +239,10 @@ void main() {
       );
       final state = stateFor();
       final gateway = LiveRevenueCatGateway(sdk: sdk, entitlementState: state);
+      await gateway.logIn('test-account');
       await gateway.initialize();
 
+      await gateway.logIn('test-account');
       final result = await gateway.purchase(monthlyPackage);
 
       expect(result.status, PaymentOperationStatus.success);
@@ -229,13 +256,16 @@ void main() {
         sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(),
       );
+      await gateway.logIn('test-account');
       await gateway.initialize();
 
+      await gateway.logIn('test-account');
       final result = await gateway.purchase(monthlyPackage);
 
       expect(result.status, PaymentOperationStatus.entitlementNotActive);
-      expect(result.confirmedEntitlement, const Entitlement.free());
-      expect(gateway.cachedEntitlement, const Entitlement.free());
+      expect(result.confirmedEntitlement?.plan, EntitlementPlan.free);
+      expect(result.confirmedEntitlement?.verifiedAt, isNotNull);
+      expect(gateway.cachedEntitlement?.plan, EntitlementPlan.free);
     });
 
     test('purchase failures are classified without changing cached Pro',
@@ -258,6 +288,7 @@ void main() {
 
       for (final entry in cases.entries) {
         final state = stateFor();
+        await state.writeOwner('test-account');
         await state.acceptAuthoritative(
           const Entitlement(
             plan: EntitlementPlan.yearly,
@@ -269,6 +300,7 @@ void main() {
           entitlementState: state,
         );
 
+        await gateway.logIn('test-account');
         final result = await gateway.purchase(monthlyPackage);
 
         expect(result.status, entry.value, reason: entry.key.name);
@@ -279,8 +311,9 @@ void main() {
     test('restore distinguishes Pro from no active subscription', () async {
       final proGateway = LiveRevenueCatGateway(
         sdk: FakeRevenueCatSdk(
-          restoreInfo: const RevenueCatCustomerInfoSnapshot.active(
+          restoreInfo: RevenueCatCustomerInfoSnapshot.active(
             productId: 'pantas_pro_yearly',
+            expiresAt: DateTime.utc(2030),
           ),
         ),
         entitlementState: stateFor(),
@@ -290,6 +323,8 @@ void main() {
         entitlementState: stateFor(),
       );
 
+      await proGateway.logIn('test-account');
+      await freeGateway.logIn('test-account');
       expect(
         (await proGateway.restorePurchases()).status,
         PaymentOperationStatus.success,
@@ -308,6 +343,7 @@ void main() {
         entitlementState: stateFor(),
       );
 
+      await gateway.logIn('test-account');
       expect(
         (await gateway.restorePurchases()).status,
         PaymentOperationStatus.networkFailure,
@@ -327,6 +363,7 @@ void main() {
         ),
         entitlementState: firstState,
       );
+      await firstGateway.logIn('test-account');
       await firstGateway.initialize();
       await firstGateway.purchase(yearlyPackage);
 
@@ -335,6 +372,7 @@ void main() {
         sdk: FakeRevenueCatSdk(),
         entitlementState: secondState,
       );
+      await secondGateway.logIn('test-account');
       await secondGateway.initialize();
 
       expect(secondGateway.cachedEntitlement?.plan, EntitlementPlan.yearly);
@@ -344,6 +382,7 @@ void main() {
         () async {
       final values = <String, String>{};
       final seededState = stateFor(values);
+      await seededState.writeOwner('test-account');
       await seededState.acceptAuthoritative(
         const Entitlement(
           plan: EntitlementPlan.monthly,
@@ -357,6 +396,7 @@ void main() {
         ),
         entitlementState: stateFor(values),
       );
+      await failedRefresh.logIn('test-account');
       await failedRefresh.initialize();
       await expectLater(
         failedRefresh.configure(androidApiKey: 'rc_key'),
@@ -374,16 +414,19 @@ void main() {
         entitlementState: stateFor(values),
         referenceTime: () => referenceTime,
       );
+      await authoritativeFree.logIn('test-account');
       await authoritativeFree.initialize();
+      await authoritativeFree.logIn('test-account');
       await authoritativeFree.configure(androidApiKey: 'rc_key');
-      expect(authoritativeFree.cachedEntitlement, const Entitlement.free());
+      expect(authoritativeFree.cachedEntitlement?.plan, EntitlementPlan.free);
 
       final fresh = LiveRevenueCatGateway(
         sdk: FakeRevenueCatSdk(),
         entitlementState: stateFor(values),
       );
+      await fresh.logIn('test-account');
       await fresh.initialize();
-      expect(fresh.cachedEntitlement, const Entitlement.free());
+      expect(fresh.cachedEntitlement?.plan, EntitlementPlan.free);
     });
   });
 }
@@ -433,8 +476,14 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
 
   void emit(RevenueCatCustomerInfoSnapshot info) {
     customerInfo = info;
-    listener?.call(info);
+    listener?.call(verifiedFixture(info));
   }
+
+  @override
+  Future<void> logOut() async {}
+
+  @override
+  Future<void> invalidateCustomerInfoCache() async {}
 
   @override
   Future<void> configure(String androidApiKey) async {}
@@ -443,7 +492,7 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo() async {
     final failure = customerInfoFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return customerInfo;
+    return verifiedFixture(customerInfo);
   }
 
   @override
@@ -455,19 +504,23 @@ class FakeRevenueCatSdk implements RevenueCatSdk {
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid) async =>
-      customerInfo;
+      verifiedFixture(customerInfo, supplyInactiveDate: false);
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) async {
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  }) async {
     final failure = purchaseFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return purchaseInfo;
+    return verifiedFixture(purchaseInfo);
   }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases() async {
     final failure = restoreFailure;
     if (failure != null) throw RevenueCatSdkException(failure);
-    return restoreInfo;
+    return verifiedFixture(restoreInfo);
   }
 }

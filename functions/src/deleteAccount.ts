@@ -3,6 +3,8 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { HttpsError, onCall } from 'firebase-functions/v2/https';
 import { assertNamedUser, writeAuditLog } from './_audit.js';
+import { retirePublicId } from './publicId.js';
+import { clearPassOwnership } from './revenuecatPasses.js';
 
 export const deleteAccount = onCall(
   {
@@ -25,7 +27,9 @@ export const deleteAccount = onCall(
     }
 
     await writeAuditLog({ uid, event: 'accountDeleted' });
+    await retirePublicId(db, uid);
     await db.recursiveDelete(userRef);
+    await clearPassOwnership(db, uid);
 
     // Purge hosted Wrapped cards: top-level docs + their storage objects
     // (landing-page spec §5.2).

@@ -52,6 +52,17 @@ void main() {
     expect(gateway.loggedInUids, ['anon_uid', 'named_uid']);
   });
 
+  test('AC-5 no Firebase user clears the cache and logs out once', () async {
+    final gateway = BootstrapGateway();
+    final bootstrapper = RevenueCatBootstrapper(gateway);
+    await bootstrapper.associateUid('account-a');
+    await bootstrapper.associateUid(null);
+    expect(gateway.clearCount, 1);
+    expect(gateway.logoutCount, 1);
+    await bootstrapper.associateUid('account-b');
+    expect(gateway.loggedInUids, ['account-a', 'account-b']);
+  });
+
   test('same uid is not logged in repeatedly', () async {
     final gateway = BootstrapGateway();
     final bootstrapper = RevenueCatBootstrapper(gateway);
@@ -60,6 +71,71 @@ void main() {
     await bootstrapper.associateUid('uid_1');
 
     expect(gateway.loggedInUids, ['uid_1']);
+  });
+
+  test('AC-5 identity changes during initial login are never missed', () async {
+    final gateway = DelayedBootstrapGateway();
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>.broadcast();
+    final start = binding.start(
+      initialState: const AuthState.anonymous(uid: 'account-a'),
+      changes: changes.stream,
+    );
+    await pumpEventQueue();
+    changes.add(const AuthState.anonymous(uid: 'account-b'));
+    await pumpEventQueue();
+    gateway.release.complete();
+    await start;
+    await pumpEventQueue();
+    expect(gateway.attemptedUids, ['account-a', 'account-b']);
+    await binding.dispose();
+    await changes.close();
+  });
+
+  test('AC-5 queued sign-out never logs out a Firebase account that now exists',
+      () async {
+    final gateway = BootstrapGateway();
+    var currentUid = 'account-a';
+    final binding = RevenueCatAuthBinding(
+      RevenueCatBootstrapper(gateway),
+      currentFirebaseUid: () => currentUid,
+    );
+    final changes = StreamController<AuthState>();
+    await binding.start(
+      initialState: const AuthState.anonymous(uid: 'account-a'),
+      changes: changes.stream,
+    );
+    currentUid = 'account-b';
+    changes.add(const AuthState.signedOut());
+    await pumpEventQueue();
+    expect(gateway.logoutCount, 0);
+    expect(gateway.loggedInUids, ['account-a', 'account-b']);
+    await binding.dispose();
+    await changes.close();
+  });
+
+  test('AC-5 linking an anonymous account logs in the same named uid',
+      () async {
+    final gateway = BootstrapGateway();
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>();
+    await binding.start(
+      initialState: const AuthState.anonymous(uid: 'account-a'),
+      changes: changes.stream,
+    );
+    changes.add(
+      const AuthState.signedIn(
+        user: AuthUser(
+          uid: 'account-a',
+          email: 'student@example.test',
+          displayName: 'Student',
+        ),
+      ),
+    );
+    await pumpEventQueue();
+    expect(gateway.loggedInUids, ['account-a', 'account-a']);
+    await binding.dispose();
+    await changes.close();
   });
 
   test('auth binding associates the initial anonymous uid before returning',
@@ -147,6 +223,17 @@ class BootstrapGateway extends DisabledRevenueCatGateway {
   final attemptedUids = <String>[];
   final loggedInUids = <String>[];
   int initializeCount = 0;
+  int clearCount = 0;
+  int logoutCount = 0;
+  @override
+  Future<void> clearIdentity() async {
+    clearCount++;
+  }
+
+  @override
+  Future<void> logOut() async {
+    logoutCount++;
+  }
 
   @override
   Future<void> initialize() async {
@@ -167,5 +254,14 @@ class BootstrapGateway extends DisabledRevenueCatGateway {
       throw Exception('RevenueCat login unavailable');
     }
     loggedInUids.add(uid);
+  }
+}
+
+class DelayedBootstrapGateway extends BootstrapGateway {
+  final release = Completer<void>();
+  @override
+  Future<void> logIn(String uid) async {
+    if (uid == 'account-a') await release.future;
+    await super.logIn(uid);
   }
 }

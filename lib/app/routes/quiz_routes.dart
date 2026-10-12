@@ -37,8 +37,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
             final lastAttempt =
                 ref.watch(lastSubmittedMockProvider(request)).valueOrNull;
             final proIsActive =
-                ref.watch(entitlementProvider).valueOrNull?.proIsActive ??
-                    false;
+                ref.watch(proForActiveExamProvider).valueOrNull ?? false;
 
             final customTrack = focus.exam!.isCustom
                 ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
@@ -145,15 +144,13 @@ List<RouteBase> quizRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/quiz/flagged/:examId',
-        builder: (_, state) {
-          final examId = state.pathParameters['examId']!;
-          final proIsActive =
-              ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
-          return FlaggedListPage(
-            examId: examId,
-            proIsActive: proIsActive,
-          );
-        },
+        builder: (_, state) => Consumer(
+          builder: (_, ref, __) => FlaggedListPage(
+            examId: state.pathParameters['examId']!,
+            proIsActive:
+                ref.watch(proForActiveExamProvider).valueOrNull ?? false,
+          ),
+        ),
       ),
       GoRoute(path: '/quiz/results/:attemptId', redirect: (_, __) => '/quiz'),
       GoRoute(path: '/review', redirect: (_, __) => '/quiz'),
