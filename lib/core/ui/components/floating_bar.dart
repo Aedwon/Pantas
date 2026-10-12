@@ -12,7 +12,25 @@ class FloatingBar extends StatelessWidget {
     required this.right,
     this.state = FloatingBarState.neutral,
     super.key,
-  });
+  })  : content = null,
+        radius = 30,
+        inset = 8;
+
+  /// QN_Report and QN_WrongOpen replace the row with a growing form.
+  const FloatingBar.content({
+    required Widget child,
+    this.state = FloatingBarState.neutral,
+    this.radius = 30,
+    this.inset = 8,
+    super.key,
+  })  : content = child,
+        left = const SizedBox.shrink(),
+        counter = '',
+        right = const SizedBox.shrink();
+
+  final Widget? content;
+  final double radius;
+  final double inset;
   final Widget left;
   final String counter;
   final Widget right;
@@ -33,10 +51,10 @@ class FloatingBar extends StatelessWidget {
               milliseconds: state == FloatingBarState.neutral ? 250 : 300,
             ),
       constraints: const BoxConstraints(minHeight: 60),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: EdgeInsets.all(inset),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(radius),
         boxShadow: [
           BoxShadow(
             color: context.colors.shadow.withValues(alpha: .12),
@@ -46,7 +64,7 @@ class FloatingBar extends StatelessWidget {
         ],
       ),
       foregroundDecoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(radius),
         border: Border.all(
           color: state == FloatingBarState.neutral
               ? context.colors.shadow.withValues(alpha: .06)
@@ -63,25 +81,26 @@ class FloatingBar extends StatelessWidget {
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
         ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                heightFactor: 1,
-                child: left,
-              ),
+        child: content ??
+            Row(
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    heightFactor: 1,
+                    child: left,
+                  ),
+                ),
+                Text(counter, style: context.type.subheadStrong),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    heightFactor: 1,
+                    child: right,
+                  ),
+                ),
+              ],
             ),
-            Text(counter, style: context.type.subheadStrong),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                heightFactor: 1,
-                child: right,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
