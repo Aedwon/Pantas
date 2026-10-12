@@ -66,11 +66,13 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   18th, 2026 12:58 PM". Aedwon chose to wait (Oct 12): no credits, and Sonnet does not pick up
   Sol's families. Resume on Oct 18 after 12:58 PM with the two lanes (lane 1 W4d, W4f, W4a; lane 2
   W4c, W4b, W4e), Astra audits alone. Nothing is scheduled; the lead session must start it.
-- New commits from the 7:07 PM window (unreviewed, not integrated): W4c 287a640b (reading
-  fraction contract); W4d 4ce76695 (Task 1 start functions) and a2a0cb80 (report entry).
+- Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
+  commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
+  functions, report entry). It is merged into every family branch. All of this still needs its
+  Astra audit with the families.
 - Uncommitted work sits in the worktrees of W4a (5 files), W4c (13), W4d (10), W4f (29, Task 1).
   Do not clean these worktrees.
-- Integration branch 958ed879 is merged into every family branch. Session ids in `w<N>-sid`
+- Session ids in `w<N>-sid`
   (lead scratchpad); resume prompts `w4x-resume.md`, `w4d-resume2.md`, `w4f-resume.md`,
   `w4b-resume2.md`, `w4e-resume.md`; runner `lane.sh HH:MM job...`.
 
