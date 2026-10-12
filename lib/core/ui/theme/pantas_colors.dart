@@ -35,6 +35,7 @@ class PantasColors extends AppColors {
     required this.onAccent,
     required this.onDestructive,
     required this.figureBackground,
+    required this.readerFigureBackground,
     required this.figureViewerBackground,
     required this.onFigureViewer,
     required this.floatingRight,
@@ -93,6 +94,8 @@ class PantasColors extends AppColors {
   final Color onDestructive;
   // QV_Figure and RD_Figure retain white backing in dark mode.
   final Color figureBackground;
+  // RD_Real: illustrations retain their printed background in either mode.
+  final Color readerFigureBackground;
   // RD_Figure expanded viewer.
   final Color figureViewerBackground;
   // RD_Figure viewer controls.
@@ -146,6 +149,7 @@ class PantasColors extends AppColors {
     onAccent: Color(0xFFFFFFFF),
     onDestructive: Color(0xFFFFFFFF),
     figureBackground: Color(0xFFFFFFFF),
+    readerFigureBackground: Color(0xFFFAFAF7),
     figureViewerBackground: Color(0xFF000000),
     onFigureViewer: Color(0xFFFFFFFF),
     floatingRight: Color(0xFFEFF7F5),
@@ -190,6 +194,7 @@ class PantasColors extends AppColors {
     onAccent: Color(0xFF1C1C1E),
     onDestructive: Color(0xFFFFFFFF),
     figureBackground: Color(0xFFFFFFFF),
+    readerFigureBackground: Color(0xFFFAFAF7),
     figureViewerBackground: Color(0xFF000000),
     onFigureViewer: Color(0xFFFFFFFF),
     floatingRight: Color(0xFF123F37),
@@ -280,6 +285,7 @@ class PantasColors extends AppColors {
     Color? onAccent,
     Color? onDestructive,
     Color? figureBackground,
+    Color? readerFigureBackground,
     Color? figureViewerBackground,
     Color? onFigureViewer,
     Color? floatingRight,
@@ -332,6 +338,8 @@ class PantasColors extends AppColors {
         onAccent: onAccent ?? this.onAccent,
         onDestructive: onDestructive ?? this.onDestructive,
         figureBackground: figureBackground ?? this.figureBackground,
+        readerFigureBackground:
+            readerFigureBackground ?? this.readerFigureBackground,
         figureViewerBackground:
             figureViewerBackground ?? this.figureViewerBackground,
         onFigureViewer: onFigureViewer ?? this.onFigureViewer,
@@ -382,6 +390,8 @@ class PantasColors extends AppColors {
       onDestructive: Color.lerp(onDestructive, other.onDestructive, t)!,
       figureBackground:
           Color.lerp(figureBackground, other.figureBackground, t)!,
+      readerFigureBackground:
+          Color.lerp(readerFigureBackground, other.readerFigureBackground, t)!,
       figureViewerBackground:
           Color.lerp(figureViewerBackground, other.figureViewerBackground, t)!,
       onFigureViewer: Color.lerp(onFigureViewer, other.onFigureViewer, t)!,

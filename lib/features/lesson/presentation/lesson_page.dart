@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
@@ -100,7 +101,8 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final reader = loaded ?? _shown;
 
     return Scaffold(
-      backgroundColor: context.colors.background,
+      backgroundColor:
+          reader == null ? context.colors.background : context.colors.surface,
       body: switch ((reader, asyncReader)) {
         (_, AsyncError(:final error)) => _ReaderFallback(
             origin: origin,
@@ -367,7 +369,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
     final reader = widget.reader;
 
     return SafeArea(
@@ -397,24 +398,38 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                   : null,
               child: SingleChildScrollView(
                 controller: _scrollController,
-                padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      reader.lesson.title,
-                      style: textStyles.displaySmall,
-                    ),
-                    const SizedBox(height: 8),
-                    ContentRenderer(
-                      blocks: reader.lesson.bodyJson,
-                      readerFigures: true,
+                    LessonTextScale(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            reader.topicName.toUpperCase(),
+                            style: context.type.sectionHeader
+                                .copyWith(letterSpacing: .52),
+                          ),
+                          const SizedBox(height: 18),
+                          Text(
+                            reader.lesson.title,
+                            style:
+                                context.type.pageTitle.copyWith(height: 1.15),
+                          ),
+                          const SizedBox(height: 18),
+                          ContentRenderer(
+                            blocks: reader.lesson.bodyJson,
+                            readerFigures: true,
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 24),
                     Text(
                       '${reader.lesson.estimatedMinutes} min read',
-                      style:
-                          textStyles.bodySmall.copyWith(color: colors.inkMuted),
+                      style: context.type.footnote
+                          .copyWith(color: colors.secondaryLabel),
                     ),
                     const SizedBox(height: 16),
                     if (_resumeFailed)

@@ -217,3 +217,37 @@ Task 1 analysis follow-up: 9450 analysis found 12 issues (R-21 plus formatting/s
 9452 final Task 1 analysis: exit 1, `1 issue found. (ran in 5.2s)`, only R-21 in the held bookmarks rebuild. No new diagnostics remain. Changed-file format and diff checks exit 0. This is task-level implementation evidence, not whole-family acceptance.
 
 Task 1 source identity: base `2eae3d9f`, staged lib/test patch SHA-256 `7c8d1f53cc10f52ea2efa27d008b91d1e81188048fceec69b64e0fa5a9bb3ac6`, preserved at `.dart_tool/w4c-task1-source.patch`.
+
+## Task 4: Reader body and figures
+
+Policy refreshed with fetch before this task, unchanged at `e354ebe3c37e2d23a035f79da393c4e0da94a33e`. Read RD_Real, RD_Resume, RD_RealScroll and RD_Figure outlines and timelines from main read-only. The October 12 eyebrow ruling and October 10 KaTeX ruling supersede the older wording in the task.
+
+Reader content uses the single uppercase topic eyebrow (13/600, 1.35, 0.52 tracking), 30/700 title (1.15, -0.66), 24 px horizontal gutter, 18 px top inset and 18 px gaps. Geist body and headings use W2 ContentRenderer inside W1 LessonTextScale. Corpus `#N:` headings have the gray numbered marker and 8 px gap. Corpus Solution blocks group into the 14-radius solution surface with 14/16 insets, 12/600 SOLUTION and 10 px gap; consecutive steps have 8 px gaps. The main reading surface is the W1 surface token. Reader controls keep phone text scaling.
+
+Shared extensions:
+- ContentRenderer.readerFigures now handles the full approved reader formatting, keeps the reader's “Content unavailable. Update the app.” fallback, skips described images with no URL without leaving gaps, reads image credit from asset.credit, and preserves corpus alt text. Figures and valid tables use the same 14-radius, 0.5 separator frame and 44 px expand target around a 30 px circle. Credits are 11/400, 1.35 with 6 px gap; the W2 secondaryLabel contrast ruling applies. No credit means no line. Other screen families keep their default frame, dialog and content behavior.
+- MathText adds optional onErrorFallback so malformed reader math uses the existing shared renderer fallback. Normal math retains KaTeX fonts.
+- W1 readerFigureBackground token records RD_Real's `#FAFAF7`. Like existing printed figure backing, it stays light in dark mode and figures use the existing light theme.
+- Reader full-screen figures use the black viewer token, pinch zoom, a 44 px Close target and Escape. Opening fades 280 ms with CSS ease and scales the image from .92 to 1 over 380 ms with Cubic(.25,.9,.3,1). Closing lasts 280 ms. Reduced motion shows the final frame. The route owns its animation controller; no undisposed local controller was added.
+
+Failing-first and checks, serialized relay:
+- 9453, first test attempt: exit 1. The test HTTP override used a nonexistent getter, and the reader fixture omitted content storage. These setup failures did not count as presentation proof.
+- 9454, corrected fixtures before implementation: exit 1, `00:02 +0 -14: Some tests failed.` Missing scale wrapper, eyebrow, reader frames, nested credits, skipped missing images, solution grouping and viewer motion failed as intended.
+- 9455, targeted reader tests: exit 0, `00:02 +14: All tests passed!`
+- 9456, prescribed focused check after a cleanup edit: exit 1, `01:39 +831 -14: Some tests failed.` I left a stale viewer argument and constructor parameter. Both were corrected. Analysis reported those two errors plus three style notices including R-21.
+- 9457, targeted reader tests plus malformed math and reduced motion: exit 0, `00:02 +16: All tests passed!`. Analysis found R-21 and two unnecessary const notices; notices were corrected.
+- 9458, `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`: exit 0, `01:26 +901: All tests passed!` Includes actual two-pointer pinch, keyboard opening/Escape, light/dark/200% metrics, reader scale preference, table framing and intermediate viewer values at 140 ms.
+- 9458, `flutter analyze`: exit 1, `1 issue found. (ran in 6.3s)`, only R-21 assigned to Task 8. Format commands and diff check exit 0.
+
+Task 4 files:
+- `lib/core/ui/components/content_renderer.dart`
+- `lib/core/ui/components/math_text.dart`
+- `lib/core/ui/theme/pantas_colors.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `test/core/ui/components/reader_content_extensions_test.dart`
+- `test/features/lesson/presentation/reader_body_board_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+
+Tasks 1 and 4 are implemented and saved locally. Tasks 2 and 3 remain at their prior commits. Task 8 and independent Task 6 are next. Tasks 5, 7, 9 and Home endings remain held. Independent review and Aedwon's visual acceptance are not performed.
+
+Task 4 source identity: base `9e55a5ce`, staged lib/test patch SHA-256 `b9299075d910d59947b8dce38c13dde1511f03df67016bee30e3af6d9b7d2b33`.
