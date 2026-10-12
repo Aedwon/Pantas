@@ -3,6 +3,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 final mockAttemptRepoProvider = Provider<MockAttemptRepo>(
   (ref) => MockAttemptRepo(ref.watch(appDatabaseProvider)),
@@ -37,8 +38,14 @@ final mockAvailabilityProvider =
     final submittedAt = cooldownAttempt?.submittedAt;
     if (submittedAt == null) return const MockAvailability.available();
 
-    final availableAt = submittedAt.add(const Duration(days: 14));
     final now = ref.watch(mockAvailabilityClockProvider).call();
+    final availableAt = const Entitlement.free()
+        .mockLimit(
+          request.examId,
+          at: now,
+          lastMockAt: submittedAt,
+        )
+        .nextMockOpensAt!;
     if (!now.isBefore(availableAt)) return const MockAvailability.available();
 
     return MockAvailability.cooldown(availableAt.difference(now));

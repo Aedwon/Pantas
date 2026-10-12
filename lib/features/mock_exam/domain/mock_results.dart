@@ -104,3 +104,22 @@ class WeakTopic {
   double get accuracy => total == 0 ? 0 : correct / total;
   String get drillRoute => '/quiz/drill?topicId=$topicId';
 }
+
+/// Percent units, never a rounded stored decimal. UPCAT deducts a quarter
+/// per wrong answer; blanks do not change the earned points.
+double mockScorePercent({
+  required String? examId,
+  required Iterable<SectionResult> sections,
+}) {
+  var correct = 0;
+  var wrong = 0;
+  var total = 0;
+  for (final section in sections) {
+    correct += section.correct;
+    wrong += section.wrong ?? 0;
+    total += section.total;
+  }
+  if (total == 0) return 0;
+  final earned = examId == 'exam_upcat' ? correct - wrong / 4 : correct;
+  return earned / total * 100;
+}
