@@ -23,6 +23,16 @@ invitation, with a widget test (amended Oct 6, abuse review 1).
 
 Contrast (W1 audit 1, Oct 10): this family's rebuilt screens test wrong-answer text against its real background at 4.5:1 or better in light and dark; if a board's color fails, stop and ask the lead.
 
+## Lead rulings, October 12
+
+Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
+1. Order: Task 1 first, alone. Second commit, alone: the Task 7 report entry function (standing
+   ruling 5), with the form if it does not depend on later tasks. Then the plan in order.
+2. Task 2 and W4e's `MockCard`: the Quiz tab keeps a widget slot (today `mockPanel`), and
+   `lib/app/routes/quiz_routes.dart` passes `MockCard` into it. The quiz feature does not import
+   `mock_exam` presentation (layering rule R2). `MockCard` and its model are on the integration
+   branch from 958ed879.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
