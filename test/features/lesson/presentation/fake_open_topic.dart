@@ -19,4 +19,9 @@ class FakeOpenTopic extends OpenTopicController {
     _value = null;
     state = const AsyncData(null);
   }
+
+  @override
+  Future<void> open(String topicId) async => state = AsyncData(topicId);
+  @override
+  Future<void> save() async {}
 }

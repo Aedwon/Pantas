@@ -27,7 +27,16 @@ class ListRow extends StatelessWidget {
     this.editor,
     this.onTap,
     this.divider = false,
+    this.richTitle,
+    this.footer,
+    this.leading,
     this.titleColor,
+    this.verticalPadding = 11,
+    this.richSubtitle,
+    this.valueStyle,
+    this.wrapTitle = false,
+    this.valueWidget,
+    this.trailingWidget,
     super.key,
   })  : content = null,
         _checkbox = false,
@@ -52,7 +61,16 @@ class ListRow extends StatelessWidget {
         _exam = false,
         comingSoon = false,
         settingsMode = false,
-        titleColor = null;
+        titleColor = null,
+        richTitle = null,
+        footer = null,
+        leading = null,
+        verticalPadding = 11,
+        richSubtitle = null,
+        valueStyle = null,
+        wrapTitle = false,
+        valueWidget = null,
+        trailingWidget = null;
   const ListRow.exam({
     required this.title,
     required this.subtitle,
@@ -71,11 +89,19 @@ class ListRow extends StatelessWidget {
         expanded = false,
         editor = null,
         content = null,
-        titleColor = null;
+        titleColor = null,
+        richTitle = null,
+        footer = null,
+        leading = null,
+        verticalPadding = 11,
+        richSubtitle = null,
+        valueStyle = null,
+        wrapTitle = false,
+        valueWidget = null,
+        trailingWidget = null;
   final bool _exam;
   final bool comingSoon;
   final bool settingsMode;
-  final Color? titleColor;
   final bool _checkbox;
   final Widget? content;
   final String title;
@@ -89,6 +115,16 @@ class ListRow extends StatelessWidget {
   final Widget? editor;
   final VoidCallback? onTap;
   final bool divider;
+  final InlineSpan? richTitle;
+  final Widget? footer;
+  final Widget? leading;
+  final Color? titleColor;
+  final double verticalPadding;
+  final InlineSpan? richSubtitle;
+  final TextStyle? valueStyle;
+  final bool wrapTitle;
+  final Widget? valueWidget;
+  final Widget? trailingWidget;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -262,59 +298,63 @@ class ListRow extends StatelessWidget {
       );
     }
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
-    final label = Text(
-      title,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-      style: context.type.body.copyWith(
-        color: titleColor ??
-            (variant == ListRowVariant.destructive ? c.wrongText : c.label),
-      ),
+    final labelStyle = context.type.body.copyWith(
+      color: variant == ListRowVariant.destructive
+          ? c.wrongText
+          : titleColor ?? c.label,
     );
-    final detail = value == null
-        ? null
-        : Text(
-            value!,
-            style: context.type.rowValue,
-            textAlign: stack ? TextAlign.start : TextAlign.end,
-          );
-    final trailing = switch (variant) {
-      ListRowVariant.navigation =>
-        Icon(PantasIcons.next, size: 16, color: c.chevron),
-      ListRowVariant.switchControl => ExcludeSemantics(
-          child: ExcludeFocus(
-            child: PantasSwitch(
-              value: selected,
-              label: title,
-              onChanged: (_) => onTap?.call(),
+    final label = Text.rich(
+      richTitle ?? TextSpan(text: title),
+      maxLines: wrapTitle ? null : 1,
+      overflow: wrapTitle ? null : TextOverflow.ellipsis,
+      style: labelStyle,
+    );
+    final detail = valueWidget ??
+        (value == null
+            ? null
+            : Text(
+                value!,
+                style: valueStyle ?? context.type.rowValue,
+                textAlign: stack ? TextAlign.start : TextAlign.end,
+              ));
+    final trailing = trailingWidget ??
+        switch (variant) {
+          ListRowVariant.navigation =>
+            Icon(PantasIcons.next, size: 16, color: c.chevron),
+          ListRowVariant.switchControl => ExcludeSemantics(
+              child: ExcludeFocus(
+                child: PantasSwitch(
+                  value: selected,
+                  label: title,
+                  onChanged: (_) => onTap?.call(),
+                ),
+              ),
             ),
-          ),
-        ),
-      ListRowVariant.check => selected
-          ? Icon(PantasIcons.check, size: 20, color: c.accent)
-          : const SizedBox(width: 20),
-      ListRowVariant.radio => Container(
-          width: 22,
-          height: 22,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: selected ? c.accentFill : null,
-            border: Border.all(
-              color: selected ? c.accent : c.controlOutline,
-              width: 1.5,
+          ListRowVariant.check => selected
+              ? Icon(PantasIcons.check, size: 20, color: c.accent)
+              : const SizedBox(width: 20),
+          ListRowVariant.radio => Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: selected ? c.accentFill : null,
+                border: Border.all(
+                  color: selected ? c.accent : c.controlOutline,
+                  width: 1.5,
+                ),
+              ),
+              child: selected
+                  ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
+                  : null,
             ),
-          ),
-          child: selected
-              ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
-              : null,
-        ),
-      ListRowVariant.inlineEditor => Icon(
-          expanded ? PantasIcons.close : PantasIcons.next,
-          size: 16,
-          color: expanded ? c.accent : c.chevron,
-        ),
-      _ => const SizedBox.shrink(),
-    };
+          ListRowVariant.inlineEditor => Icon(
+              expanded ? PantasIcons.close : PantasIcons.next,
+              size: 16,
+              color: expanded ? c.accent : c.chevron,
+            ),
+          _ => const SizedBox.shrink(),
+        };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -332,9 +372,9 @@ class ListRow extends StatelessWidget {
                 onTap: onTap,
                 child: Container(
                   constraints: const BoxConstraints(minHeight: 44),
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 16,
-                    vertical: 11,
+                    vertical: verticalPadding,
                   ),
                   decoration: BoxDecoration(
                     border: divider
@@ -345,7 +385,10 @@ class ListRow extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      if (icon != null) ...[
+                      if (leading != null) ...[
+                        leading!,
+                        const SizedBox(width: 12),
+                      ] else if (icon != null) ...[
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),
                       ],
@@ -354,8 +397,12 @@ class ListRow extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             label,
-                            if (subtitle != null)
-                              Text(subtitle!, style: context.type.footnote),
+                            if (subtitle != null || richSubtitle != null)
+                              Text.rich(
+                                richSubtitle ?? TextSpan(text: subtitle),
+                                style: context.type.footnote,
+                              ),
+                            if (footer != null) footer!,
                             if (stack && detail != null) detail,
                           ],
                         ),

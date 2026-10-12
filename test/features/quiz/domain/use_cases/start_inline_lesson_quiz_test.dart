@@ -11,6 +11,46 @@ import '../../../../helpers/in_memory_database.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  for (final count in [3, 7]) {
+    test('lesson quiz uses only its own questions, pool $count', () async {
+      final db = inMemoryDatabase();
+      final contentDb = ContentDatabase(NativeDatabase.memory());
+      addTearDown(contentDb.close);
+      addTearDown(db.close);
+      await seedContentTopicWithQuestions(
+        contentDb,
+        examId: 'exam',
+        subjectId: 'subject',
+        topicId: 'topic',
+        topicName: 'Topic',
+        questionIds: [
+          for (var i = 0; i < count; i++) 'own$i',
+          for (var i = 0; i < 20; i++) 'other$i',
+        ],
+        lessonIds: const ['lesson', 'sibling'],
+        questionLessonMap: {
+          for (var i = 0; i < count; i++) 'own$i': 'lesson',
+          for (var i = 0; i < 20; i++) 'other$i': 'sibling',
+        },
+      );
+      final result = await StartInlineLessonQuiz(
+        content: ContentRepository(contentDb),
+        sessions: QuizSessionRepository(db),
+      )(
+        userId: 'user',
+        examId: 'exam',
+        lessonId: 'lesson',
+        now: DateTime.utc(2026, 10, 12),
+      );
+      final session = (result as StartInlineLessonQuizStarted).session;
+      expect(session.questions, hasLength(count < 5 ? count : 5));
+      expect(session.questions.every((q) => q.lessonId == 'lesson'), isTrue);
+      final saved = await QuizSessionRepository(db)
+          .activeFor(userId: 'user', examId: 'exam');
+      expect(saved!.questionIdsJson, isNot(contains('other')));
+    });
+  }
+
   test('inline lesson quiz stores inline origin lessonId and subtopicId',
       () async {
     final db = inMemoryDatabase();
@@ -92,7 +132,7 @@ void main() {
     expect(session.questions, isNotEmpty);
   });
 
-  test('inline lesson quiz falls back to topic when lesson has no subtopicId',
+  test('inline lesson quiz uses lesson tags when legacy subtopic is absent',
       () async {
     final db = inMemoryDatabase();
     final contentDb = ContentDatabase(NativeDatabase.memory());

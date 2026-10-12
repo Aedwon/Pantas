@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 /// Null when no exam is chosen. The screen draws its own fallback for that,
 /// so it is a state rather than an error.
@@ -41,15 +42,30 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
   );
 });
 
+final studyTodayLessonIdsProvider = FutureProvider<Set<LessonId>>((ref) async {
+  final focus = await ref.watch(activeExamFocusProvider.future);
+  final exam = focus.exam;
+  if (exam == null) return const {};
+  final today = await ref.watch(roadmapTodayProvider(exam.id).future);
+  return today.snapshot.plan.lessonIds.toSet();
+});
+
 /// Which topic is expanded, at most one, remembered per exam across visits to
 /// the tab. One at a time is what bounds the page: fully expanded, UPCAT is
 /// 164 rows.
 class OpenTopicController extends AsyncNotifier<TopicId?> {
   @override
   Future<TopicId?> build() async {
-    final examId = await _examId();
+    final focus = await ref.watch(activeExamFocusProvider.future);
+    final examId = focus.exam?.id;
     if (examId == null) return null;
-    return ref.read(appPreferencesRepositoryProvider).openTopicId(examId);
+    final saved =
+        await ref.read(appPreferencesRepositoryProvider).openTopicId(examId);
+    final map = await ref.read(studyMapProvider.future);
+    return map != null &&
+            map.subjects.any((s) => s.topics.any((t) => t.id == saved))
+        ? saved
+        : null;
   }
 
   Future<void> toggle(TopicId topicId) async {
@@ -59,9 +75,22 @@ class OpenTopicController extends AsyncNotifier<TopicId?> {
 
   Future<void> close() => _write(null);
 
+  Future<void> open(TopicId topicId) async {
+    await future;
+    final map = await ref.read(studyMapProvider.future);
+    if (map == null ||
+        !map.subjects.any((s) => s.topics.any((t) => t.id == topicId))) {
+      return close();
+    }
+    return _write(topicId);
+  }
+
+  Future<void> save() => _write(state.valueOrNull);
+
   Future<void> _write(TopicId? topicId) async {
     final examId = await _examId();
     if (examId == null) return;
+    state = AsyncData(topicId);
     await ref
         .read(appPreferencesRepositoryProvider)
         .setOpenTopicId(examId: examId, topicId: topicId);

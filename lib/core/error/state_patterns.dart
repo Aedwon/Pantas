@@ -17,9 +17,18 @@ Widget loadingFor<T>(AsyncValue<T> value) => value.isLoading
       )
     : const SizedBox.shrink();
 
-Widget errorFor(String what, VoidCallback onRetry, {Object? error}) =>
+Widget errorFor(
+  String what,
+  VoidCallback onRetry, {
+  Object? error,
+  String? message,
+  Widget? icon,
+  bool boardLayout = false,
+}) =>
     StateView(
-      message: 'Could not load your $what.',
+      message: message ?? 'Could not load your $what.',
+      icon: icon,
+      boardLayout: boardLayout,
       onRetry: onRetry,
       error: error,
     );

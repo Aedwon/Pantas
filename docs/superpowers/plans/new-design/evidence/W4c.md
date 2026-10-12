@@ -1,0 +1,284 @@
+# W4c implementation evidence
+
+## Assignment and source identity
+
+- Current policy retrieved on the final October 12 resumption: `9e8e029d7edb38859a63aec4e906ed4685ed931b`. The earlier October 12 resumption read `1b42368085918a1cdf6df3e905b156b01387c451`. AGENTS.md, WORKFLOW.md and SUBAGENTS.md read again. Their contents and the W4c plans, amendment spec, traceability and parallel map are unchanged from the prior read. The later restart-log entry concerns the W3 audit and scheduling.
+- Prior implementation policy: `da314d1e8bb1d68f617ef50ee0b23aea46ee605b`.
+- Read current AGENTS.md, WORKFLOW.md and SUBAGENTS.md. The initial startup read used `56f642543e9c04de7dc673f8d1674c6cc222c4d6`; the user resumed before implementation, so main was fetched again.
+- Code base: `cee7a9c55387674787030c722967104705d7bb3a`, branch `web/new-design-w4c-r1`, assigned worktree.
+- Plans L2-W4c and L3-W4c, amendment spec, traceability W4c rows, current parallel map and W2 lead rulings read from main. Shared state-pattern notes read from the assigned worktree.
+- Design boards and outline/timeline scripts are absent on the code base. Read their exact current main versions from the main checkout without editing it or merging main.
+- No application-code freeze was lifted beyond this authorized workstream. No merge or push is authorized.
+
+## Open questions and dependencies
+
+1. Task 1, ST_TopicOpen Today tag: 12 px, weight 600, foreground `#6E6E73`, background `#EDEDF0`. WCAG sRGB contrast is `4.340286685319358:1`, below the binding 4.5:1 text rule. The explicit SearchField exception does not cover this tag. Task 1 is blocked until the lead records a darker text token, a lighter background, or a specific exception. No changed presentation has been implemented.
+2. Task 5 depends on W4b Task 3's `LessonDayContext`. It is absent from this code base. No local substitute will be added.
+3. Task 7 depends on W4d Task 1's `startLessonQuiz(lessonId)` and `startQuickQuiz()` entry contracts. They are absent from this code base. The existing `startQuickQuizProvider` is a different interface.
+
+4. Task 4: RD_Real draws the eyebrow `EARTH SCIENCE AND ASTRONOMY` only, at 13 px/600 with 0.04em tracking, above the 30 px title. L3 Task 4 asks for a “Subject and topic eyebrow.” The lead must clarify whether the eyebrow stays topic-only as drawn or includes the subject too. No alternative eyebrow has been implemented.
+5. Task 8: BM_Edit and BM_ScreenReader draw the enabled drag handles at 20 px, stroke 2, `#AEAEB2` on `#FFFFFF`. This is 2.21:1, below the binding 3:1 rule for meaningful icons. The unchecked circles also use `#C7C7CC`, but W2's explicit `controlOutline` ruling already covers unchecked selection boundaries. That ruling does not cover drag handles. The lead must approve a darker handle token or explicitly exempt this control.
+6. Task 6's complete Home/day ending depends on the missing Task 5 day context. Task 9's deletions depend on Tasks 1 and 6; the reader still uses the older plates. Do not delete live callers.
+
+## Task 2: search
+
+Commit: `537d9ef894811c67b9d59c9a4b71b90d290b85d0`. Implemented and task checks pass. Independent acceptance remains with the lead.
+
+Behavior: the W2 search field folds Study over 300 ms using the board's house curve; Cancel clears the query and restores the map. Search includes every lesson of a matching topic in corpus order without duplicate hits. Results show uppercase counts, bold matches, snippets, grouped rows and 15 px tabular minutes. Empty query with no recents shows nothing. Recents show at most three lessons. Result routes identify search as origin.
+
+Shared component extensions authorized by the dispatch:
+- `lib/core/ui/components/search_field.dart`: optional `onEditingChanged` lets a screen switch the body when editing starts and ends. `titleInset` defaults to zero; Study uses 4 px inside its 16 px screen gutter to reproduce the 20 px title gutter. ST_Search: title fold and Cancel 300 ms, `Cubic(.3,.9,.3,1)`.
+- `lib/core/ui/components/list_row.dart`: optional rich title/subtitle spans, footer, leading widget, title color, value style and vertical padding. Defaults preserve other families. ST_Search: 17/400 title, 13 px topic/snippet, 15 px minutes, 12 px vertical inset. Real keyboard activation remains on W2's InkWell. Tests live beside W2 tests.
+
+Files: those two shared components; lesson search provider; Study page's search call site; search field bar and result widgets; search provider, field bar, results, search board and existing pinned-transition tests; W2 search extension tests; this evidence. No other screen family changed.
+
+Verification, run serially through the Mac relay:
+- Issue 9409: initial test failed to compile because ignored generated files were absent. This was setup failure, not the required failing test.
+- Issue 9410: `dart run build_runner build --delete-conflicting-outputs`, exit 0, `Built with build_runner/aot in 25s; wrote 2735 outputs.` Generated files remain ignored and uncommitted.
+- Issue 9411: three search test files, exit 1, `00:00 +12 -8: Some tests failed.` Topic matching, W2 search field, uppercase headings and no-match copy failed as intended before their implementation.
+- Issues 9412 and 9413: prescribed focused check, exit 1. Issue 9412 output was truncated. Issue 9413 captured full output in `.dart_tool/w4c-task2-check.log`: `00:39 +843 -6: Some tests failed.` Five failures came from the replacement search wrapper lacking Material in isolated tests. One old pinned test matched a TextField opacity widget too. Both causes corrected; no unrelated failure was ignored.
+- Issue 9414: narrowed regressions, exit 1, `00:01 +9 -1: Some tests failed.` The Cancel test tapped before the newly required 300 ms reveal completed. The test now waits for that reveal.
+- Issue 9415: light/dark, 100%/200% board metric tests, exit 1, `00:00 +0 -4: Some tests failed.` Each correctly found 17 px minutes where ST_Search requires 15 px. Shared value-style extension corrects this.
+- Issue 9416: `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`, exit 0, `00:32 +855: All tests passed!` Full log: `.dart_tool/w4c-task2-check-final.log`.
+- Issue 9417: six relevant board and extension tests after making the test surfaces use the actual theme background and tightening the intermediate animation value, exit 0, `00:00 +6: All tests passed!` The title opacity at 150 ms is 0.057725, tolerance 0.001. Tests cover real light/dark contrast, 200% layout and keyboard activation.
+- `dart format` on the changed Dart files: exit 0. `git diff --check`: exit 0.
+
+The full Flutter suite has not run; these are the plan's focused checks only.
+
+Task 2 file manifest:
+
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/search_field.dart`
+- `lib/features/lesson/application/lesson_search_providers.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/widgets/search_field_bar.dart`
+- `lib/features/lesson/presentation/widgets/search_results.dart`
+- `test/core/ui/components/study_search_extensions_test.dart`
+- `test/features/lesson/application/lesson_search_providers_test.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`
+- `test/features/lesson/presentation/search_board_test.dart`
+- `test/features/lesson/presentation/search_field_bar_test.dart`
+- `test/features/lesson/presentation/search_results_test.dart`
+
+## Task 3: shared states
+
+Implemented with passing focused checks. This evidence is saved in the Task 3 commit. Independent review and the held tasks remain. The prescribed focused command last passed in relay issue 9425: `00:37 +877: All tests passed!`, exit 0. The earlier 9422 run also passed 877 tests before two additional frame/back metrics exposed defects.
+
+Behavior: Study keeps its title on every state, announces loading immediately, delays loading shapes for 300 ms, uses the shared retryable load failure and no-exam picker, and draws the no-lessons Quick Quiz action only in that state. Reader failures and missing lessons keep their back control. Retry re-reads the failed lesson. An advance failure is no longer hidden by the retained previous reader. Reader illustration failures keep the 223 px frame through Retry and expose no expand control while failed or waiting.
+
+Shared extensions authorized by the dispatch:
+- `StateView.boardLayout`: ST_Error, ST_NoLessons and RD_Error use the 40 px faint mark, 6 px gaps, 20/700 message at height 1.35 with -0.2 spacing, 36 px side insets and 150 px bottom inset. The secondary action uses a 44 px pill, radius 99, 22 px horizontal inset and 15/600 text. Other callers keep existing defaults.
+- `errorFor`: optional approved message, icon and board layout allow RD_Error's exact “Could not load this lesson.” without a feature-local state copy. Defaults and exception privacy remain unchanged.
+- `ContentRenderer.readerFigures`: RD_ImageFail uses a 223 px minimum frame, radius 14, 0.5 px separator border, background token, faint 30 px icon, 13 px secondary text and “Try Again” action. It announces its state. Pending and failed images have no expand control. Other screen families retain the default renderer presentation.
+- The lesson uses ContentRenderer now because its illustration failure must use the shared variant. Task 4's eyebrow, credits, text scaling, body gutters and remaining figure work are not claimed complete.
+
+Failing-first evidence:
+- Issue 9418: state tests before state implementation, exit 1, `00:01 +1 -5: Some tests failed.` All five failures were the missing W4h states/back controls.
+- Issue 9419: missing readerFigures constructor parameter, exit 1. This compilation result was not counted as the presentation test.
+- Issue 9420: after adding the interface but before its behavior, exit 1, `00:00 +4 -4: Some tests failed.` All four light/dark and 100%/200% cases found the old image failure presentation.
+- Issue 9421: focused check, exit 1, `00:33 +861 -4: Some tests failed.` The four image tests read the failure element after Retry removed it. Their contrast checks now run before Retry.
+- Issue 9422: focused check, exit 0, `00:33 +877: All tests passed!`
+- Issue 9423: new stable-frame and 44 px reader back checks, exit 1, `00:00 +5 -5: Some tests failed.` Retry collapsed the image frame, and the back control was too tall. Both corrected.
+- Issue 9424: focused check, exit 1, `00:34 +876 -1: Some tests failed.` Flutter padded the back control's tap area to 48 px. Its tap target now uses the board's 44 px minimum without the added padding and can grow for large text.
+- Issue 9425: prescribed focused check, exit 0, `00:37 +877: All tests passed!`
+- Issue 9426: analysis initially found 103 issues: 100 missing commas, one unused import, one import-order issue in my changes, and the existing R-21 bookmark onReorder notice. The 102 new style issues were corrected. This also corrects Task 2 formatting in the same owned files; no Task 2 behavior changes.
+- Issue 9426: `dart format --output=none --set-exit-if-changed lib test`, exit 0, `Formatted 1402 files (0 changed) in 1.35 seconds.` Layering and attribution both exit 0 with their OK output.
+
+Final verification is recorded below. The one full-suite run preceded a final search-transition correction; the complete prescribed focused checks were repeated after that correction.
+
+Task 3 file manifest (includes Task 2 lint and search-transition corrections):
+
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+- `lib/core/error/state_patterns.dart`
+- `lib/core/ui/components/content_renderer.dart`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/state_view.dart`
+- `lib/features/lesson/application/lesson_search_providers.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `lib/features/lesson/presentation/widgets/search_field_bar.dart`
+- `lib/features/lesson/presentation/widgets/search_results.dart`
+- `test/core/ui/components/study_search_extensions_test.dart`
+- `test/core/ui/components/study_state_extensions_test.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`
+- `test/features/lesson/presentation/reader_states_test.dart`
+- `test/features/lesson/presentation/search_board_test.dart`
+- `test/features/lesson/presentation/search_results_test.dart`
+- `test/features/lesson/presentation/search_transition_test.dart`
+- `test/features/lesson/presentation/study_map_page_test.dart`
+- `test/features/lesson/presentation/study_states_board_test.dart`
+
+Candidate source identity for final checks: HEAD `537d9ef894811c67b9d59c9a4b71b90d290b85d0` plus the staged lib/test diff, SHA-256 `92449b1a48373bfcb281b4105be07597152d753171950f8750babcee3332dc52`. Exact patch is preserved locally at `.dart_tool/w4c-final-source.patch`. No generated or seed files are staged.
+
+## Remaining task status
+
+- Task 1: held for the Today tag contrast ruling; no Study map rebuild committed.
+- Task 2: implemented, focused checks passed and committed; independent review pending.
+- Task 3: implemented and focused checks passed; saved in the commit carrying this evidence. Independent review pending.
+- Task 4: held for the eyebrow ruling. The full reader body and figure contract is not complete.
+- Task 5: held for the absent W4b day-context contract.
+- Task 6: held for the complete reader/day context. Existing end, pull and plates remain.
+- Task 7: held for the absent W4d quiz entry contracts. Existing direct quiz routes remain until that task can run.
+- Task 8: held for the drag-handle contrast ruling. Per-exam prefs, Undo and the reorder notice remain unfinished.
+- Task 9: unfinished. Live widgets have not been deleted; the full suite and static gates below check the partial candidate only.
+
+The lead owns independent review, integration, the shared main STATUS update and visual acceptance. The STATUS file exists only on main, outside this worker's code base and assigned file set; no main update is authorized. Its W4c row needs the lead's handoff update. No screenshot, device check, merge or push has run.
+
+## Final verification of the partial candidate
+
+All commands ran serially through the Mac relay. No backend file changed and backend checks were not repeated.
+
+- Issue 9427, `flutter test --reporter expanded`: exit 0, `03:52 +3758: All tests passed!` This was the only full-suite run. It applies to the pre-transition-fix source patch `92449b1a48373bfcb281b4105be07597152d753171950f8750babcee3332dc52`, not a claim of a full-suite run on the later source.
+- The final board-source check found that the outgoing map disappeared immediately and the incoming search heading did not fade with its rows. ST_Search draws a 200 ms outgoing fade and a 300 ms incoming fade starting 100 ms later. Those two details were corrected. The outgoing map stays mounted to preserve its scroll and is excluded from focus, pointer input and semantics during search.
+- Issue 9428, new transition test before the correction: exit 1, `00:00 +0 -1: Some tests failed.` The outgoing opacity widget did not exist.
+- Issue 9429, transition assertions passed, but test cleanup failed because its semantics handle was disposed too late. Cleanup now uses finally.
+- Issue 9430, `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`: exit 0, `00:38 +878: All tests passed!` This covers the final behavioral source, including 100 ms outgoing opacity 0.057725, incoming opacity 0 at 100 ms and 0.942275 at 250 ms, heading fade, hidden map semantics and Cancel restoration.
+- Issue 9430, `flutter analyze`: exit 1, `1 issue found. (ran in 3.7s)`. Exact remaining diagnostic: `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:238:21`, `deprecated_member_use`, onReorder. This is R-21, assigned to the held Task 8. There are no remaining new analysis findings. The family is not accepted as analyzer-clean.
+- Issue 9430, format check: exit 1, `Formatted 1403 files (1 changed) in 1.42 seconds.` The Task 2 search-field wrapper needed formatting after the mechanical comma fixes. Its formatting was corrected with no behavior change.
+- Issue 9435, `dart format --output=none --set-exit-if-changed lib test`: exit 0, `Formatted 1403 files (0 changed) in 1.48 seconds.`
+- Issue 9430, `dart run tool/check_layering.dart`: exit 0, `Running build hooks...Running build hooks...check_layering: OK`.
+- Issue 9430, `dart run tool/check_no_ai_attribution.dart`: exit 0, `Running build hooks...Running build hooks...check_no_ai_attribution: OK`.
+- `git diff --check`: exit 0.
+
+Final source identity: HEAD `537d9ef894811c67b9d59c9a4b71b90d290b85d0` plus staged lib/test patch SHA-256 `49c387d8404b182763c3bdd24f0d13498069fef9b92d504f40d5a1a068ae2732`, preserved at `.dart_tool/w4c-handoff-source.patch`. The only source change after the 878-test run was whitespace formatting of the search-field wrapper. The earlier patch and all raw logs remain in `.dart_tool/` for the lead.
+
+Environment: Flutter 3.44.6 stable, framework ee80f08bbf, Dart 3.12.2, DevTools 2.57.0. The lead-prepared ignored seed inputs were not rebuilt or staged. SHA-256 identities:
+
+- `assets/seed/content.db`: `0ef89a64f2d2f63854b3d22048a7d992d5c04fb03df4fec2e7f4e898e6d083dc`
+- `assets/seed/content.manifest.json`: `51bc0a766558879e540475ab972f03df7e3077241bab8f688c1b50ece5874f23`
+- `assets/seed/content.manifest.sig`: `e0853df259529031344f14d5a5fe6628e1b92c367a96c584894058fe13199f31`
+
+The branch contains the two task commits only. No merge or push is authorized or performed. No generated files or seed assets are committed. The full workstream remains incomplete because of the recorded design rulings and missing contracts.
+
+## Acceptance
+
+Tasks 2 and 3 are implemented, checked and saved locally. No tasks have independent or visual acceptance yet. Aedwon's Android/iPhone visual checks have not run. Tasks 1 and 4 to 9 remain held or unfinished as listed above. The partial candidate is not ready to integrate.
+
+## October 12 authorized resumption
+
+Policy revision: `e354ebe3c37e2d23a035f79da393c4e0da94a33e`, retrieved again with `git fetch origin`. Read current main AGENTS.md, WORKFLOW.md, SUBAGENTS.md, L3/L2 W4c, traceability, amendment spec, parallel map and later lead rulings. The worktree remained on `web/new-design-w4c-r1` at `2eae3d9f`; its uncommitted Task 1 changes were preserved. The remote feature branch does not exist. No push or merge.
+
+The October 12 lead rulings resolve historical questions 1, 4 and 5 above. Today uses `onFillLabel` light `#636366`, dark `#98989D` on the existing fill. Reader has the board's single eyebrow. Bookmark handles use controlOutline. W2's October 10 contrast exceptions and KaTeX math ruling remain binding. Tasks 5, 7, 9 and Home/day endings remain held for their contracts. This resumption authorizes Tasks 1, 4, 8 and independent Task 6 only.
+
+## Task 1: Study map
+
+Implements the count-free map, Last opened and Resume position, Today tags from roadmapTodayProvider, one remembered topic, topic rings/checks, unread minutes and read checks, pinned close, shared section/save failures, preserved map/search and scroll anchoring. Resume offsets are device-local `lesson_offset.<examId>.<lessonId>` values, clamped to the current scroll extent. They save after a 300 ms scroll debounce and on leaving. No schema, sync or seed change.
+
+ST_Map, ST_MapEmpty, ST_TopicOpen and ST_Pinned outlines and timelines were read from the main checkout, read-only. Metrics: last-opened 22/700 with 1.35 line height; Resume 52 high and radius 14; subject header 13/600, 16 inset and 7 gap; row 17/400, 1.35, 12 vertical and 16 horizontal; ring 24 with radius 10.5, track 2 and fill 2.4; Today 12/600, min-height 22, horizontal inset 8, radius 99; pinned min-height 47, title 17/600. Titles wrap for large text. Long topics measure natural height so the board's 800 px reveal cap never clips content.
+
+Shared extensions: ListRow adds optional valueWidget, trailingWidget and wrapTitle, preserving default behavior. ProgressRing.study adds 24 px Study track metrics and a delayed 700 ms fill. SearchField adds optional fieldEntryDelay; its Study field starts at 100 ms and fades/translates 12 px over 450 ms. Map sections use their board delays (180, 260, then 520 + 120 per subject); rings start at 820 + 120 per subject. Topic arrows rotate over 300 ms and reveal/collapse over 700 ms, all with the board's house curve. Closed controls are excluded from focus and semantics. Pinned appearance is immediate, dismissal fades 200 ms. Tests beside W2 verify paint strokes, intermediate values, light/dark contrast, 200% layout and keyboard activation.
+
+Verification, serialized Mac relay:
+- 9440, failing first: two map test files, exit 1, `00:02 +4 -7: Some tests failed.` Old counts, read labels, headings and last-opened presentation failed as expected.
+- 9441, prescribed focused check: exit 1, `01:30 +875 -1: Some tests failed.` See all semantics included its text twice. Corrected the semantics label.
+- 9442, narrowed checks: exit 1, `00:04 +14 -2: Some tests failed.` Closing retained zero-height children visible to widget finders. Added Offstage only at zero height, preserving collapse motion.
+- 9443, resume/topic checks: exit 0, `00:04 +12: All tests passed!`
+- 9444, metric checks: exit 1, `00:01 +2 -4: Some tests failed.` Corrected test finders and float tolerances for font pixel rounding and native paint float precision.
+- 9445, focused check: exit 1, `01:24 +882 -1: Some tests failed.` The isolated map fixture lacked today's plan; added its override. Analysis found 19 issues; new style findings were corrected. R-21 remains assigned to Task 8.
+- 9446 and 9447 exposed a test compile error during painter-test refactoring and a num inference error from a mechanical style fix. The test now asserts actual canvas operations with Flutter paint matchers. The reveal cap is explicitly double. No failed run is counted as green.
+- 9448, prescribed focused check: exit 0, `01:21 +883: All tests passed!` Analysis: exit 1, `1 issue found. (ran in 5.9s)`, only the existing Task 8 onReorder notice.
+- 9449, new long-topic test before correction: exit 1, `00:01 +0 -1: Some tests failed.` Actual reveal height 3312 versus content height 8390 at 200% text. The reveal now measures natural content height. The final test also uses the 390 by 844 phone viewport.
+- 9450, `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`: exit 0, `01:23 +884: All tests passed!` Raw logs remain in `.dart_tool/w4c-t1-save-*.log`.
+- Changed files formatted. `git diff --check`: exit 0. No full suite has run in this resumption.
+
+Task 1 file manifest (authorized W2 extensions included):
+
+- `lib/app/routes/study_routes.dart`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/progress_ring.dart`
+- `lib/core/ui/components/search_field.dart`
+- `lib/core/ui/theme/pantas_colors.dart`
+- `lib/features/lesson/application/reader_providers.dart`
+- `lib/features/lesson/application/study_map_providers.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `lib/features/lesson/presentation/widgets/bookmarks_section.dart`
+- `lib/features/lesson/presentation/widgets/pinned_topic_bar.dart`
+- `lib/features/lesson/presentation/widgets/search_field_bar.dart`
+- `lib/features/lesson/presentation/widgets/study_head_block.dart`
+- `lib/features/lesson/presentation/widgets/study_topic_section.dart`
+- `test/features/lesson/presentation/bookmarks_section_test.dart`
+- `test/features/lesson/presentation/fake_open_topic.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`
+- `test/features/lesson/presentation/lesson_page_test.dart`
+- `test/features/lesson/presentation/pinned_topic_bar_test.dart`
+- `test/features/lesson/presentation/study_head_block_test.dart`
+- `test/features/lesson/presentation/study_map_page_test.dart`
+- `test/features/lesson/presentation/study_topic_section_test.dart`
+- `lib/features/lesson/data/repos/reader_position_repository.dart`
+- `lib/features/lesson/presentation/widgets/study_map_entry.dart`
+- `test/core/ui/components/study_map_extensions_test.dart`
+- `test/core/ui/components/study_map_tokens_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+
+Task 1 analysis follow-up: 9450 analysis found 12 issues (R-21 plus formatting/style findings in the newly added long-topic test). 9451 fixed the commas and found only R-21 and that test's long string. The long string was split into adjacent literals without changing its value. No production behavior changed after the 884-test run. Attribution in 9450: exit 0, `Running build hooks...Running build hooks...check_no_ai_attribution: OK`.
+
+9452 final Task 1 analysis: exit 1, `1 issue found. (ran in 5.2s)`, only R-21 in the held bookmarks rebuild. No new diagnostics remain. Changed-file format and diff checks exit 0. This is task-level implementation evidence, not whole-family acceptance.
+
+Task 1 source identity: base `2eae3d9f`, staged lib/test patch SHA-256 `7c8d1f53cc10f52ea2efa27d008b91d1e81188048fceec69b64e0fa5a9bb3ac6`, preserved at `.dart_tool/w4c-task1-source.patch`.
+
+## Task 4: Reader body and figures
+
+Policy refreshed with fetch before this task, unchanged at `e354ebe3c37e2d23a035f79da393c4e0da94a33e`. Read RD_Real, RD_Resume, RD_RealScroll and RD_Figure outlines and timelines from main read-only. The October 12 eyebrow ruling and October 10 KaTeX ruling supersede the older wording in the task.
+
+Reader content uses the single uppercase topic eyebrow (13/600, 1.35, 0.52 tracking), 30/700 title (1.15, -0.66), 24 px horizontal gutter, 18 px top inset and 18 px gaps. Geist body and headings use W2 ContentRenderer inside W1 LessonTextScale. Corpus `#N:` headings have the gray numbered marker and 8 px gap. Corpus Solution blocks group into the 14-radius solution surface with 14/16 insets, 12/600 SOLUTION and 10 px gap; consecutive steps have 8 px gaps. The main reading surface is the W1 surface token. Reader controls keep phone text scaling.
+
+Shared extensions:
+- ContentRenderer.readerFigures now handles the full approved reader formatting, keeps the reader's “Content unavailable. Update the app.” fallback, skips described images with no URL without leaving gaps, reads image credit from asset.credit, and preserves corpus alt text. Figures and valid tables use the same 14-radius, 0.5 separator frame and 44 px expand target around a 30 px circle. Credits are 11/400, 1.35 with 6 px gap; the W2 secondaryLabel contrast ruling applies. No credit means no line. Other screen families keep their default frame, dialog and content behavior.
+- MathText adds optional onErrorFallback so malformed reader math uses the existing shared renderer fallback. Normal math retains KaTeX fonts.
+- W1 readerFigureBackground token records RD_Real's `#FAFAF7`. Like existing printed figure backing, it stays light in dark mode and figures use the existing light theme.
+- Reader full-screen figures use the black viewer token, pinch zoom, a 44 px Close target and Escape. Opening fades 280 ms with CSS ease and scales the image from .92 to 1 over 380 ms with Cubic(.25,.9,.3,1). Closing lasts 280 ms. Reduced motion shows the final frame. The route owns its animation controller; no undisposed local controller was added.
+
+Failing-first and checks, serialized relay:
+- 9453, first test attempt: exit 1. The test HTTP override used a nonexistent getter, and the reader fixture omitted content storage. These setup failures did not count as presentation proof.
+- 9454, corrected fixtures before implementation: exit 1, `00:02 +0 -14: Some tests failed.` Missing scale wrapper, eyebrow, reader frames, nested credits, skipped missing images, solution grouping and viewer motion failed as intended.
+- 9455, targeted reader tests: exit 0, `00:02 +14: All tests passed!`
+- 9456, prescribed focused check after a cleanup edit: exit 1, `01:39 +831 -14: Some tests failed.` I left a stale viewer argument and constructor parameter. Both were corrected. Analysis reported those two errors plus three style notices including R-21.
+- 9457, targeted reader tests plus malformed math and reduced motion: exit 0, `00:02 +16: All tests passed!`. Analysis found R-21 and two unnecessary const notices; notices were corrected.
+- 9458, `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`: exit 0, `01:26 +901: All tests passed!` Includes actual two-pointer pinch, keyboard opening/Escape, light/dark/200% metrics, reader scale preference, table framing and intermediate viewer values at 140 ms.
+- 9458, `flutter analyze`: exit 1, `1 issue found. (ran in 6.3s)`, only R-21 assigned to Task 8. Format commands and diff check exit 0.
+
+Task 4 files:
+- `lib/core/ui/components/content_renderer.dart`
+- `lib/core/ui/components/math_text.dart`
+- `lib/core/ui/theme/pantas_colors.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `test/core/ui/components/reader_content_extensions_test.dart`
+- `test/features/lesson/presentation/reader_body_board_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+
+Tasks 1 and 4 are implemented and saved locally. Tasks 2 and 3 remain at their prior commits. Task 8 and independent Task 6 are next. Tasks 5, 7, 9 and Home endings remain held. Independent review and Aedwon's visual acceptance are not performed.
+
+Task 4 source identity: base `9e55a5ce`, staged lib/test patch SHA-256 `b9299075d910d59947b8dce38c13dde1511f03df67016bee30e3af6d9b7d2b33`.
+
+## October 12 contract-first resumption after lead integration
+
+Retrieved main policy at `900e9f3730a93442fbf4004c148e815bfd45170a`, then again at `cb4dc3cecb5788e9036db24d41c7478aacc3638d` on the next explicit resumption. Current AGENTS.md, WORKFLOW.md and SUBAGENTS.md were retrieved and match the previously read policy contents byte-for-byte. Read the current L3 parallel map and W4c lead rulings. The lead merged integration into this branch at `444daa51`, then `3bbf437c`. All unfinished Task 8 work was preserved. The merges include LessonDayContext and the newer mock family. This worker performed no merge or push. The feature branch still has no remote ref.
+
+Current authorization: reading fraction contract first and alone; then finish Tasks 1, 4, 8, 5 and all applicable Task 6, including Home endings. Tasks 7 and 9 wait for W4d's quiz entry contract, still absent. Standing ruling 2 now requires omitting unavailable controls and listing them, while continuing independent work. Standing ruling 1 resolves contrast pairs using named tokens; changes go under Contrast changes. Analysis and format scope is lib, test, tool.
+
+### Reading fraction contract
+
+Public API in ReaderPositionRepository:
+- `Future<double?> readFraction(String examId, String lessonId)` returns a valid measured fraction from 0 to 1. Missing, malformed or out-of-range data returns null for an empty ring.
+- `Future<void> writeFraction(String examId, String lessonId, double fraction)` preserves the offset and saves its fraction.
+- Existing `write(examId, lessonId, offset)` accepts optional `fraction`. The reader supplies its measured offset-over-extent progress, clamped to 0 to 1. A no-scroll lesson uses the reader's existing fully visible fraction of 1.
+
+Offset and fraction live together in one device preference row, `lesson_offset.<examId>.<lessonId>`, as JSON `{ "offset": <double>, "fraction": <double> }`. An older scalar offset remains readable and has no fraction until measured again. One preference write saves the pair atomically. Repository writes keep their invocation order, and a failed write still reaches its caller without blocking a later retry. No schema, content, backend or sync shape changed. Reading position stays device-local.
+
+Checks, serialized relay:
+- 9481, signatures supplied before behavior: exit 1, `00:00 +2 -5: Some tests failed.` Fraction round trips, paired writes, legacy-offset preservation and invalid-input rejection failed as intended.
+- 9482, first implementation: tests exit 1 and narrow analysis exit 3. Record offsets inferred as num/int where double was required. Corrected the literal types and trailing commas.
+- 9483, `flutter test test/features/lesson/data/reader_position_repository_test.dart --reporter expanded`: exit 0, `00:00 +7: All tests passed!`
+- 9483, `dart analyze lib/features/lesson/data/repos/reader_position_repository.dart test/features/lesson/data/reader_position_repository_test.dart`: exit 0, `No issues found!`
+- Contract files formatted and diff check exit 0. The reader's save call and its existing resume assertion were updated to this storage contract. The updated reader widget assertion has not run yet because the preserved unfinished Task 8 UI does not compile. It will run with the next focused family check.
+
+This first commit contains only the contract, its reader save call, its repository tests, its existing resume assertion and this evidence. The unfinished bookmark changes remain unstaged. Task 8's earlier 9462 run was canceled after compilation errors and provider timeouts; the relay reports exit 70 and no final output. The raw partial log is preserved at `.dart_tool/w4c-t8-first-1.log`. It is not passing evidence.
+
+Contract file manifest:
+- `lib/features/lesson/data/repos/reader_position_repository.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `test/features/lesson/data/reader_position_repository_test.dart`
+- `test/features/lesson/presentation/lesson_page_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4c.md`

@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 // Credits use secondaryLabel under the Task8b contrast ruling.
@@ -14,12 +15,14 @@ class ContentRenderer extends StatelessWidget {
     this.text,
     this.style,
     this.figureBuilder,
+    this.readerFigures = false,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
   final String? text;
   final TextStyle? style;
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
+  final bool readerFigures;
   static List<Map<String, Object?>> _parseTextToBlocks(String text) {
     final children = <Map<String, Object?>>[];
     final markerBuffer = StringBuffer('\uE000');
@@ -79,7 +82,9 @@ class ContentRenderer extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
         ),
         child: Text(
-          'This part cannot be shown yet.',
+          readerFigures
+              ? 'Content unavailable. Update the app.'
+              : 'This part cannot be shown yet.',
           style: context.type.footnote.copyWith(color: context.colors.label),
         ),
       );
@@ -115,7 +120,13 @@ class ContentRenderer extends StatelessWidget {
             marks.contains('underline') ? TextDecoration.underline : null,
       );
       if (marks.contains('latex')) {
-        spans.add(inlineMathSpan(source, style: runStyle));
+        spans.add(
+          inlineMathSpan(
+            source,
+            style: runStyle,
+            onErrorFallback: readerFigures ? fallback : null,
+          ),
+        );
         final label = inlineMathExpressionSemanticsLabel(source);
         if (label == null) {
           validSpeech = false;
@@ -124,7 +135,13 @@ class ContentRenderer extends StatelessWidget {
         }
         hasMath = true;
       } else {
-        spans.addAll(inlineMathSpans(source, style: runStyle));
+        spans.addAll(
+          inlineMathSpans(
+            source,
+            style: runStyle,
+            onErrorFallback: readerFigures ? fallback : null,
+          ),
+        );
         final label = inlineMathSemantics(source);
         if (label == null) {
           validSpeech = false;
@@ -133,6 +150,28 @@ class ContentRenderer extends StatelessWidget {
           hasMath = hasMath || label.hasMath;
         }
       }
+    }
+    final numbered = readerFigures && name.startsWith('h')
+        ? RegExp(r'^#(\d+):\s*(.*)$').firstMatch(
+            maps(block['children']).map((r) => string(r['text'])).join(),
+          )
+        : null;
+    if (numbered != null) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
+        children: [
+          Text(
+            numbered.group(1)!,
+            style: type.copyWith(
+              color: context.colors.secondaryLabel,
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(child: MathText(numbered.group(2)!, style: type)),
+        ],
+      );
     }
     Widget body = Text.rich(TextSpan(children: spans), style: type);
     if (hasMath && validSpeech) {
@@ -157,7 +196,7 @@ class ContentRenderer extends StatelessWidget {
                 color: context.colors.secondaryLabel,
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: readerFigures ? 10 : 12),
             Expanded(child: body),
           ],
         ),
@@ -285,9 +324,18 @@ class ContentRenderer extends StatelessWidget {
               ? block['semanticsLabel']! as String
               : null,
           style: style,
+          onErrorFallback: readerFigures ? fallback : null,
         );
       case 'table':
-        return table(context, block);
+        return readerFigures
+            ? _FigureFrame(
+                reader: true,
+                imageSemantics: false,
+                figure: Builder(builder: (context) => table(context, block)),
+                label: string(block['semanticsLabel']),
+                credit: string(block['credit']),
+              )
+            : table(context, block);
       case 'example':
         return example(context, block);
       case 'figureSpec':
@@ -297,6 +345,7 @@ class ContentRenderer extends StatelessWidget {
             figureBuilder?.call(context, spec) ?? FigureRegistry.build(spec);
         if (figure == null) return fallback(context);
         return _FigureFrame(
+          reader: readerFigures,
           figure: figure,
           label: string(block['semanticsLabel']),
           credit: string(block['credit']),
@@ -306,11 +355,19 @@ class ContentRenderer extends StatelessWidget {
         final url = asset is Map<String, Object?>
             ? string(asset['url'])
             : string(block['url']);
-        if (url.isEmpty) return const _ImageFailure(onRetry: null);
+        if (url.isEmpty) {
+          return readerFigures
+              ? const SizedBox.shrink()
+              : const _ImageFailure(onRetry: null);
+        }
         return _ContentImage(
+          reader: readerFigures,
           url: url,
           label: string(block['alt']),
-          credit: string(block['credit']),
+          credit: asset is Map<String, Object?> &&
+                  string(asset['credit']).isNotEmpty
+              ? string(asset['credit'])
+              : string(block['credit']),
         );
       default:
         return fallback(context);
@@ -324,7 +381,59 @@ class ContentRenderer extends StatelessWidget {
     }
     final children = <Widget>[];
     final counters = <int, int>{};
-    for (final block in blocks!) {
+    final visible = blocks!.where((block) {
+      if (!readerFigures || block['_type'] != 'image') return true;
+      final asset = block['asset'];
+      return (asset is Map<String, Object?>
+              ? string(asset['url'])
+              : string(block['url']))
+          .isNotEmpty;
+    }).toList();
+    for (var index = 0; index < visible.length; index++) {
+      final block = visible[index];
+      final plain =
+          maps(block['children']).map((r) => string(r['text'])).join().trim();
+      if (readerFigures &&
+          block['_type'] == 'block' &&
+          RegExp(r'^Solution\s*:?$', caseSensitive: false).hasMatch(plain)) {
+        var end = index + 1;
+        while (end < visible.length &&
+            !(visible[end]['_type'] == 'block' &&
+                string(visible[end]['style']).startsWith('h')) &&
+            visible[end]['_type'] != 'image' &&
+            visible[end]['_type'] != 'figureSpec') {
+          end++;
+        }
+        if (children.isNotEmpty) children.add(const SizedBox(height: 18));
+        children.add(
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            decoration: BoxDecoration(
+              color: context.colors.background,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'SOLUTION',
+                  style: context.type.sectionHeader
+                      .copyWith(fontSize: 12, letterSpacing: .48),
+                ),
+                const SizedBox(height: 10),
+                ContentRenderer(
+                  blocks: visible.sublist(index + 1, end),
+                  readerFigures: true,
+                  style: style,
+                ),
+              ],
+            ),
+          ),
+        );
+        index = end - 1;
+        counters.clear();
+        continue;
+      }
       final list = block['_type'] == 'block' ? string(block['listItem']) : '';
       String? marker;
       if (list.isNotEmpty) {
@@ -341,8 +450,18 @@ class ContentRenderer extends StatelessWidget {
         counters.clear();
       }
       if (children.isNotEmpty) {
-        children
-            .add(SizedBox(height: string(block['style']) == 'h2' ? 32 : 18));
+        children.add(
+          SizedBox(
+            height: string(block['style']) == 'h2'
+                ? 32
+                : readerFigures &&
+                        list.isNotEmpty &&
+                        index > 0 &&
+                        string(visible[index - 1]['listItem']).isNotEmpty
+                    ? 8
+                    : 18,
+          ),
+        );
       }
       children.add(dispatch(context, block, marker: marker));
     }
@@ -359,13 +478,22 @@ class _FigureFrame extends StatelessWidget {
     required this.figure,
     required this.label,
     required this.credit,
+    this.reader = false,
     this.imageSemantics = true,
+    this.expandable = true,
   });
+  final bool reader;
   final bool imageSemantics;
+  final bool expandable;
   final Widget figure;
   final String label;
   final String credit;
-  Future<void> expand(BuildContext context) => showDialog<void>(
+  Future<void> expand(BuildContext context) {
+    if (!reader) return _legacyExpand(context);
+    return _openViewer(context);
+  }
+
+  Future<void> _legacyExpand(BuildContext context) => showDialog<void>(
         context: context,
         builder: (context) => CallbackShortcuts(
           bindings: {
@@ -425,6 +553,50 @@ class _FigureFrame extends StatelessWidget {
           ),
         ),
       );
+  Future<void> _openViewer(BuildContext context) {
+    final still = MediaQuery.disableAnimationsOf(context);
+    return Navigator.of(context).push<void>(
+      PageRouteBuilder<void>(
+        opaque: false,
+        barrierDismissible: true,
+        barrierLabel: 'Close figure',
+        barrierColor: context.colors.transparent,
+        transitionDuration:
+            still ? Duration.zero : const Duration(milliseconds: 380),
+        reverseTransitionDuration:
+            still ? Duration.zero : const Duration(milliseconds: 280),
+        pageBuilder: (context, animation, secondary) => _FigureViewer(
+          figure: figure,
+          credit: credit,
+          arrival: animation,
+        ),
+        transitionsBuilder: (context, animation, secondary, child) =>
+            AnimatedBuilder(
+          animation: animation,
+          child: child,
+          builder: (context, child) {
+            final opening = animation.status != AnimationStatus.reverse;
+            final value = opening
+                ? (animation.value * 380 / 280).clamp(0.0, 1.0)
+                : animation.value;
+            final opacity = PantasCurves.ease.transform(value);
+            return ExcludeFocus(
+              excluding: opacity == 0,
+              child: ExcludeSemantics(
+                excluding: opacity == 0,
+                child: Opacity(
+                  key: const ValueKey('reader-viewer-fade'),
+                  opacity: opacity,
+                  child: child,
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -432,46 +604,63 @@ class _FigureFrame extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(14),
-            child: Stack(
-              children: [
-                ColoredBox(
-                  color: context.colors.figureBackground,
-                  child: imageSemantics
-                      ? Semantics(
-                          label: label,
-                          image: true,
-                          excludeSemantics: true,
-                          child: Theme(data: buildLightTheme(), child: figure),
-                        )
-                      : Theme(data: buildLightTheme(), child: figure),
-                ),
-                Positioned(
-                  right: 1,
-                  top: 1,
-                  child: SizedBox.square(
-                    dimension: 44,
-                    child: IconButton(
-                      tooltip: 'Expand figure',
-                      onPressed: () => expand(context),
-                      padding: EdgeInsets.zero,
-                      icon: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: context.colors.shadow.withValues(alpha: .5),
-                        ),
-                        alignment: Alignment.center,
-                        child: Icon(
-                          PantasIcons.expandFigure,
-                          size: 16,
-                          color: context.colors.onFigureViewer,
+            child: Container(
+              key: reader ? const ValueKey('reader-figure-frame') : null,
+              foregroundDecoration: reader
+                  ? BoxDecoration(
+                      border: Border.all(
+                        color: context.colors.separator,
+                        width: .5,
+                      ),
+                      borderRadius: BorderRadius.circular(14),
+                    )
+                  : null,
+              child: Stack(
+                children: [
+                  ColoredBox(
+                    color: reader
+                        ? context.colors.readerFigureBackground
+                        : context.colors.figureBackground,
+                    child: imageSemantics
+                        ? Semantics(
+                            label: label,
+                            image: true,
+                            excludeSemantics: true,
+                            child:
+                                Theme(data: buildLightTheme(), child: figure),
+                          )
+                        : Theme(data: buildLightTheme(), child: figure),
+                  ),
+                  if (expandable)
+                    Positioned(
+                      right: 1,
+                      top: 1,
+                      child: SizedBox.square(
+                        dimension: 44,
+                        child: IconButton(
+                          tooltip: 'Expand figure',
+                          onPressed: () => expand(context),
+                          padding: EdgeInsets.zero,
+                          icon: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color:
+                                  context.colors.shadow.withValues(alpha: .5),
+                            ),
+                            alignment: Alignment.center,
+                            child: Icon(
+                              PantasIcons.expandFigure,
+                              size: 16,
+                              color: context.colors.onFigureViewer,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           if (credit.isNotEmpty) ...[
@@ -479,6 +668,7 @@ class _FigureFrame extends StatelessWidget {
             Text(
               credit,
               style: context.type.caption.copyWith(
+                fontSize: reader ? 11 : null,
                 fontWeight: FontWeight.w400,
                 color: context.colors.secondaryLabel,
               ),
@@ -488,12 +678,100 @@ class _FigureFrame extends StatelessWidget {
       );
 }
 
+class _FigureViewer extends StatelessWidget {
+  const _FigureViewer({
+    required this.figure,
+    required this.credit,
+    required this.arrival,
+  });
+  final Widget figure;
+  final String credit;
+  final Animation<double> arrival;
+  @override
+  Widget build(BuildContext context) => CallbackShortcuts(
+        bindings: {
+          const SingleActivator(LogicalKeyboardKey.escape): () =>
+              Navigator.of(context).pop(),
+        },
+        child: Material(
+          color: context.colors.figureViewerBackground,
+          child: SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: SizedBox.square(
+                      dimension: 44,
+                      child: IconButton(
+                        tooltip: 'Close figure',
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: Icon(
+                          PantasIcons.close,
+                          size: 22,
+                          color: context.colors.onFigureViewer,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: InteractiveViewer(
+                      minScale: 1,
+                      maxScale: 5,
+                      child: AnimatedBuilder(
+                        animation: arrival,
+                        child: SizedBox(
+                          width: MediaQuery.sizeOf(context).width,
+                          child: ColoredBox(
+                            color: context.colors.readerFigureBackground,
+                            child:
+                                Theme(data: buildLightTheme(), child: figure),
+                          ),
+                        ),
+                        builder: (context, child) => Transform.scale(
+                          key: const ValueKey('reader-viewer-scale'),
+                          scale: .92 +
+                              .08 *
+                                  const Cubic(.25, .9, .3, 1)
+                                      .transform(arrival.value),
+                          child: child,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                if (credit.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      credit,
+                      textAlign: TextAlign.center,
+                      style: context.type.caption.copyWith(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        color:
+                            context.colors.onFigureViewer.withValues(alpha: .6),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
+}
+
 class _ContentImage extends StatefulWidget {
   const _ContentImage({
     required this.url,
     required this.label,
     required this.credit,
+    this.reader = false,
   });
+  final bool reader;
   final String url;
   final String label;
   final String credit;
@@ -504,51 +782,95 @@ class _ContentImage extends StatefulWidget {
 class _ContentImageState extends State<_ContentImage> {
   int _retry = 0;
   @override
-  Widget build(BuildContext context) => _FigureFrame(
-        label: widget.label,
-        credit: widget.credit,
-        imageSemantics: false,
-        figure: Image.network(
-          widget.url,
-          key: ValueKey(_retry),
-          fit: BoxFit.contain,
-          semanticLabel: widget.label,
-          excludeFromSemantics: widget.label.isEmpty,
-          errorBuilder: (context, error, stackTrace) =>
-              _ImageFailure(onRetry: () => setState(() => _retry++)),
-        ),
-      );
+  Widget build(BuildContext context) {
+    final image = Image.network(
+      widget.url,
+      key: ValueKey(_retry),
+      fit: BoxFit.contain,
+      semanticLabel: widget.label,
+      excludeFromSemantics: widget.label.isEmpty,
+      frameBuilder: widget.reader
+          ? (context, child, frame, synchronous) => _FigureFrame(
+                reader: true,
+                label: widget.label,
+                credit: widget.credit,
+                imageSemantics: false,
+                expandable: frame != null || synchronous,
+                figure: frame == null && !synchronous
+                    ? SizedBox(height: 223, child: child)
+                    : child,
+              )
+          : null,
+      errorBuilder: (context, error, stackTrace) => _ImageFailure(
+        reader: widget.reader,
+        onRetry: () => setState(() => _retry++),
+      ),
+    );
+    if (widget.reader) return image;
+    return _FigureFrame(
+      label: widget.label,
+      credit: widget.credit,
+      imageSemantics: false,
+      figure: image,
+    );
+  }
 }
 
 class _ImageFailure extends StatelessWidget {
-  const _ImageFailure({required this.onRetry});
+  const _ImageFailure({required this.onRetry, this.reader = false});
+  final bool reader;
   final VoidCallback? onRetry;
   @override
-  Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-          color: context.colors.fill,
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              PantasIcons.imageFailed,
-              size: 32,
-              color: context.colors.chevron,
-            ),
-            const SizedBox(height: 10),
-            Text('Image could not load.', style: context.type.subhead),
-            TextButton(
-              onPressed: onRetry,
-              child: Text(
-                'Retry',
-                style: context.type.subheadStrong
-                    .copyWith(color: context.colors.accent),
+  Widget build(BuildContext context) => Semantics(
+        liveRegion: true,
+        child: Container(
+          key: reader ? const ValueKey('reader-image-failure') : null,
+          constraints: reader ? const BoxConstraints(minHeight: 223) : null,
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: reader ? context.colors.background : context.colors.fill,
+            borderRadius: BorderRadius.circular(14),
+            border: reader
+                ? Border.all(color: context.colors.separator, width: .5)
+                : null,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ExcludeSemantics(
+                child: Icon(
+                  PantasIcons.imageFailed,
+                  size: reader ? 30 : 32,
+                  color: context.colors.chevron,
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: reader ? 6 : 10),
+              Text(
+                reader
+                    ? 'This illustration didn’t load.'
+                    : 'Image could not load.',
+                textAlign: TextAlign.center,
+                style: reader ? context.type.footnote : context.type.subhead,
+              ),
+              if (reader) const SizedBox(height: 6),
+              if (!reader || onRetry != null)
+                TextButton(
+                  onPressed: onRetry,
+                  style: reader
+                      ? TextButton.styleFrom(minimumSize: const Size(44, 44))
+                      : null,
+                  child: Text(
+                    reader ? 'Try Again' : 'Retry',
+                    style: (reader
+                            ? context.type.footnote
+                                .copyWith(fontWeight: FontWeight.w600)
+                            : context.type.subheadStrong)
+                        .copyWith(color: context.colors.accent),
+                  ),
+                ),
+            ],
+          ),
         ),
       );
 }

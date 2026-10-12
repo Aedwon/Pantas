@@ -71,6 +71,31 @@ final searchResultsProvider =
     );
   }
 
+  final matchedTopicIds = <TopicId>[
+    for (final subject in map.subjects)
+      for (final topic in subject.topics)
+        if (topic.name.toLowerCase().contains(query.toLowerCase())) topic.id,
+  ];
+  if (matchedTopicIds.isNotEmpty) {
+    final included = hits.map((hit) => hit.lessonId).toSet();
+    final lessons = await ref
+        .watch(contentRepositoryProvider)
+        .lessonsByTopics(matchedTopicIds);
+    for (final topicLessons in lessons.values) {
+      for (final lesson in topicLessons) {
+        if (!included.add(lesson.id)) continue;
+        hits.add(
+          LessonSearchHit(
+            lessonId: lesson.id,
+            title: lesson.title,
+            topicName: topicNameByLessonId[lesson.id] ?? '',
+            estimatedMinutes: lesson.estimatedMinutes,
+          ),
+        );
+      }
+    }
+  }
+
   hits.sort(
     (a, b) => (positionByLessonId[a.lessonId] ?? 0)
         .compareTo(positionByLessonId[b.lessonId] ?? 0),

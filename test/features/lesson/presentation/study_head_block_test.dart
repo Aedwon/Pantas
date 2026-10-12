@@ -29,11 +29,11 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('UPCAT'), findsOneWidget);
-    expect(find.text('25'), findsOneWidget);
-    expect(find.text('covered'), findsOneWidget);
-    expect(find.text('2'), findsOneWidget);
-    expect(find.text('left to read'), findsOneWidget);
+    expect(find.text('UPCAT'), findsNothing);
+    expect(find.text('25'), findsNothing);
+    expect(find.text('covered'), findsNothing);
+    expect(find.text('2'), findsNothing);
+    expect(find.text('left to read'), findsNothing);
   });
 
   testWidgets('under an hour left reads in minutes', (tester) async {
@@ -45,8 +45,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('45'), findsOneWidget);
-    expect(find.text('m'), findsOneWidget);
+    expect(find.text('45'), findsNothing);
+    expect(find.text('m'), findsNothing);
   });
 
   testWidgets('nothing opened yet hides the resume row', (tester) async {
@@ -58,7 +58,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Last opened'), findsNothing);
+    expect(find.text('LAST OPENED'), findsNothing);
     expect(find.text('Resume'), findsNothing);
   });
 
@@ -80,7 +80,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Last opened'), findsOneWidget);
+    expect(find.text('LAST OPENED'), findsOneWidget);
     expect(find.text('Balancing equations'), findsOneWidget);
     expect(find.text('Resume'), findsOneWidget);
   });
