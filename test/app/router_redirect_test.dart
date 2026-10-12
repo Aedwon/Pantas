@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
@@ -13,6 +14,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.da
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
@@ -27,6 +29,7 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    await DriftSettingsRepository(db).recordPolicyAcceptance();
     await seedContentExam(
       contentDb,
       examId: 'cse',
@@ -63,6 +66,10 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    addTearDown(() async {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpAndSettle();
+    });
   }
 
   testWidgets('age gate not passed → boot lands on onboarding welcome',

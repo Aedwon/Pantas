@@ -147,3 +147,116 @@ Task 5 is implemented and checked. Independent review and Aedwon's visual accept
 ## Task 6 preflight contrast finding
 
 O_Custom draws the active Exam name placeholder at 19/500 in #AEAEB2 on #FFFFFF: 2.211218681144401:1. This is below 4.5:1 for active text. The SearchField exception is specific to search. W1 secondaryLabel #6E6E73 gives 5.071321606018516:1 on white. Asked for either that token or an explicit exemption; no answer has arrived. Dependent input styling is held.
+
+## Latest resumption at e354ebe3
+
+Fetched origin and read AGENTS.md, WORKFLOW.md and SUBAGENTS.md again at e354ebe3c37e2d23a035f79da393c4e0da94a33e. The policy files and W4a product documents are unchanged. The changed status record still says W4f and W4d have not started. No missing dependency was supplied. Branch head remains 1af8dc0bf12377c180ba86d3518519313797ba2f. No push or merge.
+
+Task 5's final formatting-only consent-test correction was rechecked with Dart analysis: exit 0, No issues found! The Task 5 evidence is committed at 1af8dc0b. Later notes in this section remain uncommitted with the incomplete task drafts, so the worker does not create a second Task 5 commit or claim the full plan passed.
+
+### Task 9 independent selector draft
+
+Changed the cap from 35 to 30 in lib/core/storage/domain/assessment_question_selector.dart. The feature's named selector file is an export; the implementation is in this core file. The per-topic contributing-topic formula is unchanged.
+
+- RED: flutter test test/features/assessment/domain/services/assessment_question_selector_test.dart --plain-name 'respects the 30-question cap', exit 1. Expected 30, actual length 35.
+- GREEN: flutter test test/features/assessment/domain/services/assessment_question_selector_test.dart, exit 0, 00:00 +7: All tests passed!
+- dart analyze lib/core/storage/domain/assessment_question_selector.dart test/features/assessment/domain/services/assessment_question_selector_test.dart: exit 0, No issues found!
+- dart format --output=none --set-exit-if-changed on the same two files: exit 0, Formatted 2 files (0 changed) in 0.01 seconds.
+- git diff --check: exit 0.
+
+This is an uncommitted Task 9 draft, not a finished Task 9. The assessment screen has not been rebuilt. The existing zero-content regression already exercises the real selector and checks the not-ready copy; it is not claimed as a new failing regression.
+
+### Additional required contract gap
+
+AS_Question, AS_Picked and AS_Leave draw the top-right Report control (21 px icon, stroke 1.9, target 44). The controlling design decisions specify the shared report form in the floating bar. W4d Task 7 owns its form and local report_queue.dart. That file and any report form or entry interface are absent in the assigned base. The current main status says W4d has not started. A dead or disabled substitute would change the approved board. The lead must supply the shared report entry contract/revision or record a plan ruling before this part of Task 9 can be built. No other family's files were changed to invent it.
+
+AS_Results draws elapsed minutes, but this base captures no assessment timing: CompleteAssessment writes responseMs 0 and the same now to attempt startedAt and completedAt. No 24-minute board sample, zero-minute substitute or inferred duration is printed. The result work will need actual timing capture using the existing storage, or a recorded ruling for unavailable legacy timing, before that line can be reproduced. Task 10's required cache refresh must land in the rebuilt completion path from Task 9. The archived source has been retrieved read-only; no cherry-pick or merge was attempted.
+
+### Remaining task states
+
+- Task 1: model/storage drafts checked, no commit; complete screen/resume wiring and the completion-write move are unfinished. Waits for the later screens and the Reminders ruling/contract.
+- Task 2: committed da8a3020.
+- Task 3: committed eea651c0.
+- Task 4: held for the selected weekday contrast ruling and the exam-today Study days rule.
+- Task 5: committed 1af8dc0b.
+- Task 6: held for the active name-placeholder contrast ruling. No custom-track replacement is implemented.
+- Task 7: held for the exam-today Study days rule; no Days/Name replacement is implemented.
+- Task 8: held for W4f ReminderPrefs and visible Back ruling.
+- Task 9: independent cap draft checked, no commit; reporting contract gap above.
+- Task 10: not implemented; rebuilt completion path and actual timing need resolution.
+- Task 11: not complete. Legacy deletions, the one full-suite run, combined gates, independent review and Aedwon's phone checks remain.
+
+### Additional gates observed
+
+- dart run tool/check_layering.dart: exit 0, check_layering: OK.
+- dart run tool/check_no_ai_attribution.dart: exit 0, check_no_ai_attribution: OK.
+
+These checks ran at committed Task 5 before the independent selector draft. No full-suite run has occurred. No runtime screenshots or device checks are claimed.
+
+### Exact committed file inventory
+
+
+Task 2, da8a3020bb3e3375beaa9aa9c91097651f737bb6:
+
+- docs/superpowers/plans/new-design/evidence/W4a.md
+- lib/features/onboarding/presentation/onboarding_page.dart
+- lib/features/onboarding/presentation/onboarding_welcome_step.dart
+- test/app/router_redirect_test.dart
+- test/features/onboarding/onboarding_telemetry_test.dart
+- test/features/onboarding/presentation/onboarding_launch_step_test.dart
+- test/features/onboarding/presentation/onboarding_page_test.dart
+- test/features/onboarding/presentation/onboarding_welcome_step_test.dart
+
+Task 3, eea651c090d34c55c3a7f690119428d66f5b6550:
+
+- docs/superpowers/plans/new-design/evidence/W4a.md
+- lib/core/ui/components/list_row.dart
+- lib/core/ui/components/pantas_page.dart
+- lib/core/ui/components/state_view.dart
+- lib/core/ui/components/value_wheel.dart
+- lib/features/onboarding/presentation/onboarding_age_gate_step.dart
+- lib/features/onboarding/presentation/onboarding_consent_step.dart
+- lib/features/onboarding/presentation/onboarding_page.dart
+- lib/features/onboarding/presentation/onboarding_welcome_step.dart
+- test/core/ui/components/onboarding_extensions_test.dart
+- test/features/onboarding/presentation/onboarding_age_gate_step_test.dart
+- test/features/onboarding/presentation/onboarding_consent_step_test.dart
+- test/features/onboarding/presentation/onboarding_page_test.dart
+
+Task 5, 1af8dc0bf12377c180ba86d3518519313797ba2f:
+
+- docs/superpowers/plans/new-design/evidence/W4a.md
+- lib/core/ui/components/grouped_section.dart
+- lib/core/ui/components/list_row.dart
+- lib/core/ui/components/pantas_button.dart
+- lib/core/ui/components/pantas_page.dart
+- lib/features/onboarding/presentation/exam_picker_screen.dart
+- lib/features/onboarding/presentation/onboarding_page.dart
+- test/app/router_onboarding_completion_test.dart
+- test/app/router_redirect_test.dart
+- test/core/ui/components/exam_picker_extensions_test.dart
+- test/features/onboarding/presentation/exam_picker_screen_test.dart
+- test/features/onboarding/presentation/onboarding_consent_step_test.dart
+- test/features/onboarding/presentation/onboarding_page_test.dart
+
+## Resumption under the October 12 lead rulings
+
+Policy revision: origin/main 900e9f3730a93442fbf4004c148e815bfd45170a. AGENTS.md, WORKFLOW.md, SUBAGENTS.md, Standing rulings for W4 families and L3 W4a's Lead rulings read. The lead merged integration into this branch at ed010a89. Existing work and all drafts were preserved. No schema change entered through that merge.
+
+The earlier contrast and behavior questions are resolved by the new rulings. Selected translucent white becomes full onAccent. Placeholders stay as drawn. For an exam today, one chosen study day is enough. Reminders has no visible Back or bar, with system Back returning to Name. Missing family controls are omitted and listed; they no longer stop the remainder of a task.
+
+Waiting on a contract: Task 8 needs W4f Task 1 ReminderPrefs. The AS Report control needs W4d Task 7's report-entry function. Task 11 waits for Task 8. No disabled or dead replacement is added.
+
+## Task 1 commit: flow, resume and completion boundary
+
+The storage progress model, six segment mapping, complete step enum and Back model are now wired into OnboardingPage's initial resume and telemetry. Terms cannot be bypassed by an exam selection. Name saves without writing the completion flag. The new custom/date/day screen tasks fill the corresponding model branches as they replace the old widgets. Reminders remains an omitted branch until its contract lands.
+
+RED: Name tests expected false completion but received true. Custom Back expected Picker but received Custom Name. A page-resume regression expected Terms but the old page showed Welcome. The new flow and removal of Name's completion write pass these tests.
+
+Required task checks: flutter test test/features/onboarding test/features/assessment test/app, exit 0, 00:33 +213: All tests passed! Includes the preserved independent Task 9 selector draft. The interrupted runs are not counted as green.
+
+The new policy-accepted fixture creates sync work on the integrated branch. Router assertions passed but database teardown hung while the app remained mounted. The affected app fixtures now unmount the widget and dispose its providers before closing the database. The isolated retired-route test passes (00:02 +1: All tests passed!). Temporary diagnostic prints were removed. One RED invocation was mistakenly started before an earlier hanging run ended; all subsequent Flutter commands were serialized.
+
+Focused Dart analysis and formatting are checked before this commit. No full suite, phone check, independent acceptance, push or merge is claimed.
+
+Task 1 final focused checks: exit 0, 00:05 +19: All tests passed! Focused analysis: exit 0, No issues found! Formatting and git diff --check: exit 0.

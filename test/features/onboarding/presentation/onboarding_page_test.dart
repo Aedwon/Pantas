@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -39,6 +40,7 @@ void main() {
   Future<void> pumpPage(
     WidgetTester tester, {
     bool disableAnimations = false,
+    OnboardingProgress? progress,
   }) async {
     final catalog = await tester
         .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
@@ -46,6 +48,8 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          if (progress != null)
+            onboardingProgressProvider.overrideWith((ref) async => progress),
           examPickerCatalogProvider
               .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
@@ -68,6 +72,16 @@ void main() {
     );
     await tester.pumpAndSettle();
   }
+
+  testWidgets('storage resume requires Terms before exam selection',
+      (tester) async {
+    await pumpPage(
+      tester,
+      disableAnimations: true,
+      progress: OnboardingProgress(agePassed: true),
+    );
+    expect(find.text('Terms and Privacy'), findsOneWidget);
+  });
 
   testWidgets('the flow runs welcome, age gate, consent, picker, date, name',
       (tester) async {

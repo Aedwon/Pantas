@@ -95,7 +95,8 @@ void main() {
     expect(enabledDoneButton.onPressed, isNotNull);
   });
 
-  testWidgets('Done stores the name and completes onboarding', (tester) async {
+  testWidgets('Done stores the name without completing onboarding',
+      (tester) async {
     var completed = false;
     await pumpStep(tester, onCompleted: () => completed = true);
 
@@ -110,11 +111,12 @@ void main() {
     expect(settings.name, 'Aedwon');
 
     final appPrefsRepo = AppPreferencesRepository(db);
-    expect(await appPrefsRepo.hasCompletedOnboarding(), isTrue);
+    expect(await appPrefsRepo.hasCompletedOnboarding(), isFalse);
     expect(completed, isTrue);
   });
 
-  testWidgets('Skip completes onboarding and stores no name', (tester) async {
+  testWidgets('legacy Skip stores no name without completing onboarding',
+      (tester) async {
     var completed = false;
     await pumpStep(tester, onCompleted: () => completed = true);
 
@@ -126,7 +128,7 @@ void main() {
     expect(settings.name, isNull);
 
     final appPrefsRepo = AppPreferencesRepository(db);
-    expect(await appPrefsRepo.hasCompletedOnboarding(), isTrue);
+    expect(await appPrefsRepo.hasCompletedOnboarding(), isFalse);
     expect(completed, isTrue);
   });
 }

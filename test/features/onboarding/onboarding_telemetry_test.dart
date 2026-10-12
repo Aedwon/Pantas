@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
 
 void main() {
@@ -17,6 +18,8 @@ void main() {
       ProviderScope(
         overrides: [
           telemetryProvider.overrideWithValue(sink),
+          onboardingProgressProvider
+              .overrideWith((ref) async => OnboardingProgress()),
           passedAgeGateProvider.overrideWith((ref) async => false),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.needsSelection(),

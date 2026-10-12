@@ -34,9 +34,6 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
     setState(() => _saving = true);
     try {
       await ref.read(settingsRepositoryProvider).updateName(_trimmedText);
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setCompletedOnboarding(value: true);
       ref.invalidate(appPreferencesRepositoryProvider);
       widget.onCompleted();
     } finally {
@@ -47,9 +44,6 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
   Future<void> _onSkip() async {
     setState(() => _saving = true);
     try {
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setCompletedOnboarding(value: true);
       ref.invalidate(appPreferencesRepositoryProvider);
       widget.onCompleted();
     } finally {
