@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:drift/drift.dart' show Value;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +9,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 
@@ -76,6 +79,53 @@ void main() {
 
     expect(find.text('Vocabulary Basics'), findsOneWidget);
     expect(find.text('Synonyms share meaning.'), findsOneWidget);
+  });
+
+  testWidgets('Resume restores a clamped saved offset and leaving saves it',
+      (tester) async {
+    await (contentDb.update(contentDb.contentLessons)
+          ..where((r) => r.id.equals('l1')))
+        .write(
+      ContentLessonsCompanion(
+        bodyJson: Value(
+          jsonEncode([
+            for (var i = 0; i < 30; i++)
+              {
+                '_type': 'block',
+                'style': 'normal',
+                'children': [
+                  {
+                    '_type': 'span',
+                    'text': 'Paragraph $i with enough content to scroll.',
+                    'marks': <String>[],
+                  }
+                ],
+              },
+          ]),
+        ),
+      ),
+    );
+    final prefs = AppPreferencesRepository(db);
+    await prefs.setDeviceValue('lesson_offset.e1.l1', '240');
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l1', resume: true),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final scroll = tester
+        .widget<SingleChildScrollView>(find.byType(SingleChildScrollView).first)
+        .controller!;
+    expect(scroll.offset, 240);
+    scroll.jumpTo(360);
+    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+    final positions = ReaderPositionRepository(prefs);
+    expect(await positions.read('e1', 'l1'), 360);
+    expect(await positions.readFraction('e1', 'l1'), inExclusiveRange(0, 1));
   });
 
   testWidgets('shows estimated read time', (tester) async {

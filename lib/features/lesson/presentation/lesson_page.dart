@@ -1,12 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -25,11 +31,13 @@ class LessonPage extends ConsumerStatefulWidget {
   const LessonPage({
     required this.lessonId,
     this.origin = ReaderOrigin.study,
+    this.resume = false,
     super.key,
   });
 
   final LessonId lessonId;
   final ReaderOrigin origin;
+  final bool resume;
 
   @override
   ConsumerState<LessonPage> createState() => _LessonPageState();
@@ -93,8 +101,20 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     final reader = loaded ?? _shown;
 
     return Scaffold(
-      backgroundColor: context.colors.background,
+      backgroundColor:
+          reader == null ? context.colors.background : context.colors.surface,
       body: switch ((reader, asyncReader)) {
+        (_, AsyncError(:final error)) => _ReaderFallback(
+            origin: origin,
+            child: errorFor(
+              'lesson',
+              () => ref.invalidate(readerContextProvider(lessonId)),
+              error: error,
+              message: 'Could not load this lesson.',
+              icon: Icon(PantasIcons.studyTab),
+              boardLayout: true,
+            ),
+          ),
         (final ReaderContext reader, _) => Builder(
             builder: (context) {
               WidgetsBinding.instance.addPostFrameCallback(
@@ -103,28 +123,21 @@ class _LessonPageState extends ConsumerState<LessonPage> {
               return _ReaderBody(
                 reader: reader,
                 origin: origin,
+                resume: widget.resume && reader.lesson.id == widget.lessonId,
                 onAdvance: _advanceTo,
               );
             },
           ),
-        (_, AsyncError()) => Padding(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-            child: ErrorBanner(
-              variant: ErrorBannerVariant.error,
-              message: 'Failed to load lesson.',
-              actionLabel: 'Retry',
-              onAction: () => ref.refresh(readerContextProvider(lessonId)),
-            ),
+        (_, AsyncLoading()) => _ReaderFallback(
+            origin: origin,
+            child: SingleChildScrollView(child: loadingFor(asyncReader)),
           ),
-        (_, AsyncLoading()) => ListView(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-            children: const [FaintBars()],
-          ),
-        _ => Center(
-            child: Text(
-              'Lesson not found.',
-              style: context.textStyles.bodyMedium
-                  .copyWith(color: context.colors.inkMuted),
+        _ => _ReaderFallback(
+            origin: origin,
+            child: StateView(
+              message: 'Lesson not found.',
+              boardLayout: true,
+              icon: Icon(PantasIcons.studyTab),
             ),
           ),
       },
@@ -132,13 +145,69 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   }
 }
 
+class _ReaderFallback extends StatelessWidget {
+  const _ReaderFallback({required this.origin, required this.child});
+  final ReaderOrigin origin;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Material(
+              color: context.colors.surface,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(44, 44),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                  ),
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      context
+                          .go(origin == ReaderOrigin.home ? '/home' : '/study');
+                    }
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        PantasIcons.back,
+                        size: 24,
+                        color: context.colors.accent,
+                      ),
+                      const SizedBox(width: 2),
+                      Text(
+                        origin == ReaderOrigin.home ? 'Home' : 'Study',
+                        style: context.type.body
+                            .copyWith(color: context.colors.accent),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(child: child),
+          ],
+        ),
+      );
+}
+
 class _ReaderBody extends ConsumerStatefulWidget {
   const _ReaderBody({
     required this.reader,
     required this.origin,
     required this.onAdvance,
+    this.resume = false,
   });
 
+  final bool resume;
   final ReaderContext reader;
   final ReaderOrigin origin;
 
@@ -157,15 +226,58 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   /// Whether the end of the lesson is on screen. Drives the pull handle.
   final _isAtEnd = ValueNotifier<bool>(false);
   ReadMarkingController? _markingController;
+  late final ReaderPositionRepository _positions;
+  Timer? _positionDelay;
+  bool _positionFailed = false;
+  bool _resumeFailed = false;
 
   @override
   void initState() {
     super.initState();
+    _positions = ref.read(readerPositionRepositoryProvider);
     _scrollController = ScrollController()..addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initMarking();
-      _syncScrollState();
+      if (widget.resume) {
+        unawaited(_resumePosition());
+      } else {
+        _syncScrollState();
+      }
     });
+  }
+
+  Future<void> _resumePosition() async {
+    final exam = widget.reader.examId;
+    if (exam == null) return _syncScrollState();
+    try {
+      final offset = await _positions.read(exam, widget.reader.lesson.id);
+      if (!mounted || !_scrollController.hasClients) return;
+      _scrollController.jumpTo(
+        offset.clamp(0.0, _scrollController.position.maxScrollExtent),
+      );
+      if (_resumeFailed) setState(() => _resumeFailed = false);
+      _syncScrollState();
+    } on Exception catch (error) {
+      if (mounted) setState(() => _resumeFailed = true);
+      // Retain the lesson while the saved position can be retried.
+      debugPrint('Reader position could not load: ${error.runtimeType}');
+    }
+  }
+
+  Future<void> _savePosition(ReaderContext reader, double offset) async {
+    final exam = reader.examId;
+    if (exam == null) return;
+    try {
+      await _positions.write(
+        exam,
+        reader.lesson.id,
+        offset.clamp(0.0, double.infinity),
+        fraction: _progress.value,
+      );
+      if (mounted && _positionFailed) setState(() => _positionFailed = false);
+    } on Exception {
+      if (mounted) setState(() => _positionFailed = true);
+    }
   }
 
   /// A lesson short enough not to scroll never fires a scroll event, so the
@@ -195,6 +307,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       // The body stays mounted across an advance, so the controller keeps
       // the offset the last lesson was left at and the new one opened part
       // way down. A lesson starts at its first line.
+      _positionDelay?.cancel();
+      unawaited(_savePosition(oldWidget.reader, _scrollOffset.value));
       if (_scrollController.hasClients) _scrollController.jumpTo(0);
       _scrollOffset.value = 0;
       _progress.value = 0;
@@ -213,6 +327,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
 
   @override
   void dispose() {
+    _positionDelay?.cancel();
+    unawaited(_savePosition(widget.reader, _scrollOffset.value));
     _scrollController.dispose();
     _scrollOffset.dispose();
     _progress.dispose();
@@ -235,6 +351,12 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     final maxExtent = _scrollController.position.maxScrollExtent;
 
     _scrollOffset.value = offset;
+    _positionDelay?.cancel();
+    final reader = widget.reader;
+    _positionDelay = Timer(
+      const Duration(milliseconds: 300),
+      () => unawaited(_savePosition(reader, offset)),
+    );
     _progress.value =
         maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
     // Within a line or so of the bottom, not exactly on it: a reader who
@@ -248,7 +370,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
     final reader = widget.reader;
 
     return SafeArea(
@@ -278,23 +399,46 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                   : null,
               child: SingleChildScrollView(
                 controller: _scrollController,
-                padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      reader.lesson.title,
-                      style: textStyles.displaySmall,
+                    LessonTextScale(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            reader.topicName.toUpperCase(),
+                            style: context.type.sectionHeader
+                                .copyWith(letterSpacing: .52),
+                          ),
+                          const SizedBox(height: 18),
+                          Text(
+                            reader.lesson.title,
+                            style:
+                                context.type.pageTitle.copyWith(height: 1.15),
+                          ),
+                          const SizedBox(height: 18),
+                          ContentRenderer(
+                            blocks: reader.lesson.bodyJson,
+                            readerFigures: true,
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 8),
-                    PortableTextRenderer(blocks: reader.lesson.bodyJson),
                     const SizedBox(height: 24),
                     Text(
                       '${reader.lesson.estimatedMinutes} min read',
-                      style:
-                          textStyles.bodySmall.copyWith(color: colors.inkMuted),
+                      style: context.type.footnote
+                          .copyWith(color: colors.secondaryLabel),
                     ),
                     const SizedBox(height: 16),
+                    if (_resumeFailed)
+                      errorFor('reading position', _resumePosition),
+                    if (_positionFailed)
+                      saveFailureLine(
+                        () => _savePosition(reader, _scrollOffset.value),
+                      ),
                     ReaderGap(
                       isRead: reader.isRead,
                       examId: reader.examId,

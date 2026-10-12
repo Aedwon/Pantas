@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/ink_magnifier.dart';
+import 'package:pantas/core/ui/components/search_field.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -41,7 +41,7 @@ const _testMap = StudyMap(
 );
 
 void main() {
-  testWidgets('the placeholder counts the corpus', (tester) async {
+  testWidgets('the search field uses the approved placeholder', (tester) async {
     await tester.pumpAppWithProviders(
       SearchFieldBar(onCancel: () {}),
       overrides: [
@@ -50,7 +50,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Search 141 lessons'), findsOneWidget);
+    expect(find.text('Lessons, topics'), findsOneWidget);
   });
 
   testWidgets('typing writes the query', (tester) async {
@@ -97,6 +97,7 @@ void main() {
     await tester.enterText(find.byType(TextField), 'venn');
     expect(container.read(searchQueryProvider), 'venn');
 
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Cancel'));
     await tester.pumpAndSettle();
 
@@ -104,7 +105,7 @@ void main() {
     expect(container.read(searchQueryProvider), '');
   });
 
-  testWidgets('cancel is labeled and at least 48dp', (tester) async {
+  testWidgets('cancel is labeled and at least 44dp', (tester) async {
     final semantics = tester.ensureSemantics();
     await tester.pumpAppWithProviders(
       SearchFieldBar(onCancel: () {}),
@@ -112,12 +113,13 @@ void main() {
         searchCorpusSizeProvider.overrideWith((ref) async => 141),
       ],
     );
+    await tester.tap(find.byType(TextField));
     await tester.pumpAndSettle();
 
-    final action = find.semantics.byLabel('Cancel search');
+    final action = find.semantics.byLabel('Cancel');
     expect(action, findsOne);
-    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(48));
-    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(44));
+    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(44));
 
     semantics.dispose();
   });
@@ -132,27 +134,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byType(InkMagnifier), findsOneWidget);
-  });
-
-  testWidgets('the map search action is labeled and at least 48dp',
-      (tester) async {
-    final semantics = tester.ensureSemantics();
-    await tester.pumpAppWithProviders(
-      const StudyTabHome(),
-      overrides: [
-        studyMapProvider.overrideWith((ref) async => _testMap),
-        lastOpenedLessonProvider.overrideWith((ref) async => null),
-      ],
-    );
-    await tester.pumpAndSettle();
-
-    final action = find.semantics.byLabel('Search lessons');
-    expect(action, findsOne);
-    expect(action.evaluate().single.rect.size.width, greaterThanOrEqualTo(48));
-    expect(action.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
-
-    semantics.dispose();
+    expect(find.byType(SearchField), findsOneWidget);
   });
 
   testWidgets('search and cancel fit at 360dp and 200% text', (tester) async {

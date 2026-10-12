@@ -3,22 +3,22 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/empty_state.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/ink_magnifier.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
-import 'package:pantas/core/ui/components/tab_header.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_section.dart';
+import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pinned_topic_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 
 class LearnTabHome extends ConsumerWidget {
@@ -46,6 +46,9 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   final _topicKeys = <TopicId, GlobalKey>{};
   final _listKey = GlobalKey();
   bool _searching = false;
+  StudyTopic? _pinnedTopic;
+  final _topicAnchors = <TopicId, double>{};
+  bool _saveFailed = false;
 
   /// Whether the open topic's row has left the screen.
   ///
@@ -62,7 +65,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     final requested = widget.openTopicId;
     if (requested != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        ref.read(openTopicProvider.notifier).toggle(requested);
+        if (mounted) ref.read(openTopicProvider.notifier).open(requested);
       });
     }
   }
@@ -93,13 +96,16 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     if (row == null || list == null || !row.attached || !list.attached) {
       // Unknown, so say it is visible: a bar that appears on a guess is
       // worse than one that arrives a frame late.
-      return true;
+      final anchor = _topicAnchors[topicId];
+      return anchor == null ||
+          !_scrollController.hasClients ||
+          _scrollController.offset < anchor + 48;
     }
     final rowTop = row.localToGlobal(Offset.zero).dy;
     final rowBottom = rowTop + row.size.height;
     final listTop = list.localToGlobal(Offset.zero).dy;
-    final listBottom = listTop + list.size.height;
-    return rowBottom > listTop && rowTop < listBottom;
+    _topicAnchors[topicId] = _scrollController.offset + rowTop - listTop;
+    return rowBottom > listTop;
   }
 
   /// Toggles a topic and leaves the row the student tapped exactly where
@@ -111,7 +117,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   /// frame and the scroll is corrected by the difference.
   Future<void> _toggleTopic(TopicId topicId) async {
     final before = _offsetOf(topicId);
-    await ref.read(openTopicProvider.notifier).toggle(topicId);
+    try {
+      await ref.read(openTopicProvider.notifier).toggle(topicId);
+      if (mounted) setState(() => _saveFailed = false);
+    } on Exception {
+      if (mounted) setState(() => _saveFailed = true);
+    }
     if (!mounted) return;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -137,51 +148,76 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     return box.localToGlobal(Offset.zero).dy;
   }
 
-  void _scrollBackTo(TopicId topicId) {
-    final context = _topicKeys[topicId]?.currentContext;
-    if (context == null) return;
-    Scrollable.ensureVisible(
-      context,
-      duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
-          : const Duration(milliseconds: 320),
-      curve: Curves.easeOutCubic,
-    );
-  }
-
   GlobalKey _keyFor(TopicId topicId) =>
       _topicKeys.putIfAbsent(topicId, GlobalKey.new);
+
+  Widget _stateFrame(
+    BuildContext context,
+    Widget state, {
+    bool loading = false,
+  }) =>
+      Scaffold(
+        backgroundColor: context.colors.background,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (loading)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: SearchFieldBar(onCancel: () {}),
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text('Study', style: context.type.largeTitle),
+                ),
+              if (loading) const SizedBox(height: 24),
+              Expanded(
+                child: loading ? SingleChildScrollView(child: state) : state,
+              ),
+            ],
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     final asyncMap = ref.watch(studyMapProvider);
 
     return asyncMap.when(
-      loading: () => const PageScaffold(body: FaintBars()),
-      error: (e, _) => const PageScaffold(
-        body: ErrorBanner(
-          variant: ErrorBannerVariant.error,
-          message: 'Could not load your topics. Pull down to try again.',
+      loading: () => _stateFrame(context, loadingFor(asyncMap), loading: true),
+      error: (error, _) => _stateFrame(
+        context,
+        errorFor(
+          'topics',
+          () => ref.invalidate(studyMapProvider),
+          error: error,
+          icon: Icon(PantasIcons.studyTab),
+          boardLayout: true,
         ),
       ),
       data: (map) {
         if (map == null) {
-          return const PageScaffold(body: _ChooseExamFallback());
+          return _stateFrame(context, chooseExamFallback(context));
         }
-
         if (map.isEmpty) {
-          return PageScaffold(
-            body: EmptyState(
-              headline: 'Nothing to study yet',
-              body: 'This exam has no lessons on your device yet. Check back '
+          return _stateFrame(
+            context,
+            StateView(
+              message: 'Nothing to study yet',
+              detail: 'This exam has no lessons on your device yet. Check back '
                   'after the next content update.',
-              ctaLabel: 'Try a quick quiz',
-              onCta: () => context.push('/quiz'),
+              actionLabel: 'Try a Quick Quiz',
+              icon: Icon(PantasIcons.studyTab),
+              boardLayout: true,
+              onRetry: () => context.push('/quiz'),
             ),
           );
         }
 
         final openTopicId = ref.watch(openTopicProvider).valueOrNull;
+        final today = ref.watch(studyTodayLessonIdsProvider);
         final disableAnimations = MediaQuery.disableAnimationsOf(context);
         StudyTopic? openTopic;
         if (openTopicId != null) {
@@ -195,133 +231,138 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           }
         }
 
+        if (openTopic != null) _pinnedTopic = openTopic;
         return PageScaffold(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (_searching)
-                SearchFieldBar(
-                  onCancel: () {
-                    setState(() => _searching = false);
-                  },
-                )
-              else
-                Stack(
+              SearchFieldBar(
+                entryAnimation: true,
+                onCancel: () => setState(() => _searching = false),
+                onEditingChanged: (editing) =>
+                    setState(() => _searching = editing),
+              ),
+              const SizedBox(height: 24),
+              Expanded(
+                child: Stack(
+                  fit: StackFit.expand,
                   children: [
-                    const TabHeader(title: 'Study'),
-                    Positioned(
-                      top: 5,
-                      right: 0,
-                      child: Semantics(
-                        button: true,
-                        label: 'Search lessons',
-                        onTap: () => setState(() => _searching = true),
-                        child: ExcludeSemantics(
-                          child: GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () => setState(() => _searching = true),
-                            child: const SizedBox.square(
-                              dimension: 48,
-                              child: Center(child: InkMagnifier()),
+                    TweenAnimationBuilder<double>(
+                      tween: Tween(begin: 1, end: _searching ? 0 : 1),
+                      duration: disableAnimations
+                          ? Duration.zero
+                          : const Duration(milliseconds: 200),
+                      curve: PantasCurves.houseOut,
+                      builder: (context, value, child) => IgnorePointer(
+                        ignoring: _searching,
+                        child: ExcludeFocus(
+                          excluding: _searching,
+                          child: ExcludeSemantics(
+                            excluding: _searching,
+                            child: Opacity(
+                              key: const ValueKey('study-map-opacity'),
+                              opacity: value,
+                              child: child,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              if (_searching)
-                const Expanded(
-                  child: SearchResults(),
-                )
-              else ...[
-                Expanded(
-                  // The bar is stacked over the list, not placed above it.
-                  // Inserting it changed the list's height the moment a topic
-                  // opened, which is the snap.
-                  child: Stack(
-                    key: _listKey,
-                    children: [
-                      ListView(
-                        controller: _scrollController,
+                      child: Stack(
+                        key: _listKey,
                         children: [
-                          StudyHeadBlock(map: map),
-                          const BookmarksSection(),
-                          for (final subject in map.subjects)
-                            StudySubjectSection(
-                              subject: subject,
-                              onToggleTopic: (topicId) =>
-                                  unawaited(_toggleTopic(topicId)),
-                              keyForTopic: _keyFor,
-                            ),
-                        ],
-                      ),
-                      if (openTopic != null)
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          child: ValueListenableBuilder<bool>(
-                            valueListenable: _openTopicOffScreen,
-                            builder: (context, offScreen, child) =>
-                                IgnorePointer(
-                              ignoring: !offScreen,
-                              child: AnimatedSlide(
-                                offset: Offset(0, offScreen ? 0 : -1),
-                                duration: disableAnimations
-                                    ? Duration.zero
-                                    : const Duration(milliseconds: 220),
-                                curve: Curves.easeOutCubic,
-                                child: AnimatedOpacity(
-                                  opacity: offScreen ? 1 : 0,
-                                  duration: disableAnimations
-                                      ? Duration.zero
-                                      : const Duration(milliseconds: 180),
-                                  child: child,
+                          ListView(
+                            controller: _scrollController,
+                            children: [
+                              StudyHeadBlock(map: map),
+                              StudyMapEntry(
+                                delay: const Duration(milliseconds: 260),
+                                child: BookmarksSection(
+                                  onSeeAll: () => showBookmarksSheet(context),
+                                ),
+                              ),
+                              if (today.hasError)
+                                errorFor(
+                                  'plan',
+                                  () => ref.invalidate(
+                                    studyTodayLessonIdsProvider,
+                                  ),
+                                ),
+                              if (_saveFailed)
+                                saveFailureLine(() async {
+                                  try {
+                                    await ref
+                                        .read(openTopicProvider.notifier)
+                                        .save();
+                                    if (mounted) {
+                                      setState(() => _saveFailed = false);
+                                    }
+                                  } on Exception {
+                                    // Keep the retry visible.
+                                  }
+                                }),
+                              for (var i = 0; i < map.subjects.length; i++)
+                                StudyMapEntry(
+                                  key: ValueKey(map.subjects[i].id),
+                                  delay: Duration(milliseconds: 520 + 120 * i),
+                                  child: StudySubjectSection(
+                                    subject: map.subjects[i],
+                                    ringDelay:
+                                        Duration(milliseconds: 820 + 120 * i),
+                                    onToggleTopic: (topicId) =>
+                                        unawaited(_toggleTopic(topicId)),
+                                    keyForTopic: _keyFor,
+                                  ),
+                                ),
+                            ],
+                          ),
+                          if (_pinnedTopic != null)
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              child: ValueListenableBuilder<bool>(
+                                valueListenable: _openTopicOffScreen,
+                                builder: (context, offScreen, child) {
+                                  final visible =
+                                      offScreen && openTopic != null;
+                                  return IgnorePointer(
+                                    ignoring: !visible,
+                                    child: ExcludeFocus(
+                                      excluding: !visible,
+                                      child: ExcludeSemantics(
+                                        excluding: !visible,
+                                        child: AnimatedOpacity(
+                                          opacity: visible ? 1 : 0,
+                                          duration: disableAnimations || visible
+                                              ? Duration.zero
+                                              : const Duration(
+                                                  milliseconds: 200,
+                                                ),
+                                          curve: PantasCurves.houseOut,
+                                          child: child,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: PinnedTopicBar(
+                                  topic: _pinnedTopic!,
+                                  onClose: () => _toggleTopic(_pinnedTopic!.id),
                                 ),
                               ),
                             ),
-                            child: PinnedTopicBar(
-                              topic: openTopic,
-                              onScrollBack: () => _scrollBackTo(openTopic!.id),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
+                        ],
+                      ),
+                    ),
+                    if (_searching) const SearchResults(),
+                  ],
                 ),
-              ],
+              ),
             ],
           ),
         );
       },
-    );
-  }
-}
-
-class _ChooseExamFallback extends StatelessWidget {
-  const _ChooseExamFallback();
-
-  @override
-  Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Choose your exam', style: styles.headlineMedium),
-        const SizedBox(height: 6),
-        Text(
-          'Pick the exam you are reviewing for.',
-          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-        ),
-        const SizedBox(height: 20),
-        BoardButton(
-          label: 'Choose exam',
-          onPressed: () => context.go('/onboarding'),
-        ),
-      ],
     );
   }
 }

@@ -13,6 +13,7 @@ class MathText extends StatelessWidget {
     this.display = false,
     this.semanticsLabel,
     this.textAlign,
+    this.onErrorFallback,
     super.key,
   });
   final String text;
@@ -20,6 +21,7 @@ class MathText extends StatelessWidget {
   final bool display;
   final String? semanticsLabel;
   final TextAlign? textAlign;
+  final WidgetBuilder? onErrorFallback;
   @override
   Widget build(BuildContext context) {
     final effective = style ?? context.type.body;
@@ -28,11 +30,18 @@ class MathText extends StatelessWidget {
         latex: displayFractions(text),
         textStyle: effective.copyWith(fontFamily: mathRenderingFont),
         semanticsLabel: semanticsLabel,
-        onErrorFallback: (context) => Text(text, style: effective),
+        onErrorFallback:
+            onErrorFallback ?? (context) => Text(text, style: effective),
       );
     }
     final rich = Text.rich(
-      TextSpan(children: inlineMathSpans(text, style: effective)),
+      TextSpan(
+        children: inlineMathSpans(
+          text,
+          style: effective,
+          onErrorFallback: onErrorFallback,
+        ),
+      ),
       style: effective,
       textAlign: textAlign,
     );

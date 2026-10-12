@@ -24,6 +24,7 @@ List<RouteBase> studyRoutes(Ref ref) => [
               : ReaderEntry.forward,
           child: LessonPage(
             lessonId: state.pathParameters['lessonId']!,
+            resume: state.uri.queryParameters['resume'] == 'true',
             origin: state.uri.queryParameters['from'] == 'home'
                 ? ReaderOrigin.home
                 : ReaderOrigin.study,

@@ -12,6 +12,7 @@ class StateView extends StatelessWidget {
     this.detail,
     this.actionLabel = 'Try Again',
     this.primaryAction = false,
+    this.boardLayout = false,
     super.key,
   }) : fullScreen = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
@@ -20,7 +21,9 @@ class StateView extends StatelessWidget {
         icon = null,
         detail = null,
         actionLabel = 'Try Again',
-        primaryAction = true;
+        primaryAction = true,
+        boardLayout = false;
+  final bool boardLayout;
   final String message;
   final VoidCallback? onRetry;
   // Error is deliberately not rendered. Callers keep diagnostic handling.
@@ -33,14 +36,15 @@ class StateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primary = !fullScreen && primaryAction;
-    final gap = primary ? 6.0 : 14.0;
+    final compact = primary || boardLayout;
+    final gap = compact ? 6.0 : 14.0;
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
           size: fullScreen
               ? 36
-              : primary
+              : compact
                   ? 40
                   : 60,
           color: fullScreen
@@ -51,7 +55,7 @@ class StateView extends StatelessWidget {
           key: const ValueKey('state-mark'),
           dimension: fullScreen
               ? 36
-              : primary
+              : compact
                   ? 40
                   : 60,
           child: icon ??
@@ -121,7 +125,7 @@ class StateView extends StatelessWidget {
               horizontalPadding: 26,
             ),
           ] else if (onRetry != null) ...[
-            const SizedBox(height: 20),
+            SizedBox(height: boardLayout ? 6 : 20),
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 220),
               child: PantasButton(
@@ -130,6 +134,8 @@ class StateView extends StatelessWidget {
                 height: 44,
                 fontSize: 15,
                 radius: 99,
+                fullWidth: !boardLayout,
+                horizontalPadding: boardLayout ? 22 : 16,
                 onPressed: onRetry,
               ),
             ),
@@ -137,7 +143,7 @@ class StateView extends StatelessWidget {
         ],
       ],
     );
-    if (primary) {
+    if (compact) {
       return Semantics(
         liveRegion: true,
         child: LayoutBuilder(
