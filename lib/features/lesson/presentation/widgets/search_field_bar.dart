@@ -7,9 +7,11 @@ class SearchFieldBar extends ConsumerWidget {
   const SearchFieldBar({
     required this.onCancel,
     this.onEditingChanged,
+    this.entryAnimation = false,
     super.key,
   });
 
+  final bool entryAnimation;
   final VoidCallback onCancel;
   final ValueChanged<bool>? onEditingChanged;
 
@@ -18,6 +20,8 @@ class SearchFieldBar extends ConsumerWidget {
         type: MaterialType.transparency,
         child: SearchField(
           title: 'Study',
+          fieldEntryDelay:
+              entryAnimation ? const Duration(milliseconds: 100) : null,
           titleInset: 4,
           hint: 'Lessons, topics',
           onChanged: (query) =>

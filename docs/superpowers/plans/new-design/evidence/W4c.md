@@ -154,3 +154,66 @@ The branch contains the two task commits only. No merge or push is authorized or
 ## Acceptance
 
 Tasks 2 and 3 are implemented, checked and saved locally. No tasks have independent or visual acceptance yet. Aedwon's Android/iPhone visual checks have not run. Tasks 1 and 4 to 9 remain held or unfinished as listed above. The partial candidate is not ready to integrate.
+
+## October 12 authorized resumption
+
+Policy revision: `e354ebe3c37e2d23a035f79da393c4e0da94a33e`, retrieved again with `git fetch origin`. Read current main AGENTS.md, WORKFLOW.md, SUBAGENTS.md, L3/L2 W4c, traceability, amendment spec, parallel map and later lead rulings. The worktree remained on `web/new-design-w4c-r1` at `2eae3d9f`; its uncommitted Task 1 changes were preserved. The remote feature branch does not exist. No push or merge.
+
+The October 12 lead rulings resolve historical questions 1, 4 and 5 above. Today uses `onFillLabel` light `#636366`, dark `#98989D` on the existing fill. Reader has the board's single eyebrow. Bookmark handles use controlOutline. W2's October 10 contrast exceptions and KaTeX math ruling remain binding. Tasks 5, 7, 9 and Home/day endings remain held for their contracts. This resumption authorizes Tasks 1, 4, 8 and independent Task 6 only.
+
+## Task 1: Study map
+
+Implements the count-free map, Last opened and Resume position, Today tags from roadmapTodayProvider, one remembered topic, topic rings/checks, unread minutes and read checks, pinned close, shared section/save failures, preserved map/search and scroll anchoring. Resume offsets are device-local `lesson_offset.<examId>.<lessonId>` values, clamped to the current scroll extent. They save after a 300 ms scroll debounce and on leaving. No schema, sync or seed change.
+
+ST_Map, ST_MapEmpty, ST_TopicOpen and ST_Pinned outlines and timelines were read from the main checkout, read-only. Metrics: last-opened 22/700 with 1.35 line height; Resume 52 high and radius 14; subject header 13/600, 16 inset and 7 gap; row 17/400, 1.35, 12 vertical and 16 horizontal; ring 24 with radius 10.5, track 2 and fill 2.4; Today 12/600, min-height 22, horizontal inset 8, radius 99; pinned min-height 47, title 17/600. Titles wrap for large text. Long topics measure natural height so the board's 800 px reveal cap never clips content.
+
+Shared extensions: ListRow adds optional valueWidget, trailingWidget and wrapTitle, preserving default behavior. ProgressRing.study adds 24 px Study track metrics and a delayed 700 ms fill. SearchField adds optional fieldEntryDelay; its Study field starts at 100 ms and fades/translates 12 px over 450 ms. Map sections use their board delays (180, 260, then 520 + 120 per subject); rings start at 820 + 120 per subject. Topic arrows rotate over 300 ms and reveal/collapse over 700 ms, all with the board's house curve. Closed controls are excluded from focus and semantics. Pinned appearance is immediate, dismissal fades 200 ms. Tests beside W2 verify paint strokes, intermediate values, light/dark contrast, 200% layout and keyboard activation.
+
+Verification, serialized Mac relay:
+- 9440, failing first: two map test files, exit 1, `00:02 +4 -7: Some tests failed.` Old counts, read labels, headings and last-opened presentation failed as expected.
+- 9441, prescribed focused check: exit 1, `01:30 +875 -1: Some tests failed.` See all semantics included its text twice. Corrected the semantics label.
+- 9442, narrowed checks: exit 1, `00:04 +14 -2: Some tests failed.` Closing retained zero-height children visible to widget finders. Added Offstage only at zero height, preserving collapse motion.
+- 9443, resume/topic checks: exit 0, `00:04 +12: All tests passed!`
+- 9444, metric checks: exit 1, `00:01 +2 -4: Some tests failed.` Corrected test finders and float tolerances for font pixel rounding and native paint float precision.
+- 9445, focused check: exit 1, `01:24 +882 -1: Some tests failed.` The isolated map fixture lacked today's plan; added its override. Analysis found 19 issues; new style findings were corrected. R-21 remains assigned to Task 8.
+- 9446 and 9447 exposed a test compile error during painter-test refactoring and a num inference error from a mechanical style fix. The test now asserts actual canvas operations with Flutter paint matchers. The reveal cap is explicitly double. No failed run is counted as green.
+- 9448, prescribed focused check: exit 0, `01:21 +883: All tests passed!` Analysis: exit 1, `1 issue found. (ran in 5.9s)`, only the existing Task 8 onReorder notice.
+- 9449, new long-topic test before correction: exit 1, `00:01 +0 -1: Some tests failed.` Actual reveal height 3312 versus content height 8390 at 200% text. The reveal now measures natural content height. The final test also uses the 390 by 844 phone viewport.
+- 9450, `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --reporter expanded`: exit 0, `01:23 +884: All tests passed!` Raw logs remain in `.dart_tool/w4c-t1-save-*.log`.
+- Changed files formatted. `git diff --check`: exit 0. No full suite has run in this resumption.
+
+Task 1 file manifest (authorized W2 extensions included):
+
+- `lib/app/routes/study_routes.dart`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/progress_ring.dart`
+- `lib/core/ui/components/search_field.dart`
+- `lib/core/ui/theme/pantas_colors.dart`
+- `lib/features/lesson/application/reader_providers.dart`
+- `lib/features/lesson/application/study_map_providers.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `lib/features/lesson/presentation/widgets/bookmarks_section.dart`
+- `lib/features/lesson/presentation/widgets/pinned_topic_bar.dart`
+- `lib/features/lesson/presentation/widgets/search_field_bar.dart`
+- `lib/features/lesson/presentation/widgets/study_head_block.dart`
+- `lib/features/lesson/presentation/widgets/study_topic_section.dart`
+- `test/features/lesson/presentation/bookmarks_section_test.dart`
+- `test/features/lesson/presentation/fake_open_topic.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`
+- `test/features/lesson/presentation/lesson_page_test.dart`
+- `test/features/lesson/presentation/pinned_topic_bar_test.dart`
+- `test/features/lesson/presentation/study_head_block_test.dart`
+- `test/features/lesson/presentation/study_map_page_test.dart`
+- `test/features/lesson/presentation/study_topic_section_test.dart`
+- `lib/features/lesson/data/repos/reader_position_repository.dart`
+- `lib/features/lesson/presentation/widgets/study_map_entry.dart`
+- `test/core/ui/components/study_map_extensions_test.dart`
+- `test/core/ui/components/study_map_tokens_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+
+Task 1 analysis follow-up: 9450 analysis found 12 issues (R-21 plus formatting/style findings in the newly added long-topic test). 9451 fixed the commas and found only R-21 and that test's long string. The long string was split into adjacent literals without changing its value. No production behavior changed after the 884-test run. Attribution in 9450: exit 0, `Running build hooks...Running build hooks...check_no_ai_attribution: OK`.
+
+9452 final Task 1 analysis: exit 1, `1 issue found. (ran in 5.2s)`, only R-21 in the held bookmarks rebuild. No new diagnostics remain. Changed-file format and diff checks exit 0. This is task-level implementation evidence, not whole-family acceptance.
+
+Task 1 source identity: base `2eae3d9f`, staged lib/test patch SHA-256 `7c8d1f53cc10f52ea2efa27d008b91d1e81188048fceec69b64e0fa5a9bb3ac6`, preserved at `.dart_tool/w4c-task1-source.patch`.

@@ -6,7 +6,13 @@ import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+
+final readerPositionRepositoryProvider = Provider<ReaderPositionRepository>(
+  (ref) =>
+      ReaderPositionRepository(ref.watch(appPreferencesRepositoryProvider)),
+);
 
 const readDwellFloor = Duration(seconds: 15);
 

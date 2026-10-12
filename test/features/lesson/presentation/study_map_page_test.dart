@@ -20,6 +20,7 @@ void main() {
       overrides: [
         studyMapProvider.overrideWith((ref) => completer.future),
         openTopicProvider.overrideWith(FakeOpenTopic.new),
+        studyTodayLessonIdsProvider.overrideWith((ref) async => const {}),
       ],
     );
 
@@ -42,6 +43,7 @@ void main() {
           (ref) async => throw Exception('SqliteException(1): no such table'),
         ),
         openTopicProvider.overrideWith(FakeOpenTopic.new),
+        studyTodayLessonIdsProvider.overrideWith((ref) async => const {}),
       ],
     );
     await tester.pumpAndSettle();
@@ -68,6 +70,7 @@ void main() {
       overrides: [
         studyMapProvider.overrideWith((ref) async => map),
         openTopicProvider.overrideWith(FakeOpenTopic.new),
+        studyTodayLessonIdsProvider.overrideWith((ref) async => const {}),
       ],
     );
     await tester.pumpAndSettle();
@@ -112,12 +115,13 @@ void main() {
       overrides: [
         studyMapProvider.overrideWith((ref) async => map),
         openTopicProvider.overrideWith(FakeOpenTopic.new),
+        studyTodayLessonIdsProvider.overrideWith((ref) async => const {}),
       ],
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('UPCAT'), findsOneWidget);
-    expect(find.text('Mathematics'), findsOneWidget);
+    expect(find.text('UPCAT'), findsNothing);
+    expect(find.text('MATHEMATICS'), findsOneWidget);
     expect(find.text('Algebra'), findsOneWidget);
   });
 }

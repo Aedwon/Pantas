@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:drift/drift.dart' show Value;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -76,6 +78,51 @@ void main() {
 
     expect(find.text('Vocabulary Basics'), findsOneWidget);
     expect(find.text('Synonyms share meaning.'), findsOneWidget);
+  });
+
+  testWidgets('Resume restores a clamped saved offset and leaving saves it',
+      (tester) async {
+    await (contentDb.update(contentDb.contentLessons)
+          ..where((r) => r.id.equals('l1')))
+        .write(
+      ContentLessonsCompanion(
+        bodyJson: Value(
+          jsonEncode([
+            for (var i = 0; i < 30; i++)
+              {
+                '_type': 'block',
+                'style': 'normal',
+                'children': [
+                  {
+                    '_type': 'span',
+                    'text': 'Paragraph $i with enough content to scroll.',
+                    'marks': <String>[],
+                  }
+                ],
+              },
+          ]),
+        ),
+      ),
+    );
+    final prefs = AppPreferencesRepository(db);
+    await prefs.setDeviceValue('lesson_offset.e1.l1', '240');
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l1', resume: true),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final scroll = tester
+        .widget<SingleChildScrollView>(find.byType(SingleChildScrollView).first)
+        .controller!;
+    expect(scroll.offset, 240);
+    scroll.jumpTo(360);
+    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+    expect(await prefs.deviceValue('lesson_offset.e1.l1'), '360.0');
   });
 
   testWidgets('shows estimated read time', (tester) async {

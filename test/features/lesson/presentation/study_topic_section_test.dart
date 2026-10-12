@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
@@ -61,22 +62,86 @@ Future<void> pumpSection(
 }
 
 void main() {
-  testWidgets('a subject heading carries its own read fraction',
+  testWidgets('long lesson names at 200 percent are fully revealed',
       (tester) async {
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(
+      () => tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio(),
+    );
+    final longSubject = StudySubject(
+      id: 's',
+      name: 'Science',
+      topics: [
+        StudyTopic(
+          id: 't1',
+          name: 'Topic',
+          readCount: 0,
+          hasBookmark: false,
+          lessons: [
+            for (var i = 0; i < 30; i++)
+              StudyLesson(
+                id: '$i',
+                title: 'A very long lesson title that occupies several lines '
+                    'on a narrow phone screen $i',
+                estimatedMinutes: 10,
+                isRead: false,
+                isBookmarked: false,
+              ),
+          ],
+        ),
+      ],
+    );
+    await tester.pumpAppWithProviders(
+      MediaQuery(
+        data: const MediaQueryData(
+          textScaler: TextScaler.linear(2),
+          disableAnimations: true,
+        ),
+        child: Scaffold(
+          body: SingleChildScrollView(
+            child: Consumer(
+              builder: (context, ref, _) => StudySubjectSection(
+                subject: longSubject,
+                onToggleTopic: (id) =>
+                    ref.read(openTopicProvider.notifier).toggle(id),
+              ),
+            ),
+          ),
+        ),
+      ),
+      overrides: [openTopicProvider.overrideWith(FakeOpenTopic.new)],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Topic'));
+    await tester.pumpAndSettle();
+    final reveal = find.byKey(const ValueKey('topic-reveal-t1'));
+    final content =
+        find.descendant(of: reveal, matching: find.byType(Column)).first;
+    expect(
+      tester.getSize(reveal).height,
+      greaterThanOrEqualTo(tester.getSize(content).height),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a subject heading has no count', (tester) async {
     await pumpSection(tester);
     await tester.pumpAndSettle();
 
-    expect(find.text('Mathematics'), findsOneWidget);
-    expect(find.text('2 / 3'), findsOneWidget);
+    expect(find.text('MATHEMATICS'), findsOneWidget);
+    expect(find.text('2 / 3'), findsNothing);
   });
 
-  testWidgets('topic rows print their fractions and stay closed',
-      (tester) async {
+  testWidgets('topic rows use rings without printed counts', (tester) async {
     await pumpSection(tester);
     await tester.pumpAndSettle();
 
     expect(find.text('Algebra'), findsOneWidget);
-    expect(find.text('1 / 2'), findsOneWidget);
+    expect(find.text('1 / 2'), findsNothing);
     expect(find.text('Lesson l1'), findsNothing);
   });
 
@@ -89,7 +154,7 @@ void main() {
 
     expect(find.text('Lesson l1'), findsOneWidget);
     expect(find.text('Lesson l2'), findsOneWidget);
-    expect(find.text('9 min'), findsNWidgets(2));
+    expect(find.text('9 min'), findsOneWidget);
   });
 
   testWidgets('opening a second topic closes the first', (tester) async {
@@ -139,6 +204,6 @@ void main() {
     await tester.pumpAndSettle();
 
     // Geometry is 1 of 1. Algebra is 1 of 2 and draws no glyph.
-    expect(find.text('✓'), findsOneWidget);
+    expect(find.byType(CheckMark), findsOneWidget);
   });
 }

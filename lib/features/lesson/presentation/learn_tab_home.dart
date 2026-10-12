@@ -13,10 +13,12 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_section.dart';
+import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pinned_topic_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 
 class LearnTabHome extends ConsumerWidget {
@@ -44,6 +46,9 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   final _topicKeys = <TopicId, GlobalKey>{};
   final _listKey = GlobalKey();
   bool _searching = false;
+  StudyTopic? _pinnedTopic;
+  final _topicAnchors = <TopicId, double>{};
+  bool _saveFailed = false;
 
   /// Whether the open topic's row has left the screen.
   ///
@@ -60,7 +65,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     final requested = widget.openTopicId;
     if (requested != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        ref.read(openTopicProvider.notifier).toggle(requested);
+        if (mounted) ref.read(openTopicProvider.notifier).open(requested);
       });
     }
   }
@@ -91,13 +96,16 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     if (row == null || list == null || !row.attached || !list.attached) {
       // Unknown, so say it is visible: a bar that appears on a guess is
       // worse than one that arrives a frame late.
-      return true;
+      final anchor = _topicAnchors[topicId];
+      return anchor == null ||
+          !_scrollController.hasClients ||
+          _scrollController.offset < anchor + 48;
     }
     final rowTop = row.localToGlobal(Offset.zero).dy;
     final rowBottom = rowTop + row.size.height;
     final listTop = list.localToGlobal(Offset.zero).dy;
-    final listBottom = listTop + list.size.height;
-    return rowBottom > listTop && rowTop < listBottom;
+    _topicAnchors[topicId] = _scrollController.offset + rowTop - listTop;
+    return rowBottom > listTop;
   }
 
   /// Toggles a topic and leaves the row the student tapped exactly where
@@ -109,7 +117,12 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   /// frame and the scroll is corrected by the difference.
   Future<void> _toggleTopic(TopicId topicId) async {
     final before = _offsetOf(topicId);
-    await ref.read(openTopicProvider.notifier).toggle(topicId);
+    try {
+      await ref.read(openTopicProvider.notifier).toggle(topicId);
+      if (mounted) setState(() => _saveFailed = false);
+    } on Exception {
+      if (mounted) setState(() => _saveFailed = true);
+    }
     if (!mounted) return;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -133,18 +146,6 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
     final box = context?.findRenderObject() as RenderBox?;
     if (box == null || !box.attached) return null;
     return box.localToGlobal(Offset.zero).dy;
-  }
-
-  void _scrollBackTo(TopicId topicId) {
-    final context = _topicKeys[topicId]?.currentContext;
-    if (context == null) return;
-    Scrollable.ensureVisible(
-      context,
-      duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
-          : const Duration(milliseconds: 320),
-      curve: Curves.easeOutCubic,
-    );
   }
 
   GlobalKey _keyFor(TopicId topicId) =>
@@ -216,6 +217,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
         }
 
         final openTopicId = ref.watch(openTopicProvider).valueOrNull;
+        final today = ref.watch(studyTodayLessonIdsProvider);
         final disableAnimations = MediaQuery.disableAnimationsOf(context);
         StudyTopic? openTopic;
         if (openTopicId != null) {
@@ -229,12 +231,14 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           }
         }
 
+        if (openTopic != null) _pinnedTopic = openTopic;
         return PageScaffold(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SearchFieldBar(
+                entryAnimation: true,
                 onCancel: () => setState(() => _searching = false),
                 onEditingChanged: (editing) =>
                     setState(() => _searching = editing),
@@ -271,45 +275,80 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                             controller: _scrollController,
                             children: [
                               StudyHeadBlock(map: map),
-                              const BookmarksSection(),
-                              for (final subject in map.subjects)
-                                StudySubjectSection(
-                                  subject: subject,
-                                  onToggleTopic: (topicId) =>
-                                      unawaited(_toggleTopic(topicId)),
-                                  keyForTopic: _keyFor,
+                              StudyMapEntry(
+                                delay: const Duration(milliseconds: 260),
+                                child: BookmarksSection(
+                                  onSeeAll: () => showBookmarksSheet(context),
+                                ),
+                              ),
+                              if (today.hasError)
+                                errorFor(
+                                  'plan',
+                                  () => ref.invalidate(
+                                    studyTodayLessonIdsProvider,
+                                  ),
+                                ),
+                              if (_saveFailed)
+                                saveFailureLine(() async {
+                                  try {
+                                    await ref
+                                        .read(openTopicProvider.notifier)
+                                        .save();
+                                    if (mounted) {
+                                      setState(() => _saveFailed = false);
+                                    }
+                                  } on Exception {
+                                    // Keep the retry visible.
+                                  }
+                                }),
+                              for (var i = 0; i < map.subjects.length; i++)
+                                StudyMapEntry(
+                                  key: ValueKey(map.subjects[i].id),
+                                  delay: Duration(milliseconds: 520 + 120 * i),
+                                  child: StudySubjectSection(
+                                    subject: map.subjects[i],
+                                    ringDelay:
+                                        Duration(milliseconds: 820 + 120 * i),
+                                    onToggleTopic: (topicId) =>
+                                        unawaited(_toggleTopic(topicId)),
+                                    keyForTopic: _keyFor,
+                                  ),
                                 ),
                             ],
                           ),
-                          if (openTopic != null)
+                          if (_pinnedTopic != null)
                             Positioned(
                               top: 0,
                               left: 0,
                               right: 0,
                               child: ValueListenableBuilder<bool>(
                                 valueListenable: _openTopicOffScreen,
-                                builder: (context, offScreen, child) =>
-                                    IgnorePointer(
-                                  ignoring: !offScreen,
-                                  child: AnimatedSlide(
-                                    offset: Offset(0, offScreen ? 0 : -1),
-                                    duration: disableAnimations
-                                        ? Duration.zero
-                                        : const Duration(milliseconds: 220),
-                                    curve: Curves.easeOutCubic,
-                                    child: AnimatedOpacity(
-                                      opacity: offScreen ? 1 : 0,
-                                      duration: disableAnimations
-                                          ? Duration.zero
-                                          : const Duration(milliseconds: 180),
-                                      child: child,
+                                builder: (context, offScreen, child) {
+                                  final visible =
+                                      offScreen && openTopic != null;
+                                  return IgnorePointer(
+                                    ignoring: !visible,
+                                    child: ExcludeFocus(
+                                      excluding: !visible,
+                                      child: ExcludeSemantics(
+                                        excluding: !visible,
+                                        child: AnimatedOpacity(
+                                          opacity: visible ? 1 : 0,
+                                          duration: disableAnimations || visible
+                                              ? Duration.zero
+                                              : const Duration(
+                                                  milliseconds: 200,
+                                                ),
+                                          curve: PantasCurves.houseOut,
+                                          child: child,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                  );
+                                },
                                 child: PinnedTopicBar(
-                                  topic: openTopic,
-                                  onScrollBack: () =>
-                                      _scrollBackTo(openTopic!.id),
+                                  topic: _pinnedTopic!,
+                                  onClose: () => _toggleTopic(_pinnedTopic!.id),
                                 ),
                               ),
                             ),

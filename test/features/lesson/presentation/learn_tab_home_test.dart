@@ -130,9 +130,9 @@ void main() {
 
     // The map heads with the short name. Exam isolation is the point of this
     // test and it still holds: nothing from the unselected exam appears.
-    expect(find.text('CSE'), findsOneWidget);
+    expect(find.text('CSE'), findsNothing);
     expect(find.text('UPCAT'), findsNothing);
-    expect(find.text('Verbal'), findsOneWidget);
+    expect(find.text('VERBAL'), findsOneWidget);
     expect(find.text('Language Proficiency'), findsNothing);
   });
 
@@ -178,15 +178,12 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(
-      tester.widget<AnimatedSlide>(find.byType(AnimatedSlide)).duration,
-      Duration.zero,
-    );
+    expect(find.byType(AnimatedSlide), findsNothing);
     expect(
       tester
           .widget<AnimatedOpacity>(
-            find.descendant(
-              of: find.byType(AnimatedSlide),
+            find.ancestor(
+              of: find.byKey(const ValueKey('pinned-topic-collapse')),
               matching: find.byType(AnimatedOpacity),
             ),
           )

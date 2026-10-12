@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -9,6 +11,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -27,11 +30,13 @@ class LessonPage extends ConsumerStatefulWidget {
   const LessonPage({
     required this.lessonId,
     this.origin = ReaderOrigin.study,
+    this.resume = false,
     super.key,
   });
 
   final LessonId lessonId;
   final ReaderOrigin origin;
+  final bool resume;
 
   @override
   ConsumerState<LessonPage> createState() => _LessonPageState();
@@ -116,6 +121,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
               return _ReaderBody(
                 reader: reader,
                 origin: origin,
+                resume: widget.resume && reader.lesson.id == widget.lessonId,
                 onAdvance: _advanceTo,
               );
             },
@@ -196,8 +202,10 @@ class _ReaderBody extends ConsumerStatefulWidget {
     required this.reader,
     required this.origin,
     required this.onAdvance,
+    this.resume = false,
   });
 
+  final bool resume;
   final ReaderContext reader;
   final ReaderOrigin origin;
 
@@ -216,15 +224,57 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   /// Whether the end of the lesson is on screen. Drives the pull handle.
   final _isAtEnd = ValueNotifier<bool>(false);
   ReadMarkingController? _markingController;
+  late final ReaderPositionRepository _positions;
+  Timer? _positionDelay;
+  bool _positionFailed = false;
+  bool _resumeFailed = false;
 
   @override
   void initState() {
     super.initState();
+    _positions = ref.read(readerPositionRepositoryProvider);
     _scrollController = ScrollController()..addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initMarking();
-      _syncScrollState();
+      if (widget.resume) {
+        unawaited(_resumePosition());
+      } else {
+        _syncScrollState();
+      }
     });
+  }
+
+  Future<void> _resumePosition() async {
+    final exam = widget.reader.examId;
+    if (exam == null) return _syncScrollState();
+    try {
+      final offset = await _positions.read(exam, widget.reader.lesson.id);
+      if (!mounted || !_scrollController.hasClients) return;
+      _scrollController.jumpTo(
+        offset.clamp(0.0, _scrollController.position.maxScrollExtent),
+      );
+      if (_resumeFailed) setState(() => _resumeFailed = false);
+      _syncScrollState();
+    } on Exception catch (error) {
+      if (mounted) setState(() => _resumeFailed = true);
+      // Retain the lesson while the saved position can be retried.
+      debugPrint('Reader position could not load: ${error.runtimeType}');
+    }
+  }
+
+  Future<void> _savePosition(ReaderContext reader, double offset) async {
+    final exam = reader.examId;
+    if (exam == null) return;
+    try {
+      await _positions.write(
+        exam,
+        reader.lesson.id,
+        offset.clamp(0.0, double.infinity),
+      );
+      if (mounted && _positionFailed) setState(() => _positionFailed = false);
+    } on Exception {
+      if (mounted) setState(() => _positionFailed = true);
+    }
   }
 
   /// A lesson short enough not to scroll never fires a scroll event, so the
@@ -254,6 +304,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       // The body stays mounted across an advance, so the controller keeps
       // the offset the last lesson was left at and the new one opened part
       // way down. A lesson starts at its first line.
+      _positionDelay?.cancel();
+      unawaited(_savePosition(oldWidget.reader, _scrollOffset.value));
       if (_scrollController.hasClients) _scrollController.jumpTo(0);
       _scrollOffset.value = 0;
       _progress.value = 0;
@@ -272,6 +324,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
 
   @override
   void dispose() {
+    _positionDelay?.cancel();
+    unawaited(_savePosition(widget.reader, _scrollOffset.value));
     _scrollController.dispose();
     _scrollOffset.dispose();
     _progress.dispose();
@@ -294,6 +348,12 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     final maxExtent = _scrollController.position.maxScrollExtent;
 
     _scrollOffset.value = offset;
+    _positionDelay?.cancel();
+    final reader = widget.reader;
+    _positionDelay = Timer(
+      const Duration(milliseconds: 300),
+      () => unawaited(_savePosition(reader, offset)),
+    );
     _progress.value =
         maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
     // Within a line or so of the bottom, not exactly on it: a reader who
@@ -357,6 +417,12 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                           textStyles.bodySmall.copyWith(color: colors.inkMuted),
                     ),
                     const SizedBox(height: 16),
+                    if (_resumeFailed)
+                      errorFor('reading position', _resumePosition),
+                    if (_positionFailed)
+                      saveFailureLine(
+                        () => _savePosition(reader, _scrollOffset.value),
+                      ),
                     ReaderGap(
                       isRead: reader.isRead,
                       examId: reader.examId,

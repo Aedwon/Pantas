@@ -33,6 +33,9 @@ class ListRow extends StatelessWidget {
     this.verticalPadding = 11,
     this.richSubtitle,
     this.valueStyle,
+    this.wrapTitle = false,
+    this.valueWidget,
+    this.trailingWidget,
     super.key,
   });
   final String title;
@@ -53,6 +56,9 @@ class ListRow extends StatelessWidget {
   final double verticalPadding;
   final InlineSpan? richSubtitle;
   final TextStyle? valueStyle;
+  final bool wrapTitle;
+  final Widget? valueWidget;
+  final Widget? trailingWidget;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -64,54 +70,56 @@ class ListRow extends StatelessWidget {
     );
     final label = Text.rich(
       richTitle ?? TextSpan(text: title),
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
+      maxLines: wrapTitle ? null : 1,
+      overflow: wrapTitle ? null : TextOverflow.ellipsis,
       style: labelStyle,
     );
-    final detail = value == null
-        ? null
-        : Text(
-            value!,
-            style: valueStyle ?? context.type.rowValue,
-            textAlign: stack ? TextAlign.start : TextAlign.end,
-          );
-    final trailing = switch (variant) {
-      ListRowVariant.navigation =>
-        Icon(PantasIcons.next, size: 16, color: c.chevron),
-      ListRowVariant.switchControl => ExcludeSemantics(
-          child: ExcludeFocus(
-            child: PantasSwitch(
-              value: selected,
-              label: title,
-              onChanged: (_) => onTap?.call(),
+    final detail = valueWidget ??
+        (value == null
+            ? null
+            : Text(
+                value!,
+                style: valueStyle ?? context.type.rowValue,
+                textAlign: stack ? TextAlign.start : TextAlign.end,
+              ));
+    final trailing = trailingWidget ??
+        switch (variant) {
+          ListRowVariant.navigation =>
+            Icon(PantasIcons.next, size: 16, color: c.chevron),
+          ListRowVariant.switchControl => ExcludeSemantics(
+              child: ExcludeFocus(
+                child: PantasSwitch(
+                  value: selected,
+                  label: title,
+                  onChanged: (_) => onTap?.call(),
+                ),
+              ),
             ),
-          ),
-        ),
-      ListRowVariant.check => selected
-          ? Icon(PantasIcons.check, size: 20, color: c.accent)
-          : const SizedBox(width: 20),
-      ListRowVariant.radio => Container(
-          width: 22,
-          height: 22,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: selected ? c.accentFill : null,
-            border: Border.all(
-              color: selected ? c.accent : c.controlOutline,
-              width: 1.5,
+          ListRowVariant.check => selected
+              ? Icon(PantasIcons.check, size: 20, color: c.accent)
+              : const SizedBox(width: 20),
+          ListRowVariant.radio => Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: selected ? c.accentFill : null,
+                border: Border.all(
+                  color: selected ? c.accent : c.controlOutline,
+                  width: 1.5,
+                ),
+              ),
+              child: selected
+                  ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
+                  : null,
             ),
-          ),
-          child: selected
-              ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
-              : null,
-        ),
-      ListRowVariant.inlineEditor => Icon(
-          expanded ? PantasIcons.close : PantasIcons.next,
-          size: 16,
-          color: expanded ? c.accent : c.chevron,
-        ),
-      _ => const SizedBox.shrink(),
-    };
+          ListRowVariant.inlineEditor => Icon(
+              expanded ? PantasIcons.close : PantasIcons.next,
+              size: 16,
+              color: expanded ? c.accent : c.chevron,
+            ),
+          _ => const SizedBox.shrink(),
+        };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

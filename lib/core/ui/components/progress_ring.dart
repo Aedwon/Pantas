@@ -11,7 +11,20 @@ class ProgressRing extends StatefulWidget {
     this.child,
     this.showCheck = true,
     super.key,
-  }) : assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+    this.delay = Duration.zero,
+  })  : studyStyle = false,
+        assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+  const ProgressRing.study({
+    required this.fraction,
+    this.delay = Duration.zero,
+    super.key,
+  })  : size = 24,
+        child = null,
+        showCheck = false,
+        studyStyle = true,
+        assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+  final bool studyStyle;
+  final Duration delay;
   final double fraction;
   final double size;
   final Widget? child;
@@ -27,6 +40,7 @@ class _ProgressRingState extends State<ProgressRing>
   late Animation<double> _check;
   bool? _still;
   _RingPainter? _painter;
+  bool _animated = false;
 
   @override
   void didChangeDependencies() {
@@ -51,14 +65,25 @@ class _ProgressRingState extends State<ProgressRing>
 
   void animate(double begin) {
     final complete = widget.fraction == 1 && widget.showCheck;
-    final fillMs = widget.size == 34 ? 1200 : 600;
+    final delayMs =
+        widget.studyStyle && !_animated ? widget.delay.inMilliseconds : 0;
+    _animated = true;
+    final fillMs = widget.studyStyle
+        ? 700 + delayMs
+        : widget.size == 34
+            ? 1200
+            : 600;
     final endMs = complete ? fillMs + 320 : fillMs;
     _controller.duration = Duration(milliseconds: endMs);
     _fill = _controller.drive(
       Tween(begin: begin, end: widget.fraction).chain(
         CurveTween(
           curve: Interval(
-            widget.size == 34 ? 300 / endMs : 0,
+            widget.studyStyle
+                ? delayMs / endMs
+                : widget.size == 34
+                    ? 300 / endMs
+                    : 0,
             fillMs / endMs,
             curve: PantasCurves.houseOut,
           ),
@@ -94,12 +119,16 @@ class _ProgressRingState extends State<ProgressRing>
   Widget build(BuildContext context) {
     final complete = widget.fraction == 1 && widget.showCheck;
     final track = widget.fraction == 0
-        ? context.colors.chevron
+        ? widget.studyStyle
+            ? context.colors.separator
+            : context.colors.chevron
         : widget.size == 34
             ? context.colors.accentTint
             : context.colors.separator;
     final stroke = widget.fraction == 0
-        ? 1.5
+        ? widget.studyStyle
+            ? 2.0
+            : 1.5
         : widget.size == 34
             ? 2.5
             : 2.4;
