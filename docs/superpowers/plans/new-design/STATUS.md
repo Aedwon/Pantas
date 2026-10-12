@@ -70,6 +70,10 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
   Astra audit with the families.
+- W4a's merge of the integration branch needed hand resolution in `list_row.dart` and
+  `state_view.dart` (W4a and W4c both extended them; both sets of parameters kept; merge commit
+  3b2d8b33, not pushed). Expect the same when W4a's work reaches the integration branch. W4a's
+  failing tests after the merge are its own uncommitted Task 4 drafts.
 - Uncommitted work sits in the worktrees of W4a (5 files), W4c (13), W4d (10), W4f (29, Task 1).
   Do not clean these worktrees.
 - Session ids in `w<N>-sid`
