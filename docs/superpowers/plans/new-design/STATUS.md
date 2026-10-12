@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4a onboarding, W4c study and reader | started Oct 11 (Sol, parallel); in progress, stopped twice by the Codex limit | web/new-design-w4a-r1, web/new-design-w4c-r1 from cee7a9c5 |
+| Level 4: W4 screen families | W4a, W4b, W4c in progress; W4d started (no commit); W4e, W4f prepared; W4g not started. Contracts integrated so far: W4b Task 1 and `LessonDayContext` (ffc8045b) | web/new-design-w4[a-f]-r1; standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -60,18 +60,24 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 12, 5:50 AM)
+## Running or scheduled (Oct 12, 10:40 AM)
 
-- Codex ran out at 5:36 AM (resets 9:03 AM). One scheduled job (`run-0904.sh`, lead scratchpad)
-  starts at 9:04 AM with two lanes: W4a resume then W4b new; W4c resume then W4d new.
-- W4a (web/new-design-w4a-r1 at 1af8dc0b, plus uncommitted work): in progress.
-- W4c (2eae3d9f): Tasks 2 and 3 done; lead rulings of Oct 12 answer its questions; it does Tasks 1,
-  4, 8 and part of 6 next. Tasks 5, 7, 9 wait for W4b Task 3 and W4d Task 1 on the integration
-  branch.
-- W4b and W4d: worktrees ready at 2d438daf, prompts `w4b-dispatch.md`, `w4d-dispatch.md`; not
-  started by any worker yet.
-- W4a and W4c are based on cee7a9c5; merge the integration branch into each before integrating.
-- Not started: W4e, W4f, W4g.
+- Codex ran out at 10:18 AM (resets 2:04 PM). Two lane jobs (`lane.sh`, lead scratchpad) start at
+  2:05 PM, each running its workers one after another:
+  lane 1: W4f Task 1 only (new), then W4d resume, then W4a resume;
+  lane 2: W4e Tasks 1 and 2 only (new), then W4c resume, then W4b resume.
+  Prompts: `w4f-dispatch.md`, `w4e-dispatch.md`, `w4d-resume.md`, `w4a-resume3.md`,
+  `w4c-resume3.md`, `w4b-resume2.md`; session ids in `w<N>-sid`.
+- Lead rulings of Oct 12 are in L3-parallel-map.md (standing rulings) and the W4a, W4b, W4c plans.
+- State of the branches: W4a 1af8dc0b plus uncommitted drafts (Tasks 2, 3, 5 done); W4b ffc8045b
+  (Task 1 and the Task 3 type, integrated); W4c e38a65a4 plus uncommitted work (Tasks 1 to 4
+  done or in progress); W4d no commit. The integration branch (ffc8045b) is merged into W4a, W4c
+  and W4d; lead full checks on it were running at 10:40 AM.
+- As contract commits land (W4f Task 1, W4e Tasks 1 and 2, W4d Task 1 and report entry, W4c
+  reading fraction): lead reviews, merges them into the integration branch, and merges that into
+  the waiting branches when their workers are idle.
+- Sol has started W4a, W4b, W4c, W4d; W4e and W4f start at 2:05 PM. Only W4g is free for Sonnet,
+  and it waits for W4b Task 8 and W4f Task 5.
 
 ## Next step
 
