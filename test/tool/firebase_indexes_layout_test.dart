@@ -104,12 +104,12 @@ void main() {
       r'db.doc(`users/${uid}`).set({expireAt: timestamp});',
       "db.collection('users').doc(uid).update({'expireAt': timestamp});",
       "db.collection('users').doc(uid).set({'expireAt': timestamp});",
-      r'const event = db.doc(`users/${uid}`); '
+      r'const event = db.doc(`users/${uid}`); ' +
           'transaction.set(event, {expireAt: timestamp});',
-      r'const event = db.doc(`webhookEvents/${eventId}/users/${uid}`); '
-          r'{ let event = db.doc(`users/${uid}`); '
+      r'const event = db.doc(`webhookEvents/${eventId}/users/${uid}`); ' +
+          r'{ let event = db.doc(`users/${uid}`); ' +
           'transaction.set(event, {expireAt: timestamp}); }',
-      'const payload = {expireAt: timestamp}; '
+      'const payload = {expireAt: timestamp}; ' +
           r'db.doc(`users/${uid}`).set(payload);',
     ]) {
       expect(_hasUnreviewedExpiry(source), isTrue, reason: source);
