@@ -27,6 +27,9 @@ in W1's `LessonTextScale`).
    (quiz entry functions) to reach the integration branch; the lead resumes this worker then. No
    local substitutes.
 
+5. (Added Oct 12.) Reading fraction contract: see standing ruling 5 in `L3-parallel-map.md`. Add
+   it as the first commit of the next run, alone.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on

@@ -12,6 +12,34 @@ merge (SUBAGENTS). Amended Oct 6 (strategy B7): workers are GPT-6.1 Sol High thr
 the pace also follows Aedwon's Codex limits; GPT-6 Astra audits each workstream before it
 integrates.
 
+## Standing rulings for the W4 families (lead, October 12)
+
+These bind every W4 worker. Apply them and record the case in the evidence; do not stop for them.
+
+1. Contrast, when a board value fails the rule in L3 W2 "Lead rulings, October 10":
+   translucent white text on the accent color becomes full-opacity `onAccent`; secondary text on
+   `fill` uses `onFillLabel` (light `#636366`, dark `#98989D`; whichever family needs it first
+   adds the token with a test); a meaningful icon or handle under 3:1 uses `controlOutline`.
+   Placeholder text, disabled controls, dimmed-after-answer rows and decorative marks stay as
+   drawn. Any other failing pair: use the nearest existing token that passes, keep the drawn
+   background, and list the pair under "Contrast changes" in the evidence for Aedwon's visual check.
+2. A control that needs another family's contract that has not reached this branch: build the rest
+   of the task, leave that one control out (no disabled or dead substitute), list it under
+   "Waiting on a contract" in the evidence, and go on to the next task. The lead merges the
+   contract in and resumes the worker for the listed items.
+3. Contracts land first: a task another family waits for (the Dependencies table, plus the three
+   below) is committed first, alone, so the lead can integrate it early.
+4. Analysis and format scope is `lib test tool`. Boards and the outline and timeline tools are read
+   from the main checkout.
+5. Added contracts (not in the table below):
+   - Reading fraction. W4c adds `writeFraction` and `readFraction(examId, lessonId)` (0 to 1, the
+     saved offset over the scroll extent, saved with the offset) to
+     `reader_position_repository.dart`. W4b's HE_Resume ring reads it; no fraction means an empty
+     ring.
+   - Report entry. W4d Task 7 exposes one function that opens the report form for a question id.
+     W4a Task 9's Report control calls it.
+   - Mock history. W4e Task 2's history data feeds W4b Task 8's "Your mocks".
+
 ## Dependencies
 
 | Before | After | Why |

@@ -35,6 +35,18 @@ System back equals the Back link on every step and on the picker in both modes; 
 it leaves the app (G-a-19, moved from W1, gate L3-10). Test: system back on each step goes to the
 previous step; on Welcome it pops the route.
 
+## Lead rulings, October 12 (W4a stop at 1af8dc0b)
+
+Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
+1. O_DateKnown and O_DateToday selected weekday (85% white on teal, 4.27:1): full-opacity
+   `onAccent` (standing ruling 1).
+2. O_Days when the exam is today: the "at least one study day before the exam" check and its card
+   do not apply; at least one chosen day is enough.
+3. O_Notify: as drawn, no visible Back link and no progress bar. System back returns to Name.
+4. O_Custom placeholder (`#AEAEB2`): as drawn; placeholder text is exempt.
+5. Task 8 waits for W4f Task 1 (`ReminderPrefs`). The AS_* Report control waits for W4d Task 7
+   (standing ruling 2). Do Tasks 1, 4, 6, 7, 9 and 10 now; Task 11 after Task 8.
+
 ## Task 2. Launch and Welcome
 
 Boards O_Launch, O_Flow. Copy per DECISIONS D-32. Replace `onboarding_welcome_step.dart`.

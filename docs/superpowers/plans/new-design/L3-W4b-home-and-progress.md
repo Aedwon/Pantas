@@ -17,6 +17,15 @@ invitation, with a widget test (amended Oct 6, abuse review 1).
 
 ## Track A: Home
 
+## Lead rulings, October 12 (W4b stop at ffc8045b)
+
+Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
+1. HP_ExamDay month text (80% white on teal, 3.95:1): full-opacity `onAccent`.
+2. HE_Resume ring: reads W4c's reading fraction (standing ruling 5). Until that contract is merged
+   into this branch, build the rest of Task 3 and list the ring under "Waiting on a contract".
+3. Task 8 "Your mocks" waits for W4e's mock history; build the rest of Task 8 with the section
+   left out and listed. Go on through the plan; do not stop for these.
+
 ### Task 1. Move shared data out of `lib/features/progress/` (lands first)
 
 Move `table_order_prefs.dart` (`tableOrderProvider`, `retainTableOrderProvider`, `TableOrder`,
