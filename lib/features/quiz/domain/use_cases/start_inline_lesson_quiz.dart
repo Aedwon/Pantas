@@ -52,7 +52,9 @@ class StartInlineLessonQuiz {
       return const StartInlineLessonQuizNoQuestions('Lesson not found.');
     }
 
-    final allQuestions = await _content.questionsByTopic(lesson.topicId);
+    final allQuestions = (await _content.questionsByTopic(lesson.topicId))
+        .where((question) => question.lessonId == lessonId)
+        .toList();
     final picked = _picker.pick(
       PickContext(
         allQuestions: allQuestions,
