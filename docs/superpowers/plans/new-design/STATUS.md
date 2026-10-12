@@ -60,24 +60,20 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 12, 10:40 AM)
+## Running or scheduled (Oct 12, 3:30 PM)
 
-- Codex ran out at 10:18 AM (resets 2:04 PM). Two lane jobs (`lane.sh`, lead scratchpad) start at
-  2:05 PM, each running its workers one after another:
-  lane 1: W4f Task 1 only (new), then W4d resume, then W4a resume;
-  lane 2: W4e Tasks 1 and 2 only (new), then W4c resume, then W4b resume.
-  Prompts: `w4f-dispatch.md`, `w4e-dispatch.md`, `w4d-resume.md`, `w4a-resume3.md`,
-  `w4c-resume3.md`, `w4b-resume2.md`; session ids in `w<N>-sid`.
-- Lead rulings of Oct 12 are in L3-parallel-map.md (standing rulings) and the W4a, W4b, W4c plans.
-- State of the branches: W4a 1af8dc0b plus uncommitted drafts (Tasks 2, 3, 5 done); W4b ffc8045b
-  (Task 1 and the Task 3 type, integrated); W4c e38a65a4 plus uncommitted work (Tasks 1 to 4
-  done or in progress); W4d no commit. The integration branch (ffc8045b) is merged into W4a, W4c
-  and W4d; lead full checks on it were running at 10:40 AM.
-- As contract commits land (W4f Task 1, W4e Tasks 1 and 2, W4d Task 1 and report entry, W4c
-  reading fraction): lead reviews, merges them into the integration branch, and merges that into
-  the waiting branches when their workers are idle.
-- Sol has started W4a, W4b, W4c, W4d; W4e and W4f start at 2:05 PM. Only W4g is free for Sonnet,
-  and it waits for W4b Task 8 and W4f Task 5.
+- Codex ran out at 2:54 PM (resets 7:06 PM). Two lane jobs (`lane.sh`, lead scratchpad) start at
+  7:07 PM: lane 1 W4d, W4f, W4a; lane 2 W4c, W4b, W4e (all resumes; session ids in `w<N>-sid`;
+  prompts `w4d-resume2.md`, `w4f-resume.md`, `w4x-resume.md`, `w4b-resume2.md`, `w4e-resume.md`).
+- Integration branch 958ed879 (pushed; 3,902 Flutter tests pass): adds W4b Task 1, the
+  `LessonDayContext` type, W4e Tasks 1 and 2 (`MockCard`, mock history). Merged into every family
+  branch on Oct 12, 3:30 PM.
+- Branch states: W4a 50689ccb plus drafts (Tasks 1, 2, 3, 5 done); W4b Task 1 and the Task 3 type;
+  W4c Tasks 1 to 4 committed plus uncommitted work; W4d no commit; W4e Tasks 1, 2; W4f Task 1
+  uncommitted in its worktree.
+- Contracts still to land: W4f Task 1 (`ReminderPrefs`), W4d Task 1 and report entry, W4c reading
+  fraction. When they do: lead reviews, merges into integration, merges that into the others.
+- W4g is the only family no Sol worker has started; it waits for W4b Task 8 and W4f Task 5.
 
 ## Next step
 
