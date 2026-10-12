@@ -251,3 +251,34 @@ Task 4 files:
 Tasks 1 and 4 are implemented and saved locally. Tasks 2 and 3 remain at their prior commits. Task 8 and independent Task 6 are next. Tasks 5, 7, 9 and Home endings remain held. Independent review and Aedwon's visual acceptance are not performed.
 
 Task 4 source identity: base `9e55a5ce`, staged lib/test patch SHA-256 `b9299075d910d59947b8dce38c13dde1511f03df67016bee30e3af6d9b7d2b33`.
+
+## October 12 contract-first resumption after lead integration
+
+Retrieved main policy at `900e9f3730a93442fbf4004c148e815bfd45170a`, then again at `cb4dc3cecb5788e9036db24d41c7478aacc3638d` on the next explicit resumption. Current AGENTS.md, WORKFLOW.md and SUBAGENTS.md were retrieved and match the previously read policy contents byte-for-byte. Read the current L3 parallel map and W4c lead rulings. The lead merged integration into this branch at `444daa51`, then `3bbf437c`. All unfinished Task 8 work was preserved. The merges include LessonDayContext and the newer mock family. This worker performed no merge or push. The feature branch still has no remote ref.
+
+Current authorization: reading fraction contract first and alone; then finish Tasks 1, 4, 8, 5 and all applicable Task 6, including Home endings. Tasks 7 and 9 wait for W4d's quiz entry contract, still absent. Standing ruling 2 now requires omitting unavailable controls and listing them, while continuing independent work. Standing ruling 1 resolves contrast pairs using named tokens; changes go under Contrast changes. Analysis and format scope is lib, test, tool.
+
+### Reading fraction contract
+
+Public API in ReaderPositionRepository:
+- `Future<double?> readFraction(String examId, String lessonId)` returns a valid measured fraction from 0 to 1. Missing, malformed or out-of-range data returns null for an empty ring.
+- `Future<void> writeFraction(String examId, String lessonId, double fraction)` preserves the offset and saves its fraction.
+- Existing `write(examId, lessonId, offset)` accepts optional `fraction`. The reader supplies its measured offset-over-extent progress, clamped to 0 to 1. A no-scroll lesson uses the reader's existing fully visible fraction of 1.
+
+Offset and fraction live together in one device preference row, `lesson_offset.<examId>.<lessonId>`, as JSON `{ "offset": <double>, "fraction": <double> }`. An older scalar offset remains readable and has no fraction until measured again. One preference write saves the pair atomically. Repository writes keep their invocation order, and a failed write still reaches its caller without blocking a later retry. No schema, content, backend or sync shape changed. Reading position stays device-local.
+
+Checks, serialized relay:
+- 9481, signatures supplied before behavior: exit 1, `00:00 +2 -5: Some tests failed.` Fraction round trips, paired writes, legacy-offset preservation and invalid-input rejection failed as intended.
+- 9482, first implementation: tests exit 1 and narrow analysis exit 3. Record offsets inferred as num/int where double was required. Corrected the literal types and trailing commas.
+- 9483, `flutter test test/features/lesson/data/reader_position_repository_test.dart --reporter expanded`: exit 0, `00:00 +7: All tests passed!`
+- 9483, `dart analyze lib/features/lesson/data/repos/reader_position_repository.dart test/features/lesson/data/reader_position_repository_test.dart`: exit 0, `No issues found!`
+- Contract files formatted and diff check exit 0. The reader's save call and its existing resume assertion were updated to this storage contract. The updated reader widget assertion has not run yet because the preserved unfinished Task 8 UI does not compile. It will run with the next focused family check.
+
+This first commit contains only the contract, its reader save call, its repository tests, its existing resume assertion and this evidence. The unfinished bookmark changes remain unstaged. Task 8's earlier 9462 run was canceled after compilation errors and provider timeouts; the relay reports exit 70 and no final output. The raw partial log is preserved at `.dart_tool/w4c-t8-first-1.log`. It is not passing evidence.
+
+Contract file manifest:
+- `lib/features/lesson/data/repos/reader_position_repository.dart`
+- `lib/features/lesson/presentation/lesson_page.dart`
+- `test/features/lesson/data/reader_position_repository_test.dart`
+- `test/features/lesson/presentation/lesson_page_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4c.md`

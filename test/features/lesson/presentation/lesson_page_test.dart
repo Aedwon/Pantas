@@ -9,6 +9,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 
@@ -122,7 +123,9 @@ void main() {
     await tester.pump(const Duration(milliseconds: 350));
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
-    expect(await prefs.deviceValue('lesson_offset.e1.l1'), '360.0');
+    final positions = ReaderPositionRepository(prefs);
+    expect(await positions.read('e1', 'l1'), 360);
+    expect(await positions.readFraction('e1', 'l1'), inExclusiveRange(0, 1));
   });
 
   testWidgets('shows estimated read time', (tester) async {

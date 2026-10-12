@@ -272,6 +272,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
         exam,
         reader.lesson.id,
         offset.clamp(0.0, double.infinity),
+        fraction: _progress.value,
       );
       if (mounted && _positionFailed) setState(() => _positionFailed = false);
     } on Exception {
