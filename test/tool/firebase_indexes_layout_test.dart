@@ -63,8 +63,8 @@ void main() {
     expect(overrides, hasLength(4));
     for (final field in ['claimsPending', 'updatedAt']) {
       final matches = overrides.where(
-        (entry) => entry['collectionGroup'] == 'server' &&
-            entry['fieldPath'] == field,
+        (entry) =>
+            entry['collectionGroup'] == 'server' && entry['fieldPath'] == field,
       );
       expect(matches, hasLength(1), reason: field);
       expect(matches.single, {
@@ -85,7 +85,8 @@ void main() {
         .cast<Map<String, dynamic>>();
     for (final group in ['users', 'webhookRateLimits']) {
       final matches = overrides.where(
-        (entry) => entry['collectionGroup'] == group &&
+        (entry) =>
+            entry['collectionGroup'] == group &&
             entry['fieldPath'] == 'expireAt',
       );
       expect(matches, hasLength(1), reason: group);
@@ -101,14 +102,14 @@ void main() {
   test('expiry guard rejects direct and aliased top-level account writes', () {
     for (final source in [
       r'db.doc(`users/${uid}`).set({expireAt: timestamp});',
-      r"db.collection('users').doc(uid).update({'expireAt': timestamp});",
-      r"db.collection('users').doc(uid).set({'expireAt': timestamp});",
+      "db.collection('users').doc(uid).update({'expireAt': timestamp});",
+      "db.collection('users').doc(uid).set({'expireAt': timestamp});",
       r'const event = db.doc(`users/${uid}`); '
-          r'transaction.set(event, {expireAt: timestamp});',
+          'transaction.set(event, {expireAt: timestamp});',
       r'const event = db.doc(`webhookEvents/${eventId}/users/${uid}`); '
           r'{ let event = db.doc(`users/${uid}`); '
-          r'transaction.set(event, {expireAt: timestamp}); }',
-      r'const payload = {expireAt: timestamp}; '
+          'transaction.set(event, {expireAt: timestamp}); }',
+      'const payload = {expireAt: timestamp}; '
           r'db.doc(`users/${uid}`).set(payload);',
     ]) {
       expect(_hasUnreviewedExpiry(source), isTrue, reason: source);
@@ -116,14 +117,14 @@ void main() {
     expect(
       _hasUnreviewedExpiry(
         r'const event = db.doc(`webhookEvents/${eventId}/users/${uid}`); '
-        r'transaction.set(event, {expireAt: timestamp});',
+        'transaction.set(event, {expireAt: timestamp});',
       ),
       isFalse,
     );
     expect(
       _hasUnreviewedExpiry(
         r'const rate = deps.db.doc(`webhookRateLimits/${uid}_${bucket}`); '
-        r'transaction.set(rate, {expireAt: timestamp});',
+        'transaction.set(rate, {expireAt: timestamp});',
       ),
       isFalse,
     );
@@ -132,16 +133,18 @@ void main() {
   test('source never writes expiry to a top-level account document', () {
     final violations = <String>[];
     for (final root in ['functions/src', 'lib']) {
-      for (final file in Directory(root)
-          .listSync(recursive: true)
-          .whereType<File>()) {
+      for (final file
+          in Directory(root).listSync(recursive: true).whereType<File>()) {
         if (_hasUnreviewedExpiry(file.readAsStringSync())) {
           violations.add(file.path);
         }
       }
     }
-    expect(violations, isEmpty,
-        reason: 'Account documents must never receive the TTL field.');
+    expect(
+      violations,
+      isEmpty,
+      reason: 'Account documents must never receive the TTL field.',
+    );
   });
 }
 
@@ -157,7 +160,10 @@ bool _hasUnreviewedExpiry(String source) {
   for (final reference in references.allMatches(source)) {
     final name = RegExp.escape(reference.group(1)!);
     // A repeated binding could refer to an account in another scope.
-    if (RegExp('(?:const|let|var|final)\\s+$name\\b').allMatches(source).length != 1) {
+    if (RegExp('(?:const|let|var|final)\\s+$name\\b')
+            .allMatches(source)
+            .length !=
+        1) {
       continue;
     }
     remaining = remaining.replaceAll(
