@@ -33,6 +33,25 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    `mock_exam` presentation (layering rule R2). `MockCard` and its model are on the integration
    branch from 958ed879.
 
+## Lead clarifications, October 13
+
+1. Task 3, Adjust in Total time mode: preserve the selected time and its question budget.
+   Redistribute the budget among selected lessons within real question availability; do not let
+   a stepper silently change the time wheel. QZS_1c and QZS_1d both keep 30 minutes and roughly 33
+   questions while redistributing 28+5 into 20+13. QZE_One shows Questions per lesson, not Total
+   time, so it is not evidence for changing the Total time budget. With one selected lesson in
+   Total time, redistribution has no alternate destination; the corresponding steppers stay
+   bounded and the time wheel changes the budget. Keep the drawn Adjust control in Questions
+   per lesson mode. Preserve the approved real-pool shortfall behavior and Reset to the even split.
+2. Task 3, seven-day recency: retain the planned AttemptsRepository.questionOutcomes query,
+   supplemented by the existing ReviewStateRepository.byQuestionIds and checked-answer lastReview
+   timestamps for the selected pool (only states with a real completed review, reps > 0). A checked
+   answer is stored before the attempt completes; a discarded partial session therefore may have
+   no saved attempt. Include those real checked answers in recency filtering. Reuse the existing
+   repository API and account-boundary behavior; no schema or synchronization change. Tests cover a
+   checked partial session that was discarded, a fresh seed state, the seven-day boundary and the
+   required pool top-up. This fills the existing approved rule, not a new spacing decision.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
