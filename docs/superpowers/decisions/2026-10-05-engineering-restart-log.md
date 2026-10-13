@@ -1183,3 +1183,26 @@ every count. Current L3 W4d records the rule before implementation, with tests f
 single-lesson behavior, bounds, Reset and wheel changes. No visual styling, price, storage schema
 or spacing rule changes. If Aedwon requests different wheel semantics later, return it as a
 visible product revision; do not silently change an approved presentation.
+
+## October 14, 2026, 2:47 AM: continue from the next reset
+
+Aedwon said: "continue". The short-window limit has reset (0% used, weekly32%, ordinary usage
+allowed). The lead fetched origin and read current AGENTS.md and WORKFLOW.md from main93d563b7;
+no policy/code-branch drift was found. One self-hosted relay runner is online and idle.
+
+W4c's partial Task8 checkpoint606ee3fc6e569d187bad90e1cbcd880519fab72f was committed by#9552
+before the limit:925 focused tests and clean analysis, formatting/layering/attribution/diff
+checks pass. Tree is clean. Full Task8 still lacks drag proxy and screen-reader destination
+fidelity. No upload occurred. Lead review of the immutable source found that a retained Undo
+payload carries old rows/order/examId without an account/reset provenance check; the account-clear
+test only performs fresh reads. The mutation recorder captures current context when restoration
+starts, so it is not proof that old Undo data is rejected. The worker was asked to reproduce the
+actual boundary case or prove an existing lifecycle guard, and fix through existing mechanisms
+if needed. This is a pending finding, not a claimed exploit or accepted fix. Upload remains held.
+
+W4d remains at uploaded0ad018fe. Task3's dirty core slice passed522 applicable tests in#9554
+but had seven owned style findings; the picker UI remains an intentionally unfinished RED draft.
+No Task3 commit is inferred. Same Sol workers resume their exact checkpoints: W4c boundary/Undo
+verification first, then Task8 fidelity; W4d style/focused checks and a scoped core save, then UI.
+Original approved scope, model roles, application-code freeze, deployment approvals and visual
+acceptance remain binding. Neither family is accepted or integrated by these partial checks.
