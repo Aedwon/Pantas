@@ -30,6 +30,22 @@ in W1's `LessonTextScale`).
 5. (Added Oct 12.) Reading fraction contract: see standing ruling 5 in `L3-parallel-map.md`. Add
    it as the first commit of the next run, alone.
 
+## Lead review clarification, October 14: Undo boundaries
+
+Task 8 Undo must not restore a retained prior-account or prior-reset payload. Reuse the existing
+SyncActiveContextStore snapshot token, which rotates on runtime quiesce/wipe and exists for an
+anonymous envelope too. Capture the token with removed rows/order inside the removal transaction.
+Validate the same token before any restoration writes inside the restore transaction. A mismatched
+or missing current token expires the old Undo; it must not reintroduce membership or preferences.
+The sheet also expires its retained Undo state when auth, exam or reset identity changes.
+
+Preserve every recognized active snapshot. A missing legacy token may initialize only the existing
+anonymous envelope through the existing store, never a new schema or account/sync mechanism.
+No stable context may be cleared merely because the student removes a bookmark. Tests first:
+actual wipe then held Undo; account/token change then held Undo; anonymous missing-token baseline;
+exam change while the sheet survives; ordinary same-boundary Undo still restores timestamps/order
+and retains newly added bookmarks. Record reproduction and exact results before acceptance.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
