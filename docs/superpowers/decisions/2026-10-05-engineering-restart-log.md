@@ -1206,3 +1206,16 @@ No Task3 commit is inferred. Same Sol workers resume their exact checkpoints: W4
 verification first, then Task8 fidelity; W4d style/focused checks and a scoped core save, then UI.
 Original approved scope, model roles, application-code freeze, deployment approvals and visual
 acceptance remain binding. Neither family is accepted or integrated by these partial checks.
+
+### October 14: existing token for retained bookmark Undo
+
+The worker located the existing SyncActiveContextStore token, which changes on runtime quiesce
+and wipe. The lead read its actual assigned-branch implementation: anonymous snapshots keep a
+token with null context; clearStable and publishStable rotate tokens. The mutation recorder binds
+current writes but does not authenticate an earlier retained removal payload. Technical ruling,
+recorded before guard code: capture the existing token transactionally at removal and compare it
+before restoration writes in the same transaction; expire old Undo when the boundary changes.
+Keep valid active context intact. Missing legacy token may initialize the existing anonymous
+envelope only. No new schema, account mechanism or synchronization path is authorized. Tests must
+reproduce actual wipe/account-switch/anonymous cases and preserve normal Undo. This implements the
+existing account-isolation requirement; it does not claim the pending finding already fixed.
