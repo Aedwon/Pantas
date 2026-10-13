@@ -1170,3 +1170,16 @@ for discarded partial sessions, fresh seeds, the seven-day boundary and top-up. 
 schema, synchronization path or study-method decision is authorized. Current L3 W4d carries both
 clarifications before the affected adjustment/recency implementation. Tests and the later Astra
 family audit must check these cases.
+
+### Questions per lesson Adjust, same Task 3 clarification
+
+The worker proposed retaining the selected wheel value as the even base, using explicit row
+steppers for manual count overrides, letting derived time follow, and clearing overrides on
+Reset or an explicit wheel change. The lead accepts this interpretation of the existing D-164
+question-driven mode and Reset rule. QZE_One keeps its drawn Adjust control and can change a
+single lesson's real count. Unlike Total time mode, the student is explicitly setting questions,
+so derived time changes. No silent wheel synchronization occurs. Pool availability still caps
+every count. Current L3 W4d records the rule before implementation, with tests for counts/time,
+single-lesson behavior, bounds, Reset and wheel changes. No visual styling, price, storage schema
+or spacing rule changes. If Aedwon requests different wheel semantics later, return it as a
+visible product revision; do not silently change an approved presentation.
