@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-13 21:48 Asia/Manila (renewed after usage reset)
+Since: 2026-10-14 02:49 Asia/Manila (renewed after usage reset)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 draft recovery continues after #9518 timeout; no passing result or commit yet | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 partial checkpoint606ee3fc:925 focused tests and clean analysis; upload held pending Undo-after-account-reset review. W4d Task 3 core has522 applicable passing tests, but remains uncommitted with style findings and unfinished picker UI | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -60,7 +60,7 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 13, 9:48 PM)
+## Running or scheduled (Oct 14, 2:49 AM)
 
 - RESUMED BY AEDWON Oct 13: "okay resume that. the plan already tells what to do exactly right?"
   The October 18 wait is lifted for the existing approved engineering scope. Live Codex limits
@@ -82,6 +82,21 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   W4c #9518 timed out at 120 seconds (exit 124). On resumption #9523's narrowed disposal tests
   passed all 4 Study fixtures. Task 8 geometry/motion/isolation and focused family checks
   remain in progress; dirty work preserved, no task acceptance or commit yet.
+- Oct 14 at02:47 Aedwon said "continue". Current window permits work (0% short-window,
+  32% weekly used). Policy refreshed from main93d563b7943a7ca8a5e408c0bf37520ec5504756.
+  Same workers resumed; one relay runner verified online/idle. No code integration occurred.
+- W4c partial Task8 locally committed606ee3fc6e569d187bad90e1cbcd880519fab72f (#9552),
+  tree clean, not uploaded. #9549:925 focused tests, format1459 files/0 changes, layering,
+  attribution and diff pass; #9546 analysis clean. Source/inputs are in evidence/W4c.md.
+  Still pending: drag proxy fidelity, screen-reader destination wording, Tasks5-7/9,
+  family review/Astra and visual acceptance. Lead review identified a missing held-Undo
+  after account/reset clearing case; existing tests only verify fresh prefs reads. The
+  worker must reproduce or prove the existing boundary guard before upload/acceptance.
+- W4d Task3 source and tests remain dirty on0ad018fe. #9554:522 applicable tests pass,
+  formatting/layering/attribution/diff pass, seven owned style findings remain. The
+  new picker UI tests are an explicitly unfinished RED draft, not part of a verified
+  core commit. Resume style fixes and focused45 checks, save exact core checkpoint,
+  then finish picker UI. Do not claim wholeTask3 or family complete.
 - Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
@@ -90,7 +105,8 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   `state_view.dart` (W4a and W4c both extended them; both sets of parameters kept; merge commit
   3b2d8b33, not pushed). Expect the same when W4a's work reaches the integration branch. W4a's
   failing tests after the merge are its own uncommitted Task 4 drafts.
-- Uncommitted work sits in the worktrees of W4a (5 files), W4c (13), W4d (10), W4f (29, Task 1).
+- October12 dirty-work snapshot: W4a (5 files), W4c (13), W4d (10), W4f (29, Task1).
+  Current W4c/W4d changes are described above; preserve all remaining drafts.
   Do not clean these worktrees.
 - Session ids in `w<N>-sid`
   (lead scratchpad); resume prompts `w4x-resume.md`, `w4d-resume2.md`, `w4f-resume.md`,
