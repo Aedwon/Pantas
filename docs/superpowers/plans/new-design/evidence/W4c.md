@@ -644,3 +644,87 @@ controlOutline/onAccent contrast rulings remain unchanged. Visual acceptance,
 peer-device convergence, independent review and full-family gates remain
 unverified. No screenshots, computer control, upload, merge, main edits or
 publication occurred. Lead owns the scoped re-review and acceptance.
+
+## October 14: bookmark destination announcement checkpoint
+
+After the verified Undo guard checkpoint, the remaining Task8 fidelity boards
+were reread from main, with their timeline/outline tools and motion/decision
+rules. Engineering HEAD does not carry these exported boards, so main remains
+the source. Main board blob identities:
+BM_Edit cbcd81bd667526e4a25966a7f0d509ab854a3a3d;
+BM_ScreenReader 9b2a776617efc2dc3c58e3e3e2c9a08df336929a.
+
+BM_ScreenReader says “Moved above Chemical Bonding.” and “Moved above Layers of
+the Earth and Composition.” The prior implementation said only “Moved [lesson]”.
+The move now captures its destination before asynchronous persistence and
+announces “Moved above/below [destination].” Move up/down actions and the
+resulting saved Custom order remain unchanged.
+
+Relay9583: both direction fixtures failed on the missing destination. Relay9585
+exposed exact messages: expected “Moved above Lesson2.”, actual “Moved Lesson1”;
+expected “Moved below Lesson2.”, actual “Moved Lesson3”. Exit1 with two meaningful
+failures. Actual test strings include spaces between Lesson and its number.
+The streamed exact RED log is .dart_tool/w4c-destination-exact-red.log.
+
+Relay9587 ran the prescribed task scope: 935 passed and two new fixtures failed
+because their SemanticsHandle remained active at Flutter end verification.
+The destination message/order assertions had passed. addTearDown runs after that
+verification; the fixtures now explicitly dispose the handle in try/finally.
+The same candidate also had one analyzer line-length info. The destination
+expression was split without changing behavior.
+
+Relay9589, all child exits0 on the final candidate:
+
+```text
+flutter test test/features/lesson/presentation/bookmarks_sheet_test.dart --plain-name 'announces its destination' --no-pub --reporter expanded --timeout 30s
+00:00 +2: All tests passed!
+flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --timeout 30s
+00:39 +937: All tests passed!
+dart analyze lib test tool
+No issues found!
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1459 files (0 changed) in 1.40 seconds.
+dart run tool/check_layering.dart
+check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+git diff --check
+exit0
+```
+
+Source base: 4d1d9980de140d5e95d9a2ec1793a31842899017.
+lib/test/tool patch SHA256: 358416d2929ce2cf0d679e0750cf2ed5988db3bb61098b3b374838eab4c5a308.
+Patch: .dart_tool/w4c-destination-verified-source.patch.
+Complete streamed logs: .dart_tool/w4c-destination-verified-0.log through
+.dart_tool/w4c-destination-verified-7.log.
+
+Scoped manifest:
+- lib/features/lesson/presentation/widgets/bookmarks_sheet.dart
+- test/features/lesson/presentation/bookmarks_sheet_test.dart
+- docs/superpowers/plans/new-design/evidence/W4c.md
+
+### Concrete remaining fidelity limitation
+
+BM_Edit row BMEdit_n92: lift begins9000ms, reaches scale1.03 and shadow
+0 8px 24px rgba(0,0,0,.14) at9150ms: 150ms, houseOut. On release at10000ms,
+the row reaches scale1/no shadow at10200ms: 200ms, houseOut. Board movement
+follows the finger while held.
+
+The installed Flutter source
+/opt/homebrew/share/flutter/packages/flutter/lib/src/widgets/reorderable_list.dart
+hardcodes the proxy AnimationController duration250ms (around line1560), uses
+reverse for drop, and lerps the drop position with Curves.easeOut (around line1665).
+Its list gap controller also hardcodes250ms (around line1339). The public
+proxyDecorator receives animation.view and can change the visual decoration;
+it cannot retime the underlying proxy position/drop. No SDK patch or reflection
+was attempted. This conflict was sent to the lead before any proxy workaround.
+
+Task8 remains partial while the lead rules on implementing the exact lift/drop
+without an unapproved timing substitute. Destination wording is now verified;
+proxy code remains unchanged. Tasks5,6,7,9 remain pending per lead sequencing.
+No missing external contract is blocking a control. No new schema, dependency,
+sync mechanism, figure or contrast exception was introduced. The actual full
+Flutter suite, combined-family acceptance, phone visual acceptance, peer-device
+convergence and independent review remain unverified. No upload, merge,
+publication, screenshots or computer control occurred. The immutable Undo
+correction remains available separately for lead re-review.

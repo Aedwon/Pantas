@@ -183,6 +183,8 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
   Future<void> _move(int oldIndex, int newIndex) => _save(() async {
         final exam = await _examId();
         if (exam == null || newIndex < 0 || newIndex >= _shown.length) return;
+        final relative = newIndex < oldIndex ? 'above' : 'below';
+        final destination = '$relative ${_shown[newIndex].title}';
         final ids = [for (final row in _shown) row.lessonId];
         final moved = ids.removeAt(oldIndex);
         ids.insert(newIndex, moved);
@@ -196,7 +198,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         if (mounted) {
           await SemanticsService.sendAnnouncement(
             View.of(context),
-            'Moved ${_shown[oldIndex].title}',
+            'Moved $destination.',
             Directionality.of(context),
           );
         }

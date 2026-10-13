@@ -587,6 +587,39 @@ void main() {
     semantics.dispose();
   });
 
+  for (final direction in ['up', 'down']) {
+    testWidgets('semantic move $direction announces its destination',
+        (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+        await tester.tap(find.text('Edit'));
+        await tester.pumpAndSettle();
+        tester.takeAnnouncements();
+        final id = direction == 'up' ? 'l1' : 'l3';
+        final node = tester.getSemantics(find.byKey(ValueKey(id)));
+        final actions = node.getSemanticsData().customSemanticsActionIds!;
+        final move = actions.firstWhere(
+          (id) =>
+              CustomSemanticsAction.getAction(id)?.label == 'Move $direction',
+        );
+        node.owner!.performAction(node.id, SemanticsAction.customAction, move);
+        await tester.pumpAndSettle();
+        final preposition = direction == 'up' ? 'above' : 'below';
+        expect(
+          tester.takeAnnouncements().map((message) => message.message).toList(),
+          ['Moved $preposition Lesson 2.'],
+        );
+        expect(
+          await BookmarkPrefsRepository(db).readCustomOrder('e1'),
+          direction == 'up' ? ['l3', 'l1', 'l2'] : ['l2', 'l3', 'l1'],
+        );
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
+
   testWidgets('switching away from custom asks nothing', (tester) async {
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
 
