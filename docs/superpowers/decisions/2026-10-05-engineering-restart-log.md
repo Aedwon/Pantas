@@ -1219,3 +1219,19 @@ Keep valid active context intact. Missing legacy token may initialize the existi
 envelope only. No new schema, account mechanism or synchronization path is authorized. Tests must
 reproduce actual wipe/account-switch/anonymous cases and preserve normal Undo. This implements the
 existing account-isolation requirement; it does not claim the pending finding already fixed.
+
+### October14: current sizing-mode semantics and nonpositive pace
+
+The worker flagged an ambiguity between current D-166 "nearest matching value" and retained July
+numeric snapping. The lead read the old spec and source: July explicitly sized minutes per
+selection, never a total. Current approved design changes to questions per lesson and total time,
+so carrying10 from one mode to the other can change quiz size substantially. Ruling: match the
+closest actual aggregate question count under current pools/pace and valid destination wheel
+values; use deterministic ties, clear explicit manual overrides, and test repeated toggles against
+successive drift. This interprets the current approved design rather than restoring old scope.
+
+The worker also found that the repository can return a zero average, while the UI divides by it.
+Ruling before affected code: nonpositive pace is unavailable for estimation; the already-approved
+50-second initial pace covers both core and UI until a positive measurement exists. Tests cover
+zero/negative values, bounded counts and nonempty estimates. No new student figure, spacing rule,
+pricing, storage schema or data source is authorized. Current L3 W4d records both clarifications.
