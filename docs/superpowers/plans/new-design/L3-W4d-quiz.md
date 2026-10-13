@@ -52,6 +52,14 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    checked partial session that was discarded, a fresh seed state, the seven-day boundary and the
    required pool top-up. This fills the existing approved rule, not a new spacing decision.
 
+3. Task 3, Adjust in Questions per lesson mode: the wheel is the base per-lesson allocation.
+   Explicit row steppers may override that row's real question count within its available pool;
+   recompute total questions and derived time. Do not silently move the wheel. Reset removes the
+   overrides and restores the even base allocation; explicitly changing the wheel also removes
+   overrides and applies the newly selected base. This keeps QZE_One's drawn Adjust useful and
+   follows D-164's question-driven mode, row steppers and Reset behavior. Tests cover single-lesson
+   overrides, pool bounds, totals/time, Reset and a wheel change after a manual adjustment.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
