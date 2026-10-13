@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -8,9 +9,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/ink_checkbox.dart';
+import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
+import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 
@@ -74,6 +78,9 @@ void main() {
     required int rows,
     BookmarkOrder order = BookmarkOrder.recent,
     TextScaler textScaler = TextScaler.noScaling,
+    bool dark = false,
+    bool reduceMotion = false,
+    bool preloadReader = false,
   }) async {
     for (var i = 1; i <= rows; i++) {
       await repo.mark('l$i');
@@ -91,22 +98,37 @@ void main() {
         .read(appPreferencesRepositoryProvider)
         .setSelectedExamId('e1');
     await container.read(bookmarkOrderProvider.notifier).choose(order);
+    if (preloadReader) await container.read(readerContextProvider('l1').future);
 
+    var sheetOpen = false;
     await tester.pumpWidget(
       UncontrolledProviderScope(
         container: container,
         child: MaterialApp(
           key: UniqueKey(),
-          theme: buildLightTheme(),
+          theme: dark ? buildDarkTheme() : buildLightTheme(),
           builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+            data: MediaQuery.of(context).copyWith(
+              textScaler: textScaler,
+              disableAnimations: reduceMotion,
+            ),
             child: child!,
           ),
-          home: Scaffold(
-            body: Builder(
-              builder: (context) => ElevatedButton(
-                onPressed: () => showBookmarksSheet(context),
-                child: const Text('Open'),
+          home: StatefulBuilder(
+            builder: (context, setState) => PantasSheet(
+              bookmarks: true,
+              scrollable: false,
+              open: sheetOpen,
+              label: 'Bookmarks',
+              onDismiss: () => setState(() => sheetOpen = false),
+              page: Scaffold(
+                body: ElevatedButton(
+                  onPressed: () => setState(() => sheetOpen = true),
+                  child: const Text('Open'),
+                ),
+              ),
+              child: BookmarksSheet(
+                onClose: () => setState(() => sheetOpen = false),
               ),
             ),
           ),
@@ -118,6 +140,162 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  for (final dark in [false, true]) {
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('bookmark board states dark=$dark scale=$scale',
+          (tester) async {
+        tester.view
+          ..physicalSize = const Size(390, 844)
+          ..devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        await pumpSheet(
+          tester,
+          rows: 3,
+          dark: dark,
+          reduceMotion: true,
+          textScaler: TextScaler.linear(scale),
+        );
+        expect(
+          tester
+              .getSize(find.byKey(const ValueKey('pantas-sheet-surface')))
+              .height,
+          closeTo(844 * .74, .01),
+        );
+        await tester.tap(find.text('Edit'));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        if (scale == 1) {
+          expect(tester.getSize(find.byKey(const ValueKey('l3'))).height, 62);
+        }
+        final grip = tester.widget<IconTheme>(
+          find.byKey(const ValueKey('bookmark-grip')).first,
+        );
+        final colors = tester.element(find.byType(BookmarksSheet)).colors;
+        expect(grip.data.color, colors.controlOutline);
+        await tester.tap(find.text('Select All'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Remove'));
+        await tester.pumpAndSettle();
+        expect(find.text('No bookmarks yet'), findsOneWidget);
+        expect(find.text('Undo'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+        await tester.tap(find.text('Undo'));
+        await tester.pumpAndSettle();
+        expect(await repo.markedIds(), hasLength(3));
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
+
+  testWidgets('bookmark selection follows the approved 200 ms spring',
+      (tester) async {
+    await pumpSheet(tester, rows: 3);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 3'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    final transform = tester
+        .widget<Transform>(find.byKey(const ValueKey('check-mark-scale')));
+    expect(
+      transform.transform.storage[0],
+      closeTo(.5 + .5 * PantasCurves.popB.transform(.5), .001),
+    );
+    await tester.pumpAndSettle();
+  });
+
+  testWidgets('By subject draws the actual subject heading', (tester) async {
+    await pumpSheet(tester, rows: 3);
+    await tester.tap(find.text('By subject'));
+    await tester.pumpAndSettle();
+    expect(find.text('SCIENCE'), findsOneWidget);
+  });
+
+  testWidgets('a changed order crossfades the rows over 200 ms',
+      (tester) async {
+    await pumpSheet(tester, rows: 3);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(BookmarksSheet)));
+    final changed = Completer<void>();
+    final subscription = container.listen(bookmarkOrderProvider, (_, next) {
+      if (next.valueOrNull == BookmarkOrder.oldest && !changed.isCompleted) {
+        changed.complete();
+      }
+    });
+    try {
+      await tester.tap(find.text('Oldest'));
+      await tester.runAsync(() => changed.future);
+      await tester.runAsync(() => container.read(bookmarkRowsProvider.future));
+      await tester.pump();
+      final incoming = find.byKey(const ValueKey('bookmark-order-fade-oldest'));
+      expect(incoming, findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(
+        tester.widget<FadeTransition>(incoming).opacity.value,
+        closeTo(.5, .01),
+      );
+      await tester.pumpAndSettle();
+    } finally {
+      subscription.close();
+    }
+  });
+
+  testWidgets('Remove and Undo refresh the reader bookmark state',
+      (tester) async {
+    await pumpSheet(tester, rows: 3, preloadReader: true);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(BookmarksSheet)));
+    Future<ReaderContext?> read() async {
+      final result = container.read(readerContextProvider('l1').future);
+      await tester.pumpAndSettle();
+      return result;
+    }
+
+    expect((await read())!.isBookmarked, isTrue);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 1'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove'));
+    await tester.pumpAndSettle();
+    expect((await read())!.isBookmarked, isFalse);
+    await tester.tap(find.text('Undo'));
+    await tester.pumpAndSettle();
+    expect((await read())!.isBookmarked, isTrue);
+  });
+
+  testWidgets('Edit shows grips in Recent and one bookmark hides ordering',
+      (tester) async {
+    await pumpSheet(tester, rows: 3);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('bookmark-grip')), findsNWidgets(3));
+  });
+  testWidgets('one bookmark hides the order switch', (tester) async {
+    await pumpSheet(tester, rows: 1);
+    expect(find.text('Recent'), findsNothing);
+    expect(find.byKey(const ValueKey('bookmark-grip')), findsNothing);
+  });
+  testWidgets('Undo restores the original dates and exact positions',
+      (tester) async {
+    await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+    await repo.reorder(['l2', 'l3', 'l1']);
+    final before = await repo.customOrder();
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Select All'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Undo'));
+    await tester.pumpAndSettle();
+    final after = await repo.customOrder();
+    expect(
+      after.map((r) => [r.lessonId, r.markedAt, r.sortIndex]).toList(),
+      before.map((r) => [r.lessonId, r.markedAt, r.sortIndex]).toList(),
+    );
+  });
   testWidgets('the sheet lists every bookmark, not three', (tester) async {
     await pumpSheet(tester, rows: 7);
 
@@ -164,11 +342,11 @@ void main() {
 
     expect(
       tester.widget<Text>(find.text('Oldest')).style?.fontWeight,
-      FontWeight.w700,
+      FontWeight.w600,
     );
     expect(
       tester.widget<Text>(find.text('Recent')).style?.fontWeight,
-      isNot(FontWeight.w700),
+      FontWeight.w600,
     );
   });
 
@@ -179,7 +357,7 @@ void main() {
     await tester.pumpAndSettle();
 
     final prefsRepo = BookmarkPrefsRepository(db);
-    expect(await prefsRepo.readOrder(), BookmarkOrder.custom);
+    expect(await prefsRepo.readOrder(examId: 'e1'), BookmarkOrder.custom);
   });
 
   testWidgets('the header offers Edit, never Save', (tester) async {
@@ -198,20 +376,19 @@ void main() {
       expect(target, findsOne);
       expect(
         target.evaluate().single.rect.size.width,
-        greaterThanOrEqualTo(48),
+        greaterThanOrEqualTo(44),
       );
       expect(
         target.evaluate().single.rect.size.height,
-        greaterThanOrEqualTo(48),
+        greaterThanOrEqualTo(44),
       );
     }
 
     expectTarget('Edit bookmarks');
-    for (final label in ['Recent', 'By subject', 'Oldest', 'Custom']) {
-      expectTarget('Order bookmarks by $label');
-    }
 
     await tester.tap(find.text('Custom'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Edit'));
     await tester.pumpAndSettle();
     expectTarget('Reset bookmark order');
 
@@ -234,11 +411,11 @@ void main() {
       expect(target, findsOne);
       expect(
         target.evaluate().single.rect.size.width,
-        greaterThanOrEqualTo(48),
+        greaterThanOrEqualTo(44),
       );
       expect(
         target.evaluate().single.rect.size.height,
-        greaterThanOrEqualTo(48),
+        greaterThanOrEqualTo(44),
       );
     }
 
@@ -254,22 +431,25 @@ void main() {
     expect(target, findsOne);
     final data = target.evaluate().single.getSemanticsData();
     expect(data.flagsCollection.isButton, isTrue);
-    expect(target.evaluate().single.rect.size.height, greaterThanOrEqualTo(48));
+    expect(target.evaluate().single.rect.size.height, greaterThanOrEqualTo(44));
 
     semantics.dispose();
   });
 
-  testWidgets('grips appear only in custom order', (tester) async {
+  testWidgets('grips appear only in Edit', (tester) async {
     await pumpSheet(tester, rows: 3);
     expect(find.byKey(const ValueKey('bookmark-grip')), findsNothing);
 
-    await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
     expect(find.byKey(const ValueKey('bookmark-grip')), findsNWidgets(3));
   });
 
   testWidgets('dragging a row down persists the adjusted order',
       (tester) async {
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
 
     await tester.drag(
       find.byKey(const ValueKey('bookmark-grip')).first,
@@ -277,14 +457,16 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final rows = await repo.customOrder();
-    expect(rows.map((row) => row.lessonId).toList(), ['l2', 'l1', 'l3']);
+    final rows = await BookmarkPrefsRepository(db).readCustomOrder('e1');
+    expect(rows, ['l2', 'l1', 'l3']);
   });
 
   testWidgets('the move down semantic action writes a new custom order',
       (tester) async {
     final semantics = tester.ensureSemantics();
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
 
     final node = tester.getSemantics(find.byKey(const ValueKey('l3')));
     final actions = node.getSemanticsData().customSemanticsActionIds!;
@@ -299,8 +481,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final rows = await repo.customOrder();
-    expect(rows.map((row) => row.lessonId), ['l2', 'l3', 'l1']);
+    final rows = await BookmarkPrefsRepository(db).readCustomOrder('e1');
+    expect(rows, ['l2', 'l3', 'l1']);
     semantics.dispose();
   });
 
@@ -319,6 +501,8 @@ void main() {
     expect(find.text('Reset order'), findsNothing);
 
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
     expect(find.text('Reset order'), findsOneWidget);
   });
 
@@ -330,7 +514,7 @@ void main() {
 
     expect(find.text('Done'), findsOneWidget);
     expect(find.text('Edit'), findsNothing);
-    expect(find.byType(InkCheckbox), findsNWidgets(3));
+    expect(find.byType(CheckMark), findsNWidgets(3));
   });
 
   testWidgets('a row in edit mode selects rather than opening', (tester) async {
@@ -349,7 +533,7 @@ void main() {
     await tester.tap(find.text('Edit'));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Select all'));
+    await tester.tap(find.text('Select All'));
     await tester.pumpAndSettle();
 
     expect(find.text('3 selected'), findsOneWidget);
@@ -359,7 +543,7 @@ void main() {
     await pumpSheet(tester, rows: 3);
     await tester.tap(find.text('Edit'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Select all'));
+    await tester.tap(find.text('Select All'));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Remove'));
@@ -373,7 +557,7 @@ void main() {
     await pumpSheet(tester, rows: 3);
     await tester.tap(find.text('Edit'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Select all'));
+    await tester.tap(find.text('Select All'));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Remove'));

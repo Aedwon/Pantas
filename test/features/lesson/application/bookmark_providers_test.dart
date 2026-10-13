@@ -98,6 +98,26 @@ void main() {
         .setSelectedExamId('e1');
   });
 
+  test('sort is stored per exam and leaves the legacy value intact', () async {
+    await db.into(db.accountPrefs).insert(
+          AccountPrefsCompanion.insert(key: 'bookmark_order', value: 'oldest'),
+        );
+    expect(
+      await container.read(bookmarkOrderProvider.future),
+      BookmarkOrder.oldest,
+    );
+    await container
+        .read(bookmarkOrderProvider.notifier)
+        .choose(BookmarkOrder.custom);
+    final scoped = await (db.select(db.accountPrefs)
+          ..where((row) => row.key.equals('bookmark_sort.e1')))
+        .getSingleOrNull();
+    expect(scoped?.value, 'custom');
+    final legacy = await (db.select(db.accountPrefs)
+          ..where((row) => row.key.equals('bookmark_order')))
+        .getSingle();
+    expect(legacy.value, 'oldest');
+  });
   test('recent order is newest first', () async {
     await repo.mark('l1');
     await Future<void>.delayed(const Duration(milliseconds: 5));

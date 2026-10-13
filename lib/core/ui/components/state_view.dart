@@ -13,6 +13,7 @@ class StateView extends StatelessWidget {
     this.actionLabel = 'Try Again',
     this.primaryAction = false,
     this.boardLayout = false,
+    this.bookmarkLayout = false,
     super.key,
   }) : fullScreen = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
@@ -22,8 +23,10 @@ class StateView extends StatelessWidget {
         detail = null,
         actionLabel = 'Try Again',
         primaryAction = true,
-        boardLayout = false;
+        boardLayout = false,
+        bookmarkLayout = false;
   final bool boardLayout;
+  final bool bookmarkLayout;
   final String message;
   final VoidCallback? onRetry;
   // Error is deliberately not rendered. Callers keep diagnostic handling.
@@ -37,27 +40,35 @@ class StateView extends StatelessWidget {
   Widget build(BuildContext context) {
     final primary = !fullScreen && primaryAction;
     final compact = primary || boardLayout;
-    final gap = compact ? 6.0 : 14.0;
+    final gap = bookmarkLayout
+        ? 8.0
+        : compact
+            ? 6.0
+            : 14.0;
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
-          size: fullScreen
-              ? 36
-              : compact
-                  ? 40
-                  : 60,
+          size: bookmarkLayout
+              ? 34
+              : fullScreen
+                  ? 36
+                  : compact
+                      ? 40
+                      : 60,
           color: fullScreen
               ? context.colors.secondaryLabel
               : context.colors.chevron,
         ),
         child: SizedBox.square(
           key: const ValueKey('state-mark'),
-          dimension: fullScreen
-              ? 36
-              : compact
-                  ? 40
-                  : 60,
+          dimension: bookmarkLayout
+              ? 34
+              : fullScreen
+                  ? 36
+                  : compact
+                      ? 40
+                      : 60,
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
@@ -87,9 +98,17 @@ class StateView extends StatelessWidget {
           message,
           textAlign: TextAlign.center,
           style: context.type.sectionHero.copyWith(
-            fontSize: fullScreen ? 24 : 20,
+            fontSize: bookmarkLayout
+                ? 18
+                : fullScreen
+                    ? 24
+                    : 20,
             height: fullScreen ? 1.25 : 1.35,
-            letterSpacing: fullScreen ? -.288 : -.2,
+            letterSpacing: bookmarkLayout
+                ? -.216
+                : fullScreen
+                    ? -.288
+                    : -.2,
           ),
         ),
         if (fullScreen) ...[
@@ -111,7 +130,7 @@ class StateView extends StatelessWidget {
               textAlign: TextAlign.center,
               style: context.type.subhead.copyWith(
                 color: context.colors.secondaryLabel,
-                height: 1.45,
+                height: bookmarkLayout ? 1.35 : 1.45,
               ),
             ),
           ],
@@ -160,6 +179,15 @@ class StateView extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      );
+    }
+    if (bookmarkLayout) {
+      return Semantics(
+        liveRegion: true,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(36, 70, 36, 0),
+          child: content,
         ),
       );
     }

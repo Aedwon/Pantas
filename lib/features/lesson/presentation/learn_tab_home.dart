@@ -5,7 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -46,6 +48,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   final _topicKeys = <TopicId, GlobalKey>{};
   final _listKey = GlobalKey();
   bool _searching = false;
+  bool _bookmarksOpen = false;
   StudyTopic? _pinnedTopic;
   final _topicAnchors = <TopicId, double>{};
   bool _saveFailed = false;
@@ -232,134 +235,152 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
         }
 
         if (openTopic != null) _pinnedTopic = openTopic;
-        return PageScaffold(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SearchFieldBar(
-                entryAnimation: true,
-                onCancel: () => setState(() => _searching = false),
-                onEditingChanged: (editing) =>
-                    setState(() => _searching = editing),
-              ),
-              const SizedBox(height: 24),
-              Expanded(
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    TweenAnimationBuilder<double>(
-                      tween: Tween(begin: 1, end: _searching ? 0 : 1),
-                      duration: disableAnimations
-                          ? Duration.zero
-                          : const Duration(milliseconds: 200),
-                      curve: PantasCurves.houseOut,
-                      builder: (context, value, child) => IgnorePointer(
-                        ignoring: _searching,
-                        child: ExcludeFocus(
-                          excluding: _searching,
-                          child: ExcludeSemantics(
+        return PantasSheet(
+          bookmarks: true,
+          scrollable: false,
+          open: _bookmarksOpen,
+          label: 'Bookmarks',
+          onDismiss: () => setState(() => _bookmarksOpen = false),
+          page: PageScaffold(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchFieldBar(
+                  entryAnimation: true,
+                  onCancel: () => setState(() => _searching = false),
+                  onEditingChanged: (editing) =>
+                      setState(() => _searching = editing),
+                ),
+                const SizedBox(height: 24),
+                Expanded(
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      TweenAnimationBuilder<double>(
+                        tween: Tween(begin: 1, end: _searching ? 0 : 1),
+                        duration: disableAnimations
+                            ? Duration.zero
+                            : const Duration(milliseconds: 200),
+                        curve: PantasCurves.houseOut,
+                        builder: (context, value, child) => IgnorePointer(
+                          ignoring: _searching,
+                          child: ExcludeFocus(
                             excluding: _searching,
-                            child: Opacity(
-                              key: const ValueKey('study-map-opacity'),
-                              opacity: value,
-                              child: child,
+                            child: ExcludeSemantics(
+                              excluding: _searching,
+                              child: Opacity(
+                                key: const ValueKey('study-map-opacity'),
+                                opacity: value,
+                                child: child,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      child: Stack(
-                        key: _listKey,
-                        children: [
-                          ListView(
-                            controller: _scrollController,
-                            children: [
-                              StudyHeadBlock(map: map),
-                              StudyMapEntry(
-                                delay: const Duration(milliseconds: 260),
-                                child: BookmarksSection(
-                                  onSeeAll: () => showBookmarksSheet(context),
-                                ),
-                              ),
-                              if (today.hasError)
-                                errorFor(
-                                  'plan',
-                                  () => ref.invalidate(
-                                    studyTodayLessonIdsProvider,
-                                  ),
-                                ),
-                              if (_saveFailed)
-                                saveFailureLine(() async {
-                                  try {
-                                    await ref
-                                        .read(openTopicProvider.notifier)
-                                        .save();
-                                    if (mounted) {
-                                      setState(() => _saveFailed = false);
-                                    }
-                                  } on Exception {
-                                    // Keep the retry visible.
-                                  }
-                                }),
-                              for (var i = 0; i < map.subjects.length; i++)
+                        child: Stack(
+                          key: _listKey,
+                          children: [
+                            ListView(
+                              controller: _scrollController,
+                              children: [
+                                StudyHeadBlock(map: map),
                                 StudyMapEntry(
-                                  key: ValueKey(map.subjects[i].id),
-                                  delay: Duration(milliseconds: 520 + 120 * i),
-                                  child: StudySubjectSection(
-                                    subject: map.subjects[i],
-                                    ringDelay:
-                                        Duration(milliseconds: 820 + 120 * i),
-                                    onToggleTopic: (topicId) =>
-                                        unawaited(_toggleTopic(topicId)),
-                                    keyForTopic: _keyFor,
+                                  delay: const Duration(milliseconds: 260),
+                                  child: BookmarksSection(
+                                    onSeeAll: () =>
+                                        setState(() => _bookmarksOpen = true),
                                   ),
                                 ),
-                            ],
-                          ),
-                          if (_pinnedTopic != null)
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              child: ValueListenableBuilder<bool>(
-                                valueListenable: _openTopicOffScreen,
-                                builder: (context, offScreen, child) {
-                                  final visible =
-                                      offScreen && openTopic != null;
-                                  return IgnorePointer(
-                                    ignoring: !visible,
-                                    child: ExcludeFocus(
-                                      excluding: !visible,
-                                      child: ExcludeSemantics(
+                                if (today.hasError)
+                                  errorFor(
+                                    'plan',
+                                    () => ref.invalidate(
+                                      studyTodayLessonIdsProvider,
+                                    ),
+                                  ),
+                                if (_saveFailed)
+                                  saveFailureLine(() async {
+                                    try {
+                                      await ref
+                                          .read(openTopicProvider.notifier)
+                                          .save();
+                                      if (mounted) {
+                                        setState(() => _saveFailed = false);
+                                      }
+                                    } on Exception {
+                                      // Keep the retry visible.
+                                    }
+                                  }),
+                                for (var i = 0; i < map.subjects.length; i++)
+                                  StudyMapEntry(
+                                    key: ValueKey(map.subjects[i].id),
+                                    delay:
+                                        Duration(milliseconds: 520 + 120 * i),
+                                    child: StudySubjectSection(
+                                      subject: map.subjects[i],
+                                      ringDelay: Duration(
+                                        milliseconds: 820 + 120 * i,
+                                      ),
+                                      onToggleTopic: (topicId) =>
+                                          unawaited(_toggleTopic(topicId)),
+                                      keyForTopic: _keyFor,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                            if (_pinnedTopic != null)
+                              Positioned(
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                child: ValueListenableBuilder<bool>(
+                                  valueListenable: _openTopicOffScreen,
+                                  builder: (context, offScreen, child) {
+                                    final visible =
+                                        offScreen && openTopic != null;
+                                    return IgnorePointer(
+                                      ignoring: !visible,
+                                      child: ExcludeFocus(
                                         excluding: !visible,
-                                        child: AnimatedOpacity(
-                                          opacity: visible ? 1 : 0,
-                                          duration: disableAnimations || visible
-                                              ? Duration.zero
-                                              : const Duration(
-                                                  milliseconds: 200,
-                                                ),
-                                          curve: PantasCurves.houseOut,
-                                          child: child,
+                                        child: ExcludeSemantics(
+                                          excluding: !visible,
+                                          child: AnimatedOpacity(
+                                            opacity: visible ? 1 : 0,
+                                            duration:
+                                                disableAnimations || visible
+                                                    ? Duration.zero
+                                                    : const Duration(
+                                                        milliseconds: 200,
+                                                      ),
+                                            curve: PantasCurves.houseOut,
+                                            child: child,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  );
-                                },
-                                child: PinnedTopicBar(
-                                  topic: _pinnedTopic!,
-                                  onClose: () => _toggleTopic(_pinnedTopic!.id),
+                                    );
+                                  },
+                                  child: PinnedTopicBar(
+                                    topic: _pinnedTopic!,
+                                    onClose: () =>
+                                        _toggleTopic(_pinnedTopic!.id),
+                                  ),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    if (_searching) const SearchResults(),
-                  ],
+                      if (_searching) const SearchResults(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
+          ),
+          child: BookmarksSheet(
+            key: ValueKey(
+              ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id,
+            ),
+            onClose: () => setState(() => _bookmarksOpen = false),
           ),
         );
       },

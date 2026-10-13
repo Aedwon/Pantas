@@ -14,6 +14,7 @@ class PantasSheet extends StatefulWidget {
     required this.open,
     required this.onDismiss,
     this.bookmarks = false,
+    this.scrollable = true,
     super.key,
   });
 
@@ -23,6 +24,7 @@ class PantasSheet extends StatefulWidget {
   final bool open;
   final VoidCallback onDismiss;
   final bool bookmarks;
+  final bool scrollable;
 
   @override
   State<PantasSheet> createState() => _PantasSheetState();
@@ -186,9 +188,11 @@ class _PantasSheetState extends State<PantasSheet> {
                                           }
                                           return false;
                                         },
-                                        child: SingleChildScrollView(
-                                          child: widget.child,
-                                        ),
+                                        child: widget.scrollable
+                                            ? SingleChildScrollView(
+                                                child: widget.child,
+                                              )
+                                            : widget.child,
                                       ),
                                     ),
                                   ),

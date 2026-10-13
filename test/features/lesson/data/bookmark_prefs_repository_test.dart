@@ -37,4 +37,55 @@ void main() {
 
     expect(await repo.readOrder(), BookmarkOrder.recent);
   });
+
+  test('first scoped read preserves the legacy sort independently', () async {
+    await repo.saveOrder(BookmarkOrder.oldest);
+    expect(await repo.readOrder(examId: 'e1'), BookmarkOrder.oldest);
+    await repo.saveOrder(BookmarkOrder.recent);
+    expect(await repo.readOrder(examId: 'e1'), BookmarkOrder.oldest);
+    expect(await repo.readOrder(examId: 'e2'), BookmarkOrder.recent);
+  });
+
+  test('Undo restores timestamps and positions without losing new bookmarks',
+      () async {
+    await repo.saveCustomOrder('e1', ['a', 'b', 'c']);
+    final timestamp = DateTime(2026, 10);
+    await db.into(db.lessonBookmarksLocal).insert(
+          LessonBookmarksLocalCompanion.insert(
+            lessonId: 'b',
+            markedAt: timestamp,
+          ),
+        );
+    final removal = await repo.remove('e1', {'b'});
+    await repo.saveCustomOrder('e1', ['d', 'a', 'c']);
+    await repo.restore(removal);
+    expect(await repo.readCustomOrder('e1'), ['d', 'a', 'b', 'c']);
+    final row = await (db.select(db.lessonBookmarksLocal)
+          ..where((r) => r.lessonId.equals('b')))
+        .getSingle();
+    expect(row.markedAt, timestamp);
+  });
+
+  test('custom order migrates once and remains isolated per exam', () async {
+    expect(
+      await repo.readCustomOrder('e1', legacyOrder: ['a', 'b']),
+      ['a', 'b'],
+    );
+    await repo.saveCustomOrder('e1', ['b', 'a']);
+    expect(await repo.readCustomOrder('e2', legacyOrder: ['c']), ['c']);
+    expect(await repo.readCustomOrder('e1', legacyOrder: ['c']), ['b', 'a']);
+    await repo.saveOrder(BookmarkOrder.custom, examId: 'e1');
+    await repo.saveOrder(BookmarkOrder.oldest, examId: 'e2');
+    expect(await repo.readOrder(examId: 'e1'), BookmarkOrder.custom);
+    expect(await repo.readOrder(examId: 'e2'), BookmarkOrder.oldest);
+  });
+
+  test('clearing account preferences does not restore a prior account order',
+      () async {
+    await repo.saveCustomOrder('e1', ['private-lesson']);
+    await repo.saveOrder(BookmarkOrder.custom, examId: 'e1');
+    await db.delete(db.accountPrefs).go();
+    expect(await repo.readCustomOrder('e1', legacyOrder: const []), isEmpty);
+    expect(await repo.readOrder(examId: 'e1'), BookmarkOrder.recent);
+  });
 }

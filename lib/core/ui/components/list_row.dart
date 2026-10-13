@@ -34,6 +34,9 @@ class ListRow extends StatelessWidget {
     this.richSubtitle,
     this.valueStyle,
     this.wrapTitle = false,
+    this.minimumHeight = 44,
+    this.contentPadding,
+    this.leadingGap = 12,
     this.valueWidget,
     this.trailingWidget,
     super.key,
@@ -57,6 +60,9 @@ class ListRow extends StatelessWidget {
   final InlineSpan? richSubtitle;
   final TextStyle? valueStyle;
   final bool wrapTitle;
+  final double minimumHeight;
+  final EdgeInsetsGeometry? contentPadding;
+  final double leadingGap;
   final Widget? valueWidget;
   final Widget? trailingWidget;
   @override
@@ -136,11 +142,12 @@ class ListRow extends StatelessWidget {
               child: InkWell(
                 onTap: onTap,
                 child: Container(
-                  constraints: const BoxConstraints(minHeight: 44),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: verticalPadding,
-                  ),
+                  constraints: BoxConstraints(minHeight: minimumHeight),
+                  padding: contentPadding ??
+                      EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: verticalPadding,
+                      ),
                   decoration: BoxDecoration(
                     border: divider
                         ? Border(
@@ -152,7 +159,7 @@ class ListRow extends StatelessWidget {
                     children: [
                       if (leading != null) ...[
                         leading!,
-                        const SizedBox(width: 12),
+                        SizedBox(width: leadingGap),
                       ] else if (icon != null) ...[
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),

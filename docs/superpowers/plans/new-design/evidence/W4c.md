@@ -282,3 +282,246 @@ Contract file manifest:
 - `test/features/lesson/data/reader_position_repository_test.dart`
 - `test/features/lesson/presentation/lesson_page_test.dart`
 - `docs/superpowers/plans/new-design/evidence/W4c.md`
+
+## October 13 resumption checkpoint: Task 8 incomplete
+
+Lead requested a checkpoint at the short-window limit after relay 9518. No Task 8
+completion, commit, integration, independent acceptance, visual acceptance or publication
+is claimed. Tasks 5, 6, 7 and 9 were not started in this resumption.
+
+### Startup and source identity
+
+- Read current GitHub main AGENTS.md, WORKFLOW.md, SUBAGENTS.md, startup and visual-companion
+  policy; L2/L3 W4c, parallel map, strategy, amendment spec and current design decisions.
+  Policy revision: `93fe98f21f1d945fa5e78b423e7626d259b0d2e5`.
+- Relay repository main README and project instructions retrieved and read. Relay fetch
+  `9490` exited 0 on the self-hosted Mac runner.
+- Assigned source remained `5e6cda4541a80609b27f2784fc2e58d39731a33b` on
+  `web/new-design-w4c-r1`; remote `287a640b854bc9efa187360cec194e6960554c00`.
+  The three local integration commits and 13 paused dirty files matched the lead's assignment.
+  No switch, merge, reset, rebase, push or main edit was performed.
+- The reading-fraction contract and Tasks 1-4 remain preserved. LessonDayContext and both
+  quiz-start functions are present in this base; their formerly held controls can now proceed.
+- Final lib/test dirty patch SHA-256:
+  `1487bf1962c8a8554e20f4bf982dbaef2ca6ce7ebe5d9c3f7dffc11fcfca92b2`.
+  Exact patch saved as `.dart_tool/w4c-2026-10-13-checkpoint.patch`.
+  There are 16 dirty source/test files, plus this evidence update. No generated files staged.
+
+### Task 8 recovery changes
+
+Preserved and repaired the paused bookmark sheet and Study sheet integration.
+The recovered implementation uses the existing shared variants, per-exam sort and
+JSON custom order keys, unchanged membership schema, saved removal rows and exact
+Undo order with newly added bookmarks retained.
+
+- Bounded the checkbox reveal's height to 22 px; its OverflowBox previously received
+  unbounded height inside the scrolling list.
+- First scoped sort/custom-order reads copy their legacy values once. A later global
+  sort change cannot alter an exam already migrated. The legacy row remains intact.
+- Removed startup invalidation while preference migration is in flight. Change listeners
+  attach after migration; the sort controller reads current storage rather than applying
+  delayed snapshots. Oldest sorts the already-read timestamp rows rather than issuing
+  another awaited query after listeners attach.
+- Retained A-to-Z tie handling for Recent/Oldest and the scoped order update when a
+  reader toggles a bookmark.
+- Corrected reset's accessible label. Existing action tests now follow the approved
+  44 px targets and show handles/reset only while editing.
+- Added repository tests for per-exam migration isolation and Undo timestamps/order.
+- Added explicit resource cleanup to the selected-exam widget test and Study route test.
+  Both were reached without their former cleanup failures in relay 9518.
+
+Shared extensions remain scoped to the paused draft:
+`check_mark.dart`, `list_row.dart`, `pantas_sheet.dart`,
+`segmented_switch.dart`, `state_view.dart`. They need independent review with the
+full Task 8 diff. Other families' source was not edited.
+
+### Exact checks and failed attempts
+
+All execution used relay literal argv. Full logs remain under `.dart_tool/`.
+The Python wrappers' child exits, rather than only their relay envelope exits,
+determine results.
+
+- `9491`: bookmark draft tests, child exit 1, 27 failures; narrow analysis child
+  exit 2, 151 issues. The relay envelope incorrectly appeared successful because
+  the initial wrapper did not propagate child failure. This is not passing evidence.
+- `9495`: test updates and migration/Undo tests written, exit 0.
+- `9497`: repository red check, exit 1, `00:00 +4 -1: Some tests failed.`
+  The first scoped-read test found Recent after the global sort changed, rather
+  than the previously migrated Oldest.
+- `9499`: recovery source edits applied, then dart fix exited 64 because it
+  accepts no path arguments. Tests did not run in that request.
+- `9501`: style fixes and formatting completed; the reactive-watch attempt
+  canceled pending async provider startup. Relay timed out at 180 seconds.
+  Partial test output: `02:20 +6 -7`; no final test result. That attempt was replaced.
+- `9504`: temporary test listeners traced preference events. One isolated sort
+  test passed when the stream was started before awaiting the notifier. Trace
+  instrumentation was removed; its passing result does not validate the unobserved
+  startup path.
+- `9508`: targeted data/sheet tests, exit 1,
+  `00:05 +34 -2: Some tests failed.` Oldest startup and the omitted reset label
+  remained. `9511` reproduced the same two failures. The Oldest-only extra await
+  was then removed and reset's label added.
+- `9513`: prescribed focused command:
+  `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --timeout 20s`.
+  Partial output reached `00:42 +908 -2`; relay exited 124 at 240 seconds.
+  Failing tests: `shows only selected exam content` and
+  `/study with a topicId opens that topic`. Both found a pending zero-delay
+  Drift disposal timer. Analysis was not reached.
+- `9516`: explicit unmount plus pump() and awaited db.close was insufficient.
+  pump() advances no fake time; db.close waited on the pending fake timer.
+  Relay exited 124 at 120 seconds. Analysis was not reached.
+- `9518`: explicit `pump(Duration.zero)` before awaited db.close.
+  The selected-exam and Study route cases no longer failed. Partial output:
+  `00:02 +41 -1`; relay exited 124 at 120 seconds, with no final summary.
+  Remaining failure: `reduced motion removes the pinned topic transitions`,
+  which still uses implicit ProviderScope disposal. Analysis was not reached.
+  Log: `.dart_tool/w4c-task8-timer-0.log`.
+- `git diff --check`: exit 0 before the final fixture-only changes. Formatting
+  and static gates still require a fresh run on the completed task.
+
+### Disposal cause and next action
+
+Installed Drift 2.34.3 `stream_queries.dart` confirms `markAsClosed` schedules
+`Timer.run` to retain the query cache briefly. Its cancellation callback removes
+the table subscription and cancels running queries. Its own source explicitly
+instructs Flutter tests to await Database.close. Installed Flutter test binding
+confirms pump() only flushes microtasks; a supplied Duration invokes fake-time
+elapse. Thus pumping Duration.zero runs that cache-disposal timer before awaiting
+database closure. These are expected disposal operations, not intentionally
+retained subscriptions.
+
+Next: apply the same explicit unmount, Duration.zero pump, and awaited db.close
+to `reduced motion removes the pinned topic transitions`, then rerun the narrow
+tests and the complete prescribed focused command. Run analysis/format for
+`lib test tool`, layering and attribution. Finish remaining board-state/motion
+coverage, including light/dark and 200% text, before recording Task 8 complete
+and committing its scoped changes. Do not claim analysis or full-suite success
+from the partial runs above.
+
+### Contrast changes and acceptance
+
+- Drag handles and unchecked selection outlines use controlOutline, as the standing
+  ruling requires. Shared variant backgrounds remain the drawn values.
+- No new figure, dependency, schema or product rule was introduced.
+- No screen capture, autonomous UI control, device check or visual acceptance occurred.
+- Account wipe, peer-device sync convergence and the complete Task 8 state/motion
+  matrix remain unverified.
+- No current contract is missing from this base. Reader/day and quiz controls are
+  pending implementation, not waiting on absent contracts.
+- Lead owns main STATUS/SSOT, review, integration and visual acceptance. The worker
+  has not updated main STATUS; this checkpoint must be reflected there by the lead.
+
+## October 13 evening: verified Task 8 partial checkpoint
+
+Current policy and relay instructions were retrieved again after Aedwon resumed.
+The policy blobs and L2/L3/parallel map match the earlier read. Relay fetch 9522
+passed. Policy main revision after the fetch:
+`56ca1b58fe164e4423765ea7181282b95887e898`.
+Source stayed at `5e6cda4541a80609b27f2784fc2e58d39731a33b`; remote stayed at
+`287a640b854bc9efa187360cec194e6960554c00`. The existing 17-file dirty checkpoint
+and its `1487bf19...` source patch were preserved.
+
+The lead explicitly authorized saving this verified partial checkpoint before the
+remaining Task 8 fidelity work. Task 8 is not complete or accepted. The family is
+not ready for integration or publication.
+
+### Recovered behavior and new evidence
+
+- Relay 9523: the remaining reduced-motion fixture now explicitly unmounts,
+  advances zero fake time, and awaits database closure. Exit 0:
+  `00:01 +4: All tests passed!`. This resolves the previously recorded disposal hang.
+- Relay 9525: board tests failed as intended on 64 px editing rows instead of 62 px,
+  and on the wrong 200 ms selection spring. Exit 1:
+  `00:03 +32 -3: Some tests failed.`.
+- Relay 9528 ran no tests because a literal-name filter was incorrectly used for two
+  alternatives. Exit 79. It is not red-test evidence.
+- Relay 9529: subject-heading and order-crossfade tests failed as intended:
+  `00:01 +0 -2: Some tests failed.`.
+- The implementation now uses the board's 62 px rows, popB selection spring,
+  actual subject headings when sorted By subject, and a 200 ms linear crossfade
+  between orders. Outgoing/incoming transition rows stay outside focus, pointer
+  input and semantics until their transition completes.
+- Relay 9530 still found the unchanged 64 px inset and a test observing the sort
+  before its asynchronous write finished. The exact multiline inset was corrected;
+  the motion test now waits for the actual order update, then measures 0.5 opacity
+  at 100 ms of its 200 ms transition.
+- Relay 9533: targeted tests exit 0, `00:03 +51: All tests passed!`.
+  Analysis exited 2 with three remaining style findings, subsequently corrected.
+- Relay 9536: the initial reader-cache fixture deadlocked when waiting for a new
+  reader provider through runAsync while its widget scheduler needed a frame.
+  The streamed log preserved the exact last fixture. No passing evidence claimed.
+- Relay 9542: the fixture preloads the reader before binding its widget scheduler
+  and pumps newly read results. It failed on the real defect:
+  removing a bookmark left the cached reader flag true.
+- Remove and Undo now invalidate the Study map alongside the bookmark rows,
+  refreshing the reader's dependent bookmark flag.
+- Relay 9546: all targeted tests exit 0,
+  `00:03 +52: All tests passed!`. Analysis `lib test tool` exit 0:
+  `No issues found!`.
+
+The repository tests cover one-time legacy migration, separate exam sort/custom
+order, clearing account preferences, timestamp preservation and exact Undo
+positions with newer bookmarks retained. Widget checks cover light/dark,
+100%/200% text, reduced motion, one/empty/edit states, drag and semantic move
+behavior, order persistence, the actual selection spring and order crossfade,
+and reader-state consistency after Remove/Undo. The synced account preference
+row shape remains key/value strings; custom order is JSON lesson IDs. Schema,
+membership storage and backend endpoints remain unchanged.
+
+### Final focused verification for this checkpoint
+
+Relay 9549, all child exits 0:
+
+```text
+HEAD 5e6cda4541a80609b27f2784fc2e58d39731a33b
+PATCH_SHA256 74221bd0d8b85611ba4c007bb09d27b37fd7100484980fe418c4da256d6b71a8
+flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --timeout 30s
+00:34 +925: All tests passed!
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1459 files (0 changed) in 1.45 seconds.
+dart run tool/check_layering.dart
+Running build hooks...Running build hooks...check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+git diff --check
+exit 0
+```
+
+Exact source patch: `.dart_tool/w4c-task8-verification-source.patch`.
+Complete logs: `.dart_tool/w4c-task8-verified-0.log` through
+`.dart_tool/w4c-task8-verified-4.log`.
+Analysis log: `.dart_tool/w4c-evening-task8-green-3.log`.
+
+### Unfinished work and acceptance
+
+- Task 8: the drag proxy's exact BM_Edit lift/drop presentation remains unfinished.
+  Screen-reader move feedback still says “Moved [lesson]”; destination wording
+  matching BM_ScreenReader remains unfinished.
+- Task 5, all of Task 6, Task 7 and Task 9 remain pending in this resumption.
+  Their contracts are present. No broad reader work has begun.
+- Independent review, peer-device sync convergence and Android/iPhone visual
+  acceptance remain unverified. No screen capture or autonomous UI control occurred.
+- No full Flutter-suite pass is claimed on this checkpoint. Task 9 owns the final
+  complete-family gates. No merge, upload, integration, main STATUS update or
+  publication was performed by the worker.
+- Contrast remains as ruled: selection outlines and handles use controlOutline;
+  checked selection marks use full onAccent. No new contrast exception was introduced.
+
+Scoped checkpoint manifest:
+- `docs/superpowers/plans/new-design/evidence/W4c.md`
+- `lib/core/ui/components/check_mark.dart`
+- `lib/core/ui/components/list_row.dart`
+- `lib/core/ui/components/pantas_sheet.dart`
+- `lib/core/ui/components/segmented_switch.dart`
+- `lib/core/ui/components/state_view.dart`
+- `lib/features/lesson/application/bookmark_providers.dart`
+- `lib/features/lesson/application/reader_providers.dart`
+- `lib/features/lesson/data/repos/bookmark_prefs_repository.dart`
+- `lib/features/lesson/domain/models/bookmark_order.dart`
+- `lib/features/lesson/presentation/learn_tab_home.dart`
+- `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart`
+- `test/app/study_route_test.dart`
+- `test/features/lesson/application/bookmark_providers_test.dart`
+- `test/features/lesson/data/bookmark_prefs_repository_test.dart`
+- `test/features/lesson/presentation/bookmarks_sheet_test.dart`
+- `test/features/lesson/presentation/learn_tab_home_test.dart`

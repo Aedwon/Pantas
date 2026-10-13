@@ -5,6 +5,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -171,8 +172,18 @@ Future<void> toggleBookmark(WidgetRef ref, LessonId lessonId) async {
   } else {
     await repo.mark(lessonId);
   }
+  final exam = (await ref.read(activeExamFocusProvider.future)).exam;
+  if (exam != null) {
+    final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+    final order = await prefs.readCustomOrder(exam.id);
+    await prefs.saveCustomOrder(
+      exam.id,
+      [if (!isMarked) lessonId, ...order.where((id) => id != lessonId)],
+    );
+  }
   ref
     ..invalidate(readerContextProvider(lessonId))
     ..invalidate(isBookmarkedProvider(lessonId))
+    ..invalidate(bookmarkRowsProvider)
     ..invalidate(studyMapProvider);
 }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
@@ -82,6 +83,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Lesson l1'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
   });
 
   testWidgets('/study/topic/t1 is no longer a route', (tester) async {
