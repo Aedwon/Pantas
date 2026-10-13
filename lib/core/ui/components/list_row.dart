@@ -18,8 +18,11 @@ class ListRow extends StatelessWidget {
     required this.title,
     this.variant = ListRowVariant.navigation,
     this.value,
+    this.valueStyle,
+    this.titleColor,
     this.subtitle,
     this.icon,
+    this.leading,
     this.iconColor,
     this.selected = false,
     this.expanded = false,
@@ -31,8 +34,11 @@ class ListRow extends StatelessWidget {
   final String title;
   final ListRowVariant variant;
   final String? value;
+  final TextStyle? valueStyle;
+  final Color? titleColor;
   final String? subtitle;
   final IconData? icon;
+  final Widget? leading;
   final Color? iconColor;
   final bool selected;
   final bool expanded;
@@ -48,14 +54,16 @@ class ListRow extends StatelessWidget {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: context.type.body.copyWith(
-        color: variant == ListRowVariant.destructive ? c.wrongText : c.label,
+        color: variant == ListRowVariant.destructive
+            ? c.wrongText
+            : titleColor ?? c.label,
       ),
     );
     final detail = value == null
         ? null
         : Text(
             value!,
-            style: context.type.rowValue,
+            style: valueStyle ?? context.type.rowValue,
             textAlign: stack ? TextAlign.start : TextAlign.end,
           );
     final trailing = switch (variant) {
@@ -125,7 +133,10 @@ class ListRow extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      if (icon != null) ...[
+                      if (leading != null) ...[
+                        leading!,
+                        const SizedBox(width: 12),
+                      ] else if (icon != null) ...[
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),
                       ],

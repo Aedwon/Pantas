@@ -10,12 +10,16 @@ class ProgressRing extends StatefulWidget {
     this.size = 24,
     this.child,
     this.showCheck = true,
+    this.fillDuration,
+    this.fillDelay = Duration.zero,
     super.key,
   }) : assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
   final double fraction;
   final double size;
   final Widget? child;
   final bool showCheck;
+  final Duration? fillDuration;
+  final Duration fillDelay;
   @override
   State<ProgressRing> createState() => _ProgressRingState();
 }
@@ -44,22 +48,26 @@ class _ProgressRingState extends State<ProgressRing>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.fraction != widget.fraction ||
         oldWidget.size != widget.size ||
-        oldWidget.showCheck != widget.showCheck) {
+        oldWidget.showCheck != widget.showCheck ||
+        oldWidget.fillDuration != widget.fillDuration ||
+        oldWidget.fillDelay != widget.fillDelay) {
       animate(_fill.value);
     }
   }
 
   void animate(double begin) {
     final complete = widget.fraction == 1 && widget.showCheck;
-    final fillMs = widget.size == 34 ? 1200 : 600;
-    final endMs = complete ? fillMs + 320 : fillMs;
+    final delayMs = widget.fillDelay.inMilliseconds;
+    final fillMs =
+        widget.fillDuration?.inMilliseconds ?? (widget.size == 34 ? 1200 : 600);
+    final endMs = delayMs + fillMs + (complete ? 320 : 0);
     _controller.duration = Duration(milliseconds: endMs);
     _fill = _controller.drive(
       Tween(begin: begin, end: widget.fraction).chain(
         CurveTween(
           curve: Interval(
-            widget.size == 34 ? 300 / endMs : 0,
-            fillMs / endMs,
+            (delayMs + (widget.size == 34 ? 300 : 0)) / endMs,
+            (delayMs + fillMs) / endMs,
             curve: PantasCurves.houseOut,
           ),
         ),
@@ -69,7 +77,7 @@ class _ProgressRingState extends State<ProgressRing>
     _check = _controller.drive(
       CurveTween(
         curve: Interval(
-          (fillMs - 100) / endMs,
+          (delayMs + fillMs - 100) / endMs,
           1,
           curve: PantasCurves.popC,
         ),

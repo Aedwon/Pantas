@@ -9,6 +9,7 @@ class PantasPage extends StatelessWidget {
     this.backLabel,
     this.onBack,
     this.bottom,
+    this.bottomInset = 24,
     super.key,
   });
   final String title;
@@ -16,6 +17,7 @@ class PantasPage extends StatelessWidget {
   final String? backLabel;
   final VoidCallback? onBack;
   final Widget? bottom;
+  final double bottomInset;
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: context.colors.background,
@@ -52,7 +54,7 @@ class PantasPage extends StatelessWidget {
                 ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(16, 2, 16, 24),
+                  padding: EdgeInsets.fromLTRB(16, 2, 16, bottomInset),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [

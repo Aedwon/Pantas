@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/exam_name_line.dart';
@@ -97,33 +96,6 @@ class _QuizTabBody extends ConsumerWidget {
     WidgetRef ref,
     PreparedTodaySession prepared,
   ) async {
-    final isDismissed = await ref.read(quizNudgeDismissedProvider.future);
-    final anyRead = await ref.read(anyLessonReadProvider.future);
-
-    if (!isDismissed && !anyRead) {
-      if (!context.mounted) return;
-      await showModalBottomSheet<void>(
-        context: context,
-        builder: (sheetContext) => _QuizNudgeSheet(
-          onReadLessons: () {
-            Navigator.of(sheetContext).pop();
-            context.go('/study');
-          },
-          onStartAnyway: () async {
-            await ref.read(quizNudgeRepositoryProvider).markDismissed();
-            ref.invalidate(quizNudgeDismissedProvider);
-            if (!sheetContext.mounted) return;
-            Navigator.of(sheetContext).pop();
-            if (!context.mounted) return;
-            unawaited(
-              context.push('/quiz/today/${exam.id}', extra: prepared),
-            );
-          },
-        ),
-      );
-      return;
-    }
-
     if (!context.mounted) return;
     unawaited(context.push('/quiz/today/${exam.id}', extra: prepared));
   }
@@ -226,56 +198,6 @@ class _FlaggedSection extends ConsumerWidget {
                 },
         ),
       ],
-    );
-  }
-}
-
-class _QuizNudgeSheet extends StatelessWidget {
-  const _QuizNudgeSheet({
-    required this.onReadLessons,
-    required this.onStartAnyway,
-  });
-
-  final VoidCallback onReadLessons;
-  final VoidCallback onStartAnyway;
-
-  @override
-  Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
-
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Study first for better results',
-              style: textStyles.headlineMedium,
-            ),
-            const SizedBox(height: 12),
-            Text(
-              "You haven't read any lessons for this exam yet. "
-              'Reading the material before quizzing helps you retain it '
-              'longer.',
-              style: textStyles.bodyMedium.copyWith(color: colors.inkMuted),
-            ),
-            const SizedBox(height: 24),
-            BoardButton(
-              label: 'Study',
-              onPressed: onReadLessons,
-            ),
-            const SizedBox(height: 8),
-            BoardButton(
-              label: 'Start quiz anyway',
-              secondary: true,
-              onPressed: onStartAnyway,
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -8,7 +8,8 @@ import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/practice_picker_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tab_home.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,7 +20,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
           builder: (context, ref, _) {
             final focus = ref.watch(activeExamFocusProvider).valueOrNull;
             if (focus == null || focus.exam == null) {
-              return const QuizTabHome();
+              return const QuizTabScreen();
             }
 
             final examId = focus.exam!.id;
@@ -31,7 +32,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
             final availability =
                 ref.watch(mockAvailabilityProvider(request)).valueOrNull;
             if (availability == null) {
-              return const QuizTabHome();
+              return const QuizTabScreen();
             }
 
             final lastAttempt =
@@ -43,18 +44,58 @@ List<RouteBase> quizRoutes(Ref ref) => [
                 ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
                 : null;
 
-            return QuizTabHome(
-              mockPanel: MockPanel(
-                availability: availability,
-                lastAttempt: lastAttempt,
-                proIsActive: proIsActive,
-                customTrack: customTrack,
-                onSetUpCustom: focus.exam!.isCustom
-                    ? () => context.push('/quiz/mock/custom-setup')
-                    : null,
-                onChangeCustomSetup: focus.exam!.isCustom
-                    ? () => context.push('/quiz/mock/custom-setup')
-                    : null,
+            return QuizTabScreen(
+              mockPanel: MockCard(
+                model: MockCardModel(
+                  state: ref.watch(sessionPanelProvider(examId)).valueOrNull
+                          is SessionPanelInProgress
+                      ? MockCardState.quizPaused
+                      : switch (availability.state) {
+                          MockAvailabilityState.inProgress =>
+                            MockCardState.inProgress,
+                          MockAvailabilityState.cooldown =>
+                            MockCardState.waiting,
+                          MockAvailabilityState.noBlueprint =>
+                            focus.exam!.isCustom
+                                ? MockCardState.customUnset
+                                : MockCardState.unavailable,
+                          MockAvailabilityState.available =>
+                            focus.exam!.isCustom
+                                ? customTrack == null
+                                    ? MockCardState.customUnset
+                                    : MockCardState.customReady
+                                : lastAttempt == null
+                                    ? MockCardState.neverTaken
+                                    : MockCardState.ready,
+                        },
+                  name: '${focus.exam!.shortName} simulation',
+                  durationMinutes: customTrack?.minutes ??
+                      lastAttempt?.durationMinutes ??
+                      ref
+                          .watch(mockBlueprintsForExamProvider(examId))
+                          .valueOrNull
+                          ?.blueprints
+                          .firstOrNull
+                          ?.blueprint
+                          .durationMinutes,
+                  pro: proIsActive,
+                  proPaused:
+                      ref.watch(entitlementProvider).valueOrNull?.state ==
+                          EntitlementState.paused,
+                  lastPercent: lastAttempt == null
+                      ? null
+                      : ref
+                          .watch(mockResultsProvider(lastAttempt.id))
+                          .valueOrNull
+                          ?.results
+                          .percent,
+                  lastAttemptAt: lastAttempt?.submittedAt,
+                  nextOpensAt:
+                      lastAttempt?.submittedAt?.add(const Duration(days: 14)),
+                  customQuestions: customTrack?.questions,
+                ),
+                onSetUp: () => context.push('/quiz/mock/custom-setup'),
+                onChangeSetup: () => context.push('/quiz/mock/custom-setup'),
                 onTake: () {
                   if (focus.exam!.isCustom) {
                     if (customTrack != null) {

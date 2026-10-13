@@ -78,7 +78,7 @@ void main() {
     displayName: 'Student',
   );
 
-  testWidgets('Quiz tab renders MockPanel', (tester) async {
+  testWidgets('Quiz tab renders MockCard', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('upcat');
     await pumpApp(tester);
@@ -87,7 +87,7 @@ void main() {
     await tester.tap(find.text('Quiz'));
     await tester.pumpAndSettle();
 
-    expect(find.byType(MockPanel), findsOneWidget);
+    expect(find.byType(MockCard), findsOneWidget);
   });
 
   testWidgets('signed-in account sees the device-local mock attempt',
@@ -117,6 +117,8 @@ void main() {
     await pumpApp(tester, currentUser: signedInUser);
 
     await tester.tap(find.text('Quiz'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Resume'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Resume'));
     await tester.pumpAndSettle();
@@ -158,8 +160,7 @@ void main() {
           route,
         );
         final actual = switch (route) {
-          '/quiz' =>
-            tester.widget<MockPanel>(find.byType(MockPanel)).proIsActive,
+          '/quiz' => tester.widget<MockCard>(find.byType(MockCard)).model.pro,
           '/quiz/flagged/upcat' => tester
               .widget<FlaggedListPage>(find.byType(FlaggedListPage))
               .proIsActive,
