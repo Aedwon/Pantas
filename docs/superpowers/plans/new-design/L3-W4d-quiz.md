@@ -60,6 +60,22 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    follows D-164's question-driven mode, row steppers and Reset behavior. Tests cover single-lesson
    overrides, pool bounds, totals/time, Reset and a wheel change after a manual adjustment.
 
+4. Task 3, switching sizing modes: D-166's current "nearest matching value" means the
+   closest equivalent aggregate quiz size using current selected lessons, pool caps and valid
+   measured pace. Do not carry the same numeric wheel value from questions per lesson into total
+   minutes. The retained July rule belonged to per-selection minutes and cannot reinstate that
+   superseded meaning. Evaluate eligible destination wheel values by their actual total-question
+   result; choose the closest match, with deterministic ties. Clear manual overrides on an explicit
+   mode change. The first nearest match may round; repeated toggles without another user change
+   must settle rather than creep. Tests cover 10 per lesson across six lessons at50seconds
+   matching50 total minutes, pool shortfalls, a quantized case and repeated toggles. With no selected
+   lessons, there is no aggregate size to convert; use the existing nearest valid default.
+5. Task 3, measured pace: a nonpositive stored average is unavailable for duration sizing.
+   Use the approved initial50-second pace consistently in core calculation and UI until a positive
+   measured average exists. Guard zero/negative values before division. Tests cover zero and
+   negative inputs in both core and time wheel; do not display zero-duration derived estimates for
+   a nonempty quiz or manufacture an unbounded question budget.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
