@@ -1130,3 +1130,13 @@ confirm); a screen family may extend a W2 component in place, with tests, when a
 - Aedwon's decision (Oct 12): wait for the weekly reset on October 18. He declined adding credits
   and declined letting Sonnet 5.5 continue Sol's unfinished families. Until then the lead does only
   lead work (review, integration, records).
+
+## October 13, 2026: engineering resumed in Codex
+
+Aedwon asked: "can you pick up and continue the latest engineering work? before that, tell me the current state, what % of the total completion is the engineering path of things, and then wait for my confirmation before proceeding". The lead reported an approximate 50% implementation task-count estimate for the current restart, excluding the separate content track; this is not a weighted effort or release-readiness measurement. The current integration head is 5e6cda4541a80609b27f2784fc2e58d39731a33b and matches origin. The recorded 3,971 Flutter test pass is historical evidence on that candidate, not a fresh run.
+
+Aedwon then authorized: "okay resume that. the plan already tells what to do exactly right?" This lifts the October 18 wait for already-approved implementation. Scope and complexity remain those approved in the strategy, amendment spec, L2/L3 plans and later rulings. It does not authorize production deployment, publication, application-code changes on main, autonomous app screenshots, or a new unattended automation. The paused B9 scheduled task remains paused.
+
+The lead read policy from main c96177bc4495fd2482489b0d44585ea54b3e000b and retrieved current policy again on resumption. Live account limits permit ordinary work (4% short-window, 1% weekly used at the check); the earlier reported limit is not currently active. Current remote and local integration heads match. Worktrees retain their expected local merges and dirty drafts: W4a 5, W4c 13, W4d 10, W4f 29. No reset, cleanup, or overwrite occurred.
+
+Routing: one self-hosted relay runner online and idle, two offline. Actual relay request Aedwon/chatgpt-terminal-relay#9488 succeeded on W4d, exit 0, and confirmed its dirty drafts. No browser dispatcher is used. Two GPT-6.1 Sol High workers resume W4d and W4c in their existing separate worktrees; lane order remains W4d/W4f/W4a and W4c/W4b/W4e. They preserve unfinished Sol work and current standing rulings. Astra audits run alone after implementors stop. Lead accepts and integrates only after required independent review and applicable checks; visual acceptance stays with Aedwon. Required live setup and deployment steps remain pending.
