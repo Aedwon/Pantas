@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-13 13:47 Asia/Manila
+Since: 2026-10-13 21:48 Asia/Manila (renewed after usage reset)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 and W4c Task 8 draft recovery resumed Oct 13; checks pending, no new accepted task yet | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint locally committed 0ad018fe (975 affected tests passed); Task 3 resuming. W4c Task 8 draft recovery continues after #9518 timeout; no passing result or commit yet | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -60,7 +60,7 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 13, 1:47 PM)
+## Running or scheduled (Oct 13, 9:48 PM)
 
 - RESUMED BY AEDWON Oct 13: "okay resume that. the plan already tells what to do exactly right?"
   The October 18 wait is lifted for the existing approved engineering scope. Live Codex limits
@@ -69,6 +69,14 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Relay preflight #9488 checks W4d; one relay runner is online. Uncommitted work is preserved.
   Policy read: main c96177bc4495fd2482489b0d44585ea54b3e000b. Implementation, deployment,
   visual acceptance, and publication permissions remain separate.
+- At 21:46 Oct 13 Aedwon said "continue". Live usage window is available again (0% short-window,
+  16% weekly used). The same Sol workers resumed: W4d Task 3; W4c Task 8 failure recovery.
+  W4d local head 0ad018fe64678a26ae8e35af665de5e94c79c45b, clean; remote remains a2a0cb80.
+  #9517: 975 affected Flutter tests pass; analysis only the explicitly accepted W4c
+  onReorder notice; format, layering, attribution and diff checks pass. #9519 local commit succeeded.
+  Task 2 remains partial: Home shared rows/sheets and session metadata still need wiring.
+  Independent review/Astra audit, family acceptance, integration and visual acceptance remain pending.
+  W4c #9518 timed out at 120 seconds (exit 124); dirty work remains, no task acceptance.
 - Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
@@ -85,7 +93,7 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
 
 ## Next step
 
-Finish the two resumed families' current draft recovery, record exact task checks and commits, then continue lane 1 W4f/W4a and lane 2 W4b/W4e. W3 is already integrated into each family base. Required cross-family controls remain unfinished until their owners' contracts land; no family is accepted merely because its independent slice passes. Astra audits run alone before family acceptance/integration. Then W6
+Finish the remaining independent W4d and W4c tasks, recording exact checks and commits as each finishes. Then continue lane 1 W4f/W4a and lane 2 W4b/W4e, and return for the missing cross-family controls. W3 is already integrated into each family base. Required cross-family controls remain unfinished until their owners' contracts land; no family is accepted merely because its independent slice passes. Astra audits run alone before family acceptance/integration. Then W6
 Tasks 6 to 8 and W3 Task 15 (deploys, each with Aedwon's approval and his setup steps), W2's
 close-out, W4h Task 4, W5. Roles: strategy B7 (Sol builds; Sonnet only when Codex is used up and
 only on work no Sol worker started; Astra audits; the reading tier runs checks and exact edits).
