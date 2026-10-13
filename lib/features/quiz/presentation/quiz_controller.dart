@@ -161,6 +161,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required ExamId examId,
     required List<PracticeUnit> units,
     required int perUnit,
+    Map<String, int> countsByUnit = const {},
   }) async {
     state = const QuizLoading();
     try {
@@ -170,6 +171,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         examId: examId,
         units: units,
         perUnit: perUnit,
+        countsByUnit: countsByUnit,
         now: now,
       );
       switch (result) {

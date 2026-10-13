@@ -62,6 +62,7 @@ final startPracticeProvider = Provider<StartPractice>(
     content: ref.watch(contentRepositoryProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
     attempts: ref.watch(attemptsRepositoryProvider),
+    reviews: ref.watch(reviewStateRepositoryProvider),
   ),
 );
 

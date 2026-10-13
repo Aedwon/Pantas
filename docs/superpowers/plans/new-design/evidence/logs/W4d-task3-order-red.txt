@@ -1,0 +1,63 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart
+00:00 +0: selected lessons are mixed and the exact order is saved
+00:00 +0 -1: selected lessons are mixed and the exact order is saved [E]
+  Expected: ['l1', 'l2', 'l1', 'l2', 'l1', 'l2']
+    Actual: MappedListIterable<Question, String?>:['l1', 'l1', 'l1', 'l2', 'l2', 'l2']
+     Which: at location [1] is 'l1' instead of 'l2'
+  
+  package:matcher                                                      expect
+  package:flutter_test/src/widget_tester.dart 473:18                   expect
+  test/features/quiz/domain/use_cases/practice_recency_test.dart 54:5  main.<fn>
+  
+00:00 +0 -1: checked discarded partial is recent even without a saved attempt
+00:00 +0 -2: checked discarded partial is recent even without a saved attempt [E]
+  Expected: 'fresh'
+    Actual: 'checked'
+     Which: is different.
+            Expected: fresh
+              Actual: checked
+                      ^
+             Differ at offset 0
+  
+  package:matcher                                                      expect
+  package:flutter_test/src/widget_tester.dart 473:18                   expect
+  test/features/quiz/domain/use_cases/practice_recency_test.dart 81:5  main.<fn>
+  
+00:00 +0 -2: seven-day boundary is recent but an unreviewed seed is eligible
+00:00 +0 -3: seven-day boundary is recent but an unreviewed seed is eligible [E]
+  Expected: ['older', 'seed']
+    Actual: MappedListIterable<Question, String>:['boundary', 'older']
+     Which: at location [0] is 'boundary' instead of 'older'
+  
+  package:matcher                                                       expect
+  package:flutter_test/src/widget_tester.dart 473:18                    expect
+  test/features/quiz/domain/use_cases/practice_recency_test.dart 109:5  main.<fn>
+  
+00:00 +0 -3: a small pool tops up recent questions before shortening the run
+00:00 +0 -4: a small pool tops up recent questions before shortening the run [E]
+  Expected: ['fresh', 'past1', 'past2']
+    Actual: MappedListIterable<Question, String>:['past1', 'past2', 'fresh']
+     Which: at location [0] is 'past1' instead of 'fresh'
+  
+  package:matcher                                                       expect
+  package:flutter_test/src/widget_tester.dart 473:18                    expect
+  test/features/quiz/domain/use_cases/practice_recency_test.dart 134:5  main.<fn>
+  
+00:00 +0 -4: passage grouping is identical in the displayed and durable order
+00:00 +0 -5: passage grouping is identical in the displayed and durable order [E]
+  Expected: ['a1', 'a3', 'b1', 'a2']
+    Actual: MappedListIterable<Question, String>:['a1', 'a3', 'a2', 'b1']
+     Which: at location [2] is 'a2' instead of 'b1'
+  
+  package:matcher                                                       expect
+  package:flutter_test/src/widget_tester.dart 473:18                    expect
+  test/features/quiz/domain/use_cases/practice_recency_test.dart 164:5  main.<fn>
+  
+00:00 +0 -5: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: a small pool tops up recent questions before shortening the run
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: checked discarded partial is recent even without a saved attempt
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: passage grouping is identical in the displayed and durable order
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: selected lessons are mixed and the exact order is saved
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: seven-day boundary is recent but an unreviewed seed is eligible

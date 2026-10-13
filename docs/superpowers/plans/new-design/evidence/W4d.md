@@ -114,3 +114,47 @@ The retired nudge UI and its provider/import/export were removed. The legacy tab
 - Task 9 deletes the remaining legacy tab/screens/tests and coordinates retirement of the old nudge repository with the lesson cleanup. Keep the storage schema intact.
 - Contrast changes for Task 2: none. Disabled and empty rows retain the drawn dimming. Wrong-answer contrast belongs to Task 4 and remains unverified here.
 - No visual acceptance is claimed. Aedwon still checks QZ_* against the approved boards on his phones.
+
+## October 14: Task 3 verified core slice, picker UI still pending
+
+Resumption policy: current AGENTS.md, WORKFLOW.md and SUBAGENTS.md retrieved from GitHub main; their blobs are unchanged from the documents read in full earlier. Fetched main is `cec54bd782e4e40e22c8c12a9c086186a57e3452`. Current L3 W4d includes all three October 13 clarifications (Total time redistribution, partial-session recency, Questions-mode overrides), read before their affected implementation. The relay README and project instructions are unchanged. Aedwon's October 14 instruction was "continue".
+
+#9555 reconciled the assigned worktree: local and remote `web/new-design-w4d-r1` both `0ad018fe64678a26ae8e35af665de5e94c79c45b`; the expected Task 3 drafts were preserved. Every source hash from #9554 still matched before editing. No merge, reset, discard or publication occurred.
+
+### Implemented and verified in this slice
+
+- A whole topic contributes each available lesson, not one topic-sized unit. Questionless lessons remain excluded; restored picks filter unavailable ids.
+- Questions mode uses the approved 50-second starting pace and a measured average when available. Total time divides one budget across all selected lessons, with deterministic remainder allocation and real-pool caps.
+- Questions-mode row overrides change actual counts and derived time while retaining the wheel's base. Total-time adjustments redistribute the current question budget. Singleton Total time cannot redistribute. Bounds retain a question per eligible pick and respect real capacity. Stale stored splits cannot change the current time-derived budget.
+- Last picks and length/adjustments use the exact two per-exam device-pref keys, written together. No schema, synchronization or security-path change.
+- Selection retains the seven-day attempt query and supplements it with batched existing checked-review timestamps. Seed states with zero reviews stay eligible. Recent questions top up small pools before shortening.
+- Questions mix across selected lessons. Passage grouping remains contiguous, and the same final order is written into the durable session. Response times, attempt completion and existing per-answer writes stay intact.
+- The measured pace refreshes on the existing completion revision. The shared ScopePicker supports questionless lessons, excludes them from topic ticks, dims them, and keeps titles on one line at 200% text.
+
+The 17 source/test files in `logs/W4d-task3-core-final-identity.json` define the exact verified and staged scope. The shared ScopePicker extension is outside the original L2 directory table and is authorized by the W4h extension ruling, with its covering tests. No generated file or dependency change.
+
+### Test-first evidence and actual results
+
+- #9527 RED: +1 -4. Topic selection collapsed three lessons to one null lesson; the initial pace was absent; Total time returned 36 questions instead of 12; a zero-question lesson was selectable.
+- #9535 first rule GREEN: +24. Recency/mixing RED: five failures after the passage-order test was added in #9539. Checked discarded partials and the seven-day boundary were missing from recency, old order stayed blocked, and required top-up ordering was wrong.
+- #9538 RED: new adjustment and preference contracts absent.
+- #9544: +40 and one preference test load failure from untyped record-map inference. Fixed with explicit generic types. The ScopeLesson.hasQuestions contract was absent in its RED test.
+- #9548: the pace test returned null after seven completed attempts and a completion revision. The picker draft could not load because its screen was not yet implemented.
+- #9551: +39 helper tests passed; stale-budget RED expected 12 but returned 40. Added the budget guard.
+- #9554 broader applicable scope: `00:24 +522: All tests passed!`. Analysis found seven owned style notices. Format `1456 files (0 changed)`, layering, attribution and diff checks passed. Exact commands and the matching pre-style source hashes remain in `logs/W4d-task3-commands.json` and `logs/W4d-task3-source-identity.json`.
+- #9556 fixed only the recorded block/constructor/local parameter style and trailing commas. #9557 reran the affected 45 tests: `00:01 +45: All tests passed!`.
+- #9557 owned analysis: `Analyzing 17 items...`, `No issues found! (ran in 1.2s)`, exit 0.
+- #9557 full format scope: `Formatted 1456 files (0 changed) in 1.55 seconds.`, exit 0.
+- #9557 layering: `check_layering: OK`, exit 0.
+- #9557 attribution: `check_no_ai_attribution: OK`, exit 0.
+- #9557 diff check: exit 0.
+
+The 522 tests were not repeated after purely mechanical style fixes; the 45 affected tests and owned analysis were refreshed. Exact argv/results and current hashes are in `logs/W4d-task3-core-final-commands.json` and `logs/W4d-task3-core-final-identity.json`. Full outputs are retained in `logs/W4d-task3-*.txt`.
+
+### Remaining work and unverified acceptance
+
+Task 3 is incomplete. The new picker screen, floating bar, How long? UI, mode/wheel/Reset interaction wiring, ordered preference-save lifecycle, and production route switch are not implemented. The RED draft `test/features/quiz/presentation/practice_picker_screen_test.dart` remains separate and unstaged; its hash is recorded. It still imports the absent new screen. The existing legacy picker remains the production route until the screen slice is finished. Full Task 3 tests, full family checks, independent review and phone visual acceptance are pending.
+
+Task 2's shared Home rows/sheets and Task 4 session metadata remain pending exactly as previously recorded. Tasks 4 through 9 and the remaining report wiring were not started in this slice. No backend sender or deployment is approved.
+
+Contrast change: the meaningful ScopePicker caret moves from tertiaryLabel (light `#AEAEB2`) to existing controlOutline (light `#8A8A8E`, dark `#8E8E93`) under the standing contrast ruling. Disabled annotations retain drawn dimming. All new picker-screen visuals and motion still need implementation and Aedwon's visual acceptance; no screenshot or autonomous visual review was performed.

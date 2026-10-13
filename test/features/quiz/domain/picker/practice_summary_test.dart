@@ -43,7 +43,7 @@ void main() {
     );
 
     expect(summary.totalQuestions, 30);
-    expect(summary.headline, '30 questions');
+    expect(summary.headline, '30 questions · about 25 min');
     expect(summary.detail, '15 from each of 2 selections');
   });
 
@@ -75,7 +75,7 @@ void main() {
     expect(summary.detail, '15 from 1 selection');
   });
 
-  test('no pace means no duration', () {
+  test('no measured pace uses the approved initial pace', () {
     final summary = BuildPracticeSummary.call(
       units: const [PracticeUnit(topicId: 't_1')],
       index: index,
@@ -83,8 +83,8 @@ void main() {
       mode: PracticeUnitMode.questions,
     );
 
-    expect(summary.estimatedMinutes, isNull);
-    expect(summary.headline, '15 questions');
+    expect(summary.estimatedMinutes, 13);
+    expect(summary.headline, '15 questions · about 13 min');
   });
 
   test('a measured pace adds the duration', () {
@@ -111,17 +111,17 @@ void main() {
         PracticeUnit(topicId: 't_2'),
       ],
       index: index,
-      // 20 minutes each, at 40 seconds a question, is 30 each.
+      // 20 total minutes, at 40 seconds a question, is 15 each.
       wheelValue: 20,
       mode: PracticeUnitMode.minutes,
       averageResponseMs: 40000,
     );
 
-    expect(summary.perUnit, 30);
-    expect(summary.totalQuestions, 60);
+    expect(summary.perUnit, 15);
+    expect(summary.totalQuestions, 30);
   });
 
-  test('minutes mode without a pace asks for nothing', () {
+  test('total time without a measured pace uses the approved initial pace', () {
     final summary = BuildPracticeSummary.call(
       units: const [PracticeUnit(topicId: 't_1')],
       index: index,
@@ -129,6 +129,6 @@ void main() {
       mode: PracticeUnitMode.minutes,
     );
 
-    expect(summary.totalQuestions, 0);
+    expect(summary.totalQuestions, 24);
   });
 }
