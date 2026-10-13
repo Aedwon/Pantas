@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 partial checkpoint606ee3fc:925 focused tests and clean analysis; upload held pending Undo-after-account-reset review. W4d Task 3 core has522 applicable passing tests, but remains uncommitted with style findings and unfinished picker UI | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 partial checkpoint606ee3fc:925 focused tests and clean analysis; upload held pending Undo-after-account-reset review. W4d Task3 core15325e04 passed522 broader/45 post-style checks, scoped lead review and working-branch upload; picker UI incomplete | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -97,6 +97,17 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   new picker UI tests are an explicitly unfinished RED draft, not part of a verified
   core commit. Resume style fixes and focused45 checks, save exact core checkpoint,
   then finish picker UI. Do not claim wholeTask3 or family complete.
+- Oct14 W4d core checkpoint15325e0465e2581171180fdb5b89325d159d76ab saved by#9559.
+  #9557:45 affected post-style tests pass, owned17-file analysis clean, format1456 files/0
+  changes, layering/attribution/diff checks pass. Broader522 pre-style test evidence and
+  exact identity are retained; mechanical fixes have refreshed affected checks.
+  Lead inspected immutable core source/tests/evidence (lesson quotas, real-pool bounds,
+  fixed-time/manual allocation, recency, passage order, per-exam prefs, measured pace,
+  shared questionless-lesson control). #9562 normal push succeeded; full remote SHA matches
+  intended local head. This is a reviewed working checkpoint, not completeTask3, family
+  acceptance/Astra/visual acceptance or integration. Picker UI/route wiring continues.
+  W4c account/Undo review remains pending. Current plan clarifies reuse of the existing
+  boundary token transactionally and expiration of stale Undo (plan833c98da/log29e20a4c).
 - Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
