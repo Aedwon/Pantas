@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-06 (released at the level 4 stop)
+State: held
+Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
+Since: 2026-10-13 13:47 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -60,12 +60,15 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 12, 7:30 PM)
+## Running or scheduled (Oct 13, 1:47 PM)
 
-- PAUSED UNTIL OCT 18: at 7:25 PM on Oct 12 Codex reported the weekly limit: "try again at Oct
-  18th, 2026 12:58 PM". Aedwon chose to wait (Oct 12): no credits, and Sonnet does not pick up
-  Sol's families. Resume on Oct 18 after 12:58 PM with the two lanes (lane 1 W4d, W4f, W4a; lane 2
-  W4c, W4b, W4e), Astra audits alone. Nothing is scheduled; the lead session must start it.
+- RESUMED BY AEDWON Oct 13: "okay resume that. the plan already tells what to do exactly right?"
+  The October 18 wait is lifted for the existing approved engineering scope. Live Codex limits
+  permit ordinary work (weekly 1% used). Recover and continue two lanes: lane 1 W4d, W4f, W4a;
+  lane 2 W4c, W4b, W4e. Astra audits run alone; no browser dispatcher or app screenshots.
+  Relay preflight #9488 checks W4d; one relay runner is online. Uncommitted work is preserved.
+  Policy read: main c96177bc4495fd2482489b0d44585ea54b3e000b. Implementation, deployment,
+  visual acceptance, and publication permissions remain separate.
 - Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
