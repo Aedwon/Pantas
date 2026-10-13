@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a, W4b, W4c in progress; W4d started (no commit); W4e, W4f prepared; W4g not started. Contracts integrated so far: W4b Task 1 and `LessonDayContext` (ffc8045b) | web/new-design-w4[a-f]-r1; standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 and W4c Task 8 draft recovery resumed Oct 13; checks pending, no new accepted task yet | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -85,7 +85,7 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
 
 ## Next step
 
-Review and integrate W4a and W4c when their workers finish. W4b, W4d, W4e, W4f and W4g also need W3 integrated (after its audit and fixes). Then W6
+Finish the two resumed families' current draft recovery, record exact task checks and commits, then continue lane 1 W4f/W4a and lane 2 W4b/W4e. W3 is already integrated into each family base. Required cross-family controls remain unfinished until their owners' contracts land; no family is accepted merely because its independent slice passes. Astra audits run alone before family acceptance/integration. Then W6
 Tasks 6 to 8 and W3 Task 15 (deploys, each with Aedwon's approval and his setup steps), W2's
 close-out, W4h Task 4, W5. Roles: strategy B7 (Sol builds; Sonnet only when Codex is used up and
 only on work no Sol worker started; Astra audits; the reading tier runs checks and exact edits).
