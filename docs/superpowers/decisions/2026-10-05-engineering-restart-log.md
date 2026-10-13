@@ -1148,3 +1148,25 @@ Aedwon said: "continue". Live account state now permits ordinary work: short-win
 Verified handoff from the prior window: W4d's Task 2 partial checkpoint is locally committed at 0ad018fe64678a26ae8e35af665de5e94c79c45b. Relay #9517 passed 975 affected Flutter tests, formatting (1,448 files, zero changes), layering, attribution and diff checks. Analysis reports only the explicitly accepted W4c bookmark onReorder notice. Relay #9519 committed the scoped source/tests/evidence and confirmed a clean worktree. Nothing was merged or pushed. Task 2 still lacks the Home-owned row/sheet contract and later session metadata; the family remains unaccepted, unaudited and visually unverified.
 
 W4c relay #9518 timed out after 120 seconds, exit 124. The worker then failed on the usage limit before it could finish the handoff. No passing result or completed-task commit is inferred. Its dirty draft is preserved. The same two Sol workers resume: W4d begins Task 3, and W4c inspects the saved source/logs and continues Task 8 systematic debugging before later independent tasks. Astra audits remain serialized after implementors stop. The main application-code freeze, deployment approvals and publication boundary remain unchanged.
+
+## October 13, 2026: W4d Task 3 clarifications
+
+The worker asked whether Adjust should preserve the Total time budget or change the total/time,
+pointing to the single-lesson board. The lead opened DECISIONS.md D-164 through D-166,
+SCREENS.md and the actual QZS_1c, QZS_1d and QZE_One board sources. QZS_1c and QZS_1d keep 30
+minutes/~33 questions while changing 28+5 to 20+13. QZE_One is Questions per lesson mode (20
+questions/~18 minutes), not Total time. Ruling: Total time remains fixed, Adjust redistributes its
+question budget within availability, Reset returns to the even allocation. A lone lesson has no
+alternate redistribution destination; bounded steppers do not silently change the time wheel.
+This interprets the already-approved "You set the time. Questions follow." and "set the split by
+hand" rules. No user choice or visual substitution is claimed. Questions-mode Adjust remains drawn.
+
+The worker also found that questionOutcomes reads completed saved attempts. The lead read the
+assigned branch's SubmitAnswer, ReviewStateRepository and questionOutcomes source: each checked
+answer saves its review state and timestamp before the session completes; saved attempts alone
+miss a discarded partial session. Ruling: supplement the required attempt query with existing
+batched review-state reads and real checked-answer timestamps (reps > 0), with regression coverage
+for discarded partial sessions, fresh seeds, the seven-day boundary and top-up. No new storage,
+schema, synchronization path or study-method decision is authorized. Current L3 W4d carries both
+clarifications before the affected adjustment/recency implementation. Tests and the later Astra
+family audit must check these cases.
