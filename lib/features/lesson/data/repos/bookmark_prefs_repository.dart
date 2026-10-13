@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
 import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 
 class BookmarkRemoval {
@@ -12,8 +14,10 @@ class BookmarkRemoval {
     required this.examId,
     required this.rows,
     required this.order,
+    required this.boundaryToken,
   });
   final String examId;
+  final String boundaryToken;
   final List<LessonBookmarkLocalRow> rows;
   final List<String> order;
 }
@@ -77,6 +81,13 @@ class BookmarkPrefsRepository {
 
   Future<BookmarkRemoval> remove(String examId, Set<String> ids) =>
       _db.transaction(() async {
+        final contexts = SyncActiveContextStore(_db);
+        var snapshot = await contexts.readSnapshot();
+        if (snapshot == null) {
+          // Older guest installs have no envelope. Preserve every valid one.
+          await contexts.clearStable();
+          snapshot = await contexts.readSnapshot();
+        }
         final rows = await (_db.select(_db.lessonBookmarksLocal)
               ..where((r) => r.lessonId.isIn(ids)))
             .get();
@@ -86,10 +97,26 @@ class BookmarkPrefsRepository {
           examId,
           order.where((id) => !ids.contains(id)).toList(),
         );
-        return BookmarkRemoval(examId: examId, rows: rows, order: order);
+        return BookmarkRemoval(
+          examId: examId,
+          rows: rows,
+          order: order,
+          boundaryToken: snapshot!.token,
+        );
       });
 
-  Future<void> restore(BookmarkRemoval removal) => _db.transaction(() async {
+  Future<bool> isRemovalCurrent(BookmarkRemoval removal) async {
+    final snapshot = await SyncActiveContextStore(_db).readSnapshot();
+    if (snapshot == null || snapshot.token != removal.boundaryToken) {
+      return false;
+    }
+    final exam = await AppPreferencesRepository(_db).selectedExamId();
+    return exam == null || exam == removal.examId;
+  }
+
+  /// An expired token returns false without writing membership or preferences.
+  Future<bool> restore(BookmarkRemoval removal) => _db.transaction(() async {
+        if (!await isRemovalCurrent(removal)) return false;
         await LocalSyncMutationRecorder.forDatabase(_db).runRecordedBatch(
           mutations: [
             for (final row in removal.rows)
@@ -118,5 +145,6 @@ class BookmarkPrefsRepository {
           ...current.where((id) => !removal.order.contains(id)),
           ...removal.order,
         ]);
+        return true;
       });
 }

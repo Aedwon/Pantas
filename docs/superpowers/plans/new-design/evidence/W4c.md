@@ -525,3 +525,122 @@ Scoped checkpoint manifest:
 - `test/features/lesson/data/bookmark_prefs_repository_test.dart`
 - `test/features/lesson/presentation/bookmarks_sheet_test.dart`
 - `test/features/lesson/presentation/learn_tab_home_test.dart`
+
+## October 14: lead-review Undo boundary correction
+
+Aedwon resumed the existing assignment. Current GitHub main AGENTS, WORKFLOW and
+SUBAGENTS were read in full again; their policy blobs remain
+3bdc2905aa3c2eb85f6280947528969464d379a3,
+f4f2415256b8afbb5715d850a4b588c169d2d48c, and
+b539ba3da0255d6272486d147fa8b4c80050482d. Relay README and
+CHATGPT_PROJECT_INSTRUCTIONS were refreshed from relay main, unchanged. Relay
+9558 fetched main and the assigned branch before editing. The assigned tree was
+clean at 606ee3fc6e569d187bad90e1cbcd880519fab72f; its remote remained
+287a640b854bc9efa187360cec194e6960554c00. Fetched policy main at resumption:
+cec54bd782e4e40e22c8c12a9c086186a57e3452. The later recorded L3 clarification
+“October 14: Undo boundaries” was read before guard code (lead references
+833c98da, decision log29e20a4c). The implementation preserves the earlier
+checkpoint and its unfinished fidelity scope.
+
+### Root cause and RED
+
+The held removal payload had rows/order/exam only. The restore transaction
+unconditionally reinserted those rows. LocalSyncMutationRecorder reads the
+current context for causality, so it cannot prove the provenance of a retained
+payload. SyncActiveContextStore already supplies a token, including anonymous
+envelopes; runtime quiesce/activation rotates it. SyncLocalStateWiper.wipeAll
+deletes account-owned rows, preferences and the token. Auth sign-out/account
+deletion use this existing quiesce/wipe path. No replacement lifecycle is needed.
+
+Relay9560, exit1, seven meaningful failures before production changes:
+- held Undo cannot resurrect guest rows after the real wipe path
+- held Undo cannot import rows into the next active account
+- held Undo expires when the existing boundary token rotates
+- held Undo cannot restore the previous exam while another is selected
+- mounted sheet expires Undo after an exam change
+- mounted sheet expires Undo after the real reset path
+- mounted sheet expires Undo when the existing auth identity changes
+
+The data failures actually restored old membership. The mounted sheet retained
+Undo after each boundary. Log: .dart_tool/w4c-boundary-red.log.
+
+Relay9564, exit1, two further failing fixtures:
+- reset expires Undo and removes its failed-save Retry
+- a late old Undo error does not recreate Retry after reset
+Both retained Undo after the real wipe. Log:
+.dart_tool/w4c-boundary-retry-red.log.
+
+### Implemented correction
+
+Removal captures the existing snapshot token with rows/order in its transaction.
+Only an absent/unrecognized legacy snapshot initializes the existing anonymous
+envelope through SyncActiveContextStore.clearStable. Every recognized active or
+anonymous snapshot remains intact. Restore validates token and selected exam
+before any restoration writes inside its transaction. Missing/mismatched token
+returns false, without membership or preference resurrection.
+
+The sheet expires retained Undo on existing auth UID, selected-exam, or account
+preference/reset signals. Its reset check reads the existing token. Expiration
+also discards pending selection, folding/restoring state and failed-save Retry.
+A guarded restore returning false expires Undo without a save-error loop. A late
+failure from an already expired operation cannot recreate Retry. Ordinary
+current-boundary failures still offer Retry.
+
+Tests use the actual SyncLocalStateWiper, active-context publish/clear methods,
+the real device selection repository, and the existing auth stream. The next-exam
+widget fixture contains a valid second content exam. Ordinary Undo now verifies
+original timestamp and sortIndex, exact custom positions, and actual newly added
+membership. Another test verifies that removal/Undo preserves both token and
+active UID/generation, and guest reset coverage starts with a raw missing token.
+
+### GREEN and exact verification
+
+Relay9571: data12 tests passed, child exit0.
+Relay9572: sheet36 tests passed, child exit0.
+Relay9575: affected80 tests passed. Analyzer child exit0 still reported one style
+info, so this was not accepted as clean analysis. The test constructor was fixed.
+Relay9577: strengthening the fixture introduced a test-only ambiguous Drift
+matcher import: two loading failures, analyzer child exit3. This was corrected by
+importing only Value. No production guard change followed those failures.
+
+Relay9579: all child exits0 on the final candidate:
+
+```text
+flutter test test/features/lesson/application/bookmark_providers_test.dart test/features/lesson/data/bookmark_prefs_repository_test.dart test/features/lesson/domain/bookmark_order_test.dart test/features/lesson/presentation/bookmarks_sheet_test.dart test/features/lesson/presentation/bookmarks_section_test.dart test/core/sync/sync_active_context_store_test.dart test/core/sync/local_state_wiper_test.dart test/core/sync/local_sync_mutation_recorder_test.dart --no-pub --reporter expanded --timeout 30s
+00:03 +80: All tests passed!
+dart analyze lib test tool
+No issues found!
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1459 files (0 changed) in 1.39 seconds.
+dart run tool/check_layering.dart
+check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+git diff --check
+exit0
+```
+
+Source base: 606ee3fc6e569d187bad90e1cbcd880519fab72f.
+lib/test/tool patch SHA256: 67a98d348b63c2368944fd09ad979203ea235f28ef3aaa1701abf8d2cfe595f6.
+Patch: .dart_tool/w4c-boundary-verified-source.patch.
+Final complete logs: .dart_tool/w4c-boundary-final-0.log through
+.dart_tool/w4c-boundary-final-5.log. Earlier streamed logs remain available.
+This is scoped correction evidence, not a full-family suite or acceptance claim.
+
+Scoped manifest:
+- lib/features/lesson/data/repos/bookmark_prefs_repository.dart
+- lib/features/lesson/presentation/widgets/bookmarks_sheet.dart
+- test/features/lesson/data/bookmark_prefs_repository_test.dart
+- test/features/lesson/presentation/bookmarks_sheet_test.dart
+- docs/superpowers/plans/new-design/evidence/W4c.md
+
+### Remaining scope and acceptance
+
+Task8 remains partial: exact drag proxy lift/drop and destination announcement
+fidelity remain pending. Tasks5,6,7,9 remain pending. Their integrated contracts
+are present; no waiting-on-contract control was added. No new dependency, schema,
+sync/backend mechanism, figure or contrast exception was introduced. Existing
+controlOutline/onAccent contrast rulings remain unchanged. Visual acceptance,
+peer-device convergence, independent review and full-family gates remain
+unverified. No screenshots, computer control, upload, merge, main edits or
+publication occurred. Lead owns the scoped re-review and acceptance.

@@ -5,6 +5,8 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -60,6 +62,38 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     }
   }
 
+  String? _authIdentity(AuthState? state) => switch (state) {
+        AnonymousAuthState(:final uid) => uid,
+        SignedInAuthState(:final user) => user.uid,
+        _ => null,
+      };
+
+  void _expireUndo() {
+    if (!mounted || _removed == null) return;
+    _foldTimer?.cancel();
+    setState(() {
+      _removed = null;
+      _undoVisible = false;
+      _failedSave = null;
+      _folding.clear();
+      _restoring.clear();
+      _selected.clear();
+    });
+  }
+
+  Future<void> _validateUndo() async {
+    final removal = _removed;
+    if (removal == null) return;
+    try {
+      final valid = await ref
+          .read(bookmarkPrefsRepositoryProvider)
+          .isRemovalCurrent(removal);
+      if (!valid && mounted && identical(_removed, removal)) _expireUndo();
+    } on Exception {
+      // A temporary read failure leaves the guarded restore available to retry.
+    }
+  }
+
   Future<String?> _examId() async =>
       (await ref.read(activeExamFocusProvider.future)).exam?.id;
 
@@ -75,6 +109,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         final before = List<BookmarkRow>.of(_shown);
         final removal =
             await ref.read(bookmarkPrefsRepositoryProvider).remove(exam, ids);
+        if (!mounted ||
+            !await ref
+                .read(bookmarkPrefsRepositoryProvider)
+                .isRemovalCurrent(removal)) {
+          return;
+        }
         if (!mounted) return;
         _foldTimer?.cancel();
         setState(() {
@@ -105,8 +145,24 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
   Future<void> _undo() => _save(() async {
         final removal = _removed;
         if (removal == null) return;
-        await ref.read(bookmarkPrefsRepositoryProvider).restore(removal);
-        if (!mounted) return;
+        final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+        bool restored;
+        try {
+          restored = await prefs.restore(removal);
+        } on Exception {
+          if (!mounted || !identical(_removed, removal)) return;
+          if (!await prefs.isRemovalCurrent(removal)) {
+            _expireUndo();
+            return;
+          }
+          if (!mounted || !identical(_removed, removal)) return;
+          rethrow;
+        }
+        if (!mounted || !identical(_removed, removal)) return;
+        if (!restored) {
+          _expireUndo();
+          return;
+        }
         _foldTimer?.cancel();
         setState(() {
           _folding.clear();
@@ -462,6 +518,25 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
 
   @override
   Widget build(BuildContext context) {
+    ref
+      ..listen(authStateProvider, (previous, next) {
+        if ((previous?.hasValue ?? false) &&
+            next.hasValue &&
+            _authIdentity(previous!.valueOrNull) !=
+                _authIdentity(next.valueOrNull)) {
+          _expireUndo();
+        }
+      })
+      ..listen(activeExamFocusProvider, (previous, next) {
+        if (next.hasValue &&
+            _removed != null &&
+            next.requireValue.exam?.id != _removed!.examId) {
+          _expireUndo();
+        }
+      })
+      ..listen(bookmarkPreferenceChangesProvider, (previous, next) {
+        if (next.hasValue) unawaited(_validateUndo());
+      });
     final value = ref.watch(bookmarkRowsProvider);
     final orderValue = ref.watch(bookmarkOrderProvider);
     final rows = value.valueOrNull;

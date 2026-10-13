@@ -6,9 +6,13 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -81,6 +85,8 @@ void main() {
     bool dark = false,
     bool reduceMotion = false,
     bool preloadReader = false,
+    Stream<AuthState>? authStates,
+    BookmarkPrefsRepository? prefs,
   }) async {
     for (var i = 1; i <= rows; i++) {
       await repo.mark('l$i');
@@ -90,6 +96,10 @@ void main() {
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
+        if (prefs != null)
+          bookmarkPrefsRepositoryProvider.overrideWithValue(prefs),
+        if (authStates != null)
+          authStateProvider.overrideWith((_) => authStates),
       ],
     );
     addTearDown(container.dispose);
@@ -263,6 +273,97 @@ void main() {
     await tester.tap(find.text('Undo'));
     await tester.pumpAndSettle();
     expect((await read())!.isBookmarked, isTrue);
+  });
+
+  Future<void> removeAll(WidgetTester tester) async {
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Select All'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove'));
+    await tester.pumpAndSettle();
+    expect(find.text('Undo'), findsOneWidget);
+  }
+
+  testWidgets('mounted sheet expires Undo after an exam change',
+      (tester) async {
+    await seedContentExam(
+      contentDb,
+      examId: 'other',
+      code: 'LET',
+      name: 'Licensure Examination for Teachers',
+      shortName: 'LET',
+    );
+    await pumpSheet(tester, rows: 2);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(BookmarksSheet)));
+    await removeAll(tester);
+    await container
+        .read(appPreferencesRepositoryProvider)
+        .setSelectedExamId('other');
+    container.invalidate(activeExamFocusProvider);
+    await tester.pumpAndSettle();
+    expect(find.text('Undo'), findsNothing);
+    expect(await repo.markedIds(), isEmpty);
+  });
+
+  testWidgets('mounted sheet expires Undo after the real reset path',
+      (tester) async {
+    await pumpSheet(tester, rows: 2);
+    await removeAll(tester);
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pumpAndSettle();
+    expect(find.text('Undo'), findsNothing);
+    expect(await repo.markedIds(), isEmpty);
+  });
+
+  testWidgets(
+      'mounted sheet expires Undo when the existing auth identity changes',
+      (tester) async {
+    final auth = StreamController<AuthState>.broadcast();
+    addTearDown(auth.close);
+    Stream<AuthState> states() async* {
+      yield const AuthState.anonymous(uid: 'before');
+      yield* auth.stream;
+    }
+
+    await pumpSheet(tester, rows: 2, authStates: states());
+    await removeAll(tester);
+    auth.add(const AuthState.anonymous(uid: 'after'));
+    await tester.pumpAndSettle();
+    expect(find.text('Undo'), findsNothing);
+    expect(await repo.markedIds(), isEmpty);
+  });
+
+  testWidgets('reset expires Undo and removes its failed-save Retry',
+      (tester) async {
+    final failing = _FailingUndoPrefs(db);
+    await pumpSheet(tester, rows: 2, prefs: failing);
+    await removeAll(tester);
+    await tester.tap(find.text('Undo'));
+    await tester.pumpAndSettle();
+    expect(find.text('Try Again'), findsOneWidget);
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pumpAndSettle();
+    expect(find.text('Undo'), findsNothing);
+    expect(find.text('Try Again'), findsNothing);
+    expect(await repo.markedIds(), isEmpty);
+  });
+
+  testWidgets('a late old Undo error does not recreate Retry after reset',
+      (tester) async {
+    final failing = _FailingUndoPrefs(db, delayed: true);
+    await pumpSheet(tester, rows: 2, prefs: failing);
+    await removeAll(tester);
+    await tester.tap(find.text('Undo'));
+    await tester.pumpAndSettle();
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pumpAndSettle();
+    failing.completion.completeError(Exception('old operation failed'));
+    await tester.pumpAndSettle();
+    expect(find.text('Undo'), findsNothing);
+    expect(find.text('Try Again'), findsNothing);
+    expect(await repo.markedIds(), isEmpty);
   });
 
   testWidgets('Edit shows grips in Recent and one bookmark hides ordering',
@@ -583,4 +684,15 @@ void main() {
 
     expect(find.text('1 bookmark removed'), findsOneWidget);
   });
+}
+
+class _FailingUndoPrefs extends BookmarkPrefsRepository {
+  _FailingUndoPrefs(super.db, {this.delayed = false});
+  final bool delayed;
+  final completion = Completer<bool>();
+  @override
+  Future<bool> restore(BookmarkRemoval removal) async {
+    if (delayed) return completion.future;
+    throw Exception('restore failed');
+  }
 }
