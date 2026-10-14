@@ -80,6 +80,27 @@ only Task8, preserve its verified checkpoint and proceed with independent Tasks5
 lead resolves that specific presentation. Task9/full-family acceptance cannot pass with an
 unresolved Task8 requirement. Read main boards and later rulings before affected code.
 
+## Lead Task5 technical clarification, October14
+
+Reuse PantasSheet with an additive readerContents variant for RD_Contents/RD_Plan: intrinsic
+contents height within viewport,450ms opening/400ms closing slideC,350ms ease wash32%,105%
+translation, no background page shift/scale. Preserve generic/bookmarks defaults and existing
+shared behavior. Ownership extends only to that shared component and its focused tests for this
+board-required variant, not other families. Tests compare exact drawn motion values, reduced
+motion, dismissal/focus/back, large text and existing modes. No feature-local sheet copy.
+
+Bookmarks-origin reader must return to the still-open bookmark sheet: preserve the sheet behind
+the pushed reader rather than close it before pushing. Keep real origin on return stack.
+Do not navigate to absent plan/performance destinations. When no truthful origin stack exists,
+use the existing Home/Study fallback and label that actual destination. Test normal bookmark
+return, day-context route extra, and deep-link fallback before accepting the affected navigation.
+Do not create routes owned by another family to fill missing callers.
+
+Task8 row separators: the source currently leaves ListRow.divider false although BM_Edit draws
+0.5px separators. Correct through the existing shared row option only if its placement matches
+the board; add focused first/middle/last and subject-group checks. If the shared placement cannot
+match, report the exact required extension before code. Do not mark fullTask8 accepted meanwhile.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
