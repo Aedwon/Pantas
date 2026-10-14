@@ -1432,3 +1432,20 @@ Meaningful failing tests and refreshed affected checks are required before Task3
 W4c worker has reproduced missing separators on exactcdda source (9 RED failures) and fixed
 through existingListRow option (9 GREEN). Main'sTask8placement ruling remains binding; no shared
 row extension. Final affected output/source identity and scoped save remain pending lead review.
+
+
+### October14: separator checkpoint reviewed and uploaded
+
+W4cfa5d146f77990dbef72e86fa20f9b96ded9ca3ae was saved separately from seven knownTask5
+ dirtypaths. Lead read immutablecdda..fa source/tests/evidence and actual logs: correctedRED0/9,
+GREEN9/9, affected108pass, scopedcleananalysis, format2files/0changes, layering/attributionOK,
+diffcheck0. ExistingListRow divider matches full-width. Recent/Oldest finalrow remainsbordered;
+Custom/Edit finalrow and BySubject groupfinalrow remainunbordered. Border padding is accounted
+for to preserve62px geometry. No sharedextension or newvisualchoice.
+
+After freshfetch andexpectedlocalfa/remotecdda validation, normalnativeworkingpush succeeded.
+GitHub fullSHAfa5d146f77990dbef72e86fa20f9b96ded9ca3ae matches intendedlocalhead. Relay remains
+unavailable at this execution choice; nativefallback preserves all usual gates. This scoped
+upload excludesunfinishedTask5draft and is not family/Astra/integration/phone acceptance.
+The worker continuesTask5 underrecordedsharedvariant/navigation rules, without repeating
+unchanged broad tests solelybecause a reviewer inspectedthem.
