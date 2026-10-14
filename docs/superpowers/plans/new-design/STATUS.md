@@ -196,6 +196,17 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   ContinueoneexistingreaderworkerthroughTask5withreviewquotareserved; W4d holdsverifiedc948
   beforeTask4, retainsownership. Weeklycapacity is limited; no extra audit while implementorruns.
 
+- Readerglyphcheckpoint8870cfa979a132cf69d046dc60356378a7a306d4 nowuploadedthroughpreferredrelay
+  #9627; actualexit0andfullGitHubSHAverifiedmatchesintendedlocalhead. Leadsource/newtest/evidence
+  reviewandactual45affectedchecks/scopedcleananalysis/format/layering/attribution/diff were
+  completedbeforeupload. Defaultstroke1.5 preserved; optionalreader1.8/repainttestpasses.
+  Task5readerbarhasnotconsumednewstrokeoptionyet. Eightknownreaderdraftsremainunuploaded:
+  W4cevidence,studyroutes,lessonpage,readerbar,readerrail,studyroute/bar/railtests.
+  Currentlib/test/toolpatchSHA7ebf6a53288c707cd915b66cd3f3b7c4b580c6ee2e980e6d175db13c95185e1c;
+  evidencediffSHA2a19d53668c7a64f878413327893056fa41507e1b278be42eb2f15cf3b5bde19.
+  Raildraft13pass/contrastcorrectionseenin45batch,notseparatelyaccepted; currentpainter/Contents/
+  origin/truthfulbookmarkreturn/fullTask5checksremain. Workerresumed; noTask6startyet.
+
 ## Next step
 
 Finish the remaining independent W4d and W4c tasks, recording exact checks and commits as each finishes. Then continue lane 1 W4f/W4a and lane 2 W4b/W4e, and return for the missing cross-family controls. W3 is already integrated into each family base. Required cross-family controls remain unfinished until their owners' contracts land; no family is accepted merely because its independent slice passes. Astra audits run alone before family acceptance/integration. Then W6
