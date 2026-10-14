@@ -1561,3 +1561,23 @@ Otherapprovedreaderflow workcontinues; no newcomplexitymenu or broaderdesignwaiv
 Actual#9629 barfidelityRED18pass/4fail; #9631 actualchildexit0/38pass includes22bar/13rail/3glyph.
 Task5 remainsuncommitted/unfinished. #9633 actualroutes/contentsRED5pass/7fail; missing/error-origin
 RED#9634 follows. These are implementationevidence, notTask5acceptance ornewfullsuitepass.
+
+
+## October14,2026,11:01PM: Current fade selected
+
+Aedwon's exacttypedreply: "current fade". It selectsCurrent fade fromcontents-fade-options-v1,
+keeping thedrawn unconditional56px bottomgradient ratherthanReadable end's conditionalfade.
+Theofferedtradeoffthatitpartlyhidesthefinalactive lessonwasdisclosedinthepreview/reply.
+Recordtheknownmask-inducedtextcontrast exceptiononlyforthisRD_Contents overlay, includingfit
+andend states. Underlyingtextcolors, othercontrols, allothercontrastrules remainbinding.
+Do not implementconditionalremoval, extra bottominset oranother masksubstitution.
+UseW1surface endpointindarkmode; followRD_Plan'sownboard fordayContents ratherthanextending
+thisexceptiontoanyotherlist. This is notwhole-screen/phoneacceptance orabroaderdesignwaiver.
+
+Thewidgetinteractioncontext reportedReadable end as its lastviewedvariant, butitdidnotconstitute
+humanapproval. Theexplicittypedcurrent fade choicecontrols. No furtherconfirmationisneeded.
+Existingapprovedreaderworkcontinues. Currentpolicy retrievedagainfrommain;unchangedblobs.
+Currentcapacity65% shortwindow/89%weekly. PrioritizecompleteTask5reviewablecheckpoint/evidence.
+Actualworker#9637origin/error/bookmarkreturn9pass; #9642ContentsAPI-onlyRED0/9. Newbarassertions
+foundselectedmarkpress and200%strip metrics, plusactualdeactivated-contextlookup duringcancel.
+Workerisolates/fixescurrentownedlifecycle through existingstate, notnewdata/providerarchitecture.
