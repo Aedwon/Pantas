@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-14 10:38 Asia/Manila (renewed after Aedwon's continuation)
+Since: 2026-10-14 10:36 Asia/Manila (renewed after Aedwon's continuation)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 partial checkpoint23113d73:937 focused tests and clean analysis; Undo boundary and destination corrections passed scoped lead re-review, upload awaiting explicit-ref reconciliation. W4d Task3 core15325e04 passed522 broader/45 post-style checks, scoped lead review and working-branch upload; picker UI incomplete | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 partial checkpoint23113d73:937 focused tests and clean analysis; Undo boundary and destination corrections passed scoped lead re-review, scoped review and working-branch upload complete. W4d Task3 core15325e04 passed522 broader/45 post-style checks, scoped lead review and working-branch upload; picker UI incomplete | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -118,7 +118,7 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Relay#9594 fetched main and W4c, then stopped because W4c lacks upstream tracking; this is
   configuration, not a pass for the remaining worktrees. Explicit-ref reconciliation#9595 follows.
   Main is behind only the two expected lead-authored documentation commits. No reset occurred.
-  Motion gap is being rechecked against actual board keyframes before any proposed exception.
+  Relay#9595 confirmed expected heads and no divergence: W4c ahead6/behind0, W4d matched15325e04 with known UI drafts, integration matched5e6cda45. #9596 normal W4c upload succeeded; full GitHub SHA23113d73a72ffa498f2c9ca652c9b2ee83af3d48 matches intended local head. Motion gap is being rechecked against actual board keyframes before any proposed exception.
 - Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
