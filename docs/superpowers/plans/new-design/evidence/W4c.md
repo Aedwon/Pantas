@@ -838,6 +838,102 @@ acceptance and peer-device convergence remain unverified. No screenshot, compute
 control, schema/figure change, new contrast exception, merge, worker upload or
 publication occurred.
 
+## October 14: capacity checkpoint, Task5 remains an uncommitted draft
+
+The lead requested a capacity checkpoint at90% short-window use. This is not an
+additional user pause or a completed Task5. Stop new production edits now; preserve
+the exact working state. Committed HEAD remains:
+cdda64f5bef052f201e263f1f466e3f0893bd545.
+The lead owns its scoped review/upload. Task5 stays unstaged and unuploaded.
+
+### Decisions to retain for the next window
+
+Aedwon's exact reply “accept built-in” is recorded in log1ef92a89/L3e6c32679.
+It accepts only neighboring gap offsets: SDK250ms easeInOut. The binding
+150ms/200ms houseOut decoration remains intact. The earlier Task8 curve hold is
+resolved; this does not accept the family or replace phone visual verification.
+
+Root has also recorded L3a04aca18 before any affected future code:
+- Additive readerContents mode in existing shared PantasSheet must match exact
+  RD_Contents/RD_Plan values and preserve both existing modes. No local sheet copy.
+- Keep the Bookmarks sheet open behind its pushed reader for truthful return.
+- Do not introduce missing plan/performance routes; empty stacks use truthful
+  existing Home/Study fallback labels.
+- Inspect the Task8 separator observation; reuse existing ListRow.divider only
+  when its actual placement matches the board.
+Read the exact main clauses again before the next affected edits. No shared
+readerContents mode, navigation clarification or separator correction was coded
+in this checkpoint.
+
+### Exact current draft and actual results
+
+Six source/test files are dirty:
+
+- lib/app/routes/study_routes.dart
+- lib/features/lesson/presentation/lesson_page.dart
+- lib/features/lesson/presentation/widgets/reader_bar.dart
+- lib/features/lesson/presentation/widgets/reader_rail.dart
+- test/app/study_route_test.dart
+- test/features/lesson/presentation/reader_bar_test.dart
+
+The draft currently adds:
+- Six origin enum values; query parsing/navigation are still incomplete.
+- Real LessonDayContext route-extra consumption; current displayed lesson
+  reindexes the existing context for its counter and visible day line.
+- Per-lesson saved reading fraction remains unchanged; the visible day line
+  spans its supplied order with boundary ticks.
+- Geist/teal back text and Geist semibold title strip.
+- Tabular day-counter digits, large-text fit and preserved touch targets.
+- BM_MarkTeal's22px polygon, teal fill,520ms two-stage pop and gesture press
+  feedback. The control is keyed by lesson ID to avoid carrying an old lesson's
+  pop into an already bookmarked next lesson.
+
+These are draft behaviors, not a whole Task5 acceptance claim.
+
+Actual RED evidence:
+- Relay9608:3 failures, only home/study origins,13.5px back text and SourceSans3
+  title strip. Log:.dart_tool/w4c-task5-bar-red.log.
+- Relay9609:1 failure, real Home day route extra was ignored and printed no
+  “1 of 2”. Log:.dart_tool/w4c-task5-day-route-red.log.
+- Relay9616:2 failures, no tabular figures and19px overflow at320/200%.
+  Log:.dart_tool/w4c-task5-counter-red.log.
+- Relay9621:3 failures, old black pennant fill,21px shape and absent bookmark pop.
+  Log:.dart_tool/w4c-task5-bookmark-red.log.
+
+Actual partial GREEN evidence:
+- Relay9610:12 passed/1 failed. Larger approved back text caused6px overflow in
+  the existing320/200% test; constrained text layout corrected that.
+- Relay9611:13 reader-bar tests passed.
+- Relay9612:1 real day route/counter/day-rail test passed. Scoped analysis had one
+  trailing-comma info; no clean-analysis claim applies to that run.
+- Relay9619:15 reader-bar tests passed. Scoped analysis had one immutable-literal
+  info, subsequently corrected.
+- Relay9622:18 reader-bar tests passed, child exit0. Scoped analysis child exit0
+  still reports one trailing-comma info in the new test. This remains to fix.
+  Complete logs:.dart_tool/w4c-task5-bookmark-green-0.log through
+  .dart_tool/w4c-task5-bookmark-green-2.log.
+
+The existing reader_rail_test still expects the retired ProgressRule
+implementation. It has not been rerun or renewed since the rail draft changed.
+Do not claim that test passes or describe an unexecuted anticipated failure as
+measured. Update it to verify actual geometry and day boundaries.
+
+No task-scope/full-suite pass applies to this Task5 patch. The earlier945 result
+applies only to the committed decoration candidate. Additional bar board geometry,
+full six-origin routing, shared contents mode, Today/topic contents selection,
+mixed-topic order, gesture/reduced-motion coverage, dark/200% matrix and contrast
+review remain pending. Existing contents UI/navigation are unchanged and do not
+yet satisfy Task5. Tasks6/7/9 are not started.
+
+Exact lib/test/tool draft patch SHA256:
+ec0cc8158f00c2a86f68c3334d04db4d2a5a6de84e88db3c11f56e31ab565f47.
+Patch:.dart_tool/w4c-task5-capacity-source.patch.
+The evidence append itself remains uncommitted. No production change followed
+the capacity request. No new dependency, schema, source figure, SDK mutation,
+autonomous screenshot, computer control, merge or publication occurred.
+The lead requested holding commits while uploading only the immutable decoration
+checkpoint; none of this Task5 patch was staged, committed or uploaded.
+
 
 ## October14 resumed Task8 separator checkpoint
 
@@ -991,3 +1087,102 @@ Only glyph component/new test/this section are staged for this verified shared s
 Reader production, rail source/test and prior capacity evidence remain dirty outside it.
 No Task5/family acceptance or phone visual acceptance is claimed. Lead reviews/uploads;
 Tasks6/7/9 do not begin before Task5 verification/save.
+
+
+## Task 5 verified implementor checkpoint, October 15
+
+Policy retrieved from current GitHub main at resumption (lead revision
+bb240aa15a3208c8611644478847045bd2157fc7; status118dba22). AGENTS, full WORKFLOW,
+SUBAGENTS and startup read; current L3 sha5a4643b358f62761e48aae3e99c2aa8ffbf43393
+includes a04aca18 shared/navigation,7960eb56 glyph and74f643ba/c5454fdc chosen-mask
+rulings. Existing full L2/spec/collision-map and source recovered. Main remains frozen;
+worker owns only web/new-design-w4c-r1. Fetched branch before edits: local and remote
+8870cfa979a132cf69d046dc60356378a7a306d4 matched; ten tracked dirty Task5 paths plus
+new contents_board_test.dart preserved. Relay runner offline at this resumption;
+lead-authorized native terminal fallback used, with no queued relay request/service change.
+
+Task5 implements six truthful reader origins in loaded/missing/error states, existing
+Home/Study no-stack fallbacks, still-open bookmark-sheet return, real LessonDayContext
+route extra/reindexing, board reader bar/back/bookmark press/pop/title strip, actual day
+counter and day rail/ticks, and owned in-place topic/day Contents through the previously
+verified shared reader sheet/glyph. Topic uses corpus order; day uses supplied real IDs
+and live metadata, actual dates, retry/choose-exam states. Selection preserves origin/day
+context and advances via the existing callback. No absent plan/performance routes added.
+No schema/dependency/storage contract change. Legacy showLessonContentsSheet helper remains
+for its legacy tests, with no production caller; planned Task9 removes replaced code.
+
+Contrast corrections under standing rule, same backgrounds/geometry: day-counter light
+8E8E93/FFFFFF3.2605→existingsecondaryLabel6E6E73/FFFFFF5.0713. Day tick drawn light
+C7C7CC gives1.6841 onFFFFFF,1.4413 onEDEDF0,3.1190 on0B7A68; dark48484A gives1.8646
+on1C1C1E,1.5273 on2C2C2E,2.6757 on1F9C86. Existinglabel passes all three surfaces:
+light1D1D1F/0B7A683.2041, darkF5F5F7/1F9C863.1320 (other pairs higher). Tests cover
+all pairs. Glyph gray8E8E93/white3.2605 passes icon3:1. No new token/background.
+Aedwon exact choice "current fade" binds unconditional56px topic overlay at fit/end;
+only naturally covered row text/tags/read marks have the recorded composite-contrast
+exception. Base tokens retain normal requirements. Dark endpoint is W1surface; day
+Contents has no fade. No raised glyph layer, extra inset or conditional removal.
+
+### Reproduction and covering execution
+
+All following relay IDs were inspected as actual child results, not top-level success:
+9629 barRED18pass/4fail;9631 bar/rail/glyphGREEN38;9633 route/ContentsRED5pass/7fail;
+9635 fallbackRED1pass/4fail;9637 navigationGREEN9;9642 ContentsstubRED0pass/9fail and
+barRED0pass/2fail;9647 Contents9pass/2maskfail and lifecycle0pass/5fail;
+9649 combinedGREEN65. Failures exposed late gesture cancellation's deactivated ancestor
+lookup, fixed by cached reduced-motion state and mounted checks with controller cleanup.
+Short release/cancel/unmount, mid-pop reduced motion, gray-base/teal-pop layer order,
+large-text strip and real bookmark return are covered. Relay9638 patch transport failed
+before mutation, recovered9639/9640; no passing check claimed for that request.
+
+9656 prescribed task scope:
+`flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --timeout 30s`
+actual childexit0, `00:43 +1018: All tests passed!`, `.dart_tool/w4c-task5-final-1.log`.
+Subsequent changes before separator were test-only analyzer cleanup (unused locals/cascade).
+9650's87infos,9656's3unused warnings and9658's3infos were not clean passes; fixed9654/55/57/59.
+9660 clean gates applied to prior sourcepatch7571b86de6da62761641226b00143f510db09585b8791a82db14551b0ad984e0,
+`.dart_tool/w4c-task5-final-clean-0.log` through-2. Retained broad1018 evidence covers
+unchanged behavior; the following checks refresh the separator correction.
+
+Lead review found later topic rows missing drawn0.5px top borders. Existing condition
+`!topic && index > 0` limited the wrapper to day rows. Added actual ancestor-border,
+color and row-rectangle assertions before code. Native RED command:
+`flutter test test/features/lesson/presentation/contents_board_test.dart --plain-name 'topic Contents board' --no-pub --reporter expanded`
+childexit1,0pass/4fail; every light/dark1×/2×case expected one border, actualzero.
+Full `.dart_tool/w4c-task5-separator-red.log`. Minimal feature-only correction removes
+`!topic` and sets existing padding to topic0/day6. First row remains borderless.
+No shared extension, row-height/layout change, fade change or extra topic gap.
+
+Native GREEN:
+`flutter test test/features/lesson/presentation/contents_board_test.dart test/app/study_route_test.dart --no-pub --reporter expanded --timeout 30s`
+childexit0, `00:03 +26: All tests passed!` (12Contents/14routes),
+`.dart_tool/w4c-task5-separator-green-1.log`. Border assertions cover first/later .5px,
+theme separator color, topicgap0 in light/dark1×/2× and daygap6. Includes400px long-list
+end mask/tap, fitting mask, realdaymetadata/order, selection, retry/date and route return.
+
+Final actual gates, `.dart_tool/w4c-task5-separator-gates-0.log` through-4:
+- `dart analyze lib test tool`:childexit0, `No issues found!`
+- `dart format --output=none --set-exit-if-changed lib test tool`:childexit0,
+  `Formatted 1462 files (0 changed) in 1.29 seconds.`
+- `dart run tool/check_layering.dart`:childexit0, `check_layering: OK`
+- `dart run tool/check_no_ai_attribution.dart`:childexit0, `check_no_ai_attribution: OK`
+- `git diff --check`:childexit0, empty output.
+
+Final lib/test patch against8870cfa9 including new Contents test:
+`.dart_tool/w4c-task5-final-source.patch`, SHA256 `7a2646cc8cf81d658b5ed21f02cb0da43a4929dfd58defd4f1212a15c8e1ddfc`.
+Exact final source/test file SHA256:
+- `lib/app/routes/study_routes.dart`: `3629d684929087c6d65abab4bfb233f642eec670d42c66453929ab4e9bb2c20a`
+- `lib/features/lesson/presentation/lesson_page.dart`: `b9736d040e0d58b79aae4a9de7dc7b2dd6fa11e7fdcbe7066c04b1bbf78777fc`
+- `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart`: `343a0e3fdaa5a2e3f92fafe16a4d7c84cfc031503d30a5d170279cf82767f179`
+- `lib/features/lesson/presentation/widgets/lesson_contents_sheet.dart`: `54d5717ee073397630be1e1dc38761cddd92a5b65c7a47e7b101a95f4a7218b2`
+- `lib/features/lesson/presentation/widgets/reader_bar.dart`: `6c596723660f5d468396b3681a9f57e74b21fdaf052faa6b8acd1d3747ad4afc`
+- `lib/features/lesson/presentation/widgets/reader_rail.dart`: `51a9abe829c4098a369505d4e2eafa114d390a8b61c42b6b7de80a7eba2a0986`
+- `test/app/study_route_test.dart`: `29c8178704e029293080979b23384ac16099785845506f7abe6386735e5148d8`
+- `test/features/lesson/presentation/reader_bar_test.dart`: `c848698726a25c061120f2c5cc6a0bb19dc83146eb90833f194b4b8a68674a86`
+- `test/features/lesson/presentation/reader_rail_test.dart`: `46f7e6835f663daf6cc99583130637a6e4009cc375f3d269991a0d560b147b80`
+- `test/features/lesson/presentation/contents_board_test.dart`: `0401cf24703216c525a962d72fa2b96ed97cae48115307505bcdc78efcd74162`
+
+Task5 implementor scope is verified and saved for lead review; no worker push/merge.
+Previous shared sheet/glyph checkpoints are retained, not redone. No waiting-on-contract
+control substituted. Tasks6/7/9 remain pending and not started. Full family suite, serialized
+Astra review, integration, phone visual checking and acceptance remain unverified.
+Hold before Task6 at lead capacity boundary. No child process or relay request remains pending.

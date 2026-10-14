@@ -2,15 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
@@ -32,11 +33,13 @@ class LessonPage extends ConsumerStatefulWidget {
     required this.lessonId,
     this.origin = ReaderOrigin.study,
     this.resume = false,
+    this.dayContext,
     super.key,
   });
 
   final LessonId lessonId;
   final ReaderOrigin origin;
+  final LessonDayContext? dayContext;
   final bool resume;
 
   @override
@@ -73,6 +76,18 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   void dispose() {
     _warm?.close();
     super.dispose();
+  }
+
+  LessonDayContext? _dayContextFor(LessonId id) {
+    final day = widget.dayContext;
+    if (day == null) return null;
+    final index = day.lessonIds.indexOf(id);
+    if (index < 0) return null;
+    return LessonDayContext(
+      date: day.date,
+      lessonIds: day.lessonIds,
+      index: index,
+    );
   }
 
   void _advanceTo(LessonId next) => setState(() => _lessonId = next);
@@ -122,6 +137,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
               );
               return _ReaderBody(
                 reader: reader,
+                dayContext: _dayContextFor(reader.lesson.id),
                 origin: origin,
                 resume: widget.resume && reader.lesson.id == widget.lessonId,
                 onAdvance: _advanceTo,
@@ -166,14 +182,7 @@ class _ReaderFallback extends StatelessWidget {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
                   ),
-                  onPressed: () {
-                    if (context.canPop()) {
-                      context.pop();
-                    } else {
-                      context
-                          .go(origin == ReaderOrigin.home ? '/home' : '/study');
-                    }
-                  },
+                  onPressed: () => origin.leave(context),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -184,7 +193,7 @@ class _ReaderFallback extends StatelessWidget {
                       ),
                       const SizedBox(width: 2),
                       Text(
-                        origin == ReaderOrigin.home ? 'Home' : 'Study',
+                        origin.backLabel(context),
                         style: context.type.body
                             .copyWith(color: context.colors.accent),
                       ),
@@ -204,12 +213,14 @@ class _ReaderBody extends ConsumerStatefulWidget {
     required this.reader,
     required this.origin,
     required this.onAdvance,
+    this.dayContext,
     this.resume = false,
   });
 
   final bool resume;
   final ReaderContext reader;
   final ReaderOrigin origin;
+  final LessonDayContext? dayContext;
 
   /// Swaps the lesson in place. Not a navigation: see [LessonPage].
   final void Function(LessonId) onAdvance;
@@ -230,6 +241,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   Timer? _positionDelay;
   bool _positionFailed = false;
   bool _resumeFailed = false;
+  bool _contentsOpen = false;
 
   @override
   void initState() {
@@ -372,90 +384,110 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     final colors = context.colors;
     final reader = widget.reader;
 
-    return SafeArea(
-      child: Column(
-        children: [
-          ReaderBar(
-            title: reader.lesson.title,
-            origin: widget.origin,
-            isBookmarked: reader.isBookmarked,
-            onBookmark: () => toggleBookmark(ref, reader.lesson.id),
-            onContents: () => showLessonContentsSheet(context, reader: reader),
-            scrollOffset: _scrollOffset,
-          ),
-          ValueListenableBuilder<double>(
-            valueListenable: _progress,
-            builder: (_, progress, __) => ReaderRail(progress: progress),
-          ),
-          Expanded(
-            child: PullToAdvance(
-              // The handle belongs to the end of the lesson, so it waits
-              // until the end is on screen.
-              isAtEnd: _isAtEnd,
-              nextTitle: reader.next?.title,
+    return PantasSheet(
+      label: 'Contents',
+      readerContents: true,
+      open: _contentsOpen,
+      onDismiss: () => setState(() => _contentsOpen = false),
+      page: SafeArea(
+        child: Column(
+          children: [
+            ReaderBar(
+              title: reader.lesson.title,
               lessonId: reader.lesson.id,
-              onAdvance: reader.next != null
-                  ? () => widget.onAdvance(reader.next!.id)
-                  : null,
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    LessonTextScale(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            reader.topicName.toUpperCase(),
-                            style: context.type.sectionHeader
-                                .copyWith(letterSpacing: .52),
-                          ),
-                          const SizedBox(height: 18),
-                          Text(
-                            reader.lesson.title,
-                            style:
-                                context.type.pageTitle.copyWith(height: 1.15),
-                          ),
-                          const SizedBox(height: 18),
-                          ContentRenderer(
-                            blocks: reader.lesson.bodyJson,
-                            readerFigures: true,
-                          ),
-                        ],
+              dayContext: widget.dayContext,
+              origin: widget.origin,
+              isBookmarked: reader.isBookmarked,
+              onBookmark: () => toggleBookmark(ref, reader.lesson.id),
+              onContents: () => setState(() => _contentsOpen = true),
+              scrollOffset: _scrollOffset,
+            ),
+            ValueListenableBuilder<double>(
+              valueListenable: _progress,
+              builder: (_, progress, __) => ReaderRail(
+                progress: progress,
+                dayContext: widget.dayContext,
+              ),
+            ),
+            Expanded(
+              child: PullToAdvance(
+                // The handle belongs to the end of the lesson, so it waits
+                // until the end is on screen.
+                isAtEnd: _isAtEnd,
+                nextTitle: reader.next?.title,
+                lessonId: reader.lesson.id,
+                onAdvance: reader.next != null
+                    ? () => widget.onAdvance(reader.next!.id)
+                    : null,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      LessonTextScale(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              reader.topicName.toUpperCase(),
+                              style: context.type.sectionHeader
+                                  .copyWith(letterSpacing: .52),
+                            ),
+                            const SizedBox(height: 18),
+                            Text(
+                              reader.lesson.title,
+                              style:
+                                  context.type.pageTitle.copyWith(height: 1.15),
+                            ),
+                            const SizedBox(height: 18),
+                            ContentRenderer(
+                              blocks: reader.lesson.bodyJson,
+                              readerFigures: true,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    Text(
-                      '${reader.lesson.estimatedMinutes} min read',
-                      style: context.type.footnote
-                          .copyWith(color: colors.secondaryLabel),
-                    ),
-                    const SizedBox(height: 16),
-                    if (_resumeFailed)
-                      errorFor('reading position', _resumePosition),
-                    if (_positionFailed)
-                      saveFailureLine(
-                        () => _savePosition(reader, _scrollOffset.value),
+                      const SizedBox(height: 24),
+                      Text(
+                        '${reader.lesson.estimatedMinutes} min read',
+                        style: context.type.footnote
+                            .copyWith(color: colors.secondaryLabel),
                       ),
-                    ReaderGap(
-                      isRead: reader.isRead,
-                      examId: reader.examId,
-                      lessonId: reader.lesson.id,
-                    ),
-                    // No mark-as-read button, deliberately. It is the one
-                    // thing this plan changes that everything downstream
-                    // depends on: with a button, every coverage figure in the
-                    // app counts presses rather than lessons whose end was
-                    // actually reached. Read marking is an observer of scroll
-                    // position now.
-                  ],
+                      const SizedBox(height: 16),
+                      if (_resumeFailed)
+                        errorFor('reading position', _resumePosition),
+                      if (_positionFailed)
+                        saveFailureLine(
+                          () => _savePosition(reader, _scrollOffset.value),
+                        ),
+                      ReaderGap(
+                        isRead: reader.isRead,
+                        examId: reader.examId,
+                        lessonId: reader.lesson.id,
+                      ),
+                      // No mark-as-read button, deliberately. It is the one
+                      // thing this plan changes that everything downstream
+                      // depends on: with a button, every coverage figure in the
+                      // app counts presses rather than lessons whose end was
+                      // actually reached. Read marking is an observer of scroll
+                      // position now.
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      child: LessonContentsSheet(
+        key: const ValueKey('lesson-contents'),
+        reader: reader,
+        dayContext: widget.dayContext,
+        onSelectLesson: (id) {
+          setState(() => _contentsOpen = false);
+          if (id != reader.lesson.id) widget.onAdvance(id);
+        },
       ),
     );
   }

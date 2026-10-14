@@ -286,7 +286,6 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         return;
       }
       final router = GoRouter.of(context);
-      widget.onClose();
       unawaited(router.push<void>('/lesson/${row.lessonId}?from=bookmarks'));
     }
 
