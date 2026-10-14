@@ -1467,3 +1467,24 @@ in24-unit coordinates/23pxsize, repaint on stroke change and focused shared test
 paths, preserve other callers. This implements the existing approved drawing, not a visual
 substitution. Shared Contents-sheet checkpoint29efcf4d is saved separately and awaits source/
 actual-output review and workingupload. Readerconnection/return-stack/fullTask5remain unfinished.
+
+
+### October14: custom-practice checkpoint and Contents variant reviewed/uploaded
+
+W4d c140d5f2 implemented Task3; real same-active-tabRED confirmed base10→11 and manualTotalTime
+7+5→empty withoutmodechange. Local no-op guard saved atc94868eb. Lead read immutablefullnew
+picker/core, sharedextensions/defaults, criticaltests, exact12sourcehashes andfinal2hashes; actual
+1014broader/73sharedstate/107finalfocusedpass, ownedcleananalysis,format/layering/attribution/diff.
+Existingacceptedbookmarknotice is exactglobalanalysisexception, not an ignorednewfailure.
+Sourcefindingcorrections hold originalapprovedscope. Afterfreshfetch andexpectedcleanlocalc948/
+remote15325 checks, normalnativepush succeeded. GitHubfullSHA
+c94868eb412be4b6320089429c688d294f8afbe4 matchesintendedlocalHEAD. Task3implementation is scoped
+reviewed/uploaded; family/Astra/integration/phoneacceptance remain. WorkeridlebeforeTask4atcapacity.
+
+Lead also read immutableW4cfa5d146f..29efcf4d component/newtests/evidence andactual8/17/693test
+pass/scopedanalysisclean/staticgates. ReaderContents mode matchesrecordedtimings/opacity/intrinsic
+height andpreservesexistinggeneric/bookmarkdefaults. Freshfetch/expectedHEAD validation andnormal
+nativepush succeeded; fullGitHubSHA29efcf4df3b4006d5c842f1fcd144428eb64d3a6 matcheslocal.
+Unfinishedreaderbar/rail/routing/Contentsconnectiondraft staysunuploaded; sharedvariant alone is
+notTask5completion. Glyph/rail boundedchecks arecurrentlyrunningbeforecapacityhandoff. NoTask6,
+Astra/familyacceptance/integration/phoneverification orpublication isclaimed.
