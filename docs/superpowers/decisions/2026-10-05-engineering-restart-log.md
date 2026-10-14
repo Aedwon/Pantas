@@ -1593,3 +1593,23 @@ notbaseforegroundtokens oranyothercontrol/background. Do not raisemarks abovemas
 underlyingtokens orchangeothergradients. Thisdoesnotpresentanewvisualalternative orrequire
 anotherconfirmation; it makes the selectedmask'sexisting behaviorimplementable. Previewicons
 wereexplicitlyomitted, so fullphone/whole-screen acceptance remainsunverified.
+
+
+## October15,2026,03:00AM: resume exact reader checkpoint
+
+Aedwon said "continue". Current ordinary usage is allowed:2% short-window,95% weekly used.
+The lead refreshed currentmainAGENTS/WORKFLOW atbb240aa15a3208c8611644478847045bd2157fc7,
+read the currentstatus/L3c/laterdecisions and renewed the samechatlock at118dba22.
+Nativefetch confirmed local/remoteW4c8870cfa979a132cf69d046dc60356378a7a306d4 and integration
+5e6cda45, with tenexpectedtrackeddrafts and newcontents_board_test.dart preserved. No drift,
+reset,rebase orcleanup. Relayrunner is offline; existingauthorized nativefallback applies.
+
+Relay9660 completed after the prior worker interruption: actual analyzerNoissues,format1462
+files0changes,diff0; sourcepatch7571b86de6da62761641226b00143f510db09585b8791a82db14551b0ad984e0.
+Broad1018tests passed before the newlyconfirmedtopic-rowborder finding. These are priorcandidate
+passes, notTask5 acceptance. Rootsource review foundtopicrowsborderless whileRD_Contents draws
+.5px topborders on every laterrow, noextra gap. Workeracknowledged before hitting the shortwindow
+limit. Resume sameworker for focusedRED, reusewrapper topicgap0/daygap6, affectedchecks and static
+renewal, then exactTask5 save and leadreview/upload. Currentfade remains approved; no newproduct
+orvisualdecision. W4d retainssameownership/cleanc94868eb beforeTask4. Reserve scarceweeklyquota
+for review and durablecheckpoint; no extraaudit, mainappcode, publication orautomation.
