@@ -1531,3 +1531,33 @@ Rail13checks/contrastcorrectionarestilldraft, includedin45batchbutnotTask5accept
 ignoredcapacity-2patchisbased29efandincludesglyphdelta,soitdoesnotrepresentcurrent8870dirtydiff.
 RootrecordedthisbeforeC'sresumption; noreset/discard. Mainstatusnowholdsrecoverablecheckpoint,
 Task5remainingwork andnextactions. Thisuploadisnotfamily/Astra/integration/phoneacceptance.
+
+
+### October14: contents fade choice offered while independent reader work continues
+
+Worker flagged RD_Contents' unconditional56px transparent-to-white bottom gradient over active
+rows. Lead opened actual source and timeline: eight reference rows (Lines and angles,Triangles,
+Quadrilaterals,Circles,Polygons,Area and perimeter,Surface area,Volume); intrinsiclist capped400px.
+Rows use16px/1.35 titles,10px verticalpadding and.5px separators. The gradient stillcoversfinal
+activeVolume row in the fitting-list state; timelineonlyshows450/400ms opening/closing, no end
+scroll state. Noforegroundtoken can overcomeanopaqueoverlayendpoint. Standingcontrasttoken
+ruling cannot silentlywaive or remove thisrepresentedmask. No alternativefade codewasimplemented.
+
+Concretepreview contents-fade-options-v1.html in task visualizationroot shows Current fade and
+Readable end. It is a light-mode contents-list-only preview; icon spaces keptbuticons,lesson
+selection,surroundingreader andopen/closeanimation omitted. Do notclaimwholeFlutter/phonefidelity.
+Same eight source rows/styles and56pxgradient. Optionalviewportheight demonstrates overflow/end.
+LocalDOM/runtime validation verifiedalwaysfade, fit, overflow andend behavior, rowcounts andfile
+limits. No browser/appcontrol orcapture. Sourceapproval remainsseparate from finalphone checking.
+
+Options/costs: Readable end (leadrecommendation) keepsfadeonlywhileactualmorecontentremainsbelow,
+removesit whenallfit oratend; adds a smallscroll-statecheck/focusedtests and improvesfinal-row
+readability. Current fade keepsreferencepresentation withoutnewconditionalbehavior butpartly
+obscuresfinalactive lesson andwouldrequireanexplicitcontrastexception. Aedwon'schoicepending.
+ProjectWORKFLOW requires "Any necessary difference must be shown and resolved with Aedwon before
+implementing that difference." This existingprojectrule requires thespecificvisualdecision.
+Otherapprovedreaderflow workcontinues; no newcomplexitymenu or broaderdesignwaiver.
+
+Actual#9629 barfidelityRED18pass/4fail; #9631 actualchildexit0/38pass includes22bar/13rail/3glyph.
+Task5 remainsuncommitted/unfinished. #9633 actualroutes/contentsRED5pass/7fail; missing/error-origin
+RED#9634 follows. These are implementationevidence, notTask5acceptance ornewfullsuitepass.
