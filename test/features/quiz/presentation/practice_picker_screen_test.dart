@@ -347,6 +347,33 @@ void main() {
     );
   });
 
+  testWidgets(
+      'selected Questions tab preserves the manual count and base wheel',
+      (tester) async {
+    final prefs = await pump(tester, saved: {'a'});
+    await tester.tap(find.byKey(const ValueKey('practice-size')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Adjust'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Increase Linear equations'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Questions per lesson'));
+    await tester.pumpAndSettle();
+    final saved = await prefs.read('e');
+    expect(saved.value, 10);
+    expect(saved.adjustments, {'lesson:a': 11});
+    expect(
+      tester
+          .widget<Text>(
+            find.byKey(
+              const ValueKey('practice-count-Linear equations'),
+            ),
+          )
+          .data,
+      '11',
+    );
+  });
+
   testWidgets('saved picks discard removed and questionless lesson ids',
       (tester) async {
     await pump(tester, saved: {'a', 'none', 'removed'}, value: 12);
@@ -588,6 +615,10 @@ void main() {
     );
     final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
     expect(wheel.values[wheel.selectedIndex], '10');
+    expect((await prefs.read('e')).adjustments, {'lesson:a': 7, 'lesson:b': 5});
+    await tester.tap(find.text('Total time'));
+    await tester.pumpAndSettle();
+    expect((await prefs.read('e')).value, 10);
     expect((await prefs.read('e')).adjustments, {'lesson:a': 7, 'lesson:b': 5});
     await tester.tap(find.text('Reset'));
     await tester.pumpAndSettle();

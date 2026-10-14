@@ -1,0 +1,59 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: selected Questions tab preserves the manual count and base wheel
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <10>
+  Actual: <11>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:362:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 362
+The test description was:
+  selected Questions tab preserves the manual count and base wheel
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: selected Questions tab preserves the manual count and base wheel [E]
+  Test failed. See exception logs above.
+  The test description was: selected Questions tab preserves the manual count and base wheel
+
+00:01 +0 -1: Total time redistributes counts and keeps its selected budget
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: {'lesson:a': 7, 'lesson:b': 5}
+  Actual: {}
+   Which: has different length and is missing map key 'lesson:a'
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:617:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 617
+The test description was:
+  Total time redistributes counts and keeps its selected budget
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: Total time redistributes counts and keeps its selected budget [E]
+  Test failed. See exception logs above.
+  The test description was: Total time redistributes counts and keeps its selected budget
+
+00:01 +0 -2: (tearDownAll)
+00:01 +0 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time redistributes counts and keeps its selected budget
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: selected Questions tab preserves the manual count and base wheel

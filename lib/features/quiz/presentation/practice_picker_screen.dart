@@ -617,24 +617,27 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
             unselectedFontWeight: FontWeight.w600,
             labels: const ['Questions per lesson', 'Total time'],
             selected: _mode.index,
-            onChanged: (i) => _change(
-              () {
-                // Keep quantization from shrinking repeated mode-only toggles.
-                _conversionTarget ??= summary.totalQuestions;
-                _mode = PracticeUnitMode.values[i];
-                _value = BuildPracticeSummary.closestValue(
-                      units: _selection.units(index),
-                      index: index,
-                      totalQuestions: _conversionTarget!,
-                      values: _values,
-                      mode: _mode,
-                      averageResponseMs: pace,
-                    ) ??
-                    _snap(_value, summary.unitCount, pace);
-                _adjustments = {};
-              },
-              modeOnly: true,
-            ),
+            onChanged: (i) {
+              if (i == _mode.index) return;
+              _change(
+                () {
+                  // Repeated mode toggles must not compound quantization.
+                  _conversionTarget ??= summary.totalQuestions;
+                  _mode = PracticeUnitMode.values[i];
+                  _value = BuildPracticeSummary.closestValue(
+                        units: _selection.units(index),
+                        index: index,
+                        totalQuestions: _conversionTarget!,
+                        values: _values,
+                        mode: _mode,
+                        averageResponseMs: pace,
+                      ) ??
+                      _snap(_value, summary.unitCount, pace);
+                  _adjustments = {};
+                },
+                modeOnly: true,
+              );
+            },
           ),
           const SizedBox(height: 14),
           ValueWheel.horizontal(
