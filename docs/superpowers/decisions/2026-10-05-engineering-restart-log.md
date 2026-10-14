@@ -1636,3 +1636,19 @@ specifically scoped. Existing mainapplicationfreeze/integration5e6 unchanged. Pr
 Currentweekly98% used; usercontinuation remainsauthorized. Sameworker may beginapprovedTask6
 whileordinarycapacitypermits, without newapproval or task/provider replacement. D holds cleanc948
 beforeTask4. Saveexactdraft/evidence before actualcapacitystop; no automaticresume claimed.
+
+
+### October15,03:08AM: preserve next task before weekly capacity exhaustion
+
+AfterTask5upload, sameworker refreshedmainpolicy15796bb5, reconciledcleanlocal/remote48eda,
+and beganTask6withinapprovedscope. Actualboard-derivedRED reproduces missing44x44fillingcircle:
+currenthandle36x3,childexit1/0pass1fail. No productionchangeorunverifiedcommit. Mainboard
+outline/timeline outputs for fiveendingboards preserved; fullstateinspection/testcoverage remains.
+
+Liveweeklyusage99%,shortwindow24%,ordinaryworkallowed atlastcheck. Leadends atdurablecapacity
+boundary; thisdoesnotclaimactualweeklylimitrejection orcreatea newuserpause. Originalcontinued
+engineeringauthorizationpersists. Cworkeridle; no childprocess/relay. Exacttwo dirtypaths,test
+hash,patchhash andevidencehash recordedincurrentSTATUS; actualrawREDoutput inspected. Next
+resumeTask6circle/transitions/realdayendings aftercontextrefresh, then7/9. ReviewedTask5remote
+48edaandDcleanc948/integration5e6 preserved. No cleanup,providerreplacement,unattendedautomation,
+mainapplicationchange, deployment, publication orphoneacceptance. Statuslockreleased.
