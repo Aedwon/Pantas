@@ -45,12 +45,14 @@ class ScopePicker extends StatefulWidget {
     required this.selectedIds,
     required this.onChanged,
     this.atLeastOne = true,
+    this.checkIconSize = 14,
     super.key,
   });
   final List<ScopeSubject> subjects;
   final Set<String> selectedIds;
   final ValueChanged<Set<String>> onChanged;
   final bool atLeastOne;
+  final double checkIconSize;
   @override
   State<ScopePicker> createState() => _ScopePickerState();
 }
@@ -162,7 +164,7 @@ class _ScopePickerState extends State<ScopePicker>
                   : checked
                       ? Icon(
                           PantasIcons.check,
-                          size: 14,
+                          size: widget.checkIconSize,
                           color: c.onAccent,
                         )
                       : null,

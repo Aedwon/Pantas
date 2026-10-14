@@ -65,6 +65,30 @@ void main() {
     expect(summary.estimatedMinutes, 5);
   });
 
+  test('positive sub-minute pace remains measured without clamping', () {
+    final summary = BuildPracticeSummary.call(
+      units: const [PracticeUnit(topicId: 't', lessonId: 'l1')],
+      index: index,
+      wheelValue: 3,
+      mode: PracticeUnitMode.questions,
+      averageResponseMs: 5000,
+    );
+    expect(summary.totalQuestions, 3);
+    expect(summary.estimatedMinutes, 0);
+  });
+
+  test('empty pool keeps a zero estimate regardless of positive pace', () {
+    final summary = BuildPracticeSummary.call(
+      units: const [],
+      index: index,
+      wheelValue: 3,
+      mode: PracticeUnitMode.questions,
+      averageResponseMs: 5000,
+    );
+    expect(summary.totalQuestions, 0);
+    expect(summary.estimatedMinutes ?? 0, 0);
+  });
+
   test('no questions in a lesson never become a selectable unit', () {
     final sparse = PracticeTopicEntry(
       id: 't',
@@ -87,4 +111,30 @@ void main() {
     expect(picked.units(idx).map((u) => u.lessonId), ['l1']);
     expect(picked.lessonSelected('empty'), isFalse);
   });
+
+  for (final pace in [0, -50000]) {
+    test('nonpositive pace $pace uses approved initial estimate for questions',
+        () {
+      final summary = BuildPracticeSummary.call(
+        units: const [PracticeUnit(topicId: 't', lessonId: 'l1')],
+        index: index,
+        wheelValue: 12,
+        mode: PracticeUnitMode.questions,
+        averageResponseMs: pace,
+      );
+      expect(summary.totalQuestions, 12);
+      expect(summary.estimatedMinutes, 10);
+    });
+    test('nonpositive pace $pace uses bounded total-time budget', () {
+      final summary = BuildPracticeSummary.call(
+        units: const [PracticeUnit(topicId: 't', lessonId: 'l1')],
+        index: index,
+        wheelValue: 10,
+        mode: PracticeUnitMode.minutes,
+        averageResponseMs: pace,
+      );
+      expect(summary.totalQuestions, 12);
+      expect(summary.estimatedMinutes, 10);
+    });
+  }
 }

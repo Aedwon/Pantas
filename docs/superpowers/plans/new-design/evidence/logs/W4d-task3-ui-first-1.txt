@@ -1,0 +1,896 @@
+
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0 (failed)
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: <none>, mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#31ca4):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:116:23)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <28>
+  Actual: <30.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:118:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 118
+The test description was:
+  picker and length states at Brightness.dark scale=1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: picker and length states at Brightness.dark scale=1.0
+
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=2.0 (failed)
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: <none>, mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#8264f):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:116:23)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <28>
+  Actual: <30.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:118:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 118
+The test description was:
+  picker and length states at Brightness.dark scale=2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: picker and length states at Brightness.dark scale=2.0
+
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=1.0 (failed)
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: <none>, mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#623b4):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:116:23)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <28>
+  Actual: <30.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:118:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 118
+The test description was:
+  picker and length states at Brightness.light scale=1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: picker and length states at Brightness.light scale=1.0
+
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=2.0 (failed)
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: <none>, mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#5ef51):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:116:23)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <28>
+  Actual: <30.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:118:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 118
+The test description was:
+  picker and length states at Brightness.light scale=2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: picker and length states at Brightness.light scale=2.0
+
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: singleton Questions overrides, Reset and wheel change (failed)
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'practice-size'>]: [
+  InkWell-[<'practice-size'>],
+]" derived an Offset (Offset(129.0, -49190.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(129.0, -49190.0) is outside the bounds of the root of the render tree, Size(390.0, 844.0).
+The finder corresponds to this RenderBox: RenderErrorBox#c0671
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#0ac2a(_ReusableRenderView#2c448), HitTestEntry<HitTestTarget>#16dbf(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:163:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: [tap], mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#11eb4):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:162:5)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "Adjust": []" (used in a call to "tap()") could not find any
+matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:165:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  singleton Questions overrides, Reset and wheel change
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: singleton Questions overrides, Reset and wheel change
+
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: saved picks discard removed and questionless lesson ids (failed)
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: [tap], mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#96c4e):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:240:5)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "1 lesson picked": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:241:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 241
+The test description was:
+  saved picks discard removed and questionless lesson ids
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: saved picks discard removed and questionless lesson ids
+
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: many lessons scroll and too-short times cannot be selected (failed)
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'practice-size'>]: [
+  InkWell-[<'practice-size'>],
+]" derived an Offset (Offset(129.0, -49190.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(129.0, -49190.0) is outside the bounds of the root of the render tree, Size(390.0, 844.0).
+The finder corresponds to this RenderBox: RenderErrorBox#8199e
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#ef88e(_ReusableRenderView#2c448), HitTestEntry<HitTestTarget>#70ec5(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:281:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building _InkResponseStateWidget(gestures: [tap], mouseCursor:
+null, clipped to BoxShape.rectangle, dirty, state: _InkResponseState#c3855):
+No Material widget found.
+_InkResponseStateWidget widgets require a Material widget ancestor within the closest
+LookupBoundary.
+In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's
+material library, that material is represented by the Material widget. It is the Material widget
+that renders ink splashes, for instance. Because of this, many material library widgets require that
+there be a Material widget in the tree above them.
+To introduce a Material widget, you can either directly include one, or use a widget that contains
+Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+The specific widget that could not find a Material ancestor was:
+  _InkResponseStateWidget
+The ancestors of this widget were:
+  ...
+  InkWell-[<'practice-size'>]
+  Expanded
+  Row
+  Padding
+  TextButtonTheme
+  ...
+
+The relevant error-causing widget was:
+  InkWell-[<'practice-size'>]
+  InkWell:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/practice_picker_screen.dart:257:28
+
+When the exception was thrown, this was the stack:
+#0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+#1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+#2      InkResponse.debugCheckContext (package:flutter/src/material/ink_well.dart:721:12)
+#3      _InkResponseState.build (package:flutter/src/material/ink_well.dart:1340:36)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (13 frames)
+#23     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#24     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#25     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (48 frames)
+#73     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#74     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#75     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (38 frames)
+#113    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#114    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#115    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+...     Normal element mounting (9 frames)
+#124    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#125    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#126    _LayoutBuilderElement._rebuildWithConstraints.updateChildCallback (package:flutter/src/widgets/layout_builder.dart:247:18)
+#127    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101:19)
+#128    _LayoutBuilderElement._rebuildWithConstraints (package:flutter/src/widgets/layout_builder.dart:270:12)
+#129    RenderAbstractLayoutBuilderMixin.layoutCallback (package:flutter/src/widgets/layout_builder.dart:333:38)
+#130    RenderObjectWithLayoutCallbackMixin.runLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:4302:33)
+#131    RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:3026:17)
+#132    PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223:15)
+#133    RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:3025:14)
+#134    RenderObjectWithLayoutCallbackMixin.runLayoutCallback (package:flutter/src/rendering/object.dart:4302:5)
+#135    _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:447:5)
+#136    RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#137    RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118:18)
+#138    RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#139    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#140    PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#141    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#142    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#143    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#144    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#145    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#148    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#149    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#150    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#153    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#154    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#155    main.pump (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:108:18)
+<asynchronous suspension>
+#156    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:274:5)
+<asynchronous suspension>
+#157    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#158    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#2      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:283:26)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  many lessons scroll and too-short times cannot be selected
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: many lessons scroll and too-short times cannot be selected
+
+::endgroup::
+
+::error::1 test passed, 7 failed.

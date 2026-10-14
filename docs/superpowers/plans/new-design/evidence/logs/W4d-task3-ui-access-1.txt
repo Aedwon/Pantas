@@ -1,0 +1,21 @@
+
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 0 metrics and keyboard in Brightness.dark
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 1 metrics and keyboard in Brightness.dark
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 2 metrics and keyboard in Brightness.dark
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 0 metrics and keyboard in Brightness.light
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 1 metrics and keyboard in Brightness.light
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 2 metrics and keyboard in Brightness.light
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: singleton Questions overrides, Reset and wheel change
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: saved picks discard removed and questionless lesson ids
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: many lessons scroll and too-short times cannot be selected
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time caption and singleton adjustments stay bounded
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: rapid selections and overrides survive leaving and reopening
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start forwards actual override and keeps picker below run route
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start failure retains picks without opening a run route
+
+🎉 18 tests passed.

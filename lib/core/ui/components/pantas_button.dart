@@ -16,6 +16,7 @@ class PantasButton extends StatefulWidget {
     this.radius = 14,
     this.fullWidth = true,
     this.horizontalPadding = 16,
+    this.disabledOpacity,
     super.key,
   });
   final String label;
@@ -27,6 +28,7 @@ class PantasButton extends StatefulWidget {
   final double radius;
   final bool fullWidth;
   final double horizontalPadding;
+  final double? disabledOpacity;
   @override
   State<PantasButton> createState() => _PantasButtonState();
 }
@@ -71,7 +73,8 @@ class _PantasButtonState extends State<PantasButton> {
     final enabled = onPressed != null || busy;
     final solid = variant == PantasButtonVariant.primary ||
         variant == PantasButtonVariant.destructive;
-    final foreground = !enabled
+    final dimmed = !enabled && widget.disabledOpacity != null;
+    final foreground = !enabled && !dimmed
         ? c.tertiaryLabel
         : solid
             ? (variant == PantasButtonVariant.destructive
@@ -81,7 +84,7 @@ class _PantasButtonState extends State<PantasButton> {
                     Theme.of(context).brightness == Brightness.dark
                 ? c.label
                 : c.accent;
-    final background = !enabled
+    final background = !enabled && !dimmed
         ? c.fill
         : solid
             ? variant == PantasButtonVariant.destructive
@@ -90,70 +93,73 @@ class _PantasButtonState extends State<PantasButton> {
             : variant == PantasButtonVariant.secondary
                 ? c.accentTint
                 : context.colors.transparent;
-    return AnimatedScale(
-      key: const ValueKey('pantas-button-scale'),
-      scale: MediaQuery.disableAnimationsOf(context)
-          ? 1
-          : _pressed
-              ? .97
-              : 1,
-      duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
-          : const Duration(milliseconds: 140),
-      curve: PantasCurves.ease,
-      child: ConstrainedBox(
-        constraints: BoxConstraints(minHeight: height),
-        child: TextButton(
-          statesController: _states,
-          onPressed: busy ? null : onPressed,
-          style: ButtonStyle(
-            minimumSize: WidgetStatePropertyAll(
-              Size(widget.fullWidth ? double.infinity : 0, height),
-            ),
-            padding: WidgetStatePropertyAll(
-              EdgeInsets.symmetric(
-                horizontal: widget.horizontalPadding,
-                vertical: height == 44 ? 10 : 12,
+    return Opacity(
+      opacity: dimmed ? widget.disabledOpacity! : 1,
+      child: AnimatedScale(
+        key: const ValueKey('pantas-button-scale'),
+        scale: MediaQuery.disableAnimationsOf(context)
+            ? 1
+            : _pressed
+                ? .97
+                : 1,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 140),
+        curve: PantasCurves.ease,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: height),
+          child: TextButton(
+            statesController: _states,
+            onPressed: busy ? null : onPressed,
+            style: ButtonStyle(
+              minimumSize: WidgetStatePropertyAll(
+                Size(widget.fullWidth ? double.infinity : 0, height),
               ),
-            ),
-            backgroundColor: WidgetStatePropertyAll(background),
-            foregroundColor: WidgetStatePropertyAll(foreground),
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(radius),
+              padding: WidgetStatePropertyAll(
+                EdgeInsets.symmetric(
+                  horizontal: widget.horizontalPadding,
+                  vertical: height == 44 ? 10 : 12,
+                ),
               ),
+              backgroundColor: WidgetStatePropertyAll(background),
+              foregroundColor: WidgetStatePropertyAll(foreground),
+              shape: WidgetStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(radius),
+                ),
+              ),
+              overlayColor:
+                  WidgetStatePropertyAll(foreground.withValues(alpha: .08)),
             ),
-            overlayColor:
-                WidgetStatePropertyAll(foreground.withValues(alpha: .08)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize:
-                widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-            children: [
-              if (busy) ...[
-                SizedBox.square(
-                  dimension: 18,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: foreground,
-                    value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize:
+                  widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
+              children: [
+                if (busy) ...[
+                  SizedBox.square(
+                    dimension: 18,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: foreground,
+                      value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                ],
+                Flexible(
+                  child: Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: context.type.emphasized.copyWith(
+                      color: foreground,
+                      fontSize: fontSize,
+                      letterSpacing: fontSize < 17 ? 0 : -.204,
+                    ),
                   ),
                 ),
-                const SizedBox(width: 8),
               ],
-              Flexible(
-                child: Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: context.type.emphasized.copyWith(
-                    color: foreground,
-                    fontSize: fontSize,
-                    letterSpacing: fontSize < 17 ? 0 : -.204,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

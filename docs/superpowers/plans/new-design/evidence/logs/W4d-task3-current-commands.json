@@ -1,0 +1,139 @@
+[
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-0.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "lib/app/routes/quiz_routes.dart",
+      "lib/core/ui/components/pantas_page.dart",
+      "lib/core/ui/components/pantas_button.dart",
+      "lib/core/ui/components/scope_picker.dart",
+      "lib/core/ui/components/segmented_switch.dart",
+      "lib/features/quiz/domain/picker/practice_summary.dart",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "lib/features/quiz/presentation/practice_picker_providers.dart",
+      "test/core/ui/components/practice_page_extensions_test.dart",
+      "test/features/quiz/domain/picker/practice_design_rules_test.dart",
+      "test/features/quiz/domain/picker/practice_mode_match_test.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-1.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "lib/app/routes/quiz_routes.dart",
+      "lib/core/ui/components/pantas_page.dart",
+      "lib/core/ui/components/pantas_button.dart",
+      "lib/core/ui/components/scope_picker.dart",
+      "lib/core/ui/components/segmented_switch.dart",
+      "lib/features/quiz/domain/picker/practice_summary.dart",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "lib/features/quiz/presentation/practice_picker_providers.dart",
+      "test/core/ui/components/practice_page_extensions_test.dart",
+      "test/features/quiz/domain/picker/practice_design_rules_test.dart",
+      "test/features/quiz/domain/picker/practice_mode_match_test.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-3.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz/domain/picker",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart",
+      "test/core/ui/components/practice_scope_extensions_test.dart",
+      "test/core/ui/components/practice_page_extensions_test.dart",
+      "test/core/ui/components/audit_scope_board_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-4.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/app/routes/quiz_routes.dart",
+      "lib/core/ui/components/pantas_page.dart",
+      "lib/core/ui/components/pantas_button.dart",
+      "lib/core/ui/components/scope_picker.dart",
+      "lib/core/ui/components/segmented_switch.dart",
+      "lib/features/quiz/domain/picker/practice_summary.dart",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "lib/features/quiz/presentation/practice_picker_providers.dart",
+      "test/core/ui/components/practice_page_extensions_test.dart",
+      "test/features/quiz/domain/picker/practice_design_rules_test.dart",
+      "test/features/quiz/domain/picker/practice_mode_match_test.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-5.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-6.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-7.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-8.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-9.txt"
+  }
+]

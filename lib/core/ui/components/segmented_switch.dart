@@ -6,6 +6,7 @@ class SegmentedSwitch extends StatelessWidget {
     required this.labels,
     required this.selected,
     required this.onChanged,
+    this.unselectedFontWeight = FontWeight.w500,
     super.key,
   })  : assert(
           labels.length > 1,
@@ -19,6 +20,7 @@ class SegmentedSwitch extends StatelessWidget {
   final List<String> labels;
   final int selected;
   final ValueChanged<int> onChanged;
+  final FontWeight unselectedFontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +93,7 @@ class SegmentedSwitch extends StatelessWidget {
                                         fontSize: 14,
                                         fontWeight: i == selected
                                             ? FontWeight.w600
-                                            : FontWeight.w500,
+                                            : unselectedFontWeight,
                                       ),
                                     ),
                                   ),

@@ -6,7 +6,7 @@ import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
-import 'package:pantas/features/quiz/presentation/pages/practice_picker_page.dart';
+import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -152,7 +152,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/quiz/practice/:examId',
-        builder: (_, state) => PracticePickerPage(
+        builder: (_, state) => PracticePickerScreen(
           examId: state.pathParameters['examId']!,
         ),
       ),

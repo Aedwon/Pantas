@@ -1,0 +1,5 @@
+
+✅ pace refresh keeps the picker visible and updates its estimate
+✅ motion hold never delays saving picks or survives leaving
+
+🎉 2 tests passed.

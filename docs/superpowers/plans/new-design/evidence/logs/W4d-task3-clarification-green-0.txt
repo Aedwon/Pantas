@@ -1,0 +1,6 @@
+Formatted lib/features/quiz/domain/picker/practice_summary.dart
+Formatted lib/features/quiz/presentation/practice_picker_screen.dart
+Formatted test/features/quiz/domain/picker/practice_design_rules_test.dart
+Formatted test/features/quiz/domain/picker/practice_mode_match_test.dart
+Formatted test/features/quiz/presentation/practice_picker_screen_test.dart
+Formatted 6 files (5 changed) in 0.01 seconds.

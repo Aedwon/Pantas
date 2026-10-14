@@ -1,0 +1,12 @@
+{
+  "base": "15325e0465e2581171180fdb5b89325d159d76ab",
+  "source_sha256": {
+    "lib/app/routes/quiz_routes.dart": "8e75936cfe96a96d3b12b1952716eccd100bc9d27fec0ee628d99e9095f75da6",
+    "lib/core/ui/components/pantas_page.dart": "b0970ea13dee9909b32d309bbb3df7f1610e66d708d9f0e87cfd306d6a1340e7",
+    "lib/core/ui/components/segmented_switch.dart": "f4cfdceee10cb9b534e6f7227782b10d89992fffdee715fa69e7a612e12a1990",
+    "lib/features/quiz/presentation/practice_picker_screen.dart": "3577c50996d51c7486759e8be680fa6dd5f1f0aa17842a1d6613924f0fd08278",
+    "lib/features/quiz/presentation/practice_picker_providers.dart": "018f07b3291ca9dec8db53c473cdca710ebe45fb1b02afda7b93d7f95f70df33",
+    "test/core/ui/components/practice_page_extensions_test.dart": "f443e5fa1efddac09051c170b8943d2815ed5dc4fe3ff9941db4e665a765bbf7",
+    "test/features/quiz/presentation/practice_picker_screen_test.dart": "4057f961fd98ed180f625ee6518f452c45e1b60965f5cff4033b7fb496c848d7"
+  }
+}

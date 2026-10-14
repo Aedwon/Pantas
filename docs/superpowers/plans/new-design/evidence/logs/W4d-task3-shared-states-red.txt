@@ -1,0 +1,117 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: failed Start retry retries the launch
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "Try Again": []" (used in a call to "tap()") could not find
+any matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:690:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  failed Start retry retries the launch
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: failed Start retry retries the launch [E]
+  Test failed. See exception logs above.
+  The test description was: failed Start retry retries the launch
+
+00:00 +0 -1: pending picker announces loading before delayed shapes appear
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TypeWidgetFinder:<Found 1 widget with type "CircularProgressIndicator": [
+            CircularProgressIndicator(<indeterminate>, state:
+_CircularProgressIndicatorState#a7312(ticker active)),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:807:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 807
+The test description was:
+  pending picker announces loading before delayed shapes appear
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: pending picker announces loading before delayed shapes appear [E]
+  Test failed. See exception logs above.
+  The test description was: pending picker announces loading before delayed shapes appear
+
+00:01 +0 -2: load failure uses shared state and retries every picker input
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "StateView": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:838:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 838
+The test description was:
+  load failure uses shared state and retries every picker input
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: load failure uses shared state and retries every picker input [E]
+  Test failed. See exception logs above.
+  The test description was: load failure uses shared state and retries every picker input
+
+00:01 +0 -3: save failure retains picks and shared retry saves them
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Could not save your progress.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:858:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 858
+The test description was:
+  save failure retains picks and shared retry saves them
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -4: save failure retains picks and shared retry saves them [E]
+  Test failed. See exception logs above.
+  The test description was: save failure retains picks and shared retry saves them
+
+00:01 +0 -4: (tearDownAll)
+00:01 +0 -4: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: failed Start retry retries the launch
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: load failure uses shared state and retries every picker input
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: pending picker announces loading before delayed shapes appear
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: save failure retains picks and shared retry saves them

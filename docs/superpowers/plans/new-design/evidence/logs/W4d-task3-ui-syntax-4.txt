@@ -1,0 +1,4 @@
+Formatted lib/core/ui/components/pantas_page.dart
+Formatted lib/features/quiz/presentation/practice_picker_screen.dart
+Formatted test/core/ui/components/practice_page_extensions_test.dart
+Formatted 4 files (3 changed) in 0.01 seconds.

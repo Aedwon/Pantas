@@ -52,6 +52,41 @@ class PracticeSummary {
 }
 
 abstract final class BuildPracticeSummary {
+  static int effectiveResponseMs(int? measured) =>
+      measured == null || measured <= 0 ? initialPracticeResponseMs : measured;
+
+  /// Matches the real capped question count. Ties use the lower wheel value.
+  static int? closestValue({
+    required List<PracticeUnit> units,
+    required PracticeIndex index,
+    required int totalQuestions,
+    required Iterable<int> values,
+    required PracticeUnitMode mode,
+    int? averageResponseMs,
+  }) {
+    if (units.isEmpty) return null;
+    int? best;
+    int? distance;
+    for (final value in values) {
+      final candidate = call(
+        units: units,
+        index: index,
+        wheelValue: value,
+        mode: mode,
+        averageResponseMs: averageResponseMs,
+      );
+      if (candidate.totalQuestions < units.length) continue;
+      final nextDistance = (candidate.totalQuestions - totalQuestions).abs();
+      if (distance == null ||
+          nextDistance < distance ||
+          (nextDistance == distance && (best == null || value < best))) {
+        best = value;
+        distance = nextDistance;
+      }
+    }
+    return best;
+  }
+
   static PracticeSummary call({
     required List<PracticeUnit> units,
     required PracticeIndex index,
@@ -61,12 +96,10 @@ abstract final class BuildPracticeSummary {
     Map<String, int> adjustments = const {},
   }) {
     if (units.isEmpty) return PracticeSummary.empty;
-    final pace = averageResponseMs ?? initialPracticeResponseMs;
+    final pace = effectiveResponseMs(averageResponseMs);
     final budget = mode == PracticeUnitMode.questions
         ? wheelValue * units.length
-        : pace <= 0
-            ? 0
-            : (wheelValue * 60000 / pace).floor();
+        : (wheelValue * 60000) ~/ pace;
     final perUnit = budget ~/ units.length;
     final remainder = budget % units.length;
     final available = <String, int>{};
