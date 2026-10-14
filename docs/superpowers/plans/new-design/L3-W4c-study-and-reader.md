@@ -62,6 +62,13 @@ specific difference to Aedwon. Preserve the verified checkpoint and proceed with
 reader tasks after saving the decoration slice; full Task8/family acceptance remains pending
 until this represented neighbor-motion requirement is resolved.
 
+## Aedwon's accepted motion exception, October 14
+
+Exact reply: "accept built-in". For neighboring gap offsets only, use the existing SDK250ms
+ easeInOut cubic(.42,0,.58,1). This supersedes the pending neighbor-curve hold above after
+comparisonv1. Do not replace the drag system. Lift150ms and drop-decoration200ms houseOut
+remain binding. This is not a wider visual waiver or final phone acceptance.
+
 ## Lead execution order, October 14
 
 The integrated base5e6cda45 and current assigned23113d73 contain the real LessonDayContext
