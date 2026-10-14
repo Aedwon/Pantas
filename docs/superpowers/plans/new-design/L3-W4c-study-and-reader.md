@@ -46,6 +46,22 @@ actual wipe then held Undo; account/token change then held Undo; anonymous missi
 exam change while the sheet survives; ordinary same-boundary Undo still restores timestamps/order
 and retains newly added bookmarks. Record reproduction and exact results before acceptance.
 
+## Lead motion source clarification, October 14
+
+BMEdit_n92 keeps translateY(-124px) unchanged from10000to10200ms. Its200ms houseOut
+settle concerns scale1.03→1 and shadow→none, not an additional position animation. Implement
+150ms lift and200ms decoration settling through the public proxy decorator and an independent
+local animation controller using existing motion tokens. Listen to the public animation status;
+clean up listeners/controllers and handle short releases, cancellation, unmount and reduced
+motion. Do not mutate the SDK or claim an unrepresented position duration is approved.
+
+A separate real difference remains: neighbors BMEdit_n89/n86 move62px over250ms houseOut;
+the installed SDK moves gap offsets over250ms easeInOut, with no public curve parameter.
+Do not silently accept that curve or replace the drag system. The lead will present this
+specific difference to Aedwon. Preserve the verified checkpoint and proceed with independent
+reader tasks after saving the decoration slice; full Task8/family acceptance remains pending
+until this represented neighbor-motion requirement is resolved.
+
 ## Lead execution order, October 14
 
 The integrated base5e6cda45 and current assigned23113d73 contain the real LessonDayContext
