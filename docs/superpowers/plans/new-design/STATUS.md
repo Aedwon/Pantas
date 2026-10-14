@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-14 21:44 Asia/Manila (renewed after continuation)
+Since: 2026-10-15 02:59 Asia/Manila (renewed after continuation)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -230,3 +230,19 @@ only on work no Sol worker started; Astra audits; the reading tier runs checks a
 Waiting on Aedwon: setup steps (`level4-setup-steps.md`, now with two pass products), privacy text
 (`drafts/privacy-pantas-id.md`), the Season Pass renewal line, confirmation of "Could not save your
 progress.", a look at the component gallery on a device, image credits, the Sanity upload, E14.
+
+
+## October15 continuation checkpoint
+
+Aedwon said "continue". Policy main bb240aa15a3208c8611644478847045bd2157fc7 refreshed;
+AGENTS/WORKFLOW unchanged. Native fetch confirms W4c HEAD/remote8870cfa9 with ten known
+tracked drafts and new contents_board_test.dart; no unexpected drift. Relay runner is offline;
+continue available native execution in the assigned worktree. Current usage permits work,
+2% short-window/95% weekly used; prioritize Task5 save/review with capacity reserved.
+Relay9660 actually passed clean analysis, format1462/0 changes and diff, source patch
+7571b86de6da62761641226b00143f510db09585b8791a82db14551b0ad984e0. These are pre-separator
+correction gates, not Task5 acceptance. Broad1018 tests previously passed. Confirmed pending
+finding: topic Contents lacks board-required .5px top borders on later rows; first row borderless,
+no topic gap, day keeps6px gap. Worker acknowledged before capacity interruption. Resume same
+worker, reproduce/fix/check, preserve approved current fade, then lead review and normal upload.
+W4d holds cleanc94868eb beforeTask4. Integration5e6cda45 and application-main freeze remain.
