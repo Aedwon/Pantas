@@ -1263,3 +1263,13 @@ translateY at release and200ms later while scale/shadow settle. Do not assume it
 proxy-position settling or ask for an exception before establishing a real represented mismatch.
 No alternate proxy implementation or visual waiver has been approved. W4d continues recorded
 aggregate-mode matching and nonpositive-pace corrections before its Task3 UI checkpoint.
+
+
+### October14: resume reader work through landed contracts
+
+The lead read actual assigned-branch LessonDayContext and quiz entry source. Both exist in the
+integrated5e6cda45 base. L3W4c5f5748fe resolves the older missing-contract hold: finish remaining
+Task8 fidelity when possible, then Tasks5,6,7,9. If a real presentation departure blocks only
+Task8, independent reader tasks may continue while the lead resolves that specific choice.
+Task9 and full-family acceptance remain blocked by any unresolved requirement. No substitutes,
+new scope, visual waiver or user decision is inferred.
