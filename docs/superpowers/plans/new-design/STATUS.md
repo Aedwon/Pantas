@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-14 10:36 Asia/Manila (renewed after Aedwon's continuation)
+Since: 2026-10-14 12:06 Asia/Manila (renewed after motion decision)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -118,7 +118,7 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Relay#9594 fetched main and W4c, then stopped because W4c lacks upstream tracking; this is
   configuration, not a pass for the remaining worktrees. Explicit-ref reconciliation#9595 follows.
   Main is behind only the two expected lead-authored documentation commits. No reset occurred.
-  Relay#9595 confirmed expected heads and no divergence: W4c ahead6/behind0, W4d matched15325e04 with known UI drafts, integration matched5e6cda45. #9596 normal W4c upload succeeded; full GitHub SHA23113d73a72ffa498f2c9ca652c9b2ee83af3d48 matches intended local head. Motion review corrected the reported drop-position timing conflict:200ms belongs to scale/shadow. Public decorator can match it; worker continues that bounded slice. True neighbor-row curve difference: board250ms houseOut versus SDK250ms easeInOut. Motion-only comparisonv1 and two options are offered to Aedwon; no exception approved. Independent reader Tasks5/6/7 may proceed under current L3 sequence; fullTask8/family acceptance remains pending this specific curve choice.
+  Relay#9595 confirmed expected heads and no divergence: W4c ahead6/behind0, W4d matched15325e04 with known UI drafts, integration matched5e6cda45. #9596 normal W4c upload succeeded; full GitHub SHA23113d73a72ffa498f2c9ca652c9b2ee83af3d48 matches intended local head. Motion review corrected the reported drop-position timing conflict:200ms belongs to scale/shadow. Public decorator can match it; worker continues that bounded slice. True neighbor-row curve difference: board250ms houseOut versus SDK250ms easeInOut. Aedwon said "accept built-in";250ms easeInOut neighbor offsets are approved. Lift/drop-decoration houseOut remains binding. Independent reader Tasks5/6/7 may proceed under current L3 sequence; Task8 separator review and full-family checks/acceptance remain pending.
 - Integration branch 5e6cda45 (pushed Oct 12; 3,971 Flutter tests pass) now also holds W4c's
   commits through 287a640b (Tasks 1 to 4, reading fraction) and W4d's 4ce76695 and a2a0cb80 (start
   functions, report entry). It is merged into every family branch. All of this still needs its
@@ -133,6 +133,17 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
 - Session ids in `w<N>-sid`
   (lead scratchpad); resume prompts `w4x-resume.md`, `w4d-resume2.md`, `w4f-resume.md`,
   `w4b-resume2.md`, `w4e-resume.md`; runner `lane.sh HH:MM job...`.
+
+- Oct14 at12:06 Aedwon accepted built-in neighbor motion after comparisonv1. Exact choice is
+  recorded in log1ef92a89 and L3e6c32679. W4c decorationcdda64f5 locally saved; actual#9604:
+  945 prescribed tests and clean analysis/format/layering/attribution/diff. Lead inspected immutable
+  23113d73..cdda64f5 and actual output, finding no blocker in this scoped decoration change.
+  Local150ms lift/200ms settle, public status listeners and cleanup/reduced-motion checks match
+  the represented decoration. Normal working upload is pending. FullTask8 remains partial:
+  source shows missing0.5px row dividers, requiring focused correction; Task5 has independent
+  RED drafts and shared-sheet/navigation clarifications pending. W4d Task3UI remains dirty;
+  79 focused tests and owned11-file analysis passed before final timeline/sub-minute formatting
+  corrections. Capacity93% short-window/62% weekly; workers prioritize exact saves/handoffs.
 
 ## Next step
 
