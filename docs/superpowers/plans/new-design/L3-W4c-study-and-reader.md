@@ -113,6 +113,16 @@ it as whole-screen acceptance or implement a fade exception/change until Aedwon 
 Other approved origin/error/bookmark-return/day/topic contents work may continue. Task5 cannot
 be finally accepted while its represented fade treatment remains unresolved.
 
+## Aedwon's accepted contents fade, October14
+
+Exacttypedreply: "current fade". KeepCurrent fade fromcontents-fade-options-v1: thedrawn
+unconditional56px bottomgradient forRD_Contents, includingfitting-list/end states. Theknown
+partlymaskedfinalrow wasdisclosed; themask-inducedtextcontrast exceptionislimitedtothisoverlay.
+Underlyingtext/othercontrols retainexistingcontrastrules. Do not removefadeatend, addbottominset,
+or substituteanotherbehavior. DarkmodeusesW1surface endpoint. RD_Plan/dayContents followsits
+ownboard; do notbroaden theexception. This supersedesthependingchoiceabove, notphoneacceptance.
+Theexplicittypedchoicecontrolsover widgetlastviewedReadable end context.
+
 Task8 row separators: the source currently leaves ListRow.divider false although BM_Edit draws
 0.5px separators. Correct through the existing shared row option only if its placement matches
 the board; add focused first/middle/last and subject-group checks. If the shared placement cannot
