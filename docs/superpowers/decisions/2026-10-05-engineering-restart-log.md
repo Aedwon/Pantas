@@ -1235,3 +1235,31 @@ Ruling before affected code: nonpositive pace is unavailable for estimation; the
 50-second initial pace covers both core and UI until a positive measurement exists. Tests cover
 zero/negative values, bounded counts and nonempty estimates. No new student figure, spacing rule,
 pricing, storage schema or data source is authorized. Current L3 W4d records both clarifications.
+
+
+## October 14, 2026, 10:36 AM: continue and save reviewed bookmark work
+
+Aedwon said: "continue". Live usage permits ordinary work (2% short-window,48% weekly used).
+Current AGENTS/WORKFLOW were retrieved from main26b83566. Existing Sol workers resume, preserving
+ownership, drafts and the approved scope. No new complexity or publication permission is inferred.
+
+Relay9594 fetched main and W4c but stopped at the missing W4c upstream configuration. Relay9595
+then checked explicit refs successfully: W4c clean23113d73 ahead6/behind0 from287a640b;
+W4d15325e04 matches remote with known UI drafts; integration5e6cda45 matches remote. Main trails
+only expected lead documentation commits. No reset, overwrite or history rewrite occurred.
+
+The lead inspected immutable W4c606ee3fc..23113d73 source/tests and actual9579/9589 evidence.
+Token/exam validation precedes restoration writes in the transaction; valid active contexts are
+preserved. Boundary tests use the actual wipe and verify next-account membership remains intact.
+Expired Undo clears Retry, including late old errors; move messages capture destination before
+persistence. Relay9589 passed937 prescribed tests, clean analysis/format/layering/attribution/diff.
+The blocking retained-Undo finding is resolved at4d1d9980; destination wording is23113d73.
+Normal upload9596 passed and GitHub full SHA23113d73a72ffa498f2c9ca652c9b2ee83af3d48 matches
+intended local head. This is a scoped reviewed working checkpoint, not full-family/Astra,
+integration, visual acceptance, peer-device convergence or publication.
+
+The reported bookmark timing conflict is under further source review: BMEdit_n92 holds the same
+translateY at release and200ms later while scale/shadow settle. Do not assume it promises200ms
+proxy-position settling or ask for an exception before establishing a real represented mismatch.
+No alternate proxy implementation or visual waiver has been approved. W4d continues recorded
+aggregate-mode matching and nonpositive-pace corrections before its Task3 UI checkpoint.
