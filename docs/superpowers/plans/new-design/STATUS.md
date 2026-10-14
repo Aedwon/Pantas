@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task 8 partial checkpoint23113d73:937 focused tests and clean analysis; Undo boundary and destination corrections passed scoped lead re-review, scoped review and working-branch upload complete. W4d Task3 core15325e04 passed522 broader/45 post-style checks, scoped lead review and working-branch upload; picker UI incomplete | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task8 checkpointfa5d146f: Undo boundaries, destination announcements, decoration and separators source-reviewed and uploaded; latest108 affected tests pass, earlier945 broad evidence retained; readerTasks5-7/9 and full-family/Astra/visual acceptance remain. W4d Task3 core15325e04 passed522 broader/45 post-style checks, scoped lead review and working-branch upload; picker UI incomplete | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -153,6 +153,20 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   W4d resumesTask3 lint/sub-minute formatting and verifiedsave, thenremainingplanorder.
   W4c resumesTask8separatorcorrection thenTask5/sharedsheet/navigation andTasks6/7/9.
   Acceptedneighbor motion remains; no new visual waiver or deployment/publication permission.
+
+- Oct14 resumed W4c separatorcheckpoint fa5d146f77990dbef72e86fa20f9b96ded9ca3ae:
+  actualbaselineRED0/9, correctedGREEN9/9; affected108 tests pass, scopedanalysis clean,
+  format/layering/attribution/diff pass. Lead inspected immutablecdda..fa production/tests/evidence
+  and actual outputs: existing .5px full-width row borders, exact62px geometry, proper last-row
+  and subject-group distinctions; no shared extension or blocker in this slice. Normal native
+  upload after fresh fetch/expectedHEAD check passed; fullGitHubSHA matchesfa5d146f. Seven
+  known Task5 dirty paths remain separate and unuploaded. Worker continuesTask5 undera04aca18.
+  No family/Astra/integration/phone acceptance or fullsuite pass inferred from this scoped check.
+- W4d source review reproduced repeatedmode shrinkage with realUI pools24/2/13,70000ms:
+  45/12/40/11 instead of45/13/45/13. CurrentL3rule7 records transient aggregate target.
+  Another ownedsource finding: picker loading/load/save states bypassW4h sharedpatterns;
+  rule8 d122d88a requires shared delayedloading/announcement/error/save retry. Task3 remains
+  dirty on15325e04, correction/focusedchecks and exact verifiedsave pending, no acceptance.
 
 ## Next step
 
