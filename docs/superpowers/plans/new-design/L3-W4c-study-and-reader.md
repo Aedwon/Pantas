@@ -102,6 +102,17 @@ color. Reuse the existing painter/paths; repaint when stroke changes and cover d
 reader stroke in a focused shared test. Ownership extends only to that helper and its test;
 no local duplicate. The lead inspected its current hardcoded1.5 scaled stroke before this rule.
 
+Task5 contents fade is pending Aedwon's specific presentation decision. Actual RD_Contents
+shows eight rows inside an intrinsic list capped400px, with unconditional56px transparent-to-white
+bottom overlay. It covers active final-row text even when all rows fit; foreground-token changes
+cannot overcome its opaque endpoint. No scroll-end state is represented in the board timeline.
+Lead offers contents-fade-options-v1: Current fade versus Readable end (fade only with real rows
+remaining below viewport; absent when fit/at end). Preview isolates the light contents list,
+omitting icons, lesson selection, surrounding reader and opening/closing animation. Do not treat
+it as whole-screen acceptance or implement a fade exception/change until Aedwon chooses.
+Other approved origin/error/bookmark-return/day/topic contents work may continue. Task5 cannot
+be finally accepted while its represented fade treatment remains unresolved.
+
 Task8 row separators: the source currently leaves ListRow.divider false although BM_Edit draws
 0.5px separators. Correct through the existing shared row option only if its placement matches
 the board; add focused first/middle/last and subject-group checks. If the shared placement cannot
