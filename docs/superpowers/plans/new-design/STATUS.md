@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
+State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-14 12:06 Asia/Manila (renewed after motion decision)
+Since: 2026-10-14 16:42 Asia/Manila (renewed after continuation)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -60,7 +60,7 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 14, 10:38 AM)
+## Running or scheduled (Oct 14, 4:42 PM)
 
 - RESUMED BY AEDWON Oct 13: "okay resume that. the plan already tells what to do exactly right?"
   The October 18 wait is lifted for the existing approved engineering scope. Live Codex limits
@@ -141,6 +141,18 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Local150ms lift/200ms settle, public status listeners and cleanup/reduced-motion checks match
   the represented decoration. #9625 normal upload passed; GitHub full SHA cdda64f5bef052f201e263f1f466e3f0893bd545 matches intended local head. FullTask8 remains partial:
   source shows missing0.5px row dividers, requiring focused correction; Task5 has six dirty production/test drafts. Shared-sheet/navigation clarifications are recorded in L3a04aca18 but not implemented; one style info/stale rail test remain. W4d Task3UI remains dirty on15325e04 matching remote. #9623 passed91 focused tests and format/layering/attribution/diff; one owned test cascade notice remains. Current12-source hashes in W4d-task3-current-identity.json. Positive sub-minute formatting/regression L3d d77df3bd is not implemented. No UI commit/upload or Task4 start. Capacity99% short-window/63% weekly; workers save exact unverified drafts/evidence then idle. No relay request pending for W4d. Next short-window reset: October14 at3:34PM Asia/Manila. Original approved continuation remains; this is a capacity boundary, not a new user pause. No unattended automation was created.
+
+- Oct14 at4:40PM Aedwon said "continue". Current window permits ordinary work (2% short,
+  64% weekly). Policy main4bff8268 refreshed; same blobs. Native preflight fetched all relevant
+  refs: W4c local/remote cdda64f5, W4d local/remote15325e04, integrationlocal/remote5e6cda45.
+  W4c retains seven known dirty paths (six Task5 code/tests plus evidence); W4d retains known
+  UI/source/tests and untracked verification logs. Mainclean f9a27233 trails only11 expected
+  lead documentation commits in existing status/log/L3c/L3d. No unexpected drift or overwrite.
+  Relay runner offline. User preference is relay when available; use available local execution
+  in the same isolated worktrees while offline, preserving all normal evidence/review gates.
+  W4d resumesTask3 lint/sub-minute formatting and verifiedsave, thenremainingplanorder.
+  W4c resumesTask8separatorcorrection thenTask5/sharedsheet/navigation andTasks6/7/9.
+  Acceptedneighbor motion remains; no new visual waiver or deployment/publication permission.
 
 ## Next step
 
