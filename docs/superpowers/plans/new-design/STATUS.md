@@ -10,7 +10,7 @@ Controlling documents:
 
 ## Lock
 
-State: held
+State: free
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
 Since: 2026-10-14 12:06 Asia/Manila (renewed after motion decision)
 
@@ -139,11 +139,8 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   945 prescribed tests and clean analysis/format/layering/attribution/diff. Lead inspected immutable
   23113d73..cdda64f5 and actual output, finding no blocker in this scoped decoration change.
   Local150ms lift/200ms settle, public status listeners and cleanup/reduced-motion checks match
-  the represented decoration. Normal working upload is pending. FullTask8 remains partial:
-  source shows missing0.5px row dividers, requiring focused correction; Task5 has independent
-  RED drafts and shared-sheet/navigation clarifications pending. W4d Task3UI remains dirty;
-  79 focused tests and owned11-file analysis passed before final timeline/sub-minute formatting
-  corrections. Capacity93% short-window/62% weekly; workers prioritize exact saves/handoffs.
+  the represented decoration. #9625 normal upload passed; GitHub full SHA cdda64f5bef052f201e263f1f466e3f0893bd545 matches intended local head. FullTask8 remains partial:
+  source shows missing0.5px row dividers, requiring focused correction; Task5 has six dirty production/test drafts. Shared-sheet/navigation clarifications are recorded in L3a04aca18 but not implemented; one style info/stale rail test remain. W4d Task3UI remains dirty on15325e04 matching remote. #9623 passed91 focused tests and format/layering/attribution/diff; one owned test cascade notice remains. Current12-source hashes in W4d-task3-current-identity.json. Positive sub-minute formatting/regression L3d d77df3bd is not implemented. No UI commit/upload or Task4 start. Capacity99% short-window/63% weekly; workers save exact unverified drafts/evidence then idle. No relay request pending for W4d. Next short-window reset: October14 at3:34PM Asia/Manila. Original approved continuation remains; this is a capacity boundary, not a new user pause. No unattended automation was created.
 
 ## Next step
 
