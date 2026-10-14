@@ -1358,3 +1358,22 @@ Normal checkpoint upload9625 requested; success/SHA must be verified separately.
 Capacity96% short-window/63% weekly. Workers were told to save only verified boundaries or
 preserve exact unverified drafts and idle; no new broader tasks. This capacity stop does not
 revoke Aedwon's approved continuation or restore his earlier October18 wait.
+
+
+### October14,12:10PM: verified upload and capacity boundary
+
+Relay9625 normalpush succeeded. The lead checked GitHub full remoteSHA
+cdda64f5bef052f201e263f1f466e3f0893bd545 against intended localHEAD. Only reviewed committed
+bookmark decoration was uploaded; six known uncommitted Task5 drafts remain local. W4c Task8
+still needs separator fidelity correction. Fullfamily/Astra/integration/phone acceptance remain.
+
+W4d remains local/remote15325e0465e2581171180fdb5b89325d159d76ab, no UI commit. Worker reports
+actual9623:91 focused tests pass; format/layering/attribution/diff0; owned12-file analysis has
+one test cascade notice. No relay pending. Exact current12-source SHA256 manifest saved at
+W4d-task3-current-identity.json under evidence/logs; root read it. L3d sub-minute formatting and
+regression have not started. Save unverified drafts/evidence; do not mark Task3 completed.
+
+Live short-window99% used, weekly63%. Workers stop at saved capacity boundary; original
+engineering continuation remains authorized. Next reset14October3:34PM Asia/Manila. No new
+unattended automation or repeated approval is required/inferred. Status lock released for
+next authorized resumption, which must refresh policy, reconcile refs and preserve drafts.
