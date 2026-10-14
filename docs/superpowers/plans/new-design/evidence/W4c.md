@@ -895,3 +895,58 @@ source; broader checks will run after that draft completes. Task8/family indepen
 and phone visual acceptance are unverified; the lead owns review, upload and integration.
 No control is waiting on a new contract in this slice. Task5 reader Contents/navigation and
 remaining Tasks6/7/9 continue under main a04aca18 and the recorded task-order ruling.
+
+
+## October14 Task5 shared Contents variant checkpoint (partial)
+
+Base `fa5d146f77990dbef72e86fa20f9b96ded9ca3ae`; current policy/main
+`eaa9c924cb415bd508b44afaaccbbca08ea586c4`, including a04aca18's shared-mode ruling.
+Native work uses the recorded offline-relay fallback. No queued/running relay.
+RD_Contents/RD_Plan raw boards, outline and actual timeline read before changes.
+They draw450ms open/400ms close slideC,350ms ease wash32%,105% translation,
+intrinsic contents height within viewport, with no page shift or scale.
+
+Added only optional PantasSheet.readerContents, defaultfalse. Generic and bookmark modes
+retain their timing, wash, height and background transforms. The new mode shares all existing
+focus/semantics, dismissal, scrolling and reduced-motion behavior. Reader callers/content are
+not connected in this slice. No new route, data mechanism, dependency, schema or color.
+
+Source identity: `.dart_tool/w4c-reader-contents-variant-verified-component.patch`, SHA256
+`14bea9c38e8f1b8310059bdd28b1a82a0e2d3dee9570d1004496ac7c9fe91860`;
+new `test/core/ui/components/reader_contents_sheet_variant_test.dart` SHA256
+`e7bbbc1468423448967e274ef4071ae1619ee956c3e9dee6706e0f9665c43fbf`.
+The six saved Task5 reader source/test drafts remain byte-for-byte unchanged,
+HEAD-relative patch SHA256`ec0cc8158f00c2a86f68c3334d04db4d2a5a6de84e88db3c11f56e31ab565f47`.
+Those drafts and their earlier capacity evidence stay unstaged outside this checkpoint.
+
+Actual native results:
+- Initial8-test run failed because broad finders also found MaterialApp's Navigator transition
+ widgets. Those fixture failures are not behavioral RED. Scoped every timing/barrier finder
+ to the actual PantasSheet and settled the initial Navigator transition before actions.
+- With corrected tests against the base shared component plus API-only stub: exit1,4 pass/4 fail;
+ `.dart_tool/w4c-reader-contents-variant-red-exact.log`. Both themes fail on missing105%
+ translation and32% wash. Existing dismissal behavior already passes. Only our candidate
+ component was temporarily replaced for this exact reproduction and restored afterward.
+- Corrected candidate:exit0,8 pass; `.dart_tool/w4c-reader-contents-variant-fixture.log`.
+ Exact225ms opening and200ms closing slide values,175ms wash values, final450/400ms
+ boundaries, unchanged page transforms,200px intrinsic height,320px/200% text viewport
+ cap, scrolling, reduced motion, escape/barrier/back/drag dismissal with page focus/semantics.
+- Candidate plus existing sheet tests:exit0,17 pass;
+ `.dart_tool/w4c-reader-contents-variant-affected.log`.
+- All shared UI tests: `flutter test test/core/ui --no-pub --reporter expanded --timeout30s`,
+ exit0, `00:24 +693: All tests passed!`;
+ `.dart_tool/w4c-reader-contents-variant-final-0.log`. No broad lesson/family rerun while
+ unrelated known reader draft is unfinished.
+- Initial scoped analysis had7 style infos; format check exit1. Corrected those styles;
+ second analysis had1 trailing-comma info, also fixed. Final scoped analysis on component
+ and its new test:exit0,`No issues found!`;
+ `.dart_tool/w4c-reader-contents-variant-analysis-final-2.log`.
+- Scoped format2 files0 changes; layering/attribution/diff checks each exit0,OK where applicable;
+ `.dart_tool/w4c-reader-contents-variant-gates-0.log` through-3. Later final change was only
+ the required Offset trailing comma; dart format reported0 changes. No behavior changed.
+
+This checkpoint implements only the authorized shared variant. Task5 still needs reader bar
+geometry/icon fidelity, rail tests/contrast, actual topic/day Contents, bookmark return stack,
+origin labels/parser/fallback and complete affected checks. Tasks6/7/9 have not started here.
+Phone visual acceptance, family completion and independent acceptance remain unverified.
+Lead owns source review/upload; no own push, integration or acceptance.
