@@ -1416,3 +1416,19 @@ must prove actual stable sequence plus target invalidation before Task3 acceptan
 Prior broader Task3 candidate1007 tests passed; owned12 analysis clean, global only recorded
 bookmark notice. Those passes do not accept the newly reproduced drift. Task3 remains uncommitted
 and requires corrected focused evidence plus applicable final checks before lead review/upload.
+
+
+### October14: picker async-state source review
+
+Lead inspected the new picker and current W4h pattern guide/source. It immediately mounted a
+local spinner and used feature-local Text/"Try again" for load/save failures. W4hTask1/4 already
+requires shared loading/error/save patterns across each family. L3d d122d88a records that existing
+requirement before correction: loadingFor's300ms LoadingShapes/announcement; errorFor('picks')
+with all index/pace/saved inputs retried; saveFailureLine; launch failure via W2 StateView,
+"Could not start your quiz." with actual-start retry. No raw exception details or parallel
+component/helper. This is scoped review of newly authored owned states, not a new product design.
+Meaningful failing tests and refreshed affected checks are required before Task3 acceptance.
+
+W4c worker has reproduced missing separators on exactcdda source (9 RED failures) and fixed
+through existingListRow option (9 GREEN). Main'sTask8placement ruling remains binding; no shared
+row extension. Final affected output/source identity and scoped save remain pending lead review.
