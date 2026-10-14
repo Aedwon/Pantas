@@ -214,6 +214,13 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Current fade vs Readable end, withlight-list-onlyrepresentation/omissionsdisclosed. No mask
   changeorcontrastexceptionapproved; otherreaderworkcontinues. FullTask5acceptancependingchoice.
 
+- Oct14at11:01PM Aedwontyped "current fade": retainreferenceRD_Contents unconditional56px
+  gradient, withknownmask-inducedtextcontrastasthespecificacceptedexception. Explicittypedchoice
+  overrideslastviewedReadable endwidgetstate. CurrentL3/logrecorditbeforecode; nofullscreen/phone
+  acceptanceorothercontrastwaiver. Task5maskholdisresolved; approvedreaderworkcontinues.
+  Workerreportsorigin/error/BookReturn#9637=9pass,ContentsAPI-only#9642RED0/9; barpress/large-strip
+  anddeactivated-contextcancelissuesunderfocuseddebugging. NoTask5completion/commitclaimedyet.
+
 ## Next step
 
 Finish the remaining independent W4d and W4c tasks, recording exact checks and commits as each finishes. Then continue lane 1 W4f/W4a and lane 2 W4b/W4e, and return for the missing cross-family controls. W3 is already integrated into each family base. Required cross-family controls remain unfinished until their owners' contracts land; no family is accepted merely because its independent slice passes. Astra audits run alone before family acceptance/integration. Then W6
