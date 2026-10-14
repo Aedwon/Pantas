@@ -96,6 +96,12 @@ use the existing Home/Study fallback and label that actual destination. Test nor
 return, day-context route extra, and deep-link fallback before accepting the affected navigation.
 Do not create routes owned by another family to fill missing callers.
 
+Task5 shared ContentsGlyph may add optional strokeWidth default1.5, preserving existing
+callers. Reader uses the board's23px size and1.8 stroke in24-unit SVG coordinates with approved
+color. Reuse the existing painter/paths; repaint when stroke changes and cover default versus
+reader stroke in a focused shared test. Ownership extends only to that helper and its test;
+no local duplicate. The lead inspected its current hardcoded1.5 scaled stroke before this rule.
+
 Task8 row separators: the source currently leaves ListRow.divider false although BM_Edit draws
 0.5px separators. Correct through the existing shared row option only if its placement matches
 the board; add focused first/middle/last and subject-group checks. If the shared placement cannot
