@@ -222,6 +222,104 @@ void main() {
     expect(find.text('SCIENCE'), findsOneWidget);
   });
 
+  void expectSeparator(
+    WidgetTester tester,
+    String lessonId, {
+    required bool visible,
+  }) {
+    final row = find.byKey(ValueKey(lessonId));
+    final box = find.descendant(
+      of: row,
+      matching: find.byWidgetPredicate(
+        (widget) => widget is Container && widget.constraints?.minHeight == 62,
+      ),
+    );
+    expect(box, findsOneWidget);
+    final decoration =
+        tester.widget<Container>(box).decoration! as BoxDecoration;
+    final colors = tester.element(find.byType(BookmarksSheet)).colors;
+    if (visible) {
+      expect(
+        decoration.border,
+        Border(
+          bottom: BorderSide(
+            color: colors.separator,
+            width: .5,
+          ),
+        ),
+      );
+    } else {
+      expect(decoration.border, isNull);
+    }
+    final bounds = tester.getRect(box);
+    final sheet = tester.getRect(
+      find.byKey(const ValueKey('pantas-sheet-surface')),
+    );
+    expect(bounds.left, sheet.left);
+    expect(bounds.right, sheet.right);
+    expect(bounds.height, 62);
+    expect(tester.getSize(row).height, 62);
+  }
+
+  for (final dark in [false, true]) {
+    for (final order in BookmarkOrder.values) {
+      testWidgets('bookmark separators order=$order dark=$dark',
+          (tester) async {
+        await pumpSheet(tester, rows: 3, order: order, dark: dark);
+        final reversed =
+            order == BookmarkOrder.recent || order == BookmarkOrder.custom;
+        final ids = reversed ? ['l3', 'l2', 'l1'] : ['l1', 'l2', 'l3'];
+        expectSeparator(tester, ids[0], visible: true);
+        expectSeparator(tester, ids[1], visible: true);
+        expectSeparator(
+          tester,
+          ids[2],
+          visible:
+              order == BookmarkOrder.recent || order == BookmarkOrder.oldest,
+        );
+        await tester.tap(find.text('Edit'));
+        await tester.pumpAndSettle();
+        expectSeparator(tester, ids[0], visible: true);
+        expectSeparator(tester, ids[1], visible: true);
+        expectSeparator(tester, ids[2], visible: false);
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
+
+  testWidgets('subject separators stop before each next heading',
+      (tester) async {
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's2',
+      examId: 'e1',
+      name: 'Mathematics',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's2',
+      name: 'Geometry',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'math',
+      topicId: 't2',
+      title: 'Math lesson',
+      bodyJson: '[]',
+      estimatedMinutes: 10,
+    );
+    await repo.mark('math');
+    await pumpSheet(tester, rows: 3, order: BookmarkOrder.bySubject);
+    expect(find.text('MATHEMATICS'), findsOneWidget);
+    expect(find.text('SCIENCE'), findsOneWidget);
+    expectSeparator(tester, 'math', visible: false);
+    expectSeparator(tester, 'l1', visible: true);
+    expectSeparator(tester, 'l2', visible: true);
+    expectSeparator(tester, 'l3', visible: false);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('a changed order crossfades the rows over 200 ms',
       (tester) async {
     await pumpSheet(tester, rows: 3);

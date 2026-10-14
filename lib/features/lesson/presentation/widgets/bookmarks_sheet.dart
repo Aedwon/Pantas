@@ -276,7 +276,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     );
   }
 
-  Widget _row(BookmarkRow row, int index) {
+  Widget _row(BookmarkRow row, int index, {required bool divider}) {
     final visible = !_folding.contains(row.lessonId);
     final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final checked = _selected.contains(row.lessonId);
@@ -330,11 +330,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
               subtitle: row.topicName,
               wrapTitle: large,
               minimumHeight: 62,
+              divider: divider,
               contentPadding: EdgeInsets.fromLTRB(
                 20,
                 9,
                 _editing && _shown.length > 1 ? 8 : 16,
-                9,
+                divider ? 8.5 : 9,
               ),
               leadingGap: 12 * value,
               leading: SizedBox(
@@ -458,6 +459,17 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
 
   Widget _list(BookmarkOrder order) {
     final items = List<BookmarkRow>.of(_shown);
+    bool hasDivider(int index) {
+      if (_editing || order == BookmarkOrder.custom) {
+        return index + 1 < items.length;
+      }
+      if (order == BookmarkOrder.bySubject) {
+        return index + 1 < items.length &&
+            items[index].subjectName == items[index + 1].subjectName;
+      }
+      return true;
+    }
+
     if (_editing && items.length > 1) {
       return ReorderableListView.builder(
         buildDefaultDragHandles: false,
@@ -467,14 +479,15 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         ),
         onReorderItem: _move,
         itemCount: items.length,
-        itemBuilder: (_, index) => _row(items[index], index),
+        itemBuilder: (_, index) =>
+            _row(items[index], index, divider: hasDivider(index)),
       );
     }
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (_, index) {
         final item = items[index];
-        final row = _row(item, index);
+        final row = _row(item, index, divider: hasDivider(index));
         if (order != BookmarkOrder.bySubject ||
             _editing ||
             item.subjectName.isEmpty ||

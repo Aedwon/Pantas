@@ -837,3 +837,61 @@ The actual complete Flutter suite, combined review/integration, phone visual
 acceptance and peer-device convergence remain unverified. No screenshot, computer
 control, schema/figure change, new contrast exception, merge, worker upload or
 publication occurred.
+
+
+## October14 resumed Task8 separator checkpoint
+
+Policy/main revision: `eaa9c924cb415bd508b44afaaccbbca08ea586c4`. Current AGENTS.md,
+WORKFLOW.md, SUBAGENTS.md, startup, L2/L3c, amendment and parallel map retrieved/read.
+Local/remote code base `cdda64f5bef052f201e263f1f466e3f0893bd545` reconciled before edits.
+Relay offline; main records native isolated-worktree fallback. No relay request was queued.
+The six Task5 source/test drafts are untouched: their HEAD-relative patch SHA256 remains
+`ec0cc8158f00c2a86f68c3334d04db4d2a5a6de84e88db3c11f56e31ab565f47`.
+Their prior capacity evidence remains unstaged outside this Task8 checkpoint.
+
+Board source and outline/timeline read before the correction: BM_Edit and BM_Order, exact
+62px box-sizing:border-box rows. Full-width bottom .5px separators follow actual states:
+Recent/Oldest include the final row; Custom/Edit omit the final row; By subject omits each
+subject group's final row. Existing ListRow.divider paints that exact edge. No shared-component
+extension. Bottom content inset decreases by .5px only when bordered to account for Flutter's
+added border padding and retain62px edit rows. Existing themed separator color retained;
+no new contrast substitution. The approved built-in neighboring250ms easeInOut exception
+and150/200ms houseOut decoration remain unchanged.
+
+Source patch: `.dart_tool/w4c-separators-verified-source.patch`, SHA256
+`cec630e7c9e4023a24f389255827ba58945cf7b562ca01b2031b27d8021f18ef`.
+Changed production/test paths: BookmarksSheet and its widget test only; plus this evidence.
+
+Actual native check results (full logs saved locally):
+- Initial separator RED: exit1,0 passed/9 failed, missing borders. First GREEN attempt:
+ 6 passed/3 failed because test IDs assumed reverse chronology for By subject; source shows
+ corpus order. Corrected those test identities, not product ordering. Final corrected tests
+ rerun against exact unmodified cdda production: exit1,0 passed/9 failed, absent .5px borders;
+ `.dart_tool/w4c-separators-red-exact.log`. Restored only our saved production patch afterward.
+- Corrected GREEN: exit0,9 passed; `.dart_tool/w4c-separators-green-2.log`. Light/dark,
+ all orders, editing first/middle/last and subject boundaries assert actual border/color,
+ full sheet width and62px geometry. No image/browser capture.
+- Affected checks: `flutter test test/features/lesson/presentation/bookmarks_sheet_test.dart
+ test/features/lesson/presentation/bookmarks_section_test.dart
+ test/features/lesson/domain/bookmark_order_test.dart
+ test/features/lesson/data/bookmark_prefs_repository_test.dart
+ test/features/lesson/application/bookmark_providers_test.dart
+ test/core/ui/components/pantas_sheet_test.dart
+ test/core/ui/components/structure_completion_test.dart
+ test/core/ui/components/row_dialog_accessibility_test.dart
+ test/core/ui/components/shared_board_corrections_test.dart
+ test/core/ui/components/study_search_extensions_test.dart --no-pub --reporter expanded
+ --timeout30s`: exit0, `00:06 +108: All tests passed!`;
+ `.dart_tool/w4c-separators-final-0.log`. Includes Undo boundary/migration/reorder and drag
+ cleanup regressions, existing shared row and bookmark sheet behavior.
+- Scoped analysis initially reported3 trailing-comma infos despite child exit0. Fixed those
+ test-only style issues. Final `dart analyze` on both changed Dart files: exit0,
+ `No issues found!`; `.dart_tool/w4c-separators-analysis-final.log`.
+- Scoped format:2 files,0 changes,exit0. Layering/attribution:each exit0,OK.
+ `git diff --check`:exit0. Logs `.dart_tool/w4c-separators-final-2.log` through-5.
+
+This is a verified separator slice. The unfinished reader draft is excluded from its staged
+source; broader checks will run after that draft completes. Task8/family independent acceptance
+and phone visual acceptance are unverified; the lead owns review, upload and integration.
+No control is waiting on a new contract in this slice. Task5 reader Contents/navigation and
+remaining Tasks6/7/9 continue under main a04aca18 and the recorded task-order ruling.
