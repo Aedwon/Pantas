@@ -76,6 +76,14 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    negative inputs in both core and time wheel; do not display zero-duration derived estimates for
    a nonempty quiz or manufacture an unbounded question budget.
 
+6. Task3, positive sub-minute duration: the nonpositive-pace fallback does not replace a
+   valid positive measurement. If a nonempty question-driven quiz has a positive derived duration
+   that rounds to zero minutes, display the bounded value "<1" with unit "minute" in the existing
+   derived metric and "under 1 min" in its summary. Do not clamp or manufacture a full minute.
+   Keep zero for an empty quiz and the selected budget for Total time. Cover a real positive
+   sub-minute total and ordinary/empty estimates. This is duration formatting of the existing
+   approved estimator, not a new pace, layout or data source.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
