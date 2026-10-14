@@ -84,6 +84,19 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    sub-minute total and ordinary/empty estimates. This is duration formatting of the existing
    approved estimator, not a new pace, layout or data source.
 
+7. Task3, repeated-mode conversion target: actual UI reproduction found shrinking quiz size
+   with pools[24,2,13], valid measured70000ms, Questions13. Stateless nearest conversion gives
+   wheel sequence45min→12questions→40min→11questions across four toggles, violating rule4.
+   Preserve the real aggregate question count at the first sizing-mode switch as a transient
+   conversion target across subsequent mode-only toggles. Evaluate destination values against
+   that same target and current real pools/valid pace; deterministic lower-wheel ties remain.
+   Clear this target after an actual selection, wheel, manual allocation or Reset change, and
+   when material selected-pool availability or effective pace changes. Next switch captures the
+   new actual aggregate count. Clear overrides on explicit mode changes as already required.
+   Reuse existing screen state; no schema, new data source, persisted history or student figure.
+   Regression covers the reproduced45/13/45/13 stable sequence and each target-invalidating change.
+   This preserves the approved no-creep rule rather than accepting statistical shrinkage.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
