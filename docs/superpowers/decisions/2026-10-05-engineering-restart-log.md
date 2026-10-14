@@ -1581,3 +1581,15 @@ Currentcapacity65% shortwindow/89%weekly. PrioritizecompleteTask5reviewablecheck
 Actualworker#9637origin/error/bookmarkreturn9pass; #9642ContentsAPI-onlyRED0/9. Newbarassertions
 foundselectedmarkpress and200%strip metrics, plusactualdeactivated-contextlookup duringcancel.
 Workerisolates/fixescurrentownedlifecycle through existingstate, notnewdata/providerarchitecture.
+
+
+### Current fade covered-row scope, same user choice
+
+Worker identified that the chosenunconditionaloverlay naturally covers read/current-state
+marks and Reading tags aswellasrowtext if theyoccupythebottomregion. Clarification ofthe
+existingtyped "current fade" choice: preserveitsactualdrawing/layerorder acrossrowstates.
+Itsmask-inducedcompositecontrast exceptionincludesonlyrowcontentunderthisexact56pxoverlay,
+notbaseforegroundtokens oranyothercontrol/background. Do not raisemarks abovemask, exempt
+underlyingtokens orchangeothergradients. Thisdoesnotpresentanewvisualalternative orrequire
+anotherconfirmation; it makes the selectedmask'sexisting behaviorimplementable. Previewicons
+wereexplicitlyomitted, so fullphone/whole-screen acceptance remainsunverified.
