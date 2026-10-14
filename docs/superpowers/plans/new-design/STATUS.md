@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
+State: free
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-15 02:59 Asia/Manila (renewed after continuation)
+Since: released 2026-10-15 03:08 Asia/Manila (weekly capacity boundary)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -264,3 +264,22 @@ acceptance. Tasks6/7/9 remain. W4d cleanc948 retainsownership beforeTask4; integ
 Conservative task-count progress now67/133=50.4%, still about50%, W4c count5; Task8 remains
 excluded conservatively pending explicitcloseout. Currentweekly98% used; reserve durablehandoff
 and continue nextapprovedTask6 only while ordinarycapacity permits. No deployment orpublication.
+
+
+### October15,03:08AM: recoverable Task6 RED at weekly capacity boundary
+
+Weekly99% used, ordinarycapacity not yetreportedblocked; end atdurablesave ratherthan losehandoff.
+This is capacitypacing, not a newAedwonpause; continuation remainsauthorized. SameCworker idle.
+W4c HEAD/remotereviewed48eda4dc04b436bca522d1f9d86b7cb216bcfe72. Onlyknownlocaldirtypaths:
+`docs/superpowers/plans/new-design/evidence/W4c.md` and
+`test/features/lesson/presentation/pull_to_advance_test.dart`. No productionedit,newcommit,
+workerpush orpendingprocess/relay. Task6 actualREDchildexit1,0pass/1fail: expected44x44circle,
+actual36x3handle. Draft `.dart_tool/w4c-task6-red-draft.patch` SHA256
+4a3ca2b6410dc9a3906d8ad5d05ee2b8c70f03e9c74122fc7f1d6d3be15ddc3d;
+testf92a84f184a88a2bb02c07386db542000708da1dd2f4d4ffc247bb9708f9a23b;
+evidenceb64d325b07fdf61ecbbd25b5167c9bd3bb6aa8e48ab0e4986b55de87daf11190.
+Nextresume refreshmainpolicy/reconcile48eda andpreservedtwo-pathdraft, finishcompleteTask6
+boardinspection/REDcoverage then circle/armed/cancel/motion/daysequence/dayend/topicplates.
+Preserveactual15secondreadfloor. Task5revieweduploaded,Task6unfinished,Tasks7/9remain.
+W4d samecleanc948 beforeTask4; integration5e6 unchanged. No autonomousresume or SSOTexternal
+update claimed. Lockreleased, mainapplicationfreeze and allacceptance/publication gates remain.
