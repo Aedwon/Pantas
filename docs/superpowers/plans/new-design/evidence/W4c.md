@@ -950,3 +950,44 @@ geometry/icon fidelity, rail tests/contrast, actual topic/day Contents, bookmark
 origin labels/parser/fallback and complete affected checks. Tasks6/7/9 have not started here.
 Phone visual acceptance, family completion and independent acceptance remain unverified.
 Lead owns source review/upload; no own push, integration or acceptance.
+
+
+## October14 Task5 shared Contents glyph checkpoint (partial)
+
+Base `29efcf4df3b4006d5c842f1fcd144428eb64d3a6`. Read current main L3c's
+ContentsGlyph extension (7960eb56/log2ced76ce) before affected code; GitHub current
+L3 blob `3319142de59e568fb26badec6c2f105d0439cbfa`. Reused the existing painter and three
+paths. Optional strokeWidth defaults1.5; reader board supports23px size and1.8 stroke in
+24-unit SVG coordinates. Painter repaints when stroke changes. Other callers remain unchanged.
+ReaderBar does not consume the new option yet; complete Task5 still pending.
+
+Source patch `.dart_tool/w4c-contents-glyph-verified-source.patch`, SHA256
+`5e92dd759c3e94d26aee27b1c01f741eccc4127d989fa7c1447fab5e1e75c36b`;
+new focused shared test SHA256`c5adfbd94ec36643720fa1a8451cfa87227794e7f4a9ffadca5aee6ec319f82d`.
+Native offline-relay fallback continues. No relay request, service change or screenshot.
+
+Actual checks:
+- First three test failures were overly broad CustomPaint finders, not valid behavioral RED.
+ Narrowed to the actual shared glyph. Exact base component plus API-only stub with corrected
+ finders:exit1,1 pass/2 fail (reader stroke and repaint),
+ `.dart_tool/w4c-contents-glyph-red-exact.log`. Our candidate component restored afterward.
+- First candidate focused/affected run:42 pass/3 fixture failures; narrowed finders corrected.
+ Next run:44 pass/1 fail because Paint stores strokeWidth as Float32:
+ actual1.725000023841858 versus double expected1.7249999999999999. Expected now uses the
+ same Float32 representation of the board-derived1.8×23/24. No product adjustment.
+ A misplaced typed-data import caused one compilation failure, corrected before final run.
+ These outcomes remain in `.dart_tool/w4c-contents-glyph-affected-0.log`,
+ `...final-0.log`, `...final-2-0.log`; none counted as passing verification.
+- Final `flutter test` scoped shared glyph, audit colors, gallery, shared board corrections,
+ reader bar and reader rail, `--no-pub --reporter expanded`:exit0,
+ `00:01 +45: All tests passed!`; `.dart_tool/w4c-contents-glyph-final-3.log`.
+ Includes3 glyph/default/repaint tests,18 saved bar tests and13 rail tests. No broad family rerun.
+- Scoped analysis initially8 issues, then1 remaining trailing comma; all corrected.
+ Final analysis of glyph, its test and rail draft/test:exit0,`No issues found!`;
+ `.dart_tool/w4c-contents-glyph-gates-0.log`. Format4 files0 changes,exit0;
+ layering,attribution,diff each exit0,OK where applicable, gates-1 through-4.
+
+Only glyph component/new test/this section are staged for this verified shared slice.
+Reader production, rail source/test and prior capacity evidence remain dirty outside it.
+No Task5/family acceptance or phone visual acceptance is claimed. Lead reviews/uploads;
+Tasks6/7/9 do not begin before Task5 verification/save.
