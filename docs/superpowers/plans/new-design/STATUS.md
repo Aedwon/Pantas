@@ -246,3 +246,21 @@ finding: topic Contents lacks board-required .5px top borders on later rows; fir
 no topic gap, day keeps6px gap. Worker acknowledged before capacity interruption. Resume same
 worker, reproduce/fix/check, preserve approved current fade, then lead review and normal upload.
 W4d holds cleanc94868eb beforeTask4. Integration5e6cda45 and application-main freeze remain.
+
+
+### October15,03:04AM: Task5 reviewed working checkpoint
+
+W4c Task5 implemented at48eda4dc04b436bca522d1f9d86b7cb216bcfe72, clean tree.
+Lead independent source/spec/quality review inspected full current Task5 production/tests and
+corrected separator delta; no scoped blocker remains. Final .5px later-row borders preserve topic
+0/day6 gaps, approved currentfade, truthful origin/BookReturn, real day context/counter/rail and
+shared sheet/glyph. Actual separatorRED4fail then affectedGREEN26pass; analyzerNoissues,
+format1462/0,layering/attribution/diff0. Earlier1018 prescribed tests apply to unchanged behavior;
+new checks cover final separator correction and test cleanup. Ten committed file hashes match
+the final evidence manifest. Relayoffline; guardednativefreshfetch confirmed expectedbase8870,
+clean48eda ahead1/behind0, normalpush succeeded. FullGitHubSHA matchesintended48eda.
+This is reviewed/uploaded Task5 implementation, not completefamily/Astra/integration/phone
+acceptance. Tasks6/7/9 remain. W4d cleanc948 retainsownership beforeTask4; integration5e6 unchanged.
+Conservative task-count progress now67/133=50.4%, still about50%, W4c count5; Task8 remains
+excluded conservatively pending explicitcloseout. Currentweekly98% used; reserve durablehandoff
+and continue nextapprovedTask6 only while ordinarycapacity permits. No deployment orpublication.
