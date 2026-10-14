@@ -46,6 +46,17 @@ actual wipe then held Undo; account/token change then held Undo; anonymous missi
 exam change while the sheet survives; ordinary same-boundary Undo still restores timestamps/order
 and retains newly added bookmarks. Record reproduction and exact results before acceptance.
 
+## Lead execution order, October 14
+
+The integrated base5e6cda45 and current assigned23113d73 contain the real LessonDayContext
+and quiz-entry contracts. The earlier missing-contract hold on Tasks5/7 and Home endings is
+therefore resolved; use those exact contracts, not local substitutes. Complete the remaining
+Task8 decoration fidelity first if it is achievable within approved presentation. Then execute
+Tasks5,6,7 and9 in order with task-scoped checks/commits. If a genuine visual departure blocks
+only Task8, preserve its verified checkpoint and proceed with independent Tasks5/6/7 while the
+lead resolves that specific presentation. Task9/full-family acceptance cannot pass with an
+unresolved Task8 requirement. Read main boards and later rulings before affected code.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
