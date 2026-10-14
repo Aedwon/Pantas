@@ -728,3 +728,112 @@ Flutter suite, combined-family acceptance, phone visual acceptance, peer-device
 convergence and independent review remain unverified. No upload, merge,
 publication, screenshots or computer control occurred. The immutable Undo
 correction remains available separately for lead re-review.
+
+## October 14: corrected motion reading and verified decoration slice
+
+Aedwon continued after the usage reset. Current main AGENTS, WORKFLOW, SUBAGENTS
+and startup were retrieved again and read. Policy blobs remain unchanged;
+startup policy main:26b83566c12519bfd1a83600aa666b3faf265e73.
+Current L2/L3, amendment spec and parallel map were refreshed. Relay README and
+project instructions match the previously read main blobs668138ab and0f30ecd8.
+Root reconciliation9595 reported clean23113, expected remote287a640b, local ahead6
+and remote ahead0. Root then reviewed and normally uploaded the immutable
+checkpoint through9596; local and remote23113 now match. The worker did not push.
+
+### Correction of the earlier limitation
+
+The earlier statement treated the200ms decoration settle as if it required
+200ms proxy position settling. That was incorrect. Exact BMEdit_n92 source holds
+translateY(-124px) at both74.074% and75.556% of13500ms (about10000/10200ms).
+Only scale1.03→1 and shadow→none change during this200ms segment.
+The source still specifies150ms pickup decoration and200ms release decoration,
+both houseOut. No new position-duration choice is required for this slice.
+
+The public proxy decorator receives Animation<double> with status listeners.
+An independent local controller can observe pickup/reverse status and animate
+decoration without changing Flutter's controller or position. Root recorded the
+technical ruling before code in mainL3:b7176243c7ad723d2d88d6c8abbe2b5d82043bbb.
+The order clarification5f5748fe resolves the old missing-contract hold. Root later
+recorded the genuine neighboring-row curve question at main203384e/log747984f.
+
+### Bounded implementation and RED/GREEN
+
+The sheet now uses its public proxyDecorator to add:
+-150ms scale1→1.03 and shadow0→0 8px 24px black14%, using houseOut.
+-200ms scale1.03→1 and shadow→none on reverse status, using houseOut.
+-Existing surface/shadow color tokens in light and dark.
+-Flat final decoration with reduced motion.
+-Removal of status listeners and disposal of the local controller on unmount.
+-Dismissed/short-release handling that stops the local decoration animation.
+
+No SDK field, list-gap curve, position animation, membership, order preference,
+shared component or dependency was changed. The callback replaces Flutter's
+default elevation decoration; the existing drag system remains intact.
+
+Relay9600, exit1:7 RED fixtures. Five found a null proxyDecorator; two actual
+gesture fixtures lacked the custom proxy. Exact log:
+.dart_tool/w4c-drag-decoration-red.log.
+
+Relay9602:4 passed/3 failed. Both exact timing/scale/shadow assertion sets passed,
+but the synthetic parent250ms controller stayed active at fixture end because
+addTearDown runs after Flutter's ticker verification. The short synthetic reverse
+also had not reached dismissed status at the assumed30ms floating boundary.
+The tests now dispose their parent controller in explicit finally blocks and
+observe the actual dismissed lifecycle. The widget's own real cancel/unmount
+cleanup already passed. Actual gestures move beyond recognizer slop before
+inspection. Analyzer also reported test/style info; these were corrected.
+
+Relay9603:8 focused tests passed, including light/dark exact75/150ms pickup and
+100/200ms release samples, reduced motion, short synthetic release, actual short
+release preserving selected membership/order, actual cancellation and unmount.
+A remaining bool-conversion style info was corrected before the final gates.
+No historical warning exception was used.
+
+Relay9604, all child exits0:
+
+```text
+flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --timeout 30s
+00:38 +945: All tests passed!
+dart analyze lib test tool
+No issues found!
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1459 files (0 changed) in 1.41 seconds.
+dart run tool/check_layering.dart
+check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+git diff --check
+exit0
+```
+
+Source base: 23113d73a72ffa498f2c9ca652c9b2ee83af3d48.
+lib/test/tool patch SHA256: f4c68ec7936ee4d6a3b880da7b6b3ea85f83e9d6418e5e4930815ee8add79db6.
+Patch:.dart_tool/w4c-drag-decoration-verified-source.patch.
+Complete logs:.dart_tool/w4c-drag-decoration-final-0.log through
+.dart_tool/w4c-drag-decoration-final-6.log.
+
+Scoped manifest:
+-lib/features/lesson/presentation/widgets/bookmarks_sheet.dart
+-test/features/lesson/presentation/bookmarks_sheet_test.dart
+-docs/superpowers/plans/new-design/evidence/W4c.md
+
+### Pending requirements and next order
+
+Task8 decoration is implemented and automatically checked; full Task8 acceptance
+is pending. There is a separate actual represented difference: neighboring rows
+BMEdit_n89/n86 move62px over250ms houseOut. Installed Flutter gap offsets use250ms
+easeInOut (reorderable_list.dart offset getter around1307 and controller around1339).
+The public decorator cannot retime those neighboring offsets. That question
+remains with Aedwon; no curve waiver or custom drag system was implemented.
+
+Source inspection also noted a possible existing separator gap: sheet ListRow
+calls leave divider false, while BM_Edit rows draw0.5px bottom separators.
+This observation was sent to the lead; it was not added to this bounded slice.
+
+Under the recorded execution order, proceed with independent Tasks5,6,7 and9.
+Their real day-context/quiz-entry contracts are present. No waiting-on-contract
+control was added. Task9/full-family acceptance cannot pass with unresolvedTask8.
+The actual complete Flutter suite, combined review/integration, phone visual
+acceptance and peer-device convergence remain unverified. No screenshot, computer
+control, schema/figure change, new contrast exception, merge, worker upload or
+publication occurred.

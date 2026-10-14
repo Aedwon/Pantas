@@ -461,6 +461,10 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
     if (_editing && items.length > 1) {
       return ReorderableListView.builder(
         buildDefaultDragHandles: false,
+        proxyDecorator: (child, index, animation) => _BookmarkDragProxy(
+          animation: animation,
+          child: child,
+        ),
         onReorderItem: _move,
         itemCount: items.length,
         itemBuilder: (_, index) => _row(items[index], index),
@@ -663,6 +667,113 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       ),
     );
   }
+}
+
+/// Decoration timing is independent of Flutter's position/gap animation.
+class _BookmarkDragProxy extends StatefulWidget {
+  const _BookmarkDragProxy({required this.animation, required this.child});
+  final Animation<double> animation;
+  final Widget child;
+
+  @override
+  State<_BookmarkDragProxy> createState() => _BookmarkDragProxyState();
+}
+
+class _BookmarkDragProxyState extends State<_BookmarkDragProxy>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _decoration;
+  bool? _reducedMotion;
+
+  @override
+  void initState() {
+    super.initState();
+    _decoration = AnimationController(vsync: this);
+    widget.animation.addStatusListener(_phaseChanged);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final reduced = MediaQuery.disableAnimationsOf(context);
+    if (_reducedMotion != reduced) {
+      _reducedMotion = reduced;
+      _phaseChanged(widget.animation.status);
+    }
+  }
+
+  @override
+  void didUpdateWidget(_BookmarkDragProxy oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.animation != widget.animation) {
+      oldWidget.animation.removeStatusListener(_phaseChanged);
+      widget.animation.addStatusListener(_phaseChanged);
+      _phaseChanged(widget.animation.status);
+    }
+  }
+
+  void _phaseChanged(AnimationStatus status) {
+    if ((_reducedMotion ?? false) || status == AnimationStatus.dismissed) {
+      _decoration
+        ..stop()
+        ..value = 0;
+      return;
+    }
+    switch (status) {
+      case AnimationStatus.forward:
+        _decoration.animateTo(
+          1,
+          duration: const Duration(milliseconds: 150),
+          curve: PantasCurves.houseOut,
+        );
+      case AnimationStatus.reverse:
+        _decoration.animateTo(
+          0,
+          duration: const Duration(milliseconds: 200),
+          curve: PantasCurves.houseOut,
+        );
+      case AnimationStatus.completed:
+        _decoration.value = 1;
+      case AnimationStatus.dismissed:
+        break;
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.animation.removeStatusListener(_phaseChanged);
+    _decoration.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _decoration,
+        child: widget.child,
+        builder: (context, child) {
+          final value = _decoration.value;
+          return Transform.scale(
+            key: const ValueKey('bookmark-drag-proxy'),
+            scale: 1 + .03 * value,
+            child: DecoratedBox(
+              key: const ValueKey('bookmark-drag-shadow'),
+              decoration: BoxDecoration(
+                color: context.colors.surface,
+                boxShadow: value == 0
+                    ? const []
+                    : [
+                        BoxShadow(
+                          color: context.colors.shadow
+                              .withValues(alpha: .14 * value),
+                          offset: Offset(0, 8 * value),
+                          blurRadius: 24 * value,
+                        ),
+                      ],
+              ),
+              child: child,
+            ),
+          );
+        },
+      );
 }
 
 class _EditReveal extends StatelessWidget {

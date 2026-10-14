@@ -546,6 +546,181 @@ void main() {
     expect(find.byKey(const ValueKey('bookmark-grip')), findsNWidgets(3));
   });
 
+  Future<AnimationController> pumpProxy(
+    WidgetTester tester, {
+    bool dark = false,
+    bool reduceMotion = false,
+  }) async {
+    await pumpSheet(tester, rows: 3, dark: dark);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    final list = tester.widget<ReorderableListView>(
+      find.byType(ReorderableListView),
+    );
+    expect(list.proxyDecorator, isNotNull);
+    final phase = AnimationController(
+      vsync: tester,
+      duration: const Duration(milliseconds: 250),
+    );
+    final proxy = list.proxyDecorator!(
+      const SizedBox(width: 390, height: 62),
+      0,
+      phase.view,
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: dark ? buildDarkTheme() : buildLightTheme(),
+        home: MediaQuery(
+          data: MediaQueryData(disableAnimations: reduceMotion),
+          child: Center(child: proxy),
+        ),
+      ),
+    );
+    return phase;
+  }
+
+  double proxyScale(WidgetTester tester) => tester
+      .widget<Transform>(find.byKey(const ValueKey('bookmark-drag-proxy')))
+      .transform
+      .storage[0];
+
+  BoxDecoration proxyDecoration(WidgetTester tester) => tester
+      .widget<DecoratedBox>(find.byKey(const ValueKey('bookmark-drag-shadow')))
+      .decoration as BoxDecoration;
+
+  for (final dark in [false, true]) {
+    testWidgets('drag decoration uses exact lift and settle timing dark=$dark',
+        (tester) async {
+      final phase = await pumpProxy(tester, dark: dark);
+      try {
+        unawaited(phase.forward());
+        await tester.pump();
+        final halfway = const Cubic(.3, .9, .3, 1).transform(.5);
+        await tester.pump(const Duration(milliseconds: 75));
+        expect(proxyScale(tester), closeTo(1 + .03 * halfway, .00001));
+        await tester.pump(const Duration(milliseconds: 75));
+        expect(proxyScale(tester), closeTo(1.03, .00001));
+        final lifted = proxyDecoration(tester);
+        expect(lifted.color, Color(dark ? 0xFF1C1C1E : 0xFFFFFFFF));
+        expect(lifted.boxShadow!.single.offset, const Offset(0, 8));
+        expect(lifted.boxShadow!.single.blurRadius, 24);
+        expect(lifted.boxShadow!.single.color.a, closeTo(.14, .00001));
+        await tester.pump(const Duration(milliseconds: 100));
+        unawaited(phase.reverse());
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        expect(proxyScale(tester), closeTo(1 + .03 * (1 - halfway), .00001));
+        await tester.pump(const Duration(milliseconds: 100));
+        expect(proxyScale(tester), 1);
+        expect(proxyDecoration(tester).boxShadow, isEmpty);
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump(Duration.zero);
+      } finally {
+        phase.dispose();
+      }
+    });
+
+    testWidgets('drag decoration respects reduced motion dark=$dark',
+        (tester) async {
+      final phase = await pumpProxy(tester, dark: dark, reduceMotion: true);
+      try {
+        unawaited(phase.forward());
+        await tester.pump(const Duration(milliseconds: 75));
+        expect(proxyScale(tester), 1);
+        expect(proxyDecoration(tester).boxShadow, isEmpty);
+        unawaited(phase.reverse());
+        await tester.pumpAndSettle();
+        expect(proxyScale(tester), 1);
+        expect(proxyDecoration(tester).boxShadow, isEmpty);
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump(Duration.zero);
+      } finally {
+        phase.dispose();
+      }
+    });
+  }
+
+  testWidgets('short release stops drag decoration when the proxy is dismissed',
+      (tester) async {
+    final phase = await pumpProxy(tester);
+    try {
+      unawaited(phase.forward());
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 30));
+      unawaited(phase.reverse());
+      await tester.pump();
+      await tester.pumpAndSettle();
+      expect(phase.status, AnimationStatus.dismissed);
+      expect(proxyScale(tester), 1);
+      expect(proxyDecoration(tester).boxShadow, isEmpty);
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump(Duration.zero);
+      expect(tester.takeException(), isNull);
+    } finally {
+      phase.dispose();
+    }
+  });
+
+  for (final unmount in [false, true]) {
+    testWidgets('drag proxy cleanup after ${unmount ? 'unmount' : 'cancel'}',
+        (tester) async {
+      await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+      await tester.tap(find.text('Edit'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Lesson 3'));
+      await tester.pumpAndSettle();
+      final gesture = await tester.startGesture(
+        tester.getCenter(find.byKey(const ValueKey('bookmark-grip')).first),
+      );
+      await gesture.moveBy(const Offset(0, 24));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 75));
+      expect(find.byKey(const ValueKey('bookmark-drag-proxy')), findsOneWidget);
+      if (unmount) {
+        await tester.pumpWidget(const SizedBox.shrink());
+      } else {
+        await gesture.cancel();
+        await tester.pumpAndSettle();
+        expect(find.text('1 selected'), findsOneWidget);
+        expect(
+          await BookmarkPrefsRepository(db).readCustomOrder('e1'),
+          ['l3', 'l2', 'l1'],
+        );
+        expect(find.byKey(const ValueKey('bookmark-drag-proxy')), findsNothing);
+        await tester.pumpWidget(const SizedBox.shrink());
+      }
+      await tester.pump(Duration.zero);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  testWidgets('short real drag release cleans up and preserves selection',
+      (tester) async {
+    await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 3'));
+    await tester.pumpAndSettle();
+    final gesture = await tester.startGesture(
+      tester.getCenter(find.byKey(const ValueKey('bookmark-grip')).first),
+    );
+    await gesture.moveBy(const Offset(0, 24));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 30));
+    expect(find.byKey(const ValueKey('bookmark-drag-proxy')), findsOneWidget);
+    await gesture.up();
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('bookmark-drag-proxy')), findsNothing);
+    expect(find.text('1 selected'), findsOneWidget);
+    expect(
+      await BookmarkPrefsRepository(db).readCustomOrder('e1'),
+      ['l3', 'l2', 'l1'],
+    );
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('dragging a row down persists the adjusted order',
       (tester) async {
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
