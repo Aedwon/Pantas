@@ -1449,3 +1449,21 @@ unavailable at this execution choice; nativefallback preserves all usual gates. 
 upload excludesunfinishedTask5draft and is not family/Astra/integration/phone acceptance.
 The worker continuesTask5 underrecordedsharedvariant/navigation rules, without repeating
 unchanged broad tests solelybecause a reviewer inspectedthem.
+
+
+### October14: active sizing segment review and shared Contents glyph
+
+After inspecting immutablec140d5f2 and the shared SegmentSwitch source, the lead found a candidate
+same-mode tap issue: the shared control always invokes onChanged, and picker always clears manual
+overrides. Selecting the already active mode is not the explicit mode change in rules3/4. Worker
+must reproduce actual manual-split loss, then preserve a same-index tap as a localized no-op
+with focusedRED/GREEN if confirmed. No shared default change, new layout or user decision.
+Task3 upload stays held until this scoped finding is resolved; prior1014/73/static evidence
+remains applicable except the newly affected behavior.
+
+Task5 worker found that ContentsGlyph size/color are configurable but stroke is hardcoded1.5.
+Lead opened actual helper before extending ownership: optionalstrokeWidth default1.5, reader1.8
+in24-unit coordinates/23pxsize, repaint on stroke change and focused shared test. Reuse current
+paths, preserve other callers. This implements the existing approved drawing, not a visual
+substitution. Shared Contents-sheet checkpoint29efcf4d is saved separately and awaits source/
+actual-output review and workingupload. Readerconnection/return-stack/fullTask5remain unfinished.
