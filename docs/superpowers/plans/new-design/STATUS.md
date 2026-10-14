@@ -207,6 +207,13 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Raildraft13pass/contrastcorrectionseenin45batch,notseparatelyaccepted; currentpainter/Contents/
   origin/truthfulbookmarkreturn/fullTask5checksremain. Workerresumed; noTask6startyet.
 
+- CurrentTask5barfidelity#9631actual38checks pass after#9629RED18pass/4fail; draftisnotcommitted
+  oraccepted. Routes/realContents/BookReturnRED#9633has5pass/7fail; origin/error/return/day/topic
+  implementationcontinues. Onevisualdecisionpending: RD_Contents56pxunconditionalfade obscures
+  finalactivefitting-listrow. Leadsource/timelineconfirmed; contents-fade-options-v1 compares
+  Current fade vs Readable end, withlight-list-onlyrepresentation/omissionsdisclosed. No mask
+  changeorcontrastexceptionapproved; otherreaderworkcontinues. FullTask5acceptancependingchoice.
+
 ## Next step
 
 Finish the remaining independent W4d and W4c tasks, recording exact checks and commits as each finishes. Then continue lane 1 W4f/W4a and lane 2 W4b/W4e, and return for the missing cross-family controls. W3 is already integrated into each family base. Required cross-family controls remain unfinished until their owners' contracts land; no family is accepted merely because its independent slice passes. Astra audits run alone before family acceptance/integration. Then W6
