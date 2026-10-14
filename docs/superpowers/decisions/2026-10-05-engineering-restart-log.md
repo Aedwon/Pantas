@@ -1397,3 +1397,22 @@ W4c correctsTask8separatorfidelity and resumes the recorded reader sequence. Acc
 neighbor curve and all other approved design requirements remain binding. Astra audits still
 run alone after implementation families complete. No main application changes, deployment,
 publication, screenshots or unattended automation are approved by this continuation.
+
+
+### October14: reproduce and correct repeated sizing-mode shrinkage
+
+Lead preliminary source review and bounded arithmetic identified pools[24,2,13], measured70000ms,
+Questions13 as a candidate counterexample. Worker reproduced with the actual UI, not the lead's
+arithmetic: four toggles persisted45/12/40/11, expected45/13/45/13. RED exit1 is preserved in
+W4d-task3-toggle-drift-red.txt. No production fix preceded the recorded technical amendment.
+
+Rule7 captures the real aggregate count at the first mode switch and keeps that transient target
+through mode-only toggles. Destination values still use actual pool counts/valid effective pace
+and deterministic lower-wheel ties. Actual selection/wheel/manual/Reset/pool/pace changes clear
+the target. No new schema, history, estimator, student figure or visual change. This implements
+approved rule4's no-creep requirement; stateless nearest matching was insufficient. Regression
+must prove actual stable sequence plus target invalidation before Task3 acceptance.
+
+Prior broader Task3 candidate1007 tests passed; owned12 analysis clean, global only recorded
+bookmark notice. Those passes do not accept the newly reproduced drift. Task3 remains uncommitted
+and requires corrected focused evidence plus applicable final checks before lead review/upload.
