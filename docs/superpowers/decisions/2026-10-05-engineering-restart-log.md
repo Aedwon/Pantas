@@ -1324,3 +1324,37 @@ The worker has verified decoration checkpointcdda64f5bef052f201e263f1f466e3f0893
 source/logs. No worker upload is inferred. Task5 boards/source investigation continues.
 Current live capacity was90% short-window/62% weekly at the lead check; prioritize exact saves
 and handoffs if the window runs out. Approved continuation remains authorized.
+
+
+### October14: bounded technical reader and duration clarifications
+
+Before affected fixes, L3d d77df3bd records positive sub-minute formatting: retain valid measured
+pace; a nonempty positive duration rounding to0 uses existing metric "<1"/"minute" and summary
+"under 1 min". Do not invent1minute or alter Total time budget. Empty remains0. Cover real
+positive sub-minute, ordinary and empty cases. This resolves an implementation-format gap in
+the approved estimator, not a new measured/default pace or layout.
+
+L3c a04aca18 records a board-required additive readerContents PantasSheet variant, preserving
+other modes. Worker source/board comparison found generic420/320 timing versus required450/400
+slideC and350ms ease wash32%,105% translation, intrinsic height, no page transform. Lead read
+actual shared source before extending ownership to that component/tests. Navigation source
+closes Bookmarks before pushing a reader labeled Bookmarks; preserve the sheet on stack for a
+truthful return. Use existing Home/Study fallback when no origin stack exists; do not create
+absent plan/performance routes. Focused tests required before acceptance.
+
+Lead confirmed Task8 ListRow.divider is leftfalse while board draws0.5px separators. Reuse the
+shared option if placement matches, otherwise report exact needed extension. This remains an
+unfinished fidelity item, not resolved by the neighbor-curve approval. Task5 has six dirty
+production/test files, not merely RED fixtures: routeextra/daycounter/dayrail and origin/bookmark
+work is partial. Known tests18bar/1day-route pass, but one style notice and stale ProgressRule
+rail test remain. Shared sheet/navigation still unimplemented. Preserve exact drafts; do not
+commit or upload them as verifiedTask5.
+
+Decorationcdda64f5 was lead-reviewed against immutable23113d73 delta and actual#9604 output:
+945 prescribedtests, clean analysis/format/layering/attribution/diff. Public150/200 localcontroller
+and listener cleanup match scoped requirements, including reducedmotion/shortrelease/cancel.
+Relay9624 fetched and confirmed cdda64f5 ahead1/behind0 from23113 with the known six Task5 drafts.
+Normal checkpoint upload9625 requested; success/SHA must be verified separately.
+Capacity96% short-window/63% weekly. Workers were told to save only verified boundaries or
+preserve exact unverified drafts and idle; no new broader tasks. This capacity stop does not
+revoke Aedwon's approved continuation or restore his earlier October18 wait.
