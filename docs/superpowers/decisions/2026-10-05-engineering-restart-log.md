@@ -1273,3 +1273,37 @@ Task8 fidelity when possible, then Tasks5,6,7,9. If a real presentation departur
 Task8, independent reader tasks may continue while the lead resolves that specific choice.
 Task9 and full-family acceptance remain blocked by any unresolved requirement. No substitutes,
 new scope, visual waiver or user decision is inferred.
+
+
+### October14: correct the drag-timing finding; offer the actual neighbor curve choice
+
+The lead initially reported a250ms versus200ms drop-timing conflict. That inference was too
+broad. Worker and lead reread BMEdit_n92 and the timeline: translateY(-124px) is unchanged between
+10000and10200ms; only scale/shadow settle. Public animation status allows a local decorator to
+match150ms lift and200ms houseOut settle. L3W4c b7176243 records this correction before code,
+including short-release, cancellation, unmount and reduced-motion coverage. No SDK patch needed.
+
+There is a different actual represented mismatch: BMEdit_n89/n86 shift62px in250ms using
+cubic(.3,.9,.3,1). InstalledFlutter3.44.6 revisionee80f08bbf97172ec030b8751ceab557177a34a6 uses
+250ms gap offsets with easeInOut cubic(.42,0,.58,1), a private animation without a public curve
+parameter. The decorator changes only the dragged row, not neighboring offsets. Lead verified
+SDK lines1307/1339 and board timeline9300→9550and9600→9850. This is not a duration difference.
+
+Proposed comparison v1: task-owned bookmark-neighbor-motion.html under chat visualization root.
+It isolates two mathematical62px translations over250ms, with actual-speed and quarter-speed
+replays. It omits full app rendering, row styling, dragging, lift/drop decoration and other
+screen states. Do not claim phone/visual acceptance. Local DOM/runtime checks verified midpoint,
+both replay endpoints, reduced-motion behavior and file limits; no browser/app operation occurred.
+
+Offered options: accept the built-in neighboring movement curve, requiring no replacement drag
+system (lead recommendation, least code/maintenance); or retain exact approved curve, requiring
+custom drag behavior, estimated1–2 engineering sessions plus review, with effort uncertain until
+implementation/verification. This recommendation is only a proposal, not permission to waive
+1:1 fidelity. Aedwon's choice is pending. Approved decoration and independent reader/quiz work may
+continue; Task8/full-family acceptance cannot pass with this represented difference unresolved.
+
+The project workflow says: "Any necessary difference must be shown and resolved with Aedwon
+before implementing that difference." This project requirement, not a new skill gate, requires
+his decision. The motion-only representation is disclosed for that decision. No custom drag
+system, curve exception, app screenshot, deployment, publication or main application change
+is approved by this offer.
