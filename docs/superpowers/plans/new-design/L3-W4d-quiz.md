@@ -97,6 +97,16 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    Regression covers the reproduced45/13/45/13 stable sequence and each target-invalidating change.
    This preserves the approved no-creep rule rather than accepting statistical shrinkage.
 
+8. Task3, owned async states: apply the existing W4h Task1 pattern guide. Use loadingFor
+   for delayed LoadingShapes and its Loading announcement rather than an immediate local spinner;
+   use errorFor('picks', retry) for picker loading failure and saveFailureLine for preference
+   persistence failure, with the existing Try Again action. Retry invalidates index/pace/saved
+   picks together. A launch failure uses the shared W2 StateView and plain "Could not start your
+   quiz." with retrying the actual start action. Keep exception details out of interface text.
+   Preserve normal picker/bar geometry. Tests first for300ms delayed shapes, announcement,
+   all-input retry, save-failure retry and failed start recovery. This implements binding shared
+   states instead of introducing a parallel local pattern; shared helpers/defaults stay intact.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
