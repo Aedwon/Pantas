@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task8 checkpointfa5d146f: Undo boundaries, destination announcements, decoration and separators source-reviewed and uploaded; latest108 affected tests pass, earlier945 broad evidence retained; readerTasks5-7/9 and full-family/Astra/visual acceptance remain. W4d Task3 core15325e04 passed522 broader/45 post-style checks, scoped lead review and working-branch upload; picker UI incomplete | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task8 checkpointfa5d146f: Undo boundaries, destination announcements, decoration and separators source-reviewed and uploaded; latest108 affected tests pass, earlier945 broad evidence retained; readerTasks5-7/9 and full-family/Astra/visual acceptance remain. W4d Task3 checkpointc94868eb implements picker/core; scoped lead review and working upload complete,1014 broader/73 state/107 final focused tests pass with applicable source identity. Task4–9 remain; no family/Astra/integration/visual acceptance | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -167,6 +167,21 @@ and W4h Tasks 1, 2, 3, 5 are integrated.
   Another ownedsource finding: picker loading/load/save states bypassW4h sharedpatterns;
   rule8 d122d88a requires shared delayedloading/announcement/error/save retry. Task3 remains
   dirty on15325e04, correction/focusedchecks and exact verifiedsave pending, no acceptance.
+
+- W4d Task3implementation c140d5f2 plus same-selected-tab correctionc94868eb412be4b6320089429c688d294f8afbe4
+  are source-reviewed/uploaded. Lead inspected newpicker/core/shareddefaults and actual1014
+  broader,73 affectedstate and107 finalfocused test outputs, ownedcleananalysis/staticgates and
+  sourcehashes. Three scoped findings are fixed: mode-toggle shrinkage, local asyncstates bypassing
+  sharedpatterns, and tappingtheactive modeerasingmanualallocation. Normalnativepush afterfresh
+  fetch/expectedcleanHEAD check succeeded; fullGitHubSHA matchesc94868eb. Globalanalysis has only
+  recordedW4cbookmark notice applicableto thisbranch. No Task4start; workeridleatcleanboundary.
+  Wholefamily/Astra/integration/phoneacceptance remainpending; Task2Homecontrols/metadataremain.
+- W4c sharedreaderContents variant29efcf4df3b4006d5c842f1fcd144428eb64d3a6 reviewed/uploaded:
+  actual8behavior/17existingsheet/693sharedUI tests pass, scopedanalysis clean,format/layering/
+  attribution/diff pass. Lead inspectedimmutablefa..29ef source/newtest/evidence/defaultpreservation;
+  normalnativepush fullGitHubSHA matches29efcf4d. FullTask5readerconnection/navigation/bar/rail
+  remainsdirty. NarrowContentsGlyph strokeextension is recordedinL3 7960eb56; boundedglyphcheck
+  running, draftpreservation/checkpointbeforecapacity is priority. NoTask6ornewbroadscope.
 
 ## Next step
 
