@@ -117,8 +117,11 @@ be finally accepted while its represented fade treatment remains unresolved.
 
 Exacttypedreply: "current fade". KeepCurrent fade fromcontents-fade-options-v1: thedrawn
 unconditional56px bottomgradient forRD_Contents, includingfitting-list/end states. Theknown
-partlymaskedfinalrow wasdisclosed; themask-inducedtextcontrast exceptionislimitedtothisoverlay.
-Underlyingtext/othercontrols retainexistingcontrastrules. Do not removefadeatend, addbottominset,
+partlymaskedfinalrow wasdisclosed. Mask-induced compositecontrast exception covers only row
+content naturally under this exactoverlay: text, Reading tags and read/current-state marks.
+Do not lift glyphs above the mask or invent another layer order. Base text/icon tokens still
+pass their normal contrast tests before masking; controls outside this overlay retain every
+existing contrast requirement. Do not removefadeatend, addbottominset,
 or substituteanotherbehavior. DarkmodeusesW1surface endpoint. RD_Plan/dayContents followsits
 ownboard; do notbroaden theexception. This supersedesthependingchoiceabove, notphoneacceptance.
 Theexplicittypedchoicecontrolsover widgetlastviewedReadable end context.
