@@ -1307,3 +1307,20 @@ before implementing that difference." This project requirement, not a new skill 
 his decision. The motion-only representation is disclosed for that decision. No custom drag
 system, curve exception, app screenshot, deployment, publication or main application change
 is approved by this offer.
+
+
+## October14, 2026, 12:06 PM: built-in neighbor motion accepted
+
+Aedwon's exact reply: "accept built-in". He chose the recommended built-in neighboring-row
+movement after comparisonv1 disclosed movement-only representation. Accepted difference:
+250ms easeInOut cubic(.42,0,.58,1) for neighboring gap offsets instead of BMEdit's250ms houseOut.
+Rejected alternative: replacing drag behavior to retain the exact curve, estimated1–2 sessions
+plus review and more maintenance. Keep the existing SDK drag system. This approval is confined
+to that demonstrated neighbor curve; lift150ms/drop-decoration200ms houseOut remain binding.
+It is not full-screen phone acceptance, a broader motion waiver, deployment or publication.
+
+The worker has verified decoration checkpointcdda64f5bef052f201e263f1f466e3f0893bd545;
+945 prescribed tests and clean static gates are reported, pending lead inspection of actual
+source/logs. No worker upload is inferred. Task5 boards/source investigation continues.
+Current live capacity was90% short-window/62% weekly at the lead check; prioritize exact saves
+and handoffs if the window runs out. Approved continuation remains authorized.
