@@ -1,0 +1,36 @@
+
+■ <svg>   (in: Check)
+  QVFlag_n9  7000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.6);[then cubic-bezier(.3,1.5,.5,1)]
+       1500ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+       1501ms  opacity:1;transform:scale(.6);[then cubic-bezier(.3,1.5,.5,1)]
+       1760ms  opacity:1;transform:scale(1.22);[then cubic-bezier(.3,1.5,.5,1)]
+       2020ms  opacity:1;transform:none;[then cubic-bezier(.3,1.5,.5,1)]
+       5200ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+       5201ms  opacity:0;transform:none;[then cubic-bezier(.3,1.5,.5,1)]
+       7000ms  opacity:0;transform:scale(.6);[then cubic-bezier(.3,1.5,.5,1)]
+
+■ Flagged. Find it in the Quiz tab. Undo
+  QVFlag_n10  7000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(12px);[then cubic-bezier(.3,.9,.3,1)]
+       1700ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       1950ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       4300ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       4600ms  opacity:0;transform:translateY(12px);[then cubic-bezier(.3,.9,.3,1)]
+       7000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVFlag_n11  7000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       1100ms  (holds) [then ease]
+       1280ms  opacity:.28;transform:scale(1);[then ease]
+       1620ms  opacity:0;transform:scale(1.5);[then ease]
+       7000ms  (holds) [then ease]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVFlag_n12  7000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       4800ms  (holds) [then ease]
+       4980ms  opacity:.28;transform:scale(1);[then ease]
+       5320ms  opacity:0;transform:scale(1.5);[then ease]
+       7000ms  (holds) [then ease]

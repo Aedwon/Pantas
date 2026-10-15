@@ -1,0 +1,50 @@
+
+■ EARTH SCIENCE AND ASTRONOMY Which layer, roughly 2,880 km th…
+  QVGrid_n16  9000ms  linear  (loops)
+          0ms  opacity:1;[then linear]
+       3000ms  (holds) [then linear]
+       3001ms  opacity:0;[then linear]
+       8999ms  (holds) [then linear]
+       9000ms  opacity:1;[then linear]
+
+■ EARTH SCIENCE AND ASTRONOMY Which layer, made mostly of liqu…
+  QVGrid_n17  9000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3000ms  (holds) [then linear]
+       3001ms  opacity:1;[then linear]
+       8999ms  (holds) [then linear]
+       9000ms  opacity:0;[then linear]
+
+■ <div> background: rgba(0,0,0,.34)  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVGrid_n15  9000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+        300ms  (holds) [then linear]
+        600ms  opacity:1;[then linear]
+       3000ms  (holds) [then linear]
+       3300ms  opacity:0;[then linear]
+       9000ms  (holds) [then linear]
+
+■ Questions 3 of 10 answered 1 2 3 4 5 6 7 8 9 10 Tap any answ…
+  QVGrid_n14  9000ms  linear  (loops)
+          0ms  transform:translateY(100%);[then cubic-bezier(.3,.9,.3,1)]
+        300ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+        720ms  transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       3000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       3320ms  transform:translateY(100%);[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVGrid_n18  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+         30ms  opacity:.28;transform:scale(1);[then ease]
+        150ms  opacity:0;transform:scale(.5);[then ease]
+        370ms  opacity:0;transform:scale(1.5);[then ease]
+       9000ms  (holds) [then ease]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVGrid_n19  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       2500ms  (holds) [then ease]
+       2680ms  opacity:.28;transform:scale(1);[then ease]
+       3020ms  opacity:0;transform:scale(1.5);[then ease]
+       9000ms  (holds) [then ease]

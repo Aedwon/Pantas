@@ -33,10 +33,14 @@ class QuizRunning extends QuizControllerState {
     required this.session,
     this.questionShownAt,
     this.persisted = false,
+    this.selectedChoiceId,
+    this.checking = false,
   });
   final QuizSession session;
   final DateTime? questionShownAt;
   final bool persisted;
+  final ChoiceId? selectedChoiceId;
+  final bool checking;
 }
 
 class QuizComplete extends QuizControllerState {
@@ -335,6 +339,24 @@ class QuizController extends StateNotifier<QuizControllerState> {
     _preparedQuestionIndex = null;
   }
 
+  void pick({required ChoiceId chosenChoiceId}) {
+    final s = state;
+    if (s is! QuizRunning ||
+        s.questionShownAt == null ||
+        s.checking ||
+        s.session.currentOutcome != null ||
+        !s.session.currentQuestion.choices.any((c) => c.id == chosenChoiceId)) {
+      return;
+    }
+    state = QuizRunning(
+      session: s.session,
+      questionShownAt: s.questionShownAt,
+      persisted: s.persisted,
+      selectedChoiceId: chosenChoiceId,
+    );
+  }
+
+  // Retained for the old renderer until its Task 9 removal.
   Future<void> answer({required ChoiceId chosenChoiceId}) async {
     final s = state;
     if (s is! QuizRunning) {
@@ -344,25 +366,65 @@ class QuizController extends StateNotifier<QuizControllerState> {
     if (questionShownAt == null) {
       throw StateError('answer() called before the question is ready');
     }
-    final now = _ref.read(nowProvider)();
-    final responseMs = now.difference(questionShownAt).inMilliseconds;
+    pick(chosenChoiceId: chosenChoiceId);
+    await check();
+  }
 
-    final outcome = await _ref.read(submitAnswerProvider)(
-      question: s.session.currentQuestion,
-      chosenChoiceId: chosenChoiceId,
-      responseMs: responseMs,
-      now: now,
-      sessionId: s.persisted ? s.session.sessionId : null,
-      userId: s.persisted ? quizLocalUserId : null,
-      examId: s.persisted ? s.session.examId : null,
-      origin: s.session.origin.storageValue,
-    );
-
+  Future<void> check() async {
+    final s = state;
+    if (s is! QuizRunning ||
+        s.checking ||
+        s.session.currentOutcome != null ||
+        s.selectedChoiceId == null ||
+        s.questionShownAt == null) {
+      return;
+    }
     state = QuizRunning(
-      session: s.session.record(outcome),
+      session: s.session,
       questionShownAt: s.questionShownAt,
       persisted: s.persisted,
+      selectedChoiceId: s.selectedChoiceId,
+      checking: true,
     );
+    final now = _ref.read(nowProvider)();
+    final responseMs = now.difference(s.questionShownAt!).inMilliseconds;
+
+    try {
+      final outcome = await _ref.read(submitAnswerProvider)(
+        question: s.session.currentQuestion,
+        chosenChoiceId: s.selectedChoiceId!,
+        responseMs: responseMs,
+        now: now,
+        sessionId: s.persisted ? s.session.sessionId : null,
+        userId: s.persisted ? quizLocalUserId : null,
+        examId: s.persisted ? s.session.examId : null,
+        origin: s.session.origin.storageValue,
+      );
+
+      if (!mounted) return;
+      final current = state;
+      if (current is! QuizRunning || !identical(current.session, s.session)) {
+        return;
+      }
+      state = QuizRunning(
+        session: s.session.record(outcome),
+        questionShownAt: s.questionShownAt,
+        persisted: s.persisted,
+      );
+    } catch (_) {
+      if (mounted) {
+        final current = state;
+        if (current is QuizRunning && identical(current.session, s.session)) {
+          state = QuizRunning(
+            session: s.session,
+            questionShownAt: s.questionShownAt,
+            persisted: s.persisted,
+            selectedChoiceId: s.selectedChoiceId,
+          );
+        }
+      }
+      rethrow;
+    }
   }
 
   /// Leaves the reveal for the next question, or ends the session when the
@@ -407,7 +469,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   Future<void> goTo(int index) async {
     final s = state;
     clearQuestionPreparation();
-    if (s is! QuizRunning) return;
+    if (s is! QuizRunning || s.checking) return;
     if (index < 0 || index > s.session.outcomes.length) return;
     if (index >= s.session.questions.length) return;
 
