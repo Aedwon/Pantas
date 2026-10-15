@@ -1186,3 +1186,132 @@ Previous shared sheet/glyph checkpoints are retained, not redone. No waiting-on-
 control substituted. Tasks6/7/9 remain pending and not started. Full family suite, serialized
 Astra review, integration, phone visual checking and acceptance remain unverified.
 Hold before Task6 at lead capacity boundary. No child process or relay request remains pending.
+
+
+## Task 6 bounded RED draft, October 15 capacity continuation
+
+Lead resumed Task6 after independently reviewed/uploaded Task5. Current GitHub main
+15796bb511ca5c37afd37783f33f4d85960c8905 policy/startup retrieved; AGENTS/WORKFLOW/
+SUBAGENTS/startup blobs unchanged. Fetched main/assigned branch; local/remote
+48eda4dc04b436bca522d1f9d86b7cb216bcfe72 matched and tree initially clean. Relay offline;
+existing authorized native fallback used. Main freeze/worker ownership preserved.
+Current L2/amendment/collision-map and Task6 plan recovered; actual pull/ending/model/
+decideEnding/reader-provider/reader integration source read. Original origin/day context
+must survive in-place advance; real day IDs/metadata determine next or actual day ending.
+No synthetic nextTitle/ID or guessed figure is permitted. No production edit begun.
+
+First board-derived test added before code: idle pull target is44×44 (RD_End SVG44,
+r19,stroke2.5), replacing actual old36×3 handle. Native command:
+`flutter test test/features/lesson/presentation/pull_to_advance_test.dart --plain-name 'the drawn pull control uses a 44px filling circle' --no-pub --reporter expanded`
+Actual childexit1,0pass/1fail: ExpectedSize(44,44), ActualSize(36,3).
+Full output `.dart_tool/w4c-task6-circle-red.log`. No passing result/completion claimed.
+Draft `.dart_tool/w4c-task6-red-draft.patch` SHA256`4a3ca2b6410dc9a3906d8ad5d05ee2b8c70f03e9c74122fc7f1d6d3be15ddc3d`;
+test file SHA256`f92a84f184a88a2bb02c07386db542000708da1dd2f4d4ffc247bb9708f9a23b`. Unstaged dirty paths are this evidence and that test only.
+
+Main-board outline/timeline outputs for RD_End/RD_TopicDone/RD_TopicShort/RD_DayDone/
+RD_DayEnd saved `.dart_tool/w4c-task6-<Board>-<outline|timeline>.log`, all toolchildexit0.
+Initial inspected RD_End/RD_TopicDone/RD_DayEnd motion: approved advance480ms houseOut;
+ring progress from hand displacement, arrow90ms to1.2 then170ms back, text150ms crossfade.
+Old source uses190ms leaving/320ms arriving and plain handle; not approved new fidelity.
+No figures from the illustrative board are copied into student data. Remaining board
+rest-state/layer/metric inspection, complete RED coverage and actual implementation still
+pending; this is a recoverable draft, not full Task6 implementation or verification.
+Next: inspect complete saved board outputs, reuse current shared components, cover circle
+fill/armed label/cancel/short release/physical and semantic tap/reduced motion/unmount,
+actual day sequence/last-day ending and topic order/last-exam-topic no-pull; then implement
+and run affected checks. Read-marking15s floor remains the existing contract. Ending plates
+must omit studentName and use PantasDates; current old namedBookplate remains unchanged.
+No relay request or child process remains pending. No commit/upload/integration/acceptance.
+Tasks7/9, full-family/Astra/phone acceptance remain pending.
+
+
+## Task6 shared pull-ring verified slice, October15 resumed local execution
+
+Explicit current user instruction prefers local Mac execution. No relay/hosted Actions
+requests. Fetched main/working branch before edits; both local and remote remained
+48eda4dc04b436bca522d1f9d86b7cb216bcfe72. Mainfddda45d13308e797881f34db394741c15f10395
+records renewal/local execution. Current AGENTS/WORKFLOW/SUBAGENTS/startup retrieved,
+exact blobs unchanged from full policy already read; current L3 read with ringb91510b0,
+advance6bd0f390 and boundary/button00707d21 rulings. No policy/code-main merge, no drift.
+All sixteen known dirty paths recovered; prior ring-checkpoint process finished normally.
+
+This slice stages only ProgressRing, its new focused test and evidence. Adds authorized
+pull constructor with fixed44/r19,stroke2.5 and butt cap, immediate fraction0..1 repaint,
+optional child and no generated percent/Done/check semantics. Existing painter reused.
+Stops previous controller on entry; handles mode/fraction/theme/reduced-motion updates,
+then returns to generic/study modes without delayed old fill. Existing defaults retained.
+No feature pull/ending production draft enters this commit.
+
+RED `.dart_tool/w4c-task6-shared-ring-red.log`:actualchildexit1,0pass/7fail after API-only
+constructor declaration, expected radius19/stroke2.5/track and immediate fraction absent.
+First GREEN7 in shared-ring-green.log. Added generic/study motion/cap regression tests.
+Affected `flutter test test/core/ui --no-pub --reporter expanded`:exit1,703pass/2fail,
+`.dart_tool/w4c-task6-shared-ring-affected-0.log`. Both failures were new regression-test
+PaintFloat32 expectation2.4 versus actual2.4000000953674316. Expected stroke now uses
+Paint's identical float representation, no product change. Focused GREEN9 followed.
+No all-core-UI green result claimed for that run. Six new-test trailing commas were fixed.
+
+Recovered checkpoint logs: focused9 exit0, analysiscleanexit0, layeringexit0
+`check_layering: OK`, attributionexit0`check_no_ai_attribution: OK`;
+`.dart_tool/w4c-task6-ring-checkpoint-1.log` through-4. Globaldiffcheckexit2 named only
+unverified decide_ending.dart:48 trailing blank. Scoped ringdiffcheckexit0; that unrelated
+unfinished draft is excluded, not waived as a clean whole-tree gate.
+
+Additional same-state fraction/theme/reduced-motion/unmount test initially failed because
+it counted MaterialApp's theme-animation ticker as the ring's. Immediate ring paint already
+matched. Corrected test verifies the immediate fraction, settled actual theme and zero
+transient callbacks after full unmount, instead of assuming the whole app has no theme ticker.
+No controller/production change for this fixture correction.
+
+Final actual verification `.dart_tool/w4c-task6-ring-save-final-0.log` through-3:
+- `flutter test test/core/ui/components/pull_ring_test.dart --no-pub --reporter expanded`:
+  childexit0, `00:00 +10: All tests passed!`
+- `dart analyze lib/core/ui/components/progress_ring.dart test/core/ui/components/pull_ring_test.dart`:
+  childexit0, `No issues found!`
+- `dart format --output=none --set-exit-if-changed` on those two files:
+  childexit0, `Formatted 2 files (0 changed) in 0.01 seconds.`
+- `git diff --check --` those two files:childexit0,empty output.
+Final verified ring patch against48eda, `.dart_tool/w4c-task6-ring-verified.patch`,
+SHA256`62a92e5f6a80691323edaf3e40848381d8a5835116343529567f43ae4f5a3802`. Exact fileSHA256:
+- `lib/core/ui/components/progress_ring.dart`: `6faa0e282c03e2b7ce56acabf11f96671ccccfe60f0a433af1950cfc1daf65b0`
+- `test/core/ui/components/pull_ring_test.dart`: `7dc65ce33d0e7a6d1694d17fc997ae73ddf67809461f9a4989e8d4d3ca9eb082`
+
+### Remaining Task6 draft, explicitly unverified
+
+Thirteen other source/test files stay unstaged. Exact patch
+`.dart_tool/w4c-task6-other-draft.patch` SHA256`d035638aebedbfd8fbec7a650488262db368207db90ce7f0fb7434d38ac37ad7`:
+- `lib/core/ui/components/pantas_button.dart`: `389bdade4b48f51a090716265fe4c74f3db8a6e09bd3822df5c298c856d96c9a`
+- `lib/features/lesson/domain/use_cases/decide_ending.dart`: `6af8e044d0e7f58b13a14b2eb599c1fafc91ef5d162bf6217d0af0488cf785a3`
+- `lib/features/lesson/presentation/pages/topic_ending_page.dart`: `191289ea4e6128d5384eabb81c81a1e9cdce0f53ba2be8ea70c8cfb63cacb98c`
+- `lib/features/lesson/presentation/widgets/pull_to_advance.dart`: `7e47390e3644dda38c8824314f5acce89de9a936014d7610a91f958d4a6679a5`
+- `lib/features/lesson/presentation/widgets/reader_bar.dart`: `3353282f94305f053e8a4e185a641e2b8e13a19dbb2387aaa3b5915a8953560c`
+- `lib/features/lesson/presentation/widgets/reader_gap.dart`: `8e6413f466367d66c0c2ea6a780e043666268db66772eca41e05424055f59846`
+- `test/app/study_route_test.dart`: `43c9a744d9938794baaffc969c1fecc69c4735a080575a382747deca73ebb967`
+- `test/features/lesson/domain/decide_ending_test.dart`: `78213b7359ebf683887fe6f24642f0013d67356faea8b382f230739bd0349cf6`
+- `test/features/lesson/presentation/pull_to_advance_test.dart`: `076d03894ae000b141ba2ebc50b1d96456fbb36f9e3a8aa415cfa6afca08b6f9`
+- `test/features/lesson/presentation/reader_gap_test.dart`: `1807f7f0a72061f9006a47922056ebbde5eab0bfe0128c14b2481b148e6c6be4`
+- `lib/features/lesson/presentation/widgets/ending_content.dart`: `a46195c8ff2b047a868d4305d79ca2c2adbc2885843528185b695fbe6918a8c5`
+- `test/core/ui/components/neutral_button_test.dart`: `44aac3eded30b2ffc3a5468dbb8c51f996af7035d506bdcc336b410cd7597e71`
+- `test/features/lesson/presentation/ending_board_test.dart`: `bb9bd9cf446969e14e3c559dc1a1b17f57187f1073e8cfa529e6a9e718268f3d`
+
+Their partial evidence: ending-boardRED0pass/9fail and date/separatorRED9pass/2fail;
+initial misplaced import caused compilation failure, corrected before GREEN20 across
+ending/date tests (`w4c-task6-ending-green-2.log`). Later type-size corrections have not
+been reverified for plates. PullRED12pass/4fail; overlap midpointRED0pass/1fail. Component
+candidateGREEN33 across pull/ending/ring (`w4c-task6-components-green-2.log`) predates
+later neutral/Read changes. Cancellation required a raw PointerCancel guard because
+Flutter's accepted drag reports end even for PointerCancel; existing monodrag.dart checked.
+Exact480ms handoff uses value1 tick, since AnimationController simulation's completion
+status uses strict time>duration. No sequential halves or bitmap capture used.
+
+Neutral button RED2pass/4colorfail before styling. Neutral+ReaderGap candidate10pass/2fail,
+`.dart_tool/w4c-task6-neutral-gap-green.log`; normal-height assertions still fail, needs
+fixture/font-versus-product investigation before any passing claim. ReaderGap own6 tests
+passed in that candidate, but its full affected scope remains unverified. Shared-neutral
+styling is draft, not part of this verified ring slice. Day route RED0pass/1fail
+`.dart_tool/w4c-task6-day-route-red.log`:still uses topic-next rather than actual day order.
+Actual day/topic integration and passive next preview are not connected yet. Old ending
+page tests still encode superseded next-block/no-pull/ruled-exit behavior and must be
+updated against actual approved boards when completing integration. Readfloor15s remains
+unchanged. No Task6 completion, Task7/9 start, family/Astra/integration/phone acceptance.
+Root independently reviews/uploads verified slices. No worker push/merge.
