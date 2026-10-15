@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-15 14:59 Asia/Manila (resumed after usage reset)
+Since: 2026-10-15 19:59 Asia/Manila (renewed after usage reset)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -309,3 +309,25 @@ questionIdsJSON,sync orwiperchange. Hardcap/wholepassages staybinding; oversized
 Homeconsumer1e1c8f7c andparallelmapd45e92e2 requirestandaloneguardedcontract beforeReviews
 callerwiring, avoidingwidgetdependencycycle. Logd03f0c9e. Bothworkers active, no verifiedTask6/
 Task4commit yet. Nextleadstep is inspect each verifiedboundary before normalworkingupload.
+
+
+### October15,19:59 Asia/Manila: continue locally after reset
+
+Exactuserrequest: "continue. usage has reset. also have you been using github actions minutes? if possible keep it to local please. you can execute tests here where applicable".
+Live ordinaryusageallowed,0%short/16%weekly. Currentmain1e0ecb27 policy refreshed, fullWORKFLOW
+read; no policychange. Explicitlocalexecution now takesprecedence over earlierrelay preference.
+All developmentchecks run directly onthisMac. No hostedActions/relay dispatch for routinechecks.
+Documentation-only mainupdates use[skip ci]; requiredlateracceptancechecks remainseparate.
+
+ReadactualGitHubhistory: documentationpushestriggered existingCI(main) onGitHub-hostedrunners,
+inadditiontoearlierMacself-hostedrelay. Run38697958651 executedci on GitHub Actions1000001351
+2026-10-15T07:19:22Z→07:42:33Z; endpointtiming1394000ms. TimingAPIbillablevalues0 donotestablish
+accountbilledtotal. Leadcorrectedinitialincompleteanswer. No runscurrentlyinprogress. Existing
+workflowconfigurationunchanged; no blanketdisable orrequiredcheckwaiver.
+
+Afterlastshortlimit interruption C remainsHEAD/remote48eda4dc; DremainsHEAD/remotec94868eb.
+No component/corecommitcompleted. KnownexpandedTask6/Task4drafts arepreserved, no reset/rebase.
+Cresumes ringsliceverification/save thenneutral/pull/plates/day/topicintegration. D resumescore
+verification/save thenownedUI/grid/failure/style corrections; Reviewsmetadatacontractapproved
+inL3 a15be182 butnotimplemented. No fullTask6/4acceptance, Astra/integration/phoneacceptance.
+Resume sameworkers, localchecks; reserve leadreview/uploadquota beforewindowends.
