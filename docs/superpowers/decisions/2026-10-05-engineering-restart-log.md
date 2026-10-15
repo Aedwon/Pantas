@@ -1805,3 +1805,15 @@ races; no new global mechanism, wiper/security edit, schema or sync protocol is 
 Actual wipe/reset, recognized-context preservation and guarded-save/capture race tests precede
 acceptance. This clarifies the prior instruction's recognized-state prohibition, not a new
 product permission or a reason to block ordinary guest reading.
+
+
+### October15: exact disabled quiz action label through an additive shared role
+
+D stopped before inventing a disabled text color. Lead parsed actual QV_Answer/QV_Leave and
+opened assigned theme/button source: disabled Check is#B8B8BD while tertiaryLabel is#AEAEB2.
+L3d authorizes disabledActionLabel(light#B8B8BD, existing dark disabled#5A5A5E), with complete
+theme copy/lerp support and tests. Optional shared disabledForeground defaultsnull and affects
+only ordinary disabled text; enabled/busy/dimmed/default variants remain unchanged. This follows
+the approved drawing and disabled-control rule without recoloring other buttons. C's neutral
+variant is a separate orthogonal change; preserve both at eventual reviewed integration.
+No new visual choice, local styled copy, cross-family merge or global theme rewrite is approved.
