@@ -1,127 +1,255 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
 
 void main() {
-  Widget harness({
-    required SectionalTiming? timing,
-    int? totalPublishedItems,
+  ParsedMockBlueprint blueprint({
+    String examId = 'exam_upcat',
+    String name = 'UPCAT Practice Paper',
+    SectionalTiming? timing = SectionalTiming.sectional,
+    int durationMinutes = 230,
+    int? totalPublishedItems = 250,
     List<BlueprintSection>? sections,
-  }) {
-    final parsed = ParsedMockBlueprint(
-      blueprint: MockBlueprint(
-        id: 'bp_1',
-        examId: 'exam_upcat',
-        name: 'Full length',
-        durationMinutes: 180,
-        sectionsJson: '[]',
-        sectionalTiming: timing,
-        totalPublishedItems: totalPublishedItems,
-      ),
-      sections: sections ??
-          const [
-            BlueprintSection(
-              id: 'sec_1',
-              name: 'Language Proficiency',
-              questionCount: 40,
-              suggestedMinutes: 30,
-              topicIds: [],
-              topicWeights: {},
-              sectionalMinutes: 30,
-            ),
-          ],
-    );
+  }) =>
+      ParsedMockBlueprint(
+        blueprint: MockBlueprint(
+          id: 'bp_1',
+          examId: examId,
+          name: name,
+          durationMinutes: durationMinutes,
+          sectionsJson: '[]',
+          sectionalTiming: timing,
+          totalPublishedItems: totalPublishedItems,
+        ),
+        sections: sections ??
+            const [
+              BlueprintSection(
+                id: 'language',
+                name: 'Language Proficiency',
+                questionCount: 80,
+                suggestedMinutes: 70,
+                topicIds: [],
+                topicWeights: {},
+                sectionalMinutes: 70,
+              ),
+              BlueprintSection(
+                id: 'reading',
+                name: 'Reading Comprehension',
+                questionCount: 50,
+                suggestedMinutes: 35,
+                topicIds: [],
+                topicWeights: {},
+                sectionalMinutes: 35,
+              ),
+              BlueprintSection(
+                id: 'math',
+                name: 'Mathematics',
+                questionCount: 60,
+                suggestedMinutes: 75,
+                topicIds: [],
+                topicWeights: {},
+                sectionalMinutes: 75,
+              ),
+              BlueprintSection(
+                id: 'science',
+                name: 'Science',
+                questionCount: 60,
+                suggestedMinutes: 50,
+                topicIds: [],
+                topicWeights: {},
+                sectionalMinutes: 50,
+              ),
+            ],
+      );
 
-    return MaterialApp(
-      theme: buildLightTheme(),
-      home: MockSetupPage(parsedBlueprint: parsed, onStart: () {}),
+  Future<void> pump(
+    WidgetTester tester, {
+    ParsedMockBlueprint? parsed,
+    bool initialStrictMode = false,
+    int? actualQuestionCount,
+    ThemeMode themeMode = ThemeMode.light,
+    double textScale = 1,
+  }) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        darkTheme: buildDarkTheme(),
+        themeMode: themeMode,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: TextScaler.linear(textScale),
+          ),
+          child: child!,
+        ),
+        home: MockSetupPage(
+          parsedBlueprint: parsed ?? blueprint(),
+          initialStrictMode: initialStrictMode,
+          actualQuestionCount: actualQuestionCount,
+          onStart: (_) {},
+        ),
+      ),
     );
   }
 
-  testWidgets('a sectional exam says you cannot go back', (tester) async {
-    await tester.pumpWidget(harness(timing: SectionalTiming.sectional));
+  testWidgets('draws setup table, total row, rules, switch and start contract',
+      (tester) async {
+    bool? startedStrict;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: MockSetupPage(
+          parsedBlueprint: blueprint(),
+          onStart: (strict) => startedStrict = strict,
+        ),
+      ),
+    );
 
+    expect(find.text('UPCAT simulation'), findsOneWidget);
+    expect(find.text('250 total items · 3 hr 50 min'), findsOneWidget);
+    expect(find.text('SECTION'), findsOneWidget);
+    expect(find.text('ITEMS'), findsOneWidget);
+    expect(find.text('TIME'), findsOneWidget);
+    expect(find.text('Total'), findsOneWidget);
+    expect(find.text('250'), findsWidgets);
     expect(
       find.text(
-        'This exam runs part by part. Once a part ends you cannot go back.',
+        "This paper runs part by part. Once a part ends, you can't go back to it.",
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'Closest to the real exam. Turn it on when you can take the whole mock without interruptions.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.byType(PantasSwitch), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    expect(find.text('Start the Mock Exam'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('The clock starts when you tap.'),
+      120,
+    );
+    expect(find.text('The clock starts when you tap.'), findsOneWidget);
+
+    await tester.tap(find.byType(PantasSwitch));
+    await tester.pumpAndSettle();
+    expect(
+      find.text(
+        'No pausing and no ending a section early. Leaving the app instantly ends and submits your answers, finished or not finished.',
+      ),
+      findsOneWidget,
+    );
+    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    await tester.tap(find.text('Start the Mock Exam'));
+    expect(startedStrict, isTrue);
+  });
+
+  testWidgets('initial strict value is local state and reaches start',
+      (tester) async {
+    bool? startedStrict;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: MockSetupPage(
+          parsedBlueprint: blueprint(),
+          initialStrictMode: true,
+          onStart: (strict) => startedStrict = strict,
+        ),
+      ),
+    );
+
+    expect(
+      tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
+      isTrue,
+    );
+    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    await tester.tap(find.text('Start the Mock Exam'));
+    expect(startedStrict, isTrue);
+  });
+
+  testWidgets('short paper states actual count instead of hiding the shortfall',
+      (tester) async {
+    await pump(tester, actualQuestionCount: 230);
+    expect(
+      find.text('This mock has 230 questions instead of 250.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('one-block CSE omits time column and renders placeholder figures',
+      (tester) async {
+    final cse = blueprint(
+      examId: 'exam_cse_pro',
+      name: 'CSE Professional Practice Paper',
+      timing: SectionalTiming.roamable,
+      durationMinutes: 190,
+      totalPublishedItems: 170,
+      sections: [
+        const BlueprintSection(
+          id: 'verbal',
+          name: 'Verbal Ability',
+          questionCount: 45,
+          suggestedMinutes: 1,
+          topicIds: [],
+          topicWeights: {},
+          questionCountFigure: BlueprintValue(
+            value: 45,
+            isPlaceholder: true,
+            placeholderNote: 'Published per-subject item count is unresolved.',
+          ),
+        ),
+      ],
+    );
+    await pump(tester, parsed: cse);
+
+    expect(find.text('CSE Professional simulation'), findsOneWidget);
+    expect(find.text('TIME'), findsNothing);
+    expect(find.byType(PlaceholderFigure), findsOneWidget);
+    expect(
+      find.text(
+        "This paper runs as one block. You can move around the whole paper and submit when you're done.",
       ),
       findsOneWidget,
     );
   });
 
-  testWidgets('a roamable exam says you can move around', (tester) async {
-    await tester.pumpWidget(harness(timing: SectionalTiming.roamable));
-
-    expect(find.text('You can move around the whole exam.'), findsOneWidget);
-  });
-
-  testWidgets('an unknown exam says it does not know', (tester) async {
-    await tester.pumpWidget(harness(timing: null));
-
-    expect(find.textContaining('We do not know yet'), findsOneWidget);
+  testWidgets('DCAT names excluded essay and personality test', (tester) async {
+    final dcat = blueprint(
+      examId: 'exam_dlsucet',
+      name: 'DCAT Practice Paper',
+      totalPublishedItems: 245,
+    );
+    await pump(tester, parsed: dcat);
     expect(
-      find.textContaining('lets you move around the whole thing'),
+      find.textContaining(
+        'Not included: the essay and the personality test. This mock covers the multiple-choice parts only.',
+      ),
       findsOneWidget,
     );
   });
 
-  testWidgets('the rule is stated before the start control', (tester) async {
-    await tester.pumpWidget(harness(timing: SectionalTiming.sectional));
-
-    final ruleY = tester.getTopLeft(find.textContaining('part by part')).dy;
-    final buttonY = tester.getTopLeft(find.byType(BoardButton)).dy;
-    expect(ruleY, lessThan(buttonY));
-  });
-
-  testWidgets('a part carries its own limit when the exam is sectional',
+  testWidgets(
+      'dark theme and 200 percent text remain scrollable without overflow',
       (tester) async {
-    await tester.pumpWidget(harness(timing: SectionalTiming.sectional));
-
-    expect(find.text('Language Proficiency'), findsOneWidget);
-    expect(find.textContaining('30 min'), findsWidgets);
-  });
-
-  testWidgets('a roamable exam prints no per-part limit', (tester) async {
-    await tester.pumpWidget(harness(timing: SectionalTiming.roamable));
-
-    // The number exists in the blueprint, but it governs nothing here and
-    // printing it would imply a rule the exam does not have.
-    expect(find.text('30 min'), findsNothing);
-  });
-
-  testWidgets('it says what is not included when the exam holds more',
-      (tester) async {
-    await tester.pumpWidget(
-      harness(timing: SectionalTiming.sectional, totalPublishedItems: 60),
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await pump(
+      tester,
+      themeMode: ThemeMode.dark,
+      textScale: 2,
     );
-
-    expect(
-      find.textContaining('The real exam has 60 items'),
-      findsOneWidget,
-    );
-  });
-
-  testWidgets('it stays quiet when the sections cover the whole exam',
-      (tester) async {
-    await tester.pumpWidget(
-      harness(timing: SectionalTiming.sectional, totalPublishedItems: 40),
-    );
-
-    expect(find.textContaining('The real exam has'), findsNothing);
-  });
-
-  testWidgets('the copy never says paper or sit', (tester) async {
-    for (final timing in [null, ...SectionalTiming.values]) {
-      await tester.pumpWidget(harness(timing: timing));
-
-      expect(find.textContaining('paper'), findsNothing);
-      expect(find.textContaining('sit '), findsNothing);
-      expect(find.textContaining('—'), findsNothing);
-    }
+    expect(tester.takeException(), isNull);
+    expect(find.byType(Scrollable), findsWidgets);
+    await tester.scrollUntilVisible(find.text('Start the Mock Exam'), 300);
+    expect(find.text('Start the Mock Exam'), findsOneWidget);
   });
 }

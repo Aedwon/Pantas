@@ -39,6 +39,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Choice A'));
     await tester.pump();
@@ -133,6 +134,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('2 of 2'), findsOneWidget);
     expect(
@@ -141,6 +143,7 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('mock-prev')));
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
     final firstQuestion =
         tester.widget<QuestionCard>(find.byType(QuestionCard));
     expect(firstQuestion.question.id, 'q1');
@@ -233,6 +236,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
     expect(
       tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
       'q1',
@@ -349,6 +353,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('Results'), findsOneWidget);
     final attempt = await repo.findById('mock_strict');
@@ -432,9 +437,11 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Discard saved mock'));
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('Home'), findsOneWidget);
     expect(
@@ -467,6 +474,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Choice A'));
     for (var tick = 0; tick < 4; tick += 1) {
@@ -505,6 +513,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     for (var second = 0; second < 30; second += 1) {
       await tester.pump(const Duration(seconds: 1));
@@ -543,17 +552,27 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Choice A'));
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
     await tester.tap(find.text('Leave'));
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('Home'), findsOneWidget);
     final attempt = (await db.select(db.mockAttempts).get()).single;
     expect(jsonDecode(attempt.answersJson), hasLength(1));
   });
+}
+
+Future<void> _startPreparedPaperIfPresent(WidgetTester tester) async {
+  final start = find.text('Start the Paper');
+  if (start.evaluate().isEmpty) return;
+  await tester.tap(start);
+  await tester.pumpAndSettle();
 }
 
 Future<void> _seedMockContent(ContentDatabase db) async {

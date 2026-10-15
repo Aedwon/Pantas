@@ -17,9 +17,9 @@ List<RouteBase> mockRoutes(Ref ref) => [
           final examId = state.uri.queryParameters['examId'] ?? '';
           return MockSetupRoute(
             examId: examId,
-            onStart: (blueprintId) {
+            onStart: (blueprintId, {required strictMode}) {
               context.push(
-                '/quiz/mock/start?examId=$examId&blueprintId=$blueprintId',
+                '/quiz/mock/start?examId=$examId&blueprintId=$blueprintId&strict=${strictMode ? 1 : 0}',
               );
             },
           );
@@ -33,6 +33,7 @@ List<RouteBase> mockRoutes(Ref ref) => [
           return MockStartRoute(
             examId: examId,
             blueprintId: blueprintId,
+            strictMode: state.uri.queryParameters['strict'] == '1',
           );
         },
       ),

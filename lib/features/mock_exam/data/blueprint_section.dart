@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
+
 class BlueprintParseException implements Exception {
   const BlueprintParseException(this.message);
 
@@ -18,7 +20,10 @@ class BlueprintSection {
     required this.topicIds,
     required this.topicWeights,
     this.sectionalMinutes,
-  });
+    BlueprintValue? questionCountFigure,
+    BlueprintValue? sectionalMinutesFigure,
+  })  : _questionCountFigure = questionCountFigure,
+        _sectionalMinutesFigure = sectionalMinutesFigure;
 
   final String id;
   final String name;
@@ -30,6 +35,18 @@ class BlueprintSection {
   /// The per-part limit, meaningful only when the exam times its parts
   /// separately. Null otherwise, and null when the body publishes none.
   final int? sectionalMinutes;
+
+  final BlueprintValue? _questionCountFigure;
+  final BlueprintValue? _sectionalMinutesFigure;
+
+  BlueprintValue get questionCountFigure =>
+      _questionCountFigure ?? BlueprintValue(value: questionCount);
+
+  BlueprintValue? get sectionalMinutesFigure =>
+      _sectionalMinutesFigure ??
+      (sectionalMinutes == null
+          ? null
+          : BlueprintValue(value: sectionalMinutes!));
 
   // ignore: prefer_constructors_over_static_methods
   static List<BlueprintSection> parseList(String sectionsJson) {
@@ -58,10 +75,19 @@ class BlueprintSection {
 
     final id = _readString(value, 'id', index);
     final name = _readString(value, 'name', index);
-    final questionCount = _readPositiveInt(value, 'questionCount', index);
+    final questionCountFigure = _readPositiveFigure(
+      value,
+      'questionCount',
+      index,
+    );
     final suggestedMinutes = _readPositiveInt(
       value,
       'suggestedMinutes',
+      index,
+    );
+    final sectionalMinutesFigure = _readOptionalPositiveFigure(
+      value,
+      'sectionalMinutes',
       index,
     );
     final topicIds = _readStringList(value, 'topicIds', index);
@@ -70,19 +96,49 @@ class BlueprintSection {
     return BlueprintSection(
       id: id,
       name: name,
-      questionCount: questionCount,
+      questionCount: questionCountFigure.value,
       suggestedMinutes: suggestedMinutes,
       topicIds: List.unmodifiable(topicIds),
       topicWeights: Map.unmodifiable(topicWeights),
-      sectionalMinutes: _readOptionalPositiveInt(value, 'sectionalMinutes'),
+      sectionalMinutes: sectionalMinutesFigure?.value,
+      questionCountFigure: questionCountFigure,
+      sectionalMinutesFigure: sectionalMinutesFigure,
     );
   }
 
-  /// Absent, zero and rubbish all read as "not published".
-  static int? _readOptionalPositiveInt(Map<String, Object?> value, String key) {
+  static BlueprintValue _readPositiveFigure(
+    Map<String, Object?> value,
+    String key,
+    int index,
+  ) {
+    try {
+      final figure = BlueprintValue.fromJson(value[key]);
+      if (figure.value > 0) return figure;
+    } on FormatException {
+      // Normalize the core parser's error into the feature parser contract.
+    }
+    throw BlueprintParseException('section[$index].$key must be positive');
+  }
+
+  /// Absent, zero and rubbish all read as "not published" for legacy rows.
+  /// A wrapped figure is validated because it is authored content metadata.
+  static BlueprintValue? _readOptionalPositiveFigure(
+    Map<String, Object?> value,
+    String key,
+    int index,
+  ) {
     final raw = value[key];
-    if (raw is int && raw > 0) return raw;
-    return null;
+    if (raw == null) return null;
+    if (raw is int) return raw > 0 ? BlueprintValue(value: raw) : null;
+    try {
+      final figure = BlueprintValue.fromJson(raw);
+      if (figure.value > 0) return figure;
+    } on FormatException catch (error) {
+      throw BlueprintParseException(
+        'section[$index].$key is invalid: ${error.message}',
+      );
+    }
+    throw BlueprintParseException('section[$index].$key must be positive');
   }
 
   static String _readString(

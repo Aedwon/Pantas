@@ -22,6 +22,7 @@ import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_start_preparation_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -31,6 +32,7 @@ class MockStartRoute extends ConsumerStatefulWidget {
   const MockStartRoute({
     required this.examId,
     required this.blueprintId,
+    this.strictMode = false,
     super.key,
   }) : resumeAttemptId = null;
 
@@ -38,10 +40,12 @@ class MockStartRoute extends ConsumerStatefulWidget {
     required this.resumeAttemptId,
     super.key,
   })  : examId = null,
-        blueprintId = null;
+        blueprintId = null,
+        strictMode = null;
 
   final String? examId;
   final String? blueprintId;
+  final bool? strictMode;
   final String? resumeAttemptId;
 
   @override
@@ -70,6 +74,10 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   DateTime? _pausedAt;
   DateTime? _strictBackgroundedAt;
   MockSessionInProgress? _lastSessionSnapshot;
+  ParsedMockBlueprint? _preparedBlueprint;
+  MockSample? _preparedSample;
+  List<MockSessionPart>? _preparedParts;
+  var _startingPaper = false;
 
   static const _snapshotCodec = MockSessionSnapshotCodec();
 
@@ -121,6 +129,8 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       if (parsed == null) {
         throw Exception('Blueprint not found');
       }
+      if (!mounted) return;
+      setState(() => _preparedBlueprint = parsed);
 
       final pools =
           await ref.read(mockQuestionPoolsProvider(widget.examId!).future);
@@ -136,45 +146,43 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         seed: DateTime.now().millisecondsSinceEpoch,
         passageSetsByTopic: pools.passageSetsByTopic,
       );
-
       final questionIds = [
         for (final section in sample.sections) ...section.questionIds,
       ];
+      final parts = _partsFor(parsed, sample, questionIds.length);
 
+      if (!mounted) return;
+      setState(() {
+        _preparedSample = sample;
+        _preparedParts = parts;
+      });
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _errorMessage = e.toString();
+        });
+      }
+    }
+  }
+
+  Future<void> _startPreparedMock() async {
+    if (_startingPaper) return;
+    final parsed = _preparedBlueprint;
+    final sample = _preparedSample;
+    final parts = _preparedParts;
+    if (parsed == null || sample == null || parts == null) return;
+
+    setState(() => _startingPaper = true);
+    try {
+      final questionIds = [
+        for (final section in sample.sections) ...section.questionIds,
+      ];
       final attemptId = const Uuid().v4();
       final startMock = ref.read(startMockUseCaseProvider);
-      final strictMode =
-          await ref.read(mockExamPreferencesProvider).strictMockMode();
-
+      final strictMode = widget.strictMode!;
+      final startedAt = DateTime.now();
       final isSectional =
           parsed.blueprint.sectionalTiming == SectionalTiming.sectional;
-      final parts = <MockSessionPart>[];
-
-      if (isSectional) {
-        var startIndex = 0;
-        for (final sampledSection in sample.sections) {
-          final sectionDef = parsed.sections
-              .firstWhere((s) => s.id == sampledSection.sectionId);
-          parts.add(
-            MockSessionPart(
-              name: sectionDef.name,
-              startIndex: startIndex,
-              count: sampledSection.questionIds.length,
-              minutes:
-                  sectionDef.sectionalMinutes ?? sectionDef.suggestedMinutes,
-            ),
-          );
-          startIndex += sampledSection.questionIds.length;
-        }
-      } else {
-        parts.add(
-          MockSessionPart(
-            name: '',
-            startIndex: 0,
-            count: questionIds.length,
-          ),
-        );
-      }
 
       await startMock.call(
         MockStartRequest(
@@ -188,12 +196,13 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
           sample: sample,
           partsTimedSeparately: isSectional,
           parts: _persistedParts(parts),
-          startedAt: DateTime.now(),
+          startedAt: startedAt,
         ),
       );
 
       if (!mounted) return;
 
+      _elapsedBaseSeconds = DateTime.now().difference(startedAt).inSeconds;
       _sample = sample;
       _examId = widget.examId!;
       _scoreBands = parsed.blueprint.scoreBands;
@@ -214,6 +223,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       if (mounted) {
         setState(() {
           _errorMessage = e.toString();
+          _startingPaper = false;
         });
       }
     }
@@ -625,6 +635,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
     final controller = _controller;
     if (controller == null) {
+      final preparedBlueprint = _preparedBlueprint;
+      if (widget.resumeAttemptId == null && preparedBlueprint != null) {
+        return MockStartPreparationPage(
+          parsedBlueprint: preparedBlueprint,
+          sample: _preparedSample,
+          onStart: _startPreparedMock,
+        );
+      }
       return const Scaffold(body: Center(child: FaintBars()));
     }
 

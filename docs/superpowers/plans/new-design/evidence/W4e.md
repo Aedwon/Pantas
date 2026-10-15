@@ -78,6 +78,56 @@ Source parent: Task 1 commit `18c177111ee28bbcd76f5e1efdcc408d35592093`. No sche
 - `dart run tool/check_no_ai_attribution.dart`, relay #9479, exit 0: `check_no_ai_attribution: OK`. Log `build/w4e/final-owned-2.log`. It runs again after the local commit to include the message.
 - Both tasks' source changes were read against the plan before the handoff. This author check does not replace the lead's independent audit/review. The local Task 2 commit saves the completed assigned scope with the broad base findings explicitly reported; it does not assert combined-family acceptance.
 
+## Task 3: Mock Setup closeout
+
+Status: implementation and Task 3 checks passed. Task 4 remains separately owned and was not started, edited, staged, or committed by this worker. Aedwon visual acceptance, independent audit, integration, deployment, and the W5 signed release-package rebuild remain outside this closeout.
+
+Recovery source identity: local branch `web/new-design-w4e-r1` at `5e6cda4541a80609b27f2784fc2e58d39731a33b`, with the preserved Task 3 dirty draft exactly as recovered. Current policy and plans were reread from `main` at `ae5c09421084c01d854e78150ea2e481afe7e0b2`; current relay instructions were reread from relay `main` at `61ae420f11b6891485069dcc3de6352e11578adf`. Remote W4e branch was `c999952bb037b5cb31a745907d5e2f26232671fc` before this closeout.
+
+Owned behavior and content:
+
+- MK_Setup, MK_SetupStrict, MK_SetupDCAT, MK_SetupCSE and L_MockStart use the approved setup table, paper rules, exclusions, short-paper disclosure, strict-mode switch, explicit start action, and preparation state. The setup switch defaults from the stored Settings preference but applies only to the attempt being started.
+- The start route carries that per-attempt strict choice, prepares the blueprint/sample/parts without starting the attempt, and starts the persisted attempt clock only after the explicit `Start the Paper` action. Resume behavior remains separate.
+- The feature blueprint reader preserves W0 `BlueprintValue` placeholder metadata while exposing the numeric value to existing runtime consumers. Setup renders approved placeholder figures instead of presenting unresolved figures as settled facts.
+- Built-in Task 3 blueprints are `content/mock/cse_pro.yaml`, `content/mock/cse_sub.yaml`, and `content/mock/acet.yaml`. CSE per-subject item splits and ACET aptitude time retain the approved development-only placeholder marker and note.
+- The signed content/release package was not rebuilt. That remains W5 scope.
+
+### Verification
+
+- Reused recovery evidence: relay #9922, the pre-closeout `flutter test --no-pub test/features/mock_exam test/app` candidate passed; relay #9923 scoped analyzer passed with `No issues found!`; relay #9924 broad format reported `Formatted 1462 files (0 changed)`. These runs were treated as historical recovery evidence only and were followed by fresh final-candidate checks.
+- Fresh focused Task 3 checks, relay #10118: six owned test files, exit 0, `25 tests passed`. This covers blueprint marker parsing/content, setup contract and strict local state, CSE placeholder rendering, DCAT exclusions, short-paper disclosure, preparation-before-clock behavior, large text/dark state, and persisted mock route behavior.
+- Fresh family check, relay #10120: all 54 `test/features/mock_exam/**/*_test.dart` files except the explicitly out-of-scope `test/features/mock_exam/presentation/task4_paper_contract_test.dart`, plus `test/app`, exit 0.
+- The unfiltered family command in relay #10119 exited 1 only after discovering the separately owned Task 4 RED contract file. Its failures are Task 4 proctor/clock contract failures. This worker did not change those expectations or implementation.
+- Owned analyzer, relay #10121: 12 Task 3 source/test items, exit 0, `No issues found! (ran in 2.0s)`.
+- Broad analyzer, relay #10122: exit 1 with 20 info findings. One is the previously accepted bookmarks `onReorder` deprecation. The remaining findings are all in the separately owned untracked Task 4 contract test. No Task 3 owned file has an analyzer finding.
+- Owned format gate, relay #10130: exit 0, `Formatted 12 files (0 changed) in 0.02 seconds.` Broad format relay #10123 exits 1 only because the out-of-scope Task 4 test would be formatted. `--output=none` did not edit it.
+- Protected Task 4 file identity before checks, relay #10109, and after the broad format check, relay #10129: SHA-256 `68da6e5d41eb7661f5e59e309600280e545cb0594e9e6ab65239af3dcd63c99a` both times.
+- Layering, relay #10124: exit 0, `check_layering: OK`.
+- Attribution, relay #10125: exit 0, `check_no_ai_attribution: OK`.
+- Diff whitespace, relay #10126: `git diff --check`, exit 0 with no output.
+- Content export validation, relay #10127: exit 0, `skipped 0 figure-pending questions`. Output was written only to `/tmp`; no signed release artifact was produced.
+
+### Task 3 file manifest
+
+- `content/mock/acet.yaml`
+- `content/mock/cse_pro.yaml`
+- `content/mock/cse_sub.yaml`
+- `lib/app/routes/mock_routes.dart`
+- `lib/features/mock_exam/data/blueprint_section.dart`
+- `lib/features/mock_exam/presentation/pages/mock_setup_page.dart`
+- `lib/features/mock_exam/presentation/pages/mock_setup_route.dart`
+- `lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart`
+- `lib/features/mock_exam/presentation/pages/mock_start_route.dart`
+- `test/features/mock_exam/data/blueprint_section_test.dart`
+- `test/features/mock_exam/data/task3_mock_blueprints_test.dart`
+- `test/features/mock_exam/presentation/mock_setup_page_test.dart`
+- `test/features/mock_exam/presentation/mock_start_route_persistence_test.dart`
+- `test/features/mock_exam/presentation/pages/mock_setup_page_test.dart`
+- `test/features/mock_exam/presentation/pages/mock_start_preparation_page_test.dart`
+- `docs/superpowers/plans/new-design/evidence/W4e.md`
+
+Remaining unverified items are deliberately outside Task 3: Task 4 RED contracts, Aedwon visual acceptance, independent audit, integration, deployment, and W5 signed release-package verification.
+
 ## File manifest for the lead
 
 Task 1, commit `18c17711`:

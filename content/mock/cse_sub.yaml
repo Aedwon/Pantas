@@ -1,0 +1,34 @@
+_id: mock_blueprint_cse_sub
+schemaVersion: 2
+isActive: true
+exam: exam_cse_sub
+name: CSE Subprofessional Practice Paper
+durationMinutes: 160
+sectionalTiming: roamable
+totalPublishedItems: 165
+sections:
+  - id: verbal
+    name: Verbal Ability
+    # PLACEHOLDER: development-only dummy split authorized by the Oct 5 restart ruling.
+    questionCount: { value: 45, placeholder: true, placeholderNote: "Development placeholder; published CSE Subprofessional per-subject item count is unresolved." }
+    # Required legacy field; ignored for a roamable one-block paper.
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_vocabulary, topic_upcat_grammar_and_structure, topic_upcat_language_application, topic_upcat_verbal_logic]
+  - id: numerical
+    name: Numerical Ability
+    # PLACEHOLDER: development-only dummy split authorized by the Oct 5 restart ruling.
+    questionCount: { value: 40, placeholder: true, placeholderNote: "Development placeholder; published CSE Subprofessional per-subject item count is unresolved." }
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_arithmetic_number_sense, topic_upcat_algebra, topic_upcat_statistics_and_probability, topic_upcat_data_interpretation]
+  - id: clerical
+    name: Clerical Ability
+    # PLACEHOLDER: development-only dummy split authorized by the Oct 5 restart ruling.
+    questionCount: { value: 40, placeholder: true, placeholderNote: "Development placeholder; published CSE Subprofessional per-subject item count is unresolved." }
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_clerical_ability]
+  - id: general_information
+    name: General Information
+    # PLACEHOLDER: development-only dummy split authorized by the Oct 5 restart ruling.
+    questionCount: { value: 40, placeholder: true, placeholderNote: "Development placeholder; published CSE Subprofessional per-subject item count is unresolved." }
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_philippine_constitution, topic_upcat_code_of_conduct_ra_6713, topic_upcat_peace_and_human_rights, topic_upcat_environment_management]
