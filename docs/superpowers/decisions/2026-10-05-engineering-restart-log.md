@@ -1720,3 +1720,20 @@ are required. L3d stores the complete technical contract before affected code. L
 consume the standalone guarded contract before Home/Quiz Reviews wiring, avoiding cyclic widgets.
 Root personally reviews student-data changes and mandatory Astra precedes integration. This
 implements approved Reviews scope; no product visual change or SQL schema permission is inferred.
+
+
+### October15: resolve the existing topic chain without a new presentation
+
+Cworker raised whether G-c-11 prohibits entry into the final topic plate. Lead reopened actual
+stage0 row26, DECISIONS135, traceability G-c-11 and retained ending-chain behavior: the last
+lesson explicitly pulls into its topic plate; only the final plate has no onward pull.
+Automatic replacement would discard reading/quiz access and is not the approved chain. Reuse
+the already drawn "Pull up for X"/"Let go for X" with the actual destination topic name, then
+the actual next-topic name on a nonterminal plate. This is data in the existing template, not
+new finish-topic copy or an unapproved control. Day order/finish-today remains its drawn override.
+L3c records this before wiring with terminal, stopped-short, actual-next and back-semantics tests.
+
+Lead also read actual PantasButton source: existing modes cannot produce enabled fill/label.
+Bounded neutral variant reuses existing52/r14/interactions with fill/label and preserves all
+defaults; no local duplicate. ReaderGap removes superseded material-duration/marked-automatically
+copy and matches existingRead/quiz drawing. No new visual option, read-floor or student-data rule.
