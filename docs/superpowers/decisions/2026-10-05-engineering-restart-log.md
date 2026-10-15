@@ -1852,3 +1852,23 @@ Direct local Mac development checks follow the October15 user instruction, and r
 online runner. No routine hosted Actions, screenshot, main application update, integration,
 deployment, release or visual acceptance follows from this request. Current status records
 the scope and preservation requirements before code changes.
+
+
+### October16: bounded shared presentation and setup-overlap ownership
+
+Workers raised three existing contract gaps before affected edits. The lead opened actual
+shared source and approved boards. QV_EndPro needs264x128/r108/16 count gauge, real correct/total
+and400–1600ms cubic(.2,.8,.25,1), while the percentage component differs. L3d authorizes one
+additive quiz-count variant with default preservation and standalone verification, owned by D.
+
+MK_SheetCSE requires a submit footer, and MK_SubmitCSE requires accent inline actions absent
+from current W2 contracts. L3e authorizes optional grid footer and non-destructive inline dialog
+actions, tests/default preservation and standalone verified slice, owned by E. E does not edit
+the shared gauge concurrently. These reproduce approved boards, without a new visual decision.
+
+The inspected E Task3 draft in mock_start_route.dart prepares content and waits for explicit
+start. Tasks4/5 share only the existing running-session lifecycle/build portions. Narrow overlap
+ownership preserves all Task3 additions; Task3 hunks stay uncommitted, and the exact staged or
+committed Task4/5 candidate must be verified separately without them. The other fourteen Task3
+paths remain byte-for-byte intact. If separation fails, dependent wiring remains pending while
+independent Tasks4–6 proceed. No broader Task3 authorship or acceptance is inferred.

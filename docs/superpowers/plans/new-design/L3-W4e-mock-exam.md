@@ -104,3 +104,34 @@ Delete `MockPanel`, the value wheel sheets, the mock questions sheet (replaced b
 `QuestionGridSheet` mock mode), `mock_floating_bar.dart` (replaced by W2 `FloatingBar`), the unwired
 history page, the `/mock-exam` stub screen, and their tests. All required checks; evidence
 `evidence/W4e.md`; independent review; Aedwon's visual check against the MK_* and CM_* boards.
+
+
+## Lead Tasks4–6 ownership and shared contract clarification, October16
+
+Task3 remains separately owned and unverified. Its fifteen saved draft paths are snapshotted
+by SHA256 before Tasks4–6 work. The lead inspected the full mock_start_route.dart Task3 diff: it
+adds strictMode input, prepared blueprint/sample/parts, delayed explicit start and preparation
+view. Those exact additions and setup behavior must be preserved, never absorbed into a verified
+Task4/5 commit or silently repaired. Tasks4/5 may edit only existing running-session lifecycle,
+paper/grid/pause/part/exit wiring in that shared file. Keep an exact Task3 patch and exclude its
+hunks when staging; verify the actual staged/committed Task4/5 candidate in isolation without
+Task3 drafts before claiming verification. If the changes cannot remain independent, leave only
+that integration pending and report the precise required Task3 contract. Other fourteen Task3
+paths stay byte-for-byte unchanged. No Task3 takeover or completion claim is authorized.
+
+The lead opened W2 new_design/QuestionGridSheet and CenteredDialog, plus MK_SheetCSE and
+MK_SubmitCSE. Neither exposes the drawn one-block submit action. Authorize only these additive
+shared extensions and focused tests before mock callers: an optional grid footer/action child
+(default null), rendered in the existing sheet after its ordinary grid/help content, with drawn
+spacing; an opt-in non-destructive inline action layout in CenteredDialog, with filled accent
+primary/onAccent and fill/label cancel, existing inline pill geometry, and ordinary keyboard/
+focus/large-text behavior. Preserve all quiz grid and dialog defaults and existing destructive
+actions. Do not call a submit action destructive merely to obtain its layout, build a local
+dialog/grid copy, or omit an implementable required submit action. W4e owns these two extensions
+in its own worktree and saves them as a verified standalone slice. D's separately saved grid
+changes must remain intact at eventual reviewed integration. No other W2 ownership is granted.
+
+W4d currently owns an additive quiz-count HalfRingGauge extension in its separate worktree.
+W4e must use existing percentage/overlay contracts while it inspects its finale, and report
+any concrete additional gap before editing that shared file. No concurrent shared-gauge edits
+or approximate animation substitution is authorized.

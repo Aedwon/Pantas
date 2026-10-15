@@ -295,3 +295,22 @@ W1), `lib/features/review/`, the old tab, panel, picker page, length wheel, debr
 tests; stop importing retired components (`showInkSheet` at the questions sheet, `InkTableRow`,
 `InkCheckbox`). All required checks; evidence `evidence/W4d.md`; independent review; Aedwon's visual
 check against the QZ_*, QZS_*, QZE_*, QV_* and QN_* boards.
+
+
+## Lead Task5 count gauge clarification, October16
+
+The lead opened the existing HalfRingGauge and actual QV_EndPro SVG/keyframes. The existing
+220x112 percentage view cannot represent its264x128/r108/16px arc and60px correct count,
+24px /total, and correct label. Add a narrow named quiz-count constructor to the same shared
+component, accepting real correct/total counts and preserving every existing percentage default.
+Reuse the shared painter and lifecycle; the count variant selects the drawn geometry and rolling
+count treatment. QVEndPro_n20/n21 move400–1600ms with cubic(.2,.8,.25,1), not the existing
+percentage timing. Other end boards must be checked against their own timeline. Count semantics
+announce actual correct/total, not a manufactured percentage; zero totals remain well-defined.
+
+Ownership extends only to half_ring_gauge.dart and its focused regression tests for this
+additive variant. Test exact geometry, timeline samples, rolling count, theme, reduced motion,
+large text, updates/disposal, and unchanged percentage callers before the task consumes it.
+Save the verified shared slice alone before the larger Task5 screen. W4e must not edit this
+shared file concurrently. The lead preserves both families' needs at reviewed integration.
+This implements the already approved presentation, without a new product or visual choice.
