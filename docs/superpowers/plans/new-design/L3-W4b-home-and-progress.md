@@ -26,6 +26,12 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
 3. Task 8 "Your mocks" waits for W4e's mock history; build the rest of Task 8 with the section
    left out and listed. Go on through the plan; do not stop for these.
 
+4. Added October15: Task3 Reviews launch/Continue and any numbered batch metadata consume
+   W4d Task4's guarded review-batch contract (current L3-W4d storage ruling). It lands independently
+   of Home widgets. Until integrated, omit only those controls under the standing missing-contract
+   rule; no local batch, inferred ordinal or mixed-Today substitute. Home and Quiz consume the
+   same real membership/chunks. Captured batch settings persist until finish/discard.
+
 ### Task 1. Move shared data out of `lib/features/progress/` (lands first)
 
 Move `table_order_prefs.dart` (`tableOrderProvider`, `retainTableOrderProvider`, `TableOrder`,
