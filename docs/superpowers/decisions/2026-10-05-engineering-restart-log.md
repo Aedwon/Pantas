@@ -1668,3 +1668,16 @@ queriedforavailability beforeTask4, withnoeditauthorizationuntilreconciliation; 
 Lead retainsindependentreview andupload; Astraauditsrunalone. Currentfade andbuilt-inneighborcurve
 remain limitedtoacceptedexceptions. No newapprovalgate, complexitymenu, mainapplicationfreeze
 lift, deployment/publication, browser/devicecontrol, paidsubstitution orautomation is inferred.
+
+
+### October15: shared pull-ring technical ownership
+
+Cworker stoppedbeforecirclecode: sharedProgressRing forces600ms interpolation anddifferent
+radius/cap, unlike livehand-drivenRD_End44px/r19/2.5px/butt ring. Leadopenedactualassignedshared
+source andparsedboardcircleattributes, confirming gap. L3c clarification authorizes narrowshared
+pull constructor, fraction/optionalchild, immediatefill andfixedgeometry, no generatedpercent/
+Done/checksemantics. Existingowningactionlabel remains. Reusepainter, preservegeneric/studydefaults,
+cover variantchange/disposal/theme/reducedmotion and exactfraction/geometry tests first. No local
+ringcopy, gesturethreshold change, newschema orproductdecision. Independentendingtests maycontinue
+whiletechnicalrulingrecords; affectedsharedcode beginsafterruling. DTask4 independently resumed
+onlyaftercleanc948preflight andsameworkerconfirmedavailability; no extraauditwhilethey run.
