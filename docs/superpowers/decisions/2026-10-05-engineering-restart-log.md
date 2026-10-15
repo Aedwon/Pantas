@@ -1699,3 +1699,24 @@ activebatchsettings frozen ratherthanmutating savedanswers onpreferencechange. L
 Today plan cannotbepretended reviewonly. No existingdurablefield: Dreturns boundedstorage/
 transaction/boundaryproposal before metadatachanges; independentTask4workcontinues. No SQL
 schema/JSONencoding/newproductscope authorized. ExistingmissingHomecontractsruling stillholds.
+
+
+### October15: approve bounded durable Reviews contract with explicit boundary checks
+
+Lead read D's owned evidence proposal and actual session/prefs/passage/completion/wiper source.
+Accepted one feature-owned versioned local devicePrefs key per user/exam plus existing ordinary
+session rows. Existing schema/JSON encodings/sync/wiper remain unchanged. Metadata freezes actual
+review chunks/settings/versions and uses existing lifetime guards plus real principal/anchor-row
+validation, since generic preferences survive wipe. Atomic lifecycle belongs inside saveAtomically/
+completeRequired, not post-commit onCommitted. Duplicate completion/next claims must be idempotent.
+No custom splitting, inferred ordinals, generic batching system, or invisible question replacement.
+
+Passage conflict resolved from existing PassageSetFiller: hard chosen cap, whole sets only.
+Oversize set remains due, excluded work is never counted complete, chunk totals come from actual
+packed membership. Missing/revised content blocks hydration via shared error/retry and explicit
+discard, preserves valid saved answers, never shrinks or remaps outcomes. Legacy row exact-ID/order
+resume remains; no invented metadata. Terminal/discard cleanup and rollback/account/reset tests
+are required. L3d stores the complete technical contract before affected code. L3b and parallel-map
+consume the standalone guarded contract before Home/Quiz Reviews wiring, avoiding cyclic widgets.
+Root personally reviews student-data changes and mandatory Astra precedes integration. This
+implements approved Reviews scope; no product visual change or SQL schema permission is inferred.
