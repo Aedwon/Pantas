@@ -357,3 +357,19 @@ push of the exact reviewed SHA. Direct GitHub full refs match both intended SHAs
 was uploaded as source. Development tests were local. Documentation commits use [skip ci].
 Conservative implementation count stays67/133 because these are partial tasks. Workers continue
 the same approved Task6 and Task4 scope; integration remains5e6cda45 and application main frozen.
+
+
+### October15: neutral button slice reviewed and uploaded
+
+W4c c912fb21fb475fc1609aee5b84bd6e830d19ac75 is independently reviewed/uploaded after eaf4547a.
+Lead inspected immutable ten-line component extension, complete new tests/evidence and actual
+46 affected passes,9 final focused passes, clean scoped analysis/format2-0/diff/layering/
+attribution outputs. Exact two committed source hashes match. Existing four variants, normal
+52/r14 and actual Geist fixture, large text, keyboard, press/reduced motion and busy/disabled
+behavior are covered. No scoped spec/quality blocker. Guarded fresh fetch/expected head/remote
+base preceded normal local push; direct GitHub full SHA matches intended c912fb21.
+Eleven remaining Task6 source/test drafts remain unverified; day/topic/handoff/data integration
+and Tasks7/9 are pending. C is idle at the early capacity checkpoint; D finishes its current UI
+slice before metadata. Current D disabled-label extension is recorded at025dd259/logcaec049d;
+preserve C neutral and D opt-in/theme changes independently during eventual reviewed integration.
+No complete task, family/Astra/integration/phone acceptance or new hosted CI is claimed.
