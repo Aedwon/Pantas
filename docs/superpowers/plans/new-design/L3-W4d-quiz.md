@@ -194,6 +194,26 @@ new synchronization payload, account-wiper/security-rule edit or new generic bat
 This records implementation detail for the already approved Reviews behavior. Full Task4 and
 family acceptance still require real caller wiring, checks and separate phone visual acceptance.
 
+
+## Lead Task4 disabled Check label, October15
+
+The lead opened actual QV_Answer/QV_Leave label styles and assigned PantasColors/PantasButton.
+The drawn disabled Check text is light#B8B8BD; tertiaryLabel is#AEAEB2 and no current role matches.
+Add W1 disabledActionLabel with light#B8B8BD and the existing dark disabled-label color#5A5A5E.
+Wire normal PantasColors constructor/light/dark/copyWith/lerp behavior and focused token tests.
+This is an additive semantic role for an already drawn disabled state, not a global recoloring.
+
+Add optional PantasButton.disabledForeground defaultnull, consumed only by the ordinary disabled
+foreground branch. Quiz Check opts into context.colors.disabledActionLabel. Preserve existing
+enabled, busy, disabledOpacity/dimmed and all default variant behavior. Cover opt-in/default/
+busy/dimmed interactions, theme transition/copy/lerp and exact Check state before save.
+Ownership extends only to these two shared files and covering tests. No local button copy.
+
+C's separate neutral variant is saved atc912fb21. D must not overwrite or copy that work; changes
+remain isolated and orthogonal. The lead preserves both additive changes during eventual
+integration and independently reviews any merge resolution. No cross-family merge is authorized
+merely to obtain this option.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
