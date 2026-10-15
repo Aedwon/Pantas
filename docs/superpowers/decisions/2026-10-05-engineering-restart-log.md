@@ -1790,3 +1790,18 @@ continue approved work. Full-family checks, serialized Astra audit, integration 
 phone visual acceptance remain pending. All development checks ran directly on the Mac; no
 new hosted CI or relay dispatch. The first [skip ci] documentation SHA fddda45d had no Actions
 run at exact-SHA inspection. No global workflow change, acceptance waiver or publication.
+
+
+### October15: clarify initial legacy guest boundary without rotating recognized state
+
+C reported that a legacy guest begins with no snapshot and actual wipe removes syncMeta;
+null-to-null cannot identify reset. Lead opened the actual SyncActiveContextStore and existing
+BookmarkPrefsRepository.remove implementation. The Task8 pattern already initializes only a
+missing initial envelope through the existing clearStable helper, preserving every recognized
+stable/anonymous snapshot. L3c now explicitly permits that same initial reader capture inside
+its transaction, before guarded asynchronous work. It never permits recreating an expired token
+during retry, dispose or a stale callback. Runtime actor/auth/exam signals still cancel capture
+races; no new global mechanism, wiper/security edit, schema or sync protocol is approved.
+Actual wipe/reset, recognized-context preservation and guarded-save/capture race tests precede
+acceptance. This clarifies the prior instruction's recognized-state prohibition, not a new
+product permission or a reason to block ordinary guest reading.
