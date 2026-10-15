@@ -57,6 +57,7 @@ These bind every W4 worker. Apply them and record the case in the evidence; do n
 | W4a Task 5 | W4f Task 3 | `ExamPickerScreen` |
 | W4b Task 1 | W4f Task 4 | `retainTableOrderProvider` moved |
 | W4b Task 3 | W4c Task 5 | `LessonDayContext` |
+| W4d Task 4 review-batch contract (standalone) | W4b Task 3 Reviews launch/Continue and W4d Task 2 caller wiring | Real immutable review chunks, ordinal, guarded start/continue; no dependency on Home widget implementation |
 | W4d Task 1 | W4c Task 7 | `startLessonQuiz`, `startQuickQuiz` |
 | W4e Task 1 | W4d Task 2 | `MockCard` |
 | W4b Task 8, W4f Task 5 | W4g | Your record and About slots |
