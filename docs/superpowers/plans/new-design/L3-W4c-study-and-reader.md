@@ -197,6 +197,28 @@ automatically" and material-duration copy per stage0 row24. No student-data/read
 Tests first cover actual neutral geometry/colors in both themes, press/reduced-motion,
 large text and unchanged existing variants. No new presentation is substituted.
 
+
+## Lead Task6 reader boundary capture, October15
+
+Reuse the existing Task8 boundary pattern and SyncActiveContextStore. For initial reader
+boundary capture only, if readSnapshot is absent, initialize the existing anonymous envelope
+inside that capture transaction, then retain its token. This is the same absent-only use of
+clearStable already implemented in BookmarkPrefsRepository.remove. It is not permission to
+clear or rotate any recognized snapshot, including a recognized anonymous envelope.
+
+The "never rotate/clear just for reading" instruction prohibits replacing recognized contexts;
+it does not prohibit establishing the missing legacy guest token. Do not compare null tokens
+as a boundary identity. Establish capture before enabling guarded asynchronous handoff/writes.
+Once captured, missing or different current token expires the old reader operation. Retry,
+dispose, position-save or a stale callback must never initialize/recreate an expired boundary.
+Use the existing actor/auth/exam lifecycle signals for in-flight capture and cancellation; no
+new global lifetime mechanism, core wiper edit, schema or synchronization protocol.
+
+Test initial missing guest envelope, preservation of stable and anonymous snapshots, real wipe
+then stale completion, same-account reset, account/exam changes, ordinary current save/handoff,
+and capture/cancel races. Validate write guards in the same transaction before mutation.
+No passive preview may mark read, start a reading timer or save position.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
