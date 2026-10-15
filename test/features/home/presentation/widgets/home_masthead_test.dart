@@ -2,174 +2,153 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 
-Widget harness(HomeMastheadData data, {DateTime? now}) {
+const _examId = 'upcat';
+
+final _week = HomeWeekStripData(
+  states: const [
+    WeekDayState.dayOff,
+    WeekDayState.done,
+    WeekDayState.partial,
+    WeekDayState.today,
+    WeekDayState.plain,
+    WeekDayState.plain,
+    WeekDayState.plain,
+  ],
+  todayFraction: .48,
+);
+
+Widget harness(
+  HomeMastheadData masthead, {
+  DateTime? now,
+  ThemeData? theme,
+  TextScaler textScaler = TextScaler.noScaling,
+  bool disableAnimations = false,
+}) {
   return ProviderScope(
+    key: UniqueKey(),
     overrides: [
-      homeMastheadProvider.overrideWith((ref) async => data),
+      homeMastheadProvider.overrideWith((ref) async => masthead),
+      weekStripProvider(_examId).overrideWith((ref) async => _week),
     ],
     child: MaterialApp(
-      theme: buildLightTheme(),
-      home: Scaffold(
-        body: HomeMasthead(now: now ?? DateTime(2026, 8, 2, 20)),
+      theme: theme ?? buildLightTheme(),
+      home: MediaQuery(
+        data: MediaQueryData(
+          size: const Size(390, 844),
+          textScaler: textScaler,
+          disableAnimations: disableAnimations,
+        ),
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(16),
+            child: HomeMasthead(
+              examId: _examId,
+              now: now ?? DateTime(2026, 10, 15, 20),
+            ),
+          ),
+        ),
       ),
     ),
   );
 }
 
+HomeMastheadData data(ExamDate? date) => HomeMastheadData(
+      name: 'Aedwon',
+      examShortName: 'UPCAT',
+      examDate: date,
+    );
+
 void main() {
-  testWidgets('greets by name in the evening', (tester) async {
-    await tester.pumpWidget(
-      harness(
-        HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: ExamDate.onDay(DateTime(2026, 9, 13)),
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-    // The name shares the greeting's line and its size.
-    expect(find.text('Magandang gabi, Aedwon'), findsOneWidget);
-  });
-
-  testWidgets('a day-precision date prints a day count', (tester) async {
-    await tester.pumpWidget(
-      harness(
-        HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: ExamDate.onDay(DateTime(2026, 9, 13)),
-        ),
-        now: DateTime(2026, 8, 2, 20),
-      ),
-    );
-    await tester.pumpAndSettle();
-    expect(find.text('42 days to go'), findsOneWidget);
-    expect(find.text('UPCAT'), findsOneWidget);
-  });
-
-  testWidgets('a month-precision date never prints a day count',
+  testWidgets('renders Sunday-first week, exact-date chip, and greeting only',
       (tester) async {
     await tester.pumpWidget(
       harness(
-        HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: ExamDate.inMonth(year: 2026, month: 10),
-        ),
+        data(ExamDate.onDay(DateTime(2026, 11, 26))),
+        now: DateTime(2026, 10, 15, 20),
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Your exam is in October 2026'), findsOneWidget);
-    expect(find.textContaining('days'), findsNothing);
+
+    expect(find.text('Sun'), findsOneWidget);
+    expect(find.text('Sat'), findsOneWidget);
+    expect(find.text('UPCAT'), findsOneWidget);
+    expect(find.text('26'), findsOneWidget);
+    expect(find.text('NOV'), findsOneWidget);
+    expect(find.text('42 days'), findsOneWidget);
+    final novText = tester.widget<Text>(find.text('NOV'));
+    final countdownText = tester.widget<Text>(find.text('42 days'));
+    final exactDateColors = tester.element(find.text('NOV')).colors;
+    expect(novText.style?.color, exactDateColors.secondaryLabel);
+    expect(countdownText.style?.color, exactDateColors.secondaryLabel);
+    expect(find.text('Magandang gabi'), findsOneWidget);
+    expect(find.textContaining('Aedwon'), findsNothing);
+    expect(find.byTooltip('Settings'), findsNothing);
   });
 
-  testWidgets('no date prints the exam short name alone', (tester) async {
+  testWidgets('renders no-date and month-only chip states', (tester) async {
+    await tester.pumpWidget(harness(data(null)));
+    await tester.pumpAndSettle();
+    expect(find.text('+'), findsOneWidget);
+    expect(tester.widget<Text>(find.text('+')).style?.fontSize, 16);
+    expect(find.text('Add date'), findsOneWidget);
+
+    await tester.pumpWidget(
+      harness(data(ExamDate.inMonth(year: 2026, month: 11))),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('NOV'), findsOneWidget);
+    expect(find.text('in Nov'), findsOneWidget);
+  });
+
+  testWidgets('renders exam-day and passed chip states', (tester) async {
     await tester.pumpWidget(
       harness(
-        const HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: null,
-        ),
+        data(ExamDate.onDay(DateTime(2026, 10, 15))),
+        now: DateTime(2026, 10, 15, 8),
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('UPCAT'), findsOneWidget);
-    expect(find.textContaining('days'), findsNothing);
-    expect(find.textContaining('Your exam'), findsNothing);
+    expect(find.text('Today'), findsOneWidget);
+    final examDayMonth = tester.widget<Text>(find.text('OCT'));
+    final examDayColors = tester.element(find.text('OCT')).colors;
+    expect(examDayMonth.style?.color, examDayColors.onAccent);
+    expect(find.text('Magandang umaga'), findsOneWidget);
+
+    await tester.pumpWidget(
+      harness(
+        data(ExamDate.onDay(DateTime(2026, 10, 14))),
+        now: DateTime(2026, 10, 15, 20),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Passed'), findsOneWidget);
   });
 
-  testWidgets('no name closes the greeting rather than trailing a comma',
+  testWidgets('dark, 200% text, and reduced motion remain usable',
       (tester) async {
     await tester.pumpWidget(
       harness(
-        const HomeMastheadData(
-          name: null,
-          examShortName: 'UPCAT',
-          examDate: null,
-        ),
+        data(ExamDate.onDay(DateTime(2026, 11, 26))),
+        theme: buildDarkTheme(),
+        textScaler: const TextScaler.linear(2),
+        disableAnimations: true,
       ),
     );
     await tester.pumpAndSettle();
 
-    // A comma leads into a name and reads as an unfinished sentence
-    // without one.
-    expect(find.text('Add your name'), findsNothing);
-    expect(find.text('Magandang gabi!'), findsOneWidget);
-    expect(find.text('UPCAT'), findsOneWidget);
+    expect(find.text('Magandang gabi'), findsOneWidget);
+    expect(find.text('42 days'), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
-  testWidgets('an exam today prints zero days, not a negative', (tester) async {
-    await tester.pumpWidget(
-      harness(
-        HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: ExamDate.onDay(DateTime(2026, 8, 2)),
-        ),
-        now: DateTime(2026, 8, 2, 20),
-      ),
-    );
-    await tester.pumpAndSettle();
-    expect(find.text('0 days to go'), findsOneWidget);
-  });
-
-  testWidgets('one day reads "1 day", not "1 days"', (tester) async {
-    await tester.pumpWidget(
-      harness(
-        HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: ExamDate.onDay(DateTime(2026, 8, 3)),
-        ),
-        now: DateTime(2026, 8, 2, 20),
-      ),
-    );
-    await tester.pumpAndSettle();
-    expect(find.text('1 day to go'), findsOneWidget);
-  });
-
-  testWidgets('the kicker follows the hour', (tester) async {
-    for (final (hour, kicker) in [
-      (8, 'Magandang umaga, Aedwon'),
-      (14, 'Magandang hapon, Aedwon'),
-      (21, 'Magandang gabi, Aedwon'),
-    ]) {
-      await tester.pumpWidget(
-        harness(
-          const HomeMastheadData(
-            name: 'Aedwon',
-            examShortName: 'UPCAT',
-            examDate: null,
-          ),
-          now: DateTime(2026, 8, 2, hour),
-        ),
-      );
-      await tester.pumpAndSettle();
-      expect(find.text(kicker), findsOneWidget);
-    }
-  });
-
-  testWidgets('Settings is a named 48dp action', (tester) async {
-    await tester.pumpWidget(
-      harness(
-        const HomeMastheadData(
-          name: 'Aedwon',
-          examShortName: 'UPCAT',
-          examDate: null,
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    final settings = find.byTooltip('Settings');
-    expect(settings, findsOneWidget);
-    expect(tester.getSize(settings).width, greaterThanOrEqualTo(48));
-    expect(tester.getSize(settings).height, greaterThanOrEqualTo(48));
+  test('greeting bands remain unchanged', () {
+    expect(greetingFor(DateTime(2026, 10, 15, 8)), 'Magandang umaga');
+    expect(greetingFor(DateTime(2026, 10, 15, 14)), 'Magandang hapon');
+    expect(greetingFor(DateTime(2026, 10, 15, 21)), 'Magandang gabi');
   });
 }

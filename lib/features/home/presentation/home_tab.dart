@@ -68,9 +68,9 @@ class _SelectedExamHome extends ConsumerWidget {
         onRetry: () => ref.invalidate(assessmentResultProvider(examId)),
       ),
       data: (result) => ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         children: [
-          HomeMasthead(now: now),
+          HomeMasthead(examId: examId, now: now),
           const SizedBox(height: 16),
           if (result == null)
             _NoAssessmentHome(examId: examId)
