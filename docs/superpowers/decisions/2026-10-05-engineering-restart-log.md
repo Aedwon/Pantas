@@ -1834,3 +1834,21 @@ C retains ownership idle after this verified slice, with actual data/day/topic i
 still RED/unimplemented. D finishes current UI checkpoint and holds before the separate Reviews
 metadata path. Original user continuation stays authorized. No wholeTask6/4 completion, main
 application change, family/Astra/integration/phone acceptance, deployment or publication.
+
+
+### October16: explicit three-workstream continuation
+
+Exact user instruction: "continue W4c/W4d, plus W4e Tasks 4–6". Current-main policy
+63175b4dd23ce0032aa3ad39a5b9ab4dca60c8ed and current status/plans/rulings were retrieved.
+This resumes C/D remaining approved independent work and adds only E Tasks4–6. The previous
+D Task4-only boundary no longer limits D. E Task3 remains separately owned; its fifteen
+dirty/untracked setup/blueprint paths must remain untouched by the new E worker.
+
+Fetched C/D heads match their working remotes(c912fb21/10045dbd). E5e6cda45 contains remote
+c999952b plus fourteen accepted integration commits, ahead14/behind0; no divergent history.
+The stale status lock is reclaimed. Three isolated Sol High implementors are dispatched under
+the existing strategy, with actual board/TDD/local verification and lead-review requirements.
+Direct local Mac development checks follow the October15 user instruction, and relay has no
+online runner. No routine hosted Actions, screenshot, main application update, integration,
+deployment, release or visual acceptance follows from this request. Current status records
+the scope and preservation requirements before code changes.

@@ -11,8 +11,8 @@ Controlling documents:
 ## Lock
 
 State: held
-Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: 2026-10-15 19:59 Asia/Manila (renewed after usage reset)
+Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
+Since: 2026-10-16 03:34 Asia/Manila (explicit continuation; previous lock stale)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -423,3 +423,29 @@ Reviews. No substitute widget or fabricated session payload was added. Full-fami
 integration and Aedwon's phone acceptance remain separate. Task5 was NOT started. This bounded
 assignment stops here; the global implementation count is unchanged. W4b Task2 and W4e Task3
 remain separately owned as Aedwon stated, without cross-worktree edits or dispatches.
+
+
+### October16: W4c/W4d and W4e Tasks4–6 explicitly resumed
+
+Exact user instruction: "continue W4c/W4d, plus W4e Tasks 4–6". Policy read from current
+main63175b4dd23ce0032aa3ad39a5b9ab4dca60c8ed. The stale October15 lock is taken by this chat.
+The latest continuation broadens D beyond the prior Task4-only assignment; it does not authorize
+E Task3 takeover or E Task7+. Existing approved complexity and product scope remain binding.
+
+Fresh fetch reconciled C local/remote c912fb21, with eleven preserved Task6 draft paths;
+D local/remote10045dbd, clean; E local5e6cda45 ahead14/behind0 from remote c999952b.
+E's ahead commits are the already accepted integration base, not divergence. Fifteen existing
+E Task3 setup/blueprint draft paths stay separately owned, unmodified and unstaged by Tasks4–6.
+Integration remains5e6cda45. The primary main checkout is clean but stale775960d6; it is not
+reset or advanced. A separate current-main documentation worktree handles status updates.
+
+Three isolated GPT-6.1 Sol High workers execute the existing settled plans: C Task6 then7/9
+and Task8 closeout; D independent remaining tasks, preserving missing Home/Reviews caller holds;
+E Tasks4–6 only, reporting any required Task3 overlap before editing it. The lead owns reviews,
+working-branch uploads and status. No duplicate active Codex worker was found.
+
+The relay reports no online runner. Direct local Mac development checks follow Aedwon's latest
+explicit local-test preference and the recorded fallback. No hosted Actions/relay dispatch,
+browser/desktop control, app screenshots, integration, deployment or publication is authorized
+by this continuation. Family/Astra and phone acceptance remain separate. Documentation-only
+main updates retain [skip ci]. No new implementation or verification outcome is claimed yet.
