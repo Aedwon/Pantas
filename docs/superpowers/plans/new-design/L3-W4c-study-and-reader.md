@@ -131,6 +131,23 @@ Task8 row separators: the source currently leaves ListRow.divider false although
 the board; add focused first/middle/last and subject-group checks. If the shared placement cannot
 match, report the exact required extension before code. Do not mark fullTask8 accepted meanwhile.
 
+
+## Lead Task6 shared pull-ring clarification, October15
+
+Source review confirms ProgressRing's public constructors do not support the approved pull ring:
+RD_End uses44px viewport, center22/radius19,2.5px track/fill and butt-cap accent progress from
+live hand displacement. Current shared component animates fill600ms with different radius/cap.
+Extend existing ProgressRing with a narrow named pull variant taking fraction and optional child,
+fixed44/r19/2.5/butt geometry, immediate fraction repaint with no generated percentage/Done
+semantics or completion check. The owning pull action provides its existing meaningful action
+label. Reuse the existing shared painter where possible; do not duplicate a feature-local ring.
+Preserve all current constructors/defaults and their motion/semantics. Handle widget variant
+updates, theme/reduced-motion changes and disposal consistently; no delayed old fill can resume
+inside pull mode. Ownership extends only to this shared component and its focused tests.
+Tests first cover exactgeometry/cap and immediatefraction0/partial/1, absenceofspuriouspercent/
+completionsemantics, childpreservation, light/dark and existinggeneric/studyregressions. This
+implements the approvedboard, not a newpresentation, gesturethreshold orstudentfigure.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
