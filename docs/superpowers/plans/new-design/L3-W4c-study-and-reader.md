@@ -148,6 +148,27 @@ Tests first cover exactgeometry/cap and immediatefraction0/partial/1, absenceofs
 completionsemantics, childpreservation, light/dark and existinggeneric/studyregressions. This
 implements the approvedboard, not a newpresentation, gesturethreshold orstudentfigure.
 
+
+## Lead Task6 advance clarification, October15
+
+RDEnd_n15/n16 move outgoing and incoming bodies together over480ms using cubic(.22,1,.36,1),
+existing PantasCurves.slideA. The earlier handoff's houseOut name for advance was wrong; the
+plate entrance uses its own houseOut. Do not substitute sequential480ms halves or the old190/320.
+Keep stationary chrome/contents and one active read/position controller. Prefer extracting the
+existing lesson-content subtree and painting a passive incoming preview from the already warmed,
+real next ReaderContext in the same clipped transition Stack. Preview has independent layout/
+scroll surface but no marking, position persistence, reading timer or interactive/duplicate
+semantics. On successful completion activate actual next body in place, preserving original
+origin/day and resetting its real progress/read floor as designed. Currentbody retains its own
+correct saved offset/fraction until handoff. No route-stack replacement or bitmap snapshot.
+Freeze the real loaded destination for the committed motion; do not begin without available
+content then flash back to outgoing/loading chrome at handoff. Existing loading/error/retry
+patterns apply to unavailable destinations. Cancel/unmount/stale destination and account/exam
+changes cannot advance or write the wrong lesson. Reduced motion activates the final state.
+Tests first cover simultaneous midpoint/end geometry, stationary chrome, handoff continuity,
+actual day/topic/terminal destinations, passive preview no writes/read marks, cancellation and
+controller disposal. If this cannot preserve existing ownership, report before a larger refactor.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
