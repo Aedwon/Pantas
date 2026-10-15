@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
+State: held
 Holder: Codex lead, chat 01a133c7-407b-7703-9481-a3c689967e8a
-Since: released 2026-10-15 03:08 Asia/Manila (weekly capacity boundary)
+Since: 2026-10-15 14:59 Asia/Manila (resumed after usage reset)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -283,3 +283,16 @@ boardinspection/REDcoverage then circle/armed/cancel/motion/daysequence/dayend/t
 Preserveactual15secondreadfloor. Task5revieweduploaded,Task6unfinished,Tasks7/9remain.
 W4d samecleanc948 beforeTask4; integration5e6 unchanged. No autonomousresume or SSOTexternal
 update claimed. Lockreleased, mainapplicationfreeze and allacceptance/publication gates remain.
+
+
+### October15,14:59 Asia/Manila: continue after usage reset
+
+Exact user instruction: "continue. usage has reset". Live ordinaryusageallowed,2%short-window,
+0%weekly. Currentmain83142150334b063d77885f904bf6ae662562e500 policy refreshed; AGENTS/WORKFLOW
+unchanged, fullWORKFLOW read. Nativefetch confirms W4c local/remote48eda and integration5e6;
+onlyexpectedtwo-pathTask6RED/evidencedraft remains. Relay runneroffline, nativefallback applies.
+Sameworker resumes Task6, then7/9 underapprovedplan and currentdecisions. Acceptedcurrentfade
+andbuilt-inbookmarkneighborcurve remain scoped. D ownershipbeforeTask4 remains; check its
+availability/state before resuming secondlane. No newapproval, freeze lift, deployment,
+publication, automation or device/browser control inferred. Lead reviews/uploads verifiedwork;
+Astra audits run alone at fullfamily boundary. No reset/rebase/cleanup.
