@@ -1,0 +1,20 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart
+test/features/quiz/application/review_batch_scope_test.dart:28:39: Error: Undefined name 'quizReviewBatchRepositoryProvider'.
+    final repository = container.read(quizReviewBatchRepositoryProvider);
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/review_batch_scope_test.dart:45:27: Error: Undefined name 'quizReviewBatchRepositoryProvider'.
+    expect(restarted.read(quizReviewBatchRepositoryProvider).capture('local', 'exam')!.principal, first.principal);
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: test/features/quiz/application/review_batch_scope_test.dart:28:39: Error: Undefined name 'quizReviewBatchRepositoryProvider'.
+      final repository = container.read(quizReviewBatchRepositoryProvider);
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/application/review_batch_scope_test.dart:45:27: Error: Undefined name 'quizReviewBatchRepositoryProvider'.
+      expect(restarted.read(quizReviewBatchRepositoryProvider).capture('local', 'exam')!.principal, first.principal);
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart

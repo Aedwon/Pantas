@@ -4,11 +4,16 @@ import 'package:drift/drift.dart';
 import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/quiz/data/repos/review_batch_repository.dart';
+import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 
 class QuizSessionRepository {
-  QuizSessionRepository(this._db);
+  QuizSessionRepository(this._db, {ReviewBatchRepository? reviewBatches})
+      : reviewBatches = reviewBatches ?? ReviewBatchRepository(_db);
+
+  final ReviewBatchRepository reviewBatches;
 
   final AppDatabase _db;
 
@@ -63,6 +68,7 @@ class QuizSessionRepository {
       await _db.transaction(() async {
         if (!canPersist()) throw const _QuizSessionCreateCancelled();
 
+        await reviewBatches.requireNoBatch(userId, examId);
         await quitAllOpen(
           userId: userId,
           examId: examId,
@@ -167,23 +173,55 @@ class QuizSessionRepository {
   Future<void> completeRequired({
     required String sessionId,
     required DateTime completedAt,
+    ReviewBatchScope? reviewScope,
+    QuizSession? session,
   }) async {
-    final row = await (_db.select(_db.quizSessions)
-          ..where((table) => table.id.equals(sessionId)))
-        .getSingleOrNull();
-    if (row == null) {
-      throw StateError('Persisted quiz session $sessionId does not exist');
-    }
-    if (row.completedAt != null) return;
-    final changed = await (_db.update(_db.quizSessions)
-          ..where(
-            (table) => table.id.equals(sessionId) & table.completedAt.isNull(),
-          ))
-        .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
-    if (changed != 1) {
-      throw StateError('Persisted quiz session $sessionId was not completed');
-    }
+    await _db.transaction(() async {
+      final row = await (_db.select(_db.quizSessions)
+            ..where((table) => table.id.equals(sessionId)))
+          .getSingleOrNull();
+      if (row == null || row.quitAt != null) {
+        throw StateError('Persisted quiz session $sessionId is not open');
+      }
+      if (row.completedAt != null) return;
+      final scope =
+          reviewScope ?? reviewBatches.capture(row.userId, row.examId);
+      await reviewBatches.completeRow(row, scope, session);
+      final changed = await (_db.update(_db.quizSessions)
+            ..where(
+              (table) =>
+                  table.id.equals(sessionId) & table.completedAt.isNull(),
+            ))
+          .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
+      if (changed != 1) {
+        throw StateError('Persisted quiz session $sessionId was not completed');
+      }
+      reviewBatches.checkScope(scope);
+    });
   }
+
+  Future<ReviewBatchScope?> captureReviewScope(String sessionId) async {
+    final row = await (_db.select(_db.quizSessions)
+          ..where((r) => r.id.equals(sessionId)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    final pref = await (_db.select(_db.devicePrefs)
+          ..where(
+            (p) =>
+                p.key.equals(ReviewBatchRepository.key(row.userId, row.examId)),
+          ))
+        .getSingleOrNull();
+    if (pref == null) return null;
+    final scope = reviewBatches.capture(row.userId, row.examId);
+    if (scope == null) throw StateError('Reviews account changed');
+    return scope;
+  }
+
+  Future<StoredReviewBatch?> reviewBatchFor(
+    QuizSessionLocalRow row,
+    ReviewBatchScope? scope,
+  ) =>
+      _db.transaction(() => reviewBatches.forRow(row, scope));
 
   /// Closes every session still open for this exam, not only the newest.
   ///
@@ -195,23 +233,45 @@ class QuizSessionRepository {
     required String userId,
     required ExamId examId,
     required DateTime quitAt,
-  }) {
-    return (_db.update(_db.quizSessions)
-          ..where(
-            (row) =>
-                row.userId.equals(userId) &
-                row.examId.equals(examId) &
-                row.completedAt.isNull() &
-                row.quitAt.isNull(),
-          ))
-        .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
-  }
+  }) =>
+      _db.transaction(() async {
+        final open = await (_db.select(_db.quizSessions)
+              ..where(
+                (r) =>
+                    r.userId.equals(userId) &
+                    r.examId.equals(examId) &
+                    r.completedAt.isNull() &
+                    r.quitAt.isNull(),
+              ))
+            .get();
+        await reviewBatches.discardForSessions(
+          userId,
+          examId,
+          [for (final row in open) row.id],
+        );
+        return (_db.update(_db.quizSessions)
+              ..where(
+                (row) =>
+                    row.userId.equals(userId) &
+                    row.examId.equals(examId) &
+                    row.completedAt.isNull() &
+                    row.quitAt.isNull(),
+              ))
+            .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
+      });
 
-  Future<void> quit({required String sessionId, required DateTime quitAt}) {
-    return (_db.update(_db.quizSessions)
-          ..where((row) => row.id.equals(sessionId)))
-        .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
-  }
+  Future<void> quit({required String sessionId, required DateTime quitAt}) =>
+      _db.transaction(() async {
+        final row = await (_db.select(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .getSingleOrNull();
+        if (row == null) return;
+        await reviewBatches
+            .discardForSessions(row.userId, row.examId, [row.id]);
+        await (_db.update(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
+      });
 
   Future<void> restartActive({
     required String userId,

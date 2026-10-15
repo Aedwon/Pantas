@@ -1,0 +1,37 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: packs actual whole groups under cap, excludes oversized sets, All stays one chunk
+00:00 +1: freezes membership, captures versions and persists actual 3 sessions
+00:00 +2: cancel during transaction rolls back metadata and first session together
+00:00 +3: duplicate concurrent starts return the same authoritative active session
+00:00 +4: completion advances atomically and explicit concurrent Continue claims one next row
+00:00 +5: failed metadata terminal write rolls back Attempt and completedAt
+00:00 +6: next create failure rolls back lifecycle and retry claims stored chunk
+00:00 +7: never quits a different custom session to claim Reviews
+00:00 +8: changed lifetime during hydration cancels without writes
+00:00 +9: wrong principal invalidates metadata without changing authoritative progress
+00:00 +10: missing content blocks resume with saved membership and answers unchanged
+00:00 +11: revised content blocks batch resume and retains original versions
+00:00 +12: malformed metadata cannot claim next and keeps active row for explicit discard
+00:00 +13: final completion removes metadata, earlier duplicate completion cannot advance twice
+00:00 +14: ordinary create cannot silently discard an unfinished Reviews batch
+00:00 +14 -1: ordinary create cannot silently discard an unfinished Reviews batch [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<void>'>
+     Which: emitted <null>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/data/review_batch_repository_test.dart 191:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                        _CustomZone.registerUnaryCallback
+  test/features/quiz/data/review_batch_repository_test.dart 189:20  main.<fn>
+
+00:00 +14 -1: actual account wipe leaves prefs and next use removes orphan metadata
+00:00 +15 -1: lifetime change while content is awaited rolls back first session
+00:00 +16 -1: different exam cannot claim an existing batch
+00:00 +17 -1: legacy resume rejects missing IDs rather than shrinking saved questions
+00:00 +18 -1: completion account change rolls back Attempt and batch state
+00:00 +19 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary create cannot silently discard an unfinished Reviews batch

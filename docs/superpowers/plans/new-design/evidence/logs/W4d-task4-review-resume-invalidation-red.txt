@@ -1,0 +1,28 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: resume invalidates wrong-principal metadata without restoring old progress
+00:00 +0 -1: resume invalidates wrong-principal metadata without restoring old progress [E]
+  Expected: null
+    Actual: '{"version":1,"batchId":"e73fb00a-193e-4014-a118-1bf7ae0f9199","userId":"local","examId":"exam","principal":"anonymous:one","localDay":"2026-10-16T00:00:00.000","sessionLength":5,"ordering":"interleaved_tail","sessionIds":["e73fb00a-193e-4014-a118-1bf7ae0f9199","d30672b3-6d9b-45aa-9d2d-0ac9997c0d72","21a73ee2-9ff7-4a05-8e7b-d6505f062c31"],"chunks":[["q1","q2","q3","q4","q5"],["q6","q7","q8","q9","q10"],["q11","q12"]],"versions":[[1,1,1,1,1],[1,1,1,1,1],[1,1]],"current":0,"nextReady":false}'
+
+  package:matcher                                                  expect
+  package:flutter_test/src/widget_tester.dart 473:18               expect
+  test/features/quiz/data/review_batch_repository_test.dart 582:5  main.<fn>
+
+00:00 +0 -1: metadata schema version requires an integer rather than an equal double
+00:00 +0 -2: metadata schema version requires an integer rather than an equal double [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<ReviewBatchSession?>'>
+     Which: emitted <Instance of 'ReviewBatchSession'>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/data/review_batch_repository_test.dart 591:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                        _CustomZone.registerUnaryCallback
+  test/features/quiz/data/review_batch_repository_test.dart 587:5   main.<fn>
+
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: metadata schema version requires an integer rather than an equal double
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: resume invalidates wrong-principal metadata without restoring old progress

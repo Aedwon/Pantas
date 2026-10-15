@@ -1,0 +1,14 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart
+00:00 +0: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:00 +0 -1: Reviews reuse the existing lifetime guard and stable principal across auth changes [E]
+  Expected: null
+    Actual: <Instance of 'ReviewBatchScope'>
+
+  package:matcher                                                   expect
+  package:flutter_test/src/widget_tester.dart 473:18                expect
+  test/features/quiz/application/review_batch_scope_test.dart 42:5  main.<fn>
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes

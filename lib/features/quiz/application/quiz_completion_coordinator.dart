@@ -69,6 +69,16 @@ class QuizCompletionCoordinator {
       throw StateError('Cannot complete a quiz with unanswered questions');
     }
 
+    final position = session.reviewBatch;
+    final reviewScope = !persisted
+        ? null
+        : position == null
+            ? await _sessions.captureReviewScope(session.sessionId)
+            : _sessions.reviewBatches.capture(position.userId, session.examId);
+    if (position != null && reviewScope == null) {
+      throw StateError('Reviews account changed');
+    }
+    _sessions.reviewBatches.checkScope(reviewScope);
     if (persisted) {
       final completedAt = await _sessions.completedAtFor(session.sessionId);
       if (completedAt != null) {
@@ -107,6 +117,8 @@ class QuizCompletionCoordinator {
       await _sessions.completeRequired(
         sessionId: session.sessionId,
         completedAt: now,
+        reviewScope: reviewScope,
+        session: session,
       );
     });
 

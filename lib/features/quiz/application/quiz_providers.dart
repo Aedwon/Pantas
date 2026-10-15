@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
@@ -20,8 +21,10 @@ import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/data/repos/review_batch_repository.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
@@ -153,7 +156,35 @@ final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(
 );
 
 final quizSessionRepositoryProvider = Provider<QuizSessionRepository>(
-  (ref) => QuizSessionRepository(ref.watch(appDatabaseProvider)),
+  (ref) => QuizSessionRepository(
+    ref.watch(appDatabaseProvider),
+    reviewBatches: ref.watch(quizReviewBatchRepositoryProvider),
+  ),
+);
+
+final quizReviewBatchRepositoryProvider = Provider<ReviewBatchRepository>(
+  (ref) => ReviewBatchRepository(
+    ref.watch(appDatabaseProvider),
+    currentScope: (userId, examId) {
+      if (userId != quizLocalUserId) return null;
+      final auth = ref.read(authStateProvider).valueOrNull;
+      final token = ref.read(todayQuizPreparerProvider).accountLifetimeToken;
+      if (auth == null ||
+          token == null ||
+          auth is UnknownAuthState ||
+          auth is SignedOutAuthState) {
+        return null;
+      }
+      final selectedExam = ref.read(activeExamFocusProvider).valueOrNull?.exam;
+      if (selectedExam != null && selectedExam.id != examId) return null;
+      return ReviewBatchScope(
+        userId: userId,
+        examId: examId,
+        principal: _authToken(auth),
+        accountLifetimeToken: token,
+      );
+    },
+  ),
 );
 
 final newCardIntroRepositoryProvider = Provider<NewCardIntroRepository>(
@@ -171,6 +202,12 @@ final todayQuizPreparerProvider = Provider<TodayQuizPreparer>((ref) {
     ),
     buildPlan: (request) => _buildTodayPlan(ref, request),
     now: ref.watch(nowProvider),
+    readAccountLifetimeToken: () {
+      final auth = ref.read(authStateProvider).valueOrNull;
+      return auth == null
+          ? null
+          : '${_authToken(auth)}:$accountLifetimeGeneration';
+    },
   );
 
   ref.listen(authStateProvider, (previous, next) {
