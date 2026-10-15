@@ -107,6 +107,27 @@ Read "Standing rulings for the W4 families" in `L3-parallel-map.md` first.
    all-input retry, save-failure retry and failed start recovery. This implements binding shared
    states instead of introducing a parallel local pattern; shared helpers/defaults stay intact.
 
+
+## Lead Task4 split scope clarification, October15
+
+DECISIONS Wording(3Oct), QV_Sources and stage0/gap-d-quiz rows3/7/40/41 define numbered
+multi-session batches for today's Reviews. Custom practice remains its selected whole quiz;
+new-question, lesson, past-mistake and flagged origins retain their own QV_Sources descriptions.
+Do not globally split custom or relabel the legacy mixed Today plan as a review-only batch.
+Real review-batch membership and actual chunking determine any printed ordinal/total, never
+remaining due-count division or inferred historical sessions. Session length/order are captured
+for an active batch; later preference changes apply to a new batch rather than rewriting the
+active ordinal, membership or saved answers. Resume must retain that exact active definition.
+
+Assigned source confirms no existing durable batch metadata in QuizSessionLocalRow and current
+BuildTodayPlan truncates to one legacy mixed session. Before batch persistence implementation,
+return a concrete bounded storage/transaction/boundary proposal to the lead using current
+source. No SQL schema bump, changed questionIdsJson encoding, synthetic metadata or generic
+batch infrastructure is authorized by this clarification. Independent pick/Check/reveal/grid/
+flag/leave work continues. Existing missing Home shared-row/review-launch contracts remain
+listed as dependencies, not replaced with a local row or fabricated review payload. The lead
+records the durable representation and affected ownership before those code changes.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
