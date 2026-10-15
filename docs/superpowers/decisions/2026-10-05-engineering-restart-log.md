@@ -1681,3 +1681,21 @@ cover variantchange/disposal/theme/reducedmotion and exactfraction/geometry test
 ringcopy, gesturethreshold change, newschema orproductdecision. Independentendingtests maycontinue
 whiletechnicalrulingrecords; affectedsharedcode beginsafterruling. DTask4 independently resumed
 onlyaftercleanc948preflight andsameworkerconfirmedavailability; no extraauditwhilethey run.
+
+
+### October15: reader motion correction and review batching scope
+
+Worker corrected its prior shorthand: actualRDEnd_n15/n16 advance480ms cubic(.22,1,.36,1),
+slideA, whileplateentrancehouseOut differs. Leadopenedexactkeyframes: both bodiesmove together
+4700→5180ms. L3c records passive realcontentpreview overlapping outgoingbody, sameactive
+read/position owner, stationarychrome, no bitmap/route-stackreplacement, inactivepreview no
+studentwrites/timer and testedhandoff/cancel/reducedmotion/error. This avoids unnecessarytwo
+activecontrollerrefactor while preservingapproveddrawing. No sequentialhalves substitution.
+
+Dworker reported missingdurablebatchmetadata. Leadread actualsessiontable/repository,Today
+builder/resume,mainDECISIONS169/171/178/209,stage0gaps andQV_Sources/QZE_Long. Numberedbatch
+scope isToday'sReviews; custom remainschosenwholequiz. L3d clarifies realmembership/chunkcounts,
+activebatchsettings frozen ratherthanmutating savedanswers onpreferencechange. Legacy mixed
+Today plan cannotbepretended reviewonly. No existingdurablefield: Dreturns boundedstorage/
+transaction/boundaryproposal before metadatachanges; independentTask4workcontinues. No SQL
+schema/JSONencoding/newproductscope authorized. ExistingmissingHomecontractsruling stillholds.
