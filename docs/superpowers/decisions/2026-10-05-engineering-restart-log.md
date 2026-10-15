@@ -1817,3 +1817,20 @@ only ordinary disabled text; enabled/busy/dimmed/default variants remain unchang
 the approved drawing and disabled-control rule without recoloring other buttons. C's neutral
 variant is a separate orthogonal change; preserve both at eventual reviewed integration.
 No new visual choice, local styled copy, cross-family merge or global theme rewrite is approved.
+
+
+### October15: neutral shared control verified and uploaded
+
+C saved neutral-only c912fb21 (component,new focused test,evidence), excluding eleven Task6
+draft paths. Lead independently read the immutable production/test delta and actual46 affected
+and9 final focused passes, scoped clean analysis, format2/0, diff, layering and attribution
+outputs; committed source hashes match evidence. No blocker in scoped spec/quality review.
+Fresh local fetch checked expected parent eaf4547a and working remote before a normal exact-SHA
+push. Direct GitHub full remote matches c912fb21fb475fc1609aee5b84bd6e830d19ac75. Existing working
+uploads preserved every dirty draft and triggered no configured main/PR workflow.
+
+Current window was77% used when D's disabled-label gap was ruled; reserve review/save capacity.
+C retains ownership idle after this verified slice, with actual data/day/topic integration
+still RED/unimplemented. D finishes current UI checkpoint and holds before the separate Reviews
+metadata path. Original user continuation stays authorized. No wholeTask6/4 completion, main
+application change, family/Astra/integration/phone acceptance, deployment or publication.
