@@ -128,6 +128,72 @@ flag/leave work continues. Existing missing Home shared-row/review-launch contra
 listed as dependencies, not replaced with a local row or fabricated review payload. The lead
 records the durable representation and affected ownership before those code changes.
 
+
+## Lead Task4 review-batch storage contract, October15
+
+The lead read the actual devicePrefs/session repository, ResumeSession, BuildTodayPlan,
+SyncLocalStateWiper and QuizCompletionCoordinator before accepting the worker's October15
+evidence proposal with the constraints below. Implement within quiz-owned domain/application/
+data and covering tests. No SQL schema/table or stored questionIdsJson/outcomesJson change,
+new synchronization payload, account-wiper/security-rule edit or new generic batching framework.
+
+- Reviews-only launch exposes real prepared review membership, actual chunk metadata and guarded
+  start/continue for Home and Quiz callers. It is independent of the Home row widgets, which remain
+  absent until their contract lands. Do not turn mixed Today into Reviews. Custom/other origins
+  retain the existing whole session. Save this consumed contract as a verified standalone slice
+  before dependent integration. The exact public API is documented in evidence with its tests.
+- Store one versioned devicePrefs key quiz_review_batch.v1.<userId>.<examId>, containing version1,
+  first real session UUID as batchId/anchor, stable principal/user/exam, captured local date,
+  captured length/order, immutable actual question-ID chunks and their content versions,
+  preassigned ordinary session UUIDs, and a validated current/next-ready lifecycle. Existing
+  session rows stay authoritative for answers and terminal state. No history/unbounded keys.
+- Reuse existing whole-passage grouping and hard session cap. Never split a passage set or exceed
+  the chosen cap to fill a batch. Pack whole eligible groups in the existing selected order;
+  finalize a shorter chunk when its next whole group cannot fit. A passage set larger than the
+  captured cap remains due outside this batch under the existing PassageSetFiller contract.
+  Do not count excluded work as completed or claim all reviews done. No empty chunks; All uses
+  one actual eligible chunk. Print totals from actual chunks only, not ceil(due/cap).
+- Capture settings/membership at new batch creation. Existing active batch resumes unchanged
+  across preference/date changes. Its next session uses the next stored chunk, not a fresh
+  selector. Changes apply to the next batch after finish or explicit discard.
+- In one existing DB transaction, check current launch/account-lifetime guards before writes,
+  honor the existing paused-session conflict decision, create first ordinary row and metadata.
+  Roll back both on failure/cancel/stale principal. Never silently quit a different active
+  custom/lesson/other session to claim a next review chunk.
+- Advance batch lifecycle inside the existing AttemptsRepository.saveAtomically callback /
+  QuizSessionRepository.completeRequired transaction, alongside the Attempt and completedAt.
+  The onCommitted notification callback runs after commit and is not an atomic-write seam.
+  Match current session ID/chunk/principal before mutation; retrying completion cannot advance
+  twice. Next stays uncreated until explicit Start Session N or review Continue claims it.
+  Next-row create and ordinal claim are one guarded transaction; concurrent claims resolve to
+  the same authoritative row. Keep ordinary post-commit streak/notification ordering.
+- Resume active row only if ID/user/exam/origin/question-ID order matches metadata. Store stable
+  principal for process restart, use the existing runtime lifetime token for in-flight work.
+  Every batch use validates the actual anchor row transactionally because generic devicePrefs
+  survives wipe while quizSessions does not. Missing anchor or wrong principal invalidates and
+  lazily deletes only unusable metadata, never another student's authoritative progress.
+- Hydration must exactly preserve stored IDs/order and expected versions for a new batch.
+  Missing/revised content fails through the existing shared load/resume error/retry path, with
+  existing explicit discard available. Never shrink, replace or renumber around missing content,
+  realign outcomes, or write answers against another question. Keep valid stored answers and
+  batch intact for retry/discard. For legacy ordinary rows without metadata, preserve existing
+  resume, require exact stored ID/order, and omit any invented ordinal/total.
+- Parse version/types/nonempty unique chunks/IDs/valid ordinals and scope strictly. Malformed
+  metadata cannot create a next session or produce student figures. Keep valid authoritative
+  ordinary progress; report a generic shared failure rather than raw diagnostics. Remove
+  orphan metadata if anchor absent. Remove terminal metadata in final completion and discarded
+  metadata in its quit transaction; retain in-memory end-screen metadata needed for the actual
+  completed session. No account reset assumption or stale in-memory counter as persistent ID.
+- Tests first: actual chunk counts under cap/passage shortages/All; no custom split; frozen
+  settings; atomic create/complete/next rollback; duplicate/concurrent claims; restart/resume;
+  account/exam/lifetime changes during awaits; retained prefs after actual wipe; legacy/malformed;
+  missing/revised content without answer corruption; final/discard cleanup; existing ordinary
+  start/answer/complete regressions. Run affected storage/completion/sync boundary checks.
+  Root personally reviews these student-data changes; Astra remains mandatory before integration.
+
+This records implementation detail for the already approved Reviews behavior. Full Task4 and
+family acceptance still require real caller wiring, checks and separate phone visual acceptance.
+
 ## Task 1. Start functions (lands first)
 
 `startLessonQuiz(lessonId)`: replaces `StartInlineLessonQuiz`'s topic scope with the lesson's own
