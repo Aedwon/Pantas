@@ -169,6 +169,34 @@ Tests first cover simultaneous midpoint/end geometry, stationary chrome, handoff
 actual day/topic/terminal destinations, passive preview no writes/read marks, cancellation and
 controller disposal. If this cannot preserve existing ownership, report before a larger refactor.
 
+
+## Lead Task6 topic boundary and neutral-button clarification, October15
+
+Topic entry is already part of the approved chain: stage0/gap-c-study row26 says keep pulling
+past the last lesson into its topic plate, then pull from the plate to the next topic.
+G-c-11's "plate with no pull" means no onward pull on the final exam topic's plate; it does not
+remove the last lesson's entry gesture or automatically replace reading/quiz content.
+Use the existing drawn "Pull up for X" / "Let go for X" template with that actual topic name for
+the entry destination. No new "finish topic" wording, extra action or alternate layout.
+Inside the plate, X is the actual next topic name and its destination is that topic's first
+real corpus-order lesson. Final topic plate has no onward control. Home's real day order takes
+precedence: last day lesson uses the already drawn "Pull up to finish today" / "Let go to finish
+today" and the day ending. Keep ordinary lesson content/quiz accessible until the explicit pull
+or equivalent tap, preserve original origin/day/back semantics, and never push a plate route
+whose back label falsely claims the original screen. Existing standalone ending route remains
+valid for its own direct caller. Test terminal plate entry without onward pull, nonterminal
+plate onward destination, stopped-short plate/unread choices and day precedence.
+
+Shared PantasButton currently has no enabled fill-background/label-foreground mode. Add a
+narrow neutral variant for RD_End's existing52px/r14 quiz button, using current fill/label tokens
+and shared interaction, text wrapping, busy/disabled, focus/semantics and reduced-motion handling.
+Preserve all current variant defaults. Ownership extends only to this shared component and its
+focused regression tests. Reuse from ReaderGap instead of a feature-local styled duplicate.
+Read line uses the drawn18px teal check and15px/500 "Read"; remove superseded "marked
+automatically" and material-duration copy per stage0 row24. No student-data/read-floor change.
+Tests first cover actual neutral geometry/colors in both themes, press/reduced-motion,
+large text and unchanged existing variants. No new presentation is substituted.
+
 ## Task 1. Study map
 
 Boards ST_Map, ST_MapEmpty, ST_TopicOpen, ST_Pinned; D-117 to D-125, D-140, D-141. No counts on
