@@ -331,3 +331,29 @@ Cresumes ringsliceverification/save thenneutral/pull/plates/day/topicintegration
 verification/save thenownedUI/grid/failure/style corrections; Reviewsmetadatacontractapproved
 inL3 a15be182 butnotimplemented. No fullTask6/4acceptance, Astra/integration/phoneacceptance.
 Resume sameworkers, localchecks; reserve leadreview/uploadquota beforewindowends.
+
+
+### October15,20:08 Asia/Manila: reviewed component/core checkpoints uploaded
+
+W4c ring-only eaf4547ac9321eb6cc4197d8fa8429dff6f64d84 is independently reviewed and uploaded.
+The lead read the immutable component/new tests/evidence and actual logs: final10 tests passed,
+owned analysis clean, format2/0, scoped diff clean, layering/attribution OK. Existing generic/
+study motion and geometry remain covered; pull uses fixed44/r19/2.5/butt with immediate fraction
+and no generated completion/percent semantics. Exact two committed file hashes match evidence.
+Earlier broad703pass/2fixture failures is not an all-core-UI pass. Thirteen other source/test
+drafts stay separate; neutral/pull/plate/day integration and fullTask6 remain unfinished.
+
+W4d controller-only ae4947ac7fc7f2340da483d46856d9f65222a72d is independently reviewed/uploaded.
+The lead read current controller/test delta, immutable source identity, actual106 applicable
+core/data/use-case passes and13 renewed controller/readiness/disposal passes after test-only
+style cleanup, owned2 analysis clean, scoped format/layering/attribution/diff checks. Both source
+and85 evidence hashes match committed manifest. Meaningful disposed pending-submit RED preceded
+mounted-before-state fix; duplicate/invalid/unready checks, failure retry and reset remain covered.
+Three UI/grid/test drafts remain unverified; prior269pass/12fail and117styles are not accepted.
+Reviews metadata is not started. WholeTask4/family/Astra/integration/phone acceptance is pending.
+
+Guarded local fetch checked each expected parent, working branch and remote base before normal
+push of the exact reviewed SHA. Direct GitHub full refs match both intended SHAs. No dirty draft
+was uploaded as source. Development tests were local. Documentation commits use [skip ci].
+Conservative implementation count stays67/133 because these are partial tasks. Workers continue
+the same approved Task6 and Task4 scope; integration remains5e6cda45 and application main frozen.
