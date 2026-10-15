@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | Unfinished. W4c Tasks1–5 implemented (Task5 reviewed/uploaded48eda4dc); Task8 reviewed slices throughfa5d146f, explicit closeout pending; Task6 active, then7/9. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial, Task4 active, then5/6/8/9. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
+| Level 4: W4 screen families | Unfinished. W4c Tasks1–5 implemented (Task5 reviewed/uploaded48eda4dc); Task8 reviewed slices throughfa5d146f, explicit closeout pending; Task6 active, then7/9. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -373,3 +373,53 @@ and Tasks7/9 are pending. C is idle at the early capacity checkpoint; D finishes
 slice before metadata. Current D disabled-label extension is recorded at025dd259/logcaec049d;
 preserve C neutral and D opt-in/theme changes independently during eventual reviewed integration.
 No complete task, family/Astra/integration/phone acceptance or new hosted CI is claimed.
+
+
+### October16: bounded W4d Task4 checkpoints saved and uploaded
+
+Aedwon requested: "Resume the Pantas engineering restart and continue **W4d Task 4 only**."
+The assignment excludes Task5/later work, W4b/W4c/W4e worktrees, Astra, integration, deployment,
+release, screenshots and visual acceptance. Local Mac checks were explicit. Current main policy
+9302090068b00b1cc5ecb0b8136674fb0f3f9efa and all current W4d plans/rulings were retrieved.
+The expected linked worktree and branch matched; local/remote base ae4947ac matched, and the
+preserved verified work/controller and later compact-screen RED were retained. No reset or rebase.
+
+Reviewed standalone Reviews contract f88e5af9f2d4a4fed9e1bd976c6e8184d3bf79f1 landed first, alone.
+Screen checkpoint 10045dbd646916e62488d1e37583b3cc6119cb59 follows it. A guarded normal working-branch
+push succeeded; direct remote SHA equals 10045dbd646916e62488d1e37583b3cc6119cb59. Assigned tree is
+clean. Exact committed contents match all22 verified source/test hashes. Evidence and public API
+are on that working branch in evidence/W4d.md, with command/source/material-input manifests.
+No application-main or integration branch change occurred.
+
+The screen completes pick/Check/reveal, grid/revisit/frontier timing, flag/Undo/retry, leave/report,
+large text, figure/passage and reduced-motion coverage. The preserved compact200% regression and
+missing/failed passage retry now pass. Disabled Check uses the recorded additive shared role;
+C's separate neutral variant was not copied or touched. Automated results do not establish
+phone visual fidelity or acceptance.
+
+Reviews storage freezes actual caller-supplied ordered due membership, settings, whole-passage
+hard-cap chunks, versions and ordinary UUIDs under the approved one-key devicePrefs contract.
+Atomic create/complete/next/discard, stable principal/runtime guards, exact content hydration,
+restart/wipe/orphan behavior, legacy handling and final cleanup are covered. Root inspected the
+student-data paths; independent source review found no remaining blocker after actual RED/GREEN
+corrections for stale quit, ordinary quizzes between chunks, principal protection, initial-await
+lifetime changes and integer version typing. Anchored ownership metadata is retained on principal
+mismatch so repeated resume cannot misclassify another student's row as legacy; missing-anchor
+cleanup still deletes unusable metadata. This is an implementation of existing ownership rules,
+without schema/sync/security/wiper changes.
+
+Actual local full suite: 05:41 +4064: All tests passed!, exit0. A final braces-only style correction
+renewed47 affected completion/storage/controller checks, all pass. Owned22-file analysis: No issues
+found!, exit0. Global analysis: one explicitly accepted W4c bookmarks onReorder notice, exit1;
+no owned finding. Format1467/0 changed, layering OK, attribution OK, source/staged diff clean.
+Generated outputs remain ignored and uncommitted. No hosted Actions or relay check was dispatched.
+This status-only main commit uses [skip ci].
+
+Task4 is still OPEN: the standalone API requires the caller's real ordered due membership;
+actual Reviews selection and Home-owned Reviews launch/Continue/shared controls have not reached
+this branch. Their integration and dependent Quiz controls/checks remain pending under the
+standing missing-contract ruling. The legacy mixed Today path is unchanged and is not relabeled
+Reviews. No substitute widget or fabricated session payload was added. Full-family/Astra review,
+integration and Aedwon's phone acceptance remain separate. Task5 was NOT started. This bounded
+assignment stops here; the global implementation count is unchanged. W4b Task2 and W4e Task3
+remain separately owned as Aedwon stated, without cross-worktree edits or dispatches.
