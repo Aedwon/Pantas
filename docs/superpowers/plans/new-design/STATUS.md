@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | W4a through W4f unfinished; W4g not started. W4c Tasks 1 to 4 and reading fraction, W4d start functions/report entry, W4e Tasks 1 and 2, W4b Task 1 and day context integrated. W4d Task 2 partial checkpoint 0ad018fe (975 affected tests passed), scoped lead review and working-branch upload complete; Task 3 in progress. W4c Task8 checkpointfa5d146f: Undo boundaries, destination announcements, decoration and separators source-reviewed and uploaded; latest108 affected tests pass, earlier945 broad evidence retained; readerTasks5-7/9 and full-family/Astra/visual acceptance remain. W4d Task3 checkpointc94868eb implements picker/core; scoped lead review and working upload complete,1014 broader/73 state/107 final focused tests pass with applicable source identity. Task4–9 remain; no family/Astra/integration/visual acceptance | integration/new-design-r1 at 5e6cda45; current main standing rulings in L3-parallel-map.md |
+| Level 4: W4 screen families | Unfinished. W4c Tasks1–5 implemented (Task5 reviewed/uploaded48eda4dc); Task8 reviewed slices throughfa5d146f, explicit closeout pending; Task6 active, then7/9. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial, Task4 active, then5/6/8/9. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -60,7 +60,7 @@ merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend
 after that changed only the index file and two tests, which pass. W0, W1, W2, W3, W6 Tasks 1 to 5c
 and W4h Tasks 1, 2, 3, 5 are integrated.
 
-## Running or scheduled (Oct 14, 9:44 PM)
+## Running or scheduled
 
 - RESUMED BY AEDWON Oct 13: "okay resume that. the plan already tells what to do exactly right?"
   The October 18 wait is lifted for the existing approved engineering scope. Live Codex limits
@@ -296,3 +296,16 @@ andbuilt-inbookmarkneighborcurve remain scoped. D ownershipbeforeTask4 remains; 
 availability/state before resuming secondlane. No newapproval, freeze lift, deployment,
 publication, automation or device/browser control inferred. Lead reviews/uploads verifiedwork;
 Astra audits run alone at fullfamily boundary. No reset/rebase/cleanup.
+
+
+### October15: active technical clarifications
+
+W4c uses boundedsharedProgressRing.pull extension underb91510b0, preservingexistingdefaults.
+Advance clarification6bd0f390 matchesactualsimultaneous480ms slideA, stationarychrome andpassive
+realincomingpreview withoneactive read/position owner; no screenshot/route-stackreplacement.
+W4dL3 a15be182 authorizes boundedReviews-onlydurablelocalbatchmetadata withinexistingdevicePrefs/
+sessionrows, withatomiclifecycle/principal/lifetime/anchor/content-integrity checks. No SQLschema,
+questionIdsJSON,sync orwiperchange. Hardcap/wholepassages staybinding; oversizedsets remain due.
+Homeconsumer1e1c8f7c andparallelmapd45e92e2 requirestandaloneguardedcontract beforeReviews
+callerwiring, avoidingwidgetdependencycycle. Logd03f0c9e. Bothworkers active, no verifiedTask6/
+Task4commit yet. Nextleadstep is inspect each verifiedboundary before normalworkingupload.
