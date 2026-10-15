@@ -1768,3 +1768,25 @@ commits stay on current working branches, and development tests run locally. Req
 integration/release gates retain their own approval/verification requirements. The new status
 update used [skip ci]; verify absence of a run for its exact SHA separately. Do not create an
 infrastructure change merely to implement this local-execution instruction.
+
+
+### October15,20:08 Asia/Manila: inspect and upload the recovered verified slices
+
+Lead independent spec/quality review found no blocker in C's ring-only eaf4547a or D's
+controller-only ae4947ac. The lead opened immutable C source/new tests/evidence and actual
+10-pass/clean-analysis/format2-0/scoped-diff/layering/attribution outputs. D's complete controller
+and new tests were read; actual106 broad-core passes and13 renewed checks, clean owned analysis,
+static results and all85 committed evidence hashes were verified. Both source manifests match.
+No fullTask6/4 acceptance is inferred; failing draft checks remain explicitly unfinished.
+
+Fresh local fetch and guarded branch/parent/remote-base checks preceded normal pushes of exact
+reviewed commit IDs. Direct GitHub full remote refs now match C eaf4547ac9321eb6cc4197d8fa8429dff6f64d84
+and D ae4947ac7fc7f2340da483d46856d9f65222a72d. Other C source/test drafts and D's three UI/grid/test
+drafts stay local. The D commit retains diagnostic raw logs plus gzip originals; their failures
+are evidence of unfinished UI work, not passing verification. No generated code or schema change.
+
+The two complete implementation tasks remain open, so progress count stays67/133. Same workers
+continue approved work. Full-family checks, serialized Astra audit, integration and Aedwon's
+phone visual acceptance remain pending. All development checks ran directly on the Mac; no
+new hosted CI or relay dispatch. The first [skip ci] documentation SHA fddda45d had no Actions
+run at exact-SHA inspection. No global workflow change, acceptance waiver or publication.
