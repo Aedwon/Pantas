@@ -15,7 +15,8 @@
 
 Task 1 committed at `c3b053cc4697176dc4c40b236ff69a08fb0583f6` and task checks complete.
 Task 3's independent reader contract committed early at `234c761f385333da01831b2bb03b863773dbbdf1`. This supplies the type W4c consumes; it does not finish Task 3's checklist, sheets or route callers.
-Independent review and integration remain the lead's work. Task 2 and the rest of Task 3 are waiting on the recorded board/reader contract questions. Tasks 4 to 10 are not started. No claim of family completion, combined acceptance or visual acceptance.
+Task 2 implementation is committed at `448e49d46a592e204d0278f1fc2449f07ae4e682` and its required local checks are complete. The day destination remains intentionally unwired because Task 7 owns that route.
+Independent Astra review, integration and Aedwon visual acceptance remain outside this worker's scope. This worker did not start Task 3 or any later task. No claim of family completion, combined acceptance or visual acceptance.
 
 ## Task 1: preserve data while retiring the Progress family
 
@@ -54,6 +55,31 @@ Test-first move:
 - `git diff --check`: exit 0, no output.
 
 Raw logs remain in `.superpowers/sdd/L3-W4b-home-and-progress/`. Required result excerpts are preserved above. Full Flutter suite has not run; it is reserved for family completion. Backend is unchanged and not run. Visual checking belongs to Aedwon and has not occurred. Current program STATUS and external SSOT updates belong to the lead; this evidence records worker progress without combined acceptance.
+
+## Task 2: week strip, exam chip and greeting
+
+Implementation commit: `448e49d46a592e204d0278f1fc2449f07ae4e682`.
+
+- The Home week strip is Sunday-first through `PantasDates.weekStart` and derives done, partial, missed, day-off, future and today states from the stored roadmap plus the roadmap completion facts. Today's ring uses completion over the day's original planned work.
+- The exam chip implements the approved no-date, month-only, future exact-date, exam-day and passed states. The October 12 contrast ruling is applied: exam-day accent text uses full-opacity `onAccent`.
+- The greeting uses the approved time bands. The student's name and the old settings affordance are not rendered in this board family.
+- Light/dark, 200% text and reduced-motion behavior are covered by the focused widget test.
+- The week-strip tap deliberately performs no navigation in Task 2. Task 7 owns `/plan/day/:date`; no later-task route was added.
+
+### Task 2 TDD and verification
+
+- Approved board tooling: `outline.py` and `timeline.py` across `HP_Free`, `HP_Pro`, `HP_NoDate`, `HP_MonthOnly`, `HP_ExamDay` and `HP_ExamPassed`: exit 0. No screenshot capture or visual acceptance was performed.
+- RED: the focused Home masthead/provider tests failed before production changes because the planned Task 2 provider/widget APIs did not exist.
+- Focused final check: `flutter test test/features/home/presentation/widgets/home_masthead_test.dart test/features/home/presentation/home_week_strip_provider_test.dart`: exit 0, 7 tests passed.
+- Required family check after the final owned lint fix: `flutter test test/features/home test/features/roadmap test/features/progress test/features/metrics`: exit 0.
+- Full baseline before the formatting-only lint fix: `flutter test`: exit 0, 3969 tests passed. Full rerun after that final lint fix: `flutter test`: exit 0.
+- `flutter analyze`: the Task 2 finding was fixed. Final result contains only the already accepted W4c bookmark `onReorder` deprecation in `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart`; there is no W4b analyzer finding.
+- `dart format --output=none --set-exit-if-changed lib test tool`: exit 0, 1460 files formatted, 0 changed.
+- `dart run tool/check_layering.dart`: exit 0, `check_layering: OK`.
+- `dart run tool/check_no_ai_attribution.dart`: exit 0, `check_no_ai_attribution: OK`.
+- `git diff --check` and the staged implementation diff check: exit 0.
+
+Task 2 has no unresolved implementation limitation. Independent Astra audit, integration and Aedwon visual acceptance are still intentionally pending.
 
 ## Task 3: early reader contract
 
@@ -117,9 +143,9 @@ M	test/features/progress/presentation/widgets/why_you_miss_section_test.dart
 M	test/features/quiz/application/roadmap_today_launch_test.dart
 ```
 
-## Open questions and findings
+## Questions and findings
 
-1. Task 2, `HP_ExamDay`: month text is 8px/700 at `rgba(255,255,255,0.8)` over `#0B7A68`. The composited color is about `#CEE4E1`, contrast 3.95:1. Required active text contrast is 4.5:1. Asked the lead for full-opacity existing `onAccent` or an explicit exception. No affected UI has been implemented.
+1. Resolved for Task 2: `HP_ExamDay` uses the October 12 lead ruling, full-opacity existing `onAccent`, instead of the board value that failed active-text contrast.
 2. Base full gates need unrelated index-layout test formatting/style fixes and the existing bookmark API migration. These are reported, not silently accepted or changed here.
 3. Task 8 consumes W4e mock-history data. W4e is not integrated into the assigned base. Recheck the contract before dependent work; never build a local substitute.
 
@@ -128,10 +154,11 @@ M	test/features/quiz/application/roadmap_today_launch_test.dart
 ## Handoff boundaries
 
 - Task 1 is available for W4f's preferences consumer.
-- The early Task 3 type is available for the lead to integrate before W4c Task 5. The whole Home checklist task remains incomplete.
-- Remaining source changes await lead rulings and continuation of the exact plan. Do not treat these two commits as W4b acceptance.
-- Full suite is still reserved for the end of the complete family, per dispatch. Only the named family task checks and the affected Quiz import check ran.
-- No application screenshots, device/simulator work, deployment, push, merge, source revision change or signed asset regeneration occurred.
+- Task 2 is implemented at `448e49d46a592e204d0278f1fc2449f07ae4e682` and locally verified. It is ready for the lead/Astra review path, but this is not W4b family acceptance or Aedwon visual acceptance.
+- The Task 2 week-strip tap stays intentionally inert until Task 7 owns and adds the day route.
+- The early Task 3 type is available for the lead to integrate before W4c Task 5. This worker did not start or modify the rest of Task 3.
+- The full Flutter suite ran successfully for this Task 2 checkpoint. Later family tasks still require their own plan checks and final family review.
+- No application screenshots, device/simulator work, deployment, merge, source revision change or signed asset regeneration occurred.
 
 ## Final automated handoff result
 
