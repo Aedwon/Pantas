@@ -1737,3 +1737,34 @@ Lead also read actual PantasButton source: existing modes cannot produce enabled
 Bounded neutral variant reuses existing52/r14/interactions with fill/label and preserves all
 defaults; no local duplicate. ReaderGap removes superseded material-duration/marked-automatically
 copy and matches existingRead/quiz drawing. No new visual option, read-floor or student-data rule.
+
+
+## October15,19:59 Asia/Manila: local execution and CI trigger correction
+
+Exact user request: "continue. usage has reset. also have you been using github actions minutes? if possible keep it to local please. you can execute tests here where applicable".
+
+Live short-window0%/weekly16%, ordinaryworkallowed. Lead refreshed current main1e0ecb27 policy
+and fullWORKFLOW/startup, fetched/reconciled C48eda/Dc948 with their expected expanded drafts.
+Both previous workers errored before any component/core commit. No staged source or upload is
+inferred. Statusrenewedfddda45d andsameworkers resumed, with review capacity reserved earlier.
+
+Execution now prefers direct local Mac tests under the explicit current user instruction,
+superseding earlier relay preference for this continuation. No routine hosted Actions or relay
+dispatch. Existing working-branch uploads remain authorized after verified review. CI workflow
+files are unchanged; no blanket disable or required-acceptance waiver.
+
+The lead initially answered incompletely, describing only the Mac self-hosted relay. Actual
+GitHub history shows documentation uploads also triggered existing CI(main) on GitHub-hosted
+ubuntu-latest. Run38697958651/job116298929756 ran on GitHub Actions1000001351, including Flutter
+tests and APK build,07:19:22Z→07:42:33Z; integration job skipped. The timing endpoint reports
+run_duration_ms1394000 and zero billable counters, which does not establish the account's billed
+minute total. The lead corrected the answer in chat. No runs were in progress at inspection.
+No precise billed total is claimed.
+
+To avoid repeating that trigger, documentation-only main commits now carry [skip ci], supported
+by GitHub's current skipping-workflow-runs documentation for push/pull_request. Both actual repo
+workflows were inspected: main.yml only push/main, ci.yml only pull_request/main. Routine source
+commits stay on current working branches, and development tests run locally. Required future
+integration/release gates retain their own approval/verification requirements. The new status
+update used [skip ci]; verify absence of a run for its exact SHA separately. Do not create an
+infrastructure change merely to implement this local-execution instruction.
