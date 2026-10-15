@@ -338,3 +338,31 @@ The local combined candidate includes this standalone contract and the independe
 Post-style exact commands/results are `logs/W4d-task4-post-style-commands.json`; final source identity is `logs/W4d-task4-verified-source-identity.json`. Only the braces changed after the full run; the 47 applicable tests and all static gates were renewed. The full suite was not repeated for that style-only change under SUBAGENTS Part 5. New or preserved intermediate failing logs remain diagnostic evidence, not passing baselines. Gzip companions preserve original output where text copies trim trailing whitespace.
 
 Storage source save: the eleven quiz-owned application/data/domain/test paths above, this evidence, and applicable storage/combined verification logs only. Shared screen/button/theme changes remain separate until the next checkpoint. This separation implements the standalone-contract requirement without claiming caller integration, complete Task 4, Astra/family acceptance, integration or phone visual acceptance.
+
+## October 16: Task 4 question-screen implementation checkpoint
+
+The standalone Reviews contract is saved first, alone, at `f88e5af9f2d4a4fed9e1bd976c6e8184d3bf79f1`. This following screen checkpoint preserves and completes the independently buildable question-screen slice. It does not integrate Home callers or begin Task 5.
+
+### Preserved and completed screen work
+
+The preserved draft consumes the controller's explicit pick/Check split. Choice tapping only changes the transient pick; Check alone saves, reveals the explanation, colors the bar, and enables Next/Finish. W2 ChoiceRow, QuestionCard, AnswerReveal, FloatingBar, QuestionGridSheet, Toast and CenteredDialog remain the screen's shared components. There are no verdict words or return-interval promises. W1 lesson text scale applies to question/reveal content. Free/Pro wrong-choice-note behavior, figure, passage, long content, dark mode, large text and reduced motion have automated coverage.
+
+The grid revisits answered questions read-only, retains the real frontier's pick and timing, and returns with the actual "Back to N". Unreached questions stay unavailable outside mock mode. Current-position scrolling works on long grids. Flag state, first-time Undo toast, flag removal, pop/toast delays, report form and recoloring use the existing shared contracts. Failed Check, Finish and flag-preference writes retain retryable intent; retrying a flag save sets the originally requested value instead of toggling it back. X and system back ask the existing Leave question once; leaving refreshes Resume without discarding checked progress. Existing prepaint/readiness/timing behavior remains covered.
+
+The shared button/theme opt-in is exactly the recorded disabled-label ruling: disabledActionLabel light #B8B8BD/dark #5A5A5E, with constructor/copyWith/lerp coverage; optional disabledForeground defaults null and affects ordinary disabled foreground only. Existing enabled/busy/dimmed/default variant behavior remains. W4c's separate neutral variant was not copied or changed.
+
+### Final review fixes and actual RED/GREEN
+
+The preserved compact regression was reproduced locally before source edits: `W4d-task4-resume-compact-red.txt`, 0 passed/1 failed. At 320x640 and 200% text, the fixed horizontal action row left insufficient counter space, a long Back label overflowed, and the grid's unconstrained summary displaced its title. Large text now uses a counter/flag row plus full-width action and allocates the scroll body the bar's real height. The grid header wraps its title and summary. Flag targets retain at least 44x44. Normal-size presentation keeps its horizontal bar. The compact regression now checks targets, non-overlap, navigator/Back semantics, and unobscured scrolled explanation.
+
+Independent review also found that missing/failed passage loading rendered an empty question. Two added actual RED cases (`W4d-task4-passage-retry-red.txt`) now use the shared quiz failure/retry and invalidate the actual passage provider. Retry restores the original question/passage without exposing diagnostics. Combined compact/recovery GREEN: `W4d-task4-resume-recovery-green.txt`, 3 passed, exit 0.
+
+After these repairs, the prescribed quiz/review-prompt/app and affected shared-component command passed 1,050 tests, exit 0 (`W4d-task4-resume-ui-checks.txt`). Final combined full-suite and static results are recorded above: 4,064 tests passed; 47 affected completion/storage/controller tests renewed after style-only braces; owned 22-file analysis clean; global analysis has only the accepted bookmarks notice; formatting/layering/attribution/diff pass. The 11 screen/shared/test files retain the final verified hashes alongside the 11 standalone contract files. Current source and all saved evidence artifacts are bound by `logs/W4d-task4-checkpoint-manifest.json`.
+
+### Contrast, scope and remaining work
+
+The meaningful grid handle uses controlOutline under the standing W4 contrast rule. The disabled Check role is the exact drawn, disabled-control exception from the lead's October 15 ruling. Other shared component contrast behavior remains unchanged. No screenshots, visual comparison, phone motion check or visual acceptance is claimed.
+
+The source save includes only the 11 planned/explicitly extended screen/shared/test paths, the existing W4d evidence and Task 4 logs. Public component extensions stay within the recorded shared ownership; no W4b/W4c/W4e worktree, dependency, schema, sync payload or generated source was changed/staged. Earlier verified tasks and controller commit remain intact.
+
+Task 4 remains open for actual Reviews selection/caller integration and the missing Home-owned Reviews/Continue/shared controls, then their applicable checks. The legacy mixed Today launch is unchanged and is not relabeled Reviews. Dependent Quiz tab session details are not invented. Full-family/Astra review, integration and Aedwon's phone acceptance remain separate. Task 5 was not started; no end-screen implementation, integration merge, deployment or release work was performed.

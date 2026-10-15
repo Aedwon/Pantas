@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/progress_rule.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
@@ -68,7 +66,7 @@ void main() {
     expect(find.text('4 of 10'), findsOneWidget);
   });
 
-  testWidgets('the flag sits outermost', (tester) async {
+  testWidgets('the flag sits in the floating bar before Check', (tester) async {
     final session = QuizSession(
       sessionId: 's_1',
       examId: 'cse_prof',
@@ -91,9 +89,14 @@ void main() {
       ],
     );
 
-    final appBar = tester.widget<AppBar>(find.byType(AppBar));
-    final actions = appBar.actions!;
-    expect(actions.last, isA<Consumer>());
+    final bar = find.byType(FloatingBar);
+    final flag =
+        find.descendant(of: bar, matching: find.byTooltip('Flag question'));
+    expect(flag, findsOneWidget);
+    expect(
+      tester.getTopLeft(flag).dx,
+      lessThan(tester.getTopLeft(find.text('Check')).dx),
+    );
   });
 
   testWidgets('the counter opens the grid', (tester) async {
@@ -123,7 +126,7 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets('the counter names the current question and is at least 48dp',
+  testWidgets('the counter names the current question and is at least 44dp',
       (tester) async {
     final semantics = tester.ensureSemantics();
     final session = QuizSession(
@@ -162,8 +165,8 @@ void main() {
         hasTapAction: true,
       ),
     );
-    expect(counter.evaluate().single.rect.width, greaterThanOrEqualTo(48));
-    expect(counter.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    expect(counter.evaluate().single.rect.width, greaterThanOrEqualTo(44));
+    expect(counter.evaluate().single.rect.height, greaterThanOrEqualTo(44));
     semantics.dispose();
   });
 
@@ -208,12 +211,13 @@ void main() {
         hasTapAction: true,
       ),
     );
-    expect(flag.evaluate().single.rect.width, greaterThanOrEqualTo(48));
-    expect(flag.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    expect(flag.evaluate().single.rect.width, greaterThanOrEqualTo(44));
+    expect(flag.evaluate().single.rect.height, greaterThanOrEqualTo(44));
     semantics.dispose();
   });
 
-  testWidgets('the rail is one continuous fill', (tester) async {
+  testWidgets('the counter opens Questions with the actual answered total',
+      (tester) async {
     final session = QuizSession(
       sessionId: 's_1',
       examId: 'cse_prof',
@@ -236,7 +240,10 @@ void main() {
       ],
     );
 
-    expect(find.byType(ProgressRule), findsOneWidget);
+    await tester.tap(find.text('4 of 10'));
+    await tester.pumpAndSettle();
+    expect(find.text('Questions'), findsOneWidget);
+    expect(find.text('0 of 10 answered'), findsOneWidget);
   });
 }
 

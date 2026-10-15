@@ -9,6 +9,7 @@ class PantasColors extends AppColors {
     required this.label,
     required this.secondaryLabel,
     required this.tertiaryLabel,
+    required this.disabledActionLabel,
     required this.separator,
     required this.fill,
     required this.skeleton,
@@ -53,6 +54,7 @@ class PantasColors extends AppColors {
   final Color label;
   final Color secondaryLabel;
   final Color tertiaryLabel;
+  final Color disabledActionLabel;
   final Color separator;
   final Color fill;
   final Color skeleton;
@@ -117,6 +119,7 @@ class PantasColors extends AppColors {
     label: Color(0xFF1D1D1F),
     secondaryLabel: Color(0xFF6E6E73),
     tertiaryLabel: Color(0xFFAEAEB2),
+    disabledActionLabel: Color(0xFFB8B8BD),
     separator: Color(0xFFE3E3E8),
     fill: Color(0xFFEDEDF0),
     skeleton: Color(0xFFE6E6EA),
@@ -160,6 +163,7 @@ class PantasColors extends AppColors {
     label: Color(0xFFF5F5F7),
     secondaryLabel: Color(0xFF98989D),
     tertiaryLabel: Color(0xFF5A5A5E),
+    disabledActionLabel: Color(0xFF5A5A5E),
     separator: Color(0xFF38383A),
     fill: Color(0xFF2C2C2E),
     skeleton: Color(0xFF2C2C2E),
@@ -249,6 +253,7 @@ class PantasColors extends AppColors {
     Color? label,
     Color? secondaryLabel,
     Color? tertiaryLabel,
+    Color? disabledActionLabel,
     Color? separator,
     Color? fill,
     Color? skeleton,
@@ -300,6 +305,7 @@ class PantasColors extends AppColors {
         label: label ?? ink ?? this.label,
         secondaryLabel: secondaryLabel ?? inkMuted ?? this.secondaryLabel,
         tertiaryLabel: tertiaryLabel ?? this.tertiaryLabel,
+        disabledActionLabel: disabledActionLabel ?? this.disabledActionLabel,
         separator: separator ?? rule ?? this.separator,
         fill: fill ?? ruleFaint ?? this.fill,
         skeleton: skeleton ?? this.skeleton,
@@ -347,6 +353,8 @@ class PantasColors extends AppColors {
       label: Color.lerp(label, other.label, t)!,
       secondaryLabel: Color.lerp(secondaryLabel, other.secondaryLabel, t)!,
       tertiaryLabel: Color.lerp(tertiaryLabel, other.tertiaryLabel, t)!,
+      disabledActionLabel:
+          Color.lerp(disabledActionLabel, other.disabledActionLabel, t)!,
       separator: Color.lerp(separator, other.separator, t)!,
       fill: Color.lerp(fill, other.fill, t)!,
       skeleton: Color.lerp(skeleton, other.skeleton, t)!,

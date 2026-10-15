@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -11,6 +13,7 @@ import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
 
+import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 class _MockStart extends Mock implements StartQuickQuiz {}
@@ -21,6 +24,7 @@ class _MockLaunchCoordinator extends Mock implements QuizLaunchCoordinator {}
 
 void main() {
   late _MockStart start;
+  late AppDatabase db;
   late _MockSubmit submit;
   late _MockLaunchCoordinator launchCoordinator;
 
@@ -91,10 +95,13 @@ void main() {
   });
 
   setUp(() {
+    db = inMemoryDatabase();
     start = _MockStart();
     submit = _MockSubmit();
     launchCoordinator = _MockLaunchCoordinator();
   });
+
+  tearDown(() => db.close());
 
   testWidgets('renders the first question once start completes',
       (tester) async {
@@ -118,6 +125,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e'),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -153,6 +161,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e'),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -186,6 +195,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e', topicId: 't'),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -226,6 +236,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e'),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -233,7 +244,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byTooltip('Quit session'));
+    await tester.tap(find.byTooltip('Leave session'));
     await tester.pumpAndSettle();
 
     // Leaving no longer quits: the session stays open so the tab can offer
@@ -285,6 +296,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e'),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -292,13 +304,15 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('AlphaText'));
+    await tester.tap(find.text('AlphaText').hitTestable());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Check'));
     await tester.pumpAndSettle();
 
     // The reveal says all of this and stays on screen. A toast said it
     // once, over the top, on every single answer.
-    expect(find.text('Correct'), findsOneWidget);
-    expect(find.text('back in 4 days'), findsOneWidget);
+    expect(find.text('correct answer'), findsOneWidget);
+    expect(find.text('back in 4 days'), findsNothing);
     expect(find.byType(SnackBar), findsNothing);
     expect(find.text('Next'), findsOneWidget);
   });
@@ -344,6 +358,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e'),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -371,10 +386,12 @@ void main() {
       of: preparedStage,
       matching: find.byType(IgnorePointer),
     );
-    final preparedSemanticsGate = find.descendant(
-      of: preparedStage,
-      matching: find.byType(ExcludeSemantics),
-    );
+    final preparedSemanticsGate = find
+        .descendant(
+          of: preparedStage,
+          matching: find.byType(ExcludeSemantics),
+        )
+        .first;
     expect(preparedPointerGate, findsOneWidget);
     expect(preparedSemanticsGate, findsOneWidget);
     expect(tester.widget<IgnorePointer>(preparedPointerGate).ignoring, isTrue);
@@ -384,7 +401,9 @@ void main() {
     );
     expect(find.text('Stem Two'), findsOneWidget);
 
-    await tester.tap(find.text('AlphaText'));
+    await tester.tap(find.text('AlphaText').hitTestable());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Check'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Next'));
     await tester.pump();
@@ -401,10 +420,12 @@ void main() {
       of: visibleStage,
       matching: find.byType(IgnorePointer),
     );
-    final visibleSemanticsGate = find.descendant(
-      of: visibleStage,
-      matching: find.byType(ExcludeSemantics),
-    );
+    final visibleSemanticsGate = find
+        .descendant(
+          of: visibleStage,
+          matching: find.byType(ExcludeSemantics),
+        )
+        .first;
     expect(tester.widget<IgnorePointer>(visiblePointerGate).ignoring, isFalse);
     expect(
       tester.widget<ExcludeSemantics>(visibleSemanticsGate).excluding,
@@ -445,13 +466,14 @@ void main() {
     await tester.pumpAppWithProviders(
       const QuizPage(examId: 'e', mode: QuizPageMode.resume),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         quizLaunchCoordinatorProvider.overrideWithValue(launchCoordinator),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
       ],
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Correct'), findsOneWidget);
+    expect(find.text('correct answer'), findsOneWidget);
     final resumedPreparedStage = find.byKey(
       const ValueKey<String>('quiz-question-q2'),
       skipOffstage: false,
@@ -473,10 +495,12 @@ void main() {
       of: resumedPreparedStage,
       matching: find.byType(IgnorePointer),
     );
-    final resumedSemanticsGate = find.descendant(
-      of: resumedPreparedStage,
-      matching: find.byType(ExcludeSemantics),
-    );
+    final resumedSemanticsGate = find
+        .descendant(
+          of: resumedPreparedStage,
+          matching: find.byType(ExcludeSemantics),
+        )
+        .first;
     expect(resumedPointerGate, findsOneWidget);
     expect(resumedSemanticsGate, findsOneWidget);
     expect(tester.widget<IgnorePointer>(resumedPointerGate).ignoring, isTrue);
@@ -502,6 +526,7 @@ void main() {
         mode: QuizPageMode.today,
       ),
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         quizLaunchCoordinatorProvider.overrideWithValue(launchCoordinator),
         startQuickQuizProvider.overrideWithValue(start),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
@@ -509,8 +534,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Retry'), findsOneWidget);
-    await tester.tap(find.text('Retry'));
+    expect(find.text('Try Again'), findsOneWidget);
+    await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
 
     final requests = verify(

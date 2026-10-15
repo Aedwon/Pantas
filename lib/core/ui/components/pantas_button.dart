@@ -17,6 +17,7 @@ class PantasButton extends StatefulWidget {
     this.fullWidth = true,
     this.horizontalPadding = 16,
     this.disabledOpacity,
+    this.disabledForeground,
     super.key,
   });
   final String label;
@@ -29,6 +30,7 @@ class PantasButton extends StatefulWidget {
   final bool fullWidth;
   final double horizontalPadding;
   final double? disabledOpacity;
+  final Color? disabledForeground;
   @override
   State<PantasButton> createState() => _PantasButtonState();
 }
@@ -75,7 +77,7 @@ class _PantasButtonState extends State<PantasButton> {
         variant == PantasButtonVariant.destructive;
     final dimmed = !enabled && widget.disabledOpacity != null;
     final foreground = !enabled && !dimmed
-        ? c.tertiaryLabel
+        ? widget.disabledForeground ?? c.tertiaryLabel
         : solid
             ? (variant == PantasButtonVariant.destructive
                 ? c.onDestructive

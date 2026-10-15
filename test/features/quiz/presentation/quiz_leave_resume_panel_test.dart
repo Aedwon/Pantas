@@ -5,6 +5,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -14,6 +15,7 @@ import 'package:pantas/features/quiz/presentation/quiz_page.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:pantas/features/quiz/presentation/widgets/session_panel.dart';
 
+import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 class _MockLaunchCoordinator extends Mock implements QuizLaunchCoordinator {}
@@ -66,6 +68,8 @@ void main() {
   testWidgets(
       'Leave refreshes the Quiz panel so an active session shows Resume',
       (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
     final launch = _MockLaunchCoordinator();
     var active = false;
     var panelReads = 0;
@@ -107,6 +111,7 @@ void main() {
     await tester.pumpAppWithRouter(
       router,
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
         quizLaunchCoordinatorProvider.overrideWithValue(launch),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 9, 10, 9)),
         sessionPanelProvider('e').overrideWith((_) async {
@@ -134,7 +139,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Question one'), findsOneWidget);
 
-    await tester.tap(find.byTooltip('Quit session'));
+    await tester.tap(find.byTooltip('Leave session'));
     await tester.pumpAndSettle();
     expect(find.text('Leave this session?'), findsOneWidget);
 
