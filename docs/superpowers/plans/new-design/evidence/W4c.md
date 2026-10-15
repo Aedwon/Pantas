@@ -1315,3 +1315,86 @@ page tests still encode superseded next-block/no-pull/ruled-exit behavior and mu
 updated against actual approved boards when completing integration. Readfloor15s remains
 unchanged. No Task6 completion, Task7/9 start, family/Astra/integration/phone acceptance.
 Root independently reviews/uploads verified slices. No worker push/merge.
+
+
+## Task6 shared neutral-button verified slice, October15
+
+Before code, read current-mainL3c00707d21 shared-neutral/topic-boundary clause. Current
+c49e4ba8 reader-boundary clause also read before future guard code; no guard code has yet
+been changed. Explicit local Mac execution used throughout, no relay/hosted checks.
+Previous ringeaf4547a was independently reviewed/uploaded by lead, not worker acceptance.
+
+This slice stages only PantasButton, focused neutral test and evidence. Adds neutral
+variant fill/label with existing52px minimum height/r14, press/reduced-motion, wrapping,
+busy/disabled and focus semantics. All four previous variants remain unchanged. ReaderGap
+caller is still an unfinished Task6 draft and excluded from this commit.
+
+NeutralRED2pass/4colorfail, `.dart_tool/w4c-task6-neutral-red.log`, childexit1 before styling.
+Initial neutral+ReaderGap candidate10pass/2fail, normal52px expectation observed70px.
+Root cause was the new fixture's missing Geist font load: test fallback Ahem wrapped the
+normal label. Loading actual GeistRegular/Medium/SemiBold/Bold makes normal52px/r14 and
+200% wrapping assertions pass without changing product height. Added old-variant color
+regressions in both themes, keyboard Tab/Enter, press/reduced motion and busy/disabled.
+
+Affected actual command used all eight test/core/ui files referencing PantasButton plus
+reader_gap_test.dart: childexit0, `00:03 +46: All tests passed!`, full
+`.dart_tool/w4c-task6-neutral-affected.log`. These cover shared gallery/state/component
+callers and ReaderGap, not whole Task6 integration. Initial owned analysis5trailing-comma
+infos were not clean. Fixed only new test syntax; no further product change.
+
+Final actual `.dart_tool/w4c-task6-neutral-save-final-1.log` through-4:
+- `dart analyze lib/core/ui/components/pantas_button.dart test/core/ui/components/neutral_button_test.dart`:
+  childexit0, `No issues found!`
+- `flutter test test/core/ui/components/neutral_button_test.dart --no-pub --reporter expanded`:
+  childexit0, `00:00 +9: All tests passed!`
+- `dart format --output=none --set-exit-if-changed` on those two files:
+  childexit0, `Formatted 2 files (0 changed) in 0.00 seconds.`
+- `git diff --check --` those two files:childexit0,empty output.
+- Layering and attribution each childexit0, `check_layering: OK` / `check_no_ai_attribution: OK`,
+  `.dart_tool/w4c-task6-neutral-gates-2.log` /-3. No historical-warning exception used.
+
+Verified neutral patch againsteaf4547a `.dart_tool/w4c-task6-neutral-verified.patch`,
+SHA256`c6924b29ad2292c21896f6323862a218d634793412a5bcae8c3d712d2ded180a`. Exact fileSHA256:
+- `lib/core/ui/components/pantas_button.dart`: `d4ef0aefbbc8f46babd60ad1896a9b8222da98ddc8cf1832c4d77fadb8ea3606`
+- `test/core/ui/components/neutral_button_test.dart`: `77242b7504ce5faff81a476e11aa7f9b81c9c541c8278e7b027089a9b7ccc67d`
+
+Eleven remaining source/test drafts are excluded. Exact patch
+`.dart_tool/w4c-task6-remaining-draft.patch` SHA256`4412f6f5868f63db93b4fe72b6d2c9df00e7fa0bfc14e5db71d123db37065e04`:
+- `lib/features/lesson/domain/use_cases/decide_ending.dart`: `6af8e044d0e7f58b13a14b2eb599c1fafc91ef5d162bf6217d0af0488cf785a3`
+- `lib/features/lesson/presentation/pages/topic_ending_page.dart`: `191289ea4e6128d5384eabb81c81a1e9cdce0f53ba2be8ea70c8cfb63cacb98c`
+- `lib/features/lesson/presentation/widgets/pull_to_advance.dart`: `7e47390e3644dda38c8824314f5acce89de9a936014d7610a91f958d4a6679a5`
+- `lib/features/lesson/presentation/widgets/reader_bar.dart`: `3353282f94305f053e8a4e185a641e2b8e13a19dbb2387aaa3b5915a8953560c`
+- `lib/features/lesson/presentation/widgets/reader_gap.dart`: `8e6413f466367d66c0c2ea6a780e043666268db66772eca41e05424055f59846`
+- `test/app/study_route_test.dart`: `73ae1e693707c5d972bf81785feac46c85837a04479de6609b2cb9b54b26c6d6`
+- `test/features/lesson/domain/decide_ending_test.dart`: `78213b7359ebf683887fe6f24642f0013d67356faea8b382f230739bd0349cf6`
+- `test/features/lesson/presentation/pull_to_advance_test.dart`: `076d03894ae000b141ba2ebc50b1d96456fbb36f9e3a8aa415cfa6afca08b6f9`
+- `test/features/lesson/presentation/reader_gap_test.dart`: `1807f7f0a72061f9006a47922056ebbde5eab0bfe0128c14b2481b148e6c6be4`
+- `lib/features/lesson/presentation/widgets/ending_content.dart`: `a46195c8ff2b047a868d4305d79ca2c2adbc2885843528185b695fbe6918a8c5`
+- `test/features/lesson/presentation/ending_board_test.dart`: `bb9bd9cf446969e14e3c559dc1a1b17f57187f1073e8cfa529e6a9e718268f3d`
+
+Additional actual topic-routeRED `.dart_tool/w4c-task6-topic-route-red.log`:childexit1,
+0pass/2fail, terminal entry/no onward/Bookmarks return and nonterminal actual next corpus
+lesson are not wired. Day-routeRED remains0pass/1fail. Tests added before that integration.
+No pending process/request remains. Existing completed component evidence applies only to
+its exact source; plates/pull/Read/context/position integration is not accepted.
+
+Next bounded work: data/lifecycle RED before UI integration. Initial reader token capture
+must use existing anonymous-envelope initialization only when absent, transactionally,
+with cancellation/actor/exam checks; recognized stable/anonymous snapshots stay intact.
+Capture provenance before asynchronous loading, carry that token with the real loaded
+reader, and reject missing/different tokens at handoff and inside actual-write transaction.
+Do not initialize from save/dispose/retry/late completion. Existing ReaderPositionRepository
+currently only has preferences and unguarded queued writes; add a narrow owned guarded path
+without changing its existing offset/fraction storage or Home read contract. Actual wipe,
+same-account reset, missing guest, stable/anonymous preservation, queued write/capture races
+and ordinary same-boundary behavior need RED/GREEN. No core wiper/schema/global lifecycle edit.
+
+Then extract one reused lesson-content subtree for active reader and inert incoming preview;
+preview has no read timer/persistence/interactive semantics. Keep one active controller/chrome,
+real day order over topic order, lastday→actual day ending, lastlesson→actual topic plate,
+plate→first real next-topic lesson, terminal plate no onward pull. Freeze available real
+content for simultaneous480ms slideA, activate in place only after valid completion, preserve
+original origin/day and captured outgoing offset/fraction. Remove old material-duration copy;
+finish bar/strip/rail/day-counter transition, unavailable-next/error retry and old ending tests.
+Full Task6 checks/commit remain outstanding. Tasks7/9, whole-family/Astra/integration/phone
+acceptance remain pending. No worker push/merge.
