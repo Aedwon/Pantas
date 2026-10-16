@@ -495,3 +495,21 @@ Fresh fetch/expected remote-base/branch/ancestor checks preceded both normal exa
 Direct GitHub full refs match intended C895aa3db and E40600f16. Other dirty drafts remain local.
 D Task5 gauge/screen remains active on10045dbd. No complete task/family/Astra/integration or
 visual acceptance is inferred; integration remains5e6cda45 and application main stays frozen.
+
+
+### October16: W4d shared count gauge reviewed, corrected and uploaded
+
+D saved65f055019b8d36ca397b3000404004246a06e915, then review correction
+2861773f4b74a0d1110dbaa95e4a65bf850b9b9c. Root read the full shared source/test delta and
+board values, verified actual533 component/theme passes and clean scoped/static checks.
+Root found an Important performance defect: the number strip rebuilt every integer up to
+correct on each frame. Actual2400/3000 regression failed before a bounded visible strip fixed
+it without changing drawn absolute displacement/timing/curve. Root re-read the fix and actual
+15 renewed new/existing gauge passes and clean scoped analysis. All32 original and7 correction
+manifest source/evidence hashes match their exact commits. No remaining scoped blocker.
+
+Fresh branch/remote-base/ancestor/diff checks preceded normal exact-SHA upload. Direct GitHub
+full working ref matches2861773f. Task5 end-screen/origin drafts remain local and unfinished.
+The verified named count variant is not percentage-finale geometry/timing permission for E;
+E must report its specific shared-gauge needs before any additional edit. No Task5/full-family/
+Astra/integration or phone acceptance is claimed.
