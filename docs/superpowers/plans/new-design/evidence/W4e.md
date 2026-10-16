@@ -173,3 +173,51 @@ Prepared content inputs, unchanged by this run:
 Current task status is recorded here at each task boundary. Updating the program's external SSOT is lead-owned and pending the handoff; this worker does not claim program acceptance. The main checkout and other worktrees remain untouched. No push, merge, release or cleanup is authorized in this dispatch.
 
 Remote check before handoff: `git ls-remote origin refs/heads/web/new-design-w4e-r1` returned no branch. The assigned local branch stays unpushed for the lead.
+
+## Tasks 4–6 continuation: shared presentation slice, October 16
+
+Status: shared extensions implemented and focused checks passed, saved separately before callers.
+Tasks 4–6 remain in progress. Task 3 remains separately authored; no Task 3 acceptance is claimed.
+
+Policy: current-main `ae5c09421084c01d854e78150ea2e481afe7e0b2`, with AGENTS, WORKFLOW,
+SUBAGENTS, current L2/L3 W4e, parallel map, amendment, traceability and relevant design decisions
+read. Initial reconciliation was local `5e6cda45` versus remote `c999952b`, ahead 14, behind 0.
+The fifteen Task 3 drafts were snapshotted by path/SHA-256 under
+`/tmp/pantas-w4e-task3-baseline.json` before any source change. The separate Task 3 author then
+saved/uploaded `ac712f6fd18042cf37f4a3f17a68386e026af207`. Fresh fetch confirmed local and
+remote both at that revision. It is this slice's base; no reset, merge or rebase occurred.
+The Task 3 saved-base ruling supersedes dirty-hunk staging restrictions.
+
+The current-main lead ruling authorizes exactly two additive W2 changes:
+
+- `new_design/QuestionGridSheet` accepts an optional `footer`, default null, after its ordinary
+  content with 16 points of space. Existing quiz/default content is preserved.
+- `CenteredDialog` accepts opt-in `inlineActions`, default false. It uses the existing inline
+  pill geometry with accentFill/onAccent for Submit and fill/label for cancel. Destructive and
+  ordinary stacked defaults are preserved. ButtonPair retains its large-text stacking behavior.
+
+Verification, directly on the Mac with Flutter 3.44.6 / Dart 3.12.2:
+
+- Baseline before implementation: `flutter test --no-pub --reporter expanded test/features/mock_exam test/app`,
+  exit 0, `00:18 +386: All tests passed!`; `build/w4e/tasks4-6/baseline-mock-app.log`.
+- Shared RED: missing `inlineActions` and `footer` named parameters, exit 1;
+  `build/w4e/tasks4-6/shared-red.log`. The earlier Task 4 RED contract also remains uncommitted.
+- First shared suite exposed only four new keyboard test fixture failures: the directly mounted
+  dialog had no focused descendant. Tab focus before Escape corrected the fixture. No unrelated
+  test failed and no production keyboard behavior changed.
+- Focused GREEN: `00:00 +8: All tests passed!`, exit 0;
+  `build/w4e/tasks4-6/shared-focused-green.log`.
+- Shared suite: `flutter test --no-pub --reporter expanded test/core/ui/components`, exit 0,
+  `00:25 +506: All tests passed!`; `build/w4e/tasks4-6/shared-suite-final.log`.
+- Scoped analyzer: `No issues found! (ran in 0.5s)`, exit 0;
+  `build/w4e/tasks4-6/shared-analyze-final.log`.
+- Format: `Formatted 3 files (0 changed) in 0.02 seconds.`, exit 0.
+- Layering: `check_layering: OK`, exit 0. Attribution: `check_no_ai_attribution: OK`, exit 0.
+  `git diff --check`: exit 0, no output.
+
+Source identity: sorted path + NUL + file bytes SHA-256
+`dfaabca540cdbcc6a4d3c4768784312d7b2198aa0661ec3183da74da657f35dd`.
+Manifest: the two shared source files above, `test/core/ui/components/mock_shared_contract_test.dart`,
+and this evidence. Only this approved slice is staged. No source in Task 3, content, other
+families, shared gauge, schema, signing or sync changed. No screenshot capture, phone verification,
+independent review, integration, push, deployment, release or visual acceptance occurred.

@@ -41,6 +41,7 @@ class QuestionGridSheet extends StatelessWidget {
     this.mock = false,
     this.title = 'Questions',
     this.summary,
+    this.footer,
     super.key,
   });
   final Widget page;
@@ -51,6 +52,7 @@ class QuestionGridSheet extends StatelessWidget {
   final bool mock;
   final String title;
   final String? summary;
+  final Widget? footer;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -280,6 +282,10 @@ class QuestionGridSheet extends StatelessWidget {
               textAlign: TextAlign.center,
               style: context.type.footnote,
             ),
+            if (footer != null) ...[
+              const SizedBox(height: 16),
+              footer!,
+            ],
           ],
         ),
       ),
