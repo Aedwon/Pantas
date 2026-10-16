@@ -473,3 +473,23 @@ guard. Expired reads may not overwrite new sort/order or publish an old controll
 Cover the reproduced reset cases, absent-token no writes, caller disposal/identity changes,
 and ordinary scoped migration. Renew affected tests and final Task9 gates. The lead personally
 reviews this data correction, followed by the required whole-family Astra audit.
+
+
+### October17 missing-token read publication correction
+
+Root read actual absent-provider RED0pass/1fail: a provider that initially found no token
+returned stale l1 after real wipe and replacement context. New preference values survived;
+this finding concerns publishing stale rows. The lead approves the narrow existing-signal
+correction before implementation. For an initially missing token, observe existing bookmark
+membership/preference changes before async student-data reads and reject expired results.
+Compare the read-only token again before publishing; a replacement token cannot authorize
+older rows or sort. Apply this to affected row/order reads, without initialization or writes
+from a missing-token read. Use existing provider invalidation/current predicates; capture
+repositories before awaits. Token-present reads retain existing guarded provenance.
+
+Keep ordinary first guest display and migration fallback working; do not hide all missing-token
+data. Prove wipe with and without a replacement envelope, changed membership/preferences,
+disposal, and fresh ordinary loading. An empty wipe cannot replay data that does not exist;
+the already approved fresh-view early anchor handles action ownership. No global owner, schema,
+sync, wiper change or new data protocol. Final analysis/focused checks must be clean before
+saving source; the prior migration run still has a crossfade timeout and two lint findings.

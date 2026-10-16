@@ -2086,3 +2086,14 @@ This extends the same approved student-data boundary guarantee through a newly p
 entry within lesson-owned providers/repository/tests. No new product choice, schema, global
 lifecycle, sync or wiper change. Early capture proof128pass is provisional implementor evidence;
 root has not accepted Task8 or the whole family.
+
+
+### October17: prevent missing-token reads from publishing reset rows
+
+Root verified absent-token provider RED0/1: old l1 publishes after wipe/replacement. Approve
+the existing membership/preference signals plus final read-only token comparison for this
+initially absent path, through current provider lifetime predicates. Preserve ordinary guest
+display; withholding all absent-token data would change initial behavior and is rejected.
+The token-present guard remains. L3 records the correction before production edits. No global,
+schema, sync or wiper change. Previous migration run125pass/1fail (crossfade timeout) and
+two lint findings remain unfinished evidence, not a source acceptance.
