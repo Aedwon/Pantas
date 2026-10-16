@@ -458,3 +458,15 @@ discard/recovery and 10-second strict grace are not implemented by this slice. T
 and the required exact percentage-gauge interface proposal are not started. No shared gauge edit,
 Task 7+, push, merge, main application update, screenshot capture, phone check, publication or cleanup.
 The lead owns review, working-branch upload and any acceptance decision.
+
+### Task 5 recovery check added by the lead at this checkpoint
+
+The existing strict recovery comparison uses the overall attempt deadline. Earlier parts ended
+before their time can leave an overall budget later than the actual last-part deadline. Task 5
+must compare the actual current-part deadline against the 10-second background grace, including
+a last part that expires first after earlier early endings. A stopped between-parts gate is a
+separate case and cannot consume the next part's time. The current Task 4 tests cover overall
+expiry versus forfeit and a strict saved gate; they do not establish complete sectional recovery
+precedence. No fix or full strict-recovery acceptance is claimed. This remains an explicit next-scope
+regression requirement before Task 5 completion. The lead requested no new implementation breadth
+before reviewing the saved Task 4 runtime checkpoint `67c02af9`.
