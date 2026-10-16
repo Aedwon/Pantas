@@ -493,3 +493,13 @@ disposal, and fresh ordinary loading. An empty wipe cannot replay data that does
 the already approved fresh-view early anchor handles action ownership. No global owner, schema,
 sync, wiper change or new data protocol. Final analysis/focused checks must be clean before
 saving source; the prior migration run still has a crossfade timeout and two lint findings.
+
+
+### October17 mutation-default consistency
+
+The legacy default remove API still initializes an absent envelope even though the production
+sheet now passes its retained guard. The lead agrees to remove that fallback under the already
+recorded owner-only capture contract. Recheck actual callers; update repository baselines to
+perform explicit fresh-owner capture. Direct absent-context Remove must reject without any
+envelope, membership or preference write. Preserve recognized contexts and ordinary guarded
+Remove/Undo. This is existing-contract consistency, not a new lifecycle or product change.

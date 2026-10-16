@@ -2097,3 +2097,14 @@ display; withholding all absent-token data would change initial behavior and is 
 The token-present guard remains. L3 records the correction before production edits. No global,
 schema, sync or wiper change. Previous migration run125pass/1fail (crossfade timeout) and
 two lint findings remain unfinished evidence, not a source acceptance.
+
+
+### October17: retire mutation-time initialization consistently
+
+The same C implementor identified default remove's retained absent-envelope initialization,
+used by legacy repository tests but not the guarded sheet. Root agrees to remove it under
+the existing initial-owner-only capture requirement. Baselines explicitly capture first;
+a direct missing-context mutation must write nothing. New active-consumer provider boundary
+proof passes six cases; broader checks are not yet accepted. Earlier fixtures hung while
+awaiting canceled provider generations without an active listener; actual consumer tests now
+keep that listener and preserve their data assertions. No family gate is claimed yet.
