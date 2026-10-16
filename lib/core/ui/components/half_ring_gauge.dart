@@ -253,11 +253,20 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          for (var i = 0;
+                          // Keep only the current number and its neighbors.
+                          // Preserve the board's absolute offset with a spacer.
+                          SizedBox(
+                            height:
+                                math.max(0, _count.value.floor() - 1) * extent,
+                          ),
+                          for (var i = math.max(0, _count.value.floor() - 1);
                               i <=
-                                  math.max(
-                                    widget.correct!,
-                                    _count.value.ceil(),
+                                  math.min(
+                                    math.max(
+                                      widget.correct!,
+                                      _count.value.ceil(),
+                                    ),
+                                    _count.value.ceil() + 1,
                                   );
                               i++)
                             SizedBox(

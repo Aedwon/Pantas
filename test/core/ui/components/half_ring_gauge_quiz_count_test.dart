@@ -115,6 +115,33 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
   });
+  testWidgets('large actual scores keep a bounded visible number strip',
+      (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      const HalfRingGauge.quizCount(correct: 2400, total: 3000),
+      disableAnimations: true,
+    );
+    expect(find.byType(Text).evaluate().length, lessThanOrEqualTo(6));
+    expect(find.text('2400'), findsOneWidget);
+    expect(
+      tester
+          .widget<Transform>(find.byKey(const ValueKey('quiz-count-strip')))
+          .transform
+          .getTranslation()
+          .y,
+      -153600,
+    );
+    await pumpAccessibilitySurface(
+      tester,
+      const HalfRingGauge.quizCount(correct: 1200, total: 3000),
+    );
+    await tester.pump(const Duration(milliseconds: 1000));
+    expect(find.byType(Text).evaluate().length, lessThanOrEqualTo(6));
+    await tester.pumpAndSettle();
+    expect(find.text('1200'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
   testWidgets(
       'quiz updates count even when fraction stays the same and handles zero',
       (tester) async {

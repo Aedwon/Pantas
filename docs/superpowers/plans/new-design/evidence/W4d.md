@@ -386,3 +386,9 @@ Fresh final verification (`W4d-task5-gauge-commands.json`, exact raw output in `
 - Scoped diff whitespace: exit0.
 
 `W4d-task5-gauge-manifest.json` binds source/test and evidence hashes, base, tracked patch and the unchanged runtime/content material-input record. Source ownership: shared gauge and its new focused quiz-count test only, plus this existing evidence and applicable logs/board extraction. End-screen skeleton/test remain untracked and deliberately excluded. The larger Task5, viewer/notes, flagged list, deletion, family/Astra review and phone acceptance remain unfinished. No completed-family/full-suite claim.
+
+### Shared gauge independent review correction
+
+Root's scoped review of65f05501 found an Important efficiency defect: the rolling Column built every integer from0 through the real correct count on each frame, even with reduced motion. Custom quizzes retain whole selected pools, so this scaled with quiz size. Actual RED with2400 correct of3000 proved the unbounded child count. The strip now builds only its current number and adjacent numbers (at most4), using one spacer to preserve exactly the same absolute64pt displacement and clipping. No timing, curve, geometry, semantics or setting changed.
+
+`W4d-task5-gauge-bounded-red.txt` records the actual failure. Renewed new+existing gauge tests (`flutter test --no-pub test/core/ui/components/half_ring_gauge_quiz_count_test.dart test/core/ui/components/half_ring_gauge_test.dart --reporter expanded`): exit0, `00:00 +15: All tests passed!`. Coverage includes the large-count final/transition window and unchanged midpoint/final/updates/reduced-motion/percentage tests. Owned analysis: exit0, `No issues found! (ran in0.7s)` (raw output gives actual spacing/time). Source/test/log identities: `W4d-task5-gauge-bounded-manifest.json`. The prior533 affected shared tests remain applicable outside the amended rolling-count loop. No full-family acceptance or upload is claimed.
