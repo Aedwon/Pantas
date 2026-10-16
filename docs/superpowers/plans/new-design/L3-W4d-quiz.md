@@ -314,3 +314,26 @@ large text, updates/disposal, and unchanged percentage callers before the task c
 Save the verified shared slice alone before the larger Task5 screen. W4e must not edit this
 shared file concurrently. The lead preserves both families' needs at reviewed integration.
 This implements the already approved presentation, without a new product or visual choice.
+
+
+## Lead Task5/8 truthful flagged-origin clarification, October16
+
+Root opened SessionOrigin, StartPractice.fromQuestionIds, its controller/caller, restart/resume,
+Attempts origin storage, timing exclusions and the string-valued sync mapper. New flagged runs
+currently persist drill, losing their real launch source. Authorize one feature-owned
+SessionOrigin.flagged('flagged') using the existing origin string column, carried unchanged
+through ordinary creation/completion/attempt/restart/resume. No schema or JSON/sync shape change.
+The actual flagged-list launch opts in explicitly; preserve generic fromQuestionIds callers'
+existing drill default rather than inferring a source from arbitrary IDs. New flagged runs
+remain non-streak, timed ordinary practice, matching the prior drill behavior. Do not rewrite
+legacy drill rows or infer flagged membership from current mutable flags.
+
+Task5 can use that actual origin for approved Flagged questions wording and the actual return
+stack. Legacy drill stays truthful generic quiz/practice unless actual live caller provenance
+exists. Custom topic/source text comes from actual selected question lessons/topics, inline
+from stored lessonId, Reviews only from validated batch data. Mixed Today never claims a
+Reviews/New questions split. Preserve existing values and every exhaustive consumer.
+Tests first cover flagged versus generic/custom starts, stored completion/restart/resume,
+legacy drill behavior, unchanged timing/streak/metrics and truthful Done navigation. Save the
+bounded origin contract separately before consumers. No generic source-metadata system,
+new history, other-family caller edits or fabricated back destination.

@@ -1914,3 +1914,15 @@ precedence remains binding; answers and membership are never changed to fit miss
 Required recovery/rollback/ordering/legacy tests precede the saved contract and root data review.
 This is the minimum durable representation of existing approved behavior, without schema or
 sync-protocol changes or a new product/visual decision.
+
+
+### October16: preserve the actual flagged launch source
+
+D proposed retaining flagged provenance in the existing origin string. Root inspected the
+actual enum/start/caller/persistence/attempt/restart/resume and sync mapper: flagged and custom
+currently share drill, preventing truthful source-specific session endings. L3d authorizes
+only flagged('flagged'), explicitly supplied by the real flagged caller while generic starts
+keep drill. Existing rows are not relabeled. Timed/non-streak semantics and all legacy values
+stay unchanged; storage/recovery/metrics and Done-navigation regressions are required. This
+is the minimal existing-field representation of approved source behavior, with no schema,
+sync payload, product or visual change. Mixed Today and missing Home Reviews callers stay held.

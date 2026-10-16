@@ -473,3 +473,25 @@ that base. D reads the saved quiz-count gauge ruling; E reads the saved grid-foo
 dialog rulings before affected shared edits. Existing default-preservation tests remain required.
 Local development checks, lead independent reviews and normal verified working uploads continue;
 Astra/integration/phone acceptance/deployment/publication remain separate.
+
+
+### October16: reviewed W4c guarded-store and W4e shared-submit slices uploaded
+
+C guarded-position repository895aa3db0d6df1274446c9e26fce0b31ced36d1d is independently
+source-reviewed and uploaded. Root read its complete production/test delta, exact source hashes
+and actual final18-pass/clean-analysis/format2-0/layering/attribution/diff outputs. Guarded
+operations validate token/exam/cancellation within the transaction, preserve recognized
+snapshots, roll back expiration and reject stale queued writes after actual wipe. Existing
+offset/fraction formats and Home reads remain. This is a standalone data contract, not page
+integration or Task6 acceptance. Page-owned initial capture/preview/marking integration continues.
+
+E shared-submit40600f16420c4f0b80bfc2e17054da670986a915 is independently reviewed/uploaded.
+Root inspected both shared deltas/new tests/evidence, actual506 component-suite passes and
+clean scoped analysis; committed source identity dfaabca540cdbcc6a4d3c4768784312d7b2198aa0661ec3183da74da657f35dd
+matches evidence. Optional footer and opt-in accent inline dialog preserve existing defaults
+and destructive behavior. This is not completed paper/pause/finale work or phone acceptance.
+
+Fresh fetch/expected remote-base/branch/ancestor checks preceded both normal exact-SHA pushes.
+Direct GitHub full refs match intended C895aa3db and E40600f16. Other dirty drafts remain local.
+D Task5 gauge/screen remains active on10045dbd. No complete task/family/Astra/integration or
+visual acceptance is inferred; integration remains5e6cda45 and application main stays frozen.
