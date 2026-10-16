@@ -2038,3 +2038,19 @@ core sync/wiper or a global mechanism. Pending initial capture must also expire 
 wipe/reset while its token is not assigned, for reader and sheet; fresh new-view entry remains
 valid. The earlier code skipped metadata expiry without a token, so this initial-await case
 requires explicit coverage instead of relying on completed-capture tests.
+
+
+### October16: empty metadata reset is still an unverified capture boundary
+
+C's actual seven held-action failures are GREEN in the unstaged Task8 draft, but final focused
+checks are92pass/1fail. The remaining reader initial-auth-wait case recreates context after
+an empty-store wipe. Installed Drift emits no table update for a delete affecting zero rows.
+Root read the actual wiper/runtime; no global or wiper edit was made. Next test the narrow
+feature-owned early initial-context capture before auth/exam/content waits, preserving its
+original token and proving DB queue/transaction ordering. This is not a solved claim. If it
+cannot satisfy cancellation through current seams, return the concrete gap before wider scope.
+
+Evidence-only612a8b1f and exact six-file draft patch2dd8a5a0 remain preserved. Latest observed
+usage95%short/94%weekly; C is idle at checkpoint. W4c stays first under the exact serial user
+instruction; D/E remain held. No Task8 acceptance, Task9, Astra, integration, phone acceptance,
+source push, publication, schema or core lifecycle change is claimed for the unfinished draft.

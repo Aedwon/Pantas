@@ -10,7 +10,7 @@ Controlling documents:
 
 ## Lock
 
-State: held
+State: free
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
 Since: 2026-10-16 22:59 Asia/Manila (serial continuation, W4c first)
 
@@ -611,3 +611,34 @@ does not claim acceptance of the combined W4c family.
 The same worker is closing Task8 with held-operation boundary tests per currentL3, before
 Task9 retirements and final full-project checks. No other branch is active. All C source
 commits after7223e931 remain local pending the complete review/verification sequence.
+
+
+### October16: serial W4c capacity checkpoint, pending initial-capture correction
+
+C saved evidence-only612a8b1f after source702d5c61. Source5afe6e13/1e64f528/b11eab3f/
+702d5c61 remains local pending complete independent acceptance/upload. Six Task8 production/
+test drafts remain unstaged; exact patch SHA2562dd8a5a0ed77255d360022e261cb830e04044ee7745fedf37580613b65ffb7cb
+and individual hashes/logs are in C's existing evidence. No failing draft is committed as
+completed source. D/E stay held; only W4c resumes until its branch tasks are fully finished.
+
+Root read actual held-Remove RED0/4 and Move/Sort/Retry RED0/3 summaries. The drafted existing-
+guard correction makes all seven pass, but the focused candidate is92pass/1fail. The remaining
+real failure is a reader waiting on initial auth while sync_meta is truly empty: wiping zero
+rows emits no Drift table update, then the old reader initializes a context after reset. The
+sheet's earlier initial-await characterization was passing old code, not validRED. No analysis,
+full-gate, Task8 completion or data-guard acceptance is claimed on this draft.
+
+The current no-global/no-wiper-change scope remains. Root inspected SyncLocalStateWiper and
+SyncRuntimeController; the wiper removes metadata, preserving deviceId when present, and the
+runtime's transition counter is private. Chosen next narrow investigation is initial existing-
+context capture at view start before auth/exam/content waits, retaining its original token and
+using existing DB transaction ordering/cancellation. Prove eager capture/wipe ordering, pending
+cancellation, no token replacement and fresh-post-reset entry before accepting it. Do not add
+a global revision, schema, sync or wiper change without a separate recorded scope decision.
+
+After that: meaningful pending-sheet-capture coverage, final owned analysis/compatibility checks,
+unread-row single-line correction, Task8 closeout, Task9 retirements/full-project gates, root
+review and serialized Astra audit. No whole-family integration or phone acceptance. Latest
+observed usage95%short/94%weekly; worker is idle with no intentional running command. This is
+a capacity checkpoint, not a new product pause, source discard or permission to switch branches.
+Status lock is released for safe resumption; original continuation remains authorized.

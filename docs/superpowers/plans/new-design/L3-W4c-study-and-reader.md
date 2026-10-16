@@ -416,3 +416,17 @@ Tests first prove the four reported failures and affected Sort/Move/Retry paths,
 during capture, current ordinary actions, and recognized-context preservation. Renew affected
 reader/bookmark/storage boundary checks, then final family/project gates at Task9. Root
 personally reviews the data correction and the required Astra audit precedes integration.
+
+
+### Empty-store capture ordering, October16 checkpoint
+
+Actual initial-await reader RED remains after an empty sync_meta wipe: Drift reports no table
+update when DELETE affects zero rows. A table-update listener alone cannot identify that reset
+when initial capture waits on auth first. Next investigate moving the existing initial context
+capture to view start before auth/exam/content waits, retaining that captured token and binding
+the resolved exam only after guarded identity checks. Preserve every recognized snapshot and
+use the existing absent-only initialization once. Prove actual transaction/queue ordering against
+wipe, cancellation during capture, and valid fresh post-reset entry; do not assume event emission.
+This is a narrowly authorized feature-owned approach to test, not proof of a finished fix or
+permission to change a global lifecycle, schema, sync protocol or wiper. If the existing seams
+cannot meet the recorded contract, report the precise remaining capability gap before such edits.
