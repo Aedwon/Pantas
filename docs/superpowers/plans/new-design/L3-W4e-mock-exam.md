@@ -145,3 +145,32 @@ are clean. Tasks4–6 use this committed source base and preserve its preparatio
 behavior. The prior dirty Task3-hunk exclusion/isolated-index requirement is now inapplicable.
 Normal Task4/5 runtime edits may commit on this base. This source-availability update does not
 claim independent acceptance or authorize reworking Task3, its setup, blueprints or content.
+
+
+## Lead Task4 between-parts recovery clarification, October16
+
+Root opened MockSessionController, SnapshotCodec, MockFlushPayload, ResumeMock and the mock sync
+mapper. The controller advances parts immediately and existing saved session metadata has no
+between-parts state. The approved stopped-clock transition must survive process closure, rather
+than opening the next part before explicit Start. Authorize additive optional boolean fields
+betweenParts and endedEarly in the existing feature-owned _session JSON envelope, carried by
+its snapshot/flush path. Absent fields preserve legacy running behavior. Existing question/sample/
+answer encodings, SQL schema, sync envelope/mapper and other data-layer contracts stay intact.
+The sync mapper already carries this JSON as an opaque string; no sync protocol change is needed.
+
+Persist actual next-part index/position with its unstarted clock and transition metadata in
+the same existing progress write. Resume restores the between-parts page and stopped clock;
+it never starts a part merely by reopening. Count closed-part answers/blanks from real data,
+without flags in the transition dots. Only explicit Start clears the gate and starts the
+next-part clock; persist that new authoritative state in order before later progress writes.
+Between-parts wall time cannot consume the next part. Preserve the approved strict-background
+grace/recovery precedence rather than using a pause marker to bypass strict mode. Validate
+metadata types and consistency with real frozen parts/current index; malformed state uses
+existing recovery/error/discard, never a guessed transition or remapped saved answers.
+
+Tests first: elapsed and early endings, persisted transition/reopen, no running time while
+waiting, exactly-once explicit Start, old snapshots, invalid fields, last-part submission,
+queued flush ordering/failure and strict-background/expiry precedence. Use feature-owned
+controller/snapshot/flush/resume paths and tests only. Save the data contract as a verified
+bounded slice before presentation integration. Root reviews this student-data change; no
+new generic persistence framework, schema migration, core sync/wiper edit or product choice.

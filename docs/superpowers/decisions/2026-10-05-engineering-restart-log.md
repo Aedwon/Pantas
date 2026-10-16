@@ -1901,3 +1901,16 @@ token and rejects old/missing/different cached or warmed contexts; retry never r
 Tests include actual wipe/retry and fresh page reentry, plus current guards and cancellation.
 This chooses the narrow existing owner rather than adding a global mechanism or weakening the
 boundary contract. No new product, visual, schema or synchronization decision is introduced.
+
+
+### October16: preserve the approved between-parts gate across restart
+
+E reported that existing immediate controller advance and running-only snapshot would skip
+the approved transition after process closure. Root opened actual controller/snapshot/flush/
+resume and opaque-string sync mapping. L3e authorizes only additive betweenParts/endedEarly
+booleans within existing feature _session JSON, legacy defaults, strict validation, ordered
+progress persistence and stopped-clock restoration until explicit Start. Strict grace/expiry
+precedence remains binding; answers and membership are never changed to fit missing metadata.
+Required recovery/rollback/ordering/legacy tests precede the saved contract and root data review.
+This is the minimum durable representation of existing approved behavior, without schema or
+sync-protocol changes or a new product/visual decision.
