@@ -326,3 +326,28 @@ callback. Reuse the existing StateView failure presentation and actual origin Ba
 without an unavailable retry action. Transient content errors retain their working retry under
 the original token. Fresh page entry keeps the approved initial-capture behavior. No new copy,
 shared-state helper, automatic navigation, replacement token or visual redesign is required.
+
+
+## Lead Task6 direct ending-route ownership clarification, October16
+
+Root inspected all production references to /study/ending/:topicId and TopicEndingPage. There
+is no production push left; the declared route remains a supported direct entry and tests.
+A real nonterminal topic ending must retain its approved onward pull, and the final topic
+ending must have none. Do not introduce a second token/marking/preview owner in that legacy
+page or leave a reachable alternate nonterminal plate without its approved onward action.
+
+Reuse LessonPage's existing guarded owner for the real direct route, with a narrow initial
+ending state anchored to that topic's actual corpus-last lesson/context. The adapter resolves
+real content and reuses the same EndingContent/pull/preview/chrome. Preserve its truthful Study
+return/fallback. Pure explicitly supplied ending fixtures may still render the shared layout
+without pretending to be a loaded interactive route. No route replacement, new global owner,
+synthetic lesson, additional capture mechanism or new visual treatment.
+
+Showing a plate must not mark/open/save its anchor lesson merely to resolve context. Reading
+ownership begins only with an actual active lesson body. On an active reader's transition to
+a plate, save its outgoing measured offset/fraction once; plate disposal or onward handoff
+must not overwrite that lesson's saved position with reset zero. Tests first cover direct
+nonterminal onward preview and correct first next lesson, terminal no onward, actual back,
+no anchor read/recent/position mutation, and preservation of the outgoing reader offset/fraction
+after plate departure. If the adapter cannot reuse the existing owner narrowly, report before
+a larger refactor. This keeps the already approved route and chain consistent.

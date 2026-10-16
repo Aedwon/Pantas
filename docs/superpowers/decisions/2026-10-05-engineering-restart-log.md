@@ -1962,3 +1962,16 @@ without an unavailable retry, while transient content errors keep working same-t
 No retry may recreate a token. This enforces the existing no-dead-control and provenance rules.
 C7223e931 and D5e89e4fa evidence-only checkpoints were inspected and uploaded normally after
 fresh expected-base/doc-only/diff checks; no unfinished production source was uploaded.
+
+
+### October16: reuse the reader owner for direct topic endings
+
+C asked whether the remaining standalone topic route should omit onward pull or duplicate
+reader capture/preview ownership. Root opened the route and all production references: it
+is now direct-entry only. The real direct route reuses LessonPage with its actual last-lesson
+context and initial ending state, preserving approved nonterminal/terminal behavior without
+a second lifecycle. Pure supplied board fixtures can stay layout-only. L3c records no anchor
+read/open/position writes, truthful Study fallback and exact direct-chain tests before edits.
+Root also identified that unconditional position saving while a plate is active could replace
+the outgoing lesson's measured position with reset zero. Plate state must never own such a
+write. The existing outgoing measurement is saved once and retained through plate departure.
