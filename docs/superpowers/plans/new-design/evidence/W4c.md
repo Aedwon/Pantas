@@ -1398,3 +1398,48 @@ original origin/day and captured outgoing offset/fraction. Remove old material-d
 finish bar/strip/rail/day-counter transition, unavailable-next/error retry and old ending tests.
 Full Task6 checks/commit remain outstanding. Tasks7/9, whole-family/Astra/integration/phone
 acceptance remain pending. No worker push/merge.
+
+## Task6 guarded position repository slice, October16
+
+Fetched current main63175b4d at dispatch, ae5c0942 at continuation, then106892b2
+capture-owner clarification before affected page integration. AGENTS/WORKFLOW/SUBAGENTS,
+startup, current L2/L3c, parallel map, amendment/strategy and applicable later rulings read.
+Assigned local/remote c912fb21 matched; all eleven original draft SHA256 values matched
+this evidence's prior tail exactly. All original drafts are preserved. Direct local Mac
+checks follow the current instruction; no relay, hosted CI, screenshots, push or merge.
+
+This bounded slice adds optional database-backed guarded reader operations to the existing
+position repository. Existing offset/fraction key, JSON shape, legacy reads, Home ring contract
+and public unguarded compatibility methods remain unchanged. Initial capture transaction
+creates only an absent anonymous envelope through SyncActiveContextStore, preserving every
+recognized stable/anonymous snapshot. isCurrent cancellation, selected exam and token checks
+run before mutation and again before transaction completion. Expired work rolls back without
+recreating a token. Queued writes recheck when executing. readBoundary is strictly read-only
+for content loads/retries; captureBoundary belongs to one fresh page lifetime per currentL3.
+No core wiper, schema, global lifecycle, sync or other-family change.
+
+RED `.dart_tool/w4c-boundary-red.log`:actualexit1,9pass/8fail after API-only declarations,
+including expected missing initial capture. Repository GREEN17 followed. Additional queued
+real-wipe and post-initialization cancellation coverage added. Provider-owner investigation
+identified that initialization in cached content loading would recreate on retry; lead recorded
+106892b2 before page edits. Provider/controller drafts are excluded from this commit, remain
+unverified as integration, and are not a claim that the page already uses guarded writes.
+
+Final actual commands/results, `.dart_tool/w4c-boundary-save-final-0.log` through-5:
+- `flutter test test/features/lesson/data/reader_position_repository_test.dart --no-pub --reporter expanded --timeout 20s`:exit0, `00:00 +18: All tests passed!`
+- `dart analyze lib/features/lesson/data/repos/reader_position_repository.dart test/features/lesson/data/reader_position_repository_test.dart`:exit0, `No issues found!`
+- `dart format --output=none --set-exit-if-changed` on those two files:exit0,
+  `Formatted 2 files (0 changed) in 0.01 seconds.`
+- `dart run tool/check_layering.dart`:exit0, `check_layering: OK`
+- `dart run tool/check_no_ai_attribution.dart`:exit0, `check_no_ai_attribution: OK`
+- `git diff --check --` those two files:exit0,empty output.
+
+Verified patch againstc912fb21 `.dart_tool/w4c-boundary-verified.patch` SHA256
+`ab9eb5ccb63f5fd10665ac3a477ce6686f0b5f665e598f3aef9fc79c71f8ca0b`.
+Source/test SHA256:
+- `lib/features/lesson/data/repos/reader_position_repository.dart`: `c74cbf1e8d5f759f7c3d65ec5d160595d57a6540d7a0d23c88407cea6f3ad04f`
+- `test/features/lesson/data/reader_position_repository_test.dart`: `e955365f1be5fc38d0ccb86ecc821d3a452db6abca348c2d71812976029647a6`
+
+Next: page-owned capture, stale cached/warmed context rejection, guarded marking/position,
+real simultaneous480ms preview and day/topic endings. Task6 remains incomplete. Tasks7/9,
+Task8 explicit closeout, family checks, independent review and phone acceptance pending.
