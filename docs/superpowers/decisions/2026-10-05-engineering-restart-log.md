@@ -2002,3 +2002,14 @@ including actual415 mock/app passes, matching source identities and unchanged Ta
 C had hit the hard usage limit before saving its large Task6 source; latest tests/gates must
 be recovered from actual logs and refreshed where source changed. D/E remain held while C
 finishes, rather than dividing the next usage window across three unfinished branches.
+
+
+### October16: Task6 source save and guard-read failure review finding
+
+C saved5afe6e13 after1094required tests, clean analysis/static gates and exactsource manifests.
+Root verified the actual outputs/all22hashes and continued independent source review. The new
+activation/ending/metadata guards have no exception handling around their async DB reads; a
+failed committed handoff can leave an inert preview and unhandled future. Root requested actual
+throwing-guard regressions and existing failure/back handling, without token recreation or a
+new mechanism. This is a code correction to existing failure/cancellation requirements, not
+a spec change. Task6 independent acceptance/upload remains pending that fix and review.

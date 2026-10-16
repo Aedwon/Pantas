@@ -568,3 +568,24 @@ Important consumer defect, so normal guarded working upload through evidence-onl
 was completed and the full remote SHA verified. E Task4 remains partial, Task5/6 unstarted,
 with current-last-part versus strict-grace recovery risk recorded for Task5. No whole-family,
 Astra/integration, phone acceptance or publication is claimed. No new automation exists.
+
+
+### October16: W4c Task6 implementation saved, independent acceptance pending
+
+C saved5afe6e13da7b7c76434ac93a89121487b441876b, clean at that task boundary. Root read
+the actual final1094-pass required lesson/route/coreUI summary, clean global analysis, format
+1467/0changed, layering/attribution outputs and verified all22 committed source/test hashes.
+This is implementor completion, not independent Task6/family acceptance or integration.
+
+The candidate includes the real day/topic/terminal chain, passive simultaneous480ms preview,
+page-owned initial capture, guarded read/position/bookmark writes, actor/exam baselines across
+async gaps, direct-ending owner reuse, retained outgoing position, real-drag equal displacement
+and exact bar/strip/rail/title motion. Actual race regressions and corrected fixtures are in
+its evidence; phone visual acceptance remains Aedwon's.
+
+Root review found an Important new guard-read error path: activation, ending activation and
+asynchronous metadata validation can throw, leaving an unhandled future or held inert preview.
+The same C implementor is reproducing/handling it with existing failure/back semantics before
+source upload/acceptance. No new product decision or owner is authorized. C continues Tasks7,
+8explicitcloseout and9 in this branch only; D/E remain held under Aedwon's serial instruction.
+No full-project suite, Astra audit, integration or phone acceptance has occurred on this candidate.
