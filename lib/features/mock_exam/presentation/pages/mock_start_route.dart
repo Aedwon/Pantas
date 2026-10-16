@@ -23,6 +23,7 @@ import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_preparation_page.dart';
+import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -68,7 +69,8 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   var _strictMode = false;
   bool _submitting = false;
   Future<void> _flushChain = Future<void>.value();
-  Object? _lastFlushError;
+  Future<void> _lastEnqueuedFlush = Future<void>.value();
+  Completer<void>? _partStartFinished;
   var _elapsedBaseSeconds = 0;
   var _accumulatedPausedSeconds = 0;
   DateTime? _pausedAt;
@@ -78,6 +80,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   MockSample? _preparedSample;
   List<MockSessionPart>? _preparedParts;
   var _startingPaper = false;
+  var _startingNextPart = false;
 
   static const _snapshotCodec = MockSessionSnapshotCodec();
 
@@ -294,11 +297,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         parts: parts,
         currentPartIndex: currentPartIndex,
         partStartedAtSeconds: restored.partStartedAtSeconds,
+        betweenParts: restored.betweenParts,
+        endedEarly: restored.endedEarly,
         onWarning: (_) {},
         onSubmit: _handleSubmit,
         telemetry: ref.read(telemetryProvider),
       );
       _recoverableAttemptId = null;
+      if (restored.betweenParts) _pausedAt = resumeNow;
       _installController(controller);
 
       if (_strictForfeitOccurredFirst(
@@ -406,7 +412,8 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     );
     _persistenceScheduler = MockPersistenceScheduler(onFlush: _enqueueFlush);
     setState(() => _controller = controller);
-    _stopwatch = Stopwatch()..start();
+    _stopwatch = Stopwatch();
+    if (controller.state is MockSessionInProgress) _stopwatch!.start();
     const timerStep = Duration(milliseconds: 100);
     _timer = Timer.periodic(timerStep, (_) => _onTimer(timerStep));
   }
@@ -476,7 +483,9 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       final previousQuestionIndex = current.currentIndex;
       setState(() => controller.tickTo(elapsed));
       final updated = controller.state;
-      if (updated is MockSessionInProgress &&
+      if (updated is MockSessionBetweenParts) {
+        _partClosed();
+      } else if (updated is MockSessionInProgress &&
           (controller.currentPartIndex != previousPartIndex ||
               updated.currentIndex != previousQuestionIndex)) {
         _markChanged();
@@ -493,6 +502,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     final snapshot = switch (controller.state) {
       final MockSessionInProgress state => state,
       final MockSessionPaused state => state.snapshot,
+      final MockSessionBetweenParts state => state.snapshot,
       final MockSessionSubmitted state => state.snapshot,
       _ => _lastSessionSnapshot,
     };
@@ -503,8 +513,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     return snapshot;
   }
 
-  MockFlushPayload _flushPayload({bool? pausedAtLastFlush}) {
+  MockFlushPayload _flushPayload({
+    bool? pausedAtLastFlush,
+    bool? betweenParts,
+  }) {
     final controller = _controller!;
+    if (controller.state is MockSessionBetweenParts) _accruePausedTime();
     final snapshot = _sessionSnapshot(controller);
     return MockFlushPayload(
       attemptId: snapshot.attemptId,
@@ -518,16 +532,19 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       currentPartIndex: controller.currentPartIndex,
       partStartedAtSeconds: controller.partStartedAtSeconds,
       strictBackgroundedAt: _strictBackgroundedAt,
+      betweenParts: betweenParts ?? controller.state is MockSessionBetweenParts,
+      endedEarly: (betweenParts ?? true) &&
+          controller.state is MockSessionBetweenParts &&
+          (controller.state as MockSessionBetweenParts).endedEarly,
     );
   }
 
   void _enqueueFlush(MockFlushPayload payload) {
     final attemptRepo = _attemptRepo;
-    if (attemptRepo == null) {
-      _lastFlushError = StateError('Mock progress store is unavailable');
-      return;
-    }
-    _flushChain = _flushChain.then((_) async {
+    final write = _flushChain.then((_) async {
+      if (attemptRepo == null) {
+        throw StateError('Mock progress store is unavailable');
+      }
       await attemptRepo.flushProgress(
         attemptId: payload.attemptId,
         elapsedSeconds: payload.elapsedSeconds,
@@ -543,13 +560,15 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
               _controller!.parts.any((part) => part.minutes != null),
           parts: _persistedParts(_controller!.parts),
           strictBackgroundedAt: payload.strictBackgroundedAt,
+          betweenParts: payload.betweenParts,
+          endedEarly: payload.endedEarly,
         ),
         currentIndex: payload.currentIndex,
         flushedAt: DateTime.now(),
       );
-      _lastFlushError = null;
-    }).catchError((Object error, StackTrace stackTrace) {
-      _lastFlushError = error;
+    });
+    _lastEnqueuedFlush = write;
+    _flushChain = write.catchError((Object error, StackTrace stackTrace) {
       if (mounted) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
           const SnackBar(content: Text('Could not save your mock progress.')),
@@ -558,14 +577,23 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     });
   }
 
-  Future<void> _forceFlush({bool? pausedAtLastFlush}) async {
+  Future<void> _forceFlush({
+    bool? pausedAtLastFlush,
+    bool? betweenParts,
+    bool startingNextPart = false,
+  }) async {
+    // A lifecycle checkpoint must observe the acknowledged Start outcome,
+    // rather than queue a stale gate snapshot behind that write.
+    if (!startingNextPart) await _partStartFinished?.future;
     if (_controller == null || _persistenceScheduler == null) return;
     _persistenceScheduler!.forceFlush(
-      _flushPayload(pausedAtLastFlush: pausedAtLastFlush),
+      _flushPayload(
+        pausedAtLastFlush: pausedAtLastFlush,
+        betweenParts: betweenParts,
+      ),
     );
-    await _flushChain;
-    final error = _lastFlushError;
-    if (error != null) throw StateError('Could not save mock progress: $error');
+    // This write's own acknowledgement cannot be replaced by a later success.
+    await _lastEnqueuedFlush;
   }
 
   Future<void> _bestEffortForceFlush({bool? pausedAtLastFlush}) async {
@@ -596,6 +624,51 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
   }
 
+  void _partClosed() {
+    _stopwatch?.stop();
+    _pausedAt = DateTime.now();
+    unawaited(_bestEffortForceFlush());
+  }
+
+  Future<void> _startNextPart() async {
+    final controller = _controller;
+    if (controller == null ||
+        controller.state is! MockSessionBetweenParts ||
+        _startingNextPart ||
+        _submitting) {
+      return;
+    }
+    _startingNextPart = true;
+    final finished = Completer<void>();
+    _partStartFinished = finished;
+    _accruePausedTime();
+    try {
+      // Save Start after the gate write, before accepting any new progress.
+      await _forceFlush(
+        betweenParts: false,
+        pausedAtLastFlush: false,
+        startingNextPart: true,
+      );
+      if (!mounted ||
+          _submitting ||
+          controller.state is! MockSessionBetweenParts) {
+        return;
+      }
+      setState(controller.startNextPart);
+      _elapsedBaseSeconds = _sessionSnapshot(controller).elapsedSeconds;
+      _stopwatch
+        ?..reset()
+        ..start();
+      _pausedAt = null;
+    } catch (_) {
+      // The saved transition remains authoritative. Start can be retried.
+    } finally {
+      _startingNextPart = false;
+      _partStartFinished = null;
+      finished.complete();
+    }
+  }
+
   void _markChanged() {
     _persistenceScheduler?.markChanged(_flushPayload());
   }
@@ -605,8 +678,10 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     if (pausedAt == null) return;
     final now = DateTime.now();
     final elapsed = now.difference(pausedAt).inSeconds;
-    if (elapsed > 0) _accumulatedPausedSeconds += elapsed;
-    _pausedAt = now;
+    if (elapsed > 0) {
+      _accumulatedPausedSeconds += elapsed;
+      _pausedAt = pausedAt.add(Duration(seconds: elapsed));
+    }
   }
 
   @override
@@ -647,6 +722,22 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
 
     final state = controller.state;
+
+    if (state is MockSessionBetweenParts) {
+      final closed = controller.parts[controller.currentPartIndex - 1];
+      final closedIds =
+          state.snapshot.questionIds.skip(closed.startIndex).take(closed.count);
+      return PartTransitionPage(
+        partNames: [for (final part in controller.parts) part.name],
+        nextPartIndex: controller.currentPartIndex,
+        answeredQuestions: [
+          for (final id in closedIds)
+            (state.snapshot.answers[id]?.selectedIndex ?? -1) >= 0,
+        ],
+        endedEarly: state.endedEarly,
+        onStartNext: _startNextPart,
+      );
+    }
 
     if (state is MockSessionPaused) {
       return PausePage(
@@ -709,7 +800,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       },
       onEndPartEarly: () {
         setState(controller.endPartEarly);
-        _markChanged();
+        if (controller.state is MockSessionBetweenParts) _partClosed();
       },
       currentPartNumber: controller.currentPartIndex + 1,
       onLeave: () async {

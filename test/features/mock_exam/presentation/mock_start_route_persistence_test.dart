@@ -7,7 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
@@ -138,21 +139,24 @@ void main() {
 
     expect(find.text('2 of 2'), findsOneWidget);
     expect(
-      tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
-      'q2',
+      tester.widget<QuestionCard>(find.byType(QuestionCard)).stem,
+      'Question q2?',
     );
     await tester.tap(find.byKey(const ValueKey('mock-prev')));
     await tester.pumpAndSettle();
     await _startPreparedPaperIfPresent(tester);
     final firstQuestion =
         tester.widget<QuestionCard>(find.byType(QuestionCard));
-    expect(firstQuestion.question.id, 'q1');
-    expect(firstQuestion.chosenChoiceId, 'q1_a');
+    expect(firstQuestion.stem, 'Question q1?');
+    expect(
+      tester.widget<ChoiceRow>(find.byType(ChoiceRow).first).state,
+      ChoiceRowState.picked,
+    );
     expect(find.text('29:15'), findsOneWidget);
     expect(await db.select(db.mockAttempts).get(), hasLength(1));
   });
 
-  testWidgets('timed part expiry is debounced into the saved snapshot',
+  testWidgets('timed part expiry persists a stopped transition',
       (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -238,8 +242,8 @@ void main() {
     await tester.pumpAndSettle();
     await _startPreparedPaperIfPresent(tester);
     expect(
-      tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
-      'q1',
+      tester.widget<QuestionCard>(find.byType(QuestionCard)).stem,
+      'Question q1?',
     );
 
     await tester.runAsync(
@@ -249,10 +253,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 600));
     await tester.pump();
 
-    expect(
-      tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
-      'q2',
-    );
+    expect(find.byType(PartTransitionPage), findsOneWidget);
+    expect(find.text('Question q2?'), findsNothing);
     final attempt = await repo.findById('mock_sectional');
     final restored = codec.decode(
       sampledQuestionsJson: attempt!.sampledQuestionsJson,
@@ -260,6 +262,7 @@ void main() {
       flagsJson: attempt.flagsJson,
     );
     expect(restored.currentPartIndex, 1);
+    expect(restored.betweenParts, isTrue);
     expect(restored.partStartedAtSeconds, 60);
     expect(attempt.currentIndex, 1);
   });

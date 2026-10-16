@@ -369,3 +369,92 @@ Board outlines/timelines for all 24 assigned Task 4–6 boards were generated di
 main checkout into ignored `build/w4e/tasks4-6/`. They support continuation; no captured app
 screenshots or autonomous visual review occurred. This checkpoint is a capacity hold, not a
 product/behavior ruling and not task completion.
+
+## Task 4 coherent runtime and transition checkpoint, October 16
+
+Status: bounded runtime/transition implementation verified and saved for independent lead review.
+This supplies the missing runtime consumer for `4509861f` and resolves the previously recorded
+BetweenParts loading/stale-snapshot integration finding. It does not complete Task 4. The lead
+requested a checkpoint before new phone-bar/grid/question-motion work. Tasks 5 and 6 remain open.
+
+Fresh reconciliation: policy/main `03242b61863427ab3390b7717d5917ed9003ca3b`, local
+`b6ba49d3a47f270d7b89d379fa362b22fb0fe318`, remote `40600f16420c4f0b80bfc2e17054da670986a915`,
+ahead 2/behind 0, clean. Current policy files were retrieved; their blobs match the already-read
+policy. Current L3 clarification, decision log and prior checkpoint evidence were reread.
+
+Runtime now restores and displays the saved transition, stops the next-part stopwatch, includes
+the actual waiting snapshot in every progress write and persists an elapsed/early ending
+immediately. Explicit Start persists its new authoritative state before accepting new answers;
+only its own successful write acknowledgement starts the next clock. Retry remains at the gate
+when that write fails. A queued lifecycle checkpoint waits for the Start outcome before taking
+its snapshot, so it cannot restore a stale gate behind acknowledged Start. Flush failures belong
+to each write future instead of a shared error slot that a later success can clear.
+
+Between-parts checkpoints accrue all intervening wall time before saving. Fractional seconds
+remain in the local pause timestamp instead of being lost on repeated checkpoints. Real saved
+answers, flags, current position, strict background timestamp and strict-versus-expiry precedence
+are retained. The ordinary running paper is usable after explicit Start. No schema or sync change.
+
+PartTransitionPage now shows actual answered/blank positions without flags, the real part list,
+Time is up versus Part N ended, and the approved Start action/clock line. Dots enter at 200ms,
+12ms apart for 200ms; the closing-node pop runs 1400–1780ms; the arrow moves 1600–2050ms with
+the specified curves and overlaps. Reduced motion shows the last frame. Tests cover both themes,
+320x640 at 200% text, the final arrow position and those timing boundaries. Ahem's larger test
+text exposed a legend overflow; flexible text fixes it without changing the ordinary layout.
+A floating-point boundary in the arrow interval was also fixed at the exact timeline endpoints.
+Visual acceptance remains Aedwon's.
+
+Actual verification and limits:
+
+- Runtime RED: `t4-runtime-red-valid.log`, exit 1, five missing transition/Start cases; the strict
+  saved-forfeit regression already passed. The earlier import-error run is not valid RED evidence.
+- UI RED: `t4-transition-ui-red.log`, absent transition presentation contract, exit 1.
+- Interleaving RED: `t4-runtime-interleaving-red.log`, exit 1, missing waiting-time accrual and
+  lifecycle/Start handling. The lifecycle fixture was corrected to inspect the saved gate before
+  resuming to inspect UI, because a background app does not render the new paper.
+- Confirmed regression RED: `t4-lifecycle-gate-regression-red-valid.log`, exit 1, expected saved
+  betweenParts false but actual true with only the serialized lifecycle checkpoint guard removed.
+  The exact guard was restored in a finally block. The preceding compile-error attempt is not RED evidence.
+- Final runtime-focused run: `t4-runtime-interleaving-green-2.log`, exit 0, 11 tests passed before
+  the additional disposal characterization. Transition UI final: `t4-transition-ui-final.log`,
+  exit 0, `00:00 +5: All tests passed!`.
+- Disposal characterization passed without a production guard change; it is a passing boundary
+  check, not a reproduced defect or a claim that a disposal defect was fixed. Actual output copied
+  to `t4-dispose-start-characterization-green.log`. The lead explicitly directed no defensive
+  guard without reproduction.
+- First combined task run: 413 passes, one affected old UPCAT end-to-end test still navigated
+  immediately after part timeout. It now asserts the stopped state and explicitly starts the
+  next part before checking that closed questions remain inaccessible. No unrelated test failed.
+- Final `flutter test --no-pub --reporter expanded test/features/mock_exam test/app`: exit 0,
+  `00:22 +415: All tests passed!`; `build/w4e/tasks4-6/t4-runtime-checkpoint-tests.log`.
+- Final scoped analyzer: six changed Dart paths, exit 0, no issues;
+  `build/w4e/tasks4-6/t4-runtime-checkpoint-analyze-final.log`.
+- Owned format: exit 0, `Formatted 6 files (0 changed) in 0.02 seconds.`
+- Layering: exit 0, `check_layering: OK`. Attribution: exit 0, `check_no_ai_attribution: OK`.
+  `git diff --check`: exit 0, no output. Full project suite and broad analysis are not claimed here.
+
+Manifest:
+
+- `lib/features/mock_exam/presentation/pages/mock_start_route.dart`
+- `lib/features/mock_exam/presentation/part_transition_page.dart`
+- `test/features/mock_exam/presentation/between_parts_route_test.dart`
+- `test/features/mock_exam/presentation/mock_start_route_persistence_test.dart`
+- `test/features/mock_exam/presentation/part_transition_page_test.dart`
+- `test/features/mock_exam/upcat_end_to_end_test.dart`
+- This evidence.
+
+Sorted path + NUL + bytes identity for the six Dart paths:
+`f7956a5bfb8c3536280a52808f7904de165e1a7686c6e7e5ad301f2d7ed9abe1`.
+Task 3 preparation/explicit-start method range remains byte-identical to `ac712f6f`:
+SHA-256 `542268223c453c1e858144c5e9c6e20168835c5dbdb4f49ac1e0e7dd49546486` on both
+saved and current source. Only existing runtime assertions changed in its persistence test.
+Other Task 3 setup/content paths remain untouched. Content inputs remain the prior checkpoint identities.
+
+Still pending before Task 4 completion: real Geist 320/390 phone-bar geometry and reachable-content
+checks, figure/passage/error-retry coverage, shared grid integration and section-local numbering,
+non-strict one-block Submit wiring without bypassing strict no-early-ending, declared exit route,
+and the exact overlapping paper/question/counter motion. Task 5 pause/hourglass/preferences,
+discard/recovery and 10-second strict grace are not implemented by this slice. Task 6 finale/results
+and the required exact percentage-gauge interface proposal are not started. No shared gauge edit,
+Task 7+, push, merge, main application update, screenshot capture, phone check, publication or cleanup.
+The lead owns review, working-branch upload and any acceptance decision.
