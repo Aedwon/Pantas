@@ -2013,3 +2013,14 @@ failed committed handoff can leave an inert preview and unhandled future. Root r
 throwing-guard regressions and existing failure/back handling, without token recreation or a
 new mechanism. This is a code correction to existing failure/cancellation requirements, not
 a spec change. Task6 independent acceptance/upload remains pending that fix and review.
+
+
+### October16: inspect bookmark action entry before closeout
+
+Root source review found that the sheet's busy wrapper has no provenance guard, its expiry
+helper does nothing without a completed Undo payload, and Remove awaits exam lookup before
+the repository captures a token. Existing held-Undo tests do not establish held-Remove safety.
+L3c requires actual pending Remove/sort/reorder/save-Retry boundary tests before Task8 closeout.
+This is recorded as an unverified risk requiring reproduction, not an established data-loss
+claim. Any actual failure returns a bounded existing-token/view-lifetime proposal before code.
+No new product, persistence schema, sync behavior or broad infrastructure is authorized.

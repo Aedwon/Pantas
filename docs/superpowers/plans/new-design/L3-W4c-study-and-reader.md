@@ -363,3 +363,22 @@ another owner or broadly rewrite bookmark behavior. A held-read then wipe/accoun
 regression must reject or roll back stale membership/order writes; ordinary same-boundary
 bookmark and actual ReaderBar state still work. Preview remains noninteractive and never
 invokes this action. This completes the existing actual-write boundary scope.
+
+
+### October16 Task8 closeout: held actions before boundary changes
+
+Before Task8 closeout, test the actual sheet's Remove operation held before its first mutation
+across real wipe, same-account reset, actor and exam changes, not only Undo held after a completed
+removal. Root inspected _save/_remove/_move/_expireUndo: _save only serializes busy state,
+_expireUndo returns when no completed removal exists, and removal obtains its transaction token
+after an asynchronous exam lookup. This is a concrete unverified entry-path risk, not a claim
+that the existing Undo transaction is broken. Include stale failed-save Retry and held sort/
+reorder preference writes in the affected lifetime review.
+
+If a meaningful test reproduces a stale write, return the narrow view/repository provenance
+proposal before edits. Reuse existing auth/exam and SyncActiveContextStore token/cancellation
+patterns. No new global owner, schema, sync/wiper change or speculative framework is authorized.
+A stale view must not initialize an absent token from mutation/retry, touch another boundary's
+membership/order, or retain an actionable old write retry. Ordinary same-boundary actions and
+the already approved initial legacy-guest behavior remain. Root records the concrete correction
+after reproduction, before its implementation. Other settled W4c tasks can continue.
