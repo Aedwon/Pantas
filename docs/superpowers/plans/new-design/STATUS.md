@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-16 17:57 Asia/Manila (continued after usage reset)
+Since: 2026-10-16 22:59 Asia/Manila (serial continuation, W4c first)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -540,3 +540,31 @@ E must complete route recovery/orderedStart/failure/strict-expiry/presentation a
 first. Task5/6 remain unstarted. Task3ac712f6f stays preserved. No family/Astra/integration,
 phone acceptance, deployment or publication occurred. These capacity interruptions are not
 a product pause or a completed task. Local Mac checks continue; no automation was created.
+
+
+### October16: finish one branch before another, W4c first
+
+Exact current user instruction: "continue, but finish one branch tasks first fully before another".
+This overrides the earlier parallel/two-lane scheduling. Finish W4c engineering tasks and required
+review/checks first; W4d and W4e stay held with their work intact until W4c is finished. No new
+complexity or execution approval is needed. This is scheduling, not permission to bypass audits,
+phone visual acceptance, the application-main freeze or deployment/publication boundaries.
+
+Fresh current-main policy600fe545e9230e5dc4e64b25c17d08f1617ec261 retrieved with full AGENTS
+and WORKFLOW. Live usage allows ordinary work at2%short/79%weekly. C local/remote7223e931
+match, with22 unfinished source/test paths. The preceding worker hit the hard usage limit
+after final drag-motion correction, before source save. Prior1089 affected passes and later
+374 affected passes are historical candidate evidence; final20pull run/output and exact
+source/gates must be recovered, not assumed. Same C worker resumes Task6 then7/8closeout/9
+and all family checks. Root owns independent personal review; required Astra audit runs alone.
+
+D local/remote5e89e4fa match, with two unchanged end-screen/test drafts. It remains held.
+E clean local/remotee3ba378551d6876763fac5c217f8b31453e91854 match. Root reviewed the
+coherent data/paper/runtime deltas through67c02af9, exact42/40/415actual pass summaries and
+clean scoped analysis/static outputs. All three committed source identities match evidence;
+Task3 preparation range remains exactly542268223c453c1e858144c5e9c6e20168835c5dbdb4f49ac1e0e7dd49546486.
+The acknowledged-Start/lifecycle ordering and per-write error correction resolve the earlier
+Important consumer defect, so normal guarded working upload through evidence-onlye3ba3785
+was completed and the full remote SHA verified. E Task4 remains partial, Task5/6 unstarted,
+with current-last-part versus strict-grace recovery risk recorded for Task5. No whole-family,
+Astra/integration, phone acceptance or publication is claimed. No new automation exists.

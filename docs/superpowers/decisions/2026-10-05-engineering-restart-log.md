@@ -1984,3 +1984,21 @@ the new write guard. Root had opened that helper during the reader review. L3c p
 same retained-token/current-owner transaction around its existing membership/order writes,
 with repositories captured before awaits, disposal safety and actual held-read boundary tests.
 No new lifecycle, bookmark data format, sync shape or student-facing behavior is introduced.
+
+
+### October16: serialize whole-branch completion
+
+Exact current user instruction: "continue, but finish one branch tasks first fully before another".
+The lead chooses W4c first because its reader implementation is closest to a verified source
+save. Finish its remaining Tasks6/7/8closeout/9 and required engineering review/checks before
+resuming D or E. The previous parallel arrangement is superseded for this continuation.
+Existing D/E source and approved remaining scope remain preserved, not canceled. Same C
+implementor resumes; no duplicate worker or new workstream is dispatched. Independent review,
+serialized Astra, integration permissions, application-main freeze and phone acceptance stay
+binding. No new scope, complexity, visual or publication decision follows.
+
+Before this resumption, root completed E checkpoint review and upload through e3ba3785,
+including actual415 mock/app passes, matching source identities and unchanged Task3 prep.
+C had hit the hard usage limit before saving its large Task6 source; latest tests/gates must
+be recovered from actual logs and refreshed where source changed. D/E remain held while C
+finishes, rather than dividing the next usage window across three unfinished branches.

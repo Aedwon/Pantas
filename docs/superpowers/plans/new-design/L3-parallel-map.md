@@ -121,3 +121,15 @@ under this limit.
 | `tools/release/android/release.sh` | W5 Task 1b only |
 | `functions/src/syncGenerationPolicy.ts`, `activateSyncGeneration.ts` | W6 Task 3, then W3 Task 2 |
 | `android/app/src/main/kotlin/com/aedwon/pantas/MainActivity.kt` | W3 Task 11 only |
+
+
+## Current serial continuation override, October16
+
+Aedwon: "continue, but finish one branch tasks first fully before another".
+For the current continuation, finish W4c's remaining engineering tasks and required review/
+checks before resuming W4d or W4e Tasks4–6. Only that branch's implementor runs. Existing
+other-branch checkpoints/drafts remain intact and queued, with their scope unchanged.
+Independent review and the required Astra family audit still apply; Astra runs alone after
+implementation. The earlier multi-slot map remains dependency history, not permission to
+resume another branch before this serial completion. No audit, visual acceptance, integration,
+main-freeze or publication gate is waived by this execution-order instruction.
