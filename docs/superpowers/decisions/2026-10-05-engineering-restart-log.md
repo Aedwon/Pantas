@@ -1888,3 +1888,16 @@ uses that committed source base; there are no setup draft hunks to exclude from 
 No Task3 authorship, independent acceptance, cross-family merge, source reset or release claim
 follows. C/D heads remain c912fb21/10045dbd with their interrupted drafts, and the same three
 workers continue the original approved scope.
+
+
+### October16: reader initial capture belongs to the page lifetime
+
+C raised a cached-provider retry risk before integrating the reader. Root opened actual
+readerContextProvider/LessonPage and SyncActiveContextStore. Content invalidation can repeat
+a provider body, so absent-envelope initialization there would violate the existing prohibition
+on retry recreating an expired token. L3c records one page-owned initial capture before loading
+and read-only provenance capture in content providers. The surviving page retains the original
+token and rejects old/missing/different cached or warmed contexts; retry never recaptures.
+Tests include actual wipe/retry and fresh page reentry, plus current guards and cancellation.
+This chooses the narrow existing owner rather than adding a global mechanism or weakening the
+boundary contract. No new product, visual, schema or synchronization decision is introduced.

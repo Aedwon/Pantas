@@ -289,3 +289,30 @@ Delete replaced widgets and their tests (`learn_tab_home.dart` wrapper `LearnTab
 `dismiss_quiz_nudge.dart` has no caller, `bookplate.dart` after Task 6), stop importing retired
 components. All required checks; evidence `evidence/W4c.md`; independent review; Aedwon's visual
 check against the ST_*, RD_* and BM_* boards.
+
+
+## Lead Task6 capture-owner clarification, October16
+
+The lead opened the actual cached readerContextProvider family, LessonPage ownership/warming,
+and SyncActiveContextStore. Capturing/initializing inside the cached content provider would
+repeat on invalidate/retry after wipe. Initial absent-envelope initialization therefore belongs
+to one fresh reader-page lifetime, before enabling content loading, warming, marking or saves.
+Use the existing page and auth/exam lifetime signals, not a global owner or new lifecycle system.
+Cancel an in-flight initial capture transaction if that owner expires or its actor/exam changes.
+A surviving page never recaptures after token loss, retry or a stale completion. A genuinely new
+page may establish its own initial capture through the same absent-only transaction.
+
+The content provider may read/capture the already existing snapshot before its asynchronous
+content load, validate it afterward, and carry its provenance. It never creates an envelope.
+The page retains its original capture and rejects missing/different provenance from loaded or
+warmed contexts, including cached results. Retry reloads content under that same token; it cannot
+initialize or adopt a replacement token. After boundary expiry, drop stale retained content and
+preview, cancel committed motion and writes, and use the existing failure/back behavior.
+Mutation guards still run in the actual write transaction. Ordinary current-boundary behavior
+and the recognized-context preservation rule remain unchanged.
+
+Tests first: fresh page with missing guest envelope; provider retry/invalidation after real wipe
+without token recreation; cached/warmed old token rejection; actor/exam/cancel during initial
+capture; valid fresh-page entry after reset; ordinary same-token read/save/handoff. This is a
+technical owner correction required by the already approved no-recreation rule, not a larger
+refactor, new persistence format, new product behavior or visual departure.
