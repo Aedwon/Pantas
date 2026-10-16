@@ -430,3 +430,21 @@ wipe, cancellation during capture, and valid fresh post-reset entry; do not assu
 This is a narrowly authorized feature-owned approach to test, not proof of a finished fix or
 permission to change a global lifecycle, schema, sync protocol or wiper. If the existing seams
 cannot meet the recorded contract, report the precise remaining capability gap before such edits.
+
+
+### October17 early-anchor assertion clarification
+
+The lead read the draft that starts the existing context transaction before auth/exam waits.
+An anchor transaction completed while the view is current may leave its original envelope
+when the view later unmounts or identity loading fails. It contains no lesson activity; do
+not delete it or recapture from that expired view. The old assertion that every held-auth
+unmount must leave no envelope no longer describes this authorized ordering. Assert the
+stronger actual contract: retain an already completed original token without student writes;
+cancel and roll back a genuinely pending transaction; a real wipe removes the anchor and
+prevents old-view recreation; a genuinely new view may establish its own absent-only anchor.
+Preserve recognized envelopes. This is not a waiver of pending-capture cancellation.
+
+The lead also opened readOrder/readCustomOrder migration writes and their asynchronous provider
+callers. Inspect/test a held migration read across wipe/replacement before Task8 closes. If it
+reproduces prior preference persistence into the new boundary, report a narrow feature-owned
+proposal before changes. This is an investigation, not a confirmed defect or wider authorization.

@@ -2063,3 +2063,13 @@ This confirms the existing W4c-first order, with D/E preserved and held. The sam
 implementor resumes the current narrowly approved capture-order investigation and
 remaining C closeout. No new complexity or product decision is needed. The prior
 92pass/1fail draft is still unfinished; independent review and Astra precede integration.
+
+
+### October17: distinguish completed anchor from pending capture
+
+Root read the early-capture implementation and actual90pass/3fail output. The original real
+empty-wipe check now passes; three old tests still require no envelope during held-auth
+unmount/loading/error. Current L3 clarifies that a completed initial anchor may remain,
+unchanged and without lesson writes. Pending transaction cancellation, wipe expiry and new-view
+entry still need actual proof. No data correction is accepted yet. Root also identified
+read-time preference migration as another concrete async write entry for reproduction review.
