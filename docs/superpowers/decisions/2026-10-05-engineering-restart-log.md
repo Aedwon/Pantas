@@ -1872,3 +1872,19 @@ ownership preserves all Task3 additions; Task3 hunks stay uncommitted, and the e
 committed Task4/5 candidate must be verified separately without them. The other fourteen Task3
 paths remain byte-for-byte intact. If separation fails, dependent wiring remains pending while
 independent Tasks4–6 proceed. No broader Task3 authorship or acceptance is inferred.
+
+
+### October16,12:52 Asia/Manila: same workers resume after usage reset
+
+Exact user instruction: "continue". Current main ae5c0942 policy refreshed; live ordinary usage
+is allowed at0% short-window/47% weekly. Three original implementors errored at the prior usage
+limit; no implementation commit from them was completed. Their dirty drafts remain preserved.
+The saved gauge/grid/dialog rulings reached main before interruption, but not those agents;
+resumption explicitly delivers those rulings before affected shared edits.
+
+E's separately owned Task3 author committed/uploaded ac712f6f(parent5e6cda45) during the stop.
+The lead inspected commit scope/evidence and reconciled matching local/remote refs. E4–6 now
+uses that committed source base; there are no setup draft hunks to exclude from new commits.
+No Task3 authorship, independent acceptance, cross-family merge, source reset or release claim
+follows. C/D heads remain c912fb21/10045dbd with their interrupted drafts, and the same three
+workers continue the original approved scope.

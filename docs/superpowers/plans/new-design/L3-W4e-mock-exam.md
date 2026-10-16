@@ -135,3 +135,13 @@ W4d currently owns an additive quiz-count HalfRingGauge extension in its separat
 W4e must use existing percentage/overlay contracts while it inspects its finale, and report
 any concrete additional gap before editing that shared file. No concurrent shared-gauge edits
 or approximate animation substitution is authorized.
+
+
+### October16 saved Task3 base update
+
+The separate Task3 author committed and uploaded ac712f6fd18042cf37f4a3f17a68386e026af207
+(parent5e6cda45) during the usage stop. Fresh fetch confirms local/remote matching; Task3 paths
+are clean. Tasks4–6 use this committed source base and preserve its preparation/explicit-start
+behavior. The prior dirty Task3-hunk exclusion/isolated-index requirement is now inapplicable.
+Normal Task4/5 runtime edits may commit on this base. This source-availability update does not
+claim independent acceptance or authorize reworking Task3, its setup, blueprints or content.

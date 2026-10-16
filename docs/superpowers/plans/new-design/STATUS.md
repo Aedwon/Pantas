@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-16 03:34 Asia/Manila (explicit continuation; previous lock stale)
+Since: 2026-10-16 12:52 Asia/Manila (continued after usage reset)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -449,3 +449,27 @@ explicit local-test preference and the recorded fallback. No hosted Actions/rela
 browser/desktop control, app screenshots, integration, deployment or publication is authorized
 by this continuation. Family/Astra and phone acceptance remain separate. Documentation-only
 main updates retain [skip ci]. No new implementation or verification outcome is claimed yet.
+
+
+### October16,12:52 Asia/Manila: continue after interrupted usage window
+
+Exact user instruction: "continue". Current main policy ae5c09421084c01d854e78150ea2e481afe7e0b2
+was retrieved again, including full AGENTS/WORKFLOW. Live limits show ordinary usage allowed,
+0% short-window and47% weekly used. All three original agents failed at the earlier usage limit;
+none completed a source commit in that window. The same agents resume, without duplicates.
+
+Fresh fetch: C local/remote c912fb21, fourteen source/test drafts preserved, including the newly
+started boundary repository/provider tests. D local/remote10045dbd, no production modifications,
+Task5 screen/test and diagnostic board/RED outputs remain untracked. E changed externally while
+this run was stopped: separately owned Task3 was committed/uploaded as ac712f6fd18042cf37f4a3f17a68386e026af207,
+parent5e6cda45. Its16-file scope is Task3 setup/blueprints plus evidence. Both local and remote
+now match ac712f6f; only the existing new Task4 paper test remains untracked. No divergent history
+or reset occurred. This records source availability, not independent acceptance of Task3.
+
+E resumes Tasks4–6 from saved ac712f6f and preserves its setup. The earlier dirty-hunk isolation
+requirement is no longer needed because Task3 now exists in the committed base. Its product
+scope remains separately owned. New Task4/5 running-session changes can commit normally on
+that base. D reads the saved quiz-count gauge ruling; E reads the saved grid-footer/accent-inline
+dialog rulings before affected shared edits. Existing default-preservation tests remain required.
+Local development checks, lead independent reviews and normal verified working uploads continue;
+Astra/integration/phone acceptance/deployment/publication remain separate.
