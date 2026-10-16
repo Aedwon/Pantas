@@ -58,8 +58,25 @@ class ReaderBar extends StatelessWidget {
     required this.scrollOffset,
     this.dayContext,
     this.lessonId,
+    this.advanceProgress = const AlwaysStoppedAnimation(0),
     super.key,
-  });
+  })  : ending = false,
+        onBack = null;
+
+  const ReaderBar.ending({required this.origin, this.onBack, super.key})
+      : title = '',
+        lessonId = null,
+        dayContext = null,
+        isBookmarked = false,
+        onBookmark = _ignore,
+        onContents = _ignore,
+        scrollOffset = const AlwaysStoppedAnimation(0),
+        advanceProgress = const AlwaysStoppedAnimation(0),
+        ending = true;
+
+  static void _ignore() {}
+  final bool ending;
+  final VoidCallback? onBack;
 
   final String title;
   final String? lessonId;
@@ -73,6 +90,7 @@ class ReaderBar extends StatelessWidget {
   /// reader that changes with scroll position, so it is the only thing that
   /// should rebuild when it changes.
   final ValueListenable<double> scrollOffset;
+  final ValueListenable<double> advanceProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +101,7 @@ class ReaderBar extends StatelessWidget {
         day == null ? null : '${day.index + 1} of ${day.lessonIds.length}';
 
     return ColoredBox(
-      color: colors.surface,
+      color: ending ? colors.background : colors.surface,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -98,10 +116,10 @@ class ReaderBar extends StatelessWidget {
                       child: Semantics(
                         button: true,
                         label: 'Back to $originWord',
-                        onTap: () => origin.leave(context),
+                        onTap: onBack ?? () => origin.leave(context),
                         child: ExcludeSemantics(
                           child: GestureDetector(
-                            onTap: () => origin.leave(context),
+                            onTap: onBack ?? () => origin.leave(context),
                             behavior: HitTestBehavior.opaque,
                             child: ConstrainedBox(
                               constraints: const BoxConstraints(
@@ -135,111 +153,119 @@ class ReaderBar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Semantics(
-                      button: true,
-                      label: 'Contents',
-                      value: dayLabel,
-                      onTap: onContents,
-                      child: ExcludeSemantics(
-                        child: GestureDetector(
-                          onTap: onContents,
-                          behavior: HitTestBehavior.opaque,
-                          child: dayLabel == null
-                              ? SizedBox.square(
-                                  dimension: 44,
-                                  child: Center(
-                                    child: ContentsGlyph(
-                                      size: 23,
-                                      strokeWidth: 1.8,
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.dark
-                                          ? colors.controlOutline
-                                          : const Color(0xFF8E8E93),
+                    if (!ending)
+                      Semantics(
+                        button: true,
+                        label: 'Contents',
+                        value: dayLabel,
+                        onTap: onContents,
+                        child: ExcludeSemantics(
+                          child: GestureDetector(
+                            onTap: onContents,
+                            behavior: HitTestBehavior.opaque,
+                            child: dayLabel == null
+                                ? SizedBox.square(
+                                    dimension: 44,
+                                    child: Center(
+                                      child: ContentsGlyph(
+                                        size: 23,
+                                        strokeWidth: 1.8,
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? colors.controlOutline
+                                            : const Color(0xFF8E8E93),
+                                      ),
+                                    ),
+                                  )
+                                : ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      minHeight: 44,
+                                      minWidth: 44,
+                                      maxWidth: (constraints.maxWidth - 88)
+                                          .clamp(44.0, double.infinity),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                      ),
+                                      child: Text(
+                                        dayLabel,
+                                        style: context.type.subhead
+                                            .copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color: colors.secondaryLabel,
+                                            )
+                                            .tabular,
+                                      ),
                                     ),
                                   ),
-                                )
-                              : ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                    minHeight: 44,
-                                    minWidth: 44,
-                                    maxWidth: (constraints.maxWidth - 88)
-                                        .clamp(44.0, double.infinity),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                    ),
-                                    child: Text(
-                                      dayLabel,
-                                      style: context.type.subhead
-                                          .copyWith(
-                                            fontWeight: FontWeight.w500,
-                                            color: colors.secondaryLabel,
-                                          )
-                                          .tabular,
-                                    ),
-                                  ),
-                                ),
-                        ),
-                      ),
-                    ),
-                    Semantics(
-                      button: true,
-                      label: isBookmarked
-                          ? 'Remove lesson bookmark'
-                          : 'Bookmark lesson',
-                      onTap: onBookmark,
-                      child: ExcludeSemantics(
-                        child: SizedBox.square(
-                          key: const ValueKey('reader-bookmark-control'),
-                          dimension: 44,
-                          child: _ReaderBookmarkControl(
-                            key: ValueKey(lessonId ?? title),
-                            isBookmarked: isBookmarked,
-                            onTap: onBookmark,
                           ),
                         ),
                       ),
-                    ),
+                    if (!ending)
+                      Semantics(
+                        button: true,
+                        label: isBookmarked
+                            ? 'Remove lesson bookmark'
+                            : 'Bookmark lesson',
+                        onTap: onBookmark,
+                        child: ExcludeSemantics(
+                          child: SizedBox.square(
+                            key: const ValueKey('reader-bookmark-control'),
+                            dimension: 44,
+                            child: _ReaderBookmarkControl(
+                              key: ValueKey(lessonId ?? title),
+                              isBookmarked: isBookmarked,
+                              onTap: onBookmark,
+                            ),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),
             ),
           ),
-          ValueListenableBuilder<double>(
-            valueListenable: scrollOffset,
-            builder: (context, offset, _) {
-              final fraction = (offset / 90.0).clamp(0.0, 1.0);
-              final lineHeight = MediaQuery.textScalerOf(context).scale(
-                    context.type.footnote.fontSize!,
-                  ) *
-                  context.type.footnote.height!;
-              final stripHeight =
-                  fraction * (lineHeight > 30 ? lineHeight : 30);
-              return SizedBox(
-                key: const ValueKey('reader-title-strip'),
-                height: stripHeight,
-                child: stripHeight > 0
-                    ? Opacity(
-                        opacity: fraction,
-                        child: Container(
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.symmetric(horizontal: 60),
-                          child: Text(
-                            title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: context.type.footnote.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: colors.label,
+          if (!ending)
+            AnimatedBuilder(
+              animation: Listenable.merge([scrollOffset, advanceProgress]),
+              builder: (context, _) {
+                final offset = scrollOffset.value;
+                final raw = advanceProgress.value.clamp(0.0, 1.0);
+                final motion = PantasCurves.slideA.transform(raw);
+                final fraction = (offset / 90.0).clamp(0.0, 1.0);
+                final lineHeight = MediaQuery.textScalerOf(context).scale(
+                      context.type.footnote.fontSize!,
+                    ) *
+                    context.type.footnote.height!;
+                final stripHeight = fraction *
+                    (lineHeight > 30 ? lineHeight : 30) *
+                    (1 - motion);
+                return SizedBox(
+                  key: const ValueKey('reader-title-strip'),
+                  height: stripHeight,
+                  child: stripHeight > 0
+                      ? Opacity(
+                          opacity: fraction *
+                              (1 - (raw * 480 / 150).clamp(0.0, 1.0)),
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(horizontal: 60),
+                            child: Text(
+                              title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.type.footnote.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: colors.label,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    : const SizedBox.shrink(),
-              );
-            },
-          ),
+                        )
+                      : const SizedBox.shrink(),
+                );
+              },
+            ),
         ],
       ),
     );

@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/ui/components/back_chevron.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/ink_table_row.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
-import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
-import 'package:pantas/features/lesson/presentation/widgets/bookplate.dart';
-import 'package:pantas/features/lesson/presentation/widgets/next_topic_block.dart';
+import 'package:pantas/features/lesson/presentation/lesson_page.dart';
+import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
 
 class TopicEndingPage extends ConsumerWidget {
@@ -67,8 +63,6 @@ class TopicEndingPage extends ConsumerWidget {
           }
 
           StudyTopic? topic;
-          StudySubject? subject;
-          StudyTopic? nextTopic;
 
           for (var sIdx = 0; sIdx < map.subjects.length; sIdx++) {
             final s = map.subjects[sIdx];
@@ -76,20 +70,13 @@ class TopicEndingPage extends ConsumerWidget {
               final t = s.topics[tIdx];
               if (t.id == topicId) {
                 topic = t;
-                subject = s;
-                if (tIdx + 1 < s.topics.length) {
-                  nextTopic = s.topics[tIdx + 1];
-                } else if (sIdx + 1 < map.subjects.length &&
-                    map.subjects[sIdx + 1].topics.isNotEmpty) {
-                  nextTopic = map.subjects[sIdx + 1].topics.first;
-                }
                 break;
               }
             }
             if (topic != null) break;
           }
 
-          if (topic == null || subject == null) {
+          if (topic == null) {
             return SafeArea(
               child: Center(
                 child: Text(
@@ -100,19 +87,16 @@ class TopicEndingPage extends ConsumerWidget {
             );
           }
 
-          final user = ref.watch(currentUserProvider).valueOrNull;
-          final studentName = user?.displayName;
-
-          final computedEnding = decideEnding(
-            topic: topic,
-            subject: subject,
-            examShortName: map.examShortName,
-            studentName: studentName,
-            today: DateTime.now(),
-            nextTopic: nextTopic,
+          if (topic.lessons.isEmpty) {
+            return const SafeArea(
+              child: Center(child: Text('Topic not found.')),
+            );
+          }
+          return LessonPage(
+            key: ValueKey('topic-ending-${topic.id}'),
+            lessonId: topic.lessons.last.id,
+            initialEnding: true,
           );
-
-          return _TopicEndingView(ending: computedEnding);
         },
       ),
     );
@@ -121,151 +105,26 @@ class TopicEndingPage extends ConsumerWidget {
 
 class _TopicEndingView extends StatelessWidget {
   const _TopicEndingView({required this.ending});
-
   final LessonEnding ending;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final textStyles = context.textStyles;
-
+    final day = ending is DayFinished;
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: context.colors.background,
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 48,
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              alignment: Alignment.centerLeft,
-              child: IconButton(
-                icon: const BackChevron(),
-                onPressed: () {
-                  if (context.canPop()) {
-                    context.pop();
-                  } else {
-                    context.go('/study');
-                  }
-                },
-              ),
+            ReaderBar.ending(
+              origin: day ? ReaderOrigin.home : ReaderOrigin.study,
+              onBack: day ? () => context.go('/home') : null,
             ),
             const ReaderRail(progress: 1),
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-                child: switch (ending) {
-                  TopicFinished(
-                    :final studentName,
-                    :final topicName,
-                    :final examAndSubject,
-                    :final footing,
-                    :final dateLine,
-                    :final next,
-                    :final nextTopicMeta
-                  ) =>
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Bookplate(
-                          studentName: studentName,
-                          topicName: topicName,
-                          examAndSubject: examAndSubject,
-                          footing: footing,
-                          dateLine: dateLine,
-                        ),
-                        if (next != null && nextTopicMeta != null) ...[
-                          const SizedBox(height: 24),
-                          NextTopicBlock(
-                            topic: next,
-                            meta: nextTopicMeta,
-                            onTap: () =>
-                                context.go('/study?topicId=${next.id}'),
-                          ),
-                        ],
-                      ],
-                    ),
-                  TopicStoppedShort(
-                    :final studentName,
-                    :final topicName,
-                    :final examAndSubject,
-                    :final footing,
-                    :final dateLine,
-                    :final unread
-                  ) =>
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Bookplate(
-                          studentName: studentName,
-                          topicName: topicName,
-                          examAndSubject: examAndSubject,
-                          footing: footing,
-                          dateLine: dateLine,
-                        ),
-                        const SizedBox(height: 24),
-                        Text(
-                          'Still unread',
-                          style: textStyles.captionSmall.copyWith(
-                            color: colors.inkMuted,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        for (final lesson in unread)
-                          InkTableRow(
-                            title: lesson.title,
-                            meta: '${lesson.estimatedMinutes} min',
-                            chevron: InkRowChevron.link,
-                            onTap: () => context.go('/lesson/${lesson.id}'),
-                          ),
-                      ],
-                    ),
-                  DayFinished() => Column(
-                      children: [
-                        const SizedBox(height: 26),
-                        Text(
-                          "That's enough for today.",
-                          textAlign: TextAlign.center,
-                          style: textStyles.displaySmall.copyWith(
-                            letterSpacing: -0.2,
-                            color: colors.ink,
-                          ),
-                        ),
-                      ],
-                    ),
-                },
-              ),
-            ),
-            InkWell(
-              key: const ValueKey('ending-exit'),
-              onTap: () {
-                if (context.canPop()) {
-                  context.pop();
-                } else {
-                  context.go('/study');
-                }
-              },
-              child: Container(
-                width: double.infinity,
-                constraints: const BoxConstraints(minHeight: 48),
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: colors.ruleFaint,
-                      // ignore: avoid_redundant_argument_values
-                      width: AppDimensions.hairline,
-                    ),
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Back to Study',
-                  style: textStyles.labelLarge.copyWith(
-                    color: colors.board,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+              child: EndingContent(
+                ending: ending,
+                onLesson: (id) => context.push('/lesson/$id?from=study'),
+                onHome: () => context.go('/home'),
               ),
             ),
           ],

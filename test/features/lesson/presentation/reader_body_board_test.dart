@@ -4,9 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -24,8 +26,17 @@ void main() {
         addTearDown(contentDb.close);
         final prefs = AppPreferencesRepository(db);
         await prefs.setDeviceValue('lesson_text_scale', '1.25');
-        const reader = ReaderContext(
-          lesson: Lesson(
+        await seedContentExam(
+          contentDb,
+          examId: 'e',
+          code: 'CSE',
+          name: 'CSE',
+          shortName: 'CSE',
+        );
+        await SyncActiveContextStore(db).clearStable();
+        final token = (await SyncActiveContextStore(db).readSnapshot())!.token;
+        final reader = ReaderContext(
+          lesson: const Lesson(
             id: 'l',
             topicId: 't',
             title: 'Layers of the Earth and Composition',
@@ -56,7 +67,8 @@ void main() {
           topicLessons: [],
           isRead: false,
           isBookmarked: false,
-          examId: null,
+          examId: 'e',
+          boundary: ReaderBoundary(examId: 'e', token: token),
         );
         await pumpAccessibilitySurface(
           tester,

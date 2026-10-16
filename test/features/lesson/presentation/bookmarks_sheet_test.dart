@@ -108,7 +108,12 @@ void main() {
         .read(appPreferencesRepositoryProvider)
         .setSelectedExamId('e1');
     await container.read(bookmarkOrderProvider.notifier).choose(order);
-    if (preloadReader) await container.read(readerContextProvider('l1').future);
+    if (preloadReader) {
+      await container
+          .read(readerPositionRepositoryProvider)
+          .captureBoundary('e1', isCurrent: () => true);
+      await container.read(readerContextProvider('l1').future);
+    }
 
     var sheetOpen = false;
     await tester.pumpWidget(

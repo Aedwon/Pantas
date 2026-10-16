@@ -1549,3 +1549,130 @@ These identities describe preserved drafts, not verified source:
 
 Only this evidence checkpoint is staged/committed. No source draft is uploaded or integrated.
 Next run refreshes currentmain policy/L3 and actual repository identities before resuming.
+
+
+## Task6 reader chain verified engineering candidate, October16
+
+Resumed latest instruction: finish W4c branch before another workstream. Fetched currentmain
+600fe545e9230e5dc4e64b25c17d08f1617ec261 and assigned branch; local/remote7223e931 matched,
+22 owned source/test drafts preserved. AGENTS/WORKFLOW/SUBAGENTS and currentL3 policy blobs
+checked unchanged against the full reads above. Read current106892b2 page-capture owner,
+c9d1edff direct-ending adapter and600fe545 active-bookmark guard rulings before affected code.
+No relay/hostedCI/browser/desktop/screenshot work. No schema/corewiper/global lifecycle change.
+Native Flutter3.44.6/Dart3.12.2; exact output `w4c-task6-save-environment.log`.
+
+This completes the Task6 implementor code scope for independent review:
+- One fresh page establishes missing legacy guest capture before loads/warming/marking/saves.
+  The content provider reads an existing snapshot before its asynchronous work and validates
+  afterward; retry never initializes. Page retains originaltoken, rejects old cached/warmed
+  provenance, expires shown/preview state on actor/exam/token change and preserves recognized
+  stable/anonymous contexts. Actor/exam baselines survive loading/error gaps.
+- All active read/open, measured position and reader bookmark membership/order writes share
+  the existing guarded actual-write transaction. Bookmark repositories are captured before
+  awaits, with no late WidgetRef after owner expiry. A plate/preview never opens, reads or
+  saves its anchor. Normal boundary behavior and offset/fraction format remain unchanged.
+- Activation epochs are rechecked across actual boundary-guard awaits. Contents choices,
+  canceled pulls and ending callbacks cannot commit older destinations. Delayed resume validates
+  the original lesson/owner/token before applying an offset. Outgoing offset/fraction is saved
+  once when entering a plate; plate departure/disposal never replaces it with resetzero.
+- A single pure lesson layout serves active body and inert incoming preview. Only the active
+  owner supplies read/position controllers. Frozen actual destination moves simultaneously
+  over480ms slideA; stationary bar,150ms linear strip-title fade,480ms slideA strip/rail collapse,
+  real day counter/rail continuity, cancellation/unmount and reduced-motion behavior retained.
+- Real Home day order overrides topic order. Last day lesson explicitly enters DayFinished;
+  last topic lesson explicitly enters the actual finished/stopped-short plate; nonterminalplate
+  pulls into the actual first lesson of the next nonempty corpus topic. Terminalplate has no
+  onward action. Original origin/day/back stack stays intact. No illustrative figures copied.
+- The direct ending route resolves its real corpus-last context and reuses the same page owner
+  in initial-plate mode. Pure explicitly supplied ending fixtures remain shared-layout-only.
+  Direct entry, onward/terminal behavior and Study back are tested without anchor mutations.
+- Read line/neutral quiz button and nameless/date-helper plates replace the superseded
+  automatic-marking/material-duration copy. Unavailable next content retries under originaltoken;
+  expired owner uses existing failure/back without a dead retry. No additional product choice.
+
+Material RED/GREEN and review fixes:
+- Valid Contents activationrace: expectedl3, actuall2 with older guard completing last.
+  `w4c-review-races-red-2.log`1pass/1fail → `w4c-review-races-green.log`2pass.
+- Late resume race: expected0, actual240 on different lesson;
+  `w4c-resume-race-red.log`0/1 → `w4c-resume-race-green.log`1pass.
+- Owner expiry before unmount frame: stale controller markedread;
+  `w4c-marking-owner-red.log`0/1 → affected marking scope24pass in
+  `w4c-task6-affected-green-2.log` including the new guarded-owner check.
+- Real scroll recognizer originally rejected parent gesture while its empty cancellation spring
+  still reset incoming drag displacement. Actual scroll-surface regression RED→GREEN1 in
+  `w4c-real-scroll-red.log` / `w4c-real-scroll-green.log`. Revealing footer also changed measured
+  extent; `w4c-footer-extent-red.log`0/1 → fullpull19pass in `w4c-footer-extent-green.log`.
+  Footer now retains layout while invisible/noninteractive before actualend, so measured extent
+  stays stable. Tests check hit testing/semantics rather than equating hidden layout with a widget
+  absent from the tree.
+- Direct nonterminal route had no pull and plate departure overwrote2074.25offset with0.
+  `w4c-direct-plate-red.log`1pass/2fail → `w4c-direct-plate-green-2.log`3pass.
+- Held bookmark callback crossed actorchange and used disposed WidgetRef;
+  `w4c-bookmark-owner-red.log`0/1 → `w4c-bookmark-owner-green.log`1pass. Actual held-read then
+  wipe/account/exam/cancel cases each pass in `w4c-bookmark-all-boundaries-green.log`4pass.
+  Same-boundary actualmembership/ReaderBar toggles and next-load retry also pass finalscope.
+- Strip/rail/title motion was a snap: `w4c-chrome-motion-red.log`0/1 →
+  `w4c-chrome-motion-green.log`1pass. Strengthened same test confirms original outgoingoffset
+  remains unchanged while chrome collapses, and unmount does not open/save passive destination.
+- Lead identified physical drag displacement mismatch: both board bodies move a fullviewport
+  after release, even when outgoing already lifted. Outbound target now adds that shownlift.
+  Initial test incorrectly measured Transform's own layout origin, then expected centered incoming
+  text atglobaly0. Those fixture failures are not valid productREDs. Corrected test compares actual
+  child-body displacement from release, at midpoint and end. Old outbound formula gives validRED
+  `w4c-drag-delta-valid-red.log`0/1; final source fullpull20pass in
+  `w4c-drag-delta-green-2.log`. Tap starts with0lift and retains existing geometry.
+- Actor loading/error fixtures are behavioral regressions, not fabricated RED claims. Both
+  initial-await and surviving-reader errorgap checks pass; initial loadinggap also passes.
+  Existing Riverpod values can retain previous data during loading, so initial loadingfixture
+  passed before the explicit baseline strengthening. Its earlier passing state is disclosed.
+
+Affected fixtures now supply a real database/exam/captured boundary where pageownership requires
+it. The bookmarks refresh test explicitly establishes initialcapture before directly preloading
+content. Old tests now assert drawn nameless plates/shared rows/toolbar exits/Read line and absence
+of retired material duration instead of encoding superseded presentation. No unrelated test relaxed.
+
+Final actual verification on the saved source/test identities below:
+- `flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --timeout 30s`:
+  exit0, `00:39 +1094: All tests passed!`, `.dart_tool/w4c-task6-ready-family.log`.
+- `dart analyze lib test tool`:exit0, `No issues found!`, `w4c-task6-ready-analysis.log`.
+- `dart format --output=none --set-exit-if-changed lib test tool`:exit0,
+  `Formatted 1467 files (0 changed) in 1.94 seconds.`, `w4c-task6-ready-format.log`.
+- `dart run tool/check_layering.dart`:exit0, `check_layering: OK`,
+  `w4c-task6-save-layering.log`. No production inputs to this gate changed afterward.
+- `dart run tool/check_no_ai_attribution.dart`:exit0, `check_no_ai_attribution: OK`,
+  `w4c-task6-save-attribution.log`. No prohibited text/commit added.
+- `git diff --check`:exit0, empty output before save. Historical lint171/59/68/10/4/3 candidates
+  and partial test failures are preserved in prior logs; none is an accepted exception.
+
+Final patch against7223e931 including all22source/test paths:
+`.dart_tool/w4c-task6-ready-source.patch`, SHA256
+`a542e0b444e6182d79861a08760c942dda23a5b3a5f06029e95a8580e5a08812`.
+Exact identities:
+- `lib/features/lesson/application/reader_providers.dart`: `4b8b506f17f88fe7ddcf2e7f41288d301984a2173c1e4665a4276eff5a0a6993`
+- `lib/features/lesson/domain/use_cases/decide_ending.dart`: `9ac7dd29cfdd1037b186b36db9dba1d355219a51c9476b2fe61a8c2fa14c4d68`
+- `lib/features/lesson/presentation/lesson_page.dart`: `e60895c4db62bb61be3d3aec2f8364112e280b6b8343757d7355af7a302bb919`
+- `lib/features/lesson/presentation/pages/topic_ending_page.dart`: `83d9ce7a96a19ab29345e6252fd4f44ab90f26faf3ebd388708bc0ed2bc51e6b`
+- `lib/features/lesson/presentation/widgets/ending_content.dart`: `56ea3046e603eb77e295f250082be535c099023b549d82035ec70036e7155faa`
+- `lib/features/lesson/presentation/widgets/pull_to_advance.dart`: `5853102e284c77196a756b48ddcb34cd9ff197aa7e29c925cc38a776fef38d71`
+- `lib/features/lesson/presentation/widgets/reader_bar.dart`: `c68f64eb5c5555d671cc6f558718d8196210e65cf5a2b011f41a9901db3c486e`
+- `lib/features/lesson/presentation/widgets/reader_gap.dart`: `5cf3162a184706ffec557c420843c3f493039f8fd1600787d9eb9ffb714bf033`
+- `test/app/study_route_test.dart`: `6bf1ba37b64c0ae87a5a2709bbfd00afa74d5fa1c8561805cbbbfc6733144784`
+- `test/features/lesson/application/read_marking_test.dart`: `78d1fa1fb4c0b2b0c550ac57723ba8eea49de052c2cbe8509cd2e6a91a08b95a`
+- `test/features/lesson/application/reader_providers_test.dart`: `373dae062f84ac3389f449301f175ecd21ac828c6e4f571ea818fc705cddfb40`
+- `test/features/lesson/domain/decide_ending_test.dart`: `78213b7359ebf683887fe6f24642f0013d67356faea8b382f230739bd0349cf6`
+- `test/features/lesson/presentation/bookmarks_sheet_test.dart`: `ec97361effc7390ef90cbdaff8b3956430252c69e42e28e8b6fa6eee4bbdf695`
+- `test/features/lesson/presentation/ending_board_test.dart`: `7b362d9d178fa9de1a69ad236e40da502e1e1f94148008b6ecddbd888b3139a6`
+- `test/features/lesson/presentation/lesson_page_progress_test.dart`: `fb4ad26abe70bb7b2a2f412cbe767b3a8b82ccd547d9f74d52ad924c96528bae`
+- `test/features/lesson/presentation/lesson_page_test.dart`: `ebd0973057bcc1ca3ee464f24cc2fe6d8cec0ebef103e4e286aabdd71fc5a872`
+- `test/features/lesson/presentation/pull_to_advance_test.dart`: `63c20c20cc0ab0ab8197c59628c13b77e243a4de10df0a2aaf59b0fa45da23ea`
+- `test/features/lesson/presentation/reader_body_board_test.dart`: `ccd0906f21d558e40c8356a7cf6369d26b2b39eccb35f010f9427b06bcba5850`
+- `test/features/lesson/presentation/reader_boundary_test.dart`: `4542bf50829e484c8753dc040e071d4c64f879beea5e34158575ee35bb5c688c`
+- `test/features/lesson/presentation/reader_gap_test.dart`: `a3b1dcd4591a4fcbad88264cd0ea14b404eb6ef522f4377760b8b2300c68b368`
+- `test/features/lesson/presentation/reader_states_test.dart`: `f44ba69740268db25b555a52c730d29f28a02cbb4c04ada6fc9ea03e381955e7`
+- `test/features/lesson/presentation/topic_ending_page_test.dart`: `8a6b69031782c89e10b586f175fb070d1952694dc61b936190a3a15ae266e995`
+
+Task6 is saved for lead review, not independently accepted, integrated or phone-verified.
+Task7 wiring, Task8 explicit closeout and Task9 retirements/final whole-family/project checks
+remain in this same W4c branch. No worker push, merge, publication, deployment, cleanup or
+application-main update. Lead owns independent review/upload and serialized audit; Aedwon owns
+visual acceptance. No known Task6 product/contract decision remains open at this checkpoint.

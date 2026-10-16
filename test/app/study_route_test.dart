@@ -15,6 +15,7 @@ import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
+import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -275,7 +276,13 @@ void main() {
         tester.widget<PantasSheet>(find.byType(PantasSheet)).readerContents,
         isTrue,
       );
-      expect(find.text('Chemistry'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('lesson-contents')),
+          matching: find.text('Chemistry'),
+        ),
+        findsOneWidget,
+      );
       expect(find.text('Reading'), findsOneWidget);
     } finally {
       await unmountReader(tester);
@@ -345,6 +352,246 @@ void main() {
       expect(find.text('Home'), findsOneWidget);
       expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l2');
       expect(find.text('Reading'), findsNothing);
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
+  testWidgets('pull follows real day order across topics and finishes the day',
+      (tester) async {
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l2',
+      topicId: 't1',
+      title: 'Topic next',
+      bodyJson: '[]',
+      estimatedMinutes: 7,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's1',
+      name: 'Cells',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l3',
+      topicId: 't2',
+      title: 'Day next',
+      bodyJson: '[]',
+      estimatedMinutes: 12,
+    );
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    final router = container.read(routerProvider)
+      ..go(
+        '/lesson/l1?from=home',
+        extra: LessonDayContext(
+          date: DateTime.now(),
+          lessonIds: const ['l1', 'l3'],
+          index: 0,
+        ),
+      );
+    await tester.pumpAndSettle();
+    try {
+      final pull = tester.widget<PullToAdvance>(find.byType(PullToAdvance));
+      expect(pull.nextTitle, 'Day next');
+      expect(pull.destinationKey, 'l3');
+      final chrome = tester.getRect(find.text('Home'));
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 240));
+      expect(tester.getRect(find.text('Home')), chrome);
+      expect(find.text('Day next'), findsWidgets);
+      expect(
+        await tester.runAsync(
+          () => LessonProgressRepository(db, contentDb).isRead('l3'),
+        ),
+        isFalse,
+      );
+      await tester.pump(const Duration(milliseconds: 240));
+      await tester.pumpAndSettle();
+      expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l3');
+      expect(find.text('2 of 2'), findsOneWidget);
+      expect(find.text('Pull up to finish today'), findsOneWidget);
+      expect(router.routeInformationProvider.value.uri.path, '/lesson/l1');
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pumpAndSettle();
+      expect(find.text("That's enough for today."), findsOneWidget);
+      expect(find.text('Back to Home'), findsOneWidget);
+      expect(find.byKey(const ValueKey('pull-handle')), findsNothing);
+      await tester.tap(find.text('Back to Home'));
+      await tester.pumpAndSettle();
+      expect(router.routeInformationProvider.value.uri.path, '/home');
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
+  testWidgets('last topic plate has no onward pull and returns to Bookmarks',
+      (tester) async {
+    await LessonBookmarksRepository(db).mark('l1');
+    await pumpApp(tester);
+    ProviderScope.containerOf(tester.element(find.byType(App)))
+        .read(routerProvider)
+        .go('/study');
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('See all'));
+    await tester.pumpAndSettle();
+    await tester.tap(
+      find.descendant(
+        of: find.byType(BookmarksSheet),
+        matching: find.text('Lesson l1'),
+      ),
+    );
+    await tester.pumpAndSettle();
+    try {
+      expect(
+        tester.widget<PullToAdvance>(find.byType(PullToAdvance)).nextTitle,
+        'Chemistry',
+      );
+      expect(find.byKey(const ValueKey('ending-plate')), findsNothing);
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey('ending-plate')), findsOneWidget);
+      expect(find.byKey(const ValueKey('pull-handle')), findsNothing);
+      expect(find.text('STILL UNREAD'), findsOneWidget);
+      expect(find.text('Bookmarks'), findsOneWidget);
+      await tester.tap(find.text('Bookmarks'));
+      await tester.pumpAndSettle();
+      expect(tester.widget<PantasSheet>(find.byType(PantasSheet)).open, isTrue);
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
+  testWidgets('a topic plate pulls into the next real corpus lesson',
+      (tester) async {
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's1',
+      name: 'Zoology',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l2',
+      topicId: 't2',
+      title: 'Animals',
+      bodyJson: '[]',
+      estimatedMinutes: 12,
+    );
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    container.read(routerProvider).go('/lesson/l1?from=search');
+    await tester.pumpAndSettle();
+    try {
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey('ending-plate')), findsOneWidget);
+      expect(
+        tester.widget<PullToAdvance>(find.byType(PullToAdvance)).nextTitle,
+        'Zoology',
+      );
+      expect(
+        tester.widget<PullToAdvance>(find.byType(PullToAdvance)).destinationKey,
+        'l2',
+      );
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pumpAndSettle();
+      expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l2');
+      expect(
+        tester.widget<ReaderBar>(find.byType(ReaderBar)).origin,
+        ReaderOrigin.search,
+      );
+      expect(find.text('Animals'), findsWidgets);
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
+  testWidgets(
+      'direct nonterminal ending uses guarded onward reader '
+      'without opening anchor', (tester) async {
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's1',
+      name: 'Zoology',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l2',
+      topicId: 't2',
+      title: 'Animals',
+      bodyJson: '[]',
+    );
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    final router = container.read(routerProvider)..go('/study/ending/t1');
+    await tester.pumpAndSettle();
+    try {
+      expect(find.byKey(const ValueKey('ending-plate')), findsOneWidget);
+      expect(find.byKey(const ValueKey('pull-handle')), findsOneWidget);
+      expect(
+        await AppPreferencesRepository(db).lastOpenedLessonId('e1'),
+        isNull,
+      );
+      expect(
+        await AppPreferencesRepository(db).deviceValue('lesson_offset.e1.l1'),
+        isNull,
+      );
+      expect(
+        await LessonProgressRepository(db, contentDb).isRead('l1'),
+        isFalse,
+      );
+      await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      await tester.pumpAndSettle();
+      expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l2');
+      expect(await AppPreferencesRepository(db).lastOpenedLessonId('e1'), 'l2');
+      expect(
+        await AppPreferencesRepository(db).deviceValue('lesson_offset.e1.l1'),
+        isNull,
+      );
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/study/ending/t1',
+      );
+      await tester.tap(find.text('Study'));
+      await tester.pumpAndSettle();
+      expect(router.routeInformationProvider.value.uri.path, '/study');
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
+  testWidgets('direct terminal ending has no onward and never mutates anchor',
+      (tester) async {
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    container.read(routerProvider).go('/study/ending/t1');
+    await tester.pumpAndSettle();
+    try {
+      expect(find.byKey(const ValueKey('ending-plate')), findsOneWidget);
+      expect(find.byKey(const ValueKey('pull-handle')), findsNothing);
+      expect(
+        await AppPreferencesRepository(db).lastOpenedLessonId('e1'),
+        isNull,
+      );
+      await tester.tap(find.text('Study'));
+      await tester.pumpAndSettle();
+      expect(
+        await AppPreferencesRepository(db).deviceValue('lesson_offset.e1.l1'),
+        isNull,
+      );
+      expect(
+        await LessonProgressRepository(db, contentDb).isRead('l1'),
+        isFalse,
+      );
     } finally {
       await unmountReader(tester);
     }

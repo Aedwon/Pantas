@@ -128,7 +128,7 @@ void main() {
     expect(await positions.readFraction('e1', 'l1'), inExclusiveRange(0, 1));
   });
 
-  testWidgets('shows estimated read time', (tester) async {
+  testWidgets('omits superseded material duration', (tester) async {
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
       overrides: [
@@ -138,7 +138,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('5 min'), findsOneWidget);
+    expect(find.textContaining('min read'), findsNothing);
   });
 
   testWidgets('lesson page renders Quiz yourself card after lesson body',

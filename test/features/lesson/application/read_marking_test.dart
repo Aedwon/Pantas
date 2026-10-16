@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -133,5 +134,78 @@ void main() {
     await pumpEventQueue();
 
     expect(marked, 1);
+  });
+  test('a held reader cannot mark or reopen after a real wipe', () async {
+    final positions = container.read(readerPositionRepositoryProvider);
+    final boundary =
+        (await positions.captureBoundary('e1', isCurrent: () => true))!;
+    final guarded = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+      clock: clock.call,
+      positions: positions,
+      boundary: boundary,
+    );
+    await guarded.onOpen();
+    await SyncLocalStateWiper(db).wipeAll();
+    clock.advance(readDwellFloor);
+    guarded.onScroll(offset: 1000, maxExtent: 1000);
+    await pumpEventQueue();
+    expect(await progress.isRead('l1'), isFalse);
+    expect(await prefs.lastOpenedLessonId('e1'), 'l1');
+    await prefs.setDeviceValue('recent_lessons_e1', 'other');
+    await guarded.onOpen();
+    expect(await prefs.lastOpenedLessonId('e1'), 'other');
+  });
+
+  test('disposed marking controller cannot start or complete mutations',
+      () async {
+    final positions = container.read(readerPositionRepositoryProvider);
+    final boundary =
+        (await positions.captureBoundary('e1', isCurrent: () => true))!;
+    var marked = 0;
+    final guarded = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+      clock: clock.call,
+      positions: positions,
+      boundary: boundary,
+      onMarked: () => marked++,
+    );
+    await guarded.onOpen();
+    guarded.dispose();
+    clock.advance(readDwellFloor);
+    guarded.onScroll(offset: 1000, maxExtent: 1000);
+    await guarded.onOpen();
+    await pumpEventQueue();
+    expect(await progress.isRead('l1'), isFalse);
+    expect(marked, 0);
+  });
+  test('expired page identity blocks marking before its next unmount frame',
+      () async {
+    final positions = container.read(readerPositionRepositoryProvider);
+    final boundary =
+        (await positions.captureBoundary('e1', isCurrent: () => true))!;
+    var current = true;
+    final guarded = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+      clock: clock.call,
+      positions: positions,
+      boundary: boundary,
+      isCurrent: () => current,
+    );
+    await guarded.onOpen();
+    current = false;
+    clock.advance(readDwellFloor);
+    guarded.onScroll(offset: 1000, maxExtent: 1000);
+    await pumpEventQueue();
+    expect(await progress.isRead('l1'), isFalse);
   });
 }

@@ -1,19 +1,28 @@
 import 'dart:async';
 
+import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
+import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
+import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -34,6 +43,7 @@ class LessonPage extends ConsumerStatefulWidget {
     this.origin = ReaderOrigin.study,
     this.resume = false,
     this.dayContext,
+    this.initialEnding = false,
     super.key,
   });
 
@@ -41,6 +51,7 @@ class LessonPage extends ConsumerStatefulWidget {
   final ReaderOrigin origin;
   final LessonDayContext? dayContext;
   final bool resume;
+  final bool initialEnding;
 
   @override
   ConsumerState<LessonPage> createState() => _LessonPageState();
@@ -58,9 +69,112 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   /// lesson is ready, and the body is off screen while it waits, so there is
   /// nothing to see and nothing to flash.
   ReaderContext? _shown;
+  LessonEnding? _ending;
+  bool _initialEndingShown = false;
+  int _navigationEpoch = 0;
+  int _pullEpoch = 0;
+  bool _actorKnown = false;
+  String? _lastActor;
+  bool _examKnown = false;
+  String? _lastExam;
 
   LessonId? _warmedId;
   ProviderSubscription<Object?>? _warm;
+
+  ReaderBoundary? _boundary;
+  bool _captureAlive = true;
+  bool _boundaryAlive = true;
+  bool _captureFailed = false;
+  StreamSubscription<Object?>? _boundaryChanges;
+  final _lifetimeSubscriptions = <ProviderSubscription<Object?>>[];
+
+  String? _actor(AuthState? state) => switch (state) {
+        AnonymousAuthState(:final uid) => 'anonymous:$uid',
+        SignedInAuthState(:final user) => 'signed:${user.uid}',
+        _ => null,
+      };
+
+  @override
+  void initState() {
+    super.initState();
+    _lifetimeSubscriptions
+      ..add(
+        ref.listenManual<AsyncValue<AuthState>>(
+          authStateProvider,
+          (_, after) {
+            if (!after.hasValue) return;
+            final actor = _actor(after.valueOrNull);
+            if (_actorKnown && actor != _lastActor) _expire();
+            _actorKnown = true;
+            _lastActor = actor;
+          },
+          fireImmediately: true,
+        ),
+      )
+      ..add(
+        ref.listenManual<AsyncValue<ActiveExamFocus>>(
+          activeExamFocusProvider,
+          (_, after) {
+            if (!after.hasValue) return;
+            final exam = after.requireValue.exam?.id;
+            if (_examKnown && exam != _lastExam) _expire();
+            _examKnown = true;
+            _lastExam = exam;
+          },
+          fireImmediately: true,
+        ),
+      );
+    _boundaryChanges = ref
+        .read(appDatabaseProvider)
+        .tableUpdates(
+          TableUpdateQuery.onTable(ref.read(appDatabaseProvider).syncMeta),
+        )
+        .listen((_) {
+      final boundary = _boundary;
+      if (boundary != null && _boundaryAlive) {
+        unawaited(_validateBoundary(boundary));
+      }
+    });
+    unawaited(_captureInitial());
+  }
+
+  Future<void> _captureInitial() async {
+    try {
+      await ref.read(authStateProvider.future);
+      if (!mounted || !_captureAlive) return;
+      final focus = await ref.read(activeExamFocusProvider.future);
+      if (!mounted || !_captureAlive) return;
+      final exam = focus.exam?.id;
+      if (exam == null) return _expire();
+      final boundary = await ref
+          .read(readerPositionRepositoryProvider)
+          .captureBoundary(exam, isCurrent: () => mounted && _captureAlive);
+      if (!mounted || !_captureAlive) return;
+      if (boundary == null) return _expire();
+      // New pages reload cached lessons under their own captured token.
+      ref.invalidate(readerContextProvider(_lessonId));
+      setState(() => _boundary = boundary);
+    } on Exception {
+      if (mounted) _expire();
+    }
+  }
+
+  Future<void> _validateBoundary(ReaderBoundary boundary) async {
+    final current = await ref
+        .read(readerPositionRepositoryProvider)
+        .isBoundaryCurrent(boundary, isCurrent: () => _boundaryAlive);
+    if (!current && mounted) _expire();
+  }
+
+  void _expire() {
+    _captureAlive = false;
+    _boundaryAlive = false;
+    _warm?.close();
+    _warm = null;
+    _shown = null;
+    _navigationEpoch++;
+    if (mounted) setState(() => _captureFailed = true);
+  }
 
   @override
   void didUpdateWidget(covariant LessonPage oldWidget) {
@@ -74,7 +188,12 @@ class _LessonPageState extends ConsumerState<LessonPage> {
 
   @override
   void dispose() {
+    _captureAlive = false;
     _warm?.close();
+    unawaited(_boundaryChanges?.cancel());
+    for (final subscription in _lifetimeSubscriptions) {
+      subscription.close();
+    }
     super.dispose();
   }
 
@@ -90,7 +209,63 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     );
   }
 
-  void _advanceTo(LessonId next) => setState(() => _lessonId = next);
+  Future<void> _advanceTo(LessonId next) async {
+    final epoch = ++_navigationEpoch;
+    final target = await ref.read(readerContextProvider(next).future);
+    if (!mounted || epoch != _navigationEpoch || target == null) return;
+    await _activate(target, epoch: epoch);
+  }
+
+  Future<void> _activate(ReaderContext next, {int? epoch}) async {
+    final request = epoch ?? ++_navigationEpoch;
+    final boundary = _boundary;
+    if (!_boundaryAlive ||
+        boundary == null ||
+        request != _navigationEpoch ||
+        next.boundary?.token != boundary.token ||
+        next.examId != boundary.examId) {
+      return;
+    }
+    final valid =
+        await ref.read(readerPositionRepositoryProvider).isBoundaryCurrent(
+              boundary,
+              isCurrent: () => _boundaryAlive && request == _navigationEpoch,
+            );
+    if (!mounted || request != _navigationEpoch) return;
+    if (!valid) return _expire();
+    setState(() {
+      _shown = next;
+      _lessonId = next.lesson.id;
+      _ending = null;
+    });
+  }
+
+  Future<void> _showEnding(LessonEnding ending, int epoch) async {
+    final boundary = _boundary;
+    if (boundary == null || !_boundaryAlive || epoch != _navigationEpoch) {
+      return;
+    }
+    final valid =
+        await ref.read(readerPositionRepositoryProvider).isBoundaryCurrent(
+              boundary,
+              isCurrent: () => _boundaryAlive && epoch == _navigationEpoch,
+            );
+    if (!mounted || epoch != _navigationEpoch) return;
+    if (!valid) return _expire();
+    setState(() => _ending = ending);
+  }
+
+  LessonId? _destinationId(ReaderContext reader) {
+    if (_ending is DayFinished) return null;
+    if (_ending != null) return reader.nextTopic?.lessons.firstOrNull?.id;
+    final day = _dayContextFor(reader.lesson.id);
+    if (day != null) {
+      return day.index + 1 < day.lessonIds.length
+          ? day.lessonIds[day.index + 1]
+          : null;
+    }
+    return reader.next?.id;
+  }
 
   /// Loads the next lesson while this one is still being read.
   ///
@@ -110,14 +285,74 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   Widget build(BuildContext context) {
     final lessonId = _lessonId;
     final origin = widget.origin;
+    if (_captureFailed) {
+      return Scaffold(
+        backgroundColor: context.colors.background,
+        body: _ReaderFallback(
+          origin: origin,
+          child: StateView(
+            message: 'Could not load this lesson.',
+            icon: Icon(PantasIcons.studyTab),
+            boardLayout: true,
+          ),
+        ),
+      );
+    }
+    if (_boundary == null) {
+      return Scaffold(
+        backgroundColor: context.colors.background,
+        body: _ReaderFallback(
+          origin: origin,
+          child: SingleChildScrollView(
+            child: loadingFor(const AsyncLoading<Object?>()),
+          ),
+        ),
+      );
+    }
     final asyncReader = ref.watch(readerContextProvider(lessonId));
     final loaded = asyncReader.valueOrNull;
-    if (loaded != null) _shown = loaded;
-    final reader = loaded ?? _shown;
+    if (loaded != null) {
+      if (loaded.boundary?.token != _boundary!.token ||
+          loaded.examId != _boundary!.examId) {
+        _shown = null;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) _expire();
+        });
+      } else {
+        _shown = loaded;
+        if (widget.initialEnding && !_initialEndingShown) {
+          _ending = loaded.topicEnding;
+          _initialEndingShown = true;
+        }
+      }
+    }
+    final reader = _shown;
+    final nextId = reader == null ? null : _destinationId(reader);
+    final nextValue =
+        nextId == null ? null : ref.watch(readerContextProvider(nextId));
+    final next = nextValue?.valueOrNull;
+    final readyNext = next?.boundary?.token == _boundary?.token &&
+            next?.examId == _boundary?.examId
+        ? next
+        : null;
+    final day = reader == null ? null : _dayContextFor(reader.lesson.id);
+    final endingTarget = reader == null || _ending != null || nextId != null
+        ? null
+        : day != null
+            ? const DayFinished()
+            : reader.topicEnding;
+    final title = endingTarget is DayFinished
+        ? ''
+        : endingTarget != null
+            ? reader!.topicName
+            : _ending != null
+                ? reader?.nextTopic?.name
+                : readyNext?.lesson.title;
 
     return Scaffold(
-      backgroundColor:
-          reader == null ? context.colors.background : context.colors.surface,
+      backgroundColor: reader == null || _ending != null
+          ? context.colors.background
+          : context.colors.surface,
       body: switch ((reader, asyncReader)) {
         (_, AsyncError(:final error)) => _ReaderFallback(
             origin: origin,
@@ -133,7 +368,9 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         (final ReaderContext reader, _) => Builder(
             builder: (context) {
               WidgetsBinding.instance.addPostFrameCallback(
-                (_) => _warmNext(reader.next?.id),
+                (_) {
+                  if (mounted && _boundaryAlive) _warmNext(nextId);
+                },
               );
               return _ReaderBody(
                 reader: reader,
@@ -141,6 +378,31 @@ class _LessonPageState extends ConsumerState<LessonPage> {
                 origin: origin,
                 resume: widget.resume && reader.lesson.id == widget.lessonId,
                 onAdvance: _advanceTo,
+                isCurrent: () => _boundaryAlive,
+                onExpired: _expire,
+                onCancelPending: () => _navigationEpoch++,
+                ending: _ending,
+                destinationTitle: title,
+                destinationKey: nextId ??
+                    (endingTarget is DayFinished
+                        ? 'day-ending'
+                        : 'topic-ending-${reader.topicId}'),
+                incoming: readyNext,
+                endingTarget: endingTarget,
+                nextFailed: nextId != null &&
+                    ((nextValue?.hasError ?? false) ||
+                        ((nextValue?.hasValue ?? false) && readyNext == null)),
+                onRetryNext: () {
+                  if (nextId != null) {
+                    ref.invalidate(readerContextProvider(nextId));
+                  }
+                },
+                onPullStart: () => _pullEpoch = ++_navigationEpoch,
+                onPull: readyNext != null
+                    ? () => unawaited(_activate(readyNext, epoch: _pullEpoch))
+                    : endingTarget != null
+                        ? () => unawaited(_showEnding(endingTarget, _pullEpoch))
+                        : null,
               );
             },
           ),
@@ -213,11 +475,35 @@ class _ReaderBody extends ConsumerStatefulWidget {
     required this.reader,
     required this.origin,
     required this.onAdvance,
+    required this.isCurrent,
+    required this.onExpired,
+    required this.onCancelPending,
+    required this.ending,
+    required this.destinationTitle,
+    required this.destinationKey,
+    required this.incoming,
+    required this.endingTarget,
+    required this.nextFailed,
+    required this.onRetryNext,
+    required this.onPull,
+    required this.onPullStart,
     this.dayContext,
     this.resume = false,
   });
 
   final bool resume;
+  final LessonEnding? ending;
+  final String? destinationTitle;
+  final Object destinationKey;
+  final ReaderContext? incoming;
+  final LessonEnding? endingTarget;
+  final bool nextFailed;
+  final VoidCallback onRetryNext;
+  final VoidCallback? onPull;
+  final VoidCallback onPullStart;
+  final bool Function() isCurrent;
+  final VoidCallback onExpired;
+  final VoidCallback onCancelPending;
   final ReaderContext reader;
   final ReaderOrigin origin;
   final LessonDayContext? dayContext;
@@ -233,6 +519,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   late final ScrollController _scrollController;
   final _scrollOffset = ValueNotifier<double>(0);
   final _progress = ValueNotifier<double>(0);
+  final _transition = ValueNotifier<double>(0);
 
   /// Whether the end of the lesson is on screen. Drives the pull handle.
   final _isAtEnd = ValueNotifier<bool>(false);
@@ -249,6 +536,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     _positions = ref.read(readerPositionRepositoryProvider);
     _scrollController = ScrollController()..addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !widget.isCurrent() || widget.ending != null) return;
       _initMarking();
       if (widget.resume) {
         unawaited(_resumePosition());
@@ -259,33 +547,50 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   }
 
   Future<void> _resumePosition() async {
-    final exam = widget.reader.examId;
-    if (exam == null) return _syncScrollState();
+    final reader = widget.reader;
+    final exam = reader.examId;
+    final boundary = reader.boundary;
+    if (exam == null || boundary == null) return _syncScrollState();
+    bool current() =>
+        mounted &&
+        widget.isCurrent() &&
+        widget.ending == null &&
+        widget.reader.lesson.id == reader.lesson.id;
     try {
-      final offset = await _positions.read(exam, widget.reader.lesson.id);
-      if (!mounted || !_scrollController.hasClients) return;
+      final offset = await _positions.read(exam, reader.lesson.id);
+      if (!current()) return;
+      final valid =
+          await _positions.isBoundaryCurrent(boundary, isCurrent: current);
+      if (!current() || !_scrollController.hasClients) return;
+      if (!valid) return widget.onExpired();
       _scrollController.jumpTo(
         offset.clamp(0.0, _scrollController.position.maxScrollExtent),
       );
       if (_resumeFailed) setState(() => _resumeFailed = false);
       _syncScrollState();
     } on Exception catch (error) {
-      if (mounted) setState(() => _resumeFailed = true);
-      // Retain the lesson while the saved position can be retried.
+      if (current()) setState(() => _resumeFailed = true);
       debugPrint('Reader position could not load: ${error.runtimeType}');
     }
   }
 
-  Future<void> _savePosition(ReaderContext reader, double offset) async {
+  Future<void> _savePosition(
+    ReaderContext reader,
+    double offset,
+    double fraction,
+  ) async {
     final exam = reader.examId;
-    if (exam == null) return;
+    final boundary = reader.boundary;
+    if (exam == null || boundary == null || !widget.isCurrent()) return;
     try {
-      await _positions.write(
-        exam,
+      final saved = await _positions.writeGuarded(
+        boundary,
         reader.lesson.id,
         offset.clamp(0.0, double.infinity),
-        fraction: _progress.value,
+        fraction: fraction,
+        isCurrent: widget.isCurrent,
       );
+      if (!saved && mounted) widget.onExpired();
       if (mounted && _positionFailed) setState(() => _positionFailed = false);
     } on Exception {
       if (mounted) setState(() => _positionFailed = true);
@@ -307,7 +612,17 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       examId: widget.reader.examId,
       progressRepository: progressRepo,
       preferencesRepository: prefsRepo,
-      onMarked: () => ref.read(roadmapRevisionProvider.notifier).bump(),
+      positions: _positions,
+      boundary: widget.reader.boundary,
+      isCurrent: widget.isCurrent,
+      onMarked: () {
+        if (mounted && widget.isCurrent()) {
+          ref
+            ..read(roadmapRevisionProvider.notifier).bump()
+            ..invalidate(studyMapProvider)
+            ..invalidate(readerContextProvider(widget.reader.lesson.id));
+        }
+      },
     );
     _markingController?.onOpen();
   }
@@ -315,17 +630,28 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   @override
   void didUpdateWidget(covariant _ReaderBody oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
+    if (oldWidget.reader.lesson.id != widget.reader.lesson.id ||
+        oldWidget.ending != widget.ending) {
       // The body stays mounted across an advance, so the controller keeps
       // the offset the last lesson was left at and the new one opened part
       // way down. A lesson starts at its first line.
       _positionDelay?.cancel();
-      unawaited(_savePosition(oldWidget.reader, _scrollOffset.value));
+      if (oldWidget.ending == null) {
+        unawaited(
+          _savePosition(
+            oldWidget.reader,
+            _scrollOffset.value,
+            _progress.value,
+          ),
+        );
+      }
+      _markingController?.dispose();
       if (_scrollController.hasClients) _scrollController.jumpTo(0);
       _scrollOffset.value = 0;
       _progress.value = 0;
+      _transition.value = 0;
       _isAtEnd.value = false;
-      _initMarking();
+      if (widget.ending == null) _initMarking();
       WidgetsBinding.instance.addPostFrameCallback((_) {
         // Again after layout: the offset is clamped against the old lesson's
         // extent until the new one has been measured.
@@ -340,10 +666,16 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   @override
   void dispose() {
     _positionDelay?.cancel();
-    unawaited(_savePosition(widget.reader, _scrollOffset.value));
+    if (widget.ending == null) {
+      unawaited(
+        _savePosition(widget.reader, _scrollOffset.value, _progress.value),
+      );
+    }
+    _markingController?.dispose();
     _scrollController.dispose();
     _scrollOffset.dispose();
     _progress.dispose();
+    _transition.dispose();
     _isAtEnd.dispose();
     super.dispose();
   }
@@ -358,16 +690,17 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   /// Only the bar, the rail and the pull handle listen, and each rebuilds
   /// alone.
   void _onScroll() {
-    if (!_scrollController.hasClients) return;
+    if (!_scrollController.hasClients || widget.ending != null) return;
     final offset = _scrollController.offset;
     final maxExtent = _scrollController.position.maxScrollExtent;
 
     _scrollOffset.value = offset;
     _positionDelay?.cancel();
     final reader = widget.reader;
+    final fraction = maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
     _positionDelay = Timer(
       const Duration(milliseconds: 300),
-      () => unawaited(_savePosition(reader, offset)),
+      () => unawaited(_savePosition(reader, offset, fraction)),
     );
     _progress.value =
         maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
@@ -376,14 +709,38 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     // rounding in the scroll metrics means exact equality is rare.
     _isAtEnd.value = maxExtent <= 0 || offset >= maxExtent - 24;
 
-    _markingController?.onScroll(offset: offset, maxExtent: maxExtent);
+    if (widget.ending == null) {
+      _markingController?.onScroll(offset: offset, maxExtent: maxExtent);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     final reader = widget.reader;
-
+    final ending = widget.ending;
+    final next = widget.incoming;
+    Widget lesson(
+      ReaderContext value, {
+      ScrollController? controller,
+      Widget? footer,
+    }) =>
+        _LessonContent(
+          reader: value,
+          controller: controller,
+          footer: footer,
+          positionFailed: controller != null && _positionFailed,
+          resumeFailed: controller != null && _resumeFailed,
+          onResume: _resumePosition,
+          onSave: () =>
+              _savePosition(reader, _scrollOffset.value, _progress.value),
+          nextFailed: controller != null && widget.nextFailed,
+          onRetryNext: widget.onRetryNext,
+        );
+    Widget plate(LessonEnding value) => EndingContent(
+          ending: value,
+          onLesson: widget.onAdvance,
+          onHome: () => context.go('/home'),
+        );
     return PantasSheet(
       label: 'Contents',
       readerContents: true,
@@ -392,89 +749,86 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       page: SafeArea(
         child: Column(
           children: [
-            ReaderBar(
-              title: reader.lesson.title,
-              lessonId: reader.lesson.id,
-              dayContext: widget.dayContext,
-              origin: widget.origin,
-              isBookmarked: reader.isBookmarked,
-              onBookmark: () => toggleBookmark(ref, reader.lesson.id),
-              onContents: () => setState(() => _contentsOpen = true),
-              scrollOffset: _scrollOffset,
-            ),
-            ValueListenableBuilder<double>(
-              valueListenable: _progress,
-              builder: (_, progress, __) => ReaderRail(
-                progress: progress,
+            if (ending != null)
+              ReaderBar.ending(origin: widget.origin)
+            else
+              ReaderBar(
+                title: reader.lesson.title,
+                lessonId: reader.lesson.id,
                 dayContext: widget.dayContext,
+                origin: widget.origin,
+                isBookmarked: reader.isBookmarked,
+                onBookmark: () {
+                  final boundary = reader.boundary;
+                  if (boundary != null) {
+                    unawaited(
+                      toggleBookmark(
+                        ref,
+                        reader.lesson.id,
+                        boundary: boundary,
+                        isCurrent: () => mounted && widget.isCurrent(),
+                      ),
+                    );
+                  }
+                },
+                onContents: () {
+                  widget.onCancelPending();
+                  setState(() => _contentsOpen = true);
+                },
+                scrollOffset: _scrollOffset,
+                advanceProgress: _transition,
               ),
+            AnimatedBuilder(
+              animation: Listenable.merge([_progress, _transition]),
+              builder: (_, __) {
+                final reset =
+                    widget.dayContext == null && ending == null && next != null
+                        ? PantasCurves.slideA.transform(_transition.value)
+                        : 0.0;
+                return ReaderRail(
+                  progress: ending != null ? 1 : _progress.value * (1 - reset),
+                  dayContext: ending != null ? null : widget.dayContext,
+                );
+              },
             ),
             Expanded(
               child: PullToAdvance(
-                // The handle belongs to the end of the lesson, so it waits
-                // until the end is on screen.
-                isAtEnd: _isAtEnd,
-                nextTitle: reader.next?.title,
+                isAtEnd: ending != null
+                    ? const AlwaysStoppedAnimation(true)
+                    : _isAtEnd,
+                nextTitle: widget.destinationTitle,
                 lessonId: reader.lesson.id,
-                onAdvance: reader.next != null
-                    ? () => widget.onAdvance(reader.next!.id)
+                contentKey: ending == null
+                    ? reader.lesson.id
+                    : 'ending-${reader.lesson.id}',
+                destinationKey: widget.destinationKey,
+                requireIncoming: true,
+                onAdvance: widget.onPull,
+                onTransition: (value) => _transition.value = value,
+                onCommit: widget.onPullStart,
+                finishDay: widget.endingTarget is DayFinished,
+                incomingChild: next != null
+                    ? ColoredBox(
+                        color: context.colors.surface,
+                        child: lesson(next),
+                      )
+                    : widget.endingTarget != null
+                        ? ColoredBox(
+                            color: context.colors.background,
+                            child: plate(widget.endingTarget!),
+                          )
+                        : null,
+                footerPadding: ending != null
+                    ? const EdgeInsets.only(bottom: 48)
+                    : const EdgeInsets.fromLTRB(0, 36, 0, 60),
+                contentBuilder: ending == null
+                    ? (footer) => lesson(
+                          reader,
+                          controller: _scrollController,
+                          footer: footer,
+                        )
                     : null,
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      LessonTextScale(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              reader.topicName.toUpperCase(),
-                              style: context.type.sectionHeader
-                                  .copyWith(letterSpacing: .52),
-                            ),
-                            const SizedBox(height: 18),
-                            Text(
-                              reader.lesson.title,
-                              style:
-                                  context.type.pageTitle.copyWith(height: 1.15),
-                            ),
-                            const SizedBox(height: 18),
-                            ContentRenderer(
-                              blocks: reader.lesson.bodyJson,
-                              readerFigures: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      Text(
-                        '${reader.lesson.estimatedMinutes} min read',
-                        style: context.type.footnote
-                            .copyWith(color: colors.secondaryLabel),
-                      ),
-                      const SizedBox(height: 16),
-                      if (_resumeFailed)
-                        errorFor('reading position', _resumePosition),
-                      if (_positionFailed)
-                        saveFailureLine(
-                          () => _savePosition(reader, _scrollOffset.value),
-                        ),
-                      ReaderGap(
-                        isRead: reader.isRead,
-                        examId: reader.examId,
-                        lessonId: reader.lesson.id,
-                      ),
-                      // No mark-as-read button, deliberately. It is the one
-                      // thing this plan changes that everything downstream
-                      // depends on: with a button, every coverage figure in the
-                      // app counts presses rather than lessons whose end was
-                      // actually reached. Read marking is an observer of scroll
-                      // position now.
-                    ],
-                  ),
-                ),
+                child: ending != null ? plate(ending) : null,
               ),
             ),
           ],
@@ -491,4 +845,80 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       ),
     );
   }
+}
+
+/// Pure layout shared by the active reader and the inert incoming preview.
+/// Only the active owner supplies a controller, persistence, or read marking.
+class _LessonContent extends StatelessWidget {
+  const _LessonContent({
+    required this.reader,
+    required this.onResume,
+    required this.onSave,
+    required this.onRetryNext,
+    this.controller,
+    this.footer,
+    this.positionFailed = false,
+    this.resumeFailed = false,
+    this.nextFailed = false,
+  });
+  final ReaderContext reader;
+  final ScrollController? controller;
+  final Widget? footer;
+  final bool positionFailed;
+  final bool resumeFailed;
+  final bool nextFailed;
+  final VoidCallback onResume;
+  final VoidCallback onSave;
+  final VoidCallback onRetryNext;
+
+  @override
+  Widget build(BuildContext context) => SingleChildScrollView(
+        controller: controller,
+        primary: false,
+        padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            LessonTextScale(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    reader.topicName.toUpperCase(),
+                    style:
+                        context.type.sectionHeader.copyWith(letterSpacing: .52),
+                  ),
+                  const SizedBox(height: 18),
+                  Text(
+                    reader.lesson.title,
+                    style: context.type.pageTitle.copyWith(height: 1.15),
+                  ),
+                  const SizedBox(height: 18),
+                  ContentRenderer(
+                    blocks: reader.lesson.bodyJson,
+                    readerFigures: true,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
+            if (resumeFailed) errorFor('reading position', onResume),
+            if (positionFailed) saveFailureLine(onSave),
+            ReaderGap(
+              isRead: reader.isRead,
+              examId: reader.examId,
+              lessonId: reader.lesson.id,
+            ),
+            if (nextFailed)
+              errorFor(
+                'lesson',
+                onRetryNext,
+                message: 'Could not load this lesson.',
+                icon: Icon(PantasIcons.studyTab),
+                boardLayout: true,
+              ),
+            if (footer != null) footer!,
+          ],
+        ),
+      );
 }
