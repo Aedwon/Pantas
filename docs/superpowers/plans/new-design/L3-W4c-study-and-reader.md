@@ -448,3 +448,28 @@ The lead also opened readOrder/readCustomOrder migration writes and their asynch
 callers. Inspect/test a held migration read across wipe/replacement before Task8 closes. If it
 reproduces prior preference persistence into the new boundary, report a narrow feature-owned
 proposal before changes. This is an investigation, not a confirmed defect or wider authorization.
+
+
+### October17 guarded first-read migration correction
+
+Actual held custom/sort migration tests fail2/2: after wipe and replacement context, delayed
+legacy migration overwrites the new custom order ['fresh'] with ['old'], and Recent with
+Oldest. Root read the actual RED output and authorizes this narrow feature-owned correction
+before implementation. Reuse the existing ReaderBoundary read-only capture and guarded actual
+write transaction in BookmarkPrefsRepository and its lesson-provider callers. No schema, core
+lifecycle, sync protocol, wiper or new framework change.
+
+Scoped readOrder/readCustomOrder migration must retain the original existing exam/token and
+current-provider predicate before the first relevant async preference/membership read. Carry
+it through the actual fallback persistence. Missing envelope may return the fallback but must
+not persist it or initialize context. A fresh view's approved early capture permits normal
+subsequent first-read migration. Preserve recognized anonymous/stable snapshots and ordinary
+one-time legacy fallback and per-exam isolation. Seed an existing anonymous context in tests
+that assert persistence; add a missing-envelope no-write check.
+
+Do not capture a replacement token after the provider already collected a legacyOrder list.
+Retain provenance before collecting that list, or obtain its fallback afresh under the original
+guard. Expired reads may not overwrite new sort/order or publish an old controller state.
+Cover the reproduced reset cases, absent-token no writes, caller disposal/identity changes,
+and ordinary scoped migration. Renew affected tests and final Task9 gates. The lead personally
+reviews this data correction, followed by the required whole-family Astra audit.

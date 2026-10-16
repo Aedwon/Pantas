@@ -2073,3 +2073,16 @@ unmount/loading/error. Current L3 clarifies that a completed initial anchor may 
 unchanged and without lesson writes. Pending transaction cancellation, wipe expiry and new-view
 entry still need actual proof. No data correction is accepted yet. Root also identified
 read-time preference migration as another concrete async write entry for reproduction review.
+
+
+### October17: approve reproduced first-read migration boundary correction
+
+Root read actual2RED: custom ['fresh'] becomes ['old']; sort Recent becomes Oldest after
+reset while migration waits. The technical correction is now in L3 before edits: retain
+existing exam/token/current-provider provenance before async fallback reads, guard actual
+migration writes, and never initialize or persist when token is missing. Caller-supplied
+legacy IDs must retain their original provenance too. Normal per-exam migration remains.
+This extends the same approved student-data boundary guarantee through a newly proven write
+entry within lesson-owned providers/repository/tests. No new product choice, schema, global
+lifecycle, sync or wiper change. Early capture proof128pass is provisional implementor evidence;
+root has not accepted Task8 or the whole family.
