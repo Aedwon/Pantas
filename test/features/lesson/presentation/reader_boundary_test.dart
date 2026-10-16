@@ -826,4 +826,215 @@ void main() {
     expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
     expect(tester.takeException(), isNull);
   });
+  for (final missing in [false, true]) {
+    testWidgets(
+        'selected non-warmed ${missing ? 'missing' : 'failed'} lesson '
+        'retries its own load', (tester) async {
+      for (final id in ['l2', 'l3']) {
+        await seedContentLesson(
+          content,
+          lessonId: id,
+          topicId: 't',
+          title: id,
+          bodyJson: '[]',
+        );
+      }
+      final clean = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(content),
+        ],
+      );
+      addTearDown(clean.dispose);
+      ReaderContext? ready;
+      var attempts = 0;
+      await pump(
+        tester,
+        overrides: [
+          readerContextProvider('l3').overrideWith((_) async {
+            if (++attempts == 1) {
+              if (missing) return null;
+              throw StateError('private selected-load fixture');
+            }
+            return ready;
+          }),
+        ],
+      );
+      ready = await clean.read(readerContextProvider('l3').future);
+      final token = ready!.boundary!.token;
+      final positions = clean.read(readerPositionRepositoryProvider);
+      await tester.pump(const Duration(milliseconds: 350));
+      final offset = await positions.read('e', 'l');
+      final fraction = await positions.readFraction('e', 'l');
+      expect(attempts, 0);
+      await tester.tap(find.byType(ContentsGlyph));
+      await tester.pumpAndSettle();
+      tester
+          .widget<LessonContentsSheet>(find.byType(LessonContentsSheet))
+          .onSelectLesson('l3');
+      await tester.pumpAndSettle();
+      expect(
+        find.text(
+          missing ? 'Lesson not found.' : 'Could not load this lesson.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.textContaining('private'), findsNothing);
+      expect(await AppPreferencesRepository(db).lastOpenedLessonId('e'), 'l');
+      expect(
+        await AppPreferencesRepository(db).deviceValue('lesson_offset.e.l3'),
+        isNull,
+      );
+      expect(await positions.read('e', 'l'), offset);
+      expect(await positions.readFraction('e', 'l'), fraction);
+      await tester.tap(find.text('Try Again'));
+      await tester.pumpAndSettle();
+      expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l3');
+      expect(attempts, 2);
+      expect((await SyncActiveContextStore(db).readSnapshot())!.token, token);
+      expect(await positions.read('e', 'l'), offset);
+      expect(await positions.readFraction('e', 'l'), fraction);
+    });
+  }
+
+  testWidgets('an older selected-load error cannot replace the newer lesson',
+      (tester) async {
+    for (final id in ['l2', 'l3', 'l4']) {
+      await seedContentLesson(
+        content,
+        lessonId: id,
+        topicId: 't',
+        title: id,
+        bodyJson: '[]',
+      );
+    }
+    final old = Completer<ReaderContext?>();
+    await pump(
+      tester,
+      overrides: [
+        readerContextProvider('l3').overrideWith((_) => old.future),
+      ],
+    );
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(LessonPage)));
+    await container.read(readerContextProvider('l4').future);
+    await tester.tap(find.byType(ContentsGlyph));
+    await tester.pumpAndSettle();
+    final contents =
+        tester.widget<LessonContentsSheet>(find.byType(LessonContentsSheet));
+    contents.onSelectLesson('l3');
+    await tester.pump();
+    contents.onSelectLesson('l4');
+    await tester.pumpAndSettle();
+    old.completeError(StateError('older selection fixture'));
+    await tester.pumpAndSettle();
+    expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l4');
+    expect(find.text('Could not load this lesson.'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('an external reader change cancels the earlier selected load',
+      (tester) async {
+    for (final id in ['l2', 'l3', 'l4']) {
+      await seedContentLesson(
+        content,
+        lessonId: id,
+        topicId: 't',
+        title: id,
+        bodyJson: '[]',
+      );
+    }
+    final old = Completer<ReaderContext?>();
+    final overrides = [
+      appDatabaseProvider.overrideWithValue(db),
+      contentDatabaseProvider.overrideWithValue(content),
+      readerContextProvider('l3').overrideWith((_) => old.future),
+    ];
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l'),
+      overrides: overrides,
+    );
+    await tester.pumpAndSettle();
+    final clean = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+      ],
+    );
+    addTearDown(clean.dispose);
+    final target = await clean.read(readerContextProvider('l3').future);
+    await tester.tap(find.byType(ContentsGlyph));
+    await tester.pumpAndSettle();
+    tester
+        .widget<LessonContentsSheet>(find.byType(LessonContentsSheet))
+        .onSelectLesson('l3');
+    await tester.pump();
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l4'),
+      overrides: overrides,
+    );
+    await tester.pumpAndSettle();
+    expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l4');
+    old.complete(target);
+    await tester.pumpAndSettle();
+    expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l4');
+  });
+  testWidgets('opening Contents cancels a committed preview without holding it',
+      (tester) async {
+    await seedContentLesson(
+      content,
+      lessonId: 'l2',
+      topicId: 't',
+      title: 'Next',
+      bodyJson: '[]',
+    );
+    await pump(tester);
+    await tester.tap(find.byKey(const ValueKey('pull-handle')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 180));
+    expect(find.byKey(const ValueKey('pull-incoming')), findsOneWidget);
+    await tester.tap(find.byType(ContentsGlyph));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('pull-incoming')), findsNothing);
+    expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l');
+    expect(await AppPreferencesRepository(db).lastOpenedLessonId('e'), 'l');
+  });
+
+  testWidgets('a selected-load failure under a replaced token offers only Back',
+      (tester) async {
+    for (final id in ['l2', 'l3']) {
+      await seedContentLesson(
+        content,
+        lessonId: id,
+        topicId: 't',
+        title: id,
+        bodyJson: '[]',
+      );
+    }
+    final target = Completer<ReaderContext?>();
+    await pump(
+      tester,
+      overrides: [
+        readerContextProvider('l3').overrideWith((_) => target.future),
+      ],
+    );
+    await tester.tap(find.byType(ContentsGlyph));
+    await tester.pumpAndSettle();
+    tester
+        .widget<LessonContentsSheet>(find.byType(LessonContentsSheet))
+        .onSelectLesson('l3');
+    await tester.pump();
+    await SyncActiveContextStore(db).clearStable();
+    final replacement =
+        (await SyncActiveContextStore(db).readSnapshot())!.token;
+    target.completeError(StateError('late selected-load fixture'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not load this lesson.'), findsOneWidget);
+    expect(find.text('Try Again'), findsNothing);
+    expect(find.text('Study'), findsOneWidget);
+    expect(
+      (await SyncActiveContextStore(db).readSnapshot())!.token,
+      replacement,
+    );
+  });
 }

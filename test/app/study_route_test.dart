@@ -597,6 +597,65 @@ void main() {
     }
   });
 
+  testWidgets(
+      'same-pattern route reuse leaves the old plate for the new reader input',
+      (tester) async {
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's1',
+      name: 'Zoology',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l2',
+      topicId: 't2',
+      title: 'Animals',
+      bodyJson: '[]',
+    );
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    final router = container.read(routerProvider)..go('/lesson/l1?from=study');
+    await tester.pumpAndSettle();
+    final owner = tester.state(find.byType(LessonPage));
+    final token = (await container.read(readerContextProvider('l1').future))!
+        .boundary!
+        .token;
+    await tester.tap(find.byKey(const ValueKey('pull-handle')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('ending-plate')), findsOneWidget);
+    router.go(
+      '/lesson/l2?from=home',
+      extra: LessonDayContext(
+        date: DateTime.now(),
+        lessonIds: const ['l2'],
+        index: 0,
+      ),
+    );
+    await tester.pumpAndSettle();
+    try {
+      expect(identical(tester.state(find.byType(LessonPage)), owner), isTrue);
+      expect(find.byKey(const ValueKey('ending-plate')), findsNothing);
+      final bar = tester.widget<ReaderBar>(find.byType(ReaderBar));
+      expect(bar.lessonId, 'l2');
+      expect(bar.origin, ReaderOrigin.home);
+      expect(bar.dayContext!.lessonIds, ['l2']);
+      expect(find.text('1 of 1'), findsOneWidget);
+      expect(
+        (await container.read(readerContextProvider('l2').future))!
+            .boundary!
+            .token,
+        token,
+      );
+      await tester.tap(find.text('Home'));
+      await tester.pumpAndSettle();
+      expect(router.routeInformationProvider.value.uri.path, '/home');
+    } finally {
+      await unmountReader(tester);
+    }
+  });
+
   testWidgets('/study/topic/t1 is no longer a route', (tester) async {
     await pumpApp(tester);
 

@@ -1713,3 +1713,53 @@ Only this reviewed correction/page/test/evidence is saved. Task7's new caller te
 unstaged, validRED0pass/2fail in `w4c-task7-red.log`; no Task7 production code yet. Another
 Contents content-load failure before activation was reported to lead, awaiting its existing
 error/retry treatment before Task6 acceptance. No independent acceptance, push or merge.
+
+## Task6 review follow-up: Contents failures, external reuse and cancellation
+
+Lead approved existing error/retry treatment for non-warmed Contents loads under the original
+capture. Actual failed, null and stale-earlier selected loads give0pass/3fail before correction
+in `w4c-task6-contents-load-red.log`, then3pass in `w4c-task6-contents-load-green.log`.
+A selected load now retains its requested id and epoch, ignores earlier failures, validates the
+original boundary before showing a retry, and invalidates that exact selected id when retrying.
+Null context says the existing "Lesson not found."; other errors use existing lesson failure
+copy. No private exception text reaches the student. Outgoing measured position/fraction and
+recent-opened identity stay with the old actual lesson until successful handoff. Replacement-token
+failure expires to existing failure/back without retry; it never adopts/initializes another token.
+
+Lead also verified installed GoRouter route-pattern reuse. A same-key widget regression gave
+validRED: externalinputl4 was replaced by the older pendingl3completion
+(`w4c-task6-external-selection-red.log`). On external lesson input change, the existing page
+now invalidates pending epochs and resets old ending/initial-ending/warm/pull ownership, keeping
+its original captured token. An actual GoRouter test confirms identical retained page State,
+old plate removed, new lesson/origin/day metadata and truthful Home back, with unchanged token.
+No route key or route-stack workaround was introduced.
+
+Opening Contents during committed motion previously canceled activation's epoch but left the
+inert incoming preview held forever. This and replacement-token retry were validRED0/2 in
+`w4c-task6-cancel-selection-red.log`. A local enabled input now stops/resets PullToAdvance when
+Contents opens, preserves its footer footprint and resets chrome; other callers retain enabled
+by default. The first correction emitted reset notification synchronously during child update,
+which caused a sibling-build assertion (`w4c-task6-contents-reuse-cancel-final.log`68pass/1fail).
+Reset notification from widget updates now runs safely after the frame, checks mounting/busy
+state, and cannot touch a disposed/newly committed owner. The canceled preview disappears and
+the actual outgoing reader stays active. No new product presentation or global mechanism.
+
+Final affected checks on exact source below:
+- `flutter test test/features/lesson/presentation/reader_boundary_test.dart test/app/study_route_test.dart test/features/lesson/presentation/pull_to_advance_test.dart --no-pub --reporter expanded --timeout 30s`:
+  exit0, `00:03 +69: All tests passed!`, `.dart_tool/w4c-task6-review-followup-final-test.log`.
+- `dart analyze` the four changed files below:exit0, `No issues found!`,
+  `w4c-task6-contents-reuse-analysis-final.log`. Earlier13infos were fixed, not waived.
+- `dart format --output=none --set-exit-if-changed` those four files:exit0,
+  `Formatted 4 files (0 changed) in 0.02 seconds.`, `w4c-task6-review-followup-format.log`.
+- `git diff --check`:exit0,empty output. Final whole-family/project gates remain Task9's step.
+
+Patch against1e64f528 `.dart_tool/w4c-task6-review-followup-verified.patch` SHA256
+`7b58816a9af949567878518a7e38e6a5db9b572ef32cb493c8aa8669a7a89c91`.
+- `lib/features/lesson/presentation/lesson_page.dart`: `208b285279469d4b07ca0e3ef89c06ec07f524b08c85e4dd5992f0f2d98ae10f`
+- `lib/features/lesson/presentation/widgets/pull_to_advance.dart`: `1c9e27457ad926ad9de5b43cbd56ab0e0964e0be91291112a41e3036c6d6cfdc`
+- `test/features/lesson/presentation/reader_boundary_test.dart`: `2a813e8f701ec2a3c59a80e161f8a5dab2292628a3d7938d99f9ff2161a49dd1`
+- `test/app/study_route_test.dart`: `43fc5560bcbd988c7db62e698af61132e6ee463636402cf4261a17bd674f2a5a`
+
+Task7 caller RED remains separately unstaged. Task8's newly assigned held-operation lifetime
+closeout will be tested before any affected fix, per lead's currentL3 clarification. No other
+workstream, source push, merge, integration, audit or visual acceptance claimed here.

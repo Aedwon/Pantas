@@ -16,6 +16,7 @@ class PullToAdvance extends StatefulWidget {
     this.destinationKey,
     this.contentKey,
     this.requireIncoming = false,
+    this.enabled = true,
     this.finishDay = false,
     this.footerPadding = const EdgeInsets.fromLTRB(0, 36, 0, 60),
     this.onTransition,
@@ -29,6 +30,7 @@ class PullToAdvance extends StatefulWidget {
   final Object? destinationKey;
   final Object? contentKey;
   final bool requireIncoming;
+  final bool enabled;
   final bool finishDay;
   final EdgeInsets footerPadding;
   final ValueChanged<double>? onTransition;
@@ -67,7 +69,8 @@ class _PullToAdvanceState extends State<PullToAdvance>
       widget.nextTitle != null &&
       widget.onAdvance != null &&
       (!widget.requireIncoming || widget.incomingChild != null);
-  bool get _hasHandle => _hasDestination && widget.isAtEnd.value;
+  bool get _hasHandle =>
+      widget.enabled && _hasDestination && widget.isAtEnd.value;
 
   @override
   void initState() {
@@ -106,13 +109,17 @@ class _PullToAdvanceState extends State<PullToAdvance>
       oldWidget.isAtEnd.removeListener(_endChanged);
       widget.isAtEnd.addListener(_endChanged);
     }
-    if ((oldWidget.contentKey ?? oldWidget.lessonId) != _content ||
+    if (!widget.enabled ||
+        (oldWidget.contentKey ?? oldWidget.lessonId) != _content ||
         (_busy && _destination != _next)) {
-      _reset();
+      _reset(notify: false);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && !_busy) widget.onTransition?.call(0);
+      });
     }
   }
 
-  void _reset() {
+  void _reset({bool notify = true}) {
     _motion.stop();
     _arrow
       ..stop()
@@ -123,7 +130,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
     _holding = false;
     _incoming = null;
     _advance = null;
-    widget.onTransition?.call(0);
+    if (notify) widget.onTransition?.call(0);
   }
 
   void _endChanged() {

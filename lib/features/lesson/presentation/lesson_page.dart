@@ -71,6 +71,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   ReaderContext? _shown;
   LessonEnding? _ending;
   bool _initialEndingShown = false;
+  ({LessonId id, Object? error})? _selectionFailure;
   int _navigationEpoch = 0;
   int _pullEpoch = 0;
   bool _actorKnown = false;
@@ -185,6 +186,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     _warm?.close();
     _warm = null;
     _shown = null;
+    _selectionFailure = null;
     _navigationEpoch++;
     if (mounted) setState(() => _captureFailed = true);
   }
@@ -194,6 +196,14 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     super.didUpdateWidget(oldWidget);
     // A new route for the same page, so follow it.
     if (oldWidget.lessonId != widget.lessonId) {
+      _navigationEpoch++;
+      _pullEpoch = -1;
+      _warm?.close();
+      _warm = null;
+      _warmedId = null;
+      _selectionFailure = null;
+      _ending = null;
+      _initialEndingShown = false;
       _lessonId = widget.lessonId;
       _shown = null;
     }
@@ -222,11 +232,45 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     );
   }
 
-  Future<void> _advanceTo(LessonId next) async {
+  Future<void> _showSelectionFailure(
+    LessonId id,
+    Object? error,
+    int epoch,
+  ) async {
+    final boundary = _boundary;
+    if (boundary == null || !_boundaryAlive || epoch != _navigationEpoch) {
+      return;
+    }
+    final valid = await _checkBoundary(
+      boundary,
+      isCurrent: () => _boundaryAlive && epoch == _navigationEpoch,
+    );
+    if (!mounted || epoch != _navigationEpoch) return;
+    if (!valid) return _expire();
+    setState(() => _selectionFailure = (id: id, error: error));
+  }
+
+  Future<void> _advanceTo(LessonId next, {bool retry = false}) async {
     final epoch = ++_navigationEpoch;
-    final target = await ref.read(readerContextProvider(next).future);
-    if (!mounted || epoch != _navigationEpoch || target == null) return;
-    await _activate(target, epoch: epoch);
+    if (!mounted || !_boundaryAlive) return;
+    if (retry) ref.invalidate(readerContextProvider(next));
+    try {
+      final target = await ref.read(readerContextProvider(next).future);
+      if (!mounted || !_boundaryAlive || epoch != _navigationEpoch) return;
+      if (target == null) {
+        await _showSelectionFailure(next, null, epoch);
+        return;
+      }
+      if (target.boundary?.token != _boundary?.token ||
+          target.examId != _boundary?.examId) {
+        return _expire();
+      }
+      await _activate(target, epoch: epoch);
+    } catch (error) {
+      if (mounted && _boundaryAlive && epoch == _navigationEpoch) {
+        await _showSelectionFailure(next, error, epoch);
+      }
+    }
   }
 
   Future<void> _activate(ReaderContext next, {int? epoch}) async {
@@ -247,6 +291,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     if (!valid) return _expire();
     setState(() {
       _shown = next;
+      _selectionFailure = null;
       _lessonId = next.lesson.id;
       _ending = null;
     });
@@ -316,6 +361,25 @@ class _LessonPageState extends ConsumerState<LessonPage> {
           origin: origin,
           child: SingleChildScrollView(
             child: loadingFor(const AsyncLoading<Object?>()),
+          ),
+        ),
+      );
+    }
+    final failure = _selectionFailure;
+    if (failure != null) {
+      return Scaffold(
+        backgroundColor: context.colors.background,
+        body: _ReaderFallback(
+          origin: origin,
+          child: errorFor(
+            'lesson',
+            () => unawaited(_advanceTo(failure.id, retry: true)),
+            error: failure.error,
+            message: failure.error == null
+                ? 'Lesson not found.'
+                : 'Could not load this lesson.',
+            icon: Icon(PantasIcons.studyTab),
+            boardLayout: true,
           ),
         ),
       );
@@ -646,6 +710,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       // The body stays mounted across an advance, so the controller keeps
       // the offset the last lesson was left at and the new one opened part
       // way down. A lesson starts at its first line.
+      _contentsOpen = false;
       _positionDelay?.cancel();
       if (oldWidget.ending == null) {
         unawaited(
@@ -784,6 +849,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                 },
                 onContents: () {
                   widget.onCancelPending();
+                  _transition.value = 0;
                   setState(() => _contentsOpen = true);
                 },
                 scrollOffset: _scrollOffset,
@@ -804,6 +870,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
             ),
             Expanded(
               child: PullToAdvance(
+                enabled: !_contentsOpen,
                 isAtEnd: ending != null
                     ? const AlwaysStoppedAnimation(true)
                     : _isAtEnd,
