@@ -1443,3 +1443,109 @@ Source/test SHA256:
 Next: page-owned capture, stale cached/warmed context rejection, guarded marking/position,
 real simultaneous480ms preview and day/topic endings. Task6 remains incomplete. Tasks7/9,
 Task8 explicit closeout, family checks, independent review and phone acceptance pending.
+
+
+## Task6 October16 capacity checkpoint, integration remains unverified
+
+Lead requested immediate checkpoint at87% short-window use, preserving all drafts and
+running only already-started focused checks. No Task7/9 work or broad family suite started.
+Verified repository895aa3db was independently inspected/uploaded by lead; direct branch ref
+at checkpoint matches895aa3db0d6df1274446c9e26fce0b31ced36d1d. Current fetched policy/main
+03242b61 includes the previously read106892b2 capture-owner clarification. No main merge.
+
+Sixteen source/test drafts remain unstaged. They retain all eleven original draft paths and
+add reader provider, page, marking/provider tests and reader-boundary tests. Page initial capture
+now gates loading/warming, retains its original token, rejects cached mismatched provenance,
+and observes existing auth/exam plus local sync-meta table-update events. The original raw
+query-watch diagnostic caused Drift's zero-delay cancellation timer during automatic test
+teardown. Replaced it with the public tableUpdates event stream, which has no query-cache
+teardown timer. That earlier failed run is not a passing claim. A stuck earlier own test process
+was explicitly terminated before this checkpoint; no test/request remains intentionally pending.
+
+The draft now shares one pure lesson subtree with an inert incoming preview, connects real day
+order/last-day ending, last-lesson topic entry and actual next-topic first lesson, keeps origin
+and route stack, and supplies the existing480ms simultaneous transition. These are drafts,
+not completed/accepted scope. Full lifecycle, persistence and visual fidelity remain unverified.
+One actual integration finder was scoped to Contents because the legitimate new footer also
+names the same topic. No figure came from illustrative board content.
+
+Actual focused evidence, chronological and limited to its exact inputs:
+- `.dart_tool/w4c-provider-boundary-red.log`:fixture override-count assertion, not valid RED.
+- `w4c-provider-boundary-red-2.log`:exit1,5pass/1fail; expected pre-load snapshot, actualnull.
+- `w4c-boundary-provider-green.log`:compile failure from nonexistent map.examId, corrected
+  by reading actual model and using current focus/provider lifetime, not extending the model.
+- `w4c-provider-diagnostic.log`:10s timeout. Watching raw AsyncValue invalidated an unlistened
+  in-flight provider on initial auth resolution. Awaiting the existing .future resolved it.
+- `w4c-boundary-provider-green-3.log`:exit0, `00:00 +24: All tests passed!` before later additions.
+- `w4c-marking-boundary-red.log`:exit1,8pass/2fail; stale/disposed controller actually markedread.
+- `w4c-boundary-marking-green.log`:exit0, `00:00 +34: All tests passed!` at that candidate.
+- `w4c-retry-boundary-red.log`:exit1,0pass/1fail; missing-token content load recreated context.
+- `w4c-boundary-read-only-green.log`:exit0, `00:00 +35: All tests passed!`; includes strictly
+  read-only provider loading/retry after wipe. No page integration acceptance implied.
+- `w4c-page-boundary-green-3.log`:exit1,7pass/1fail; original three new boundary tests pass,
+  old actual-scroll advance test still fails at this candidate. No blanket page pass.
+- `w4c-task6-integrate-first.log`:exit1,19pass/1fail, route+boundary. Real day/topic/terminal
+  routes pass; old global Contents text finder includes the newly legitimate footer labels.
+- `w4c-task6-motion-green-2.log`:exit1,37pass/1fail after Contents fixture correction. Actual
+  scroll-surface pull test still fails. It initially sent no post-recognition movement; after
+  fixing that fixture, the parent drag cancellation still ran an empty spring during the child
+  scroll gesture. Stopping an interrupted spring and ignoring zero-lift parent cancellation
+  fixed that root cause in the draft.
+- `w4c-real-scroll-red.log`:exit1,0pass/1fail. Final focused
+  `flutter test test/features/lesson/presentation/pull_to_advance_test.dart --plain-name 'dragging past a real scroll surface end commits' --no-pub --reporter expanded --timeout 20s`:
+  exit0, `00:00 +1: All tests passed!`, `w4c-real-scroll-green.log`.
+  The combined37pass/1fail run was NOT repeated after this fix.
+- `dart analyze lib/features/lesson test/features/lesson test/app/study_route_test.dart`:
+  process exit0 but `171 issues found.`, all info-level lint findings. NOT clean.
+  Full output `w4c-task6-analysis-draft.log`; later source/tests changed, so171 is historical
+  candidate evidence, not an asserted exact count for the final unverified draft.
+- Race test first invocation incorrectly used --plain-name with a regex:exit79,no tests ran,
+  `w4c-review-races-red.log`. Corrected already-started focused invocation:
+  `flutter test test/features/lesson/presentation/reader_boundary_test.dart --name 'actor loading gap|newest Contents choice' --no-pub --reporter expanded --timeout 20s`:
+  exit1, `00:00 +1 -1: Some tests failed.`, `w4c-review-races-red-2.log`.
+  Actor loading-gap fixture passed unchanged, so it has NOT demonstrated the review risk.
+  Delayed activation reproduced it exactly: expectedlessonl3, actual l2 after older guard
+  completed last. This valid RED remains unfixed. No source commit from these drafts.
+
+Lead's two material review findings remain open:
+1. Retain last recognized actor/exam identity across loading/error gaps. Adjacent AsyncData
+   comparisons are insufficient. Reproduce proper initial-await AND surviving-reader cases,
+   including error gaps; current loading fixture alone does not demonstrate the defect.
+2. Capture/recheck navigation epoch across actual asynchronous activation guard, not only
+   before entering _activate. New controlled-guard Contents race is valid RED. Apply equivalent
+   cancellation ownership to _showEnding and committed pull destination. Verify stale/canceled
+   callbacks cannot commit; current _activate/_showEnding do not yet satisfy this.
+
+Other remaining Task6 checks/fixes: delayed resume read must revalidate lesson/boundary before
+jump; stale warmed next token/capture-cancel/exam-change tests; outgoing position/fraction
+preservation across full handoff, passive preview no recent-open/position writes, pointercancel/
+unmount during committed motion, stationary strip/rail/day counters and handoff continuity;
+whole page/plate/body tests with real provenance and both themes/200%/lesson scale; remove
+superseded material-duration expectations and old ending assumptions; fix lint/format/diffcheck
+on final candidate; required affected checks then family verification. Current expired-page
+presentation and retry/back handling require review, with no dead callback allowed. Task7/9,
+Task8 explicit closeout, independent family review, integration and phone acceptance pending.
+
+Final exact source/test draft against895aa3db, including three untracked source/tests:
+`.dart_tool/w4c-oct16-capacity-draft.patch`, SHA256
+`109522a39155b45ee77278edbe1a252bc0a7cf962053cce6858cbb6b2775f154`.
+These identities describe preserved drafts, not verified source:
+- `lib/features/lesson/application/reader_providers.dart`: `d69c6228eae9579f612261a5c98981b877445ac3b985e829160293e40c3495ca`
+- `lib/features/lesson/domain/use_cases/decide_ending.dart`: `6af8e044d0e7f58b13a14b2eb599c1fafc91ef5d162bf6217d0af0488cf785a3`
+- `lib/features/lesson/presentation/lesson_page.dart`: `587aced3a2fc33ea976a3827eea2018442acb4aab007ee992552fbf39462d9fc`
+- `lib/features/lesson/presentation/pages/topic_ending_page.dart`: `191289ea4e6128d5384eabb81c81a1e9cdce0f53ba2be8ea70c8cfb63cacb98c`
+- `lib/features/lesson/presentation/widgets/ending_content.dart`: `a46195c8ff2b047a868d4305d79ca2c2adbc2885843528185b695fbe6918a8c5`
+- `lib/features/lesson/presentation/widgets/pull_to_advance.dart`: `8214e44ce455e297de66d54f27d774912ec7d987d31e7036ece6384280c6c0b7`
+- `lib/features/lesson/presentation/widgets/reader_bar.dart`: `3353282f94305f053e8a4e185a641e2b8e13a19dbb2387aaa3b5915a8953560c`
+- `lib/features/lesson/presentation/widgets/reader_gap.dart`: `8e6413f466367d66c0c2ea6a780e043666268db66772eca41e05424055f59846`
+- `test/app/study_route_test.dart`: `32d9d162bf75a5edd4b11bf1e3aa4ee4bf7c0f5c84c8389ef33a0723f74156b4`
+- `test/features/lesson/application/read_marking_test.dart`: `831aeefac9ae7855e0f1c9d498259ab88ef0c57cdc374bb0276e59c2103d49fa`
+- `test/features/lesson/application/reader_providers_test.dart`: `373dae062f84ac3389f449301f175ecd21ac828c6e4f571ea818fc705cddfb40`
+- `test/features/lesson/domain/decide_ending_test.dart`: `78213b7359ebf683887fe6f24642f0013d67356faea8b382f230739bd0349cf6`
+- `test/features/lesson/presentation/ending_board_test.dart`: `bb9bd9cf446969e14e3c559dc1a1b17f57187f1073e8cfa529e6a9e718268f3d`
+- `test/features/lesson/presentation/pull_to_advance_test.dart`: `a29d41cf84c675693eccddc1aebdcf1f0c2316a7f170270ffd68954bcf41f28a`
+- `test/features/lesson/presentation/reader_boundary_test.dart`: `a730fc08878529e7b6cd5d1cc3f4ffd6eea2ecdd08f666ee84b6eec3d6c9a7de`
+- `test/features/lesson/presentation/reader_gap_test.dart`: `1807f7f0a72061f9006a47922056ebbde5eab0bfe0128c14b2481b148e6c6be4`
+
+Only this evidence checkpoint is staged/committed. No source draft is uploaded or integrated.
+Next run refreshes currentmain policy/L3 and actual repository identities before resuming.
