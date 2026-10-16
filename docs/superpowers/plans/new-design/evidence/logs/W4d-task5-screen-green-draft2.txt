@@ -1,0 +1,26 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart
+test/features/quiz/presentation/session_end_screen_test.dart:82:19: Error: Undefined name 'duration'.
+                  duration == null ? null : session.startedAt.add(duration)),
+                  ^^^^^^^^
+test/features/quiz/presentation/session_end_screen_test.dart:82:67: Error: Undefined name 'duration'.
+                  duration == null ? null : session.startedAt.add(duration)),
+                                                                  ^^^^^^^^
+test/features/quiz/presentation/session_end_screen_test.dart:159:26: Error: No named parameter with the name 'duration'.
+      await pump(tester, duration: duration);
+                         ^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: test/features/quiz/presentation/session_end_screen_test.dart:82:19: Error: Undefined name 'duration'.
+                    duration == null ? null : session.startedAt.add(duration)),
+                    ^^^^^^^^
+  test/features/quiz/presentation/session_end_screen_test.dart:82:67: Error: Undefined name 'duration'.
+                    duration == null ? null : session.startedAt.add(duration)),
+                                                                    ^^^^^^^^
+  test/features/quiz/presentation/session_end_screen_test.dart:159:26: Error: No named parameter with the name 'duration'.
+        await pump(tester, duration: duration);
+                           ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart
