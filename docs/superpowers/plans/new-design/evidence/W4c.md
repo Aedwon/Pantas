@@ -1763,3 +1763,36 @@ Patch against1e64f528 `.dart_tool/w4c-task6-review-followup-verified.patch` SHA2
 Task7 caller RED remains separately unstaged. Task8's newly assigned held-operation lifetime
 closeout will be tested before any affected fix, per lead's currentL3 clarification. No other
 workstream, source push, merge, integration, audit or visual acceptance claimed here.
+
+## Task7 quiz entry wiring, October16
+
+Consumed the actual integrated W4d quiz_starts contract, not a local selector or invented route.
+Reader calls startLessonQuiz with its actual lesson/exam. Empty Study calls startQuickQuiz with
+its active exam instead of opening the Quiz tab root. A missing active exam uses the existing
+Choose Exam fallback, with no broken button. Existing UI/copy/neutral styling and reader return
+stack stay intact. Pure empty-state board fixtures now supply their actual active exam context.
+
+New actual navigation tests written first:0pass/2fail in `.dart_tool/w4c-task7-red.log`.
+Old direct interpolation fails real encoded ids; old empty Study opens Wrong Quiz root. GREEN
+checks actual encoded lesson/exam parameters, Quick Quiz destination, preserved canPop and Done
+return to the same reader/Study state. No in-lesson quiz implementation or question-set change.
+
+Final affected command:
+`flutter test test/features/lesson/presentation/quiz_entry_test.dart test/features/lesson/presentation/study_states_board_test.dart test/features/lesson/presentation/reader_gap_test.dart test/features/lesson/presentation/lesson_page_test.dart --no-pub --reporter expanded --timeout 30s`
+exit0, `00:01 +25: All tests passed!`, `w4c-task7-ready-test.log`.
+Scoped four-file analysis:exit0, `No issues found!`, `w4c-task7-ready-analysis.log`.
+Scoped format:exit0, `Formatted 4 files (0 changed) in 0.01 seconds.`
+Layering:exit0, `check_layering: OK`, `w4c-task7-layering.log`; diffcheck:exit0,empty.
+Initial27warning/info findings were corrected, not waived. Former quiz-entry contract wait is
+resolved by the real integrated contract; no substitute or remaining omitted quiz button.
+
+Patch againstb11eab3f `.dart_tool/w4c-task7-verified.patch` SHA256
+`0ae96fa3dedd16a69723f9538bdb1e1976422520626b7375c2cddce7c1ddfb38`.
+- `lib/features/lesson/presentation/learn_tab_home.dart`: `77959a4096b56171b9b1e062a3af584b8c34c5282d04066b0beabed3c1b0729c`
+- `lib/features/lesson/presentation/widgets/reader_gap.dart`: `5356108d516c1aa7cfdcb69f0136adbe656da74b2140314c437ede0ad1b98fc4`
+- `test/features/lesson/presentation/quiz_entry_test.dart`: `fdec9946a77245350f85d0258cd0b303c14c88521eba8c1a4e07c2e410ca9770`
+- `test/features/lesson/presentation/study_states_board_test.dart`: `a58b9f1e61f248b4ce8291f81d9a19aa5de3a6c545a7c878825288372888eaa7`
+
+Task7 implementor scope saved for independent review. Next: Task8 held-operation lifetime
+closeout from currentL3, then Task9 retirements, unread-row alignment and final gates. No other
+branch work, worker upload/merge or acceptance claimed.

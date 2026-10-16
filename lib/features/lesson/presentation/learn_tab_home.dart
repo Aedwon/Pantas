@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -22,6 +21,7 @@ import 'package:pantas/features/lesson/presentation/widgets/search_results.dart'
 import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class LearnTabHome extends ConsumerWidget {
   const LearnTabHome({this.openTopicId, super.key});
@@ -205,6 +205,10 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           return _stateFrame(context, chooseExamFallback(context));
         }
         if (map.isEmpty) {
+          final exam = ref.watch(activeExamFocusProvider).valueOrNull?.exam;
+          if (exam == null) {
+            return _stateFrame(context, chooseExamFallback(context));
+          }
           return _stateFrame(
             context,
             StateView(
@@ -214,7 +218,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
               actionLabel: 'Try a Quick Quiz',
               icon: Icon(PantasIcons.studyTab),
               boardLayout: true,
-              onRetry: () => context.push('/quiz'),
+              onRetry: () => startQuickQuiz(context, examId: exam.id),
             ),
           );
         }

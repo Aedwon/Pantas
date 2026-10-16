@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class ReaderGap extends StatelessWidget {
   const ReaderGap({
@@ -61,7 +61,8 @@ class ReaderGap extends StatelessWidget {
           PantasButton(
             label: 'Quiz yourself, 5 questions',
             variant: PantasButtonVariant.neutral,
-            onPressed: () => context.push('/quiz/inline/$examId/$lessonId'),
+            onPressed: () =>
+                startLessonQuiz(context, lessonId, examId: examId!),
           ),
         ],
       ],
