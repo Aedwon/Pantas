@@ -1926,3 +1926,12 @@ keep drill. Existing rows are not relabeled. Timed/non-streak semantics and all 
 stay unchanged; storage/recovery/metrics and Done-navigation regressions are required. This
 is the minimal existing-field representation of approved source behavior, with no schema,
 sync payload, product or visual change. Mixed Today and missing Home Reviews callers stay held.
+
+
+### October16: truthful session duration edge wording
+
+D raised the drawn "in N minutes" line for real sub-minute completion. Root opened the
+actual builder/provider and confirmed legacy max(1,minutes) invents a full minute. L3d records
+"in under 1 minute" for positive sub-minute, actual zero/ordinary minute grammar, captured
+completion timing and omission when valid timing is unavailable. No proxy or new stored
+figure. This is formatting of an existing measured value, without a pacing/product change.

@@ -337,3 +337,18 @@ Tests first cover flagged versus generic/custom starts, stored completion/restar
 legacy drill behavior, unchanged timing/streak/metrics and truthful Done navigation. Save the
 bounded origin contract separately before consumers. No generic source-metadata system,
 new history, other-family caller edits or fabricated back destination.
+
+
+## Lead Task5 short-duration wording, October16
+
+Root opened the actual debrief timing builder/provider: it currently clamps measured duration
+to at least one minute, which cannot represent a positive sub-minute completion truthfully.
+For the approved duration line, use actual captured completion minus start. A positive
+sub-minute duration reads "in under 1 minute"; exactly zero reads "in 0 minutes"; ordinary
+whole-minute values use correct singular/plural. Never manufacture a minimum minute. Preserve
+the actual completion endpoint across later viewing/rebuilds; reopening does not keep adding
+wall time. If the source has no valid completion endpoint or has a negative duration, omit
+that unavailable line instead of substituting a proxy or invented value. No new persisted
+duration, pacing rule, data source or visual layout is authorized. Test positive sub-minute,
+zero, one/several minutes, immutable completed timing and absent/invalid timing. This extends
+existing truthful under-one-minute wording already recorded for Task3's derived duration.
