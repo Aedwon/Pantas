@@ -125,6 +125,7 @@ abstract class BuildSessionDebrief {
       SessionOrigin.todayInterleaved =>
         "Today's session.",
       SessionOrigin.drill => 'Practice.',
+      SessionOrigin.flagged => 'Flagged questions.',
       SessionOrigin.retake => 'Your mistakes.',
       SessionOrigin.inline => 'From the lesson.',
       SessionOrigin.assessment => 'Assessment.',

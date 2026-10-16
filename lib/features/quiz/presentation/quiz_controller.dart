@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
@@ -195,6 +196,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   Future<void> startPracticeFromQuestionIds({
     required ExamId examId,
     required List<QuestionId> questionIds,
+    SessionOrigin origin = SessionOrigin.drill,
   }) async {
     state = const QuizLoading();
     try {
@@ -203,6 +205,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
             userId: quizLocalUserId,
             examId: examId,
             questionIds: questionIds,
+            origin: origin,
             now: now,
           );
       switch (result) {

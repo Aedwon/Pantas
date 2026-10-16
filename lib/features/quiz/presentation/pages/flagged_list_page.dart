@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/empty_state.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
@@ -85,6 +86,7 @@ class FlaggedListPage extends ConsumerWidget {
                       .startPracticeFromQuestionIds(
                         examId: examId,
                         questionIds: ids,
+                        origin: SessionOrigin.flagged,
                       );
                   if (context.mounted) {
                     unawaited(context.push('/quiz/session/$examId'));

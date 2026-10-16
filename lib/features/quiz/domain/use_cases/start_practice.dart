@@ -156,6 +156,7 @@ class StartPractice {
     required ExamId examId,
     required List<QuestionId> questionIds,
     required DateTime now,
+    SessionOrigin origin = SessionOrigin.drill,
   }) async {
     if (questionIds.isEmpty) {
       return const StartPracticeNoQuestions(
@@ -180,14 +181,14 @@ class StartPractice {
       examId: examId,
       questions: picked,
       startedAt: now,
-      origin: SessionOrigin.drill,
+      origin: origin,
     );
 
     await _sessions.create(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
-      origin: SessionOrigin.drill,
+      origin: origin,
       topicId: session.topicId,
       questionIds: session.questions.map((question) => question.id).toList(),
       startedAt: now,

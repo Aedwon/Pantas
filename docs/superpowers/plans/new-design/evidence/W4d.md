@@ -392,3 +392,18 @@ Fresh final verification (`W4d-task5-gauge-commands.json`, exact raw output in `
 Root's scoped review of65f05501 found an Important efficiency defect: the rolling Column built every integer from0 through the real correct count on each frame, even with reduced motion. Custom quizzes retain whole selected pools, so this scaled with quiz size. Actual RED with2400 correct of3000 proved the unbounded child count. The strip now builds only its current number and adjacent numbers (at most4), using one spacer to preserve exactly the same absolute64pt displacement and clipping. No timing, curve, geometry, semantics or setting changed.
 
 `W4d-task5-gauge-bounded-red.txt` records the actual failure. Renewed new+existing gauge tests (`flutter test --no-pub test/core/ui/components/half_ring_gauge_quiz_count_test.dart test/core/ui/components/half_ring_gauge_test.dart --reporter expanded`): exit0, `00:00 +15: All tests passed!`. Coverage includes the large-count final/transition window and unchanged midpoint/final/updates/reduced-motion/percentage tests. Owned analysis: exit0, `No issues found! (ran in0.7s)` (raw output gives actual spacing/time). Source/test/log identities: `W4d-task5-gauge-bounded-manifest.json`. The prior533 affected shared tests remain applicable outside the amended rolling-count loop. No full-family acceptance or upload is claimed.
+
+## October16: standalone truthful flagged-origin contract
+
+Read the lead's current-main `f88ae99a` ruling before changing origin semantics. The new feature-owned `SessionOrigin.flagged('flagged')` uses the existing string column and JSON fields. Generic `StartPractice.fromQuestionIds` and controller callers default to drill; the actual flagged-list launch alone passes flagged explicitly. Existing enum values and legacy drill rows are unchanged. Creation, restart, resume, terminal completion and saved Attempt carry the actual value; flagged remains timed, non-streak practice. The old exhaustive debrief source switch now recognizes the value until Task9 replaces that page. No schema, migration, questionIds/outcomes encoding, sync shape, new history or other-family source changed.
+
+Actual behavioral RED (`W4d-task5-origin-red.txt`) showed the new stored string recovered as today_topic before enum support. New real-database regressions cover explicit/default starts, persisted restart/resume/completion, unchanged drill recovery, non-streak identity and a12,000ms measured average that includes flagged practice. Existing custom-start tests still prove drill. Initial test-harness compilation errors from incorrect recordAnswer arguments were corrected before that recorded behavioral run; they are not RED proof.
+
+Final exact commands/results: `W4d-task5-origin-commands.json` and raw `W4d-task5-origin-verified-0..5.txt`:
+- Quiz domain/application/data, controller, flagged-page and metrics checks: exit0, `00:10 +399: All tests passed!`.
+- Six-file analysis: exit0, `No issues found! (ran in1.0s)` (raw output retains exact spacing).
+- Format6 files: exit0,0 changed.
+- Layering/attribution: exit0, `check_layering: OK`, `check_no_ai_attribution: OK`.
+- Scoped diff whitespace: exit0.
+
+`W4d-task5-origin-manifest.json` binds the six owned source/test paths and evidence. These are the root's explicitly extended feature-owned files; no generated file is staged. This standalone save does not fix the old flagged-list presentation/undeclared route, implement new Done navigation, or claim Task5/8 complete. Those remain caller work. End-screen component drafts remain excluded from this commit; viewer/notes, report-viewer wiring, flagged rebuild, deletions and final family verification/review remain open.

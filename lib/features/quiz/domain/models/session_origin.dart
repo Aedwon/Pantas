@@ -2,6 +2,7 @@ enum SessionOrigin {
   todayTopic('today_topic'),
   todayInterleaved('today_interleaved'),
   drill('drill'),
+  flagged('flagged'),
   retake('retake'),
   inline('inline'),
 
