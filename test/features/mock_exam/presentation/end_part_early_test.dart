@@ -105,7 +105,7 @@ void main() {
     await tester.tap(find.byKey(const Key('mock-next')));
     await tester.pumpAndSettle();
     expect(find.text('End Part 1 now?'), findsOneWidget);
-    expect(find.textContaining('does not carry over'), findsOneWidget);
+    expect(find.textContaining("doesn't carry over"), findsOneWidget);
   });
 
   testWidgets('with strict on, next is disabled and the reason is shown',

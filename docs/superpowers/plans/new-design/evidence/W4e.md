@@ -274,3 +274,98 @@ Still pending before Task 4 completion: route transition display/restoration, or
 and explicit-Start flushes, failure/retry tests, strict-background versus expiry integration
 assertions, paper/grid presentation and final task checks. These are not covered by the bounded
 data-contract pass. Paper files remain separate dirty work. No other Task 3 file changed.
+
+## Task 4 paper presentation checkpoint, October 16
+
+Status: bounded paper presentation slice verified locally and saved. Tasks 4, 5 and 6 are NOT
+complete. The lead requested a capacity checkpoint before further runtime/finale work.
+No combined mock-family check, independent acceptance, visual acceptance or upload is claimed.
+
+Base: local `4509861f`. The lead identified an Important unresolved integration finding in that
+data commit: MockStartRoute still has no MockSessionBetweenParts case in build or snapshot/flush
+handling. At a part boundary it can show the loading state and combine the advanced part index
+with an older snapshot. Therefore this commit and its unuploaded data ancestor are held from
+working-branch upload/integration until coherent runtime consumers and their tests land.
+The paper presentation below does not resolve that finding.
+
+Implemented in the bounded presentation:
+
+- Clock includes hours, with a centered 120x5 time bar. It uses teal normally, amber under five
+  minutes and red in the last minute. Strict mode removes pause. Shared FloatingBar replaces
+  the old floating-bar widget at this call site, preserving a centered counter and controls.
+- Paper uses shared new-design question/choice/passage components and existing figure renderer.
+  Selection remains editable and never exposes answer correctness. The part-name/one-block
+  interface is ready, but the running route has not been updated to supply its new arguments.
+- Last-question dialog uses real blank counts/time and approved End Part copy. The added
+  one-block submit interface uses the approved inline accent dialog; route wiring is pending.
+- Proctor calls now occur at 10, 5 and 1 minutes. Surface is the drawn rounded warning pill.
+  Existing eight-second status exposure and haptics remain. Existing pause-warning and back/
+  leave behavior remain for the separate Task 5 work.
+
+Contrast changes under the October 12 standing ruling: board red #D70015 against dark #000000
+failed the required text ratio at 3.900243:1. Timer/proctor red uses existing wrongText, light
+#D70015 and dark #FF6961; the background stays unchanged. Clock-bar red uses the same readable
+red. Light/dark last-minute tests require at least 4.5:1. No shared token changed.
+
+Actual verification:
+
+- Initial RED `build/w4e/tasks4-6/t4-red.log`: seven missing proctor/hour/bar/color contracts,
+  exit 1. First GREEN attempt exposed the dark red contrast failure above, then corrected under
+  the standing ruling.
+- Final paper-focused command: `flutter test --no-pub --reporter expanded` on
+  task4_paper_contract, pages/mock_session_page, mock_session_page, clock_rule, proctor_toast,
+  end_part_early and domain/part_clock test files. Exit 0, `00:01 +40: All tests passed!`;
+  `build/w4e/tasks4-6/t4-paper-focused-final.log`.
+- Final scoped analyzer: exit 0, `No issues found! (ran in 1.0s)`;
+  `build/w4e/tasks4-6/t4-paper-analyze-final.log`. Earlier eight owned style infos were fixed.
+- Final owned format: exit 0, `Formatted 10 files (0 changed) in 0.01 seconds.`
+- Layering: exit 0, `check_layering: OK`. Attribution: exit 0, `check_no_ai_attribution: OK`.
+  Whitespace check: exit 0, no output. No further full-suite run at this checkpoint.
+
+Paper manifest, all under the assigned W4e scope:
+
+- `lib/features/mock_exam/domain/part_clock.dart`
+- `lib/features/mock_exam/presentation/clock_rule.dart`
+- `lib/features/mock_exam/presentation/pages/mock_session_page.dart`
+- `lib/features/mock_exam/presentation/proctor_toast.dart`
+- `test/features/mock_exam/domain/part_clock_test.dart`
+- `test/features/mock_exam/presentation/clock_rule_test.dart`
+- `test/features/mock_exam/presentation/end_part_early_test.dart`
+- `test/features/mock_exam/presentation/pages/mock_session_page_test.dart`
+- `test/features/mock_exam/presentation/proctor_toast_test.dart`
+- `test/features/mock_exam/presentation/task4_paper_contract_test.dart`
+- This evidence.
+
+Sorted path + NUL + bytes identity for the ten Dart paths:
+`648e7ecf4f9bebd31ece1daf925ac0223c5e09f092a1d18e6a17076bbefd2844`.
+Content inputs remain content.db `0ef89a64f2d2f63854b3d22048a7d992d5c04fb03df4fec2e7f4e898e6d083dc`
+and content.manifest.json `51bc0a766558879e540475ab972f03df7e3077241bab8f688c1b50ece5874f23`.
+Task 3 setup, preparation, blueprints, routes and runtime source remain byte-for-byte identical
+to the separate `ac712f6f` commit; this checkpoint has not changed its owned tests.
+
+Remaining authorized work, exactly:
+
+1. Task 4 runtime: handle between-parts state coherently in route build/snapshot/flush, preserve
+   explicit preparation/start, stop/reset clock, persist the gate and explicit Start in order,
+   keep failure/retry authoritative and start once. Test elapsed/early endings, restart, queued
+   write ordering/failure, ordinary paper after the first part, strict-background/expiry order.
+2. Task 4 presentation: match/rebuild PartTransitionPage to MK_BetweenA/MK_PartEnded including
+   actual answered/blank dots, part list/arrow and exact timeline. Wire shared QuestionGridSheet
+   with real section-local numbering, one-block submit footer/dialog, and declared exit. Implement
+   the MK_Paper outgoing/incoming 260ms/80ms-delayed-280ms overlap and delayed counter change;
+   current paper switching has not implemented that approved motion. Finish all task mock/app checks.
+3. Task 5: exact pause warning with remembered opt-out, hourglass fall/shrink/reverse flow,
+   discard deletes answers without consuming allowance, 10-second strict grace, strict back block,
+   non-strict app/back pause, recovery/errors/discard and expiry precedence. No Task 5 code started.
+4. Task 6: ordered full finale, UPCAT two-ball/deduction, results/breakdown/past-record motion,
+   Free window/lapse/paused-Pro rules and Done origin. No Task 6 code started. Existing percentage
+   gauge has a concrete geometry/timing gap; D owns its separately saved count variant. Before
+   any shared gauge edit, return exact required percentage/finale-driven interface from real
+   board timelines to the lead. Do not scale/approximate or edit it concurrently.
+5. Final affected/full required checks, independent lead review and Aedwon visual acceptance.
+   No screenshots, phone/emulator checks, publication, merge, push, cleanup or main code update.
+
+Board outlines/timelines for all 24 assigned Task 4–6 boards were generated directly from the
+main checkout into ignored `build/w4e/tasks4-6/`. They support continuation; no captured app
+screenshots or autonomous visual review occurred. This checkpoint is a capacity hold, not a
+product/behavior ruling and not task completion.

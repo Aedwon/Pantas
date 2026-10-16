@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 
 void main() {
   MockSessionInProgress stateAt(
@@ -99,9 +99,15 @@ void main() {
       harness(state: stateAt(39), canGoNext: false),
     );
 
-    final bar = tester.widget<MockFloatingBar>(find.byType(MockFloatingBar));
-    expect(bar.onNext, isNull);
-    expect(bar.onPrevious, isNotNull);
+    expect(find.byType(FloatingBar), findsOneWidget);
+    expect(
+      tester.widget<InkWell>(find.byKey(const ValueKey('mock-next'))).onTap,
+      isNull,
+    );
+    expect(
+      tester.widget<InkWell>(find.byKey(const ValueKey('mock-prev'))).onTap,
+      isNotNull,
+    );
     expect(find.byKey(const ValueKey('mock-next')), findsOneWidget);
   });
 
@@ -128,16 +134,16 @@ void main() {
         ),
       ),
     );
-    hostKey.currentState!.setRemaining(const Duration(minutes: 20));
+    hostKey.currentState!.setRemaining(const Duration(minutes: 10));
     await tester.pump();
     await tester.pump();
 
-    expect(find.text('20:00'), findsOneWidget);
-    expect(find.text('20 minutes left in this subject.'), findsOneWidget);
+    expect(find.text('10:00'), findsOneWidget);
+    expect(find.text('10 minutes left in this subject.'), findsOneWidget);
     await tester.pump(const Duration(seconds: 3));
-    expect(find.text('20 minutes left in this subject.'), findsOneWidget);
+    expect(find.text('10 minutes left in this subject.'), findsOneWidget);
     await tester.pump(const Duration(seconds: 5));
-    expect(find.text('20 minutes left in this subject.'), findsNothing);
+    expect(find.text('10 minutes left in this subject.'), findsNothing);
   });
 }
 
@@ -151,7 +157,7 @@ class _ProctorHost extends StatefulWidget {
 }
 
 class _ProctorHostState extends State<_ProctorHost> {
-  Duration _remaining = const Duration(minutes: 20, seconds: 1);
+  Duration _remaining = const Duration(minutes: 10, seconds: 1);
 
   void setRemaining(Duration value) {
     setState(() => _remaining = value);

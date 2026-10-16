@@ -40,8 +40,11 @@ class _ProctorToastState extends State<ProctorToast> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
-    final isAmber = widget.minutes == 1;
+    final color = widget.minutes == 1
+        ? colors.wrongText
+        : widget.minutes == 5
+            ? colors.warningText
+            : colors.label;
 
     final copy = proctorCopyFor(widget.minutes);
     return Semantics(
@@ -51,14 +54,14 @@ class _ProctorToastState extends State<ProctorToast> {
       excludeSemantics: true,
       child: Container(
         decoration: BoxDecoration(
-          color: colors.background,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: colors.rule),
+          color: colors.surface,
+          borderRadius: BorderRadius.circular(22),
+          border: Border.all(color: colors.shadow.withValues(alpha: .05)),
           boxShadow: [
             BoxShadow(
-              color: colors.ink.withValues(alpha: 0.05),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
+              color: colors.shadow.withValues(alpha: .12),
+              blurRadius: 20,
+              offset: const Offset(0, 6),
             ),
           ],
         ),
@@ -66,8 +69,9 @@ class _ProctorToastState extends State<ProctorToast> {
         child: Text(
           copy,
           textAlign: TextAlign.center,
-          style: textStyles.labelLarge.copyWith(
-            color: isAmber ? colors.amber : colors.ink,
+          style: context.type.subheadStrong.copyWith(
+            fontSize: 14,
+            color: color,
           ),
         ),
       ),

@@ -2,15 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/confirmation_dialog.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/figures/question_figure.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 
 class MockSessionPage extends StatefulWidget {
   const MockSessionPage({
@@ -31,6 +37,9 @@ class MockSessionPage extends StatefulWidget {
     this.onEndPartEarly,
     this.onLeave,
     this.currentPartNumber = 1,
+    this.partName = '',
+    this.oneBlock = false,
+    this.onSubmitExam,
     this.partLength,
     super.key,
   });
@@ -59,6 +68,9 @@ class MockSessionPage extends StatefulWidget {
   final VoidCallback? onEndPartEarly;
   final Future<bool> Function()? onLeave;
   final int currentPartNumber;
+  final String partName;
+  final bool oneBlock;
+  final VoidCallback? onSubmitExam;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
@@ -132,36 +144,77 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 
   void _confirmEndPartEarly(BuildContext context) {
-    showAppConfirmationDialog(
-      context: context,
-      title: 'End Part ${widget.currentPartNumber} now?',
-      body: 'You have ${widget.remainingInPart.inMinutes} minutes left in '
-          'this part. If you end it early, this time does not carry over.',
-      cancelLabel: 'Keep going',
-      confirmLabel: 'End part',
-      onCancel: () {},
-      onConfirm: widget.onEndPartEarly ?? () {},
+    final first = widget.state.currentIndex - widget.partPosition + 1;
+    final ids = widget.state.questionIds.skip(first).take(widget.partTotal);
+    final blank = ids
+        .where((id) => (widget.state.answers[id]?.selectedIndex ?? -1) < 0)
+        .length;
+    final minutes = widget.remainingInPart.inMinutes;
+    final hours = minutes ~/ 60;
+    final left =
+        hours > 0 ? '$hours hr ${minutes % 60} min' : '$minutes minutes';
+    final part = widget.currentPartNumber;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.shadow.withValues(alpha: .34),
+        builder: (dialogContext) => CenteredDialog(
+          title: widget.oneBlock ? 'Submit the exam?' : 'End Part $part now?',
+          message: widget.oneBlock
+              ? 'You have $left left and $blank questions blank. Once you '
+                  "submit, your answers can't be changed."
+              : 'You have $left left and $blank questions blank. Ending now '
+                  'closes Part $part for good, and the time left '
+                  "doesn't carry over.",
+          primaryLabel: widget.oneBlock ? 'Submit' : 'End Part $part',
+          secondaryLabel: 'Keep Working',
+          destructive: !widget.oneBlock,
+          inlineActions: true,
+          onCancel: () => Navigator.pop(dialogContext),
+          onConfirm: () {
+            Navigator.pop(dialogContext);
+            (widget.oneBlock ? widget.onSubmitExam : widget.onEndPartEarly)
+                ?.call();
+          },
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
+    final c = context.colors;
     final urgency = urgencyFor(widget.remainingInPart);
-    final isLastItemOfPart = widget.partPosition == widget.partTotal;
-
-    final VoidCallback? effectiveOnNext;
-    if (isLastItemOfPart) {
-      if (widget.state.strictMode) {
-        effectiveOnNext = null;
-      } else {
-        effectiveOnNext = () => _confirmEndPartEarly(context);
-      }
-    } else {
-      effectiveOnNext = widget.canGoNext ? widget.onNext : null;
-    }
-
+    final last = widget.partPosition == widget.partTotal;
+    final next = last
+        ? widget.state.strictMode
+            ? null
+            : () => _confirmEndPartEarly(context)
+        : widget.canGoNext
+            ? widget.onNext
+            : null;
+    final clockColor = switch (urgency) {
+      ClockUrgency.ample => c.label,
+      ClockUrgency.closing => c.warningText,
+      ClockUrgency.last => c.wrongText,
+    };
+    Widget control(String key, String label, Widget icon, VoidCallback? tap) =>
+        Semantics(
+          button: true,
+          label: label,
+          enabled: tap != null,
+          child: Opacity(
+            opacity: tap == null ? .25 : 1,
+            child: InkWell(
+              key: ValueKey(key),
+              onTap: tap,
+              borderRadius: BorderRadius.circular(22),
+              child:
+                  SizedBox(width: 44, height: 44, child: Center(child: icon)),
+            ),
+          ),
+        );
+    final scale = MediaQuery.textScalerOf(context).scale(17);
     return PopScope(
       canPop: _leaving,
       onPopInvokedWithResult: (didPop, _) {
@@ -169,83 +222,141 @@ class _MockSessionPageState extends State<MockSessionPage> {
       },
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
+          toolbarHeight: (scale * 1.35 + 21).clamp(50.0, double.infinity),
           centerTitle: true,
-          title: Text(
-            _formatRemaining(widget.remainingInPart),
-            style: textStyles.headlineSmall.copyWith(
-              fontFamily: 'SourceSans3',
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: urgency == ClockUrgency.last ? colors.amber : colors.ink,
-              fontFeatures: [const FontFeature.tabularFigures()],
-            ),
+          title: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                _formatRemaining(widget.remainingInPart),
+                style: context.type.subheadStrong.copyWith(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                  color: clockColor,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+              ),
+              const SizedBox(height: 6),
+              SizedBox(
+                width: 120,
+                height: 5,
+                child: ClockRule(
+                  remaining: widget.remainingInPart,
+                  partLength: widget.effectivePartLength,
+                ),
+              ),
+            ],
           ),
           actions: [
             if (!widget.state.strictMode)
               IconButton(
                 key: const Key('mock-pause'),
-                icon: const Icon(Icons.pause_outlined),
+                tooltip: 'Pause',
+                icon: Icon(PantasIcons.pause, size: 20),
                 onPressed: _onPausePressed,
-              ),
-          ],
-          bottom: ClockRule(
-            remaining: widget.remainingInPart,
-            partLength: widget.effectivePartLength,
-          ),
-        ),
-        body: Stack(
-          children: [
-            ListView(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 96),
-              children: [
-                _QuestionBody(
-                  questionId: widget.state.currentQuestionId,
-                  selectedIndex: widget.state
-                      .answers[widget.state.currentQuestionId]?.selectedIndex,
-                  onAnswer: widget.onAnswer,
-                ),
-              ],
-            ),
-            if (_proctorToastMinutes != null)
-              Positioned(
-                bottom: 74,
-                left: 20,
-                right: 20,
-                child: Center(
-                  child: ProctorToast(minutes: _proctorToastMinutes!),
-                ),
               )
-            else if (widget.state.strictMode && isLastItemOfPart)
-              Positioned(
-                bottom: 74,
-                left: 20,
-                right: 20,
-                child: Text(
-                  'Part ${widget.currentPartNumber} runs to the end of its '
-                  'time. Strict mock mode is on.',
-                  textAlign: TextAlign.center,
-                  style: textStyles.captionSmall.copyWith(
-                    color: colors.inkMuted,
+            else
+              const SizedBox(width: 44),
+            const SizedBox(width: 8),
+          ],
+        ),
+        body: SafeArea(
+          top: false,
+          child: Stack(
+            children: [
+              ListView(
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 150),
+                children: [
+                  _QuestionBody(
+                    questionId: widget.state.currentQuestionId,
+                    subject: widget.oneBlock
+                        ? widget.partName
+                        : 'Part ${widget.currentPartNumber} · '
+                            '${widget.partName}',
+                    selectedIndex: widget.state
+                        .answers[widget.state.currentQuestionId]?.selectedIndex,
+                    onAnswer: widget.onAnswer,
+                  ),
+                ],
+              ),
+              if (_proctorToastMinutes != null)
+                Positioned(
+                  bottom: 102,
+                  left: 16,
+                  right: 16,
+                  child: ProctorToast(minutes: _proctorToastMinutes!),
+                )
+              else if (widget.state.strictMode && last)
+                Positioned(
+                  bottom: 102,
+                  left: 16,
+                  right: 16,
+                  child: Text(
+                    'Part ${widget.currentPartNumber} runs to the end of its '
+                    'time. Strict mock mode is on.',
+                    textAlign: TextAlign.center,
+                    style:
+                        context.type.footnote.copyWith(color: c.secondaryLabel),
+                  ),
+                ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 30),
+                  child: FloatingBar(
+                    left: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        control(
+                          'mock-prev',
+                          'Previous question',
+                          Icon(PantasIcons.back, size: 20),
+                          widget.canGoPrevious ? widget.onPrevious : null,
+                        ),
+                        control(
+                          'mock-grid',
+                          'Questions',
+                          PantasIcons.questionsSheet,
+                          widget.onShowNavigator,
+                        ),
+                      ],
+                    ),
+                    counter: '${widget.partPosition} of ${widget.partTotal}',
+                    right: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        control(
+                          'mock-flag',
+                          'Flag question',
+                          Icon(
+                            PantasIcons.flag,
+                            size: 21,
+                            color: widget.state.flags.contains(
+                              widget.state.currentQuestionId,
+                            )
+                                ? c.accent
+                                : c.label,
+                          ),
+                          widget.onToggleFlag,
+                        ),
+                        control(
+                          'mock-next',
+                          last
+                              ? widget.oneBlock
+                                  ? 'Submit the exam'
+                                  : 'End part'
+                              : 'Next question',
+                          Icon(PantasIcons.next, size: 20),
+                          next,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(14),
-                child: MockFloatingBar(
-                  position: widget.partPosition,
-                  total: widget.partTotal,
-                  isFlagged: widget.state.flags
-                      .contains(widget.state.currentQuestionId),
-                  onPrevious: widget.canGoPrevious ? widget.onPrevious : null,
-                  onNext: effectiveOnNext,
-                  onGrid: widget.onShowNavigator,
-                  onFlag: widget.onToggleFlag,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -283,9 +394,12 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 
   String _formatRemaining(Duration remaining) {
-    final minutes = remaining.inMinutes;
-    final secs = remaining.inSeconds % 60;
-    return '${minutes.toString().padLeft(2, '0')}:'
+    final seconds = remaining.inSeconds.clamp(0, 1 << 31);
+    final hours = seconds ~/ 3600;
+    final minutes = (seconds ~/ 60) % 60;
+    final secs = seconds % 60;
+    return '${hours > 0 ? '$hours:' : ''}'
+        '${minutes.toString().padLeft(2, '0')}:'
         '${secs.toString().padLeft(2, '0')}';
   }
 }
@@ -293,11 +407,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
 class _QuestionBody extends ConsumerWidget {
   const _QuestionBody({
     required this.questionId,
+    required this.subject,
     required this.selectedIndex,
     required this.onAnswer,
   });
 
   final String questionId;
+  final String subject;
   final int? selectedIndex;
   final ValueChanged<int> onAnswer;
 
@@ -311,30 +427,40 @@ class _QuestionBody extends ConsumerWidget {
           return const Center(child: Text('Question not found'));
         }
 
-        final choiceId = selectedIndex != null &&
-                selectedIndex! < hydrated.question.choices.length
-            ? hydrated.question.choices[selectedIndex!].id
-            : null;
-
         return QuestionCard(
           key: ValueKey(hydrated.question.id),
-          question: hydrated.question,
-          passage: hydrated.passage,
-          chosenChoiceId: choiceId,
-          onAnswer: (cid) {
-            final index =
-                hydrated.question.choices.indexWhere((c) => c.id == cid);
-            if (index >= 0) onAnswer(index);
-          },
+          subject: subject,
+          stem: hydrated.question.stem,
+          passage: hydrated.passage == null
+              ? null
+              : PassageCard(
+                  text: hydrated.passage!.body,
+                  title: hydrated.passage!.title.isEmpty
+                      ? null
+                      : hydrated.passage!.title,
+                ),
+          figure: hydrated.question.figureSpecJson == null
+              ? null
+              : QuestionFigure(specJson: hydrated.question.figureSpecJson),
+          choices: [
+            for (var i = 0; i < hydrated.question.choices.length; i++)
+              ChoiceRow(
+                letter: hydrated.question.choices[i].label,
+                text: hydrated.question.choices[i].text,
+                state: selectedIndex == i
+                    ? ChoiceRowState.picked
+                    : ChoiceRowState.plain,
+                onTap: () => onAnswer(i),
+              ),
+          ],
         );
       },
-      loading: () => const Center(
-        child: Padding(
-          padding: EdgeInsets.all(40),
-          child: CircularProgressIndicator(),
-        ),
+      loading: () => loadingFor(hydratedAsync),
+      error: (e, st) => errorFor(
+        'question',
+        () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
+        error: e,
       ),
-      error: (e, st) => Center(child: Text('Error: $e')),
     );
   }
 }
