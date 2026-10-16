@@ -382,3 +382,37 @@ A stale view must not initialize an absent token from mutation/retry, touch anot
 membership/order, or retain an actionable old write retry. Ordinary same-boundary actions and
 the already approved initial legacy-guest behavior remain. Root records the concrete correction
 after reproduction, before its implementation. Other settled W4c tasks can continue.
+
+
+## Lead Task8 held-action correction contract, October16
+
+The actual held-Remove checks reproduced four failures: after real wipe a late removal
+initialized a new anonymous envelope; after same-account reset, actor change or exam change
+it deleted the current boundary's same-lesson bookmark. This establishes a write-ownership
+defect beyond the already guarded held-Undo path. Authorize this narrow correction before
+Task8 acceptance, inside the existing lesson-owned sheet/providers/preferences repository
+and affected tests. No global owner, schema, sync/wiper change or generic framework.
+
+Capture the view's actor/exam/operation epoch before its first asynchronous work. Resolve one
+initial sheet-action boundary with existing absent-only SyncActiveContextStore initialization
+and cancellation checks; preserve recognized stable/anonymous contexts. Retain that original
+exam/token. Actions may await that one capture; mutation and failed-save Retry never initialize
+or adopt another token. Carry original exam/token plus the current-view predicate through
+Remove, Undo, Sort and Move/drag into their actual repository write transactions, validating
+before and after awaits. The order controller publishes only after a current successful write.
+Expire selections, held work and failed retries on actor/exam/token expiry even when there is
+no completed removal/Undo payload. Preserve ordinary same-boundary behavior and exact order,
+timestamps, sort, announcements, motion and restoration semantics.
+
+A reset/wipe while initial capture is still pending must cancel that original view even before
+a token has been assigned. Use existing lifecycle or database update signals; do not skip
+expiry merely because the captured-token field is still null. Include this initial-await
+case in the reader and sheet regression checks, alongside actual wipe/reset/actor/exam during
+held mutations and retry. A genuinely fresh post-reset view may establish its initial capture.
+Any narrowly shared feature-owned extraction may reuse the existing guard implementation;
+do not create another protocol or duplicate the core active-context store.
+
+Tests first prove the four reported failures and affected Sort/Move/Retry paths, cancellation
+during capture, current ordinary actions, and recognized-context preservation. Renew affected
+reader/bookmark/storage boundary checks, then final family/project gates at Task9. Root
+personally reviews the data correction and the required Astra audit precedes integration.

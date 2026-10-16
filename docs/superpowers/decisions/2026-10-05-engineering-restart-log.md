@@ -2024,3 +2024,17 @@ L3c requires actual pending Remove/sort/reorder/save-Retry boundary tests before
 This is recorded as an unverified risk requiring reproduction, not an established data-loss
 claim. Any actual failure returns a bounded existing-token/view-lifetime proposal before code.
 No new product, persistence schema, sync behavior or broad infrastructure is authorized.
+
+
+### October16: approve the reproduced bookmark held-action correction
+
+C reported actual validRED0/4 in w4c-task8-held-remove-red.log. After wipe late Remove
+created a token; after same-account reset/newactor/newexam it deleted l1 from the new/current
+{l1,l2} membership. Root accepts the narrow proposal: one initial view boundary, retained
+exam/token/epoch, guarded actual repo writes and controller publication, expiry of all held
+actions/failed Retry even without Undo payload. L3c records scope before production changes.
+Use existing lifecycle/store patterns and optional feature-owned reuse, without schema,
+core sync/wiper or a global mechanism. Pending initial capture must also expire on real
+wipe/reset while its token is not assigned, for reader and sheet; fresh new-view entry remains
+valid. The earlier code skipped metadata expiry without a token, so this initial-await case
+requires explicit coverage instead of relying on completed-capture tests.
