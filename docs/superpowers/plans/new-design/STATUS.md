@@ -589,3 +589,25 @@ The same C implementor is reproducing/handling it with existing failure/back sem
 source upload/acceptance. No new product decision or owner is authorized. C continues Tasks7,
 8explicitcloseout and9 in this branch only; D/E remain held under Aedwon's serial instruction.
 No full-project suite, Astra audit, integration or phone acceptance has occurred on this candidate.
+
+
+### October16: W4c review fixes and Task7 saved locally
+
+C saved1e64f52849f973461b9bcec7a33ed833e00b7330 and b11eab3f4bb5ea7fcca58a4214e4dfab1aa695fb
+after Task6 source5afe6e13. Root read both production deltas/evidence, actual23/69 affected
+pass summaries and verified their2/4 source/test hashes. Unreadable boundary lookup now fails
+conservatively; Contents load failures retry the actual selected lesson under the original
+token; stale selection errors cannot overwrite newer requests. Actual GoRouter same-pattern
+reuse resets old ending/warm/epoch state, and opening Contents cancels held motion safely.
+Task6 source review still includes one ordinary unread-row nowrap alignment correction; full
+family acceptance/Astra/visual checking remain outstanding. No source upload is claimed yet.
+
+Task7 implemented at702d5c610563eecab46b591f0b3a6fd458cd2778, clean at its save. Root inspected
+the two production caller replacements and actual25 affected passes/clean scoped analysis.
+The approved W4d helper now opens lesson/Quick quizzes with encoded IDs and preserves return
+stack; missing active exam keeps the existing Choose Exam fallback. This task implementation
+does not claim acceptance of the combined W4c family.
+
+The same worker is closing Task8 with held-operation boundary tests per currentL3, before
+Task9 retirements and final full-project checks. No other branch is active. All C source
+commits after7223e931 remain local pending the complete review/verification sequence.
