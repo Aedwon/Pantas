@@ -366,3 +366,23 @@ The meaningful grid handle uses controlOutline under the standing W4 contrast ru
 The source save includes only the 11 planned/explicitly extended screen/shared/test paths, the existing W4d evidence and Task 4 logs. Public component extensions stay within the recorded shared ownership; no W4b/W4c/W4e worktree, dependency, schema, sync payload or generated source was changed/staged. Earlier verified tasks and controller commit remain intact.
 
 Task 4 remains open for actual Reviews selection/caller integration and the missing Home-owned Reviews/Continue/shared controls, then their applicable checks. The legacy mixed Today launch is unchanged and is not relabeled Reviews. Dependent Quiz tab session details are not invented. Full-family/Astra review, integration and Aedwon's phone acceptance remain separate. Task 5 was not started; no end-screen implementation, integration merge, deployment or release work was performed.
+
+## October 16: Task 5 standalone shared count-gauge contract
+
+Resumed current-main policy `ae5c09421084c01d854e78150ea2e481afe7e0b2`; refreshed fetch and verified local/remote code HEAD `10045dbd646916e62488d1e37583b3cc6119cb59`, clean before the preserved Task 5 untracked drafts. AGENTS/WORKFLOW/SUBAGENTS are byte-identical to the previously read `63175b4d` policy files; their current-main versions, full current L2/L3 and shared rulings were recovered. Existing application freeze, independent reviews, missing Home contracts and separate phone acceptance remain. No cross-worktree changes, screenshot, relay, hosted CI, push or integration.
+
+The lead's recorded Task 5 ruling authorizes only the additive named `HalfRingGauge.quizCount(correct:, total:)` and covering tests. This save contains that shared slice alone, before consumption by the unfinished end screen. Existing percentage construction, 220x112 geometry, 300–1400ms house timing, percentage semantics, overlay behavior, and default text stay intact.
+
+Count mode uses the actual correct/total and the QV_EndPro arc (264x128, radius108,16 stroke). Its 60pt count rolls vertically in 64pt slots with a24pt /total, starting400ms and ending1600ms with Cubic(.2,.8,.25,1). Label is correct, semantics announce the real correct/total, and0/0 is defined without division. The same existing painter/lifecycle drives the arc. Number slots accommodate text scaling before fitting within the gauge; reduced motion renders the final frame immediately. Updates with unchanged fraction still update count/total. Motion-preference changes retain the displayed count.
+
+Tests were written first. Initial missing-constructor RED is `W4d-task5-gauge-red.txt`. The first layout run exposed an infinite-width OverflowBox; the rolling strip now has its measured finite width. A separate actual RED (`W4d-task5-gauge-motion-red.txt`) reproduced the displayed count resetting when motion was enabled after a reduced-motion frame; the lifecycle now retains the count baseline. Test-harness semantics handles were corrected to dispose before test teardown verification. Intermediate failed outputs remain diagnostic, never a passing baseline.
+
+Fresh final verification (`W4d-task5-gauge-commands.json`, exact raw output in `W4d-task5-gauge-verified-0..5.txt`):
+- `flutter test --no-pub test/core/ui/components test/core/ui/theme --reporter expanded`: exit0, `00:24 +533: All tests passed!`.
+- Focused analysis: exit0, `No issues found! (ran in 0.6s)`.
+- Format2 files: exit0,0 changed.
+- Layering: exit0, `check_layering: OK`.
+- Attribution: exit0, `check_no_ai_attribution: OK`.
+- Scoped diff whitespace: exit0.
+
+`W4d-task5-gauge-manifest.json` binds source/test and evidence hashes, base, tracked patch and the unchanged runtime/content material-input record. Source ownership: shared gauge and its new focused quiz-count test only, plus this existing evidence and applicable logs/board extraction. End-screen skeleton/test remain untracked and deliberately excluded. The larger Task5, viewer/notes, flagged list, deletion, family/Astra review and phone acceptance remain unfinished. No completed-family/full-suite claim.
