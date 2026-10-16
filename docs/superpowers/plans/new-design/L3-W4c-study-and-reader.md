@@ -316,3 +316,13 @@ without token recreation; cached/warmed old token rejection; actor/exam/cancel d
 capture; valid fresh-page entry after reset; ordinary same-token read/save/handoff. This is a
 technical owner correction required by the already approved no-recreation rule, not a larger
 refactor, new persistence format, new product behavior or visual departure.
+
+
+### October16 expired-page action clarification
+
+An expired retained reader token cannot recover through content retry, because retry must
+never recapture or adopt a replacement token. Do not render a Try Again control with an empty
+callback. Reuse the existing StateView failure presentation and actual origin Back control
+without an unavailable retry action. Transient content errors retain their working retry under
+the original token. Fresh page entry keeps the approved initial-capture behavior. No new copy,
+shared-state helper, automatic navigation, replacement token or visual redesign is required.

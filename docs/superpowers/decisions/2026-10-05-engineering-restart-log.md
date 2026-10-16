@@ -1947,3 +1947,18 @@ consume the new between-parts state safely. Reopening must not skip or corrupt t
 Resume existing C/E workers first and D after a checkpoint, without new or duplicate agents.
 All prior scope, complexity, source ownership, local verification and acceptance boundaries
 remain. The partial changes do not complete C6, D5 or E4–6. No new product decision is needed.
+
+
+### October16: reader source review and expired retry action
+
+Root found two material races in the unfinished page before source acceptance: adjacent
+AsyncData-only identity checks can lose provenance across loading/error, and activation checked
+navigation epoch before, but not after, its asynchronous guard. The actual delayed selection
+regression reproduced olderl2 overwriting newer l3. Worker also reproduced a delayed saved
+offset applying to another lesson. These fixes need actual final candidate checks.
+
+Expired-page Try Again used an empty callback. L3c clarifies existing failure/working Back
+without an unavailable retry, while transient content errors keep working same-token retry.
+No retry may recreate a token. This enforces the existing no-dead-control and provenance rules.
+C7223e931 and D5e89e4fa evidence-only checkpoints were inspected and uploaded normally after
+fresh expected-base/doc-only/diff checks; no unfinished production source was uploaded.
