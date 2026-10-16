@@ -221,3 +221,56 @@ Manifest: the two shared source files above, `test/core/ui/components/mock_share
 and this evidence. Only this approved slice is staged. No source in Task 3, content, other
 families, shared gauge, schema, signing or sync changed. No screenshot capture, phone verification,
 independent review, integration, push, deployment, release or visual acceptance occurred.
+
+## Task 4: between-parts data contract slice, October 16
+
+Status: bounded controller/snapshot/resume contract implemented and focused checks passed.
+Task 4 route integration and presentation remain in progress. Task 5 is not completed. The
+lead's student-data review is required before integration. No combined-family acceptance.
+
+Base: `40600f16420c4f0b80bfc2e17054da670986a915`. Additional controlling ruling read from
+current-main `49b95eb2`: optional betweenParts/endedEarly in existing feature _session JSON,
+with frozen next-part position, stopped clock, explicit Start and validated recovery.
+
+- Controller now enters MockSessionBetweenParts at an elapsed or early part ending. It freezes
+  the actual next-part index/first question and full next-part clock. Only startNextPart leaves
+  the gate, once; ticks while waiting do nothing. Last-part endings submit. Strict mode cannot
+  end a part early, and strict background forfeiture still works while waiting and is idempotent.
+- Snapshot/flush models carry optional boolean transition state, default false for legacy
+  snapshots. Decoder rejects non-booleans, endedEarly without a gate, missing/inconsistent frozen
+  parts and impossible next-part indices. Controller restoration also checks next-part position
+  and an unstarted clock.
+- Resume preserves elapsed while waiting and adds intervening wall time to accumulated paused
+  time. Repeated resumes cannot consume the next part. It preserves strict background metadata
+  and all saved answers. An inconsistent saved clock/position fails before a progress write;
+  it does not repair or remap the answers. No SQL, database schema or sync mapper changed.
+
+Verification:
+
+- RED `t4-transition-red.log`: new transition state/API/metadata absent, exit 1.
+- RED `t4-data-guard-red.log`: waiting tick and strict-background operations incorrectly require
+  running state; both fail with `Bad state: Mock session is not in progress`, exit 1.
+- GREEN `flutter test --no-pub --reporter expanded` with six files (between_parts_recovery,
+  mock_session_snapshot, mock_lifecycle_use_cases, mock_session_parts, mock_session_controller,
+  mock_persistence_scheduler): exit 0, `00:00 +42: All tests passed!`;
+  `build/w4e/tasks4-6/t4-data-final-tests.log`.
+- Scoped analyzer on the seven manifest Dart paths: exit 0,
+  `No issues found! (ran in 1.1s)`; `build/w4e/tasks4-6/t4-data-analyze-final.log`.
+- Format: exit 0, `Formatted 7 files (0 changed) in 0.02 seconds.`
+- Layering: exit 0, `check_layering: OK`. Attribution: exit 0, `check_no_ai_attribution: OK`.
+  `git diff --check`: exit 0, no output.
+- A wider domain/application run during the paper changes had 112 passes and two expected,
+  owned old 20-minute-proctor expectations failing. Those belong to the still-uncommitted
+  paper slice; this does not claim that wider run passed.
+
+Manifest: `application/mock_session_controller.dart`, `application/mock_persistence_scheduler.dart`,
+`domain/mock_session_state.dart`, `domain/mock_session_snapshot.dart`, `domain/use_cases/resume_mock.dart`
+under `lib/features/mock_exam/`; `test/features/mock_exam/domain/between_parts_recovery_test.dart`;
+`test/features/mock_exam/application/mock_session_parts_test.dart`; this evidence.
+Sorted path + NUL + bytes SHA-256 for those seven source/test paths:
+`4a9b4dbd6859ea507232720e7c379aea55495aa41e4dca5f525b05a85746ca56`.
+
+Still pending before Task 4 completion: route transition display/restoration, ordered transition
+and explicit-Start flushes, failure/retry tests, strict-background versus expiry integration
+assertions, paper/grid presentation and final task checks. These are not covered by the bounded
+data-contract pass. Paper files remain separate dirty work. No other Task 3 file changed.

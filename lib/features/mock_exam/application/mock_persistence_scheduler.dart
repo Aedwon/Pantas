@@ -66,6 +66,8 @@ class MockFlushPayload {
     required this.currentPartIndex,
     required this.partStartedAtSeconds,
     this.strictBackgroundedAt,
+    this.betweenParts = false,
+    this.endedEarly = false,
   });
 
   final String attemptId;
@@ -78,4 +80,6 @@ class MockFlushPayload {
   final int currentPartIndex;
   final int partStartedAtSeconds;
   final DateTime? strictBackgroundedAt;
+  final bool betweenParts;
+  final bool endedEarly;
 }
