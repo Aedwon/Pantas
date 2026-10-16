@@ -2054,3 +2054,12 @@ Evidence-only612a8b1f and exact six-file draft patch2dd8a5a0 remain preserved. L
 usage95%short/94%weekly; C is idle at checkpoint. W4c stays first under the exact serial user
 instruction; D/E remain held. No Task8 acceptance, Task9, Astra, integration, phone acceptance,
 source push, publication, schema or core lifecycle change is claimed for the unfinished draft.
+
+
+### October17: repeated serial continuation
+
+Aedwon said: "continue, but finish one branch tasks first fully before another".
+This confirms the existing W4c-first order, with D/E preserved and held. The same
+implementor resumes the current narrowly approved capture-order investigation and
+remaining C closeout. No new complexity or product decision is needed. The prior
+92pass/1fail draft is still unfinished; independent review and Astra precede integration.

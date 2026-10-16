@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
+State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-16 22:59 Asia/Manila (serial continuation, W4c first)
+Since: 2026-10-17 04:04 Asia/Manila (serial continuation, W4c first)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -642,3 +642,15 @@ review and serialized Astra audit. No whole-family integration or phone acceptan
 observed usage95%short/94%weekly; worker is idle with no intentional running command. This is
 a capacity checkpoint, not a new product pause, source discard or permission to switch branches.
 Status lock is released for safe resumption; original continuation remains authorized.
+
+
+### October17: resume W4c exclusively
+
+Aedwon repeated: "continue, but finish one branch tasks first fully before another".
+Current policy main f856af6c9885c19d66b1d4eb839e057223c37dbf was retrieved and read.
+The same C implementor resumes at local612a8b1f, remote7223e931, preserving the six
+dirty Task8 source/test files. No unexpected branch drift was found. D/E remain held.
+Next is the current L3 early initial-context capture investigation, then Task8 closeout,
+unread-row correction, Task9 gates, lead data review and serialized Astra audit. No source
+acceptance/upload, integration, phone acceptance or publication is claimed by this resumption.
+Latest observed usage is0%short/95%weekly. Existing application-main freeze remains binding.
