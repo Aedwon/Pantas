@@ -351,3 +351,15 @@ nonterminal onward preview and correct first next lesson, terminal no onward, ac
 no anchor read/recent/position mutation, and preservation of the outgoing reader offset/fraction
 after plate departure. If the adapter cannot reuse the existing owner narrowly, report before
 a larger refactor. This keeps the already approved route and chain consistent.
+
+
+### October16 active reader bookmark guard
+
+The existing active reader bookmark action also writes membership and per-exam preferences
+asynchronously. Reuse the same retained reader token/current-owner guarded transaction around
+that existing action, preserving its behavior, schema, keys and sync shape. Capture needed
+repositories before awaits and avoid late WidgetRef use after disposal. Do not introduce
+another owner or broadly rewrite bookmark behavior. A held-read then wipe/account/exam/cancel
+regression must reject or roll back stale membership/order writes; ordinary same-boundary
+bookmark and actual ReaderBar state still work. Preview remains noninteractive and never
+invokes this action. This completes the existing actual-write boundary scope.

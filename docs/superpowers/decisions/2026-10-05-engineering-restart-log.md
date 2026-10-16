@@ -1975,3 +1975,12 @@ read/open/position writes, truthful Study fallback and exact direct-chain tests 
 Root also identified that unconditional position saving while a plate is active could replace
 the outgoing lesson's measured position with reset zero. Plate state must never own such a
 write. The existing outgoing measurement is saved once and retained through plate departure.
+
+
+### October16: include the active bookmark action in reader guards
+
+C identified that the active ReaderBar still invoked an asynchronous bookmark helper outside
+the new write guard. Root had opened that helper during the reader review. L3c permits the
+same retained-token/current-owner transaction around its existing membership/order writes,
+with repositories captured before awaits, disposal safety and actual held-read boundary tests.
+No new lifecycle, bookmark data format, sync shape or student-facing behavior is introduced.
