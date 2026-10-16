@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-16 12:52 Asia/Manila (continued after usage reset)
+Since: 2026-10-16 17:57 Asia/Manila (continued after usage reset)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -513,3 +513,30 @@ full working ref matches2861773f. Task5 end-screen/origin drafts remain local an
 The verified named count variant is not percentage-finale geometry/timing permission for E;
 E must report its specific shared-gauge needs before any additional edit. No Task5/full-family/
 Astra/integration or phone acceptance is claimed.
+
+
+### October16: current continuation after second window interruption
+
+Exact user instruction: "continue". Current main03242b61863427ab3390b7717d5917ed9003ca3b
+policy retrieved again; AGENTS/WORKFLOW/SUBAGENTS are unchanged. Live ordinary usage is allowed,
+0% short-window/63% weekly. Fresh fetch confirms no unexpected divergence. Resume two existing
+workers first, C reader safeguards and E mock runtime, then D quiz endings after a checkpoint;
+this reduces concurrent consumption while preserving the entire approved continuation.
+
+C local7223e931(evidence only) is ahead1 of remote895aa3db; sixteen unfinished source/test
+paths remain exact drafts. Valid delayed-activation race RED is still open, actor loading/error
+baseline needs meaningful coverage, and prior171info analysis was not clean. No source beyond
+the guarded repository is accepted. D local5e89e4fa(evidence only) is ahead1 of remote dac15e8d.
+Origin dac15e8d was independently read, actual399 affected passes/clean analysis inspected,
+and all23manifest hashes verified before guarded normal upload; exact remote matches. D end
+component/test drafts remain untracked, six tests passed but64analysis findings and no caller/
+Done integration. They are durably snapshotted in its evidence; Task5 remains open.
+
+E clean localb6ba49d3 is ahead2 of remote40600f16: standalone transition contract4509861f
+and paper componentb6ba49d3 saved locally. Data42tests and paper40tests/scoped gates are
+recorded, but neither is uploaded: the existing runtime route does not handle the new waiting
+state/build/snapshot/flush. Root identified that Important integration defect before upload.
+E must complete route recovery/orderedStart/failure/strict-expiry/presentation and task checks
+first. Task5/6 remain unstarted. Task3ac712f6f stays preserved. No family/Astra/integration,
+phone acceptance, deployment or publication occurred. These capacity interruptions are not
+a product pause or a completed task. Local Mac checks continue; no automation was created.

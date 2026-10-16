@@ -1935,3 +1935,15 @@ actual builder/provider and confirmed legacy max(1,minutes) invents a full minut
 "in under 1 minute" for positive sub-minute, actual zero/ordinary minute grammar, captured
 completion timing and omission when valid timing is unavailable. No proxy or new stored
 figure. This is formatting of an existing measured value, without a pacing/product change.
+
+
+### October16: resume two bounded runtime lanes after capacity reset
+
+Exact user instruction: "continue". Current policy03242b61 retrieved; same policy blobs.
+Ordinary capacity0%short/63%weekly. Preserve C/D evidence-only7223e931/5e89e4fa and C16drafts/
+D2drafts; D origin dac15e8d is reviewed/uploaded with399affected passes and all23manifest
+hashes checked. E data4509861f/paperb6ba49d3 stay local because its existing route cannot yet
+consume the new between-parts state safely. Reopening must not skip or corrupt that gate.
+Resume existing C/E workers first and D after a checkpoint, without new or duplicate agents.
+All prior scope, complexity, source ownership, local verification and acceptance boundaries
+remain. The partial changes do not complete C6, D5 or E4–6. No new product decision is needed.
