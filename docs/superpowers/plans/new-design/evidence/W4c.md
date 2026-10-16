@@ -1676,3 +1676,40 @@ Task7 wiring, Task8 explicit closeout and Task9 retirements/final whole-family/p
 remain in this same W4c branch. No worker push, merge, publication, deployment, cleanup or
 application-main update. Lead owns independent review/upload and serialized audit; Aedwon owns
 visual acceptance. No known Task6 product/contract decision remains open at this checkpoint.
+
+## Task6 review fix: unreadable boundary lookup, October16
+
+Lead source review of5afe6e13 identified unhandled lookup failures in page-owned activation,
+ending handoff and metadata validation. A failed async lookup could leave PullToAdvance holding
+its inert preview. New focused checks were written before this correction. Three actual entry
+cases (next pull, topic-plate pull, Contents) fail with uncaught boundary StateError and missing
+failure UI in `w4c-task6-lookup-failure-red.log`. That initial process was terminated while its
+fourth metadata fixture waited on an event that clearStable's custom SQL does not emit. The
+fixture now uses the actual wipe path, which emits the metadata table update; this is a fixture
+correction, not an invented notification or core-store change. Against exact5afe6e13 page source,
+corrected metadata/unmount check gives validexit1 with uncaught _validateBoundary failure in
+`w4c-task6-metadata-valid-red.log`.
+
+The page now funnels these three lookups through one local conservative check: unreadable
+boundary is invalid, without creating/adopting a token. Existing caller epoch/mounted checks
+still reject stale completions before changing the page. Current failures expire the owner,
+remove held preview, and show the existing failure/back presentation. After unmount, a failed
+lookup does nothing and does not escape as an unhandled asynchronous error. No new retry,
+copy, owner, repository/schema/sync change or other-family behavior.
+
+Final exact checks:
+- `flutter test test/features/lesson/presentation/reader_boundary_test.dart --no-pub --reporter expanded --timeout 30s`:exit0, `00:01 +23: All tests passed!`,
+  `.dart_tool/w4c-task6-lookup-final-test.log`.
+- `dart analyze lib/features/lesson/presentation/lesson_page.dart test/features/lesson/presentation/reader_boundary_test.dart`:exit0, `No issues found!`,
+  `.dart_tool/w4c-task6-lookup-analysis-final.log`. Earlier8lintinfos were fixed, not waived.
+- Scoped `dart format --output=none --set-exit-if-changed`:exit0,
+  `Formatted 2 files (0 changed) in 0.01 seconds.`; `git diff --check`:exit0,empty output.
+Verified patch against5afe6e13 `.dart_tool/w4c-task6-lookup-verified.patch` SHA256
+`33582a92cb21f5ea3892804f05a979540d975df9a6f0b9d738cde883a9c53564`.
+- `lib/features/lesson/presentation/lesson_page.dart`: `a5f8539eab156ce41ddc37c908ca9000fe4fb7125b369de6ca1715567e8b4872`
+- `test/features/lesson/presentation/reader_boundary_test.dart`: `21c467f9d4b9ea01e06f6c332649b3418664b3cc9b0b3bcb3e081f42374eec00`
+
+Only this reviewed correction/page/test/evidence is saved. Task7's new caller test remains
+unstaged, validRED0pass/2fail in `w4c-task7-red.log`; no Task7 production code yet. Another
+Contents content-load failure before activation was reported to lead, awaiting its existing
+error/retry treatment before Task6 acceptance. No independent acceptance, push or merge.

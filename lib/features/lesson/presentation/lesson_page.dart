@@ -159,10 +159,23 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     }
   }
 
+  Future<bool> _checkBoundary(
+    ReaderBoundary boundary, {
+    required bool Function() isCurrent,
+  }) async {
+    if (!mounted || !isCurrent()) return false;
+    final positions = ref.read(readerPositionRepositoryProvider);
+    try {
+      return await positions.isBoundaryCurrent(boundary, isCurrent: isCurrent);
+    } catch (_) {
+      // An unreadable boundary cannot authorize a handoff or retained preview.
+      return false;
+    }
+  }
+
   Future<void> _validateBoundary(ReaderBoundary boundary) async {
-    final current = await ref
-        .read(readerPositionRepositoryProvider)
-        .isBoundaryCurrent(boundary, isCurrent: () => _boundaryAlive);
+    final current =
+        await _checkBoundary(boundary, isCurrent: () => _boundaryAlive);
     if (!current && mounted) _expire();
   }
 
@@ -226,11 +239,10 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         next.examId != boundary.examId) {
       return;
     }
-    final valid =
-        await ref.read(readerPositionRepositoryProvider).isBoundaryCurrent(
-              boundary,
-              isCurrent: () => _boundaryAlive && request == _navigationEpoch,
-            );
+    final valid = await _checkBoundary(
+      boundary,
+      isCurrent: () => _boundaryAlive && request == _navigationEpoch,
+    );
     if (!mounted || request != _navigationEpoch) return;
     if (!valid) return _expire();
     setState(() {
@@ -245,11 +257,10 @@ class _LessonPageState extends ConsumerState<LessonPage> {
     if (boundary == null || !_boundaryAlive || epoch != _navigationEpoch) {
       return;
     }
-    final valid =
-        await ref.read(readerPositionRepositoryProvider).isBoundaryCurrent(
-              boundary,
-              isCurrent: () => _boundaryAlive && epoch == _navigationEpoch,
-            );
+    final valid = await _checkBoundary(
+      boundary,
+      isCurrent: () => _boundaryAlive && epoch == _navigationEpoch,
+    );
     if (!mounted || epoch != _navigationEpoch) return;
     if (!valid) return _expire();
     setState(() => _ending = ending);

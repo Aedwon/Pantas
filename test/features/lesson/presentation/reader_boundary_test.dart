@@ -70,6 +70,28 @@ class _HeldBookmark extends LessonBookmarksRepository {
   }
 }
 
+class _FailingBoundary extends ReaderPositionRepository {
+  _FailingBoundary(AppDatabase db)
+      : super(AppPreferencesRepository(db), database: db);
+  bool failNext = false;
+  bool hold = false;
+  final entered = Completer<void>();
+  final release = Completer<void>();
+  @override
+  Future<bool> isBoundaryCurrent(
+    ReaderBoundary boundary, {
+    required bool Function() isCurrent,
+  }) async {
+    if (failNext) {
+      failNext = false;
+      entered.complete();
+      if (hold) await release.future;
+      throw StateError('boundary read fixture');
+    }
+    return super.isBoundaryCurrent(boundary, isCurrent: isCurrent);
+  }
+}
+
 void main() {
   late AppDatabase db;
   late ContentDatabase content;
@@ -738,4 +760,70 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  for (final entry in ['pull', 'plate', 'contents']) {
+    testWidgets('failed boundary lookup during $entry expires the owner safely',
+        (tester) async {
+      if (entry != 'plate') {
+        await seedContentLesson(
+          content,
+          lessonId: 'l2',
+          topicId: 't',
+          title: 'Next',
+          bodyJson: '[]',
+        );
+      }
+      final positions = _FailingBoundary(db);
+      await pump(
+        tester,
+        overrides: [
+          readerPositionRepositoryProvider.overrideWithValue(positions),
+        ],
+      );
+      if (entry == 'contents') {
+        await tester.tap(find.byType(ContentsGlyph));
+        await tester.pumpAndSettle();
+      }
+      positions.failNext = true;
+      if (entry == 'contents') {
+        tester
+            .widget<LessonContentsSheet>(find.byType(LessonContentsSheet))
+            .onSelectLesson('l2');
+      } else {
+        await tester.tap(find.byKey(const ValueKey('pull-handle')));
+      }
+      await tester.pumpAndSettle();
+      expect(find.text('Could not load this lesson.'), findsOneWidget);
+      expect(find.byKey(const ValueKey('pull-incoming')), findsNothing);
+      expect(await AppPreferencesRepository(db).lastOpenedLessonId('e'), 'l');
+      expect(
+        await AppPreferencesRepository(db).deviceValue('lesson_offset.e.l2'),
+        isNull,
+      );
+      expect(await LessonProgressRepository(db, content).isRead('l2'), isFalse);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  testWidgets('failed held metadata lookup after unmount has no stale callback',
+      (tester) async {
+    final positions = _FailingBoundary(db);
+    await pump(
+      tester,
+      overrides: [
+        readerPositionRepositoryProvider.overrideWithValue(positions),
+      ],
+    );
+    positions
+      ..failNext = true
+      ..hold = true;
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pump();
+    await positions.entered.future;
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    await tester.pumpWidget(const SizedBox());
+    positions.release.complete();
+    await tester.pumpAndSettle();
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    expect(tester.takeException(), isNull);
+  });
 }
