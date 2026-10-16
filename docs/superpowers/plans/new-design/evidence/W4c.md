@@ -1796,3 +1796,67 @@ Patch againstb11eab3f `.dart_tool/w4c-task7-verified.patch` SHA256
 Task7 implementor scope saved for independent review. Next: Task8 held-operation lifetime
 closeout from currentL3, then Task9 retirements, unread-row alignment and final gates. No other
 branch work, worker upload/merge or acceptance claimed.
+
+## Task8 held-action correction checkpoint, October16
+
+Resumed policy/task source: fetched origin/main183f403087b054a70c8a2c18b7c6882238a4233d.
+Current AGENTS/WORKFLOW/SUBAGENTS retrieved, Task8 correction contract read before production edits.
+Assigned worktree/branch confirmed, local702d5c610563eecab46b591f0b3a6fd458cd2778;
+remote branch7223e931eb807e09579e6bd6b2c31879ed7e021f intentionally held by lead review.
+Initial dirty identity was only bookmarks_sheet_test.dart; all previous committed work preserved.
+
+Actual meaningful RED evidence:
+- `.dart_tool/w4c-task8-held-remove-red.log`:0pass/4fail. Remove held before the actual transaction
+  recreates missing guest context after real wipe, or removes the replacement boundary's same-lesson
+  membership after same-account reset, actor change and exam change.
+- `.dart_tool/w4c-task8-held-preferences-red.log`:0pass/3fail. Held Move, held Sort and retained
+  failed-save Retry overwrite replacement preferences after actual wipe/reset.
+- `.dart_tool/w4c-task8-initial-await-red.log`:2pass/1fail. Reader held on initial actor await
+  recreates an envelope after actual wipe. The sheet initial-await test passed old implementation
+  because its old Remove completed before wipe; it is NOT claimed as meaningful failing coverage.
+
+Unverified production draft reuses the existing ReaderPositionRepository capture/transaction guard
+inside BookmarkPrefsRepository. The sheet resolves one initial capture, retains exam/token/epoch,
+passes them through Remove/Undo/Move/Sort/Reset and the controller, and clears stale selection/retry
+without requiring a completed Undo payload. Controller publishes only current successful writes.
+The actual held seams now forward optional boundary/current arguments into the production methods.
+No global/schema/sync/wiper change. No source completion or acceptance is claimed.
+
+Actual focused command:
+`flutter test test/features/lesson/presentation/bookmarks_sheet_test.dart test/features/lesson/presentation/reader_boundary_test.dart --no-pub --reporter expanded --timeout 15s`
+exit1, `00:05 +92 -1: Some tests failed.`, `.dart_tool/w4c-task8-second-green.log`.
+All seven held-action regressions and ordinary sheet/reader cases passed. Remaining reader
+initial-await failure is real in the deliberately empty-meta fixture: null context becomes a new
+SyncActiveContextSnapshot after wipe. Drift2.34.3 DeleteStatement.go notifies updates only when
+rows>0 (installed src/runtime/query_builder/statements/delete.dart). Deleting an entirely empty
+sync_meta emits no update, so metadata listener cannot distinguish null before/after wipe.
+Current draft cancels pending capture on metadata updates, and validates assigned tokens on events.
+Need reconcile actual application selected-exam/lifecycle signals and an honest empty-wipe contract
+with lead before closing this gap; do not silently weaken test or add a global/wiper mechanism.
+Sheet capture-pending test still needs a deliberately held capture/actor/exam regression proving
+that its initial view, rather than already-completed old Remove, is what remains pending.
+
+First draft check had sheet generic-inference compile errors and reader failure, then held forever
+at the metadata failure fixture because an unconditional expiry bypassed its held check. The
+obsolete check process26048/child26152 was terminated after the second check completed; no old
+result is treated as passing. Generic type declarations corrected. Final draft format command:
+`dart format` changed6 affected files as needed, followed by2-file formatting, no format gate or
+analysis acceptance claimed. `git diff --check`:exit0, empty. No full suite/Task9 launched.
+
+Exact uncommitted six-file patch against702d5c61:
+`.dart_tool/w4c-task8-window-draft.patch` SHA256
+`2dd8a5a0ed77255d360022e261cb830e04044ee7745fedf37580613b65ffb7cb`.
+- lib/features/lesson/application/bookmark_providers.dart: `8d6816fb00dee645cff103573464d228a67685bf0e220bd27ee415453211ca93`
+- lib/features/lesson/data/repos/bookmark_prefs_repository.dart: `422d32cf3c9ae38fe43591719b344e6b21999ff7d24babe569858580b1dcbcd7`
+- lib/features/lesson/presentation/lesson_page.dart: `b4f0434c04845b663804776fd80bde8bf305902b909b96b81259ca36968b8809`
+- lib/features/lesson/presentation/widgets/bookmarks_sheet.dart: `8ecdefbd0221d16139c458b668393531bf2da1706722305d621d7d09c78b39e6`
+- test/features/lesson/presentation/bookmarks_sheet_test.dart: `44cc0b02ffaf8c4b7742f85fcd97fcd6b233b1486b2484009318bea0a23c8e06`
+- test/features/lesson/presentation/reader_boundary_test.dart: `cd75c4c6e02b520ef6e8989ad6cd6bc57690f8762b579557fed44c58c1261571`
+
+At lead's capacity instruction this saves evidence only. Production/tests remain uncommitted.
+Outstanding: initial-await gap above, meaningful sheet capture-pending proof, focused clean analysis
+and affected repository/storage checks, inspect guarded-default/API compatibility and after-await
+publication lifetimes, Task8 explicit full closeout, approved unread-row nowrap/ellipsis correction
+with390dp/200% regression, Task9 retirements and full required gates. Task7 is saved; Task6 still
+awaits this initial-capture correction and independent acceptance. Astra, lead data review and
+Aedwon's phone visual acceptance remain separate. D/E stay held. No push/merge/integration.
