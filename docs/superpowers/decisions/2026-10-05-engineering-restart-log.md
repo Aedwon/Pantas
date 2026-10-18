@@ -2108,3 +2108,12 @@ a direct missing-context mutation must write nothing. New active-consumer provid
 proof passes six cases; broader checks are not yet accepted. Earlier fixtures hung while
 awaiting canceled provider generations without an active listener; actual consumer tests now
 keep that listener and preserve their data assertions. No family gate is claimed yet.
+
+
+### October18: continue the same C branch after capacity reset
+
+Aedwon: "continue". Recover and finish W4c first; D/E stay held. Live limits now permit work.
+Root verified expected local612a8b1f/remote7223e931 and ten dirty files, recovered actual179pass
+from the last focused log, and resumed the original implementor. No duplicate worker, source
+acceptance, source upload, integration, visual or publication decision follows. Current main
+policy c2391c2f was read; all October17 technical contracts remain binding.

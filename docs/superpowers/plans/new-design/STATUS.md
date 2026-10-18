@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-17 04:04 Asia/Manila (serial continuation, W4c first)
+Since: 2026-10-18 18:11 Asia/Manila (serial continuation, W4c first)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -654,3 +654,20 @@ Next is the current L3 early initial-context capture investigation, then Task8 c
 unread-row correction, Task9 gates, lead data review and serialized Astra audit. No source
 acceptance/upload, integration, phone acceptance or publication is claimed by this resumption.
 Latest observed usage is0%short/95%weekly. Existing application-main freeze remains binding.
+
+
+### October18: recover interrupted W4c verification
+
+Aedwon said "continue". Current main policy c2391c2f20cae16e83cb7e21326f0e444e94dee1
+was retrieved and read. Ordinary usage is available (3%short/0%weekly). The same C implementor
+resumes; D/E remain held under the serial instruction. Local612a8b1f and remote7223e931 match
+the expected preserved state, with ten dirty source/test files. No test process was running.
+
+Root read actual latest w4c-task8-ready-final-test.log:179pass, distinct from older timeout
+logs. A trailing-comma fix followed; final analysis/static/evidence/source save still need
+completion. Task8 is not accepted yet. Approved early-capture, migration, missing-token
+publication and mutation-default contracts are in current L3/log. Next: verified Task8 save,
+unread-row correction, Task9 cleanup/full gates, root data review and serialized Astra audit.
+No C source upload/integration, whole-family or phone acceptance is claimed. Existing main
+application freeze and publication limits remain. Previous hard usage cutoff was a capability
+interruption, not a scope change or permission to switch branches.
