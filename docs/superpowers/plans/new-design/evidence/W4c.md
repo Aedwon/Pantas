@@ -1943,3 +1943,125 @@ Task8 implementor scope saved for independent lead data review and required whol
 audit. Task6 early-capture gap is covered by these tests; final acceptance remains separate.
 Next: approved unread-title nowrap/ellipsis regression/correction, Task9 orphan retirements and
 full required gates. Phone visuals remain Aedwon's responsibility. No Task9/full acceptance claim.
+
+## Task9 cleanup and final verification, October18
+
+Controlling policy refreshed atc2391c2f20cae16e83cb7e21326f0e444e94dee1; later approved direct-ending
+cleanup ruling fetched/read at310f7b12ef74e7ff273ed13169da69ffe6ba295c. Latest L2/L3 and serial
+parallel-map override consumed. Task8source4e4ba48a is the base for this final cleanup.
+No new UI choice, schema/global/sync/wiper changes, other-branch edits, push or integration.
+
+Rechecked all actual production/test references, then retired:
+- Only LearnTabHome compatibility wrapper, preserving the same file's live StudyTabHome.
+- Unused DismissQuizNudge use case, barrel export and its retired-only test.
+- Replaced Bookplate and test. Ending board regression now asserts actual shared plate geometry.
+- NextTopicBlock orphan (no caller), removing its last production InkChevron dependency.
+- Old showLessonContentsSheet modal helper and its retired-only tests. Current LessonContentsSheet
+  and real reader PantasSheet remain; actual contents/route/motion regressions are preserved.
+Task9 broadly names replaced widgets/tests; these no-caller helper/orphan removals were also
+explicitly confirmed with lead. No unrelated cleanup or shared component deletion.
+
+Unread title correction follows RD_TopicShort actual nowrap/ellipsis and designREADME rule7.
+Board outline/timeline rerun through main checkout non-UI tools; raw board SHA256
+35c130f4a44ad4d3a11c611e9914a4729ec74ad2a542cd60f7fd94e8b95ee778.
+`.dart_tool/w4c-task9-unread-red.log`:0pass/2fail at actual wrapTitle=true. Reuses shared ListRow's
+single-line/ellipsis default, without local row copy.390dp at100%/200% verifies one line, ellipsis,
+complete semantic label and no overflow. Initial GREEN attempt passed assertions but leaked its
+semantics handle due teardown ordering; corrected to dispose in test-body finally. Not waived.
+
+Direct TopicEndingPage adapter now consumes existing loadingFor(asyncMap), current body and
+secondaryLabel tokens, preserving all containers/messages/lookup/routes/single owner. ValidRED
+`w4c-task9-adapter-red.log`:0pass/3fail (missing LoadingShapes, old15px versus current17px body).
+Final ending checks exercise shared300ms delay, pulse/reduced-motion behavior, error/null messages,
+plus existing dark/large-text plates.15pass in `w4c-task9-ready-test.log`.
+
+Lead found a remaining test-only FaintBars import/negative assertion in lesson_page_test. Replaced
+it with actual LoadingShapes absence, identical persistent bar/rail elements and a real visible
+outgoing/incoming lesson during every20ms frame. Actual Antonyms destination still required, so
+an uncommitted pull cannot falsely pass. Strengthened ending+reader checks20pass in
+`w4c-task9-strengthened-test.log`. Final retired-reference scan covers names/paths/case as well
+as Ink imports in lib/features/lesson and test/features/lesson; empty output, exit0 verified.
+
+Initial full-project command `flutter test --no-pub --reporter expanded` completed exit1,
+`06:26 +4185 -7: Some tests failed.`, `.dart_tool/w4c-task9-full-test.log` preserved intact.
+No baseline exception accepted. Failure inventory:
+- Four sync_schema tests failed native loading of build/native_assets/macos/libsqlite3mc.dylib,
+  not schema assertions. I mistakenly launched the strengthened focused test while full tests
+  were running. Installed Flutter _copyNativeCodeAssetsForOS deletes every target file before
+  recopying; focused log created18:17:23 and macOS SQLite library recreated18:17:25. The first
+  full run's clustered failures occur during that shared-output window, then later DB tests pass.
+- Child seed_writer/import_questions CLI tests failed native asset load/copy under default
+  parallel files: truncated .dart_tool/lib/libsqlite3mc.dylib and missing objective_c.dylib.
+  These occurred minutes after the focused test ended; CLI tests themselves invoke dart run
+  against that shared output directory. Pubspec sqlite3mc hook and lock remain unchanged.
+- One owned pure empty-study fixture supplied an empty map but no selected exam, contradicting
+  Task7's already-approved actual-exam quiz gate. Corrected fixture to provide the claimed exam;
+  added separate absent-exam Choose Exam/no Quick Quiz assertion. No production behavior change.
+
+After the first full process exited, renewed exactly failed files serially:
+`flutter test test/core/sync/sync_schema_test.dart test/tool/content_seed_writer_test.dart test/tool/import_questions/cli_test.dart test/features/lesson/presentation/study_map_page_test.dart --no-pub --reporter expanded --concurrency=1`
+exit0, `00:07 +14: All tests passed!`, `w4c-task9-failed-renewal.log`. No source/native-hook workaround.
+Lead accepted --concurrency=1 for the complete final suite to serialize all shared native artifacts;
+it retains all required test coverage. No test/hook process runs alongside that final command.
+
+Final static checks before the serialized full run:
+- `flutter analyze --no-pub`:exit0, `No issues found! (ran in 2.9s)`,
+  `w4c-task9-ready-final-analysis.log`. Earlier owned import/trailing-comma/comment-length infos
+  corrected; not waived.
+- `dart format --output=none --set-exit-if-changed lib test`:exit0,
+  `Formatted 1459 files (0 changed) in 1.50 seconds.`, `w4c-task9-ready-final-format.log`.
+- `dart run tool/check_layering.dart`:exit0, `check_layering: OK`,
+  `w4c-task9-ready-final-layering.log`.
+- `dart run tool/check_no_ai_attribution.dart`:exit0, `check_no_ai_attribution: OK`,
+  `w4c-task9-ready-final-attribution.log`.
+- `git diff --check`:exit0,empty.
+
+Exact final source patch against4e4ba48a `.dart_tool/w4c-task9-acceptance-source.patch` SHA256
+`e83b251b9fd2f61376e26d0f21d7980d0f4984cefb15b0eb3a8a2e86b92a3b77`.
+Pubspec.lock unchanged SHA25613d3e8745af966d0a88570b033f9dc600f47c858d4f0f2127bc6779cfbfc5371;
+Flutter3.44.6 frameworkee80f08bbf / Dart3.12.2. Source frozen for final full run:
+- Deleted `lib/features/lesson/domain/use_cases/dismiss_quiz_nudge.dart` (base blob `227c0b28e305a64615294db9a3b64554635c2439`).
+- `lib/features/lesson/lesson.dart`: `04dd13227f3b41dcd21d6146017fd0ecf4f99189e282cd33dac63761821f0f48`
+- `lib/features/lesson/presentation/learn_tab_home.dart`: `cc94e7827d73ec4b876a97f2fbff978f35de8b7409a44854c203d079c6741ee2`
+- `lib/features/lesson/presentation/pages/topic_ending_page.dart`: `f4f28ce9dd7d73306521f27e6905139f1c31cd51d78cf9cf5733a9026ce2917d`
+- Deleted `lib/features/lesson/presentation/widgets/bookplate.dart` (base blob `b05b8688c98a151341b719ed691f4829dff2edb1`).
+- `lib/features/lesson/presentation/widgets/ending_content.dart`: `b7c0690b4179c212372ab7709b0fa5eab991326db7c671a5913af90a4bf050b2`
+- `lib/features/lesson/presentation/widgets/lesson_contents_sheet.dart`: `2ffcd7b324569bed012305bbbbeb787570aabf1536e095e7b6515e42e74ed42b`
+- Deleted `lib/features/lesson/presentation/widgets/next_topic_block.dart` (base blob `da533d5b567dab25c6c7b57aa0b7eb0ec5d88b64`).
+- Deleted `test/features/lesson/domain/use_cases/dismiss_quiz_nudge_test.dart` (base blob `5170d53db929b0192130980854f19149cf0e54b0`).
+- Deleted `test/features/lesson/presentation/bookplate_test.dart` (base blob `6bcaf2f68e539d12291069107f977e9b92ef47f9`).
+- `test/features/lesson/presentation/ending_board_test.dart`: `28db7a9e386949141ca3b4a395652c43e1e3d465122c329e7e86279f6ccef938`
+- Deleted `test/features/lesson/presentation/lesson_contents_sheet_test.dart` (base blob `315edecefb2f745dc0a6f98d7205da6f86fd2e2e`).
+- `test/features/lesson/presentation/lesson_page_test.dart`: `7ae33c863811bd4167af4cab6fd2fc1360aa42fce28cd35160112bebfd33b684`
+- `test/features/lesson/presentation/study_map_page_test.dart`: `a6194461351884f11dc98890b8415e2e8ca5c8a75684be5ef50f90285dbec92d`
+
+Final `flutter test --no-pub --reporter expanded --concurrency=1` is currently running;
+no final pass or Task9 completion claimed until actual result is appended below. Independent
+lead review/Astra audit and Aedwon's Android/iPhone visual acceptance remain separate.
+
+### Task9 final full result and engineering handoff
+
+Completed the frozen candidate's whole-project command:
+`flutter test --no-pub --reporter expanded --concurrency=1`
+exit0, `09:38 +4193: All tests passed!`, no failure markers.
+Full actual output: `.dart_tool/w4c-task9-serial-full-test.log`, SHA256
+`030af166c619605141671580f7d618c5235630e9a88e504340dccd5da06ceb56`.
+The final source patch was recomputed after the run and matches the frozen e83b251b digest
+above exactly. No concurrent test/native-hook process ran during this final verification.
+All seven failures from the first default-concurrency run were renewed and the entire final
+suite is clean; none is accepted as a baseline exception. No additional production fix was
+needed for native assets. Final selected-exam fixture and absence test are included in4193.
+
+Implementor engineering scope for Tasks1–9 is complete on this branch, including Task8 explicit
+boundary/migration/publication/default-mutation closeout and Task9 replaced-widget retirements.
+The unchanged preexisting approved BM neighboring-motion exception and Current fade choice
+remain controlling; no broader visual waiver is claimed. No new omitted product controls or
+unresolved implementation choice was introduced. Other-family destinations remain governed by
+the already recorded truthful fallback/omit rules, not fabricated routes.
+
+This is a verified local engineering candidate, not whole-family acceptance. Remaining required
+work belongs to independent lead review/serialized Astra audit, any resulting fixes, and Aedwon's
+Android/iPhone visual acceptance against ST/RD/BM boards. No device screenshots or autonomous
+visual acceptance performed. No push, merge, integration, main app edit, release, deployment or
+branch cleanup performed by this worker. W4d/e stayed held throughout. Preserve this worktree and
+its actual logs for independent review.

@@ -1,15 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
 import 'package:pantas/features/lesson/presentation/pages/topic_ending_page.dart';
-import 'package:pantas/features/lesson/presentation/widgets/bookplate.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -63,7 +67,6 @@ void main() {
             disableAnimations: true,
           );
           expect(find.text('Aedwon'), findsNothing);
-          expect(find.byType(Bookplate), findsNothing);
           expect(find.text('Geometry'), findsOneWidget);
           expect(find.text('UPCAT · Mathematics'), findsOneWidget);
           expect(find.text(PantasDates.full(date)), findsOneWidget);
@@ -96,6 +99,114 @@ void main() {
         });
       }
     }
+  }
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets(
+        'unread long title stays single-line with full semantics scale=$scale',
+        (tester) async {
+      const title = 'Similarity and Congruence in Complex Geometric Figures';
+      const ending = TopicStoppedShort(
+        studentName: null,
+        topicName: 'Geometry',
+        examAndSubject: 'UPCAT · Mathematics',
+        footing: '1 of 2 lessons read',
+        dateLine: 'October 2, 2026',
+        unread: [
+          StudyLesson(
+            id: 'long',
+            title: title,
+            estimatedMinutes: 8,
+            isRead: false,
+            isBookmarked: false,
+          ),
+        ],
+      );
+      final semantics = tester.ensureSemantics();
+      try {
+        await pumpAccessibilitySurface(
+          tester,
+          const ProviderScope(
+            child: TopicEndingPage(topicId: 'geometry', ending: ending),
+          ),
+          textScale: scale,
+          viewportSize: const Size(390, 844),
+          disableAnimations: true,
+        );
+        final row = tester.widget<ListRow>(find.byType(ListRow));
+        expect(row.wrapTitle, isFalse);
+        final label = tester.widget<Text>(find.text(title));
+        expect(label.maxLines, 1);
+        expect(label.overflow, TextOverflow.ellipsis);
+        expect(
+          find.bySemanticsLabel(RegExp(RegExp.escape(title))),
+          findsOneWidget,
+        );
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
+
+  for (final reduced in [true, false]) {
+    testWidgets(
+        'direct topic adapter uses shared delayed loading reduced=$reduced',
+        (tester) async {
+      final load = Completer<StudyMap?>();
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [studyMapProvider.overrideWith((_) => load.future)],
+          child: const TopicEndingPage(topicId: 'geometry'),
+        ),
+        disableAnimations: reduced,
+      );
+      expect(find.byType(LoadingShapes), findsOneWidget);
+      final opacity = find.byKey(const ValueKey('loading-shapes-opacity'));
+      expect(opacity, findsNothing);
+      await tester.pump(const Duration(milliseconds: 299));
+      expect(opacity, findsNothing);
+      await tester.pump(const Duration(milliseconds: 1));
+      expect(opacity, findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 325));
+      expect(
+        tester.widget<Opacity>(opacity).opacity,
+        reduced ? 1 : lessThan(1),
+      );
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox());
+      load.complete(null);
+    });
+  }
+
+  for (final failure in [true, false]) {
+    testWidgets('direct topic adapter retains message on error=$failure',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            studyMapProvider.overrideWith((_) async {
+              if (failure) throw StateError('fixture');
+              return null;
+            }),
+          ],
+          child: const TopicEndingPage(topicId: 'geometry'),
+        ),
+        disableAnimations: true,
+      );
+      await tester.pumpAndSettle();
+      final finder = find.text(
+        failure ? 'Failed to load topic ending.' : 'Study map unavailable.',
+      );
+      expect(finder, findsOneWidget);
+      final label = tester.widget<Text>(finder);
+      final context = tester.element(finder);
+      expect(label.style!.fontSize, context.type.body.fontSize);
+      expect(label.style!.color, context.colors.secondaryLabel);
+      expect(tester.takeException(), isNull);
+    });
   }
 
   testWidgets('finished day names Home at both return controls',

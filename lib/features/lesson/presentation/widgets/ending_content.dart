@@ -159,7 +159,6 @@ class EndingContent extends StatelessWidget {
                       leading: const SizedBox(width: 24),
                       contentPadding: const EdgeInsets.only(right: 16),
                       verticalPadding: 12,
-                      wrapTitle: true,
                       onTap: () => onLesson(lesson.id),
                     ),
                 ],

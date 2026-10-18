@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
@@ -25,7 +25,6 @@ class TopicEndingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
 
     if (ending != null) {
       return _TopicEndingView(ending: ending!);
@@ -36,17 +35,17 @@ class TopicEndingPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: colors.background,
       body: asyncMap.when(
-        loading: () => const SafeArea(
+        loading: () => SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(20),
-            child: FaintBars(),
+            padding: const EdgeInsets.all(20),
+            child: loadingFor(asyncMap),
           ),
         ),
         error: (e, _) => SafeArea(
           child: Center(
             child: Text(
               'Failed to load topic ending.',
-              style: textStyles.bodyMedium.copyWith(color: colors.inkMuted),
+              style: context.type.body.copyWith(color: colors.secondaryLabel),
             ),
           ),
         ),
@@ -56,7 +55,8 @@ class TopicEndingPage extends ConsumerWidget {
               child: Center(
                 child: Text(
                   'Study map unavailable.',
-                  style: textStyles.bodyMedium.copyWith(color: colors.inkMuted),
+                  style:
+                      context.type.body.copyWith(color: colors.secondaryLabel),
                 ),
               ),
             );
@@ -81,7 +81,8 @@ class TopicEndingPage extends ConsumerWidget {
               child: Center(
                 child: Text(
                   'Topic not found.',
-                  style: textStyles.bodyMedium.copyWith(color: colors.inkMuted),
+                  style:
+                      context.type.body.copyWith(color: colors.secondaryLabel),
                 ),
               ),
             );

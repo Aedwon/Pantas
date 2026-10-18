@@ -23,17 +23,6 @@ import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
-class LearnTabHome extends ConsumerWidget {
-  const LearnTabHome({this.openTopicId, super.key});
-
-  final TopicId? openTopicId;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return StudyTabHome(openTopicId: openTopicId);
-  }
-}
-
 class StudyTabHome extends ConsumerStatefulWidget {
   const StudyTabHome({this.openTopicId, super.key});
 

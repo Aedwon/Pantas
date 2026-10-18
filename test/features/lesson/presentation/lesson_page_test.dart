@@ -8,10 +8,12 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -216,7 +218,9 @@ void main() {
 
     expect(find.text('Vocabulary Basics'), findsOneWidget);
 
-    // Drive the whole advance a frame at a time and watch for the skeleton.
+    final bar = tester.element(find.byType(ReaderBar));
+    final rail = tester.element(find.byType(ReaderRail));
+    // Watch the active loader and lesson continuity during every frame.
     final body = tester.getRect(find.byType(PullToAdvance));
     final gesture = await tester.startGesture(body.center);
     await gesture.moveBy(const Offset(0, -140));
@@ -226,9 +230,17 @@ void main() {
     for (var i = 0; i < 40; i++) {
       await tester.pump(const Duration(milliseconds: 20));
       expect(
-        find.byType(FaintBars),
+        find.byType(LoadingShapes),
         findsNothing,
         reason: 'the reader must never blank out while advancing',
+      );
+      expect(tester.element(find.byType(ReaderBar)), same(bar));
+      expect(tester.element(find.byType(ReaderRail)), same(rail));
+      expect(
+        find.text('Vocabulary Basics').evaluate().isNotEmpty ||
+            find.text('Antonyms').evaluate().isNotEmpty,
+        isTrue,
+        reason: 'an actual lesson body remains visible through the handoff',
       );
     }
     await tester.pumpAndSettle();
