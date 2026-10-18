@@ -2117,3 +2117,12 @@ Root verified expected local612a8b1f/remote7223e931 and ten dirty files, recover
 from the last focused log, and resumed the original implementor. No duplicate worker, source
 acceptance, source upload, integration, visual or publication decision follows. Current main
 policy c2391c2f was read; all October17 technical contracts remain binding.
+
+
+### October18: inspect saved Task8 data correction
+
+C saved4e4ba48a. Root independently read the production data/view changes, actual179passes
+and clean static outputs, then matched all ten committed hashes to evidence. Scoped data
+review finds no remaining issue in this correction. This is not family acceptance/Astra or
+source integration. Keep all post7223source local until completed-family review sequence.
+Unread-row correction and Task9 cleanup/full gates continue on C alone.

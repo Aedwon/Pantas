@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | Unfinished. W4c Tasks1–5 implemented (Task5 reviewed/uploaded48eda4dc); Task8 reviewed slices throughfa5d146f, explicit closeout pending; Task6 active, then7/9. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
+| Level 4: W4 screen families | Unfinished. W4c Tasks1–8 implementor work saved through4e4ba48a (Task6 unread-row correction remains); Task8 data correction independently source-reviewed with179focused passes and matching10hashes; Task9 cleanup/full gates and family/Astra acceptance remain. Source after7223e931 is local, not uploaded. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -671,3 +671,21 @@ unread-row correction, Task9 cleanup/full gates, root data review and serialized
 No C source upload/integration, whole-family or phone acceptance is claimed. Existing main
 application freeze and publication limits remain. Previous hard usage cutoff was a capability
 interruption, not a scope change or permission to switch branches.
+
+
+### October18: Task8 verified source save
+
+C saved4e4ba48a3f62e4c4d5979d6de0f363c06c0e6eb6 with ten source/test files and its
+existing evidence. Root read the full production correction, actual179pass focused log,
+clean owned analysis, format82files/0changed, layering and attribution outputs, and verified
+all ten committed source/test SHA256 values. This independently reviews the scoped data
+correction; it does not accept the whole family or waive final candidate gates/Astra.
+
+The early capture now precedes identity/content waits; real empty wipe, queued cancellation,
+rollback, fresh entry and recognized-token preservation are covered. Held actions, first-read
+migrations, missing-token publication and direct absent-context Remove retain the approved
+boundary rules. Only an equivalent listener cascade followed179test output; Task9 final gates
+will renew the completed candidate. No global/schema/sync/wiper change. No source upload yet.
+
+The same worker continues unread-row fidelity and Task9 retirements/full-project gates. D/E
+remain held. Integration stays5e6cda45; required Astra audit and phone acceptance remain pending.
