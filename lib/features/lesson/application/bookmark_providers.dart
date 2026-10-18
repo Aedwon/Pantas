@@ -1,15 +1,24 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 
 export 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
+
+String? _actor(AuthState? state) => switch (state) {
+      AnonymousAuthState(:final uid) => 'anonymous:$uid',
+      SignedInAuthState(:final user) => 'signed:${user.uid}',
+      _ => null,
+    };
 
 /// What one bookmark row prints. Everything on it comes from the map the
 /// screen behind is already holding, so a row costs no query of its own.
@@ -50,52 +59,105 @@ class BookmarkOrderController extends AsyncNotifier<BookmarkOrder> {
   String? _examId;
   bool _saving = false;
   bool _disposed = false;
+  int _epoch = 0;
+  ReaderBoundary? _boundary;
 
   @override
   Future<BookmarkOrder> build() async {
     _disposed = false;
-    ref.onDispose(() => _disposed = true);
-    final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
-    _examId = exam?.id;
-    if (exam == null) return BookmarkOrder.recent;
-    final order = await ref
-        .read(bookmarkPrefsRepositoryProvider)
-        .readOrder(examId: exam.id);
-    ref.listen(bookmarkPreferenceChangesProvider, (previous, next) {
-      // Read current storage rather than replaying an older stream snapshot.
-      if (state.hasValue && next.hasValue && !_saving) unawaited(_reload());
+    final epoch = ++_epoch;
+    bool current() => !_disposed && epoch == _epoch;
+    ref.onDispose(() {
+      _disposed = true;
+      _epoch++;
     });
+    final initialActor = ref.read(authStateProvider);
+    var actorKnown = initialActor.hasValue;
+    var lastActor = _actor(initialActor.valueOrNull);
+    ref.listen(authStateProvider, (_, next) {
+      if (!next.hasValue) return;
+      final actor = _actor(next.valueOrNull);
+      if (actorKnown && actor != lastActor) ref.invalidateSelf();
+      actorKnown = true;
+      lastActor = actor;
+    });
+    final prefs = ref.watch(bookmarkPrefsRepositoryProvider);
+    final focus = ref.watch(activeExamFocusProvider.future);
+    var missingToken = false;
+    ref.listen(bookmarkPreferenceChangesProvider, (before, after) {
+      if (missingToken && (before?.hasValue ?? false) && after.hasValue) {
+        ref.invalidateSelf();
+      } else if (state.hasValue && after.hasValue && !_saving) {
+        unawaited(_reload());
+      }
+    });
+    final token = await prefs.readToken();
+    missingToken = token == null;
+    final exam = (await focus).exam;
+    _examId = exam?.id;
+    if (exam == null || !current()) return BookmarkOrder.recent;
+    final boundary =
+        token == null ? null : ReaderBoundary(examId: exam.id, token: token);
+    _boundary = boundary;
+    final order = await prefs.readOrder(
+      examId: exam.id,
+      boundary: boundary,
+      isCurrent: current,
+    );
+    if (!current() || (token == null && await prefs.readToken() != null)) {
+      throw const BookmarkActionExpired();
+    }
     return order;
   }
 
   Future<void> _reload() async {
     final exam = _examId;
+    final epoch = _epoch;
+    final boundary = _boundary;
+    bool current() => !_disposed && epoch == _epoch;
     if (exam == null) return;
     try {
       final order = await ref
           .read(bookmarkPrefsRepositoryProvider)
-          .readOrder(examId: exam);
-      if (!_disposed &&
+          .readOrder(examId: exam, boundary: boundary, isCurrent: current);
+      if (current() &&
           !_saving &&
           exam == _examId &&
           state.valueOrNull != order) {
         state = AsyncData(order);
       }
+    } on BookmarkActionExpired {
+      // Expired reads cannot publish an old preference into a new view.
     } on Exception catch (error, stack) {
-      if (!_disposed) state = AsyncError(error, stack);
+      if (current()) state = AsyncError(error, stack);
     }
   }
 
-  Future<void> choose(BookmarkOrder order) async {
+  Future<void> choose(
+    BookmarkOrder order, {
+    ReaderBoundary? boundary,
+    bool Function()? isCurrent,
+  }) async {
+    final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+    final focus =
+        boundary == null ? ref.read(activeExamFocusProvider.future) : null;
     await future;
-    final exam = (await ref.read(activeExamFocusProvider.future)).exam;
-    if (exam == null) return;
+    if (_disposed || (isCurrent != null && !isCurrent())) return;
+    final exam = boundary?.examId ?? (await focus!).exam?.id;
+    if (exam == null || _disposed || (isCurrent != null && !isCurrent())) {
+      return;
+    }
     _saving = true;
     try {
-      await ref
-          .read(bookmarkPrefsRepositoryProvider)
-          .saveOrder(order, examId: exam.id);
-      state = AsyncData(order);
+      await prefs.saveOrder(
+        order,
+        examId: exam,
+        boundary: boundary,
+        isCurrent: isCurrent,
+      );
+      if (!_disposed && (isCurrent == null || isCurrent())) {
+        state = AsyncData(order);
+      }
     } finally {
       _saving = false;
     }
@@ -108,10 +170,64 @@ final bookmarkOrderProvider =
 );
 
 final bookmarkRowsProvider = FutureProvider<List<BookmarkRow>>((ref) async {
-  final map = await ref.watch(studyMapProvider.future);
-  if (map == null) return const [];
+  var alive = true;
+  ref.onDispose(() => alive = false);
+  final initialActor = ref.read(authStateProvider);
+  var actorKnown = initialActor.hasValue;
+  var lastActor = _actor(initialActor.valueOrNull);
+  ref.listen(authStateProvider, (_, next) {
+    if (!next.hasValue) return;
+    final actor = _actor(next.valueOrNull);
+    if (actorKnown && actor != lastActor) ref.invalidateSelf();
+    actorKnown = true;
+    lastActor = actor;
+  });
+  final prefs = ref.watch(bookmarkPrefsRepositoryProvider);
+  final tokenFuture = prefs.readToken();
+  final focus = ref.watch(activeExamFocusProvider.future);
+  final mapFuture = ref.watch(studyMapProvider.future);
+  final orderFuture = ref.watch(bookmarkOrderProvider.future);
+  var missingToken = false;
+  var migrationDone = false;
+  void expireMissing() {
+    if (missingToken) {
+      alive = false;
+      ref.invalidateSelf();
+    }
+  }
 
-  final order = await ref.watch(bookmarkOrderProvider.future);
+  ref
+    ..listen(bookmarkMembershipProvider, (before, after) {
+      if ((before?.hasValue ?? false) && after.hasValue) {
+        alive = false;
+        ref.invalidateSelf();
+      }
+    })
+    ..listen(bookmarkPreferenceChangesProvider, (before, after) {
+      if ((before?.hasValue ?? false) && after.hasValue) {
+        if (missingToken) {
+          expireMissing();
+          return;
+        }
+        final examId = ref.read(activeExamFocusProvider).valueOrNull?.exam?.id;
+        final key = 'bookmark_order.$examId';
+        final previous =
+            before!.requireValue.where((r) => r.key == key).firstOrNull?.value;
+        final next =
+            after.requireValue.where((r) => r.key == key).firstOrNull?.value;
+        if (migrationDone && previous != next) ref.invalidateSelf();
+      }
+    });
+  final token = await tokenFuture;
+  missingToken = token == null;
+  final map = await mapFuture;
+  if (map == null || !alive) return const [];
+  final exam = (await focus).exam;
+  if (exam == null || !alive) return const [];
+  final boundary =
+      token == null ? null : ReaderBoundary(examId: exam.id, token: token);
+  final order = await orderFuture;
+  if (!alive) return const [];
   final repo = ref.watch(lessonBookmarksRepositoryProvider);
 
   // The map's own walk is subject order, then topic order, then the authored
@@ -133,35 +249,24 @@ final bookmarkRowsProvider = FutureProvider<List<BookmarkRow>>((ref) async {
     }
   }
 
-  final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
-  if (exam == null) return const [];
   final recent = await repo.recentFirst();
   final legacy = await repo.customOrder();
-  final prefs = ref.watch(bookmarkPrefsRepositoryProvider);
+  if (!alive) return const [];
   final custom = await prefs.readCustomOrder(
     exam.id,
+    boundary: boundary,
+    isCurrent: () => alive,
     legacyOrder: [
       for (final row in legacy)
         if (byLessonId.containsKey(row.lessonId)) row.lessonId,
     ],
   );
-  // Subscribe after migration so its initial write cannot cancel this read.
-  ref
-    ..listen(bookmarkMembershipProvider, (previous, next) {
-      if ((previous?.hasValue ?? false) && next.hasValue) ref.invalidateSelf();
-    })
-    ..listen(bookmarkPreferenceChangesProvider, (previous, next) {
-      if ((previous?.hasValue ?? false) && next.hasValue) {
-        final key = 'bookmark_order.${exam.id}';
-        final before = previous!.requireValue
-            .where((row) => row.key == key)
-            .firstOrNull
-            ?.value;
-        final after =
-            next.requireValue.where((row) => row.key == key).firstOrNull?.value;
-        if (before != after) ref.invalidateSelf();
-      }
-    });
+  if (!alive) return const [];
+  if (token == null && await prefs.readToken() != null) {
+    throw const BookmarkActionExpired();
+  }
+  if (!alive) return const [];
+  migrationDone = true;
   final marked = {for (final row in recent) row.lessonId};
   final ids = [
     for (final row in recent)

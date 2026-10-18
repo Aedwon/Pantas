@@ -12,6 +12,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
@@ -20,6 +21,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -339,6 +341,7 @@ void main() {
     try {
       await tester.tap(find.text('Oldest'));
       await tester.runAsync(() => changed.future);
+      await tester.pump();
       await tester.runAsync(() => container.read(bookmarkRowsProvider.future));
       await tester.pump();
       final incoming = find.byKey(const ValueKey('bookmark-order-fade-oldest'));
@@ -995,6 +998,196 @@ void main() {
 
     expect(find.text('1 bookmark removed'), findsOneWidget);
   });
+  testWidgets('real wipe cancels sheet initial actor await before token exists',
+      (tester) async {
+    final actors = StreamController<AuthState>();
+    addTearDown(actors.close);
+    await pumpSheet(tester, rows: 2, authStates: actors.stream);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 1'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove'));
+    await tester.pump();
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pumpAndSettle();
+    actors.add(const AuthState.signedOut());
+    await tester.pumpAndSettle();
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    expect(find.text('Undo'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('wipe while sheet capture completion is held rejects old view',
+      (tester) async {
+    final held = _HeldCapturePrefs(db);
+    await pumpSheet(tester, rows: 2, prefs: held);
+    await held.entered.future;
+    final oldToken = (await SyncActiveContextStore(db).readSnapshot())!.token;
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 1'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove'));
+    await tester.pump();
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pumpAndSettle();
+    held.release.complete();
+    await tester.pumpAndSettle();
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    expect(find.text('Undo'), findsNothing);
+    expect(await repo.markedIds(), isEmpty);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+    await pumpSheet(tester, rows: 1);
+    expect(
+      (await SyncActiveContextStore(db).readSnapshot())!.token,
+      isNot(oldToken),
+    );
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 1'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove'));
+    await tester.pumpAndSettle();
+    expect(await repo.markedIds(), isEmpty);
+    expect(find.text('Undo'), findsOneWidget);
+  });
+
+  for (final change in ['wipe', 'reset', 'actor', 'exam']) {
+    testWidgets('held Remove cannot cross $change before its first mutation',
+        (tester) async {
+      final contexts = SyncActiveContextStore(db);
+      final actors = StreamController<AuthState>();
+      addTearDown(actors.close);
+      actors.add(const AuthState.anonymous(uid: 'a'));
+      if (change != 'wipe') {
+        await contexts.publishStable(uid: 'a', generationId: 'g1');
+      }
+      final held = _HeldRemovePrefs(db);
+      await pumpSheet(tester, rows: 2, prefs: held, authStates: actors.stream);
+      final container = ProviderScope.containerOf(
+        tester.element(find.byType(BookmarksSheet)),
+      );
+      await tester.tap(find.text('Edit'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Lesson 1'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Remove'));
+      await held.entered.future;
+      await tester.pump();
+      if (change == 'exam') {
+        await seedContentExam(
+          contentDb,
+          examId: 'e2',
+          code: 'UPCAT',
+          name: 'UPCAT',
+          shortName: 'UPCAT',
+        );
+        await AppPreferencesRepository(db).setSelectedExamId('e2');
+        container.invalidate(activeExamFocusProvider);
+      } else {
+        await SyncLocalStateWiper(db).wipeAll();
+        if (change != 'wipe') {
+          await contexts.publishStable(
+            uid: change == 'actor' ? 'b' : 'a',
+            generationId: 'g2',
+          );
+          if (change == 'actor') {
+            actors.add(const AuthState.anonymous(uid: 'b'));
+          }
+          await repo.mark('l1');
+          await repo.mark('l2');
+          await held.saveCustomOrder('e1', ['l2', 'l1']);
+        }
+      }
+      await tester.pumpAndSettle();
+      final expectedToken = (await contexts.readSnapshot())?.token;
+      held.release.complete();
+      await tester.pumpAndSettle();
+      if (change == 'wipe') {
+        expect(await contexts.readSnapshot(), isNull);
+      } else {
+        expect((await contexts.readSnapshot())!.token, expectedToken);
+        expect(await repo.markedIds(), {'l1', 'l2'});
+        expect(await held.readCustomOrder('e1'), ['l2', 'l1']);
+      }
+      expect(find.text('Undo'), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+  }
+  for (final operation in ['move', 'sort']) {
+    testWidgets('held $operation cannot overwrite preferences after real reset',
+        (tester) async {
+      final contexts = SyncActiveContextStore(db);
+      await contexts.publishStable(uid: 'a', generationId: 'g1');
+      final held = _HeldWritePrefs(db);
+      await pumpSheet(tester, rows: 2, prefs: held);
+      held.arm = operation;
+      if (operation == 'move') {
+        await tester.tap(find.text('Edit'));
+        await tester.pumpAndSettle();
+        tester
+            .widget<ReorderableListView>(find.byType(ReorderableListView))
+            .onReorderItem!(0, 1);
+      } else {
+        await tester.tap(find.text('Oldest'));
+      }
+      await held.entered.future;
+      await tester.pump();
+      await SyncLocalStateWiper(db).wipeAll();
+      await contexts.publishStable(uid: 'a', generationId: 'g2');
+      await repo.mark('l1');
+      await repo.mark('l2');
+      await held.saveCustomOrder('e1', ['l2', 'l1']);
+      await held.saveOrder(BookmarkOrder.recent, examId: 'e1');
+      await tester.pumpAndSettle();
+      final token = (await contexts.readSnapshot())!.token;
+      held.release.complete();
+      await tester.pumpAndSettle();
+      expect(await held.readCustomOrder('e1'), ['l2', 'l1']);
+      expect(await held.readOrder(examId: 'e1'), BookmarkOrder.recent);
+      expect((await contexts.readSnapshot())!.token, token);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  testWidgets('retained failed-save Retry cannot mutate a reset boundary',
+      (tester) async {
+    final contexts = SyncActiveContextStore(db);
+    await contexts.publishStable(uid: 'a', generationId: 'g1');
+    final failing = _HeldWritePrefs(db);
+    await pumpSheet(tester, rows: 2, prefs: failing);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    failing.failNextMove = true;
+    tester
+        .widget<ReorderableListView>(find.byType(ReorderableListView))
+        .onReorderItem!(0, 1);
+    await tester.pumpAndSettle();
+    final retry = tester
+        .widget<TextButton>(
+          find.ancestor(
+            of: find.text('Try Again'),
+            matching: find.byType(TextButton),
+          ),
+        )
+        .onPressed!;
+    await SyncLocalStateWiper(db).wipeAll();
+    await contexts.publishStable(uid: 'a', generationId: 'g2');
+    await repo.mark('l1');
+    await repo.mark('l2');
+    await failing.saveCustomOrder('e1', ['l2', 'l1']);
+    await failing.saveOrder(BookmarkOrder.recent, examId: 'e1');
+    await tester.pumpAndSettle();
+    retry();
+    await tester.pumpAndSettle();
+    expect(await failing.readCustomOrder('e1'), ['l2', 'l1']);
+    expect(await failing.readOrder(examId: 'e1'), BookmarkOrder.recent);
+    expect(find.text('Try Again'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 class _FailingUndoPrefs extends BookmarkPrefsRepository {
@@ -1002,8 +1195,91 @@ class _FailingUndoPrefs extends BookmarkPrefsRepository {
   final bool delayed;
   final completion = Completer<bool>();
   @override
-  Future<bool> restore(BookmarkRemoval removal) async {
+  Future<bool> restore(
+    BookmarkRemoval removal, {
+    ReaderBoundary? boundary,
+    bool Function()? isCurrent,
+  }) async {
     if (delayed) return completion.future;
     throw Exception('restore failed');
+  }
+}
+
+class _HeldRemovePrefs extends BookmarkPrefsRepository {
+  _HeldRemovePrefs(super.db);
+  final entered = Completer<void>();
+  final release = Completer<void>();
+
+  @override
+  Future<BookmarkRemoval> remove(
+    String examId,
+    Set<String> ids, {
+    ReaderBoundary? boundary,
+    bool Function()? isCurrent,
+  }) async {
+    entered.complete();
+    await release.future;
+    return super.remove(examId, ids, boundary: boundary, isCurrent: isCurrent);
+  }
+}
+
+class _HeldWritePrefs extends BookmarkPrefsRepository {
+  _HeldWritePrefs(super.db);
+  String? arm;
+  bool held = false;
+  bool failNextMove = false;
+  final entered = Completer<void>();
+  final release = Completer<void>();
+
+  Future<void> before(String kind) async {
+    if (arm != kind || held) return;
+    held = true;
+    entered.complete();
+    await release.future;
+  }
+
+  @override
+  Future<void> saveCustomOrder(
+    String examId,
+    List<String> ids, {
+    ReaderBoundary? boundary,
+    bool Function()? isCurrent,
+  }) async {
+    if (failNextMove) {
+      failNextMove = false;
+      throw Exception('move save fixture');
+    }
+    await before('move');
+    await super
+        .saveCustomOrder(examId, ids, boundary: boundary, isCurrent: isCurrent);
+  }
+
+  @override
+  Future<void> saveOrder(
+    BookmarkOrder order, {
+    String? examId,
+    ReaderBoundary? boundary,
+    bool Function()? isCurrent,
+  }) async {
+    await before('sort');
+    await super.saveOrder(
+      order,
+      examId: examId,
+      boundary: boundary,
+      isCurrent: isCurrent,
+    );
+  }
+}
+
+class _HeldCapturePrefs extends BookmarkPrefsRepository {
+  _HeldCapturePrefs(super.db);
+  final entered = Completer<void>();
+  final release = Completer<void>();
+  @override
+  Future<String?> captureToken({required bool Function() isCurrent}) async {
+    final token = await super.captureToken(isCurrent: isCurrent);
+    entered.complete();
+    await release.future;
+    return token;
   }
 }

@@ -188,7 +188,8 @@ void main() {
     expect(find.text('Could not load this lesson.'), findsOneWidget);
   });
 
-  testWidgets('unmount during initial actor await cannot establish guest',
+  testWidgets(
+      'real wipe cancels reader initial actor await before token exists',
       (tester) async {
     final actor = Completer<AuthState>();
     await tester.pumpAppWithProviders(
@@ -199,10 +200,32 @@ void main() {
         authStateProvider.overrideWith((_) => Stream.fromFuture(actor.future)),
       ],
     );
-    await tester.pumpWidget(const SizedBox());
+    await SyncLocalStateWiper(db).wipeAll();
+    await tester.pumpAndSettle();
     actor.complete(const AuthState.signedOut());
     await tester.pumpAndSettle();
     expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    expect(find.text('Circles'), findsNothing);
+    expect(await AppPreferencesRepository(db).lastOpenedLessonId('e'), isNull);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('unmount during initial actor await cannot recapture or write',
+      (tester) async {
+    final actor = Completer<AuthState>();
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+        authStateProvider.overrideWith((_) => Stream.fromFuture(actor.future)),
+      ],
+    );
+    final original = (await SyncActiveContextStore(db).readSnapshot())!.token;
+    await tester.pumpWidget(const SizedBox());
+    actor.complete(const AuthState.signedOut());
+    await tester.pumpAndSettle();
+    expect((await SyncActiveContextStore(db).readSnapshot())!.token, original);
     expect(await AppPreferencesRepository(db).lastOpenedLessonId('e'), isNull);
   });
   testWidgets('actor loading gap during initial await expires original page',
@@ -224,6 +247,7 @@ void main() {
       ],
     );
     await tester.pumpAndSettle();
+    final original = (await SyncActiveContextStore(db).readSnapshot())!.token;
     ProviderScope.containerOf(tester.element(find.byType(LessonPage)))
         .invalidate(authStateProvider);
     await tester.pump();
@@ -244,7 +268,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    expect((await SyncActiveContextStore(db).readSnapshot())!.token, original);
     expect(find.text('Circles'), findsNothing);
   });
 
@@ -356,6 +380,7 @@ void main() {
             activeExamFocusProvider.overrideWith((_) => focus.future),
         ],
       );
+      final original = (await SyncActiveContextStore(db).readSnapshot())!.token;
       if (!initial) expect(find.text('Circles'), findsOneWidget);
       actors.addError(StateError('actor fixture'));
       await tester.pumpAndSettle();
@@ -381,7 +406,14 @@ void main() {
       expect(find.text('Circles'), findsNothing);
       expect(find.text('Could not load this lesson.'), findsOneWidget);
       if (initial) {
-        expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+        expect(
+          (await SyncActiveContextStore(db).readSnapshot())!.token,
+          original,
+        );
+        expect(
+          await AppPreferencesRepository(db).lastOpenedLessonId('e'),
+          isNull,
+        );
       }
     });
   }

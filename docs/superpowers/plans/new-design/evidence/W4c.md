@@ -1860,3 +1860,86 @@ publication lifetimes, Task8 explicit full closeout, approved unread-row nowrap/
 with390dp/200% regression, Task9 retirements and full required gates. Task7 is saved; Task6 still
 awaits this initial-capture correction and independent acceptance. Astra, lead data review and
 Aedwon's phone visual acceptance remain separate. D/E stay held. No push/merge/integration.
+
+## Task8 boundary closeout and early reader anchor, October18
+
+Resumed startup fetched/read current main policy c2391c2f20cae16e83cb7e21326f0e444e94dee1;
+AGENTS/WORKFLOW/SUBAGENTS refreshed. Current main L3 later contracts through mutation-default
+consistency consumed. Local612a8b1f and remote7223e931 confirmed as expected; ten preserved dirty
+files matched lead dispatch. No main merge, global/schema/sync/wiper changes, source upload,
+integration or other branch edits. Flutter3.44.6 frameworkee80f08bbf, Dart3.12.2;
+pubspec.lock SHA25613d3e8745af966d0a88570b033f9dc600f47c858d4f0f2127bc6779cfbfc5371.
+
+Completes implementor Task8 lifetime correction under lead's recorded contracts. Initial view
+capture now queues the existing absent-only context transaction before auth/exam/content waits,
+then binds resolved exam to its retained token after checks. A completed anchor may remain after
+later unmount/loading failure; it contains no lesson activity and is never recaptured. Actual
+queued capture versus empty wipe, queued cancellation, in-transaction rollback, recognized stable/
+anonymous preservation and genuinely fresh reentry are covered. Reader/sheet surviving old views
+cannot recreate wiped context. Sheet capture completion held across wipe rejects its old action;
+a fresh sheet can capture and remove normally. Earlier no-anchor assertions now test the approved
+original-token retention/no-lesson-writes distinction, not deletion of a completed anchor.
+
+Remove/Undo/Move/Sort/Reset retain original exam/token/current-view predicate through actual
+transactions; expired state clears selection/retries without requiring Undo. Controller publishes
+only current successful saves. Actual seven held-action REDs from prior checkpoint now GREEN.
+The same existing reader guard protects preferences without a new protocol. Inner migration reads
+inside already guarded Remove/Undo are read-only, avoiding nesting a queued guard behind itself.
+Default Remove no longer initializes missing context, matching the single initial-owner rule.
+Only production caller is guarded sheet; unit baselines explicitly perform initial capture.
+Direct missing-context Remove now rejects with membership/order/envelope unchanged.
+
+Additional actual RED logs:
+- `w4c-task8-migration-red.log`:0pass/2fail, held legacy custom/sort fallback overwrites new prefs.
+- `w4c-task8-absent-provider-red.log`:0pass/1fail, missing-token read publishes stale l1 after reset.
+- `w4c-task8-absent-remove-red.log`:0pass/1fail, default mutation initializes and removes old row.
+All in `.dart_tool/`. Lead recorded corrections before affected production edits on main.
+
+Scoped migrations now retain read-only original provenance before relevant async reads, carrying
+it/current-provider predicate into guarded fallback writes. Missing-token fallback is readable
+without persistence/initialization. Rows retain provenance before collecting legacy membership.
+Missing-token row/order reads observe existing membership/preference changes before reads and
+compare token again before publication. Current-provider cancellation rejects stale results,
+including reset with/without replacement, membership/pref changes and disposal. Ordinary first
+guest display, scoped legacy migration and per-exam isolation are retained. Sheet's successful
+initial capture refreshes initially tokenless read providers once. Recognized auth baseline spans
+loading/error gaps; no provider initialization or replacement-token adoption.
+
+Intermediate migration runs hung on test fixture futures after invalidation: read-only .future
+without an active consumer never rebuilt the canceled generation. Provider fixtures now hold the
+same active subscription as the actual sheet and attach disposal-error handling. The crossfade
+fixture now gives Riverpod one zero-duration rebuild frame before awaiting refreshed rows; exact
+100ms opacity=.5 remains unchanged. `w4c-task8-crossfade-frame-proof.log`:1pass. Obsolete hung
+checks were terminated; their timeout results are not passes. No production animation workaround.
+
+Final affected command:
+`flutter test test/features/lesson/presentation/reader_boundary_test.dart test/features/lesson/presentation/bookmarks_sheet_test.dart test/features/lesson/data/reader_position_repository_test.dart test/features/lesson/data/bookmark_prefs_repository_test.dart test/features/lesson/application --no-pub --reporter expanded --timeout 15s`
+exit0, `00:05 +179: All tests passed!`, `.dart_tool/w4c-task8-ready-final-test.log`.
+Final source after that run differs only by an equivalent two-listener cascade to satisfy lint.
+`dart analyze lib/features/lesson test/features/lesson`:exit0, `No issues found!`,
+`w4c-task8-save-analysis-final.log`. Prior1cascade info corrected, not waived.
+`dart format --output=none --set-exit-if-changed lib/features/lesson test/features/lesson`:exit0,
+`Formatted 82 files (0 changed) in 0.07 seconds.` (actual timing in log),
+`w4c-task8-save-format-final.log`.
+`dart run tool/check_layering.dart`:exit0, `check_layering: OK`, `w4c-task8-save-layering.log`.
+`dart run tool/check_no_ai_attribution.dart`:exit0, `check_no_ai_attribution: OK`,
+`w4c-task8-save-attribution.log`. `git diff --check`:exit0,empty.
+Full completed-family/project gates will run after Task9, not inferred from179focused tests.
+
+Exact ten-file source patch against612a8b1f `.dart_tool/w4c-task8-verified-source.patch`, SHA256
+`0b8cba2d5c8254b9f5d2b83dc2be5205248ac0678af5b24925f78539e8d51d3c`.
+- `lib/features/lesson/application/bookmark_providers.dart`: `8f9bc5b3dd5a2bff3f584e62fa3752585f02e79efbcd89f25b1425481eba20e4`
+- `lib/features/lesson/data/repos/bookmark_prefs_repository.dart`: `f0da6d3204e792badd33567abd83a0edb37e1743adab6188d90eddb6c5e93474`
+- `lib/features/lesson/data/repos/reader_position_repository.dart`: `a85ef7f08906233171df9f73bd7a6e94063d200ff8004edfd4faf4dea8e80b40`
+- `lib/features/lesson/presentation/lesson_page.dart`: `6b51d1f298e0bd1224cecd572ef9c27c41424020246828a5cd35f0c46ccf2577`
+- `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart`: `85e944b8d72d1ee8c408876ec15dfb885037688ae1a3207d1676b6072964ef75`
+- `test/features/lesson/application/bookmark_providers_test.dart`: `51d700c1d38666b5f01d0624699b6fb98582fb373ab1ece19cb161e6a2efd9ee`
+- `test/features/lesson/data/bookmark_prefs_repository_test.dart`: `c1edb901fab432bd54a90489af2d1c5a06702f88f5327aea40beac4b793349d2`
+- `test/features/lesson/data/reader_position_repository_test.dart`: `da1a212d3a93d7a01c01d58ca1580c67154312e293b3d7a77efb62fcf05deba5`
+- `test/features/lesson/presentation/bookmarks_sheet_test.dart`: `f1dd3c3b7a4bd036869ba81b743593590fe8d3292618057c0e0695c567e34400`
+- `test/features/lesson/presentation/reader_boundary_test.dart`: `0aaa2bf230c691ff6842ace3e04a09fdb611d08d0b671cbd705c01ef74f11049`
+
+Task8 implementor scope saved for independent lead data review and required whole-family Astra
+audit. Task6 early-capture gap is covered by these tests; final acceptance remains separate.
+Next: approved unread-title nowrap/ellipsis regression/correction, Task9 orphan retirements and
+full required gates. Phone visuals remain Aedwon's responsibility. No Task9/full acceptance claim.

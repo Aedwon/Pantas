@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 
 /// Contents of the shared 74% sheet. The Study page owns its open state.
 class BookmarksSheet extends ConsumerStatefulWidget {
@@ -41,35 +43,136 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
   Timer? _foldTimer;
   BookmarkRemoval? _removed;
   bool _undoVisible = false;
-  Future<void> Function()? _failedSave;
+  Future<void> Function(ReaderBoundary, bool Function())? _failedSave;
+  late final Future<ReaderBoundary?> _initialBoundary;
+  ReaderBoundary? _boundary;
+  bool _alive = true;
+  int _epoch = 0;
+  bool _actorKnown = false;
+  String? _lastActor;
+  bool _examKnown = false;
+  String? _lastExam;
+  StreamSubscription<Object?>? _boundaryChanges;
+  final _subscriptions = <ProviderSubscription<Object?>>[];
+
+  @override
+  void initState() {
+    super.initState();
+    _subscriptions
+      ..add(
+        ref.listenManual<AsyncValue<AuthState>>(
+          authStateProvider,
+          (_, next) {
+            if (!next.hasValue) return;
+            final actor = _authIdentity(next.valueOrNull);
+            if (_actorKnown && actor != _lastActor) _expireUndo();
+            _actorKnown = true;
+            _lastActor = actor;
+          },
+          fireImmediately: true,
+        ),
+      )
+      ..add(
+        ref.listenManual<AsyncValue<ActiveExamFocus>>(
+          activeExamFocusProvider,
+          (_, next) {
+            if (!next.hasValue) return;
+            final exam = next.requireValue.exam?.id;
+            if (_examKnown && exam != _lastExam) _expireUndo();
+            _examKnown = true;
+            _lastExam = exam;
+          },
+          fireImmediately: true,
+        ),
+      );
+    final db = ref.read(appDatabaseProvider);
+    _boundaryChanges = db
+        .tableUpdates(TableUpdateQuery.onTable(db.syncMeta))
+        .listen((updates) {
+      if (_boundary == null) {
+        _expireUndo();
+      } else {
+        unawaited(_validateUndo());
+      }
+    });
+    _initialBoundary = _captureInitial();
+  }
+
+  Future<ReaderBoundary?> _captureInitial() async {
+    final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+    final tokenFuture = prefs.captureToken(isCurrent: () => mounted && _alive);
+    final actor = ref.read(authStateProvider.future);
+    final focus = ref.read(activeExamFocusProvider.future);
+    try {
+      final token = await tokenFuture;
+      await actor;
+      if (!mounted || !_alive || token == null) return null;
+      final exam = (await focus).exam?.id;
+      if (!mounted || !_alive || exam == null) return null;
+      final boundary = ReaderBoundary(examId: exam, token: token);
+      final valid = await prefs.isBoundaryCurrent(
+        boundary,
+        isCurrent: () => mounted && _alive,
+      );
+      if (!mounted || !_alive) return null;
+      if (!valid) {
+        _expireUndo();
+        return null;
+      }
+      _boundary = boundary;
+      ref
+        ..invalidate(bookmarkOrderProvider)
+        ..invalidate(bookmarkRowsProvider);
+      return boundary;
+    } on Exception {
+      _expireUndo();
+      return null;
+    }
+  }
 
   @override
   void dispose() {
+    _alive = false;
+    _epoch++;
     _foldTimer?.cancel();
+    unawaited(_boundaryChanges?.cancel());
+    for (final subscription in _subscriptions) {
+      subscription.close();
+    }
     super.dispose();
   }
 
-  Future<void> _save(Future<void> Function() operation) async {
-    if (_busy) return;
+  Future<void> _save(
+    Future<void> Function(ReaderBoundary, bool Function()) operation,
+  ) async {
+    if (_busy || !_alive) return;
+    final epoch = _epoch;
+    bool current() => mounted && _alive && epoch == _epoch;
     setState(() => _busy = true);
     try {
-      await operation();
-      if (mounted) setState(() => _failedSave = null);
+      final boundary = await _initialBoundary;
+      if (!current() || boundary == null) return;
+      await operation(boundary, current);
+      if (current()) setState(() => _failedSave = null);
+    } on BookmarkActionExpired {
+      if (current()) _expireUndo();
     } on Exception {
-      if (mounted) setState(() => _failedSave = operation);
+      if (current()) setState(() => _failedSave = operation);
     } finally {
       if (mounted) setState(() => _busy = false);
     }
   }
 
   String? _authIdentity(AuthState? state) => switch (state) {
-        AnonymousAuthState(:final uid) => uid,
-        SignedInAuthState(:final user) => user.uid,
+        AnonymousAuthState(:final uid) => 'anonymous:$uid',
+        SignedInAuthState(:final user) => 'signed:${user.uid}',
         _ => null,
       };
 
   void _expireUndo() {
-    if (!mounted || _removed == null) return;
+    if (!mounted || !_alive) return;
+    _alive = false;
+    _epoch++;
     _foldTimer?.cancel();
     setState(() {
       _removed = null;
@@ -82,40 +185,40 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
   }
 
   Future<void> _validateUndo() async {
-    final removal = _removed;
-    if (removal == null) return;
+    final boundary = _boundary;
+    if (boundary == null || !_alive) return;
+    final prefs = ref.read(bookmarkPrefsRepositoryProvider);
     try {
-      final valid = await ref
-          .read(bookmarkPrefsRepositoryProvider)
-          .isRemovalCurrent(removal);
-      if (!valid && mounted && identical(_removed, removal)) _expireUndo();
+      final valid = await prefs.isBoundaryCurrent(
+        boundary,
+        isCurrent: () => mounted && _alive,
+      );
+      if (!valid && mounted) _expireUndo();
     } on Exception {
-      // A temporary read failure leaves the guarded restore available to retry.
+      if (mounted) _expireUndo();
     }
   }
-
-  Future<String?> _examId() async =>
-      (await ref.read(activeExamFocusProvider.future)).exam?.id;
 
   void _select(String id) => setState(() {
         if (!_selected.add(id)) _selected.remove(id);
       });
 
-  Future<void> _remove() => _save(() async {
+  Future<void> _remove() => _save((boundary, current) async {
         if (_selected.isEmpty) return;
-        final exam = await _examId();
-        if (exam == null) return;
+        final exam = boundary.examId;
         final ids = Set<String>.of(_selected);
         final before = List<BookmarkRow>.of(_shown);
-        final removal =
-            await ref.read(bookmarkPrefsRepositoryProvider).remove(exam, ids);
-        if (!mounted ||
-            !await ref
-                .read(bookmarkPrefsRepositoryProvider)
-                .isRemovalCurrent(removal)) {
+        final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+        final removal = await prefs.remove(
+          exam,
+          ids,
+          boundary: boundary,
+          isCurrent: current,
+        );
+        if (!current() || !await prefs.isRemovalCurrent(removal)) {
           return;
         }
-        if (!mounted) return;
+        if (!mounted || !current()) return;
         _foldTimer?.cancel();
         setState(() {
           _removed = removal;
@@ -142,13 +245,17 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         });
       });
 
-  Future<void> _undo() => _save(() async {
+  Future<void> _undo() => _save((boundary, current) async {
         final removal = _removed;
         if (removal == null) return;
         final prefs = ref.read(bookmarkPrefsRepositoryProvider);
         bool restored;
         try {
-          restored = await prefs.restore(removal);
+          restored = await prefs.restore(
+            removal,
+            boundary: boundary,
+            isCurrent: current,
+          );
         } on Exception {
           if (!mounted || !identical(_removed, removal)) return;
           if (!await prefs.isRemovalCurrent(removal)) {
@@ -180,20 +287,29 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         });
       });
 
-  Future<void> _move(int oldIndex, int newIndex) => _save(() async {
-        final exam = await _examId();
-        if (exam == null || newIndex < 0 || newIndex >= _shown.length) return;
+  Future<void> _move(int oldIndex, int newIndex) =>
+      _save((boundary, current) async {
+        final exam = boundary.examId;
+        final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+        final order = ref.read(bookmarkOrderProvider.notifier);
+        if (newIndex < 0 || newIndex >= _shown.length) return;
         final relative = newIndex < oldIndex ? 'above' : 'below';
         final destination = '$relative ${_shown[newIndex].title}';
         final ids = [for (final row in _shown) row.lessonId];
         final moved = ids.removeAt(oldIndex);
         ids.insert(newIndex, moved);
-        await ref
-            .read(bookmarkPrefsRepositoryProvider)
-            .saveCustomOrder(exam, ids);
-        await ref
-            .read(bookmarkOrderProvider.notifier)
-            .choose(BookmarkOrder.custom);
+        await prefs.saveCustomOrder(
+          exam,
+          ids,
+          boundary: boundary,
+          isCurrent: current,
+        );
+        await order.choose(
+          BookmarkOrder.custom,
+          boundary: boundary,
+          isCurrent: current,
+        );
+        if (!current()) return;
         ref.invalidate(bookmarkRowsProvider);
         if (mounted) {
           await SemanticsService.sendAnnouncement(
@@ -536,25 +652,9 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
 
   @override
   Widget build(BuildContext context) {
-    ref
-      ..listen(authStateProvider, (previous, next) {
-        if ((previous?.hasValue ?? false) &&
-            next.hasValue &&
-            _authIdentity(previous!.valueOrNull) !=
-                _authIdentity(next.valueOrNull)) {
-          _expireUndo();
-        }
-      })
-      ..listen(activeExamFocusProvider, (previous, next) {
-        if (next.hasValue &&
-            _removed != null &&
-            next.requireValue.exam?.id != _removed!.examId) {
-          _expireUndo();
-        }
-      })
-      ..listen(bookmarkPreferenceChangesProvider, (previous, next) {
-        if (next.hasValue) unawaited(_validateUndo());
-      });
+    ref.listen(bookmarkPreferenceChangesProvider, (_, next) {
+      if (next.hasValue) unawaited(_validateUndo());
+    });
     final value = ref.watch(bookmarkRowsProvider);
     final orderValue = ref.watch(bookmarkOrderProvider);
     final rows = value.valueOrNull;
@@ -594,9 +694,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                     selected: BookmarkOrder.values.indexOf(current),
                     enabled: !_editing && !_busy,
                     onChanged: (index) => _save(
-                      () => ref
-                          .read(bookmarkOrderProvider.notifier)
-                          .choose(BookmarkOrder.values[index]),
+                      (boundary, current) =>
+                          ref.read(bookmarkOrderProvider.notifier).choose(
+                                BookmarkOrder.values[index],
+                                boundary: boundary,
+                                isCurrent: current,
+                              ),
                     ),
                   ),
                   _EditReveal(
@@ -605,25 +708,27 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                       alignment: Alignment.centerRight,
                       child: _action(
                         'Reset order',
-                        () => _save(() async {
-                          final exam = await _examId();
-                          if (exam == null) return;
-                          final recent = await ref
-                              .read(lessonBookmarksRepositoryProvider)
-                              .recentFirst();
-                          await ref
-                              .read(
-                                bookmarkPrefsRepositoryProvider,
-                              )
-                              .saveCustomOrder(
-                                exam,
-                                recent.map((r) => r.lessonId).toList(),
-                              );
-                          await ref
-                              .read(
-                                bookmarkOrderProvider.notifier,
-                              )
-                              .choose(BookmarkOrder.recent);
+                        () => _save((boundary, current) async {
+                          final exam = boundary.examId;
+                          final prefs =
+                              ref.read(bookmarkPrefsRepositoryProvider);
+                          final order =
+                              ref.read(bookmarkOrderProvider.notifier);
+                          final bookmarks =
+                              ref.read(lessonBookmarksRepositoryProvider);
+                          final recent = await bookmarks.recentFirst();
+                          await prefs.saveCustomOrder(
+                            exam,
+                            recent.map((r) => r.lessonId).toList(),
+                            boundary: boundary,
+                            isCurrent: current,
+                          );
+                          await order.choose(
+                            BookmarkOrder.recent,
+                            boundary: boundary,
+                            isCurrent: current,
+                          );
+                          if (!current()) return;
                           ref.invalidate(bookmarkRowsProvider);
                         }),
                         label: 'Reset bookmark order',
@@ -633,7 +738,12 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
                 ],
               ),
             ),
-          if (_failedSave != null) saveFailureLine(() => _save(_failedSave!)),
+          if (_failedSave case final failed?)
+            saveFailureLine(() {
+              if (_alive && identical(_failedSave, failed)) {
+                unawaited(_save(failed));
+              }
+            }),
           Expanded(
             child: value.hasError
                 ? SingleChildScrollView(

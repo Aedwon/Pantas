@@ -96,6 +96,75 @@ void main() {
       expect(await positions.readFraction('e', 'l'), isNull);
     }
   });
+  test('view capture enters database queue before actual empty wipe', () async {
+    final entered = Completer<void>();
+    final release = Completer<void>();
+    final blocking = db.transaction(() async {
+      entered.complete();
+      await release.future;
+    });
+    await entered.future;
+    final token = positions.captureToken(isCurrent: () => true);
+    final wipe = SyncLocalStateWiper(db).wipeAll();
+    release.complete();
+    await blocking;
+    expect(await token, isNotNull);
+    await wipe;
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+    expect(
+      await positions.isBoundaryCurrent(
+        ReaderBoundary(examId: 'e', token: (await token)!),
+        isCurrent: () => true,
+      ),
+      isFalse,
+    );
+    final fresh = await positions.captureToken(isCurrent: () => true);
+    expect(fresh, isNotNull);
+    expect(fresh, isNot(await token));
+  });
+
+  test('canceled queued initial capture never initializes after wipe',
+      () async {
+    final entered = Completer<void>();
+    final release = Completer<void>();
+    final blocking = db.transaction(() async {
+      entered.complete();
+      await release.future;
+    });
+    await entered.future;
+    var alive = true;
+    final token = positions.captureToken(isCurrent: () => alive);
+    alive = false;
+    final wipe = SyncLocalStateWiper(db).wipeAll();
+    release.complete();
+    await blocking;
+    expect(await token, isNull);
+    await wipe;
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+  });
+
+  test('initial token transaction rolls back cancellation after initialization',
+      () async {
+    var checks = 0;
+    expect(await positions.captureToken(isCurrent: () => ++checks < 3), isNull);
+    expect(await SyncActiveContextStore(db).readSnapshot(), isNull);
+  });
+
+  test('early capture preserves recognized stable and anonymous snapshots',
+      () async {
+    final contexts = SyncActiveContextStore(db);
+    for (final stable in [true, false]) {
+      if (stable) {
+        await contexts.publishStable(uid: 'u', generationId: 'g');
+      } else {
+        await contexts.clearStable();
+      }
+      final before = (await contexts.readSnapshot())!;
+      expect(await positions.captureToken(isCurrent: () => true), before.token);
+      expect((await contexts.readSnapshot())!.context, before.context);
+    }
+  });
+
   group('captured reader boundary', () {
     test('initial missing guest captures one reusable anonymous envelope',
         () async {

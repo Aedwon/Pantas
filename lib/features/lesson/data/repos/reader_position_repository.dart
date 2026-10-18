@@ -16,6 +16,27 @@ class ReaderPositionRepository {
         'A database is required for guarded reader operations.',
       ));
 
+  /// Starts before identity/content waits so even an empty-store wipe follows
+  /// this transaction in the database queue. Only a fresh view may initialize.
+  Future<String?> captureToken({required bool Function() isCurrent}) async {
+    try {
+      return await _database.transaction(() async {
+        if (!isCurrent()) throw const _ExpiredReader();
+        final contexts = SyncActiveContextStore(_database);
+        var snapshot = await contexts.readSnapshot();
+        if (!isCurrent()) throw const _ExpiredReader();
+        if (snapshot == null) {
+          await contexts.clearStable();
+          snapshot = await contexts.readSnapshot();
+        }
+        if (!isCurrent()) throw const _ExpiredReader();
+        return snapshot!.token;
+      });
+    } on _ExpiredReader {
+      return null;
+    }
+  }
+
   /// Only initial capture may establish the missing legacy guest envelope.
   Future<ReaderBoundary?> captureBoundary(
     String examId, {

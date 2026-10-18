@@ -130,7 +130,11 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         .tableUpdates(
           TableUpdateQuery.onTable(ref.read(appDatabaseProvider).syncMeta),
         )
-        .listen((_) {
+        .listen((updates) {
+      if (_boundary == null) {
+        _expire();
+        return;
+      }
       final boundary = _boundary;
       if (boundary != null && _boundaryAlive) {
         unawaited(_validateBoundary(boundary));
@@ -140,19 +144,26 @@ class _LessonPageState extends ConsumerState<LessonPage> {
   }
 
   Future<void> _captureInitial() async {
+    final positions = ref.read(readerPositionRepositoryProvider);
+    final tokenFuture =
+        positions.captureToken(isCurrent: () => mounted && _captureAlive);
+    final actor = ref.read(authStateProvider.future);
+    final focusFuture = ref.read(activeExamFocusProvider.future);
     try {
-      await ref.read(authStateProvider.future);
-      if (!mounted || !_captureAlive) return;
-      final focus = await ref.read(activeExamFocusProvider.future);
+      final token = await tokenFuture;
+      await actor;
+      if (!mounted || !_captureAlive || token == null) return;
+      final focus = await focusFuture;
       if (!mounted || !_captureAlive) return;
       final exam = focus.exam?.id;
       if (exam == null) return _expire();
-      final boundary = await ref
-          .read(readerPositionRepositoryProvider)
-          .captureBoundary(exam, isCurrent: () => mounted && _captureAlive);
+      final boundary = ReaderBoundary(examId: exam, token: token);
+      final valid = await positions.isBoundaryCurrent(
+        boundary,
+        isCurrent: () => mounted && _captureAlive,
+      );
       if (!mounted || !_captureAlive) return;
-      if (boundary == null) return _expire();
-      // New pages reload cached lessons under their own captured token.
+      if (!valid) return _expire();
       ref.invalidate(readerContextProvider(_lessonId));
       setState(() => _boundary = boundary);
     } on Exception {
