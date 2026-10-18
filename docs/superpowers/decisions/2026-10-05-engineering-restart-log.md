@@ -2126,3 +2126,11 @@ and clean static outputs, then matched all ten committed hashes to evidence. Sco
 review finds no remaining issue in this correction. This is not family acceptance/Astra or
 source integration. Keep all post7223source local until completed-family review sequence.
 Unread-row correction and Task9 cleanup/full gates continue on C alone.
+
+
+### October18: direct-ending retired loading component
+
+C's Task9 audit found FaintBars and old typography aliases in the actual direct-ending adapter.
+Root opened it and the existing W4h loadingFor helper, then recorded the narrow replacement
+in L3 before affected edits. Preserve all messages/behavior; use shared current state/tokens.
+No new presentation decision or reader owner. Other verified zero-caller retirements proceed.

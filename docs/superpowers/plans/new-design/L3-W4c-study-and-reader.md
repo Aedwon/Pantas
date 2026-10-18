@@ -503,3 +503,15 @@ recorded owner-only capture contract. Recheck actual callers; update repository 
 perform explicit fresh-owner capture. Direct absent-context Remove must reject without any
 envelope, membership or preference write. Preserve recognized contexts and ordinary guarded
 Remove/Undo. This is existing-contract consistency, not a new lifecycle or product change.
+
+
+### October18 Task9 direct-ending retired-state cleanup
+
+Root opened TopicEndingPage: the real map-loading path still imports FaintBars, while active
+reader and Study paths already consume W4h loadingFor. Replace that retired loader with the
+existing loadingFor(asyncMap) pattern. Replace legacy textStyles/color aliases in its retained
+error/null/not-found text with current body/secondaryLabel tokens. Preserve messages, loading
+container, lookup/route behavior and the single LessonPage owner. Cover loading/error/null
+regressions, including the delayed/reduced-motion shared loader behavior as applicable. This
+implements Task9 retired-component removal and the existing W4h state contract, with no new
+copy, route, visual choice, local state helper or second reader owner.
