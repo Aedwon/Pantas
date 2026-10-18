@@ -2134,3 +2134,13 @@ C's Task9 audit found FaintBars and old typography aliases in the actual direct-
 Root opened it and the existing W4h loadingFor helper, then recorded the narrow replacement
 in L3 before affected edits. Preserve all messages/behavior; use shared current state/tokens.
 No new presentation decision or reader owner. Other verified zero-caller retirements proceed.
+
+
+### October18: W4c engineering candidate passes required gates
+
+C savedf495a8dd after completing Task9 retirements and approved fidelity corrections. Root
+reviewed final source/tests, actual4193full passes and clean static outputs, verified8hashes/
+6deletions and full log identity. Original failed default run and serial recovery remain in
+evidence. No baseline exception or native/source workaround. The implementor is idle; required
+Astra sweeping audit runs alone before integration. Source remains local pending that audit;
+phone acceptance and main app freeze remain separate. D/E stay held under the serial instruction.

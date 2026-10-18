@@ -50,7 +50,7 @@ Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | Unfinished. W4c Tasks1–8 implementor work saved through4e4ba48a (Task6 unread-row correction remains); Task8 data correction independently source-reviewed with179focused passes and matching10hashes; Task9 cleanup/full gates and family/Astra acceptance remain. Source after7223e931 is local, not uploaded. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
+| Level 4: W4 screen families | Unfinished. W4c Tasks1–9 engineering saved atf495a8dd; root verified4193full passes/clean static gates and exact14file/deletion identities. Whole-family Astra audit active; no integration/phone acceptance yet. Source after7223e931 is local, not uploaded. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -689,3 +689,24 @@ will renew the completed candidate. No global/schema/sync/wiper change. No sourc
 
 The same worker continues unread-row fidelity and Task9 retirements/full-project gates. D/E
 remain held. Integration stays5e6cda45; required Astra audit and phone acceptance remain pending.
+
+
+### October18: W4c final engineering candidate, Astra next
+
+C savedf495a8dda858ff13305abb5715e3d667406b4277 after4e4ba48a. Worker is idle and tree clean.
+Root inspected the Task9 production/test delta and actual full serial4193pass output, clean
+analysis/format1459files0changed/layering/attribution, then verified eight final file SHA256
+values, six deletion/base identities, and full log digest030af166c619605141671580f7d618c5235630e9a88e504340dccd5da06ceb56.
+The frozen source patch e83b251b9fd2f61376e26d0f21d7980d0f4984cefb15b0eb3a8a2e86b92a3b77
+stayed unchanged through final verification. Postcommit attribution/clean-tree evidence retained.
+
+First default-concurrency full run4185pass/7fail is preserved, with no accepted exception.
+Failures comprised shared native asset collisions and one obsolete selected-exam fixture.
+Failed-file renewal14pass; complete --concurrency=1 run4193pass. No native-hook, schema or core
+source workaround. Retired widgets/helper/tests and legacy loader references are removed;
+actual reader continuity, unread-title semantics and adapter-state regressions pass.
+
+Root's independent source/data review found no remaining scoped issue. Required GPT-6 Astra
+whole-family audit now follows alone againstffc8045b..f495a8dd plus current approved contracts.
+No source upload, integration, whole-family acceptance or phone visual acceptance is claimed.
+D/E remain held. Main application freeze remains. Preserve C tree/logs for audit and QA.
