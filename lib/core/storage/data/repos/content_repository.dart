@@ -17,10 +17,17 @@ import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 
 class ContentRepository {
-  ContentRepository(this._db, {void Function()? onQuery}) : _onQuery = onQuery;
+  /// [fetchHook] is passed on web only; see [ContentFetchHook].
+  ContentRepository(
+    this._db, {
+    void Function()? onQuery,
+    ContentFetchHook? fetchHook,
+  })  : _onQuery = onQuery,
+        _fetchHook = fetchHook;
 
   final ContentDatabase _db;
   final void Function()? _onQuery;
+  final ContentFetchHook? _fetchHook;
 
   static const int _hydrationBatchSize = 400;
 
@@ -244,16 +251,28 @@ class ContentRepository {
   }
 
   Future<List<Question>> questionsByTopic(TopicId topicId) async {
-    final rows = await (_db.select(_db.contentQuestions)
-          ..where(
-            // isWithdrawn is isActive inverted
-            (q) => q.topicId.equals(topicId) & q.isActive.equals(true),
-          ))
-        .get();
+    final query = _db.select(_db.contentQuestions)
+      ..where(
+        // isWithdrawn is isActive inverted
+        (q) => q.topicId.equals(topicId) & q.isActive.equals(true),
+      );
+    var rows = await query.get();
+    final hook = _fetchHook;
+    if (hook != null && rows.isNotEmpty) {
+      final ready = await hook.ensureQuestions([for (final r in rows) r.id]);
+      rows = [
+        for (final row in await query.get())
+          if (ready.contains(row.id)) row,
+      ];
+    }
     return Future.wait(rows.map(_hydrateQuestion));
   }
 
   Future<Question?> questionById(QuestionId id) async {
+    final hook = _fetchHook;
+    if (hook != null && !(await hook.ensureQuestions([id])).contains(id)) {
+      return null;
+    }
     final row = await (_db.select(_db.contentQuestions)
           ..where((q) => q.id.equals(id)))
         .getSingleOrNull();
@@ -276,8 +295,17 @@ class ContentRepository {
   Future<List<Question>> hydrateSelectedQuestions(
     List<QuestionId> ids,
   ) async {
-    final wanted = _uniqueIds(ids);
+    var wanted = _uniqueIds(ids);
     if (wanted.isEmpty) return const [];
+    final hook = _fetchHook;
+    if (hook != null) {
+      final ready = await hook.ensureQuestions(wanted);
+      wanted = [
+        for (final id in wanted)
+          if (ready.contains(id)) id,
+      ];
+      if (wanted.isEmpty) return const [];
+    }
 
     final questionRows = <QuestionId, ContentQuestionRow>{};
     final choicesByQuestion = <QuestionId, List<ContentChoiceRow>>{};
@@ -391,6 +419,8 @@ class ContentRepository {
   }
 
   Future<Lesson?> lessonById(LessonId id) async {
+    final hook = _fetchHook;
+    if (hook != null && !await hook.ensureLesson(id)) return null;
     final row = await (_db.select(_db.contentLessons)
           ..where((l) => l.id.equals(id)))
         .getSingleOrNull();

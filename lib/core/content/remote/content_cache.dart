@@ -29,6 +29,12 @@ class ContentCache {
     return {for (final row in rows) row.id: row.version};
   }
 
+  /// Every stored item, for filling the in-memory content database at start.
+  Future<List<ContentItem>> all() async {
+    final rows = await _db.select(_db.cachedContent).get();
+    return [for (final row in rows) _toItem(row)];
+  }
+
   Future<void> put(ContentItem item) {
     return _db.into(_db.cachedContent).insertOnConflictUpdate(
           CachedContentCompanion.insert(

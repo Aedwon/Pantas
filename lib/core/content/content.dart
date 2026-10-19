@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/content_database_memory.dart';
 import 'package:pantas/core/content/content_database_opener.dart';
+import 'package:pantas/core/content/remote/content_service_providers.dart';
+import 'package:pantas/core/content/repos/content_fetch_hook.dart';
 import 'package:pantas/core/content/repos/diagnostic_set_repo.dart';
 import 'package:pantas/core/content/repos/exam_repo.dart';
 import 'package:pantas/core/content/repos/lesson_repo.dart';
@@ -16,6 +19,7 @@ export 'domain/diagnostic_set.dart';
 export 'domain/mock_blueprint.dart';
 export 'domain/mock_exam.dart';
 export 'remote/content_service_providers.dart';
+export 'repos/content_fetch_hook.dart';
 export 'repos/diagnostic_set_repo.dart';
 export 'repos/exam_repo.dart';
 export 'repos/lesson_repo.dart';
@@ -38,6 +42,26 @@ Future<List<Override>> bootstrapContentOverrides({
   return [contentDatabaseProvider.overrideWithValue(db)];
 }
 
+/// Web only: the hook that fetches lesson bodies and question text before a
+/// repository reads them. Null on native, where the bundled database already
+/// holds everything.
+final contentFetchHookProvider = Provider<ContentFetchHook?>((ref) => null);
+
+/// The web content source: an in-memory [ContentDatabase] that
+/// [contentMirrorProvider] fills from the encrypted cache and the server.
+/// Callers read it exactly as they read the bundled database on native.
+Future<List<Override>> bootstrapWebContentOverrides({
+  Future<ContentDatabase> Function() open = openInMemoryContentDatabase,
+}) async {
+  final db = await open();
+  return [
+    contentDatabaseProvider.overrideWithValue(db),
+    contentFetchHookProvider.overrideWith(
+      (ref) => ref.watch(contentMirrorProvider),
+    ),
+  ];
+}
+
 final examRepoProvider = Provider<ExamRepo>(
   (ref) => ExamRepo(ref.watch(contentDatabaseProvider)),
 );
@@ -51,11 +75,17 @@ final topicRepoProvider = Provider<TopicRepo>(
 );
 
 final questionRepoProvider = Provider<QuestionRepo>(
-  (ref) => QuestionRepo(ref.watch(contentDatabaseProvider)),
+  (ref) => QuestionRepo(
+    ref.watch(contentDatabaseProvider),
+    fetchHook: ref.watch(contentFetchHookProvider),
+  ),
 );
 
 final lessonRepoProvider = Provider<LessonRepo>(
-  (ref) => LessonRepo(ref.watch(contentDatabaseProvider)),
+  (ref) => LessonRepo(
+    ref.watch(contentDatabaseProvider),
+    fetchHook: ref.watch(contentFetchHookProvider),
+  ),
 );
 
 final mockBlueprintRepoProvider = Provider<MockBlueprintRepo>(

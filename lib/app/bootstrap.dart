@@ -15,6 +15,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/content/bundle/protected_content_installer.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/content_database_memory.dart';
 import 'package:pantas/core/content/content_database_opener.dart';
 import 'package:pantas/core/content/security/content_package_verifier.dart';
 import 'package:pantas/core/content/security/content_signing_keys.dart';
@@ -252,7 +253,13 @@ Future<void> _bootstrap(
       );
     }
     final contentOverrides = kIsWeb
-        ? const <Override>[]
+        ? await bootstrapWebContentOverrides(
+            open: () async {
+              final opened = await openInMemoryContentDatabase();
+              contentDatabase = opened;
+              return opened;
+            },
+          )
         : await bootstrapContentOverrides(
             open: () async {
               final opened = await openProtectedContentDatabase();
@@ -297,8 +304,7 @@ Future<void> _bootstrap(
     onContainerReady(container);
 
     await bootstrapAuthSession(container, firebaseResult);
-    // Start watching sign-out so cached Pro-only fields are removed.
-    if (kIsWeb) container.read(contentServiceProvider);
+    if (kIsWeb) await _startWebContent(container);
     await applyPersistedTelemetryConsent(container);
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);
@@ -337,6 +343,17 @@ Future<void> _bootstrap(
       }
     }
     rethrow;
+  }
+}
+
+/// Web only. Fills the in-memory content database from the encrypted cache,
+/// refreshes the catalog, and starts watching sign-out so cached Pro-only
+/// fields are removed. A failure leaves the app running without content.
+Future<void> _startWebContent(ProviderContainer container) async {
+  try {
+    await container.read(contentMirrorProvider).start();
+  } catch (error, stack) {
+    debugPrint('Web content did not start: $error\n$stack');
   }
 }
 

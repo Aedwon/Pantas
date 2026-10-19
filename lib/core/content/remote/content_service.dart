@@ -24,6 +24,9 @@ class ContentService {
   /// Emits each item whose stored copy changed.
   Stream<ContentItem> get changes => _changes.stream;
 
+  /// True when no background request is running.
+  bool get isIdle => _inFlight.isEmpty;
+
   /// Completes when no background request is running.
   Future<void> get idle async {
     while (_inFlight.isNotEmpty) {
@@ -40,6 +43,13 @@ class ContentService {
     await refresh(kind, [id]);
     return _cache.get(kind, id);
   }
+
+  /// The stored copy only; never asks the server.
+  Future<ContentItem?> stored(ContentKind kind, String id) =>
+      _cache.get(kind, id);
+
+  /// Every stored item.
+  Future<List<ContentItem>> storedItems() => _cache.all();
 
   /// Fetches the latest of [ids] in calls of at most 20. A failed call keeps
   /// the stored copies and does not throw.

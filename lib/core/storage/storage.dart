@@ -33,7 +33,10 @@ final appDatabaseProvider = Provider<AppDatabase>(
 );
 
 final contentRepositoryProvider = Provider<ContentRepository>(
-  (ref) => ContentRepository(ref.watch(contentDatabaseProvider)),
+  (ref) => ContentRepository(
+    ref.watch(contentDatabaseProvider),
+    fetchHook: ref.watch(contentFetchHookProvider),
+  ),
 );
 
 final attemptsRepositoryProvider = Provider<AttemptsRepository>(
