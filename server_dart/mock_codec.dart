@@ -4,7 +4,8 @@ import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
 
 /// Input: {sectionsJson: string, poolsByTopic, passageSetsByTopic,
-/// recentlySampledQuestionIds, seed}. `sectionsJson` is the blueprint's own JSON string.
+/// recentlySampledQuestionIds, seed}. `sectionsJson` is the blueprint's own
+/// JSON string.
 /// Seed is an integer below 2^32 so that the Dart
 /// VM and JavaScript agree on the number.
 Map<String, Object?> sampleMockFromJson(Map<String, Object?> j) {
@@ -28,7 +29,7 @@ Map<String, Object?> sampleMockFromJson(Map<String, Object?> j) {
               t.key: {
                 for (final p in (t.value! as Map<String, Object?>).entries)
                   p.key: [
-                    for (final q in p.value! as List<Object?>) q! as String
+                    for (final q in p.value! as List<Object?>) q! as String,
                   ],
               },
           },
@@ -40,7 +41,7 @@ Map<String, Object?> sampleMockFromJson(Map<String, Object?> j) {
         {
           'sectionId': s.sectionId,
           'name': s.name,
-          'questionIds': s.questionIds
+          'questionIds': s.questionIds,
         },
     ],
   };

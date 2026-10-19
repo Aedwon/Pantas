@@ -218,7 +218,7 @@ Map<String, Object?> _mockScenarios() {
     },
     'short_pool': {
       'sectionsJson': _sections([
-        section('s1', 30, ['topic_c', 'topic_a'])
+        section('s1', 30, ['topic_c', 'topic_a']),
       ]),
       'poolsByTopic': pools,
       'passageSetsByTopic': null,

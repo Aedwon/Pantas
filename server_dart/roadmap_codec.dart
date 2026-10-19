@@ -1,5 +1,5 @@
-// JSON mapping for the server roadmap. Pure Dart: no dart:js_interop, so the Dart
-// VM reference run and the compiled JS run use the exact same code.
+// JSON mapping for the server roadmap. Pure Dart: no dart:js_interop, so the
+// Dart VM reference run and the compiled JS run use the exact same code.
 //
 // Time contract: every date in and out is a local calendar value with no
 // offset ("2026-09-30" or "2026-09-30T08:00:00"). The engine never calls
@@ -46,7 +46,8 @@ RoadmapInputs inputsFromJson(Map<String, Object?> j) {
         name: m['name']! as String,
       ),
     ),
-    // Left out of the JSON, the links are the app's own list, so the server never holds a second copy.
+    // Left out of the JSON, the links are the app's own list, so the server
+    // never holds a second copy.
     prerequisites: j['prerequisites'] == null
         ? topicPrerequisites
         : {
