@@ -8,7 +8,8 @@ void main() {
     final db = ContentDatabase(
       NativeDatabase.memory(
         setup: (raw) {
-          raw.execute('''
+          raw
+            ..execute('''
             CREATE TABLE content_mock_blueprints (
               id TEXT NOT NULL PRIMARY KEY,
               schema_version INTEGER NOT NULL,
@@ -23,8 +24,7 @@ void main() {
               total_published_items INTEGER,
               source TEXT,
               source_note TEXT
-            )''');
-          raw
+            )''')
             ..execute(
               'INSERT INTO content_mock_blueprints VALUES '
               "('bp', 2, 1, '2026-05-17T00:00:00.000Z', 'exam', 'CSE', 90, "
