@@ -1204,3 +1204,22 @@ Codex run 2 (log `~/codex-lead-run-2.log`) stopped on its usage limit (resets Oc
 after 3,318,394 tokens. Progress it left: main a0ebc84b, 252d26e2, c12a3deb, 33b3fd2e (W4 client
 seams against the server contracts, web mock wiring bounds, W4c audit findings); W4e one local
 commit 3b454b3a; W4c 4 uncommitted files.
+
+### October 19: W4e moves to a Claude builder; cloud lead hands back to the local lead
+
+Options offered: (1) a Claude (Sonnet 5.5) builder takes W4e (mock screens) while Codex is out of
+usage, starting from Codex's saved work; Codex keeps W4c and W4b (a change to the plan, which
+reserves W4 for the Codex lead; each Codex resume reloads over 3 million tokens); (2) wait for
+Codex (resets October 20, 2:49 AM). Recommended: 1. Aedwon's exact comment:
+
+> okay go, but note that you have $8 of cloud usage left. be prepared to hand off to the previous
+> orchestrator before you since my limits for non-cloud use have reset.
+
+Decisions:
+
+1. W4e moves from the Codex lead to a Claude builder (Sonnet 5.5, medium). Codex keeps W4c then
+   W4b (Lane 1) and W4d (after W4e in Lane 2 order). The Codex lead must be told before its next
+   run, so it does not also work W4e.
+2. The W4e builder runs on the Mac, not in the cloud: Codex's newest W4e commit 3b454b3a is local
+   only, and the W4e worktree is `Pantas-wt-new-design-w4e-r1` there.
+3. The cloud lead stops new work and hands back to the local Claude lead (budget about $8 left).

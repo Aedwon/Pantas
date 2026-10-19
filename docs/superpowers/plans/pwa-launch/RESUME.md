@@ -24,12 +24,12 @@ decision and its exact wording).
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
 | E2 Level 4, E3 Level 5 | Level 4 running: Aedwon pasting (prompt allows web search for B01 since 622a7e35); Level 5 prompts not built | audit branch |
-| Lane A (W4) | not progressed since October 18: no Codex process on the Mac; W4c 7 local commits, W4d/W4f/W4a uncommitted work; STATUS.md lock stale. Codex limits reset October 19 evening; resume needs Aedwon's go | Codex session 01a1410a |
+| Lane A (W4) | Codex run 2 stopped on usage (resets Oct 20, 2:49 AM); progress on main a0ebc84b to 33b3fd2e; W4e local commit 3b454b3a. W4e moved to a Claude builder (Aedwon, Oct 19), to run on the Mac; Codex keeps W4c, W4b, W4d | Codex session 01a1410a; W4e: next local Claude lead |
 | PayMongo account | Aedwon creating it | none |
 | CSE mock blueprint | done, lead-reviewed, merged into staging (2c2332e0). Confirm with Aedwon the shown line "The real exam has 170 items" | `web/cse-mock-blueprint-r1` |
 | Roadmap running totals | done, lead-reviewed, merged into staging (2c2332e0) | `web/roadmap-totals-r1` |
 
-Orchestrator handoff (start here if you are the new Claude lead): `pwa-launch/handoff-orchestrator.md`.
+Orchestrator handoff (start here if you are the new Claude lead): `pwa-launch/handoff-orchestrator.md`, update of October 19 late evening at its top.
 
 ## What a cloud session can and cannot do
 

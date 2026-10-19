@@ -1,5 +1,43 @@
 # Handoff: PWA launch orchestrator (Claude lead)
 
+## Update, October 19 late evening (from the cloud lead, read this first)
+
+The cloud lead ran from this file's earlier version and now hands back to a local lead. Read the
+decision log from "Claude lead handed to a cloud session" to the end, then `RESUME.md`.
+
+Current state:
+
+- `web/pwa-staging-r1` at 8e0420c9 (pushed) holds everything server-side and the C7 client:
+  content per request with a catalog, mock papers, roadmap with running totals, CSE mock
+  blueprints, web App Check (`--dart-define=APP_CHECK_WEB_SITE_KEY`). Mac checks passed (one
+  pre-existing intermittent `content_seed_writer_test`). Emulator files run one at a time.
+- Staging deploy blocked: no Firebase project has Blaze (Aedwon's cards were declined; he tries a
+  virtual card October 20). Also needed from Aedwon: reCAPTCHA Enterprise site key for the
+  "pantas (web)" app on pantas-staging, and `gcloud auth application-default login` on the Mac
+  for `tools/upload_content`. Done already: Hosting site `pantas-staging-app`; rules uploaded
+  (release unconfirmed). Never run commands that read secrets (see the log's recorded mistake).
+- Codex lead: second run stopped on usage (resets October 20, 2:49 AM). Its note:
+  `pwa-launch/codex-lead-note-2026-10-19.md` (with the approved personal-items line). Tell it W4e
+  has moved to Claude before its next run.
+
+Next actions, in order:
+
+1. Start the W4e builder (Sonnet 5.5, medium) on the Mac in `../Pantas-wt-new-design-w4e-r1`
+   (local head 3b454b3a). Scope: W4e Tasks 3 to 9 of its plan, reconciled with the server mock
+   contract (`functions/src/mock.ts` on staging) and Codex's main notes a0ebc84b and 252d26e2;
+   plus the approved personal-items line (note addendum). Do not touch W4c, W4b or W4d worktrees.
+2. Tell the Codex lead (in its note or a resume message) that W4e is Claude's.
+3. When Aedwon reports Blaze: deploy the functions in relay issue 11081's list, firestore
+   indexes, the content upload (dry run first), then the web app with the site key; give him the
+   link `https://pantas-staging-app.web.app`.
+4. The relay (`Aedwon/chatgpt-terminal-relay`, `[relay]` issues) works for Mac commands from a
+   cloud session; the GitHub connector wraps URLs in issue bodies in backticks, so build URLs inside
+   scripts.
+
+---
+
+## Original handoff (October 19, superseded where the update above differs)
+
 Written October 19, 2026 by the outgoing Claude lead (Opus 5.5) before a usage limit.
 
 ## Your role
