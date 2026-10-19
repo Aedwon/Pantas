@@ -462,3 +462,21 @@ needs a choice. Options offered:
 4. Change the split so part of the question bank is Pro. A pricing and product change.
 
 Recommended: 1. Awaiting Aedwon's choice. C7 does not start until then.
+
+### October 19: copy-prompt page ready (E1b)
+
+- Built by Sonnet 5.5 (medium) on `docs/content-coverage-audit-r1` at 4d60a71e; reviewed by the
+  lead (prompt adaptation, JSON extraction, Host, Origin and header checks). Lead reran both suites:
+  28 new tests and 263 existing level4 tests pass. Clipboard copy was not tested in a real browser.
+- The page adapts each packet for paste mode: the relay hand-in section is replaced by "reply with
+  only the completed form as one JSON code block", and pasted replies go through the existing
+  `handin.process` and `form.py` checks. One retry per chat; a held lesson can start over in a new
+  chat.
+- Reversal: the earlier entry kept 6 planted packets. The paste setup refuses planted packets, and
+  scoring them needs the pilot report path, so they are dropped. Scope is the 71 real packets.
+- Run state prepared: `~/.pantas-audit/level4-paste` (71 packets, role A). Scope and audit
+  `status.md` pushed at 439603ca.
+- Found: the October 8 autorun watcher (`autorun/run.sh`) is still running in a Terminal window. Every 10
+  minutes it commits and pushes changes under the audit folders, and it resumes the Codex
+  orchestrator if the `status.md` STATE line reads RUNNING. The STATE line is kept as BLOCKED so
+  Codex stays stopped. Aedwon may close that window if the orchestrator is no longer wanted.
