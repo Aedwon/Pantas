@@ -49,7 +49,6 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   var _pauseWarningSeen = false;
   var _finishing = false;
   var _disposed = false;
-  DateTime? _leftAt;
 
   @override
   void initState() {
@@ -188,7 +187,6 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive ||
         state == AppLifecycleState.hidden) {
-      _leftAt ??= now;
       _strict?.paused(now);
       unawaited(session.flush());
       if (!session.strict && state != AppLifecycleState.inactive) {
@@ -196,7 +194,6 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       }
     } else if (state == AppLifecycleState.resumed) {
       _strict?.resumed(now);
-      _leftAt = null;
     }
   }
 
