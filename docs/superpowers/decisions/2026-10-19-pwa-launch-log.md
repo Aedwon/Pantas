@@ -1,0 +1,135 @@
+# PWA launch: decision log
+
+Chronological record for the decision to launch Pantas first as a progressive web app (PWA).
+Controlling draft spec: `docs/superpowers/specs/2026-10-19-pwa-launch-design.md`.
+
+Status at the end of this entry set: Aedwon's four direction decisions are recorded. The spec
+is a draft and is not approved. The application-code freeze is not lifted. No complexity level
+is chosen. No application code has changed.
+
+---
+
+### October 19: launch direction
+
+Context: Aedwon asked to accelerate publishing because funds are short. Policy main was
+`7e6acb4e` when read.
+
+Aedwon's exact comment:
+
+> okay here's the thing: I want to further accelerate to publish this service. I have made the
+> following decisions
+>
+> 1. i will publish this as a PWA, deferred publishing on Android and iOS (i really am short of funds)
+> 2. i will turn my base m4 macbook air as a sort of VPS (same reason, can't afford)
+> 3. i will first only focus on CSE Professional and Subprofessional
+> 4. i will use PayMongo as the merchant smth (idk exact term they receive payments)
+>
+> what do you think of this plan? my laptop is perpetually on (with only a few moments of
+> downtime for restart) and always connected to wifi so
+>
+> i need you to help me steer things. i have a chatgpt plus plan as well. you are 76% used weekly
+> usage and chatgpt is 16% used weekly (though resets come often here).
+>
+> what is the fastest path for me? i need to finish the content audit for CSE and the engg of the
+> app as a PWA. this is flutter so PWA is feasible. the app will support both web and mobile views
+> (designs are separate projects in Claude Design).
+
+Decisions recorded:
+
+1. **PWA first.** Android and iOS store publishing is deferred.
+2. **MacBook as server.** Proposed by Aedwon. See the recommendation below; not yet resolved.
+3. **Scope: CSE Professional and Subprofessional only** for the first launch.
+4. **PayMongo** as the payment provider (the merchant account that receives payments).
+
+Claude's assessment, as offered:
+
+- PWA first: agreed. The repository has no web platform yet. Mobile-only parts need web
+  handling: local notifications, Crashlytics, the content database install, secure storage, and
+  RevenueCat purchases.
+- MacBook as server: recommended against. Home power cuts, Wi-Fi drops and restarts would take
+  payment confirmation offline, and exposing a personal machine is a security risk. The backend
+  is already Firebase (Firestore, Auth, Functions, Hosting), which can host the PWA and the
+  PayMongo webhook. Cloud Functions needs the Blaze plan and a card on file, with a budget alert.
+  Fallback without a card: a free Cloudflare Worker for the webhook. The Mac stays useful as a
+  build machine.
+- CSE only: agreed; it shrinks the content audit and the download.
+- PayMongo: fits the Philippine market (GCash, Maya, cards). Merchant verification takes days and
+  may need business registration (not verified). Aedwon should start it immediately.
+- Provider split: the CSE content audit runs on ChatGPT, which has the most remaining usage.
+  Claude leads engineering decisions and review. Haiku runs test suites and crawls.
+
+Rejected or set aside: running production services on the MacBook (reasons above).
+
+### October 19: capacity and on-device content
+
+Aedwon's exact comment:
+
+> but is Firebase even enough for the amount of requests (and also the lessons, quizzes, since
+> they won't be saved on device - or am I wrong to think they won't be saved on device for a
+> PWA?) that will happen? I expect the app to have thousands of users since we have a freemium
+> model
+
+Findings given (Firebase pricing page, dated October 14, 2026, read October 19):
+
+- Lessons and quizzes ship inside the app as `assets/seed/content.db` (9.0 MB, 1.6 MB gzip).
+  They are not fetched from Firestore.
+- Free quotas: Firestore 50K reads, 20K writes and 20K deletes per day, 1 GiB stored. Hosting
+  10 GB stored and 360 MB transfer per day, then $0.15/GB. Functions 2M invocations per month.
+  Auth 50K monthly active users.
+- Estimate (not measured): about 5 MB first download per new user, so roughly 70 new users per day
+  fit the free transfer and 1,000 more cost about $0.75. Expected bill at thousands of users:
+  about $0 to $5 per month, if progress sync batches writes instead of writing per answer.
+
+Aedwon's follow-up, exact comment:
+
+> to clarify, even on a PWA? the lessons/quizzes stays on-device?
+
+Answer given: yes, after engineering work. The current seed installer writes to the device file
+system (`dart:io` and `path_provider`), which browsers do not have. The web build must install the
+database into browser storage instead, which the drift library supports. iPhone Safari may clear
+site storage after 7 days without use unless the app is added to the Home Screen; content then
+downloads again and synced progress is unaffected.
+
+### October 19: download size and user experience
+
+Aedwon's exact comment:
+
+> wait explain to me first how that works, and will it affect UX? last time the APK for testing
+> was over 150 MB
+
+Answer given: the 150 MB APK was likely a debug build, which includes developer tooling and code
+for every processor type. It does not predict the web size. Estimated first load is 5 to 8 MB
+compressed (to be measured in the web spike), about 3 to 6 seconds on Philippine mobile data.
+Later opens load from the phone in about 1 to 2 seconds. Scrolling and text feel slightly less
+smooth than native.
+
+Aedwon's exact comment:
+
+> yes you can do the techniques needed to optimize for performance and UX. what's the game plan
+
+Result: performance and user-experience optimization is in scope. The plan offered is recorded in
+the draft spec. Claude recommended balanced complexity. Aedwon has not yet chosen a complexity
+level, approved the spec, or lifted the freeze.
+
+### October 19: record the plan
+
+Aedwon's exact comment:
+
+> Write the PWA launch plan and my four decisions into the repo docs now. No app code changes yet.
+
+What changed: this log and the draft spec were added on main. No application code changed.
+`docs/superpowers/plans/new-design/STATUS.md` was not edited, because its lock is held by the
+Codex lead; the PWA direction still needs to be reflected there.
+
+Mistake recorded: in the earlier reconciliation report, Claude offered to push the 7 local W4c
+commits. The engineering restart log (October 18) says W4c source stays local until the whole
+family audit. Those commits must not be pushed outside that sequence.
+
+Open decisions for Aedwon:
+
+1. Approve the plain-language section of the draft spec.
+2. Choose minimal, balanced or hardened complexity.
+3. Lift the application-code freeze for the PWA launch scope.
+4. Confirm Firebase hosting instead of the MacBook as server, and whether a card can go on the
+   Blaze plan.
+5. Decide how the PWA work relates to the in-flight new-design restart (see the spec).
