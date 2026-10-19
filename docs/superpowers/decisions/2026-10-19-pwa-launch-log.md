@@ -1279,3 +1279,23 @@ confirm the installer accepts it before any native release.
 Integration needs: `tools/build_content_export` and the staging catalog parser must carry
 `unscoredItems`, and the CSE blueprints on `web/pwa-staging-r1` must author it (15 Professional,
 20 Subprofessional).
+
+### October 19: E02 seed hash regression fixed
+
+Aedwon's exact comment:
+
+> did you stop? $4 still remain. all that work since $6 cost $2
+
+The Mac rerun (relay 11088, real seed) showed the same `content_providers_test` failure with the
+same actual hash, so it was not the cloud keys. The lead ran the test on the pre-change base
+3b454b3a: it passes. The builder's report that it "fails identically with my changes stashed" was
+wrong. Cause: the schema 8 E02 fixture database was created from current table definitions, so the
+new `unscored_items` column changed its bytes and the approved E02 seed hash.
+
+Lead fix f6b76e56 (`tools/build_content_seed/seed_writer.dart`, test and tool path only): the
+schema 8 subclass creates `content_mock_blueprints` with its exact schema 8 DDL, in the same
+position, and the blueprint insert omits the new column for that fixture. Checks (cloud):
+`content_providers_test` 12 pass; `flutter test test/core/content test/features/mock_exam test/tool`
+665 pass; analyze only the known deprecation; format clean. W4e head f6b76e56 (pushed).
+
+Still to verify on the Mac: the real content package build at schema 10.
