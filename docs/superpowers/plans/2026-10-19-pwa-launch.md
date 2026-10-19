@@ -37,6 +37,12 @@ Things only you can do, with no blocker on our side:
 - QA the rewritten CSE lessons and illustrations (Lane E7).
 - Accept the finished app on your phone before production.
 
+### Answers so far (October 19)
+
+D1 approved. D2 open (usage question answered in the log). D3 approved: W4g after launch. D4
+approved: one chat per lesson. D5 not authorized: Level 4 has not run yet. D6 approved: free trial
+(Lane C6). D7: encrypted web database (Lane B3). D8: `pantas.study`. D9: fee check running.
+
 ### Timeline (estimates, assuming D1, D2, D3, D5 as recommended)
 
 | Week | Engineering | Content |
@@ -123,8 +129,13 @@ B3. **Platform seams.** One conditional import per blocker, at the existing gate
   `bundle/seed_installer.dart`): on web, `WasmDatabase.open` with `initializeDatabase` returning
   the seed asset bytes on first run; skip when the stored content version matches. Ship
   `sqlite3.wasm` and `drift_worker.js` in `web/`.
-- App database (`lib/core/storage/data/database_opener.dart`): on web, unencrypted
-  `WasmDatabase` (D7). No secure storage on web.
+- App database (`lib/core/storage/data/database_opener.dart`): on web, an encrypted
+  `WasmDatabase` (D7, Aedwon: "it should be encrypted"). First check whether the `sqlite3` package
+  offers a SQLite3MultipleCiphers WebAssembly build matching the native `sqlite3mc` source; if not,
+  build one in the repository's tooling. Key handling: generate a random database key, wrap it with
+  a non-extractable Web Crypto key, and store only the wrapped key in IndexedDB. Limit to record in
+  a code comment: this protects copied browser files, not code running on the site. Estimate 3 to
+  5 days (not verified); report the actual approach to the lead before building a custom engine.
 - Telemetry (`lib/core/telemetry/firebase_telemetry.dart`): Crashlytics not used on web; keep
   Analytics.
 - Notifications gateway: web no-op (no reminders).
@@ -216,6 +227,11 @@ C5. **Test-mode run.** PayMongo test keys on `pantas-staging`: pay with a test G
 payment; access appears; replayed webhook changes nothing; expiry clears access (use a shortened
 test period through the emulator, not production code paths).
 
+C6. **Free trial (D6).** A server-granted 7-day Pro grant, once per account, through the same
+entitlement path as C4 with source `trial`. The trial check reuses W3's trial-eligibility record so
+an account that ever had a trial or paid access gets none. Started from the Pro page; ends without
+charge. New Google accounts are an accepted risk, as in the tier spec.
+
 Verification: Functions plain and emulator suites full pass; lead reviews the diff line by line;
 `firestore.rules` unchanged or reviewed; Aedwon completes one test-mode purchase on staging.
 
@@ -230,6 +246,12 @@ E1. **Scope reset (lead, Haiku for lists).** Scope = union of lessons tagged
 question sets tagged `cse-pro` or `cse-sub` in question files (53 and 44 sets). Haiku lists the
 union and the disagreements. Record the CSE-only scope in the audit plan and `status.md` on the
 audit branch, and reconcile its stale "BLOCKED" first line with the October 11 paste decision.
+
+E1b. **Copy-prompt page (Haiku or Sonnet, small).** A local page listing each scope prompt with
+a one-click Copy button, a done mark, and a box to paste the chat's answer back, saved to the
+audit branch's inbox in the format the existing hand-in checks read. Serves Level 4 now and
+Level 5 if authorized. Reuse `level4/server.py` safety rules (local-only, host and origin
+checks).
 
 E2. **Level 4, CSE lessons.** One web chat per lesson if D4 holds, using the existing
 packets for scope lessons only. Hand-in and checks as in the Level 4 spec.
@@ -265,7 +287,8 @@ Owner: Claude lead, with the integration owner.
 
 L1. Firestore and Storage rules reviewed for web clients (W6 Task 6 snapshot first).
 L2. App Check for web with reCAPTCHA Enterprise; enforce on callable functions used by web.
-L3. Auth authorized domains (staging, production, custom domain if D8); budget alerts on Blaze.
+L3. Connect `pantas.study` to production Hosting (DNS records from the Firebase console); add it to
+Auth authorized domains and App Check; budget alerts on Blaze.
 L4. Privacy and terms pages reachable from the web app; payment terms added for prepaid access.
 L5. Phone acceptance by Aedwon on staging (Android Chrome, iPhone Safari installed to Home Screen).
 L6. Production deploy (functions, rules, hosting) after Aedwon's explicit release approval.

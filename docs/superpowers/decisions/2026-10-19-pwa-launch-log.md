@@ -289,3 +289,44 @@ What changed: plan tasks B7a (HTML Welcome screen, must match the approved Welco
 the visual companion) and B7c (deferred loading for mock exam, settings and account, and the Pro
 page) added. B8 target adds the Welcome screen visible within 1 second on a throttled mobile
 profile.
+
+### October 19: answers to plan decisions D1 to D9
+
+Aedwon's exact comment:
+
+> D
+>
+> 1. ok
+> 2. won't that burn my limited weekly/5-hour usage?
+> 3. ok
+> 4. ok
+> 5. is CSE done for level 4? if so, okay then i authorize. if possible this part is also done
+> through chatgpt web chat (me prompt pasting - help me with a tool that i can just click to copy
+> the prompt) so it doesn't use my usage
+> 6. let's implement this. so they can feel the difference and eventually convert
+> 7. it should be encrypted.
+> 8. already bought. it's pantas.study
+> 9. can you run a haiku 5.5 medium to check for me
+
+Results:
+
+- D1 approved: the web and payments lanes run alongside W4. This is an exception to the October
+  16 one-branch-at-a-time rule for those lanes only.
+- D2 not answered; Aedwon asked about usage. Answer given: parallel lanes do the same total work
+  sooner, so total usage does not rise, and the single end-of-family audit lowers it. Usage per
+  5-hour window rises, because up to 3 lanes run at once. W4 implementation runs on ChatGPT
+  quota (Codex lead, Sol implementors), not Claude. Still awaiting a choice.
+- D3 approved: W4g after launch.
+- D4 approved: one Level 4 reading chat per CSE lesson.
+- D5 not authorized. The condition fails: Level 4 has not run for any lesson (inbox empty,
+  `status.md` first line still BLOCKED). Aedwon wants Level 5 run through ChatGPT web chat with
+  prompts he pastes, and a page with one-click copy for each prompt. The existing Level 4 page
+  (`level4/page/index.html`, `server.py`) is built around the relay dispatcher and has no copy
+  buttons, so a copy-prompt page is needed for Level 4 as well.
+- D6 approved: a free trial on web, so students feel Pro and convert. Server-granted, once per
+  account.
+- D7: the web study database must be encrypted. Claude to state the limit: a browser has no
+  secure key store, so the key protects against copying the stored files, not against code running
+  on the site.
+- D8: domain `pantas.study`, already bought.
+- D9: Haiku 5.5 at medium effort is checking PayMongo's published fees.
