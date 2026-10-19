@@ -174,3 +174,52 @@ queued flush ordering/failure and strict-background/expiry precedence. Use featu
 controller/snapshot/flush/resume paths and tests only. Save the data contract as a verified
 bounded slice before presentation integration. Root reviews this student-data change; no
 new generic persistence framework, schema migration, core sync/wiper edit or product choice.
+
+
+## October19 PWA web mock adapter ruling
+
+Approved PWA plan A4/C8b and pwa-launch/W4-client-coordination.md supersede local-only web
+paper/clock/allowance assumptions. Root inspected staging2c2332e0 mock.ts and CSE blueprints,
+then reviewed the implementor's narrow proposal before dependent production changes.
+
+Ownership extends to feature-owned data/server_mock_api.dart, domain/server_mock_paper.dart,
+application/server_mock_session.dart, their focused tests and existing mock routes/providers.
+Use a concrete callable adapter with an injected function for tests, not a new shared protocol
+or framework. Select one web owner at the existing route/platform seam; preserve native
+sampler/part flow and Task3's explicit Start. No core content, storage schema, sync/wiper,
+Claude-owned branch or server edits. Existing content repository signatures hydrate pinned
+question ids/set ids through C7; never sample a replacement web paper.
+
+Decode actual startMock/getMockPaper/controlMock/submitMock responses. Account/mock/exam ids
+and paper identity come from the server; an existing open paper can name a different exam
+from current selection and must not be remapped. Show server remainingMs with a monotonic
+display-only elapsed anchor. Each server response replaces authoritative state. Web CSE uses
+one overall clock; no invented sectional timing. Cursor/flags use existing feature-local
+cache under original uid+mockId only. No local web allowance or local authoritative result
+scoring. Save, pause, resume, discard and submit follow actual named server operations.
+
+Retain original account/session ownership across awaits. Reject queued work and stale UI/cache
+publication after actor/exam/disposal changes. Order answer/control writes so delayed earlier
+saves cannot replace newer answers or follow acknowledged submission. Failed operations keep
+the original immutable intended payload for Retry; do not rerun indices against mutated state.
+Test actual ordinary, retry, auth/disposal, delayed-call, server refusal and expired-paper paths.
+Validate decoded ids, question uniqueness, types and finite time values; malformed responses
+use existing error/recovery, not guessed paper or durations. Avoid empty save payloads that the
+actual server rejects; blank answers must describe real pinned questions. Do not call on clock
+ticks. No pending credentials or live deployment is required for fake/emulator contract checks.
+
+Setup may read server/catalog blueprint values and actual returned identity, preserving explicit
+Start and existing presentation. Do not rewrite separately authored source/content blueprints.
+Professional155 test questions are approved; the170-item explanatory UI sentence is not yet
+approved. Other launch-exam limits follow current approved PWA records, not old placeholders.
+
+Production card availability, completed results/history/review remain blocked on the Claude
+server-owned reader for nextEligibleAt/status, score/breakdown/duration/endedBy/submittedAt
+and tier-filtered canReview/reviewUntil/answers/notes. Do not invent endpoints, promote local
+cache into that authority or silently omit the final required controls. Pure view models and
+presentation can proceed. The accepted server client-correctness trust limit is not a new
+blocker. Record exact remaining dependencies before family completion/audit.
+
+Focused tests first, then task checks. Final full family gates and one final engineering audit
+are required; web build runs on integrated foundation afterward. Root personally reviews
+student-data/session changes. Workers do not upload or integrate their own source.

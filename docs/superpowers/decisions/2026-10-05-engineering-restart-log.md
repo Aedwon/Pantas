@@ -2192,3 +2192,14 @@ The server's client-correctness trust is already accepted in the PWA log, not a 
 For W4b, propose Claude completes signal extraction/server insight contract first, while W4b
 owns client views/cache and the existing roadmap callables; do not overlap those source files
 until the exact handoff/order is agreed. No Claude branch edits or local-only Pro fallback.
+
+
+### October19 evening: authorize the feature-owned web mock adapter
+
+E returned its exact file/API proposal after reading actual staging2c2332e0. Root records the
+bounded web-only mock adapter/read model/session seam in L3e before production edits. One
+server paper/clock owner, native flow preserved, existing C7 repositories, account-bound and
+ordered writes, immutable Retry payloads and malformed-response failure checks are required.
+No new framework/schema/core sync or Claude branch edits. Completed results/history/review
+and availability remain blocked on a server reader, while pure presentation can continue.
+This implements approved PWA behavior; no new user product or visual decision.
