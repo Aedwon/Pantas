@@ -1133,3 +1133,32 @@ Mac check (relay 11083): no `codex exec` running. W4 is unchanged since the Code
 records: W4c 7 local commits ahead (f495a8dd, October 18), W4d 2 uncommitted files, W4f 29
 uncommitted files, W4a 5; W4b and W4e at their October 15 and 16 remote heads. The `STATUS.md`
 lock (held since 18:06) is now stale. No A1 to A4 task has completed.
+
+### October 19: Codex lead resumed; CSE Professional count confirmed
+
+Options offered for Codex: resume the Codex lead (about 3 million tokens of ChatGPT usage to reload
+its context; Aedwon pastes the command) or start a fresh Codex lead from a short handoff. Aedwon's
+exact comment:
+
+> 1
+
+The Claude lead wrote `pwa-launch/codex-lead-note-2026-10-19.md` (server contracts, W4 state, likely
+conflicts, billing block) and gave the command (same settings as its last run: gpt-6.1-sol, full
+access, no approvals, output to `~/codex-lead-run-2.log`). Aedwon's exact comment:
+
+> and i also already ran that command in the terminal
+
+On the mock count, Aedwon asked:
+
+> wait 155 items? so you reduced the 15 that are personal questions from the 170?
+>
+> i understood it as 170 + 15
+
+Answer given: the four reported areas add to 155 test questions; plus 15 personal items is the
+170 reported total; nothing was removed. Aedwon's exact comment:
+
+> oh no no, 155 seems right if that's the total my reference gave
+
+Decision: the Professional mock stays at 155 test questions. Still open: whether the shown line
+"The real exam has 170 items. This practice run covers the 155 the app can mark for you." is
+acceptable.
