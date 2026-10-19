@@ -24,7 +24,7 @@ decision and its exact wording).
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
 | E2 Level 4, E3 Level 5 | Level 4 running: Aedwon pasting (prompt allows web search for B01 since 622a7e35); Level 5 prompts not built | audit branch |
-| Lane A (W4) | Codex (W4c, W4b, W4d) resets Oct 20, 2:49 AM; progress on main a0ebc84b to 33b3fd2e. W4e is Claude's: pushed at 3b454b3a; Tasks 1 to 3 saved, 4 and 5 partial, 6 to 9 and the web mock adapter not started; next: unscoredItems column (content schema 9 to 10, ruling in the log) plus the approved line, then Tasks 4 to 9 | Codex session 01a1410a; W4e: Claude lead |
+| Lane A (W4) | Codex (W4c, W4b, W4d) resets Oct 20, 2:49 AM; progress on main a0ebc84b to 33b3fd2e. W4e is Claude's: pushed at 3b454b3a; Tasks 1 to 3 saved, 4 and 5 partial, 6 to 9 and the web mock adapter not started; unscoredItems column (content schema 10, installer pin 10) and the approved line pushed at e1c9489b; next: Mac rerun of `content_providers_test` and the real package build at schema 10, then Tasks 4 to 9 and the web mock adapter | Codex session 01a1410a; W4e: Claude lead |
 | PayMongo account | Aedwon creating it | none |
 | CSE mock blueprint | done, lead-reviewed, merged into staging (2c2332e0). Confirm with Aedwon the shown line "The real exam has 170 items" | `web/cse-mock-blueprint-r1` |
 | Roadmap running totals | done, lead-reviewed, merged into staging (2c2332e0) | `web/roadmap-totals-r1` |

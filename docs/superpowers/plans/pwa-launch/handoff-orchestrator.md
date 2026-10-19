@@ -23,8 +23,9 @@ Current state:
 Next actions, in order:
 
 1. Start the W4e builder (Sonnet 5.5, medium). `web/new-design-w4e-r1` is now pushed at
-   3b454b3a, so it can run locally or in the cloud. First job: the `unscoredItems` column per the
-   log's "W4e state and the unscored-items field" ruling. Scope: W4e Tasks 3 to 9 of its plan, reconciled with the server mock
+   3b454b3a, so it can run locally or in the cloud. The `unscoredItems` column and the approved line are done
+   (head e1c9489b). First job: on the Mac, rerun `test/core/content` with the real seed and run
+   the real content package build at schema 10; then W4e Tasks 4 to 9 and the web mock adapter. Scope: W4e Tasks 3 to 9 of its plan, reconciled with the server mock
    contract (`functions/src/mock.ts` on staging) and Codex's main notes a0ebc84b and 252d26e2;
    plus the approved personal-items line (note addendum). Do not touch W4c, W4b or W4d worktrees.
 2. Tell the Codex lead (in its note or a resume message) that W4e is Claude's.

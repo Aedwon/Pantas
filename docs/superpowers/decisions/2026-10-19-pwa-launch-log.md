@@ -1248,3 +1248,34 @@ migration test; confirm first that no other open branch (W4c, W4d, staging) bump
 schema; thread the field through `tools/build_content_export` and the staging catalog parser when
 W4e integrates with `web/pwa-staging-r1`; check whether the content package or its installer pins
 schema 9 and stop if it does. Not started, to save the cloud budget; the next lead dispatches it.
+
+### October 19: unscored-items line built on W4e (content schema 10)
+
+Aedwon's exact comment, on continuing with the cloud budget:
+
+> that's $6 it's enough for the next thing
+
+Second stop by the builder: the protected-content installer pins content schema 9
+(`_contentSchemaVersion` in `lib/core/content/bundle/protected_content_installer.dart`) and refuses
+any other `user_version`. Options: raise the pin to 10, or accept 9 and 10. Lead ruling: raise it to
+10. Rejected: accepting both, because the protected database may be opened read-only and an old v9
+package would then hit the addColumn migration it cannot write. Packages must be rebuilt; Android
+is deferred and no web package exists.
+
+Pushed on `web/new-design-w4e-r1`: 3269098a (schema 10, migration, installer pin, migration test, in
+one commit), 66f4a94e (field threaded through domain, parser and repository; the approved setup
+line with parser and widget tests), dd7cf640 and lead fix e1c9489b (lints). Head e1c9489b.
+
+Checks (cloud): `flutter test test/features/mock_exam test/core/content test/tool` 653 pass, 1 fail:
+`content_providers_test.dart` setUpAll expects the e02 seed hash `eb3a9da4...` and gets
+`5b542c26...`; it fails the same without the change. The cloud seed files were rebuilt with
+throwaway keys, so this is expected here; rerun on the Mac with the real seed. Analyze: only the
+known deprecation. Format and attribution checks pass.
+
+Not verified: the real package builder CLI at schema 10. `tools/build_content_seed/seed_writer.dart`
+pins a schema-8 seed subclass; the next lead must run the real content package build on the Mac and
+confirm the installer accepts it before any native release.
+
+Integration needs: `tools/build_content_export` and the staging catalog parser must carry
+`unscoredItems`, and the CSE blueprints on `web/pwa-staging-r1` must author it (15 Professional,
+20 Subprofessional).
