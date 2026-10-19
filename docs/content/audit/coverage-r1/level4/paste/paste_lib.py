@@ -120,6 +120,14 @@ def adapt_prompt(packet_text, role=ROLE, attempt=1):
 FENCE = re.compile(r"```[ \t]*([A-Za-z0-9_-]*)[ \t]*\r?\n(.*?)```", re.DOTALL)
 
 
+_LATEX = re.compile(r'(?<!\\)\\(?=[A-Za-z]{2,})(?!u[0-9A-Fa-f]{4})')
+
+
+def repair_backslashes(text):
+    """Double a single backslash that starts a LaTeX-style command (two or more letters)."""
+    return _LATEX.sub(r"\\\\", text)
+
+
 def extract_json(reply):
     """(text, None) for the first JSON object found in a chat reply, else (None, message).
 
@@ -134,6 +142,11 @@ def extract_json(reply):
     candidates.append(reply)
     if "{" in reply and "}" in reply:
         candidates.append(reply[reply.index("{"):reply.rindex("}") + 1])
+    # Chats often write LaTeX such as \frac or \sqrt without doubling the backslash.
+    # That is invalid JSON, or worse, \f and \b parse as control characters. Try each
+    # candidate with lone backslashes before letters doubled first (so \\frac is never read
+    # as a form feed), then as written.
+    candidates = [c for candidate in candidates for c in (repair_backslashes(candidate), candidate)]
     first_error = None
     for candidate in candidates:
         try:

@@ -220,3 +220,18 @@ class Setup(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LatexBackslashTest(unittest.TestCase):
+    def test_single_backslash_latex_is_kept_literally(self):
+        text, error = paste_lib.extract_json('```json\n{"p": "a \\frac{1}{2} and \\sqrt{x}"}\n```')
+        self.assertIsNone(error)
+        self.assertEqual(json.loads(text)["p"], "a \\frac{1}{2} and \\sqrt{x}")
+
+    def test_valid_escapes_still_work(self):
+        text, _ = paste_lib.extract_json('{"p": "caf\\u00e9 \\"q\\""}')
+        self.assertEqual(json.loads(text)["p"], 'café "q"')
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -170,9 +170,12 @@ function buildRow(list, item) {
     row.check.disabled = true; row.status.textContent = "Checking...";
     try {
       const result = await post("/api/check", {list: row.list, id: row.id, text: row.text.value});
-      showResult(row, result);
       if (result.code === 0) row.text.value = "";
       await refresh();
+      // Show the result after the refresh: a reply that was not checked leaves the
+      // lesson "to do", and the refresh would otherwise hide the message at once.
+      showResult(row, result);
+      row.result.hidden = false;
     } catch (error) {
       note(String(error.message || error));
     }
