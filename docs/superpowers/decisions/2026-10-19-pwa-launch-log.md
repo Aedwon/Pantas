@@ -237,3 +237,19 @@ Claude's recommendation, offered and not yet answered:
 
 Open question for Aedwon: whether audit Level 4 (agent-run lesson standards check) is replaced by
 his own review for CSE lessons, leaving only Level 5 (questions) as an agent-run level.
+
+### October 19: clarification of Aedwon's review pass
+
+Aedwon's exact comment:
+
+> my pass is only QA after things have been audited and rewritten/refactored as necessary, just to
+> be clear
+
+Correction to the previous entry, decision 2: audit Levels 4 (lessons) and 5 (questions) both
+stay, narrowed to CSE. After the audit, lessons, questions and illustrations are rewritten or
+refactored as the findings require. Aedwon's own pass is the final QA of the rewritten CSE lessons
+and illustrations; it replaces agent verification of that rewrite, not the audit. Rewritten
+questions keep agent verification (multi-agent checks and scripts). The open Level 4 question is
+answered: Level 4 is not replaced.
+
+Still open: whether lessons keep the deterministic format validators (Claude recommends yes).
