@@ -8,7 +8,7 @@ assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 let env;
 const paths = ['content/lessons/items/l1', 'content/questions/items/q1', 'content/catalog/items/index', 'content/catalog/items/exam_upcat', 'contentPro/q1',
   'users/sp-user/server/mocks/items/m1', 'users/sp-user/server/answers/items/s1',
-  'content/mocks/items/exam_cse_pro', 'users/sp-user/server/roadmap', 'users/sp-user/server/settings'];
+  'content/mocks/items/exam_cse_pro', 'users/sp-user/server/roadmap', 'users/sp-user/server/settings', 'users/sp-user/server/answerTotals'];
 before(async () => {
   env = await initializeTestEnvironment({projectId: 'demo-pantas-test', firestore: {rules: readFileSync(new URL('../../firestore.rules', import.meta.url), 'utf8')}});
   await env.withSecurityRulesDisabled(async context => {
