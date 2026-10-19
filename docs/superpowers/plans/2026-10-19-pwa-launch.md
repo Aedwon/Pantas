@@ -336,6 +336,9 @@ L2. App Check for web with reCAPTCHA Enterprise; enforce on callable functions u
 L3. Connect `pantas.study` to production Hosting (DNS records from the Firebase console); add it to
 Auth authorized domains and App Check; budget alerts on Blaze.
 L4. Privacy and terms pages reachable from the web app; payment terms added for prepaid access.
+    Refund policy (decision log, October 19): refunds only for a duplicate charge or a payment that
+    did not unlock Pro, refunded in full; no partial refunds on request; passes not refunded after
+    their exam date. Published on pantas.study before PayMongo verification.
 L5. Phone acceptance by Aedwon on staging (Android Chrome, iPhone Safari installed to Home Screen).
 L6. Production deploy (functions, rules, hosting) after Aedwon's explicit release approval.
 Publication is a separate decision under `WORKFLOW.md`.
@@ -348,3 +351,12 @@ Publication is a separate decision under `WORKFLOW.md`.
 - W4 conflicts with Lane B or C files: the integration owner decides the order; do not resolve by
   overwriting.
 - A failing gate is reported with its output; no skipped or weakened check.
+
+## After launch
+
+- W4g Wrapped and sharing (D3).
+- Desktop layout from Claude Design.
+- Admin lookup tool: by email or PayMongo payment id, list payments, grants and audit rows; flag
+  duplicate charges and payments that did not unlock Pro (about half a day; parked October 19).
+- Redemption codes and account-ID grants for extra mocks and Pro (marketing campaigns).
+- Android and iOS store releases.

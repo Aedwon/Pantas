@@ -691,3 +691,24 @@ The proportional refund mechanism stays, since Aedwon may still issue partial re
 Proportional partial refunds built on `web/paymongo-r1` at caf2142e (pushed). Lead reran: plain
 110/110, emulator 142/142, tsc clean. Pending Aedwon: whether to add an admin lookup tool for
 double charges and payments that did not unlock Pro (about half a day).
+
+### October 19: what students can ask to have refunded
+
+Aedwon's exact comment:
+
+> okay those two points make sense. also, maybe record this somewhere but they cannot request for
+> a partial refund (even though the code allows it right)? they can only refund excess just like on
+> the first point where it isn't "activated" or consumed in a sense
+>
+> that tool can be built after release, park it for now
+
+Decisions:
+
+1. Students cannot request a partial refund. A refund is available only for a payment whose access
+   was never activated or consumed: a duplicate charge (the extra, not-yet-started period) or a
+   payment that did not unlock Pro. Such a payment is refunded in full.
+2. The code's proportional partial refund stays as an admin capability for Aedwon only (for example,
+   to correct an error). It is not offered to students. The Terms and the pantas.study refund
+   policy (Lane L4) state rule 1, not the proportional rule.
+3. The admin lookup tool for double charges and payments that did not unlock Pro is parked until
+   after launch (plan "After launch" list).
