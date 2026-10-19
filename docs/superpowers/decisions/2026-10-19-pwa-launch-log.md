@@ -184,3 +184,56 @@ to the audit plan and is recorded here; the audit plan update is pending.
 Cloud credits answer given: Claude cannot move work to the credits or spend them. If limits run
 out, Aedwon can resume in a cloud or API session; this log, the spec and `STATUS.md` are the resume
 point.
+
+### October 19: content production phase
+
+Aedwon's exact comment:
+
+> hmm there's a missing step, the audit is only an audit. there are stills steps to produce the
+> lessons and quizzes and illustrations. first two can be delegated to chatgpt (even web chat would
+> work) and illustrations as svg by haiku 5.5 (would you recommend this? it uses little usage for
+> simple illustrations - if there are any for CSE)
+
+Correction accepted: the plan lacked a production phase after the audit. Answer given:
+
+- Lessons and quizzes: ChatGPT, following `docs/content/lesson-authoring-runbook.md`,
+  `docs/content/question-authoring-runbook.md` and the style guides. Codex is preferred over web
+  chat because it writes into the repository; web chat is overflow.
+- Illustrations: Haiku, but not as SVG. The app has no SVG support; figures are drawn in code by
+  the figure types in `lib/core/ui/figures` (registry plus 23 figure widgets). Haiku writes the
+  data for those types, which also gives light and dark themes.
+- CSE figure count is unknown until audit Levels 4 and 5.
+- Production can overlap the audit, one subject at a time.
+
+### October 19: quality assurance and model split
+
+Aedwon's exact comment:
+
+> since the scope is now limited to CSE only, I can QA the lesson content and illustrations myself.
+> multi-agent checks, scripts and other token-using tasks are reserved for questions only. the
+> principle is: be cost-effective. I want to deliver this product as early as possible. this should
+> also be your split too. high-level agents like Opus 5.5 medium for reasoning/planning/escalation/
+> high-level audit(not content. can also use Astra if available); Sonnet 5.5 medium 6.1 Sol for
+> engg work; Haiku 5.5 or 6 Luna or chatgpt web chat (i will manually paste prompts for this) for
+> the smaller, easier, mechanical work where possible
+
+Decisions:
+
+1. Guiding principle for the PWA launch: be cost-effective and deliver as early as possible.
+2. Aedwon personally reviews CSE lesson content and illustrations. Agent review, multi-agent
+   checks and token-using checks apply to questions only. For CSE illustrations this replaces the
+   October 5 pipeline's different-model visual critic and separate accuracy check.
+3. Model routing for this launch (roles stay as defined in `SUBAGENTS.md` Part 7b):
+   - Lead work (reasoning, planning, escalation, high-level engineering audit, not content audit):
+     Opus 5.5 at medium effort, or Astra when available.
+   - Engineering implementation: Sonnet 5.5 at medium effort, or GPT 6.1 Sol.
+   - Small mechanical work: Haiku 5.5, GPT 6 Luna, or ChatGPT web chat with prompts that Aedwon
+     pastes himself.
+
+Claude's recommendation, offered and not yet answered:
+
+- Keep the deterministic content validators for lessons. They cost almost no tokens, and a
+  malformed lesson file can break the content build for the whole app.
+
+Open question for Aedwon: whether audit Level 4 (agent-run lesson standards check) is replaced by
+his own review for CSE lessons, leaving only Level 5 (questions) as an agent-run level.
