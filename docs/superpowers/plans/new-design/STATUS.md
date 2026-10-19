@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-19 18:06 Asia/Manila (PWA continuation, two W4 lanes)
+Since: 2026-10-19 21:51 Asia/Manila (PWA two-lane resumption after lead note)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -34,10 +34,10 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | resuming incomplete audit; local f495a8dd, remote7223e931;4193 historical candidate passes; confirmed Move/Retry finding unresolved |
+| A1 | W4c audit, fixes, verification, integration | Codex | resume interrupted audit at f495a8dd; two reproduced bookmark recovery defects; source after7223 remains local |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9 | Codex | resuming from e3ba3785; server paper/clock contract coordination before dependent wiring |
+| A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
@@ -47,10 +47,10 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | B1 | Web blocker inventory | Claude | reported done; evidence/B1-web-inventory.md |
 | B2 | Web platform | Claude | checkpoint on web/pwa-foundation-r1; staging737d471a contains foundation; not integrated here |
 | B3 | Platform seams and encrypted browser DB | Claude | checkpoint;3971 reported tests pass, Node encryption probes; browser still unverified |
-| B4 | Staging Hosting and size evidence | Claude | in progress on web/pwa-staging-r1 at737d471a; no deployment/measurements accepted here |
+| B4 | Staging Hosting and size evidence | Claude | staging target created; deployment blocked by Blaze billing, App Check site key and ADC; no deployed-functions assumption |
 | B5 | HTML loading screen | Claude | pending handoff |
 | B6 | Caching, install prompt, persistent storage | Claude | pending handoff and approved visual representation |
-| B7 | Content loading after first frame | Claude | in progress with C7 client on staging; web ships no native content package |
+| B7 | Content loading after first frame | Claude | C7 client/cached catalog built on staging2c2332e0; optional fetchHook preserves existing repository APIs; integration verification pending |
 | B7a | HTML Welcome screen | Claude | pending; approved board and Aedwon visual acceptance required |
 | B7c | Deferred libraries for later screens | Claude | pending; order route edits with W4e/W4f |
 | B7b | Phone layout at every width | Claude | pending; visible wide-screen framing requires acceptance |
@@ -61,11 +61,11 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | C4 | Payment webhook | Claude | built/reviewed on caf2142e;110plain/142emulator reported; refund details in later log |
 | C5 | PayMongo test-mode run | Claude + Aedwon | pending account/test keys and staging purchase |
 | C6 | Once-per-account seven-day web trial | Claude | built/reviewed on caf2142e; server grant, no automatic charge |
-| C7 | Server content and encrypted client cache | Claude | server built e7c27574; client staging in progress; getContent contract must precede W4 assumptions |
-| C8 | Server mock allowance and visibility | Claude | server checkpoint e7c27574; Free visibility remains open; latest submission-based allowance decision controls |
-| C8b | Pinned server mock paper and clock | Claude | in progress; web/roadmap-server-r1 absent from current remote refs; do not invent contract |
+| C7 | Server content and encrypted client cache | Claude | server catalog + in-memory web mirror/encrypted cache built on staging2c2332e0; C7-client-ruling controls; not yet integrated here |
+| C8 | Server mock allowance and visibility | Claude | latest server behavior built on roadmap953f7f24 and staging2c2332e0; named accounts, Free30days from submission; app wiring pending |
+| C8b | Pinned server mock paper and clock | Claude | server pinned-paper/clock/pause/discard/strict-expiry API ready on staging2c2332e0; W4e client wiring required |
 | C9 | All-account session answer ingest | Claude | server built e7c27574;116plain/157emulator reported; client handoff pending |
-| C10 | Server roadmap and Pro insights | Claude | spike75690df3 reported parity; runtime branch not published yet; W4b must coordinate |
+| C10 | Server roadmap and Pro insights | Claude | roadmap callable/settings + running totals merged into staging2c2332e0; insights signals refactor still needs ordered W4b coordination |
 | E1 | CSE scope reset | Claude | reported done;71 lessons; evidence/E1-cse-scope.* |
 | E1b | Copy-prompt page | Claude | reported done on audit branch439603ca |
 | E2 | CSE lesson Level4 audit | ChatGPT + Aedwon | running paste workflow; not an engineering prerequisite |
@@ -76,7 +76,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | E7 | Content QA and build/upload | Aedwon + Claude | pending; server content replaces bundled web corpus |
 | L1 | Web Firestore/Storage rules review | Claude | pending after W6 snapshot and final server handoff |
 | L2 | Web App Check enforcement | Claude | pending |
-| L3 | Domain, authorized hosts, budget alerts | Claude + Aedwon | pantas.study purchased; production setup pending |
+| L3 | Domain, authorized hosts, budget alerts | Claude + Aedwon | pantas.study bought; staging has no Blaze billing after declined cards; waiting for Aedwon, no secret reads |
 | L4 | Web legal/payment/refund pages | Claude | pending; refunds only unactivated/unconsumed qualifying full payments; no student partial-refund request |
 | L5 | Staging phone acceptance | Aedwon | pending Android Chrome/iPhone Safari installed PWA |
 | L6 | Production deployment | Claude + Codex | requires explicit release approval; none claimed |
@@ -787,3 +787,24 @@ mock presentation while awaiting the server paper/clock contract. Current publis
 branch is not on current origin refs, matching the resume record's not-pushed status. Dependent
 client wiring waits for that actual handoff; no replacement local-only path is authorized.
 No new gates, code fixes, integration, app publication or phone acceptance are claimed here.
+
+### October19 evening: refreshed server handoff and stale lock
+
+Aedwon: "Aedwon says: continue. First read docs/superpowers/plans/pwa-launch/codex-lead-note-2026-10-19.md from origin/main, then resume Lane 1 and Lane 2 as you planned."
+Root fetched/read the note first, then C7-client-ruling, updated RESUME, latest decisions and
+actual staging README at2c2332e0. Current policy77f2b607; policy files unchanged. The18:06 lock
+was stale beyond two hours and renewed under its rule; existing46task tracker retained.
+
+The earlier unpublished-contract gap is resolved: staging2c2332e0 contains roadmap953f7f24,
+C7 catalog/fetchHook/mirror, server mock paper/clock/control/submission and CSE blueprints.
+Client mock/roadmap wiring belongs to W4e/W4b. Claude-owned branches remain read-only inputs.
+Insights still need a separate ordered refactor: propose the shared pure-signal seam with Claude
+before W4b touches those paths. Storage/bootstrap collisions are explicit integration concerns.
+Staging deployment is blocked by billing/AppCheck key/ADC; use fake/emulator contracts for
+engineering and do not claim live callable or browser/phone acceptance. No deployment attempted.
+
+Audit continuation had confirmed a second data-recovery defect before the short usage cutoff:
+Remove commits, a subsequent guard-read error loses its retained Undo payload on Retry. The
+Move/Retry duplicate-index defect is also reproduced. Both remain unresolved; candidate source
+stays unchanged/local until the same family audit completes and verified fixes land. Lane2
+resumes from its preserved source with the now-available server contracts.

@@ -2163,3 +2163,20 @@ web/roadmap-server-r1 exists yet; RESUME also says not pushed. Coordinate on act
 contracts, preserving that gap rather than inventing local mock/roadmap authority. Existing
 C/E heads match expected state. A1's audit was interrupted after a real compound Move/Retry
 failure; resume that same audit, not a new repeated family review. Source after7223stays local.
+
+
+### October19 evening: resume from the Claude lead's note
+
+Aedwon: "Aedwon says: continue. First read docs/superpowers/plans/pwa-launch/codex-lead-note-2026-10-19.md from origin/main, then resume Lane 1 and Lane 2 as you planned."
+The note was read before other actions. Root renewed its stale18:06 lock, retained the46task
+PWA tracker and refreshed actual server handoffs: staging2c2332e0 and roadmap953f7f24 now
+resolve the earlier missing-contract gap. Follow C7-client-ruling: existing repository APIs
+with optional web fetchHook over in-memory content rebuilt from encrypted cache/catalog.
+W4e uses server-pinned paper/clock; W4b wires server settings/roadmap. Insights refactor order
+remains to coordinate. Do not edit Claude branches or duplicate the server authority locally.
+Billing/AppCheck/ADC block live staging deployment, not local/emulator engineering.
+
+The continuing C audit has reproduced Move/Retry wrong-order and Remove postcommit-read-failure
+Undo-loss cases. It has no final verdict and no source changes; resume it rather than claim
+completion or run a second family audit. Current source f495a8dd stays local beyond7223.
+Two lanes remain the approved execution plan.
