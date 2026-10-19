@@ -330,3 +330,19 @@ Results:
   on the site.
 - D8: domain `pantas.study`, already bought.
 - D9: Haiku 5.5 at medium effort is checking PayMongo's published fees.
+
+### October 19: PayMongo fee check (D9)
+
+Haiku 5.5 (medium) read https://www.paymongo.com/en/pricing on October 19 (page date not shown).
+Rates are listed "exclusive of VAT": local cards 3.125% + ₱13.39; international cards 4.02% +
+₱13.39; GCash 2.23%; Maya 1.79%; GrabPay 1.96%; ShopeePay 1.70%; QR Ph 1.34%; BillEase 1.34%;
+online banking "0.71% or ₱13.39". Payouts ₱10 each. No monthly fee listed. The Accept Payments page
+conflicts (cards 3% + ₱15; e-wallets 2.5%). Unconfirmed: 12% VAT on the fee, Checkout method
+coverage, payout schedule.
+
+With 12% VAT on the fee (Claude checked two rows by hand): a ₱49 Weekly pays ₱16.71 by local card
+(34%) and ₱1.22 by GCash. ₱149 Monthly pays ₱20.21 by card (14%) and ₱3.72 by GCash. ₱1,199 Yearly
+pays ₱56.96 by card (5%).
+
+Recommendation offered: hide cards for Weekly and keep e-wallets and QR Ph; keep cards for Monthly,
+Yearly and the pass. Awaiting Aedwon's choice.
