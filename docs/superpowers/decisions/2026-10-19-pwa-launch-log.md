@@ -936,3 +936,37 @@ Facts found (web search, October 19; the CSC's own current advisory was not retr
 - No source found gives the number of items per subject area.
 
 Options offered (awaiting Aedwon's choice): see the reply of this date.
+
+### October 19: C7 client wired; roadmap merged into staging; CSE mock choice
+
+Aedwon chose option 1 for the CSE mock. Exact comment:
+
+> 1
+
+Option 1: one full-length mock per level with the official time and the real question count,
+spread evenly across the subject areas the CSC lists; the app never claims a count per area.
+Pending: the exact count. The CSC site (Cloudflare) refuses automated reads from the cloud and from
+the Mac, so the lead asked Aedwon to paste the item and time lines from the March 2027
+announcement. If it is silent on the questionnaire items, the 2020 CSC split (150 and 145 test
+items) is used with its source stated.
+
+C7 client (Sonnet 5.5, `web/pwa-staging-r1` 7af9eed7 to 3d05636b), lead-reviewed:
+
+- TTL guard fixed by code shape only; lead read the `paymongoGrants.ts` diff: same writes and values.
+- Analyzer excludes `functions/node_modules`; trailing-comma lint fixed.
+- In-memory web `ContentDatabase` filled from the encrypted cache and a server catalog; fetch-before-read
+  hook. Approved deviation: the hook also sits on `ContentRepository` (the real read path, 21
+  consumers), with only an optional named parameter added.
+- Builder gates: analyze 1 issue (known deprecation); `flutter test` 4,017 pass; web build ok;
+  format, layering and attribution checks ok. Not run in a browser.
+- Lead rulings on its findings: passage text is protected content and rides inside the question
+  sets that use it, not the catalog; compact per-set catalog with parts approved; server keeps
+  Markdown lesson bodies; catalog lists only exams with content.
+- W4 collision to tell the Codex lead: `storage.dart` (W4d) and `bootstrap.dart` (W4h) are also
+  changed on W4 branches; expect merge conflicts there.
+
+Lead merged `web/roadmap-server-r1` into `web/pwa-staging-r1` (fd8357ba, pushed). Lead checks on the
+merge: tsc clean; functions plain 136/136, emulator 174/174; `flutter test test/tool/` 194 pass.
+
+Next: the same builder builds the server catalog and moves passages into sets; then final checks
+on the Mac through the relay; then ask Aedwon before the staging deploy.
