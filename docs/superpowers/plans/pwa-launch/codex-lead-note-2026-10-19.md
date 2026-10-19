@@ -42,3 +42,18 @@ Branch `web/pwa-staging-r1` at 2c2332e0 (pushed). Design: `web/README.md` there,
   Do not plan on deployed functions until Aedwon reports billing.
 
 Records: `pwa-launch/RESUME.md` and `decisions/2026-10-19-pwa-launch-log.md` on main.
+
+## Addendum, October 19 late evening: approved copy for W4e
+
+Aedwon approved one added line on the mock setup screen (`MockSetupPage`), placed right after the
+paper-rule text, same style as its secondary neighbors (`type.subhead`, `colors.secondaryLabel`,
+10 px gap):
+
+- CSE Professional: "The real exam also has 15 personal-information items. They are not scored, so
+  this mock leaves them out."
+- CSE Subprofessional: the same with 20.
+
+Take the count from the blueprint (a new optional field, for example `unscoredItems`, beside the
+existing fields; no line when absent), not from hard-coded text. The CSE blueprints on
+`web/pwa-staging-r1` no longer set `totalPublishedItems`, so the screen shows 155 and 145 total
+items. Approved preview: https://claude.ai/artifact/VWUTUbGtQoK7iruAaBiME9 (private to Aedwon).

@@ -1184,3 +1184,23 @@ Done: cb12a504 on `web/cse-mock-blueprint-r1` removes `totalPublishedItems` from
 blueprints (test first), merged into `web/pwa-staging-r1` at 8e0420c9 (pushed). Started: a
 Sonnet 5.5 builder renders the real W4e `MockSetupPage` as a web preview (now and proposed, both
 levels, light and dark) from a local scratch branch of W4e that is never pushed.
+
+### October 19: personal-items line approved; Codex limit reached again
+
+Preview published (private artifact https://claude.ai/artifact/VWUTUbGtQoK7iruAaBiME9, version 1):
+the real W4e `MockSetupPage` rendered with the app theme for CSE Professional and Subprofessional,
+now and proposed, light and dark. Built from a local scratch branch of W4e e3ba3785 that is not
+pushed. Disclosed gaps: no status bar, no back arrow, CanvasKit text rendering, text scale 1.0.
+Approved copy, placed after the paper-rule line in `type.subhead` with `colors.secondaryLabel`:
+"The real exam also has 15 personal-information items. They are not scored, so this mock leaves
+them out." (Professional; Subprofessional says 20). Aedwon's exact comment:
+
+> ok but codex is 100% used usage rn
+
+Read as approval. Implementation belongs to the W4e owner (Codex lead), with the count coming from
+the blueprint rather than hard-coded text; queued in the Codex lead note.
+
+Codex run 2 (log `~/codex-lead-run-2.log`) stopped on its usage limit (resets October 20, 2:49 AM)
+after 3,318,394 tokens. Progress it left: main a0ebc84b, 252d26e2, c12a3deb, 33b3fd2e (W4 client
+seams against the server contracts, web mock wiring bounds, W4c audit findings); W4e one local
+commit 3b454b3a; W4c 4 uncommitted files.
