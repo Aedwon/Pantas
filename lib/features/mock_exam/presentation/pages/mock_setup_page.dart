@@ -76,6 +76,15 @@ class _MockSetupPageState extends State<MockSetupPage> {
               _paperRule(blueprint),
               style: type.subhead.copyWith(height: 1.5),
             ),
+            if (blueprint.unscoredItems != null) ...[
+              const SizedBox(height: 10),
+              Text(
+                'The real exam also has ${blueprint.unscoredItems} '
+                'personal-information items. They are not scored, so this '
+                'mock leaves them out.',
+                style: type.subhead.copyWith(color: colors.secondaryLabel),
+              ),
+            ],
             if (actualTotal != null && actualTotal < plannedTotal) ...[
               const SizedBox(height: 10),
               Text(

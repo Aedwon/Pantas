@@ -17,6 +17,7 @@ void main() {
     SectionalTiming? timing = SectionalTiming.sectional,
     int durationMinutes = 230,
     int? totalPublishedItems = 250,
+    int? unscoredItems,
     List<BlueprintSection>? sections,
   }) =>
       ParsedMockBlueprint(
@@ -28,6 +29,7 @@ void main() {
           sectionsJson: '[]',
           sectionalTiming: timing,
           totalPublishedItems: totalPublishedItems,
+          unscoredItems: unscoredItems,
         ),
         sections: sections ??
             const [
@@ -98,6 +100,17 @@ void main() {
       ),
     );
   }
+
+  testWidgets('says how many personal-information items the mock leaves out',
+      (tester) async {
+    const line = 'The real exam also has 15 personal-information items. '
+        'They are not scored, so this mock leaves them out.';
+    await pump(tester, parsed: blueprint(unscoredItems: 15));
+    expect(find.text(line), findsOneWidget);
+
+    await pump(tester, parsed: blueprint());
+    expect(find.textContaining('personal-information'), findsNothing);
+  });
 
   testWidgets('draws setup table, total row, rules, switch and start contract',
       (tester) async {

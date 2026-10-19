@@ -46,6 +46,7 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
     sectionalTiming: Value(_timing(doc['sectionalTiming'])),
     scoreBandsJson: Value(_scoreBands(doc['scoreBands'])),
     totalPublishedItems: Value(_positiveInt(doc['totalPublishedItems'])),
+    unscoredItems: Value(_positiveInt(doc['unscoredItems'])),
     source: Value(sourceStr),
     sourceNote: Value(sourceNoteStr),
   );
