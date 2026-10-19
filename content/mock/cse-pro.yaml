@@ -1,0 +1,75 @@
+# suggestedMinutes is required by the section parser but is read only when an
+# exam is timed part by part (sectionalTiming: sectional). This paper is one
+# booklet with one clock, so no student sees it. It repeats the whole-paper
+# minutes rather than inventing a per-section figure.
+_id: mock_blueprint_cse_pro
+schemaVersion: 2
+isActive: true
+exam: exam_cse_pro
+name: CSE Professional Practice Paper
+durationMinutes: 190
+sectionalTiming: roamable
+totalPublishedItems: 170
+source: reported
+sourceNote: 'Section counts: recollection of an examinee who sat the Professional
+  level, relayed by Aedwon on 19 October 2026 (General Information 20, Verbal
+  Ability 55, Analytical Ability 35, Numerical Ability 45; 155 test items).
+  The examinee also mentioned 15 personal-information items, which are not test
+  questions and are left out here; 155 plus 15 is the 170 items reported for
+  the whole paper. Time: 3 hours 10 minutes (190), as relayed in reports by
+  the PIA and by CSC-relaying outlets; it is one booklet with one clock, no
+  sectional timing. The Civil Service Commission publishes no per-area item
+  counts or time limits. The topic weights within each section are an even
+  split chosen here, not a published composition, except Numerical Ability:
+  0.6 arithmetic and 0.4 algebra, because the bank holds only 20 CSE algebra
+  questions and an even split asks for 23. They are a sampling
+  parameter and are never printed to a student.'
+sections:
+  - id: sec_cse_pro_general_information
+    name: General Information
+    questionCount: 20
+    suggestedMinutes: 190
+    topicIds:
+      - topic_cse_pro_philippine_constitution
+      - topic_cse_pro_code_of_conduct_ra_6713
+      - topic_cse_pro_peace_and_human_rights
+      - topic_cse_pro_environment_management
+    topicWeights:
+      topic_cse_pro_philippine_constitution: 0.25
+      topic_cse_pro_code_of_conduct_ra_6713: 0.25
+      topic_cse_pro_peace_and_human_rights: 0.25
+      topic_cse_pro_environment_management: 0.25
+  - id: sec_cse_pro_verbal_ability
+    name: Verbal Ability
+    questionCount: 55
+    suggestedMinutes: 190
+    topicIds:
+      - topic_cse_pro_vocabulary
+      - topic_cse_pro_grammar_and_structure
+      - topic_cse_pro_language_application
+    topicWeights:
+      topic_cse_pro_vocabulary: 0.3333333333333333
+      topic_cse_pro_grammar_and_structure: 0.3333333333333333
+      topic_cse_pro_language_application: 0.33333333333333337
+  - id: sec_cse_pro_analytical_ability
+    name: Analytical Ability
+    questionCount: 35
+    suggestedMinutes: 190
+    topicIds:
+      - topic_cse_pro_logical_verbal_reasoning
+      - topic_cse_pro_verbal_logic
+      - topic_cse_pro_data_interpretation
+    topicWeights:
+      topic_cse_pro_logical_verbal_reasoning: 0.3333333333333333
+      topic_cse_pro_verbal_logic: 0.3333333333333333
+      topic_cse_pro_data_interpretation: 0.33333333333333337
+  - id: sec_cse_pro_numerical_ability
+    name: Numerical Ability
+    questionCount: 45
+    suggestedMinutes: 190
+    topicIds:
+      - topic_cse_pro_arithmetic_number_sense
+      - topic_cse_pro_algebra
+    topicWeights:
+      topic_cse_pro_arithmetic_number_sense: 0.6
+      topic_cse_pro_algebra: 0.4
