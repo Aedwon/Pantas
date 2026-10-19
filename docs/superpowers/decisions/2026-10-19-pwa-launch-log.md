@@ -970,3 +970,33 @@ merge: tsc clean; functions plain 136/136, emulator 174/174; `flutter test test/
 
 Next: the same builder builds the server catalog and moves passages into sets; then final checks
 on the Mac through the relay; then ask Aedwon before the staging deploy.
+
+### October 19: server catalog built; lead fixes; Mac checks started
+
+The C7 builder's second round (`web/pwa-staging-r1` 34c852f7, e8c6075d): `getContent` serves kind
+`catalog` (index plus one document per exam with content, split into parts over 700 KB); passage
+text travels inside the question sets that use it, never in the catalog; a contract test feeds
+the uploader's output from the real `content/` tree through the Dart parser. Builder gates:
+functions plain 145/145, emulator 178/178; `flutter test` 4,021 pass; web build ok; format,
+layering and attribution ok. Lead read the `content.ts` and rules changes: no Pro field or text
+reaches the catalog.
+
+Lead fixes:
+
+- d0b5030b: six analyzer style lints in `server_dart/` that came in with the roadmap merge (the
+  roadmap builder never ran `flutter analyze`). Comments and commas only; the compiled module
+  changed only in its source-hash line. Analyze now shows only the known deprecation.
+- 4e6e41e8: catalog ids get their own daily budget (200), separate from the 300 content ids. Each
+  app start asks for 9 catalog ids, which would otherwise come out of what a student can study.
+  Catalogs carry no protected text. Test first; plain 145/145, emulator 178/178.
+
+Findings recorded for later tasks:
+
+- Native content defect: 20 passage ids that questions name exist only in the question YAML
+  `passages:` lists, which the bundled native build does not read (`historical_v1.json` only).
+  Android reading questions with these passages lack their passage. Web is correct. Android is
+  deferred, so this is a task for when Android resumes.
+- `ratio-and-proportion.yaml` (line 355) fails the JavaScript YAML parser; the upload leaves that
+  set out with `--skip-invalid` until the E5 content fix.
+
+Pushed 4e6e41e8. Final checks on the Mac started through relay issue 11075.
