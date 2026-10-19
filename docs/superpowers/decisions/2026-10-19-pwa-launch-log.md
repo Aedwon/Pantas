@@ -1162,3 +1162,25 @@ Answer given: the four reported areas add to 155 test questions; plus 15 persona
 Decision: the Professional mock stays at 155 test questions. Still open: whether the shown line
 "The real exam has 170 items. This practice run covers the 155 the app can mark for you." is
 acceptable.
+
+### October 19: mock size line and the personal-information items
+
+Aedwon's exact comment on the old setup line ("The real exam has 170 items. This practice run
+covers the 155 the app can mark for you."):
+
+> wording is ok but can you add 15 personal just so its clear
+
+Finding: that line is on the old mock setup screen. The new-design setup screen (W4e, which ships)
+prints `totalPublishedItems` as "170 total items · 3h 10m" and then "This mock has 155 questions
+instead of 170.", which reads as a shortfall. Proposal offered: (1) drop `totalPublishedItems` so
+the screen shows 155 total items (content change, now); (2) add one line to the new setup screen,
+"The real exam also has 15 personal-information items. They are not scored, so this mock leaves
+them out." (20 for Subprofessional), a visible change that needs a faithful preview and Aedwon's
+approval, then implementation by the screen owner (Codex lead, W4e). Aedwon's exact comment:
+
+> okay go with both
+
+Done: cb12a504 on `web/cse-mock-blueprint-r1` removes `totalPublishedItems` from both CSE
+blueprints (test first), merged into `web/pwa-staging-r1` at 8e0420c9 (pushed). Started: a
+Sonnet 5.5 builder renders the real W4e `MockSetupPage` as a web preview (now and proposed, both
+levels, light and dark) from a local scratch branch of W4e that is never pushed.
