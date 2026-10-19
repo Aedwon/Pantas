@@ -4,6 +4,7 @@ import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_route.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/server_mock_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,7 +31,7 @@ List<RouteBase> mockRoutes(Ref ref) => [
         builder: (_, state) {
           final examId = state.uri.queryParameters['examId']!;
           final blueprintId = state.uri.queryParameters['blueprintId']!;
-          return MockStartRoute(
+          return buildMockRunRoute(
             examId: examId,
             blueprintId: blueprintId,
             strictMode: state.uri.queryParameters['strict'] == '1',
