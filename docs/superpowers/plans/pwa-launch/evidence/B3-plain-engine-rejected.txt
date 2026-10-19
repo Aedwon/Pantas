@@ -1,0 +1,27 @@
+/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:5400
+      throw error;
+      ^
+
+SqliteException(1): while opening the database, no such vfs: multipleciphers-indexeddb, SQL logic error (code 1)
+    at Object.wrapException (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:922:47)
+    at WasmSqlite3.open$5$mode$mutex$uri$vfs (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:21113:17)
+    at _WasmDelegate.openDatabase$0 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:18294:23)
+    at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:18068:55
+    at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3438:15)
+    at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:10823:12)
+    at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3402:20)
+    at _WasmDelegate.open$1 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:18105:16)
+    at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:17190:39
+    at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3438:15) {
+  dartException: SqliteException {
+    message: 'no such vfs: multipleciphers-indexeddb',
+    explanation: 'SQL logic error (code 1)',
+    extendedResultCode: 1,
+    offset: null,
+    operation: 'opening the database',
+    causingStatement: null,
+    parametersToStatement: null
+  }
+}
+
+Node.js v26.10.0

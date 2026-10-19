@@ -16,12 +16,7 @@ import 'package:flutter/foundation.dart'
 /// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
-    }
+    if (kIsWeb) return web;
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
@@ -51,6 +46,16 @@ class DefaultFirebaseOptions {
         );
     }
   }
+
+  // Web app "pantas (web)" (1:797279948229:web:5d863020ad5010864bcfac), created October 19, 2026.
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyD7obxffuk7KJ9mzYpWPgc5vTIHPU5XwCc',
+    appId: '1:797279948229:web:5d863020ad5010864bcfac',
+    messagingSenderId: '797279948229',
+    projectId: 'pantas-staging',
+    authDomain: 'pantas-staging.firebaseapp.com',
+    storageBucket: 'pantas-staging.firebasestorage.app',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD9pPdexeYsg2blrY9N8JGd2w4cOYC4PDk',

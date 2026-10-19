@@ -8,6 +8,8 @@ import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 bool _warnedAboutIosClock = false;
 
 Future<Duration?> readElapsedRealtime() async {
+  // Web uses the same wall-clock fallback as iOS, without a native channel.
+  if (kIsWeb) return null;
   if (defaultTargetPlatform == TargetPlatform.iOS) {
     if (!_warnedAboutIosClock) {
       debugPrint(

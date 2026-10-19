@@ -81,6 +81,8 @@ final trustedClockProvider = Provider<TrustedClock>((ref) {
 });
 
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
+  // Lane C replaces this unavailable-purchases gateway with server checkout.
+  if (kIsWeb) return const DisabledRevenueCatGateway();
   final config = ref.watch(revenueCatConfigProvider);
   final entitlementState = ref.watch(paymentEntitlementStateProvider);
   final clock = ref.watch(trustedClockProvider);

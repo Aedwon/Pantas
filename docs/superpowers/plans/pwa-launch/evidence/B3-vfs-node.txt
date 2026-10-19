@@ -1,0 +1,64 @@
+memory afterOpen=false default=false plain: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=false default=false uri-direct: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=false default=false uri-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=false default=false uri-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=false default=false uri-shim: correct key reopen [{n: 1}]
+memory afterOpen=false default=false uri-default-flag: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=false default=false argument-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=false default=false argument-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=false default=false argument-shim: correct key reopen [{n: 1}]
+memory afterOpen=false default=true plain: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=false default=true uri-direct: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=false default=true uri-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=false default=true uri-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=false default=true uri-shim: correct key reopen [{n: 1}]
+memory afterOpen=false default=true uri-default-flag: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=false default=true argument-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=false default=true argument-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=false default=true argument-shim: correct key reopen [{n: 1}]
+memory afterOpen=true default=false plain: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=true default=false uri-direct: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=true default=false uri-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=true default=false uri-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=true default=false uri-shim: correct key reopen [{n: 1}]
+memory afterOpen=true default=false uri-default-flag: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=true default=false argument-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=true default=false argument-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=true default=false argument-shim: correct key reopen [{n: 1}]
+memory afterOpen=true default=true plain: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=true default=true uri-direct: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=true default=true uri-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=true default=true uri-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=true default=true uri-shim: correct key reopen [{n: 1}]
+memory afterOpen=true default=true uri-default-flag: SqliteException(1): while executing, Setting key failed. Encryption is not supported by the VFS., SQL logic error (code 1)
+  Causing statement: PRAGMA key = "x'abababababababababababababababababababababababababababababababab'";, parameters: 
+memory afterOpen=true default=true argument-shim: cipher=[{chacha20: chacha20}] key + write accepted [{value: synthetic}]
+memory afterOpen=true default=true argument-shim: wrong key rejected: SqliteException(26): while preparing statement, file is not a database, file is not a database (code 26)
+  Causing statement: SELECT * FROM probe
+memory afterOpen=true default=true argument-shim: correct key reopen [{n: 1}]
+indexeddb afterOpen=false default=false: VFS setup failed: Null check operator used on a null value
+indexeddb afterOpen=false default=true: VFS setup failed: Null check operator used on a null value
+indexeddb afterOpen=true default=false: VFS setup failed: Null check operator used on a null value
+indexeddb afterOpen=true default=true: VFS setup failed: Null check operator used on a null value
+opfs afterOpen=false default=false: VFS setup failed: VfsException(1)
+opfs afterOpen=false default=true: VFS setup failed: VfsException(1)
+opfs afterOpen=true default=false: VFS setup failed: VfsException(1)
+opfs afterOpen=true default=true: VFS setup failed: VfsException(1)
