@@ -1,8 +1,23 @@
-STATE: BLOCKED level 4 runs in web chats from the local queue; Codex stays stopped
+STATE: BLOCKED level 4 runs as a CSE-only paste run by Aedwon (71 lessons); Codex stays stopped
 
 # Coverage audit status
 
 Plan: `docs/superpowers/plans/2026-10-04-exam-content-coverage-audit.md`.
+
+## October 19: PWA launch scope (CSE only)
+
+Controlling records on main: `docs/superpowers/plans/2026-10-19-pwa-launch.md` (tasks E1 to E7) and
+`docs/superpowers/decisions/2026-10-19-pwa-launch-log.md`. Aedwon narrowed the audit to CSE
+Professional and Subprofessional, approved one reading chat per lesson (D4), and authorized Level 5
+for CSE questions in parallel with Level 4 (D5), both through ChatGPT web chats he pastes himself.
+
+- Scope: 71 lessons tagged by the accepted Level 1 maps (`level4/paste/scope.txt`; evidence on main
+  `docs/superpowers/plans/pwa-launch/evidence/E1-cse-scope.md`). Planted packets are not used.
+- Level 4 runs from the paste page: `python3 -I level4/paste/paste_server.py`, then open
+  http://127.0.0.1:8766. Run state: `~/.pantas-audit/level4-paste`. The relay dispatcher and the
+  October 11 queue are not used.
+- The STATE line stays BLOCKED on purpose: the autorun watcher resumes Codex when it reads RUNNING.
+- Level 5 paste prompts are not built yet.
 
 ## Identity
 
