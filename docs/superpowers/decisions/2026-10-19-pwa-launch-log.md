@@ -885,3 +885,33 @@ Results:
 3. Records (`RESUME.md`, this log) stay on main.
 4. The lead pushes working branches and records without asking first. Deploys and other outside
    changes still need Aedwon's approval.
+
+### October 19: server mock papers and roadmap reviewed (C8b, C10 roadmap)
+
+A Sonnet 5.5 builder in the cloud found checkpoint e8df82d1 on `web/roadmap-server-r1` already
+complete and made no changes. The commit is titled "Checkpoint ... unfinished"; that title is now
+wrong but stays, because rewording would rewrite pushed history.
+
+Lead review of `mock.ts`, `roadmap.ts`, `ingestSession.ts` and the upload changes against the
+October 19 mock rules and the C1 to C10 ruling: the rules are met (paper pinned until submission,
+server clock, strict time-out scored on next contact with submission at the moment time ran out,
+non-strict discard keeps the paper, Free counted at submission with the next Free mock 30 days
+later, anonymous refused, Free roadmap carries Today only). Lead fix 953f7f24: the uploader
+refuses a mock blueprint without a positive duration (otherwise a strict mock ends at once).
+
+Lead checks in the cloud: `tsc` clean; plain 136/136; emulator 174/174 (Java 21).
+
+Findings carried forward:
+
+1. **CSE has no mock blueprint.** `content/mock/` holds only `upcat.yaml`, so a CSE mock start
+   answers "This exam has no mock yet". A CSE Professional and Subprofessional blueprint (sections,
+   item counts, time) is needed before launch. Its figures must come from the Civil Service
+   Commission or an approved record.
+2. **Roadmap read cost grows with history.** Each session batch and each daily first view rebuilds
+   the roadmap by reading every stored session document. Fine for staging; before launch, keep
+   running per-topic totals instead (Lane L, cost).
+3. Answer correctness comes from the app, so a student can only mislead their own roadmap and
+   mock score. Accepted; the server can score from the stored content later if needed.
+4. The app must call the new `setExamSettings` (exam date, study days) and the mock and roadmap
+   callables. No client wiring exists yet; it belongs with the W4 screens and goes through the
+   Codex lead.
