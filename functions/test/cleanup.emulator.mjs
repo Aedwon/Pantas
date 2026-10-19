@@ -26,7 +26,7 @@ before(async () => {
 after(async () => {
   mock.restoreAll();
   if (!db || !bucket) return;
-  for (const uid of uids) {
+  for (const uid of [...uids, 'cleanup-answers', 'cleanup-paid']) {
     try { await getAuth().deleteUser(uid); } catch (error) { if (error.code !== 'auth/user-not-found') throw error; }
     await db.recursiveDelete(db.doc(`users/${uid}`));
   }
@@ -55,6 +55,26 @@ test('anonymous cleanup deletes only old users without root data, nested data, o
   await endpoints.cleanupOrphanAnons.run({ scheduleTime: new Date().toISOString() });
   await assert.rejects(getAuth().getUser('cleanup-orphan'), { code: 'auth/user-not-found' });
   for (const uid of uids.filter((uid) => uid !== 'cleanup-orphan')) assert.equal((await getAuth().getUser(uid)).uid, uid);
+});
+
+test('anonymous cleanup removes an old anonymous account with only synced answers, mocks and limits, and keeps one with an entitlement', async () => {
+  const old = new Date(Date.now() - 31 * DAY).toISOString();
+  const imported = await getAuth().importUsers(['cleanup-answers', 'cleanup-paid'].map((uid) => ({
+    uid, metadata: { creationTime: old, lastSignInTime: old },
+  })));
+  assert.equal(imported.failureCount, 0);
+  await db.doc('users/cleanup-answers/server/answers/items/s1').set({ answers: [] });
+  await db.doc('users/cleanup-answers/server/mocks/items/m1').set({ status: 'started' });
+  await db.doc('users/cleanup-answers/limits/ingestSession').set({ count: 1 });
+  await db.doc('users/cleanup-paid/server/answers/items/s1').set({ answers: [] });
+  await db.doc('users/cleanup-paid/server/entitlement').set({ pro: true });
+  await endpoints.cleanupOrphanAnons.run({ scheduleTime: new Date().toISOString() });
+  await assert.rejects(getAuth().getUser('cleanup-answers'), { code: 'auth/user-not-found' });
+  assert.equal((await db.doc('users/cleanup-answers/server/answers/items/s1').get()).exists, false);
+  assert.equal((await db.doc('users/cleanup-answers/server/mocks/items/m1').get()).exists, false);
+  assert.equal((await db.doc('users/cleanup-answers/limits/ingestSession').get()).exists, false);
+  assert.equal((await getAuth().getUser('cleanup-paid')).uid, 'cleanup-paid');
+  assert.equal((await db.doc('users/cleanup-paid/server/answers/items/s1').get()).exists, true);
 });
 
 test('audit cleanup retains 729-day entries and purges 731-day entries across 500-row pages', async () => {

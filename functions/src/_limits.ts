@@ -5,6 +5,7 @@ export async function allowAtMost(
   key: string,
   max: number,
   windowMs: number,
+  cost = 1,
 ): Promise<boolean> {
   const db = getFirestore();
   const ref = db.doc(`users/${uid}/limits/${key}`);
@@ -16,10 +17,10 @@ export async function allowAtMost(
     const withinWindow = startedAt instanceof Timestamp
       && now.toMillis() - startedAt.toMillis() < windowMs;
     const count = withinWindow && typeof oldCount === 'number' ? oldCount : 0;
-    if (count >= max) return false;
+    if (count + cost > max) return false;
     transaction.set(ref, {
       windowStartedAt: withinWindow ? startedAt : now,
-      count: count + 1,
+      count: count + cost,
     });
     return true;
   });

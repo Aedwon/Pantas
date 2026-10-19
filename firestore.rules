@@ -308,6 +308,16 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Content is served only by the getContent callable (Admin SDK). Pro-only fields
+    // live in contentPro. No client may read or write either, whatever its claims say.
+    match /content/{kind}/items/{itemId} {
+      allow read, write: if false;
+    }
+
+    match /contentPro/{itemId} {
+      allow read, write: if false;
+    }
+
     match /audit_logs/{logId} {
       allow read, write: if false;
     }

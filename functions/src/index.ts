@@ -17,3 +17,7 @@ export { cleanupWrappedOrphans } from './cleanupWrappedOrphans.js';
 export { createPaymongoCheckout } from './paymongoCheckout.js';
 export { paymongoWebhook } from './paymongoWebhook.js';
 export { startWebTrial } from './webTrial.js';
+export { getContent } from './content.js';
+export { startMock } from './mock.js';
+export { submitMock } from './mock.js';
+export { ingestSession } from './ingestSession.js';
