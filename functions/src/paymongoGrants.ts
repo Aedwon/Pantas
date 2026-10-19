@@ -100,17 +100,16 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
   sessionId: string; paymentId: string; paidAmount: number; product: WebProduct}, now: number,
   catalog: CatalogExam[]): Promise<GrantOutcome> {
   const {uid, eventId, paymentId, product} = input;
-  const event = db.doc(`webhookEvents/${eventId}/users/${uid}`);
+  const grantEventRef = db.doc(`webhookEvents/${eventId}/users/${uid}`);
   const payment = db.doc(`paymongoPayments/${grantDocId(paymentId)}`);
   const tombstone = db.doc(`paymongoRevocations/${grantDocId(paymentId)}`);
   const grantRef = db.doc(`users/${uid}/grants/${grantDocId(paymentId)}`);
   return db.runTransaction(async transaction => {
-    const [dedupe, paid, revokedEarly] = await transaction.getAll(event, payment, tombstone);
+    const [dedupe, paid, revokedEarly] = await transaction.getAll(grantEventRef, payment, tombstone);
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const version = Number(inputs.record.get('version') ?? 0);
-    const seen = {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)};
     if (dedupe.exists) return 'duplicate';
-    if (paid.exists) {transaction.set(event, seen); return 'duplicate';}
+    if (paid.exists) {transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return 'duplicate';}
     const plan = planGrant(product, inputs.grants.values(), now, catalog);
     // A refund or dispute that arrived first is carried in the tombstone: the grant is born
     // revoked (dispute or refunds covering the payment) or already shortened.
@@ -123,14 +122,14 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
         refunds: early.refunds ?? {}, state: 'revoked', createdAt: now};
       transaction.set(grantRef, {...grant, revokedAt: now, revokedReason: early.reason ?? 'revoked'});
       transaction.set(payment, {uid, grantId: grantDocId(paymentId), sessionId: input.sessionId, createdAt: now});
-      transaction.set(event, seen);
+      transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
       transaction.create(db.collection('audit_logs').doc(), {uid, event: 'paymongoGrantBornRevoked',
         timestamp: FieldValue.serverTimestamp(), metadata: {paymentId, product: product.id}});
       return 'bornRevoked';
     }
     if (!plan) {
       // Money arrived but no published sitting fixes the pass end. Keep the evidence.
-      transaction.set(event, seen);
+      transaction.set(grantEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
       transaction.create(db.collection('audit_logs').doc(), {uid, event: 'paymongoPassNoPublishedSitting',
         timestamp: FieldValue.serverTimestamp(), metadata: {paymentId, product: product.id}});
       return 'noSitting';
@@ -147,7 +146,7 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
     const grants = new Map(inputs.grants).set(grantDocId(paymentId), grant);
     transaction.set(grantRef, grant);
     transaction.set(payment, {uid, grantId: grantDocId(paymentId), sessionId: input.sessionId, createdAt: now});
-    transaction.set(event, {...seen, version: version + 1});
+    transaction.set(grantEventRef, {eventId, version: version + 1, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
     transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, grants)), {merge: true});
     return 'granted';
   });
@@ -179,18 +178,17 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         createdAt: existing.get('createdAt') ?? now, refunds, disputed: existing.get('disputed') === true || input.dispute === true});
       return {outcome: 'unmatched' as const};
     }
-    const event = db.doc(`webhookEvents/${eventId}/users/${uid}`);
-    const dedupe = await transaction.get(event);
+    const revokeEventRef = db.doc(`webhookEvents/${eventId}/users/${uid}`);
+    const dedupe = await transaction.get(revokeEventRef);
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const id = grantDocId(paymentId);
     const grant = inputs.grants.get(id);
     const version = Number(inputs.record.get('version') ?? 0);
-    const seen = {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)};
     if (dedupe.exists) return {outcome: 'duplicate' as const, uid};
-    if (!grant || grant.state !== 'active') {transaction.set(event, seen); return {outcome: 'duplicate' as const, uid};}
+    if (!grant || grant.state !== 'active') {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
     let next: Grant = input.dispute ? {...grant, state: 'revoked'} : grant;
     for (const r of input.refunds ?? []) next = applyRefund(next, r.id, r.amount, now);
-    if (next === grant) {transaction.set(event, seen); return {outcome: 'duplicate' as const, uid};}
+    if (next === grant) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
     const changed = new Map(inputs.grants).set(id, next);
     const replanned = next.state === 'revoked' || next.endsAt !== grant.endsAt
       ? replanBehind(changed, id, grant.endsAt, now) : changed;
@@ -205,7 +203,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
           ...(other.fullEndsAt !== undefined ? {fullEndsAt: other.fullEndsAt} : {})});
       }
     }
-    transaction.set(event, {...seen, version: version + 1});
+    transaction.set(revokeEventRef, {eventId, version: version + 1, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
     transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, replanned)), {merge: true});
     return {outcome: 'revoked' as const, uid};
   });
