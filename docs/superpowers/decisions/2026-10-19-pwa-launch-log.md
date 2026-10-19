@@ -730,3 +730,14 @@ options files. Analyze clean apart from one existing deprecation; full test reru
 Lead full test run on `web/pwa-foundation-r1`: 3,971 of 3,971 pass in 5 minutes 45 seconds; the
 earlier unfinished property test completed. Security review finding on a test-only probe (module
 loaded from a shared /tmp default) fixed at edfd988b.
+
+### October 19: builder preference
+
+Aedwon's exact comment:
+
+> oh okay. actually i might argue my claude limits is better than my chatgpt, based on experience.
+> $39 on the cloud is a lot
+
+Decision: Sonnet 5.5 (medium) stays the default builder for PWA engineering; Codex jobs are
+overflow. If local Claude limits run out, work continues in a Claude cloud session from
+`pwa-launch/RESUME.md` using Aedwon's $39 cloud credit.
