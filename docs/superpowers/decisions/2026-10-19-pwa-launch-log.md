@@ -712,3 +712,17 @@ Decisions:
    policy (Lane L4) state rule 1, not the proportional rule.
 3. The admin lookup tool for double charges and payments that did not unlock Pro is parked until
    after launch (plan "After launch" list).
+
+### October 19: web foundation checkpoint
+
+`web/pwa-foundation-r1` at 5cd9f119 (pushed, checkpoint). Codex Sol's second pass found the
+supported way to encrypt the browser study database: the upstream SQLite3MultipleCiphers VFS shim
+(`multipleciphers-<vfs>`) over IndexedDB with ChaCha20, a random 32-byte key wrapped by a
+non-extractable Web Crypto key. Node probes pass (encryption, persistence, wrong key, tamper);
+browser not yet tested. One study database tab at a time on web.
+
+Lead ruling: the native protected content package is decrypted with a pinned bootstrap secret that
+cannot stay secret in a browser, so the web build ships no content package. Web content arrives
+only through C7 (server per request, cached in the encrypted study database). This makes C7 a
+prerequisite for any web smoke test with real lessons. Firebase web config is now in the three
+options files. Analyze clean apart from one existing deprecation; full test rerun running.

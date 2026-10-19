@@ -13,8 +13,8 @@ decision and its exact wording).
 | Task | State | Where |
 |---|---|---|
 | B1 web inventory | done | `evidence/B1-web-inventory.md` |
-| B2, B3 web platform and seams | in progress (Codex Sol, local only); encrypted web database blocked, second pass running | branch `web/pwa-foundation-r1` (not pushed yet) |
-| Firebase web apps | created in all 3 projects; config not yet in the options files | decision log, "Firebase web apps created" |
+| B2, B3 web platform and seams | checkpoint: web build compiles; every phone-only part split; encrypted browser study database (ChaCha20 shim, Node probes only, browser untested); Firebase web config filled. Content install on web stopped by design (C7 replaces it). Full test rerun in progress | branch `web/pwa-foundation-r1` at 5cd9f119 (pushed) |
+| Firebase web apps | created and configured in the options files | `web/pwa-foundation-r1` |
 | C1 and C10 ruling | done | `pwa-launch/C1-C10-ruling.md` |
 | C2, C4, C6 payment functions | built and lead-reviewed, with proportional partial refunds; plain 110/110, emulator 142/142 (Java 21: `PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH`), tsc clean. Not run against live PayMongo; some refund details UNCONFIRMED (`functions/PAYMONGO.md`) | branch `web/paymongo-r1` at caf2142e (pushed) |
 | C10 roadmap server spike | done: works; Node output matches Dart byte for byte on 10 scenarios; 33 KB gzip; about 1 ms per call. Not run on Node 20 (only Node 26 local) | branch `web/roadmap-server-spike-r1` at 75690df3 (pushed), `spike/roadmap_js/README.md` |
