@@ -41,7 +41,7 @@ Things only you can do, with no blocker on our side:
 
 D1 approved. D2: 2 parallel W4 lanes, may extend to 3. D3 approved: W4g after launch. D4
 approved: one chat per lesson. D5 authorized: Level 5 runs alongside Level 4, through web chat pasted by Aedwon. D6 approved: free trial
-(Lane C6). D7: encrypted web database (Lane B3). D8: `pantas.study`. D9: fee check running.
+(Lane C6). D7: encrypted web database (Lane B3). D8: `pantas.study`. D9: cards stay on every plan, Weekly included.
 
 ### Timeline (estimates, assuming D1, D2, D3, D5 as recommended)
 
@@ -206,7 +206,8 @@ the client `paywall` feature) and write a one-page ruling in this plan's evidenc
 - Prepaid rules: a purchase extends access from the later of now or the current end. Pass: ends
   after the next published CSE date, reusing W3's pass end logic.
 - Expiry: scheduled function clears access after the end, following the W6 cleanup pattern.
-- Products: Civil Service weekly, monthly, yearly, pass at `docs/pricing.md` prices (subject to D9).
+- Products: Civil Service weekly, monthly, yearly, pass at `docs/pricing.md` prices; every payment
+  method on every plan (D9).
 Verify the PayMongo API details against PayMongo's current documentation (Checkout Sessions,
 webhook event for a paid checkout, signature header format). Do not rely on memory.
 

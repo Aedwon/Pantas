@@ -394,3 +394,14 @@ Aedwon's exact comment:
 Decision: option 2. The goal is to make bulk copying slow and costly, not impossible. Added as plan
 task C7. The free and Pro split of content must come from an approved record; `docs/pricing.md`
 does not define it.
+
+### October 19: D9 answered
+
+Options offered: hide cards for Weekly (keep e-wallets and QR Ph), or keep cards on every plan.
+
+Aedwon's exact comment:
+
+> Keep cards on every plan, including Weekly.
+
+Decision: every plan offers cards and all other PayMongo methods. Accepted cost: about ₱16.71 of
+₱49 per Weekly card payment (estimate with VAT).
