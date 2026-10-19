@@ -57,7 +57,9 @@ void main() {
     auth.add(const AuthState.anonymous(uid: 'u1'));
     await Future<void>.delayed(const Duration(milliseconds: 20));
     expect(
-        (await ContentCache(db).get(ContentKind.questions, 's1'))!.tier, 'pro');
+      (await ContentCache(db).get(ContentKind.questions, 's1'))!.tier,
+      'pro',
+    );
 
     auth
       ..add(const AuthState.signedOut())
