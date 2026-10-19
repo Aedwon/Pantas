@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:drift/native.dart';
@@ -11,6 +12,7 @@ void main() {
   late Directory fixtureDirectory;
   late ContentDatabase db;
   late MockBlueprintRepo repo;
+  late Map<String, Object?> exported;
 
   setUpAll(() async {
     fixtureDirectory = Directory.systemTemp.createTempSync('pantas_cse_bp_');
@@ -21,6 +23,7 @@ void main() {
       'tools/build_content_export/build_content_export.dart',
       export.path,
     ]);
+    exported = jsonDecode(export.readAsStringSync()) as Map<String, Object?>;
     await _runDartTool([
       'run',
       'tools/build_content_seed/seed_writer.dart',
@@ -34,6 +37,15 @@ void main() {
   tearDownAll(() async {
     await db.close();
     fixtureDirectory.deleteSync(recursive: true);
+  });
+
+  test('the export carries the unscored personal-information items', () {
+    final blueprints = {
+      for (final bp in exported['mockBlueprint']! as List<Object?>)
+        (bp! as Map<String, Object?>)['_id']: bp as Map<String, Object?>,
+    };
+    expect(blueprints['mock_blueprint_cse_pro']!['unscoredItems'], 15);
+    expect(blueprints['mock_blueprint_cse_sub']!['unscoredItems'], 20);
   });
 
   Future<List<BlueprintSection>> sectionsOf(

@@ -9,6 +9,7 @@ exam: exam_cse_sub
 name: CSE Subprofessional Practice Paper
 durationMinutes: 160
 sectionalTiming: roamable
+unscoredItems: 20
 source: reported
 sourceNote: 'No totalPublishedItems: the mock setup screen shows that
   field as the paper size and would report the test items as a shortfall;

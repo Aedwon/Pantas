@@ -9,6 +9,7 @@ exam: exam_cse_pro
 name: CSE Professional Practice Paper
 durationMinutes: 190
 sectionalTiming: roamable
+unscoredItems: 15
 source: reported
 sourceNote: 'No totalPublishedItems: the mock setup screen shows that
   field as the paper size and would report the test items as a shortfall;

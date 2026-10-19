@@ -542,6 +542,8 @@ List<Map<String, Object?>> buildMockBlueprints(String root) {
         'sectionalTiming': doc['sectionalTiming'] as String,
       if (doc['totalPublishedItems'] != null)
         'totalPublishedItems': doc['totalPublishedItems'] as int,
+      if (doc['unscoredItems'] != null)
+        'unscoredItems': doc['unscoredItems'] as int,
       if (doc['source'] != null) 'source': doc['source'] as String,
       if (doc['sourceNote'] != null) 'sourceNote': doc['sourceNote'] as String,
       if (doc['scoreBands'] != null)
