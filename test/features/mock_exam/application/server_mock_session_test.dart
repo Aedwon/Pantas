@@ -9,15 +9,15 @@ const _mockId = 'abcdefghij1';
 
 /// A server that holds the state a real one would and can stall a call.
 class _Server {
-  var limitMs = 9000000;
-  var remainingMs = 8000000;
-  var paused = false;
-  var strict = false;
+  int limitMs = 9000000;
+  int remainingMs = 8000000;
+  bool paused = false;
+  bool strict = false;
   List<Map<String, Object?>> answers = [];
   final calls = <(String, Map<String, Object?>)>[];
   final stalled = <Completer<void>>[];
   Exception? failNext;
-  var stallNext = false;
+  bool stallNext = false;
 
   Map<String, Object?> view() => {
         'mockId': _mockId,
@@ -87,7 +87,7 @@ class _Server {
 }
 
 class _Clock {
-  var now = Duration.zero;
+  Duration now = Duration.zero;
   Duration call() => now;
 }
 
@@ -221,7 +221,7 @@ void main() {
       server.stalled.single.complete();
       await settle();
       expect(server.saves, hasLength(2));
-      expect((server.saves.last['answers']! as List<Object?>), hasLength(2));
+      expect(server.saves.last['answers']! as List<Object?>, hasLength(2));
       expect(session.answers['q2']!.chosen, 'b');
     });
 
@@ -237,7 +237,7 @@ void main() {
       await settle();
       // First save, then one save with all three; the middle one was dropped.
       expect(server.saves, hasLength(2));
-      expect((server.saves.last['answers']! as List<Object?>), hasLength(3));
+      expect(server.saves.last['answers']! as List<Object?>, hasLength(3));
     });
 
     test('the clock ticking never reaches the server', () async {
@@ -299,8 +299,8 @@ void main() {
       expect(session.failure?.operation, ServerMockOperation.pause);
 
       expect(await session.retry(), isTrue);
-      expect(
-          server.calls.where((c) => c.$2['action'] == 'pause'), hasLength(2));
+      final pauses = server.calls.where((c) => c.$2['action'] == 'pause');
+      expect(pauses, hasLength(2));
     });
 
     test('resume starts the server clock again', () async {
@@ -446,8 +446,9 @@ void main() {
         ..toggleFlag('q1');
       await settle();
       expect(store.writes, isNotEmpty);
-      expect(store.writes.every((w) => w.$1 == 'uid_a' && w.$2 == _mockId),
-          isTrue);
+      final forThisMock =
+          store.writes.every((w) => w.$1 == 'uid_a' && w.$2 == _mockId);
+      expect(forThisMock, isTrue);
       final before = store.writes.length;
       actor = 'uid_b';
       session.goTo(1);
