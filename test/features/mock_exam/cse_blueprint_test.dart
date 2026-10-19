@@ -40,7 +40,7 @@ void main() {
     String examId, {
     required String id,
     required int minutes,
-    required int published,
+    required int? published,
   }) async {
     final blueprints = await repo.byExam(examId);
     expect(blueprints, hasLength(1));
@@ -80,7 +80,7 @@ void main() {
       'exam_cse_pro',
       id: 'mock_blueprint_cse_pro',
       minutes: 190,
-      published: 170,
+      published: null,
     );
     expect(
       {for (final s in sections) s.name: s.questionCount},
@@ -106,7 +106,7 @@ void main() {
       'exam_cse_sub',
       id: 'mock_blueprint_cse_sub',
       minutes: 160,
-      published: 165,
+      published: null,
     );
     expect(sections.map((s) => s.name), [
       'Verbal Ability',
