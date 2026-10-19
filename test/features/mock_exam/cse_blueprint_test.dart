@@ -61,6 +61,15 @@ void main() {
     }
     final weights = s.topicWeights.values.toList();
     expect(weights.reduce((a, b) => a + b), closeTo(1, 1e-9));
+    // Numerical Ability leans on arithmetic: the bank has only 20 CSE algebra
+    // questions, and an even split would ask for 23.
+    if (s.id == 'sec_cse_pro_numerical_ability') {
+      expect(s.topicWeights, {
+        'topic_cse_pro_arithmetic_number_sense': 0.6,
+        'topic_cse_pro_algebra': 0.4,
+      });
+      return;
+    }
     for (final w in weights) {
       expect(w, closeTo(1 / weights.length, 1e-9));
     }

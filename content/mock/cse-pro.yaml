@@ -20,7 +20,9 @@ sourceNote: 'Section counts: recollection of an examinee who sat the Professiona
   the PIA and by CSC-relaying outlets; it is one booklet with one clock, no
   sectional timing. The Civil Service Commission publishes no per-area item
   counts or time limits. The topic weights within each section are an even
-  split chosen here, not a published composition. They are a sampling
+  split chosen here, not a published composition, except Numerical Ability:
+  0.6 arithmetic and 0.4 algebra, because the bank holds only 20 CSE algebra
+  questions and an even split asks for 23. They are a sampling
   parameter and are never printed to a student.'
 sections:
   - id: sec_cse_pro_general_information
@@ -69,5 +71,5 @@ sections:
       - topic_cse_pro_arithmetic_number_sense
       - topic_cse_pro_algebra
     topicWeights:
-      topic_cse_pro_arithmetic_number_sense: 0.5
-      topic_cse_pro_algebra: 0.5
+      topic_cse_pro_arithmetic_number_sense: 0.6
+      topic_cse_pro_algebra: 0.4

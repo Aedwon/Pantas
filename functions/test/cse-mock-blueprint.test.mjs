@@ -36,11 +36,9 @@ function poolsFor(examId) {
 
 const blueprint = name => parse(readFileSync(new URL(`mock/${name}.yaml`, contentDir), 'utf8'));
 
-// Sections whose tagged pool cannot fill the allocation an even topic split gives them. Current
-// bank: cse-pro mathematics/algebra has 20 questions and Numerical Ability asks it for 23, so the
-// paper holds 42 of 45. This is a content-lane finding (tag or write more algebra); when it is
-// fixed this entry must be deleted, which this test enforces by asserting exact counts.
-const knownShortfall = {sec_cse_pro_numerical_ability: 42};
+// Every section fills its count from the current bank. Numerical Ability weights arithmetic 0.6
+// and algebra 0.4, because the bank holds only 20 CSE algebra questions.
+const knownShortfall = {};
 
 const expected = {
   exam_cse_pro: {file: 'cse-pro', minutes: 190, total: 155, counts: {
@@ -66,7 +64,11 @@ for (const [examId, want] of Object.entries(expected)) {
       const weights = Object.values(section.topicWeights);
       assert.equal(weights.length, section.topicIds.length);
       assert.ok(Math.abs(weights.reduce((a, b) => a + b, 0) - 1) < 1e-9);
-      assert.ok(Math.max(...weights) - Math.min(...weights) < 1e-9, 'even weights');
+      if (section.id === 'sec_cse_pro_numerical_ability') {
+        assert.deepEqual(section.topicWeights, {topic_cse_pro_arithmetic_number_sense: 0.6, topic_cse_pro_algebra: 0.4});
+      } else {
+        assert.ok(Math.max(...weights) - Math.min(...weights) < 1e-9, 'even weights');
+      }
     }
     const item = blueprintItem(doc);
     assert.equal(item.kind, 'mocks');
