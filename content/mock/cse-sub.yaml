@@ -9,9 +9,10 @@ exam: exam_cse_sub
 name: CSE Subprofessional Practice Paper
 durationMinutes: 160
 sectionalTiming: roamable
-totalPublishedItems: 165
 source: reported
-sourceNote: 'Placeholder split. Total of 145 test items comes from a 2020 CSC
+sourceNote: 'No totalPublishedItems: the mock setup screen shows that
+  field as the paper size and would report the test items as a shortfall;
+  Aedwon chose to show the test items only (October 19, 2026). Placeholder split. Total of 145 test items comes from a 2020 CSC
   advisory (150 test items plus 20 descriptive questionnaire items for the
   Professional level, 145 plus 20 for the Subprofessional level); whether that
   still holds is unconfirmed. The 165 items for the whole paper (145 plus 20)
