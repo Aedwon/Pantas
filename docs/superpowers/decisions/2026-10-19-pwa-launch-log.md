@@ -570,3 +570,22 @@ Decisions:
 
 This revises spec Part A ("downloads all CSE lessons and quizzes", "works offline"); the spec is
 updated to match.
+
+### October 19: C1 and C10 lead ruling
+
+Aedwon's exact comment starting this work:
+
+> okay good. continue
+
+Ruling written: `docs/superpowers/plans/pwa-launch/C1-C10-ruling.md` (facts in `evidence/C1-*` and
+`evidence/C10-*`). Summary: PayMongo and the web trial become a new grant ledger feeding W3's
+existing coverage, claims and repair jobs; products reuse the Civil Service ids with web prepaid
+lengths of 7, 30 and 365 days; answer sync for all accounts is a new server-only ingest path,
+because existing sync is Pro-only by rule; the pure Dart roadmap engine runs on the server through a
+shared package compiled to JavaScript behind a Node callable, with a half-day spike first.
+
+Estimate revision: C10 is about 1.5 weeks, not 1 week, because the insight signals read the
+database directly and need splitting into readers and pure functions. C7 to C10 total about 2.5
+weeks.
+
+Lead choice to surface to Aedwon: prepaid Monthly is 30 days and Yearly 365 days.

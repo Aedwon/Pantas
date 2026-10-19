@@ -274,7 +274,8 @@ keeps showing the last received roadmap while offline.
 Tests for C7 to C10: Free account refused Pro fields; anonymous account refused a mock; allowance
 refuses a second mock inside 30 days; rules deny direct reads; limit reached; stale cache updated
 on fetch; roadmap response for Free contains no Pro sections; sync batch replay is idempotent.
-Estimate for C7 to C10: about 2 weeks (lead to confirm after C10's first task).
+Estimate for C7 to C10: about 2.5 weeks (C1 and C10 ruling, `pwa-launch/C1-C10-ruling.md`).
+The ruling governs C1 to C10 design details where it is more specific than this plan.
 
 Verification: Functions plain and emulator suites full pass; lead reviews the diff line by line;
 `firestore.rules` unchanged or reviewed; Aedwon completes one test-mode purchase on staging.
