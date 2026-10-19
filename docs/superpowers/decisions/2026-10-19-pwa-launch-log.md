@@ -915,3 +915,24 @@ Findings carried forward:
 4. The app must call the new `setExamSettings` (exam date, study days) and the mock and roadmap
    callables. No client wiring exists yet; it belongs with the W4 screens and goes through the
    Codex lead.
+
+### October 19: CSE mock blueprint has no approved source
+
+Asked whether an approved CSE Professional and Subprofessional mock layout exists, Aedwon's
+exact comment:
+
+> i'm not sure, i don't think there is
+
+Facts found (web search, October 19; the CSC's own current advisory was not retrieved):
+
+- Repository: the August 11 mock spec records only "170 items, 3h10, one booklet" for
+  Professional from an unnamed source and nothing for Subprofessional. The August 4 CSE coverage
+  spec says the CSC scope document publishes no item counts or time limits.
+- Press and CSC-relayed reports (PIA 2024 and others): Professional 170 items in 3 hours 10
+  minutes; Subprofessional 165 items in 2 hours 40 minutes.
+- A 2020 CSC advisory split these as 150 test items plus 20 examinee descriptive questionnaire
+  items (Professional) and 145 plus 20 (Subprofessional). Whether that split still holds is
+  unconfirmed. The questionnaire items are not scored test questions.
+- No source found gives the number of items per subject area.
+
+Options offered (awaiting Aedwon's choice): see the reply of this date.
