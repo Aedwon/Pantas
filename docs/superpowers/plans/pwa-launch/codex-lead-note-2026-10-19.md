@@ -57,3 +57,10 @@ Take the count from the blueprint (a new optional field, for example `unscoredIt
 existing fields; no line when absent), not from hard-coded text. The CSE blueprints on
 `web/pwa-staging-r1` no longer set `totalPublishedItems`, so the screen shows 155 and 145 total
 items. Approved preview: https://claude.ai/artifact/VWUTUbGtQoK7iruAaBiME9 (private to Aedwon).
+
+## Addendum 2, October 19 late evening: W4e has moved to Claude
+
+Aedwon moved W4e (mock screens) to a Claude builder while Codex was out of usage. Do not work W4e.
+Lane 1 stays yours (W4c audit and integration, then W4b); in Lane 2 you take W4d. The Claude lead
+pushes W4e from its worktree (including your local commit 3b454b3a) and records progress in
+`pwa-launch/RESUME.md`. Coordinate any W4e question through that file or the decision log.
