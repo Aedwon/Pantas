@@ -346,3 +346,33 @@ pays ₱56.96 by card (5%).
 
 Recommendation offered: hide cards for Weekly and keep e-wallets and QR Ph; keep cards for Monthly,
 Yearly and the pass. Awaiting Aedwon's choice.
+
+### October 19: D2 and D5 answered; content exposure question
+
+Aedwon's exact comment:
+
+> D2 let's try small first, say 2, and i'll see if we can extend to more
+>
+> D5 ok
+>
+> D7 should I be worried? they might be easily able to get my entire content corpus, that's why i
+> originally offered to have my mac as a makeshift vps because of the requests, so that only those
+> requests, not the entire thing, is vulnerable. is my understanding right? or am i missing
+> something, please explain to me thank you! i'm still learning this stuff
+>
+> D6 D8 alright
+
+Results:
+
+- D2: remaining W4 families run in 2 parallel lanes, with one engineering audit per family at the
+  end. Aedwon may extend to 3 later.
+- D5: Level 5 for CSE questions is authorized to run alongside Level 4. Per the earlier answer, it
+  runs through ChatGPT web chat with prompts Aedwon pastes from the copy-prompt page (plan E1b),
+  instead of the Codex orchestrator, to save quota.
+- D6 and D8 confirmed.
+- D9 card choice still open.
+- D7 follow-up: Aedwon's concern is copying of the content corpus, which is separate from
+  encrypting the student's own database. Facts checked: lessons and questions ship whole in
+  `assets/seed/content.db`, on Android today and on web as planned. The old `getProContent`
+  function (Sanity query stub) is gone from `integration/new-design-r1`, so no content is served
+  per request. Options offered in the reply; awaiting a choice.

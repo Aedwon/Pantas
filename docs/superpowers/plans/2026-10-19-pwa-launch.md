@@ -39,8 +39,8 @@ Things only you can do, with no blocker on our side:
 
 ### Answers so far (October 19)
 
-D1 approved. D2 open (usage question answered in the log). D3 approved: W4g after launch. D4
-approved: one chat per lesson. D5 not authorized: Level 4 has not run yet. D6 approved: free trial
+D1 approved. D2: 2 parallel W4 lanes, may extend to 3. D3 approved: W4g after launch. D4
+approved: one chat per lesson. D5 authorized: Level 5 runs alongside Level 4, through web chat pasted by Aedwon. D6 approved: free trial
 (Lane C6). D7: encrypted web database (Lane B3). D8: `pantas.study`. D9: fee check running.
 
 ### Timeline (estimates, assuming D1, D2, D3, D5 as recommended)
@@ -89,8 +89,7 @@ status file.
 
 ### Lane A. Finish the new design (W4), adjusted for the PWA
 
-Owner: Codex lead. Implementors: Sol or Sonnet. Order follows `L3-parallel-map.md` waves, in up to
-3 lanes if D2 holds.
+Owner: Codex lead. Implementors: Sol or Sonnet. Order follows `L3-parallel-map.md` waves, in 2 parallel lanes (D2; may extend to 3).
 
 | Task | Work | PWA adjustment |
 |---|---|---|
@@ -256,7 +255,8 @@ checks).
 E2. **Level 4, CSE lessons.** One web chat per lesson if D4 holds, using the existing
 packets for scope lessons only. Hand-in and checks as in the Level 4 spec.
 
-E3. **Level 5, CSE questions** (if D5 holds). Codex orchestrator per `ORCHESTRATOR.md`:
+E3. **Level 5, CSE questions** (D5 authorized). ChatGPT web chat pasted by Aedwon from the E1b
+page, following the roles in `ORCHESTRATOR.md`:
 Luna mechanical rules and a blind solve of every scope question; Sol confirms every blind answer
 that differs from the key; calibration sample first. Practice-against-teaching check per plan
 Task 6.
