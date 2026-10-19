@@ -4,7 +4,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
-import {lessonItem, questionSetItems, planWrites} from '../lib/contentUpload.js';
+import {blueprintItem, lessonItem, questionSetItems, planWrites} from '../lib/contentUpload.js';
 import * as endpoints from '../lib/index.js';
 
 const source = name => readFileSync(new URL(`../src/${name}`, import.meta.url), 'utf8');
@@ -64,6 +64,8 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   const root = mkdtempSync(join(tmpdir(), 'content-'));
   mkdirSync(join(root, 'lessons/s'), {recursive: true});
   mkdirSync(join(root, 'questions/s/t'), {recursive: true});
+  mkdirSync(join(root, 'mock'), {recursive: true});
+  writeFileSync(join(root, 'mock/e.yaml'), 'exam: exam_cse_pro\nname: P\ndurationMinutes: 60\nsections:\n  - id: s1\n    name: One\n    questionCount: 2\n    suggestedMinutes: 60\n    topicIds: [topic_cse_pro_t]\n    topicWeights: {topic_cse_pro_t: 1}\n');
   writeFileSync(join(root, 'lessons/s/a.md'), '---\n_id: "lesson-a"\ntitle: "A"\n---\n## Hi\n');
   writeFileSync(join(root, 'questions/s/t/u.yaml'),
     'meta:\n  subject: s\n  topic: t\n  subtopic: u\n  exams: [cse-pro]\nquestions:\n  - id: q1\n    stem: x\n    choices:\n      - text: a\n        correct: true\n      - text: b\n        rationale: no\n');
@@ -74,6 +76,7 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   assert.equal(dry.status, 0, dry.stderr);
   assert.match(dry.stdout, /lessons: 1/);
   assert.match(dry.stdout, /question sets: 1/);
+  assert.match(dry.stdout, /mock blueprints: 1/);
   assert.match(dry.stdout, /pro documents: 1/);
   assert.match(dry.stdout, /dry run/i);
   const live = spawnSync('node', [tool, '--root', root], {env, encoding: 'utf8'});
@@ -88,4 +91,21 @@ test('index exports the Pro content, mock and ingest callables, all behind App C
     assert.match(source(file), /enforceAppCheck: true/);
   }
   assert.match(source('mock.ts'), /assertNamedUser\(auth\)/);
+});
+
+test('a blueprint item is keyed by exam, keeps the sections as JSON and changes version with them', () => {
+  const doc = {exam: 'exam_cse_pro', name: 'P', durationMinutes: 60, sections: [{id: 's1', questionCount: 2}]};
+  const item = blueprintItem(doc);
+  assert.equal(item.kind, 'mocks');
+  assert.equal(item.id, 'exam_cse_pro');
+  assert.deepEqual(JSON.parse(item.data.sectionsJson), doc.sections);
+  assert.notEqual(blueprintItem({...doc, durationMinutes: 61}).data.version, item.data.version);
+  assert.throws(() => blueprintItem({exam: 'exam_cse_pro', sections: []}));
+});
+
+test('a blueprint without a positive duration is refused, so a strict mock never gets a NaN clock', () => {
+  const sections = [{id: 's1', questionCount: 2}];
+  for (const durationMinutes of [undefined, null, 0, -5, '60', Number.NaN]) {
+    assert.throws(() => blueprintItem({exam: 'exam_cse_pro', durationMinutes, sections}), /duration/);
+  }
 });

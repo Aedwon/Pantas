@@ -5,7 +5,7 @@
     "node": "22"
   },
   "scripts": {
-    "build": "tsc && cp ../content/exams/catalog.json lib/examCatalog.json && cp src/products.json lib/products.json",
+    "build": "tsc && cp ../content/exams/catalog.json lib/examCatalog.json && cp src/products.json lib/products.json && mkdir -p lib/generated && cp src/generated/pantas_core.js lib/generated/pantas_core.js",
     "test": "npm run build && node --test test/*.test.mjs && firebase emulators:exec --only auth,firestore,storage --project demo-pantas-test \"node --test test/*.rules.mjs test/*.emulator.mjs\""
   },
   "main": "lib/index.js",
