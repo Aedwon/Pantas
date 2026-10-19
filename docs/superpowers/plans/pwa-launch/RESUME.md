@@ -24,7 +24,7 @@ decision and its exact wording).
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
 | E2 Level 4, E3 Level 5 | Level 4 running: Aedwon pasting (prompt allows web search for B01 since 622a7e35); Level 5 prompts not built | audit branch |
-| Lane A (W4) | Codex lead accepted the handoff (plan-only reply, Oct 19); waits for Aedwon's "continue". Lanes: W4c audit then W4b; W4e then W4d | Codex session 01a1410a |
+| Lane A (W4) | Codex lead accepted the handoff (plan-only reply, Oct 19); continued by Claude on Aedwon's request (Oct 19, headless, full access as in its own sessions; log on this Mac only). Lanes: W4c audit then W4b; W4e then W4d | Codex session 01a1410a |
 | PayMongo account | Aedwon creating it | none |
 
 ## What a cloud session can and cannot do

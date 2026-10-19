@@ -821,3 +821,11 @@ Started (Sonnet 5.5): the client content path and Hosting config on `web/pwa-sta
 of `web/pwa-foundation-r1` and `web/server-pro-r1`, clean, pushed at 737d471a), and server mock
 papers and roadmap on `web/roadmap-server-r1`, compiling the existing Dart from lib paths with no lib
 edits, so W4 files are untouched.
+
+Aedwon's exact comment:
+
+> can you continue codex yourself please
+
+Claude resumed the Codex lead headlessly with "continue" and the plan it gave, using the settings
+its own sessions used (gpt-6.1-sol, approval never, full access). It runs W4 Lane 1 and Lane 2
+and records progress in `STATUS.md` and the restart log.
