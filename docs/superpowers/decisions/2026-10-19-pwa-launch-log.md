@@ -741,3 +741,26 @@ Aedwon's exact comment:
 Decision: Sonnet 5.5 (medium) stays the default builder for PWA engineering; Codex jobs are
 overflow. If local Claude limits run out, work continues in a Claude cloud session from
 `pwa-launch/RESUME.md` using Aedwon's $39 cloud credit.
+
+### October 19: server content, mocks and answer sync built
+
+Aedwon's exact comment starting this work:
+
+> okay, but keep in mind you might hit limits soon. 73% used on codex, 61% used for you on 5-hour
+> limits. on weekly limits codex is 27% used, you are 89% used. tho for you there's not a problem
+> because of the cloud pickup session thingy
+>
+> go ahead with your plan
+
+`web/server-pro-r1` at e7c27574 (pushed), built by Sonnet 5.5: `getContent` (Pro-only fields only
+for a live `pro` claim; 300 items per account per day, 20 per call), a content uploader (dry run:
+158 lessons, 157 question sets, 157 Pro documents), `startMock`/`submitMock` (named account; Free
+one per rolling 30 days), `ingestSession` (200 sessions per day, 300 answers per batch), and
+explicit deny rules. Lead reran: plain 116/116, emulator 157/157, tsc clean. The mock paper sampler
+is plain Dart, so the server can assemble papers with the same compiled-Dart approach as the
+roadmap.
+
+Open: an abandoned mock currently frees the Free allowance (decision for Aedwon); Free answer
+visibility after a mock is not yet enforced on the server; one revenuecat-passes emulator test
+failed once and passed in four later runs; `content/questions/.../ratio-and-proportion.yaml`
+fails a strict YAML parse (content fix in E5).
