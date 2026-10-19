@@ -258,6 +258,12 @@ unlimited; later grants by code or account ID are a post-launch item) and return
 submission is recorded on the server. Mock answers and explanations follow the approved Free rule
 (visible until the next mock opens), enforced by the server.
 
+C8b. **Mock paper on the server (October 19 rules).** Assemble the paper on the server with the
+plain Dart mock sampler compiled to JavaScript (as C10). Pin the paper per account until
+submitted; server-held clock; strict-mode time-out ends and scores; non-strict discard keeps the
+same paper; Free allowance counts at submission; next Free mock 30 days after it. Rules: decision
+log "mock allowance and resume rules".
+
 C9. **Answer sync.** Every account (anonymous included) syncs answers and session results to the
 server in one batch per session. Reuse the existing sync generation design; check the W6 cleanup
 jobs cover anonymous accounts that never sign up.

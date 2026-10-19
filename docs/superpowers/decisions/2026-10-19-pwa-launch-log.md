@@ -764,3 +764,35 @@ Open: an abandoned mock currently frees the Free allowance (decision for Aedwon)
 visibility after a mock is not yet enforced on the server; one revenuecat-passes emulator test
 failed once and passed in four later runs; `content/questions/.../ratio-and-proportion.yaml`
 fails a strict YAML parse (content fix in E5).
+
+### October 19: mock allowance and resume rules
+
+Aedwon's exact comments:
+
+> only after submitting, and also under strict mode (which prematurely submits). can a crash be
+> identified though? what if the user force closes it or something
+
+> okay so on strict mode they can just close the app to "pause" things? or am i misunderstanding
+> something
+
+> okay yes that makes sense. basically that last gap you mentioned caches the mock data until they
+> finish it right?
+
+Answer given: the server cannot tell a crash from a force close or a deliberate exit. The approved
+design (`docs/design/DECISIONS.md`) already covers strict mode: leaving ends the mock after a
+10-second grace ("Not finished", answered items scored); a crash or force close resumes on next
+launch with the clock having kept running. Non-strict mode allows pause and discard.
+
+Decisions (C8, server-enforced):
+
+1. A Free mock counts only when submitted: by the student, by strict mode's early end, or when time
+   runs out. The next Free mock opens 30 days after that submission.
+2. One open mock per Free account. Leaving for any reason resumes the same paper with saved answers.
+3. The server holds the clock (server start time, pauses recorded only in non-strict mode); a
+   strict-mode mock whose time ran out while closed is ended and scored on the next contact.
+4. A non-strict discard clears answers but keeps the same paper pinned: the next start returns it.
+   Answer to Aedwon's question: the server, not the phone, pins which questions the paper holds
+   until it is submitted, so closing or discarding never yields a new paper.
+
+Implementation: with server paper assembly (the plain Dart sampler compiled like the roadmap),
+before the app screen work.
