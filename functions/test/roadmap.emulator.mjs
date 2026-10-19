@@ -2,10 +2,11 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
-import {saveExamSettings, serveRoadmap} from '../lib/roadmap.js';
+import {build, saveExamSettings, serveRoadmap} from '../lib/roadmap.js';
 import {recordSession} from '../lib/ingestSession.js';
 import {blueprintItem, lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
+import {phDay} from '../lib/_phDate.js';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
@@ -125,4 +126,121 @@ test('serving on a later Philippine day recomputes instead of returning yesterda
 test('serving refuses signed-out callers and honours the rate limit', async () => {
   assert.equal(await code(serveRoadmap(undefined, {}, d())), 'unauthenticated');
   assert.equal(await code(serveRoadmap(named('r-lim'), {}, d(NOW, {allow: async () => false}))), 'resource-exhausted');
+});
+
+// Running totals. The reference is the full scan that build() used before totals existed.
+const legacyView = (db2, uid, counter) => async topicOf => {
+  const answers = [];
+  let sessions = 0;
+  const snapshot = await db2.collection(`users/${uid}/server/answers/items`).select('answers').get();
+  if (counter) counter.n += snapshot.size;
+  for (const doc of snapshot.docs) {
+    sessions += 1;
+    answers.push(...doc.get('answers'));
+  }
+  const scoped = answers.filter(answer => topicOf.has(answer.questionId));
+  const scores = {};
+  const perDay = new Map();
+  for (const answer of scoped) {
+    const score = (scores[topicOf.get(answer.questionId)] ??= {correct: 0, answered: 0});
+    score.answered += 1;
+    if (answer.correct) score.correct += 1;
+    const day = phDay(answer.answeredAt);
+    perDay.set(day, (perDay.get(day) ?? 0) + 1);
+  }
+  return {scores, seenQuestionIds: [...new Set(scoped.map(a => a.questionId))].sort(), answeredPerActiveDay: [...perDay.values()],
+    anyAnswers: answers.length > 0, sessions};
+};
+const totalsDoc = uid => db.doc(`users/${uid}/server/answerTotals`);
+const sameRoadmap = async (uid, at, proTier = false, label = '') => {
+  const settingsRow = (await db.doc(`users/${uid}/server/settings`).get()).data();
+  const viaScan = await build(db, uid, settingsRow, proTier, at, legacyView(db, uid));
+  const viaTotals = await build(db, uid, settingsRow, proTier, at);
+  assert.deepEqual(viaTotals, viaScan, label);
+  return viaTotals;
+};
+const day = n => NOW + n * DAY;
+
+test('totals: the roadmap from running totals equals the full scan over days, replays and a content change', async () => {
+  const uid = 'r-totals';
+  await reset(uid);
+  await saveExamSettings(anon(uid), settings({assessmentCompleted: undefined}), d());
+  assert.equal((await totalsDoc(uid).get()).exists, true, 'settings save builds an empty totals document');
+  await sameRoadmap(uid, NOW, false, 'no sessions');
+  await recordSession(anon(uid), batch('sess-t-0001', ['a0', 'a1', 'b0'], day(0)), d(day(0)));
+  await recordSession(anon(uid), {...batch('sess-t-0002', ['a1', 'a2', 'a2'], day(1)), answers: [
+    {questionId: 'a1', chosen: 'b', correct: false, answeredAt: day(1) - 1}, {questionId: 'a2', chosen: 'a', correct: true, answeredAt: day(1) - 2},
+    {questionId: 'ghost', chosen: 'a', correct: true, answeredAt: day(1) - 3}]}, d(day(1)));
+  await recordSession(anon(uid), batch('sess-t-0003', ['b1', 'b2', 'b3', 'a5'], day(3)), d(day(3)));
+  const before = (await totalsDoc(uid).get()).data();
+  assert.equal(before.sessions, 3);
+  const replay = await recordSession(anon(uid), batch('sess-t-0002', ['a9', 'a9', 'a9'], day(4)), d(day(4)));
+  assert.equal(replay.stored, false);
+  assert.deepEqual((await totalsDoc(uid).get()).data(), before, 'a replay changes no total');
+  const full = await sameRoadmap(uid, day(4), true, 'three sessions');
+  assert.equal(full.sessions, 3);
+  // Content change: question a1 leaves the exam. Scores, seen ids and day counts must follow.
+  const trimmed = questionSetItems({meta: {subject: 's', topic: 'ta', exams: ['dost-sei']},
+    questions: Array.from({length: 12}, (_, i) => ({id: `a${i}`, stem: 'x', choices: [{text: 'a', correct: true}, {text: 'b'}]})).filter(q => q.id !== 'a1')}, 'rm/ta/u.yaml').item;
+  try {
+    await writeContent(db, [trimmed], [], {});
+    clearExamContentCache();
+    await sameRoadmap(uid, day(4), true, 'question a1 removed');
+  } finally {
+    await writeContent(db, [set('ta', 'a')], [], {});
+    clearExamContentCache();
+  }
+  await sameRoadmap(uid, day(4), false, 'content restored');
+});
+
+test('totals: a rebuild reads one totals document and no session documents', async () => {
+  const uid = 'r-reads';
+  await reset(uid);
+  await saveExamSettings(anon(uid), settings(), d());
+  for (let n = 0; n < 5; n += 1) await recordSession(anon(uid), batch(`sess-rd-000${n}`, [`a${n}`, `b${n}`], day(n)), d(day(n)));
+  const settingsRow = (await db.doc(`users/${uid}/server/settings`).get()).data();
+  const counter = {n: 0};
+  await build(db, uid, settingsRow, false, day(5), legacyView(db, uid, counter));
+  const scanReads = counter.n;
+  let totalsReads = 0;
+  let itemReads = 0;
+  const counting = new Proxy(db, {get(target, prop) {
+    const value = target[prop];
+    if (prop === 'doc') return path => {
+      const ref = target.doc(path);
+      return path.endsWith('/server/answerTotals') ? new Proxy(ref, {get: (r, p) => p === 'get' ? async () => {totalsReads += 1; return r.get();} : typeof r[p] === 'function' ? r[p].bind(r) : r[p]}) : ref;
+    };
+    if (prop === 'collection') return path => {
+      const ref = target.collection(path);
+      return path.endsWith('/server/answers/items') ? new Proxy(ref, {get: (r, p) => p === 'select' || p === 'get' ? () => {itemReads += 1; return r[p]();} : typeof r[p] === 'function' ? r[p].bind(r) : r[p]}) : ref;
+    };
+    return typeof value === 'function' ? value.bind(target) : value;
+  }});
+  await build(counting, uid, settingsRow, false, day(5));
+  console.log(`answer reads per rebuild with 5 sessions: scan ${scanReads}, totals ${totalsReads} (item collection reads: ${itemReads})`);
+  assert.equal(scanReads, 5);
+  assert.equal(totalsReads, 1);
+  assert.equal(itemReads, 0);
+});
+
+test('totals: an account from before this change is backfilled once, by a rebuild or by its next session', async () => {
+  for (const via of ['rebuild', 'session']) {
+    const uid = `r-backfill-${via}`;
+    await reset(uid);
+    await db.doc(`users/${uid}/server/settings`).set({examId: EXAM, examDate: {precision: 'day', day: '2027-02-15'}, studyDays: [1, 2, 3, 4, 5, 6, 7], updatedAt: NOW});
+    await db.doc(`users/${uid}/server/answers/items/sess-old-0001`).set({sessionId: 'sess-old-0001', answers: batch('x', ['a0', 'a1', 'zz'], day(0)).answers});
+    await db.doc(`users/${uid}/server/answers/items/sess-old-0002`).set({sessionId: 'sess-old-0002', answers: batch('x', ['b0', 'a1'], day(2)).answers});
+    assert.equal((await totalsDoc(uid).get()).exists, false);
+    if (via === 'rebuild') {
+      const out = await serveRoadmap(named(uid), {}, d(day(3)));
+      assert.equal(out.state, 'planning');
+      assert.equal((await totalsDoc(uid).get()).get('sessions'), 2);
+    } else {
+      assert.equal((await recordSession(anon(uid), batch('sess-new-0003', ['a2'], day(3)), d(day(3)))).stored, true);
+      assert.equal((await totalsDoc(uid).get()).get('sessions'), 3);
+      assert.equal((await totalsDoc(uid).get()).get('answers'), 6);
+    }
+    await sameRoadmap(uid, day(3), true, via);
+    assert.equal((await stored(uid)).answerSessions, via === 'rebuild' ? 2 : 3);
+  }
 });

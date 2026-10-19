@@ -6,7 +6,7 @@ import {loadExamContent} from './_examContent.js';
 import {phDay, phStamp} from './_phDate.js';
 import {hasLiveProClaim} from './_pro.js';
 import {examCatalog} from './revenuecatPasses.js';
-import type {Answer} from './_answers.js';
+import {loadTotals, viewOf, type AnswerView} from './_answerTotals.js';
 
 /**
  * Where the exam date and study days live on the server. The app keeps them in its own settings, so
@@ -71,25 +71,13 @@ const examKey = (settings: ExamSettings) => `${settings.examId}|${JSON.stringify
  * date goes in as a Philippine calendar value. Not on the server yet, so left empty: lesson read
  * times, review (spaced repetition) state and custom blueprints.
  */
-async function build(db: Firestore, uid: string, settings: ExamSettings, pro: boolean, now: number) {
+export async function build(db: Firestore, uid: string, settings: ExamSettings, pro: boolean, now: number,
+  view?: (topicOf: Map<string, string>) => Promise<AnswerView>) {
   const content = await loadExamContent(db, settings.examId, now);
   const topicOf = new Map(content.questions.map(question => [question.id, question.topicId]));
-  const answers: Answer[] = [];
-  let sessions = 0;
-  for (const doc of (await db.collection(`users/${uid}/server/answers/items`).select('answers').get()).docs) {
-    sessions += 1;
-    answers.push(...(doc.get('answers') as Answer[]));
-  }
-  const scoped = answers.filter(answer => topicOf.has(answer.questionId));
-  const scores: Record<string, {correct: number; answered: number}> = {};
-  const perDay = new Map<string, number>();
-  for (const answer of scoped) {
-    const score = (scores[topicOf.get(answer.questionId)!] ??= {correct: 0, answered: 0});
-    score.answered += 1;
-    if (answer.correct) score.correct += 1;
-    const day = phDay(answer.answeredAt);
-    perDay.set(day, (perDay.get(day) ?? 0) + 1);
-  }
+  // One read of the running totals. `view` lets a test supply the old full scan to compare against.
+  const answers = await (view ? view(topicOf) : loadTotals(db, uid).then(totals => viewOf(totals, topicOf)));
+  const sessions = answers.sessions;
   const blueprint = (await db.doc(`content/mocks/items/${settings.examId}`).get()).exists;
   const lastMock = await db.collection(`users/${uid}/server/mocks/items`).orderBy('submittedAt', 'desc').limit(1).get();
   const lastSubmittedAt = lastMock.docs[0]?.get('submittedAt') as number | undefined;
@@ -106,12 +94,12 @@ async function build(db: Firestore, uid: string, settings: ExamSettings, pro: bo
     prerequisites: null,
     lessons: content.lessons.map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: null})),
     questions: content.questions.map(q => ({id: q.id, topicId: q.topicId, lessonId: null, passageId: q.passageId})),
-    seenQuestionIds: [...new Set(scoped.map(answer => answer.questionId))].sort(),
+    seenQuestionIds: answers.seenQuestionIds,
     dueReviews: [],
-    scores,
-    answeredPerActiveDay: [...perDay.values()],
+    scores: answers.scores,
+    answeredPerActiveDay: answers.answeredPerActiveDay,
     mock: {examHasMock: blueprint, proIsActive: pro, lastSubmittedAt: lastSubmittedAt === undefined ? null : phStamp(lastSubmittedAt)},
-    assessmentCompleted: settings.assessmentCompleted ?? answers.length > 0,
+    assessmentCompleted: settings.assessmentCompleted ?? answers.anyAnswers,
     contentRevision: 'server',
     anchoredReviewOnlyFrom: previousReviewOnly,
     studyDays: settings.studyDays,
