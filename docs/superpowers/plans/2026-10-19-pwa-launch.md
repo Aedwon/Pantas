@@ -153,14 +153,31 @@ Call `navigator.storage.persist()` after install.
 B7. **Content load after first screen.** Start the content import after the first frame; show the
 W4h loading pattern only where content is needed and not yet ready.
 
+B7a. **HTML Welcome screen (October 19, Aedwon).** Build the first onboarding screen (Welcome)
+as plain HTML and CSS in `web/index.html`, replacing the bare splash for first-time visitors. The
+Flutter engine and app code download while it shows. Tapping Start hands off to the Flutter
+onboarding at the next step without a visible jump; if Flutter is not ready yet, the button shows
+the W4h loading pattern until it is. Returning visitors skip it and go straight to the app.
+It must match the approved Welcome board exactly, in light and dark themes: check it with the
+visual companion and get Aedwon's acceptance before it ships. Copy comes from the existing Welcome
+screen strings, not new wording. Estimate: about 1 day.
+
+B7c. **Load later screens on demand (October 19, Aedwon).** Split rarely first-used features
+into deferred Dart libraries (`import ... deferred as`) so they leave the first download:
+start with the mock exam (W4e), settings and account (W4f), and the Pro page. Each split route
+loads its library on first open and shows the W4h loading pattern while it loads; offline after
+the first visit, the service worker serves it. Measure the first-load size before and after in
+the B4 evidence. Do not split features on the first-session path (onboarding, Home, a lesson, a
+quiz). Estimate: about 1 day.
+
 B7b. **Phone layout only.** At launch the web app uses the phone layout at every width, centered
 with a maximum width on large screens. The desktop layout from Claude Design comes after launch
 (spec Part A). Any visible framing on wide screens goes to Aedwon with the visual companion.
 
 B8. **Size cuts.** Web seed database with CSE content only (built by the content tool, Lane E7).
 Font subsetting for the three Source Sans 3 weights. Decide CanvasKit from CDN versus self-hosted
-from the B4 measurement. Target: first load under 6 MB transferred (estimate-based target; report
-the actual).
+from the B4 measurement. Target: first load under 6 MB transferred, and the Welcome screen visible within 1 second on
+a throttled mobile profile (estimate-based targets; report the actuals).
 
 Verification for Lane B: `flutter analyze` clean; `flutter test` full pass (Haiku runs it,
 returns counts and failures); staging web smoke on a real phone (Android Chrome and iPhone Safari)

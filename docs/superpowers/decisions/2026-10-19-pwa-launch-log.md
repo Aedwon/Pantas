@@ -273,3 +273,19 @@ finished new design makes W4 the critical path. The plan estimates about 4 weeks
 parallel lanes (plan decision D2), and about 3 weeks more if W4 stays serial.
 
 Open decisions D1 to D9 are listed in plan Part A with recommendations. None is answered yet.
+
+### October 19: faster first open
+
+Aedwon asked whether the first download could happen in the background. Options offered: an
+instant HTML loading screen (already planned), content download after the first screen (already
+planned), a plain-HTML Welcome screen shown while the engine downloads, and loading less-used
+screens on demand. Recommended: add the last two, about 1 to 2 days together.
+
+Aedwon's exact comment:
+
+> okay add them. it's for better UX after all
+
+What changed: plan tasks B7a (HTML Welcome screen, must match the approved Welcome board and pass
+the visual companion) and B7c (deferred loading for mock exam, settings and account, and the Pro
+page) added. B8 target adds the Welcome screen visible within 1 second on a throttled mobile
+profile.
