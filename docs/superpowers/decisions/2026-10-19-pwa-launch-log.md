@@ -671,3 +671,19 @@ paid (for example, half refunded removes half the grant's length); several parti
 a full refund revokes. Later stacked grants move earlier to close the gap. A dispute (chargeback)
 still revokes the whole grant. Context given: only the merchant (Aedwon) issues refunds, from the
 PayMongo dashboard or API; a student cannot trigger one, apart from a bank dispute.
+
+### October 19: refund policy
+
+Options offered: (1) no refunds except errors (double charge, payment that did not unlock Pro,
+technical failure on Pantas's side), relying on the 7-day trial; (2) 7-day money-back on a first
+purchase once per account; (3) refund of unused time on request. Passes not refunded after their
+exam date in every option. Recommended: 1.
+
+Aedwon's exact comment:
+
+> go with 1. also can this be verified if indeed they paid twice and that the first did not unlock
+> their Pro?
+
+Decision: option 1. The policy goes into `docs/TERMS.md` and on pantas.study before PayMongo
+verification and launch (Lane L4), with a legal check against Philippine consumer rules advised.
+The proportional refund mechanism stays, since Aedwon may still issue partial refunds for errors.
