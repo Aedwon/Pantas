@@ -71,6 +71,9 @@ OUTSIDE = (
 )
 NEW_HAND_IN = (
     "Your role is `{role}` and this is attempt {attempt}. Put `{role}` in the form's `role` field.\n\n"
+    "You may use web search to check hard-to-remember facts for rule B01. Prefer official and primary "
+    "sources, and put the source URL in the finding's `problem` text. Search does not change rule L11: "
+    "it stays `needs_source_check` or `not_applicable` as the rules say.\n\n"
     "When you finish, reply with only the completed form as one JSON code block, and nothing else. "
     "The form must be valid JSON: lessons contain LaTeX, so every backslash must be doubled and every "
     "double quote inside a text value escaped.\n\n"
