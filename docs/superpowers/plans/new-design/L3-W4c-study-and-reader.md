@@ -515,3 +515,39 @@ container, lookup/route behavior and the single LessonPage owner. Cover loading/
 regressions, including the delayed/reduced-motion shared loader behavior as applicable. This
 implements Task9 retired-component removal and the existing W4h state contract, with no new
 copy, route, visual choice, local state helper or second reader owner.
+
+
+## October19 audit1 bounded fix pass
+
+Audit record gates/w4c-astra-audit-1.md is binding before affected edits. Root accepts all six
+Important findings and regrades truthful preview origin Important. Correct all seven through
+existing lesson-owned providers/page/widgets/repos and their tests, with additive narrowly
+needed callbacks only. No server/core content/schema/sync/wiper changes, generic framework or
+new visual choice. Keep original auth/exam/token guards and current repository signatures.
+
+Move Retry retains the immutable intended order rather than applying indices again. Remove
+retains its committed original rows/timestamps/order across postcommit validation failure; Retry
+never performs deletion twice. Expiry clears pending recovery and cannot adopt a new token.
+
+Refresh Last opened and recent-history consumers only after a successful current-owner open,
+including in-place handoff. Failed opens/bookmarks/marks do not escape unhandled futures.
+Mark pending and completed states are separate; only successful persistence latches completed.
+Use existing save-failure presentation/Retry where needed, retaining original intent and owner,
+with no new copy or automatic navigation. Do not reset the original floor merely on retry.
+
+Stationary short/end-held lessons re-evaluate at the existing15second wall-time floor. Marking
+requires current visible active body/end metrics. Suppress automatic writes while app/route/
+Contents cover it, re-evaluate on real visibility, and cancel timers/queued callbacks on expire/
+disposal. Do not introduce a foreground-time accumulator or change the15second product rule.
+Use existing local lifecycle/route signals, not a new global observer framework.
+
+Normal-size topic/lesson/bookmark-preview lists use shared one-line ellipsis as drawn and full
+semantic labels. Cover actual long titles at390dp/100% and200% without overflow. Study preview
+returns to Study; sheet-origin reader returns to the retained sheet. Preserve accepted fade/
+neighbor-motion exceptions and every default/shared caller contract.
+
+Port the five meaningful external reproductions into appropriate existing tests before fixes.
+Add real overflow/origin/open-bookmark-error/visibility-cancel regressions as affected. Run
+focused checks during fixes, then final full --concurrency=1 suite/static gates on one frozen
+candidate, not after each tiny change. Root reviews exact source and evidence before source
+upload/integration. This is one completed family audit plus its fix pass, not repeated audits.

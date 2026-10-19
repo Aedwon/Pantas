@@ -2203,3 +2203,20 @@ ordered writes, immutable Retry payloads and malformed-response failure checks a
 No new framework/schema/core sync or Claude branch edits. Completed results/history/review
 and availability remain blocked on a server reader, while pure presentation can continue.
 This implements approved PWA behavior; no new user product or visual decision.
+
+
+### October19 evening: accept W4c audit1 findings and bound the fix pass
+
+Astra completed audit1 after its interrupted continuation. Five real reproductions fail on
+f495a8dd: Move Retry wrong order, Remove postcommit failure loses Undo, cached recents/Resume
+stale, stationary short lesson unread after16seconds, transient mark failure unhandled and
+unretryable. Normal list wrapping is also contrary to approved presentation. Root accepts six
+Important findings; wrong Study-preview return label is regraded Important by user effect.
+Root read the source and verified actual repro logSHA65688e14...6db05. All seven enter one
+bounded fix pass in current L3c; no new full-family audit cycle.
+
+For the audit's visibility set-aside, retain the existing15second wall-time floor but require
+current visible active body for the new automatic marking check, with local cancellation and
+resume reevaluation. Do not invent a new foreground-time metric. Phone acceptance and separate
+C7/web integration remain pending. No source beyond7223upload or integration until fixes/gates
+and personal lead data review are complete.

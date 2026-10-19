@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | resume interrupted audit at f495a8dd; two reproduced bookmark recovery defects; source after7223 remains local |
+| A1 | W4c audit, fixes, verification, integration | Codex | audit1 complete, blocked by7Important recovery/history/read/row/origin findings; fix pass next; post7223source remains local |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
@@ -818,3 +818,12 @@ read gap. It also proposes Claude-owned pure-signal/server-insight work before W
 metrics files. Proposal awaits that handoff; no claim of shared approval. Independent E
 presentation continues. Both confirmed C audit recovery findings remain uncorrected until
 the same audit finishes. No source upload, merge or deployment in this step.
+
+### October19 evening: W4c audit1 complete, fix pass required
+
+Independent Astra audit1 completed against unchanged f495a8dd. Root verified actual0pass/5fail
+reproduction log/digest and opened the affected source. Six Important findings accepted;
+wrong preview origin regraded Important under truthful-return/accessibility requirement.
+Audit record/rulings and bounded fix contract are saved in gates/w4c-astra-audit-1.md/L3c.
+Same implementor resumes one fix pass; no final family acceptance, upload or integration yet.
+E continues its separate presentation/approved web adapter work. No new product decision.
