@@ -24,12 +24,13 @@ void main() {
               source TEXT,
               source_note TEXT
             )''');
-          raw.execute(
-            "INSERT INTO content_mock_blueprints VALUES "
-            "('bp', 2, 1, '2026-05-17T00:00:00.000Z', 'exam', 'CSE', 90, '[]', NULL, NULL, 170, "
-            "'published', NULL)",
-          );
-          raw.execute('PRAGMA user_version = 9');
+          raw
+            ..execute(
+              'INSERT INTO content_mock_blueprints VALUES '
+              "('bp', 2, 1, '2026-05-17T00:00:00.000Z', 'exam', 'CSE', 90, "
+              "'[]', NULL, NULL, 170, 'published', NULL)",
+            )
+            ..execute('PRAGMA user_version = 9');
         },
       ),
     );
