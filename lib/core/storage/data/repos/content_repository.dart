@@ -507,6 +507,8 @@ class ContentRepository {
   }
 
   Future<Passage?> passageById(PassageId id) async {
+    final hook = _fetchHook;
+    if (hook != null && !await hook.ensurePassage(id)) return null;
     final row = await (_db.select(_db.contentPassages)
           ..where((p) => p.id.equals(id)))
         .getSingleOrNull();

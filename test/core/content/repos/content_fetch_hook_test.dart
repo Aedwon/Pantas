@@ -28,6 +28,12 @@ class _Hook implements ContentFetchHook {
   }
 
   @override
+  Future<bool> ensurePassage(String id) async {
+    calls.add('passage:$id');
+    return available.contains(id);
+  }
+
+  @override
   Future<Set<String>> ensureQuestions(Iterable<String> ids) async {
     final wanted = ids.toList();
     calls.add('questions:${wanted.join(",")}');
@@ -110,6 +116,26 @@ void main() {
       expect((await repo.lessonById('l1'))!.bodyJson, hasLength(1));
       expect(await repo.lessonById('l2'), isNull);
       expect(hook.calls, ['lesson:l1', 'lesson:l2']);
+    });
+
+    test('passageById asks the hook first', () async {
+      await db.into(db.contentPassages).insert(
+            ContentPassagesCompanion.insert(
+              id: 'p1',
+              schemaVersion: 1,
+              updatedAt: DateTime.utc(2026),
+              topicId: 't1',
+              title: 'T',
+              body: 'B',
+              language: 'en',
+              wordCount: 1,
+            ),
+          );
+      final hook = _Hook(db, {'p1'});
+      final repo = ContentRepository(db, fetchHook: hook);
+      expect((await repo.passageById('p1'))!.body, 'B');
+      expect(await repo.passageById('p2'), isNull);
+      expect(hook.calls, ['passage:p1', 'passage:p2']);
     });
 
     test('listing lessons by topic fetches nothing', () async {

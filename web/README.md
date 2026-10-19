@@ -165,7 +165,6 @@ the export has `{ "_ref": id }`.
               "exams": [ "exam_upcat" ], "language": "en", // language optional, default en
               "questions": [ { "id": "bio-0001" },
                              { "id": "bio-0002", "passage": "rc-cs-ap-p1", "figure": true } ] } ],
-  "passages":       [ export document, ... ],            // see open item 1
   "diagnosticSets": [ export document, ... ],
   "mockBlueprints": [ export document, ... ],
   "parts": [ "exam_upcat.science" ] }                    // only on the main document
@@ -185,6 +184,10 @@ Rules the server side must keep:
 - A document must stay under the 1 MiB Firestore limit. Split a large exam by listing more
   catalog ids in `parts` on the main `<examId>` document; each part has the same shape
   without `parts`. Ids are limited to `[A-Za-z0-9_.-]`, so use `exam_upcat.science`.
+- Passage text is never in the catalog. A question names its passage with `passage` (an id) and
+  the passage itself travels inside the question set that uses it: the set's `data` has
+  `passages: [ { "id", "topic", "title", "body", "language", "wordCount" } ]` (only the passages its
+  questions name; no Pro-only fields). Asking for a passage on the client fetches that set.
 - Rows are upserts. The client never deletes: a lesson or question removed from the catalog
   stays in memory until the next start, when the database is rebuilt from the cache.
 - `lessons` items keep the shape `serveContent` sends today. The body is Markdown;
@@ -195,12 +198,38 @@ Cost to keep in mind: each catalog request counts its ids against the daily 300.
 refreshes `index` plus one document per exam in `catalogs` (and parts), so keep `catalogs`
 to the exams that have content.
 
-### Open items for the server side and the lead
+### Server side (built to this contract)
 
-1. Passages. 260 of 3,165 questions in the current export belong to one of 32 reading
-   passages, and passage text is in no served document. The reader accepts a `passages`
-   list (export documents, text included) on the exam catalog. Whether passage text may sit
-   in the Free catalog or needs its own protected kind is a decision for the lead.
-2. Illustrations. The bundled lesson build drops illustration markers while no asset map
+- `getContent` kind `catalog` (`functions/src/content.ts`): same auth, App Check, daily id budget,
+  `knownVersions` and `.f`/`.p` version suffix as the other kinds. Documents live at
+  `content/catalog/items/{id}` as `{kind, id, version, payload}`, `payload` being the JSON string of
+  the document (Firestore rejects nested arrays). An unknown id is `missing`. Firestore rules deny all
+  client access to `content/**`.
+- `functions/src/contentUpload.ts`: `catalogItems` builds `index` and one document per exam that has a
+  question set, splitting an exam over 700,000 bytes into `<examId>.<subjectId>` parts (hard limit
+  1,000,000 bytes). `questionSetItems` now adds the set's passages, taken from the `passages` list of the
+  same YAML file; a question that names a passage the file does not define is an invalid source.
+  `wordCount` is counted from the body.
+- `tools/upload_content` uploads the catalog with the rest. It needs the exam, subject, topic and
+  blueprint rows of the bundled build: pass `--export FILE` (output of `tools/build_content_export`) or it
+  runs that build with `dart`. `--out-dir DIR` writes the documents to files instead of a database, which
+  is what the contract test uses.
+- On the real tree the largest catalog document is `exam_upcat` at about 222 KB.
+- Tests: `functions/test/content-upload.test.mjs` (builder, sizes on the real tree),
+  `functions/test/server-pro.emulator.mjs` (served catalog, passages, budget, tiers),
+  `functions/test/server-pro.rules.mjs` (no client access), and
+  `test/core/content/remote/server_catalog_contract_test.dart`, which builds the documents from the real
+  `content/` tree and reads them with the Dart parser and mirror.
+
+### Open items
+
+1. Illustrations. The bundled lesson build drops illustration markers while no asset map
    exists (none does today), and the web reader does the same.
-3. Lesson search on web finds text only in lessons whose body was fetched.
+2. Lesson search on web finds text only in lessons whose body was fetched.
+3. The bundled build reads passages only from `historical_v1.json`, so questions whose passages are
+   defined in their own YAML file (for example `p-comprehension-skills-main-idea-0004`) have no passage row
+   in the native content database. The web path reads them from the YAML.
+4. `content/questions/mathematics/arithmetic-number-sense/ratio-and-proportion.yaml` (line 355, a quoted
+   string that continues at column 0) is rejected by the JavaScript YAML library the upload tool uses,
+   though the Dart YAML library accepts it. The tool reports it and, with `--skip-invalid`, leaves that set
+   out of the server content and the catalog until the file is fixed.

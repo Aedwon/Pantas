@@ -5,17 +5,20 @@ import 'package:pantas/core/content/sanity/parsers/diagnostic_set_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/exam_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/mock_blueprint_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/parser_utils.dart';
-import 'package:pantas/core/content/sanity/parsers/passage_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
 
 /// The `getContent` kind `catalog` documents, as the web client reads them.
 ///
 /// The format is written down in `web/README.md` ("Content catalog"). Exams,
-/// subjects, topics, passages, diagnostic sets and mock blueprints use the
+/// subjects, topics, diagnostic sets and mock blueprints use the
 /// same documents `tools/build_content_export` writes, so one set of parsers
 /// reads the bundled seed and the catalog. Lessons and questions use the
 /// compact forms below, which carry no text.
+
+/// Passage text is not in the catalog: it is protected content and travels
+/// inside the question set that uses it (`passages` in the set's data). The
+/// catalog keeps only the question to passage link.
 
 /// Id of the catalog document that lists exams, subjects and topics.
 const catalogIndexId = 'index';
@@ -111,7 +114,6 @@ class ExamCatalog {
     required this.topics,
     required this.lessons,
     required this.sets,
-    required this.passages,
     required this.diagnosticSets,
     required this.mockBlueprints,
     required this.parts,
@@ -122,7 +124,6 @@ class ExamCatalog {
   final List<ContentTopicsCompanion> topics;
   final List<CatalogLesson> lessons;
   final List<CatalogSet> sets;
-  final List<ContentPassagesCompanion> passages;
   final List<ContentDiagnosticSetsCompanion> diagnosticSets;
   final List<ContentMockBlueprintsCompanion> mockBlueprints;
 
@@ -147,7 +148,6 @@ ExamCatalog parseExamCatalog(Map<String, Object?> data) {
     topics: _docs(data, 'topics', parseTopic),
     lessons: _docs(data, 'lessons', _lesson),
     sets: _docs(data, 'sets', _set),
-    passages: _docs(data, 'passages', parsePassage),
     diagnosticSets: _docs(data, 'diagnosticSets', parseDiagnosticSet),
     mockBlueprints: _docs(data, 'mockBlueprints', parseMockBlueprint),
     parts: _strings(data['parts'], 'examCatalog', 'parts'),

@@ -11,6 +11,10 @@ abstract interface class ContentFetchHook {
   /// present afterwards.
   Future<bool> ensureLesson(LessonId id);
 
+  /// Fetches the question set that carries passage [id] when the passage text
+  /// is not present yet. True when the passage is present afterwards.
+  Future<bool> ensurePassage(PassageId id);
+
   /// Fetches the question sets holding [ids] when their text is not present
   /// yet. Returns the ids whose text is present afterwards.
   Future<Set<QuestionId>> ensureQuestions(Iterable<QuestionId> ids);

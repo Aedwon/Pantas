@@ -82,7 +82,7 @@ final _exam = <String, Object?>{
       'exams': ['exam_upcat'],
       'questions': [
         {'id': 'bio-1'},
-        {'id': 'bio-2', 'figure': true},
+        {'id': 'bio-2', 'figure': true, 'passage': 'pass-1'},
       ],
     },
   ],
@@ -100,6 +100,16 @@ Map<String, Object?> _lesson({String body = 'Cells are small.'}) => {
 
 Map<String, Object?> _set({bool notes = false}) => {
       'id': 'qs-biology__cells',
+      'passages': [
+        {
+          'id': 'pass-1',
+          'topic': 'topic_upcat_biology',
+          'title': 'On cells',
+          'body': 'Cells are the unit of life.',
+          'language': 'en',
+          'wordCount': 6,
+        },
+      ],
       'meta': {
         'subject': 'science',
         'topic': 'biology',
@@ -122,6 +132,7 @@ Map<String, Object?> _set({bool notes = false}) => {
         },
         {
           'id': 'bio-2',
+          'passage': 'pass-1',
           'stem': 'Which organelle?',
           'explanation': 'This one.',
           'figureSpec': {'kind': 'cell'},
@@ -312,6 +323,29 @@ void main() {
       ),
       {'kind': 'cell'},
     );
+  });
+
+  test('a passage comes with the set that uses it, never with the catalog',
+      () async {
+    await mirror.start();
+    await mirror.idle;
+    final repo = ContentRepository(contentDb, fetchHook: mirror);
+    expect(
+      await contentDb.select(contentDb.contentPassages).get(),
+      isEmpty,
+      reason: 'the catalog carries the link only',
+    );
+    final question = (await contentDb.select(contentDb.contentQuestions).get())
+        .firstWhere((q) => q.id == 'bio-2');
+    expect(question.passageId, 'pass-1');
+
+    // Asking for the passage fetches the set that holds it.
+    final passage = (await repo.passageById('pass-1'))!;
+    expect(passage.title, 'On cells');
+    expect(passage.body, 'Cells are the unit of life.');
+    expect(passage.wordCount, 6);
+    expect(passage.topicId, 'topic_upcat_biology');
+    expect(await repo.passageById('pass-nope'), isNull);
   });
 
   test('hydrated questions equal the mapper output for the same set', () async {

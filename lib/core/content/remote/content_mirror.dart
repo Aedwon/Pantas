@@ -37,6 +37,8 @@ class ContentMirror implements ContentFetchHook {
   final _questionsReady = <String>{};
   final _lessonsInCatalog = <String>{};
   final _setOfQuestion = <String, String>{};
+  final _setOfPassage = <String, String>{};
+  final _passagesReady = <String>{};
   final _revalidated = <String>{};
   final _background = <Future<void>>{};
   Future<void> _queue = Future.value();
@@ -132,6 +134,18 @@ class ContentMirror implements ContentFetchHook {
     final ready = _lessonsReady.contains(id);
     if (ready) _track(preloadAfterLesson(id));
     return ready;
+  }
+
+  @override
+  Future<bool> ensurePassage(String id) async {
+    if (_passagesReady.contains(id)) return true;
+    // Passage text travels inside the question set that uses it.
+    final setId = _setOfPassage[id];
+    if (setId == null) return false;
+    await _service.refresh(ContentKind.questions, [setId]);
+    await _loadStored(ContentKind.questions, setId);
+    _revalidated.add('questions/$setId');
+    return _passagesReady.contains(id);
   }
 
   @override
@@ -298,13 +312,14 @@ class ContentMirror implements ContentFetchHook {
           );
         }
         _setOfQuestion[question.id] = set.id;
+        final passageId = question.passageId;
+        if (passageId != null) _setOfPassage[passageId] = set.id;
       }
     }
     await _db.batch((batch) {
       batch
         ..insertAllOnConflictUpdate(_db.contentSubjects, catalog.subjects)
         ..insertAllOnConflictUpdate(_db.contentTopics, catalog.topics)
-        ..insertAllOnConflictUpdate(_db.contentPassages, catalog.passages)
         ..insertAllOnConflictUpdate(
           _db.contentDiagnosticSets,
           catalog.diagnosticSets,
@@ -455,11 +470,20 @@ class ContentMirror implements ContentFetchHook {
         );
       }
     }
+    final passages = <ContentPassagesCompanion>[
+      for (final raw in (data['passages'] as List? ?? const []))
+        _passage(
+          (raw! as Map).cast<String, Object?>(),
+          'topic_upcat_${topicSlug.replaceAll('-', '_')}',
+          now,
+        ),
+    ];
     await (_db.delete(_db.contentChoices)
           ..where((choice) => choice.questionId.isIn(ids)))
         .go();
     await _db.batch((batch) {
       batch
+        ..insertAllOnConflictUpdate(_db.contentPassages, passages)
         ..insertAll(
           _db.contentQuestions,
           questions,
@@ -491,10 +515,28 @@ class ContentMirror implements ContentFetchHook {
           mode: InsertMode.insertOrIgnore,
         );
     });
+    _passagesReady.addAll(passages.map((p) => p.id.value));
     for (final id in ids) {
       _questionsReady.add(id);
       _setOfQuestion[id] = setId;
     }
+  }
+
+  ContentPassagesCompanion _passage(
+    Map<String, Object?> passage,
+    String fallbackTopicId,
+    DateTime now,
+  ) {
+    return ContentPassagesCompanion.insert(
+      id: passage['id']! as String,
+      schemaVersion: 1,
+      updatedAt: now,
+      topicId: (passage['topic'] as String?) ?? fallbackTopicId,
+      title: '${passage['title']}',
+      body: '${passage['body']}',
+      language: (passage['language'] as String?) ?? 'en',
+      wordCount: (passage['wordCount'] as num?)?.toInt() ?? 0,
+    );
   }
 
   String _portableText(String text) => jsonEncode([
