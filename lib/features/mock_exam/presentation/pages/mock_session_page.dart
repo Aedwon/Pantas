@@ -331,8 +331,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 counterMetrics.dispose();
                 final strictMessage =
                     'Part ${widget.currentPartNumber} runs to the end of its '
-                    'time. Strict mock mode is on.';
-                final strictLine = widget.state.strictMode && last;
+                    'time. Strict mode is on.';
+                // MK_LastQStrict draws the line for a timed part only. A one-block
+                // paper has no part to name, and no board draws its line.
+                final strictLine =
+                    widget.state.strictMode && last && !widget.oneBlock;
                 final status = _proctorToastMinutes != null
                     ? proctorCopyFor(_proctorToastMinutes!)
                     : strictLine
