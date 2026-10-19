@@ -27,6 +27,8 @@ decision and its exact wording).
 | Lane A (W4) | Codex lead accepted the handoff (plan-only reply, Oct 19); continued by Claude on Aedwon's request (Oct 19, headless, full access as in its own sessions; log on this Mac only). Lanes: W4c audit then W4b; W4e then W4d | Codex session 01a1410a |
 | PayMongo account | Aedwon creating it | none |
 
+Orchestrator handoff (start here if you are the new Claude lead): `pwa-launch/handoff-orchestrator.md`.
+
 ## What a cloud session can and cannot do
 
 - It sees only pushed branches. The lead pushes each working branch at every checkpoint, marked
