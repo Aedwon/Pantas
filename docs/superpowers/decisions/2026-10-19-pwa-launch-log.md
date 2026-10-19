@@ -1044,3 +1044,37 @@ matches the reported total. The 150/20 split in the search summary conflicts wit
 these is published by the CSC. The UPCAT blueprint already uses reported figures, marked
 `source: reported` with a source note, as precedent. The blueprint is server content, so it can be
 changed later by upload without an app release. Proposal put to Aedwon in the reply.
+
+### October 19: staging deploy started; blocked on billing, App Check key and Cloud login
+
+Aedwon's exact comments, to the CSE proposal and the deploy request:
+
+> proceed
+
+Read as approval of both: Professional mock uses the examinee's counts (20, 55, 35, 45) marked as
+reported, with the reported 3 hours 10 minutes; Subprofessional uses an even split until a taker
+recalls its counts; and the staging deploy.
+
+Mistake recorded: the first readiness check on the Mac (relay 11079) included
+`firebase functions:secrets:get PAYMONGO_SECRET_KEY`. That command lists secret versions, but it
+should not have been run; the lead did not read its output and asked Aedwon to delete the issue
+if it shows a key. Readiness checks no longer touch secrets.
+
+Found: the web build passed no App Check provider, and every callable enforces App Check, so the
+web app could not load content. Options offered: Aedwon creates a reCAPTCHA Enterprise key in the
+console (recommended) or deploy server parts only. Aedwon's exact comment:
+
+> 1 - i give you all the authorization you need to proceed with this
+
+Lead change e3adb564 (test first): the web build attests with reCAPTCHA Enterprise when built with
+`--dart-define=APP_CHECK_WEB_SITE_KEY=...`; native unchanged.
+
+Deploy run (relay 11081, Mac, Firebase CLI as business@aedwon.com):
+
+- Created Hosting site `pantas-staging-app` (https://pantas-staging-app.web.app).
+- Firestore rules compiled and uploaded; the index deploy then failed: "Project pantas-staging has
+  billing disabled". Whether the rules release completed is unconfirmed.
+- Functions deploy failed: pantas-staging must be on the Blaze plan.
+
+Waiting on Aedwon: Blaze on pantas-staging with a budget alert; the reCAPTCHA Enterprise site key;
+Google Cloud application-default login on the Mac for the content uploader.
