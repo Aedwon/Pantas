@@ -589,3 +589,24 @@ database directly and need splitting into readers and pure functions. C7 to C10 
 weeks.
 
 Lead choice to surface to Aedwon: prepaid Monthly is 30 days and Yearly 365 days.
+
+### October 19: prepaid lengths follow the calendar
+
+Claude offered same-date renewal: Monthly ends on the same date next month (clamped to the last day
+when that date does not exist, so January 31 ends February 28 or 29), Yearly on the same date next
+year; early renewal adds one period to the current end; Weekly stays 7 days.
+
+Aedwon's exact comment:
+
+> okay yes that makes sense. also you've reset limits
+
+Decision: replaces the 30-day and 365-day lengths in the C1 ruling. Ends are computed in Philippine
+time (UTC+8).
+
+B2 and B3 status: Codex Sol's first pass split every blocker behind web and native files (native
+unchanged) and added the web scaffold, but stopped on the database: the official encrypted
+`sqlite3mc.wasm` (ChaCha20 only) refuses a key on the Dart VFS ("Encryption is not supported by the
+VFS"). Evidence: `evidence/B3-encrypted-web-db.md` on `web/pwa-foundation-r1`. A time-boxed second
+pass is checking upstream guidance and VFS wrapping before any fallback. Also stopped: Google
+sign-in on web needs its rendered button (visible change, goes to Aedwon), and Firebase web app
+config values need the console or an authorized `firebase apps:create`.

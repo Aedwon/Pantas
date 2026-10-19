@@ -26,8 +26,9 @@ parallel is built.
    gateway reads passes, and the claim refresh after payment reuses `refreshPaymentClaimToken`.
 3. **Products.** Reuse `pantas_cs_weekly`, `pantas_cs_monthly`, `pantas_cs_yearly`,
    `pantas_pass_cse_pro`, `pantas_pass_cse_sub` (tier civilService). Add a per-product web
-   price in ₱ and a prepaid length to `products.json`: weekly 7 days, monthly 30 days, yearly 365
-   days. The pass uses W3's `sittingFor` end (end of the next published sitting, Philippine time).
+   price in ₱ and a prepaid length to `products.json`: weekly 7 days; monthly to the same date next
+   month and yearly to the same date next year (Aedwon, October 19), clamped to the month's last day,
+   computed in Philippine time. The pass uses W3's `sittingFor` end (end of the next published sitting, Philippine time).
    Prices come only from `docs/pricing.md`.
 4. **Prepaid extension.** A paid grant starts at the later of now and the latest live `endsAt` of
    the same or a higher tier for that account, so buying early never wastes days. A pass is
