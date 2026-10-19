@@ -1349,3 +1349,28 @@ visual companion before W4e merges): custom setup wheels on subject rows, the "S
 unset row, the held Save with no explanation line, the grid sheet's generalized "Parts 1, 2 and 3 are
 closed" wording and its four differences from MK_Sheet, instant Previous and grid jumps, the 2.6 s
 clock restart delay on Resume, and strict back blocked with no message.
+
+### October 20: W4e visible details approved (visual companion)
+
+Shown in the visual companion, each with the builder's version and an alternative. Aedwon's exact
+picks:
+
+> W4e picks: 1A, 2A, 3B, 4A, 5B, 6A, 7B
+
+1. A: custom setup edits a subject row with a 5-row wheel that grows inside the row (300 ms);
+   questions 10 to 240 by 5, minutes 15 to 360 by 5 (as built).
+2. A: an unset pill reads "Set" (as built).
+3. B: while any row is unset, one line above the disabled Save: "Choose questions and minutes for
+   every subject." Same place and style as the approved short-subject line.
+4. A: "Parts 1, 2 and 3 are closed" for three or more closed parts (as built).
+5. B: Previous mirrors Next (incoming slides in from the left, outgoing leaves to the right; 0.38 s,
+   40 px, Cubic(0.2, 0.9, 0.3, 1)); a grid jump crossfades over 200 ms.
+6. A: after Resume, the clock restarts when the 2.6 s hourglass sequence ends (as built).
+7. B: in strict mode, Back shows a short note at the bottom of the paper: "Strict mode is on. Back
+   is off until you submit." Dark note (label color), white 12 pt text.
+
+Lead ruling (no decision needed; the approved boards already decide these): the grid sheet matches
+MK_Sheet (per-part count "13 of 60", "Opens when this part starts.", footer "Tap any question in
+this part to go to it."); Next uses the MK_Paper slide (0.38 s, 40 px, Cubic(0.2, 0.9, 0.3, 1)); the
+pause warning gets MK_PauseWarn's "Don't show this again" checkbox and stores it (today the flag is
+never set); the results page uses the MK_Results gauge (264x128, 56 pt, one decimal).
