@@ -1000,3 +1000,47 @@ Findings recorded for later tasks:
   set out with `--skip-invalid` until the E5 content fix.
 
 Pushed 4e6e41e8. Final checks on the Mac started through relay issue 11075.
+
+### October 19: Mac checks; intermittent test failures traced; CSE figures reported
+
+Mac checks of `web/pwa-staging-r1` at 4e6e41e8 (relay 11075, Flutter 3.44.6): web build ok; tsc
+clean; analyze shows only the known deprecation; `flutter test` 4,019 pass, 1 fail; emulator suite
+failed. Reruns (relay 11076 to 11078):
+
+- Emulator: with files run in parallel, `mock-paper` tests failed in two of three Mac runs ("not
+  enough questions") and a `revenuecat-passes` AC-4 test once. Run one file at a time: three of
+  three runs passed, and `mock-paper` alone passes. Cause: the files share one emulator database;
+  the interfering pair is not identified. Sampler ruled out (3,000 seeds, plus an extra pool).
+  Lead fix 51f39659: `--test-concurrency=1` for the emulator files. Cloud rerun: plain 145/145,
+  emulator 178/178, about 75 seconds.
+- Flutter: `test/tool/content_seed_writer_test.dart` ("seed_writer creates an openable content
+  database") failed once in four runs alone on the Mac, at the native sqlite open. The PWA work
+  does not touch that tool. Recorded as a pre-existing intermittent failure for a later task; it
+  is not skipped.
+
+CSE mock figures. Aedwon's exact comments:
+
+> for CSE times and items: i'm asking those who have taken it if they remember. are you able to
+> adjust this later? so that this information isn't blocking you building the things
+
+> hi there, just got a reply
+>
+> CSE Professional - total 3 hours
+>
+> 20 items gen info
+> 55 verbal
+> 35 analytical
+> 45 numerical
+>
+> they also mentioned 15 items but it was about personal things, so no need for this
+
+He also pasted a web search summary: Professional 170 items, 3 hours 10 minutes, about 20
+personal-information items and 150 test items, with per-area percentage ranges; Subprofessional
+165 items, 2 hours 40 minutes, with per-area ranges. Its sources are a Scribd upload, Facebook
+groups and review sites, not the CSC.
+
+Lead reading: the examinee's counts (155 test items plus 15 personal items) add up to 170, which
+matches the reported total. The 150/20 split in the search summary conflicts with it. None of
+these is published by the CSC. The UPCAT blueprint already uses reported figures, marked
+`source: reported` with a source note, as precedent. The blueprint is server content, so it can be
+changed later by upload without an app release. Proposal put to Aedwon in the reply.
