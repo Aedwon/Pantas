@@ -22,9 +22,15 @@ export function resourceEvent({id, type, resource, resourceId = 'x_1', livemode 
     data: {id: resourceId, type: resource, attributes}}}};
 }
 
-export function fakeClient(sessions) {
+export function fakeClient(sessions, refunds = {}) {
   const calls = [];
-  return {calls, getCheckoutSession: async id => {
+  const refundCalls = [];
+  return {calls, refundCalls, getRefund: async id => {
+    refundCalls.push(id);
+    const r = refunds[id];
+    if (!r) throw new Error('PayMongo refund read failed');
+    return r;
+  }, getCheckoutSession: async id => {
     calls.push(id);
     const s = sessions[id];
     if (!s) throw new Error('PayMongo down');

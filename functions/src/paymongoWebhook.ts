@@ -79,7 +79,7 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
     if (!duplicate.exists) {
       if (!await withinRate(deps.db, uid, now())) return 429;
       const outcome = await commitPaymongoGrant(deps.db, {uid, eventId: event.id, sessionId,
-        paymentId: paid[0].id, product}, now(), deps.catalog ?? examCatalog);
+        paymentId: paid[0].id, paidAmount: paid[0].amount, product}, now(), deps.catalog ?? examCatalog);
       if (outcome === 'noSitting') console.error('PayMongo pass paid without a published sitting', {uid, sessionId});
     }
     await copyIfPending(deps, uid);
@@ -98,29 +98,80 @@ export function paymentIdOf(data: Record<string, unknown>): string | null {
     (text(data.id)?.startsWith('pay_') ? text(data.id) : null);
 }
 
-/** payment.refund.updated also fires for refunds that are not finished. */
-function refundSucceeded(attributes: Record<string, unknown>): boolean {
-  if (attributes.status === 'succeeded') return true;
-  const refunds = Array.isArray(attributes.refunds) ? attributes.refunds : [];
-  return refunds.some(r => obj(r).status === 'succeeded' || obj(obj(r).attributes).status === 'succeeded');
+type RefundEntry = {id: string; amount: number | null; status: string | null};
+
+const validAmount = (v: unknown): v is number => typeof v === 'number' && Number.isInteger(v) && v > 0;
+
+/**
+ * Refunds named by a refund or payment resource. A refund resource is one entry; a payment
+ * resource lists its refunds, flat or under `attributes`. Missing amounts are left null.
+ */
+function refundsIn(type: string, data: Record<string, unknown>): RefundEntry[] {
+  const attributes = obj(data.attributes);
+  const entry = (id: unknown, a: Record<string, unknown>, fallback: string | null): RefundEntry | null => {
+    const refundId = text(id);
+    return refundId ? {id: refundId, amount: validAmount(a.amount) ? a.amount : null, status: text(a.status) ?? fallback} : null;
+  };
+  if (data.type === 'refund' || text(data.id)?.startsWith('ref_')) {
+    const one = entry(data.id, attributes, type === 'refund.succeeded' ? 'succeeded' : null);
+    return one ? [one] : [];
+  }
+  const list = Array.isArray(attributes.refunds) ? attributes.refunds : [];
+  return list.flatMap(r => {
+    const flat = obj(r);
+    const merged = {...obj(flat.attributes), ...Object.fromEntries(Object.entries(flat).filter(([k]) => k !== 'attributes'))};
+    const one = entry(flat.id, merged, null);
+    return one ? [one] : [];
+  });
 }
 
 async function handleRevoke(event: {id: string; type: string; data: Record<string, unknown>},
   attributes: Record<string, unknown>, deps: PaymongoWebhookDeps, now: () => number): Promise<number> {
+  void attributes;
   const paymentId = paymentIdOf(event.data);
   if (!paymentId) {
     // Fail so PayMongo retries and the log alerts; never guess which grant to revoke.
     await audit(deps.db, null, 'paymongoRevokeWithoutPayment', {eventId: event.id, type: event.type});
     return 500;
   }
-  if (event.type === 'payment.refund.updated' && !refundSucceeded(attributes)) return 200;
-  const {outcome, uid} = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type}, now());
-  if (outcome === 'unmatched') {
-    // Kept as a tombstone: if the paid event arrives later its grant is created revoked.
+  let outcome;
+  if (event.type === 'dispute.created') {
+    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true}, now());
+  } else {
+    const entries = refundsIn(event.type, event.data);
+    if (entries.length === 0) {
+      await audit(deps.db, null, 'paymongoRefundAmountUnverified', {eventId: event.id, type: event.type, paymentId,
+        why: 'no refund named in the event'});
+      return 500;
+    }
+    const refunds: {id: string; amount: number}[] = [];
+    for (const entry of entries) {
+      if (entry.status !== null && entry.status !== 'succeeded') continue;
+      if (entry.status === 'succeeded' && entry.amount !== null) {refunds.push({id: entry.id, amount: entry.amount}); continue;}
+      // The event does not settle this refund: read it from PayMongo and trust only that.
+      const fresh = await deps.client.getRefund(entry.id).catch(() => null);
+      if (!fresh || fresh.id !== entry.id || fresh.paymentId !== paymentId || !validAmount(fresh.amount)) {
+        await audit(deps.db, null, 'paymongoRefundAmountUnverified', {eventId: event.id, type: event.type, paymentId,
+          refundId: entry.id, why: fresh ? 'refund read does not match the payment or amount' : 'refund read failed'});
+        return 500;
+      }
+      if (fresh.status === 'succeeded') refunds.push({id: entry.id, amount: fresh.amount});
+      else if (event.type === 'refund.succeeded') {
+        await audit(deps.db, null, 'paymongoRefundAmountUnverified', {eventId: event.id, type: event.type, paymentId,
+          refundId: entry.id, why: `PayMongo reports status ${fresh.status}`});
+        return 500;
+      }
+    }
+    // payment.refund.updated also fires for refunds that are not finished.
+    if (refunds.length === 0) return 200;
+    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, refunds}, now());
+  }
+  if (outcome.outcome === 'unmatched') {
+    // Kept as a tombstone: the grant created by a later paid event starts revoked or shortened.
     await audit(deps.db, null, 'paymongoRevokeBeforePayment', {eventId: event.id, paymentId});
     return 200;
   }
-  if (uid) await copyIfPending(deps, uid);
+  if (outcome.uid) await copyIfPending(deps, outcome.uid);
   return 200;
 }
 

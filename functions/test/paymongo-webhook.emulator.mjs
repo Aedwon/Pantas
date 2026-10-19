@@ -230,7 +230,7 @@ test('a refund revokes the grant, recomputes the entitlement and the claims drop
   const {deps, auth} = setup(uid, 'pantas_cs_monthly');
   assert.equal(await send(paidEvent({uid, product: 'pantas_cs_monthly'}), deps), 200);
   assert.equal(auth.current().pro, true);
-  const refund = resourceEvent({id: 'evt_r1', type: 'refund.succeeded', resource: 'refund', attributes: {payment_id: 'pay_pm-refund', amount: 14900, status: 'succeeded'}});
+  const refund = resourceEvent({id: 'evt_r1', type: 'refund.succeeded', resource: 'refund', attributes: {payment_id: 'pay_pm-refund', amount: 14900, status: 'succeeded'}, resourceId: 'ref_full'});
   assert.equal(await send(refund, deps), 200);
   const [grant] = await grants(uid);
   assert.equal(grant.state, 'revoked');
@@ -261,7 +261,7 @@ test('a dispute revokes; a refund keeps other live grants, and refunds with no p
   // No payment id anywhere: 500 so PayMongo retries and the log alerts. Nothing changes.
   assert.equal(await send(resourceEvent({id: 'evt_no', type: 'refund.succeeded', resource: 'refund', attributes: {amount: 1}}), b.deps), 500);
   // A payment we have not seen yet: tombstone, 200, nothing else changes.
-  assert.equal(await send(resourceEvent({id: 'evt_un', type: 'refund.succeeded', resource: 'refund', attributes: {payment_id: 'pay_unknown'}}), b.deps), 200);
+  assert.equal(await send(resourceEvent({id: 'evt_un', type: 'refund.succeeded', resource: 'refund', attributes: {payment_id: 'pay_unknown', amount: 100}}), b.deps), 200);
   assert.equal((await entitlement(uid)).version, before);
 });
 
@@ -310,7 +310,8 @@ test('the per-account rate limit stops a flood with 429', async () => {
   assert.deepEqual(await grants(uid), []);
 });
 
-const refundOf = (id, paymentId) => resourceEvent({id, type: 'refund.succeeded', resource: 'refund', attributes: {payment_id: paymentId, status: 'succeeded'}});
+const refundOf = (id, paymentId, amount = 14900, refundId = `ref_${id}`) => resourceEvent({id, type: 'refund.succeeded', resource: 'refund',
+  resourceId: refundId, attributes: {payment_id: paymentId, amount, status: 'succeeded'}});
 const at = iso => () => ph(iso);
 
 test('two stacked months: refunding the first pulls the second forward so coverage ends one month later, not two', async () => {
@@ -355,7 +356,7 @@ test('payment.refunded with the payment as the resource revokes by data.id; pend
   const pending = resourceEvent({id: 'evt_pu1', type: 'payment.refund.updated', resource: 'refund', attributes: {payment_id: 'pay_pr', status: 'pending'}});
   assert.equal(await send(pending, a.deps), 200);
   assert.equal((await grants(uid))[0].state, 'active');
-  const payment = resourceEvent({id: 'evt_pr', type: 'payment.refunded', resource: 'payment', resourceId: 'pay_pr', attributes: {status: 'paid', refunds: [{id: 'ref_1'}]}});
+  const payment = resourceEvent({id: 'evt_pr', type: 'payment.refunded', resource: 'payment', resourceId: 'pay_pr', attributes: {status: 'paid', refunds: [{id: 'ref_1', amount: 14900, status: 'succeeded'}]}});
   assert.equal(await send(payment, a.deps), 200);
   assert.equal((await grants(uid))[0].state, 'revoked');
   assert.equal((await entitlement(uid)).pro, false);
@@ -368,8 +369,8 @@ test('payment.refund.updated succeeded revokes through either resource shape', a
     const a = setup(uid, 'pantas_cs_weekly', {sessionId: 'cs_a', paymentId});
     await send(paidEvent({id: `evt_${uid}`, sessionId: 'cs_a', uid, product: 'pantas_cs_weekly'}), a.deps);
     const event = shape === 'refund'
-      ? resourceEvent({id: `evt_u_${uid}`, type: 'payment.refund.updated', resource: 'refund', attributes: {payment_id: paymentId, status: 'succeeded'}})
-      : resourceEvent({id: `evt_u_${uid}`, type: 'payment.refund.updated', resource: 'payment', resourceId: paymentId, attributes: {refunds: [{id: 'r', attributes: {status: 'succeeded'}}]}});
+      ? resourceEvent({id: `evt_u_${uid}`, type: 'payment.refund.updated', resource: 'refund', attributes: {payment_id: paymentId, amount: 4900, status: 'succeeded'}})
+      : resourceEvent({id: `evt_u_${uid}`, type: 'payment.refund.updated', resource: 'payment', resourceId: paymentId, attributes: {refunds: [{id: 'r', attributes: {status: 'succeeded', amount: 4900}}]}});
     assert.equal(await send(event, a.deps), 200);
     assert.equal((await grants(uid))[0].state, 'revoked', uid);
   }
@@ -431,4 +432,173 @@ test('a revoked-at-birth grant does not hold up the stack and never extends a la
   const rows = Object.fromEntries((await grants(uid)).map(g => [g.id, g]));
   assert.equal(rows.pay_live.startsAt, live.now);
   assert.equal((await entitlement(uid)).pro, true);
+});
+
+// ---- partial refunds shorten the grant in proportion to the refunded share ----
+const T0 = ph('2026-10-20T10:00:00+08:00');
+const MONTH = ph('2026-11-20T10:00:00+08:00') - T0;           // 31 days
+const REFUND_AT = at('2026-10-30T09:00:00+08:00');
+async function buyMonthly(uid, paymentId, now = T0, sessionId = 'cs_pm') {
+  await reset(uid);
+  const s = setup(uid, 'pantas_cs_monthly', {sessionId, paymentId, now});
+  assert.equal(await send(paidEvent({id: `evt_buy_${paymentId}`, sessionId, uid, product: 'pantas_cs_monthly'}), s.deps), 200);
+  return s;
+}
+const grantOf = async (uid, id) => (await db.doc(`users/${uid}/grants/${id}`).get()).data();
+
+test('a 50% refund of a monthly halves its length from startsAt and stores the paid amount and refund', async () => {
+  const uid = 'pm-part-50';
+  const s = await buyMonthly(uid, 'pay_p50');
+  assert.equal(await send(refundOf('evt_p50', 'pay_p50', 7450, 'ref_a'), {...s.deps, now: REFUND_AT}), 200);
+  const g = await grantOf(uid, 'pay_p50');
+  assert.equal(g.state, 'active');
+  assert.equal(g.paidAmount, 14900);
+  assert.deepEqual(g.refunds, {ref_a: 7450});
+  assert.equal(g.startsAt, T0);
+  assert.equal(g.endsAt, T0 + Math.floor(MONTH / 2 / 1000) * 1000);
+  const record = await entitlement(uid);
+  assert.equal(record.proUntil, g.endsAt + 86400000);
+  assert.equal(s.auth.current().proUntil, record.proUntil);
+});
+
+test('two 25% refunds add up to one 50% refund', async () => {
+  const uid = 'pm-part-25x2';
+  const s = await buyMonthly(uid, 'pay_p25');
+  assert.equal(await send(refundOf('evt_p25a', 'pay_p25', 3725, 'ref_a'), {...s.deps, now: REFUND_AT}), 200);
+  assert.equal(await send(refundOf('evt_p25b', 'pay_p25', 3725, 'ref_b'), {...s.deps, now: REFUND_AT}), 200);
+  const g = await grantOf(uid, 'pay_p25');
+  assert.equal(g.endsAt, T0 + Math.floor(MONTH / 2 / 1000) * 1000);
+  assert.deepEqual(g.refunds, {ref_a: 3725, ref_b: 3725});
+});
+
+test('the same refund replayed, or reported by a second event, changes nothing', async () => {
+  const uid = 'pm-part-replay';
+  const s = await buyMonthly(uid, 'pay_prp');
+  const deps = {...s.deps, now: REFUND_AT};
+  assert.equal(await send(refundOf('evt_rp1', 'pay_prp', 7450, 'ref_a'), deps), 200);
+  const before = {g: await grantOf(uid, 'pay_prp'), r: await entitlement(uid)};
+  assert.equal(await send(refundOf('evt_rp1', 'pay_prp', 7450, 'ref_a'), deps), 200);
+  // Another event carrying the same refund (payment.refunded after refund.succeeded).
+  const again = resourceEvent({id: 'evt_rp2', type: 'payment.refunded', resource: 'payment', resourceId: 'pay_prp',
+    attributes: {status: 'paid', refunds: [{id: 'ref_a', amount: 7450, status: 'succeeded'}]}});
+  assert.equal(await send(again, deps), 200);
+  assert.deepEqual(await grantOf(uid, 'pay_prp'), before.g);
+  assert.equal((await entitlement(uid)).proUntil, before.r.proUntil);
+});
+
+test('a partial refund followed by a refund that completes the payment revokes the grant', async () => {
+  const uid = 'pm-part-full';
+  const s = await buyMonthly(uid, 'pay_pfl');
+  const deps = {...s.deps, now: REFUND_AT};
+  await send(refundOf('evt_pf1', 'pay_pfl', 7450, 'ref_a'), deps);
+  assert.equal((await grantOf(uid, 'pay_pfl')).state, 'active');
+  await send(refundOf('evt_pf2', 'pay_pfl', 7450, 'ref_b'), deps);
+  const g = await grantOf(uid, 'pay_pfl');
+  assert.equal(g.state, 'revoked');
+  assert.equal((await entitlement(uid)).pro, false);
+  assert.equal(s.auth.current().pro, false);
+});
+
+test('a dispute still revokes the whole grant, even after a partial refund', async () => {
+  const uid = 'pm-part-dispute';
+  const s = await buyMonthly(uid, 'pay_pdp');
+  const deps = {...s.deps, now: REFUND_AT};
+  await send(refundOf('evt_pd1', 'pay_pdp', 1490, 'ref_a'), deps);
+  assert.equal((await grantOf(uid, 'pay_pdp')).state, 'active');
+  assert.equal(await send(resourceEvent({id: 'evt_pd2', type: 'dispute.created', resource: 'dispute', attributes: {payment_id: 'pay_pdp'}}), deps), 200);
+  assert.equal((await grantOf(uid, 'pay_pdp')).state, 'revoked');
+  assert.equal((await entitlement(uid)).pro, false);
+});
+
+test('a partial refund of the first of two stacked grants pulls the second earlier by the removed time', async () => {
+  const uid = 'pm-part-stack';
+  await reset(uid);
+  const a = setup(uid, 'pantas_cs_monthly', {sessionId: 'cs_a', paymentId: 'pay_psa', now: T0});
+  const b = setup(uid, 'pantas_cs_monthly', {sessionId: 'cs_b', paymentId: 'pay_psb', now: ph('2026-10-25T09:00:00+08:00')});
+  await send(paidEvent({id: 'evt_psa', sessionId: 'cs_a', uid, product: 'pantas_cs_monthly'}), a.deps);
+  await send(paidEvent({id: 'evt_psb', sessionId: 'cs_b', uid, product: 'pantas_cs_monthly'}), b.deps);
+  const bBefore = await grantOf(uid, 'pay_psb');
+  assert.equal(bBefore.startsAt, T0 + MONTH);
+  assert.equal(await send(refundOf('evt_psr', 'pay_psa', 7450, 'ref_a'), {...a.deps, now: REFUND_AT}), 200);
+  const removed = MONTH - Math.floor(MONTH / 2 / 1000) * 1000;
+  const aAfter = await grantOf(uid, 'pay_psa');
+  const bAfter = await grantOf(uid, 'pay_psb');
+  assert.equal(aAfter.endsAt, T0 + MONTH - removed);
+  assert.equal(bAfter.startsAt, aAfter.endsAt);
+  assert.equal(bBefore.startsAt - bAfter.startsAt, removed);
+  assert.equal(bAfter.endsAt, ph('2026-12-04T22:00:00+08:00'));
+  assert.equal((await entitlement(uid)).proUntil, bAfter.endsAt + 86400000);
+});
+
+test('a partial refund arriving before the paid event: the grant is born already shortened', async () => {
+  const uid = 'pm-part-early';
+  await reset(uid);
+  const s = setup(uid, 'pantas_cs_monthly', {sessionId: 'cs_e', paymentId: 'pay_pe'});
+  assert.equal(await send(refundOf('evt_pe1', 'pay_pe', 7450, 'ref_a'), s.deps), 200);
+  assert.equal((await db.doc('paymongoRevocations/pay_pe').get()).get('refunds').ref_a, 7450);
+  // A second partial refund before the payment adds to the tombstone; a replay does not.
+  assert.equal(await send(refundOf('evt_pe2', 'pay_pe', 1490, 'ref_b'), s.deps), 200);
+  assert.equal(await send(refundOf('evt_pe2', 'pay_pe', 1490, 'ref_b'), s.deps), 200);
+  assert.deepEqual((await db.doc('paymongoRevocations/pay_pe').get()).get('refunds'), {ref_a: 7450, ref_b: 1490});
+  assert.equal(await send(paidEvent({id: 'evt_pe3', sessionId: 'cs_e', uid, product: 'pantas_cs_monthly'}), s.deps), 200);
+  const g = await grantOf(uid, 'pay_pe');
+  assert.equal(g.state, 'active');
+  assert.deepEqual(g.refunds, {ref_a: 7450, ref_b: 1490});
+  assert.equal(g.endsAt, T0 + Math.floor(MONTH * (14900 - 8940) / 14900 / 1000) * 1000);
+  assert.equal((await entitlement(uid)).proUntil, g.endsAt + 86400000);
+});
+
+test('refunds that already cover the payment before the paid event give a revoked grant', async () => {
+  const uid = 'pm-part-early-full';
+  await reset(uid);
+  const s = setup(uid, 'pantas_cs_monthly', {sessionId: 'cs_e', paymentId: 'pay_pef'});
+  await send(refundOf('evt_pef1', 'pay_pef', 7450, 'ref_a'), s.deps);
+  await send(refundOf('evt_pef2', 'pay_pef', 7450, 'ref_b'), s.deps);
+  assert.equal(await send(paidEvent({id: 'evt_pef3', sessionId: 'cs_e', uid, product: 'pantas_cs_monthly'}), s.deps), 200);
+  assert.equal((await grantOf(uid, 'pay_pef')).state, 'revoked');
+  assert.notEqual((await entitlement(uid))?.pro, true);
+});
+
+test('a refund without an amount is re-read from PayMongo; an untrustworthy re-read returns 500 with an audit row', async () => {
+  const uid = 'pm-part-api';
+  const s = await buyMonthly(uid, 'pay_pap');
+  const noAmount = id => resourceEvent({id, type: 'refund.succeeded', resource: 'refund', resourceId: 'ref_api',
+    attributes: {payment_id: 'pay_pap'}});
+  const good = {id: 'ref_api', amount: 7450, status: 'succeeded', paymentId: 'pay_pap'};
+  const bad = {...s.deps, now: REFUND_AT, client: fakeClient({}, {})};
+  assert.equal(await send(noAmount('evt_api0'), bad), 500);
+  for (const [i, wrong] of [{...good, paymentId: 'pay_other'}, {...good, status: 'pending'}, {...good, amount: 0}, {...good, id: 'ref_zzz'}].entries()) {
+    const deps = {...s.deps, now: REFUND_AT, client: fakeClient({}, {ref_api: wrong})};
+    assert.equal(await send(noAmount(`evt_api_bad${i}`), deps), 500, JSON.stringify(wrong));
+  }
+  assert.deepEqual(await grantOf(uid, 'pay_pap').then(g => g.refunds ?? {}), {});
+  const ok = {...s.deps, now: REFUND_AT, client: fakeClient({}, {ref_api: good})};
+  assert.equal(await send(noAmount('evt_api1'), ok), 200);
+  assert.deepEqual(ok.client.refundCalls, ['ref_api']);
+  assert.deepEqual((await grantOf(uid, 'pay_pap')).refunds, {ref_api: 7450});
+  const audits = (await db.collection('audit_logs').where('event', '==', 'paymongoRefundAmountUnverified').get()).size;
+  assert.ok(audits >= 5);
+});
+
+test('a payment.refunded payload with several refunds applies each once; one without refund details is re-read or fails', async () => {
+  const uid = 'pm-part-multi';
+  const s = await buyMonthly(uid, 'pay_pmu');
+  const deps = {...s.deps, now: REFUND_AT};
+  const event = resourceEvent({id: 'evt_mu1', type: 'payment.refunded', resource: 'payment', resourceId: 'pay_pmu',
+    attributes: {status: 'paid', refunds: [{id: 'ref_a', amount: 3725, status: 'succeeded'}, {id: 'ref_b', attributes: {amount: 3725, status: 'succeeded'}}, {id: 'ref_c', amount: 100, status: 'pending'}]}});
+  assert.equal(await send(event, deps), 200);
+  assert.deepEqual((await grantOf(uid, 'pay_pmu')).refunds, {ref_a: 3725, ref_b: 3725});
+  const empty = resourceEvent({id: 'evt_mu2', type: 'payment.refunded', resource: 'payment', resourceId: 'pay_pmu', attributes: {status: 'paid'}});
+  assert.equal(await send(empty, deps), 500);
+});
+
+test('a refund against an ended grant only records the refund', async () => {
+  const uid = 'pm-part-ended';
+  const s = await buyMonthly(uid, 'pay_pen');
+  const g0 = await grantOf(uid, 'pay_pen');
+  assert.equal(await send(refundOf('evt_pen', 'pay_pen', 7450, 'ref_a'), {...s.deps, now: at('2026-12-25T09:00:00+08:00')}), 200);
+  const g = await grantOf(uid, 'pay_pen');
+  assert.equal(g.endsAt, g0.endsAt);
+  assert.deepEqual(g.refunds, {ref_a: 7450});
+  assert.equal(g.state, 'active');
 });

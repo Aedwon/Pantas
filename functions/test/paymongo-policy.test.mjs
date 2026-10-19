@@ -208,3 +208,29 @@ test('replan: passes and other tiers are never moved', () => {
   assert.equal(out.get('pass').startsAt, t0 + 30 * DAY);
   assert.equal(out.get('stu').startsAt, t0 + 30 * DAY);
 });
+
+import {applyRefund, shortenedEnd} from '../lib/paymongoGrants.js';
+
+test('shortenedEnd: proportional from startsAt, rounded down to the second, additive not compounding', () => {
+  const s = ph('2026-10-20T10:00:00+08:00'), e = s + 31 * DAY;
+  assert.equal(shortenedEnd(s, e, 0, 14900), e);
+  assert.equal(shortenedEnd(s, e, 7450, 14900), s + 15.5 * DAY);
+  assert.equal(shortenedEnd(s, e, 3725 + 3725, 14900), shortenedEnd(s, e, 7450, 14900));
+  assert.equal(shortenedEnd(s, s + 1000, 1, 3) % 1000, s % 1000);
+  assert.ok(shortenedEnd(s, e, 1, 14900) < e);
+});
+
+test('applyRefund: partial shortens, repeat id is a no-op, cumulative full revokes, ended grants only record', () => {
+  const s = ph('2026-10-20T10:00:00+08:00');
+  const g = {...row(s, s + 31 * DAY), paidAmount: 14900};
+  const a = applyRefund(g, 'r1', 7450, s + 10 * DAY);
+  assert.equal(a.endsAt, s + 15.5 * DAY);
+  assert.deepEqual(a.refunds, {r1: 7450});
+  assert.equal(applyRefund(a, 'r1', 7450, s + 10 * DAY), a);
+  assert.equal(applyRefund(a, 'r2', 7450, s + 11 * DAY).state, 'revoked');
+  const ended = applyRefund(g, 'r1', 7450, s + 40 * DAY);
+  assert.equal(ended.endsAt, g.endsAt);
+  assert.deepEqual(ended.refunds, {r1: 7450});
+  // Without a stored paid amount the web price is used.
+  assert.equal(applyRefund(row(s, s + 31 * DAY), 'r1', 14900, s + DAY).state, 'revoked');
+});

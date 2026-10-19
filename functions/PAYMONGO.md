@@ -50,11 +50,31 @@ What the code does:
 - If the payment id is valid but no grant exists yet, a tombstone `paymongoRevocations/{paymentId}`
   is written (server-only). The later paid event creates the grant already revoked, with an
   `audit_logs` row (`paymongoGrantBornRevoked`).
-- A partial refund revokes the whole grant. This is the C1 ruling choice (no partial-day math);
-  Aedwon to confirm.
+- Partial refunds (Aedwon's decision, decision log "partial refunds shorten access
+  proportionally"): the grant stores `paidAmount` (centavos) and `refunds` keyed by refund id. New
+  length is the original length times (1 - refunded/paid), measured from `startsAt` and rounded
+  down to the second (`fullEndsAt` keeps the unrefunded end). Several refunds add up, the same
+  refund id twice changes nothing, and refunds totaling at least the amount paid revoke the
+  grant. A grant that already ended only records the refund. Later stacked grants are re-planned
+  as for a revoke. A dispute revokes the whole grant.
+- The refund amount comes from the event payload when it is a positive integer and the status is
+  succeeded. Otherwise the refund is read from PayMongo (`GET /v1/refunds/{id}`, see below) and
+  only that is trusted: it must have the same id and `payment_id`, a positive integer amount and
+  (for `refund.succeeded`) status `succeeded`. If it cannot be read or does not match, the webhook
+  writes an audit row (`paymongoRefundAmountUnverified`) and returns 500.
+- The tombstone carries the refund map and a dispute flag, so a grant created later is born
+  shortened, or revoked when the refunds cover the payment or a dispute was recorded.
 - Revoking a grant moves later stacked grants of the same account and tier that have not started
   earlier, in the same transaction, keeping each length. A grant covers only
   `[startsAt, endsAt)`.
+
+Retrieve a refund: https://docs.paymongo.com/reference/retrieve-a-refund.md (updatedAt
+2026-10-14) documents `GET /refunds/{id}` on server `https://api.paymongo.com`, Basic auth, response
+`data.id` (`ref_...`), `data.type` `refund`, `data.attributes.amount` (centavos),
+`payment_id`, `status` (sample `succeeded`). The page shows the path without a version prefix; the
+create-refund example on https://docs.paymongo.com/docs/payment-acceptance-refunds.md uses
+`/v1/refunds`, so the client calls `/v1/refunds/{id}` (version prefix UNCONFIRMED for retrieve).
+Refund resource: https://docs.paymongo.com/reference/refund-resource.md.
 
 ## UNCONFIRMED (designed defensively)
 

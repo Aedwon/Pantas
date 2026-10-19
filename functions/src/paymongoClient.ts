@@ -8,7 +8,9 @@ export interface PaymongoPayment {id: string; amount: number; currency: string; 
 export interface PaymongoCheckoutSession {
   id: string; metadata: Record<string, string>; payments: PaymongoPayment[];
 }
+export interface PaymongoRefund {id: string; amount: number; status: string; paymentId: string}
 export interface PaymongoClient {
+  getRefund(id: string): Promise<PaymongoRefund>;
   createCheckoutSession(input: CheckoutSessionInput): Promise<{id: string; checkoutUrl: string}>;
   getCheckoutSession(id: string): Promise<PaymongoCheckoutSession>;
 }
@@ -41,6 +43,15 @@ export function httpPaymongoClient(secretKey: string, fetchImpl: Fetch = fetch a
         throw new Error('PayMongo checkout create returned no checkout URL');
       }
       return {id: data.id, checkoutUrl: url};
+    },
+    async getRefund(id) {
+      if (!/^[A-Za-z0-9_]+$/.test(id)) throw new Error('Invalid refund id');
+      const response = await fetchImpl(`${API}/v1/refunds/${id}`, {method: 'GET', headers});
+      if (!response.ok) throw new Error(`PayMongo refund read failed: ${response.status}`);
+      const data = obj(obj(await response.json()).data);
+      const a = obj(data.attributes);
+      if (data.id !== id) throw new Error('PayMongo returned a different refund');
+      return {id, amount: Number(a.amount), status: String(a.status ?? ''), paymentId: String(a.payment_id ?? '')};
     },
     async getCheckoutSession(id) {
       if (!/^[A-Za-z0-9_]+$/.test(id)) throw new Error('Invalid checkout session id');

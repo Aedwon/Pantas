@@ -42,3 +42,15 @@ test('session read parses metadata and payments, falls back to the nested intent
   await assert.rejects(httpPaymongoClient('k', async () => ({ok: true, status: 200, json: async () => ({data: {id: 'cs_other', attributes: {}}})})).getCheckoutSession('cs_1'));
   await assert.rejects(httpPaymongoClient('k', async () => ({ok: false, status: 404})).getCheckoutSession('cs_1'));
 });
+
+test('refund read calls GET /v1/refunds/{id} and parses amount, status and payment id', async () => {
+  let call;
+  const client = httpPaymongoClient('k', async (url, init) => {call = {url, init};
+    return {ok: true, status: 200, json: async () => ({data: {id: 'ref_1', type: 'refund', attributes: {amount: 5000, status: 'succeeded', payment_id: 'pay_9'}}})};});
+  assert.deepEqual(await client.getRefund('ref_1'), {id: 'ref_1', amount: 5000, status: 'succeeded', paymentId: 'pay_9'});
+  assert.equal(call.url, 'https://api.paymongo.com/v1/refunds/ref_1');
+  assert.equal(call.init.method, 'GET');
+  await assert.rejects(client.getRefund('../x'));
+  await assert.rejects(httpPaymongoClient('k', async () => ({ok: true, status: 200, json: async () => ({data: {id: 'ref_2', attributes: {}}})})).getRefund('ref_1'));
+  await assert.rejects(httpPaymongoClient('k', async () => ({ok: false, status: 404})).getRefund('ref_1'));
+});

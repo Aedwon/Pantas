@@ -8,6 +8,12 @@ export interface Grant {
   startsAt: number;
   endsAt: number;
   paymentId?: string;
+  /** Centavos paid (paymongo only). Needed to size partial refunds. */
+  paidAmount?: number;
+  /** Refund id to centavos. Keyed by id so a replayed refund changes nothing. */
+  refunds?: Record<string, number>;
+  /** End before any refund; endsAt is this shortened by the refunded share. */
+  fullEndsAt?: number;
   state: 'active' | 'revoked';
   createdAt: number;
 }
