@@ -656,3 +656,18 @@ retries. Lead reran: plain 107/107, emulator 131/131, tsc clean, Dart products t
 
 Open for Aedwon: a partial refund currently revokes the whole grant (ruling choice). Not verified:
 any live or test-mode PayMongo call; that waits for the PayMongo account and test keys.
+
+### October 19: partial refunds shorten access proportionally
+
+Options offered: any refund revokes the whole grant, or only a full refund revokes.
+
+Aedwon's exact comment:
+
+> partial refunds are a thing? i assume this is a paymongo thing right? if so, yes it should revoke
+> the pro commensurately
+
+Decision: a partial refund shortens the grant in proportion to the refunded share of the amount
+paid (for example, half refunded removes half the grant's length); several partial refunds add up;
+a full refund revokes. Later stacked grants move earlier to close the gap. A dispute (chargeback)
+still revokes the whole grant. Context given: only the merchant (Aedwon) issues refunds, from the
+PayMongo dashboard or API; a student cannot trigger one, apart from a bank dispute.
