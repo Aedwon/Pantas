@@ -231,6 +231,26 @@ entitlement path as C4 with source `trial`. The trial check reuses W3's trial-el
 an account that ever had a trial or paid access gets none. Started from the Pro page; ends without
 charge. New Google accounts are an accepted risk, as in the tier spec.
 
+C7. **Pro content served per request (October 19, Aedwon: option 2).** Goal: bulk copying is slow
+and needs a paid account; it cannot be prevented.
+- Lead first finds the approved split of free versus Pro content (paywall and tier records). If no
+  record defines it, ask Aedwon before building. Do not invent the split.
+- The bundled seed database (web and mobile) holds free content only. Pro content is uploaded to
+  Firestore by the content build (Lane E7), one document per question set or lesson, so one
+  student action costs one read.
+- A callable function returns one set or lesson after checking sign-in, the `pro` grant (paid or
+  trial), App Check, and a per-account daily limit using the W6 limit pattern. The limit is set
+  well above real study use; the lead proposes the number from the curriculum size.
+- Firestore rules deny direct client reads of the Pro collection.
+- The client caches each opened item in the encrypted app database (B3), so it works offline after
+  the first open and is cleared when Pro ends or the student signs out.
+- W4 screens keep reading through the existing content repository interface; the repository falls
+  back to the server for Pro items. Lead checks W4c, W4d and W4e callers for any assumption that all
+  content is local before building, and orders this with the integration owner.
+- Tests: free user refused, Pro user served, limit reached, App Check missing, rules deny direct
+  reads, cache cleared on sign-out and on expiry.
+Estimate: about 3 to 5 days.
+
 Verification: Functions plain and emulator suites full pass; lead reviews the diff line by line;
 `firestore.rules` unchanged or reviewed; Aedwon completes one test-mode purchase on staging.
 

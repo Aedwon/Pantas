@@ -376,3 +376,21 @@ Results:
   `assets/seed/content.db`, on Android today and on web as planned. The old `getProContent`
   function (Sanity query stub) is gone from `integration/new-design-r1`, so no content is served
   per request. Options offered in the reply; awaiting a choice.
+
+### October 19: Pro content served per request
+
+Options offered: (1) keep shipping the whole corpus in the app, fastest and fully offline, but one
+download copies everything; (2) ship free content in the app and serve Pro content item by item
+from Firebase after a Pro check with per-account limits, so bulk copying is slow and needs a paid
+account, at about 3 to 5 days of work and some Firestore reads. Recommended: 2. The Mac is not
+needed for either.
+
+Aedwon's exact comment:
+
+> go with 2 thanks. that's alright I know things cannot be fully stopped. I just want to make them
+> work hard the same way I worked hard for the content haha either way it's better if they put
+> that effort into making their own anyway
+
+Decision: option 2. The goal is to make bulk copying slow and costly, not impossible. Added as plan
+task C7. The free and Pro split of content must come from an approved record; `docs/pricing.md`
+does not define it.
