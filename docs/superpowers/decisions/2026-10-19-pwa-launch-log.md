@@ -253,3 +253,23 @@ questions keep agent verification (multi-agent checks and scripts). The open Lev
 answered: Level 4 is not replaced.
 
 Still open: whether lessons keep the deterministic format validators (Claude recommends yes).
+
+### October 19: format checks kept; implementation plan written
+
+Aedwon's exact comment:
+
+> Keep the low-cost format checks for lessons. Write the full PWA implementation plan now,
+> including audit, rewrite and QA, W4 sequencing, and model routing.
+
+Decision: rewritten lessons keep the deterministic format gates (`python3 tools/audit/run_all.py`
+and the content import) before Aedwon's QA.
+
+What changed: `docs/superpowers/plans/2026-10-19-pwa-launch.md` added. It sequences Lane A
+(finish W4, adjusted for the PWA), Lane B (web foundation and speed), Lane C (PayMongo), Lane E
+(CSE audit, rewrite, QA) and Lane L (launch hardening). Facts came from a read-only Haiku crawl.
+
+Revision to the spec estimate: the spec's 2 to 3 weeks assumed the current screens. Shipping on the
+finished new design makes W4 the critical path. The plan estimates about 4 weeks if W4 runs in
+parallel lanes (plan decision D2), and about 3 weeks more if W4 stays serial.
+
+Open decisions D1 to D9 are listed in plan Part A with recommendations. None is answered yet.
