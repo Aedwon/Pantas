@@ -68,9 +68,8 @@ RoadmapInputs rich({
   return RoadmapInputs(
     today: today,
     examId: 'exam_upcat',
-    examDate: noExam
-        ? null
-        : (examDate ?? ExamDate.onDay(DateTime(2026, 12, 7))),
+    examDate:
+        noExam ? null : (examDate ?? ExamDate.onDay(DateTime(2026, 12, 7))),
     topics: topics,
     prerequisites: prerequisites ??
         {
@@ -218,7 +217,9 @@ Map<String, Object?> _mockScenarios() {
       'seed': 99,
     },
     'short_pool': {
-      'sectionsJson': _sections([section('s1', 30, ['topic_c', 'topic_a'])]),
+      'sectionsJson': _sections([
+        section('s1', 30, ['topic_c', 'topic_a'])
+      ]),
       'poolsByTopic': pools,
       'passageSetsByTopic': null,
       'recentlySampledQuestionIds': <String>[],

@@ -5,7 +5,7 @@
 // Usage: node upload_content.mjs [--root content] [--dry-run] [--live] [--project ID] [--skip-invalid]
 // Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given.
 // Build the functions first (npm --prefix functions run build): this reads functions/lib.
-import {readdirSync, readFileSync, statSync} from 'node:fs';
+import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {createRequire} from 'node:module';
 import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
@@ -38,7 +38,7 @@ if (!process.env.FIRESTORE_EMULATOR_HOST && !live && !dryRun) {
   process.exit(2);
 }
 
-const {lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const {blueprintItem, lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -62,6 +62,12 @@ for (const file of walk(questionsRoot, '.yaml')) {
   } catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
 }
 
+const mockRoot = join(root, 'mock');
+for (const file of existsSync(mockRoot) ? walk(mockRoot, '.yaml') : []) {
+  try { items.push(blueprintItem(parse(readFileSync(file, 'utf8')))); }
+  catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
+}
+
 const ids = new Set();
 for (const item of items) {
   const key = `${item.kind}/${item.id}`;
@@ -75,6 +81,7 @@ if (invalid.length > 0) {
 
 console.log(`lessons: ${items.filter(i => i.kind === 'lessons').length}`);
 console.log(`question sets: ${items.filter(i => i.kind === 'questions').length}`);
+console.log(`mock blueprints: ${items.filter(i => i.kind === 'mocks').length}`);
 console.log(`pro documents: ${pros.length}`);
 
 if (dryRun && !process.env.FIRESTORE_EMULATOR_HOST) {

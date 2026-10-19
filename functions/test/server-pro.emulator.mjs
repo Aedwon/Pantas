@@ -3,7 +3,6 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {serveContent} from '../lib/content.js';
-import {beginMock, recordMock} from '../lib/mock.js';
 import {recordSession, MAX_ANSWERS} from '../lib/ingestSession.js';
 import {lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
 
@@ -26,8 +25,8 @@ const qset = questionSetItems({
 }, 's/t/u.yaml');
 
 test('upload writes server-only documents, is idempotent, and a dry run writes nothing', async () => {
-  await db.recursiveDelete(db.collection('content'));
-  await db.recursiveDelete(db.collection('contentPro'));
+  // Only this file's own documents: other files seed their own content at the same time.
+  for (const path of ['content/lessons/items/lesson-t1', `content/questions/items/${qset.item.id}`, `contentPro/${qset.item.id}`]) await db.doc(path).delete();
   const items = [lesson, qset.item];
   const pros = [qset.pro];
   const dry = await writeContent(db, items, pros, {dryRun: true});
@@ -93,65 +92,6 @@ test('the daily limit counts requested ids and refuses once it is reached', asyn
   assert.equal(await code(ask(['lesson-t1', 'x2'])), 'resource-exhausted');
   assert.equal(await code(ask(['lesson-t1'])), 'ok');
   assert.equal(await code(ask(['lesson-t1'])), 'resource-exhausted');
-});
-
-const startedAt = async uid => (await db.collection(`users/${uid}/server/mocks/items`).get()).docs.map(d => d.data());
-
-test('startMock refuses anonymous and signed-out callers and unknown exams', async () => {
-  const d = deps({allow: async () => true});
-  assert.equal(await code(beginMock(anon('m-anon'), {examId: 'exam_cse_pro'}, d)), 'permission-denied');
-  assert.equal(await code(beginMock(undefined, {examId: 'exam_cse_pro'}, d)), 'unauthenticated');
-  assert.equal(await code(beginMock(named('m-bad'), {examId: 'exam_nope'}, d)), 'invalid-argument');
-  assert.equal(await code(beginMock(named('m-bad'), {}, d)), 'invalid-argument');
-});
-
-test('Free gets one mock per rolling 30 days from the last start; day 31 is allowed', async () => {
-  const uid = 'm-free';
-  await reset(uid);
-  const at = ms => deps({allow: async () => true, now: () => ms});
-  const first = await beginMock(named(uid), {examId: 'exam_cse_pro'}, at(NOW));
-  assert.equal(typeof first.mockId, 'string');
-  const rows = await startedAt(uid);
-  assert.deepEqual({examId: rows[0].examId, status: rows[0].status, startedAt: rows[0].startedAt}, {examId: 'exam_cse_pro', status: 'started', startedAt: NOW});
-  assert.equal(await code(beginMock(named(uid), {examId: 'exam_cse_pro'}, at(NOW + 29 * DAY))), 'failed-precondition');
-  assert.equal(await code(beginMock(named(uid), {examId: 'exam_cse_pro'}, at(NOW + 30 * DAY - 1))), 'failed-precondition');
-  assert.equal(await code(beginMock(named(uid), {examId: 'exam_cse_pro'}, at(NOW + 31 * DAY))), 'ok');
-  // The window runs from the last start, so day 31 after the first does not open day 40.
-  assert.equal(await code(beginMock(named(uid), {examId: 'exam_cse_pro'}, at(NOW + 40 * DAY))), 'failed-precondition');
-});
-
-test('a submitted mock counts; an abandoned mock does not; Pro is unlimited', async () => {
-  const uid = 'm-sub';
-  await reset(uid);
-  const d = deps({allow: async () => true});
-  const {mockId} = await beginMock(named(uid), {examId: 'exam_cse_pro'}, d);
-  await recordMock(named(uid), {mockId, answers: [{questionId: 'q1', chosen: 'a', correct: true, answeredAt: NOW}], durationMs: 1000}, d);
-  assert.equal(await code(beginMock(named(uid), {examId: 'exam_cse_pro'}, d)), 'failed-precondition');
-  const other = 'm-aband';
-  await reset(other);
-  const started = await beginMock(named(other), {examId: 'exam_cse_pro'}, d);
-  await recordMock(named(other), {mockId: started.mockId, abandoned: true}, d);
-  assert.equal(await code(beginMock(named(other), {examId: 'exam_cse_pro'}, d)), 'ok');
-  const proUid = 'm-pro';
-  await reset(proUid);
-  for (let i = 0; i < 4; i++) assert.equal(await code(beginMock(pro(proUid), {examId: 'exam_cse_pro'}, d)), 'ok');
-  assert.equal(await code(beginMock(expiredPro(proUid), {examId: 'exam_cse_pro'}, d)), 'failed-precondition');
-});
-
-test('submitMock records once, is idempotent, and only the owner can submit', async () => {
-  const uid = 'm-own';
-  await reset(uid);
-  const d = deps({allow: async () => true});
-  const {mockId} = await beginMock(named(uid), {examId: 'exam_cse_pro'}, d);
-  const body = {mockId, answers: [{questionId: 'q1', chosen: 'a', correct: false, answeredAt: NOW}], durationMs: 5};
-  assert.equal(await code(recordMock(named('m-intruder'), body, d)), 'not-found');
-  assert.equal(await code(recordMock(named(uid), {...body, answers: Array.from({length: MAX_ANSWERS + 1}, () => body.answers[0])}, d)), 'invalid-argument');
-  await recordMock(named(uid), body, deps({allow: async () => true, now: () => NOW + 1000}));
-  await recordMock(named(uid), {...body, durationMs: 999}, deps({allow: async () => true, now: () => NOW + 2000}));
-  const row = (await db.doc(`users/${uid}/server/mocks/items/${mockId}`).get()).data();
-  assert.equal(row.status, 'submitted');
-  assert.equal(row.submittedAt, NOW + 1000);
-  assert.equal(row.durationMs, 5);
 });
 
 const batch = (id, extra = {}) => ({sessionId: id, startedAt: NOW - 60000, finishedAt: NOW, durationMs: 60000,

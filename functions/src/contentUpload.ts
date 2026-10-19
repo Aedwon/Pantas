@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 import type {Firestore} from 'firebase-admin/firestore';
 
-export type ContentKind = 'lessons' | 'questions';
+export type ContentKind = 'lessons' | 'questions' | 'mocks';
 export type ContentItem = {kind: ContentKind; id: string; data: Record<string, unknown> & {version: string}};
 export type ProItem = {id: string; data: Record<string, unknown> & {version: string}};
 export type PlanCounts = {create: number; update: number; unchanged: number};
@@ -27,6 +27,20 @@ export function lessonItem(front: Record<string, unknown>, body: string): Conten
     topic: front.topic ?? null, estimatedMinutes: front.estimatedMinutes ?? null, body,
   };
   return {kind: 'lessons', id, data: {kind: 'lessons', id, ...fields, version: digest(fields)}};
+}
+
+/**
+ * One mock blueprint, stored at `content/mocks/items/{examId}`. The server reads it to assemble papers;
+ * `getContent` does not serve it. Sections are kept as the JSON string the Dart sampler parses.
+ */
+export function blueprintItem(doc: Record<string, unknown>): ContentItem {
+  const examId = String(doc.exam ?? '');
+  if (!examId || !Array.isArray(doc.sections) || doc.sections.length < 1) throw new Error('blueprint needs exam and sections');
+  const fields = {
+    name: doc.name ?? null, durationMinutes: doc.durationMinutes ?? null,
+    sectionalTiming: doc.sectionalTiming ?? null, sectionsJson: JSON.stringify(doc.sections),
+  };
+  return {kind: 'mocks', id: examId, data: {kind: 'mocks', id: examId, ...fields, version: digest(fields)}};
 }
 
 export type QuestionSource = {meta: Record<string, unknown>; questions: Record<string, unknown>[]};
@@ -81,7 +95,7 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
   options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number}> {
   const existing = new Map<string, string>();
-  for (const kind of ['lessons', 'questions'] as const) {
+  for (const kind of ['lessons', 'questions', 'mocks'] as const) {
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
     for (const doc of snapshot.docs) existing.set(`${kind}/${doc.id}`, String(doc.get('version')));
   }

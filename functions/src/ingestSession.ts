@@ -2,6 +2,8 @@ import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
 import {checkAnswers, checkDuration, checkTime} from './_answers.js';
+import {hasLiveProClaim} from './_pro.js';
+import {computeRoadmap} from './roadmap.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -14,7 +16,7 @@ export const DAILY_SESSIONS = 200;
 const SESSION_ID = /^[A-Za-z0-9_-]{8,64}$/;
 
 export type IngestDeps = {db: Firestore; now?: () => number; dailySessions?: number};
-type Auth = {uid: string} | undefined;
+type Auth = {uid: string; token?: object} | undefined;
 
 export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps): Promise<{sessionId: string; stored: boolean}> {
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
@@ -36,6 +38,15 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
     transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now});
     return true;
   });
+  if (stored) {
+    // The batch is already safe. A failed rebuild must not make the app retry or lose the answers;
+    // the next batch, settings change or roadmap request rebuilds it.
+    try {
+      await computeRoadmap(deps.db, auth.uid, hasLiveProClaim(auth.token as {pro?: unknown; proUntil?: unknown} | undefined, now), now);
+    } catch (error) {
+      console.error('roadmap rebuild failed', auth.uid, error);
+    }
+  }
   return {sessionId, stored};
 }
 

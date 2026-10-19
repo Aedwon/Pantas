@@ -20,4 +20,8 @@ export { startWebTrial } from './webTrial.js';
 export { getContent } from './content.js';
 export { startMock } from './mock.js';
 export { submitMock } from './mock.js';
+export { getMockPaper } from './mock.js';
+export { controlMock } from './mock.js';
 export { ingestSession } from './ingestSession.js';
+export { setExamSettings } from './roadmap.js';
+export { getRoadmap } from './roadmap.js';

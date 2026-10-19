@@ -27,7 +27,9 @@ Map<String, Object?> sampleMockFromJson(Map<String, Object?> j) {
                 in (j['passageSetsByTopic']! as Map<String, Object?>).entries)
               t.key: {
                 for (final p in (t.value! as Map<String, Object?>).entries)
-                  p.key: [for (final q in p.value! as List<Object?>) q! as String],
+                  p.key: [
+                    for (final q in p.value! as List<Object?>) q! as String
+                  ],
               },
           },
   );
@@ -35,7 +37,11 @@ Map<String, Object?> sampleMockFromJson(Map<String, Object?> j) {
     'expectedQuestionCount': sample.expectedQuestionCount,
     'sections': [
       for (final s in sample.sections)
-        {'sectionId': s.sectionId, 'name': s.name, 'questionIds': s.questionIds},
+        {
+          'sectionId': s.sectionId,
+          'name': s.name,
+          'questionIds': s.questionIds
+        },
     ],
   };
 }

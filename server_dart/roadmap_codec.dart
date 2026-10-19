@@ -6,6 +6,7 @@
 // DateTime.now(); the caller passes `today`.
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/roadmap/data/topic_prerequisites.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
 
@@ -45,11 +46,14 @@ RoadmapInputs inputsFromJson(Map<String, Object?> j) {
         name: m['name']! as String,
       ),
     ),
-    prerequisites: {
-      for (final e
-          in (j['prerequisites']! as Map<String, Object?>).entries)
-        e.key: [for (final p in e.value! as List<Object?>) p! as String],
-    },
+    // Left out of the JSON, the links are the app's own list, so the server never holds a second copy.
+    prerequisites: j['prerequisites'] == null
+        ? topicPrerequisites
+        : {
+            for (final e
+                in (j['prerequisites']! as Map<String, Object?>).entries)
+              e.key: [for (final p in e.value! as List<Object?>) p! as String],
+          },
     lessons: _list(
       j['lessons'],
       (m) => RoadmapLesson(
@@ -159,10 +163,9 @@ Map<String, Object?> inputsToJson(RoadmapInputs i) => {
       'mock': {
         'examHasMock': i.mock.examHasMock,
         'proIsActive': i.mock.proIsActive,
-        'lastSubmittedAt':
-            i.mock.lastSubmittedAt == null
-                ? null
-                : stampString(i.mock.lastSubmittedAt!),
+        'lastSubmittedAt': i.mock.lastSubmittedAt == null
+            ? null
+            : stampString(i.mock.lastSubmittedAt!),
       },
       'assessmentCompleted': i.assessmentCompleted,
       'contentRevision': i.contentRevision,
