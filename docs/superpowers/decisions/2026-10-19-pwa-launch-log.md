@@ -796,3 +796,28 @@ Decisions (C8, server-enforced):
 
 Implementation: with server paper assembly (the plain Dart sampler compiled like the roadmap),
 before the app screen work.
+
+### October 19: Codex lead handoff delivered; staging and server roadmap work started
+
+Aedwon's exact comments:
+
+> can't you do the codex lead handoff?
+>
+> what do you recommend doing next. i'm in the process on level 4 pasting. this is not a
+> prerequisite for your work is it?
+
+> sure proceed
+
+Claude resumed the Codex lead session (01a1410a, idle since October 18) headlessly in read-only mode
+with the handoff, asking for a plan only. Its reply: once Aedwon says continue, Lane 1 finishes the
+W4c family audit and integration, then W4b; Lane 2 finishes W4e, then W4d; W4c source stays local
+until its audit; CSE-only selection, no web reminders and PayMongo plans apply to onboarding and
+Settings; W4g after launch. No edits or lock changes. Cost note: the resume reloaded its long
+context (about 2.9 million tokens of ChatGPT usage).
+
+Level 4 is not a prerequisite for engineering; it gates only the content rewrite.
+
+Started (Sonnet 5.5): the client content path and Hosting config on `web/pwa-staging-r1` (merge
+of `web/pwa-foundation-r1` and `web/server-pro-r1`, clean, pushed at 737d471a), and server mock
+papers and roadmap on `web/roadmap-server-r1`, compiling the existing Dart from lib paths with no lib
+edits, so W4 files are untouched.

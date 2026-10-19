@@ -19,10 +19,12 @@ decision and its exact wording).
 | C2, C4, C6 payment functions | built and lead-reviewed, with proportional partial refunds; plain 110/110, emulator 142/142 (Java 21: `PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH`), tsc clean. Not run against live PayMongo; some refund details UNCONFIRMED (`functions/PAYMONGO.md`) | branch `web/paymongo-r1` at caf2142e (pushed) |
 | C10 roadmap server spike | done: works; Node output matches Dart byte for byte on 10 scenarios; 33 KB gzip; about 1 ms per call. Not run on Node 20 (only Node 26 local) | branch `web/roadmap-server-spike-r1` at 75690df3 (pushed), `spike/roadmap_js/README.md` |
 | C7, C8, C9 server parts | built and lead-verified: `getContent`, content uploader (dry run 158 lessons, 157 sets), `startMock`/`submitMock`, `ingestSession`, rules; plain 116/116, emulator 157/157. Open: abandoned-mock rule (Aedwon), Free answer visibility after a mock not enforced yet, one unexplained flaky passes test, `ratio-and-proportion.yaml` fails YAML parse | branch `web/server-pro-r1` at e7c27574 (pushed) |
+| Staging branch (C7 client, B4 config) | in progress (Sonnet 5.5): app loads lessons from `getContent` with stale-while-revalidate cache; hosting target; no deploy | branch `web/pwa-staging-r1` (merge of pwa-foundation and server-pro, pushed at 737d471a) |
+| C8b mock paper, C10 roadmap on server | in progress (Sonnet 5.5): compiled Dart sampler and roadmap from lib paths, no lib edits | branch `web/roadmap-server-r1` from server-pro (not pushed yet) |
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
 | E2 Level 4, E3 Level 5 | Level 4 running: Aedwon pasting (prompt allows web search for B01 since 622a7e35); Level 5 prompts not built | audit branch |
-| Lane A (W4) | Codex lead; handoff ready to paste | `pwa-launch/handoff-codex-lead.md` |
+| Lane A (W4) | Codex lead accepted the handoff (plan-only reply, Oct 19); waits for Aedwon's "continue". Lanes: W4c audit then W4b; W4e then W4d | Codex session 01a1410a |
 | PayMongo account | Aedwon creating it | none |
 
 ## What a cloud session can and cannot do
