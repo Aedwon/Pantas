@@ -480,3 +480,35 @@ Recommended: 1. Awaiting Aedwon's choice. C7 does not start until then.
   minutes it commits and pushes changes under the audit folders, and it resumes the Codex
   orchestrator if the `status.md` STATE line reads RUNNING. The STATE line is kept as BLOCKED so
   Codex stays stopped. Aedwon may close that window if the orchestrator is no longer wanted.
+
+### October 19: sign-in timing, mock allowance, and Free-to-Pro exploits
+
+Aedwon's exact comment:
+
+> let's settle some things
+>
+> 1. the initial use, onboarding, so they know how the app works, they don't need to log in. we
+> can surface a message, they must create an account if they want their progress saved.
+> 2. authoritatively, i am increasing the cooldown for mock attempts to +1 per month (later on i
+> could have marketing campaigns where i give these out for those who need + this includes Pro ver
+> giveaways not just mocks, using redemption codes or using their UID)
+> 3. i want to ask, how easy will a user be able to exploit Free and kind of surface the Pro? so at
+> least we know how to proceed
+
+Decisions:
+
+1. No sign-in during onboarding or first use. The app already supports a silent anonymous account
+   (`lib/core/auth`, 54 references on `integration/new-design-r1`). The app shows a message that a
+   student must create an account to keep their progress. Wording and placement go to Aedwon with
+   the visual companion.
+2. Free mock allowance changes from one every 14 days (`docs/design/DECISIONS.md`, October 4) to one
+   per month. This supersedes the 14-day rule, and the 7-day copy found in code. Whether "per
+   month" means a calendar month or 30 days after the last mock: asked, not yet answered.
+   Later idea, not launch scope: grant extra mocks and Pro through redemption codes or by account
+   ID for marketing campaigns. This extends the October 4 giveaways log, which deferred free codes
+   until after launch.
+
+Facts for item 3 (lead check of `integration/new-design-r1`): the mock cooldown is computed on the
+device from the last local attempt (`mock_availability_provider.dart`). Pro status comes from the
+signed `pro` token claim and the payment provider. Pro-only data such as wrong-choice notes ships
+in the bundled content. Analysis and recommendation given in the reply; awaiting choices.
