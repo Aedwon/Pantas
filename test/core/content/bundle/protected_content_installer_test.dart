@@ -448,7 +448,7 @@ void main() {
     final source = ContentCipherProfile.open(built.payload, bootstrapKey);
     final keyed = ContentCipherProfile.open(result.activeFile, installKey);
     try {
-      expect(keyed.select('PRAGMA user_version').single.values.single, 9);
+      expect(keyed.select('PRAGMA user_version').single.values.single, 10);
       expect(_corpusSnapshot(keyed), _corpusSnapshot(source));
     } finally {
       keyed.close();
@@ -717,7 +717,7 @@ void main() {
       expect(userDb.readAsBytesSync(), const [4, 2, 4, 2]);
       final reopened = ContentCipherProfile.open(active, installKey);
       try {
-        expect(reopened.select('PRAGMA user_version').single.values.single, 9);
+        expect(reopened.select('PRAGMA user_version').single.values.single, 10);
       } finally {
         reopened.close();
       }
@@ -940,7 +940,7 @@ void main() {
 
       final reopened = ContentCipherProfile.open(active, newInstallKey);
       try {
-        expect(reopened.select('PRAGMA user_version').single.values.single, 9);
+        expect(reopened.select('PRAGMA user_version').single.values.single, 10);
       } finally {
         reopened.close();
       }
