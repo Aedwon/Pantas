@@ -470,3 +470,58 @@ expiry versus forfeit and a strict saved gate; they do not establish complete se
 precedence. No fix or full strict-recovery acceptance is claimed. This remains an explicit next-scope
 regression requirement before Task 5 completion. The lead requested no new implementation breadth
 before reviewing the saved Task 4 runtime checkpoint `67c02af9`.
+
+## October 19 PWA resumption: phone paper and content recovery slice
+
+Status: independent Task 4 presentation slice implemented and focused checks passed. Full E3–9,
+server runtime wiring, final family gates/audit and Aedwon's visual acceptance remain open.
+
+Reconciled local/remote `e3ba378551d6876763fac5c217f8b31453e91854`, clean, before edits. Read the
+Codex lead note first, then current-main policy at `5b77018a33e4e7fadac8532be12ffb41e3c017f9`,
+PWA spec, plan/rulings, complete PWA log, RESUME, L2/L3 and actual source. Later adapter ruling
+`252d26e2062f04827a3fb3936d1a8939be2d805c` and copy decision `33b3fd2e` were retrieved.
+Read-only staging advanced from `2c2332e0` to `8e0420c9cad45c9ac2d5efe600d6b41b67675908`;
+`mock.ts` and `_answers.ts` are unchanged between them. No Claude-owned branch was edited.
+
+- Actual Geist 320x640/200% tests reproduced 29-pixel control overflows in both themes. The
+  paper now measures its counter at the active text scale. When the ordinary single row cannot
+  contain the counter and four 44x44 controls, it uses existing FloatingBar.content with a
+  centered counter above the controls. Ordinary 100% rows remain 60 high. No shared component
+  was changed and no cross-family code was copied.
+- Content padding and status placement use the actual bar/text height. Eight real-font cases
+  (320/390, light/dark, 100/200%) assert centered counter, distinct in-bounds 44x44 controls,
+  real callback behavior, actual passage/figure rendering, and a final answer reachable above
+  the floating bar. The initial scroll assertion needed a layout pump after scrolling; that
+  fixture correction is separate from the valid 320-width overflow RED.
+- A missing hydrated question previously had no recovery action. Both missing and failed
+  content now use the shared question-error/Retry pattern, retaining the original question id.
+  The tests retry to the real passage and chart and ensure diagnostics are not displayed.
+  No local paper, clock, allowance, result, content cache or provider authority changed.
+
+Verification (serialized Mac execution):
+
+- `t4-phone-red-valid.log`: exit 1, only the two 320/200% control-overflow cases fail;
+  both 390 cases already pass after the scroll fixture correction.
+- `t4-question-retry-red.log`: exit 1, missing=true has no Retry; exception recovery already passes.
+- Five affected presentation test files: exit 0, `00:01 +31: All tests passed!`;
+  `build/w4e/tasks4-6/t4-phone-final-tests.log`.
+- Scoped analyzer: exit 0, `No issues found! (ran in 1.7s)`;
+  `build/w4e/tasks4-6/t4-phone-analyze-final.log`.
+- Format: exit 0, `Formatted 2 files (0 changed) in 0.01 seconds.`
+- Layering and attribution: exit 0, `check_layering: OK`, `check_no_ai_attribution: OK`.
+  Whitespace check: exit 0, no output. Full-family gates are deferred until implementation is complete.
+
+Manifest: `lib/features/mock_exam/presentation/pages/mock_session_page.dart`,
+`test/features/mock_exam/presentation/paper_phone_accessibility_test.dart`, this evidence.
+Sorted Dart path + NUL + bytes SHA-256:
+`ba044968aab3ac09a8706c6a1bfaad5d4353c3b6db88915d99c2b75e2a146879`.
+Task 3 setup/content remains untouched. CSE source blueprints and the separate personal-items
+copy preview remain with their owners; no explanatory copy was added here.
+
+Pending server dependency: published start/get/control/submit operations cover pinned CSE papers
+and overall clocks, but completed results/history, server review visibility and next eligibility
+still lack the reader required by the approved card/results/review. The lead recorded the narrow
+feature-only adapter proposal in L3 and W4-client-coordination.md before dependent edits. Display
+cursor/flags may be account+mock scoped; they do not become paper/clock/eligibility authority.
+Accepted client-correctness trust is documented in the PWA log, not treated as a new blocker.
+No push, merge, deployment, screenshots, phone operation, new reviewer or family acceptance.

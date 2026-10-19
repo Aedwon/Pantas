@@ -263,99 +263,165 @@ class _MockSessionPageState extends State<MockSessionPage> {
         ),
         body: SafeArea(
           top: false,
-          child: Stack(
-            children: [
-              ListView(
-                padding: const EdgeInsets.fromLTRB(16, 20, 16, 150),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final counter = '${widget.partPosition} of ${widget.partTotal}';
+              final counterMetrics = TextPainter(
+                text:
+                    TextSpan(text: counter, style: context.type.subheadStrong),
+                textScaler: MediaQuery.textScalerOf(context),
+                textDirection: Directionality.of(context),
+              )..layout();
+              final compact =
+                  counterMetrics.width + 176 > constraints.maxWidth - 48;
+              final barHeight =
+                  compact ? 16 + counterMetrics.height + 8 + 44 : 60.0;
+              counterMetrics.dispose();
+              final strictMessage =
+                  'Part ${widget.currentPartNumber} runs to the end of its '
+                  'time. Strict mock mode is on.';
+              final strictLine = widget.state.strictMode && last;
+              final status = _proctorToastMinutes != null
+                  ? proctorCopyFor(_proctorToastMinutes!)
+                  : strictLine
+                      ? strictMessage
+                      : null;
+              final statusMetrics = TextPainter(
+                text: TextSpan(
+                  text: status ?? '',
+                  style: _proctorToastMinutes != null
+                      ? context.type.subheadStrong.copyWith(fontSize: 14)
+                      : context.type.footnote,
+                ),
+                textScaler: MediaQuery.textScalerOf(context),
+                textDirection: Directionality.of(context),
+              )..layout(
+                  maxWidth: constraints.maxWidth -
+                      (_proctorToastMinutes != null ? 64 : 32),
+                );
+              final statusHeight = status == null
+                  ? 0
+                  : statusMetrics.height +
+                      (_proctorToastMinutes != null ? 20 : 0) +
+                      12;
+              statusMetrics.dispose();
+              final left = Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  _QuestionBody(
-                    questionId: widget.state.currentQuestionId,
-                    subject: widget.oneBlock
-                        ? widget.partName
-                        : 'Part ${widget.currentPartNumber} · '
-                            '${widget.partName}',
-                    selectedIndex: widget.state
-                        .answers[widget.state.currentQuestionId]?.selectedIndex,
-                    onAnswer: widget.onAnswer,
+                  control(
+                    'mock-prev',
+                    'Previous question',
+                    Icon(PantasIcons.back, size: 20),
+                    widget.canGoPrevious ? widget.onPrevious : null,
+                  ),
+                  control(
+                    'mock-grid',
+                    'Questions',
+                    PantasIcons.questionsSheet,
+                    widget.onShowNavigator,
                   ),
                 ],
-              ),
-              if (_proctorToastMinutes != null)
-                Positioned(
-                  bottom: 102,
-                  left: 16,
-                  right: 16,
-                  child: ProctorToast(minutes: _proctorToastMinutes!),
-                )
-              else if (widget.state.strictMode && last)
-                Positioned(
-                  bottom: 102,
-                  left: 16,
-                  right: 16,
-                  child: Text(
-                    'Part ${widget.currentPartNumber} runs to the end of its '
-                    'time. Strict mock mode is on.',
-                    textAlign: TextAlign.center,
-                    style:
-                        context.type.footnote.copyWith(color: c.secondaryLabel),
-                  ),
-                ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 30),
-                  child: FloatingBar(
-                    left: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        control(
-                          'mock-prev',
-                          'Previous question',
-                          Icon(PantasIcons.back, size: 20),
-                          widget.canGoPrevious ? widget.onPrevious : null,
-                        ),
-                        control(
-                          'mock-grid',
-                          'Questions',
-                          PantasIcons.questionsSheet,
-                          widget.onShowNavigator,
-                        ),
-                      ],
+              );
+              final right = Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  control(
+                    'mock-flag',
+                    'Flag question',
+                    Icon(
+                      PantasIcons.flag,
+                      size: 21,
+                      color: widget.state.flags
+                              .contains(widget.state.currentQuestionId)
+                          ? c.accent
+                          : c.label,
                     ),
-                    counter: '${widget.partPosition} of ${widget.partTotal}',
-                    right: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        control(
-                          'mock-flag',
-                          'Flag question',
-                          Icon(
-                            PantasIcons.flag,
-                            size: 21,
-                            color: widget.state.flags.contains(
-                              widget.state.currentQuestionId,
-                            )
-                                ? c.accent
-                                : c.label,
+                    widget.onToggleFlag,
+                  ),
+                  control(
+                    'mock-next',
+                    last
+                        ? widget.oneBlock
+                            ? 'Submit the exam'
+                            : 'End part'
+                        : 'Next question',
+                    Icon(PantasIcons.next, size: 20),
+                    next,
+                  ),
+                ],
+              );
+              final bar = compact
+                  ? FloatingBar.content(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            counter,
+                            textAlign: TextAlign.center,
+                            style: context.type.subheadStrong,
                           ),
-                          widget.onToggleFlag,
-                        ),
-                        control(
-                          'mock-next',
-                          last
-                              ? widget.oneBlock
-                                  ? 'Submit the exam'
-                                  : 'End part'
-                              : 'Next question',
-                          Icon(PantasIcons.next, size: 20),
-                          next,
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [left, right],
+                          ),
+                        ],
+                      ),
+                    )
+                  : FloatingBar(left: left, counter: counter, right: right);
+              return Stack(
+                children: [
+                  ListView(
+                    padding: EdgeInsets.fromLTRB(
+                      16,
+                      20,
+                      16,
+                      barHeight + 50 + statusHeight,
+                    ),
+                    children: [
+                      _QuestionBody(
+                        questionId: widget.state.currentQuestionId,
+                        subject: widget.oneBlock
+                            ? widget.partName
+                            : 'Part ${widget.currentPartNumber} · '
+                                '${widget.partName}',
+                        selectedIndex: widget
+                            .state
+                            .answers[widget.state.currentQuestionId]
+                            ?.selectedIndex,
+                        onAnswer: widget.onAnswer,
+                      ),
+                    ],
+                  ),
+                  if (_proctorToastMinutes != null)
+                    Positioned(
+                      bottom: barHeight + 42,
+                      left: 16,
+                      right: 16,
+                      child: ProctorToast(minutes: _proctorToastMinutes!),
+                    )
+                  else if (strictLine)
+                    Positioned(
+                      bottom: barHeight + 42,
+                      left: 16,
+                      right: 16,
+                      child: Text(
+                        strictMessage,
+                        textAlign: TextAlign.center,
+                        style: context.type.footnote
+                            .copyWith(color: c.secondaryLabel),
+                      ),
+                    ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 30),
+                      child: bar,
                     ),
                   ),
-                ),
-              ),
-            ],
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -424,7 +490,10 @@ class _QuestionBody extends ConsumerWidget {
     return hydratedAsync.when(
       data: (hydrated) {
         if (hydrated == null) {
-          return const Center(child: Text('Question not found'));
+          return errorFor(
+            'question',
+            () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
+          );
         }
 
         return QuestionCard(
