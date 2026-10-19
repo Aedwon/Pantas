@@ -808,3 +808,13 @@ Remove commits, a subsequent guard-read error loses its retained Undo payload on
 Move/Retry duplicate-index defect is also reproduced. Both remain unresolved; candidate source
 stays unchanged/local until the same family audit completes and verified fixes land. Lane2
 resumes from its preserved source with the now-available server contracts.
+
+### October19 evening: concrete W4 client coordination
+
+Root read staging mock.ts/roadmap.ts, storage fetchHook and actual CSE blueprint files.
+W4-client-coordination.md records the bounded E web adapter seam, one-clock CSE handling,
+local cursor/flag limits, accepted client-correctness limit, and exact server-result/eligibility
+read gap. It also proposes Claude-owned pure-signal/server-insight work before W4b overlaps
+metrics files. Proposal awaits that handoff; no claim of shared approval. Independent E
+presentation continues. Both confirmed C audit recovery findings remain uncorrected until
+the same audit finishes. No source upload, merge or deployment in this step.

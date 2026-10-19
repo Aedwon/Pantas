@@ -2180,3 +2180,15 @@ The continuing C audit has reproduced Move/Retry wrong-order and Remove postcomm
 Undo-loss cases. It has no final verdict and no source changes; resume it rather than claim
 completion or run a second family audit. Current source f495a8dd stays local beyond7223.
 Two lanes remain the approved execution plan.
+
+
+### October19 evening: W4 client/server seam ruling
+
+Root opened actual staging contracts and both CSE blueprints. Recorded the feature-owned E
+web adapter seam in pwa-launch/W4-client-coordination.md before dependent code. CSE web mocks
+use one overall server clock; local cursor/flags never authorize another paper. Completed
+results/history/review visibility/next eligibility still need a Claude-owned server reader.
+The server's client-correctness trust is already accepted in the PWA log, not a new blocker.
+For W4b, propose Claude completes signal extraction/server insight contract first, while W4b
+owns client views/cache and the existing roadmap callables; do not overlap those source files
+until the exact handoff/order is agreed. No Claude branch edits or local-only Pro fallback.
