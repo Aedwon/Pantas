@@ -141,13 +141,15 @@ test('catalog ids are validated like any other: unknown is missing, same version
   assert.equal(await code(serveContent(named('cat-x'), {kind: 'catalog', ids: ['../x'], knownVersions: {}}, d)), 'invalid-argument');
 });
 
-test('catalog ids count against the daily budget', async () => {
+test('catalog ids use their own daily budget, so app starts never spend the content budget', async () => {
   await reset('cat-limit');
-  const d = deps({dailyIds: 3});
+  const d = deps({dailyIds: 1, dailyCatalogIds: 3});
   const ask = ids => serveContent(named('cat-limit'), {kind: 'catalog', ids, knownVersions: {}}, d);
   assert.equal(await code(ask(['index', 'exam_cat_x'])), 'ok');
   assert.equal(await code(ask(['index', 'exam_cat_x'])), 'resource-exhausted');
   assert.equal(await code(ask(['index'])), 'ok');
+  // The content budget of 1 is still whole after three catalog ids.
+  assert.equal(await code(serveContent(named('cat-limit'), {kind: 'questions', ids: [pset.item.id], knownVersions: {}}, d)), 'ok');
 });
 
 test('a set serves its passages to a Free account, with the Pro notes kept out', async () => {

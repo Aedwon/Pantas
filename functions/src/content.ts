@@ -12,12 +12,18 @@ import {hasLiveProClaim} from './_pro.js';
  */
 export const DAILY_CONTENT_IDS = 300;
 export const MAX_IDS_PER_CALL = 20;
+/**
+ * Catalog documents hold structure only (ids, titles, links), no protected text. Every app start
+ * asks for the index and its exam catalogs, so they have their own budget instead of spending the
+ * student's content budget.
+ */
+export const DAILY_CATALOG_IDS = 200;
 const ID_PATTERN = /^[A-Za-z0-9_.-]{1,160}$/;
 
 type Entry = {status: 'ok'; version: string; data: Record<string, unknown>}
   | {status: 'unchanged'; version: string} | {status: 'missing'};
 export type ContentResponse = {tier: 'free' | 'pro'; items: Record<string, Entry>};
-export type ContentDeps = {db: Firestore; now?: () => number; dailyIds?: number;
+export type ContentDeps = {db: Firestore; now?: () => number; dailyIds?: number; dailyCatalogIds?: number;
   allow?: (uid: string, cost: number) => Promise<boolean>};
 type Auth = {uid: string; token: object} | undefined;
 
@@ -35,7 +41,9 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
   const known = request?.knownVersions && typeof request.knownVersions === 'object'
     ? request.knownVersions as Record<string, unknown> : {};
   const now = (deps.now ?? Date.now)();
-  const allow = deps.allow ?? ((uid, cost) => allowAtMost(uid, 'getContent', deps.dailyIds ?? DAILY_CONTENT_IDS, 86_400_000, cost));
+  const allow = deps.allow ?? (kind === 'catalog'
+    ? (uid: string, cost: number) => allowAtMost(uid, 'getCatalog', deps.dailyCatalogIds ?? DAILY_CATALOG_IDS, 86_400_000, cost)
+    : (uid: string, cost: number) => allowAtMost(uid, 'getContent', deps.dailyIds ?? DAILY_CONTENT_IDS, 86_400_000, cost));
   if (!await allow(auth.uid, unique.length)) {
     throw new HttpsError('resource-exhausted', 'Daily content limit reached. Try again tomorrow.');
   }

@@ -194,9 +194,9 @@ Rules the server side must keep:
   `lib/core/content/remote/lesson_markdown.dart` converts it to the blocks the lesson
   screen reads, with the result the bundled build produces (a test compares all lessons).
 
-Cost to keep in mind: each catalog request counts its ids against the daily 300. A start
-refreshes `index` plus one document per exam in `catalogs` (and parts), so keep `catalogs`
-to the exams that have content.
+Cost to keep in mind: catalog ids have their own daily budget (200 per account), separate from
+the 300 content ids, because catalogs carry no protected text. A start refreshes `index` plus one
+document per exam in `catalogs` (and parts), so keep `catalogs` to the exams that have content.
 
 ### Server side (built to this contract)
 
