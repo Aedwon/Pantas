@@ -3,9 +3,9 @@
 Chronological record for the decision to launch Pantas first as a progressive web app (PWA).
 Controlling draft spec: `docs/superpowers/specs/2026-10-19-pwa-launch-design.md`.
 
-Status at the end of this entry set: Aedwon's four direction decisions are recorded. The spec
-is a draft and is not approved. The application-code freeze is not lifted. No complexity level
-is chosen. No application code has changed.
+Current status: Part A approved at balanced complexity on October 19. Freeze lifted for the PWA
+launch scope. Next: the implementation plan in `docs/superpowers/plans/`. No application code
+has changed.
 
 ---
 
@@ -133,3 +133,54 @@ Open decisions for Aedwon:
 4. Confirm Firebase hosting instead of the MacBook as server, and whether a card can go on the
    Blaze plan.
 5. Decide how the PWA work relates to the in-flight new-design restart (see the spec).
+
+### October 19: Part A approved and open decisions answered
+
+Aedwon's exact comment:
+
+> part A is approved
+>
+> go with balanced
+>
+> i authorize the app-code freeze
+>
+> okay I can handle Blaze
+>
+> new design is final. it should be finished and integrated
+>
+> yes okay since this is a PWA now, I can accept prepaid passes.
+>
+> okay with no reminders.
+>
+>
+> also anent all this, i have $39 left on Claude cloud credits, so should you run out of limits I
+> can temporarily resume work there (or maybe you do that if you can access)
+>
+> also, for the content audit, would you still continue with the level method it's currently on?
+> the only difference is we laser focus on CSE topics only
+
+Resulting decisions (numbers match the spec's "What needs your decision"):
+
+1. Part A approved.
+2. Complexity: balanced.
+3. Application-code freeze lifted for the PWA launch scope. Recorded wording is "i authorize the
+   app-code freeze"; read as lifting it, because it answered the question "Lift the freeze?".
+   Claude confirmed this reading in the reply. The completion permissions in `WORKFLOW.md` for
+   merging approved work into main now apply to PWA launch work.
+4. Hosting: Firebase on the Blaze plan with a budget alert. The MacBook does not run production
+   services.
+5. The PWA ships on the new design. The new-design W4 screen families must be finished and
+   integrated first. The W4 serial sequence and its Codex lead lock in `STATUS.md` still govern
+   that work.
+6. Products sell as prepaid access (weekly, monthly, yearly and the pass), renewed by hand. No
+   automatic renewal on web. The trial rule for prepaid access is still to settle in the plan.
+7. No reminders at first launch.
+
+Content audit answer given: keep the five-level method. Levels 1 to 3 are already accepted for all
+exams, including both CSE exams. Levels 4 and 5 narrow to lessons and question sets tagged for CSE
+Professional or Subprofessional (rough count: 71 of 158 lessons). This narrowing is a scope change
+to the audit plan and is recorded here; the audit plan update is pending.
+
+Cloud credits answer given: Claude cannot move work to the credits or spend them. If limits run
+out, Aedwon can resume in a cloud or API session; this log, the spec and `STATUS.md` are the resume
+point.

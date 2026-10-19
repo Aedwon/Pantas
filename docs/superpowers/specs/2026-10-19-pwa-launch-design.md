@@ -1,15 +1,17 @@
 # PWA launch: design
 
-Date: October 19, 2026. Status: **Draft. Not approved.** The application-code freeze is not lifted,
-and no complexity level is chosen.
+Date: October 19, 2026. Status: Part A approved by Aedwon on October 19, 2026, at balanced
+complexity. Freeze lifted for this scope. Answers to the open decisions are in the decision record
+and summarized below.
 Policy revision read: origin/main 7e6acb4e.
 Decision record: `docs/superpowers/decisions/2026-10-19-pwa-launch-log.md`.
 Related: `docs/superpowers/2026-10-05-engineering-restart-strategy.md`,
 `docs/superpowers/plans/new-design/STATUS.md`, `docs/superpowers/specs/2026-10-06-tier-pricing-design.md`,
 `docs/pricing.md`.
 
-This draft records the launch direction and the plan offered on October 19. Per the workflow, the
-level-by-level implementation plan goes in `docs/superpowers/plans/` after Part A is approved.
+Approved answers (October 19): Firebase on Blaze; the PWA ships on the finished, integrated new
+design; prepaid access instead of renewing subscriptions; no reminders at first launch. The
+implementation plan goes in `docs/superpowers/plans/`.
 
 ---
 
@@ -124,7 +126,7 @@ iOS unchanged.
   and writes the entitlement to Firestore. The client reads the entitlement; it never writes one.
 - RevenueCat stays for later store builds; web uses the PayMongo entitlement path. Reconcile with
   the W3 entitlement model before coding.
-- Pending decision 6 sets whether products are renewing or prepaid.
+- Decision 6 (October 19): prepaid access, renewed by hand. Trial handling for prepaid access is settled in the plan.
 
 ### B5. Launch hardening
 
