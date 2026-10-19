@@ -25,7 +25,7 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
   const request = data as {kind?: unknown; ids?: unknown; knownVersions?: unknown} | null;
   const kind = request?.kind;
-  if (kind !== 'lessons' && kind !== 'questions') throw new HttpsError('invalid-argument', 'Unknown content kind.');
+  if (kind !== 'lessons' && kind !== 'questions' && kind !== 'catalog') throw new HttpsError('invalid-argument', 'Unknown content kind.');
   const ids = request?.ids;
   if (!Array.isArray(ids) || ids.length < 1 || ids.length > MAX_IDS_PER_CALL
       || !ids.every((id): id is string => typeof id === 'string' && ID_PATTERN.test(id))) {
@@ -48,12 +48,17 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
     // The returned version names the tier it was built for, so a Free copy never satisfies a Pro caller.
     const version = `${String(snapshot.get('version'))}.${suffix}`;
     if (known[id] === version) { items[id] = {status: 'unchanged', version}; return; }
+    if (kind === 'catalog') {
+      // Structure only, the same for every tier. Stored as a JSON string, like question sets.
+      items[id] = {status: 'ok', version, data: JSON.parse(String(snapshot.get('payload'))) as Record<string, unknown>};
+      return;
+    }
     if (kind === 'lessons') {
       const {title, summary, subject, topic, estimatedMinutes, body} = snapshot.data() as Record<string, unknown>;
       items[id] = {status: 'ok', version, data: {id, title, summary, subject, topic, estimatedMinutes, body}};
       return;
     }
-    const set = JSON.parse(String(snapshot.get('payload'))) as {meta: unknown; questions: {id: string; choices?: Record<string, unknown>[]}[]};
+    const set = JSON.parse(String(snapshot.get('payload'))) as {meta: unknown; passages?: unknown[]; questions: {id: string; choices?: Record<string, unknown>[]}[]};
     if (pro) {
       const proSnapshot = await deps.db.doc(`contentPro/${id}`).get();
       if (proSnapshot.exists) {
@@ -68,7 +73,7 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
         }
       }
     }
-    items[id] = {status: 'ok', version, data: {id, meta: set.meta, questions: set.questions}};
+    items[id] = {status: 'ok', version, data: {id, meta: set.meta, questions: set.questions, passages: set.passages ?? []}};
   }));
   return {tier: pro ? 'pro' : 'free', items};
 }

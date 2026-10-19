@@ -1,10 +1,12 @@
 import {createHash} from 'node:crypto';
 import type {Firestore} from 'firebase-admin/firestore';
 
-export type ContentKind = 'lessons' | 'questions' | 'mocks';
+export type ContentKind = 'lessons' | 'questions' | 'mocks' | 'catalog';
 export type ContentItem = {kind: ContentKind; id: string; data: Record<string, unknown> & {version: string}};
 export type ProItem = {id: string; data: Record<string, unknown> & {version: string}};
 export type PlanCounts = {create: number; update: number; unchanged: number};
+
+const underscore = (slug: string): string => slug.replaceAll('-', '_');
 
 function canonical(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
@@ -48,12 +50,15 @@ export function blueprintItem(doc: Record<string, unknown>): ContentItem {
   return {kind: 'mocks', id: examId, data: {kind: 'mocks', id: examId, ...fields, version: digest(fields)}};
 }
 
-export type QuestionSource = {meta: Record<string, unknown>; questions: Record<string, unknown>[]};
+export type QuestionSource = {meta: Record<string, unknown>; questions: Record<string, unknown>[];
+  passages?: {id: string; title?: string; body?: string}[]};
 
 /**
  * One question set. Wrong-choice notes (`rationale` on a choice) move to the Pro document as
  * `{questionId: [note | null per choice]}`; everything else stays in the free document. Both are
  * stored as JSON strings because Firestore rejects nested arrays (figure specs use them).
+ * Passage text comes from the `passages` list of the same YAML file. It travels inside the set
+ * (never in the catalog), in the free document: a passage has no Pro-only fields.
  */
 export function questionSetItems(source: QuestionSource, relativePath: string): {item: ContentItem; pro?: ProItem} {
   const id = `qs-${relativePath.replace(/\.ya?ml$/, '').split('/').join('__')}`;
@@ -69,12 +74,114 @@ export function questionSetItems(source: QuestionSource, relativePath: string): 
     }
     return Array.isArray(question.choices) ? {...question, choices: stripped} : question;
   });
-  const payload = JSON.stringify({meta: source.meta, questions});
+  const topic = underscore(String(source.meta.topic ?? ''));
+  const defined = new Map((source.passages ?? []).map(p => [String(p.id), p]));
+  const named = [...new Set(source.questions.flatMap(q => typeof q.passage === 'string' ? [q.passage] : []))];
+  const served = named.map((passageId) => {
+    const found = defined.get(passageId);
+    if (!found || typeof found.body !== 'string') throw new Error(`${relativePath}: passage ${passageId} is not defined`);
+    // wordCount is counted from the text, not typed in.
+    return {id: passageId, topic: `topic_upcat_${topic}`, title: String(found.title ?? ''), body: found.body,
+      language: 'en', wordCount: found.body.trim().split(/\s+/).length};
+  });
+  const payload = JSON.stringify({meta: source.meta, questions, ...(served.length > 0 ? {passages: served} : {})});
   const proPayload = Object.keys(notes).length > 0 ? JSON.stringify(notes) : undefined;
   const version = digest({payload, proPayload});
   const item: ContentItem = {kind: 'questions', id, data: {kind: 'questions', id, version, count: questions.length, payload}};
   return proPayload === undefined ? {item}
     : {item, pro: {id, data: {id, version, payload: proPayload}}};
+}
+
+// ---- catalog ----------------------------------------------------------------------------------
+// Served as kind `catalog`; the format is written down in web/README.md ("Content catalog").
+
+type Doc = Record<string, unknown>;
+export type CatalogStructure = {exam?: Doc[]; subject?: Doc[]; topic?: Doc[]; mockBlueprint?: Doc[]; diagnosticSet?: Doc[]};
+export type CatalogInput = {structure: CatalogStructure; lessons: Doc[]; sets: {source: QuestionSource; relativePath: string}[]};
+/** A catalog document is split above this many bytes of JSON; Firestore allows 1 MiB per document. */
+export const CATALOG_SPLIT_BYTES = 700_000;
+export const CATALOG_HARD_LIMIT_BYTES = 1_000_000;
+
+const refId = (value: unknown): string => String(value && typeof value === 'object' ? (value as Doc)._ref ?? '' : value ?? '');
+
+/**
+ * The catalog documents: `index` (every exam, subject and topic, and which exams have content) and one
+ * `<examId>` per exam that has at least one question set. Lessons and questions appear as ids and
+ * structure only. An exam document over `splitAbove` bytes moves its lessons and sets into parts, one per
+ * subject (`<examId>.<subjectId>`), named in `parts`.
+ */
+export function catalogItems(input: CatalogInput, options: {splitAbove?: number; hardLimit?: number} = {}): ContentItem[] {
+  const splitAbove = options.splitAbove ?? CATALOG_SPLIT_BYTES;
+  const hardLimit = options.hardLimit ?? CATALOG_HARD_LIMIT_BYTES;
+  const {structure} = input;
+  const subjects = structure.subject ?? [];
+  const topics = structure.topic ?? [];
+
+  const nextOrdering = new Map<string, number>();
+  const lessons = input.lessons.filter(front => front.isActive !== false).map((front) => {
+    const id = String(front._id ?? '');
+    const topic = String(front.topic ?? '').replace(/^topic-/, '');
+    const fallback = (nextOrdering.get(topic) ?? 0) + 1;
+    nextOrdering.set(topic, fallback);
+    return {id, topic: `topic_upcat_${underscore(topic)}`, subtopic: `subtopic_${id.replace(`lesson-${topic}-`, '')}`,
+      title: front.title, summary: front.summary, estimatedMinutes: front.estimatedMinutes,
+      ordering: typeof front.ordering === 'number' ? front.ordering : fallback};
+  });
+
+  const sets = input.sets.map(({source, relativePath}) => {
+    const meta = source.meta as {topic?: unknown; subtopic?: unknown; exams?: unknown};
+    const topic = String(meta.topic);
+    const subtopic = String(meta.subtopic);
+    return {
+      id: `qs-${relativePath.replace(/\.ya?ml$/, '').split('/').join('__')}`,
+      topic: `topic_upcat_${underscore(topic)}`, subtopic: `subtopic_${subtopic}`, lesson: `lesson-${topic}-${subtopic}`,
+      exams: (Array.isArray(meta.exams) ? meta.exams : []).map(code => `exam_${underscore(String(code))}`), language: 'en',
+      questions: source.questions
+        // Same rule as the bundled build: a figure that is not drawn yet is held back.
+        .filter(q => !(q.figure != null && String(q.figure).trim() !== '' && q.figureSpec == null))
+        .map(q => ({id: String(q.id), ...(typeof q.passage === 'string' ? {passage: q.passage} : {}),
+          ...(q.figureSpec != null ? {figure: true} : {})})),
+    };
+  });
+
+  const withContent = (structure.exam ?? []).map(e => String(e._id)).filter(id => sets.some(set => set.exams.includes(id)));
+  const out: ContentItem[] = [];
+  const add = (document: Doc & {id: string}): void => {
+    const payload = JSON.stringify(document);
+    const bytes = Buffer.byteLength(payload);
+    if (bytes > hardLimit) throw new Error(`catalog document ${document.id} is ${bytes} bytes, over the ${hardLimit} limit`);
+    out.push({kind: 'catalog', id: document.id, data: {kind: 'catalog', id: document.id, version: digest(payload), payload}});
+  };
+
+  add({id: 'index', exams: structure.exam ?? [], subjects, topics, catalogs: withContent});
+
+  for (const examId of withContent) {
+    const examSubjects = subjects.filter(s => refId(s.exam) === examId);
+    const subjectOf = new Map(topics.filter(t => examSubjects.some(s => s._id === refId(t.subject)))
+      .map(t => [String(t._id), refId(t.subject)]));
+    const full: Doc & {id: string} = {
+      id: examId,
+      subjects: examSubjects,
+      topics: topics.filter(t => subjectOf.has(String(t._id))),
+      lessons: lessons.filter(l => subjectOf.has(l.topic)),
+      sets: sets.filter(set => set.exams.includes(examId)),
+      diagnosticSets: (structure.diagnosticSet ?? []).filter(d => refId(d.exam) === examId),
+      mockBlueprints: (structure.mockBlueprint ?? []).filter(b => refId(b.exam) === examId),
+    };
+    if (Buffer.byteLength(JSON.stringify(full)) <= splitAbove) { add(full); continue; }
+    const parts: string[] = [];
+    const groups = [...examSubjects.map(s => String(s._id)), 'other'];
+    for (const group of groups) {
+      const inGroup = (topic: string): boolean => (subjectOf.get(topic) ?? 'other') === group;
+      const part = {id: `${examId}.${group}`, lessons: (full.lessons as typeof lessons).filter(l => inGroup(l.topic)),
+        sets: (full.sets as typeof sets).filter(set => inGroup(set.topic))};
+      if (part.lessons.length + part.sets.length === 0) continue;
+      parts.push(part.id);
+      add(part);
+    }
+    add({...full, lessons: undefined, sets: undefined, parts});
+  }
+  return out;
 }
 
 /** Compares each item's version with what is stored. `existing` maps `kind/id` to the stored version. */
@@ -100,7 +207,7 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
   options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number}> {
   const existing = new Map<string, string>();
-  for (const kind of ['lessons', 'questions', 'mocks'] as const) {
+  for (const kind of ['lessons', 'questions', 'mocks', 'catalog'] as const) {
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
     for (const doc of snapshot.docs) existing.set(`${kind}/${doc.id}`, String(doc.get('version')));
   }

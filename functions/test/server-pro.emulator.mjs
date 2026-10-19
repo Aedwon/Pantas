@@ -4,7 +4,7 @@ import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {serveContent} from '../lib/content.js';
 import {recordSession, MAX_ANSWERS} from '../lib/ingestSession.js';
-import {lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
+import {catalogItems, lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
@@ -92,6 +92,73 @@ test('the daily limit counts requested ids and refuses once it is reached', asyn
   assert.equal(await code(ask(['lesson-t1', 'x2'])), 'resource-exhausted');
   assert.equal(await code(ask(['lesson-t1'])), 'ok');
   assert.equal(await code(ask(['lesson-t1'])), 'resource-exhausted');
+});
+
+// ---- catalog and passages ----------------------------------------------------------------------
+const stamp = '2026-01-01T00:00:00.000Z';
+const row = (id, fields) => ({_id: id, _updatedAt: stamp, schemaVersion: 1, isActive: true, ...fields});
+const pset = questionSetItems({
+  meta: {subject: 's', topic: 'pt', subtopic: 'pu', exams: ['cat-x']},
+  passages: [{id: 'pp-1', title: 'PASS-TITLE', body: 'PASS-BODY words here.'}],
+  questions: [{id: 'pq1', passage: 'pp-1', stem: 'STEM-PRIVATE', explanation: 'EXPL-PRIVATE',
+    choices: [{text: 'CHOICE-PRIVATE', correct: true}, {text: 'b', rationale: 'NOTE-PRO'}]}],
+}, 's/pt/pu.yaml');
+const catalog = catalogItems({
+  structure: {
+    exam: [row('exam_cat_x', {code: 'CATX', name: 'X', shortName: 'X', language: 'en', ordering: 1})],
+    subject: [row('subj_upcat_s', {exam: {_ref: 'exam_cat_x'}, name: 'S', ordering: 1})],
+    topic: [row('topic_upcat_pt', {subject: {_ref: 'subj_upcat_s'}, name: 'PT', ordering: 1})],
+  },
+  lessons: [{_id: 'lesson-pt-pu', title: 'T', summary: 'S', topic: 'topic-pt', estimatedMinutes: 3}],
+  sets: [{source: {meta: {subject: 's', topic: 'pt', subtopic: 'pu', exams: ['cat-x']}, passages: [{id: 'pp-1', title: 'PASS-TITLE', body: 'PASS-BODY words here.'}],
+    questions: [{id: 'pq1', passage: 'pp-1', stem: 'STEM-PRIVATE', explanation: 'EXPL-PRIVATE', choices: [{text: 'CHOICE-PRIVATE', correct: true}]}]}, relativePath: 's/pt/pu.yaml'}],
+});
+
+test('the catalog is uploaded, served to every tier alike, and holds no text', async () => {
+  await writeContent(db, [pset.item, ...catalog], pset.pro ? [pset.pro] : [], {});
+  const free = await serveContent(named('cat-free'), {kind: 'catalog', ids: ['index', 'exam_cat_x'], knownVersions: {}}, deps({allow: async () => true}));
+  const proOut = await serveContent(pro('cat-pro'), {kind: 'catalog', ids: ['index', 'exam_cat_x'], knownVersions: {}}, deps({allow: async () => true}));
+  assert.equal(free.tier, 'free');
+  assert.deepEqual(free.items.index.data.catalogs, ['exam_cat_x']);
+  assert.equal(free.items.exam_cat_x.data.id, 'exam_cat_x');
+  assert.deepEqual(free.items.exam_cat_x.data.sets[0].questions, [{id: 'pq1', passage: 'pp-1'}]);
+  assert.deepEqual(free.items.exam_cat_x.data.lessons[0].id, 'lesson-pt-pu');
+  const text = JSON.stringify(free);
+  for (const secret of ['STEM-PRIVATE', 'EXPL-PRIVATE', 'CHOICE-PRIVATE', 'NOTE-PRO', 'PASS-BODY', 'PASS-TITLE']) assert.equal(text.includes(secret), false, secret);
+  assert.deepEqual(proOut.items.exam_cat_x.data, free.items.exam_cat_x.data);
+  assert.match(free.items.index.version, /\.f$/);
+  assert.match(proOut.items.index.version, /\.p$/);
+});
+
+test('catalog ids are validated like any other: unknown is missing, same version is unchanged', async () => {
+  const d = deps({allow: async () => true});
+  const out = await serveContent(named('cat-x'), {kind: 'catalog', ids: ['index', 'exam_nope', 'exam_cat_x.nope'], knownVersions: {}}, d);
+  assert.equal(out.items.exam_nope.status, 'missing');
+  assert.equal(out.items['exam_cat_x.nope'].status, 'missing');
+  const again = await serveContent(named('cat-x'), {kind: 'catalog', ids: ['index'], knownVersions: {index: out.items.index.version}}, d);
+  assert.equal(again.items.index.status, 'unchanged');
+  assert.equal(await code(serveContent(undefined, {kind: 'catalog', ids: ['index'], knownVersions: {}}, d)), 'unauthenticated');
+  assert.equal(await code(serveContent(named('cat-x'), {kind: 'catalog', ids: ['../x'], knownVersions: {}}, d)), 'invalid-argument');
+});
+
+test('catalog ids count against the daily budget', async () => {
+  await reset('cat-limit');
+  const d = deps({dailyIds: 3});
+  const ask = ids => serveContent(named('cat-limit'), {kind: 'catalog', ids, knownVersions: {}}, d);
+  assert.equal(await code(ask(['index', 'exam_cat_x'])), 'ok');
+  assert.equal(await code(ask(['index', 'exam_cat_x'])), 'resource-exhausted');
+  assert.equal(await code(ask(['index'])), 'ok');
+});
+
+test('a set serves its passages to a Free account, with the Pro notes kept out', async () => {
+  const d = deps({allow: async () => true});
+  const free = await serveContent(named('pas-free'), {kind: 'questions', ids: [pset.item.id], knownVersions: {}}, d);
+  const data = free.items[pset.item.id].data;
+  assert.deepEqual(data.passages, [{id: 'pp-1', topic: 'topic_upcat_pt', title: 'PASS-TITLE', body: 'PASS-BODY words here.', language: 'en', wordCount: 3}]);
+  assert.equal(JSON.stringify(free).includes('NOTE-PRO'), false);
+  const paid = await serveContent(pro('pas-pro'), {kind: 'questions', ids: [pset.item.id], knownVersions: {}}, d);
+  assert.deepEqual(paid.items[pset.item.id].data.passages, data.passages);
+  assert.equal(JSON.stringify(paid).includes('NOTE-PRO'), true);
 });
 
 const batch = (id, extra = {}) => ({sessionId: id, startedAt: NOW - 60000, finishedAt: NOW, durationMs: 60000,

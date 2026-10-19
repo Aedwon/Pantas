@@ -6,7 +6,7 @@ import {collection, doc, getDoc, getDocs, setDoc} from 'firebase/firestore';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 let env;
-const paths = ['content/lessons/items/l1', 'content/questions/items/q1', 'contentPro/q1',
+const paths = ['content/lessons/items/l1', 'content/questions/items/q1', 'content/catalog/items/index', 'content/catalog/items/exam_upcat', 'contentPro/q1',
   'users/sp-user/server/mocks/items/m1', 'users/sp-user/server/answers/items/s1',
   'content/mocks/items/exam_cse_pro', 'users/sp-user/server/roadmap', 'users/sp-user/server/settings'];
 before(async () => {
@@ -30,6 +30,7 @@ test('no client, including a current Pro owner, reads or writes content or the s
       await assertFails(setDoc(doc(db, p), {version: 'hacked'}));
     }
     await assertFails(getDocs(collection(db, 'content/lessons/items')));
+    await assertFails(getDocs(collection(db, 'content/catalog/items')));
     await assertFails(getDocs(collection(db, 'contentPro')));
     await assertFails(getDocs(collection(db, 'users/sp-user/server/mocks/items')));
     await assertFails(getDocs(collection(db, 'users/sp-user/server/answers/items')));

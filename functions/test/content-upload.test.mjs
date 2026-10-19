@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
 import {mkdtempSync, mkdirSync, writeFileSync, readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {join, relative} from 'node:path';
+import {readdirSync, statSync} from 'node:fs';
+import {createRequire} from 'node:module';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
-import {blueprintItem, lessonItem, questionSetItems, planWrites} from '../lib/contentUpload.js';
+import {blueprintItem, catalogItems, lessonItem, questionSetItems, planWrites} from '../lib/contentUpload.js';
 import * as endpoints from '../lib/index.js';
 
 const source = name => readFileSync(new URL(`../src/${name}`, import.meta.url), 'utf8');
@@ -108,4 +110,160 @@ test('a blueprint without a positive duration is refused, so a strict mock never
   for (const durationMinutes of [undefined, null, 0, -5, '60', Number.NaN]) {
     assert.throws(() => blueprintItem({exam: 'exam_cse_pro', durationMinutes, sections}), /duration/);
   }
+});
+
+// ---- passages inside question sets ------------------------------------------------------------
+const passageSource = (questions, passages = [{id: 'rc-1', title: 'PASSAGE-TITLE', body: 'PASSAGE-BODY text.\n\nMore words here.'}]) =>
+  ({meta: set.meta, passages, questions});
+
+test('a set carries the passages its questions name, and only those', () => {
+  const source = passageSource([{...set.questions[1], passage: 'rc-1'}, {id: 'q3', stem: 'x', choices: [{text: 'a'}]}],
+    [{id: 'rc-1', title: 'PASSAGE-TITLE', body: 'PASSAGE-BODY text.\n\nMore words here.'}, {id: 'rc-2', title: 'T', body: 'Unused.'}]);
+  const payload = JSON.parse(questionSetItems(source, 'a/b/c.yaml').item.data.payload);
+  assert.deepEqual(payload.passages.map(p => p.id), ['rc-1']);
+  assert.equal(payload.passages[0].body, 'PASSAGE-BODY text.\n\nMore words here.');
+  assert.deepEqual(Object.keys(payload.passages[0]).sort(), ['body', 'id', 'language', 'title', 'topic', 'wordCount']);
+  assert.equal(payload.passages[0].topic, 'topic_upcat_biology');
+  assert.equal(payload.passages[0].wordCount, 5, 'counted from the body');
+  assert.equal('passages' in payload.questions[0], false);
+});
+
+test('a set without passages has no passages key, and a missing passage is refused', () => {
+  assert.equal('passages' in JSON.parse(questionSetItems(set, 'a/b/c.yaml').item.data.payload), false);
+  assert.throws(() => questionSetItems(passageSource([{id: 'q9', passage: 'rc-404', stem: 'x', choices: [{text: 'a'}]}]), 'a/b/c.yaml'), /rc-404/);
+});
+
+test('passage text changes the set version', () => {
+  const questions = [{id: 'q3', passage: 'rc-1', stem: 'x', choices: [{text: 'a'}]}];
+  const a = questionSetItems(passageSource(questions), 'a/b/c.yaml');
+  const b = questionSetItems(passageSource(questions, [{id: 'rc-1', title: 'T', body: 'Edited.'}]), 'a/b/c.yaml');
+  assert.notEqual(a.item.data.version, b.item.data.version);
+});
+
+// ---- catalog documents -------------------------------------------------------------------------
+const stamp = '2026-01-01T00:00:00.000Z';
+const doc = (id, fields) => ({_id: id, _updatedAt: stamp, schemaVersion: 1, isActive: true, ...fields});
+const structure = {
+  exam: [doc('exam_upcat', {code: 'UPCAT', name: 'U', shortName: 'U', language: 'en', ordering: 1}),
+    doc('exam_acet', {code: 'ACET', name: 'A', shortName: 'A', language: 'en', ordering: 99})],
+  subject: [doc('subj_upcat_sci', {exam: {_ref: 'exam_upcat'}, name: 'Science', ordering: 1}),
+    doc('subj_upcat_math', {exam: {_ref: 'exam_upcat'}, name: 'Math', ordering: 2})],
+  topic: [doc('topic_upcat_biology', {subject: {_ref: 'subj_upcat_sci'}, name: 'Biology', ordering: 1}),
+    doc('topic_upcat_algebra', {subject: {_ref: 'subj_upcat_math'}, name: 'Algebra', ordering: 1})],
+  mockBlueprint: [doc('mock_blueprint_upcat', {schemaVersion: 2, exam: {_ref: 'exam_upcat'}, name: 'P', durationMinutes: 60, sections: [{id: 's1'}]})],
+};
+const lessonFront = (n, topic, extra = {}) => ({_id: `lesson-${topic}-${n}`, title: `Title ${n}`, summary: 'Sum', topic: `topic-${topic}`, estimatedMinutes: 5, ...extra});
+const algSource = {meta: {subject: 'math', topic: 'algebra', subtopic: 'eq', exams: ['upcat']}, questions: [{id: 'alg-1', stem: 's', explanation: 'e', choices: [{text: 'a'}]}]};
+const catalogInput = {
+  structure,
+  lessons: [lessonFront('cells', 'biology', {ordering: 7}), lessonFront('genes', 'biology'), lessonFront('eq', 'algebra'), {...lessonFront('off', 'algebra'), isActive: false}],
+  sets: [{source: {meta: {subject: 'science', topic: 'biology', subtopic: 'cells', exams: ['upcat']},
+    passages: [{id: 'rc-1', title: 'PASSAGE-TITLE', body: 'PASSAGE-BODY text.'}], questions: [
+    {id: 'bio-1', stem: 'STEM-SECRET', explanation: 'EXPLAIN-SECRET', choices: [{text: 'CHOICE-SECRET', correct: true}, {text: 'b', rationale: 'NOTE-SECRET'}]},
+    {id: 'bio-2', passage: 'rc-1', figureSpec: {k: 1}, stem: 's', explanation: 'e', choices: [{text: 'a'}]},
+    {id: 'bio-3', figure: 'pending', stem: 's', explanation: 'e', choices: [{text: 'a'}]}]}, relativePath: 'science/biology/cells.yaml'},
+  {source: algSource, relativePath: 'math/algebra/eq.yaml'}],
+};
+const parsed = items => Object.fromEntries(items.map(i => [i.id, JSON.parse(i.data.payload)]));
+
+test('the catalog lists only exams that have content and holds no question or passage text', () => {
+  const items = catalogItems(catalogInput);
+  assert.ok(items.every(i => i.kind === 'catalog'));
+  const docs = parsed(items);
+  assert.deepEqual(docs.index.catalogs, ['exam_upcat']);
+  assert.deepEqual(docs.index.exams.map(e => e._id), ['exam_upcat', 'exam_acet']);
+  assert.equal(docs.index.topics.length, 2);
+  const all = items.map(i => i.data.payload).join('\n');
+  for (const secret of ['STEM-SECRET', 'EXPLAIN-SECRET', 'CHOICE-SECRET', 'NOTE-SECRET', 'PASSAGE-BODY', 'PASSAGE-TITLE']) {
+    assert.equal(all.includes(secret), false, secret);
+  }
+  assert.equal(all.includes('"choices"'), false);
+  assert.equal(all.includes('"stem"'), false);
+});
+
+test('an exam catalog has text-free lessons, compact sets, the passage link and the figure flag', () => {
+  const docs = parsed(catalogItems(catalogInput));
+  const exam = docs.exam_upcat;
+  assert.equal(exam.id, 'exam_upcat');
+  const byId = Object.fromEntries(exam.lessons.map(l => [l.id, l]));
+  assert.deepEqual(Object.keys(byId).sort(), ['lesson-algebra-eq', 'lesson-biology-cells', 'lesson-biology-genes']);
+  assert.deepEqual(byId['lesson-biology-cells'], {id: 'lesson-biology-cells', topic: 'topic_upcat_biology', subtopic: 'subtopic_cells',
+    title: 'Title cells', summary: 'Sum', estimatedMinutes: 5, ordering: 7});
+  assert.equal(byId['lesson-biology-genes'].ordering, 2, 'the position among the topic lessons when none is given');
+  const sets = Object.fromEntries(exam.sets.map(s => [s.id, s]));
+  const bio = sets['qs-science__biology__cells'];
+  assert.deepEqual({...bio, questions: undefined}, {id: 'qs-science__biology__cells', topic: 'topic_upcat_biology', subtopic: 'subtopic_cells',
+    lesson: 'lesson-biology-cells', exams: ['exam_upcat'], language: 'en', questions: undefined});
+  assert.deepEqual(bio.questions, [{id: 'bio-1'}, {id: 'bio-2', passage: 'rc-1', figure: true}], 'a figure not drawn yet is held back');
+  assert.equal(exam.mockBlueprints.length, 1);
+  assert.deepEqual(exam.subjects.map(s => s._id), ['subj_upcat_sci', 'subj_upcat_math']);
+  assert.equal(exam.parts, undefined);
+});
+
+test('a catalog item is versioned by its content and stored as a JSON string', () => {
+  const a = catalogItems(catalogInput).find(i => i.id === 'exam_upcat');
+  const b = catalogItems({...catalogInput, lessons: catalogInput.lessons.slice(1)}).find(i => i.id === 'exam_upcat');
+  assert.equal(typeof a.data.payload, 'string');
+  assert.notEqual(a.data.version, b.data.version);
+  assert.equal(catalogItems(catalogInput).find(i => i.id === 'exam_upcat').data.version, a.data.version);
+});
+
+test('an exam catalog over the size limit is split by subject into parts', () => {
+  const items = catalogItems(catalogInput, {splitAbove: 100});
+  const docs = parsed(items);
+  assert.deepEqual(docs.exam_upcat.parts, ['exam_upcat.subj_upcat_sci', 'exam_upcat.subj_upcat_math']);
+  assert.equal(docs.exam_upcat.lessons, undefined);
+  assert.deepEqual(docs['exam_upcat.subj_upcat_sci'].sets.map(s => s.id), ['qs-science__biology__cells']);
+  assert.deepEqual(docs['exam_upcat.subj_upcat_math'].lessons.map(l => l.id), ['lesson-algebra-eq']);
+  assert.deepEqual(docs['exam_upcat.subj_upcat_math'].parts, undefined);
+});
+
+test('a catalog document that cannot fit under the hard limit is refused', () => {
+  assert.throws(() => catalogItems(catalogInput, {splitAbove: 100, hardLimit: 100}), /limit/);
+});
+
+// ---- the real corpus ---------------------------------------------------------------------------
+const walk = (dir, ext) => readdirSync(dir).sort().flatMap(name => {
+  const path = join(dir, name);
+  return statSync(path).isDirectory() ? walk(path, ext) : path.endsWith(ext) ? [path] : [];
+});
+
+test('every catalog document built from the real content tree is under 1 MiB and holds no text', () => {
+  const {parse} = createRequire(import.meta.url)('yaml');
+  const root = new URL('../../content/', import.meta.url).pathname;
+  const outline = JSON.parse(readFileSync(new URL('../../tools/lesson_author/outline.json', import.meta.url), 'utf8'));
+  const real = {exam: [], subject: [], topic: []};
+  const exams = new Set();
+  for (const subject of outline.subjects) {
+    const examId = `exam_${(subject.exam ?? 'upcat').replaceAll('-', '_')}`;
+    exams.add(examId);
+    const subjectId = `subj_upcat_${subject.slug.replaceAll('-', '_')}`;
+    real.subject.push(doc(subjectId, {exam: {_ref: examId}, name: subject.name, ordering: 1}));
+    for (const topic of subject.topics) real.topic.push(doc(`topic_upcat_${topic.slug.replaceAll('-', '_')}`, {subject: {_ref: subjectId}, name: topic.name, ordering: 1}));
+  }
+  for (const id of exams) real.exam.push(doc(id, {code: id, name: id, shortName: id, language: 'en', ordering: 1}));
+  const lessons = walk(join(root, 'lessons'), '.md').map(file => parse(/^---\n([\s\S]*?)\n---/.exec(readFileSync(file, 'utf8'))[1]));
+  const questionsRoot = join(root, 'questions');
+  // The uploader reports a file the YAML library rejects and skips it with --skip-invalid; so does this test.
+  const sets = walk(questionsRoot, '.yaml').flatMap((file) => {
+    try { return [{source: parse(readFileSync(file, 'utf8')), relativePath: relative(questionsRoot, file)}]; } catch { return []; }
+  });
+  for (const {source, relativePath} of sets) {
+    const bytes = Buffer.byteLength(questionSetItems(source, relativePath).item.data.payload);
+    assert.ok(bytes < 1024 * 1024, `${relativePath} set document is ${bytes} bytes`);
+  }
+  const items = catalogItems({structure: real, lessons, sets});
+  assert.ok(items.length > 1);
+  let biggest = 0;
+  for (const item of items) {
+    const bytes = Buffer.byteLength(item.data.payload);
+    biggest = Math.max(biggest, bytes);
+    assert.ok(bytes < 1024 * 1024, `${item.id} is ${bytes} bytes`);
+  }
+  console.log(`# largest catalog document: ${biggest} bytes of ${items.length}`);
+  const questionCount = sets.reduce((n, s) => n + s.source.questions.length, 0);
+  const listed = new Set(items.flatMap(i => JSON.parse(i.data.payload).sets ?? []).flatMap(s => s.questions.map(q => q.id)));
+  assert.ok(listed.size > 0 && listed.size <= questionCount);
+  const sample = sets[0].source.questions[0];
+  assert.equal(items.some(i => i.data.payload.includes(String(sample.stem).slice(0, 40))), false);
 });
