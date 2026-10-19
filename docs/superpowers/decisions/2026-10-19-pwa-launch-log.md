@@ -437,3 +437,28 @@ Results so far:
   whether a single reader misses planted defects.
 - E1b copy-prompt page: in progress (Sonnet 5.5 implementor, audit branch).
 - Free and Pro split: search in progress (Haiku 5.5).
+
+### October 19: free and Pro split found; C7 needs a revision
+
+Search (Haiku 5.5, read-only): `evidence/C7-free-pro-split.md`. The approved split is by feature,
+not by content (`docs/design/DECISIONS.md`, October 4): lessons, the Study map, the reader,
+bookmarks, custom quizzes and flags are free. Free gets one mock every 14 days; Pro unlimited.
+Wrong-choice notes are Pro only (October 1 explanations log). Progress tables and findings are Pro.
+No lesson or question file carries a Pro field. Conflict found: the mock reopen copy in code says 7
+days; the record says 14.
+
+Consequence: plan task C7 as written ("bundle free content, serve Pro content") protects almost
+nothing, because nearly all lessons and questions are free. The goal Aedwon set (slow bulk copying)
+needs a choice. Options offered:
+
+1. Serve all lessons and questions per request to every signed-in student (free students get an
+   automatic anonymous account), with App Check and per-account limits, caching what was opened
+   and prefetching the student's next items in the background. Copying needs many requests;
+   anonymous accounts are cheap to create, so limits slow a copier less than a paid wall would.
+   About 3 to 5 days; Firestore reads estimated within the free tier at 1,000 daily students.
+2. Serve per request only questions, keep lessons bundled.
+3. Keep the bundle and serve only Pro-only data (wrong-choice notes) per request. Cheapest, protects
+   little.
+4. Change the split so part of the question bank is Pro. A pricing and product change.
+
+Recommended: 1. Awaiting Aedwon's choice. C7 does not start until then.

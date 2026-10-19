@@ -232,7 +232,9 @@ entitlement path as C4 with source `trial`. The trial check reuses W3's trial-el
 an account that ever had a trial or paid access gets none. Started from the Pro page; ends without
 charge. New Google accounts are an accepted risk, as in the tier spec.
 
-C7. **Pro content served per request (October 19, Aedwon: option 2).** Goal: bulk copying is slow
+C7. **Pro content served per request (October 19, Aedwon: option 2). ON HOLD: the approved split
+is by feature, so nearly all content is free; scope awaits Aedwon's choice (decision log, "free and
+Pro split found").** Goal: bulk copying is slow
 and needs a paid account; it cannot be prevented.
 - Lead first finds the approved split of free versus Pro content (paywall and tier records). If no
   record defines it, ask Aedwon before building. Do not invent the split.
