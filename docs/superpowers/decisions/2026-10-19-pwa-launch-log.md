@@ -533,3 +533,40 @@ Decisions:
    assessment and the rest of the app stay usable without signing in.
 3. Pro must be enforced by the server, not by the app, as a credibility requirement. Scope options
    are offered in the reply.
+
+### October 19: server-enforced Pro, option B
+
+Options offered: (A) the server delivers all content, Pro-only items and mock papers after checks,
+while Progress insights stay computed on the device, about 4 to 6 days; (B) A plus the roadmap
+and Pro insights computed on the server, about 1.5 to 2 more weeks if rewritten. Claude first
+recommended A. Correction recorded: Aedwon pointed out that the personalized roadmap is the
+product's selling point. `docs/design/DECISIONS.md` makes Coming up and History (the full plan to
+the exam) Pro, while the device computes the whole plan and only hides those parts. A shared
+browser script could reveal them. Claude then recommended B, reusing the existing Dart roadmap
+logic compiled for the server instead of rewriting it, estimated at about 1 week more than A
+(to be confirmed in the first task).
+
+Aedwon's exact comments:
+
+> this is exactly why i offered my m4 macbook air as a vps because i expected these checks to be
+> on our end. caching of course is expected for fast loads but it should request latest and update
+> asap. does this make sense?
+>
+> progress being easily exposed and the method shared over the internet destroys the selling point
+> of the app, which is your roadmap is personalized for you. or am I in the wrong here? let me know
+
+> yes go
+
+Decisions:
+
+1. Option B with content option 1. The app never decides Pro. Content, Pro-only data, mock papers,
+   the mock allowance, the roadmap and Pro insights come from Cloud Functions after the server
+   checks the signed account and tier. Each account receives only what its tier allows.
+2. Caching: show the cached copy at once, request the latest in the background, and update as
+   soon as it arrives.
+3. Answers sync to the server in batches per session, for every account, as the input to the
+   server roadmap.
+4. The server runs on Firebase, not the MacBook; this gives the server-side control Aedwon wanted.
+
+This revises spec Part A ("downloads all CSE lessons and quizzes", "works offline"); the spec is
+updated to match.

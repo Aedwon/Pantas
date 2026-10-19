@@ -26,18 +26,25 @@ which the backend already uses.
 
 ### How it works for a student
 
-1. The student opens the Pantas link in a phone browser. A Pantas loading screen shows at once.
-2. The first visit downloads the app and all CSE lessons and quizzes, estimated at 5 to 8 MB.
-3. After that, the app opens from the phone in about 1 to 2 seconds and works offline.
-4. Pantas asks the student to add it to the Home Screen. On iPhone, this also stops Safari from
-   clearing the saved lessons after 7 days without use.
-5. Progress syncs to the student's account, so nothing is lost if the browser clears storage.
-6. Paying for Pro opens a PayMongo checkout (GCash, Maya or card). Pro unlocks when PayMongo
-   confirms the payment.
+Revised October 19 (decision log, "server-enforced Pro, option B").
+
+1. The student opens the Pantas link in a phone browser. A Pantas Welcome screen shows at once.
+2. Onboarding and the assessment need no sign-in. The app explains that an account keeps progress.
+3. Lessons and questions come from Pantas's server as the student opens them, and the next few
+   preload in the background. Opened items are saved on the phone, so they open instantly next
+   time; the app still asks for the latest copy and updates as soon as it arrives.
+4. The server decides what each account gets. Free and Pro limits, the mock allowance (one free
+   mock per 30 days, account required), the personalized roadmap and Pro insights are all decided
+   and calculated on the server. Editing the app in a browser unlocks nothing.
+5. Pantas asks the student to add it to the Home Screen.
+6. Answers sync to the server after each session, so the roadmap stays personal and nothing is
+   lost if the browser clears storage.
+7. Paying for Pro opens a PayMongo checkout (GCash, Maya or card). Pro unlocks when PayMongo
+   confirms the payment. A 7-day free trial is available once per account.
 
 Only the phone layout ships first. The desktop layout follows later.
 
-### Plan and timing (estimate: 2 to 3 weeks)
+### Plan and timing (original estimate: 2 to 3 weeks; superseded by the implementation plan, about 4 to 5 weeks)
 
 | Phase | Days | Who | Work |
 |---|---|---|---|

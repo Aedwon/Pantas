@@ -52,7 +52,9 @@ approved: one chat per lesson. D5 authorized: Level 5 runs alongside Level 4, th
 | 3 | W4a and W4f (adjusted for web). W4h Task 4, W2 Task 9. | Rewrite and illustrations. Your QA. |
 | 4 | W6 Tasks 6 to 8. Launch hardening (L1 to L4). Phone acceptance. | CSE content build. Launch. |
 
-Biggest risk: W4 speed. If D2 is declined, add about 3 weeks.
+Biggest risk: W4 speed. October 19 additions (server-enforced Pro, C7 to C10, and the encrypted
+web database) add about 1 to 1.5 weeks to the payments lane; the launch estimate is now about 4 to
+5 weeks with 2 W4 lanes.
 
 ---
 
@@ -184,7 +186,8 @@ B7b. **Phone layout only.** At launch the web app uses the phone layout at every
 with a maximum width on large screens. The desktop layout from Claude Design comes after launch
 (spec Part A). Any visible framing on wide screens goes to Aedwon with the visual companion.
 
-B8. **Size cuts.** Web seed database with CSE content only (built by the content tool, Lane E7).
+B8. **Size cuts.** (After C7 the seed database carries no lesson or question content; B3 and B7
+then apply to the cached content store.) Web seed database with CSE content only (built by the content tool, Lane E7).
 Font subsetting for the three Source Sans 3 weights. Decide CanvasKit from CDN versus self-hosted
 from the B4 measurement. Target: first load under 6 MB transferred, and the Welcome screen visible within 1 second on
 a throttled mobile profile (estimate-based targets; report the actuals).
@@ -232,27 +235,46 @@ entitlement path as C4 with source `trial`. The trial check reuses W3's trial-el
 an account that ever had a trial or paid access gets none. Started from the Pro page; ends without
 charge. New Google accounts are an accepted risk, as in the tier spec.
 
-C7. **Pro content served per request (October 19, Aedwon: option 2). ON HOLD: the approved split
-is by feature, so nearly all content is free; scope awaits Aedwon's choice (decision log, "free and
-Pro split found").** Goal: bulk copying is slow
-and needs a paid account; it cannot be prevented.
-- Lead first finds the approved split of free versus Pro content (paywall and tier records). If no
-  record defines it, ask Aedwon before building. Do not invent the split.
-- The bundled seed database (web and mobile) holds free content only. Pro content is uploaded to
-  Firestore by the content build (Lane E7), one document per question set or lesson, so one
-  student action costs one read.
-- A callable function returns one set or lesson after checking sign-in, the `pro` grant (paid or
-  trial), App Check, and a per-account daily limit using the W6 limit pattern. The limit is set
-  well above real study use; the lead proposes the number from the curriculum size.
-- Firestore rules deny direct client reads of the Pro collection.
-- The client caches each opened item in the encrypted app database (B3), so it works offline after
-  the first open and is cleared when Pro ends or the student signs out.
-- W4 screens keep reading through the existing content repository interface; the repository falls
-  back to the server for Pro items. Lead checks W4c, W4d and W4e callers for any assumption that all
-  content is local before building, and orders this with the integration owner.
-- Tests: free user refused, Pro user served, limit reached, App Check missing, rules deny direct
-  reads, cache cleared on sign-out and on expiry.
-Estimate: about 3 to 5 days.
+C7 to C10 replace the earlier C7 (October 19, decision log "server-enforced Pro, option B").
+Principle: the app never decides Pro. Every lesson, question, Pro-only item, mock paper, mock
+allowance, roadmap and Pro insight comes from Cloud Functions after the server checks the signed
+account (App Check, sign-in or anonymous account, `pro` grant, tier). Firestore rules deny direct
+client reads of content and computed results. Each function has a per-account limit (W6 pattern),
+set by the lead from real study use.
+
+C7. **Content per request.** The content build (E7) uploads lessons and question sets to a
+server-only Firestore collection, one document per lesson or set, Pro-only fields (wrong-choice
+notes) in a separate document. A callable returns a lesson or set; it returns Pro-only fields only
+to Pro accounts. The client stores opened items in the encrypted app database, shows the stored
+copy at once, requests the latest in the background, and updates on arrival (content version per
+document). It preloads the next items on the student's roadmap. The bundled seed database holds no
+lesson or question content; the web bundle shrinks accordingly. W4 screens keep reading through the
+existing content repository; the repository fetches and caches. Lead checks W4c, W4d and W4e
+callers for local-only assumptions first and orders changes with the integration owner.
+
+C8. **Mock allowance and papers on the server.** Starting a mock requires a real (non-anonymous)
+account. A callable checks the allowance (Free: one per rolling 30 days after the last mock; Pro:
+unlimited; later grants by code or account ID are a post-launch item) and returns the paper. The
+submission is recorded on the server. Mock answers and explanations follow the approved Free rule
+(visible until the next mock opens), enforced by the server.
+
+C9. **Answer sync.** Every account (anonymous included) syncs answers and session results to the
+server in one batch per session. Reuse the existing sync generation design; check the W6 cleanup
+jobs cover anonymous accounts that never sign up.
+
+C10. **Roadmap and Pro insights on the server.** First task, by the lead: confirm the existing Dart
+roadmap and insights logic (W4b, `web/roadmap-engine-r1` lineage) can be compiled for a Cloud
+Function (dart2js or a Dart Cloud Run service) without rewriting, and give a revised estimate
+before building; plan estimate about 1 week. The function computes the roadmap from synced answers
+when a session syncs and stores the result server-side; a callable returns only the parts the
+account's tier allows (Free: Today; Pro: Coming up, History and insights, per
+`docs/design/DECISIONS.md`). The client never receives the Pro parts for a Free account. The device
+keeps showing the last received roadmap while offline.
+
+Tests for C7 to C10: Free account refused Pro fields; anonymous account refused a mock; allowance
+refuses a second mock inside 30 days; rules deny direct reads; limit reached; stale cache updated
+on fetch; roadmap response for Free contains no Pro sections; sync batch replay is idempotent.
+Estimate for C7 to C10: about 2 weeks (lead to confirm after C10's first task).
 
 Verification: Functions plain and emulator suites full pass; lead reviews the diff line by line;
 `firestore.rules` unchanged or reviewed; Aedwon completes one test-mode purchase on staging.
