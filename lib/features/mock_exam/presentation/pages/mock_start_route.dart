@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -316,6 +317,9 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         attempt: attempt,
         backgroundedAt: restored.strictBackgroundedAt,
         now: resumeNow,
+        openPart: parts[currentPartIndex],
+        partStartedAtSeconds: restored.partStartedAtSeconds ?? 0,
+        atGate: restored.betweenParts,
       )) {
         _strictBackgroundedAt = null;
         scheduleMicrotask(controller.strictBackgroundExceeded);
@@ -323,6 +327,11 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         scheduleMicrotask(
           () => controller.tickTo(attempt.durationMinutes * 60),
         );
+      } else if (!restored.betweenParts &&
+          controller.remainingInPart <= Duration.zero) {
+        // The open part ran out while the app was closed.
+        _strictBackgroundedAt = null;
+        scheduleMicrotask(() => controller.tickTo(attempt.elapsedSeconds));
       } else if (_strictBackgroundedAt != null) {
         _strictBackgroundedAt = null;
         unawaited(_bestEffortForceFlush());
@@ -356,20 +365,31 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     return null;
   }
 
+  /// Strict mode forgives leaving for [StrictModeLifecycle.guardDelay]. If the
+  /// open part ran out before that grace ended, the paper was not handed in
+  /// by leaving: the part's own end governs. A part that has not started
+  /// (the stopped gate) has no end, so the grace alone decides.
   bool _strictForfeitOccurredFirst({
     required MockAttempt attempt,
     required DateTime? backgroundedAt,
     required DateTime now,
+    required MockSessionPart openPart,
+    required int partStartedAtSeconds,
+    required bool atGate,
   }) {
     if (!attempt.strictMode || backgroundedAt == null) return false;
     final forfeitAt = backgroundedAt.add(StrictModeLifecycle.guardDelay);
-    final expiresAt = attempt.startedAt.add(
-      Duration(
-        seconds:
-            attempt.durationMinutes * 60 + attempt.accumulatedPausedSeconds,
-      ),
+    if (!now.isAfter(forfeitAt)) return false;
+    if (atGate) return true;
+    final overall = attempt.durationMinutes * 60;
+    final partMinutes = openPart.minutes;
+    final deadline = partMinutes == null
+        ? overall
+        : math.min(overall, partStartedAtSeconds + partMinutes * 60);
+    final endsAt = attempt.startedAt.add(
+      Duration(seconds: deadline + attempt.accumulatedPausedSeconds),
     );
-    return now.isAfter(forfeitAt) && forfeitAt.isBefore(expiresAt);
+    return forfeitAt.isBefore(endsAt);
   }
 
   Future<ParsedMockBlueprint?> _findCurrentBlueprint(

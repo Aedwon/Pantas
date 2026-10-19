@@ -19,7 +19,7 @@ void main() {
   });
 
   test(
-    'strict lifecycle forfeits only after more than five seconds backgrounded',
+    'strict lifecycle forfeits only after more than ten seconds backgrounded',
     () {
       var forfeits = 0;
       final lifecycle = StrictModeLifecycle(
@@ -29,19 +29,19 @@ void main() {
 
       lifecycle
         ..paused(DateTime.utc(2026))
-        ..elapse(const Duration(seconds: 5));
+        ..elapse(const Duration(seconds: 10));
       expect(forfeits, 0);
 
       lifecycle.elapse(const Duration(milliseconds: 1));
       expect(forfeits, 1);
 
-      lifecycle.elapse(const Duration(seconds: 10));
+      lifecycle.elapse(const Duration(seconds: 20));
       expect(forfeits, 1);
     },
   );
 
   test(
-    'strict lifecycle cancels guard when app resumes within five seconds',
+    'strict lifecycle cancels guard when app resumes within ten seconds',
     () {
       var forfeited = false;
       final lifecycle = StrictModeLifecycle(
@@ -51,9 +51,9 @@ void main() {
 
       lifecycle
         ..paused(DateTime.utc(2026))
-        ..elapse(const Duration(seconds: 4))
-        ..resumed(DateTime.utc(2026).add(const Duration(seconds: 4)))
-        ..elapse(const Duration(seconds: 10));
+        ..elapse(const Duration(seconds: 9))
+        ..resumed(DateTime.utc(2026).add(const Duration(seconds: 9)))
+        ..elapse(const Duration(seconds: 20));
 
       expect(forfeited, isFalse);
     },
@@ -69,7 +69,7 @@ void main() {
 
     lifecycle
       ..paused(backgroundedAt)
-      ..resumed(backgroundedAt.add(const Duration(seconds: 6)));
+      ..resumed(backgroundedAt.add(const Duration(seconds: 11)));
 
     expect(forfeited, isTrue);
   });
