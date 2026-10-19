@@ -30,6 +30,9 @@ export const deleteAccount = onCall(
     await retirePublicId(db, uid);
     await db.recursiveDelete(userRef);
     await clearPassOwnership(db, uid);
+    // The payment-to-account index is account data; the grant ledger went with the user tree.
+    const payments = await db.collection('paymongoPayments').where('uid', '==', uid).get();
+    await Promise.all(payments.docs.map((doc) => doc.ref.delete()));
 
     // Purge hosted Wrapped cards: top-level docs + their storage objects
     // (landing-page spec §5.2).

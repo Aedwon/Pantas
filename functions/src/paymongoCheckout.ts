@@ -1,0 +1,62 @@
+import {randomUUID} from 'node:crypto';
+import {getFirestore, type Firestore} from 'firebase-admin/firestore';
+import {defineSecret} from 'firebase-functions/params';
+import {HttpsError, onCall} from 'firebase-functions/v2/https';
+import {assertNamedUser} from './_audit.js';
+import {allowAtMost} from './_limits.js';
+import type {Grant} from './grants.js';
+import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
+import {priceCentavos, webProduct} from './paymongoPolicy.js';
+import {endOfSitting, examCatalog, sittingFor, type CatalogExam} from './revenuecatPasses.js';
+
+const secretKey = defineSecret('PAYMONGO_SECRET_KEY');
+const CHECKOUTS_PER_WINDOW = 10;
+const WINDOW_MS = 10 * 60_000;
+// Method values confirmed in PayMongo's docs. Add more (for example dob) through
+// PAYMONGO_PAYMENT_METHODS once the merchant account has them enabled.
+const DEFAULT_METHODS = ['card', 'gcash', 'paymaya', 'grab_pay', 'shopeepay', 'qrph'];
+
+const NAMES: Record<string, string> = {
+  pantas_cs_weekly: 'Pantas Pro, Civil Service, 1 week',
+  pantas_cs_monthly: 'Pantas Pro, Civil Service, 1 month',
+  pantas_cs_yearly: 'Pantas Pro, Civil Service, 1 year',
+  pantas_pass_cse_pro: 'Pantas Pro, CSE Professional pass',
+  pantas_pass_cse_sub: 'Pantas Pro, CSE Subprofessional pass',
+};
+
+export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: string; methods: string[];
+  allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
+
+export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0], data: unknown,
+  deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string}> {
+  const uid = assertNamedUser(auth);
+  const requested = (data as {product?: unknown} | null)?.product;
+  const product = typeof requested === 'string' ? webProduct(requested) : undefined;
+  if (!product) throw new HttpsError('invalid-argument', 'This product is not sold on the web.');
+  const now = (deps.now ?? Date.now)();
+  const allowed = await (deps.allow ?? (id => allowAtMost(id, 'paymongoCheckout', CHECKOUTS_PER_WINDOW, WINDOW_MS)))(uid);
+  if (!allowed) throw new HttpsError('resource-exhausted', 'Too many checkout attempts. Try again later.');
+  if (product.prepaid.unit === 'sitting') {
+    if (!product.examId || !sittingFor(deps.catalog ?? examCatalog, product.examId, now)) {
+      throw new HttpsError('failed-precondition', 'No exam date is published for this pass yet.');
+    }
+    const rows = await deps.db.collection(`users/${uid}/grants`).get();
+    if (rows.docs.some(d => {
+      const grant = d.data() as Grant;
+      return grant.product === product.id && grant.state === 'active' && grant.endsAt > now;
+    })) throw new HttpsError('already-exists', 'This pass is already active.');
+  }
+  const session = await deps.client.createCheckoutSession({uid, product: product.id,
+    name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
+    successUrl: `${deps.origin}/pro?checkout=success`, cancelUrl: `${deps.origin}/pro?checkout=cancelled`,
+    paymentMethodTypes: deps.methods, referenceNumber: randomUUID()});
+  return {checkoutUrl: session.checkoutUrl, sessionId: session.id};
+}
+
+export const createPaymongoCheckout = onCall(
+  {region: 'asia-southeast1', enforceAppCheck: true, consumeAppCheckToken: true, secrets: [secretKey]},
+  request => createCheckout(request.auth, request.data, {
+    client: httpPaymongoClient(secretKey.value()), db: getFirestore(),
+    origin: process.env.PANTAS_WEB_ORIGIN ?? 'https://pantas.study',
+    methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
+  }));

@@ -5,7 +5,10 @@ export type PriceTier = 'student' | 'civilService' | 'licensure' | 'nce';
 export interface CoveragePeriod {id: string; endsAt: number; active: boolean}
 // Trusted server ledger input only. Task 5 owns reading records in its transaction.
 export interface LedgerPass {examId: string; endsAt: number; active: boolean}
-type Product = {id: string; kind: string; tier: PriceTier};
+// Server-owned grant ledger input (PayMongo purchases and the web trial).
+export interface LedgerGrant {source: 'paymongo' | 'trial'; product: string; tier: PriceTier;
+  endsAt: number; active: boolean}
+type Product = {id: string; kind: string; tier: PriceTier; examId?: string | null};
 const products = JSON.parse(readFileSync(join(__dirname, 'products.json'), 'utf8')) as Product[];
 const tiers: PriceTier[] = ['student', 'civilService', 'licensure', 'nce'];
 const higher = (a: PriceTier | null, b: PriceTier): PriceTier =>
@@ -14,6 +17,7 @@ const higher = (a: PriceTier | null, b: PriceTier): PriceTier =>
 export function coverageAt(input: {
   at: number; subscriptions?: readonly CoveragePeriod[];
   promotions?: readonly CoveragePeriod[]; passes?: readonly LedgerPass[];
+  grants?: readonly LedgerGrant[];
   nonSubscriptionPurchases?: readonly CoveragePeriod[]; onUnknown?: (id: string) => void;
 }) {
   let subscriptionTier: PriceTier | null = null;
@@ -42,6 +46,24 @@ export function coverageAt(input: {
     if (!live(pass)) continue;
     passes.set(pass.examId, Math.max(passes.get(pass.examId) ?? pass.endsAt, pass.endsAt));
     includeEnd(pass.endsAt);
+  }
+  for (const grant of input.grants ?? []) {
+    if (!live(grant)) continue;
+    if (grant.source === 'trial') {
+      if (!tiers.includes(grant.tier)) {hasUnknown = true; logUnknown(grant.product); continue;}
+      grantTier = higher(grantTier, grant.tier);
+      includeEnd(grant.endsAt);
+      continue;
+    }
+    const product = products.find(p => p.id === grant.product);
+    if (!product) {hasUnknown = true; logUnknown(grant.product); continue;}
+    if (product.kind === 'subscription') {
+      subscriptionTier = higher(subscriptionTier, product.tier);
+      includeEnd(grant.endsAt);
+    } else if (product.kind === 'pass' && product.examId) {
+      passes.set(product.examId, Math.max(passes.get(product.examId) ?? grant.endsAt, grant.endsAt));
+      includeEnd(grant.endsAt);
+    }
   }
   for (const purchase of input.nonSubscriptionPurchases ?? []) {
     if (!products.some(p => p.id === purchase.id)) logUnknown(purchase.id);

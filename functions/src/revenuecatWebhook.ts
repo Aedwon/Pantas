@@ -7,6 +7,7 @@ import { commitRevenueCatAnswer, copyEntitlementClaims, repairClaims, checkRecen
 import { claimsForRevenueCatAnswer, normalizeRevenueCatEvent, requireExactRevenueCatRawBody,
   verifyRevenueCatSignature, isUnresolvedFirebaseIdentityError, type RevenueCatAccessSource } from './revenuecatPolicy.js';
 import { readRevenueCatCustomer, readRevenueCatPurchases, type RevenueCatPurchase } from './revenuecatSubscriber.js';
+import {ledgerGrants, type Grant} from './grants.js';
 import {preparePassReconciliation, examCatalog, type CatalogExam} from './revenuecatPasses.js';
 export { verifyRevenueCatSignature } from './revenuecatPolicy.js';
 
@@ -62,11 +63,16 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
             (deps.firebaseProjectId === 'pantas-staging' || sandboxTester)));
         const context = {appId:deps.appId,firebaseProjectId:deps.firebaseProjectId,sandboxTester};
         const options = {...context,at:answerAt};
-        const claim = deps.readPurchases ? async (transaction: import('firebase-admin/firestore').Transaction) => {
+        const claim = async (transaction: import('firebase-admin/firestore').Transaction) => {
+          // PayMongo and trial grants live beside RevenueCat; a store answer must keep them.
+          const grants = ledgerGrants((await transaction.get(deps.db.collection(`users/${uid}/grants`)))
+            .docs.map(doc => doc.data() as Grant));
+          if (!deps.readPurchases) return {claims:claimsForRevenueCatAnswer(sources,{...options,grants}),apply:()=>{}};
           const prepared = await preparePassReconciliation(transaction,deps.db,uid,
             allowedPurchases,deps.catalog ?? examCatalog,answerAt);
-          return {claims:claimsForRevenueCatAnswer(sources,{...options,passes:prepared.passes}),apply:prepared.apply};
-        } : claimsForRevenueCatAnswer(sources,options);
+          return {claims:claimsForRevenueCatAnswer(sources,{...options,passes:prepared.passes,grants}),
+            apply:prepared.apply};
+        };
         if (sandboxTester && (sources.some(s => s.environment === 'sandbox') ||
             allowedPurchases.some(p => p.environment === 'sandbox' && p.status === 'owned'))) {
           console.info('RevenueCat sandbox tester reconciliation', {uid,eventId:event.eventId});

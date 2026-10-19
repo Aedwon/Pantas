@@ -9,27 +9,28 @@ import {claimsForRevenueCatAnswer, type RevenueCatAccessSource} from './revenuec
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import type {RevenueCatPurchase} from './revenuecatSubscriber.js';
 import type {LedgerPass} from './revenuecatCoverage.js';
+import {ledgerGrants, type Grant} from './grants.js';
 
 export interface Sitting {firstDay: string; lastDay: string; sourceUrl: string}
 export interface CatalogExam {id: string; publishedSittings: Sitting[]}
 export const examCatalog = JSON.parse(readFileSync(join(__dirname, 'examCatalog.json'), 'utf8')) as CatalogExam[];
 const products = JSON.parse(readFileSync(join(__dirname, 'products.json'), 'utf8')) as
   {id: string; kind: string; examId: string | null}[];
-type Pass = {transactionId: string; product: string; examId: string; purchasedAt: number;
+export type Pass = {transactionId: string; product: string; examId: string; purchasedAt: number;
   sitting: Sitting; endsAt: number; state: 'active' | 'revoked'};
 const binding = (product: string) => products.find(p => p.id === product && p.kind === 'pass')?.examId;
 const pathId = (id: string) => encodeURIComponent(id);
 const receiptKey = (id: string) => createHash('sha256').update(id).digest('hex');
 
-function sittingFor(catalog: CatalogExam[], examId: string, purchasedAt: number): Sitting | undefined {
+export function sittingFor(catalog: CatalogExam[], examId: string, purchasedAt: number): Sitting | undefined {
   // Published Philippines exam days are calendar dates, not device times.
   const purchaseDay = new Date(purchasedAt + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
   return catalog.find(e => e.id === examId)?.publishedSittings
     .filter(s => s.firstDay >= purchaseDay && s.sourceUrl.length > 0)
     .sort((a,b) => a.firstDay.localeCompare(b.firstDay))[0];
 }
-const endOfSitting = (sitting: Sitting) => Date.parse(sitting.lastDay + 'T23:59:59.999+08:00');
-const livePasses = (rows: Iterable<Pass>): LedgerPass[] =>
+export const endOfSitting = (sitting: Sitting) => Date.parse(sitting.lastDay + 'T23:59:59.999+08:00');
+export const livePasses = (rows: Iterable<Pass>): LedgerPass[] =>
   [...rows].filter(row => binding(row.product) === row.examId && row.state === 'active')
     .map(row => ({examId:row.examId, endsAt:row.endsAt, active:true}));
 
@@ -117,13 +118,15 @@ export async function recomputePassRecords(db: Firestore, catalog: CatalogExam[]
         const endsAt = sitting ? endOfSitting(sitting) : pass.endsAt;
         if (!Number.isFinite(endsAt) || endsAt <= pass.endsAt) return false;
         const all = await transaction.get(user.collection('passes'));
+        const grantRows = await transaction.get(user.collection('grants'));
         const rows = all.docs.map(row => row.id === fresh.id
           ? {...pass, endsAt, sitting:sitting!} : row.data() as Pass);
         const facts = record.get('facts') as {sources?: RevenueCatAccessSource[];
           coverageContext?: {appId:string; firebaseProjectId:string; sandboxTester:boolean}} | undefined;
         if (!record.exists || !facts?.coverageContext) throw new Error('Missing entitlement reconciliation context');
         const claims = claimsForRevenueCatAnswer(facts.sources ?? [], {
-          ...facts.coverageContext, at:Date.now(), passes:livePasses(rows)});
+          ...facts.coverageContext, at:Date.now(), passes:livePasses(rows),
+          grants:ledgerGrants(grantRows.docs.map(row => row.data() as Grant))});
         transaction.update(doc.ref, {endsAt,sitting});
         transaction.set(db.doc(`passOwners/${receiptKey(pass.transactionId)}`),
           {endsAt,sitting}, {merge:true});

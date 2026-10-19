@@ -14,3 +14,6 @@ export { onUserCreated } from './onUserCreated.js';
 export { cleanupOrphanAnons } from './cleanupOrphanAnons.js';
 export { purgeOldAuditLogs } from './purgeOldAuditLogs.js';
 export { cleanupWrappedOrphans } from './cleanupWrappedOrphans.js';
+export { createPaymongoCheckout } from './paymongoCheckout.js';
+export { paymongoWebhook } from './paymongoWebhook.js';
+export { startWebTrial } from './webTrial.js';

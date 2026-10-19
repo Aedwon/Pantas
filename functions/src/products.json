@@ -25,35 +25,58 @@
     "tier": "civilService",
     "period": "weekly",
     "kind": "subscription",
-    "examId": null
+    "examId": null,
+    "webPricePhp": 49,
+    "prepaid": {
+      "unit": "days",
+      "count": 7
+    }
   },
   {
     "id": "pantas_cs_monthly",
     "tier": "civilService",
     "period": "monthly",
     "kind": "subscription",
-    "examId": null
+    "examId": null,
+    "webPricePhp": 149,
+    "prepaid": {
+      "unit": "months",
+      "count": 1
+    }
   },
   {
     "id": "pantas_cs_yearly",
     "tier": "civilService",
     "period": "yearly",
     "kind": "subscription",
-    "examId": null
+    "examId": null,
+    "webPricePhp": 1199,
+    "prepaid": {
+      "unit": "years",
+      "count": 1
+    }
   },
   {
     "id": "pantas_pass_cse_pro",
     "tier": "civilService",
     "period": null,
     "kind": "pass",
-    "examId": "exam_cse_pro"
+    "examId": "exam_cse_pro",
+    "webPricePhp": 499,
+    "prepaid": {
+      "unit": "sitting"
+    }
   },
   {
     "id": "pantas_pass_cse_sub",
     "tier": "civilService",
     "period": null,
     "kind": "pass",
-    "examId": "exam_cse_sub"
+    "examId": "exam_cse_sub",
+    "webPricePhp": 499,
+    "prepaid": {
+      "unit": "sitting"
+    }
   },
   {
     "id": "promo_student",

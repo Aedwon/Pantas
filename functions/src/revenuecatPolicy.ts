@@ -1,5 +1,5 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
-import {coverageAt, type CoveragePeriod, type LedgerPass} from './revenuecatCoverage.js';
+import {coverageAt, type CoveragePeriod, type LedgerGrant, type LedgerPass} from './revenuecatCoverage.js';
 export {coverageAt} from './revenuecatCoverage.js';
 
 const HMAC_SHA256_HEX = /^[0-9a-f]{64}$/i;
@@ -145,7 +145,7 @@ export interface RevenueCatAccessSource {
 
 export function claimsForRevenueCatAnswer(sources: RevenueCatAccessSource[], options: {
   appId: string; firebaseProjectId: string; sandboxTester: boolean; at: number;
-  passes?: readonly LedgerPass[];
+  passes?: readonly LedgerPass[]; grants?: readonly LedgerGrant[];
 }): {pro: boolean; proUntil: number} {
   const subscriptions: CoveragePeriod[] = [];
   const promotions: CoveragePeriod[] = [];
@@ -159,7 +159,8 @@ export function claimsForRevenueCatAnswer(sources: RevenueCatAccessSource[], opt
       subscriptions.push({id: source.productId.split(':')[0], endsAt: source.endsAt, active: true});
     }
   }
-  const coverage = coverageAt({at: options.at, subscriptions, promotions, passes: options.passes});
+  const coverage = coverageAt({at: options.at, subscriptions, promotions, passes: options.passes,
+    grants: options.grants});
   const latest = coverage.endsAt ?? 0;
   return {pro: latest > 0, proUntil: latest > 0 ? latest + 86_400_000 : 0};
 }
