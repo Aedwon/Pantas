@@ -240,20 +240,26 @@ Future<void> _bootstrap(
     final storageLookup = ProviderContainer(overrides: overrides);
     database = storageLookup.read(appDatabaseProvider);
     storageLookup.dispose();
-    await ensureProtectedContentInstalled(
-      verifier: const BundledContentPackageVerifier(
-        loadAssetBytes: _loadContentPackageAssetBytes,
-        signingKeyLookup: ContentSigningKeys.lookupEntry,
-        bootstrapKeyLookup: _lookupContentBootstrapKey,
-      ),
-    );
-    final contentOverrides = await bootstrapContentOverrides(
-      open: () async {
-        final opened = await openProtectedContentDatabase();
-        contentDatabase = opened;
-        return opened;
-      },
-    );
+    // Web has no bundled content package. Lessons and question sets come
+    // from the server through the content service (plan task C7).
+    if (!kIsWeb) {
+      await ensureProtectedContentInstalled(
+        verifier: const BundledContentPackageVerifier(
+          loadAssetBytes: _loadContentPackageAssetBytes,
+          signingKeyLookup: ContentSigningKeys.lookupEntry,
+          bootstrapKeyLookup: _lookupContentBootstrapKey,
+        ),
+      );
+    }
+    final contentOverrides = kIsWeb
+        ? const <Override>[]
+        : await bootstrapContentOverrides(
+            open: () async {
+              final opened = await openProtectedContentDatabase();
+              contentDatabase = opened;
+              return opened;
+            },
+          );
     final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
     final authOverrides = authRepositoryOverrides(firebaseResult);
 
@@ -291,6 +297,8 @@ Future<void> _bootstrap(
     onContainerReady(container);
 
     await bootstrapAuthSession(container, firebaseResult);
+    // Start watching sign-out so cached Pro-only fields are removed.
+    if (kIsWeb) container.read(contentServiceProvider);
     await applyPersistedTelemetryConsent(container);
     await registerDevProSwitch(container);
     await registerDevDemoSwitch(container);

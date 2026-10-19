@@ -3,6 +3,7 @@ import 'package:pantas/core/storage/data/tables/account_prefs_table.dart';
 import 'package:pantas/core/storage/data/tables/app_preferences_local_table.dart';
 import 'package:pantas/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:pantas/core/storage/data/tables/attempts_local_table.dart';
+import 'package:pantas/core/storage/data/tables/cached_content_table.dart';
 import 'package:pantas/core/storage/data/tables/custom_blueprints_local_table.dart';
 import 'package:pantas/core/storage/data/tables/custom_track_meta_local_table.dart';
 import 'package:pantas/core/storage/data/tables/daily_new_card_intro_table.dart';
@@ -68,13 +69,14 @@ part 'app_database.g.dart';
     CustomBlueprintsLocal,
     RoadmapDayLocal,
     RoadmapChangeLogLocal,
+    CachedContent,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 25;
+  int get schemaVersion => 26;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -194,6 +196,9 @@ class AppDatabase extends _$AppDatabase {
           if (from < 25) {
             await m.createTable(roadmapDayLocal);
             await m.createTable(roadmapChangeLogLocal);
+          }
+          if (from < 26) {
+            await m.createTable(cachedContent);
           }
         },
       );

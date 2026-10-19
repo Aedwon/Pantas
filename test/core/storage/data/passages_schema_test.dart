@@ -4,11 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 
 void main() {
-  test('schema version is 25 and passages table exists', () async {
+  test('schema version is 26 and passages table exists', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(25));
+    expect(db.schemaVersion, equals(26));
 
     final tables = await db
         .customSelect(

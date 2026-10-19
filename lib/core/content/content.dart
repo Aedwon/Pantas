@@ -15,6 +15,7 @@ export 'content_database.dart';
 export 'domain/diagnostic_set.dart';
 export 'domain/mock_blueprint.dart';
 export 'domain/mock_exam.dart';
+export 'remote/content_service_providers.dart';
 export 'repos/diagnostic_set_repo.dart';
 export 'repos/exam_repo.dart';
 export 'repos/lesson_repo.dart';

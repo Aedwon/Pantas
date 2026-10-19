@@ -1,1 +1,143 @@
-{"firestore":{"rules":"firestore.rules","indexes":"firestore.indexes.json"},"storage":{"rules":"storage.rules"},"functions":{"source":"functions","runtime":"nodejs22","predeploy":"npm --prefix functions run build"},"hosting":{"public":"public","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"/wrapped/**","function":"renderWrappedPage"}]},"emulators":{"auth":{"port":9099},"firestore":{"port":8080},"functions":{"port":5001},"storage":{"port":9199},"ui":{"enabled":true,"port":4000},"singleProjectMode":false},"flutter":{"platforms":{"android":{"default":{"projectId":"pantas-staging","appId":"1:797279948229:android:4aba870847c44b924bcfac","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options_dev.dart":{"projectId":"pantas-dev-090126","configurations":{"android":"1:989349364007:android:550a1cf3ce3b8c04b9a902"}},"lib/firebase_options_staging.dart":{"projectId":"pantas-staging","configurations":{"android":"1:797279948229:android:4aba870847c44b924bcfac"}},"lib/firebase_options_prod.dart":{"projectId":"pantas-prod","configurations":{"android":"1:416041343210:android:21d5a1c0b24d4aec639f93"}}}}}}
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs22",
+    "predeploy": "npm --prefix functions run build"
+  },
+  "hosting": [
+    {
+      "target": "site",
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/wrapped/**",
+          "function": "renderWrappedPage"
+        }
+      ]
+    },
+    {
+      "target": "app",
+      "public": "build/web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**/*.????????.@(js|css|wasm|png|jpg|jpeg|webp|svg|woff|woff2|ttf|otf)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "/index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            }
+          ]
+        },
+        {
+          "source": "/flutter_service_worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            }
+          ]
+        },
+        {
+          "source": "/manifest.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            }
+          ]
+        },
+        {
+          "source": "/version.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "functions": {
+      "port": 5001
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    },
+    "singleProjectMode": false
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "pantas-staging",
+          "appId": "1:797279948229:android:4aba870847c44b924bcfac",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options_dev.dart": {
+          "projectId": "pantas-dev-090126",
+          "configurations": {
+            "android": "1:989349364007:android:550a1cf3ce3b8c04b9a902"
+          }
+        },
+        "lib/firebase_options_staging.dart": {
+          "projectId": "pantas-staging",
+          "configurations": {
+            "android": "1:797279948229:android:4aba870847c44b924bcfac"
+          }
+        },
+        "lib/firebase_options_prod.dart": {
+          "projectId": "pantas-prod",
+          "configurations": {
+            "android": "1:416041343210:android:21d5a1c0b24d4aec639f93"
+          }
+        }
+      }
+    }
+  }
+}

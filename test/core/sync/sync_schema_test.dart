@@ -21,11 +21,11 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('schema 25 keeps the complete structured Sync state', () async {
+  test('schema 26 keeps the complete structured Sync state', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, 25);
+    expect(db.schemaVersion, 26);
     expect(
       await tableNames(db),
       containsAll(<String>[

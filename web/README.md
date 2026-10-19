@@ -79,3 +79,26 @@ PANTAS_PROBE_SCRIPT=verify_web_database.js node tool/web/probe_browser_host.cjs
 PANTAS_FAKE_IDB is required; the probe refuses to run without it.
 Evidence, exact matrix output, maintainer sources, and content stop reasoning:
 `docs/superpowers/plans/pwa-launch/evidence/B3-encrypted-web-db.md`.
+
+## Staging hosting (B4, config only)
+
+`firebase.json` has two Hosting targets: `site` (the existing `public/` site and the
+`/wrapped/**` rewrite, unchanged) and `app` (`build/web`, single-page rewrite).
+`.firebaserc` maps them for `pantas-staging`: `site` to `pantas-staging` and `app` to
+`pantas-staging-app`. The `app` site id is a proposal and must exist first
+(`firebase hosting:sites:create pantas-staging-app --project pantas-staging`).
+
+Cache headers: files whose name carries an 8-character hash segment
+(`name.<hash8>.js`, `.css`, `.wasm`, images, fonts) are
+`public, max-age=31536000, immutable`; `index.html`, `flutter_service_worker.js`,
+`manifest.json` and `version.json` are `no-cache`. Flutter's default output
+(`main.dart.js`, CanvasKit, `sqlite3.wasm`, `drift_worker.js`) is not hashed by
+filename, so none of it matches the immutable rule today. They revalidate by
+default. Long-lived caching of them needs the B6 build step to hash their names.
+
+Staging deploy command (do not run without the lead's approval):
+
+```
+flutter build web --release -t lib/main_staging.dart && \
+  firebase deploy --only hosting:app --project pantas-staging
+```
