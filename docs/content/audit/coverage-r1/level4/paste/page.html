@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 4 paste audit</title>
+<style>
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --text: #1d1d1b; --muted: #66645e; --line: #d9d6cd;
+  --accent: #1f5f8b; --accent-text: #ffffff;
+  --ok: #1e6b3a; --ok-bg: #e3f2e8; --warn: #8a5a00; --warn-bg: #fbefd2; --bad: #9b2226; --bad-bg: #f9e0e0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181a; --panel: #212326; --text: #ececea; --muted: #a3a29c; --line: #3a3d41;
+    --accent: #6cb4e4; --accent-text: #0e1114;
+    --ok: #7fd49a; --ok-bg: #1b3326; --warn: #f0c36a; --warn-bg: #3a2f14; --bad: #f0908f; --bad-bg: #3d1f20;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.3rem; margin: 0 0 4px; }
+.bar { position: sticky; top: 0; background: var(--bg); padding: 10px 0; border-bottom: 1px solid var(--line); z-index: 1; }
+.progress { color: var(--muted); margin: 0 0 8px; }
+.progress strong { color: var(--text); }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+  border-radius: 6px; padding: 5px 12px; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+button[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.notice { margin: 10px 0; padding: 8px 12px; border-radius: 6px; background: var(--bad-bg); color: var(--bad); }
+.row { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; margin: 10px 0; }
+.row[hidden] { display: none; }
+.head { display: flex; gap: 10px; align-items: center; padding: 8px 12px; flex-wrap: wrap; }
+.id { font-family: ui-monospace, Menlo, monospace; font-size: .9rem; color: var(--muted); }
+.title { flex: 1 1 260px; min-width: 0; }
+.badge { font-size: .8rem; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted); }
+.badge.accepted { color: var(--ok); background: var(--ok-bg); border-color: transparent; }
+.badge.rejected { color: var(--warn); background: var(--warn-bg); border-color: transparent; }
+.badge.held { color: var(--bad); background: var(--bad-bg); border-color: transparent; }
+.body { padding: 0 12px 12px; display: none; }
+.row.open .body { display: block; }
+textarea { width: 100%; min-height: 120px; resize: vertical; font: .85rem/1.35 ui-monospace, Menlo, monospace;
+  background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+.actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
+.result { margin-top: 10px; padding: 8px 12px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+.result.accepted { background: var(--ok-bg); color: var(--ok); }
+.result.rejected { background: var(--warn-bg); color: var(--warn); }
+.result.held, .result.stopped { background: var(--bad-bg); color: var(--bad); }
+.result ol { margin: 6px 0 0; padding-left: 22px; color: var(--text); }
+.result p { margin: 4px 0 0; color: var(--text); }
+.empty { color: var(--muted); padding: 24px 0; }
+</style>
+</head>
+<body>
+<main>
+  <div class="bar">
+    <h1>Level 4 paste audit</h1>
+    <p class="progress" id="progress">Loading...</p>
+    <div class="filters" id="filters"></div>
+  </div>
+  <div id="notice"></div>
+  <div id="rows"></div>
+</main>
+<script>
+"use strict";
+const FILTERS = [["all", "All"], ["todo", "To do"], ["accepted", "Accepted"], ["rejected", "Rejected"], ["held", "Held"]];
+const STATE_LABEL = {todo: "To do", accepted: "Accepted", rejected: "Rejected", held: "Held"};
+const rows = new Map();   // "list/id" -> {root, parts...}
+let filter = "all";
+let lastData = null;
+
+function el(tag, attrs, ...children) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs || {})) {
+    if (key === "class") node.className = value; else node.setAttribute(key, value);
+  }
+  for (const child of children) node.append(child);
+  return node;
+}
+
+async function post(path, body) {
+  const response = await fetch(path, {method: "POST", headers: {"X-L4": "1", "Content-Type": "application/json"},
+    body: JSON.stringify(body)});
+  if (!response.ok) throw new Error(await response.text());
+  return response.json();
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) { /* fall through */ }
+  }
+  const box = el("textarea"); box.value = text; document.body.append(box); box.select();
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  box.remove();
+  return ok;
+}
+
+// Safari only allows a clipboard write inside the click, so hand it a promise
+// for the text instead of waiting for the text first.
+async function copyFrom(url) {
+  if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+    try {
+      const blob = fetch(url).then(async r => { if (!r.ok) throw new Error(await r.text()); return r.blob(); });
+      await navigator.clipboard.write([new ClipboardItem({"text/plain": blob})]);
+      return true;
+    } catch (e) { /* fall through to the plain way */ }
+  }
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(await response.text());
+  return copyText(await response.text());
+}
+
+function showResult(row, result) {
+  const kind = (result.word || "").toLowerCase().replace(/ /g, "");
+  row.result.className = "result " + kind;
+  row.result.replaceChildren(el("strong", {}, result.word));
+  const lines = result.lines || [];
+  if (result.code === null) {
+    row.result.append(el("p", {}, lines.join(" ")));
+  } else if (lines.length) {
+    row.result.append(" " + lines[0].replace(/^[A-Z ]+: /, ""));
+    if (lines.length > 1) {
+      const list = el("ol");
+      for (const line of lines.slice(1)) list.append(el("li", {}, line.replace(/^\d+\.\s*/, "")));
+      row.result.append(list);
+    }
+  }
+  if (result.code === 2) row.result.append(el("p", {}, "Start a new chat and press Start over."));
+  row.result.hidden = false;
+  row.reply = result.reply || "";
+  row.copyReply.hidden = !row.reply;
+}
+
+function buildRow(list, item) {
+  const row = {list: list.key, id: item.id};
+  row.badge = el("span", {class: "badge"});
+  row.copy = el("button", {class: "primary", type: "button"}, "Copy prompt");
+  row.toggle = el("button", {type: "button"}, "Paste reply");
+  const head = el("div", {class: "head"}, el("span", {class: "id"}, item.id),
+    el("span", {class: "title"}, item.title), row.badge, row.copy, row.toggle);
+  row.text = el("textarea", {placeholder: "Paste the chat's reply here", "aria-label": "Chat reply for " + item.id});
+  row.check = el("button", {class: "primary", type: "button"}, "Check");
+  row.copyReply = el("button", {type: "button", hidden: ""}, "Copy reasons for the chat");
+  row.startOver = el("button", {type: "button", hidden: ""}, "Start over (new chat)");
+  row.status = el("span", {class: "id"});
+  row.result = el("div", {class: "result", hidden: ""});
+  const body = el("div", {class: "body"}, row.text,
+    el("div", {class: "actions"}, row.check, row.copyReply, row.startOver, row.status), row.result);
+  row.root = el("section", {class: "row"}, head, body);
+
+  const open = () => row.root.classList.add("open");
+  row.toggle.addEventListener("click", () => row.root.classList.toggle("open"));
+  row.copy.addEventListener("click", async () => {
+    try {
+      const ok = await copyFrom("/api/prompt?list=" + encodeURIComponent(row.list) + "&id=" + encodeURIComponent(row.id));
+      row.copy.textContent = ok ? "Copied" : "Copy failed";
+      if (ok) open();
+    } catch (error) {
+      row.copy.textContent = "Copy failed";
+      note(String(error.message || error));
+    }
+    setTimeout(() => { row.copy.textContent = "Copy prompt"; }, 2000);
+  });
+  row.check.addEventListener("click", async () => {
+    row.check.disabled = true; row.status.textContent = "Checking...";
+    try {
+      const result = await post("/api/check", {list: row.list, id: row.id, text: row.text.value});
+      showResult(row, result);
+      if (result.code === 0) row.text.value = "";
+      await refresh();
+    } catch (error) {
+      note(String(error.message || error));
+    }
+    row.check.disabled = false; row.status.textContent = "";
+  });
+  row.copyReply.addEventListener("click", async () => {
+    row.copyReply.textContent = (await copyText(row.reply)) ? "Copied" : "Copy failed";
+    setTimeout(() => { row.copyReply.textContent = "Copy reasons for the chat"; }, 2000);
+  });
+  row.startOver.addEventListener("click", async () => {
+    try { await post("/api/start-over", {list: row.list, id: row.id}); row.result.hidden = true; row.text.value = ""; await refresh(); }
+    catch (error) { note(String(error.message || error)); }
+  });
+  return row;
+}
+
+function note(message) {
+  document.getElementById("notice").replaceChildren(message ? el("div", {class: "notice"}, message) : "");
+}
+
+function applyState(row, item) {
+  row.state = item.state;
+  row.badge.textContent = STATE_LABEL[item.state] + (item.attempt > 1 ? ", attempt " + item.attempt : "");
+  row.badge.className = "badge " + item.state;
+  row.startOver.hidden = item.state !== "held";
+  row.check.disabled = item.state === "accepted" || item.state === "held";
+  if (item.state === "todo") row.result.hidden = true;
+  else if (item.last && row.result.hidden) showResult(row, item.last);
+  row.root.hidden = !(filter === "all" || filter === item.state);
+}
+
+function render(data) {
+  lastData = data;
+  const container = document.getElementById("rows");
+  let accepted = 0, total = 0;
+  const lines = [];
+  for (const list of data.lists) {
+    accepted += list.counts.accepted; total += list.total;
+    lines.push(list.label + ": to do " + list.counts.todo + ", rejected " + list.counts.rejected +
+      ", held " + list.counts.held + ".");
+    if (list.stopped) note("The run is stopped: a lesson no longer matches its packet. Tell the lead.");
+    for (const item of list.items) {
+      const key = list.key + "/" + item.id;
+      if (!rows.has(key)) { const row = buildRow(list, item); rows.set(key, row); container.append(row.root); }
+      applyState(rows.get(key), item);
+    }
+  }
+  const strong = el("strong", {}, accepted + " / " + total);
+  document.getElementById("progress").replaceChildren(strong, " accepted. ", lines.join(" "));
+  document.getElementById("empty")?.remove();
+  if (!total) container.append(el("p", {class: "empty", id: "empty"}, "Nothing is in scope yet."));
+}
+
+async function refresh() {
+  try {
+    const response = await fetch("/api/state");
+    if (!response.ok) throw new Error(await response.text());
+    note(""); render(await response.json());
+  } catch (error) {
+    note("Cannot reach the server: " + (error.message || error));
+  }
+}
+
+const filterBar = document.getElementById("filters");
+for (const [value, label] of FILTERS) {
+  const button = el("button", {type: "button", "aria-pressed": String(value === filter)}, label);
+  button.addEventListener("click", () => {
+    filter = value;
+    for (const node of filterBar.children) node.setAttribute("aria-pressed", String(node === button));
+    if (lastData) render(lastData);
+  });
+  filterBar.append(button);
+}
+refresh();
+</script>
+</body>
+</html>

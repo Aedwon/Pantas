@@ -1,0 +1,3 @@
+# Level 4 paste run: one packet id per line (for example L4-1055).
+# Lines starting with # are comments. The lead fills this list, then runs
+# python3 -I level4/paste/setup_paste.py
