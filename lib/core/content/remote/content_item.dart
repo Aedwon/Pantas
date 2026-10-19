@@ -2,7 +2,11 @@ import 'package:meta/meta.dart';
 
 enum ContentKind {
   lessons,
-  questions;
+  questions,
+
+  /// The structure of the content (exams, subjects, topics, lesson rows
+  /// without text, question index rows). Ids and format: `web/README.md`.
+  catalog;
 
   /// The value the `getContent` callable expects.
   String get wire => name;
