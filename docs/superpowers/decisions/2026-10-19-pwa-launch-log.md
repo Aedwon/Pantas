@@ -687,3 +687,7 @@ Aedwon's exact comment:
 Decision: option 1. The policy goes into `docs/TERMS.md` and on pantas.study before PayMongo
 verification and launch (Lane L4), with a legal check against Philippine consumer rules advised.
 The proportional refund mechanism stays, since Aedwon may still issue partial refunds for errors.
+
+Proportional partial refunds built on `web/paymongo-r1` at caf2142e (pushed). Lead reran: plain
+110/110, emulator 142/142, tsc clean. Pending Aedwon: whether to add an admin lookup tool for
+double charges and payments that did not unlock Pro (about half a day).

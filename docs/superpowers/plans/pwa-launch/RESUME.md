@@ -16,7 +16,7 @@ decision and its exact wording).
 | B2, B3 web platform and seams | in progress (Codex Sol, local only); encrypted web database blocked, second pass running | branch `web/pwa-foundation-r1` (not pushed yet) |
 | Firebase web apps | created in all 3 projects; config not yet in the options files | decision log, "Firebase web apps created" |
 | C1 and C10 ruling | done | `pwa-launch/C1-C10-ruling.md` |
-| C2, C4, C6 payment functions | built and lead-reviewed; plain 107/107, emulator 131/131 (Java 21: `PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH`), tsc clean. Not run against live PayMongo; refund event names partly unconfirmed (`functions/PAYMONGO.md`) | branch `web/paymongo-r1` at 694215d4 (pushed) |
+| C2, C4, C6 payment functions | built and lead-reviewed, with proportional partial refunds; plain 110/110, emulator 142/142 (Java 21: `PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH`), tsc clean. Not run against live PayMongo; some refund details UNCONFIRMED (`functions/PAYMONGO.md`) | branch `web/paymongo-r1` at caf2142e (pushed) |
 | C10 roadmap server spike | done: works; Node output matches Dart byte for byte on 10 scenarios; 33 KB gzip; about 1 ms per call. Not run on Node 20 (only Node 26 local) | branch `web/roadmap-server-spike-r1` at 75690df3 (pushed), `spike/roadmap_js/README.md` |
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
