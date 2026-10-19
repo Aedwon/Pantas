@@ -36,8 +36,13 @@ export function lessonItem(front: Record<string, unknown>, body: string): Conten
 export function blueprintItem(doc: Record<string, unknown>): ContentItem {
   const examId = String(doc.exam ?? '');
   if (!examId || !Array.isArray(doc.sections) || doc.sections.length < 1) throw new Error('blueprint needs exam and sections');
+  // The mock clock is durationMinutes; without a positive number a strict mock would end at once.
+  const minutes = doc.durationMinutes;
+  if (typeof minutes !== 'number' || !Number.isFinite(minutes) || minutes <= 0) {
+    throw new Error(`blueprint ${examId} needs a positive duration in minutes`);
+  }
   const fields = {
-    name: doc.name ?? null, durationMinutes: doc.durationMinutes ?? null,
+    name: doc.name ?? null, durationMinutes: minutes,
     sectionalTiming: doc.sectionalTiming ?? null, sectionsJson: JSON.stringify(doc.sections),
   };
   return {kind: 'mocks', id: examId, data: {kind: 'mocks', id: examId, ...fields, version: digest(fields)}};

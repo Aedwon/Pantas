@@ -102,3 +102,10 @@ test('a blueprint item is keyed by exam, keeps the sections as JSON and changes 
   assert.notEqual(blueprintItem({...doc, durationMinutes: 61}).data.version, item.data.version);
   assert.throws(() => blueprintItem({exam: 'exam_cse_pro', sections: []}));
 });
+
+test('a blueprint without a positive duration is refused, so a strict mock never gets a NaN clock', () => {
+  const sections = [{id: 's1', questionCount: 2}];
+  for (const durationMinutes of [undefined, null, 0, -5, '60', Number.NaN]) {
+    assert.throws(() => blueprintItem({exam: 'exam_cse_pro', durationMinutes, sections}), /duration/);
+  }
+});
