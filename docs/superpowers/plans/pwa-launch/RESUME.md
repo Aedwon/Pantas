@@ -17,7 +17,7 @@ decision and its exact wording).
 | Firebase web apps | created in all 3 projects; config not yet in the options files | decision log, "Firebase web apps created" |
 | C1 and C10 ruling | done | `pwa-launch/C1-C10-ruling.md` |
 | C2, C4, C6 payment functions | in progress (Sonnet 5.5) | branch `web/paymongo-r1` (not pushed yet) |
-| C10 roadmap server spike | in progress (Sonnet 5.5) | branch `web/roadmap-server-spike-r1` (not pushed yet) |
+| C10 roadmap server spike | done: works; Node output matches Dart byte for byte on 10 scenarios; 33 KB gzip; about 1 ms per call. Not run on Node 20 (only Node 26 local) | branch `web/roadmap-server-spike-r1` at 75690df3 (pushed), `spike/roadmap_js/README.md` |
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
 | E2 Level 4, E3 Level 5 | Level 4 ready for Aedwon's pastes; Level 5 prompts not built | audit branch |

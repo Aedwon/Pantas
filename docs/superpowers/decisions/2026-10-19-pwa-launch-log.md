@@ -624,3 +624,22 @@ Their SDK configs (public client identifiers, like the Android ones already in t
 go into the web branch of `lib/firebase_options_*.dart` on `web/pwa-foundation-r1` after the current
 Codex pass, which is editing those files, finishes. API key restrictions (allowed HTTP referrers for
 `pantas.study` and the staging hosts) are a Lane L task.
+
+### October 19: roadmap server spike passes
+
+Aedwon's exact comments:
+
+> not another codex, but sonnet 5.5 medium
+>
+> also I'll start creating my PayMongo account in the meantime
+
+> if you run out of usage make sure it's possible for me to have things picked up on a cloud session
+
+Results: Sonnet 5.5 (medium) builds C2, C4 and C6 on `web/paymongo-r1` and ran the C10 spike on
+`web/roadmap-server-spike-r1` (75690df3, pushed). The pure Dart roadmap engine compiles with
+`dart compile js` unchanged; Node output matches the Dart VM byte for byte on 10 scenarios
+(lead reran: 16 of 16 Node tests pass); 33 KB gzip; about 1 ms per call. Caveats: not run on
+Node 20; the engine uses local calendar dates, so the server must pass Philippine dates. C10's
+runtime choice (compiled Dart behind a Node callable) holds. Resume point for cloud sessions:
+`docs/superpowers/plans/pwa-launch/RESUME.md`, updated at each checkpoint; working branches are
+pushed at each checkpoint.
