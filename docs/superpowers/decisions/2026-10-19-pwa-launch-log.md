@@ -643,3 +643,16 @@ Node 20; the engine uses local calendar dates, so the server must pass Philippin
 runtime choice (compiled Dart behind a Node callable) holds. Resume point for cloud sessions:
 `docs/superpowers/plans/pwa-launch/RESUME.md`, updated at each checkpoint; working branches are
 pushed at each checkpoint.
+
+### October 19: payment functions reviewed
+
+`web/paymongo-r1` at 694215d4 (pushed): checkout callable, webhook and web trial on a server grant
+ledger feeding W3 coverage and claims. Lead review of the signature, re-read and amount checks found
+no issue. An automated security review raised three gaps, all fixed in 694215d4: coverage now
+respects each grant's start and a refund pulls later stacked grants forward; a refund that arrives
+before its payment leaves a tombstone so the grant is born revoked; refund and dispute event names
+are handled for every name PayMongo's docs list, and an unidentifiable refund returns 500 so it
+retries. Lead reran: plain 107/107, emulator 131/131, tsc clean, Dart products test 4/4.
+
+Open for Aedwon: a partial refund currently revokes the whole grant (ruling choice). Not verified:
+any live or test-mode PayMongo call; that waits for the PayMongo account and test keys.
