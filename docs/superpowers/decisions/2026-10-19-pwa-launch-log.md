@@ -1078,3 +1078,24 @@ Deploy run (relay 11081, Mac, Firebase CLI as business@aedwon.com):
 
 Waiting on Aedwon: Blaze on pantas-staging with a budget alert; the reCAPTCHA Enterprise site key;
 Google Cloud application-default login on the Mac for the content uploader.
+
+### October 19: billing blocked; work that needs no billing
+
+Aedwon's exact comments:
+
+> is the firebase upgrade really necessary? i can't do 1 rn, none of my cards are getting accepted
+
+> what if we go 3? how necessary is it to use Firebase
+
+> okay i'll go back on this tomorrow for option 1. can you do something else?
+
+Facts checked: none of pantas-dev-090126, pantas-staging or pantas-prod lists functions (no
+Blaze on any). Options offered: (1) another card, for example a GCash or Maya virtual card
+(recommended); (2) move only the functions to a free Node host such as Netlify, about 3 to 5
+days, free-plan terms not checked; (3) leave Firebase, about 2 weeks or more, not recommended.
+Publishing only the web app was offered as a screens-only check; not chosen. Aedwon returns to
+option 1 tomorrow.
+
+Started meanwhile (Sonnet 5.5, cloud): CSE mock blueprints on `web/cse-mock-blueprint-r1`, and
+roadmap running totals (finding 2 of the roadmap review) on `web/roadmap-totals-r1`, both from
+`web/pwa-staging-r1` at e3adb564.
