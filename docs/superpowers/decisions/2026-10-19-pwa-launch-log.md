@@ -1223,3 +1223,28 @@ Decisions:
 2. The W4e builder runs on the Mac, not in the cloud: Codex's newest W4e commit 3b454b3a is local
    only, and the W4e worktree is `Pantas-wt-new-design-w4e-r1` there.
 3. The cloud lead stops new work and hands back to the local Claude lead (budget about $8 left).
+
+### October 19: W4e state and the unscored-items field (lead ruling)
+
+Aedwon's exact comment, on the cloud budget:
+
+> um you can continue to do work that you can do until you exhaust
+
+The lead pushed `web/new-design-w4e-r1` from the Mac (relay 11087; now at 3b454b3a on origin) and
+added note addendum 2 (W4e is Claude's). A Sonnet builder checked W4e progress and stopped before
+any change at a planned stop condition. W4e state from its history: Tasks 1 and 2 on the base;
+Task 3 saved as ac712f6f (no acceptance claimed, per the October 16 ruling); Task 4 partly done
+(40600f16, 4509861f, b6ba49d3, 3b454b3a); Task 5 partly done (67c02af9, e3ba3785); Tasks 6 to 9
+not started; the October 19 PWA web mock adapter (server mock API, paper, session) not built yet.
+
+Stop: the approved personal-items line needs the count on the blueprint. Blueprints are read from
+the `ContentDatabase` table, so a new nullable `unscoredItems` column needs content schema 9 to 10.
+
+Lead ruling (technical): take the column, the same way `totalPublishedItems` was added (`from <
+3`). The content database is rebuilt from the content package and holds no student data, so the
+bump is low risk. Rejected: hiding the count inside another column's JSON (a second, undocumented
+place for blueprint fields). Conditions: the bump and its migration land in one commit with a
+migration test; confirm first that no other open branch (W4c, W4d, staging) bumps the content
+schema; thread the field through `tools/build_content_export` and the staging catalog parser when
+W4e integrates with `web/pwa-staging-r1`; check whether the content package or its installer pins
+schema 9 and stop if it does. Not started, to save the cloud budget; the next lead dispatches it.
