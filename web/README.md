@@ -99,7 +99,8 @@ default. Long-lived caching of them needs the B6 build step to hash their names.
 Staging deploy command (do not run without the lead's approval):
 
 ```
-flutter build web --release -t lib/main_staging.dart && \
+flutter build web --release -t lib/main_staging.dart \
+  --dart-define=APP_CHECK_WEB_SITE_KEY=<staging reCAPTCHA Enterprise site key> && \
   firebase deploy --only hosting:app --project pantas-staging
 ```
 

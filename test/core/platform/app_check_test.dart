@@ -19,6 +19,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(const AndroidDebugProvider());
     registerFallbackValue(const AppleDebugProvider());
+    registerFallbackValue(ReCaptchaEnterpriseProvider('fallback'));
   });
 
   late MockFirebaseAppCheck mockAppCheck;
@@ -29,6 +30,7 @@ void main() {
       () => mockAppCheck.activate(
         providerAndroid: any(named: 'providerAndroid'),
         providerApple: any(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
       ),
     ).thenAnswer((_) async {});
   });
@@ -39,6 +41,7 @@ void main() {
       () => mockAppCheck.activate(
         providerAndroid: captureAny(named: 'providerAndroid'),
         providerApple: captureAny(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
       ),
     ).captured;
     return (
@@ -67,6 +70,7 @@ void main() {
       () => mockAppCheck.activate(
         providerAndroid: any(named: 'providerAndroid'),
         providerApple: any(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
       ),
     ).thenThrow(Exception('App check failure'));
 
@@ -74,5 +78,35 @@ void main() {
       activateAppCheck(Flavor.dev, appCheck: mockAppCheck),
       completes,
     );
+  });
+
+  test('web attests with reCAPTCHA Enterprise when a site key is built in',
+      () async {
+    await activateAppCheck(
+      Flavor.staging,
+      appCheck: mockAppCheck,
+      webSiteKey: 'site-key-1',
+    );
+    final web = verify(
+      () => mockAppCheck.activate(
+        providerAndroid: any(named: 'providerAndroid'),
+        providerApple: any(named: 'providerApple'),
+        providerWeb: captureAny(named: 'providerWeb'),
+      ),
+    ).captured.single;
+    expect(web, isA<ReCaptchaEnterpriseProvider>());
+    expect((web! as ReCaptchaEnterpriseProvider).siteKey, 'site-key-1');
+  });
+
+  test('without a site key no web provider is passed', () async {
+    await activateAppCheck(Flavor.staging, appCheck: mockAppCheck);
+    final web = verify(
+      () => mockAppCheck.activate(
+        providerAndroid: any(named: 'providerAndroid'),
+        providerApple: any(named: 'providerApple'),
+        providerWeb: captureAny(named: 'providerWeb'),
+      ),
+    ).captured.single;
+    expect(web, isNull);
   });
 }
