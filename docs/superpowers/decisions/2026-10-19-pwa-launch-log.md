@@ -405,3 +405,35 @@ Aedwon's exact comment:
 
 Decision: every plan offers cards and all other PayMongo methods. Accepted cost: about ₱16.71 of
 ₱49 per Weekly card payment (estimate with VAT).
+
+### October 19: execution started (B1, E1, E1b, free and Pro split)
+
+Aedwon's exact comment:
+
+> Start Lane B1 (web inventory), E1 (CSE scope reset) and E1b (copy-prompt page). Also find the
+> approved free versus Pro content split.
+
+Mid-task, Aedwon added:
+
+> btw the CSE corpus is in the SSOT
+
+Results so far:
+
+- B1 done (Haiku 5.5, read-only, `integration/new-design-r1` at 5e6cda45):
+  `docs/superpowers/plans/pwa-launch/evidence/B1-web-inventory.md`.
+- E1 done (Haiku 5.5, read-only, corpus `content/question-qa-r2` at 765c5dc0):
+  `evidence/E1-cse-scope.md` and `.tsv`. The SSOT tab "Pantas Audited Corpus r1"
+  (t.38uf83creimq, October 5) gives the same counts: 64 Professional, 62 Subprofessional, 55 both,
+  71 lessons. Its tags are provisional, as in the repository.
+- Lead rulings on tag disagreements (Claude): the accepted Level 1 exam maps decide scope.
+  (A) 21 lessons tagged CSE whose question files lack a CSE tag: in scope; fix the question tags in
+  E5. (B) 5 spatial-abstract reasoning question files tagged CSE whose lessons the maps exclude
+  (figure grouping, figure matrices, figure series, mental rotation, paper folding): out of scope;
+  remove their CSE question tags in E5. (C) 6 lessons whose Professional or Subprofessional tags
+  differ: the lesson tag wins; fix the question tags in E5.
+- Level 4 CSE scope: 71 real packets plus 6 planted calibration packets for in-scope lessons
+  (L4-1575, L4-6370, L4-7668, L4-5501, L4-7442, L4-8177), 77 pastes in total:
+  `evidence/E2-level4-scope.txt`. Planted packets are kept because they cost 6 pastes and show
+  whether a single reader misses planted defects.
+- E1b copy-prompt page: in progress (Sonnet 5.5 implementor, audit branch).
+- Free and Pro split: search in progress (Haiku 5.5).
