@@ -1299,3 +1299,16 @@ position, and the blueprint insert omits the new column for that fixture. Checks
 665 pass; analyze only the known deprecation; format clean. W4e head f6b76e56 (pushed).
 
 Still to verify on the Mac: the real content package build at schema 10.
+
+### October 19: unscoredItems carried on staging
+
+Aedwon's exact comment:
+
+> exhaust please, anything you can work on
+
+Lead change 20692945 on `web/pwa-staging-r1` (test first): `content/mock/cse-pro.yaml` sets
+`unscoredItems: 15`, `cse-sub.yaml` sets `unscoredItems: 20`, and `tools/build_content_export`
+passes the field through. The staging catalog and Dart parsers ignore it until W4e merges (W4e's
+parser reads it). Checks: `flutter test test/features/mock_exam test/tool` 487 pass; functions
+blueprint and upload tests 21 pass; analyze only the known deprecation; format clean. Merge note:
+`build_content_export.dart` and the blueprint parser meet when W4e and staging integrate.
