@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
@@ -430,19 +431,23 @@ class _MockSessionPageState extends State<MockSessionPage> {
                         barHeight + 50 + statusHeight,
                       ),
                       children: [
-                        _QuestionBody(
-                          questionId: widget.state.currentQuestionId,
-                          subject: widget.oneBlock
-                              ? widget.questionSubjects[
-                                      widget.state.currentQuestionId] ??
-                                  widget.partName
-                              : 'Part ${widget.currentPartNumber} · '
-                                  '${widget.partName}',
-                          selectedIndex: widget
-                              .state
-                              .answers[widget.state.currentQuestionId]
-                              ?.selectedIndex,
-                          onAnswer: widget.onAnswer,
+                        _PaperSwap(
+                          position: widget.state.currentIndex,
+                          child: _QuestionBody(
+                            key: ValueKey(widget.state.currentQuestionId),
+                            questionId: widget.state.currentQuestionId,
+                            subject: widget.oneBlock
+                                ? widget.questionSubjects[
+                                        widget.state.currentQuestionId] ??
+                                    widget.partName
+                                : 'Part ${widget.currentPartNumber} · '
+                                    '${widget.partName}',
+                            selectedIndex: widget
+                                .state
+                                .answers[widget.state.currentQuestionId]
+                                ?.selectedIndex,
+                            onAnswer: widget.onAnswer,
+                          ),
                         ),
                       ],
                     ),
@@ -583,12 +588,117 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 }
 
+/// MK_Paper: Next sends the old question out to the left over 260ms while the
+/// new one comes in from the right over 280ms, starting 80ms later. Both use
+/// the house curve. Going back or jumping from the grid is not drawn, so it
+/// changes at once, and so does everything under reduced motion.
+class _PaperSwap extends StatefulWidget {
+  const _PaperSwap({required this.position, required this.child});
+
+  final int position;
+  final Widget child;
+
+  @override
+  State<_PaperSwap> createState() => _PaperSwapState();
+}
+
+class _PaperSwapState extends State<_PaperSwap>
+    with SingleTickerProviderStateMixin {
+  static const _total = Duration(milliseconds: 360);
+  static const _outMs = 260.0;
+  static const _inStartMs = 80.0;
+  static const _inMs = 280.0;
+  static const _distance = 24.0;
+
+  late final AnimationController _controller;
+  Widget? _outgoing;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: _total)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed && mounted) {
+          setState(() => _outgoing = null);
+        }
+      });
+  }
+
+  @override
+  void didUpdateWidget(_PaperSwap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final forward = widget.position == oldWidget.position + 1;
+    if (forward && !MediaQuery.disableAnimationsOf(context)) {
+      _outgoing = oldWidget.child;
+      _controller.forward(from: 0);
+    } else {
+      _outgoing = null;
+      _controller.value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  static double _progress(double milliseconds, double start, double length) =>
+      PantasCurves.houseOut
+          .transform(((milliseconds - start) / length).clamp(0.0, 1.0));
+
+  @override
+  Widget build(BuildContext context) {
+    final outgoing = _outgoing;
+    if (outgoing == null) return widget.child;
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, _) {
+        final ms = _controller.value * _total.inMilliseconds;
+        final out = _progress(ms, 0, _outMs);
+        final entering = _progress(ms, _inStartMs, _inMs);
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Opacity(
+              key: const ValueKey('paper-swap-in'),
+              opacity: entering,
+              child: Transform.translate(
+                offset: Offset(_distance * (1 - entering), 0),
+                child: widget.child,
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              child: IgnorePointer(
+                child: ExcludeSemantics(
+                  child: Opacity(
+                    key: const ValueKey('paper-swap-out'),
+                    opacity: 1 - out,
+                    child: Transform.translate(
+                      offset: Offset(-_distance * out, 0),
+                      child: outgoing,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
 class _QuestionBody extends ConsumerWidget {
   const _QuestionBody({
     required this.questionId,
     required this.subject,
     required this.selectedIndex,
     required this.onAnswer,
+    super.key,
   });
 
   final String questionId;
