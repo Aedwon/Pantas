@@ -1312,3 +1312,21 @@ passes the field through. The staging catalog and Dart parsers ignore it until W
 parser reads it). Checks: `flutter test test/features/mock_exam test/tool` 487 pass; functions
 blueprint and upload tests 21 pass; analyze only the known deprecation; format clean. Merge note:
 `build_content_export.dart` and the blueprint parser meet when W4e and staging integrate.
+
+### October 20: local lead resumes; schema 10 package check
+
+Aedwon's exact comment:
+
+> substantial progress was made with the cloud orchestrator. can you continue?
+
+The local Claude lead (Opus 5.5) resumed on the Mac. Check on W4e f6b76e56 with the real corpus and
+throwaway keys (real keys not touched): export and package build succeed; installer, builder and
+verifier tests 149 pass. Found: the built manifest declares `contentSchemaVersion`,
+`readerSchemaMin` and `readerSchemaMax` 9 (`ContentPackageManifest.contentSchemaV2 = 9`) while the
+payload is schema 10 and the installer pins 10. Lead ruling (technical): the manifest declares the
+payload schema, 10, for writing and verification, so an older reader rejects a schema 10 package at
+the manifest step. Assigned to the W4e builder as its first commit, with tests.
+
+W4e builder (Sonnet 5.5, medium) started on the Mac in `Pantas-wt-new-design-w4e-r1`: the manifest
+fix, then W4e Tasks 4 to 9 and the web mock adapter. It stops on any unapproved visible choice or
+missing server field.
