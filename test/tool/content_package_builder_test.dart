@@ -4,7 +4,9 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart' as hashes;
 import 'package:cryptography/cryptography.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/security/content_cipher_profile.dart';
 import 'package:pantas/core/content/security/content_package_manifest.dart';
 
@@ -87,6 +89,22 @@ void main() {
         returnsNormally,
       );
       expect(first.manifestData.formatVersion, 2);
+      // The manifest declares the schema of the payload it carries, so an
+      // older reader rejects a newer package at the manifest step.
+      final payloadSchema = ContentDatabase(NativeDatabase.memory());
+      addTearDown(payloadSchema.close);
+      expect(
+        first.manifestData.contentSchemaVersion,
+        payloadSchema.schemaVersion,
+      );
+      expect(
+        first.manifestData.readerSchemaMin,
+        payloadSchema.schemaVersion,
+      );
+      expect(
+        first.manifestData.readerSchemaMax,
+        payloadSchema.schemaVersion,
+      );
       expect(first.manifestData.releaseSequence, 7);
       expect(second.manifestData.releaseSequence, 8);
       expect(

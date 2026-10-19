@@ -91,7 +91,7 @@ final class ContentPackageManifest {
   static const productionReleaseChannel = 'prod';
   static const productionPayloadPath = 'assets/seed/content.db';
   static const contentSchemaV1 = 8;
-  static const contentSchemaV2 = 9;
+  static const contentSchemaV2 = 10;
   static const cipherProfileV1 = 'pantas-sqlite3mc-content-v1';
   static const bootstrapKeyIdV1 = 'content-bootstrap-v1';
   static const signingKeyIdV1 = 'content-signing-v1';
