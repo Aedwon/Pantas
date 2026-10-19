@@ -610,3 +610,17 @@ VFS"). Evidence: `evidence/B3-encrypted-web-db.md` on `web/pwa-foundation-r1`. A
 pass is checking upstream guidance and VFS wrapping before any fallback. Also stopped: Google
 sign-in on web needs its rendered button (visible change, goes to Aedwon), and Firebase web app
 config values need the console or an authorized `firebase apps:create`.
+
+### October 19: Firebase web apps created
+
+Aedwon approved creating Firebase web apps ("go ahead") and re-authenticated the Firebase CLI
+(signed in as business@aedwon.com). Claude created one web app named "pantas (web)" per project:
+
+- pantas-dev-090126: 1:989349364007:web:6c2815acb478941bb9a902
+- pantas-staging: 1:797279948229:web:5d863020ad5010864bcfac
+- pantas-prod: 1:416041343210:web:cdf805fbfb28ca13639f93
+
+Their SDK configs (public client identifiers, like the Android ones already in the options files)
+go into the web branch of `lib/firebase_options_*.dart` on `web/pwa-foundation-r1` after the current
+Codex pass, which is editing those files, finishes. API key restrictions (allowed HTTP referrers for
+`pantas.study` and the staging hosts) are a Lane L task.
