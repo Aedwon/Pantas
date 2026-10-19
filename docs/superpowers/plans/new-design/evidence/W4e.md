@@ -525,3 +525,33 @@ feature-only adapter proposal in L3 and W4-client-coordination.md before depende
 cursor/flags may be account+mock scoped; they do not become paper/clock/eligibility authority.
 Accepted client-correctness trust is documented in the PWA log, not treated as a new blocker.
 No push, merge, deployment, screenshots, phone operation, new reviewer or family acceptance.
+
+## October 20 Claude builder run (Sonnet 5.5)
+
+Policy read from `origin/main` (AGENTS, WORKFLOW, SUBAGENTS) at the start of the run. Base
+`f6b76e56`. Visual acceptance remains Aedwon's; no screenshots were taken.
+
+Commits, oldest first: `b25be7bf` manifest declares the payload schema 10 (writing and
+verification, tests first; E02 schema 8 seed untouched); `f0bd24c2` shared mock grid with
+part-local numbering, one-block Submit the Exam from the grid (`submitNow`, manual reason),
+deep-link exit to `/quiz`, broken saved mock offers Discard; `b4f54a0d` MK_Paper next-question
+slide; `a0cf0e3d` "Strict mode is on." copy from MK_LastQStrict; `7a891d1e` strict grace ten
+seconds and part-deadline recovery precedence; `67e1f48d` pause screen (hourglass, entry and
+Resume sequences, part list, discard copy), system back pauses (blocked in strict), leaving the
+app pauses a non-strict paper, device-stored `mock_pause_warning_seen`; `bd2f0aeb` custom setup
+with in-place wheels and saved values; `c56b38b4` server callable client and paper decoder;
+`0bbe8fb8` ordered, account-bound web session; `bd25a807` web route and platform seam;
+`904c37ed` deletions that have no caller left.
+
+Open items and exact reasons are in the builder report to the lead:
+- Pause warning "Don't show this again" checkbox: `CenteredDialog` has no slot for it (no W2
+  ownership granted). The stored flag and corrected copy are in.
+- Strict system-back "line": no approved copy.
+- MK_Sheet/MK_SheetCSE: the shared `QuestionGridSheet` lacks the board's per-part "13 of 60"
+  count, "Opens when this part starts." note, "Tap any question in this part to go to it."
+  footer, and draws a part title for a one-block paper.
+- Task 6 (finale and results): `HalfRingGauge` is 220x112 with a 44 px number; MK_Results draws
+  264x128 with a 56 px number and one decimal; the finale's 241-element sequence is not built;
+  "See full record" has no destination board.
+- Task 7 (All questions review) not started.
+- Web results, history, review and card availability wait for the server reader.
