@@ -1330,3 +1330,22 @@ the manifest step. Assigned to the W4e builder as its first commit, with tests.
 W4e builder (Sonnet 5.5, medium) started on the Mac in `Pantas-wt-new-design-w4e-r1`: the manifest
 fix, then W4e Tasks 4 to 9 and the web mock adapter. It stops on any unapproved visible choice or
 missing server field.
+
+### October 20: W4e builder run 1 result
+
+Pushed on `web/new-design-w4e-r1`, head b5da6f99 (local matches origin). Lead-reviewed: b25be7bf
+(manifest declares schema 10; E02 seed untouched). Builder-reported, not yet lead-reviewed: Tasks 4,
+5, 8, 9 and the web mock adapter (server client, validated paper, account-bound session, route
+behind a web seam); unused mock screens deleted. Checks (builder): full `flutter test` 4,116 pass;
+analyze only the known deprecation.
+
+Not built: Task 6 (results gauge size differs from the board; "See full record" has no board),
+Task 7, the pause dialog's "Don't show this again" checkbox (dialog has no slot), the paper-to-pause
+crossfade; web results, history, review and next-eligible time (no server reader yet); Quiz card
+Resume for a server mock.
+
+Visible choices the builder made without an approved board (they need Aedwon's approval through the
+visual companion before W4e merges): custom setup wheels on subject rows, the "Set" label for an
+unset row, the held Save with no explanation line, the grid sheet's generalized "Parts 1, 2 and 3 are
+closed" wording and its four differences from MK_Sheet, instant Previous and grid jumps, the 2.6 s
+clock restart delay on Resume, and strict back blocked with no message.
