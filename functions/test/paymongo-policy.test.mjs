@@ -4,7 +4,7 @@ import test from 'node:test';
 import {addPrepaid, normalizePaymongoEvent, priceCentavos, verifyPaymongoSignature, webProduct,
   webProductIds} from '../lib/paymongoPolicy.js';
 import {coverageAt} from '../lib/revenuecatCoverage.js';
-import {planGrant} from '../lib/paymongoGrants.js';
+import {planGrant, replanAfterRevoke} from '../lib/paymongoGrants.js';
 
 const ph = iso => Date.parse(iso);
 const raw = Buffer.from('{"data":{"id":"evt_1"}}');
@@ -110,23 +110,101 @@ test('a pass grant does not push a later subscription start', () => {
 
 test('coverage includes live grants: subscription, pass, trial; revoked and expired add nothing', () => {
   const at = now;
-  const live = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', endsAt: at + 1000, active: true}]});
+  const live = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', startsAt: at - 1, endsAt: at + 1000, active: true}]});
   assert.equal(live.tier, 'civilService');
   assert.equal(live.endsAt, at + 1000);
   assert.equal(live.coversExam('exam_cse_pro', 'civilService'), true);
   assert.equal(live.coversExam('exam_cse_pro', 'licensure'), false);
-  const pass = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_pass_cse_sub', tier: 'civilService', endsAt: at + 5, active: true}]});
+  const pass = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_pass_cse_sub', tier: 'civilService', startsAt: at, endsAt: at + 5, active: true}]});
   assert.equal(pass.coversExam('exam_cse_sub', 'civilService'), true);
   assert.equal(pass.coversExam('exam_cse_pro', 'civilService'), false);
-  const trial = coverageAt({at, grants: [{source: 'trial', product: 'web_trial', tier: 'civilService', endsAt: at + 9, active: true}]});
+  const trial = coverageAt({at, grants: [{source: 'trial', product: 'web_trial', tier: 'civilService', startsAt: at, endsAt: at + 9, active: true}]});
   assert.equal(trial.tier, 'civilService');
   assert.equal(trial.endsAt, at + 9);
   for (const g of [{active: false, endsAt: at + 1000}, {active: true, endsAt: at}]) {
-    const none = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', ...g}]});
+    const none = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', startsAt: at - 5, ...g}]});
     assert.equal(none.endsAt, null);
     assert.equal(none.hasKnownCoverage, false);
   }
-  const unknown = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_made_up', tier: 'civilService', endsAt: at + 9, active: true}], onUnknown: () => {}});
+  const unknown = coverageAt({at, grants: [{source: 'paymongo', product: 'pantas_made_up', tier: 'civilService', startsAt: at, endsAt: at + 9, active: true}], onUnknown: () => {}});
   assert.equal(unknown.isUnknown, true);
   assert.equal(unknown.endsAt, null);
+});
+
+const DAY = 86400000;
+const lg = (startsAt, endsAt, over = {}) => ({source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', startsAt, endsAt, active: true, ...over});
+
+test('coverage: a grant covers only [startsAt, endsAt); a future grant adds nothing until contiguous', () => {
+  const at = now;
+  const future = coverageAt({at, grants: [lg(at + DAY, at + 5 * DAY)]});
+  assert.equal(future.endsAt, null);
+  assert.equal(future.tier, null);
+  assert.equal(future.coversExam('exam_cse_pro', 'civilService'), false);
+  // Starting exactly at "now" is live; ending exactly at "now" is not.
+  assert.equal(coverageAt({at, grants: [lg(at, at + DAY)]}).tier, 'civilService');
+  assert.equal(coverageAt({at, grants: [lg(at - DAY, at)]}).tier, null);
+});
+
+test('coverage: a stacked grant extends the end of the live chain, a gap does not', () => {
+  const at = now;
+  const a = lg(at - DAY, at + 10 * DAY);
+  assert.equal(coverageAt({at, grants: [a, lg(at + 10 * DAY, at + 40 * DAY)]}).endsAt, at + 40 * DAY);
+  assert.equal(coverageAt({at, grants: [a, lg(at + 10 * DAY, at + 40 * DAY), lg(at + 40 * DAY, at + 70 * DAY)]}).endsAt, at + 70 * DAY);
+  assert.equal(coverageAt({at, grants: [a, lg(at + 11 * DAY, at + 40 * DAY)]}).endsAt, at + 10 * DAY);
+  assert.equal(coverageAt({at, grants: [a, lg(at + 10 * DAY, at + 40 * DAY, {active: false})]}).endsAt, at + 10 * DAY);
+});
+
+const row = (startsAt, endsAt, over = {}) => ({source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService',
+  startsAt, endsAt, state: 'active', createdAt: 1, ...over});
+
+test('replan: refunding the first of two stacked months pulls the second forward to now', () => {
+  const a0 = ph('2026-10-20T10:00:00+08:00'), a1 = ph('2026-11-20T10:00:00+08:00'), b1 = ph('2026-12-20T10:00:00+08:00');
+  const at = ph('2026-10-30T09:00:00+08:00');
+  const grants = new Map([['A', row(a0, a1, {state: 'revoked'})], ['B', row(a1, b1)]]);
+  const out = replanAfterRevoke(grants, 'A', at);
+  assert.deepEqual([out.get('B').startsAt, out.get('B').endsAt], [at, ph('2026-11-30T09:00:00+08:00')]);
+  assert.equal(out.get('A').state, 'revoked');
+});
+
+test('replan: refunding the second leaves the first untouched; a started later grant is not moved', () => {
+  const a0 = ph('2026-10-20T10:00:00+08:00'), a1 = ph('2026-11-20T10:00:00+08:00'), b1 = ph('2026-12-20T10:00:00+08:00');
+  const at = ph('2026-10-30T09:00:00+08:00');
+  const second = replanAfterRevoke(new Map([['A', row(a0, a1)], ['B', row(a1, b1, {state: 'revoked'})]]), 'B', at);
+  assert.deepEqual([second.get('A').startsAt, second.get('A').endsAt], [a0, a1]);
+  // First already ended and the second is running: nothing moves.
+  const later = ph('2026-11-25T09:00:00+08:00');
+  const started = replanAfterRevoke(new Map([['A', row(a0, a1, {state: 'revoked'})], ['B', row(a1, b1)]]), 'A', later);
+  assert.deepEqual([started.get('B').startsAt, started.get('B').endsAt], [a1, b1]);
+});
+
+test('replan: three stacked months close the gap in order, keeping calendar lengths', () => {
+  const a0 = ph('2026-10-20T10:00:00+08:00'), a1 = ph('2026-11-20T10:00:00+08:00'),
+    b1 = ph('2026-12-20T10:00:00+08:00'), c1 = ph('2027-01-20T10:00:00+08:00');
+  const at = ph('2026-10-21T10:00:00+08:00');
+  const out = replanAfterRevoke(new Map([['A', row(a0, a1, {state: 'revoked'})], ['B', row(a1, b1)], ['C', row(b1, c1)]]), 'A', at);
+  assert.deepEqual([out.get('B').startsAt, out.get('B').endsAt], [at, ph('2026-11-21T10:00:00+08:00')]);
+  assert.deepEqual([out.get('C').startsAt, out.get('C').endsAt], [ph('2026-11-21T10:00:00+08:00'), ph('2026-12-21T10:00:00+08:00')]);
+});
+
+test('replan: a live trial followed by a paid grant closes up the same way', () => {
+  const t0 = ph('2026-10-20T10:00:00+08:00'), t1 = t0 + 7 * DAY, p1 = ph('2026-11-27T10:00:00+08:00');
+  const at = t0 + 2 * DAY;
+  const grants = new Map([['trial', row(t0, t1, {source: 'trial', product: 'web_trial', state: 'revoked'})],
+    ['P', row(t1, p1)]]);
+  const out = replanAfterRevoke(grants, 'trial', at);
+  assert.equal(out.get('P').startsAt, at);
+  // A paid grant revoked ahead of a stacked trial-free chain keeps higher-tier live grants as the floor.
+  const floor = new Map([['H', row(t0, t0 + 20 * DAY, {tier: 'licensure'})], ['A', row(t0, t1, {state: 'revoked'})], ['B', row(t1, p1)]]);
+  assert.equal(replanAfterRevoke(floor, 'A', at).get('B').startsAt, t0 + 20 * DAY);
+});
+
+test('replan: passes and other tiers are never moved', () => {
+  const t0 = ph('2026-10-20T10:00:00+08:00');
+  const at = t0 + DAY;
+  const grants = new Map([['A', row(t0, t0 + 30 * DAY, {state: 'revoked'})],
+    ['pass', row(t0 + 30 * DAY, t0 + 90 * DAY, {product: 'pantas_pass_cse_pro'})],
+    ['stu', row(t0 + 30 * DAY, t0 + 60 * DAY, {tier: 'student', product: 'pantas_pro_monthly'})]]);
+  const out = replanAfterRevoke(grants, 'A', at);
+  assert.equal(out.get('pass').startsAt, t0 + 30 * DAY);
+  assert.equal(out.get('stu').startsAt, t0 + 30 * DAY);
 });

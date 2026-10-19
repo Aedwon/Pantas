@@ -12,16 +12,54 @@ Pages were read as Markdown (append `.md` to the page URL).
 | Retrieve: `GET /v1/checkout_sessions/{id}`. Attributes include `metadata` (string values), `status`, `payments[]` (id, amount in centavos, currency, status `paid`), `payment_intent`, `reference_number`. | https://docs.paymongo.com/reference/get_checkout_sessions.md |
 | Payment method type values: `card`, `gcash`, `paymaya`, `grab_pay`, `shopeepay`, `qrph`. | https://docs.paymongo.com/docs/payment-acceptance-e-wallets.md, quick start and checkout resource pages |
 | Paid event: `checkout_session.payment.paid`. Envelope `data.id` (`evt_...`), `data.attributes.type`, `.livemode`, `.created_at`, `.data` (the full Checkout Session). "At most one entry in `payments` has `status: paid`." There is no event when a session expires. | https://docs.paymongo.com/docs/developer-tools-webhooks-events.md |
-| Refund event: `refund.succeeded` (resource type `refund`). Dispute events: `dispute.created`, `dispute.resolved` (resource type `dispute`). | same events page |
+| Refund and dispute event names: see the next section. The docs disagree with each other. | see below |
 | Signature header `Paymongo-Signature: t=<unix seconds>,te=<test hex>,li=<live hex>`. Signed string is `<t>.<raw body>`, HMAC-SHA256 with the webhook secret. Use `te` for test events and `li` for live events. A timestamp check is optional but recommended. | https://docs.paymongo.com/docs/developer-tools-webhook-setup-management.md ("Securing a webhook") |
 | Delivery succeeds on HTTP 200 to 209 with a JSON body within 30 seconds. Failures retry up to 12 times with exponential backoff. Duplicate deliveries happen. Unrecognized events should get 200. Raw body must be kept for verification. | https://docs.paymongo.com/docs/developer-tools-retry-logic.md, https://docs.paymongo.com/docs/developer-tools-best-practices.md, https://docs.paymongo.com/docs/developer-tools-go-live-checklist.md |
 
+## Refund and dispute events: what the documentation says (rechecked)
+
+The documentation does not settle the refund event name. Two pages disagree, so the code
+handles every candidate and the webhook should subscribe to all of them.
+
+1. https://docs.paymongo.com/docs/developer-tools-webhooks-events.md (updatedAt 2026-10-14),
+   the per-event payload page, has sample payloads for `refund.succeeded` (data type `refund`),
+   `dispute.created` and `dispute.resolved` (data type `dispute`). The samples show only
+   `amount`, `currency`, `status`, `reason`. They show no payment id.
+2. https://docs.paymongo.com/reference/webhook-resource.md (updatedAt 2026-03-19), field
+   `events`: "Refunds: `payment.refunded` and `payment.refund.updated`". The same list is in
+   https://docs.paymongo.com/reference/create-a-webhook.md and the table in
+   https://docs.paymongo.com/docs/webhook-testing.md (rows `payment.refund.updated`,
+   `payment.refunded`). Neither page has a sample payload for these events, so whether the
+   resource is the payment (payment id in `data.id`) or a refund is UNCONFIRMED.
+3. https://docs.paymongo.com/docs/qrph-refunds.md shows the refund resource: `id` `ref_...`,
+   `type` `refund`, `attributes.payment_id` `pay_...`, `attributes.status`.
+4. No page lists dispute event names other than `dispute.created` and `dispute.resolved`
+   (events page and the go-live checklist).
+
+What the code does:
+- Handles `refund.succeeded`, `payment.refunded`, `payment.refund.updated` and `dispute.created`.
+  `dispute.resolved` is acknowledged and ignored. Subscribe the webhook to all four handled names
+  plus `checkout_session.payment.paid`.
+- Payment id: `data.id` when `data.type` is `payment` (or the id starts with `pay_`), otherwise
+  `attributes.payment_id`, otherwise `attributes.payment.id`.
+- `payment.refund.updated` revokes only when the payload shows a succeeded refund (`status`
+  `succeeded` on a refund resource, or a `refunds[]` entry with status `succeeded` on a payment
+  resource). Other updates are acknowledged and ignored. The payload shape is UNCONFIRMED.
+- If no payment id can be found, the webhook writes an `audit_logs` row
+  (`paymongoRevokeWithoutPayment`) and returns 500 so PayMongo retries and the log alerts.
+- If the payment id is valid but no grant exists yet, a tombstone `paymongoRevocations/{paymentId}`
+  is written (server-only). The later paid event creates the grant already revoked, with an
+  `audit_logs` row (`paymongoGrantBornRevoked`).
+- A partial refund revokes the whole grant. This is the C1 ruling choice (no partial-day math);
+  Aedwon to confirm.
+- Revoking a grant moves later stacked grants of the same account and tier that have not started
+  earlier, in the same transaction, keeping each length. A grant covers only
+  `[startsAt, endsAt)`.
+
 ## UNCONFIRMED (designed defensively)
 
-1. **Refund and dispute payloads do not show which payment they refer to.** The sample bodies
-   have only amount, currency, status and reason. The code reads `payment_id` (or `payment.id`)
-   from the resource. If absent, it writes an `audit_logs` row (`paymongoRevokeWithoutPayment`)
-   and returns 200 without revoking. Check a real test-mode refund event before launch.
+1. **Refund and dispute event names and payment id location.** See the section above. Check a
+   real test-mode refund and dispute event before launch.
 2. **Whether PayMongo signs a retried delivery with a fresh `t`.** If a retry keeps the old
    timestamp, the 5 minute tolerance rejects it with 401. Mitigation: resend from the dashboard.
 3. **Whether `GET /v1/checkout_sessions/{id}` returns sessions created through `/v2`.** The docs
@@ -47,5 +85,5 @@ Pages were read as Markdown (append `.md` to the page URL).
 Secrets: `PAYMONGO_SECRET_KEY`, `PAYMONGO_WEBHOOK_SECRET`. Test mode vs live mode is taken from the
 secret key prefix (`sk_live_` means live). An event whose `livemode` differs from that mode is
 acknowledged and ignored. The webhook URL to register is the `paymongoWebhook` function
-(region asia-southeast1) with the event types `checkout_session.payment.paid`, `refund.succeeded`
-and `dispute.created`.
+(region asia-southeast1) with the event types `checkout_session.payment.paid`, `refund.succeeded`,
+`payment.refunded`, `payment.refund.updated` and `dispute.created`.

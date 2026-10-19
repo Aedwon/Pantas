@@ -19,4 +19,4 @@ export const TIER_ORDER: PriceTier[] = ['student', 'civilService', 'licensure', 
 
 export const ledgerGrants = (rows: Iterable<Grant>): LedgerGrant[] =>
   [...rows].map(g => ({source: g.source, product: g.product, tier: g.tier,
-    endsAt: g.endsAt, active: g.state === 'active'}));
+    startsAt: g.startsAt, endsAt: g.endsAt, active: g.state === 'active'}));

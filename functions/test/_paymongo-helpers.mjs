@@ -17,9 +17,9 @@ export function paidEvent({id = 'evt_1', sessionId = 'cs_1', uid, product, livem
       attributes: {status: 'active', metadata: metadata ?? {uid, product}}}}}};
 }
 
-export function resourceEvent({id, type, resource, livemode = false, attributes}) {
+export function resourceEvent({id, type, resource, resourceId = 'x_1', livemode = false, attributes}) {
   return {data: {id, type: 'event', attributes: {type, livemode, created_at: 1, updated_at: 1,
-    data: {id: 'x_1', type: resource, attributes}}}};
+    data: {id: resourceId, type: resource, attributes}}}};
 }
 
 export function fakeClient(sessions) {

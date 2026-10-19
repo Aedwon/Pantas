@@ -13,7 +13,9 @@ const secretKey = defineSecret('PAYMONGO_SECRET_KEY');
 const webhookSecret = defineSecret('PAYMONGO_WEBHOOK_SECRET');
 const MAX_EVENTS_PER_MINUTE = 30;
 const PAID = 'checkout_session.payment.paid';
-const REVOKING = new Set(['refund.succeeded', 'dispute.created']);
+// Refund names appear on two documentation pages: `refund.succeeded` (events page) and
+// `payment.refunded` / `payment.refund.updated` (webhook resource page). All are handled.
+const REVOKING = new Set(['refund.succeeded', 'payment.refunded', 'payment.refund.updated', 'dispute.created']);
 
 export type PaymongoWebhookDeps = {db: Firestore; auth: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
   client: PaymongoClient; signingSecret: string; livemode: boolean; catalog?: CatalogExam[]; now?: () => number};
@@ -88,21 +90,37 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
   }
 }
 
+/** The payment id sits in data.id when the payment is the resource, else in payment_id. */
+export function paymentIdOf(data: Record<string, unknown>): string | null {
+  const attributes = obj(data.attributes);
+  if (data.type === 'payment') return text(data.id);
+  return text(attributes.payment_id) ?? text(obj(attributes.payment).id) ??
+    (text(data.id)?.startsWith('pay_') ? text(data.id) : null);
+}
+
+/** payment.refund.updated also fires for refunds that are not finished. */
+function refundSucceeded(attributes: Record<string, unknown>): boolean {
+  if (attributes.status === 'succeeded') return true;
+  const refunds = Array.isArray(attributes.refunds) ? attributes.refunds : [];
+  return refunds.some(r => obj(r).status === 'succeeded' || obj(obj(r).attributes).status === 'succeeded');
+}
+
 async function handleRevoke(event: {id: string; type: string; data: Record<string, unknown>},
   attributes: Record<string, unknown>, deps: PaymongoWebhookDeps, now: () => number): Promise<number> {
-  // The resource names its payment in payment_id (UNCONFIRMED in PayMongo's sample payloads).
-  const paymentId = text(attributes.payment_id) ?? text(obj(attributes.payment).id);
+  const paymentId = paymentIdOf(event.data);
   if (!paymentId) {
+    // Fail so PayMongo retries and the log alerts; never guess which grant to revoke.
     await audit(deps.db, null, 'paymongoRevokeWithoutPayment', {eventId: event.id, type: event.type});
-    return 200;
+    return 500;
   }
-  const outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type}, now());
+  if (event.type === 'payment.refund.updated' && !refundSucceeded(attributes)) return 200;
+  const {outcome, uid} = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type}, now());
   if (outcome === 'unmatched') {
-    await audit(deps.db, null, 'paymongoRevokeUnmatched', {eventId: event.id, paymentId});
+    // Kept as a tombstone: if the paid event arrives later its grant is created revoked.
+    await audit(deps.db, null, 'paymongoRevokeBeforePayment', {eventId: event.id, paymentId});
     return 200;
   }
-  const uid = (await deps.db.doc(`paymongoPayments/${encodeURIComponent(paymentId)}`).get()).get('uid') as string;
-  await copyIfPending(deps, uid);
+  if (uid) await copyIfPending(deps, uid);
   return 200;
 }
 

@@ -7,7 +7,7 @@ export interface CoveragePeriod {id: string; endsAt: number; active: boolean}
 export interface LedgerPass {examId: string; endsAt: number; active: boolean}
 // Server-owned grant ledger input (PayMongo purchases and the web trial).
 export interface LedgerGrant {source: 'paymongo' | 'trial'; product: string; tier: PriceTier;
-  endsAt: number; active: boolean}
+  startsAt: number; endsAt: number; active: boolean}
 type Product = {id: string; kind: string; tier: PriceTier; examId?: string | null};
 const products = JSON.parse(readFileSync(join(__dirname, 'products.json'), 'utf8')) as Product[];
 const tiers: PriceTier[] = ['student', 'civilService', 'licensure', 'nce'];
@@ -47,8 +47,9 @@ export function coverageAt(input: {
     passes.set(pass.examId, Math.max(passes.get(pass.examId) ?? pass.endsAt, pass.endsAt));
     includeEnd(pass.endsAt);
   }
+  // A grant covers only [startsAt, endsAt).
   for (const grant of input.grants ?? []) {
-    if (!live(grant)) continue;
+    if (!live(grant) || !(grant.startsAt <= input.at)) continue;
     if (grant.source === 'trial') {
       if (!tiers.includes(grant.tier)) {hasUnknown = true; logUnknown(grant.product); continue;}
       grantTier = higher(grantTier, grant.tier);
@@ -64,6 +65,15 @@ export function coverageAt(input: {
       passes.set(product.examId, Math.max(passes.get(product.examId) ?? grant.endsAt, grant.endsAt));
       includeEnd(grant.endsAt);
     }
+  }
+  // Stacked prepaid grants that start where the live chain ends extend its end (the
+  // claim expiry), so access does not lapse at the first grant. A gap breaks the chain.
+  if (endsAt !== null) {
+    const chainable = (g: LedgerGrant) => g.source === 'trial' ||
+      products.find(p => p.id === g.product)?.kind === 'subscription';
+    const ahead = (input.grants ?? []).filter(g => g.active && g.startsAt > input.at && g.endsAt > g.startsAt &&
+      Number.isFinite(g.endsAt) && chainable(g)).sort((a, b) => a.startsAt - b.startsAt);
+    for (const g of ahead) if (g.startsAt <= endsAt) includeEnd(g.endsAt);
   }
   for (const purchase of input.nonSubscriptionPurchases ?? []) {
     if (!products.some(p => p.id === purchase.id)) logUnknown(purchase.id);
