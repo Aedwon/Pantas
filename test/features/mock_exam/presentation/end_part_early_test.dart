@@ -61,7 +61,6 @@ class _SessionHostState extends State<SessionHost> {
       onAnswer: (_) {},
       onToggleFlag: () {},
       onPause: () {},
-      onShowNavigator: () {},
       onEndPartEarly: () => setState(() => _controller.endPartEarly()),
     );
   }

@@ -137,4 +137,37 @@ void main() {
     expect(controller.state, isA<MockSessionForfeited>());
     expect(reason, MockSubmitReason.strictBackground);
   });
+
+  test('submitting early records a manual submission', () {
+    MockSubmitReason? reason;
+    void capture(MockSubmitReason value) => reason = value;
+    final controller = MockSessionController.initial(
+      attemptId: 'mock_1',
+      durationSeconds: 600,
+      questionIds: ['q1'],
+      onSubmit: capture,
+    );
+
+    controller.submitNow();
+
+    expect(controller.state, isA<MockSessionSubmitted>());
+    expect(reason, MockSubmitReason.manual);
+  });
+
+  test('strict mode refuses an early submission', () {
+    MockSubmitReason? reason;
+    void capture(MockSubmitReason value) => reason = value;
+    final controller = MockSessionController.initial(
+      attemptId: 'mock_1',
+      durationSeconds: 600,
+      questionIds: ['q1'],
+      strictMode: true,
+      onSubmit: capture,
+    );
+
+    controller.submitNow();
+
+    expect(controller.state, isA<MockSessionInProgress>());
+    expect(reason, isNull);
+  });
 }

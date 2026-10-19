@@ -42,7 +42,6 @@ void main() {
         onAnswer: (_) {},
         onToggleFlag: () {},
         onPause: () {},
-        onShowNavigator: () {},
       ),
       overrides: [
         hydratedMockQuestionProvider
@@ -70,7 +69,6 @@ void main() {
         onAnswer: (_) {},
         onToggleFlag: () {},
         onPause: () {},
-        onShowNavigator: () {},
       ),
       overrides: [
         hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
@@ -113,7 +111,6 @@ void main() {
         onAnswer: (value) => answer = value,
         onToggleFlag: () => flagged = true,
         onPause: () {},
-        onShowNavigator: () {},
       ),
       overrides: [
         hydratedMockQuestionProvider
@@ -144,7 +141,6 @@ void main() {
         onAnswer: (_) {},
         onToggleFlag: () {},
         onPause: () {},
-        onShowNavigator: () {},
       ),
       overrides: [
         hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),

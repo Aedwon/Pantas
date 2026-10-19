@@ -49,7 +49,6 @@ void main() {
               onAnswer: (_) {},
               onToggleFlag: () {},
               onPause: () {},
-              onShowNavigator: () {},
             ),
           ),
         ),

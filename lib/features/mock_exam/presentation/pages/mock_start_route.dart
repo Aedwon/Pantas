@@ -25,9 +25,11 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.da
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_preparation_page.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:uuid/uuid.dart';
+
+/// Where a mock closes to when there is nothing to go back to.
+const mockExitLocation = '/quiz';
 
 class MockStartRoute extends ConsumerStatefulWidget {
   const MockStartRoute({
@@ -81,6 +83,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   List<MockSessionPart>? _preparedParts;
   var _startingPaper = false;
   var _startingNextPart = false;
+  Map<String, String> _questionSubjects = const {};
 
   static const _snapshotCodec = MockSessionSnapshotCodec();
 
@@ -207,6 +210,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
       _elapsedBaseSeconds = DateTime.now().difference(startedAt).inSeconds;
       _sample = sample;
+      _questionSubjects = _subjectsFor(sample);
       _examId = widget.examId!;
       _scoreBands = parsed.blueprint.scoreBands;
       _strictMode = strictMode;
@@ -279,6 +283,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
       if (!mounted) return;
       _sample = restored.sample;
+      _questionSubjects = _subjectsFor(restored.sample);
       _examId = attempt.examId;
       _scoreBands = currentBlueprint?.blueprint.scoreBands;
       _strictMode = attempt.strictMode;
@@ -323,8 +328,32 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         unawaited(_bestEffortForceFlush());
       }
     } catch (e) {
-      if (mounted) setState(() => _errorMessage = e.toString());
+      final recoverable = await _discardableAttemptId();
+      if (mounted) {
+        setState(() {
+          _errorMessage = e.toString();
+          _recoverableAttemptId = recoverable;
+        });
+      }
     }
+  }
+
+  /// A saved mock that cannot be opened stays on the device until it is
+  /// discarded. Only the student's own unfinished attempt can be offered.
+  Future<String?> _discardableAttemptId() async {
+    try {
+      final attempt = await ref
+          .read(mockAttemptRepoProvider)
+          .findById(widget.resumeAttemptId!);
+      if (attempt != null &&
+          attempt.userId == mockAttemptLocalUserId &&
+          attempt.status == MockAttemptStatus.inProgress) {
+        return attempt.id;
+      }
+    } on Object {
+      // Without the attempt there is nothing to discard.
+    }
+    return null;
   }
 
   bool _strictForfeitOccurredFirst({
@@ -356,6 +385,11 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
     return null;
   }
+
+  Map<String, String> _subjectsFor(MockSample sample) => {
+        for (final section in sample.sections)
+          for (final id in section.questionIds) id: section.name,
+      };
 
   List<MockPersistedPart> _persistedParts(List<MockSessionPart> parts) => [
         for (final part in parts)
@@ -614,13 +648,19 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         discardedAt: DateTime.now(),
       );
       if (!mounted) return;
-      if (context.canPop()) {
-        context.pop();
-      } else {
-        context.go('/');
-      }
+      _leaveMock();
     } catch (error) {
       if (mounted) setState(() => _errorMessage = error.toString());
+    }
+  }
+
+  /// Closes the mock. A deep link has nothing to pop back to, so it goes to
+  /// the Quiz tab, where every mock starts.
+  void _leaveMock() {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go(mockExitLocation);
     }
   }
 
@@ -764,9 +804,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
             attemptId: state.snapshot.attemptId,
             discardedAt: DateTime.now(),
           );
-          if (context.mounted) {
-            context.pop();
-          }
+          if (mounted) _leaveMock();
         },
       );
     }
@@ -819,49 +857,25 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
           unawaited(_bestEffortForceFlush(pausedAtLastFlush: true));
         }
       },
-      onShowNavigator: () {
-        showModalBottomSheet<void>(
-          context: context,
-          isScrollControlled: true,
-          builder: (context) => DraggableScrollableSheet(
-            initialChildSize: 0.7,
-            maxChildSize: 0.9,
-            expand: false,
-            builder: (context, scrollController) => SingleChildScrollView(
-              controller: scrollController,
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: MockQuestionGrid(
-                  parts: [
-                    for (var i = 0; i < controller.parts.length; i++)
-                      MockGridPart(
-                        name: controller.parts[i].name,
-                        startIndex: controller.parts[i].startIndex,
-                        count: controller.parts[i].count,
-                        isOpen: i == controller.currentPartIndex ||
-                            controller.parts.length == 1,
-                      ),
-                  ],
-                  currentIndex: state.currentIndex,
-                  answeredIndexes: state.answers.keys
-                      .map(state.questionIds.indexOf)
-                      .where((i) => i >= 0)
-                      .toSet(),
-                  flaggedIndexes: state.flags
-                      .map(state.questionIds.indexOf)
-                      .where((i) => i >= 0)
-                      .toSet(),
-                  onTap: (index) {
-                    Navigator.pop(context);
-                    setState(() => controller.goTo(index));
-                    _markChanged();
-                  },
-                ),
-              ),
-            ),
+      closedPartCount: controller.currentPartIndex,
+      upcomingParts: [
+        for (var i = controller.currentPartIndex + 1;
+            i < controller.parts.length;
+            i++)
+          MockUpcomingPart(
+            number: i + 1,
+            name: controller.parts[i].name,
+            count: controller.parts[i].count,
           ),
-        );
+      ],
+      onGoTo: (index) {
+        setState(() => controller.goTo(index));
+        _markChanged();
       },
+      oneBlock: controller.parts.length == 1,
+      partName: controller.currentPart.name,
+      questionSubjects: controller.parts.length == 1 ? _questionSubjects : {},
+      onSubmitExam: () => setState(controller.submitNow),
     );
   }
 }

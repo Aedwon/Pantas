@@ -255,6 +255,14 @@ class MockSessionController {
     closeCurrentPart(endedEarly: true);
   }
 
+  /// Ends the whole paper now. A one-block paper has no part to end, so the
+  /// student submits it from the grid. Strict mode never ends early.
+  void submitNow() {
+    final current = _requireInProgress();
+    if (current.strictMode) return;
+    _submit(MockSubmitReason.manual);
+  }
+
   bool get canPause {
     final current = _state;
     return current is MockSessionInProgress && !current.strictMode;

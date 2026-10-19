@@ -34,7 +34,6 @@ void main() {
     bool canGoNext = true,
     VoidCallback? onPrevious,
     VoidCallback? onNext,
-    VoidCallback? onGrid,
   }) {
     return ProviderScope(
       overrides: [
@@ -54,7 +53,6 @@ void main() {
           onAnswer: (_) {},
           onToggleFlag: () {},
           onPause: () {},
-          onShowNavigator: onGrid ?? () {},
         ),
       ),
     );
@@ -177,7 +175,6 @@ class _ProctorHostState extends State<_ProctorHost> {
       onAnswer: (_) {},
       onToggleFlag: () {},
       onPause: () {},
-      onShowNavigator: () {},
     );
   }
 }

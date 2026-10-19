@@ -71,7 +71,6 @@ class _MockSessionPageHostState extends State<MockSessionPageHost> {
       onPause: () => setState(() => _isPaused = true),
       onPauseWarningSeenChanged: (val) =>
           setState(() => _pauseWarningSeen = val),
-      onShowNavigator: () {},
     );
   }
 }

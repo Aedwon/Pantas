@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/figures/chart_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
@@ -110,7 +111,6 @@ void main() {
               onAnswer: (_) {},
               onToggleFlag: () {},
               onPause: () {},
-              onShowNavigator: () {},
             ),
           ),
         ),
@@ -176,7 +176,6 @@ void main() {
                   onAnswer: (index) => actions.add('answer-$index'),
                   onToggleFlag: () => actions.add('flag'),
                   onPause: () {},
-                  onShowNavigator: () => actions.add('grid'),
                 ),
               ),
             ),
@@ -206,8 +205,17 @@ void main() {
               expect(rectangle.overlaps(rectangles[j]), isFalse);
             }
             await tester.tap(find.byKey(ValueKey(controls[i])));
+            if (controls[i] == 'mock-grid') {
+              await tester.pumpAndSettle();
+              final grid = tester.widget<QuestionGridSheet>(
+                find.byType(QuestionGridSheet),
+              );
+              expect(grid.open, isTrue);
+              grid.onDismiss();
+              await tester.pumpAndSettle();
+            }
           }
-          expect(actions, ['previous', 'grid', 'flag', 'next']);
+          expect(actions, ['previous', 'flag', 'next']);
           await tester.scrollUntilVisible(
             find.text(_lastChoice),
             250,
