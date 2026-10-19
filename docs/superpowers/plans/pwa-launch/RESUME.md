@@ -19,15 +19,15 @@ decision and its exact wording).
 | C2, C4, C6 payment functions | built and lead-reviewed, with proportional partial refunds; plain 110/110, emulator 142/142 (Java 21: `PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH`), tsc clean. Not run against live PayMongo; some refund details UNCONFIRMED (`functions/PAYMONGO.md`) | branch `web/paymongo-r1` at caf2142e (pushed) |
 | C10 roadmap server spike | done: works; Node output matches Dart byte for byte on 10 scenarios; 33 KB gzip; about 1 ms per call. Not run on Node 20 (only Node 26 local) | branch `web/roadmap-server-spike-r1` at 75690df3 (pushed), `spike/roadmap_js/README.md` |
 | C7, C8, C9 server parts | built and lead-verified: `getContent`, content uploader (dry run 158 lessons, 157 sets), `startMock`/`submitMock`, `ingestSession`, rules; plain 116/116, emulator 157/157. Open: abandoned-mock rule (Aedwon), Free answer visibility after a mock not enforced yet, one unexplained flaky passes test, `ratio-and-proportion.yaml` fails YAML parse | branch `web/server-pro-r1` at e7c27574 (pushed) |
-| Staging branch (C7 client, B4 config) | ready at e3adb564 (pushed; web App Check via build define). Staging deploy started: Hosting site `pantas-staging-app` created; rules uploaded (release unconfirmed); indexes and functions blocked: pantas-staging has no billing (Blaze). Waiting on Aedwon (returns October 20): Blaze (his cards declined; try a virtual card), reCAPTCHA Enterprise site key, gcloud ADC login on the Mac | branch `web/pwa-staging-r1` |
+| Staging branch (C7 client, B4 config) | ready at 2c2332e0 (pushed; web App Check via build define). Staging deploy started: Hosting site `pantas-staging-app` created; rules uploaded (release unconfirmed); indexes and functions blocked: pantas-staging has no billing (Blaze). Waiting on Aedwon (returns October 20): Blaze (his cards declined; try a virtual card), reCAPTCHA Enterprise site key, gcloud ADC login on the Mac | branch `web/pwa-staging-r1` |
 | C8b mock paper, C10 roadmap on server | done and lead-reviewed (no insights): plain 136/136, emulator 174/174, tsc clean. Open: no CSE mock blueprint; roadmap rebuild reads all sessions (fix before launch); app wiring not built. Merged into staging at fd8357ba | branch `web/roadmap-server-r1` at 953f7f24 |
 | E1 CSE scope | done: 71 lessons | `evidence/E1-cse-scope.*` |
 | E1b copy-prompt page | done | `docs/content-coverage-audit-r1` at 439603ca, `level4/paste/` |
 | E2 Level 4, E3 Level 5 | Level 4 running: Aedwon pasting (prompt allows web search for B01 since 622a7e35); Level 5 prompts not built | audit branch |
-| Lane A (W4) | Codex lead accepted the handoff (plan-only reply, Oct 19); continued by Claude on Aedwon's request (Oct 19, headless, full access as in its own sessions; log on this Mac only). Lanes: W4c audit then W4b; W4e then W4d | Codex session 01a1410a |
+| Lane A (W4) | not progressed since October 18: no Codex process on the Mac; W4c 7 local commits, W4d/W4f/W4a uncommitted work; STATUS.md lock stale. Codex limits reset October 19 evening; resume needs Aedwon's go | Codex session 01a1410a |
 | PayMongo account | Aedwon creating it | none |
-| CSE mock blueprint | approved figures (log, "proceed"); in progress: Sonnet 5.5 builder | branch `web/cse-mock-blueprint-r1` |
-| Roadmap running totals | in progress: Sonnet 5.5 builder | branch `web/roadmap-totals-r1` |
+| CSE mock blueprint | done, lead-reviewed, merged into staging (2c2332e0). Confirm with Aedwon the shown line "The real exam has 170 items" | `web/cse-mock-blueprint-r1` |
+| Roadmap running totals | done, lead-reviewed, merged into staging (2c2332e0) | `web/roadmap-totals-r1` |
 
 Orchestrator handoff (start here if you are the new Claude lead): `pwa-launch/handoff-orchestrator.md`.
 

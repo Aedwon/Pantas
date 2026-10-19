@@ -1099,3 +1099,37 @@ option 1 tomorrow.
 Started meanwhile (Sonnet 5.5, cloud): CSE mock blueprints on `web/cse-mock-blueprint-r1`, and
 roadmap running totals (finding 2 of the roadmap review) on `web/roadmap-totals-r1`, both from
 `web/pwa-staging-r1` at e3adb564.
+
+### October 19: CSE blueprints and roadmap totals merged into staging; Codex W4 state
+
+CSE blueprints (`web/cse-mock-blueprint-r1`, Sonnet 5.5): `content/mock/cse-pro.yaml` (sections
+20, 55, 35, 45; 190 minutes; `roamable`, so no per-section minutes are shown) and `cse-sub.yaml`
+(36, 36, 36, 37; 160 minutes; placeholder split stated in its `sourceNote`); both `source:
+reported`. Both the Dart build and the functions uploader read them; the server sampler builds
+papers from the real tagged pools. Builder set `totalPublishedItems` to 170 and 165, which shows
+"The real exam has 170 items. This practice run covers the 155 the app can mark for you." Kept,
+following the UPCAT precedent; to confirm with Aedwon. Lead fix 4000ba42: Professional Numerical
+weights 0.6 arithmetic and 0.4 algebra, because the bank holds 20 CSE algebra questions and the
+even split asked for 23 (every paper was 3 short). Content notes for E5: Subprofessional Clerical
+has 40 questions for 36 slots (repeats likely); `logical-verbal-reasoning` carries a Sub tag
+outside Sub scope; no reading-comprehension question file is tagged CSE yet.
+
+Roadmap totals (`web/roadmap-totals-r1`, Sonnet 5.5): one server-only `answerTotals` document per
+account, updated in the session-ingest transaction (a replay never double counts), backfilled
+once for older accounts; a rebuild reads 1 document instead of N sessions; bounded under 1 MiB
+(worst case measured 724,866 bytes). Tests compare the roadmap from totals with the old full scan.
+Lead reviewed the transaction order and reran: plain 155/155, emulator 181/181.
+
+Merged into `web/pwa-staging-r1` at 2c2332e0 (pushed). Lead checks on the merge: functions plain
+159/159, emulator 181/181; `flutter test test/features/mock_exam test/tool` 486 pass; analyze only
+the known deprecation.
+
+Aedwon's exact comment:
+
+> hi just to let you know codex limits have reset. is the work assigned to it still there or has it
+> been completed already?
+
+Mac check (relay 11083): no `codex exec` running. W4 is unchanged since the Codex lead's last
+records: W4c 7 local commits ahead (f495a8dd, October 18), W4d 2 uncommitted files, W4f 29
+uncommitted files, W4a 5; W4b and W4e at their October 15 and 16 remote heads. The `STATUS.md`
+lock (held since 18:06) is now stale. No A1 to A4 task has completed.
