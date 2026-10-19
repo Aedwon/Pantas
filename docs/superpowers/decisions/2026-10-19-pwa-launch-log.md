@@ -512,3 +512,24 @@ Facts for item 3 (lead check of `integration/new-design-r1`): the mock cooldown 
 device from the last local attempt (`mock_availability_provider.dart`). Pro status comes from the
 signed `pro` token claim and the payment provider. Pro-only data such as wrong-choice notes ships
 in the bundled content. Analysis and recommendation given in the reply; awaiting choices.
+
+### October 19: mock window, account for mocks, and Pro gating
+
+Aedwon's exact comment:
+
+> okay go with your recommendation on the mock 30 days
+>
+> 1. okay sure, but the assessment and all shouldn't right. for better UX?
+>
+>
+> for 2 and 3, can we increase security here so the data is truly gated by Pro? and not editable
+> by someone who knows how to code. because i think this is a credibility issue. this can be
+> considered as weak architecture and so people still start to question, what else is leaking?
+
+Decisions:
+
+1. Free mock allowance: one mock per rolling 30 days after the last mock.
+2. Starting a mock requires a real account, and the server counts mocks. Onboarding, the
+   assessment and the rest of the app stay usable without signing in.
+3. Pro must be enforced by the server, not by the app, as a credibility requirement. Scope options
+   are offered in the reply.
