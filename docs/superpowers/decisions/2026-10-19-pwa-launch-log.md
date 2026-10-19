@@ -829,3 +829,59 @@ Aedwon's exact comment:
 Claude resumed the Codex lead headlessly with "continue" and the plan it gave, using the settings
 its own sessions used (gpt-6.1-sol, approval never, full access). It runs W4 Lane 1 and Lane 2
 and records progress in `STATUS.md` and the restart log.
+
+### October 19: Claude lead handed to a cloud session
+
+The local Claude lead stopped on a usage limit. Aedwon started a Claude cloud session as the new
+lead from `pwa-launch/handoff-orchestrator.md` (policy main 44c07663).
+
+The cloud session cannot see the Mac's worktrees. Aedwon pointed it to the relay:
+
+> check my chatgpt-relay system in github, you should be able to run tests through a local runner.
+> 2 are enabled rn
+
+The lead now runs Mac commands through `[relay]` Issues in `Aedwon/chatgpt-terminal-relay`
+(issues 11056 onward), authored by Aedwon's GitHub account.
+
+Findings on `web/pwa-staging-r1` local commit 84651f59 (C7 client, B4 config), lead review plus
+relay runs on the Mac:
+
+- The commit adds `ContentService` (stale-while-revalidate over `getContent`, encrypted cache
+  table, schema 25 to 26 with its migration) but nothing reads it. No lesson or question
+  repository uses it, and on web `contentDatabaseProvider` is never overridden, so any screen that
+  reads content would throw on web. C7 client is not finished, although the commit message reads
+  as if it were.
+- `flutter build web --release -t lib/main_staging.dart`: exit 0.
+- `flutter test`: 3,983 pass, 1 fail. `test/tool/firebase_indexes_layout_test.dart` ("source never
+  writes expiry to a top-level account document") flags `functions/src/paymongoGrants.ts`. Lead
+  read the code: both writes go to `webhookEvents/{id}/users/{uid}`, not the account document, so
+  the data is safe; the guard cannot follow the shared `seen` object and the repeated `event`
+  binding. The failure came in with the payments code; earlier full runs were on the foundation
+  branch without it. Fix the code shape so the guard can verify it; do not loosen the guard.
+- `flutter analyze`: one new lint (trailing comma in
+  `test/core/content/remote/content_service_providers_test.dart:60`), one existing deprecation,
+  and errors from `functions/node_modules/firebase-tools/templates`, which the analyzer should
+  exclude.
+
+Pushed 84651f59 to `web/pwa-staging-r1` as a checkpoint.
+
+Roadmap worktree: last edit 18:09 with work unsaved; Aedwon confirmed the builder stopped.
+
+Aedwon's exact comments:
+
+> 1. it's stopped, i'm out of credits. i have turned off auto-continue so that you can pick up on
+> it cleanly and not get interrupted
+> 2. can you? won't that take a lot of tokens? i don't want to burn my usage
+> 3. main
+>
+> you can push on your own
+
+Results:
+
+1. The lead committed the unsaved roadmap work as checkpoint e8df82d1 on `web/roadmap-server-r1`
+   (unreviewed) and pushed it. Builders finish it from the cloud.
+2. Flutter is installed in the cloud container (a download, almost no tokens). Builders work in
+   the cloud. Final checks before integration run on the Mac through the relay.
+3. Records (`RESUME.md`, this log) stay on main.
+4. The lead pushes working branches and records without asking first. Deploys and other outside
+   changes still need Aedwon's approval.
