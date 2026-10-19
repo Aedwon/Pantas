@@ -1,0 +1,69 @@
+# suggestedMinutes is required by the section parser but is read only when an
+# exam is timed part by part (sectionalTiming: sectional). This paper is one
+# booklet with one clock, so no student sees it. It repeats the whole-paper
+# minutes rather than inventing a per-section figure.
+_id: mock_blueprint_cse_sub
+schemaVersion: 2
+isActive: true
+exam: exam_cse_sub
+name: CSE Subprofessional Practice Paper
+durationMinutes: 160
+sectionalTiming: roamable
+totalPublishedItems: 165
+source: reported
+sourceNote: 'Placeholder split. Total of 145 test items comes from a 2020 CSC
+  advisory (150 test items plus 20 descriptive questionnaire items for the
+  Professional level, 145 plus 20 for the Subprofessional level); whether that
+  still holds is unconfirmed. The 165 items for the whole paper (145 plus 20)
+  and the time of 2 hours 40 minutes (160) are as relayed in reports by the PIA
+  and by CSC-relaying outlets. The Civil Service Commission publishes no
+  per-area item counts: the split of 36 Verbal, 36 Numerical, 36 Clerical and
+  37 General Information is an even division chosen here until a taker of this
+  level supplies the real counts. The topic weights within each section are
+  also an even split chosen here, a sampling parameter never printed to a
+  student. One booklet, no sectional timing.'
+sections:
+  - id: sec_cse_sub_verbal_ability
+    name: Verbal Ability
+    questionCount: 36
+    suggestedMinutes: 160
+    topicIds:
+      - topic_cse_sub_vocabulary
+      - topic_cse_sub_grammar_and_structure
+      - topic_cse_sub_language_application
+    topicWeights:
+      topic_cse_sub_vocabulary: 0.3333333333333333
+      topic_cse_sub_grammar_and_structure: 0.3333333333333333
+      topic_cse_sub_language_application: 0.33333333333333337
+  - id: sec_cse_sub_numerical_ability
+    name: Numerical Ability
+    questionCount: 36
+    suggestedMinutes: 160
+    topicIds:
+      - topic_cse_sub_arithmetic_number_sense
+      - topic_cse_sub_algebra
+    topicWeights:
+      topic_cse_sub_arithmetic_number_sense: 0.5
+      topic_cse_sub_algebra: 0.5
+  - id: sec_cse_sub_clerical_ability
+    name: Clerical Ability
+    questionCount: 36
+    suggestedMinutes: 160
+    topicIds:
+      - topic_cse_sub_clerical_ability
+    topicWeights:
+      topic_cse_sub_clerical_ability: 1
+  - id: sec_cse_sub_general_information
+    name: General Information
+    questionCount: 37
+    suggestedMinutes: 160
+    topicIds:
+      - topic_cse_sub_philippine_constitution
+      - topic_cse_sub_code_of_conduct_ra_6713
+      - topic_cse_sub_peace_and_human_rights
+      - topic_cse_sub_environment_management
+    topicWeights:
+      topic_cse_sub_philippine_constitution: 0.25
+      topic_cse_sub_code_of_conduct_ra_6713: 0.25
+      topic_cse_sub_peace_and_human_rights: 0.25
+      topic_cse_sub_environment_management: 0.25
