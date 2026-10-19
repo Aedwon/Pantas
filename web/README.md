@@ -66,7 +66,9 @@ synthetic. The real app opener probe checks encrypted persistence, non-extractab
 wrapping keys, tamper refusal, recovery, and owner exclusion.
 
 ```sh
-npm install --prefix /tmp/pantas-pwa-probe --cache /tmp/pantas-npm-cache --no-audit --no-fund fake-indexeddb@6.2.4
+PROBE_DIR=$(mktemp -d)
+npm install --prefix "$PROBE_DIR" --no-audit --no-fund fake-indexeddb@6.2.4
+export PANTAS_FAKE_IDB="$PROBE_DIR/node_modules/fake-indexeddb"
 dart compile js tool/web/probe_encrypted_wasm.dart -o build/probe_encrypted_wasm.js
 node tool/web/probe_encrypted_wasm.cjs
 node tool/web/probe_browser_host.cjs
@@ -74,6 +76,6 @@ dart compile js tool/web/verify_web_database.dart -o build/verify_web_database.j
 PANTAS_PROBE_SCRIPT=verify_web_database.js node tool/web/probe_browser_host.cjs
 ```
 
-Set PANTAS_FAKE_IDB to the fake-indexeddb module path if installed elsewhere.
+PANTAS_FAKE_IDB is required; the probe refuses to run without it.
 Evidence, exact matrix output, maintainer sources, and content stop reasoning:
 `docs/superpowers/plans/pwa-launch/evidence/B3-encrypted-web-db.md`.

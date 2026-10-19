@@ -4,7 +4,12 @@ process.on('beforeExit', () => {if (!completed) {console.error('FAIL: Dart main 
 // Synthetic browser storage adapters for Node probes. No production data.
 const fs = require('node:fs');
 const { webcrypto } = require('node:crypto');
-const idb = require(process.env.PANTAS_FAKE_IDB || '/tmp/pantas-pwa-probe/node_modules/fake-indexeddb');
+// The probe loads a test-only module from a path the caller names explicitly,
+// never from a shared default such as /tmp, so no other user can plant it.
+if (!process.env.PANTAS_FAKE_IDB) {
+  throw new Error('Set PANTAS_FAKE_IDB to the fake-indexeddb module path in a private directory (mktemp -d).');
+}
+const idb = require(process.env.PANTAS_FAKE_IDB);
 Object.assign(globalThis, idb);
 globalThis.self = globalThis;
 globalThis.window = globalThis;
