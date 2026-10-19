@@ -127,10 +127,15 @@ void main() {
     expect(flagged, isTrue);
   });
 
-  testWidgets('system back shows leave mock confirmation', (tester) async {
+  Future<void> pumpPaper(
+    WidgetTester tester, {
+    required bool strictMode,
+    bool pauseWarningSeen = false,
+    VoidCallback? onPause,
+  }) async {
     await tester.pumpAppWithProviders(
       MockSessionPage(
-        state: _state(),
+        state: _state(strictMode: strictMode),
         remainingInPart: const Duration(minutes: 10),
         partPosition: 1,
         partTotal: 2,
@@ -140,20 +145,81 @@ void main() {
         onNext: () {},
         onAnswer: (_) {},
         onToggleFlag: () {},
-        onPause: () {},
+        onPause: onPause ?? () {},
+        pauseWarningSeen: pauseWarningSeen,
       ),
       overrides: [
         hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
       ],
     );
+  }
 
+  Future<void> pressSystemBack(WidgetTester tester) async {
     final widgetsAppState = tester.state<State<WidgetsApp>>(
       find.byType(WidgetsApp),
     ) as dynamic;
     await widgetsAppState.didPopRoute();
     await tester.pumpAndSettle();
+  }
 
-    expect(find.text('Leave mock?'), findsOneWidget);
+  testWidgets('system back acts like pause, warning first', (tester) async {
+    var paused = 0;
+    await pumpPaper(tester, strictMode: false, onPause: () => paused++);
+
+    await pressSystemBack(tester);
+
+    expect(find.text("Real exams don't pause."), findsOneWidget);
+    expect(
+      find.text(
+        'Use this only when you really have to. The clock stops, but you '
+        "won't get this during the real exam.",
+      ),
+      findsOneWidget,
+    );
+    expect(paused, 0);
+    await tester.tap(find.text('Pause'));
+    await tester.pumpAndSettle();
+    expect(paused, 1);
+  });
+
+  testWidgets('system back pauses at once once the warning has been seen',
+      (tester) async {
+    var paused = 0;
+    await pumpPaper(
+      tester,
+      strictMode: false,
+      pauseWarningSeen: true,
+      onPause: () => paused++,
+    );
+
+    await pressSystemBack(tester);
+
+    expect(find.text("Real exams don't pause."), findsNothing);
+    expect(paused, 1);
+  });
+
+  testWidgets('keeping going from the warning does not pause', (tester) async {
+    var paused = 0;
+    await pumpPaper(tester, strictMode: false, onPause: () => paused++);
+
+    await pressSystemBack(tester);
+    await tester.tap(find.text('Keep Going'));
+    await tester.pumpAndSettle();
+
+    expect(find.text("Real exams don't pause."), findsNothing);
+    expect(paused, 0);
+  });
+
+  testWidgets('system back is blocked in strict mode', (tester) async {
+    var paused = 0;
+    await pumpPaper(tester, strictMode: true, onPause: () => paused++);
+
+    await pressSystemBack(tester);
+
+    expect(find.text("Real exams don't pause."), findsNothing);
+    expect(find.text('Leave mock?'), findsNothing);
+    expect(paused, 0);
+    expect(find.byType(MockSessionPage), findsOneWidget);
   });
 }
 

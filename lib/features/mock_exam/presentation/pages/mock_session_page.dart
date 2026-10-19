@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
-import 'package:pantas/core/ui/components/confirmation_dialog.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
@@ -56,7 +55,6 @@ class MockSessionPage extends StatefulWidget {
     this.pauseWarningSeen = false,
     this.onPauseWarningSeenChanged,
     this.onEndPartEarly,
-    this.onLeave,
     this.currentPartNumber = 1,
     this.partName = '',
     this.oneBlock = false,
@@ -99,7 +97,6 @@ class MockSessionPage extends StatefulWidget {
   final bool pauseWarningSeen;
   final ValueChanged<bool>? onPauseWarningSeenChanged;
   final VoidCallback? onEndPartEarly;
-  final Future<bool> Function()? onLeave;
   final int currentPartNumber;
   final String partName;
   final bool oneBlock;
@@ -116,7 +113,6 @@ class _MockSessionPageState extends State<MockSessionPage> {
   late Duration _previousRemaining;
   int? _proctorToastMinutes;
   Timer? _toastTimer;
-  var _leaving = false;
   var _gridOpen = false;
 
   @override
@@ -157,24 +153,36 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 
   void _onPausePressed() {
-    if (!widget.pauseWarningSeen) {
-      showAppConfirmationDialog(
-        context: context,
-        title: 'Real exams do not pause.',
-        body: 'Use this only when you have to. The clock stops, but you '
-            'will not get this in the real room.',
-        cancelLabel: 'Keep going',
-        confirmLabel: 'Pause',
-        isDestructive: false,
-        onCancel: () {},
-        onConfirm: () {
-          widget.onPauseWarningSeenChanged?.call(true);
-          widget.onPause();
-        },
-      );
-    } else {
+    if (widget.pauseWarningSeen) {
       widget.onPause();
+      return;
     }
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.shadow.withValues(alpha: .34),
+        builder: (dialogContext) => CenteredDialog(
+          title: "Real exams don't pause.",
+          message: 'Use this only when you really have to. The clock stops, '
+              "but you won't get this during the real exam.",
+          primaryLabel: 'Pause',
+          secondaryLabel: 'Keep Going',
+          inlineActions: true,
+          onCancel: () => Navigator.pop(dialogContext),
+          onConfirm: () {
+            Navigator.pop(dialogContext);
+            widget.onPause();
+          },
+        ),
+      ),
+    );
+  }
+
+  /// System back acts like pause. Strict mode has no pause, so back does
+  /// nothing there.
+  void _onSystemBack() {
+    if (_gridOpen || widget.state.strictMode) return;
+    _onPausePressed();
   }
 
   void _confirmEndPartEarly(BuildContext context) {
@@ -250,9 +258,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
         );
     final scale = MediaQuery.textScalerOf(context).scale(17);
     return PopScope(
-      canPop: _leaving,
+      canPop: false,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop && !_gridOpen) unawaited(_confirmLeave(context));
+        if (!didPop) _onSystemBack();
       },
       child: QuestionGridSheet(
         open: _gridOpen,
@@ -332,8 +340,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 final strictMessage =
                     'Part ${widget.currentPartNumber} runs to the end of its '
                     'time. Strict mode is on.';
-                // MK_LastQStrict draws the line for a timed part only. A one-block
-                // paper has no part to name, and no board draws its line.
+                // MK_LastQStrict draws the line for a timed part only. A
+                // one-block paper has no part to name, and no board draws
+                // its line.
                 final strictLine =
                     widget.state.strictMode && last && !widget.oneBlock;
                 final status = _proctorToastMinutes != null
@@ -548,37 +557,6 @@ class _MockSessionPageState extends State<MockSessionPage> {
 
   void _goToPartQuestion(int number) =>
       widget.onGoTo?.call(_firstIndexInPart + number - 1);
-
-  Future<void> _confirmLeave(BuildContext context) async {
-    final leave = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: const Text('Leave mock?'),
-        content: const Text('The clock keeps running.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(
-              'Leave',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Stay'),
-          ),
-        ],
-      ),
-    );
-    if (leave != true) return;
-    final mayLeave = await widget.onLeave?.call() ?? true;
-    if (!mayLeave || !context.mounted) return;
-    setState(() => _leaving = true);
-    await WidgetsBinding.instance.endOfFrame;
-    if (context.mounted) Navigator.of(context).pop();
-  }
 
   String _formatRemaining(Duration remaining) {
     final seconds = remaining.inSeconds.clamp(0, 1 << 31);

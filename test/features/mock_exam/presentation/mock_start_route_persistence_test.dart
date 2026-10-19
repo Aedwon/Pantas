@@ -527,7 +527,81 @@ void main() {
     expect(attempt.lastFlushedAt.isAfter(attempt.startedAt), isTrue);
   });
 
-  testWidgets('confirmed leave flushes before the mock route closes',
+  testWidgets('system back pauses and saves the paused paper', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    await _seedMockContent(contentDb);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse');
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
+
+    await tester.tap(find.text('Choice A'));
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Pause'));
+    // The paused screen's hourglass tips for as long as it is open, so the
+    // frame never settles.
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.byType(PausePage), findsOneWidget);
+    final attempt = (await db.select(db.mockAttempts).get()).single;
+    expect(attempt.pausedAtLastFlush, isTrue);
+    expect(jsonDecode(attempt.answersJson), hasLength(1));
+  });
+
+  testWidgets('a student who chose not to see the warning pauses at once',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    await _seedMockContent(contentDb);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse');
+    await AppPreferencesRepository(db)
+        .setDeviceValue('mock_pause_warning_seen', 'true');
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
+
+    await tester.tap(find.byKey(const ValueKey('mock-pause')));
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.text("Real exams don't pause."), findsNothing);
+    expect(find.byType(PausePage), findsOneWidget);
+  });
+
+  testWidgets('leaving the app pauses a paper that is not strict',
       (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -543,31 +617,24 @@ void main() {
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
-          initialRoute: '/mock',
-          routes: {
-            '/': (_) => const Scaffold(body: Text('Home')),
-            '/mock': (_) => const MockStartRoute(
-                  examId: 'exam_cse',
-                  blueprintId: 'bp_cse',
-                ),
-          },
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
         ),
       ),
     );
     await tester.pumpAndSettle();
     await _startPreparedPaperIfPresent(tester);
 
-    await tester.tap(find.text('Choice A'));
-    await tester.binding.handlePopRoute();
-    await tester.pumpAndSettle();
-    await _startPreparedPaperIfPresent(tester);
-    await tester.tap(find.text('Leave'));
-    await tester.pumpAndSettle();
-    await _startPreparedPaperIfPresent(tester);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    await tester.pump();
+    final saved = (await db.select(db.mockAttempts).get()).single;
+    expect(saved.pausedAtLastFlush, isTrue);
 
-    expect(find.text('Home'), findsOneWidget);
-    final attempt = (await db.select(db.mockAttempts).get()).single;
-    expect(jsonDecode(attempt.answersJson), hasLength(1));
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byType(PausePage), findsOneWidget);
   });
 }
 

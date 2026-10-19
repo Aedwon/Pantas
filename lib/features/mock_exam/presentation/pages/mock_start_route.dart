@@ -85,6 +85,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   var _startingPaper = false;
   var _startingNextPart = false;
   Map<String, String> _questionSubjects = const {};
+  var _pauseWarningSeen = false;
 
   static const _snapshotCodec = MockSessionSnapshotCodec();
 
@@ -93,6 +94,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
+    unawaited(_loadPauseWarningSeen());
+  }
+
+  Future<void> _loadPauseWarningSeen() async {
+    final seen = await ref.read(mockExamPreferencesProvider).pauseWarningSeen();
+    if (mounted) setState(() => _pauseWarningSeen = seen);
   }
 
   @override
@@ -112,6 +119,9 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       if (_strictMode) _strictBackgroundedAt ??= now;
       _strictModeLifecycle?.paused(now);
       if (_controller != null) {
+        // Leaving a paper that is not strict pauses it, and the student
+        // finds it paused on return.
+        if (state != AppLifecycleState.inactive && _pauseMock()) return;
         if (_controller!.state is MockSessionPaused) _accruePausedTime();
         unawaited(_bestEffortForceFlush());
       }
@@ -318,7 +328,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         backgroundedAt: restored.strictBackgroundedAt,
         now: resumeNow,
         openPart: parts[currentPartIndex],
-        partStartedAtSeconds: restored.partStartedAtSeconds ?? 0,
+        partStartedAtSeconds: restored.partStartedAtSeconds,
         atGate: restored.betweenParts,
       )) {
         _strictBackgroundedAt = null;
@@ -684,6 +694,23 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
   }
 
+  /// Stops the clock and saves the paused paper. Returns false when this
+  /// paper cannot pause: strict mode never pauses, and a stopped gate or a
+  /// paper already paused has nothing to stop.
+  bool _pauseMock() {
+    final controller = _controller;
+    if (controller == null ||
+        controller.state is! MockSessionInProgress ||
+        !controller.canPause) {
+      return false;
+    }
+    _stopwatch?.stop();
+    _pausedAt = DateTime.now();
+    setState(controller.pause);
+    unawaited(_bestEffortForceFlush(pausedAtLastFlush: true));
+    return true;
+  }
+
   void _partClosed() {
     _stopwatch?.stop();
     _pausedAt = DateTime.now();
@@ -800,12 +827,17 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
 
     if (state is MockSessionPaused) {
+      final openPart = controller.currentPart;
       return PausePage(
-        partName: controller.currentPart.name,
+        partNames: [for (final part in controller.parts) part.name],
+        currentPartIndex: controller.currentPartIndex,
         remaining: controller.remainingInPart,
-        answered: state.snapshot.answers.length,
-        total: state.snapshot.questionIds.length,
-        flagged: state.snapshot.flags.length,
+        partLength: openPart.minutes == null
+            ? Duration(seconds: state.snapshot.durationSeconds)
+            : Duration(minutes: openPart.minutes!),
+        answeredCount: state.snapshot.answers.values
+            .where((answer) => answer.selectedIndex >= 0)
+            .length,
         onResume: () {
           _accruePausedTime();
           setState(controller.resume);
@@ -861,21 +893,15 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         if (controller.state is MockSessionBetweenParts) _partClosed();
       },
       currentPartNumber: controller.currentPartIndex + 1,
-      onLeave: () async {
-        try {
-          await _forceFlush();
-          return true;
-        } catch (_) {
-          return false;
-        }
-      },
-      onPause: () {
-        if (controller.canPause) {
-          _stopwatch?.stop();
-          _pausedAt = DateTime.now();
-          setState(controller.pause);
-          unawaited(_bestEffortForceFlush(pausedAtLastFlush: true));
-        }
+      onPause: _pauseMock,
+      pauseWarningSeen: _pauseWarningSeen,
+      onPauseWarningSeenChanged: (seen) {
+        setState(() => _pauseWarningSeen = seen);
+        unawaited(
+          ref
+              .read(mockExamPreferencesProvider)
+              .setPauseWarningSeen(value: seen),
+        );
       },
       closedPartCount: controller.currentPartIndex,
       upcomingParts: [
