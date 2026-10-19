@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-18 18:11 Asia/Manila (serial continuation, W4c first)
+Since: 2026-10-19 18:06 Asia/Manila (PWA continuation, two W4 lanes)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -21,6 +21,65 @@ taken. Release it by setting State to free when the step ends.
 ## Current stage
 
 Level 4 (building). Levels 1 to 3 passed their gates on October 6, 2026.
+
+## PWA launch
+
+Controlling spec/plan/log: October19 PWA launch records on main. This section supersedes
+the older serial/freeze scheduling statements below only for approved PWA launch scope.
+Two W4 lanes: lane1 A1→A2 (W4c audit/fixes/integration, then W4b); lane2 A4→A3
+(W4e, then W4d). One engineering audit per completed family. W4g is after launch.
+Codex owns integration/new-design-r1 and this lock; Claude owns B/C/L on separate branches.
+No edits to Claude-owned server/staging branches. Before client changes to content, mocks,
+roadmap or Pro computations, inspect and reconcile the handed-off server contracts.
+
+| Task | Work | Owner | Current state/evidence |
+|---|---|---|---|
+| A1 | W4c audit, fixes, verification, integration | Codex | resuming incomplete audit; local f495a8dd, remote7223e931;4193 historical candidate passes; confirmed Move/Retry finding unresolved |
+| A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
+| A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
+| A4 | W4e Tasks3–9 | Codex | resuming from e3ba3785; server paper/clock contract coordination before dependent wiring |
+| A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
+| A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
+| A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
+| A8 | W6 Tasks6–8 | Codex + Claude | queued; coordinate Functions/Hosting deployments with Lanes C/L |
+| A9 | W3 Task15 | Codex | store webhook deployment deferred; off PWA launch path |
+| A10 | W4g | Codex | after launch |
+| B1 | Web blocker inventory | Claude | reported done; evidence/B1-web-inventory.md |
+| B2 | Web platform | Claude | checkpoint on web/pwa-foundation-r1; staging737d471a contains foundation; not integrated here |
+| B3 | Platform seams and encrypted browser DB | Claude | checkpoint;3971 reported tests pass, Node encryption probes; browser still unverified |
+| B4 | Staging Hosting and size evidence | Claude | in progress on web/pwa-staging-r1 at737d471a; no deployment/measurements accepted here |
+| B5 | HTML loading screen | Claude | pending handoff |
+| B6 | Caching, install prompt, persistent storage | Claude | pending handoff and approved visual representation |
+| B7 | Content loading after first frame | Claude | in progress with C7 client on staging; web ships no native content package |
+| B7a | HTML Welcome screen | Claude | pending; approved board and Aedwon visual acceptance required |
+| B7c | Deferred libraries for later screens | Claude | pending; order route edits with W4e/W4f |
+| B7b | Phone layout at every width | Claude | pending; visible wide-screen framing requires acceptance |
+| B8 | Size cuts and measurements | Claude | pending; CSE scope and server content supersede bundled-content assumptions |
+| C1 | Entitlement design ruling | Claude | recorded; C1-C10-ruling plus later decisions control |
+| C2 | Checkout callable | Claude | built/reviewed on paymongo caf2142e; live/test PayMongo calls unverified |
+| C3 | Web purchase gateway | Claude | pending handoff; required before A6 Pro-page wiring |
+| C4 | Payment webhook | Claude | built/reviewed on caf2142e;110plain/142emulator reported; refund details in later log |
+| C5 | PayMongo test-mode run | Claude + Aedwon | pending account/test keys and staging purchase |
+| C6 | Once-per-account seven-day web trial | Claude | built/reviewed on caf2142e; server grant, no automatic charge |
+| C7 | Server content and encrypted client cache | Claude | server built e7c27574; client staging in progress; getContent contract must precede W4 assumptions |
+| C8 | Server mock allowance and visibility | Claude | server checkpoint e7c27574; Free visibility remains open; latest submission-based allowance decision controls |
+| C8b | Pinned server mock paper and clock | Claude | in progress; web/roadmap-server-r1 absent from current remote refs; do not invent contract |
+| C9 | All-account session answer ingest | Claude | server built e7c27574;116plain/157emulator reported; client handoff pending |
+| C10 | Server roadmap and Pro insights | Claude | spike75690df3 reported parity; runtime branch not published yet; W4b must coordinate |
+| E1 | CSE scope reset | Claude | reported done;71 lessons; evidence/E1-cse-scope.* |
+| E1b | Copy-prompt page | Claude | reported done on audit branch439603ca |
+| E2 | CSE lesson Level4 audit | ChatGPT + Aedwon | running paste workflow; not an engineering prerequisite |
+| E3 | CSE question Level5 audit | ChatGPT + Aedwon | authorized in parallel; prompts pending per resume point |
+| E4 | Lesson rewrite | ChatGPT | after findings per subject; deterministic gates then Aedwon QA |
+| E5 | Question rewrite and verification | ChatGPT | after findings; tag corrections and malformed ratio/proportion YAML included |
+| E6 | Illustration data and QA sheet | Claude + mechanical implementor | after findings; Aedwon final QA |
+| E7 | Content QA and build/upload | Aedwon + Claude | pending; server content replaces bundled web corpus |
+| L1 | Web Firestore/Storage rules review | Claude | pending after W6 snapshot and final server handoff |
+| L2 | Web App Check enforcement | Claude | pending |
+| L3 | Domain, authorized hosts, budget alerts | Claude + Aedwon | pantas.study purchased; production setup pending |
+| L4 | Web legal/payment/refund pages | Claude | pending; refunds only unactivated/unconsumed qualifying full payments; no student partial-refund request |
+| L5 | Staging phone acceptance | Aedwon | pending Android Chrome/iPhone Safari installed PWA |
+| L6 | Production deployment | Claude + Codex | requires explicit release approval; none claimed |
 
 ## Steps
 
@@ -710,3 +769,21 @@ Root's independent source/data review found no remaining scoped issue. Required 
 whole-family audit now follows alone againstffc8045b..f495a8dd plus current approved contracts.
 No source upload, integration, whole-family acceptance or phone visual acceptance is claimed.
 D/E remain held. Main application freeze remains. Preserve C tree/logs for audit and QA.
+
+
+### October19: resume two W4 lanes for the PWA launch
+
+Aedwon authorized continuation, taking the lock and adding the PWA tracker. Policy/docs
+main0e2b9a8585ce37937d19b0c1f1810d4b9d8fc737 retrieved; policy files unchanged. The prior
+lock was held by this chat since October18 and stale beyond two hours; renewed under its rule.
+The documentation workspace was clean and an ancestor of main, advanced normally without
+overwriting work. Primary main checkout remains untouched. Integration still5e6cda45.
+C clean f495a8dd/remote7223e931 and E clean local/remote e3ba3785 match expected checkpoints.
+
+A1 resumes the incomplete family audit, including its externally reproduced Move/Retry
+partial-save defect; no final audit verdict or source upload exists. A4 resumes independent
+mock presentation while awaiting the server paper/clock contract. Current published staging
+737d471a and server-pro e7c27574 are read-only coordination inputs. The requested roadmap-server
+branch is not on current origin refs, matching the resume record's not-pushed status. Dependent
+client wiring waits for that actual handoff; no replacement local-only path is authorized.
+No new gates, code fixes, integration, app publication or phone acceptance are claimed here.

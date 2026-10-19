@@ -2144,3 +2144,22 @@ reviewed final source/tests, actual4193full passes and clean static outputs, ver
 evidence. No baseline exception or native/source workaround. The implementor is idle; required
 Astra sweeping audit runs alone before integration. Source remains local pending that audit;
 phone acceptance and main app freeze remain separate. D/E stay held under the serial instruction.
+
+
+### October19: PWA launch continuation and two W4 lanes
+
+Aedwon's exact instruction:
+
+> Aedwon says: continue. Proceed with the plan you just gave: take the STATUS.md lock under its rules, add the PWA launch section, then run Lane 1 (W4c audit, fixes, verification, integration, then W4b) and Lane 2 (W4e, then W4d). Coordinate client changes that depend on server content, mocks or the roadmap with the Claude lead's pushed branches (web/pwa-staging-r1, web/roadmap-server-r1, web/server-pro-r1); do not edit those branches. Record progress in STATUS.md and the restart log as usual.
+
+The October19 approved PWA spec/plan/all decisions supersede serial sequencing and lift the
+app freeze for this launch scope. Root renewed its own stale lock and added46task rows under
+PWA launch in the existing status record. No separate tracker. W4f Task1 remains parked on
+its branch, web reminders omitted, only two CSE exams selectable, PayMongo gateway on web,
+W4g after launch. Existing B/C/L ownership and release approval remain.
+
+Read-only contract preflight: origin staging737d471a, server-pro e7c27574. No remote
+web/roadmap-server-r1 exists yet; RESUME also says not pushed. Coordinate on actual server
+contracts, preserving that gap rather than inventing local mock/roadmap authority. Existing
+C/E heads match expected state. A1's audit was interrupted after a real compound Move/Retry
+failure; resume that same audit, not a new repeated family review. Source after7223stays local.
