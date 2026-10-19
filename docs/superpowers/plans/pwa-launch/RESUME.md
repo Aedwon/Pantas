@@ -13,7 +13,7 @@ decision and its exact wording).
 | Task | State | Where |
 |---|---|---|
 | B1 web inventory | done | `evidence/B1-web-inventory.md` |
-| B2, B3 web platform and seams | checkpoint: web build compiles; every phone-only part split; encrypted browser study database (ChaCha20 shim, Node probes only, browser untested); Firebase web config filled. Content install on web stopped by design (C7 replaces it). Full test rerun in progress | branch `web/pwa-foundation-r1` at 5cd9f119 (pushed) |
+| B2, B3 web platform and seams | checkpoint: web build compiles; every phone-only part split; encrypted browser study database (ChaCha20 shim, Node probes only, browser untested); Firebase web config filled. Content install on web stopped by design (C7 replaces it). Full suite 3,971/3,971 pass (lead run) | branch `web/pwa-foundation-r1` at edfd988b (pushed) |
 | Firebase web apps | created and configured in the options files | `web/pwa-foundation-r1` |
 | C1 and C10 ruling | done | `pwa-launch/C1-C10-ruling.md` |
 | C2, C4, C6 payment functions | built and lead-reviewed, with proportional partial refunds; plain 110/110, emulator 142/142 (Java 21: `PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH`), tsc clean. Not run against live PayMongo; some refund details UNCONFIRMED (`functions/PAYMONGO.md`) | branch `web/paymongo-r1` at caf2142e (pushed) |

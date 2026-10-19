@@ -726,3 +726,7 @@ cannot stay secret in a browser, so the web build ships no content package. Web 
 only through C7 (server per request, cached in the encrypted study database). This makes C7 a
 prerequisite for any web smoke test with real lessons. Firebase web config is now in the three
 options files. Analyze clean apart from one existing deprecation; full test rerun running.
+
+Lead full test run on `web/pwa-foundation-r1`: 3,971 of 3,971 pass in 5 minutes 45 seconds; the
+earlier unfinished property test completed. Security review finding on a test-only probe (module
+loaded from a shared /tmp default) fixed at edfd988b.
