@@ -587,3 +587,19 @@ position regressions. Run focused checks, then clean static gates and full seria
 one final frozen source. Lead personally reviews source/evidence and closes the finding after
 verification; no repeat whole-family audit merely to confirm the covering tests. Source stays
 local until all accepted findings and gates are closed.
+
+
+### October20 integration analyzer scope correction
+
+Integration97c4e0f1 passed1163affected tests, but full analysis found seven errors entirely in
+functions/node_modules/firebase-tools/templates/init/functions/dart, an installed Firebase CLI
+sample with unresolved sample-package imports. Root opened actual errors and analysis_options.
+The same app source passes full analysis on C, where that generated dependency tree is absent.
+Extend ownership only to analysis_options.yaml and W4c evidence: add functions/node_modules/**
+to analyzer.exclude. Keep every strict setting and every owned app/test/tool source in scope.
+No dependency removal/template alteration, feature/core/schema change or framework. This is
+low-impact build-scope hygiene, not a baseline waiver or new product complexity choice.
+Existing integration seven-error analysis is RED. Full analysis must become clean in the same
+installed environment. Lead independently reviews the one-line diff. Reuse valid4225full and
+1163integration tests because app/test/runtime inputs stay unchanged; renew full analysis and
+all remaining static gates before publishing integration. No repeat whole-family audit.
