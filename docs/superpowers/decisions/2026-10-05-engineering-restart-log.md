@@ -2256,3 +2256,16 @@ integration refs still match the saved checkpoints, with clean local C f93743f4.
 runners are available. The same Astra audit resumed successfully after a usage interruption;
 prior source inspection is preserved, no duplicate reviewer or whole-suite rerun. Required
 independent verdict remains pending; no upload, integration or publication is inferred.
+
+
+### October20 afternoon: independent W4c re-audit complete, one correction required
+
+Astra re-audit2 completed onf93743f4 with one Important/P2 finding and no other established
+finding. Its relay11118 actual real-write repro is measured360/saved240 after an older Retry
+queued behind the successful360 save (test0pass/1fail). Root read source and actual output,
+accepted the finding, recorded L3 correction2b1c7bb9 before edits, and resumed the same
+implementor only after audit operations stopped. Preserve audit2 record and scratch evidence.
+Correct original-intent supersession inside actual queued transaction, with affected tests
+and renewed full serial/static gates. No source upload/integration until lead closure; no
+repeat whole-family audit merely for covering tests. Existing phone/PWA/release limitations
+remain separate, not newly invented engineering blockers.
