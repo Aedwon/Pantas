@@ -207,6 +207,10 @@ void main() {
 
     // Rows start unset and block Save until every subject has both values.
     expect(saveButton(tester).onPressed, isNull);
+    expect(
+      find.text('Choose questions and minutes for every subject.'),
+      findsOneWidget,
+    );
 
     Future<void> setValue(String key, int value, List<int> values) async {
       await tester.ensureVisible(find.byKey(ValueKey(key)));
@@ -225,6 +229,10 @@ void main() {
     await setValue('custom-items-sci', 40, customQuestionValues);
     await setValue('custom-minutes-sci', 40, customMinuteValues);
     expect(saveButton(tester).onPressed, isNotNull);
+    expect(
+      find.text('Choose questions and minutes for every subject.'),
+      findsNothing,
+    );
 
     expect(find.text('80'), findsOneWidget);
     expect(find.text('1h 30m'), findsOneWidget);
@@ -296,8 +304,15 @@ void main() {
       tester.view.physicalSize = const Size(640, 1136);
       await tester.pumpWidget(harness(textScale: 2, dark: dark));
       await tester.pump();
+      await tester.ensureVisible(find.text('I know the section breakdown'));
+      await tester.pump();
       await tester.tap(find.text('I know the section breakdown'));
       await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      expect(
+        find.text('Choose questions and minutes for every subject.'),
+        findsOneWidget,
+      );
       expect(tester.takeException(), isNull);
     });
   }

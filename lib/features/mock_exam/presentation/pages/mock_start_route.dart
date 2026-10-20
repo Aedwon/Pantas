@@ -59,6 +59,7 @@ class MockStartRoute extends ConsumerStatefulWidget {
 class _MockStartRouteState extends ConsumerState<MockStartRoute>
     with WidgetsBindingObserver {
   MockSessionController? _controller;
+  Widget? _lastPaper;
   MockPersistenceScheduler? _persistenceScheduler;
   MockAttemptRepo? _attemptRepo;
   Timer? _timer;
@@ -522,7 +523,9 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         debugPrint('Mock answers not recorded yet: $error\n$stackTrace');
       }
       if (mounted) {
-        context.pushReplacement('/mock/results/${snapshot.attemptId}');
+        context.pushReplacement(
+          '/mock/results/${snapshot.attemptId}?fresh=1&endedPart=${_controller!.currentPartIndex + 1}',
+        );
       }
     } catch (e) {
       if (mounted) {
@@ -829,6 +832,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     if (state is MockSessionPaused) {
       final openPart = controller.currentPart;
       return PausePage(
+        paper: _lastPaper,
         partNames: [for (final part in controller.parts) part.name],
         currentPartIndex: controller.currentPartIndex,
         remaining: controller.remainingInPart,
@@ -865,7 +869,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       return const Scaffold(body: Center(child: FaintBars()));
     }
 
-    return MockSessionPage(
+    return _lastPaper = MockSessionPage(
       state: state,
       remainingInPart: controller.remainingInPart,
       partPosition: state.currentIndex - controller.currentPart.startIndex + 1,

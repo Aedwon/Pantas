@@ -231,7 +231,7 @@ class MockSessionController {
   void closeCurrentPart({bool endedEarly = false}) {
     final current = _requireInProgress();
     if (_openPartIndex >= _parts.length - 1) {
-      _submit(MockSubmitReason.timeUp);
+      _submit(endedEarly ? MockSubmitReason.manual : MockSubmitReason.timeUp);
       return;
     }
     _openPartIndex += 1;

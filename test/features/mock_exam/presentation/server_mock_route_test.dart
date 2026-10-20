@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -25,6 +27,7 @@ class _Server {
   List<Map<String, Object?>> answers = [];
   final calls = <(String, Map<String, Object?>)>[];
   Exception? failStart;
+  Completer<void>? holdStart;
 
   Map<String, Object?> view() => {
         'mockId': _mockId,
@@ -55,6 +58,7 @@ class _Server {
     calls.add((name, Map.of(data)));
     switch (name) {
       case 'startMock':
+        await holdStart?.future;
         final failure = failStart;
         if (failure != null) {
           failStart = null;
@@ -177,6 +181,35 @@ Future<void> advance(WidgetTester tester, int milliseconds) async {
 }
 
 void main() {
+  testWidgets(
+      'an account change while loading leaves without publishing the old paper',
+      (tester) async {
+    String? actor = 'uid_a';
+    final gate = Completer<void>();
+    final server = _Server()..holdStart = gate;
+    await _open(tester, server: server, actor: () => actor);
+    actor = 'uid_b';
+    gate.complete();
+    await advance(tester, 500);
+    expect(find.text('Quiz tab'), findsOneWidget);
+    expect(find.text('1 of 3'), findsNothing);
+    expect(server.calls, hasLength(1));
+  });
+
+  testWidgets(
+      'an idle account change removes the old paper without a server write',
+      (tester) async {
+    String? actor = 'uid_a';
+    final server = _Server();
+    await _open(tester, server: server, actor: () => actor);
+    expect(find.text('1 of 3'), findsOneWidget);
+    actor = 'uid_b';
+    await advance(tester, 500);
+    expect(find.text('Quiz tab'), findsOneWidget);
+    expect(find.text('1 of 3'), findsNothing);
+    expect(server.calls, hasLength(1));
+  });
+
   testWidgets('it starts the paper the server gives, whatever exam is shown',
       (tester) async {
     final server = _Server()
@@ -258,6 +291,7 @@ void main() {
     await advance(tester, 50);
     expect(server.named('controlMock').single.$2['action'], 'pause');
     expect(find.byType(PausePage), findsOneWidget);
+    expect(find.byKey(const ValueKey('pause-paper')), findsOneWidget);
 
     await advance(tester, 3000);
     await tester.tap(find.text('Resume'));

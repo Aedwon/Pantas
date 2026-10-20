@@ -108,6 +108,7 @@ class ServerMockSession extends ChangeNotifier {
   var _disposed = false;
   var _stale = false;
   var _submitted = false;
+  var _submissionRequested = false;
   Duration? _frozenAt;
 
   ServerMockPaper get paper => _paper;
@@ -115,10 +116,15 @@ class ServerMockSession extends ChangeNotifier {
   bool get strict => _paper.strict;
   bool get paused => _paper.paused;
   bool get submitted => _submitted;
+  bool get submissionRequested => _submissionRequested;
 
   /// True once the account changed under this session. The paper is then
   /// neither shown nor written to.
-  bool get stale => _stale;
+  bool get stale {
+    if (_actorChanged()) _stale = true;
+    return _stale;
+  }
+
   ServerMockFailure? get failure => _failure;
   int get cursor => _cursor;
   Set<String> get flags => Set.unmodifiable(_flags);
@@ -144,7 +150,7 @@ class ServerMockSession extends ChangeNotifier {
   // ---- what the student does ----------------------------------------------
 
   void goTo(int index) {
-    if (_blocked) return;
+    if (_blocked || _submissionRequested) return;
     final next = index.clamp(0, _paper.questionIds.length - 1);
     if (next == _cursor) return;
     _cursor = next;
@@ -153,7 +159,11 @@ class ServerMockSession extends ChangeNotifier {
   }
 
   void toggleFlag(String questionId) {
-    if (_blocked || !_paper.questionIds.contains(questionId)) return;
+    if (_blocked ||
+        _submissionRequested ||
+        !_paper.questionIds.contains(questionId)) {
+      return;
+    }
     if (!_flags.add(questionId)) _flags.remove(questionId);
     _remember();
     notifyListeners();
@@ -166,7 +176,12 @@ class ServerMockSession extends ChangeNotifier {
     required int selectedIndex,
     required bool correct,
   }) {
-    if (_blocked || _paper.paused || _frozenAt != null) return;
+    if (_blocked ||
+        _submissionRequested ||
+        _paper.paused ||
+        _frozenAt != null) {
+      return;
+    }
     if (!_paper.questionIds.contains(questionId) ||
         chosen.isEmpty ||
         chosen.length > 64) {
@@ -193,7 +208,9 @@ class ServerMockSession extends ChangeNotifier {
   }
 
   Future<bool> pause() async {
-    if (_blocked || _paper.strict || _paper.paused) return false;
+    if (_blocked || _submissionRequested || _paper.strict || _paper.paused) {
+      return false;
+    }
     _frozenAt = remaining;
     notifyListeners();
     final ok = await _enqueue(_Operation.control(ServerMockOperation.pause));
@@ -202,13 +219,15 @@ class ServerMockSession extends ChangeNotifier {
   }
 
   Future<bool> resume() async {
-    if (_blocked || _paper.strict || !_paper.paused) return false;
+    if (_blocked || _submissionRequested || _paper.strict || !_paper.paused) {
+      return false;
+    }
     return _enqueue(_Operation.control(ServerMockOperation.resume));
   }
 
   /// Clears the answers and restarts the clock on the same paper.
   Future<bool> discard() async {
-    if (_blocked || _paper.strict) return false;
+    if (_blocked || _submissionRequested || _paper.strict) return false;
     _cancelSave();
     return _enqueue(_Operation.control(ServerMockOperation.discard));
   }
@@ -216,14 +235,13 @@ class ServerMockSession extends ChangeNotifier {
   /// Submits every pinned question: the answers given, and a blank for each
   /// question left. A strict exit may carry nothing.
   Future<bool> submit(ServerMockEndReason reason) async {
-    if (_blocked) return false;
+    if (_blocked || _submissionRequested) return false;
+    _submissionRequested = true;
     _cancelSave();
     for (final queued in _queue) {
       queued.superseded = true;
     }
-    final answers = reason == ServerMockEndReason.strictExit
-        ? <ServerMockAnswer>[]
-        : _everyAnswer();
+    final answers = _everyAnswer();
     return _enqueue(
       _Operation.submit(
         answers: List.unmodifiable(answers),
@@ -249,7 +267,7 @@ class ServerMockSession extends ChangeNotifier {
 
   // ---- internals ----------------------------------------------------------
 
-  bool get _blocked => _disposed || _stale || _submitted;
+  bool get _blocked => _disposed || stale || _submitted;
 
   void _unfreeze() {
     _frozenAt = null;
@@ -404,8 +422,15 @@ class ServerMockSession extends ChangeNotifier {
   }
 
   void _adopt(ServerMockPaper view, {required bool replaceAnswers}) {
-    if (view.mockId != _paper.mockId) {
-      throw const ServerMockFormatException('the response is for another mock');
+    if (view.mockId != _paper.mockId ||
+        view.examId != _paper.examId ||
+        view.strict != _paper.strict ||
+        view.limit != _paper.limit ||
+        (!replaceAnswers && view.startedAt != _paper.startedAt) ||
+        !_samePaper(view, _paper)) {
+      throw const ServerMockFormatException(
+        'the response changed the pinned paper',
+      );
     }
     _paper = view;
     _anchor = _elapsed();
@@ -416,6 +441,26 @@ class ServerMockSession extends ChangeNotifier {
       _cursor = 0;
       _remember();
     }
+  }
+
+  static bool _samePaper(ServerMockPaper first, ServerMockPaper second) {
+    if (first.sections.length != second.sections.length) return false;
+    for (var i = 0; i < first.sections.length; i++) {
+      final a = first.sections[i];
+      final b = second.sections[i];
+      if (a.sectionId != b.sectionId ||
+          a.name != b.name ||
+          a.questions.length != b.questions.length) {
+        return false;
+      }
+      for (var j = 0; j < a.questions.length; j++) {
+        if (a.questions[j].id != b.questions[j].id ||
+            a.questions[j].setId != b.questions[j].setId) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   static Map<String, ServerMockLocalAnswer> _fromServer(

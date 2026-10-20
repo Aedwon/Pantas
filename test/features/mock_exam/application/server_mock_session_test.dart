@@ -385,13 +385,33 @@ void main() {
       expect(server.calls.map((c) => c.$1), ['controlMock', 'submitMock']);
     });
 
-    test('a strict exit may send nothing', () async {
+    test('a strict exit preserves answered questions and real blanks',
+        () async {
       server.strict = true;
-      final strict = open();
+      final strict = open()
+        ..answer('q1', chosen: 'a', selectedIndex: 0, correct: true);
       expect(await strict.submit(ServerMockEndReason.strictExit), isTrue);
       final sent = server.calls.last.$2;
       expect(sent['reason'], 'strict-exit');
-      expect(sent['answers'], isEmpty);
+      final answers = sent['answers']! as List<Object?>;
+      expect(answers, hasLength(3));
+      expect((answers.first! as Map)['chosen'], 'a');
+      expect((answers.first! as Map)['correct'], isTrue);
+      expect((answers[1]! as Map)['chosen'], isNull);
+    });
+
+    test('submission freezes edits and does not enqueue another submission',
+        () async {
+      session.answer('q1', chosen: 'a', selectedIndex: 0, correct: true);
+      server.stallNext = true;
+      final submitting = session.submit(ServerMockEndReason.student);
+      session.answer('q2', chosen: 'b', selectedIndex: 1, correct: true);
+      expect(session.answers.containsKey('q2'), isFalse);
+      final repeated = session.submit(ServerMockEndReason.student);
+      server.stalled.single.complete();
+      expect(await submitting, isTrue);
+      expect(await repeated, isFalse);
+      expect(server.calls.where((c) => c.$1 == 'submitMock'), hasLength(1));
     });
 
     test('a refused submission keeps its payload for Retry', () async {
@@ -417,6 +437,23 @@ void main() {
   });
 
   group('who owns it', () {
+    test('an account change blocks local edits before the next server call',
+        () async {
+      actor = 'uid_b';
+      session
+        ..answer('q1', chosen: 'a', selectedIndex: 0, correct: true)
+        ..goTo(2)
+        ..toggleFlag('q1');
+      expect(session.answers, isEmpty);
+      expect(session.cursor, 0);
+      expect(session.flags, isEmpty);
+      expect(session.stale, isTrue);
+      actor = 'uid_a';
+      expect(session.stale, isTrue);
+      await settle();
+      expect(server.calls, isEmpty);
+    });
+
     test('work queued under another account is never sent', () async {
       session.answer('q1', chosen: 'a', selectedIndex: 0, correct: true);
       actor = 'uid_b';
@@ -469,6 +506,35 @@ void main() {
       expect(server.calls, hasLength(1));
       expect(store.writes.where((w) => w.$3 == 99), isEmpty);
     });
+  });
+
+  test('a same-id response cannot replace the pinned exam or questions',
+      () async {
+    for (final changedExam in [false, true]) {
+      final original = server.view();
+      final changed = server.view()..['paused'] = true;
+      if (changedExam) {
+        changed['examId'] = 'exam_cse_sub';
+      } else {
+        final paper = changed['paper']! as Map<String, Object?>;
+        final sections = paper['sections']! as List<Object?>;
+        final section = sections.first! as Map<String, Object?>;
+        final questions = section['questions']! as List<Object?>;
+        (questions.first! as Map<String, Object?>)['setId'] = 'different_set';
+      }
+      final guarded = ServerMockSession(
+        api: ServerMockApi((_, __) async => changed),
+        paper: ServerMockPaper.decode(original),
+        uid: 'uid_a',
+        currentUid: () => actor,
+        elapsed: clock.call,
+      );
+      addTearDown(guarded.dispose);
+      expect(await guarded.pause(), isFalse);
+      expect(guarded.paper.examId, 'exam_cse_pro');
+      expect(guarded.paper.sections.first.questions.first.setId, '');
+      expect(guarded.failure?.error, isA<ServerMockFormatException>());
+    }
   });
 
   group('restoring', () {

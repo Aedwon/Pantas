@@ -12,7 +12,6 @@ import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
@@ -114,6 +113,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
   int? _proctorToastMinutes;
   Timer? _toastTimer;
   var _gridOpen = false;
+  var _gridJump = 0;
 
   @override
   void initState() {
@@ -157,31 +157,96 @@ class _MockSessionPageState extends State<MockSessionPage> {
       widget.onPause();
       return;
     }
+    var skipWarning = false;
     unawaited(
       showDialog<void>(
         context: context,
         barrierColor: context.colors.shadow.withValues(alpha: .34),
-        builder: (dialogContext) => CenteredDialog(
-          title: "Real exams don't pause.",
-          message: 'Use this only when you really have to. The clock stops, '
-              "but you won't get this during the real exam.",
-          primaryLabel: 'Pause',
-          secondaryLabel: 'Keep Going',
-          inlineActions: true,
-          onCancel: () => Navigator.pop(dialogContext),
-          onConfirm: () {
-            Navigator.pop(dialogContext);
-            widget.onPause();
-          },
+        builder: (dialogContext) => StatefulBuilder(
+          builder: (context, update) => CenteredDialog(
+            title: "Real exams don't pause.",
+            message: 'Use this only when you really have to. The clock stops, '
+                "but you won't get this during the real exam.",
+            content: Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 2),
+              child: MergeSemantics(
+                child: InkWell(
+                  onTap: () => update(() => skipWarning = !skipWarning),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 44),
+                    child: Row(
+                      children: [
+                        SizedBox.square(
+                          dimension: 22,
+                          child: Checkbox(
+                            value: skipWarning,
+                            onChanged: (value) => update(
+                              () => skipWarning = value ?? false,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            side: BorderSide(
+                              color: context.colors.controlOutline,
+                              width: 1.5,
+                            ),
+                            activeColor: context.colors.accentFill,
+                            checkColor: context.colors.onAccent,
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            visualDensity: VisualDensity.compact,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            "Don't show this again",
+                            style: context.type.subhead.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            primaryLabel: 'Pause',
+            secondaryLabel: 'Keep Going',
+            inlineActions: true,
+            onCancel: () => Navigator.pop(dialogContext),
+            onConfirm: () {
+              Navigator.pop(dialogContext);
+              if (skipWarning) widget.onPauseWarningSeenChanged?.call(true);
+              widget.onPause();
+            },
+          ),
         ),
       ),
     );
   }
 
-  /// System back acts like pause. Strict mode has no pause, so back does
-  /// nothing there.
+  /// System back acts like pause. Strict mode explains why Back is blocked.
   void _onSystemBack() {
-    if (_gridOpen || widget.state.strictMode) return;
+    if (_gridOpen) return;
+    if (widget.state.strictMode) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(
+            backgroundColor: Theme.of(context).brightness == Brightness.dark
+                ? context.colors.surface
+                : context.colors.label,
+            content: Text(
+              'Strict mode is on. Back is off until you submit.',
+              style: context.type.footnote
+                  .copyWith(fontSize: 12, color: Colors.white),
+            ),
+          ),
+        );
+      return;
+    }
     _onPausePressed();
   }
 
@@ -266,6 +331,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
         open: _gridOpen,
         onDismiss: () => setState(() => _gridOpen = false),
         mock: true,
+        helpText: 'Tap any question in this part to go to it.',
         summary: _gridSummary(),
         parts: _gridParts(),
         onSelected: _goToPartQuestion,
@@ -445,6 +511,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                       children: [
                         _PaperSwap(
                           position: widget.state.currentIndex,
+                          gridJump: _gridJump,
                           child: _QuestionBody(
                             key: ValueKey(widget.state.currentQuestionId),
                             questionId: widget.state.currentQuestionId,
@@ -529,6 +596,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
           ? ''
           : 'PART ${widget.currentPartNumber} · '
               '${widget.partName.toUpperCase()}',
+      count: widget.oneBlock
+          ? null
+          : '${ids.where(_isAnswered).length} of ${widget.partTotal}',
       questions: [
         for (var i = 0; i < ids.length; i++)
           GridQuestion(
@@ -547,6 +617,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
         QuestionGridPart(
           title: 'PART ${part.number} · ${part.name.toUpperCase()}',
           enabled: false,
+          lockedNote: 'Opens when this part starts.',
           questions: [
             for (var i = 1; i <= part.count; i++)
               GridQuestion(number: i, state: GridQuestionState.unreached),
@@ -555,8 +626,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
     ];
   }
 
-  void _goToPartQuestion(int number) =>
-      widget.onGoTo?.call(_firstIndexInPart + number - 1);
+  void _goToPartQuestion(int number) {
+    final target = _firstIndexInPart + number - 1;
+    if (target != widget.state.currentIndex) setState(() => _gridJump++);
+    widget.onGoTo?.call(target);
+  }
 
   String _formatRemaining(Duration remaining) {
     final seconds = remaining.inSeconds.clamp(0, 1 << 31);
@@ -569,35 +643,30 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 }
 
-/// MK_Paper: Next sends the old question out to the left over 260ms while the
-/// new one comes in from the right over 280ms, starting 80ms later. Both use
-/// the house curve. Going back or jumping from the grid is not drawn, so it
-/// changes at once, and so does everything under reduced motion.
+/// The approved paper slide is mirrored for Previous. Grid selection always
+/// crossfades, including when its target happens to be the adjacent question.
 class _PaperSwap extends StatefulWidget {
-  const _PaperSwap({required this.position, required this.child});
-
+  const _PaperSwap({
+    required this.position,
+    required this.gridJump,
+    required this.child,
+  });
   final int position;
+  final int gridJump;
   final Widget child;
-
   @override
   State<_PaperSwap> createState() => _PaperSwapState();
 }
 
 class _PaperSwapState extends State<_PaperSwap>
     with SingleTickerProviderStateMixin {
-  static const _total = Duration(milliseconds: 360);
-  static const _outMs = 260.0;
-  static const _inStartMs = 80.0;
-  static const _inMs = 280.0;
-  static const _distance = 24.0;
-
   late final AnimationController _controller;
-  Widget? _outgoing;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: _total)
+    _lastGridJump = widget.gridJump;
+    _controller = AnimationController(vsync: this)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed && mounted) {
           setState(() => _outgoing = null);
@@ -605,17 +674,36 @@ class _PaperSwapState extends State<_PaperSwap>
       });
   }
 
+  Widget? _outgoing;
+  var _lastGridJump = 0;
+  var _fade = false;
+  var _direction = 1.0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context) && _outgoing != null) {
+      _controller.stop();
+      _outgoing = null;
+    }
+  }
+
   @override
   void didUpdateWidget(_PaperSwap oldWidget) {
     super.didUpdateWidget(oldWidget);
-    final forward = widget.position == oldWidget.position + 1;
-    if (forward && !MediaQuery.disableAnimationsOf(context)) {
-      _outgoing = oldWidget.child;
-      _controller.forward(from: 0);
-    } else {
+    if (widget.position == oldWidget.position) return;
+    _fade = widget.gridJump != _lastGridJump ||
+        (widget.position - oldWidget.position).abs() != 1;
+    _lastGridJump = widget.gridJump;
+    _direction = widget.position > oldWidget.position ? 1 : -1;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.stop();
       _outgoing = null;
-      _controller.value = 0;
+      return;
     }
+    _outgoing = oldWidget.child;
+    _controller.duration = Duration(milliseconds: _fade ? 200 : 380);
+    _controller.forward(from: 0);
   }
 
   @override
@@ -624,10 +712,6 @@ class _PaperSwapState extends State<_PaperSwap>
     super.dispose();
   }
 
-  static double _progress(double milliseconds, double start, double length) =>
-      PantasCurves.houseOut
-          .transform(((milliseconds - start) / length).clamp(0.0, 1.0));
-
   @override
   Widget build(BuildContext context) {
     final outgoing = _outgoing;
@@ -635,17 +719,18 @@ class _PaperSwapState extends State<_PaperSwap>
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, _) {
-        final ms = _controller.value * _total.inMilliseconds;
-        final out = _progress(ms, 0, _outMs);
-        final entering = _progress(ms, _inStartMs, _inMs);
+        final progress = _fade
+            ? _controller.value
+            : const Cubic(.2, .9, .3, 1).transform(_controller.value);
+        final distance = _fade ? 0.0 : 40.0 * _direction;
         return Stack(
           clipBehavior: Clip.none,
           children: [
             Opacity(
               key: const ValueKey('paper-swap-in'),
-              opacity: entering,
+              opacity: progress,
               child: Transform.translate(
-                offset: Offset(_distance * (1 - entering), 0),
+                offset: Offset(distance * (1 - progress), 0),
                 child: widget.child,
               ),
             ),
@@ -657,9 +742,9 @@ class _PaperSwapState extends State<_PaperSwap>
                 child: ExcludeSemantics(
                   child: Opacity(
                     key: const ValueKey('paper-swap-out'),
-                    opacity: 1 - out,
+                    opacity: 1 - progress,
                     child: Transform.translate(
-                      offset: Offset(-_distance * out, 0),
+                      offset: Offset(-distance * progress, 0),
                       child: outgoing,
                     ),
                   ),

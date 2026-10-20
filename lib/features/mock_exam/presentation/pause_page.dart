@@ -25,6 +25,7 @@ class PausePage extends StatefulWidget {
     required this.answeredCount,
     required this.onResume,
     required this.onDiscard,
+    this.paper,
     super.key,
   });
 
@@ -39,6 +40,9 @@ class PausePage extends StatefulWidget {
   final int answeredCount;
   final VoidCallback onResume;
   final VoidCallback onDiscard;
+
+  /// The frozen paper beneath the approved entry/Resume crossfade.
+  final Widget? paper;
 
   static const entryMilliseconds = 2900;
   static const exitMilliseconds = 2600;
@@ -337,39 +341,54 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                 ),
               ),
             );
-            return Opacity(
-              opacity: _pageOpacity(entry, exit).clamp(0.0, 1.0),
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: SingleChildScrollView(
-                        padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Center(child: hourglass),
-                            const SizedBox(height: 18),
-                            Opacity(
-                              key: const ValueKey('pause-content'),
-                              opacity:
-                                  _contentOpacity(entry, exit).clamp(0.0, 1.0),
-                              child: content,
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                if (widget.paper != null)
+                  IgnorePointer(
+                    child: ExcludeSemantics(
+                      child: Opacity(
+                        key: const ValueKey('pause-paper'),
+                        opacity: 1 - _pageOpacity(entry, exit).clamp(0.0, 1.0),
+                        child: widget.paper,
+                      ),
+                    ),
+                  ),
+                Opacity(
+                  opacity: _pageOpacity(entry, exit).clamp(0.0, 1.0),
+                  child: SafeArea(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: SingleChildScrollView(
+                            padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Center(child: hourglass),
+                                const SizedBox(height: 18),
+                                Opacity(
+                                  key: const ValueKey('pause-content'),
+                                  opacity: _contentOpacity(entry, exit)
+                                      .clamp(0.0, 1.0),
+                                  child: content,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Opacity(
+                          opacity: _contentOpacity(entry, exit).clamp(0.0, 1.0),
+                          child: IgnorePointer(
+                            ignoring: _contentOpacity(entry, exit) < 1,
+                            child: bottom,
+                          ),
+                        ),
+                      ],
                     ),
-                    Opacity(
-                      opacity: _contentOpacity(entry, exit).clamp(0.0, 1.0),
-                      child: IgnorePointer(
-                        ignoring: _contentOpacity(entry, exit) < 1,
-                        child: bottom,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             );
           },
         ),

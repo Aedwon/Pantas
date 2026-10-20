@@ -102,7 +102,11 @@ Future<_Fixture> _open(
       ),
       GoRoute(
         path: '/mock/results/:id',
-        builder: (_, __) => const Scaffold(body: Text('Results')),
+        builder: (_, state) {
+          expect(state.uri.queryParameters['fresh'], '1');
+          expect(state.uri.queryParameters['endedPart'], '1');
+          return const Scaffold(body: Text('Results'));
+        },
       ),
     ],
   );

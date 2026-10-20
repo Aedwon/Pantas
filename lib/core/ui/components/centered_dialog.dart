@@ -14,6 +14,7 @@ class CenteredDialog extends StatelessWidget {
     required this.onCancel,
     this.destructive = false,
     this.inlineActions = false,
+    this.content,
     super.key,
   });
   final String title;
@@ -24,6 +25,7 @@ class CenteredDialog extends StatelessWidget {
   final VoidCallback onCancel;
   final bool destructive;
   final bool inlineActions;
+  final Widget? content;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -97,7 +99,14 @@ class CenteredDialog extends StatelessWidget {
                   style: context.type.subhead
                       .copyWith(color: c.secondaryLabel, height: 1.45),
                 ),
-                SizedBox(height: destructive || inlineActions ? 20 : 18),
+                if (content != null) content!,
+                SizedBox(
+                  height: content != null
+                      ? 8
+                      : destructive || inlineActions
+                          ? 20
+                          : 18,
+                ),
                 ButtonPair(
                   stacked: !destructive && !inlineActions,
                   gap: 8,

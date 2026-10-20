@@ -104,6 +104,12 @@ void main() {
     );
     expect(sheet.parts[1].title, 'PART 4 · SCIENCE');
     expect(sheet.parts[1].enabled, isFalse);
+    expect(find.text('0 of 60'), findsOneWidget);
+    expect(find.text('Opens when this part starts.'), findsOneWidget);
+    expect(
+      find.text('Tap any question in this part to go to it.'),
+      findsOneWidget,
+    );
     expect(sheet.parts[1].questions, hasLength(12));
 
     // Question 12 of the part is question 51 overall (index 51 from zero).

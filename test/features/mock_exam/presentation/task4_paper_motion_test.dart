@@ -3,15 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 
-// MK_Paper: the tap lands, the old question leaves left over 260ms while the
-// new one enters from the right over 280ms, starting 80ms after the old one.
-// Both use the house curve. The counter changes at 150ms, with no fade.
+// October20 approved motion: mirrored 380ms,40px slides; 200ms grid crossfade.
 HydratedMockQuestion _question(String id) => HydratedMockQuestion(
       Question(
         id: id,
@@ -120,31 +117,23 @@ void main() {
     expect(_swapOut(), findsOneWidget);
     expect(_swapIn(), findsOneWidget);
 
-    // At 80ms the old question has moved, the new one has not started.
-    await tester.pump(const Duration(milliseconds: 79));
-    final out80 = PantasCurves.houseOut.transform(80 / 260);
-    expect(_offset(tester, 'paper-swap-out').dx, closeTo(-24 * out80, .5));
-    expect(_offset(tester, 'paper-swap-in').dx, closeTo(24, .001));
-    expect(_opacity(tester, 'paper-swap-in'), closeTo(0, .001));
-
-    // At 150ms the counter has already changed.
-    await tester.pump(const Duration(milliseconds: 70));
+    await tester.pump(const Duration(milliseconds: 189));
+    final progress = const Cubic(.2, .9, .3, 1).transform(.5);
+    expect(_offset(tester, 'paper-swap-out').dx, closeTo(-40 * progress, .5));
+    expect(
+      _offset(tester, 'paper-swap-in').dx,
+      closeTo(40 * (1 - progress), .5),
+    );
+    expect(_opacity(tester, 'paper-swap-in'), closeTo(progress, .01));
     expect(find.text('2 of 3'), findsOneWidget);
-    final in150 = PantasCurves.houseOut.transform((150 - 80) / 280);
-    expect(_offset(tester, 'paper-swap-in').dx, closeTo(24 * (1 - in150), .5));
-    expect(_opacity(tester, 'paper-swap-in'), closeTo(in150, .01));
-
-    // The old question is gone by 260ms and the new one rests at 360ms.
-    await tester.pump(const Duration(milliseconds: 110));
-    expect(_opacity(tester, 'paper-swap-out'), closeTo(0, .001));
-    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pump(const Duration(milliseconds: 190));
     await tester.pumpAndSettle();
     expect(_swapOut(), findsNothing);
     expect(_stem('q1'), findsNothing);
     expect(_stem('q2'), findsOneWidget);
   });
 
-  testWidgets('going back or jumping from the grid changes at once',
+  testWidgets('Previous mirrors Next with a 380ms slide from the left',
       (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
@@ -153,9 +142,60 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('mock-prev')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 1));
-    expect(_swapOut(), findsNothing);
+    expect(_swapOut(), findsOneWidget);
+    expect(_offset(tester, 'paper-swap-in').dx, lessThan(0));
+    await tester.pump(const Duration(milliseconds: 189));
+    final progress = const Cubic(.2, .9, .3, 1).transform(.5);
+    expect(_offset(tester, 'paper-swap-out').dx, closeTo(40 * progress, .5));
     await tester.pumpAndSettle();
     expect(_stem('q1'), findsOneWidget);
+  });
+
+  testWidgets('an adjacent grid jump crossfades over 200ms', (tester) async {
+    await tester.pumpWidget(_app());
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('mock-grid')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('grid-question-0-2')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(_swapOut(), findsOneWidget);
+    expect(_offset(tester, 'paper-swap-in'), Offset.zero);
+    expect(_offset(tester, 'paper-swap-out'), Offset.zero);
+    expect(_opacity(tester, 'paper-swap-in'), closeTo(.5, .02));
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pumpAndSettle();
+    expect(_stem('q2'), findsOneWidget);
+    expect(_swapOut(), findsNothing);
+  });
+
+  testWidgets(
+      'selecting the current grid question does not change the next slide',
+      (tester) async {
+    await tester.pumpWidget(_app());
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('mock-grid')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('grid-question-0-1')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('mock-next')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(_offset(tester, 'paper-swap-in').dx, greaterThan(0));
+    await tester.pumpAndSettle();
+  });
+
+  testWidgets('turning on reduced motion ends an active question transition',
+      (tester) async {
+    await tester.pumpWidget(_app());
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('mock-next')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 50));
+    expect(_swapOut(), findsOneWidget);
+    await tester.pumpWidget(_app(still: true));
+    expect(_swapOut(), findsNothing);
+    expect(_stem('q2'), findsOneWidget);
   });
 
   testWidgets('with reduced motion the next question is simply there',

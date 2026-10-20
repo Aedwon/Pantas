@@ -394,9 +394,20 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
         ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
-          child: PantasButton(
-            label: 'Save',
-            onPressed: canSave ? _save : null,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (_hasUnsetRow) ...[
+                Text(
+                  'Choose questions and minutes for every subject.',
+                  style: context.type.footnote
+                      .copyWith(color: c.secondaryLabel, height: 1.4),
+                ),
+                const SizedBox(height: 8),
+              ],
+              PantasButton(label: 'Save', onPressed: canSave ? _save : null),
+            ],
           ),
         ),
       ),

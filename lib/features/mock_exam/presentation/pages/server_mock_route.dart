@@ -43,6 +43,7 @@ class ServerMockRoute extends ConsumerStatefulWidget {
 class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     with WidgetsBindingObserver {
   ServerMockSession? _session;
+  Widget? _lastPaper;
   Object? _loadError;
   Timer? _tick;
   StrictModeLifecycle? _strict;
@@ -90,7 +91,11 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
           .read(serverMockViewCacheProvider)
           .read(uid: uid, mockId: paper.mockId);
       // The account may have changed while the paper was coming.
-      if (_disposed || !mounted || actor() != uid) return;
+      if (_disposed || !mounted) return;
+      if (actor() != uid) {
+        await _close();
+        return;
+      }
       final session = ServerMockSession(
         api: ref.read(serverMockApiProvider),
         paper: paper,
@@ -112,7 +117,12 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       );
       setState(() => _session = session);
     } on Object catch (error) {
-      if (mounted && !_disposed) setState(() => _loadError = error);
+      if (!mounted || _disposed) return;
+      if (actor() != uid) {
+        await _close();
+        return;
+      }
+      setState(() => _loadError = error);
     }
   }
 
@@ -155,8 +165,16 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   void _onTick(Duration step) {
     final session = _session;
     if (session == null || !mounted || _disposed) return;
+    if (session.stale) {
+      _tick?.cancel();
+      unawaited(_close());
+      return;
+    }
     _strict?.elapse(step);
-    if (session.timeIsUp && !_finishing && !session.paused) {
+    if (session.timeIsUp &&
+        !_finishing &&
+        !session.submissionRequested &&
+        !session.paused) {
       unawaited(_leave(ServerMockEndReason.student));
     }
     setState(() {});
@@ -166,16 +184,24 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   /// completed mocks, so the student returns to the Quiz tab for now.
   Future<void> _leave(ServerMockEndReason reason) async {
     final session = _session;
-    if (session == null || _finishing) return;
+    if (session == null || _finishing || session.submissionRequested) return;
+    _finishing = true;
     final ok = await session.submit(reason);
     if (ok && mounted) {
-      _finishing = true;
       await _close();
+    } else if (mounted) {
+      setState(() => _finishing = false);
     }
   }
 
   Future<void> _close() async {
     if (!mounted) return;
+    if (_session?.stale ?? false) {
+      // Mask the outgoing route before its navigation transition can retain it.
+      setState(() {});
+      await WidgetsBinding.instance.endOfFrame;
+      if (!mounted) return;
+    }
     context.go(mockExitLocation);
   }
 
@@ -217,10 +243,14 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     if (session == null) {
       return const Scaffold(body: Center(child: FaintBars()));
     }
+    if (session.stale) {
+      return const Scaffold(body: Center(child: FaintBars()));
+    }
     final paper = session.paper;
     final failure = session.failure;
     final page = session.paused
         ? PausePage(
+            paper: _lastPaper,
             partNames: const [''],
             currentPartIndex: 0,
             remaining: session.remaining,
@@ -231,7 +261,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
               if (await session.discard() && mounted) await _close();
             },
           )
-        : _paper(session);
+        : (_lastPaper = _paper(session));
     if (failure == null) return page;
     return Stack(
       children: [

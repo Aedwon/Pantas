@@ -25,10 +25,14 @@ class QuestionGridPart {
     required this.title,
     required this.questions,
     this.enabled = true,
+    this.count,
+    this.lockedNote,
   });
   final String title;
   final List<GridQuestion> questions;
   final bool enabled;
+  final String? count;
+  final String? lockedNote;
 }
 
 class QuestionGridSheet extends StatelessWidget {
@@ -42,6 +46,7 @@ class QuestionGridSheet extends StatelessWidget {
     this.title = 'Questions',
     this.summary,
     this.footer,
+    this.helpText,
     super.key,
   });
   final Widget page;
@@ -53,6 +58,7 @@ class QuestionGridSheet extends StatelessWidget {
   final String title;
   final String? summary;
   final Widget? footer;
+  final String? helpText;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -121,36 +127,81 @@ class QuestionGridSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    title,
-                    style: context.type.emphasized.copyWith(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-                if (summary != null)
-                  Text(
-                    summary!,
-                    style:
-                        context.type.subhead.copyWith(color: c.secondaryLabel),
-                  ),
-              ],
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final titleStyle = context.type.emphasized
+                    .copyWith(fontSize: 20, fontWeight: FontWeight.w700);
+                final summaryStyle =
+                    context.type.subhead.copyWith(color: c.secondaryLabel);
+                double width(String text, TextStyle style) {
+                  final measure = TextPainter(
+                    text: TextSpan(text: text, style: style),
+                    textScaler: MediaQuery.textScalerOf(context),
+                    textDirection: Directionality.of(context),
+                  )..layout();
+                  final result = measure.width;
+                  measure.dispose();
+                  return result;
+                }
+
+                final heading = Text(title, style: titleStyle);
+                final detail = summary == null
+                    ? null
+                    : Text(summary!, style: summaryStyle);
+                if (detail != null &&
+                    width(title, titleStyle) + width(summary!, summaryStyle) >
+                        constraints.maxWidth) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      heading,
+                      const SizedBox(height: 6),
+                      detail,
+                    ],
+                  );
+                }
+                return Row(
+                  children: [
+                    Expanded(child: heading),
+                    if (detail != null) detail,
+                  ],
+                );
+              },
             ),
             const SizedBox(height: 16),
             for (var p = 0; p < parts.length; p++) ...[
-              if (mock)
+              if (mock && parts[p].title.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: Opacity(
                     opacity: parts[p].enabled ? 1 : .32,
-                    child: Text(
-                      parts[p].title,
-                      style: context.type.sectionHeader,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            parts[p].title,
+                            style: context.type.sectionHeader,
+                          ),
+                        ),
+                        if (parts[p].count != null)
+                          Text(
+                            parts[p].count!,
+                            style: context.type.footnote.copyWith(
+                              color: c.secondaryLabel,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                      ],
                     ),
+                  ),
+                ),
+              if (!parts[p].enabled && parts[p].lockedNote != null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    parts[p].lockedNote!,
+                    style:
+                        context.type.footnote.copyWith(color: c.secondaryLabel),
                   ),
                 ),
               LayoutBuilder(
@@ -276,11 +327,12 @@ class QuestionGridSheet extends StatelessWidget {
               const SizedBox(height: 14),
             ],
             Text(
-              mock
-                  ? 'You can go back to any question in this part.'
-                  : 'Tap an answered question to look back.',
+              helpText ??
+                  (mock
+                      ? 'You can go back to any question in this part.'
+                      : 'Tap an answered question to look back.'),
               textAlign: TextAlign.center,
-              style: context.type.footnote,
+              style: context.type.footnote.copyWith(color: c.secondaryLabel),
             ),
             if (footer != null) ...[
               const SizedBox(height: 16),

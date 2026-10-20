@@ -132,6 +132,7 @@ void main() {
     required bool strictMode,
     bool pauseWarningSeen = false,
     VoidCallback? onPause,
+    ValueChanged<bool>? onWarningSeen,
   }) async {
     await tester.pumpAppWithProviders(
       MockSessionPage(
@@ -147,6 +148,7 @@ void main() {
         onToggleFlag: () {},
         onPause: onPause ?? () {},
         pauseWarningSeen: pauseWarningSeen,
+        onPauseWarningSeenChanged: onWarningSeen,
       ),
       overrides: [
         hydratedMockQuestionProvider.overrideWith((ref, id) => Future.value()),
@@ -210,6 +212,26 @@ void main() {
     expect(paused, 0);
   });
 
+  testWidgets('pause warning stores only the selected suppression choice',
+      (tester) async {
+    final seen = <bool>[];
+    var paused = 0;
+    await pumpPaper(
+      tester,
+      strictMode: false,
+      onPause: () => paused++,
+      onWarningSeen: seen.add,
+    );
+    await pressSystemBack(tester);
+    await tester.tap(find.text("Don't show this again"));
+    await tester.pump();
+    expect(seen, isEmpty);
+    await tester.tap(find.text('Pause'));
+    await tester.pumpAndSettle();
+    expect(seen, [true]);
+    expect(paused, 1);
+  });
+
   testWidgets('system back is blocked in strict mode', (tester) async {
     var paused = 0;
     await pumpPaper(tester, strictMode: true, onPause: () => paused++);
@@ -220,6 +242,10 @@ void main() {
     expect(find.text('Leave mock?'), findsNothing);
     expect(paused, 0);
     expect(find.byType(MockSessionPage), findsOneWidget);
+    expect(
+      find.text('Strict mode is on. Back is off until you submit.'),
+      findsOneWidget,
+    );
   });
 }
 

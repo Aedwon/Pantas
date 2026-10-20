@@ -105,6 +105,17 @@ void main() {
     expect(controller.remainingInPart, const Duration(minutes: 179));
   });
 
+  test('ending the last part early is a manual terminal reason', () {
+    final controller = sectional()
+      ..closeCurrentPart()
+      ..startNextPart()
+      ..endPartEarly();
+    expect(
+      (controller.state as MockSessionSubmitted).reason,
+      MockSubmitReason.manual,
+    );
+  });
+
   test('closing the last part ends the exam', () {
     final controller = sectional();
     final reasons = <MockSubmitReason>[];
