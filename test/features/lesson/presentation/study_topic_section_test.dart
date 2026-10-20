@@ -62,6 +62,97 @@ Future<void> pumpSection(
 }
 
 void main() {
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('audit topic and lesson long labels scale=$scale',
+        (tester) async {
+      tester.view
+        ..physicalSize = const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(
+        () => tester.view
+          ..resetPhysicalSize()
+          ..resetDevicePixelRatio(),
+      );
+      final semantics = tester.ensureSemantics();
+      try {
+        const title = 'A very long lesson title about careful reasoning and '
+            'mathematics for the examination';
+        const topic =
+            'A very long topic name about mathematics and careful reasoning '
+            'for the examination';
+        await tester.pumpAppWithProviders(
+          MediaQuery(
+            data: MediaQueryData(
+              textScaler: TextScaler.linear(scale),
+              disableAnimations: true,
+            ),
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: StudySubjectSection(
+                  subject: const StudySubject(
+                    id: 's',
+                    name: 'Subject',
+                    topics: [
+                      StudyTopic(
+                        id: 't1',
+                        name: topic,
+                        readCount: 0,
+                        hasBookmark: false,
+                        lessons: [
+                          StudyLesson(
+                            id: 'l1',
+                            title: title,
+                            estimatedMinutes: 5,
+                            isRead: false,
+                            isBookmarked: false,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  onToggleTopic: (_) {},
+                ),
+              ),
+            ),
+          ),
+          overrides: [openTopicProvider.overrideWith(FakeOpenTopic.new)],
+        );
+        await tester.pumpAndSettle();
+        final text = tester.widget<Text>(find.text(topic));
+        if (scale == 1) {
+          expect(text.maxLines, 1);
+          expect(text.overflow, TextOverflow.ellipsis);
+        }
+        expect(find.semantics.byLabel(RegExp(topic)), findsOne);
+        await tester.pumpApp(
+          MediaQuery(
+            data: MediaQueryData(textScaler: TextScaler.linear(scale)),
+            child: StudyLessonRow(
+              lesson: const StudyLesson(
+                id: 'l1',
+                title: title,
+                estimatedMinutes: 5,
+                isRead: false,
+                isBookmarked: false,
+              ),
+              onTap: () {},
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        final lessonText = tester.widget<Text>(find.text(title));
+        if (scale == 1) {
+          expect(lessonText.maxLines, 1);
+          expect(lessonText.overflow, TextOverflow.ellipsis);
+        }
+        expect(find.semantics.byLabel(RegExp(title)), findsOne);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
+
   testWidgets('long lesson names at 200 percent are fully revealed',
       (tester) async {
     tester.view

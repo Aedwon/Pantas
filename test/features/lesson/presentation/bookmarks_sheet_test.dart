@@ -157,6 +157,56 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  testWidgets('audit compound move retry preserves intended lesson order',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    try {
+      final failing = _AuditSecondStepPrefs(db);
+      await pumpSheet(
+        tester,
+        rows: 3,
+        order: BookmarkOrder.custom,
+        prefs: failing,
+      );
+      await tester.tap(find.text('Edit'));
+      await tester.pumpAndSettle();
+      failing.failSortOnce = true;
+      final node = tester.getSemantics(find.byKey(const ValueKey('l3')));
+      final move = node.getSemanticsData().customSemanticsActionIds!.firstWhere(
+            (id) => CustomSemanticsAction.getAction(id)?.label == 'Move down',
+          );
+      node.owner!.performAction(node.id, SemanticsAction.customAction, move);
+      await tester.pumpAndSettle();
+      expect(await failing.readCustomOrder('e1'), ['l2', 'l3', 'l1']);
+      expect(find.text('Try Again'), findsOneWidget);
+      await tester.tap(find.text('Try Again'));
+      await tester.pumpAndSettle();
+      expect(await failing.readCustomOrder('e1'), ['l2', 'l3', 'l1']);
+    } finally {
+      semantics.dispose();
+    }
+  });
+
+  testWidgets('audit remove post-commit retry retains undo rows',
+      (tester) async {
+    final failing = _AuditRemovalReadPrefs(db);
+    await pumpSheet(tester, rows: 3, prefs: failing);
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lesson 3'));
+    await tester.pumpAndSettle();
+    failing.failCheckOnce = true;
+    await tester.tap(find.text('Remove'));
+    await tester.pumpAndSettle();
+    expect(await repo.isMarked('l3'), isFalse);
+    expect(find.text('Try Again'), findsOneWidget);
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Undo'));
+    await tester.pumpAndSettle();
+    expect(await repo.isMarked('l3'), isTrue);
+  });
+
   for (final dark in [false, true]) {
     for (final scale in [1.0, 2.0]) {
       testWidgets('bookmark board states dark=$dark scale=$scale',
@@ -1281,5 +1331,41 @@ class _HeldCapturePrefs extends BookmarkPrefsRepository {
     entered.complete();
     await release.future;
     return token;
+  }
+}
+
+class _AuditSecondStepPrefs extends BookmarkPrefsRepository {
+  _AuditSecondStepPrefs(super.db);
+  bool failSortOnce = false;
+  @override
+  Future<void> saveOrder(
+    BookmarkOrder order, {
+    String? examId,
+    ReaderBoundary? boundary,
+    bool Function()? isCurrent,
+  }) async {
+    if (failSortOnce) {
+      failSortOnce = false;
+      throw Exception('audit second step failure');
+    }
+    await super.saveOrder(
+      order,
+      examId: examId,
+      boundary: boundary,
+      isCurrent: isCurrent,
+    );
+  }
+}
+
+class _AuditRemovalReadPrefs extends BookmarkPrefsRepository {
+  _AuditRemovalReadPrefs(super.db);
+  bool failCheckOnce = false;
+  @override
+  Future<bool> isRemovalCurrent(BookmarkRemoval removal) async {
+    if (failCheckOnce) {
+      failCheckOnce = false;
+      throw Exception('audit post-commit check failure');
+    }
+    return super.isRemovalCurrent(removal);
   }
 }

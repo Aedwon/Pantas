@@ -203,47 +203,52 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         if (!_selected.add(id)) _selected.remove(id);
       });
 
-  Future<void> _remove() => _save((boundary, current) async {
-        if (_selected.isEmpty) return;
-        final exam = boundary.examId;
-        final ids = Set<String>.of(_selected);
-        final before = List<BookmarkRow>.of(_shown);
-        final prefs = ref.read(bookmarkPrefsRepositoryProvider);
-        final removal = await prefs.remove(
-          exam,
-          ids,
-          boundary: boundary,
-          isCurrent: current,
-        );
-        if (!current() || !await prefs.isRemovalCurrent(removal)) {
-          return;
-        }
-        if (!mounted || !current()) return;
-        _foldTimer?.cancel();
-        setState(() {
-          _removed = removal;
-          _shown = before;
-          _folding = ids;
-          _selected.clear();
-          _undoVisible = true;
-        });
-        ref
-          ..invalidate(bookmarkRowsProvider)
-          ..invalidate(studyMapProvider);
-        _foldTimer = Timer(
-            MediaQuery.disableAnimationsOf(context)
-                ? Duration.zero
-                : const Duration(milliseconds: 350), () {
-          if (mounted) {
-            setState(() {
-              _shown = _shown
-                  .where((row) => !_folding.contains(row.lessonId))
-                  .toList();
-              _folding.clear();
-            });
-          }
-        });
+  Future<void> _remove() {
+    final ids = Set<String>.of(_selected);
+    final before = List<BookmarkRow>.of(_shown);
+    BookmarkRemoval? committed;
+    return _save((boundary, current) async {
+      if (ids.isEmpty) return;
+      final exam = boundary.examId;
+      final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+      final removal = committed ??= await prefs.remove(
+        exam,
+        ids,
+        boundary: boundary,
+        isCurrent: current,
+      );
+      if (!current()) return;
+      if (!await prefs.isRemovalCurrent(removal)) {
+        if (current()) _expireUndo();
+        return;
+      }
+      if (!mounted || !current()) return;
+      _foldTimer?.cancel();
+      setState(() {
+        _removed = removal;
+        _shown = before;
+        _folding = ids;
+        _selected.clear();
+        _undoVisible = true;
       });
+      ref
+        ..invalidate(bookmarkRowsProvider)
+        ..invalidate(studyMapProvider);
+      _foldTimer = Timer(
+          MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 350), () {
+        if (mounted) {
+          setState(() {
+            _shown = _shown
+                .where((row) => !_folding.contains(row.lessonId))
+                .toList();
+            _folding.clear();
+          });
+        }
+      });
+    });
+  }
 
   Future<void> _undo() => _save((boundary, current) async {
         final removal = _removed;
@@ -287,38 +292,44 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
         });
       });
 
-  Future<void> _move(int oldIndex, int newIndex) =>
-      _save((boundary, current) async {
-        final exam = boundary.examId;
-        final prefs = ref.read(bookmarkPrefsRepositoryProvider);
-        final order = ref.read(bookmarkOrderProvider.notifier);
-        if (newIndex < 0 || newIndex >= _shown.length) return;
-        final relative = newIndex < oldIndex ? 'above' : 'below';
-        final destination = '$relative ${_shown[newIndex].title}';
-        final ids = [for (final row in _shown) row.lessonId];
-        final moved = ids.removeAt(oldIndex);
-        ids.insert(newIndex, moved);
-        await prefs.saveCustomOrder(
-          exam,
-          ids,
-          boundary: boundary,
-          isCurrent: current,
+  Future<void> _move(int oldIndex, int newIndex) {
+    if (oldIndex < 0 ||
+        oldIndex >= _shown.length ||
+        newIndex < 0 ||
+        newIndex >= _shown.length) {
+      return Future.value();
+    }
+    final relative = newIndex < oldIndex ? 'above' : 'below';
+    final destination = '$relative ${_shown[newIndex].title}';
+    final ids = [for (final row in _shown) row.lessonId];
+    final moved = ids.removeAt(oldIndex);
+    ids.insert(newIndex, moved);
+    return _save((boundary, current) async {
+      final exam = boundary.examId;
+      final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+      final order = ref.read(bookmarkOrderProvider.notifier);
+      await prefs.saveCustomOrder(
+        exam,
+        ids,
+        boundary: boundary,
+        isCurrent: current,
+      );
+      await order.choose(
+        BookmarkOrder.custom,
+        boundary: boundary,
+        isCurrent: current,
+      );
+      if (!current()) return;
+      ref.invalidate(bookmarkRowsProvider);
+      if (mounted) {
+        await SemanticsService.sendAnnouncement(
+          View.of(context),
+          'Moved $destination.',
+          Directionality.of(context),
         );
-        await order.choose(
-          BookmarkOrder.custom,
-          boundary: boundary,
-          isCurrent: current,
-        );
-        if (!current()) return;
-        ref.invalidate(bookmarkRowsProvider);
-        if (mounted) {
-          await SemanticsService.sendAnnouncement(
-            View.of(context),
-            'Moved $destination.',
-            Directionality.of(context),
-          );
-        }
-      });
+      }
+    });
+  }
 
   Widget _action(
     String text,

@@ -41,7 +41,7 @@ class StudySubjectSection extends ConsumerWidget {
               child: ListRow(
                 key: keyForTopic?.call(topic.id),
                 title: topic.name,
-                wrapTitle: true,
+                wrapTitle: MediaQuery.textScalerOf(context).scale(17) > 25.5,
                 titleColor:
                     topic.isComplete ? context.colors.secondaryLabel : null,
                 leading: topic.isComplete
@@ -184,7 +184,7 @@ class StudyLessonRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListRow(
         title: lesson.title,
-        wrapTitle: true,
+        wrapTitle: MediaQuery.textScalerOf(context).scale(17) > 25.5,
         titleColor: lesson.isRead ? context.colors.secondaryLabel : null,
         leading: SizedBox.square(
           dimension: 24,

@@ -2065,3 +2065,222 @@ Android/iPhone visual acceptance against ST/RD/BM boards. No device screenshots 
 visual acceptance performed. No push, merge, integration, main app edit, release, deployment or
 branch cleanup performed by this worker. W4d/e stayed held throughout. Preserve this worktree and
 its actual logs for independent review.
+
+
+## October20 audit1 bounded fix pass
+
+Policy refreshed from GitHub main at
+44df4c97d42ba4920dce1c5dd7a343a2238dd3b5: AGENTS.md, WORKFLOW.md and SUBAGENTS.md.
+Controlling product context: current-main L2/L3 W4c, amendment spec, parallel map,
+restart decisions and gates/w4c-astra-audit-1.md. Root's shared-test ownership
+extension at0bbcf84c25033e333b462eca2ddd28111ba8d49a was read before that edit.
+No main merge was used to obtain policy. October19 launch authorization applies;
+this is the same approved audit1 bounded fix pass, followed by the user's requested
+independent lead re-audit.
+
+Reconciled assigned worktree Pantas-wt-new-design-w4c-r1, branch
+web/new-design-w4c-r1, local f495a8dda858ff13305abb5715e3d667406b4277,
+origin working branch7223e931eb807e09579e6bd6b2c31879ed7e021f, ahead7.
+The four saved dirty paths were preserved: bookmarks_sheet.dart and the three
+existing marking, cached-history and bookmark-sheet test changes. Actual relay11094
+confirmed those identities, clean whitespace and the expected remote. Current
+relay README and CHATGPT_PROJECT_INSTRUCTIONS.md were read; every mutation,
+formatter, test and commit in this continuation used actual relay requests and
+their results. Direct local access was read-only inspection. Source remains local
+beyond7223, under the lead's upload/integration hold.
+
+### Seven findings addressed
+
+1. Move computes its target order and announcement before asynchronous saving.
+   Retry retains those ids instead of reapplying old numeric indices to reordered
+   rows. The compound second-step failure regression keeps l2,l3,l1 on Retry.
+2. Remove retains the first committed BookmarkRemoval, including original
+   membership, dates and order. A failed postcommit validation read retries
+   validation/publication without deleting again or replacing Undo rows.
+   Boundary expiry clears recovery through the existing view guard.
+3. Successful guarded opening invokes the narrow onOpened callback. The active
+   reader refreshes Last opened and recent-history consumers only for that same
+   successful owner. Actual page tests begin with cached consumers and cover
+   initial opening plus in-place advance; failed opening remains retryable.
+4. The original15second wall-time floor schedules one automatic check.
+   The check reads actual live scroll metrics, requires the current visible
+   active body at its end, and keeps the original activation time across Retry.
+   Local app lifecycle, actual ModalRoute/current secondary animation, and Contents
+   cover including its existing400ms closing motion suppress marking. Visibility
+   restoration reevaluates without a foreground-time accumulator. Disposal
+   cancels the timer; expired guards reject queued writes.
+5. Pending and completed marking are separate. Completion latches after successful
+   guarded persistence; open/read/bookmark failures do not escape unhandled futures.
+   Existing saveFailureLine/Retry handles failures without new copy. Overlapping
+   failures retain their separate pending actions. Bookmark retries retain the
+   requested membership instead of toggling again. A local activation epoch blocks
+   A-to-B-to-A revival, retained callbacks and held writes. Retry snapshots its
+   marking/bookmark operations before awaiting and rechecks the original owner.
+   A visibility event during a rejected pending mark schedules one bounded
+   reevaluation; storage errors do not start an automatic retry loop.
+   Position and resume Retry also retain the original activation. Failed position
+   Retry retains its measured tuple and expires after a newer successful save.
+   Active timers/UI saves pass that activation into the existing write guard.
+   Explicit outgoing/disposal saves preserve the existing measured-old-position
+   behavior. No second reader owner or global lifecycle mechanism was added.
+6. Normal topic, lesson and bookmark-preview titles use the existing shared
+   one-line ellipsis behavior and full semantic labels. Existing large-text
+   wrapping remains available. Actual390dp/100% and200% long-title tests verify
+   the text settings, full semantic labels and no overflow.
+7. Study's bookmark preview pushes Study origin. Entries from the retained
+   bookmark sheet keep Bookmarks origin. Existing retained-sheet navigation tests
+   continue to cover the actual return stack.
+
+No server, core content, schema, sync, wiper, dependency, generic framework or
+shared production component change. Current repository signatures and original
+auth/exam/token guards remain. Accepted Contents fade and neighboring bookmark
+motion exceptions remain unchanged. The only extra owned test is
+test/core/ui/components/study_map_extensions_test.dart, as explicitly approved:
+normal size now asserts1line/ellipsis,200% keeps wrapping, with all contrast,
+geometry and keyboard checks retained.
+
+### Reproduction and focused verification
+
+The saved normal-test five-red log contains four meaningful behavioral failures
+and a cached-history import/load error. That load error is not counted as a
+reproduction. The corrected cache-red log separately establishes the real stale
+consumer failure. The existing external audit repro log remains historical input;
+the meaningful cases now live in ordinary project tests.
+
+Preserved RED evidence:
+- five-red: Move Retry, Remove Undo, real16second stationary dwell and unhandled
+  transient marking failure; corrected cache-red covers the fifth behavior.
+- presentation-red: normal topic/preview wrapping and false Bookmarks origin.
+- reader-red: cached consumers, unhandled opening and stationary visibility
+  restoration for Contents, app lifecycle and a covering route.
+- bookmark-red: actual unhandled bookmark persistence future.
+- stale-retry-red: retained A Retry wrongly performed B's bookmark action.
+- ownership-red: held bookmark revived after A-to-B-to-A.
+- pending-red: stationary marking stayed unread when resume preceded completion
+  of a rejected hidden attempt.
+- error-retry-red: pending storage failure retried automatically,2calls instead
+  of1. The final path only reevaluates a rejected visibility attempt.
+- position-retry-red: retained A save Retry wrote B360 into A240; retained A resume
+  Retry jumped B360 to0.
+- obsolete-position-red: an old failed240 Retry overwrote a later successful360
+  save. Final Retry requires the same retained failed tuple.
+
+All cases above are GREEN in the completed full candidate. The stationary
+controller regression waits16real seconds, alongside fake-time visibility/layout
+checks. Actual page failures after partial persistence verify transactional
+rollback and working Retry. Pending duplicate marking, current layout growth,
+disposal, overlapping open/read/bookmark errors, initial/in-place history refresh,
+ABA ownership, retained callbacks and immutable desired membership are covered.
+
+Focused results:
+- saved compound-green:2passes.
+- first focused six-file command:116passes.
+- expanded family/routes/core-UI command:1151passes/2failures, both directly
+  affected old normal-size maxLines assertions. Root approved the exact assertion
+  correction before editing; no baseline exception.
+- renewed family/routes/affected shared test:447passes.
+- an owner-renewal command mistakenly named nonexistent
+  reader_day_contents_test.dart:87valid passes plus1load failure. This command
+  was not accepted as green. The corrected actual Contents board/storage/reader
+  renewal passed100tests, including the added position/resume/obsolete-intent cases.
+- earlier style-only analyzer findings were corrected. The final analyzer output
+  is clean. Nothing was waived.
+
+### Frozen final verification
+
+Source base and exact patch/file identities follow below. Relay11115 serialized
+all final static checks and the full project suite. No concurrent Flutter/Dart
+or native-hook command ran against this worktree during the suite. The lead was
+notified before freeze. The source patch was recomputed after completion and
+must match the pre-run digest exactly. pubspec.lock is unchanged.
+
+
+Base: `f495a8dda858ff13305abb5715e3d667406b4277`. Exact frozen source patch SHA256: `74b97562a6f6501ff2d9e475a51e2fc1b9eac61c2791ba1251acc3173cdc17fd`.
+Frozen manifest: `.dart_tool/w4c-audit1-frozen-source.json`, SHA256 `d850273dbf7570e24c73ca28322d698a45754fa768f8cb3dd0714a979f8f1ea8`.
+Unchanged pubspec.lock SHA256: `13d3e8745af966d0a88570b033f9dc600f47c858d4f0f2127bc6779cfbfc5371`.
+
+Final actual outputs (all exit0):
+
+```text
+flutter analyze --no-pub
+Analyzing Pantas-wt-new-design-w4c-r1...
+No issues found! (ran in 3.6s)
+
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1462 files (0 changed) in 1.45 seconds.
+
+dart run tool/check_layering.dart
+Running build hooks...Running build hooks...check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+
+flutter --version
+Flutter 3.44.6 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision ee80f08bbf (3 months ago) • 2026-07-08 15:02:06 -0700
+Engine • hash d3a3293399556a85388faf8c6f0723a7a5597aa8 (revision 83675ed276) (3 months ago) • 2026-06-30 16:59:03.000Z
+Tools • Dart 3.12.2 • DevTools 2.57.0
+
+flutter test --no-pub --reporter expanded --concurrency=1
+08:28 +4221: All tests passed!
+
+git diff --check
+(empty, exit0)
+```
+
+The post-run source patch matched the frozen digest exactly.
+
+### Frozen source and test hashes
+
+| Path | SHA256 |
+|---|---|
+| `lib/features/lesson/application/reader_providers.dart` | `cb493a3afd97de49ccd177b1bda5d17ff2ea06190bc7a1a23cded32e81622e31` |
+| `lib/features/lesson/presentation/lesson_page.dart` | `b7144b24c50ad624dbf280bdcd1009be7a247a28add03467e1755002006284e6` |
+| `lib/features/lesson/presentation/widgets/bookmarks_section.dart` | `fa89f6f868f9218f6c54eb01da52a2c18ab7c5db8242c278db14bfcef40e5000` |
+| `lib/features/lesson/presentation/widgets/bookmarks_sheet.dart` | `2923c81d4f45a37b2e12d8339b2fcfebe9189b335f07297af1e4a9f7155de00f` |
+| `lib/features/lesson/presentation/widgets/study_topic_section.dart` | `26b94805513c202a9eab76861768cd9331a36ea2c46afe16b04ca6b2cd8d154a` |
+| `test/core/ui/components/study_map_extensions_test.dart` | `34693f959e2d51de298dbaa07454e881218010b53fbf8f93b54322350b850794` |
+| `test/features/lesson/application/read_marking_test.dart` | `d02f0ab41ae92bb61d047db05968a035ee0e541e285ffe3aec1fcd9746f36125` |
+| `test/features/lesson/application/study_map_providers_test.dart` | `0d1060cc3b2b134e4ec33d210381f51203e3b0bd84eeaa96b6056b7544f849fe` |
+| `test/features/lesson/presentation/bookmarks_section_test.dart` | `b5d104975d7ff5c9ce6405f80a216cbf916e42f2f71b8f487d160d8ed53dfc48` |
+| `test/features/lesson/presentation/bookmarks_sheet_test.dart` | `6e7c607abe206d44460e1078ed8e837d312d1eaa37a6b40dbb7eb0c13258174f` |
+| `test/features/lesson/presentation/lesson_page_test.dart` | `ec4c397e0486655e39cf093bed7914a171f2733042696191560e4e4d0a61c340` |
+| `test/features/lesson/presentation/study_topic_section_test.dart` | `6465be190e8b17cc92f244ba237eff8bd974ae89ab18d40b1843a66fc9d3d750` |
+
+### Actual log identities
+
+All logs below are retained under `.dart_tool/` in this worktree.
+
+| Log | SHA256 |
+|---|---|
+| `w4c-audit1-five-red.log` | `03051845375efca43f317598e4eb17114bfb700f4ae23634222a9b46ae527dc0` |
+| `w4c-audit1-cache-red.log` | `ef1de109532f2a4257647e450b4e99a7e69ae163b085ea8b5282fc02a862d811` |
+| `w4c-audit1-compound-green.log` | `608305282aa2b8593180c0a0e2c4c7ecb0caf89c1c0ac9237927bf23c061694c` |
+| `w4c-audit1-presentation-red.log` | `95c80f936de92a42e854b7685e291c0d6474c6561f4ca06dea1f7ed91f278d2e` |
+| `w4c-audit1-reader-red.log` | `e96dedc4986c67b682f21e13fe7b25e57508a415a9726a2c2a10627ba93e3fe9` |
+| `w4c-audit1-bookmark-red.log` | `12c69fc5e23e4b881d596a97491774d6ffce824fbf5c75c3646ce874c6946b9d` |
+| `w4c-audit1-stale-retry-red.log` | `e2fd2bc5fbe48699cfaeae70106932cb46691b167405dfc039ca5c0e193388ab` |
+| `w4c-audit1-ownership-red.log` | `bed999bbd9d03cfc3d68a1b98efd259dbd5148b6b205242d4f876756b803ef3e` |
+| `w4c-audit1-pending-red.log` | `7aa66a549263032fd195ccf992bda4527d62fb8f396d6ab8bcf855503879d6d1` |
+| `w4c-audit1-error-retry-red.log` | `24a1acc9bc1e7a8a5ef054a17976e82f1a0f33aaca89e28f3931b948826c24d1` |
+| `w4c-audit1-position-retry-red.log` | `c500d4b4723618e915786470eca8adc280efc85eb817fffe033f4d74f3f2eaf4` |
+| `w4c-audit1-obsolete-position-red.log` | `e4c7a4813d6e8d920a177683cc032867252975d489e79a4520cc1f04b6578298` |
+| `w4c-audit1-focused-first.log` | `14aa8b1cb36373dedb41cf08559cd11e4aeaa77727cbb91707af711ceb6b3873` |
+| `w4c-audit1-focus-expanded.log` | `c56282ca68dba2c67fe6afef27104808e2c8bcd7f8d644d7b073702d83804ed4` |
+| `w4c-audit1-analysis-first.log` | `3c5d008b383695bb2f112678945d9c4e161e217eab06b469bd69f3c1d14bed0f` |
+| `w4c-audit1-focus-ready.log` | `31ce15e2665361408fa503f2a850c3ba9c10cfc8bebd077ec5dfbb3113ac9200` |
+| `w4c-audit1-owner-final.log` | `c85bc0553303caec530b855af238bc85e17181000d696eb2cdf62c4604ceafce` |
+| `w4c-audit1-freeze-focused.log` | `46d8e10d44d233234db4a83695d512aca85623a9551f48e85e3c6cab1c599200` |
+| `w4c-audit1-final-analysis.log` | `dbe060f620909c6f98bd3b899afbd40ea71801762eecaadda5e4c322ef55fa9f` |
+| `w4c-audit1-final-format.log` | `e5bf31de3bd51f29bb3f0b43b3ece334f40eefa1ff7632f911191349e24f2fc4` |
+| `w4c-audit1-final-layering.log` | `861589d89d5020422bd14a8850a4c879a8822872dc4de163eaaf54a916046b61` |
+| `w4c-audit1-final-attribution.log` | `89baad91ee320cf2b9c0ab85616eba9add37f583408c740e296723a7906bbcdd` |
+| `w4c-audit1-final-diff.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `w4c-audit1-final-environment.log` | `533b6ac935933c6b998434140169030e54672f5088615afbaf7c9a4548d46d15` |
+| `w4c-audit1-final-full-test.log` | `32a3ac29adda56e3f905485966928e5096fbfc2983f22baac07fc20b209fcc84` |
+
+Receipt file `.dart_tool/w4c-audit1-final-receipts.json` SHA256 `c2daa6e9b3aa7b53191582b47a24b3e8981e16f7d85fbe89d3370090c794abfc`.
+
+### Handoff boundary
+
+All seven audit1 findings and the lead-requested original-owner recovery checks are implemented and verified locally. No unresolved engineering finding is known to this implementor. This is not independent acceptance. The lead owns the requested fresh independent re-audit, data review, status/restart-log update, source upload and integration decision. Aedwon still owns Android/iPhone visual acceptance against the approved boards. No screenshots, autonomous visual review, device check, live PWA/server integration, release or deployment was performed. No push, merge, other-family edit, worktree cleanup or main application edit was performed. Preserve this frozen worktree and its actual logs for review.

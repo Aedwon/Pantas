@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
@@ -601,7 +602,8 @@ class _ReaderBody extends ConsumerStatefulWidget {
   ConsumerState<_ReaderBody> createState() => _ReaderBodyState();
 }
 
-class _ReaderBodyState extends ConsumerState<_ReaderBody> {
+class _ReaderBodyState extends ConsumerState<_ReaderBody>
+    with WidgetsBindingObserver {
   late final ScrollController _scrollController;
   final _scrollOffset = ValueNotifier<double>(0);
   final _progress = ValueNotifier<double>(0);
@@ -612,36 +614,149 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   ReadMarkingController? _markingController;
   late final ReaderPositionRepository _positions;
   Timer? _positionDelay;
-  bool _positionFailed = false;
+  ({
+    ReaderContext reader,
+    double offset,
+    double fraction,
+    int activation,
+  })? _failedPosition;
   bool _resumeFailed = false;
   bool _contentsOpen = false;
+  bool _contentsCovering = false;
+  Timer? _contentsClose;
+  int _contentsEpoch = 0;
+  bool _appVisible = true;
+  ModalRoute<Object?>? _route;
+  Animation<double>? _routeCover;
+  int _activation = 0;
+  bool _activityFailed = false;
+  bool _bookmarkPending = false;
+  Future<void> Function()? _bookmarkRetry;
+
+  bool _owns(ReaderContext reader, int activation) =>
+      activation == _activation &&
+      mounted &&
+      widget.isCurrent() &&
+      widget.ending == null &&
+      widget.reader.lesson.id == reader.lesson.id;
+
+  void _updateVisibility() {
+    _markingController?.setVisible(
+      visible: mounted &&
+          _appVisible &&
+          !_contentsCovering &&
+          (_route?.isCurrent ?? true) &&
+          (_routeCover?.value ?? 0) == 0 &&
+          widget.ending == null,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _route = ModalRoute.of<Object?>(context);
+    final cover = _route?.secondaryAnimation;
+    if (_routeCover != cover) {
+      _routeCover?.removeListener(_updateVisibility);
+      _routeCover = cover;
+      _routeCover?.addListener(_updateVisibility);
+    }
+    final lifecycle = WidgetsBinding.instance.lifecycleState;
+    _appVisible = lifecycle == null || lifecycle == AppLifecycleState.resumed;
+    _updateVisibility();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _appVisible = state == AppLifecycleState.resumed;
+    _updateVisibility();
+  }
+
+  void _setContents(bool open) {
+    _contentsClose?.cancel();
+    final epoch = ++_contentsEpoch;
+    setState(() {
+      _contentsOpen = open;
+      _contentsCovering = true;
+    });
+    _updateVisibility();
+    if (!open) {
+      final delay = MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 400);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted || epoch != _contentsEpoch) return;
+        _contentsClose = Timer(delay, () {
+          if (!mounted || epoch != _contentsEpoch) return;
+          _contentsCovering = false;
+          _updateVisibility();
+        });
+      });
+    }
+  }
+
+  Future<void> _retryActivity(ReaderContext reader, int activation) async {
+    if (!_owns(reader, activation)) return;
+    final marking = _markingController;
+    final bookmark = _bookmarkRetry;
+    await marking?.retry();
+    if (!_owns(reader, activation)) return;
+    await bookmark?.call();
+  }
+
+  Future<void> _saveBookmark(
+    ReaderContext reader,
+    bool desired,
+    int activation,
+  ) async {
+    if (_bookmarkPending || !_owns(reader, activation)) return;
+    final boundary = reader.boundary;
+    if (boundary == null) return;
+    _bookmarkPending = true;
+    try {
+      await toggleBookmark(
+        ref,
+        reader.lesson.id,
+        boundary: boundary,
+        isCurrent: () => _owns(reader, activation),
+        bookmarked: desired,
+      );
+      if (_owns(reader, activation)) setState(() => _bookmarkRetry = null);
+    } catch (_) {
+      if (_owns(reader, activation)) {
+        setState(
+          () =>
+              _bookmarkRetry = () => _saveBookmark(reader, desired, activation),
+        );
+      }
+    } finally {
+      if (_owns(reader, activation)) _bookmarkPending = false;
+    }
+  }
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _positions = ref.read(readerPositionRepositoryProvider);
     _scrollController = ScrollController()..addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || !widget.isCurrent() || widget.ending != null) return;
       _initMarking();
       if (widget.resume) {
-        unawaited(_resumePosition());
+        unawaited(_resumePosition(widget.reader, _activation));
       } else {
         _syncScrollState();
       }
     });
   }
 
-  Future<void> _resumePosition() async {
-    final reader = widget.reader;
+  Future<void> _resumePosition(ReaderContext reader, int activation) async {
     final exam = reader.examId;
     final boundary = reader.boundary;
+    bool current() => _owns(reader, activation);
+    if (!current()) return;
     if (exam == null || boundary == null) return _syncScrollState();
-    bool current() =>
-        mounted &&
-        widget.isCurrent() &&
-        widget.ending == null &&
-        widget.reader.lesson.id == reader.lesson.id;
     try {
       final offset = await _positions.read(exam, reader.lesson.id);
       if (!current()) return;
@@ -663,23 +778,40 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   Future<void> _savePosition(
     ReaderContext reader,
     double offset,
-    double fraction,
-  ) async {
+    double fraction, {
+    int? activation,
+  }) async {
     final exam = reader.examId;
     final boundary = reader.boundary;
-    if (exam == null || boundary == null || !widget.isCurrent()) return;
+    final reportingOwner = activation ?? _activation;
+    // Outgoing/disposal saves deliberately preserve the measured old position.
+    // Active timers and UI retries retain their original activation instead.
+    bool current() =>
+        widget.isCurrent() && (activation == null || _owns(reader, activation));
+    if (exam == null || boundary == null || !current()) return;
     try {
       final saved = await _positions.writeGuarded(
         boundary,
         reader.lesson.id,
         offset.clamp(0.0, double.infinity),
         fraction: fraction,
-        isCurrent: widget.isCurrent,
+        isCurrent: current,
       );
-      if (!saved && mounted) widget.onExpired();
-      if (mounted && _positionFailed) setState(() => _positionFailed = false);
+      if (!saved && current()) widget.onExpired();
+      if (_owns(reader, reportingOwner) && _failedPosition != null) {
+        setState(() => _failedPosition = null);
+      }
     } on Exception {
-      if (mounted) setState(() => _positionFailed = true);
+      if (_owns(reader, reportingOwner)) {
+        setState(
+          () => _failedPosition = (
+            reader: reader,
+            offset: offset,
+            fraction: fraction,
+            activation: reportingOwner,
+          ),
+        );
+      }
     }
   }
 
@@ -691,26 +823,45 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   }
 
   void _initMarking() {
+    final activation = _activation;
+    final reader = widget.reader;
     final progressRepo = ref.read(lessonProgressRepositoryProvider);
     final prefsRepo = ref.read(appPreferencesRepositoryProvider);
     _markingController = ReadMarkingController(
-      lessonId: widget.reader.lesson.id,
-      examId: widget.reader.examId,
+      lessonId: reader.lesson.id,
+      examId: reader.examId,
       progressRepository: progressRepo,
       preferencesRepository: prefsRepo,
       positions: _positions,
-      boundary: widget.reader.boundary,
-      isCurrent: widget.isCurrent,
+      boundary: reader.boundary,
+      isCurrent: () => _owns(reader, activation),
+      readMetrics: () => _scrollController.hasClients
+          ? (
+              offset: _scrollController.offset,
+              maxExtent: _scrollController.position.maxScrollExtent
+            )
+          : null,
+      onSaveFailed: ({required bool failed}) {
+        if (_owns(reader, activation)) setState(() => _activityFailed = failed);
+      },
+      onOpened: () {
+        if (_owns(reader, activation)) {
+          ref
+            ..invalidate(lastOpenedLessonProvider)
+            ..invalidate(recentlyOpenedLessonsProvider);
+        }
+      },
       onMarked: () {
-        if (mounted && widget.isCurrent()) {
+        if (_owns(reader, activation)) {
           ref
             ..read(roadmapRevisionProvider.notifier).bump()
             ..invalidate(studyMapProvider)
-            ..invalidate(readerContextProvider(widget.reader.lesson.id));
+            ..invalidate(readerContextProvider(reader.lesson.id));
         }
       },
     );
-    _markingController?.onOpen();
+    _updateVisibility();
+    unawaited(_markingController!.onOpen());
   }
 
   @override
@@ -721,7 +872,13 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       // The body stays mounted across an advance, so the controller keeps
       // the offset the last lesson was left at and the new one opened part
       // way down. A lesson starts at its first line.
-      _contentsOpen = false;
+      _activation++;
+      if (_contentsCovering) _setContents(false);
+      _activityFailed = false;
+      _failedPosition = null;
+      _resumeFailed = false;
+      _bookmarkRetry = null;
+      _bookmarkPending = false;
       _positionDelay?.cancel();
       if (oldWidget.ending == null) {
         unawaited(
@@ -752,6 +909,11 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
 
   @override
   void dispose() {
+    _activation++;
+    WidgetsBinding.instance.removeObserver(this);
+    _routeCover?.removeListener(_updateVisibility);
+    _contentsClose?.cancel();
+    _contentsEpoch++;
     _positionDelay?.cancel();
     if (widget.ending == null) {
       unawaited(
@@ -784,10 +946,13 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     _scrollOffset.value = offset;
     _positionDelay?.cancel();
     final reader = widget.reader;
+    final activation = _activation;
     final fraction = maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
     _positionDelay = Timer(
       const Duration(milliseconds: 300),
-      () => unawaited(_savePosition(reader, offset, fraction)),
+      () => unawaited(
+        _savePosition(reader, offset, fraction, activation: activation),
+      ),
     );
     _progress.value =
         maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
@@ -804,6 +969,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   @override
   Widget build(BuildContext context) {
     final reader = widget.reader;
+    final activation = _activation;
+    final failedPosition = _failedPosition;
     final ending = widget.ending;
     final next = widget.incoming;
     Widget lesson(
@@ -815,11 +982,25 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
           reader: value,
           controller: controller,
           footer: footer,
-          positionFailed: controller != null && _positionFailed,
+          positionFailed: controller != null && failedPosition != null,
+          activityFailed:
+              controller != null && (_activityFailed || _bookmarkRetry != null),
+          onRetryActivity: () => unawaited(_retryActivity(reader, activation)),
           resumeFailed: controller != null && _resumeFailed,
-          onResume: _resumePosition,
-          onSave: () =>
-              _savePosition(reader, _scrollOffset.value, _progress.value),
+          onResume: () => unawaited(_resumePosition(value, activation)),
+          onSave: () {
+            if (failedPosition == null || _failedPosition != failedPosition) {
+              return;
+            }
+            unawaited(
+              _savePosition(
+                failedPosition.reader,
+                failedPosition.offset,
+                failedPosition.fraction,
+                activation: failedPosition.activation,
+              ),
+            );
+          },
           nextFailed: controller != null && widget.nextFailed,
           onRetryNext: widget.onRetryNext,
         );
@@ -832,7 +1013,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
       label: 'Contents',
       readerContents: true,
       open: _contentsOpen,
-      onDismiss: () => setState(() => _contentsOpen = false),
+      onDismiss: () => _setContents(false),
       page: SafeArea(
         child: Column(
           children: [
@@ -845,23 +1026,13 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                 dayContext: widget.dayContext,
                 origin: widget.origin,
                 isBookmarked: reader.isBookmarked,
-                onBookmark: () {
-                  final boundary = reader.boundary;
-                  if (boundary != null) {
-                    unawaited(
-                      toggleBookmark(
-                        ref,
-                        reader.lesson.id,
-                        boundary: boundary,
-                        isCurrent: () => mounted && widget.isCurrent(),
-                      ),
-                    );
-                  }
-                },
+                onBookmark: () => unawaited(
+                  _saveBookmark(reader, !reader.isBookmarked, activation),
+                ),
                 onContents: () {
                   widget.onCancelPending();
                   _transition.value = 0;
-                  setState(() => _contentsOpen = true);
+                  _setContents(true);
                 },
                 scrollOffset: _scrollOffset,
                 advanceProgress: _transition,
@@ -928,7 +1099,7 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
         reader: reader,
         dayContext: widget.dayContext,
         onSelectLesson: (id) {
-          setState(() => _contentsOpen = false);
+          _setContents(false);
           if (id != reader.lesson.id) widget.onAdvance(id);
         },
       ),
@@ -944,11 +1115,13 @@ class _LessonContent extends StatelessWidget {
     required this.onResume,
     required this.onSave,
     required this.onRetryNext,
+    required this.onRetryActivity,
     this.controller,
     this.footer,
     this.positionFailed = false,
     this.resumeFailed = false,
     this.nextFailed = false,
+    this.activityFailed = false,
   });
   final ReaderContext reader;
   final ScrollController? controller;
@@ -956,6 +1129,8 @@ class _LessonContent extends StatelessWidget {
   final bool positionFailed;
   final bool resumeFailed;
   final bool nextFailed;
+  final bool activityFailed;
+  final VoidCallback onRetryActivity;
   final VoidCallback onResume;
   final VoidCallback onSave;
   final VoidCallback onRetryNext;
@@ -993,6 +1168,7 @@ class _LessonContent extends StatelessWidget {
             const SizedBox(height: 24),
             if (resumeFailed) errorFor('reading position', onResume),
             if (positionFailed) saveFailureLine(onSave),
+            if (activityFailed) saveFailureLine(onRetryActivity),
             ReaderGap(
               isRead: reader.isRead,
               examId: reader.examId,

@@ -62,6 +62,9 @@ class ReadMarkingController {
     required this.preferencesRepository,
     DateTime Function()? clock,
     this.onMarked,
+    this.onOpened,
+    this.onSaveFailed,
+    this.readMetrics,
     this.positions,
     this.boundary,
     this.isCurrent,
@@ -72,59 +75,144 @@ class ReadMarkingController {
   final bool Function()? isCurrent;
   final ReaderPositionRepository? positions;
   final ReaderBoundary? boundary;
+  final LessonProgressRepository progressRepository;
+  final AppPreferencesRepository preferencesRepository;
+  final void Function()? onMarked;
+  final void Function()? onOpened;
+  final void Function({required bool failed})? onSaveFailed;
+  final ({double offset, double maxExtent})? Function()? readMetrics;
+  final DateTime Function() _clock;
   bool _disposed = false;
-  bool get _current => !_disposed && (isCurrent?.call() ?? true);
-  void dispose() => _disposed = true;
+  bool _visible = true;
+  bool _pendingMark = false;
+  bool _resumeAfterPending = false;
+  bool _hasMarked = false;
+  bool _openFailed = false;
+  bool _markFailed = false;
+  bool _floorReached = false;
+  double? _offset;
+  double? _maxExtent;
+  DateTime? _openedAt;
+  Timer? _floorTimer;
 
-  Future<bool> _mutate(Future<void> Function() operation) async {
-    if (!_current) return false;
+  bool get _current => !_disposed && (isCurrent?.call() ?? true);
+
+  void dispose() {
+    _disposed = true;
+    _floorTimer?.cancel();
+  }
+
+  void setVisible({required bool visible}) {
+    final resumed = visible && !_visible;
+    _visible = visible;
+    if (resumed && _pendingMark) _resumeAfterPending = true;
+    if (visible) _evaluate();
+  }
+
+  Future<bool> _mutate(
+    Future<void> Function() operation, {
+    bool requireVisible = false,
+  }) async {
+    bool current() => _current && (!requireVisible || (_visible && _atEnd));
+    if (!current()) return false;
     final token = boundary;
     if (token == null) {
       await operation();
-      return _current;
+      return current();
     }
-    return positions!.runGuarded(token, operation, isCurrent: () => _current);
+    return positions!.runGuarded(token, operation, isCurrent: current);
   }
 
-  final LessonProgressRepository progressRepository;
-  final AppPreferencesRepository preferencesRepository;
-
-  /// Called once after the lesson is marked read, so screens that show the
-  /// day's lessons can refresh.
-  final void Function()? onMarked;
-  final DateTime Function() _clock;
-
-  DateTime? _openedAt;
-  bool _hasMarked = false;
+  void _publishFailure() {
+    if (_current) onSaveFailed?.call(failed: _openFailed || _markFailed);
+  }
 
   Future<void> onOpen() async {
     if (!_current) return;
-    _openedAt = _clock();
-    if (examId != null) {
-      await _mutate(
+    if (_openedAt == null) {
+      _openedAt = _clock();
+      _floorTimer = Timer(readDwellFloor, () {
+        _floorReached = true;
+        _evaluate();
+      });
+    }
+    if (examId == null) return;
+    try {
+      final saved = await _mutate(
         () => preferencesRepository.pushOpenedLesson(
           examId: examId!,
           lessonId: lessonId,
         ),
       );
+      if (!saved || !_current) return;
+      _openFailed = false;
+      onOpened?.call();
+      _publishFailure();
+    } catch (_) {
+      _openFailed = true;
+      _publishFailure();
     }
+  }
+
+  Future<void> retry() async {
+    if (!_current) return;
+    if (_openFailed) await onOpen();
+    _evaluate();
   }
 
   void onScroll({required double offset, required double maxExtent}) {
-    if (!_current || _hasMarked || _openedAt == null) return;
+    _offset = offset;
+    _maxExtent = maxExtent;
+    _evaluate();
+  }
 
-    final isAtEnd = maxExtent == 0 || offset >= maxExtent - 24;
-    final dwellTime = _clock().difference(_openedAt!);
+  bool get _atEnd {
+    final metrics = readMetrics?.call();
+    // A real layout callback must supply current metrics, never stale geometry.
+    if (readMetrics != null && metrics == null) return false;
+    final offset = metrics?.offset ?? _offset;
+    final maxExtent = metrics?.maxExtent ?? _maxExtent;
+    return offset != null &&
+        maxExtent != null &&
+        (maxExtent == 0 || offset >= maxExtent - 24);
+  }
 
-    if (isAtEnd && dwellTime >= readDwellFloor) {
-      _hasMarked = true;
-      unawaited(_markRead());
+  void _evaluate() {
+    if (!_current ||
+        !_visible ||
+        _hasMarked ||
+        _pendingMark ||
+        _openedAt == null) {
+      return;
     }
+    final elapsed =
+        _floorReached || _clock().difference(_openedAt!) >= readDwellFloor;
+    if (!_atEnd || !elapsed) return;
+    _pendingMark = true;
+    unawaited(_markRead());
   }
 
   Future<void> _markRead() async {
-    if (await _mutate(() => progressRepository.markRead(lessonId))) {
+    var rejected = false;
+    try {
+      final saved = await _mutate(
+        () => progressRepository.markRead(lessonId),
+        requireVisible: true,
+      );
+      rejected = !saved;
+      if (!saved || !_current) return;
+      _hasMarked = true;
+      _markFailed = false;
       onMarked?.call();
+      _publishFailure();
+    } catch (_) {
+      _markFailed = true;
+      _publishFailure();
+    } finally {
+      _pendingMark = false;
+      final resume = _resumeAfterPending;
+      _resumeAfterPending = false;
+      if (resume && rejected) _evaluate();
     }
   }
 }
@@ -237,6 +325,7 @@ Future<void> toggleBookmark(
   LessonId lessonId, {
   required ReaderBoundary boundary,
   required bool Function() isCurrent,
+  bool? bookmarked,
 }) async {
   final repo = ref.read(lessonBookmarksRepositoryProvider);
   final prefs = ref.read(bookmarkPrefsRepositoryProvider);
@@ -246,15 +335,17 @@ Future<void> toggleBookmark(
     () async {
       final isMarked = await repo.isMarked(lessonId);
       if (!isCurrent()) return;
-      if (isMarked) {
-        await repo.unmark(lessonId);
-      } else {
+      final next = bookmarked ?? !isMarked;
+      if (next == isMarked) return;
+      if (next) {
         await repo.mark(lessonId);
+      } else {
+        await repo.unmark(lessonId);
       }
       final order = await prefs.readCustomOrder(boundary.examId);
       await prefs.saveCustomOrder(
         boundary.examId,
-        [if (!isMarked) lessonId, ...order.where((id) => id != lessonId)],
+        [if (next) lessonId, ...order.where((id) => id != lessonId)],
       );
     },
     isCurrent: isCurrent,

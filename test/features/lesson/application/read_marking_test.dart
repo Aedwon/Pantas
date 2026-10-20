@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
@@ -5,6 +7,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -50,6 +53,163 @@ void main() {
       preferencesRepository: prefs,
       clock: clock.call,
     );
+    addTearDown(controller.dispose);
+  });
+
+  test('audit stationary short lesson becomes read after dwell floor',
+      () async {
+    final c = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+    );
+    addTearDown(c.dispose);
+    await c.onOpen();
+    c.onScroll(offset: 0, maxExtent: 0);
+    await Future<void>.delayed(readDwellFloor + const Duration(seconds: 1));
+    expect(await progress.isRead('l1'), isTrue);
+    c.dispose();
+  });
+
+  test('audit transient marking failure remains retryable', () async {
+    final failing = _AuditFailOnceProgress(db, contentDb);
+    final errors = <Object>[];
+    final c = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: failing,
+      preferencesRepository: prefs,
+      clock: clock.call,
+    );
+    addTearDown(c.dispose);
+    await runZonedGuarded(() async {
+      await c.onOpen();
+      clock.advance(readDwellFloor);
+      c.onScroll(offset: 100, maxExtent: 100);
+      await pumpEventQueue();
+      c.onScroll(offset: 100, maxExtent: 100);
+      await pumpEventQueue();
+    }, (error, stack) {
+      errors.add(error);
+    });
+    expect(
+      errors,
+      isEmpty,
+      reason: 'The UI never catches this fire-and-forget error.',
+    );
+    expect(await progress.isRead('l1'), isTrue);
+  });
+
+  testWidgets(
+      'audit floor check reads current layout instead of old end metrics',
+      (tester) async {
+    var extent = 0.0;
+    var offset = 0.0;
+    final c = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+      readMetrics: () => (offset: offset, maxExtent: extent),
+    );
+    addTearDown(c.dispose);
+    await c.onOpen();
+    c.onScroll(offset: 0, maxExtent: 0);
+    extent = 1000;
+    await tester.pump(readDwellFloor);
+    await tester.pumpAndSettle();
+    expect(await progress.isRead('l1'), isFalse);
+    offset = 1000;
+    c.onScroll(offset: offset, maxExtent: extent);
+    await tester.pumpAndSettle();
+    expect(await progress.isRead('l1'), isTrue);
+  });
+  testWidgets('audit disposal cancels automatic dwell callback',
+      (tester) async {
+    await controller.onOpen();
+    controller
+      ..onScroll(offset: 0, maxExtent: 0)
+      ..dispose();
+    await tester.pump(readDwellFloor);
+    await tester.pumpAndSettle();
+    expect(await progress.isRead('l1'), isFalse);
+  });
+  test('audit pending mark suppresses duplicate saves', () async {
+    final held = _HeldMarkProgress(db, contentDb);
+    final c = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: held,
+      preferencesRepository: prefs,
+      clock: clock.call,
+    );
+    addTearDown(c.dispose);
+    await c.onOpen();
+    clock.advance(readDwellFloor);
+    c
+      ..onScroll(offset: 0, maxExtent: 0)
+      ..onScroll(offset: 0, maxExtent: 0);
+    await pumpEventQueue();
+    expect(held.calls, 1);
+    held.release.complete();
+    await pumpEventQueue();
+    c.onScroll(offset: 0, maxExtent: 0);
+    await pumpEventQueue();
+    expect(held.calls, 1);
+    expect(await progress.isRead('l1'), isTrue);
+  });
+
+  test('audit visibility resumes while rejected mark completion is pending',
+      () async {
+    final positions = _HeldMarkResult(prefs, database: db);
+    final boundary =
+        (await positions.captureBoundary('e1', isCurrent: () => true))!;
+    final c = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: progress,
+      preferencesRepository: prefs,
+      clock: clock.call,
+      positions: positions,
+      boundary: boundary,
+    );
+    addTearDown(c.dispose);
+    await c.onOpen();
+    clock.advance(readDwellFloor);
+    positions.hold = true;
+    c
+      ..onScroll(offset: 0, maxExtent: 0)
+      ..setVisible(visible: false);
+    positions.before.complete();
+    await positions.rejected.future;
+    c.setVisible(visible: true);
+    positions.after.complete();
+    await pumpEventQueue();
+    expect(await progress.isRead('l1'), isTrue);
+  });
+
+  test('audit visibility resume does not automatically retry a storage error',
+      () async {
+    final failing = _HeldFailureProgress(db, contentDb);
+    final c = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: failing,
+      preferencesRepository: prefs,
+      clock: clock.call,
+    );
+    addTearDown(c.dispose);
+    await c.onOpen();
+    clock.advance(readDwellFloor);
+    c.onScroll(offset: 0, maxExtent: 0);
+    await pumpEventQueue();
+    c
+      ..setVisible(visible: false)
+      ..setVisible(visible: true);
+    failing.release.complete();
+    await pumpEventQueue();
+    expect(failing.calls, 1);
   });
 
   test('reaching the end after the floor marks it read', () async {
@@ -208,4 +368,66 @@ void main() {
     await pumpEventQueue();
     expect(await progress.isRead('l1'), isFalse);
   });
+}
+
+class _AuditFailOnceProgress extends LessonProgressRepository {
+  _AuditFailOnceProgress(super.db, super.contentDb);
+  bool fail = true;
+  @override
+  Future<void> markRead(String id) async {
+    if (fail) {
+      fail = false;
+      throw Exception('audit storage failure');
+    }
+    return super.markRead(id);
+  }
+}
+
+class _HeldMarkProgress extends LessonProgressRepository {
+  _HeldMarkProgress(super.db, super.contentDb);
+  final release = Completer<void>();
+  int calls = 0;
+  @override
+  Future<void> markRead(String id) async {
+    calls++;
+    await release.future;
+    await super.markRead(id);
+  }
+}
+
+class _HeldMarkResult extends ReaderPositionRepository {
+  _HeldMarkResult(super.preferences, {required super.database});
+  bool hold = false;
+  final before = Completer<void>();
+  final after = Completer<void>();
+  final rejected = Completer<void>();
+  @override
+  Future<bool> runGuarded(
+    ReaderBoundary boundary,
+    Future<void> Function() operation, {
+    required bool Function() isCurrent,
+  }) async {
+    final held = hold;
+    hold = false;
+    if (held) await before.future;
+    final saved =
+        await super.runGuarded(boundary, operation, isCurrent: isCurrent);
+    if (held) {
+      rejected.complete();
+      await after.future;
+    }
+    return saved;
+  }
+}
+
+class _HeldFailureProgress extends LessonProgressRepository {
+  _HeldFailureProgress(super.db, super.contentDb);
+  final release = Completer<void>();
+  int calls = 0;
+  @override
+  Future<void> markRead(String id) async {
+    calls++;
+    await release.future;
+    throw Exception('storage still unavailable');
+  }
 }
