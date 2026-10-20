@@ -14,6 +14,7 @@ import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 
 class MockHistoryEntry {
   const MockHistoryEntry({required this.attempt, required this.results});
@@ -97,23 +98,35 @@ Future<MockResults?> _loadResults(Ref ref, MockAttempt attempt) async {
 }
 
 class MockReviewAccess {
-  const MockReviewAccess({required this.canReview, this.reviewUntil});
+  const MockReviewAccess({
+    required this.canReview,
+    this.proCovered = false,
+    this.reviewUntil,
+  });
+
   final bool canReview;
+  final bool proCovered;
   final DateTime? reviewUntil;
 }
 
 /// Only native uses W3's device-local allowance. Web needs the server reader.
+/// Pro coverage is evaluated against the stored attempt exam, never the
+/// active exam.
 MockReviewAccess nativeMockReviewAccess({
   required String examId,
   required DateTime? submittedAt,
-  required bool pro,
+  required Entitlement entitlement,
   required DateTime now,
+  PriceTier? examTier,
 }) {
+  final proCovered =
+      entitlement.coversExam(examId, examTier: examTier, at: now);
   final until = const Entitlement.free()
       .mockLimit(examId, at: now, lastMockAt: submittedAt)
       .nextMockOpensAt;
   return MockReviewAccess(
-    canReview: pro || (until != null && now.isBefore(until)),
+    canReview: proCovered || (until != null && now.isBefore(until)),
+    proCovered: proCovered,
     reviewUntil: until,
   );
 }
@@ -125,18 +138,29 @@ final mockReviewAccessProvider =
   }
   final repo = ref.watch(mockAttemptRepoProvider);
   final clock = ref.watch(mockAvailabilityClockProvider);
-  final proFuture = ref.watch(proForActiveExamProvider.future);
   final attempt = await repo.findById(id);
-  final pro = await proFuture;
+  final entitlement = await ref.watch(entitlementProvider.future);
   final now = clock();
+  PriceTier? examTier;
+  if (attempt != null) {
+    final catalog =
+        await ref.watch(examCatalogRepositoryProvider).watchAll().first;
+    for (final entry in catalog) {
+      if (entry.id == attempt.examId) {
+        examTier = PriceTier.fromCatalog(entry.priceTier);
+        break;
+      }
+    }
+  }
   final access = nativeMockReviewAccess(
     examId: attempt?.examId ?? '',
     submittedAt: attempt?.submittedAt,
-    pro: pro,
+    entitlement: entitlement,
+    examTier: examTier,
     now: now,
   );
   final until = access.reviewUntil;
-  if (!pro && until != null && until.isAfter(now)) {
+  if (!access.proCovered && until != null && until.isAfter(now)) {
     final timer = Timer(until.difference(now), ref.invalidateSelf);
     ref.onDispose(timer.cancel);
   }

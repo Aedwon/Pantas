@@ -32,8 +32,6 @@ class MockResultsRoute extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final entry = ref.watch(mockResultsProvider(attemptId));
-    final proIsActive =
-        ref.watch(proForActiveExamProvider).valueOrNull ?? false;
     final access = ref.watch(mockReviewAccessProvider(attemptId));
     final earlier = ref.watch(mockEarlierResultsProvider(attemptId));
     final paused = ref.watch(entitlementProvider).valueOrNull?.state ==
@@ -66,7 +64,7 @@ class MockResultsRoute extends ConsumerWidget {
         final attempt = entry.attempt;
         return MockResultsPage(
           results: entry.results,
-          proIsActive: proIsActive,
+          proIsActive: access.valueOrNull?.proCovered ?? false,
           examId: attempt.examId,
           canReview: access.valueOrNull?.canReview ?? false,
           reviewUntil: access.valueOrNull?.reviewUntil?.toLocal(),

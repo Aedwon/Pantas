@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
@@ -6,10 +8,10 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_review_page.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -23,6 +25,10 @@ class _MockFlagsRepo extends Mock implements QuestionFlagsRepository {}
 class _MockPrefsRepo extends Mock implements AppPreferencesRepository {}
 
 void main() {
+  setUpAll(() {
+    registerFallbackValue(DateTime.utc(2000));
+  });
+
   late _MockContentRepo contentRepo;
   late _MockAttemptRepo attemptRepo;
   late _MockFlagsRepo flagsRepo;
@@ -141,14 +147,18 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    expect(find.textContaining('while the clock was running'), findsNothing);
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
     expect(
-      find.textContaining(
-        'You marked 12 to come back to while the clock was running.',
+      find.text(
+        'You flagged 12 questions while the clock was running. '
+        'Do you want to save them?',
       ),
       findsOneWidget,
     );
-    expect(find.text('Flag all 12'), findsOneWidget);
-    expect(find.text('No thanks'), findsOneWidget);
+    expect(find.text('Save All 12'), findsOneWidget);
+    expect(find.text('No Thanks'), findsOneWidget);
   });
 
   testWidgets('taking it flags them all and the offer goes', (tester) async {
@@ -163,10 +173,12 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Flag all 12'));
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Save All 12'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Flag all 12'), findsNothing);
+    expect(find.text('Save All 12'), findsNothing);
     verify(() => flagsRepo.flag(any())).called(12);
   });
 
@@ -182,7 +194,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('No thanks'));
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('No Thanks'));
     await tester.pumpAndSettle();
 
     expect(find.textContaining('while the clock was running'), findsNothing);
@@ -202,6 +216,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
     expect(find.textContaining('while the clock was running'), findsNothing);
   });
 
@@ -260,7 +276,7 @@ void main() {
     expect(find.textContaining('Marked'), findsNothing);
   });
 
-  testWidgets('the mock review groups by subject', (tester) async {
+  testWidgets('the mock review groups by paper part', (tester) async {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
@@ -272,8 +288,11 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Mathematics'), findsOneWidget);
-    expect(find.text('Science'), findsOneWidget);
+    await tester.tap(find.text('All 12'));
+    await tester.pumpAndSettle();
+    expect(find.text('SECTION 1'), findsOneWidget);
+    expect(find.text('Mathematics'), findsNothing);
+    expect(find.text('Science'), findsNothing);
   });
 
   testWidgets('Free sees every question and the answer', (tester) async {
@@ -288,13 +307,216 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    // Default filter is Wrong (11 wrong out of 12 since only q_1 was correct).
-    expect(find.byType(ReviewRow), findsNWidgets(11));
+    // Default filter is Wrong (11 misses out of 12 since only q_1 was correct).
+    expect(find.text('Stem for q_1'), findsNothing);
+    expect(find.text('Wrong 11'), findsOneWidget);
 
-    // Tap All filter to see all 12.
     await tester.tap(find.text('All 12'));
     await tester.pumpAndSettle();
 
-    expect(find.byType(ReviewRow), findsNWidgets(12));
+    expect(find.text('Stem for q_1'), findsOneWidget);
+  });
+
+  testWidgets(
+      'approved mock review opens Wrong and keeps flag offer on Flagged only',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: true),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Wrong 11'), findsOneWidget);
+    expect(find.textContaining('You flagged 12 questions'), findsNothing);
+    expect(
+      find.textContaining('Tell Pantas why you got each one wrong'),
+      findsOneWidget,
+    );
+    expect(find.text('Finish the Notes'), findsOneWidget);
+
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text(
+        'You flagged 12 questions while the clock was running. '
+        'Do you want to save them?',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('No Thanks'), findsOneWidget);
+    expect(find.text('Save All 12'), findsOneWidget);
+  });
+
+  testWidgets(
+      'approved mock review groups rows by paper part, not content subject',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('All 12'));
+    await tester.pumpAndSettle();
+    expect(find.text('SECTION 1'), findsOneWidget);
+    expect(find.text('Mathematics'), findsNothing);
+    expect(find.text('Science'), findsNothing);
+    expect(find.text('Left blank'), findsWidgets);
+  });
+
+  testWidgets('a review row opens a viewer that moves through the current tab',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Left blank').first);
+    await tester.pumpAndSettle();
+    expect(find.text('1 of 11'), findsOneWidget);
+    expect(find.text('All questions'), findsOneWidget);
+    expect(find.text('Opt B'), findsOneWidget);
+  });
+
+  testWidgets('Free review has no notes affordance', (tester) async {
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.textContaining('Tell Pantas why you got each one wrong'),
+      findsNothing,
+    );
+    expect(find.text('Finish the Notes'), findsNothing);
+  });
+
+  testWidgets('Pro can save why a blank question was left unanswered',
+      (tester) async {
+    when(
+      () => attemptRepo.saveReviewReason(
+        attemptId: 'attempt_1',
+        questionId: 'q_2',
+        savedAt: any(named: 'savedAt'),
+        blankReason: BlankReason.didNotKnow,
+      ),
+    ).thenAnswer((_) async {});
+
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: true),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Left blank').first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Add note'));
+    await tester.pumpAndSettle();
+    expect(find.text('Why did you leave it blank?'), findsOneWidget);
+    await tester.tap(find.text("I didn't know it"));
+    await tester.pumpAndSettle();
+
+    verify(
+      () => attemptRepo.saveReviewReason(
+        attemptId: 'attempt_1',
+        questionId: 'q_2',
+        savedAt: any(named: 'savedAt'),
+        blankReason: BlankReason.didNotKnow,
+      ),
+    ).called(1);
+  });
+
+  testWidgets('Pro saves why an answered question was wrong', (tester) async {
+    final wrongAttempt = MockAttempt(
+      id: 'attempt_1',
+      userId: 'user_1',
+      examId: 'cse_prof',
+      blueprintId: 'bp_1',
+      blueprintName: 'UPCAT Full',
+      durationMinutes: 180,
+      status: MockAttemptStatus.completed,
+      strictMode: false,
+      sampledQuestionsJson: mockAttempt.sampledQuestionsJson,
+      elapsedSeconds: 3600,
+      accumulatedPausedSeconds: 0,
+      pausedAtLastFlush: false,
+      answersJson: jsonEncode({
+        'q_1': {'selectedIndex': 1, 'atSec': 10},
+        'q_2': {'selectedIndex': 0, 'atSec': 20},
+      }),
+      flagsJson: mockAttempt.flagsJson,
+      currentIndex: 0,
+      startedAt: DateTime.utc(2026, 8),
+      lastFlushedAt: DateTime.utc(2026, 8),
+      updatedAt: DateTime.utc(2026, 8),
+      scoreRaw: 1,
+      scoreTotal: 12,
+      submittedAt: DateTime.utc(2026, 8),
+    );
+    when(() => attemptRepo.findById('attempt_1'))
+        .thenAnswer((_) async => wrongAttempt);
+    when(
+      () => attemptRepo.saveReviewReason(
+        attemptId: 'attempt_1',
+        questionId: 'q_2',
+        savedAt: any(named: 'savedAt'),
+        missReason: MissReason.misread,
+      ),
+    ).thenAnswer((_) async {});
+
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: true),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Stem for q_2'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Add note'));
+    await tester.pumpAndSettle();
+    expect(find.text('Why did you miss it?'), findsOneWidget);
+    await tester.tap(find.text('I misread it'));
+    await tester.pumpAndSettle();
+
+    verify(
+      () => attemptRepo.saveReviewReason(
+        attemptId: 'attempt_1',
+        questionId: 'q_2',
+        savedAt: any(named: 'savedAt'),
+        missReason: MissReason.misread,
+      ),
+    ).called(1);
   });
 }
