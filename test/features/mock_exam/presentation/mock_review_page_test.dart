@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
@@ -8,7 +10,9 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/application/mock_review_providers.dart';
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
@@ -518,5 +522,176 @@ void main() {
         missReason: MissReason.misread,
       ),
     ).called(1);
+  });
+
+  Future<void> openFirstBlank(WidgetTester tester, {bool pro = false}) async {
+    await tester.pumpAppWithProviders(
+      MockReviewPage(attemptId: 'attempt_1', proIsActive: pro),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Stem for q_2'));
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('review keeps the passage needed to understand the question',
+      (tester) async {
+    final original = questions['q_2']!;
+    questions['q_2'] = original.copyWith(passageId: 'passage_1');
+    addTearDown(() => questions['q_2'] = original);
+    when(() => contentRepo.passageById('passage_1')).thenAnswer(
+      (_) async => const Passage(
+        id: 'passage_1',
+        topicId: 't_1',
+        title: 'The source passage',
+        body: 'This is the evidence needed to answer the question.',
+        language: 'en',
+        wordCount: 11,
+      ),
+    );
+    await openFirstBlank(tester);
+    expect(
+      find.text('This is the evidence needed to answer the question.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('review draws the diagram attached to the question',
+      (tester) async {
+    final original = questions['q_2']!;
+    questions['q_2'] = original.copyWith(
+      figureSpecJson:
+          '{"kind":"gear-train","gears":3,"firstTurns":"clockwise"}',
+    );
+    addTearDown(() => questions['q_2'] = original);
+    await openFirstBlank(tester);
+    expect(find.byType(GearTrainFigure), findsOneWidget);
+  });
+
+  testWidgets('Free can flag and unflag one reviewed question', (tester) async {
+    final saved = <String>{};
+    when(() => flagsRepo.isFlagged(any())).thenAnswer(
+      (call) async => saved.contains(call.positionalArguments.first),
+    );
+    when(() => flagsRepo.flaggedIds()).thenAnswer((_) async => Set.of(saved));
+    when(() => flagsRepo.flag(any())).thenAnswer((call) async {
+      saved.add(call.positionalArguments.first as String);
+    });
+    when(() => flagsRepo.unflag(any())).thenAnswer((call) async {
+      saved.remove(call.positionalArguments.first as String);
+    });
+    await openFirstBlank(tester);
+    await tester.tap(find.byTooltip('Flag question'));
+    await tester.pumpAndSettle();
+    expect(saved, {'q_2'});
+    expect(find.byTooltip('Unflag question'), findsOneWidget);
+    await tester.tap(find.byTooltip('Unflag question'));
+    await tester.pumpAndSettle();
+    expect(saved, isEmpty);
+    expect(find.byTooltip('Flag question'), findsOneWidget);
+  });
+
+  testWidgets('saved custom notes reopen for editing after saving',
+      (tester) async {
+    final submitted = mockAttempt;
+    String? savedNote;
+    when(() => attemptRepo.findById('attempt_1')).thenAnswer(
+      (_) async => MockAttempt(
+        id: submitted.id,
+        userId: submitted.userId,
+        examId: submitted.examId,
+        blueprintId: submitted.blueprintId,
+        blueprintName: submitted.blueprintName,
+        durationMinutes: submitted.durationMinutes,
+        status: submitted.status,
+        strictMode: submitted.strictMode,
+        sampledQuestionsJson: submitted.sampledQuestionsJson,
+        elapsedSeconds: submitted.elapsedSeconds,
+        accumulatedPausedSeconds: 0,
+        pausedAtLastFlush: false,
+        flagsJson: submitted.flagsJson,
+        currentIndex: 0,
+        startedAt: submitted.startedAt,
+        lastFlushedAt: submitted.lastFlushedAt,
+        updatedAt: submitted.updatedAt,
+        submittedAt: submitted.submittedAt,
+        answersJson: jsonEncode({
+          'q_1': {'selectedIndex': 1, 'atSec': 10},
+          'q_2': {
+            'selectedIndex': -1,
+            'atSec': 0,
+            'blankReason': 'other',
+            'reasonNote': savedNote ?? 'I need more time',
+          },
+        }),
+      ),
+    );
+    when(
+      () => attemptRepo.saveReviewReason(
+        attemptId: 'attempt_1',
+        questionId: 'q_2',
+        savedAt: any(named: 'savedAt'),
+        blankReason: BlankReason.other,
+        reasonNote: any(named: 'reasonNote'),
+      ),
+    ).thenAnswer((call) async {
+      savedNote = call.namedArguments[#reasonNote] as String?;
+    });
+    await openFirstBlank(tester, pro: true);
+    await tester.tap(find.byTooltip('Add note'));
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      'I need more time',
+    );
+    await tester.enterText(find.byType(TextField), 'I will return sooner');
+    await tester.ensureVisible(find.text('Save Note'));
+    await tester.tap(find.text('Save Note'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byTooltip('Add note'));
+    await tester.tap(find.byTooltip('Add note'));
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      'I will return sooner',
+    );
+  });
+  testWidgets(
+      'Finish the Notes waits for saved notes before opening the editor',
+      (tester) async {
+    final notes = Completer<Map<String, MockAnswer>>();
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: true),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+        mockReviewAnswersProvider('attempt_1')
+            .overrideWith((ref) => notes.future),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Finish the Notes'));
+    await tester.pumpAndSettle();
+    notes.complete({
+      'q_2': const MockAnswer(
+        selectedIndex: -1,
+        atSec: 0,
+        blankReason: BlankReason.other,
+        reasonNote: 'Saved before opening',
+      ),
+    });
+    await tester.pumpAndSettle();
+    expect(find.byType(TextField), findsOneWidget);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      'Saved before opening',
+    );
   });
 }

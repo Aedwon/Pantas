@@ -608,3 +608,39 @@ Family rerun after removing the superseded active-exam review-route assertion: `
 Aedwon's visual acceptance remains outstanding for the rebuilt W4e surfaces. These external/design
 and inter-family holds prevent a truthful family-complete claim; they do not reopen the finished
 W4e-owned native review, custom setup, or fresh-submission data contract above.
+
+
+## October 21 local continuation and scoped review corrections
+
+Exact user instruction in chat 01a15acf: "can you continue until completion? no need to use the relay, you have full access to local files and you're on codex". This authorizes local execution of the existing approved W4e scope. It does not substitute for the required CSE finale representation, human visual acceptance, or separate server ownership.
+
+Startup fetched origin and read current main AGENTS/WORKFLOW at 49b15889577b29cddd0c6a30ce81aff9a4774c22. The assigned W4e worktree was clean at ecbb6c76bbd11e3c23e6207b77b6d2bee919152c, four expected continuation commits ahead of matching remote b5da6f99e599ce71a040b82f5b698fb0f7a7b0f3. Integration remained 72629940aa8dccf54bff0c6c568a364e0f10916d; main application source was not changed. No unexpected drift, reset, merge, relay request, or UI automation occurred.
+
+Fresh baseline on ecbb6c76: `flutter test --no-pub --concurrency=1` exited 0, `08:54 +4147: All tests passed!`. Format checked 1479 files with zero changes; layering and attribution passed. Broad analysis reports only the existing accepted reader-family onReorder deprecation at bookmarks_sheet.dart:238:21, not a clean analyzer result.
+
+An independent read-only reviewer inspected b5da6f99..ecbb6c76 from the separate regression-baseline worktree. This was a bounded review of saved continuation slices, not the still-premature complete-family engineering audit. Three P2 findings were confirmed in source:
+
+- The new question viewer omitted hydrated passages and authored diagrams. It now uses existing QuestionCard with passage, figure, immutable choices and revealed answer state.
+- The replacement removed individual study-flag controls. Both tiers now retain a functional viewer flag/unflag action using the existing flag repository. Saved study flags remain distinct from the immutable marks made under the clock; bulk saving refreshes their state too.
+- Stored reasons/notes were never loaded into the editor. The existing snapshot decoder now supplies saved answers, preset selection and custom text; a successful save invalidates that data before reopening. The editor waits for saved data rather than mounting with an empty draft while it loads.
+
+Valid regression RED: four new viewer tests failed on absent passage text, absent gear painter, absent flag action and absent saved-note text field. After correction the original 14 tests plus all four regressions passed. A fifth regression reproduced the delayed-note load through Finish the Notes; after the loading gate, the final file passes 19/19. Logs: build/w4e/finish-review/review-regressions-red.log, review-regressions-green.log, notes-wait-red.log, review-regressions-final.log. The first attempted RED had a nonexistent test-fixture copyWith and was corrected before valid behavioral RED; it is not counted as regression evidence.
+
+The user has been asked whether this lead should also own the missing server reader on a separate working branch. No server changes are authorized by an unanswered question. Existing production web reader, CSE finale geometry, W4d caller/deletion, full-family audit and phone visual-acceptance holds remain unchanged. Verification closeout follows below.
+
+
+### Local continuation verification closeout
+
+Final frozen-source run: `flutter test --no-pub --concurrency=1`, exit 0, `08:14 +4152: All tests passed!` (review-fix-full-final.log). All five new regressions ran in that full run. A prior post-fix run overlapped deliberate regression-RED editing, compiled the intermediate delayed-note behavior, and failed that case; it was interrupted and is not acceptance evidence (review-fix-full-suite.log). The final run started only after production/test edits stopped, and the manifest below remained unchanged throughout it.
+
+Final focused review file: exit 0, `00:01 +19: All tests passed!` (review-regressions-final.log). Scoped analysis of all three changed Dart paths: exit 0, `No issues found! (ran in 1.9s)` (review-fix-scoped-analysis.log). Broad analysis: exit 1, exactly the existing accepted onReorder deprecation in the unchanged reader-family bookmarks sheet, `1 issue found. (ran in 4.5s)` (review-fix-broad-analysis-final.log). Do not describe broad analysis as clean. Formatting: exit 0, `Formatted 1479 files (0 changed)` (review-fix-format-check.log). Layering and attribution exit 0 with `check_layering: OK` and `check_no_ai_attribution: OK`. Whitespace check clean.
+
+Frozen source SHA256:
+
+```text
+a2700b31a19891bc94c9a7509b4d529281b3dfa64759fa582cbc1b4765757eda  lib/features/mock_exam/application/mock_review_providers.dart
+e434f48ab1a8d3f3d053d645a4a9c2e6b7cf297271bcb4655eaf63f60a7203f6  lib/features/mock_exam/presentation/pages/mock_review_page.dart
+e83c240352c217bf7c02379191d7f5f4351436886f811ddae922b01c38e2a1d0  test/features/mock_exam/presentation/mock_review_page_test.dart
+```
+
+The three scoped reviewer findings are corrected and verified. No deferred minor finding was reported. This completed bounded correction slice may be uploaded with the four saved reviewed native continuation commits. It is not Task6 motion completion, complete-family engineering acceptance, development integration, phone visual acceptance, live-server acceptance or publication. Current staging20692945380876e649045dd9f537db405e9d34c4 still exposes only startMock/getMockPaper/controlMock/submitMock; its completed reader remains absent. Root has not edited a server-owned branch or invented a local web authority. The current status/decision record on main was refreshed at67843ff3; a final status closeout records the pushed checkpoint and releases this continuation's lock.

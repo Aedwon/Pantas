@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/answer_reveal.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pennant_mark.dart';
 import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/components/question_card.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
@@ -37,10 +39,36 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
     final markedAsync =
         ref.watch(mockMarkedQuestionIdsProvider(widget.attemptId));
     final handledAsync = ref.watch(mockOfferHandledProvider(widget.attemptId));
+    final savedFlags = ref.watch(mockSavedFlagIdsProvider);
+    final savedAnswers = widget.proIsActive
+        ? ref.watch(mockReviewAnswersProvider(widget.attemptId))
+        : const AsyncData<Map<String, MockAnswer>>({});
+    final shown = reviewAsync.valueOrNull;
+    final filtered =
+        shown == null ? null : FilterReviewEntries.call(shown, _filter);
+    final index = _viewerIndex;
+    final viewed = index != null &&
+            filtered != null &&
+            index >= 0 &&
+            index < filtered.length
+        ? filtered[index]
+        : null;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(_viewerIndex == null ? 'Results' : 'All questions'),
+        actions: [
+          if (viewed != null && savedFlags.hasValue)
+            IconButton(
+              tooltip: savedFlags.requireValue.contains(viewed.question.id)
+                  ? 'Unflag question'
+                  : 'Flag question',
+              icon: PennantMark(
+                isSet: savedFlags.requireValue.contains(viewed.question.id),
+              ),
+              onPressed: () => _toggleFlag(viewed.question.id),
+            ),
+        ],
         leading: _viewerIndex == null
             ? null
             : IconButton(
@@ -56,13 +84,17 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
         data: (entries) {
           final filtered = FilterReviewEntries.call(entries, _filter);
           final viewerIndex = _viewerIndex;
-          if (viewerIndex != null && viewerIndex < filtered.length) {
+          if (viewerIndex != null &&
+              viewerIndex >= 0 &&
+              viewerIndex < filtered.length) {
             return _QuestionViewer(
               entries: filtered,
               index: viewerIndex,
               proIsActive: widget.proIsActive,
-              noteOpen: _noteOpen,
-              onNote: widget.proIsActive
+              noteOpen: _noteOpen && savedAnswers.hasValue,
+              savedAnswer:
+                  savedAnswers.valueOrNull?[filtered[viewerIndex].question.id],
+              onNote: widget.proIsActive && savedAnswers.hasValue
                   ? () => setState(() => _noteOpen = !_noteOpen)
                   : null,
               onPrevious: viewerIndex > 0
@@ -147,7 +179,21 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
       'mock_flag_offer_handled_${widget.attemptId}',
       'true',
     );
-    ref.invalidate(mockOfferHandledProvider(widget.attemptId));
+    if (!mounted) return;
+    ref
+      ..invalidate(mockOfferHandledProvider(widget.attemptId))
+      ..invalidate(mockSavedFlagIdsProvider);
+  }
+
+  Future<void> _toggleFlag(String questionId) async {
+    final repo = ref.read(questionFlagsRepositoryProvider);
+    final flagged = await repo.isFlagged(questionId);
+    if (flagged) {
+      await repo.unflag(questionId);
+    } else {
+      await repo.flag(questionId);
+    }
+    if (mounted) ref.invalidate(mockSavedFlagIdsProvider);
   }
 
   Future<void> _saveBlankReason(
@@ -162,7 +208,10 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           blankReason: reason,
           reasonNote: note,
         );
-    if (mounted) setState(() => _noteOpen = false);
+    if (mounted) {
+      ref.invalidate(mockReviewAnswersProvider(widget.attemptId));
+      setState(() => _noteOpen = false);
+    }
   }
 
   Future<void> _saveMissReason(
@@ -177,7 +226,10 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           missReason: reason,
           reasonNote: note,
         );
-    if (mounted) setState(() => _noteOpen = false);
+    if (mounted) {
+      ref.invalidate(mockReviewAnswersProvider(widget.attemptId));
+      setState(() => _noteOpen = false);
+    }
   }
 }
 
@@ -481,8 +533,10 @@ class _QuestionViewer extends StatelessWidget {
     required this.onNote,
     required this.onBlankReason,
     required this.onMissReason,
+    this.savedAnswer,
   });
 
+  final MockAnswer? savedAnswer;
   final List<ReviewEntry> entries;
   final int index;
   final bool proIsActive;
@@ -501,19 +555,13 @@ class _QuestionViewer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          PortableTextRenderer(text: entry.question.stem),
-          const SizedBox(height: 18),
-          for (final choice in entry.question.choices)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(width: 28, child: Text(choice.label)),
-                  Expanded(child: PortableTextRenderer(text: choice.text)),
-                ],
-              ),
-            ),
+          QuestionCard(
+            question: entry.question,
+            passage: entry.passage,
+            chosenChoiceId: entry.chosenChoiceId,
+            revealed: true,
+            onAnswer: null,
+          ),
           const SizedBox(height: 16),
           AnswerReveal(
             question: entry.question,
@@ -523,6 +571,8 @@ class _QuestionViewer extends StatelessWidget {
           if (noteOpen && proIsActive && !entry.isCorrect) ...[
             const SizedBox(height: 16),
             _ReasonPanel(
+              key: ValueKey(entry.question.id),
+              savedAnswer: savedAnswer,
               isBlank: !entry.isAnswered,
               onBlankReason: onBlankReason,
               onMissReason: onMissReason,
@@ -570,8 +620,11 @@ class _ReasonPanel extends StatefulWidget {
     required this.isBlank,
     required this.onBlankReason,
     required this.onMissReason,
+    super.key,
+    this.savedAnswer,
   });
   final bool isBlank;
+  final MockAnswer? savedAnswer;
   final Future<void> Function(BlankReason reason, String? note) onBlankReason;
   final Future<void> Function(MissReason reason, String? note) onMissReason;
 
@@ -580,8 +633,17 @@ class _ReasonPanel extends StatefulWidget {
 }
 
 class _ReasonPanelState extends State<_ReasonPanel> {
-  final TextEditingController _controller = TextEditingController();
-  bool _typing = false;
+  late final TextEditingController _controller;
+  late bool _typing;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        TextEditingController(text: widget.savedAnswer?.reasonNote ?? '');
+    _typing = widget.savedAnswer?.blankReason == BlankReason.other ||
+        widget.savedAnswer?.missReason == MissReason.other;
+  }
 
   @override
   void dispose() {
@@ -611,33 +673,43 @@ class _ReasonPanelState extends State<_ReasonPanel> {
           if (widget.isBlank) ...[
             _ReasonChoice(
               label: 'I ran out of time',
+              selected:
+                  widget.savedAnswer?.blankReason == BlankReason.ranOutOfTime,
               onTap: () => widget.onBlankReason(BlankReason.ranOutOfTime, null),
             ),
             _ReasonChoice(
               label: 'I skipped it to come back later',
+              selected: widget.savedAnswer?.blankReason ==
+                  BlankReason.skippedToReturn,
               onTap: () =>
                   widget.onBlankReason(BlankReason.skippedToReturn, null),
             ),
             _ReasonChoice(
               label: "I didn't know it",
+              selected:
+                  widget.savedAnswer?.blankReason == BlankReason.didNotKnow,
               onTap: () => widget.onBlankReason(BlankReason.didNotKnow, null),
             ),
           ] else ...[
             _ReasonChoice(
               label: 'I misread it',
+              selected: widget.savedAnswer?.missReason == MissReason.misread,
               onTap: () => widget.onMissReason(MissReason.misread, null),
             ),
             _ReasonChoice(
               label: 'I knew it, I just slipped',
+              selected: widget.savedAnswer?.missReason == MissReason.slipped,
               onTap: () => widget.onMissReason(MissReason.slipped, null),
             ),
             _ReasonChoice(
               label: "I didn't know it",
+              selected: widget.savedAnswer?.missReason == MissReason.unknown,
               onTap: () => widget.onMissReason(MissReason.unknown, null),
             ),
           ],
           _ReasonChoice(
             label: 'Type my own',
+            selected: _typing,
             onTap: () => setState(() => _typing = true),
           ),
           if (_typing) ...[
@@ -664,16 +736,35 @@ class _ReasonPanelState extends State<_ReasonPanel> {
 }
 
 class _ReasonChoice extends StatelessWidget {
-  const _ReasonChoice({required this.label, required this.onTap});
+  const _ReasonChoice({
+    required this.label,
+    required this.onTap,
+    this.selected = false,
+  });
   final String label;
   final VoidCallback onTap;
+  final bool selected;
 
   @override
-  Widget build(BuildContext context) => InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Text(label),
+  Widget build(BuildContext context) => Semantics(
+        selected: selected,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              children: [
+                Icon(
+                  selected
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_unchecked,
+                  size: 22,
+                ),
+                const SizedBox(width: 12),
+                Expanded(child: Text(label)),
+              ],
+            ),
+          ),
         ),
       );
 }

@@ -5,6 +5,8 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_snapshot.dart';
 
 /// Every question in one finished mock attempt, in paper order.
 ///
@@ -95,3 +97,23 @@ class _ContentLookup {
     return _passages[id] = await _content.passageById(id);
   }
 }
+
+/// Saved notes use the same decoder as the submitted snapshot.
+final mockReviewAnswersProvider =
+    FutureProvider.family<Map<String, MockAnswer>, String>(
+        (ref, attemptId) async {
+  final attempt = await ref.watch(mockAttemptRepoProvider).findById(attemptId);
+  if (attempt == null) return const {};
+  return const MockSessionSnapshotCodec()
+      .decode(
+        sampledQuestionsJson: attempt.sampledQuestionsJson,
+        answersJson: attempt.answersJson,
+        flagsJson: attempt.flagsJson,
+      )
+      .answers;
+});
+
+/// Saved study flags are separate from immutable marks made under the clock.
+final mockSavedFlagIdsProvider = FutureProvider<Set<String>>(
+  (ref) => ref.watch(questionFlagsRepositoryProvider).flaggedIds(),
+);
