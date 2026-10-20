@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-20 20:40 Asia/Manila (W4c engineering closeout)
+State: held
+Holder: Codex W4e finish/review, chat 01a1595f
+Since: 2026-10-20 20:55 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -935,3 +935,8 @@ Full log SHA256c896490d1a97e14e27196cea899a1a49e57e0175b2bf22a2edcbbb2c1443a482.
 Integration initially reported seven analyzer findings in an installed Firebase CLI Dart template (six errors, one warning), not app source. Root recorded narrow L3 ownership before the one-line functions/node_modules/** analyzer exclusion. Strict settings and owned source scope are unchanged. The same installed template files remain byte-identical; full analysis changed from seven findings to zero. No baseline exception, dependency deletion or hidden template alteration. Actual failed analysis logea07a6d196eb2ab92e00e351fa692244336cac52465a28be1bd8db95e97e506f remains preserved. Source97c4e0f1 fixes behavior; final72629940 adds only this scope hygiene and its evidence.
 
 Acceptance state: implemented/reviewed/tested/development-integrated/uploaded for engineering. Android/iPhone visual acceptance, live PWA/C7/server verification, remaining launch integration and release/deployment are unverified separate stages. No screenshots, autonomous visual acceptance or publication. Keep C and integration worktrees and actual ignored logs for pending QA. Other W4 families remain at their existing checkpoints; this request did not start W4b. Status lock released.
+
+
+### October20: W4e finish/review resumed
+
+Exact user instruction: "Finish/review W4e". Current policy main23c5be4e was retrieved. W4e local and remote match b5da6f99 with a clean worktree; integration matches72629940. This continuation owns W4e only and preserves other workstreams. The October20 approved visible choices and board rulings control. Two relay runners are online/idle. Required server-owned completed results/history/review/eligibility reader remains absent from the current staging handoff. Finish independent approved presentation and review actual session/data behavior; do not invent that reader or claim family acceptance before dependencies and final checks. No integration, visual acceptance or publication is claimed.
