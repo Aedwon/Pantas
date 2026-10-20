@@ -11,8 +11,8 @@ Controlling documents:
 ## Lock
 
 State: held
-Holder: Codex W4e finish/review, chat 01a1595f
-Since: 2026-10-20 20:55 Asia/Manila
+Holder: Codex W4e local continuation, chat 01a15acf
+Since: 2026-10-21 03:59 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -37,7 +37,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9 | Codex | finish/review active from clean pushedb5da6f99; approved paper/pause/custom and server-session corrections under renewed focused checks; isolated results/rest checkpointf8ec4ced (32focused passes, no combined acceptance), Task7 active; complete finale needs CSE representation/re-plan; server completed-result/review/eligibility reader pending |
+| A4 | W4e Tasks3–9 | Codex | local continuation at ecbb6c76 (four expected commits ahead of remote b5da6f99); native results/review/submission slices saved; independent scoped review found missing passage/figure, individual flags and saved-note hydration, now corrected in a 19-test passing draft; full verification running; CSE finale representation and server completed-result/review/eligibility reader still pending; no family acceptance/integration |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
@@ -940,3 +940,14 @@ Acceptance state: implemented/reviewed/tested/development-integrated/uploaded fo
 ### October20: W4e finish/review resumed
 
 Exact user instruction: "Finish/review W4e". Current policy main23c5be4e was retrieved. W4e local and remote match b5da6f99 with a clean worktree; integration matches72629940. This continuation owns W4e only and preserves other workstreams. The October20 approved visible choices and board rulings control. Two relay runners are online/idle. Required server-owned completed results/history/review/eligibility reader remains absent from the current staging handoff. Finish independent approved presentation and review actual session/data behavior; do not invent that reader or claim family acceptance before dependencies and final checks. No integration, visual acceptance or publication is claimed.
+
+
+### October21: W4e local continuation
+
+Exact user instruction in chat01a15acf: "can you continue until completion? no need to use the relay, you have full access to local files and you're on codex". Local execution replaces the relay for this continuation. Current policy49b15889 read after fetch. The old lock was stale and is reclaimed by this chat.
+
+W4e worktree was clean at ecbb6c76, four expected continuation commits ahead of remote b5da6f99. Main matches49b15889; integration matches72629940. Native stored-attempt review and submission/finale data are saved, but complete finale motion, production web reader, W4d caller/deletion and phone visual acceptance remain required. No unexpected drift or destructive reconciliation.
+
+Fresh baseline full suite4147 passes. An independent read-only scoped review found three Task7 regressions: omitted passages/diagrams, missing individual study-flag controls and missing saved-note hydration. Root reproduced all three with four failing regressions and corrected them; a fifth test covers delayed saved-note loading. Final focused19 tests pass, scoped analysis is clean. Broad analysis retains the recorded reader-family deprecation. Full corrected-candidate verification is running; no family audit, acceptance, integration, deployment or publication is claimed.
+
+The server reader remains separately owned; the user has been asked whether this lead should take ownership on a separate working branch. An unanswered question does not authorize it. The CSE finale still requires an approved faithful visual representation. Preserve these holds and every existing workstream's source.

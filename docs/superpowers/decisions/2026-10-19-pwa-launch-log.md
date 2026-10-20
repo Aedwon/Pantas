@@ -1374,3 +1374,12 @@ MK_Sheet (per-part count "13 of 60", "Opens when this part starts.", footer "Tap
 this part to go to it."); Next uses the MK_Paper slide (0.38 s, 40 px, Cubic(0.2, 0.9, 0.3, 1)); the
 pause warning gets MK_PauseWarn's "Don't show this again" checkbox and stores it (today the flag is
 never set); the results page uses the MK_Results gauge (264x128, 56 pt, one decimal).
+
+
+### October21: W4e local continuation authorized
+
+Aedwon's exact instruction:
+
+> can you continue until completion? no need to use the relay, you have full access to local files and you're on codex
+
+Continue the existing approved W4e scope locally. This changes the execution path, not product scope, the application-main freeze, the server workstream's ownership or human visual acceptance. No new complexity menu is needed for corrections within settled W4e requirements. Reconciliation found clean local ecbb6c76, four expected commits ahead of remote b5da6f99; main49b15889 and integration72629940 match GitHub. Root requested one independent read-only review of the saved continuation slices and reproduced/corrected three review-screen regressions with tests first. The full-family audit remains deferred until required inputs exist. The user has been asked whether root should also own the missing server reader on a separate working branch; that answer is pending. CSE finale fidelity still needs a faithful proposal and Aedwon's approval before implementation differences.
