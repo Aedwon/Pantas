@@ -10,8 +10,8 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: Codex W4e local continuation, chat 01a15acf
+State: free
+Holder: none
 Since: 2026-10-21 03:59 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
@@ -37,7 +37,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9 | Codex | local continuation at ecbb6c76 (four expected commits ahead of remote b5da6f99); native results/review/submission slices saved; independent scoped review found missing passage/figure, individual flags and saved-note hydration, now corrected in a 19-test passing draft; full verification running; CSE finale representation and server completed-result/review/eligibility reader still pending; no family acceptance/integration |
+| A4 | W4e Tasks3–9 | Codex | reviewed native continuation/corrections uploaded at00b0f1e2;4152full and19focused tests pass, changed-code analysis clean, format/layering/attribution pass; one recorded reader-family analyzer notice remains; CSE finale representation, server completed-result/review/eligibility reader, W4d caller/deletion and phone visuals pending; no family acceptance/integration |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
@@ -951,3 +951,12 @@ W4e worktree was clean at ecbb6c76, four expected continuation commits ahead of 
 Fresh baseline full suite4147 passes. An independent read-only scoped review found three Task7 regressions: omitted passages/diagrams, missing individual study-flag controls and missing saved-note hydration. Root reproduced all three with four failing regressions and corrected them; a fifth test covers delayed saved-note loading. Final focused19 tests pass, scoped analysis is clean. Broad analysis retains the recorded reader-family deprecation. Full corrected-candidate verification is running; no family audit, acceptance, integration, deployment or publication is claimed.
 
 The server reader remains separately owned; the user has been asked whether this lead should take ownership on a separate working branch. An unanswered question does not authorize it. The CSE finale still requires an approved faithful visual representation. Preserve these holds and every existing workstream's source.
+
+
+### October21: W4e bounded native corrections verified and uploaded
+
+Checkpoint00b0f1e2b55fd7e3574d2b663ccbba5d540d0a6f is uploaded normally to web/new-design-w4e-r1; the full GitHub SHA matches the intended local head and the tree is clean. This preserves and uploads the four earlier continuation commits plus the independently reviewed correction slice. Native question review again includes passages/diagrams, individual Free/Pro study-flag controls and existing saved-note editing. Root verified all three scoped findings with valid RED→GREEN tests, plus delayed-note loading.
+
+Frozen final full suite: exit0,08:14 +4152 All tests passed. Final focused19 tests pass. Scoped analysis No issues found. Format1479files/0changes, layering, attribution (including committed message) and whitespace pass. Broad analysis retains exactly one recorded reader-family onReorder deprecation; it is not clean. An earlier run overlapped deliberate RED editing and failed the delayed-note case; it was interrupted, excluded, and replaced by the complete frozen-source run. Detailed hashes, commands and logs remain in existing W4e evidence.
+
+This is bounded native engineering verification, not W4e family completion. The required server reader is still absent from staging20692945. Root awaits the user's answer on expanding server ownership to a separate working branch. The complete finale still needs lead re-planning and an approved faithful CSE representation. W4d owns the Quiz caller needed before deleting MockPanel. Full-family engineering audit, integration, Android/iPhone visual acceptance, live PWA checks and publication remain pending. No main application source, server-owned branch or unrelated workstream was changed. Release this continuation's lock while the required ownership/design inputs remain outstanding; retain its worktrees and evidence.
