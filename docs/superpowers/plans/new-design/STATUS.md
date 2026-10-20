@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | re-audit2 complete onf93743f4; one Important queued-position Retry finding; narrow correction active, then renewed gates/lead closure; no source upload/integration yet |
+| A1 | W4c audit, fixes, verification, integration | Codex | re-audit2 correction frozenf34da8b2 onf93743f4+2dirty source/test paths;101 affected tests/static clean; full serial suite11124 running; lead closure/upload/integration pending |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
