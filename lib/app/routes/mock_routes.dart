@@ -2,7 +2,6 @@
 
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_route.dart';
-import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/server_mock_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
@@ -72,11 +71,21 @@ List<RouteBase> mockRoutes(Ref ref) => [
       GoRoute(
         path: '/mock/review/:attemptId',
         builder: (_, state) => Consumer(
-          builder: (_, ref, __) => MockReviewPage(
-            attemptId: state.pathParameters['attemptId']!,
-            proIsActive:
-                ref.watch(proForActiveExamProvider).valueOrNull ?? false,
-          ),
+          builder: (_, ref, __) {
+            final attemptId = state.pathParameters['attemptId']!;
+            final access = ref.watch(mockReviewAccessProvider(attemptId));
+            final granted = access.valueOrNull;
+            if (granted == null || !granted.canReview) {
+              return MockResultsRoute(
+                attemptId: attemptId,
+                fromRecord: true,
+              );
+            }
+            return MockReviewPage(
+              attemptId: attemptId,
+              proIsActive: granted.proCovered,
+            );
+          },
         ),
       ),
     ];

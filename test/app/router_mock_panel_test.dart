@@ -129,7 +129,6 @@ void main() {
     for (final route in [
       '/quiz',
       '/quiz/flagged/upcat',
-      '/mock/review/mock_local',
     ]) {
       testWidgets('route $route uses active-exam coverage $covered',
           (tester) async {

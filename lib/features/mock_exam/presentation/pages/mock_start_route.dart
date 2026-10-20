@@ -26,6 +26,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.da
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_preparation_page.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:uuid/uuid.dart';
 
@@ -523,8 +524,26 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         debugPrint('Mock answers not recorded yet: $error\n$stackTrace');
       }
       if (mounted) {
+        final controller = _controller!;
+        final finaleInput = buildMockFinaleInput(
+          reason: reason,
+          questionIds: snapshot.questionIds,
+          partRanges: [
+            for (final part in controller.parts)
+              (
+                name: part.name,
+                startIndex: part.startIndex,
+                count: part.count,
+              ),
+          ],
+          questionsById: questionsById,
+          answers: snapshot.answers,
+          currentPartIndex: controller.currentPartIndex,
+          currentQuestionIndex: snapshot.currentIndex,
+        );
         context.pushReplacement(
-          '/mock/results/${snapshot.attemptId}?fresh=1&endedPart=${_controller!.currentPartIndex + 1}',
+          '/mock/results/${snapshot.attemptId}?fresh=1&endedPart=${controller.currentPartIndex + 1}',
+          extra: finaleInput,
         );
       }
     } catch (e) {

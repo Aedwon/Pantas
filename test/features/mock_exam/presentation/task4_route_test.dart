@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -105,6 +106,12 @@ Future<_Fixture> _open(
         builder: (_, state) {
           expect(state.uri.queryParameters['fresh'], '1');
           expect(state.uri.queryParameters['endedPart'], '1');
+          final finale = state.extra as MockFinaleInput?;
+          expect(finale, isNotNull);
+          expect(finale!.reason, MockSubmitReason.manual);
+          expect(finale.currentPartIndex, 0);
+          expect(finale.parts, hasLength(1));
+          expect(finale.parts.single.questions.map((q) => q.id), ['q1', 'q2']);
           return const Scaffold(body: Text('Results'));
         },
       ),

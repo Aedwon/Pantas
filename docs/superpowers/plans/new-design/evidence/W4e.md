@@ -555,3 +555,56 @@ Open items and exact reasons are in the builder report to the lead:
   "See full record" has no destination board.
 - Task 7 (All questions review) not started.
 - Web results, history, review and card availability wait for the server reader.
+
+## October 21 finish/review continuation checkpoint
+
+The lead resumed the existing `web/new-design-w4e-r1` worktree rather than restarting W4e.
+Recovered local checkpoints were `33fc4d13`, `d7442bb4`, and then verified/committed Task 7 as
+`49616b59` (`Finish stored-attempt mock review`). Focused review/access tests passed 17/17; scoped
+analyzer, formatting, layering, attribution, and whitespace checks were clean before that commit.
+
+This continuation closed two native correctness gaps with tests first:
+
+- Historical `/mock/review/:attemptId` now uses feature-owned per-attempt access, including the
+  stored attempt's tier coverage. The active selected exam no longer grants or removes historical
+  paid-note entitlement. Direct review also cannot bypass the stored review lifetime; a denied or
+  unresolved access path returns to the results route, which owns the existing loading/locked state.
+- Fresh native submission now constructs the immutable finale input from the actual saved snapshot,
+  frozen part ranges, scoring questions, answers, current part/cursor, and terminal reason after
+  scoring/saving, and passes it through GoRouter `extra` with `fresh=1`. Retired questions are
+  excluded consistently with scoring, the cursor is adjusted by retained ids before the original
+  cursor, empty original parts remain, and an all-retired paper omits finale input instead of
+  synthesizing outcomes. Historical results cannot reconstruct this payload.
+
+Valid RED evidence: the historical review route first rendered `proIsActive=false` despite stored
+coverage and allowed an expired direct review; the native submit route first reached results with
+`state.extra == null`; the finale-builder tests first failed because the builder did not exist.
+After the fixes, `mock_result_destination_test.dart`, `task4_route_test.dart`, and
+`mock_finale_test.dart` pass together (9 tests). Final scoped verification on the six changed
+source/test paths reports format 0 changes, analyzer `No issues found`, those 9 tests passing,
+`check_layering: OK`, `check_no_ai_attribution: OK`, and clean `git diff --check`.
+
+Task 8 custom-track setup was re-audited rather than rewritten: the in-place Questions/Time wheels,
+saved-value reopening, section breakdown, held-Save sentence, corpus ceiling/correction action,
+dark/light 200% behavior, persistence, and sampler round-trip pass 26 focused tests.
+
+Required holds that this family must not bypass:
+
+1. Production web card availability and completed results/history/review still require the
+   Claude/server-owned reader for next eligibility, result fields, and tier-filtered review data.
+   No guessed endpoint or local authority was added.
+2. The complete finale motion remains stopped by the approved fidelity ruling: launch CSE has
+   155/145-question one-clock papers, while the approved motion board draws a different sampled
+   four-part geometry. Packing/card height/path assignment/impact geometry for the launch counts
+   has no faithful drawn representation. The real submission payload is now available, but no
+   generalized or shortened substitute was introduced.
+3. Task 9 cannot delete the old `MockPanel` yet because W4d Task 2 explicitly owns passing W4e's
+   `MockCard` into the Quiz tab widget slot. Current production routing still calls `MockPanel`;
+   deleting it here would break production and take W4d ownership. The other named obsolete W4e
+   presentation candidates audited here are already absent.
+
+Family rerun after removing the superseded active-exam review-route assertion: `test/app/router_mock_panel_test.dart` passes 7/7 and `test/features/mock_exam test/app` passes 547/547. The first family run failed only the two obsolete review cases; production was unchanged for that correction.
+
+Aedwon's visual acceptance remains outstanding for the rebuilt W4e surfaces. These external/design
+and inter-family holds prevent a truthful family-complete claim; they do not reopen the finished
+W4e-owned native review, custom setup, or fresh-submission data contract above.
