@@ -4,25 +4,50 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_page.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 class MockResultsRoute extends ConsumerWidget {
   const MockResultsRoute({
     required this.attemptId,
+    this.fresh = false,
+    this.finaleInput,
+    this.endedPart,
+    this.fromRecord = false,
     super.key,
   });
 
   final String attemptId;
+  final bool fresh;
+  final MockFinaleInput? finaleInput;
+  final int? endedPart;
+  final bool fromRecord;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final entry = ref.watch(mockResultsProvider(attemptId));
     final proIsActive =
         ref.watch(proForActiveExamProvider).valueOrNull ?? false;
+    final access = ref.watch(mockReviewAccessProvider(attemptId));
+    final earlier = ref.watch(mockEarlierResultsProvider(attemptId));
+    final paused = ref.watch(entitlementProvider).valueOrNull?.state ==
+        EntitlementState.paused;
+    if (access.isLoading) return Scaffold(body: loadingFor(access));
+    if (access.hasError) {
+      return Scaffold(
+        body: errorFor(
+          'mock results',
+          () => ref.invalidate(mockReviewAccessProvider(attemptId)),
+          error: access.error,
+        ),
+      );
+    }
     return entry.when(
       loading: () => Scaffold(body: loadingFor(entry)),
       error: (error, stack) => Scaffold(
@@ -42,31 +67,30 @@ class MockResultsRoute extends ConsumerWidget {
         return MockResultsPage(
           results: entry.results,
           proIsActive: proIsActive,
+          examId: attempt.examId,
+          canReview: access.valueOrNull?.canReview ?? false,
+          reviewUntil: access.valueOrNull?.reviewUntil?.toLocal(),
+          proPaused: paused,
+          fromRecord: fromRecord,
+          forfeitedPart: endedPart,
+          onDone: () => context.pop(),
+          onSeePro: () => context.push('/settings/pro'),
+          pastResults: [
+            for (final previous in earlier.valueOrNull ?? <MockHistoryEntry>[])
+              MockPastPoint(
+                percent: previous.results.percent,
+                label: PantasDates.short(
+                  previous.attempt.submittedAt!.toLocal(),
+                ),
+              ),
+          ],
           blueprintName: attempt.blueprintName,
-          dateFormatted: _formatDate(attempt.startedAt),
+          dateFormatted: PantasDates.heading(attempt.startedAt.toLocal()),
           forfeited: attempt.status == MockAttemptStatus.forfeited,
           onReviewTap: () => context.push('/mock/review/$attemptId'),
         );
       },
     );
-  }
-
-  String _formatDate(DateTime date) {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return '${date.day} ${months[date.month - 1]} ${date.year}';
   }
 }
 

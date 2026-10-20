@@ -1,120 +1,126 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_page.dart';
 
-Widget resultsHarness({
-  int raw = 82,
-  int total = 120,
-  ScoreBand? band = ScoreBand.close,
-  bool proIsActive = false,
+const result = MockResults(
+  scoreRaw: 171,
+  scoreTotal: 250,
+  percent: 61.2,
+  sections: [
+    SectionResult(
+      sectionId: 's',
+      name: 'Mathematics',
+      correct: 171,
+      wrong: 72,
+      blank: 7,
+      total: 250,
+      retiredCount: 0,
+      timeSeconds: 60,
+    ),
+  ],
+  topWeak: [],
+  totalTimeSeconds: 60,
+  wasStrict: true,
+);
+Widget harness({
+  bool pro = false,
+  bool canReview = true,
+  bool paused = false,
   bool forfeited = false,
-  String blueprintName = 'UPCAT full length',
-  String dateFormatted = '2 August 2026',
-  String sectionName = 'Part 1',
-  TextScaler textScaler = TextScaler.noScaling,
-}) {
-  return MaterialApp(
-    theme: buildLightTheme(),
-    builder: (context, child) => MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaler: textScaler),
-      child: child!,
-    ),
-    home: MockResultsPage(
-      results: MockResults(
-        scoreRaw: raw,
-        scoreTotal: total,
-        percent: total > 0 ? (raw / total * 100) : 0,
-        band: band,
-        sections: [
-          SectionResult(
-            sectionId: 's1',
-            name: sectionName,
-            correct: 82,
-            total: 120,
-            retiredCount: 0,
-            timeSeconds: 3600,
-          ),
-        ],
-        topWeak: const [
-          WeakTopic(topicId: 'topic_a', correct: 10, total: 30),
-        ],
-        totalTimeSeconds: 3600,
-        wasStrict: false,
-      ),
-      proIsActive: proIsActive,
-      blueprintName: blueprintName,
-      dateFormatted: dateFormatted,
-      forfeited: forfeited,
-      disableAnimations: true,
-    ),
-  );
-}
-
-void main() {
-  testWidgets('the header carries the name and the date, never a duration',
-      (tester) async {
-    await tester.pumpWidget(resultsHarness());
-    await tester.pumpAndSettle();
-
-    expect(find.text('UPCAT full length'), findsOneWidget);
-    expect(find.text('2 August 2026'), findsOneWidget);
-    expect(find.textContaining('3 hours'), findsNothing);
-  });
-
-  testWidgets('the review row stands alone with no heading above it',
-      (tester) async {
-    await tester.pumpWidget(resultsHarness());
-    await tester.pumpAndSettle();
-
-    expect(find.text('Go through all 120 questions'), findsOneWidget);
-    expect(find.text('Review'), findsNothing);
-  });
-
-  testWidgets('Practice these next rows carry a chevron and no verb',
-      (tester) async {
-    await tester.pumpWidget(resultsHarness());
-    await tester.pumpAndSettle();
-
-    expect(find.text('Practice these next'), findsOneWidget);
-    expect(find.textContaining('Practice these next'), findsOneWidget);
-    expect(find.text('Practice'), findsNothing);
-    expect(find.text('Start'), findsNothing);
-  });
-
-  testWidgets('the copy never says paper, sit, marks or borderline',
-      (tester) async {
-    await tester.pumpWidget(resultsHarness());
-    await tester.pumpAndSettle();
-    for (final word in ['paper', 'Borderline', 'borderline', 'marks', '—']) {
-      expect(find.textContaining(word), findsNothing);
-    }
-  });
-
-  testWidgets('results fit 320 and 360dp at 200 percent text', (tester) async {
-    tester.view.devicePixelRatio = 2;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-
-    for (final width in [320.0, 360.0]) {
-      await tester.pumpWidget(const SizedBox.shrink());
-      await tester.pump();
-      tester.view.physicalSize = Size(width * 2, 1136);
-      await tester.pumpWidget(
-        resultsHarness(
-          blueprintName: 'UPCAT full length mock',
-          sectionName: 'Numerical Ability',
-          textScaler: const TextScaler.linear(2),
+  bool dark = false,
+  double scale = 1,
+  VoidCallback? done,
+}) =>
+    MaterialApp(
+      theme: dark ? buildDarkTheme() : buildLightTheme(),
+      home: MediaQuery(
+        data: MediaQueryData(
+          disableAnimations: true,
+          textScaler: TextScaler.linear(scale),
         ),
-      );
-      await tester.pumpAndSettle();
-      await tester.drag(find.byType(ListView), const Offset(0, -420));
-      await tester.pumpAndSettle();
-
-      expect(tester.takeException(), isNull, reason: '$width dp');
-      expect(find.text('Numerical Ability'), findsOneWidget);
-      expect(find.text('60m'), findsOneWidget);
+        child: MockResultsPage(
+          results: result,
+          examId: 'exam_upcat',
+          proIsActive: pro,
+          proPaused: paused,
+          canReview: canReview,
+          forfeited: forfeited,
+          forfeitedPart: 3,
+          reviewUntil: DateTime(2026, 10, 17),
+          blueprintName: 'UPCAT simulation',
+          dateFormatted: 'Saturday, Oct 3',
+          onReviewTap: () {},
+          onDone: done,
+          onSeePro: () {},
+        ),
+      ),
+    );
+void main() {
+  testWidgets('approved score uses the mock gauge and stored deduction',
+      (t) async {
+    await t.pumpWidget(harness());
+    await t.pumpAndSettle();
+    expect(find.text('61.2'), findsOneWidget);
+    expect(find.text('171 correct, minus 18 wrong'), findsOneWidget);
+    expect(find.text('PERFORMANCE BREAKDOWN'), findsOneWidget);
+    expect(find.text('171 / 250'), findsOneWidget);
+    expect(find.text('Practice these next'), findsNothing);
+    expect(find.textContaining('Reopens in 7 days'), findsNothing);
+    expect(find.text('VERSUS PAST RESULTS'), findsNothing);
+    final gauge = find.byKey(const ValueKey('half-ring-paint'));
+    expect(t.getSize(gauge), const Size(264, 128));
+    final text = t.widget<Text>(find.text('61.2'));
+    expect(text.style!.fontSize, 56);
+    expect(find.byType(HalfRingGauge), findsOneWidget);
+  });
+  testWidgets('Free window is explicit and locked results keep breakdown',
+      (t) async {
+    await t.pumpWidget(harness());
+    await t.pumpAndSettle();
+    expect(
+      find.textContaining('next mock opens on Sat, Oct 17.'),
+      findsOneWidget,
+    );
+    await t.pumpWidget(harness(canReview: false));
+    await t.pumpAndSettle();
+    expect(
+      find.text('Go through all 250 questions again with Pro.'),
+      findsOneWidget,
+    );
+    expect(find.text('See all 250 questions'), findsNothing);
+    expect(find.text('See Pro'), findsOneWidget);
+    expect(find.text('PERFORMANCE BREAKDOWN'), findsOneWidget);
+  });
+  testWidgets('paused Pro uses the shared line', (t) async {
+    await t.pumpWidget(harness(canReview: false, paused: true));
+    await t.pumpAndSettle();
+    expect(find.text('Connect once to keep using Pro.'), findsOneWidget);
+    expect(find.text('See Pro'), findsNothing);
+  });
+  testWidgets('not finished scores answered work and Done returns origin',
+      (t) async {
+    var done = false;
+    await t.pumpWidget(harness(forfeited: true, done: () => done = true));
+    await t.pumpAndSettle();
+    expect(find.text('Not finished'), findsOneWidget);
+    expect(find.textContaining('during Part 3'), findsOneWidget);
+    await t.tap(find.text('Done'));
+    expect(done, isTrue);
+  });
+  testWidgets('light dark and large text fit phone widths', (t) async {
+    t.view.devicePixelRatio = 1;
+    addTearDown(t.view.resetPhysicalSize);
+    addTearDown(t.view.resetDevicePixelRatio);
+    for (final dark in [false, true]) {
+      for (final width in [320.0, 390.0]) {
+        t.view.physicalSize = Size(width, 844);
+        await t.pumpWidget(harness(dark: dark, scale: 2));
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+      }
     }
   });
 }
