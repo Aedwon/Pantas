@@ -2326,3 +2326,25 @@ Root independently verified the frozen patch, both source/test hashes and every 
 ### Lead disposition
 
 The sole Important/P2 re-audit finding is closed by exact source/data review, meaningful RED-to-GREEN,101affected passes and the new complete4225pass suite. No unresolved engineering finding remains in W4c Tasks1 through9. The full-family independent audit was not repeated merely to confirm its covering tests. Scoped commit/normal upload and development integration follow under existing permissions. Aedwon still owns Android/iPhone visual acceptance. Live PWA/C7/server verification, main application integration, release and deployment remain separate stages. No screenshot, autonomous visual review, other-family source edit or publication occurred. Keep source worktree and actual logs for pending QA.
+
+
+## October20 integration analyzer dependency exclusion
+
+Policy and pre-edit L3 authority: main8ab0a565dff48aa29843e777262dce0b86001e3e.
+Relay reconciliation confirmed clean C97c4e0f116554427a2b39e840e1d5c83244c8b4d,
+matching its remote. Read actual integration analysis read-only:7issues,
+all inside functions/node_modules/firebase-tools/templates/init/functions/dart.
+This includes unresolved sample-package imports and a missing sample lints include.
+Log .dart_tool/w4c-integration-analysis.log in the integration worktree, SHA256
+ea07a6d196eb2ab92e00e351fa692244336cac52465a28be1bd8db95e97e506f.
+Actual result:7issues found,6.7s. This is RED, not an accepted baseline.
+
+Added exactly functions/node_modules/** to analyzer.exclude. A byte-for-byte
+comparison after removing that one inserted line equals the original configuration.
+All strict/error/linter settings and existing exclusions remain unchanged.
+No owned source, test, runtime input, dependency or template changed.
+The existing4225full and1163integration test evidence remains applicable to those
+unchanged inputs. No Flutter/Dart checks or tests ran from C for this correction.
+Lead reviews the one-line diff and renews full analysis/static gates in the actual
+installed integration environment before publication. Clean integration analysis
+is not claimed here. This change is saved locally only; no push or merge.
