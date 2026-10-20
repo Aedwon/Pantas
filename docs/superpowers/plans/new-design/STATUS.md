@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | audit1 complete; resuming seven Important corrections from saved four-path draft at f495a8dd, then requested independent re-audit and integration; post7223 source remains local until verified |
+| A1 | W4c audit, fixes, verification, integration | Codex | fix pass saved locallyf93743f4;4221 full tests and clean static gates verified; requested fresh independent re-audit active; no source upload/integration yet |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
@@ -840,3 +840,28 @@ One bounded implementor owns existing W4c source/tests/evidence; lead owns indep
 data review, final acceptance and integration. W4b/W4d and Claude-owned W4e/server branches
 remain outside this request. No source upload, integration, phone acceptance or publication
 is claimed by this resumption.
+
+
+### October20: W4c correction candidate verified, re-audit active
+
+Implementor completed the bounded audit1 fix pass at localf93743f48282967c3365e17efae11bdd908a17bf,
+clean/ahead8 of remote7223e931. All seven accepted findings are corrected. Lead review during
+this pass also reproduced and corrected stale activity Retry crossing lessons, bookmark action
+revival after A-to-B-to-A, a pending visibility rejection leaving a stationary body unread,
+retained position Retry overwriting the old lesson with the next offset, and retained resume
+Retry jumping the next lesson. Immutable original intents and local activation guards preserve
+the existing deliberate outgoing/disposal position saves. Failed storage does not loop retries.
+
+Actual final command `flutter test --no-pub --reporter expanded --concurrency=1`: exit0,
+`08:28 +4221: All tests passed!`. Analysis clean3.6s; format1462files/0changes; layering,
+attribution and postcommit attribution OK; diffempty. Root read actual outputs and independently
+verified all12file hashes, frozen patch74b97562a6f6501ff2d9e475a51e2fc1b9eac61c2791ba1251acc3173cdc17fd,
+and all6final gate-log receipts. Full log32a3ac29adda56e3f905485966928e5096fbfc2983f22baac07fc20b209fcc84.
+EvidenceW4c.md62a02873743f3a2c087491abc7c3e02fc178978dafac5c66b00cd28a98ef4640.
+
+One affected shared test expectation changed under the prior current-main L3 extension0bbcf84c;
+normal single-line ellipsis and200% wrapping/contrast/keyboard remain. The expanded run's two
+old assertions, intermediate style infos and one mistyped test path were corrected, never
+waived. Full final suite is clean. Implementor stopped; one fresh independent Astra whole-family
+re-audit is active per Aedwon's explicit request. No acceptance, source upload, integration,
+phone visual acceptance, live PWA/server verification or publication is claimed yet.
