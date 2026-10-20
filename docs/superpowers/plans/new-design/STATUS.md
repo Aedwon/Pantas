@@ -11,8 +11,8 @@ Controlling documents:
 ## Lock
 
 State: held
-Holder: Codex lead, chat 01a1410a-77a3-7733-bea4-ca54ecc10be1
-Since: 2026-10-19 21:51 Asia/Manila (PWA two-lane resumption after lead note)
+Holder: Codex lead, W4c completion and re-audit
+Since: 2026-10-20 11:18 Asia/Manila (W4c approved fix-pass resumption)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | audit1 complete, blocked by7Important recovery/history/read/row/origin findings; fix pass next; post7223source remains local |
+| A1 | W4c audit, fixes, verification, integration | Codex | audit1 complete; resuming seven Important corrections from saved four-path draft at f495a8dd, then requested independent re-audit and integration; post7223 source remains local until verified |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
@@ -827,3 +827,16 @@ wrong preview origin regraded Important under truthful-return/accessibility requ
 Audit record/rulings and bounded fix contract are saved in gates/w4c-astra-audit-1.md/L3c.
 Same implementor resumes one fix pass; no final family acceptance, upload or integration yet.
 E continues its separate presentation/approved web adapter work. No new product decision.
+
+
+### October20: finish and re-audit W4c
+
+Exact user instruction: "Finish and re-audit W4c". Policy main44df4c97 was retrieved. The old
+October19 21:51 lock was stale beyond two hours and renewed at October20 11:18 Asia/Manila.
+Remote fetch confirmed main44df4c97, W4c localf495a8dd ahead7 of remote7223e931, and clean
+integration5e6cda45. Four saved dirty paths contain partial audit1 corrections, preserved for
+completion. Two relay runners are online and idle; actual identity probe11094 submitted.
+One bounded implementor owns existing W4c source/tests/evidence; lead owns independent re-audit,
+data review, final acceptance and integration. W4b/W4d and Claude-owned W4e/server branches
+remain outside this request. No source upload, integration, phone acceptance or publication
+is claimed by this resumption.
