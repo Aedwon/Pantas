@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, W4c completion and re-audit
-Since: 2026-10-20 15:22 Asia/Manila (same W4c re-audit resumption)
+Since: 2026-10-20 20:23 Asia/Manila (W4c final verification and integration)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | re-audit2 correction frozenf34da8b2 onf93743f4+2dirty source/test paths;101 affected tests/static clean; full serial suite11124 running; lead closure/upload/integration pending |
+| A1 | W4c audit, fixes, verification, integration | Codex | final correction verifiedf34da8b2;4225full tests/static clean; lead closes sole re-audit finding; scoped save/upload/integration in progress |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
@@ -889,3 +889,18 @@ and resumed the original implementor after the reviewer stopped. Existing page/t
 only; no new framework/core/schema/sync/wiper. Audit2 record preserves verdict/repro/limitations.
 Renew focused/static/full serial checks on final source, then personal lead closure before
 source upload/integration. No phone acceptance or publication. Integration remains5e6cda45.
+
+
+### October20 evening: finish W4c after final verification
+
+Exact user instruction: "continue until done with W4c". Lead refreshed current-main policy
+at3f4dc795, unchanged AGENTS/WORKFLOW blobs, fetched origin and reconciled actual expected C/
+integration refs. The15:22 lock was stale and renewed at20:23. Both relay runners are idle.
+Final relay11124 actually completed `08:25 +4225: All tests passed!`, exit0. Analysis clean3.1s;
+format1462/0, layering/attributionOK, diffempty. Root recomputed both file hashes, frozen source
+patchf34da8b2f9bdb584d4399f6bed42ab907cc08674593a3b03f6454758d33a6f42 and all six final
+receipts, including full logc896490d1a97e14e27196cea899a1a49e57e0175b2bf22a2edcbbb2c1443a482.
+The source is unchanged from the reviewed narrow intent-supersession fix. Lead closes the sole
+Important re-audit finding after actual RED/GREEN,101affected passes, source/data review and
+renewed full gates. Scoped local save, normal source upload and development integration follow.
+No visual acceptance, live PWA/server result or release/publication is claimed.
