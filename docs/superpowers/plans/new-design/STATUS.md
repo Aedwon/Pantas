@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex lead, W4c completion and re-audit
-Since: 2026-10-20 11:18 Asia/Manila (W4c approved fix-pass resumption)
+Since: 2026-10-20 15:22 Asia/Manila (same W4c re-audit resumption)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -865,3 +865,14 @@ old assertions, intermediate style infos and one mistyped test path were correct
 waived. Full final suite is clean. Implementor stopped; one fresh independent Astra whole-family
 re-audit is active per Aedwon's explicit request. No acceptance, source upload, integration,
 phone visual acceptance, live PWA/server verification or publication is claimed yet.
+
+
+### October20 afternoon: resume the same W4c re-audit
+
+Exact user instruction: "continue". Lead refreshed AGENTS/WORKFLOW from current mainf3825a05;
+policy blobs are unchanged. The11:18 lock was stale beyond two hours and renewed at15:22.
+Live remote refs still match recorded7223e931/C and5e6cda45/integration; localC remains clean
+f93743f4/ahead8. Both relay runners are online/idle. The same independent Astra reviewer
+resumed successfully after its usage-limit interruption, retaining prior inspection. No new
+reviewer or duplicate family audit was launched. Existing4221/static evidence remains tied
+to the unchanged source. No source acceptance/upload/integration is claimed before verdict.
