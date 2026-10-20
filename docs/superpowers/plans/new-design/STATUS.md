@@ -37,7 +37,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
+| A4 | W4e Tasks3–9 | Codex | finish/review active from clean pushedb5da6f99; approved paper/pause/custom and server-session corrections under renewed focused checks; isolated results/rest checkpointf8ec4ced (32focused passes, no combined acceptance), Task7 active; complete finale needs CSE representation/re-plan; server completed-result/review/eligibility reader pending |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
