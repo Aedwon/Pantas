@@ -551,3 +551,13 @@ Add real overflow/origin/open-bookmark-error/visibility-cancel regressions as af
 focused checks during fixes, then final full --concurrency=1 suite/static gates on one frozen
 candidate, not after each tiny change. Root reviews exact source and evidence before source
 upload/integration. This is one completed family audit plus its fix pass, not repeated audits.
+
+
+### October20 affected shared test correction
+
+Lead opened test/core/ui/components/study_map_extensions_test.dart after expanded checks
+reported its two normal-size expectations against StudyLessonRow. Its unconditional null
+maxLines assertion contradicts audit1's already approved normal single-line correction.
+Extend fix-pass ownership only to that test: normal size expects one line/ellipsis; 200%
+retains wrapping and no overflow. Keep its contrast, geometry and keyboard assertions intact.
+No shared production component, new presentation or baseline exception is authorized.
