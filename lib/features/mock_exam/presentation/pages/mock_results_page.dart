@@ -1,236 +1,443 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/ink_chevron.dart';
-import 'package:pantas/core/ui/components/inline_meter.dart';
-import 'package:pantas/core/ui/components/section_header.dart';
-import 'package:pantas/core/ui/severity.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/accuracy_bar.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/score_headline.dart';
 
 class MockResultsPage extends StatelessWidget {
   const MockResultsPage({
     required this.results,
     required this.proIsActive,
-    this.blueprintName = 'UPCAT full length',
-    this.dateFormatted = '2 August 2026',
+    this.examId,
+    this.blueprintName = '',
+    this.dateFormatted = '',
     this.forfeited = false,
+    this.forfeitedPart,
+    this.canReview = true,
+    this.reviewUntil,
+    this.proPaused = false,
+    this.fromRecord = false,
     this.onReviewTap,
+    this.onDone,
+    this.onSeePro,
+    this.onFullRecord,
+    this.pastResults = const [],
     this.disableAnimations = false,
     super.key,
   });
-
   final MockResults results;
   final bool proIsActive;
+  final String? examId;
   final String blueprintName;
   final String dateFormatted;
   final bool forfeited;
+  final int? forfeitedPart;
+  final bool canReview;
+  final DateTime? reviewUntil;
+  final bool proPaused;
+  final bool fromRecord;
   final VoidCallback? onReviewTap;
+  final VoidCallback? onDone;
+  final VoidCallback? onSeePro;
+  final VoidCallback? onFullRecord;
+  final List<MockPastPoint> pastResults;
   final bool disableAnimations;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mock results'),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        children: [
-          Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              Text(
-                blueprintName,
-                style: styles.headlineMedium.copyWith(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              if (forfeited) ...[
-                const SizedBox(width: 8),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: colors.rust),
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                  child: Text(
-                    'Forfeited',
-                    style: styles.bodySmall.copyWith(
-                      color: colors.rust,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ],
-            ],
-          ),
-          const SizedBox(height: 2),
-          Text(
-            dateFormatted,
-            style: styles.bodySmall.copyWith(
-              fontSize: 12,
-              color: colors.inkMuted,
+    final wrong = results.sections.fold(0, (n, s) => n + (s.wrong ?? 0));
+    final deduction = wrong / 4;
+    final deductionLabel = deduction == deduction.roundToDouble()
+        ? deduction.toStringAsFixed(0)
+        : deduction.toStringAsFixed(2).replaceFirst(RegExp(r'0$'), '');
+    final caption = examId == 'exam_upcat'
+        ? '${results.scoreRaw} correct, minus $deductionLabel wrong'
+        : '${results.scoreRaw} of ${results.scoreTotal} correct answers';
+    final body = Scaffold(
+      backgroundColor: context.colors.background,
+      bottomNavigationBar: fromRecord
+          ? null
+          : SafeArea(
+              top: false,
+              minimum: const EdgeInsets.fromLTRB(16, 14, 16, 26),
+              child: PantasButton(label: 'Done', onPressed: onDone),
             ),
-          ),
-          const SizedBox(height: 24),
-          ScoreHeadline(
-            scoreRaw: results.scoreRaw,
-            scoreTotal: results.scoreTotal,
-            band: results.band,
-            wasForfeited: forfeited,
-            disableAnimations: disableAnimations,
-          ),
-          if (forfeited) ...[
-            const SizedBox(height: 8),
-            Center(
-              child: Text(
-                'Exam was forfeited before completion.',
-                style: styles.bodySmall.copyWith(
-                  color: colors.inkMuted,
-                  fontSize: 12,
-                ),
-              ),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: fromRecord
+                  ? TextButton.icon(
+                      onPressed: onDone,
+                      icon: Icon(PantasIcons.back, size: 24),
+                      label: Text(
+                        'Your record',
+                        style: context.type.body
+                            .copyWith(color: context.colors.accent),
+                      ),
+                    )
+                  : IconButton(
+                      tooltip: 'Close',
+                      onPressed: onDone,
+                      icon: Icon(
+                        PantasIcons.close,
+                        color: context.colors.secondaryLabel,
+                        size: 22,
+                      ),
+                    ),
             ),
-          ],
-          const SizedBox(height: 32),
-          const SectionHeader(title: 'Performance'),
-          const SizedBox(height: 8),
-          for (final section in results.sections) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Builder(
-                builder: (context) {
-                  final usesStackedLayout =
-                      MediaQuery.textScalerOf(context).scale(1) > 1.3;
-                  final meter = InlineMeter(
-                    value: section.accuracy,
-                    color: severityFor(section.accuracy, colors),
-                    width: 54,
-                  );
-                  final accuracy = Text(
-                    '${(section.accuracy * 100).round()}%',
-                    textAlign: TextAlign.right,
-                    style: styles.bodySmall.copyWith(
-                      color: colors.inkMuted,
-                      fontFeatures: const [FontFeature.tabularFigures()],
-                    ),
-                  );
-                  final time = Text(
-                    '${section.timeSeconds ~/ 60}m',
-                    style: styles.bodySmall.copyWith(
-                      color: colors.inkMuted,
-                      fontFeatures: const [FontFeature.tabularFigures()],
-                    ),
-                  );
-
-                  if (usesStackedLayout) {
-                    return Column(
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(section.name, style: styles.bodyMedium),
-                        const SizedBox(height: 8),
                         Wrap(
-                          spacing: 12,
-                          runSpacing: 8,
+                          spacing: 8,
                           crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [meter, accuracy, time],
+                          children: [
+                            Text(
+                              blueprintName,
+                              style:
+                                  context.type.pageTitle.copyWith(fontSize: 22),
+                            ),
+                            if (forfeited)
+                              Text(
+                                'Not finished',
+                                style: context.type.footnote,
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          dateFormatted,
+                          style: context.type.subhead.copyWith(
+                            color: context.colors.secondaryLabel,
+                          ),
                         ),
                       ],
-                    );
-                  }
-
-                  return Row(
-                    children: [
-                      Expanded(
-                        child: Text(section.name, style: styles.bodyMedium),
-                      ),
-                      meter,
-                      const SizedBox(width: 12),
-                      SizedBox(width: 40, child: accuracy),
-                      const SizedBox(width: 12),
-                      time,
-                    ],
-                  );
-                },
-              ),
-            ),
-            Container(height: AppDimensions.hairline, color: colors.ruleFaint),
-          ],
-          if (results.topWeak.isNotEmpty) ...[
-            const SizedBox(height: 24),
-            const SectionHeader(title: 'Practice these next'),
-            const SizedBox(height: 8),
-            for (final weak in results.topWeak.take(3)) ...[
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        weak.topicId,
-                        style: styles.bodyMedium,
-                      ),
-                    ),
-                    Text(
-                      '${(weak.accuracy * 100).round()}%',
-                      style: styles.bodySmall.copyWith(
-                        color: colors.inkMuted,
-                        fontFeatures: const [FontFeature.tabularFigures()],
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const InkChevron(),
-                  ],
-                ),
-              ),
-              Container(
-                height: AppDimensions.hairline,
-                color: colors.ruleFaint,
-              ),
-            ],
-          ],
-          const SizedBox(height: 32),
-          Container(height: AppDimensions.hairline, color: colors.rule),
-          InkWell(
-            onTap: onReviewTap,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Go through all ${results.scoreTotal} questions',
-                      style: styles.headlineSmall.copyWith(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                      ),
                     ),
                   ),
-                  const InkChevron(),
+                  const SizedBox(height: 22),
+                  Center(
+                    child: HalfRingGauge.mock(
+                      fraction: results.percent / 100,
+                      label: caption,
+                    ),
+                  ),
+                  if (forfeited && forfeitedPart != null) ...[
+                    const SizedBox(height: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Text(
+                        'With strict mode enabled, you left the app during '
+                        'Part $forfeitedPart, so the mock ended there. '
+                        'Everything you answered before then is scored.',
+                        style: context.type.subhead.copyWith(
+                          color: context.colors.secondaryLabel,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 22),
+                  GroupedSection(
+                    header: 'PERFORMANCE BREAKDOWN',
+                    children: [
+                      for (var i = 0; i < results.sections.length; i++)
+                        _Breakdown(
+                          section: results.sections[i],
+                          divider: i < results.sections.length - 1,
+                        ),
+                    ],
+                  ),
+                  if (!forfeited && pastResults.isNotEmpty) ...[
+                    const SizedBox(height: 22),
+                    GroupedSection(
+                      header: 'VERSUS PAST RESULTS',
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
+                          child: MockPastChart(
+                            points: pastResults,
+                            currentPercent: results.percent,
+                            currentLabel: fromRecord ? dateFormatted : 'Today',
+                          ),
+                        ),
+                        if (onFullRecord != null)
+                          ListRow(
+                            title: 'See full record',
+                            titleColor: context.colors.accent,
+                            onTap: onFullRecord,
+                          ),
+                      ],
+                    ),
+                  ],
+                  const SizedBox(height: 22),
+                  if (canReview) ...[
+                    GroupedSection(
+                      children: [
+                        ListRow(
+                          title: 'See all ${results.scoreTotal} questions',
+                          onTap: onReviewTap,
+                          subtitle:
+                              fromRecord && !proIsActive && reviewUntil != null
+                                  ? 'Open until '
+                                      '${PantasDates.withWeekday(reviewUntil!)}'
+                                  : null,
+                        ),
+                      ],
+                    ),
+                    if (!fromRecord && !proIsActive && reviewUntil != null)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                        child: Text(
+                          'On Free, you can go through these until your next '
+                          'mock opens on '
+                          '${PantasDates.withWeekday(reviewUntil!)}.',
+                          style: context.type.footnote,
+                        ),
+                      ),
+                  ] else if (proPaused)
+                    const ProPausedLine()
+                  else
+                    GroupedSection(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                'Go through all ${results.scoreTotal} '
+                                'questions '
+                                'again with Pro.',
+                                style: context.type.body,
+                              ),
+                              if (onSeePro != null) ...[
+                                const SizedBox(height: 12),
+                                PantasButton(
+                                  label: 'See Pro',
+                                  variant: PantasButtonVariant.secondary,
+                                  onPressed: onSeePro,
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),
-          ),
-          Container(height: AppDimensions.hairline, color: colors.rule),
-          const SizedBox(height: 24),
-          Text(
-            proIsActive
-                ? 'Saved.'
-                : 'Saved. Free tier keeps scores locally. Reopens in 7 days.',
-            style: styles.bodySmall.copyWith(
-              color: colors.inkMuted,
-              fontSize: 12,
+          ],
+        ),
+      ),
+    );
+    return disableAnimations
+        ? MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: body,
+          )
+        : body;
+  }
+}
+
+class _Breakdown extends StatelessWidget {
+  const _Breakdown({required this.section, required this.divider});
+  final SectionResult section;
+  final bool divider;
+  @override
+  Widget build(BuildContext context) {
+    final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
+    final values = Wrap(
+      spacing: 14,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Text(
+          '${section.correct} / ${section.total}',
+          style: context.type.subhead
+              .copyWith(color: context.colors.secondaryLabel),
+        ),
+        Text(
+          '${(section.accuracy * 100).round()}%',
+          style: context.type.emphasized.copyWith(fontWeight: FontWeight.w700),
+        ),
+      ],
+    );
+    final title = Text(
+      section.name,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      style: context.type.body,
+    );
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+      decoration: BoxDecoration(
+        border: divider
+            ? Border(
+                bottom: BorderSide(width: .5, color: context.colors.separator),
+              )
+            : null,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (large) ...[title, values] else
+            Row(
+              children: [
+                Expanded(child: title),
+                const SizedBox(width: 10),
+                values,
+              ],
             ),
-          ),
+          const SizedBox(height: 9),
+          AccuracyBar(accuracy: section.accuracy),
         ],
       ),
     );
   }
+}
+
+class MockPastPoint {
+  const MockPastPoint({required this.percent, required this.label});
+  final double percent;
+  final String label;
+}
+
+class MockPastChart extends StatelessWidget {
+  const MockPastChart({
+    required this.points,
+    required this.currentPercent,
+    required this.currentLabel,
+    super.key,
+  });
+  final List<MockPastPoint> points;
+  final double currentPercent;
+  final String currentLabel;
+  @override
+  Widget build(BuildContext context) => SizedBox(
+        height: 132,
+        child: CustomPaint(
+          painter: _PastPainter(
+            points: [
+              ...points.skip(points.length > 2 ? points.length - 2 : 0),
+              MockPastPoint(percent: currentPercent, label: currentLabel),
+            ],
+            label: context.colors.secondaryLabel,
+            accent: context.colors.accent,
+            previous: context.colors.tertiaryLabel,
+            separator: context.colors.separator,
+          ),
+        ),
+      );
+}
+
+class _PastPainter extends CustomPainter {
+  _PastPainter({
+    required this.points,
+    required this.label,
+    required this.accent,
+    required this.previous,
+    required this.separator,
+  });
+  final List<MockPastPoint> points;
+  final Color label;
+  final Color accent;
+  final Color previous;
+  final Color separator;
+  void text(
+    Canvas c,
+    String value,
+    Offset at, {
+    Color? color,
+    bool strong = false,
+  }) {
+    final p = TextPainter(
+      text: TextSpan(
+        text: value,
+        style: TextStyle(
+          fontFamily: 'Geist',
+          fontSize: strong ? 12 : 11,
+          fontWeight: strong ? FontWeight.w700 : FontWeight.w400,
+          color: color ?? label,
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    p.paint(c, at - Offset(p.width / 2, 0));
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final all = points.map((p) => p.percent).toList();
+    final min = (all.reduce((a, b) => a < b ? a : b) / 20).floor() * 20.0;
+    final max = (all.reduce((a, b) => a > b ? a : b) / 20).ceil() * 20.0;
+    final low = min == max ? min - 20 : min;
+    final high = min == max ? max + 20 : max;
+    for (var i = 0; i < 3; i++) {
+      final y = 106 - i * 46.0;
+      canvas.drawLine(
+        Offset(34, y),
+        Offset(size.width, y),
+        Paint()..color = separator,
+      );
+      text(
+        canvas,
+        (low + (high - low) * i / 2).toStringAsFixed(0),
+        Offset(15, y - 5),
+      );
+    }
+    Offset? last;
+    for (var i = 0; i < points.length; i++) {
+      final x = 74 + (size.width - 98) * i / (points.length - 1);
+      final y = 106 - (points[i].percent - low) / (high - low) * 92;
+      final current = i == points.length - 1;
+      final point = Offset(x, y);
+      if (last != null) {
+        canvas.drawLine(
+          last,
+          point,
+          Paint()
+            ..color = current ? accent : previous
+            ..strokeWidth = current ? 2.5 : 2,
+        );
+      }
+      canvas.drawCircle(
+        point,
+        current ? 7 : 5,
+        Paint()..color = current ? accent : previous,
+      );
+      text(
+        canvas,
+        points[i].label,
+        Offset(x, 116),
+        color: current ? accent : label,
+      );
+      if (current) {
+        text(
+          canvas,
+          '${points[i].percent.toStringAsFixed(1)}%',
+          Offset(x, y - 23),
+          color: accent,
+          strong: true,
+        );
+      }
+      last = point;
+    }
+  }
+
+  @override
+  bool shouldRepaint(_PastPainter old) => true;
 }

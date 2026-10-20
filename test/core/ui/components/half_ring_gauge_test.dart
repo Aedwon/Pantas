@@ -7,6 +7,28 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import '../../../helpers/accessibility.dart';
 
 void main() {
+  testWidgets('UPCAT negative earned score stays visible', (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      const HalfRingGauge.mock(
+        fraction: -.25,
+        label: '0 correct, minus 1 wrong',
+      ),
+      disableAnimations: true,
+    );
+    expect(find.text('-25.0'), findsOneWidget);
+  });
+  testWidgets('mock geometry has its own arc and one decimal', (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      const HalfRingGauge.mock(fraction: .612, label: '171 correct'),
+      disableAnimations: true,
+    );
+    final paint = find.byKey(const ValueKey('half-ring-paint'));
+    expect(tester.getSize(paint), const Size(264, 128));
+    expect(paint, paints..arc(rect: const Rect.fromLTWH(24, 10, 216, 216)));
+    expect(tester.widget<Text>(find.text('61.2')).style!.fontSize, 56);
+  });
   for (final brightness in Brightness.values) {
     for (final fraction in [0.0, .61, 1.0]) {
       testWidgets('gauge $fraction final frame in $brightness', (tester) async {
