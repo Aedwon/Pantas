@@ -509,6 +509,175 @@ void main() {
     expect(await positions.read('e1', 'l1'), 360);
   });
 
+  for (final failNewer in [false, true]) {
+    testWidgets(
+        'queued position Retry preserves newer intent failure=$failNewer',
+        (tester) async {
+      await seedLongReaderLessons();
+      final prefs = _HeldPositionPrefs(db);
+      final positions = _FailReaderPositions(prefs, database: db);
+      await tester.pumpAppWithProviders(
+        const LessonPage(lessonId: 'l1'),
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          readerPositionRepositoryProvider.overrideWithValue(positions),
+        ],
+      );
+      await tester.pumpAndSettle();
+      final scroll = tester
+          .widget<SingleChildScrollView>(
+            find.byType(SingleChildScrollView).first,
+          )
+          .controller!;
+      positions.failWrite = true;
+      scroll.jumpTo(240);
+      await tester.pump(const Duration(milliseconds: 350));
+      await tester.pumpAndSettle();
+      final oldRetry = tester
+          .widget<PantasButton>(
+            find.widgetWithText(PantasButton, 'Try Again'),
+          )
+          .onPressed!;
+      prefs
+        ..holdNext = true
+        ..failHeld = failNewer;
+      scroll.jumpTo(360);
+      final expectedFraction = 360 / scroll.position.maxScrollExtent;
+      await tester.pump(const Duration(milliseconds: 350));
+      await tester.pump();
+      expect(prefs.started.isCompleted, isTrue);
+      oldRetry();
+      await tester.pump();
+      prefs.release.complete();
+      await tester.pumpAndSettle();
+      expect(scroll.offset, 360);
+      expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l1');
+      if (failNewer) {
+        expect(await positions.read('e1', 'l1'), 0);
+        expect(find.text('Could not save your progress.'), findsOneWidget);
+        oldRetry();
+        await tester.pumpAndSettle();
+        expect(await positions.read('e1', 'l1'), 0);
+        tester
+            .widget<PantasButton>(
+              find.widgetWithText(PantasButton, 'Try Again'),
+            )
+            .onPressed!();
+        await tester.pumpAndSettle();
+      }
+      expect(await positions.read('e1', 'l1'), 360);
+      expect(
+        await positions.readFraction('e1', 'l1'),
+        closeTo(expectedFraction, .000001),
+      );
+      expect(prefs.offsets, isNot(contains(240)));
+      expect(find.text('Could not save your progress.'), findsNothing);
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    });
+  }
+
+  testWidgets('current position Retry saves its retained offset and fraction',
+      (tester) async {
+    await seedLongReaderLessons();
+    final positions =
+        _FailReaderPositions(AppPreferencesRepository(db), database: db);
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l1'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        readerPositionRepositoryProvider.overrideWithValue(positions),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final scroll = tester
+        .widget<SingleChildScrollView>(
+          find.byType(SingleChildScrollView).first,
+        )
+        .controller!;
+    positions.failWrite = true;
+    scroll.jumpTo(240);
+    final expectedFraction = 240 / scroll.position.maxScrollExtent;
+    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pumpAndSettle();
+    tester
+        .widget<PantasButton>(find.widgetWithText(PantasButton, 'Try Again'))
+        .onPressed!();
+    await tester.pumpAndSettle();
+    expect(await positions.read('e1', 'l1'), 240);
+    expect(
+      await positions.readFraction('e1', 'l1'),
+      closeTo(expectedFraction, .000001),
+    );
+    expect(find.text('Could not save your progress.'), findsNothing);
+    expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l1');
+  });
+
+  testWidgets('queued position Retry completion retains newer failure',
+      (tester) async {
+    await seedLongReaderLessons();
+    final prefs = _HeldPositionPrefs(db);
+    final positions = _HeldPositionCompletion(prefs, database: db);
+    final bookmarks = _HeldBookmarks(db);
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l1'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        readerPositionRepositoryProvider.overrideWithValue(positions),
+        lessonBookmarksRepositoryProvider.overrideWithValue(bookmarks),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final scroll = tester
+        .widget<SingleChildScrollView>(
+          find.byType(SingleChildScrollView).first,
+        )
+        .controller!;
+    positions.failWrite = true;
+    scroll.jumpTo(240);
+    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pumpAndSettle();
+    final oldRetry = tester
+        .widget<PantasButton>(
+          find.widgetWithText(PantasButton, 'Try Again'),
+        )
+        .onPressed!;
+    tester.widget<ReaderBar>(find.byType(ReaderBar)).onBookmark();
+    await tester.pumpAndSettle();
+    expect(bookmarks.started.isCompleted, isTrue);
+    positions.holdCompletion = true;
+    oldRetry();
+    await tester.pump();
+    prefs.failOffset = 360;
+    scroll.jumpTo(360);
+    final expectedFraction = 360 / scroll.position.maxScrollExtent;
+    await tester.pump(const Duration(milliseconds: 350));
+    bookmarks.release.complete();
+    await tester.pumpAndSettle();
+    expect(positions.ready.isCompleted, isTrue);
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    positions.deliver.complete();
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(tester.widget<ReaderBar>(find.byType(ReaderBar)).lessonId, 'l1');
+    expect(await positions.read('e1', 'l1'), 0);
+    tester
+        .widget<PantasButton>(find.widgetWithText(PantasButton, 'Try Again'))
+        .onPressed!();
+    await tester.pumpAndSettle();
+    expect(await positions.read('e1', 'l1'), 360);
+    expect(
+      await positions.readFraction('e1', 'l1'),
+      closeTo(expectedFraction, .000001),
+    );
+    expect(prefs.offsets, isNot(contains(240)));
+    expect(find.text('Could not save your progress.'), findsNothing);
+  });
+
   testWidgets('shows lesson title and body content', (tester) async {
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
@@ -783,5 +952,78 @@ class _FailReaderPositions extends ReaderPositionRepository {
       fraction: fraction,
       isCurrent: isCurrent,
     );
+  }
+}
+
+class _HeldPositionPrefs extends AppPreferencesRepository {
+  _HeldPositionPrefs(super.db);
+  bool holdNext = false;
+  bool failHeld = false;
+  double? failOffset;
+  final started = Completer<void>();
+  final release = Completer<void>();
+  final offsets = <double>[];
+  @override
+  Future<void> setDeviceValue(String key, String value) async {
+    var held = false;
+    double? offset;
+    if (key == 'lesson_offset.e1.l1') {
+      if (holdNext) {
+        holdNext = false;
+        held = true;
+        started.complete();
+        await release.future;
+      }
+      final position = jsonDecode(value) as Map<String, Object?>;
+      offset = (position['offset']! as num).toDouble();
+      offsets.add(offset);
+    }
+    await super.setDeviceValue(key, value);
+    if ((held && failHeld) || (offset != null && offset == failOffset)) {
+      failOffset = null;
+      throw Exception('newer position failed');
+    }
+  }
+}
+
+class _HeldBookmarks extends LessonBookmarksRepository {
+  _HeldBookmarks(super.db);
+  final started = Completer<void>();
+  final release = Completer<void>();
+  @override
+  Future<void> mark(String lessonId) async {
+    started.complete();
+    await release.future;
+    await super.mark(lessonId);
+  }
+}
+
+class _HeldPositionCompletion extends _FailReaderPositions {
+  _HeldPositionCompletion(super.preferences, {required super.database});
+  bool holdCompletion = false;
+  final ready = Completer<bool>();
+  final deliver = Completer<void>();
+  @override
+  Future<bool> writeGuarded(
+    ReaderBoundary boundary,
+    String lessonId,
+    double offset, {
+    required double fraction,
+    required bool Function() isCurrent,
+  }) async {
+    final held = holdCompletion;
+    holdCompletion = false;
+    final saved = await super.writeGuarded(
+      boundary,
+      lessonId,
+      offset,
+      fraction: fraction,
+      isCurrent: isCurrent,
+    );
+    if (held) {
+      ready.complete(saved);
+      await deliver.future;
+    }
+    return saved;
   }
 }

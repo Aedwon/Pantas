@@ -614,11 +614,13 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
   ReadMarkingController? _markingController;
   late final ReaderPositionRepository _positions;
   Timer? _positionDelay;
+  int _positionIntent = 0;
   ({
     ReaderContext reader,
     double offset,
     double fraction,
     int activation,
+    int intent,
   })? _failedPosition;
   bool _resumeFailed = false;
   bool _contentsOpen = false;
@@ -780,14 +782,21 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     double offset,
     double fraction, {
     int? activation,
+    int? positionIntent,
+    bool retry = false,
   }) async {
     final exam = reader.examId;
     final boundary = reader.boundary;
     final reportingOwner = activation ?? _activation;
+    final intent = positionIntent ?? _positionIntent;
     // Outgoing/disposal saves deliberately preserve the measured old position.
     // Active timers and UI retries retain their original activation instead.
+    // Supersession must be visible inside the queued transaction, before the
+    // newer save's awaiting caller has published success or failure.
     bool current() =>
-        widget.isCurrent() && (activation == null || _owns(reader, activation));
+        widget.isCurrent() &&
+        (activation == null || _owns(reader, activation)) &&
+        (!retry || intent == _positionIntent);
     if (exam == null || boundary == null || !current()) return;
     try {
       final saved = await _positions.writeGuarded(
@@ -798,17 +807,20 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
         isCurrent: current,
       );
       if (!saved && current()) widget.onExpired();
-      if (_owns(reader, reportingOwner) && _failedPosition != null) {
+      if (_owns(reader, reportingOwner) &&
+          intent == _positionIntent &&
+          _failedPosition != null) {
         setState(() => _failedPosition = null);
       }
     } on Exception {
-      if (_owns(reader, reportingOwner)) {
+      if (_owns(reader, reportingOwner) && intent == _positionIntent) {
         setState(
           () => _failedPosition = (
             reader: reader,
             offset: offset,
             fraction: fraction,
             activation: reportingOwner,
+            intent: intent,
           ),
         );
       }
@@ -947,11 +959,18 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     _positionDelay?.cancel();
     final reader = widget.reader;
     final activation = _activation;
+    final intent = ++_positionIntent;
     final fraction = maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
     _positionDelay = Timer(
       const Duration(milliseconds: 300),
       () => unawaited(
-        _savePosition(reader, offset, fraction, activation: activation),
+        _savePosition(
+          reader,
+          offset,
+          fraction,
+          activation: activation,
+          positionIntent: intent,
+        ),
       ),
     );
     _progress.value =
@@ -998,6 +1017,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                 failedPosition.offset,
                 failedPosition.fraction,
                 activation: failedPosition.activation,
+                positionIntent: failedPosition.intent,
+                retry: true,
               ),
             );
           },

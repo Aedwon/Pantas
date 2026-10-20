@@ -2284,3 +2284,45 @@ Receipt file `.dart_tool/w4c-audit1-final-receipts.json` SHA256 `c2daa6e9b3aa7b5
 ### Handoff boundary
 
 All seven audit1 findings and the lead-requested original-owner recovery checks are implemented and verified locally. No unresolved engineering finding is known to this implementor. This is not independent acceptance. The lead owns the requested fresh independent re-audit, data review, status/restart-log update, source upload and integration decision. Aedwon still owns Android/iPhone visual acceptance against the approved boards. No screenshots, autonomous visual review, device check, live PWA/server integration, release or deployment was performed. No push, merge, other-family edit, worktree cleanup or main application edit was performed. Preserve this frozen worktree and its actual logs for review.
+
+
+## October20 re-audit2 correction and final lead closeout
+
+Policy refreshed from main3f4dc795; AGENTS/WORKFLOW unchanged. Lead renewed the stale status lock at20:23 Asia/Manila under its rule. Exact current user instruction: "continue until done with W4c".
+
+Independent Astra re-audit2 reviewed f93743f4 and established one Important/P2 queued position Retry defect, with no other established finding. Record: current-main gates/w4c-astra-audit-2.md. Root accepted actual relay11118 failure (new measured360 saved240), then recorded narrow L3 correction2b1c7bb9 before implementation resumed. Original scratch fixture/log remain unchanged.
+
+The same implementor corrected only the existing lesson page and its existing tests. Measured position intent advances synchronously before debounce/queueing; retained failed payload includes that intent; the actual guarded Retry transaction rejects supersession; delayed success/error publication cannot clear a newer failure. Ordinary measured writes and intentional outgoing/disposal saves retain existing mutation guards. No new queue/framework/core/schema/sync/wiper/dependency.
+
+Relay11121 normal-test RED:3pass/3meaningfulfail. Cases: old Retry queued behind newer successful360 save; same ordering with newer360 failure; obsolete queued Retry completion clearing newer failure. Ordinary current Retry and prior retained-owner cases passed. Relay11122 GREEN6/6. Relay11123 affected reader/boundary/Contents/ending/storage101/101; clean analysis3.1s. Root opened real RED/GREEN outputs, production diff and meaningful tests, then reviewed the exact frozen correction.
+
+### Frozen source
+
+Base: f93743f48282967c3365e17efae11bdd908a17bf. Patch SHA256: f34da8b2f9bdb584d4399f6bed42ab907cc08674593a3b03f6454758d33a6f42.
+
+- lib/features/lesson/presentation/lesson_page.dart: 0ae5bd516ae897da04bd1bd28cffdbaa38438236385661f8e387216e63380ffe
+- test/features/lesson/presentation/lesson_page_test.dart: b4445693c8d3a277c5688db50b6203dab978f52fa595a6659bef7bd943c750cf
+
+pubspec.lock unchanged: 13d3e8745af966d0a88570b033f9dc600f47c858d4f0f2127bc6779cfbfc5371.
+
+### Final actual verification
+
+Analysis: Analyzing Pantas-wt-new-design-w4c-r1...
+No issues found! (ran in 3.1s)
+
+- Command: dart format --output=none --set-exit-if-changed lib test tool; exit0. Log .dart_tool/w4c-reaudit-fix-final-format.log; SHA256 e5bf31de3bd51f29bb3f0b43b3ece334f40eefa1ff7632f911191349e24f2fc4.
+  Actual output: Formatted 1462 files (0 changed) in 1.45 seconds.
+- Command: dart run tool/check_layering.dart; exit0. Log .dart_tool/w4c-reaudit-fix-final-layering.log; SHA256 861589d89d5020422bd14a8850a4c879a8822872dc4de163eaaf54a916046b61.
+  Actual output: Running build hooks...Running build hooks...check_layering: OK
+- Command: dart run tool/check_no_ai_attribution.dart; exit0. Log .dart_tool/w4c-reaudit-fix-final-attribution.log; SHA256 89baad91ee320cf2b9c0ab85616eba9add37f583408c740e296723a7906bbcdd.
+  Actual output: Running build hooks...Running build hooks...check_no_ai_attribution: OK
+- Command: git diff --check; exit0. Log .dart_tool/w4c-reaudit-fix-final-diff.log; SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.
+- Command: flutter --version; exit0. Log .dart_tool/w4c-reaudit-fix-final-environment.log; SHA256 533b6ac935933c6b998434140169030e54672f5088615afbaf7c9a4548d46d15.
+- Command: flutter test --no-pub --reporter expanded --concurrency=1; exit0. Log .dart_tool/w4c-reaudit-fix-final-full-test.log; SHA256 c896490d1a97e14e27196cea899a1a49e57e0175b2bf22a2edcbbb2c1443a482.
+  Actual final output: 08:25 +4225: All tests passed!
+
+Root independently verified the frozen patch, both source/test hashes and every receipt against real log bytes after suite completion. All source remains identical to the reviewed f34da8b2 patch. No native command overlapped the full serial suite.
+
+### Lead disposition
+
+The sole Important/P2 re-audit finding is closed by exact source/data review, meaningful RED-to-GREEN,101affected passes and the new complete4225pass suite. No unresolved engineering finding remains in W4c Tasks1 through9. The full-family independent audit was not repeated merely to confirm its covering tests. Scoped commit/normal upload and development integration follow under existing permissions. Aedwon still owns Android/iPhone visual acceptance. Live PWA/C7/server verification, main application integration, release and deployment remain separate stages. No screenshot, autonomous visual review, other-family source edit or publication occurred. Keep source worktree and actual logs for pending QA.
