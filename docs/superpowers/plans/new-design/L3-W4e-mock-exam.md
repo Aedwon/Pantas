@@ -223,3 +223,12 @@ blocker. Record exact remaining dependencies before family completion/audit.
 Focused tests first, then task checks. Final full family gates and one final engineering audit
 are required; web build runs on integrated foundation afterward. Root personally reviews
 student-data/session changes. Workers do not upload or integrate their own source.
+
+
+## October20 approved-details finish contract
+
+User: "Finish/review W4e". Policy main23c5be4e; clean W4e b5da6f99. The October20 PWA decision log's exact picks 1A,2A,3B,4A,5B,6A,7B and its board-fidelity rulings supersede the builder's listed visible gaps. Preserve the already-approved wheels, Set pills and 2.6-second Resume sequence. Add the exact held-Save sentence, previous/next slides (380ms,40px,Cubic(.2,.9,.3,1)), explicit grid-jump crossfade (200ms, even adjacent jumps), strict Back note and stored pause-warning checkbox.
+
+Technical ownership clarification before edits: W4e may add an optional content slot to CenteredDialog, plus optional per-part count/locked-note and mock help text to QuestionGridSheet, preserving existing quiz/default layouts. Use existing CheckboxRow behavior for the warning, with board spacing. These additive extensions implement already-approved boards rather than new product choices; focused shared-component regression tests are required. Gauge changes, if needed for Task6, must preserve W4d's independent quiz-count extension at eventual integration. The drawn 264x128/56pt/one-decimal mock variant is approved; do not scale the existing 220x112 variant as an approximation.
+
+Review source and evidence for the prior builder's paper/session changes. Server-owned completed results/history/review visibility/next eligibility remain required dependencies. No guessed endpoint/local authority, server-branch mutation or family-complete claim is allowed. Current native result/review files are legacy and do not establish completion. Full family engineering audit occurs only after remaining required inputs are available and the candidate is complete.
