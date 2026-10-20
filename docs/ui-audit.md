@@ -1615,3 +1615,10 @@ August put `cse-pro` on 38 files.
 General Information and the six topics, or the content is explicitly parked.
 **The generators already exit 65 when it happens; nothing reads that exit
 code**, which is why it ran for days unseen.
+
+
+## October20,2026: W4c new-design engineering closeout
+
+Applies to accepted engineering source72629940aa8dccf54bff0c6c568a364e0f10916d on integration/new-design-r1, not older main application screenshots. Study/reader/bookmarks Tasks1–9 are implemented, independently re-audited, corrected and verified. Normal-size title ellipsis/full semantics and truthful Study preview return are covered alongside dark/200%/reduced-motion checks. Complete4225tests and1163integration checks pass; final static gates are clean. Detailed engineering findings and closure: docs/superpowers/plans/new-design/gates/w4c-astra-audit-2.md and existing evidence/W4c.md.
+
+Aedwon's Android/iPhone visual acceptance against ST/RD/BM boards remains pending. No screenshots or autonomous visual acceptance were performed. Accepted built-in neighboring bookmark motion and exact Current fade exceptions remain binding; there is no wider visual waiver. Live PWA/C7/server and release checks remain separate. This note neither restores historical visual rules nor turns older audit entries into current branch facts.

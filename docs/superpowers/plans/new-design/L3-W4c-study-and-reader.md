@@ -603,3 +603,8 @@ Existing integration seven-error analysis is RED. Full analysis must become clea
 installed environment. Lead independently reviews the one-line diff. Reuse valid4225full and
 1163integration tests because app/test/runtime inputs stay unchanged; renew full analysis and
 all remaining static gates before publishing integration. No repeat whole-family audit.
+
+
+### October20 integration analyzer closeout
+
+Actual RED analysis count was seven findings: six errors and one warning, all inside the installed Firebase CLI sample. The one-line functions/node_modules/** exclusion preserves strict settings and all owned source scope. Root independently reviewed it; the installed sample files remain byte-identical. Full integration analysis is now clean4.0s, other static gates clean, at72629940. App/test/runtime inputs are unchanged from97c4e0f1, so full4225 and integration1163 test evidence remains valid. No baseline exception or template alteration.

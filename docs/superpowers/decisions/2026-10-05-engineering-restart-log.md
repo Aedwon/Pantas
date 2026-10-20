@@ -2284,3 +2284,36 @@ New source patch againstf93743f4: f34da8b2f9bdb584d4399f6bed42ab907cc08674593a3b
 exactlypage/test paths in .dart_tool/w4c-reaudit-fix-frozen-source.json. Root verified both hashes
 and frozen patch. Relay11124 runs the new full serial suite; no final pass or closure inferred.
 Original independent scratch evidence is unchanged. No source upload/integration/publication.
+
+
+### October20 evening: W4c engineering finished and integrated
+
+Exact current user instruction: "continue until done with W4c". Lead refreshed policy from main3f4dc795 and later scope ruling8ab0a565; policy blobs are unchanged. Reconciliation preserved known source, unrelated worktrees and all remote changes. Final correction saved at97c4e0f1 after its reviewed f34da8b2 frozen patch passed the complete serial suite. The sole Important/P2 re-audit finding is closed. All seven audit1 findings and the separately reproduced ownership/visibility/recovery cases remain covered.
+
+Final accepted/uploaded source and development integration: 72629940aa8dccf54bff0c6c568a364e0f10916d. Both local branches and both GitHub refs match this SHA. Integration advanced normally from5e6cda45; no reset, rebase, force push or unrelated family edit. Main application source remains on its separate launch/visual integration sequence.
+
+Actual verification:
+
+```text
+flutter test --no-pub --reporter expanded --concurrency=1
+08:25 +4225: All tests passed!
+flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --concurrency=1
+02:20 +1163: All tests passed!
+flutter analyze --no-pub (final integration)
+No issues found! (ran in 4.0s)
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1462 files (0 changed) in 1.42 seconds.
+check_layering: OK
+check_no_ai_attribution: OK
+git diff --check: empty
+```
+
+Full log SHA256c896490d1a97e14e27196cea899a1a49e57e0175b2bf22a2edcbbb2c1443a482. Integration test log8b0926448b982f4b6c7a7e02d42235cd40d50f3e10f73e160a87369a8d24d0d0. Final integration receipts604714ec5c79ed2a3224f8e484790e1afa9e76a6677261d6668369cada776769. Root independently matched real output/log bytes, frozen code, both final clean worktrees and remote SHAs. Tests remain applicable after the analyzer-only configuration commit: lib/test/tool, runtime/dependency inputs and all21generated Dart files match the tested97c4e0f1 source.
+
+Integration initially reported seven analyzer findings in an installed Firebase CLI Dart template (six errors, one warning), not app source. Root recorded narrow L3 ownership before the one-line functions/node_modules/** analyzer exclusion. Strict settings and owned source scope are unchanged. The same installed template files remain byte-identical; full analysis changed from seven findings to zero. No baseline exception, dependency deletion or hidden template alteration. Actual failed analysis logea07a6d196eb2ab92e00e351fa692244336cac52465a28be1bd8db95e97e506f remains preserved. Source97c4e0f1 fixes behavior; final72629940 adds only this scope hygiene and its evidence.
+
+Acceptance state: implemented/reviewed/tested/development-integrated/uploaded for engineering. Android/iPhone visual acceptance, live PWA/C7/server verification, remaining launch integration and release/deployment are unverified separate stages. No screenshots, autonomous visual acceptance or publication. Keep C and integration worktrees and actual ignored logs for pending QA. Other W4 families remain at their existing checkpoints; this request did not start W4b. Status lock released.
+
+### October20 resource correction during closeout
+
+Earlier immediate status/ruling commits inadvertently triggered hosted main CI. Root identified the trigger, disclosed the mistake, and canceled seven obsolete documentation-triggered runs:39388135759,39388132820,39386800633,39386797595,39386793375,39386655660,39386224614. GitHub confirmed all seven completed as canceled. Earlier completed hosted failures are not W4c acceptance evidence. No CI configuration was changed. Subsequent documentation-only checkpoints and this batched closeout use the supported skip-CI commit marker; all actual W4c verification ran on the Mac relay. No claim is made about unmeasured billing consumption.

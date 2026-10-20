@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: Codex lead, W4c completion and re-audit
-Since: 2026-10-20 20:23 Asia/Manila (W4c final verification and integration)
+State: free
+Holder: none
+Since: 2026-10-20 20:40 Asia/Manila (W4c engineering closeout)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | final correction verifiedf34da8b2;4225full tests/static clean; lead closes sole re-audit finding; scoped save/upload/integration in progress |
+| A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
@@ -109,10 +109,12 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | Unfinished. W4c Tasks1–9 engineering saved atf495a8dd; root verified4193full passes/clean static gates and exact14file/deletion identities. Whole-family Astra audit active; no integration/phone acceptance yet. Source after7223e931 is local, not uploaded. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. No C/D full-family/Astra/integration/phone acceptance yet. | integration/new-design-r1 remains5e6cda45; currentmainL3 rulings apply |
+| Level 4: W4 screen families | Unfinished. W4c Tasks1–9 engineering accepted, integrated and uploaded at72629940;4225full and1163integration tests pass, final static gates clean; all audit1/re-audit2 engineering findings closed. Phone visual acceptance and live PWA/server verification remain pending. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. W4d full-family review/integration and all phone acceptance remain pending. | integration/new-design-r1 now72629940 for accepted W4c engineering; currentmainL3 rulings apply |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
+
+Latest, October20: W4c Tasks1–9 engineering accepted, both independent audits' findings closed, normal uploads and development integration verified at72629940. Full4225 and integration1163 tests pass; final analysis/format/layering/attribution clean. Phone visual acceptance and live PWA/server checks are separate and pending. Earlier completed-step detail follows.
 
 W3 accepted and integrated (integration/new-design-r1 at 2d438daf, Oct 12). Lead-run checks on the
 merged branch at aa9c0bfb: 3,858 Flutter tests, 84 plain and 92 emulator backend tests; Task 14c
@@ -904,3 +906,32 @@ The source is unchanged from the reviewed narrow intent-supersession fix. Lead c
 Important re-audit finding after actual RED/GREEN,101affected passes, source/data review and
 renewed full gates. Scoped local save, normal source upload and development integration follow.
 No visual acceptance, live PWA/server result or release/publication is claimed.
+
+
+### October20 evening: W4c engineering finished and integrated
+
+Exact current user instruction: "continue until done with W4c". Lead refreshed policy from main3f4dc795 and later scope ruling8ab0a565; policy blobs are unchanged. Reconciliation preserved known source, unrelated worktrees and all remote changes. Final correction saved at97c4e0f1 after its reviewed f34da8b2 frozen patch passed the complete serial suite. The sole Important/P2 re-audit finding is closed. All seven audit1 findings and the separately reproduced ownership/visibility/recovery cases remain covered.
+
+Final accepted/uploaded source and development integration: 72629940aa8dccf54bff0c6c568a364e0f10916d. Both local branches and both GitHub refs match this SHA. Integration advanced normally from5e6cda45; no reset, rebase, force push or unrelated family edit. Main application source remains on its separate launch/visual integration sequence.
+
+Actual verification:
+
+```text
+flutter test --no-pub --reporter expanded --concurrency=1
+08:25 +4225: All tests passed!
+flutter test test/features/lesson test/app/study_route_test.dart test/core/ui --no-pub --reporter expanded --concurrency=1
+02:20 +1163: All tests passed!
+flutter analyze --no-pub (final integration)
+No issues found! (ran in 4.0s)
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1462 files (0 changed) in 1.42 seconds.
+check_layering: OK
+check_no_ai_attribution: OK
+git diff --check: empty
+```
+
+Full log SHA256c896490d1a97e14e27196cea899a1a49e57e0175b2bf22a2edcbbb2c1443a482. Integration test log8b0926448b982f4b6c7a7e02d42235cd40d50f3e10f73e160a87369a8d24d0d0. Final integration receipts604714ec5c79ed2a3224f8e484790e1afa9e76a6677261d6668369cada776769. Root independently matched real output/log bytes, frozen code, both final clean worktrees and remote SHAs. Tests remain applicable after the analyzer-only configuration commit: lib/test/tool, runtime/dependency inputs and all21generated Dart files match the tested97c4e0f1 source.
+
+Integration initially reported seven analyzer findings in an installed Firebase CLI Dart template (six errors, one warning), not app source. Root recorded narrow L3 ownership before the one-line functions/node_modules/** analyzer exclusion. Strict settings and owned source scope are unchanged. The same installed template files remain byte-identical; full analysis changed from seven findings to zero. No baseline exception, dependency deletion or hidden template alteration. Actual failed analysis logea07a6d196eb2ab92e00e351fa692244336cac52465a28be1bd8db95e97e506f remains preserved. Source97c4e0f1 fixes behavior; final72629940 adds only this scope hygiene and its evidence.
+
+Acceptance state: implemented/reviewed/tested/development-integrated/uploaded for engineering. Android/iPhone visual acceptance, live PWA/C7/server verification, remaining launch integration and release/deployment are unverified separate stages. No screenshots, autonomous visual acceptance or publication. Keep C and integration worktrees and actual ignored logs for pending QA. Other W4 families remain at their existing checkpoints; this request did not start W4b. Status lock released.
