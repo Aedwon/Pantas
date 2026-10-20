@@ -2233,3 +2233,16 @@ lead owns independent re-audit, personal data review and acceptance. The explici
 request supersedes the earlier no-repeat guidance for this pass. No other W4 family, Claude
 branch, publication or phone acceptance is included. Source stays local until the review and
 required checks pass. Approved PWA scope freeze exception remains as recorded October19.
+
+
+### October20: W4c bounded corrections verified, requested re-audit active
+
+All seven audit1 findings and five lead-reproduced stale-action/visibility/position cases are
+corrected in localf93743f48282967c3365e17efae11bdd908a17bf, clean/ahead8. Actual full serial
+suite4221passes; clean analysis/format1462/0/layering/attribution and postcommit attribution.
+Root verified exact source patch74b97562...cdc17fd, all12source/test hashes and six gate-log
+receipts, including full log32a3ac29...fcc84. Only affected shared test expectations changed
+under prior L3 extension0bbcf84c; no production shared/core/schema/sync/server change in this
+fix pass. No baseline exception. Implementor stopped after scoped local save; fresh independent
+Astra whole-family re-audit now runs per explicit user request. Source remains local beyond
+7223until review/lead acceptance. No integration, phone acceptance or publication claimed.
