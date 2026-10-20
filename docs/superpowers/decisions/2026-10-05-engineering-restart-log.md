@@ -2220,3 +2220,16 @@ current visible active body for the new automatic marking check, with local canc
 resume reevaluation. Do not invent a new foreground-time metric. Phone acceptance and separate
 C7/web integration remain pending. No source beyond7223upload or integration until fixes/gates
 and personal lead data review are complete.
+
+
+### October20: finish and re-audit W4c
+
+Exact user instruction: "Finish and re-audit W4c". Lead retrieved policy main44df4c97,
+reconciled origin and verified actual relay11094 exit0. C remains localf495a8dd ahead7 of
+remote7223e931 with four saved dirty audit-fix paths; integration5e6cda45 is clean and matches
+remote. The older STATUS lock was stale and renewed under its rule. One bounded implementor
+continues the seven accepted audit1 corrections in the existing C worktree, preserving drafts;
+lead owns independent re-audit, personal data review and acceptance. The explicit re-audit
+request supersedes the earlier no-repeat guidance for this pass. No other W4 family, Claude
+branch, publication or phone acceptance is included. Source stays local until the review and
+required checks pass. Approved PWA scope freeze exception remains as recorded October19.
