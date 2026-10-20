@@ -561,3 +561,29 @@ maxLines assertion contradicts audit1's already approved normal single-line corr
 Extend fix-pass ownership only to that test: normal size expects one line/ellipsis; 200%
 retains wrapping and no overflow. Keep its contrast, geometry and keyboard assertions intact.
 No shared production component, new presentation or baseline exception is authorized.
+
+
+### October20 re-audit: queued position Retry correction
+
+Independent re-audit reproduced one Important defect on f93743f4 without changing tracked
+source. Failed offset240, then a real held360 save, then still-visible Retry, persisted240
+after the360 save succeeded (relay11118, test0pass/1fail). Retry checks the retained failure
+only at tap; the queued transaction predicate checks activation alone. Root read the source
+and actual failure before accepting the finding. Fixture SHA256
+f60df32efc9c0c57c1f72329fca31951f6fcd8ab2b6a102096b1c3c217d1ffc6;
+log af49d920bf339c7d0103dfa87f047d2b229d07f62f82ad00babb050821ae0e4d.
+
+Authorize the existing lesson-owned position path and its existing page tests only. Retain
+the failed position's original intent through queueing and reject it when a newer current
+position intent supersedes it. Validate supersession in the actual guarded write predicate,
+not only before scheduling. Reuse local owner/position state; no new queue/framework, schema,
+repository/core/sync/wiper change or product behavior. Preserve ordinary same-owner Retry,
+latest position/fraction, intentional outgoing/disposal saves and reset/account/exam guards.
+A rejected obsolete Retry must not expire the valid reader or clear a newer failure.
+
+Port the meaningful independent case into normal page tests before the fix. Prove held newer
+save plus queued old Retry, success/failure ordering, current Retry and existing ownership/
+position regressions. Run focused checks, then clean static gates and full serial suite on
+one final frozen source. Lead personally reviews source/evidence and closes the finding after
+verification; no repeat whole-family audit merely to confirm the covering tests. Source stays
+local until all accepted findings and gates are closed.
