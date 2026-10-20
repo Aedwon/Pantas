@@ -2269,3 +2269,18 @@ Correct original-intent supersession inside actual queued transaction, with affe
 and renewed full serial/static gates. No source upload/integration until lead closure; no
 repeat whole-family audit merely for covering tests. Existing phone/PWA/release limitations
 remain separate, not newly invented engineering blockers.
+
+
+### October20 afternoon: queued position correction frozen for final gates
+
+Same implementor ported the real queued-write repro and newer-failure ordering cases into
+normal page tests. Relay11121 produced3pass/3meaningfulfail;11122then6pass after the narrow
+local position-intent revision. Root opened actual RED/GREEN outputs and production/test
+changes. Intent advances synchronously before debounce/queueing; Retry's actual guarded
+transaction rejects supersession; success/error publication cannot clear newer failure state.
+Normal measured and deliberate outgoing/disposal mutation guards remain. No core/schema change.
+Affected101tests pass, analysisclean3.1s, format1462/0, layering/attributionOK, diffempty.
+New source patch againstf93743f4: f34da8b2f9bdb584d4399f6bed42ab907cc08674593a3b03f6454758d33a6f42,
+exactlypage/test paths in .dart_tool/w4c-reaudit-fix-frozen-source.json. Root verified both hashes
+and frozen patch. Relay11124 runs the new full serial suite; no final pass or closure inferred.
+Original independent scratch evidence is unchanged. No source upload/integration/publication.
