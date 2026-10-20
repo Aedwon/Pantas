@@ -34,7 +34,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
-| A1 | W4c audit, fixes, verification, integration | Codex | fix pass saved locallyf93743f4;4221 full tests and clean static gates verified; requested fresh independent re-audit active; no source upload/integration yet |
+| A1 | W4c audit, fixes, verification, integration | Codex | re-audit2 complete onf93743f4; one Important queued-position Retry finding; narrow correction active, then renewed gates/lead closure; no source upload/integration yet |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
 | A4 | W4e Tasks3–9 | Codex | resume from e3ba3785; authoritative server contract available in staging2c2332e0; inspect before runtime wiring |
@@ -876,3 +876,16 @@ f93743f4/ahead8. Both relay runners are online/idle. The same independent Astra 
 resumed successfully after its usage-limit interruption, retaining prior inspection. No new
 reviewer or duplicate family audit was launched. Existing4221/static evidence remains tied
 to the unchanged source. No source acceptance/upload/integration is claimed before verdict.
+
+
+### October20 afternoon: W4c re-audit2 finding accepted
+
+Same independent Astra completed requested re-audit of f93743f4: one Important/P2 queued
+position Retry finding, no other established finding. Actual relay11118 reproduced older240
+Retry queued behind a held successful360 save overwriting persisted360 with240 (0pass/1fail,
+testexit1). Candidate4221/static gates remain valid evidence for that older source only.
+Root read source and real failure, recorded narrow L3 correction2b1c7bb9 before affected edits,
+and resumed the original implementor after the reviewer stopped. Existing page/tests/evidence
+only; no new framework/core/schema/sync/wiper. Audit2 record preserves verdict/repro/limitations.
+Renew focused/static/full serial checks on final source, then personal lead closure before
+source upload/integration. No phone acceptance or publication. Integration remains5e6cda45.
