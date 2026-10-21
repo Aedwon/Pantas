@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: Codex chat 01a15acf, W4e completion including required C8 dependency
-Since: 2026-10-21 22:47 Asia/Manila
+State: free
+Holder: none
+Since: 2026-10-21 23:25 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -36,8 +36,8 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 |---|---|---|---|
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
-| A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9, CSE launch scope | Codex | final feature f9c28374 saved; clean conflict-free local development merge17b2f0b3 under final full tests. Corrected feature4184full plus final close-flow18 pass; all eight whole-family audit findings closed, new D-258 dependency independently reviewed. Server0c17bfb0 uploaded with165plain/205emulator pass. Integrated static gates clean,68accepted W4c paths and final W4e feature identity preserved. No remote integration/engineering acceptance until actual final full output; phone/live acceptance remains later |
+| A3 | W4d Tasks2,4–9 | Codex | ready after accepted CSE A4; not resumed by this task; preserve5e89e4fa and two end-screen drafts, and adopt latest W4e server/card contracts |
+| A4 | W4e Tasks3–9, CSE launch scope | Codex | ENGINEERING DONE: reviewed/fixed/tested/uploaded feature f608e570 and development integration72b04f00; final combined4439tests pass and analysis/format/layering/attribution clean. Required server reader/answer-review dependency0c17bfb0 independently reviewed,165plain/205emulator pass on Node22. All eight family audit findings plus final exit-cache regression closed; accepted W4c source preserved. Other-exam finales explicitly deferred. Global server/web integration and phone/live acceptance remain later launch gates |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
@@ -63,9 +63,9 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | C6 | Once-per-account seven-day web trial | Claude | built/reviewed on caf2142e; server grant, no automatic charge |
 | C7 | Server content and encrypted client cache | Claude | server catalog + in-memory web mirror/encrypted cache built on staging2c2332e0; C7-client-ruling controls; not yet integrated here |
 | C8 | Server mock allowance and visibility | Claude original; Codex W4e dependency | required reader/review/answer-feed dependency reviewed/tested/uploaded0c17bfb0; Node22 full165plain/205emulator pass, Dart bridge analysis clean, exact native scheduler parity verified. Original staging20692945 preserved. Global server/web integration and deployment remain later stages |
-| C8b | Pinned server mock paper and clock | Claude | server pinned-paper/clock/pause/discard/strict-expiry API ready on staging2c2332e0; W4e client wiring required |
-| C9 | All-account session answer ingest | Claude | server built e7c27574;116plain/157emulator reported; client handoff pending |
-| C10 | Server roadmap and Pro insights | Claude | roadmap callable/settings + running totals merged into staging2c2332e0; insights signals refactor still needs ordered W4b coordination |
+| C8b | Pinned server mock paper and clock | Claude original; Codex bounded W4e corrections | original API preserved; current0c17bfb0 validates original answers, same-exam recency and concurrent strict recovery; W4e client wiring reviewed/tested/integrated72b04f00. Live global staging acceptance pending |
+| C9 | All-account session answer ingest | Claude original; Codex mock-feed dependency | original ingest preserved;0c17bfb0 atomically records mock answers/totals/reviews and advances existing mock reviews on ordinary ingest;165plain/205emulator verified. Broader ordinary client handoff/seeding remains with C9/C10 integration |
+| C10 | Server roadmap and Pro insights | Claude; Codex bounded mock due-feed dependency | original roadmap/settings/totals preserved;0c17bfb0 supplies actual mock due reviews and current input-session cache checks. W4b integration preserves this feed; broader insights/signals and ordinary seeding coordination remain pending |
 | E1 | CSE scope reset | Claude | reported done;71 lessons; evidence/E1-cse-scope.* |
 | E1b | Copy-prompt page | Claude | reported done on audit branch439603ca |
 | E2 | CSE lesson Level4 audit | ChatGPT + Aedwon | running paste workflow; not an engineering prerequisite |
@@ -109,7 +109,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | Unfinished. W4c Tasks1–9 engineering accepted, integrated and uploaded at72629940;4225full and1163integration tests pass, final static gates clean; all audit1/re-audit2 engineering findings closed. Phone visual acceptance and live PWA/server verification remain pending. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context and W4e Tasks1/2 integrated; W4g not started. W4d full-family review/integration and all phone acceptance remain pending. | integration/new-design-r1 now72629940 for accepted W4c engineering; currentmainL3 rulings apply |
+| Level 4: W4 screen families | Unfinished. W4c Tasks1–9 engineering accepted, integrated and uploaded at72629940;4225full and1163integration tests pass, final static gates clean; all audit1/re-audit2 engineering findings closed. Phone visual acceptance and live PWA/server verification remain pending. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context integrated; W4e CSE launch engineering reviewed/accepted/integrated at72b04f00 with4439combined tests and clean static gates; required server dependency0c17bfb0 uploaded. Other-exam rebuilt finales explicitly deferred. W4g not started. W4d full-family review/integration and all phone acceptance remain pending. | integration/new-design-r1 now72b04f00 for accepted W4c + CSE W4e engineering; currentmainL3 rulings apply |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
@@ -1038,3 +1038,14 @@ Client corrected frozen full suite exits0,08:33+4184 All tests passed, with unch
 ### October21: conflict-free development candidate under final combined checks
 
 Local app feature f9c283749384eab95afb61d84e6bbd0cff8a1104 and development merge17b2f0b32e4c62808fd6f7097c9054c52f7616c1 are saved, not yet uploaded. Merge has no conflicts, preserves all68accepted W4c changed paths byte-for-byte and final W4e feature paths unchanged. Initial checks were stopped on detecting the incoming ContentDatabase9→10 migration; normal ignored generation completed before the acceptance run. Current integrated analysis clean, format1492/0changes, layering/attribution pass. Full combined run is active in build/w4e/integration/full-final.log; do not claim pass before its actual completion. Original server/global integration stays queued after the other W4 families as agreed.
+
+
+### Final CSE launch W4e engineering acceptance and upload
+
+Actual combined source17b2f0b32e4c62808fd6f7097c9054c52f7616c1 passes flutter test --no-pub --concurrency=1: exit0,09:16+4439 All tests passed. Final integrated analysis No issues found (3.8s), format1492/0changes, layering/attribution OK. Incoming ContentDatabase9→10 ignored code was generated before accepted checks; initial pre-generation checks were stopped and are not acceptance evidence. All68accepted W4c paths and final W4e feature paths remain byte-identical through the conflict-free source merge.
+
+Normal uploads verified: app working branch web/new-design-w4e-r1 f608e570b6f50f57aa68b085fea944c1733a9c0a; agreed development branch integration/new-design-r1 72b04f00c2e22b0e691d03f668bd8353ea5e9251; server dependency web/w4e-server-reader-r1 0c17bfb0f6874cddb1cbdb807c0510bbd7f959ff. Each local head matches GitHub and each worktree is clean. App f608/development72b04 add only documentation after the tested source; explicit source-path comparison to17b2 exits0, so no unchanged full suite was repeated for closeout. Required server final165plain/205emulator, exact native scheduler parity and scoped bridge analysis pass; original staging20692945 remains unchanged.
+
+All eight whole-family audit findings are corrected with valid failing regressions then GREEN; additional final discard-card cache regression passes in18web route tests and the final combined4439run. Newly required D-258 server implementation received its first independent scoped review with no consequential finding. No deferred minor or unresolved CSE W4e engineering decision remains. Other-exam/UPCAT rebuilt finales are explicitly deferred by Aedwon's CSE launch selection.
+
+This completes CSE-launch W4e ENGINEERING implementation/review/testing/development integration only. The planned global server/web/PayMongo/content-cache integration, signed content/release gates, Aedwon's phone visual acceptance and real staging/browser/device verification remain at their later stages. No deployment, main application merge or release publication occurred. W4d is ready next, but no unrelated family was resumed. Preserve all worktrees and raw evidence for pending human/global tasks; do not clean up active QA/dependency inputs. Release this continuation's lock.
