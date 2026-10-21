@@ -62,7 +62,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | C5 | PayMongo test-mode run | Claude + Aedwon | pending account/test keys and staging purchase |
 | C6 | Once-per-account seven-day web trial | Claude | built/reviewed on caf2142e; server grant, no automatic charge |
 | C7 | Server content and encrypted client cache | Claude | server catalog + in-memory web mirror/encrypted cache built on staging2c2332e0; C7-client-ruling controls; not yet integrated here |
-| C8 | Server mock allowance and visibility | Claude; Codex owns W4e reader dependency | original staging20692945 preserved; reader181e314e reviewed/tested/uploaded separately with current exam-specific coverage, results/history/review and paid notes; preview/lasttwo reconciliation passes159plain/194emulator on Node22, final audit/upload pending; W4e client wiring under final checks |
+| C8 | Server mock allowance and visibility | Claude original; Codex W4e dependency | required reader/review/answer-feed dependency reviewed/tested/uploaded0c17bfb0; Node22 full165plain/205emulator pass, Dart bridge analysis clean, exact native scheduler parity verified. Original staging20692945 preserved. Global server/web integration and deployment remain later stages |
 | C8b | Pinned server mock paper and clock | Claude | server pinned-paper/clock/pause/discard/strict-expiry API ready on staging2c2332e0; W4e client wiring required |
 | C9 | All-account session answer ingest | Claude | server built e7c27574;116plain/157emulator reported; client handoff pending |
 | C10 | Server roadmap and Pro insights | Claude | roadmap callable/settings + running totals merged into staging2c2332e0; insights signals refactor still needs ordered W4b coordination |
@@ -1026,3 +1026,10 @@ The audit also identified D-258's missing mock answer-to-review/roadmap connecti
 ### October21: active continuation and corrected dependency verification
 
 Latest user: "continue please thanks". Current main c9349cf0 policy refreshed unchanged; local/remote working heads remain E8aee08ea, reader181e314e and integration72629940. Renew the active lock timestamp for this long interactive continuation; no other holder or unexpected drift exists. Eight audit fixes now have valid failing regressions and focused GREEN. Newly implemented D-258 scheduler bridge uses the existing native algorithm, with six Dart-VM/JS parity cases and atomic answer totals/review writes. Node22 full Functions suite passes165plain/205emulator, including rollback/retry, strict expiry, completed-history reconciliation and concurrent finalization. This is implemented/tested, not final family acceptance: the newly added dependency needs its first scoped source review, and the corrected client/full integrated checks remain due.
+
+
+### October21: required server dependency final source uploaded
+
+Reader branch web/w4e-server-reader-r1 now0c17bfb0f6874cddb1cbdb807c0510bbd7f959ff, local/remote identical and clean. Eight audit findings are addressed with behavioral regressions; newly necessary D-258 dependency received its first independent scoped review with no consequential findings. Final exact-source Node22 suites165plain/205emulator pass, scoped bridge analysis clean, generated closure matches, attribution/whitespace pass. Server review and evidence are on its working branch; no staging-owned branch or deployed environment changed.
+
+Client corrected frozen full suite exits0,08:33+4184 All tests passed, with unchanged source manifest; current static gates retain only accepted unchanged reader deprecation. Final exit-flow inspection identified an additional cached-card refresh after discard; its targeted RED/GREEN and combined development-integration gates will cover the final candidate before acceptance. No final W4e completion claim yet. Preserve server handoff and existing scopes.
