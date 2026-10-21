@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-21 13:18 Asia/Manila
+State: held
+Holder: Codex chat 01a15acf, W4e completion including required C8 dependency
+Since: 2026-10-21 14:38 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -992,3 +992,8 @@ Working branch web/new-design-w4e-r1 now8aee08ea7e43dd353674a480588037715d161044
 Independent scoped review's two P2 findings are fixed with valid RED/GREEN: real eased/reflow-relative scan state, and consumed result-route lifetime across entitlement/access reloads. Final full frozen-source suite exits0 with10:37 +4174 All tests passed. Refreshed mock/app/gauge585pass. Exact12-code-file hashes stayed fixed through that run; deterministic data regeneration remains byte-identical. Format1487files/0changes, layering, attribution (including committed message), whitespace pass. Broad analyzer retains exactly the recorded reader-family onReorder notice; no owned finding remains. Full evidence/spec/plan/source identity is on the working branch.
 
 Acceptance is bounded CSE native implementation/review/testing/upload only. No complete-W4e claim, development integration or main application merge, complete-family audit, screenshot/phone visual acceptance, web/live server acceptance or publication. The latest remote handoffs remain staging20692945, W4d5e89e4fa and integration72629940, matching their local refs; no new external reader/caller handoff arrived. The user excluded other-workstream ownership. Preserve server/W4d holds, non-CSE/UPCAT finale scope, human QA and all unique worktrees/evidence. Release this step's lock.
+
+
+### October21: W4e dependency authorization expanded
+
+Aedwon: "thanks, i give you full authorization on all you need to do to complete w4e". This follows root recommending balanced scope: required C8 completed-result/history/review-access/eligibility reader, access controls and contract tests, then W4e wiring/remaining implementation/review. It supersedes the earlier other-workstream exclusion only for dependencies necessary to complete W4e. Preserve existing server-owned branches by implementing the bounded reader on a new provider-neutral branch from staging20692945; no broad C8/C10 takeover, publication, main application changes or assumed human acceptance. Policy fb14f7cf refreshed; E8aee08ea and staging20692945 match clean local/remote refs. Root continues inline, with final independent review and required checks.

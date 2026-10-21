@@ -1408,3 +1408,8 @@ The extension supersedes A's original tight vertical spacing. Technical dimensio
 ### October21: approved taller compact CSE sequence landed on its working branch
 
 Implemented the user's compact13-column selection plus the later approved vertical extension, without another visual-preview gate. The native fresh-CSE presentation now consumes the real saved submission input; it never reconstructs history or invents web result authority. The original sampled motion is retained, and count/scan/card bounds extend together. Root resolved two independent review findings in one tests-first pass and uploaded8aee08ea after4174full/585focused checks and exact remote SHA verification. Root keeps source changes on the existing E working branch; server/W4d ownership remains excluded, no application main/development integration or release is performed, and the user's phone visual acceptance remains required. Detailed evidence and remaining non-CSE/family scope are explicit in current STATUS and E evidence.
+
+
+### October21: all necessary W4e dependencies authorized
+
+Aedwon: "thanks, i give you full authorization on all you need to do to complete w4e". Root recommended completing the C8 reader dependency first, then connecting and completing W4e before W4d. Balanced scope includes required reader/access controls/contract tests without unrelated server changes. The latest instruction supersedes the earlier external-dependency exclusion for necessary W4e work. Preserve existing staging and other workers through a separate reader branch. Existing product rules and approved designs remain binding; no additional execution approval is needed. Deployment/live acceptance remain later launch stages, and the main application freeze remains.
