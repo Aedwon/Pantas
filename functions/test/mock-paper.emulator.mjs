@@ -14,6 +14,7 @@ const NOW = Date.parse('2026-11-20T10:00:00+08:00');
 const named = (uid, claims = {}) => ({uid, token: {firebase: {sign_in_provider: 'google.com'}, ...claims}});
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const pro = uid => named(uid, {pro: true, proUntil: NOW + 60 * DAY});
+const grantPro = uid => db.doc(`users/${uid}/grants/mock-pro`).set({source: 'paymongo', product: 'pantas_cs_monthly', tier: 'civilService', startsAt: NOW - DAY, endsAt: NOW + 60 * DAY, state: 'active', createdAt: NOW - DAY});
 const code = async promise => {try {await promise; return 'ok';} catch (e) {assert.equal(typeof e.code, 'string', String(e)); return e.code;}};
 const d = (at = NOW) => ({db, now: () => at, allow: async () => true});
 const EXAM = 'exam_cse_pro';
@@ -101,6 +102,7 @@ test('Free allowance counts only at submission, then the next mock opens 30 days
 test('a second paper avoids the questions of the last submitted paper when the bank allows', async () => {
   const uid = 'p-recent';
   await reset(uid);
+  await grantPro(uid);
   const first = await beginMock(pro(uid), {examId: EXAM}, d());
   await recordMock(pro(uid), {mockId: first.mockId, answers: [answer('a0', true)], durationMs: MIN}, d(NOW + MIN));
   const second = await beginMock(pro(uid), {examId: EXAM}, d(NOW + 2 * MIN));
@@ -108,14 +110,16 @@ test('a second paper avoids the questions of the last submitted paper when the b
   assert.ok(second.paper.sections.flatMap(s => s.questions).every(q => !firstIds.has(q.id)));
 });
 
-test('Pro is unlimited and an expired Pro claim is Free', async () => {
+test('Pro is unlimited and expired server coverage is Free', async () => {
   const uid = 'p-pro';
   await reset(uid);
+  await grantPro(uid);
   for (let i = 0; i < 3; i++) {
     const out = await beginMock(pro(uid), {examId: EXAM}, d(NOW + i * MIN));
     await recordMock(pro(uid), {mockId: out.mockId, answers: [answer('a0', true)], durationMs: MIN}, d(NOW + i * MIN + 1));
   }
   assert.equal((await items(uid)).size, 3);
+  await db.doc(`users/${uid}/grants/mock-pro`).update({endsAt: NOW});
   assert.equal(await code(beginMock(named(uid, {pro: true, proUntil: NOW}), {examId: EXAM}, d(NOW + 10 * MIN))), 'failed-precondition');
 });
 
@@ -182,6 +186,7 @@ test('strict early end counts as a submission and may have no answers', async ()
   assert.equal((await db.doc(`users/${uid}/server/mocks/items/${out.mockId}`).get()).get('endedBy'), 'strict-exit');
   assert.equal(await code(beginMock(named(uid), {examId: EXAM}, d(NOW + 2 * MIN))), 'failed-precondition');
   // A student submit without answers, or an early end on a non-strict mock, is invalid.
+  await grantPro(uid);
   const plain = await beginMock(pro(uid), {examId: EXAM}, d(NOW + 3 * MIN));
   assert.equal(await code(recordMock(pro(uid), {mockId: plain.mockId, answers: [], durationMs: MIN}, d(NOW + 4 * MIN))), 'invalid-argument');
   assert.equal(await code(recordMock(pro(uid), {mockId: plain.mockId, answers: [], durationMs: MIN, reason: 'strict-exit'}, d(NOW + 4 * MIN))), 'invalid-argument');

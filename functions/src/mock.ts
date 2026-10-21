@@ -6,7 +6,7 @@ import {allowAtMost} from './_limits.js';
 import {checkAnswers, checkDuration, type Answer} from './_answers.js';
 import {core} from './_core.js';
 import {loadExamContent} from './_examContent.js';
-import {hasLiveProClaim} from './_pro.js';
+import {mockCoverage} from './mockAccess.js';
 import {examCatalog} from './revenuecatPasses.js';
 
 export {MAX_ANSWERS} from './_answers.js';
@@ -60,7 +60,7 @@ function view(mockId: string, row: FirebaseFirestore.DocumentData, now: number):
  * ran out, so the Free allowance counts from then, not from the student's next visit. Does nothing
  * for a non-strict mock (the app ends it) or one with time left.
  */
-async function endIfTimedOut(db: Firestore, uid: string, mockId: string, now: number):
+export async function endIfTimedOut(db: Firestore, uid: string, mockId: string, now: number):
   Promise<{mockId: string; endedBy: EndedBy; submittedAt: number; score: Score} | null> {
   return db.runTransaction(async (transaction) => {
     const ref = mocks(db, uid).doc(mockId);
@@ -136,7 +136,6 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
   if (open) {
     if (!await endIfTimedOut(deps.db, uid, open.id, now)) return {...view(open.id, open.data(), now), resumed: true};
   }
-  const unlimited = hasLiveProClaim(auth?.token, now);
   const ref = mocks(deps.db, uid).doc();
   const seed = (deps.seed ?? (() => randomInt(0, 2 ** 32)))();
   const {paper, limitMs} = await assemblePaper(deps.db, uid, examId, now, seed);
@@ -144,7 +143,8 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
     // Another start may have created the mock while this paper was assembled; that one wins.
     const raced = await transaction.get(mocks(deps.db, uid).where('status', '==', 'started').limit(1));
     if (raced.docs[0]) return {...view(raced.docs[0].id, raced.docs[0].data(), now), resumed: true};
-    if (!unlimited) {
+    const access = await mockCoverage(transaction, deps.db, uid, now);
+    if (!access(examId)) {
       const recent = await transaction.get(mocks(deps.db, uid).where('submittedAt', '>', now - FREE_MOCK_WINDOW_MS));
       if (recent.docs.some((doc) => doc.get('status') === 'submitted')) {
         throw new HttpsError('failed-precondition', 'Free accounts can take one mock every 30 days.');
