@@ -37,7 +37,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9 | Codex | taller13-column native CSE end sequence reviewed/tested/uploaded8aee08ea;4174full and585mock/app/gauge tests pass, no owned static findings; two scoped review findings closed; server reader/W4d handoffs, non-CSE finales, full-family audit/integration and phone/live acceptance remain pending |
+| A4 | W4e Tasks3–9, CSE launch scope | Codex | final client candidate in progress on8aee08ea: authoritative server result/history/review/availability wiring, acknowledged result navigation, server-only setup preview, account-change cancellation, paid-note retry and existing MockCard caller; focused checks pass; frozen full suite and independent whole-family audit running. Server reader handoff181e314e uploaded; reconciled preview/lasttwo additions pass159plain/194emulator on Node22 and await final family review/upload. Non-CSE rebuilt finales explicitly deferred by Aedwon; integration and phone/live acceptance remain pending |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
@@ -62,7 +62,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | C5 | PayMongo test-mode run | Claude + Aedwon | pending account/test keys and staging purchase |
 | C6 | Once-per-account seven-day web trial | Claude | built/reviewed on caf2142e; server grant, no automatic charge |
 | C7 | Server content and encrypted client cache | Claude | server catalog + in-memory web mirror/encrypted cache built on staging2c2332e0; C7-client-ruling controls; not yet integrated here |
-| C8 | Server mock allowance and visibility | Claude | latest server behavior built on roadmap953f7f24 and staging2c2332e0; named accounts, Free30days from submission; app wiring pending |
+| C8 | Server mock allowance and visibility | Claude; Codex owns W4e reader dependency | original staging20692945 preserved; reader181e314e reviewed/tested/uploaded separately with current exam-specific coverage, results/history/review and paid notes; preview/lasttwo reconciliation passes159plain/194emulator on Node22, final audit/upload pending; W4e client wiring under final checks |
 | C8b | Pinned server mock paper and clock | Claude | server pinned-paper/clock/pause/discard/strict-expiry API ready on staging2c2332e0; W4e client wiring required |
 | C9 | All-account session answer ingest | Claude | server built e7c27574;116plain/157emulator reported; client handoff pending |
 | C10 | Server roadmap and Pro insights | Claude | roadmap callable/settings + running totals merged into staging2c2332e0; insights signals refactor still needs ordered W4b coordination |
@@ -1007,3 +1007,10 @@ Separate reader branch web/w4e-server-reader-r1 at e995dc238a56351d9ce1cb7fac132
 ### October21: CSE launch completion scope selected
 
 Root asked whether W4e completion covers CSE launch or every exam in the original plan, recommending CSE launch because the remaining other-exam animations require separate approved representations. Aedwon selected exactly "CSE launch scope". Complete/review W4e for CSE Professional/Subprofessional launch and preserve existing native behavior elsewhere; original non-CSE/UPCAT finale rebuilds are deferred, not claimed complete or deleted. This supersedes the earlier requirement to finish those finales before launch-scoped W4e acceptance. Server reader handoff now181e314e, current Node22 full159plain/192emulator pass. Client work in progress on E8aee08ea; no full-family acceptance yet.
+
+
+### October21: launch W4e final candidate frozen for full audit
+
+Client source8aee08ea plus uncommitted continuation now uses verified server reader data without local web results/allowance/scoring authority, rejects late account publication and cancels remaining history reads, routes acknowledged submissions/finished resumes to real results, preserves fresh snapshot-only CSE finale, saves paid reasons through server with existing retry UI/draft retention, and installs the approved MockCard in its existing QuizTabHome slot. Native behavior remains behind the platform seam. The bounded D caller dependency is reconciled without taking over unrelated D screens or its branch; obsolete MockPanel UI/tests are removed, provider regressions remain. Other-exam finales remain deferred by explicit CSE launch selection.
+
+Source manifest build/w4e/completion/source-sha256.txt frozen during current full Flutter run. Static checks have only the recorded accepted unrelated reader onReorder notice; layering/attribution pass. New result/provider focused12 and web route17 tests pass; earlier renewed mock/app569 pass before final added cases. Server preview and lasttwo regressions were observed RED, then Node22 full Functions159plain/194emulator pass at current pending server source. Independent whole-family Astra audit is running read-only on both exact candidates, no other worker runs. Do not describe this in-progress audit/full run as acceptance. Lock remains held.
