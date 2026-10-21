@@ -86,7 +86,7 @@ void main() {
           find.text('You paused. Every answer was saved.'),
           findsOneWidget,
         );
-        expect(find.text('6 of 10'), findsOneWidget);
+        expect(find.text('6 of 10'), findsNothing);
         expect(find.text('Resume'), findsOneWidget);
         expect(find.text('3 of 7'), findsOneWidget);
         final row = find.ancestor(
@@ -98,7 +98,7 @@ void main() {
           of: find.text('Reviews'),
           matching: find.byType(ListRow),
         );
-        expect(tester.widget<ListRow>(reviewsRow).value, '6 of 10');
+        expect(tester.widget<ListRow>(reviewsRow).value, '12 of 18');
         final dim = find.ancestor(of: row, matching: find.byType(Opacity));
         expect(tester.widget<Opacity>(dim.first).opacity, .45);
         expect(
@@ -199,7 +199,7 @@ void main() {
     expect(find.text("That's all for today."), findsOneWidget);
   });
 
-  testWidgets('available session has Continue Reviews', (tester) async {
+  testWidgets('mixed Today never claims a Reviews-only launch', (tester) async {
     state = const SessionPanelAvailable(
       plan: TodaySessionPlan(
         questions: [],
@@ -209,7 +209,7 @@ void main() {
       ),
     );
     await pump(tester, still: true);
-    expect(find.text('Continue Reviews'), findsOneWidget);
+    expect(find.text('Continue Reviews'), findsNothing);
     expect(find.text('Resume'), findsNothing);
   });
 }

@@ -1,0 +1,174 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart
+00:00 +0: paused tab at dark=false scale=1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "6 of 10": [
+            Text("6 of 10", inherit: true, color: Color(alpha: 1.0000, red: 0.4314, green: 0.4314,
+blue: 0.4510, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 500, letterSpacing:
+0.0, height: 1.4x, textAlign: end, dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart:89:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart line 89
+The test description was:
+  paused tab at dark=false scale=1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: paused tab at dark=false scale=1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: paused tab at dark=false scale=1.0
+  
+00:00 +0 -1: assessment and empty rows at dark=false scale=1.0
+00:00 +1 -1: completed tab at dark=false scale=1.0
+00:00 +2 -1: paused tab at dark=false scale=2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "6 of 10": [
+            Text("6 of 10", inherit: true, color: Color(alpha: 1.0000, red: 0.4314, green: 0.4314,
+blue: 0.4510, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 500, letterSpacing:
+0.0, height: 1.4x, textAlign: start, dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart:89:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart line 89
+The test description was:
+  paused tab at dark=false scale=2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +2 -2: paused tab at dark=false scale=2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: paused tab at dark=false scale=2.0
+  
+00:00 +2 -2: assessment and empty rows at dark=false scale=2.0
+00:00 +3 -2: completed tab at dark=false scale=2.0
+00:00 +4 -2: paused tab at dark=true scale=1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "6 of 10": [
+            Text("6 of 10", inherit: true, color: Color(alpha: 1.0000, red: 0.5961, green: 0.5961,
+blue: 0.6157, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 500, letterSpacing:
+0.0, height: 1.4x, textAlign: end, dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart:89:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart line 89
+The test description was:
+  paused tab at dark=true scale=1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +4 -3: paused tab at dark=true scale=1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: paused tab at dark=true scale=1.0
+  
+00:00 +4 -3: assessment and empty rows at dark=true scale=1.0
+00:00 +5 -3: completed tab at dark=true scale=1.0
+00:00 +6 -3: paused tab at dark=true scale=2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "6 of 10": [
+            Text("6 of 10", inherit: true, color: Color(alpha: 1.0000, red: 0.5961, green: 0.5961,
+blue: 0.6157, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 500, letterSpacing:
+0.0, height: 1.4x, textAlign: start, dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart:89:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart line 89
+The test description was:
+  paused tab at dark=true scale=2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +6 -4: paused tab at dark=true scale=2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: paused tab at dark=true scale=2.0
+  
+00:00 +6 -4: assessment and empty rows at dark=true scale=2.0
+00:00 +7 -4: completed tab at dark=true scale=2.0
+00:00 +8 -4: #23 assessment completion clears the Quiz assessment gate
+00:00 +9 -4: #24 #27 #28 one Resume returns to the saved session and clears
+00:01 +10 -4: mixed Today never claims a Reviews-only launch
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "Continue Reviews": [
+            Text("Continue Reviews", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green:
+1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 600,
+letterSpacing: -0.2, height: 1.4x, textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart:212:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart line 212
+The test description was:
+  mixed Today never claims a Reviews-only launch
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -5: mixed Today never claims a Reviews-only launch [E]
+  Test failed. See exception logs above.
+  The test description was: mixed Today never claims a Reviews-only launch
+  
+00:01 +10 -5: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: mixed Today never claims a Reviews-only launch
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=1.0
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=2.0
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=true scale=1.0
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=true scale=2.0

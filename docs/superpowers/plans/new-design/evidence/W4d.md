@@ -437,3 +437,12 @@ Task6 repository/test changes and the new unfinished completedQuizProvider are e
 ## October22: accepted shared neutral button dependency
 
 Root ported only the already accepted W4c c912fb21 neutral variant and its unchanged tests into the current D branch. D's disabledForeground, disabledOpacity and all existing variants remain intact. This is the missing shared contract for the approved viewer note editor, not a local copy or new presentation choice. Relay11378 preserved exact import identity;11380 verified17 neutral/default/disabled/busy button tests, clean two-file analysis, format0changes and scoped diff. Raw commands/output are W4d-neutral-dependency-0..3.txt. No family, viewer wiring, global analysis or phone acceptance is claimed.
+
+
+## October22: truthful Today figures and withheld launch dependency
+
+Root found that the partial tab substituted every paused quiz's one-based position/total into the Reviews row, including custom/lesson/drill sessions, and called the truncated legacy mixed Today plan Continue Reviews. This contradicts the recorded Task4 split contract. Actual RED11381 reproduced all four dark/large-text paused cases plus the mixed-launch case:10pass/5fail. The tab now always displays actual quizTodayCounts review figures. Generic Resume remains available; its session position never masquerades as Reviews completion.
+
+Per standing ruling2, the misleading mixed Today launch is omitted until Home supplies the actual Reviews/New caller contract. No replacement label, disabled control, synthetic membership or new shared widget was introduced. The drawn Reviews/New launch and sheets remain explicitly unfinished dependencies; this correction does not claim Task2 complete. Source scope is only the tab and its existing test; today_providers did not require a change.
+
+GREEN11384:22 tab/leave-resume/panel tests pass, two-file analysis clean, format0changes. Exact commands/output are W4d-tab-truthful-green-0..2.txt; W4d-tab-truthful-red.txt preserves the actual failure. Scoped diff is clean. Broader family/combined verification, independent review, integration and phone acceptance remain pending.

@@ -300,10 +300,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               _todayRow(
                 'Reviews',
                 'Questions due today',
-                state is SessionPanelInProgress
-                    ? state.position
-                    : n.reviewsDone,
-                state is SessionPanelInProgress ? state.total : n.reviewsTotal,
+                n.reviewsDone,
+                n.reviewsTotal,
                 paused: state is SessionPanelInProgress,
               ),
               _todayRow(
@@ -353,16 +351,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     style: context.type.subhead
                         .copyWith(color: context.colors.secondaryLabel),
                   ),
-                )
-              else if (state is SessionPanelAvailable)
-                PantasButton(
-                  label: state.plan.dueCount > 0
-                      ? 'Continue Reviews'
-                      : 'Start New Questions',
-                  onPressed: () => unawaited(
-                    _open('/quiz/today/$examId', extra: state.prepared),
-                  ),
                 ),
+              // W4b supplies the real Reviews/New launch contracts. The mixed
+              // legacy Today plan cannot truthfully stand in for either one.
             ],
           ),
         ),
