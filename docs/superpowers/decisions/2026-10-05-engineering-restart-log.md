@@ -2317,3 +2317,12 @@ Acceptance state: implemented/reviewed/tested/development-integrated/uploaded fo
 ### October20 resource correction during closeout
 
 Earlier immediate status/ruling commits inadvertently triggered hosted main CI. Root identified the trigger, disclosed the mistake, and canceled seven obsolete documentation-triggered runs:39388135759,39388132820,39386800633,39386797595,39386793375,39386655660,39386224614. GitHub confirmed all seven completed as canceled. Earlier completed hosted failures are not W4c acceptance evidence. No CI configuration was changed. Subsequent documentation-only checkpoints and this batched closeout use the supported skip-CI commit marker; all actual W4c verification ran on the Mac relay. No claim is made about unmeasured billing consumption.
+
+
+### October22: W4d completion and review resumed
+
+Aedwon's exact initial instruction: "Finish/review W4d". After the assigned implementor stopped on the usage limit without source changes, Aedwon said exactly "continue". Existing balanced PWA launch approval and current L2/L3 W4d scope remain binding; this is continuation, not a new feature or complexity choice. Root refreshed current-main policy6de89901, fetched all origin refs, and verified W4d local/remote5e89e4faea44e72aa04cb9174603b4391f89bf20 with only the two known untracked end-screen drafts. Development integration remains72b04f00c2e22b0e691d03f668bd8353ea5e9251. Both self-hosted relay runners were online/idle. Same existing implementor resumed; no duplicate worker.
+
+Root retains STATUS coordination. Implementation proceeds through independent Task5/6/7/8/9 scope; Home-owned shared Today/Reviews controls remain unavailable in both current B and integration, so standing ruling2 applies. No fabricated membership, dead controls or full-family acceptance is authorized by that omission. Root will preserve and reconcile accepted W4e server/card routing, including serverMockId/serverExamId/nextOpensAt and web30day/native14day behavior, before final combined checks. Required engineering review and human phone/live acceptance remain distinct. Main application updates, global PWA/server integration and release publication are not performed here.
+
+Resource correction: the documentation-only resume commitc807599b inadvertently triggered hosted main CI39660787719. Root requested cancellation and uses the supported skip-CI marker for subsequent documentation records. Earlier lock commit6de89901 also triggered a now-completed hosted run; neither is W4d verification evidence. No CI configuration was changed.
