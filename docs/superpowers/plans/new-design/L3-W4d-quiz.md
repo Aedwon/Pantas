@@ -352,3 +352,15 @@ that unavailable line instead of substituting a proxy or invented value. No new 
 duration, pacing rule, data source or visual layout is authorized. Test positive sub-minute,
 zero, one/several minutes, immutable completed timing and absent/invalid timing. This extends
 existing truthful under-one-minute wording already recorded for Task3's derived duration.
+
+
+## Lead Task6 note mutation contract, October22
+
+Root inspected current AttemptsRepository.tagItem, LocalSyncMutationRecorder.runRecordedBatch, SyncActiveContextStore and the accepted W4c guarded reader pattern. Existing tagItem reads outside its recorded save transaction, so two edits can overwrite each other and a delayed rewrite can restore a wiped Attempt. Task6's planned note extension must correct this bounded path before the new viewer consumes it.
+
+- Extend the existing tagItem path for optional note replacement and an optional FutureOr<bool> canPersist predicate. Preserve legacy callers' omitted-note behavior; explicit removal clears the note. No schema, JSON shape, new sync payload, dependency or generic mutation framework.
+- Run read-modify-write inside the existing sync recorder transaction. Await the guard before the read, after the read and after the existing private write. Read the latest Attempt inside that transaction and replace only the requested item's tag/note. Concurrent edits to different items must survive. Missing Attempt or absent question membership fails without writing or recording a mutation. An expired guard rolls back the whole transaction.
+- The viewer captures the original database instance, runtime account-lifetime token, selected exam and existing SyncActiveContextStore snapshot token before content/attempt hydration waits. Its predicate validates current runtime/database/exam/Pro and the original core snapshot token inside the actual mutation transaction, checking runtime validity around the token await. This includes anonymous same-identity wipes; current identity alone is insufficient. A missing initial envelope remains acceptable only while still missing; stale retry never initializes a fresh envelope or captures a replacement boundary.
+- Cover actual concurrent different-item edits, removal and legacy tag-only behavior, missing/foreign membership, account/exam/Pro transitions, actual wipe/token replacement while pending, rollback and sync recording. Preserve the underlying question/answer identity and Attempt completion data. Root personally reviews the source and actual evidence before integration.
+
+This is a technical correctness amendment within the already approved viewer/notes scope. It adds no product choice or changed student-data ownership. Full family review, final combined checks and Aedwon's phone acceptance remain separate.
