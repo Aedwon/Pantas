@@ -9,14 +9,19 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/server_mock_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 const _mockId = 'abcdefghij1';
+final _actorEvents = StateProvider<String?>((ref) => 'uid_a');
 
 class _Server {
   String examId = 'exam_cse_pro';
@@ -24,6 +29,8 @@ class _Server {
   int remainingMs = 8000000;
   bool paused = false;
   bool resumed = false;
+  bool completed = false;
+  String availability = 'available';
   List<Map<String, Object?>> answers = [];
   final calls = <(String, Map<String, Object?>)>[];
   Exception? failStart;
@@ -65,6 +72,48 @@ class _Server {
           throw failure;
         }
         return {...view(), 'resumed': resumed};
+      case 'getMockAvailability':
+        return {
+          'examId': examId,
+          'serverNow': 1790000000000,
+          'status': availability,
+          'proCovered': false,
+          'nextEligibleAt': null,
+          'lastMockId': null,
+          if (availability == 'in-progress')
+            'open': {'mockId': _mockId, 'examId': examId, 'paused': paused},
+        };
+      case 'getMockPaper':
+        return completed ? {'open': false} : {'open': true, ...view()};
+      case 'getMockResults':
+        return {
+          ...view(),
+          'serverNow': 1790000001000,
+          'submittedAt': 1790000001000,
+          'durationMs': 1000,
+          'endedBy': 'time-out',
+          'canReview': true,
+          'proCovered': false,
+          'reviewUntil': 1792592001000,
+          'score': {
+            'correct': 0,
+            'answered': 0,
+            'wrong': 0,
+            'blank': 3,
+            'total': 3,
+          },
+          'sections': [
+            {
+              'sectionId': 'gi',
+              'name': 'General Information',
+              'correct': 0,
+              'answered': 0,
+              'wrong': 0,
+              'blank': 3,
+              'total': 3,
+            }
+          ],
+        };
       case 'controlMock':
         switch (data['action']) {
           case 'save':
@@ -110,6 +159,8 @@ Future<_Fixture> _open(
   String? uid = 'uid_a',
   String? Function()? actor,
   bool warningSeen = true,
+  bool resume = false,
+  bool stableEntitlement = false,
 }) async {
   final db = inMemoryDatabase();
   addTearDown(db.close);
@@ -147,8 +198,18 @@ Future<_Fixture> _open(
         builder: (_, __) => const Scaffold(body: Text('Quiz tab')),
       ),
       GoRoute(
+        path: '/mock/results/:id',
+        builder: (_, state) => Scaffold(
+          body: Text('Server results ${state.pathParameters['id']}'),
+        ),
+      ),
+      GoRoute(
         path: '/mock',
-        builder: (_, __) => ServerMockRoute(examId: examId, strictMode: strict),
+        builder: (_, __) => ServerMockRoute(
+          examId: examId,
+          strictMode: strict,
+          resumeMockId: resume ? _mockId : null,
+        ),
       ),
     ],
   );
@@ -156,10 +217,15 @@ Future<_Fixture> _open(
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
+        if (stableEntitlement)
+          entitlementProvider
+              .overrideWith((ref) => const Stream<Entitlement>.empty()),
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(content),
         serverMockApiProvider.overrideWithValue(ServerMockApi(server.call)),
         serverMockActorProvider.overrideWithValue(() => fixture.actor()),
+        serverMockIdentityProvider
+            .overrideWith((ref) => ref.watch(_actorEvents)),
         serverMockElapsedProvider.overrideWithValue(() => clock.now),
       ],
       child: MaterialApp.router(
@@ -181,6 +247,41 @@ Future<void> advance(WidgetTester tester, int milliseconds) async {
 }
 
 void main() {
+  testWidgets(
+      'resuming a completed paper opens its result '
+      'without a new start or finale', (tester) async {
+    final server = _Server()..completed = true;
+    final fixture = await _open(tester, server: server, resume: true);
+    await advance(tester, 500);
+    expect(find.text('Server results $_mockId'), findsOneWidget);
+    expect(server.named('startMock'), isEmpty);
+    expect(server.named('getMockResults'), hasLength(1));
+    expect(
+      fixture.router.routeInformationProvider.value.uri.queryParameters,
+      isEmpty,
+    );
+  });
+
+  testWidgets('A-to-B-to-A auth events cannot revive a loading paper',
+      (tester) async {
+    var uid = 'uid_a';
+    final gate = Completer<void>();
+    final server = _Server()..holdStart = gate;
+    await _open(tester, server: server, actor: () => uid);
+    final c =
+        ProviderScope.containerOf(tester.element(find.byType(ServerMockRoute)));
+    uid = 'uid_b';
+    c.read(_actorEvents.notifier).state = uid;
+    await tester.pump();
+    uid = 'uid_a';
+    c.read(_actorEvents.notifier).state = uid;
+    gate.complete();
+    await advance(tester, 500);
+    expect(find.text('Quiz tab'), findsOneWidget);
+    expect(find.text('General Information'), findsNothing);
+    expect(server.named('controlMock'), isEmpty);
+  });
+
   testWidgets(
       'an account change while loading leaves without publishing the old paper',
       (tester) async {
@@ -282,6 +383,30 @@ void main() {
     expect(server.calls.map((c) => c.$1), ['startMock']);
   });
 
+  testWidgets(
+      'leaving a discarded server paper refreshes cached card availability',
+      (tester) async {
+    final server = _Server();
+    await _open(tester, server: server, stableEntitlement: true);
+    final c =
+        ProviderScope.containerOf(tester.element(find.byType(ServerMockRoute)));
+    final before =
+        await c.read(serverMockAvailabilityProvider('exam_cse_pro').future);
+    expect(before['status'], 'available');
+    server.availability = 'in-progress';
+    await tester.tap(find.byKey(const ValueKey('mock-pause')));
+    await advance(tester, 3000);
+    await tester.ensureVisible(find.text('Discard This Mock'));
+    await tester.tap(find.text('Discard This Mock'));
+    await advance(tester, 300);
+    await tester.tap(find.text('Discard'));
+    await advance(tester, 500);
+    expect(find.text('Quiz tab'), findsOneWidget);
+    final after =
+        await c.read(serverMockAvailabilityProvider('exam_cse_pro').future);
+    expect(after['status'], 'in-progress');
+    expect((after['open']! as Map<String, Object?>)['mockId'], _mockId);
+  });
   testWidgets('pause follows the server and Resume plays back first',
       (tester) async {
     final server = _Server();
@@ -304,7 +429,8 @@ void main() {
     expect(find.text('Question q1?'), findsOneWidget);
   });
 
-  testWidgets('submitting from the grid sends the paper and returns to Quiz',
+  testWidgets(
+      'submitting from the grid sends the paper and opens its server result',
       (tester) async {
     final server = _Server();
     final fixture = await _open(tester, server: server);
@@ -323,7 +449,17 @@ void main() {
     final submit = server.named('submitMock').single.$2;
     expect(submit['reason'], 'student');
     expect(submit['answers']! as List<Object?>, hasLength(3));
-    expect(find.text('Quiz tab'), findsOneWidget);
+    expect(find.text('Server results $_mockId'), findsOneWidget);
+    final input =
+        GoRouterState.of(tester.element(find.text('Server results $_mockId')))
+            .extra! as MockFinaleInput;
+    expect(input.parts.single.questions.map((q) => q.id), ['q1', 'q2', 'q3']);
+    expect(
+      input.parts.single.questions
+          .skip(1)
+          .every((q) => q.outcome == MockFinaleOutcome.blank),
+      true,
+    );
     expect(fixture.router.canPop(), isFalse);
   });
 
@@ -359,7 +495,7 @@ void main() {
     await advance(tester, 2000);
     await advance(tester, 500);
     expect(server.named('submitMock').single.$2['reason'], 'student');
-    expect(find.text('Quiz tab'), findsOneWidget);
+    expect(find.text('Server results $_mockId'), findsOneWidget);
   });
 
   testWidgets('a strict paper left for more than ten seconds is handed in',

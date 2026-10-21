@@ -26,6 +26,7 @@ class MockCardModel {
     required this.name,
     this.durationMinutes,
     this.pro = false,
+    this.freeIntervalDays = 14,
     this.proPaused = false,
     this.lastPercent,
     this.lastAttemptAt,
@@ -39,6 +40,7 @@ class MockCardModel {
   final String name;
   final int? durationMinutes;
   final bool pro;
+  final int freeIntervalDays;
   final bool proPaused;
 
   /// Score percentages use 0 to 100, including UPCAT's deduction.
@@ -115,7 +117,8 @@ class MockCard extends StatelessWidget {
             : '';
     final rule = model.pro
         ? "You're on Pro. Take as many mocks as you like."
-        : 'Free includes one mock every 14 days.$nextOpens';
+        : 'Free includes one mock every '
+            '${model.freeIntervalDays} days.$nextOpens';
     final body = switch (state) {
       MockCardState.neverTaken => 'The whole exam under real timing. '
           'Test yourself on how you do under time pressure.',

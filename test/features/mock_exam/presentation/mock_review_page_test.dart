@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -524,10 +526,15 @@ void main() {
     ).called(1);
   });
 
-  Future<void> openFirstBlank(WidgetTester tester, {bool pro = false}) async {
+  Future<void> openFirstBlank(
+    WidgetTester tester, {
+    bool pro = false,
+    List<Override> extra = const [],
+  }) async {
     await tester.pumpAppWithProviders(
       MockReviewPage(attemptId: 'attempt_1', proIsActive: pro),
       overrides: [
+        ...extra,
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -660,6 +667,109 @@ void main() {
       tester.widget<TextField>(find.byType(TextField)).controller!.text,
       'I will return sooner',
     );
+  });
+  testWidgets(
+      'bulk flags stop after an account change '
+      'and do not acknowledge the offer', (tester) async {
+    final auth = StreamController<AuthState>();
+    addTearDown(auth.close);
+    auth.add(
+      const AuthState.signedIn(
+        user: AuthUser(uid: 'a', email: 'a@x.test', displayName: 'A'),
+      ),
+    );
+    final gate = Completer<void>();
+    var calls = 0;
+    when(() => flagsRepo.flag(any())).thenAnswer((_) async {
+      calls++;
+      if (calls == 1) await gate.future;
+    });
+    await openFirstBlank(
+      tester,
+      extra: [authStateProvider.overrideWith((ref) => auth.stream)],
+    );
+    await tester.tap(find.byTooltip('Back to questions'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Save All 12'));
+    await tester.pump();
+    auth.add(
+      const AuthState.signedIn(
+        user: AuthUser(uid: 'b', email: 'b@x.test', displayName: 'B'),
+      ),
+    );
+    await tester.pump();
+    gate.complete();
+    await tester.pumpAndSettle();
+    expect(calls, 1);
+    verifyNever(
+      () =>
+          prefsRepo.setDeviceValue('mock_flag_offer_handled_attempt_1', 'true'),
+    );
+  });
+  testWidgets('a pending flag lookup cannot write into the next account',
+      (tester) async {
+    final auth = StreamController<AuthState>();
+    addTearDown(auth.close);
+    auth.add(
+      const AuthState.signedIn(
+        user: AuthUser(uid: 'a', email: 'a@x.test', displayName: 'A'),
+      ),
+    );
+    final gate = Completer<bool>();
+    when(() => flagsRepo.isFlagged('q_2')).thenAnswer((_) => gate.future);
+    await openFirstBlank(
+      tester,
+      extra: [authStateProvider.overrideWith((ref) => auth.stream)],
+    );
+    await tester.tap(find.byTooltip('Flag question'));
+    auth.add(
+      const AuthState.signedIn(
+        user: AuthUser(uid: 'b', email: 'b@x.test', displayName: 'B'),
+      ),
+    );
+    await tester.pump();
+    gate.complete(false);
+    await tester.pumpAndSettle();
+    verifyNever(() => flagsRepo.flag('q_2'));
+  });
+  testWidgets('failed note save preserves the draft and retries the same note',
+      (tester) async {
+    var calls = 0;
+    when(
+      () => attemptRepo.saveReviewReason(
+        attemptId: 'attempt_1',
+        questionId: 'q_2',
+        savedAt: any(named: 'savedAt'),
+        blankReason: BlankReason.other,
+        reasonNote: 'My saved draft',
+      ),
+    ).thenAnswer((_) async {
+      calls++;
+      if (calls == 1) throw StateError('offline');
+    });
+    await openFirstBlank(tester, pro: true);
+    await tester.tap(find.byTooltip('Add note'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Type my own'));
+    await tester.tap(find.text('Type my own'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'My saved draft');
+    await tester.ensureVisible(find.text('Save Note'));
+    await tester.tap(find.text('Save Note'));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      'My saved draft',
+    );
+    await tester.ensureVisible(find.text('Try Again'));
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    expect(calls, 2);
+    expect(find.byType(TextField), findsNothing);
   });
   testWidgets(
       'Finish the Notes waits for saved notes before opening the editor',

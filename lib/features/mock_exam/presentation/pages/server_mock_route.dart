@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_session.dart';
 import 'package:pantas/features/mock_exam/application/strict_mode_lifecycle.dart';
 import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
@@ -19,6 +20,7 @@ import 'package:pantas/features/mock_exam/domain/server_mock_paper.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 
 /// The mock on the web. The server pins the paper, owns the clock and keeps
 /// the answers (startMock, getMockPaper, controlMock, submitMock); this screen
@@ -30,11 +32,13 @@ class ServerMockRoute extends ConsumerStatefulWidget {
   const ServerMockRoute({
     required this.examId,
     required this.strictMode,
+    this.resumeMockId,
     super.key,
   });
 
   final String examId;
   final bool strictMode;
+  final String? resumeMockId;
 
   @override
   ConsumerState<ServerMockRoute> createState() => _ServerMockRouteState();
@@ -49,12 +53,22 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   StrictModeLifecycle? _strict;
   var _pauseWarningSeen = false;
   var _finishing = false;
+  ServerMockEndReason? _terminalReason;
   var _disposed = false;
+  var _identityLost = false;
+  String? _originalUid;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    ref.listenManual(serverMockIdentityProvider, (previous, next) {
+      final original = _originalUid;
+      if (original != null && next != original) {
+        _identityLost = true;
+        unawaited(_close());
+      }
+    });
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
     unawaited(_loadPauseWarning());
   }
@@ -79,20 +93,39 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     setState(() => _loadError = null);
     final actor = ref.read(serverMockActorProvider);
     final uid = actor();
+    _originalUid ??= uid;
     try {
       if (uid == null) throw const ServerMockException(code: 'unauthenticated');
-      final started = await ref.read(serverMockApiProvider).start(
-            examId: widget.examId,
-            strict: widget.strictMode,
-          );
-      final paper = started.paper;
+      final api = ref.read(serverMockApiProvider);
+      ServerMockPaper paper;
+      if (widget.resumeMockId != null) {
+        final current = await api.read();
+        if (_disposed || !mounted || (_identityLost || actor() != uid)) return;
+        if (current is ServerMockOpen) {
+          paper = current.paper;
+        } else {
+          final id = current is ServerMockEnded
+              ? current.ended.mockId
+              : widget.resumeMockId!;
+          await api.results(id);
+          if (_disposed || !mounted || (_identityLost || actor() != uid)) {
+            return;
+          }
+          context.pushReplacement('/mock/results/$id');
+          return;
+        }
+      } else {
+        paper =
+            (await api.start(examId: widget.examId, strict: widget.strictMode))
+                .paper;
+      }
       final restored = await _restoredIndexes(paper);
       final saved = await ref
           .read(serverMockViewCacheProvider)
           .read(uid: uid, mockId: paper.mockId);
       // The account may have changed while the paper was coming.
       if (_disposed || !mounted) return;
-      if (actor() != uid) {
+      if (_identityLost || actor() != uid) {
         await _close();
         return;
       }
@@ -100,7 +133,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
         api: ref.read(serverMockApiProvider),
         paper: paper,
         uid: uid,
-        currentUid: actor,
+        currentUid: () => _identityLost ? null : actor(),
         elapsed: ref.read(serverMockElapsedProvider),
         restoredIndexes: restored,
         cursor: saved?.cursor ?? 0,
@@ -118,7 +151,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       setState(() => _session = session);
     } on Object catch (error) {
       if (!mounted || _disposed) return;
-      if (actor() != uid) {
+      if (_identityLost || actor() != uid) {
         await _close();
         return;
       }
@@ -156,7 +189,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     }
     if (session.submitted && !_finishing) {
       _finishing = true;
-      unawaited(_close());
+      _showResults();
       return;
     }
     setState(() {});
@@ -180,18 +213,58 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
     setState(() {});
   }
 
-  /// Submits and closes. The result screens wait for the server's reader of
-  /// completed mocks, so the student returns to the Quiz tab for now.
+  /// Only acknowledged submission opens the authoritative result.
   Future<void> _leave(ServerMockEndReason reason) async {
     final session = _session;
     if (session == null || _finishing || session.submissionRequested) return;
     _finishing = true;
+    _terminalReason ??= reason;
     final ok = await session.submit(reason);
     if (ok && mounted) {
-      await _close();
+      _showResults();
     } else if (mounted) {
       setState(() => _finishing = false);
     }
+  }
+
+  void _showResults() {
+    final session = _session;
+    if (!mounted || _disposed || session == null || session.stale) return;
+    _tick?.cancel();
+    final paper = session.paper;
+    final input = MockFinaleInput(
+      reason: _terminalReason == ServerMockEndReason.strictExit
+          ? MockSubmitReason.strictBackground
+          : session.timeIsUp
+              ? MockSubmitReason.timeUp
+              : MockSubmitReason.manual,
+      currentPartIndex: 0,
+      currentQuestionIndex: session.cursor,
+      parts: [
+        MockFinalePart(
+          name: paper.examId,
+          questions: [
+            for (final id in paper.questionIds)
+              MockFinaleQuestion(
+                id: id,
+                outcome: session.answers[id]?.chosen == null
+                    ? MockFinaleOutcome.blank
+                    : session.answers[id]!.correct
+                        ? MockFinaleOutcome.correct
+                        : MockFinaleOutcome.wrong,
+              ),
+          ],
+        ),
+      ],
+    );
+    ref
+      ..invalidate(serverMockResultProvider(paper.mockId))
+      ..invalidate(serverMockHistoryProvider)
+      ..invalidate(serverMockAvailabilityProvider(widget.examId));
+    context.pushReplacement(
+      '/mock/results/${paper.mockId}?fresh=1',
+      extra: input,
+    );
   }
 
   Future<void> _close() async {
@@ -202,6 +275,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
       await WidgetsBinding.instance.endOfFrame;
       if (!mounted) return;
     }
+    ref.invalidate(serverMockAvailabilityProvider(widget.examId));
     context.go(mockExitLocation);
   }
 
@@ -225,6 +299,9 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
 
   @override
   Widget build(BuildContext context) {
+    if (_identityLost) {
+      return const Scaffold(body: Center(child: FaintBars()));
+    }
     final error = _loadError;
     if (error != null) {
       return Scaffold(

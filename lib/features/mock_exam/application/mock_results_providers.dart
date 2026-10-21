@@ -2,15 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/domain/server_mock_results.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -27,7 +27,16 @@ class MockHistoryEntry {
 /// Keeps per-exam scores in percent units with their exact stored counts.
 final mockHistoryProvider =
     StreamProvider<List<MockHistoryEntry>>((ref) async* {
-  if (kIsWeb) throw UnsupportedError('Server mock history reader is pending');
+  if (ref.watch(mockUsesServerProvider)) {
+    final rows = await ref.watch(serverMockHistoryProvider.future);
+    yield List.unmodifiable(
+      rows.map(
+        (row) =>
+            serverMockHistoryEntry(row, ref.read(serverMockIdentityProvider)!),
+      ),
+    );
+    return;
+  }
   final feed = ref
       .watch(mockAttemptRepoProvider)
       .watchHistory(mockAttemptLocalUserId, limit: null);
@@ -46,7 +55,10 @@ final mockHistoryProvider =
 
 final mockResultsProvider =
     FutureProvider.family<MockHistoryEntry?, String>((ref, id) async {
-  if (kIsWeb) throw UnsupportedError('Server mock results reader is pending');
+  if (ref.watch(mockUsesServerProvider)) {
+    final row = await ref.watch(serverMockResultProvider(id).future);
+    return serverMockHistoryEntry(row, ref.read(serverMockIdentityProvider)!);
+  }
   final attempt = await ref.watch(mockAttemptRepoProvider).findById(id);
   if (attempt == null) return null;
   final results = await _loadResults(ref, attempt);
@@ -133,8 +145,14 @@ MockReviewAccess nativeMockReviewAccess({
 
 final mockReviewAccessProvider =
     FutureProvider.family<MockReviewAccess, String>((ref, id) async {
-  if (kIsWeb) {
-    throw UnsupportedError('Server mock review visibility reader is pending');
+  if (ref.watch(mockUsesServerProvider)) {
+    final row = await ref.watch(serverMockResultProvider(id).future);
+    return MockReviewAccess(
+      canReview: row.canReview,
+      proCovered: row.proCovered,
+      reviewUntil:
+          DateTime.fromMillisecondsSinceEpoch(row.reviewUntil, isUtc: true),
+    );
   }
   final repo = ref.watch(mockAttemptRepoProvider);
   final clock = ref.watch(mockAvailabilityClockProvider);
@@ -170,7 +188,24 @@ final mockReviewAccessProvider =
 /// Strictly earlier submissions from the same exam and profile, oldest first.
 final mockEarlierResultsProvider =
     FutureProvider.family<List<MockHistoryEntry>, String>((ref, id) async {
-  if (kIsWeb) throw UnsupportedError('Server mock history reader is pending');
+  if (ref.watch(mockUsesServerProvider)) {
+    final current = await ref.watch(serverMockResultProvider(id).future);
+    final rows = await ref.watch(serverMockHistoryProvider.future);
+    return List.unmodifiable(
+      rows.reversed
+          .where(
+            (row) =>
+                row.examId == current.examId &&
+                row.submittedAt < current.submittedAt,
+          )
+          .map(
+            (row) => serverMockHistoryEntry(
+              row,
+              ref.read(serverMockIdentityProvider)!,
+            ),
+          ),
+    );
+  }
   final repo = ref.watch(mockAttemptRepoProvider);
   final attempt = await repo.findById(id);
   if (attempt?.submittedAt == null) return const [];
@@ -189,3 +224,42 @@ final mockEarlierResultsProvider =
   }
   return List.unmodifiable(entries);
 });
+
+/// Adapts server-owned summary data to the existing presentation without a
+/// local database write. Review uses the pinned server paper separately.
+MockHistoryEntry serverMockHistoryEntry(ServerMockResult row, String uid) {
+  DateTime date(int ms) => DateTime.fromMillisecondsSinceEpoch(ms, isUtc: true);
+  return MockHistoryEntry(
+    results: row.results,
+    attempt: MockAttempt(
+      id: row.mockId,
+      userId: uid,
+      examId: row.examId,
+      blueprintId: row.examId,
+      blueprintName: row.examId == 'exam_cse_pro'
+          ? 'CSE Professional'
+          : row.examId == 'exam_cse_sub'
+              ? 'CSE Subprofessional'
+              : row.examId,
+      durationMinutes: row.limitMs ~/ 60000,
+      status: row.endedBy == 'strict-exit'
+          ? MockAttemptStatus.forfeited
+          : MockAttemptStatus.completed,
+      strictMode: row.strict,
+      sampledQuestionsJson: '[]',
+      answersJson: '{}',
+      flagsJson: '[]',
+      elapsedSeconds: row.durationMs ~/ 1000,
+      accumulatedPausedSeconds: 0,
+      pausedAtLastFlush: false,
+      currentIndex: 0,
+      startedAt: date(row.startedAt),
+      lastFlushedAt: date(row.submittedAt),
+      updatedAt: date(row.submittedAt),
+      submittedAt: date(row.submittedAt),
+      scoreRaw: row.results.scoreRaw,
+      scoreTotal: row.results.scoreTotal,
+      totalTimeSeconds: row.results.totalTimeSeconds,
+    ),
+  );
+}

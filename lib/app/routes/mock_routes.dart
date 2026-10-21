@@ -7,6 +7,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/server_mock_route.d
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,6 +33,7 @@ List<RouteBase> mockRoutes(Ref ref) => [
           final examId = state.uri.queryParameters['examId']!;
           final blueprintId = state.uri.queryParameters['blueprintId']!;
           return buildMockRunRoute(
+            web: ref.read(mockUsesServerProvider),
             examId: examId,
             blueprintId: blueprintId,
             strictMode: state.uri.queryParameters['strict'] == '1',
@@ -40,9 +42,15 @@ List<RouteBase> mockRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/quiz/mock/resume/:attemptId',
-        builder: (_, state) => MockStartRoute.resume(
-          resumeAttemptId: state.pathParameters['attemptId'],
-        ),
+        builder: (_, state) => ref.read(mockUsesServerProvider)
+            ? ServerMockRoute(
+                examId: state.uri.queryParameters['examId'] ?? '',
+                strictMode: false,
+                resumeMockId: state.pathParameters['attemptId'],
+              )
+            : MockStartRoute.resume(
+                resumeAttemptId: state.pathParameters['attemptId'],
+              ),
       ),
       GoRoute(
         path: '/quiz/mock/custom-setup',
@@ -75,7 +83,10 @@ List<RouteBase> mockRoutes(Ref ref) => [
             final attemptId = state.pathParameters['attemptId']!;
             final access = ref.watch(mockReviewAccessProvider(attemptId));
             final granted = access.valueOrNull;
-            if (granted == null || !granted.canReview) {
+            if (access.isLoading ||
+                access.hasError ||
+                granted == null ||
+                !granted.canReview) {
               return MockResultsRoute(
                 attemptId: attemptId,
                 fromRecord: true,

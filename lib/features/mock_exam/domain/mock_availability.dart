@@ -8,26 +8,44 @@ class MockAvailability {
     required this.state,
     this.cooldownRemaining,
     this.activeAttempt,
+    this.serverMockId,
+    this.serverExamId,
+    this.nextOpensAt,
   });
 
   const MockAvailability.available()
       : state = MockAvailabilityState.available,
         cooldownRemaining = null,
-        activeAttempt = null;
+        activeAttempt = null,
+        serverMockId = null,
+        serverExamId = null,
+        nextOpensAt = null;
 
   const MockAvailability.cooldown(this.cooldownRemaining)
       : state = MockAvailabilityState.cooldown,
-        activeAttempt = null;
+        activeAttempt = null,
+        serverMockId = null,
+        serverExamId = null,
+        nextOpensAt = null;
 
   const MockAvailability.inProgress(this.activeAttempt)
       : state = MockAvailabilityState.inProgress,
-        cooldownRemaining = null;
+        cooldownRemaining = null,
+        serverMockId = null,
+        serverExamId = null,
+        nextOpensAt = null;
 
   const MockAvailability.noBlueprint()
       : state = MockAvailabilityState.noBlueprint,
         cooldownRemaining = null,
-        activeAttempt = null;
+        activeAttempt = null,
+        serverMockId = null,
+        serverExamId = null,
+        nextOpensAt = null;
 
+  final String? serverMockId;
+  final String? serverExamId;
+  final DateTime? nextOpensAt;
   final MockAvailabilityState state;
   final Duration? cooldownRemaining;
   final MockAttempt? activeAttempt;

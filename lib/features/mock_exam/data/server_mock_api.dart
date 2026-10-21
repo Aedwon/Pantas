@@ -1,6 +1,7 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:meta/meta.dart';
 import 'package:pantas/features/mock_exam/domain/server_mock_paper.dart';
+import 'package:pantas/features/mock_exam/domain/server_mock_results.dart';
 
 /// Calls one named callable and returns its decoded data.
 typedef ServerMockCallable = Future<Object?> Function(
@@ -117,6 +118,58 @@ class ServerMockApi {
   static const _maxIdLength = 128;
   static const _maxChosenLength = 64;
   static const _dayMs = 86400000;
+
+  Future<ServerMockResult> results(String mockId) async {
+    _checkMockId(mockId);
+    final result = ServerMockResult.decode(
+      await _call('getMockResults', {'mockId': mockId}),
+    );
+    if (result.mockId != mockId) {
+      throw const ServerMockFormatException('Result identity differs');
+    }
+    return result;
+  }
+
+  Future<ServerMockHistoryPage> history({Map<String, Object?>? before}) async =>
+      ServerMockHistoryPage(
+        await _call('getMockHistory', {
+          'limit': 100,
+          if (before != null) 'before': before,
+        }),
+      );
+
+  Future<Map<String, Object?>> availability(
+    String examId, {
+    bool includeSetup = false,
+  }) async =>
+      serverMockObject(
+        await _call(
+          'getMockAvailability',
+          {'examId': examId, if (includeSetup) 'includeSetup': true},
+        ),
+      );
+
+  Future<void> saveReview({
+    required String mockId,
+    required String questionId,
+    String? missReason,
+    String? blankReason,
+    String? reasonNote,
+  }) async {
+    _checkMockId(mockId);
+    final result = serverMockObject(
+      await _call('updateMockReview', {
+        'mockId': mockId,
+        'questionId': questionId,
+        'missReason': missReason,
+        'blankReason': blankReason,
+        'reasonNote': reasonNote,
+      }),
+    );
+    if (result['stored'] != true) {
+      throw const ServerMockFormatException('Review note was not saved');
+    }
+  }
 
   Future<ServerMockStart> start({
     required String examId,

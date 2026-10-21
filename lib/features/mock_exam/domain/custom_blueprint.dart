@@ -111,3 +111,25 @@ class CustomBlueprint {
     ]);
   }
 }
+
+/// A custom track's paper, as the panel states it back.
+///
+/// The figures are the student's own: what they told the app their exam is.
+@immutable
+class CustomMockSummary {
+  const CustomMockSummary({required this.questions, required this.minutes});
+
+  final int questions;
+  final int minutes;
+
+  String get line {
+    final hours = minutes ~/ 60;
+    final rest = minutes % 60;
+    final duration = switch ((hours, rest)) {
+      (0, final m) => '$m minutes',
+      (final h, 0) => h == 1 ? '1 hour' : '$h hours',
+      (final h, final m) => '${h}h ${m}m',
+    };
+    return '$questions questions, $duration. You set this up.';
+  }
+}

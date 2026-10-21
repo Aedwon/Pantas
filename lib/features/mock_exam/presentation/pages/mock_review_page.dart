@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/answer_reveal.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
@@ -12,6 +14,9 @@ import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_review_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 class MockReviewPage extends ConsumerStatefulWidget {
@@ -32,6 +37,24 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
   ReviewFilter _filter = ReviewFilter.wrong;
   int? _viewerIndex;
   bool _noteOpen = false;
+
+  int _flagEpoch = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    String? actor(AsyncValue<AuthState>? state) => switch (state?.valueOrNull) {
+          SignedInAuthState(:final user) => user.uid,
+          AnonymousAuthState(:final uid) => uid,
+          _ => null,
+        };
+    ref.listenManual(authStateProvider, (previous, next) {
+      if (actor(previous) != actor(next)) _flagEpoch++;
+    });
+  }
+
+  bool _flagContextCurrent(int epoch, String? uid, String? Function() actor) =>
+      mounted && _flagEpoch == epoch && actor() == uid;
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +104,8 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
               ),
       ),
       body: reviewAsync.when(
+        skipLoadingOnRefresh: false,
+        skipLoadingOnReload: false,
         data: (entries) {
           final filtered = FilterReviewEntries.call(entries, _filter);
           final viewerIndex = _viewerIndex;
@@ -159,7 +184,16 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, st) => Center(child: Text('Error: $err')),
+        error: (err, st) => errorFor(
+          'mock review',
+          () {
+            if (ref.read(mockUsesServerProvider)) {
+              ref.invalidate(serverMockResultProvider(widget.attemptId));
+            }
+            ref.invalidate(mockReviewProvider(widget.attemptId));
+          },
+          error: err,
+        ),
       ),
     );
   }
@@ -168,12 +202,18 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
     Set<String> markedIds, {
     required bool keep,
   }) async {
+    final epoch = _flagEpoch;
+    final actor = ref.read(serverMockActorProvider);
+    final uid = actor();
+    final ids = Set<String>.of(markedIds);
     if (keep) {
       final flagRepo = ref.read(questionFlagsRepositoryProvider);
-      for (final questionId in markedIds) {
+      for (final questionId in ids) {
+        if (!_flagContextCurrent(epoch, uid, actor)) return;
         await flagRepo.flag(questionId);
       }
     }
+    if (!_flagContextCurrent(epoch, uid, actor)) return;
     final prefsRepo = ref.read(appPreferencesRepositoryProvider);
     await prefsRepo.setDeviceValue(
       'mock_flag_offer_handled_${widget.attemptId}',
@@ -186,8 +226,12 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
   }
 
   Future<void> _toggleFlag(String questionId) async {
+    final epoch = _flagEpoch;
+    final actor = ref.read(serverMockActorProvider);
+    final uid = actor();
     final repo = ref.read(questionFlagsRepositoryProvider);
     final flagged = await repo.isFlagged(questionId);
+    if (!_flagContextCurrent(epoch, uid, actor)) return;
     if (flagged) {
       await repo.unflag(questionId);
     } else {
@@ -201,13 +245,28 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
     BlankReason reason,
     String? note,
   ) async {
-    await ref.read(mockAttemptRepoProvider).saveReviewReason(
-          attemptId: widget.attemptId,
-          questionId: entry.question.id,
-          savedAt: DateTime.now().toUtc(),
-          blankReason: reason,
-          reasonNote: note,
-        );
+    if (ref.read(mockUsesServerProvider)) {
+      final uid = ref.read(serverMockIdentityProvider);
+      if (uid == null || ref.read(serverMockActorProvider)() != uid) {
+        throw const ServerMockException(code: 'cancelled');
+      }
+      await ref.read(serverMockApiProvider).saveReview(
+            mockId: widget.attemptId,
+            questionId: entry.question.id,
+            blankReason: reason.name,
+            reasonNote: note,
+          );
+      if (!mounted || ref.read(serverMockActorProvider)() != uid) return;
+      ref.invalidate(serverMockResultProvider(widget.attemptId));
+    } else {
+      await ref.read(mockAttemptRepoProvider).saveReviewReason(
+            attemptId: widget.attemptId,
+            questionId: entry.question.id,
+            savedAt: DateTime.now().toUtc(),
+            blankReason: reason,
+            reasonNote: note,
+          );
+    }
     if (mounted) {
       ref.invalidate(mockReviewAnswersProvider(widget.attemptId));
       setState(() => _noteOpen = false);
@@ -219,13 +278,28 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
     MissReason reason,
     String? note,
   ) async {
-    await ref.read(mockAttemptRepoProvider).saveReviewReason(
-          attemptId: widget.attemptId,
-          questionId: entry.question.id,
-          savedAt: DateTime.now().toUtc(),
-          missReason: reason,
-          reasonNote: note,
-        );
+    if (ref.read(mockUsesServerProvider)) {
+      final uid = ref.read(serverMockIdentityProvider);
+      if (uid == null || ref.read(serverMockActorProvider)() != uid) {
+        throw const ServerMockException(code: 'cancelled');
+      }
+      await ref.read(serverMockApiProvider).saveReview(
+            mockId: widget.attemptId,
+            questionId: entry.question.id,
+            missReason: reason.name,
+            reasonNote: note,
+          );
+      if (!mounted || ref.read(serverMockActorProvider)() != uid) return;
+      ref.invalidate(serverMockResultProvider(widget.attemptId));
+    } else {
+      await ref.read(mockAttemptRepoProvider).saveReviewReason(
+            attemptId: widget.attemptId,
+            questionId: entry.question.id,
+            savedAt: DateTime.now().toUtc(),
+            missReason: reason,
+            reasonNote: note,
+          );
+    }
     if (mounted) {
       ref.invalidate(mockReviewAnswersProvider(widget.attemptId));
       setState(() => _noteOpen = false);
@@ -635,6 +709,23 @@ class _ReasonPanel extends StatefulWidget {
 class _ReasonPanelState extends State<_ReasonPanel> {
   late final TextEditingController _controller;
   late bool _typing;
+  bool _saving = false;
+  Future<void> Function()? _retry;
+
+  Future<void> _save(Future<void> Function() operation) async {
+    if (_saving) return;
+    setState(() {
+      _saving = true;
+      _retry = null;
+    });
+    try {
+      await operation();
+    } on Object {
+      if (mounted) setState(() => _retry = operation);
+    } finally {
+      if (mounted) setState(() => _saving = false);
+    }
+  }
 
   @override
   void initState() {
@@ -675,36 +766,44 @@ class _ReasonPanelState extends State<_ReasonPanel> {
               label: 'I ran out of time',
               selected:
                   widget.savedAnswer?.blankReason == BlankReason.ranOutOfTime,
-              onTap: () => widget.onBlankReason(BlankReason.ranOutOfTime, null),
+              onTap: () => _save(
+                () => widget.onBlankReason(BlankReason.ranOutOfTime, null),
+              ),
             ),
             _ReasonChoice(
               label: 'I skipped it to come back later',
               selected: widget.savedAnswer?.blankReason ==
                   BlankReason.skippedToReturn,
-              onTap: () =>
-                  widget.onBlankReason(BlankReason.skippedToReturn, null),
+              onTap: () => _save(
+                () => widget.onBlankReason(BlankReason.skippedToReturn, null),
+              ),
             ),
             _ReasonChoice(
               label: "I didn't know it",
               selected:
                   widget.savedAnswer?.blankReason == BlankReason.didNotKnow,
-              onTap: () => widget.onBlankReason(BlankReason.didNotKnow, null),
+              onTap: () => _save(
+                () => widget.onBlankReason(BlankReason.didNotKnow, null),
+              ),
             ),
           ] else ...[
             _ReasonChoice(
               label: 'I misread it',
               selected: widget.savedAnswer?.missReason == MissReason.misread,
-              onTap: () => widget.onMissReason(MissReason.misread, null),
+              onTap: () =>
+                  _save(() => widget.onMissReason(MissReason.misread, null)),
             ),
             _ReasonChoice(
               label: 'I knew it, I just slipped',
               selected: widget.savedAnswer?.missReason == MissReason.slipped,
-              onTap: () => widget.onMissReason(MissReason.slipped, null),
+              onTap: () =>
+                  _save(() => widget.onMissReason(MissReason.slipped, null)),
             ),
             _ReasonChoice(
               label: "I didn't know it",
               selected: widget.savedAnswer?.missReason == MissReason.unknown,
-              onTap: () => widget.onMissReason(MissReason.unknown, null),
+              onTap: () =>
+                  _save(() => widget.onMissReason(MissReason.unknown, null)),
             ),
           ],
           _ReasonChoice(
@@ -712,6 +811,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
             selected: _typing,
             onTap: () => setState(() => _typing = true),
           ),
+          if (_retry != null) saveFailureLine(() => _save(_retry!)),
           if (_typing) ...[
             const SizedBox(height: 8),
             TextField(controller: _controller, maxLines: 3),
@@ -722,9 +822,9 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                 final note = _controller.text.trim();
                 if (note.isEmpty) return;
                 if (widget.isBlank) {
-                  widget.onBlankReason(BlankReason.other, note);
+                  _save(() => widget.onBlankReason(BlankReason.other, note));
                 } else {
-                  widget.onMissReason(MissReason.other, note);
+                  _save(() => widget.onMissReason(MissReason.other, note));
                 }
               },
             ),

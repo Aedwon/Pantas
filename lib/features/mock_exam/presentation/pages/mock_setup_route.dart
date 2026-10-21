@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
@@ -42,6 +43,9 @@ final mockSetupParsedBlueprintProvider =
 
 final mockSetupQuestionCountProvider =
     FutureProvider.family<int?, String>((ref, examId) async {
+  if (ref.watch(mockUsesServerProvider)) {
+    return ref.watch(serverMockSetupCountProvider(examId).future);
+  }
   final parsed =
       await ref.watch(mockSetupParsedBlueprintProvider(examId).future);
   if (parsed == null) return null;
@@ -80,7 +84,11 @@ class MockSetupRoute extends ConsumerWidget {
       return StateView.fullScreen(
         error: error,
         onRetry: () {
+          if (ref.read(mockUsesServerProvider)) {
+            ref.invalidate(serverMockSetupCountProvider(examId));
+          }
           ref
+            ..invalidate(mockBlueprintsForExamProvider(examId))
             ..invalidate(mockSetupParsedBlueprintProvider(examId))
             ..invalidate(mockSetupQuestionCountProvider(examId))
             ..invalidate(userSettingsProvider);

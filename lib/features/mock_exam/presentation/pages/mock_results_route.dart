@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
@@ -73,12 +74,19 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
       return Scaffold(
         body: errorFor(
           'mock results',
-          () => ref.invalidate(mockReviewAccessProvider(attemptId)),
+          () {
+            if (ref.read(mockUsesServerProvider)) {
+              ref.invalidate(serverMockResultProvider(attemptId));
+            }
+            ref.invalidate(mockReviewAccessProvider(attemptId));
+          },
           error: access.error,
         ),
       );
     }
     return entry.when(
+      skipLoadingOnRefresh: false,
+      skipLoadingOnReload: false,
       loading: () {
         _interruptFinale();
         return Scaffold(body: loadingFor(entry));
@@ -88,7 +96,12 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
         return Scaffold(
           body: errorFor(
             'mock results',
-            () => ref.invalidate(mockResultsProvider(attemptId)),
+            () {
+              if (ref.read(mockUsesServerProvider)) {
+                ref.invalidate(serverMockResultProvider(attemptId));
+              }
+              ref.invalidate(mockResultsProvider(attemptId));
+            },
             error: error,
           ),
         );
