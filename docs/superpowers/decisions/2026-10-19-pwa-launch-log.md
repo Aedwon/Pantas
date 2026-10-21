@@ -1392,3 +1392,14 @@ Aedwon's exact instruction:
 > i authorize you to complete W4e including its dependencies (unless it's on another workstream)
 
 Continue existing approved W4e tasks and dependencies inside its ownership. Root explicitly stated that the separate PWA server track and W4d remain excluded; no server takeover is inferred. Root prepared the missing CSE finale comparison under the existing lead re-planning requirement. Proposal version1 is saved on E86269158 and linked from current STATUS/evidence. Offered geometry options: A, recommended,13columns preserving existing full-paper card size/scan distance at the cost of tighter initial dot spacing; B,10columns with more initial dot space at the cost of taller cards, longer scan distance and extra geometry work. Both preserve the sampled motion timeline. Selection is pending, and clicking a draft control alone is not approval. No application source changed in this proposal slice; no new family-completion claim or integration permission is implied.
+
+
+### October21: compact booklet selected and extended vertically
+
+Aedwon: "oh yeah go compact booklet then. is that actually 155 dots?" This chooses optionA from proposalv1, not10-columnB. Root verified155/145 actual generated dots.
+
+Aedwon: "um if that's 155 dots, maybe you can extend it so it reaches further down? then also you don't have to show me just clarify, will it still do the mock-end animation?"
+
+Root clarified keeping13columns, extending rows/card/scan downward while retaining the scan, gathering, ball, impact/gauge and result sequence/timing. Aedwon: "okie dokie, proceed then".
+
+The extension supersedes A's original tight vertical spacing. Technical dimensions:9pxdots; initial/checking horizontal22/24 and vertical16/18;155-question initial/checking cards255/237high. Sampled source tracks/time remain binding; no additional preview is required by the user's explicit waiver for this extension. No wider scope or external server/W4d ownership is granted. Original chosen proposal remains immutable for history; the spec/plan records this later text-approved amendment before production changes.

@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-21 03:59 Asia/Manila
+State: held
+Holder: Codex W4e CSE finale, chat 01a15acf
+Since: 2026-10-21 13:18 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -969,3 +969,10 @@ Latest exact user instruction: "i authorize you to complete W4e including its de
 The missing CSE representation is now a concrete self-contained comparison, uploaded on E at862691589004fa7bda4bc51599ca4178be200f37 with matching GitHub SHA and clean tree. Proposal v1: docs/design/proposals/w4e-cse-finale-2026-10-21-v1.html, SHA25609d5c4ddeeb2c994068e9ffd8e303f7bfba81cfb04311354d275e2710cc4389f. OptionA uses13columns and the original full-paper card dimensions, with tighter initial dot spacing; recommended for fewer geometry changes. OptionB uses10columns, taller cards and a longer scan, preserving scan duration. Both preserve the original171 sampled flight tracks/timing through affine endpoint adaptation and show both CSE sizes, short papers, mixed/all/no-correct examples, dark mode and synchronized phase controls. No-correct papers omit the ball/impact; all-retired papers retain the existing skip rule.
 
 Only0–6seconds of necessary booklet/scan/gather/impact geometry is proposed. Later results/history content is outside this proposal; no implicit approval of omitted states, native rendering or phone visuals. Non-browser checks pass84 data/control combinations and all310 possible1–155-question booklet layouts; no UI automation or screenshots. App source remains00b0f1e2 and its4152-pass record is unchanged. Await Aedwon's A/B selection before implementing represented geometry. Keep other-workstream dependencies held, and do not claim family completion. Status lock remains free while awaiting this visual decision.
+
+
+### October21: taller compact CSE booklet approved
+
+Exact user: "oh yeah go compact booklet then. is that actually 155 dots?" Root rechecked the actual proposal dot loop and84 non-browser cases: full Professional155dots, Subprofessional145; Questions shown can reduce the preview only. Exact follow-up: "um if that's 155 dots, maybe you can extend it so it reaches further down? then also you don't have to show me just clarify, will it still do the mock-end animation?" Root clarified taller13columns, preserved scan/gather/ball/gauge/results order and timing. Exact execution approval: "okie dokie, proceed then".
+
+This approves the taller compact presentation without another preview: keep13columns/9px dots and horizontal22/24 spacing, extend initial/checking vertical spacing to16/18, moving card/count/scan bounds together. This technical dimension choice realizes the approved extension; no other visible design is substituted. Existing sampled tracks remain the source. Scope remains W4e only, no server/W4d takeover, no main application source or publication. E and remote start clean86269158; policy99f708a8 refreshed. Existing L3 Task6 is refined by E spec/plan2026-10-21-w4e-cse-finale. Root owns inline implementation and final verification; independent scoped review follows. Lock acquired for this continuation.
