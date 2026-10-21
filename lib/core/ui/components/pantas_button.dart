@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
-enum PantasButtonVariant { primary, secondary, tertiary, destructive }
+enum PantasButtonVariant { primary, secondary, tertiary, destructive, neutral }
 
 class PantasButton extends StatefulWidget {
   const PantasButton({
@@ -82,19 +82,23 @@ class _PantasButtonState extends State<PantasButton> {
             ? (variant == PantasButtonVariant.destructive
                 ? c.onDestructive
                 : c.onAccent)
-            : variant == PantasButtonVariant.secondary &&
-                    Theme.of(context).brightness == Brightness.dark
+            : variant == PantasButtonVariant.neutral
                 ? c.label
-                : c.accent;
+                : variant == PantasButtonVariant.secondary &&
+                        Theme.of(context).brightness == Brightness.dark
+                    ? c.label
+                    : c.accent;
     final background = !enabled && !dimmed
         ? c.fill
         : solid
             ? variant == PantasButtonVariant.destructive
                 ? c.destructive
                 : c.accentFill
-            : variant == PantasButtonVariant.secondary
-                ? c.accentTint
-                : context.colors.transparent;
+            : variant == PantasButtonVariant.neutral
+                ? c.fill
+                : variant == PantasButtonVariant.secondary
+                    ? c.accentTint
+                    : context.colors.transparent;
     return Opacity(
       opacity: dimmed ? widget.disabledOpacity! : 1,
       child: AnimatedScale(
