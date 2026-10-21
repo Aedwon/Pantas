@@ -446,3 +446,5 @@ Root found that the partial tab substituted every paused quiz's one-based positi
 Per standing ruling2, the misleading mixed Today launch is omitted until Home supplies the actual Reviews/New caller contract. No replacement label, disabled control, synthetic membership or new shared widget was introduced. The drawn Reviews/New launch and sheets remain explicitly unfinished dependencies; this correction does not claim Task2 complete. Source scope is only the tab and its existing test; today_providers did not require a change.
 
 GREEN11384:22 tab/leave-resume/panel tests pass, two-file analysis clean, format0changes. Exact commands/output are W4d-tab-truthful-green-0..2.txt; W4d-tab-truthful-red.txt preserves the actual failure. Scoped diff is clean. Broader family/combined verification, independent review, integration and phone acceptance remain pending.
+
+Evidence hygiene for the root's tab RED: the gzip companion preserves original output bytes; the readable copy trims only trailing whitespace. Root checked the entire committed tab source/test delta and the readable log after normalization. No production source or test behavior changed.
