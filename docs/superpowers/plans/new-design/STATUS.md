@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex chat 01a15acf, W4e completion including required C8 dependency
-Since: 2026-10-21 14:38 Asia/Manila
+Since: 2026-10-21 22:47 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1021,3 +1021,8 @@ Source manifest build/w4e/completion/source-sha256.txt frozen during current ful
 Frozen pre-fix client suite reports08:45+4176 All tests passed;123client and8server source hashes match the independent audit manifests. Astra whole-family audit is complete, not accepted: eight findings cover browser timer limits, device-clock expiry, cached upstream Retry, pending flags across identity changes, per-exam recency, a dead cross-exam history action, silent partial hydration, and server duplicate/foreign answers. Root accepts all and is correcting them with regression RED/GREEN in one pass. Server30focused emulator cases pass after timing/identity/recency corrections; client40focused cases pass after upstream Retry/flag/callback fixes, with additional timer/content regressions and cleanup checks in progress. Do not treat pre-fix full-suite output as amended-source acceptance.
 
 The audit also identified D-258's missing mock answer-to-review/roadmap connection. Root's necessary-dependency authorization covers a bounded server integration using existing C9 totals and the exact existing Dart FSRS scheduler, not a second algorithm. Plan2026-10-21-w4e-server-reader defines atomic idempotent recording, original version1 C7 contract, historic ordering, ordinary-review advancement and due-roadmap consumption with VM/JS parity tests. No unrelated W4d screens or broad C10 insights refactor is resumed. Lock remains held; no family-complete or integration claim.
+
+
+### October21: active continuation and corrected dependency verification
+
+Latest user: "continue please thanks". Current main c9349cf0 policy refreshed unchanged; local/remote working heads remain E8aee08ea, reader181e314e and integration72629940. Renew the active lock timestamp for this long interactive continuation; no other holder or unexpected drift exists. Eight audit fixes now have valid failing regressions and focused GREEN. Newly implemented D-258 scheduler bridge uses the existing native algorithm, with six Dart-VM/JS parity cases and atomic answer totals/review writes. Node22 full Functions suite passes165plain/205emulator, including rollback/retry, strict expiry, completed-history reconciliation and concurrent finalization. This is implemented/tested, not final family acceptance: the newly added dependency needs its first scoped source review, and the corrected client/full integrated checks remain due.
