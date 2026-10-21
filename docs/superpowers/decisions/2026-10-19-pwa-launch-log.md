@@ -1413,3 +1413,8 @@ Implemented the user's compact13-column selection plus the later approved vertic
 ### October21: all necessary W4e dependencies authorized
 
 Aedwon: "thanks, i give you full authorization on all you need to do to complete w4e". Root recommended completing the C8 reader dependency first, then connecting and completing W4e before W4d. Balanced scope includes required reader/access controls/contract tests without unrelated server changes. The latest instruction supersedes the earlier external-dependency exclusion for necessary W4e work. Preserve existing staging and other workers through a separate reader branch. Existing product rules and approved designs remain binding; no additional execution approval is needed. Deployment/live acceptance remain later launch stages, and the main application freeze remains.
+
+
+### October21: W4e completion narrowed explicitly to launch CSE
+
+Root asked: "Should W4e completion cover the CSE launch scope or every exam in the original plan? CSE launch is my recommendation. Completing every exam also requires adapting and approving the remaining exam-specific end animations." Options: "CSE launch scope" or "Every exam in original W4e". Aedwon selected exactly "CSE launch scope". Proceed with CSE Professional/Subprofessional launch-scoped completion; retain other native behavior and record other-exam/UPCAT rebuilt finales as deferred. No additional execution approval is needed. Human visual checking and real deployed acceptance remain distinct later gates.

@@ -1002,3 +1002,8 @@ Aedwon: "thanks, i give you full authorization on all you need to do to complete
 ### October21: required C8 reader implemented and uploaded
 
 Separate reader branch web/w4e-server-reader-r1 at e995dc238a56351d9ce1cb7fac132caaa07d0bc8 matches GitHub. Source base staging20692945 unchanged. Four required callables provide availability/results/history/paid review-note writes with current exam-specific server coverage and exact Free expiry. Scoped independent review found two P2 defects, both reproduced and fixed; final Functions suites159plain/192emulator pass, attribution/whitespace pass. Existing token-only start allowance was aligned to the same current ledger coverage after a valid regression. No claim-writing/rules/scoring-trust changes. Declared Node22 runtime check follows the passing Node26 local run. Reader is not deployed or integrated; W4e client wiring and whole-family acceptance remain next. Lock remains held for active continuation.
+
+
+### October21: CSE launch completion scope selected
+
+Root asked whether W4e completion covers CSE launch or every exam in the original plan, recommending CSE launch because the remaining other-exam animations require separate approved representations. Aedwon selected exactly "CSE launch scope". Complete/review W4e for CSE Professional/Subprofessional launch and preserve existing native behavior elsewhere; original non-CSE/UPCAT finale rebuilds are deferred, not claimed complete or deleted. This supersedes the earlier requirement to finish those finales before launch-scoped W4e acceptance. Server reader handoff now181e314e, current Node22 full159plain/192emulator pass. Client work in progress on E8aee08ea; no full-family acceptance yet.
