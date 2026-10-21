@@ -1383,3 +1383,12 @@ Aedwon's exact instruction:
 > can you continue until completion? no need to use the relay, you have full access to local files and you're on codex
 
 Continue the existing approved W4e scope locally. This changes the execution path, not product scope, the application-main freeze, the server workstream's ownership or human visual acceptance. No new complexity menu is needed for corrections within settled W4e requirements. Reconciliation found clean local ecbb6c76, four expected commits ahead of remote b5da6f99; main49b15889 and integration72629940 match GitHub. Root requested one independent read-only review of the saved continuation slices and reproduced/corrected three review-screen regressions with tests first. The full-family audit remains deferred until required inputs exist. The user has been asked whether root should also own the missing server reader on a separate working branch; that answer is pending. CSE finale fidelity still needs a faithful proposal and Aedwon's approval before implementation differences.
+
+
+### October21: W4e continuation limited to its workstream
+
+Aedwon's exact instruction:
+
+> i authorize you to complete W4e including its dependencies (unless it's on another workstream)
+
+Continue existing approved W4e tasks and dependencies inside its ownership. Root explicitly stated that the separate PWA server track and W4d remain excluded; no server takeover is inferred. Root prepared the missing CSE finale comparison under the existing lead re-planning requirement. Proposal version1 is saved on E86269158 and linked from current STATUS/evidence. Offered geometry options: A, recommended,13columns preserving existing full-paper card size/scan distance at the cost of tighter initial dot spacing; B,10columns with more initial dot space at the cost of taller cards, longer scan distance and extra geometry work. Both preserve the sampled motion timeline. Selection is pending, and clicking a draft control alone is not approval. No application source changed in this proposal slice; no new family-completion claim or integration permission is implied.
