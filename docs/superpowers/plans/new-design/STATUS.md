@@ -10,8 +10,8 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: Codex W4e CSE finale, chat 01a15acf
+State: free
+Holder: none
 Since: 2026-10-21 13:18 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
@@ -37,7 +37,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
 | A3 | W4d Tasks2,4–9 | Codex | queued after A4; preserve5e89e4fa and two end-screen drafts |
-| A4 | W4e Tasks3–9 | Codex | taller13-column CSE finale approved and implemented locally on86269158;585mock/app/gauge tests pass; two independent scoped findings corrected with valid RED/GREEN; final full frozen-source verification running; separate server reader/W4d and phone visuals remain pending; non-CSE finales/full-family audit/integration not claimed |
+| A4 | W4e Tasks3–9 | Codex | taller13-column native CSE end sequence reviewed/tested/uploaded8aee08ea;4174full and585mock/app/gauge tests pass, no owned static findings; two scoped review findings closed; server reader/W4d handoffs, non-CSE finales, full-family audit/integration and phone/live acceptance remain pending |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
 | A7 | W4h Task4 and W2 Task9 | Codex | queued after included W4 families |
@@ -983,3 +983,12 @@ This approves the taller compact presentation without another preview: keep13col
 The approved taller13-column CSE booklet is implemented locally with actual submitted outcomes and the original171 flight/34 effect tracks, one reveal clock, real results/controls, reduced-motion completion and native fresh-only CSE routing. Ordinary/history/default gauge paths remain unchanged. The user-selected extension is in the existing spec/plan; no further visual preview was requested or required for that text-approved extension.
 
 Scoped independent review found two P2 bugs: offset/linear scan coloring and access-refresh finale replay. Root reproduced both, corrected them in one pass and verified15motion/route tests. The complete refreshed mock/app/gauge check passes585. Broad analysis has only the existing accepted reader-family onReorder notice; format1487/0changes, layering/attribution/whitespace pass. The12-path code manifest is frozen during the full suite now running; no code upload or completion claim yet. Review/fidelity/source details are in E evidence. No source on a server-owned or W4d branch changed. Other-exam/UPCAT finales, external reader/caller handoffs, full-family audit/integration and human phone/live checks remain outside this bounded verified slice. Keep the current lock until closeout.
+
+
+### October21: taller compact CSE finale verified and uploaded
+
+Working branch web/new-design-w4e-r1 now8aee08ea7e43dd353674a480588037715d161044. Normal upload succeeded, full remote SHA matches intended local head, and worktree is clean. User-approved taller13-column CSE booklet preserves real retained question counts and original sampled end motion through scan/gather/ball/impact, separate gauge/counter reveal and actual result actions. Both native CSE exams use this once on a valid fresh submission; history/missing/mismatched snapshot and strict-exit static results preserve their existing behavior. Reduced motion skips or completes without replay. Original proposal remains immutable; later text approval/spec controls the taller rows.
+
+Independent scoped review's two P2 findings are fixed with valid RED/GREEN: real eased/reflow-relative scan state, and consumed result-route lifetime across entitlement/access reloads. Final full frozen-source suite exits0 with10:37 +4174 All tests passed. Refreshed mock/app/gauge585pass. Exact12-code-file hashes stayed fixed through that run; deterministic data regeneration remains byte-identical. Format1487files/0changes, layering, attribution (including committed message), whitespace pass. Broad analyzer retains exactly the recorded reader-family onReorder notice; no owned finding remains. Full evidence/spec/plan/source identity is on the working branch.
+
+Acceptance is bounded CSE native implementation/review/testing/upload only. No complete-W4e claim, development integration or main application merge, complete-family audit, screenshot/phone visual acceptance, web/live server acceptance or publication. The latest remote handoffs remain staging20692945, W4d5e89e4fa and integration72629940, matching their local refs; no new external reader/caller handoff arrived. The user excluded other-workstream ownership. Preserve server/W4d holds, non-CSE/UPCAT finale scope, human QA and all unique worktrees/evidence. Release this step's lock.

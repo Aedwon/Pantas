@@ -1403,3 +1403,8 @@ Aedwon: "um if that's 155 dots, maybe you can extend it so it reaches further do
 Root clarified keeping13columns, extending rows/card/scan downward while retaining the scan, gathering, ball, impact/gauge and result sequence/timing. Aedwon: "okie dokie, proceed then".
 
 The extension supersedes A's original tight vertical spacing. Technical dimensions:9pxdots; initial/checking horizontal22/24 and vertical16/18;155-question initial/checking cards255/237high. Sampled source tracks/time remain binding; no additional preview is required by the user's explicit waiver for this extension. No wider scope or external server/W4d ownership is granted. Original chosen proposal remains immutable for history; the spec/plan records this later text-approved amendment before production changes.
+
+
+### October21: approved taller compact CSE sequence landed on its working branch
+
+Implemented the user's compact13-column selection plus the later approved vertical extension, without another visual-preview gate. The native fresh-CSE presentation now consumes the real saved submission input; it never reconstructs history or invents web result authority. The original sampled motion is retained, and count/scan/card bounds extend together. Root resolved two independent review findings in one tests-first pass and uploaded8aee08ea after4174full/585focused checks and exact remote SHA verification. Root keeps source changes on the existing E working branch; server/W4d ownership remains excluded, no application main/development integration or release is performed, and the user's phone visual acceptance remains required. Detailed evidence and remaining non-CSE/family scope are explicit in current STATUS and E evidence.
