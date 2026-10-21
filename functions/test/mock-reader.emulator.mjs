@@ -98,3 +98,19 @@ test('missing blueprint takes precedence over recent-submission cooldown',async(
  const out=await r.serveMockAvailability(auth('mr-no-blueprint'),{examId:'exam_upcat'},deps());
  assert.equal(out.status,'no-blueprint');
 });
+
+test('setup preview count is assembled on the server without starting a clock', async () => {
+  const uid = 'mr-preview';
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  const out = await r.serveMockAvailability(auth(uid), {examId: EXAM, includeSetup: true}, deps());
+  assert.equal(out.setup.questionCount, 1);
+  assert.equal(out.setup.expectedQuestionCount, 1);
+  assert.equal((await db.collection(`users/${uid}/server/mocks/items`).get()).size, 0);
+});
+
+test('result time metadata uses server time and schedules a Pro ledger transition', async () => {
+  await seed('mr-clock'); await grant('mr-clock', 'pantas_cs_monthly', NOW + 1000);
+  const out = await r.serveMockResults(auth('mr-clock'), {mockId: ID}, deps());
+  assert.equal(out.serverNow, NOW);
+  assert.equal(out.accessRecheckAt, NOW + 1000);
+});

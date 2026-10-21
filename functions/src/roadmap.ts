@@ -7,6 +7,7 @@ import {phDay, phStamp} from './_phDate.js';
 import {hasLiveProClaim} from './_pro.js';
 import {examCatalog} from './revenuecatPasses.js';
 import {loadTotals, viewOf, type AnswerView} from './_answerTotals.js';
+import {dueReviewInputs} from './serverReviews.js';
 
 /**
  * Where the exam date and study days live on the server. The app keeps them in its own settings, so
@@ -95,7 +96,7 @@ export async function build(db: Firestore, uid: string, settings: ExamSettings, 
     lessons: content.lessons.map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: null})),
     questions: content.questions.map(q => ({id: q.id, topicId: q.topicId, lessonId: null, passageId: q.passageId})),
     seenQuestionIds: answers.seenQuestionIds,
-    dueReviews: [],
+    dueReviews: await dueReviewInputs(db, uid, now, new Set(content.questions.map(q => q.id))),
     scores: answers.scores,
     answeredPerActiveDay: answers.answeredPerActiveDay,
     mock: {examHasMock: blueprint, proIsActive: pro, lastSubmittedAt: lastSubmittedAt === undefined ? null : phStamp(lastSubmittedAt)},
@@ -150,9 +151,9 @@ export async function serveRoadmap(auth: Auth, _data: unknown, deps: RoadmapDeps
   }
   const pro = hasLiveProClaim(auth.token as {pro?: unknown; proUntil?: unknown}, now);
   const tier = pro ? 'pro' : 'free';
-  const stored = await roadmapRef(deps.db, auth.uid).get();
+  const [stored, currentTotals] = await Promise.all([roadmapRef(deps.db, auth.uid).get(), loadTotals(deps.db, auth.uid)]);
   let roadmap: Roadmap;
-  if (stored.exists && stored.get('today') === phDay(now) && stored.get('pro') === pro) {
+  if (stored.exists && stored.get('today') === phDay(now) && stored.get('pro') === pro && stored.get('answerSessions') === currentTotals.sessions) {
     roadmap = JSON.parse(String(stored.get('roadmapJson'))) as Roadmap;
   } else {
     const fresh = await computeRoadmap(deps.db, auth.uid, pro, now);

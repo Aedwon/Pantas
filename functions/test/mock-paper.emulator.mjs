@@ -90,7 +90,7 @@ test('Free allowance counts only at submission, then the next mock opens 30 days
   // Started but not submitted, 40 days on: it is still the open mock, no new allowance used.
   assert.equal((await beginMock(named(uid), {examId: EXAM}, d(NOW + 40 * DAY))).mockId, first.mockId);
   const submitAt = NOW + 41 * DAY;
-  const done = await recordMock(named(uid), {mockId: first.mockId, answers: [answer('a0', true)], durationMs: 5 * MIN}, d(submitAt));
+  const done = await recordMock(named(uid), {mockId: first.mockId, answers: [answer(first.paper.sections[0].questions[0].id, true)], durationMs: 5 * MIN}, d(submitAt));
   assert.equal(done.status, 'submitted');
   assert.equal(await code(beginMock(named(uid), {examId: EXAM}, d(submitAt + 29 * DAY))), 'failed-precondition');
   assert.equal(await code(beginMock(named(uid), {examId: EXAM}, d(submitAt + FREE_MOCK_WINDOW_MS - 1))), 'failed-precondition');
@@ -104,7 +104,7 @@ test('a second paper avoids the questions of the last submitted paper when the b
   await reset(uid);
   await grantPro(uid);
   const first = await beginMock(pro(uid), {examId: EXAM}, d());
-  await recordMock(pro(uid), {mockId: first.mockId, answers: [answer('a0', true)], durationMs: MIN}, d(NOW + MIN));
+  await recordMock(pro(uid), {mockId: first.mockId, answers: [answer(first.paper.sections[0].questions[0].id, true)], durationMs: MIN}, d(NOW + MIN));
   const second = await beginMock(pro(uid), {examId: EXAM}, d(NOW + 2 * MIN));
   const firstIds = new Set(first.paper.sections.flatMap(s => s.questions.map(q => q.id)));
   assert.ok(second.paper.sections.flatMap(s => s.questions).every(q => !firstIds.has(q.id)));
@@ -116,7 +116,7 @@ test('Pro is unlimited and expired server coverage is Free', async () => {
   await grantPro(uid);
   for (let i = 0; i < 3; i++) {
     const out = await beginMock(pro(uid), {examId: EXAM}, d(NOW + i * MIN));
-    await recordMock(pro(uid), {mockId: out.mockId, answers: [answer('a0', true)], durationMs: MIN}, d(NOW + i * MIN + 1));
+    await recordMock(pro(uid), {mockId: out.mockId, answers: [answer(out.paper.sections[0].questions[0].id, true)], durationMs: MIN}, d(NOW + i * MIN + 1));
   }
   assert.equal((await items(uid)).size, 3);
   await db.doc(`users/${uid}/grants/mock-pro`).update({endsAt: NOW});
@@ -196,7 +196,7 @@ test('submitMock records once, is idempotent, and only the owner can submit', as
   const uid = 'p-submit';
   await reset(uid);
   const out = await beginMock(named(uid), {examId: EXAM}, d());
-  const body = {mockId: out.mockId, answers: [answer('a0', false)], durationMs: 5};
+  const body = {mockId: out.mockId, answers: [answer(out.paper.sections[0].questions[0].id, false)], durationMs: 5};
   assert.equal(await code(recordMock(named('p-intruder'), body, d())), 'not-found');
   await recordMock(named(uid), body, d(NOW + 1000));
   await recordMock(named(uid), {...body, durationMs: 999}, d(NOW + 2000));
@@ -211,4 +211,43 @@ test('startMock honours the rate limit', async () => {
   const uid = 'p-limit';
   await reset(uid);
   assert.equal(await code(beginMock(named(uid), {examId: EXAM}, {db, now: () => NOW, allow: async () => false})), 'resource-exhausted');
+});
+
+test('a third paper avoids both of the last two completed papers', async () => {
+  const uid = 'p-recent-two';
+  await reset(uid);
+  await grantPro(uid);
+  const earlier = new Set();
+  for (let i = 0; i < 2; i++) {
+    const out = await beginMock(pro(uid), {examId: EXAM}, {...d(NOW + i * MIN), seed: () => i + 1});
+    for (const section of out.paper.sections) for (const q of section.questions) earlier.add(q.id);
+    await recordMock(pro(uid), {mockId: out.mockId, answers: [answer(out.paper.sections[0].questions[0].id, true)], durationMs: 1}, d(NOW + i * MIN + 1));
+  }
+  const third = await beginMock(pro(uid), {examId: EXAM}, {...d(NOW + 3 * MIN), seed: () => 3});
+  assert.ok(third.paper.sections.flatMap(s => s.questions).every(q => !earlier.has(q.id)));
+});
+
+test('per-exam recency survives two newer submissions for another exam', async () => {
+  const uid = 'p-recent-exam'; await reset(uid); await grantPro(uid);
+  const first = await beginMock(pro(uid), {examId: EXAM}, {...d(), seed: () => 1});
+  await recordMock(pro(uid), {mockId: first.mockId, answers: [answer(first.paper.sections[0].questions[0].id, true)], durationMs: 1}, d(NOW + 1));
+  for (let i = 0; i < 2; i++) await db.doc(`users/${uid}/server/mocks/items/OtherPaper00000${i}`).set({
+    examId: 'exam_cse_sub', status: 'submitted', submittedAt: NOW + 10 + i,
+    paper: {sections: [{questions: [{id: 'foreign'}]}]},
+  });
+  const next = await beginMock(pro(uid), {examId: EXAM}, {...d(NOW + MIN), seed: () => 1});
+  const old = new Set(first.paper.sections.flatMap(s => s.questions.map(q => q.id)));
+  assert.ok(next.paper.sections.flatMap(s => s.questions).every(q => !old.has(q.id)));
+});
+
+test('save and submit reject duplicate/foreign identities before altering a pinned paper', async () => {
+  const uid = 'p-answer-membership'; await reset(uid);
+  const out = await beginMock(named(uid), {examId: EXAM}, d());
+  const good = answer(out.paper.sections[0].questions[0].id, true);
+  for (const invalid of [[good, good], [answer('foreign', true)]]) {
+    assert.equal(await code(changeMock(named(uid), {mockId: out.mockId, action: 'save', answers: invalid}, d())), 'invalid-argument');
+    assert.equal(await code(recordMock(named(uid), {mockId: out.mockId, answers: invalid, durationMs: 1}, d())), 'invalid-argument');
+  }
+  const row = (await db.doc(`users/${uid}/server/mocks/items/${out.mockId}`).get()).data();
+  assert.equal(row.status, 'started'); assert.deepEqual(row.answers, []);
 });

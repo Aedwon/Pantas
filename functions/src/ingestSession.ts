@@ -5,6 +5,7 @@ import {addSession, backfill, fromDoc, prune, toDoc, totalsRef} from './_answerT
 import {checkAnswers, checkDuration, checkTime} from './_answers.js';
 import {hasLiveProClaim} from './_pro.js';
 import {computeRoadmap} from './roadmap.js';
+import {prepareReviewAnswers} from './serverReviews.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -40,10 +41,13 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
     // An account from before the totals existed is built from its stored sessions first.
     const snapshot = await transaction.get(totalsRef(deps.db, auth.uid));
     const totals = snapshot.exists ? fromDoc(snapshot.data()) : await backfill(transaction, deps.db, auth.uid);
+    // Advance existing mock-seeded reviews; broader question seeding stays with C10.
+    const applyReviews = await prepareReviewAnswers(transaction, deps.db, auth.uid, answers, finishedAt, false);
     addSession(totals, answers);
     prune(totals);
     transaction.set(totalsRef(deps.db, auth.uid), toDoc(totals));
     transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now});
+    applyReviews();
     return true;
   });
   if (stored) {

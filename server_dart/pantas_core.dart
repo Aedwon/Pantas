@@ -1,6 +1,6 @@
 // JS entry point for the server. Compiled by build.sh with `dart compile js`.
 //
-// Exposes two pure functions on globalThis, each taking and returning a JSON
+// Exposes pure functions on globalThis, each taking and returning a JSON
 // string. Neither reads the clock or a random source: the caller passes the
 // Philippine calendar date (never a raw UTC instant) and the sampler seed.
 import 'dart:convert';
@@ -9,6 +9,7 @@ import 'dart:js_interop';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 
 import 'mock_codec.dart';
+import 'review_codec.dart';
 import 'roadmap_codec.dart';
 
 @JS('pantasBuildRoadmap')
@@ -16,6 +17,18 @@ external set _pantasBuildRoadmap(JSFunction f);
 
 @JS('pantasSampleMock')
 external set _pantasSampleMock(JSFunction f);
+
+@JS('pantasScheduleReviews')
+external set _pantasScheduleReviews(JSFunction f);
+@JS('pantasDueReviews')
+external set _pantasDueReviews(JSFunction f);
+
+String scheduleReviewsJson(String json) => jsonEncode(
+      scheduleReviewStates((jsonDecode(json) as Map).cast<String, Object?>()),
+    );
+String dueReviewsJson(String json) => jsonEncode(
+      dueReviewInputs((jsonDecode(json) as Map).cast<String, Object?>()),
+    );
 
 String buildRoadmapJson(String inputsJson) {
   final inputs = inputsFromJson(
@@ -29,6 +42,10 @@ String sampleMockJson(String inputJson) => jsonEncode(
     );
 
 void main() {
+  _pantasScheduleReviews =
+      ((JSString json) => scheduleReviewsJson(json.toDart).toJS).toJS;
+  _pantasDueReviews =
+      ((JSString json) => dueReviewsJson(json.toDart).toJS).toJS;
   _pantasBuildRoadmap =
       ((JSString json) => buildRoadmapJson(json.toDart).toJS).toJS;
   _pantasSampleMock =

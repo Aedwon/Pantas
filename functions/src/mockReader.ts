@@ -4,8 +4,9 @@ import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {mockCoverage} from './mockAccess.js';
 import {examCatalog} from './revenuecatPasses.js';
-import {endIfTimedOut, FREE_MOCK_WINDOW_MS} from './mock.js';
+import {assemblePaper, endIfTimedOut, FREE_MOCK_WINDOW_MS} from './mock.js';
 import type {Answer} from './_answers.js';
+import {recordMockAnswers} from './mockAnswers.js';
 
 type Auth = Parameters<typeof assertNamedUser>[0];
 type Deps = {db: Firestore; now?: () => number; allow?: (uid: string, key: string) => Promise<boolean>};
@@ -38,7 +39,7 @@ function count(answers: Answer[], ids: string[]) {
   const correct = selected.filter(a => a.correct).length;
   return {correct, answered: selected.length, wrong: selected.length - correct, blank: ids.length - selected.length, total: ids.length};
 }
-function summary(id: string, row: Row, proCovered: boolean, now: number) {
+function summary(id: string, row: Row, proCovered: boolean, now: number, accessRecheckAt: number | null) {
   if (row.status !== 'submitted' || !Number.isSafeInteger(row.submittedAt) || row.submittedAt <= 0 ||
       !Number.isSafeInteger(row.startedAt) || !Number.isSafeInteger(row.durationMs) || row.durationMs < 0 ||
       !Number.isSafeInteger(row.limitMs) || row.limitMs <= 0 ||
@@ -54,7 +55,7 @@ function summary(id: string, row: Row, proCovered: boolean, now: number) {
       answers.some(a => !ids.includes(a.questionId) || typeof a.correct !== 'boolean' ||
         (a.chosen !== null && typeof a.chosen !== 'string'))) throw broken();
   const reviewUntil = row.submittedAt + FREE_MOCK_WINDOW_MS;
-  return {mockId: id, examId: row.examId as string, startedAt: row.startedAt as number, submittedAt: row.submittedAt as number,
+  return {serverNow: now, accessRecheckAt, mockId: id, examId: row.examId as string, startedAt: row.startedAt as number, submittedAt: row.submittedAt as number,
     endedBy: row.endedBy as string, strict: row.strict === true, limitMs: row.limitMs as number, durationMs: row.durationMs as number,
     score: count(answers, ids), sections: sections.map(s => ({sectionId: s.sectionId, name: s.name, ...count(answers, s.questions.map(q => q.id))})),
     canReview: proCovered || now < reviewUntil, proCovered, reviewUntil};
@@ -68,7 +69,8 @@ export async function serveMockResults(auth: Auth, data: unknown, deps: Deps) {
     if (!snapshot.exists) throw new HttpsError('not-found', 'Mock not found.');
     const row = snapshot.data()!;
     const access = await mockCoverage(transaction, deps.db, uid, now);
-    const result = summary(id, row, access(row.examId), now);
+    const result = summary(id, row, access.coversExam(row.examId), now, access.recheckAt);
+    await recordMockAnswers(transaction, deps.db, uid, id, row, now);
     return {...result, ...(result.canReview ? {paper: row.paper, answers: row.answers} : {}),
       ...(result.proCovered ? {notes: row.reviewNotes ?? {}} : {})};
   });
@@ -76,10 +78,12 @@ export async function serveMockResults(auth: Auth, data: unknown, deps: Deps) {
 
 export async function serveMockAvailability(auth: Auth, data: unknown, deps: Deps) {
   const {uid, now} = await caller(auth, deps, 'getMockAvailability');
-  const examId = exam(object(data).examId);
+  const body = object(data);
+  const examId = exam(body.examId);
+  if (body.includeSetup !== undefined && typeof body.includeSetup !== 'boolean') throw bad('Bad setup preview flag.');
   const open = await collection(deps.db, uid).where('status', '==', 'started').limit(1).get();
   if (open.docs[0]) await endIfTimedOut(deps.db, uid, open.docs[0].id, now);
-  return deps.db.runTransaction(async transaction => {
+  const result = await deps.db.runTransaction(async transaction => {
     const [active, last, lastExam, blueprint, access] = await Promise.all([
       transaction.get(collection(deps.db, uid).where('status', '==', 'started').limit(1)),
       transaction.get(collection(deps.db, uid).where('submittedAt', '>', 0).orderBy('submittedAt', 'desc').limit(1)),
@@ -87,14 +91,20 @@ export async function serveMockAvailability(auth: Auth, data: unknown, deps: Dep
       transaction.get(deps.db.doc(`content/mocks/items/${examId}`)), mockCoverage(transaction, deps.db, uid, now),
     ]);
     const previous = last.docs[0];
-    const proCovered = access(examId);
+    const proCovered = access.coversExam(examId);
     const nextEligibleAt = proCovered || !previous ? null : Number(previous.get('submittedAt')) + FREE_MOCK_WINDOW_MS;
     const lastForExam = lastExam.docs[0];
     const running = active.docs[0];
-    return {examId, serverNow: now, proCovered, nextEligibleAt, lastMockId: lastForExam?.id ?? null,
+    return {examId, serverNow: now, accessRecheckAt: access.recheckAt, proCovered, nextEligibleAt, lastMockId: lastForExam?.id ?? null,
       status: running ? 'in-progress' : !blueprint.exists ? 'no-blueprint' : nextEligibleAt !== null && now < nextEligibleAt ? 'cooldown' : 'available',
       ...(running ? {open: {mockId: running.id, examId: running.get('examId') as string, paused: typeof running.get('pausedAt') === 'number'}} : {})};
   });
+  if (body.includeSetup === true && result.status === 'available') {
+    const {paper} = await assemblePaper(deps.db, uid, examId, now, 0);
+    return {...result, setup: {expectedQuestionCount: paper.expectedQuestionCount,
+      questionCount: paper.sections.reduce((count, section) => count + section.questions.length, 0)}};
+  }
+  return result;
 }
 
 export async function serveMockHistory(auth: Auth, data: unknown, deps: Deps) {
@@ -112,7 +122,7 @@ export async function serveMockHistory(auth: Auth, data: unknown, deps: Deps) {
     const [rows, access] = await Promise.all([transaction.get(query.limit(limit + 1)), mockCoverage(transaction, deps.db, uid, now)]);
     const page = rows.docs.slice(0, limit);
     const last = page.at(-1);
-    return {items: page.map(d => summary(d.id, d.data(), access(d.get('examId')), now)),
+    return {items: page.map(d => summary(d.id, d.data(), access.coversExam(d.get('examId')), now, access.recheckAt)),
       next: rows.size > limit && last ? {submittedAt: last.get('submittedAt') as number, mockId: last.id} : null};
   });
 }
@@ -130,7 +140,7 @@ export async function writeMockReview(auth: Auth, data: unknown, deps: Deps) {
     if (!snapshot.exists) throw new HttpsError('not-found', 'Mock not found.');
     const row = snapshot.data()!;
     const access = await mockCoverage(transaction, deps.db, uid, now);
-    const result = summary(id, row, access(row.examId), now);
+    const result = summary(id, row, access.coversExam(row.examId), now, access.recheckAt);
     if (!result.proCovered) throw new HttpsError('permission-denied', 'Pro is required for notes.');
     if (!row.paper.sections.some((s: {questions: {id: string}[]}) => s.questions.some(q => q.id === questionId))) throw bad('Question is not on this paper.');
     // Replace one question atomically without interpreting dots in a content id as field paths.
