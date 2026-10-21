@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-21 23:25 Asia/Manila
+State: held
+Holder: Codex W4d finish/review, chat 01a15f12
+Since: 2026-10-21 23:28 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
