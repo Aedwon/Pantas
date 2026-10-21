@@ -660,3 +660,57 @@ Both expose155/145 exam selection, shorter actual papers from1 through the selec
 Represented interval:0–6seconds, including initial booklet, opening, scanning, gathering, ball deformation and gauge impact. Existing later results/breakdown/history motion is outside this proposal and is not re-approved here. Dark colors come from the candidate's W1 token values. Large-text/native rendering, strict early-end adaptation and phone visual acceptance remain separate implementation checks. This preview is a proposal, not a claim that the app currently renders it.
 
 Non-browser checks: JavaScript parses;84 combinations across both layouts, seven paper sizes, three outcome patterns and light/dark pass the DOM/data control probe with exact generated dot count and final score; all310 layouts for1–155 questions keep dots inside the card and above the count line. No browser/desktop automation or screenshots were used. Root has not performed visual acceptance. The app source is unchanged; existing4152-pass evidence still applies to00b0f1e2. Only the proposal and this evidence change in this slice. Waiting for Aedwon's choice before implementing a new geometry.
+
+
+## October21 taller compact CSE finale implementation
+
+Execution approvals are preserved on main e5f2f3fc913a41909f97d660d363221e82ea7b9f and the candidate spec/plan2026-10-21-w4e-cse-finale.md. Root fetched and reconciled clean local/remote86269158 before editing; current policy files were read from main99f708a8 and remained unchanged by the approval-log commit. User explicitly selected13columns, then approved extending the rows downward and waived another preview for that extension. Original proposal remains unchanged for chronology.
+
+Implemented in the existing W4e worktree, without relay, server edits, schema/content changes or other-family source:
+
+- Feature-owned immutable paper geometry:13columns,9pxquestion dots, initial/checking horizontal22/24 and vertical16/18.155retained questions produce155question dots, initial/checking cards255/237high, and scan end494.145 and shorter actual papers derive their own rows/bounds; no preview sample answers or permutation enter the app.
+- Deterministic extraction of171 original flight tracks and34 original effect/reveal tracks, preserving source keyframes, cubic curves, scale, opacity, ball deformation, trails, impact, source scanner shadow and glow. Regeneration is byte-identical. The generator reads the main design source and disables Python bytecode writes to that source folder.
+- A single9650ms sequence clock drives the real CSE submission snapshot, actual correct/wrong/blank outcomes, scanner/gathering/ball, gauge arc and separately timed number/caption, results/header/breakdown/review/Done and original Today-point/path/label reveal. The illustrated finger and demonstration scroll are not autoplayed. The result view remains scrollable and retains its real access/actions.
+- The optional mock-gauge number/caption opacity and independently displayed fraction preserve Home/default gauge behavior and the existing mock size. Hidden numeric/caption content is not announced. Shared default-gauge tests remain applicable; W4d's unmerged count extension was not touched.
+- Fresh native CSE Professional/Subprofessional only: actual nonempty snapshot must match saved total/correct counts. History, missing/mismatched input and other exams do not replay/reconstruct the finale. Strict exits retain the already-drawn static Not finished result; no undrawn strict-exit animation is invented. Reduced motion initially or during playback completes immediately and never restarts. Large text reflows the title/counts and preserves the real gathering/gauge alignment.
+
+Valid TDD evidence: geometry/scene/gauge/reveal APIs failed as missing before implementation; the fresh-CSE route test failed on absent CseMockFinale before wiring. The original Today-point stop test observed radius3.57044 instead of2.8 at8310.016ms before using the sampled source pop. The nonlinear card-fade test first failed on missing source track; after extraction, its tolerance was corrected to the actual Flutter Cubic solver's documented0.001 numerical bound rather than replacing the curve. A first scene ticker assertion included the test helper's AnimatedTheme transition; the fixture now finishes that framework tween before checking that no ticker remains.
+
+An independent read-only reviewer inspected the14-path manifest before/after at exactly the same hashes, using a separate baseline worktree and current policy e5f2f3fc. This was a bounded CSE source review, not the deferred complete-family audit. Two P2 findings were accepted and corrected in one tests-first pass:
+
+1. The dot checked-time equation used linear row timing and included the shared large-text offset. The scanner itself eased and shifted with that offset. One feature-owned eased scanYAt now drives both the bar position and row-color decision in relative geometry. The regression first observed a premature checked first row; final assertions also prove the offset100 bottom row is checked before fade.
+2. An access-provider refresh could unmount/recreate the fresh finale and replay it. The result route now remembers the consumed/interrupted submission for its own attempt lifetime. Loading/error/missing-data transitions finish that presentation; restoring access keeps actual static results without replay. New attempts reset the local UI marker. The same valid regression failed with a new active CseMockFinale after access refresh for both CSE exams, and passes after correction. No persisted flag, schema or entitlement bypass was added.
+
+Focused post-correction motion/route tests15pass; prior complete new/gauge focused32pass; renewed mock/app/gauge family585pass. Cases cover every1–155question booklet geometry, actual outcomes/cursor preservation, original source stops, no-correct omission, 320/390/430 widths, light/dark and200%text through each phase, reduced motion initially/mid-sequence, disposal/rebuild, history/strict/extra gates, real result controls and access-refresh non-replay. These are automated render/data checks, not human visual acceptance.
+
+Current static gates: scoped changed-source analysis has no owned finding; broad analysis retains exactly the recorded reader-family onReorder deprecation. Format1487files/0changes, layering/attribution/whitespace pass. Root froze the12-code-path manifest before the final full suite; detailed source hashes and raw outputs remain under build/w4e/cse-finale. Full-suite closeout follows below, only after its actual result.
+
+Scope limits remain explicit: the separate server reader and W4d caller/deletion are excluded by the user's authorization; no web completed-result authority or endpoint was invented. This CSE slice does not implement UPCAT/two-ball or other multi-part finales, claim all W4e Tasks3–9 complete, integrate into development/main application source, or satisfy phone/live PWA acceptance. Preserve these dependencies and all worktrees.
+
+
+### Taller compact CSE finale: final verification closeout
+
+Final command `flutter test --no-pub --concurrency=1` exited0 with `10:37 +4174: All tests passed!` (build/w4e/cse-finale/full-final.log). Frozen12-code-path identity was checked during and after this run with no source changes. Source-track regeneration after the run is byte-identical, including the generator's no-bytecode-write safeguard. Mock/app/gauge combined checks pass585 (family-reviewed.log); reviewed regression pair passes15 (review-fixes-green.log). Source uses exact original sampled track values with the Flutter Cubic solver's normal0.001 error bound.
+
+Final broad analysis exits1 with exactly the existing reader-family onReorder deprecation at bookmarks_sheet.dart238:21, `1 issue found. (ran in3.4s)` (analysis-reviewed.log). No owned analysis finding remains. Format gate exits0, `Formatted1487files (0changed)` (format-reviewed.log). Layering and attribution exit0 with `check_layering: OK` and `check_no_ai_attribution: OK`; whitespace clean. Attribution runs again after the commit. No screenshot, browser automation, real-phone visual acceptance or live PWA verification was performed.
+
+Final code SHA256:
+
+```text
+a19be5cff4bbb12557128a0171cd7f835e972f8d6b7d0b3e4c88b6d938de935d  lib/core/ui/components/half_ring_gauge.dart
+caa7827ce992daa7fa72af2444edb4d177e934e664087c0b6bf6ef8cc777716e  lib/features/mock_exam/presentation/pages/mock_results_page.dart
+1ffdb397f3952cb03d867b3877a9f01fb374eb67556481f30f1ffce5d5c6e563  lib/features/mock_exam/presentation/pages/mock_results_route.dart
+553858a3c141662f4727f8627346b84cb02bff6c4c21d625d7a418b82fa31ac0  lib/features/mock_exam/presentation/widgets/cse_finale_motion.dart
+3388f798fd3f14477f33ac34828266ffff6419b4509aa35f8500f18cc53d81d6  lib/features/mock_exam/presentation/widgets/cse_finale_tracks.dart
+f968b34961633a5c1332c21225f728e60df456fb52dd77d8410351293a2a3978  lib/features/mock_exam/presentation/widgets/cse_mock_finale.dart
+17a94484475b685429029add28219914667abf8913573aec6a732b88349c189f  test/core/ui/components/mock_gauge_reveal_test.dart
+5eed4d7e30d39e2cf213bde961cc442854cb95dd37fc5b7cef0725d7d9ff11e1  test/features/mock_exam/presentation/cse_finale_chart_motion_test.dart
+5f35b9b3f5ed1c4096d36cbb1905f97820f94beefea8ad9f3d80a617caef244d  test/features/mock_exam/presentation/cse_finale_motion_test.dart
+c307564931eebdc6a8f41916a5051a256a09f65eeee0d57d08043a956038ffa0  test/features/mock_exam/presentation/cse_finale_route_test.dart
+bc05210055fb2b5bb923226c628a4c987aa88b00193982388905fbe2a42a7370  test/features/mock_exam/presentation/cse_mock_finale_test.dart
+a0a15ed0f1d2e0c3301af7838bd452faff16c50203831dbd22fbe7786cc4a856  tool/extract_cse_finale_motion.py
+```
+
+Independent review covered the original14-path manifest unchanged before/after. Root then corrected both findings with valid failing regressions, shared the scanner's eased coordinate owner, and made the route retain consumed presentation state across access reloads. Subsequent root-only changes were those fixes, their tests, literal fidelity/style corrections and disabling extractor bytecode output; final combined verification applies to the exact hashes above. There is no claim that the reviewer personally reran a full suite or visually accepted these screens.
+
+Approved CSE sequence is implemented/reviewed/tested for this bounded slice and may now be committed/uploaded to its existing working branch. Keep existing source-data/evidence worktrees. No development/main application merge, whole-family audit, publication, server reader, W4d handoff, or non-CSE/UPCAT finale completion is implied. The current main status will identify the actual pushed SHA and release the lock after its remote identity is confirmed.

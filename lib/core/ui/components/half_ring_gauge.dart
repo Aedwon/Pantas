@@ -14,6 +14,9 @@ class HalfRingGauge extends StatefulWidget {
     this.decimalPlaces = 0,
     super.key,
   })  : mockSize = false,
+        numberOpacity = 1,
+        labelOpacity = 1,
+        displayedFraction = null,
         assert(
           fraction >= 0 && fraction <= 1,
           'Accuracy must be between zero and one.',
@@ -24,11 +27,17 @@ class HalfRingGauge extends StatefulWidget {
     required this.fraction,
     required this.label,
     this.overlayBuilder,
+    this.numberOpacity = 1,
+    this.labelOpacity = 1,
+    this.displayedFraction,
     super.key,
   })  : mockSize = true,
         decimalPlaces = 1,
         assert(fraction >= -.25 && fraction <= 1, 'Mock score must be valid.');
 
+  final double numberOpacity;
+  final double labelOpacity;
+  final double? displayedFraction;
   final bool mockSize;
   final int decimalPlaces;
   final double fraction;
@@ -104,10 +113,14 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
         mockSize: widget.mockSize,
       );
     }
-    final percentage =
-        (widget.fraction * 100).toStringAsFixed(widget.decimalPlaces);
+    final percentage = ((widget.displayedFraction ?? widget.fraction) * 100)
+        .toStringAsFixed(widget.decimalPlaces);
     return Semantics(
-      label: '${widget.label} $percentage percent',
+      hidden: widget.numberOpacity == 0 && widget.labelOpacity == 0,
+      label: [
+        if (widget.labelOpacity > 0) widget.label,
+        if (widget.numberOpacity > 0) '$percentage percent',
+      ].join(' '),
       excludeSemantics: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -128,38 +141,41 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
                   left: 0,
                   right: 0,
                   bottom: widget.mockSize ? 2 : 10,
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: AnimatedBuilder(
-                      animation: _fill,
-                      builder: (context, percent) => Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Text(
-                            (_fill.value * 100)
-                                .toStringAsFixed(widget.decimalPlaces),
-                            style: type.largeTitle
-                                .copyWith(
-                                  fontSize: widget.mockSize ? 56 : 44,
-                                  height: widget.mockSize ? 1 : 1.12,
-                                  letterSpacing:
-                                      widget.mockSize ? -1.68 : -1.32,
-                                )
-                                .tabular,
+                  child: Opacity(
+                    opacity: widget.numberOpacity,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: AnimatedBuilder(
+                        animation: _fill,
+                        builder: (context, percent) => Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              ((widget.displayedFraction ?? _fill.value) * 100)
+                                  .toStringAsFixed(widget.decimalPlaces),
+                              style: type.largeTitle
+                                  .copyWith(
+                                    fontSize: widget.mockSize ? 56 : 44,
+                                    height: widget.mockSize ? 1 : 1.12,
+                                    letterSpacing:
+                                        widget.mockSize ? -1.68 : -1.32,
+                                  )
+                                  .tabular,
+                            ),
+                            const SizedBox(width: 1),
+                            percent!,
+                          ],
+                        ),
+                        child: Text(
+                          '%',
+                          style: type.emphasized.copyWith(
+                            fontSize: widget.mockSize ? 24 : 20,
+                            letterSpacing: -.24,
+                            color: colors.secondaryLabel,
                           ),
-                          const SizedBox(width: 1),
-                          percent!,
-                        ],
-                      ),
-                      child: Text(
-                        '%',
-                        style: type.emphasized.copyWith(
-                          fontSize: widget.mockSize ? 24 : 20,
-                          letterSpacing: -.24,
-                          color: colors.secondaryLabel,
                         ),
                       ),
                     ),
@@ -175,11 +191,14 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
             ),
           ),
           SizedBox(height: widget.mockSize ? 4 : 6),
-          Text(
-            widget.label,
-            style: widget.mockSize
-                ? type.subhead.copyWith(color: colors.secondaryLabel)
-                : type.subheadStrong,
+          Opacity(
+            opacity: widget.labelOpacity,
+            child: Text(
+              widget.label,
+              style: widget.mockSize
+                  ? type.subhead.copyWith(color: colors.secondaryLabel)
+                  : type.subheadStrong,
+            ),
           ),
         ],
       ),

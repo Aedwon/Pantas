@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/cse_finale_motion.dart';
 
 class MockResultsPage extends StatelessWidget {
   const MockResultsPage({
@@ -29,6 +30,7 @@ class MockResultsPage extends StatelessWidget {
     this.onFullRecord,
     this.pastResults = const [],
     this.disableAnimations = false,
+    this.finaleClock,
     super.key,
   });
   final MockResults results;
@@ -48,9 +50,17 @@ class MockResultsPage extends StatelessWidget {
   final VoidCallback? onFullRecord;
   final List<MockPastPoint> pastResults;
   final bool disableAnimations;
+  final Animation<double>? finaleClock;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => finaleClock == null
+      ? _build(context, null)
+      : AnimatedBuilder(
+          animation: finaleClock!,
+          builder: (context, _) => _build(context, finaleClock!.value),
+        );
+
+  Widget _build(BuildContext context, double? time) {
     final wrong = results.sections.fold(0, (n, s) => n + (s.wrong ?? 0));
     final deduction = wrong / 4;
     final deductionLabel = deduction == deduction.roundToDouble()
@@ -63,79 +73,89 @@ class MockResultsPage extends StatelessWidget {
       backgroundColor: context.colors.background,
       bottomNavigationBar: fromRecord
           ? null
-          : SafeArea(
-              top: false,
-              minimum: const EdgeInsets.fromLTRB(16, 14, 16, 26),
-              child: PantasButton(label: 'Done', onPressed: onDone),
+          : _phase(
+              time,
+              576,
+              SafeArea(
+                top: false,
+                minimum:
+                    EdgeInsets.fromLTRB(16, 14, 16, time == null ? 26 : 30),
+                child: PantasButton(label: 'Done', onPressed: onDone),
+              ),
             ),
       body: SafeArea(
+        top: time == null,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: fromRecord
-                  ? TextButton.icon(
-                      onPressed: onDone,
-                      icon: Icon(PantasIcons.back, size: 24),
-                      label: Text(
-                        'Your record',
-                        style: context.type.body
-                            .copyWith(color: context.colors.accent),
+            if (time == null)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: fromRecord
+                    ? TextButton.icon(
+                        onPressed: onDone,
+                        icon: Icon(PantasIcons.back, size: 24),
+                        label: Text(
+                          'Your record',
+                          style: context.type.body
+                              .copyWith(color: context.colors.accent),
+                        ),
+                      )
+                    : IconButton(
+                        tooltip: 'Close',
+                        onPressed: onDone,
+                        icon: Icon(
+                          PantasIcons.close,
+                          color: context.colors.secondaryLabel,
+                          size: 22,
+                        ),
                       ),
-                    )
-                  : IconButton(
-                      tooltip: 'Close',
-                      onPressed: onDone,
-                      icon: Icon(
-                        PantasIcons.close,
-                        color: context.colors.secondaryLabel,
-                        size: 22,
-                      ),
-                    ),
-            ),
+              ),
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                padding: EdgeInsets.fromLTRB(16, time == null ? 8 : 50, 16, 24),
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          spacing: 8,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            Text(
-                              blueprintName,
-                              style:
-                                  context.type.pageTitle.copyWith(fontSize: 22),
-                            ),
-                            if (forfeited)
+                  _phase(
+                    time,
+                    562,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            spacing: 8,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
                               Text(
-                                'Not finished',
-                                style: context.type.footnote,
+                                blueprintName,
+                                style: context.type.pageTitle.copyWith(
+                                  fontSize: 22,
+                                  height: time == null ? null : 1.35,
+                                ),
                               ),
-                          ],
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          dateFormatted,
-                          style: context.type.subhead.copyWith(
-                            color: context.colors.secondaryLabel,
+                              if (forfeited)
+                                Text(
+                                  'Not finished',
+                                  style: context.type.footnote,
+                                ),
+                            ],
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 2),
+                          Text(
+                            dateFormatted,
+                            style: context.type.subhead.copyWith(
+                              color: context.colors.secondaryLabel,
+                              fontSize: time == null ? null : 15,
+                              height: time == null ? null : 1.35,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 22),
-                  Center(
-                    child: HalfRingGauge.mock(
-                      fraction: results.percent / 100,
-                      label: caption,
-                    ),
-                  ),
+                  SizedBox(height: time == null ? 22 : 10),
+                  _gauge(context, time, caption),
                   if (forfeited && forfeitedPart != null) ...[
                     const SizedBox(height: 12),
                     Padding(
@@ -152,92 +172,59 @@ class MockResultsPage extends StatelessWidget {
                     ),
                   ],
                   const SizedBox(height: 22),
-                  GroupedSection(
-                    header: 'PERFORMANCE BREAKDOWN',
-                    children: [
-                      for (var i = 0; i < results.sections.length; i++)
-                        _Breakdown(
-                          section: results.sections[i],
-                          divider: i < results.sections.length - 1,
-                        ),
-                    ],
+                  _phase(
+                    time,
+                    567,
+                    GroupedSection(
+                      header: 'PERFORMANCE BREAKDOWN',
+                      children: [
+                        for (var i = 0; i < results.sections.length; i++)
+                          _Breakdown(
+                            section: results.sections[i],
+                            animatedAccuracy: time == null
+                                ? null
+                                : results.sections[i].accuracy *
+                                    cseFinaleInterval(
+                                      time,
+                                      6100 + i * 120,
+                                      6850 + i * 120,
+                                      const Cubic(.2, .8, .25, 1),
+                                    ),
+                            divider: i < results.sections.length - 1,
+                          ),
+                      ],
+                    ),
                   ),
                   if (!forfeited && pastResults.isNotEmpty) ...[
                     const SizedBox(height: 22),
-                    GroupedSection(
-                      header: 'VERSUS PAST RESULTS',
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
-                          child: MockPastChart(
-                            points: pastResults,
-                            currentPercent: results.percent,
-                            currentLabel: fromRecord ? dateFormatted : 'Today',
+                    _phase(
+                      time,
+                      572,
+                      GroupedSection(
+                        header: 'VERSUS PAST RESULTS',
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
+                            child: MockPastChart(
+                              points: pastResults,
+                              time: time,
+                              currentPercent: results.percent,
+                              currentLabel:
+                                  fromRecord ? dateFormatted : 'Today',
+                            ),
                           ),
-                        ),
-                        if (onFullRecord != null)
-                          ListRow(
-                            title: 'See full record',
-                            titleColor: context.colors.accent,
-                            onTap: onFullRecord,
-                          ),
-                      ],
+                          if (onFullRecord != null)
+                            ListRow(
+                              title: 'See full record',
+                              titleColor: context.colors.accent,
+                              onTap: onFullRecord,
+                            ),
+                        ],
+                      ),
                     ),
                   ],
                   const SizedBox(height: 22),
-                  if (canReview) ...[
-                    GroupedSection(
-                      children: [
-                        ListRow(
-                          title: 'See all ${results.scoreTotal} questions',
-                          onTap: onReviewTap,
-                          subtitle:
-                              fromRecord && !proIsActive && reviewUntil != null
-                                  ? 'Open until '
-                                      '${PantasDates.withWeekday(reviewUntil!)}'
-                                  : null,
-                        ),
-                      ],
-                    ),
-                    if (!fromRecord && !proIsActive && reviewUntil != null)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
-                        child: Text(
-                          'On Free, you can go through these until your next '
-                          'mock opens on '
-                          '${PantasDates.withWeekday(reviewUntil!)}.',
-                          style: context.type.footnote,
-                        ),
-                      ),
-                  ] else if (proPaused)
-                    const ProPausedLine()
-                  else
-                    GroupedSection(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text(
-                                'Go through all ${results.scoreTotal} '
-                                'questions '
-                                'again with Pro.',
-                                style: context.type.body,
-                              ),
-                              if (onSeePro != null) ...[
-                                const SizedBox(height: 12),
-                                PantasButton(
-                                  label: 'See Pro',
-                                  variant: PantasButtonVariant.secondary,
-                                  onPressed: onSeePro,
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                  _phase(time, 573, _reviewControls(context)),
                 ],
               ),
             ),
@@ -252,11 +239,120 @@ class MockResultsPage extends StatelessWidget {
           )
         : body;
   }
+
+  Widget _reviewControls(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (canReview) ...[
+            GroupedSection(
+              children: [
+                ListRow(
+                  title: 'See all ${results.scoreTotal} questions',
+                  onTap: onReviewTap,
+                  subtitle: fromRecord && !proIsActive && reviewUntil != null
+                      ? 'Open until '
+                          '${PantasDates.withWeekday(reviewUntil!)}'
+                      : null,
+                ),
+              ],
+            ),
+            if (!fromRecord && !proIsActive && reviewUntil != null)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 7, 16, 0),
+                child: Text(
+                  'On Free, you can go through these until your next '
+                  'mock opens on '
+                  '${PantasDates.withWeekday(reviewUntil!)}.',
+                  style: context.type.footnote,
+                ),
+              ),
+          ] else if (proPaused)
+            const ProPausedLine()
+          else
+            GroupedSection(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'Go through all ${results.scoreTotal} '
+                        'questions '
+                        'again with Pro.',
+                        style: context.type.body,
+                      ),
+                      if (onSeePro != null) ...[
+                        const SizedBox(height: 12),
+                        PantasButton(
+                          label: 'See Pro',
+                          variant: PantasButtonVariant.secondary,
+                          onPressed: onSeePro,
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+        ],
+      );
+
+  Widget _gauge(BuildContext context, double? time, String caption) {
+    if (time == null) {
+      return Center(
+        child: HalfRingGauge.mock(
+          fraction: results.percent / 100,
+          label: caption,
+        ),
+      );
+    }
+    final shake =
+        results.scoreRaw > 0 ? sampleCseFinaleEffect(537, time) : null;
+    return _phase(
+      time,
+      538,
+      Transform.translate(
+        offset: Offset(shake?.x ?? 0, shake?.y ?? 0),
+        child: Center(
+          child: MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: HalfRingGauge.mock(
+              fraction: results.percent /
+                  100 *
+                  cseFinaleInterval(
+                    time,
+                    4563.0405,
+                    5200.0025,
+                    const Cubic(.12, .75, .25, 1),
+                  ),
+              displayedFraction: results.percent /
+                  100 *
+                  cseFinaleInterval(
+                    time,
+                    5265.038,
+                    5817.556,
+                    const Cubic(.2, .8, .25, 1),
+                  ),
+              numberOpacity: cseFinaleInterval(time, 5265.038, 5427.4565),
+              labelOpacity: cseFinaleInterval(time, 5687.485, 5900),
+              label: caption,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _Breakdown extends StatelessWidget {
-  const _Breakdown({required this.section, required this.divider});
+  const _Breakdown({
+    required this.section,
+    required this.divider,
+    this.animatedAccuracy,
+  });
   final SectionResult section;
+  final double? animatedAccuracy;
   final bool divider;
   @override
   Widget build(BuildContext context) {
@@ -303,7 +399,24 @@ class _Breakdown extends StatelessWidget {
               ],
             ),
           const SizedBox(height: 9),
-          AccuracyBar(accuracy: section.accuracy),
+          if (animatedAccuracy == null)
+            AccuracyBar(accuracy: section.accuracy)
+          else
+            ClipRRect(
+              borderRadius: BorderRadius.circular(99),
+              child: Container(
+                height: 5,
+                color: context.colors.fill,
+                alignment: Alignment.centerLeft,
+                child: FractionallySizedBox(
+                  widthFactor: animatedAccuracy!.clamp(0, 1),
+                  child: ColoredBox(
+                    color: context.colors.accuracyTint(section.accuracy),
+                    child: const SizedBox(height: 5),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
@@ -321,16 +434,19 @@ class MockPastChart extends StatelessWidget {
     required this.points,
     required this.currentPercent,
     required this.currentLabel,
+    this.time,
     super.key,
   });
   final List<MockPastPoint> points;
   final double currentPercent;
   final String currentLabel;
+  final double? time;
   @override
   Widget build(BuildContext context) => SizedBox(
         height: 132,
         child: CustomPaint(
           painter: _PastPainter(
+            time: time,
             points: [
               ...points.skip(points.length > 2 ? points.length - 2 : 0),
               MockPastPoint(percent: currentPercent, label: currentLabel),
@@ -351,18 +467,21 @@ class _PastPainter extends CustomPainter {
     required this.accent,
     required this.previous,
     required this.separator,
+    this.time,
   });
   final List<MockPastPoint> points;
   final Color label;
   final Color accent;
   final Color previous;
   final Color separator;
+  final double? time;
   void text(
     Canvas c,
     String value,
     Offset at, {
     Color? color,
     bool strong = false,
+    bool rightAligned = false,
   }) {
     final p = TextPainter(
       text: TextSpan(
@@ -376,7 +495,7 @@ class _PastPainter extends CustomPainter {
       ),
       textDirection: TextDirection.ltr,
     )..layout();
-    p.paint(c, at - Offset(p.width / 2, 0));
+    p.paint(c, at - Offset(rightAligned ? p.width : p.width / 2, 0));
   }
 
   @override
@@ -408,30 +527,55 @@ class _PastPainter extends CustomPainter {
       if (last != null) {
         canvas.drawLine(
           last,
-          point,
+          current && time != null
+              ? Offset.lerp(
+                  last,
+                  point,
+                  cseFinaleInterval(
+                    time!,
+                    8750.055,
+                    9300,
+                    const Cubic(.5, 0, .3, 1),
+                  ),
+                )!
+              : point,
           Paint()
             ..color = current ? accent : previous
             ..strokeWidth = current ? 2.5 : 2,
         );
       }
+      final pop =
+          current && time != null ? sampleCseFinaleEffect(568, time!) : null;
       canvas.drawCircle(
         point,
-        current ? 7 : 5,
-        Paint()..color = current ? accent : previous,
+        (current ? 7 : 5) * (pop?.scaleX ?? 1),
+        Paint()
+          ..color = (current ? accent : previous)
+              .withValues(alpha: pop?.opacity ?? 1),
       );
       text(
         canvas,
         points[i].label,
         Offset(x, 116),
-        color: current ? accent : label,
+        color: (current ? accent : label).withValues(
+          alpha: time == null || !current
+              ? 1
+              : sampleCseFinaleEffect(569, time!).opacity,
+        ),
       );
       if (current) {
         text(
           canvas,
           '${points[i].percent.toStringAsFixed(1)}%',
-          Offset(x, y - 23),
-          color: accent,
+          Offset(
+            x,
+            y - 23 + (time == null ? 0 : sampleCseFinaleEffect(571, time!).y),
+          ),
+          color: accent.withValues(
+            alpha: time == null ? 1 : sampleCseFinaleEffect(571, time!).opacity,
+          ),
           strong: true,
+          rightAligned: time != null,
         );
       }
       last = point;
@@ -440,4 +584,19 @@ class _PastPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_PastPainter old) => true;
+}
+
+Widget _phase(double? time, int sourceTrack, Widget child) {
+  if (time == null) return child;
+  final frame = sampleCseFinaleEffect(sourceTrack, time);
+  return IgnorePointer(
+    ignoring: frame.opacity == 0,
+    child: Opacity(
+      opacity: frame.opacity,
+      child: Transform.translate(
+        offset: Offset(frame.x, frame.y),
+        child: child,
+      ),
+    ),
+  );
 }
