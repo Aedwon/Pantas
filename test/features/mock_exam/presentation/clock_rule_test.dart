@@ -28,9 +28,9 @@ void main() {
     );
   }
 
-  Color amberOf(WidgetTester tester) {
+  Color redOf(WidgetTester tester) {
     final context = tester.element(find.byType(ClockRule));
-    return context.colors.amber;
+    return context.colors.wrongText;
   }
 
   testWidgets('the rule retreats as time runs out', (tester) async {
@@ -45,7 +45,7 @@ void main() {
     expect(half.widthFactor, closeTo(0.5, 0.001));
   });
 
-  testWidgets('ample time draws a soft hairline', (tester) async {
+  testWidgets('ample time draws the full thick teal bar', (tester) async {
     await pumpRule(
       tester,
       remaining: const Duration(minutes: 20),
@@ -54,12 +54,14 @@ void main() {
     final box =
         tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
     final decoration = box.decoration! as BoxDecoration;
-    expect(box.constraints?.maxHeight ?? 1, 1);
-    expect(decoration.color!.a, lessThan(1.0));
+    expect(box.constraints?.maxHeight, 5);
+    expect(
+      decoration.color,
+      tester.element(find.byType(ClockRule)).colors.accentFill,
+    );
   });
 
-  testWidgets('under five minutes the rule thickens and goes full strength',
-      (tester) async {
+  testWidgets('under five minutes the bar stays thick', (tester) async {
     await pumpRule(
       tester,
       remaining: const Duration(minutes: 4),
@@ -67,11 +69,10 @@ void main() {
     );
     final box =
         tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
-    expect(box.constraints?.maxHeight, 1.6);
+    expect(box.constraints?.maxHeight, 5);
   });
 
-  testWidgets('under one minute the rule and the clock turn amber',
-      (tester) async {
+  testWidgets('under one minute the bar turns red', (tester) async {
     await pumpRule(
       tester,
       remaining: const Duration(seconds: 45),
@@ -80,6 +81,6 @@ void main() {
     final box =
         tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
     final decoration = box.decoration! as BoxDecoration;
-    expect(decoration.color, amberOf(tester));
+    expect(decoration.color, redOf(tester));
   });
 }

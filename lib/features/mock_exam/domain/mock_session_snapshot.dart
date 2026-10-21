@@ -14,6 +14,8 @@ class MockSessionSnapshot {
     required this.partsTimedSeparately,
     required this.parts,
     required this.strictBackgroundedAt,
+    this.betweenParts = false,
+    this.endedEarly = false,
   });
 
   final MockSample sample;
@@ -24,6 +26,8 @@ class MockSessionSnapshot {
   final bool? partsTimedSeparately;
   final List<MockPersistedPart>? parts;
   final DateTime? strictBackgroundedAt;
+  final bool betweenParts;
+  final bool endedEarly;
 }
 
 @immutable
@@ -62,6 +66,8 @@ class MockSessionSnapshotCodec {
     required bool partsTimedSeparately,
     required List<MockPersistedPart> parts,
     DateTime? strictBackgroundedAt,
+    bool betweenParts = false,
+    bool endedEarly = false,
   }) {
     return jsonEncode([
       for (var index = 0; index < sample.sections.length; index += 1)
@@ -72,6 +78,8 @@ class MockSessionSnapshotCodec {
           if (index == 0)
             '_session': {
               'currentPartIndex': currentPartIndex,
+              'betweenParts': betweenParts,
+              'endedEarly': endedEarly,
               'partStartedAtSeconds': partStartedAtSeconds,
               'partsTimedSeparately': partsTimedSeparately,
               'parts': [
@@ -124,6 +132,8 @@ class MockSessionSnapshotCodec {
     bool? partsTimedSeparately;
     List<MockPersistedPart>? parts;
     DateTime? strictBackgroundedAt;
+    var betweenParts = false;
+    var endedEarly = false;
     for (var index = 0; index < rawSections.length; index += 1) {
       final section = _map(rawSections[index], 'sampled section');
       final sectionId = section['sectionId'];
@@ -146,6 +156,13 @@ class MockSessionSnapshotCodec {
 
       if (index == 0 && section['_session'] != null) {
         final session = _map(section['_session'], 'session metadata');
+        for (final key in ['betweenParts', 'endedEarly']) {
+          if (session.containsKey(key) && session[key] is! bool) {
+            throw const FormatException('invalid transition metadata');
+          }
+        }
+        betweenParts = session['betweenParts'] as bool? ?? false;
+        endedEarly = session['endedEarly'] as bool? ?? false;
         final rawPartIndex = session['currentPartIndex'];
         final rawPartStart = session['partStartedAtSeconds'];
         if (rawPartIndex is! int || rawPartStart is! int || rawPartStart < 0) {
@@ -212,7 +229,19 @@ class MockSessionSnapshotCodec {
       throw const FormatException('frozen parts do not match the sample');
     }
 
+    if (endedEarly && !betweenParts ||
+        betweenParts &&
+            (parts == null ||
+                partsTimedSeparately != true ||
+                currentPartIndex == null ||
+                currentPartIndex <= 0 ||
+                currentPartIndex >= parts.length)) {
+      throw const FormatException('transition does not match the frozen parts');
+    }
+
     return MockSessionSnapshot(
+      betweenParts: betweenParts,
+      endedEarly: endedEarly,
       sample: MockSample(
         sections: List.unmodifiable(sections),
         expectedQuestionCount: questionCount,

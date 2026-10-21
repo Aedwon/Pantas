@@ -13,10 +13,32 @@ class HalfRingGauge extends StatefulWidget {
     this.overlayBuilder,
     this.decimalPlaces = 0,
     super.key,
-  }) : assert(
+  })  : mockSize = false,
+        numberOpacity = 1,
+        labelOpacity = 1,
+        displayedFraction = null,
+        assert(
           fraction >= 0 && fraction <= 1,
           'Accuracy must be between zero and one.',
         );
+
+  /// MK_Results uses a different arc, hero size and baseline from Home.
+  const HalfRingGauge.mock({
+    required this.fraction,
+    required this.label,
+    this.overlayBuilder,
+    this.numberOpacity = 1,
+    this.labelOpacity = 1,
+    this.displayedFraction,
+    super.key,
+  })  : mockSize = true,
+        decimalPlaces = 1,
+        assert(fraction >= -.25 && fraction <= 1, 'Mock score must be valid.');
+
+  final double numberOpacity;
+  final double labelOpacity;
+  final double? displayedFraction;
+  final bool mockSize;
   final int decimalPlaces;
   final double fraction;
   final String label;
@@ -82,62 +104,78 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
     if (_painter == null ||
         _painter!.fraction != _fill ||
         _painter!.fill != colors.accent ||
-        _painter!.track != colors.fill) {
+        _painter!.track != colors.fill ||
+        _painter!.mockSize != widget.mockSize) {
       _painter = _GaugePainter(
         fraction: _fill,
         fill: colors.accent,
         track: colors.fill,
+        mockSize: widget.mockSize,
       );
     }
-    final percentage =
-        (widget.fraction * 100).toStringAsFixed(widget.decimalPlaces);
+    final percentage = ((widget.displayedFraction ?? widget.fraction) * 100)
+        .toStringAsFixed(widget.decimalPlaces);
     return Semantics(
-      label: '${widget.label} $percentage percent',
+      hidden: widget.numberOpacity == 0 && widget.labelOpacity == 0,
+      label: [
+        if (widget.labelOpacity > 0) widget.label,
+        if (widget.numberOpacity > 0) '$percentage percent',
+      ].join(' '),
       excludeSemantics: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: 220,
-            height: 112,
+            width: widget.mockSize ? 264 : 220,
+            height: widget.mockSize ? 128 : 112,
             child: Stack(
               children: [
                 CustomPaint(
                   key: const ValueKey('half-ring-paint'),
-                  size: const Size(220, 112),
+                  size: widget.mockSize
+                      ? const Size(264, 128)
+                      : const Size(220, 112),
                   painter: _painter,
                 ),
                 Positioned(
                   left: 0,
                   right: 0,
-                  bottom: 10,
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: AnimatedBuilder(
-                      animation: _fill,
-                      builder: (context, percent) => Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Text(
-                            (_fill.value * 100)
-                                .toStringAsFixed(widget.decimalPlaces),
-                            style: type.largeTitle
-                                .copyWith(fontSize: 44, letterSpacing: -1.32)
-                                .tabular,
+                  bottom: widget.mockSize ? 2 : 10,
+                  child: Opacity(
+                    opacity: widget.numberOpacity,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: AnimatedBuilder(
+                        animation: _fill,
+                        builder: (context, percent) => Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              ((widget.displayedFraction ?? _fill.value) * 100)
+                                  .toStringAsFixed(widget.decimalPlaces),
+                              style: type.largeTitle
+                                  .copyWith(
+                                    fontSize: widget.mockSize ? 56 : 44,
+                                    height: widget.mockSize ? 1 : 1.12,
+                                    letterSpacing:
+                                        widget.mockSize ? -1.68 : -1.32,
+                                  )
+                                  .tabular,
+                            ),
+                            const SizedBox(width: 1),
+                            percent!,
+                          ],
+                        ),
+                        child: Text(
+                          '%',
+                          style: type.emphasized.copyWith(
+                            fontSize: widget.mockSize ? 24 : 20,
+                            letterSpacing: -.24,
+                            color: colors.secondaryLabel,
                           ),
-                          const SizedBox(width: 1),
-                          percent!,
-                        ],
-                      ),
-                      child: Text(
-                        '%',
-                        style: type.emphasized.copyWith(
-                          fontSize: 20,
-                          letterSpacing: -.24,
-                          color: colors.secondaryLabel,
                         ),
                       ),
                     ),
@@ -152,8 +190,16 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
               ],
             ),
           ),
-          const SizedBox(height: 6),
-          Text(widget.label, style: type.subheadStrong),
+          SizedBox(height: widget.mockSize ? 4 : 6),
+          Opacity(
+            opacity: widget.labelOpacity,
+            child: Text(
+              widget.label,
+              style: widget.mockSize
+                  ? type.subhead.copyWith(color: colors.secondaryLabel)
+                  : type.subheadStrong,
+            ),
+          ),
         ],
       ),
     );
@@ -165,6 +211,7 @@ class _GaugePainter extends CustomPainter {
     required this.fraction,
     required this.fill,
     required this.track,
+    required this.mockSize,
   })  : trackPaint = (Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = 16
@@ -176,6 +223,7 @@ class _GaugePainter extends CustomPainter {
           ..strokeCap = StrokeCap.round
           ..color = fill),
         super(repaint: fraction);
+  final bool mockSize;
   final Animation<double> fraction;
   final Color fill;
   final Color track;
@@ -184,7 +232,9 @@ class _GaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    const rect = Rect.fromLTWH(18, 10, 184, 184);
+    final rect = mockSize
+        ? const Rect.fromLTWH(24, 10, 216, 216)
+        : const Rect.fromLTWH(18, 10, 184, 184);
     canvas.drawArc(rect, math.pi, math.pi, false, trackPaint);
     if (fraction.value > 0) {
       canvas.drawArc(rect, math.pi, math.pi * fraction.value, false, fillPaint);
@@ -195,5 +245,6 @@ class _GaugePainter extends CustomPainter {
   bool shouldRepaint(_GaugePainter oldDelegate) =>
       oldDelegate.fraction != fraction ||
       oldDelegate.fill != fill ||
-      oldDelegate.track != track;
+      oldDelegate.track != track ||
+      oldDelegate.mockSize != mockSize;
 }

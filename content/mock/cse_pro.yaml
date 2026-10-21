@@ -1,0 +1,34 @@
+_id: mock_blueprint_cse_pro
+schemaVersion: 2
+isActive: true
+exam: exam_cse_pro
+name: CSE Professional Practice Paper
+durationMinutes: 190
+sectionalTiming: roamable
+totalPublishedItems: 170
+sections:
+  - id: verbal
+    name: Verbal Ability
+    # PLACEHOLDER: replace when Aedwon supplies the published per-subject count.
+    questionCount: { value: 45, placeholder: true, placeholderNote: "Development placeholder; published CSE Professional per-subject item count is unresolved." }
+    # Required legacy field; ignored for a roamable one-block paper.
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_vocabulary, topic_upcat_grammar_and_structure, topic_upcat_language_application, topic_upcat_verbal_logic]
+  - id: numerical
+    name: Numerical Ability
+    # PLACEHOLDER: replace when Aedwon supplies the published per-subject count.
+    questionCount: { value: 45, placeholder: true, placeholderNote: "Development placeholder; published CSE Professional per-subject item count is unresolved." }
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_arithmetic_number_sense, topic_upcat_algebra, topic_upcat_statistics_and_probability, topic_upcat_data_interpretation]
+  - id: analytical
+    name: Analytical Ability
+    # PLACEHOLDER: replace when Aedwon supplies the published per-subject count.
+    questionCount: { value: 40, placeholder: true, placeholderNote: "Development placeholder; published CSE Professional per-subject item count is unresolved." }
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_logical_verbal_reasoning, topic_upcat_spatial_abstract_reasoning, topic_upcat_mechanical_technical_reasoning]
+  - id: general_information
+    name: General Information
+    # PLACEHOLDER: replace when Aedwon supplies the published per-subject count.
+    questionCount: { value: 40, placeholder: true, placeholderNote: "Development placeholder; published CSE Professional per-subject item count is unresolved." }
+    suggestedMinutes: 1
+    topicIds: [topic_upcat_philippine_constitution, topic_upcat_code_of_conduct_ra_6713, topic_upcat_peace_and_human_rights, topic_upcat_environment_management]

@@ -2,15 +2,37 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/components/confirmation_dialog.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/figures/question_figure.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
+
+/// A part that has not opened yet, as the question grid lists it.
+@immutable
+class MockUpcomingPart {
+  const MockUpcomingPart({
+    required this.number,
+    required this.name,
+    required this.count,
+  });
+
+  /// Counting from one.
+  final int number;
+  final String name;
+  final int count;
+}
 
 class MockSessionPage extends StatefulWidget {
   const MockSessionPage({
@@ -25,12 +47,17 @@ class MockSessionPage extends StatefulWidget {
     required this.onAnswer,
     required this.onToggleFlag,
     required this.onPause,
-    required this.onShowNavigator,
+    this.closedPartCount = 0,
+    this.upcomingParts = const [],
+    this.onGoTo,
+    this.questionSubjects = const {},
     this.pauseWarningSeen = false,
     this.onPauseWarningSeenChanged,
     this.onEndPartEarly,
-    this.onLeave,
     this.currentPartNumber = 1,
+    this.partName = '',
+    this.oneBlock = false,
+    this.onSubmitExam,
     this.partLength,
     super.key,
   });
@@ -53,12 +80,26 @@ class MockSessionPage extends StatefulWidget {
   final ValueChanged<int> onAnswer;
   final VoidCallback onToggleFlag;
   final VoidCallback onPause;
-  final VoidCallback onShowNavigator;
+
+  /// Parts the student can no longer reach. The grid says how many.
+  final int closedPartCount;
+
+  /// Parts after this one. The grid lists them dimmed.
+  final List<MockUpcomingPart> upcomingParts;
+
+  /// Reports a question's index in the whole exam, counting from zero.
+  final ValueChanged<int>? onGoTo;
+
+  /// The subject line above each question of a one-block paper, by question
+  /// id. A sectional paper names its part instead.
+  final Map<String, String> questionSubjects;
   final bool pauseWarningSeen;
   final ValueChanged<bool>? onPauseWarningSeenChanged;
   final VoidCallback? onEndPartEarly;
-  final Future<bool> Function()? onLeave;
   final int currentPartNumber;
+  final String partName;
+  final bool oneBlock;
+  final VoidCallback? onSubmitExam;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
@@ -71,7 +112,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
   late Duration _previousRemaining;
   int? _proctorToastMinutes;
   Timer? _toastTimer;
-  var _leaving = false;
+  var _gridOpen = false;
+  var _gridJump = 0;
 
   @override
   void initState() {
@@ -111,193 +153,622 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 
   void _onPausePressed() {
-    if (!widget.pauseWarningSeen) {
-      showAppConfirmationDialog(
-        context: context,
-        title: 'Real exams do not pause.',
-        body: 'Use this only when you have to. The clock stops, but you '
-            'will not get this in the real room.',
-        cancelLabel: 'Keep going',
-        confirmLabel: 'Pause',
-        isDestructive: false,
-        onCancel: () {},
-        onConfirm: () {
-          widget.onPauseWarningSeenChanged?.call(true);
-          widget.onPause();
-        },
-      );
-    } else {
+    if (widget.pauseWarningSeen) {
       widget.onPause();
+      return;
     }
+    var skipWarning = false;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.shadow.withValues(alpha: .34),
+        builder: (dialogContext) => StatefulBuilder(
+          builder: (context, update) => CenteredDialog(
+            title: "Real exams don't pause.",
+            message: 'Use this only when you really have to. The clock stops, '
+                "but you won't get this during the real exam.",
+            content: Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 2),
+              child: MergeSemantics(
+                child: InkWell(
+                  onTap: () => update(() => skipWarning = !skipWarning),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 44),
+                    child: Row(
+                      children: [
+                        SizedBox.square(
+                          dimension: 22,
+                          child: Checkbox(
+                            value: skipWarning,
+                            onChanged: (value) => update(
+                              () => skipWarning = value ?? false,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            side: BorderSide(
+                              color: context.colors.controlOutline,
+                              width: 1.5,
+                            ),
+                            activeColor: context.colors.accentFill,
+                            checkColor: context.colors.onAccent,
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            visualDensity: VisualDensity.compact,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            "Don't show this again",
+                            style: context.type.subhead.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            primaryLabel: 'Pause',
+            secondaryLabel: 'Keep Going',
+            inlineActions: true,
+            onCancel: () => Navigator.pop(dialogContext),
+            onConfirm: () {
+              Navigator.pop(dialogContext);
+              if (skipWarning) widget.onPauseWarningSeenChanged?.call(true);
+              widget.onPause();
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// System back acts like pause. Strict mode explains why Back is blocked.
+  void _onSystemBack() {
+    if (_gridOpen) return;
+    if (widget.state.strictMode) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(
+            backgroundColor: Theme.of(context).brightness == Brightness.dark
+                ? context.colors.surface
+                : context.colors.label,
+            content: Text(
+              'Strict mode is on. Back is off until you submit.',
+              style: context.type.footnote
+                  .copyWith(fontSize: 12, color: Colors.white),
+            ),
+          ),
+        );
+      return;
+    }
+    _onPausePressed();
   }
 
   void _confirmEndPartEarly(BuildContext context) {
-    showAppConfirmationDialog(
-      context: context,
-      title: 'End Part ${widget.currentPartNumber} now?',
-      body: 'You have ${widget.remainingInPart.inMinutes} minutes left in '
-          'this part. If you end it early, this time does not carry over.',
-      cancelLabel: 'Keep going',
-      confirmLabel: 'End part',
-      onCancel: () {},
-      onConfirm: widget.onEndPartEarly ?? () {},
+    final first = widget.state.currentIndex - widget.partPosition + 1;
+    final ids = widget.state.questionIds.skip(first).take(widget.partTotal);
+    final blank = ids
+        .where((id) => (widget.state.answers[id]?.selectedIndex ?? -1) < 0)
+        .length;
+    final minutes = widget.remainingInPart.inMinutes;
+    final hours = minutes ~/ 60;
+    final left =
+        hours > 0 ? '$hours hr ${minutes % 60} min' : '$minutes minutes';
+    final part = widget.currentPartNumber;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.shadow.withValues(alpha: .34),
+        builder: (dialogContext) => CenteredDialog(
+          title: widget.oneBlock ? 'Submit the exam?' : 'End Part $part now?',
+          message: widget.oneBlock
+              ? 'You have $left left and $blank questions blank. Once you '
+                  "submit, your answers can't be changed."
+              : 'You have $left left and $blank questions blank. Ending now '
+                  'closes Part $part for good, and the time left '
+                  "doesn't carry over.",
+          primaryLabel: widget.oneBlock ? 'Submit' : 'End Part $part',
+          secondaryLabel: 'Keep Working',
+          destructive: !widget.oneBlock,
+          inlineActions: true,
+          onCancel: () => Navigator.pop(dialogContext),
+          onConfirm: () {
+            Navigator.pop(dialogContext);
+            (widget.oneBlock ? widget.onSubmitExam : widget.onEndPartEarly)
+                ?.call();
+          },
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
+    final c = context.colors;
     final urgency = urgencyFor(widget.remainingInPart);
-    final isLastItemOfPart = widget.partPosition == widget.partTotal;
-
-    final VoidCallback? effectiveOnNext;
-    if (isLastItemOfPart) {
-      if (widget.state.strictMode) {
-        effectiveOnNext = null;
-      } else {
-        effectiveOnNext = () => _confirmEndPartEarly(context);
-      }
-    } else {
-      effectiveOnNext = widget.canGoNext ? widget.onNext : null;
-    }
-
-    return PopScope(
-      canPop: _leaving,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) unawaited(_confirmLeave(context));
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            _formatRemaining(widget.remainingInPart),
-            style: textStyles.headlineSmall.copyWith(
-              fontFamily: 'SourceSans3',
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: urgency == ClockUrgency.last ? colors.amber : colors.ink,
-              fontFeatures: [const FontFeature.tabularFigures()],
+    final last = widget.partPosition == widget.partTotal;
+    final next = last
+        ? widget.state.strictMode
+            ? null
+            : () => _confirmEndPartEarly(context)
+        : widget.canGoNext
+            ? widget.onNext
+            : null;
+    final clockColor = switch (urgency) {
+      ClockUrgency.ample => c.label,
+      ClockUrgency.closing => c.warningText,
+      ClockUrgency.last => c.wrongText,
+    };
+    Widget control(String key, String label, Widget icon, VoidCallback? tap) =>
+        Semantics(
+          button: true,
+          label: label,
+          enabled: tap != null,
+          child: Opacity(
+            opacity: tap == null ? .25 : 1,
+            child: InkWell(
+              key: ValueKey(key),
+              onTap: tap,
+              borderRadius: BorderRadius.circular(22),
+              child:
+                  SizedBox(width: 44, height: 44, child: Center(child: icon)),
             ),
           ),
-          actions: [
-            if (!widget.state.strictMode)
-              IconButton(
-                key: const Key('mock-pause'),
-                icon: const Icon(Icons.pause_outlined),
-                onPressed: _onPausePressed,
-              ),
-          ],
-          bottom: ClockRule(
-            remaining: widget.remainingInPart,
-            partLength: widget.effectivePartLength,
-          ),
-        ),
-        body: Stack(
-          children: [
-            ListView(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 96),
+        );
+    final scale = MediaQuery.textScalerOf(context).scale(17);
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _onSystemBack();
+      },
+      child: QuestionGridSheet(
+        open: _gridOpen,
+        onDismiss: () => setState(() => _gridOpen = false),
+        mock: true,
+        helpText: 'Tap any question in this part to go to it.',
+        summary: _gridSummary(),
+        parts: _gridParts(),
+        onSelected: _goToPartQuestion,
+        footer: widget.oneBlock && !widget.state.strictMode
+            ? PantasButton(
+                label: 'Submit the Exam',
+                onPressed: () {
+                  setState(() => _gridOpen = false);
+                  _confirmEndPartEarly(context);
+                },
+              )
+            : null,
+        page: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            toolbarHeight: (scale * 1.35 + 21).clamp(50.0, double.infinity),
+            centerTitle: true,
+            title: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                _QuestionBody(
-                  questionId: widget.state.currentQuestionId,
-                  selectedIndex: widget.state
-                      .answers[widget.state.currentQuestionId]?.selectedIndex,
-                  onAnswer: widget.onAnswer,
+                Text(
+                  _formatRemaining(widget.remainingInPart),
+                  style: context.type.subheadStrong.copyWith(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    color: clockColor,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
+                ),
+                const SizedBox(height: 6),
+                SizedBox(
+                  width: 120,
+                  height: 5,
+                  child: ClockRule(
+                    remaining: widget.remainingInPart,
+                    partLength: widget.effectivePartLength,
+                  ),
                 ),
               ],
             ),
-            if (_proctorToastMinutes != null)
-              Positioned(
-                bottom: 74,
-                left: 20,
-                right: 20,
-                child: Center(
-                  child: ProctorToast(minutes: _proctorToastMinutes!),
-                ),
-              )
-            else if (widget.state.strictMode && isLastItemOfPart)
-              Positioned(
-                bottom: 74,
-                left: 20,
-                right: 20,
-                child: Text(
-                  'Part ${widget.currentPartNumber} runs to the end of its '
-                  'time. Strict mock mode is on.',
-                  textAlign: TextAlign.center,
-                  style: textStyles.captionSmall.copyWith(
-                    color: colors.inkMuted,
+            actions: [
+              if (!widget.state.strictMode)
+                IconButton(
+                  key: const Key('mock-pause'),
+                  tooltip: 'Pause',
+                  icon: Icon(PantasIcons.pause, size: 20),
+                  onPressed: _onPausePressed,
+                )
+              else
+                const SizedBox(width: 44),
+              const SizedBox(width: 8),
+            ],
+          ),
+          body: SafeArea(
+            top: false,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final counter = '${widget.partPosition} of ${widget.partTotal}';
+                final counterMetrics = TextPainter(
+                  text: TextSpan(
+                    text: counter,
+                    style: context.type.subheadStrong,
                   ),
-                ),
-              ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(14),
-                child: MockFloatingBar(
-                  position: widget.partPosition,
-                  total: widget.partTotal,
-                  isFlagged: widget.state.flags
-                      .contains(widget.state.currentQuestionId),
-                  onPrevious: widget.canGoPrevious ? widget.onPrevious : null,
-                  onNext: effectiveOnNext,
-                  onGrid: widget.onShowNavigator,
-                  onFlag: widget.onToggleFlag,
-                ),
-              ),
+                  textScaler: MediaQuery.textScalerOf(context),
+                  textDirection: Directionality.of(context),
+                )..layout();
+                final compact =
+                    counterMetrics.width + 176 > constraints.maxWidth - 48;
+                final barHeight =
+                    compact ? 16 + counterMetrics.height + 8 + 44 : 60.0;
+                counterMetrics.dispose();
+                final strictMessage =
+                    'Part ${widget.currentPartNumber} runs to the end of its '
+                    'time. Strict mode is on.';
+                // MK_LastQStrict draws the line for a timed part only. A
+                // one-block paper has no part to name, and no board draws
+                // its line.
+                final strictLine =
+                    widget.state.strictMode && last && !widget.oneBlock;
+                final status = _proctorToastMinutes != null
+                    ? proctorCopyFor(_proctorToastMinutes!)
+                    : strictLine
+                        ? strictMessage
+                        : null;
+                final statusMetrics = TextPainter(
+                  text: TextSpan(
+                    text: status ?? '',
+                    style: _proctorToastMinutes != null
+                        ? context.type.subheadStrong.copyWith(fontSize: 14)
+                        : context.type.footnote,
+                  ),
+                  textScaler: MediaQuery.textScalerOf(context),
+                  textDirection: Directionality.of(context),
+                )..layout(
+                    maxWidth: constraints.maxWidth -
+                        (_proctorToastMinutes != null ? 64 : 32),
+                  );
+                final statusHeight = status == null
+                    ? 0
+                    : statusMetrics.height +
+                        (_proctorToastMinutes != null ? 20 : 0) +
+                        12;
+                statusMetrics.dispose();
+                final left = Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    control(
+                      'mock-prev',
+                      'Previous question',
+                      Icon(PantasIcons.back, size: 20),
+                      widget.canGoPrevious ? widget.onPrevious : null,
+                    ),
+                    control(
+                      'mock-grid',
+                      'Questions',
+                      PantasIcons.questionsSheet,
+                      () => setState(() => _gridOpen = true),
+                    ),
+                  ],
+                );
+                final right = Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    control(
+                      'mock-flag',
+                      'Flag question',
+                      Icon(
+                        PantasIcons.flag,
+                        size: 21,
+                        color: widget.state.flags
+                                .contains(widget.state.currentQuestionId)
+                            ? c.accent
+                            : c.label,
+                      ),
+                      widget.onToggleFlag,
+                    ),
+                    control(
+                      'mock-next',
+                      last
+                          ? widget.oneBlock
+                              ? 'Submit the exam'
+                              : 'End part'
+                          : 'Next question',
+                      Icon(PantasIcons.next, size: 20),
+                      next,
+                    ),
+                  ],
+                );
+                final bar = compact
+                    ? FloatingBar.content(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              counter,
+                              textAlign: TextAlign.center,
+                              style: context.type.subheadStrong,
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [left, right],
+                            ),
+                          ],
+                        ),
+                      )
+                    : FloatingBar(left: left, counter: counter, right: right);
+                return Stack(
+                  children: [
+                    ListView(
+                      padding: EdgeInsets.fromLTRB(
+                        16,
+                        20,
+                        16,
+                        barHeight + 50 + statusHeight,
+                      ),
+                      children: [
+                        _PaperSwap(
+                          position: widget.state.currentIndex,
+                          gridJump: _gridJump,
+                          child: _QuestionBody(
+                            key: ValueKey(widget.state.currentQuestionId),
+                            questionId: widget.state.currentQuestionId,
+                            subject: widget.oneBlock
+                                ? widget.questionSubjects[
+                                        widget.state.currentQuestionId] ??
+                                    widget.partName
+                                : 'Part ${widget.currentPartNumber} · '
+                                    '${widget.partName}',
+                            selectedIndex: widget
+                                .state
+                                .answers[widget.state.currentQuestionId]
+                                ?.selectedIndex,
+                            onAnswer: widget.onAnswer,
+                          ),
+                        ),
+                      ],
+                    ),
+                    if (_proctorToastMinutes != null)
+                      Positioned(
+                        bottom: barHeight + 42,
+                        left: 16,
+                        right: 16,
+                        child: ProctorToast(minutes: _proctorToastMinutes!),
+                      )
+                    else if (strictLine)
+                      Positioned(
+                        bottom: barHeight + 42,
+                        left: 16,
+                        right: 16,
+                        child: Text(
+                          strictMessage,
+                          textAlign: TextAlign.center,
+                          style: context.type.footnote
+                              .copyWith(color: c.secondaryLabel),
+                        ),
+                      ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 30),
+                        child: bar,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
-          ],
+          ),
         ),
       ),
     );
   }
 
-  Future<void> _confirmLeave(BuildContext context) async {
-    final leave = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: const Text('Leave mock?'),
-        content: const Text('The clock keeps running.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(
-              'Leave',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ),
+  int get _firstIndexInPart =>
+      widget.state.currentIndex - widget.partPosition + 1;
+
+  Iterable<String> get _idsInPart =>
+      widget.state.questionIds.skip(_firstIndexInPart).take(widget.partTotal);
+
+  bool _isAnswered(String id) =>
+      (widget.state.answers[id]?.selectedIndex ?? -1) >= 0;
+
+  String? _gridSummary() {
+    if (widget.oneBlock) {
+      final answered = _idsInPart.where(_isAnswered).length;
+      return '$answered of ${widget.partTotal} answered';
+    }
+    final closed = widget.closedPartCount;
+    if (closed == 0) return null;
+    if (closed == 1) return 'Part 1 is closed';
+    final numbers = [for (var i = 1; i <= closed; i++) '$i'];
+    return 'Parts ${numbers.take(closed - 1).join(', ')} and '
+        '${numbers.last} are closed';
+  }
+
+  List<QuestionGridPart> _gridParts() {
+    final first = _firstIndexInPart;
+    final ids = _idsInPart.toList();
+    final open = QuestionGridPart(
+      title: widget.oneBlock
+          ? ''
+          : 'PART ${widget.currentPartNumber} · '
+              '${widget.partName.toUpperCase()}',
+      count: widget.oneBlock
+          ? null
+          : '${ids.where(_isAnswered).length} of ${widget.partTotal}',
+      questions: [
+        for (var i = 0; i < ids.length; i++)
+          GridQuestion(
+            number: i + 1,
+            state: _isAnswered(ids[i])
+                ? GridQuestionState.answered
+                : GridQuestionState.unreached,
+            current: first + i == widget.state.currentIndex,
+            flagged: widget.state.flags.contains(ids[i]),
           ),
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Stay'),
-          ),
-        ],
-      ),
+      ],
     );
-    if (leave != true) return;
-    final mayLeave = await widget.onLeave?.call() ?? true;
-    if (!mayLeave || !context.mounted) return;
-    setState(() => _leaving = true);
-    await WidgetsBinding.instance.endOfFrame;
-    if (context.mounted) Navigator.of(context).pop();
+    return [
+      open,
+      for (final part in widget.upcomingParts)
+        QuestionGridPart(
+          title: 'PART ${part.number} · ${part.name.toUpperCase()}',
+          enabled: false,
+          lockedNote: 'Opens when this part starts.',
+          questions: [
+            for (var i = 1; i <= part.count; i++)
+              GridQuestion(number: i, state: GridQuestionState.unreached),
+          ],
+        ),
+    ];
+  }
+
+  void _goToPartQuestion(int number) {
+    final target = _firstIndexInPart + number - 1;
+    if (target != widget.state.currentIndex) setState(() => _gridJump++);
+    widget.onGoTo?.call(target);
   }
 
   String _formatRemaining(Duration remaining) {
-    final minutes = remaining.inMinutes;
-    final secs = remaining.inSeconds % 60;
-    return '${minutes.toString().padLeft(2, '0')}:'
+    final seconds = remaining.inSeconds.clamp(0, 1 << 31);
+    final hours = seconds ~/ 3600;
+    final minutes = (seconds ~/ 60) % 60;
+    final secs = seconds % 60;
+    return '${hours > 0 ? '$hours:' : ''}'
+        '${minutes.toString().padLeft(2, '0')}:'
         '${secs.toString().padLeft(2, '0')}';
+  }
+}
+
+/// The approved paper slide is mirrored for Previous. Grid selection always
+/// crossfades, including when its target happens to be the adjacent question.
+class _PaperSwap extends StatefulWidget {
+  const _PaperSwap({
+    required this.position,
+    required this.gridJump,
+    required this.child,
+  });
+  final int position;
+  final int gridJump;
+  final Widget child;
+  @override
+  State<_PaperSwap> createState() => _PaperSwapState();
+}
+
+class _PaperSwapState extends State<_PaperSwap>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastGridJump = widget.gridJump;
+    _controller = AnimationController(vsync: this)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed && mounted) {
+          setState(() => _outgoing = null);
+        }
+      });
+  }
+
+  Widget? _outgoing;
+  var _lastGridJump = 0;
+  var _fade = false;
+  var _direction = 1.0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context) && _outgoing != null) {
+      _controller.stop();
+      _outgoing = null;
+    }
+  }
+
+  @override
+  void didUpdateWidget(_PaperSwap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.position == oldWidget.position) return;
+    _fade = widget.gridJump != _lastGridJump ||
+        (widget.position - oldWidget.position).abs() != 1;
+    _lastGridJump = widget.gridJump;
+    _direction = widget.position > oldWidget.position ? 1 : -1;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.stop();
+      _outgoing = null;
+      return;
+    }
+    _outgoing = oldWidget.child;
+    _controller.duration = Duration(milliseconds: _fade ? 200 : 380);
+    _controller.forward(from: 0);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final outgoing = _outgoing;
+    if (outgoing == null) return widget.child;
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, _) {
+        final progress = _fade
+            ? _controller.value
+            : const Cubic(.2, .9, .3, 1).transform(_controller.value);
+        final distance = _fade ? 0.0 : 40.0 * _direction;
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Opacity(
+              key: const ValueKey('paper-swap-in'),
+              opacity: progress,
+              child: Transform.translate(
+                offset: Offset(distance * (1 - progress), 0),
+                child: widget.child,
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              child: IgnorePointer(
+                child: ExcludeSemantics(
+                  child: Opacity(
+                    key: const ValueKey('paper-swap-out'),
+                    opacity: 1 - progress,
+                    child: Transform.translate(
+                      offset: Offset(-distance * progress, 0),
+                      child: outgoing,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 
 class _QuestionBody extends ConsumerWidget {
   const _QuestionBody({
     required this.questionId,
+    required this.subject,
     required this.selectedIndex,
     required this.onAnswer,
+    super.key,
   });
 
   final String questionId;
+  final String subject;
   final int? selectedIndex;
   final ValueChanged<int> onAnswer;
 
@@ -308,33 +779,46 @@ class _QuestionBody extends ConsumerWidget {
     return hydratedAsync.when(
       data: (hydrated) {
         if (hydrated == null) {
-          return const Center(child: Text('Question not found'));
+          return errorFor(
+            'question',
+            () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
+          );
         }
-
-        final choiceId = selectedIndex != null &&
-                selectedIndex! < hydrated.question.choices.length
-            ? hydrated.question.choices[selectedIndex!].id
-            : null;
 
         return QuestionCard(
           key: ValueKey(hydrated.question.id),
-          question: hydrated.question,
-          passage: hydrated.passage,
-          chosenChoiceId: choiceId,
-          onAnswer: (cid) {
-            final index =
-                hydrated.question.choices.indexWhere((c) => c.id == cid);
-            if (index >= 0) onAnswer(index);
-          },
+          subject: subject,
+          stem: hydrated.question.stem,
+          passage: hydrated.passage == null
+              ? null
+              : PassageCard(
+                  text: hydrated.passage!.body,
+                  title: hydrated.passage!.title.isEmpty
+                      ? null
+                      : hydrated.passage!.title,
+                ),
+          figure: hydrated.question.figureSpecJson == null
+              ? null
+              : QuestionFigure(specJson: hydrated.question.figureSpecJson),
+          choices: [
+            for (var i = 0; i < hydrated.question.choices.length; i++)
+              ChoiceRow(
+                letter: hydrated.question.choices[i].label,
+                text: hydrated.question.choices[i].text,
+                state: selectedIndex == i
+                    ? ChoiceRowState.picked
+                    : ChoiceRowState.plain,
+                onTap: () => onAnswer(i),
+              ),
+          ],
         );
       },
-      loading: () => const Center(
-        child: Padding(
-          padding: EdgeInsets.all(40),
-          child: CircularProgressIndicator(),
-        ),
+      loading: () => loadingFor(hydratedAsync),
+      error: (e, st) => errorFor(
+        'question',
+        () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
+        error: e,
       ),
-      error: (e, st) => Center(child: Text('Error: $e')),
     );
   }
 }
