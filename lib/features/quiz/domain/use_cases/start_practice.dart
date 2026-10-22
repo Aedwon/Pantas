@@ -164,9 +164,17 @@ class StartPractice {
       );
     }
 
+    final flaggedQuestions = origin == SessionOrigin.flagged
+        ? await _content.questionsByIds(questionIds)
+        : null;
     final picked = <Question>[];
     for (final id in questionIds) {
-      final q = await _content.questionById(id);
+      final q = flaggedQuestions == null
+          ? await _content.questionById(id)
+          : flaggedQuestions[id];
+      if (q == null && origin == SessionOrigin.flagged) {
+        throw StateError('Flagged content is unavailable');
+      }
       if (q != null) picked.add(q);
     }
 
