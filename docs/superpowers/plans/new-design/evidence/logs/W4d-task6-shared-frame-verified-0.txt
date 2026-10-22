@@ -1,0 +1,36 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_content_test.dart: QN_Report form surface uses a 24 radius and keeps child metrics
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_content_test.dart: QN_Report form surface uses a 24 radius and keeps child metrics
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: notice dimensions, expansion and no solid actions Brightness.dark
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: notice dimensions, expansion and no solid actions Brightness.dark
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: current unanswered grid number uses the dark label
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: floating bar states and slots Brightness.dark
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: floating bar states and slots Brightness.dark
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: grid numbers fit at 200 percent without wrapping or clipping
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.dark
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.light
+00:01 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: toast metrics, undo keyboard and intermediate rise Brightness.light
+00:01 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: notice dimensions, expansion and no solid actions Brightness.light
+00:01 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: floating bar states and slots Brightness.light
+00:01 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.light
+00:01 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_test.dart: every gallery section builds and lays out
+00:02 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the bar counts the position, not the score
+00:02 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the bar counts the position, not the score
+00:02 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the bar counts the position, not the score
+00:02 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the flag sits in the floating bar before Check
+00:03 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:03 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter names the current question and is at least 44dp
+00:03 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the flag action names and exposes its set state
+00:03 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens Questions with the actual answered total
+00:03 +34: All tests passed!
