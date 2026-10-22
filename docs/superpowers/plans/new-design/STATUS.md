@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex W4d finish/review, chat 01a15f12
-Since: 2026-10-22 03:20 Asia/Manila
+Since: 2026-10-23 03:10 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1049,3 +1049,8 @@ Normal uploads verified: app working branch web/new-design-w4e-r1 f608e570b6f50f
 All eight whole-family audit findings are corrected with valid failing regressions then GREEN; additional final discard-card cache regression passes in18web route tests and the final combined4439run. Newly required D-258 server implementation received its first independent scoped review with no consequential finding. No deferred minor or unresolved CSE W4e engineering decision remains. Other-exam/UPCAT rebuilt finales are explicitly deferred by Aedwon's CSE launch selection.
 
 This completes CSE-launch W4e ENGINEERING implementation/review/testing/development integration only. The planned global server/web/PayMongo/content-cache integration, signed content/release gates, Aedwon's phone visual acceptance and real staging/browser/device verification remain at their later stages. No deployment, main application merge or release publication occurred. W4d is ready next, but no unrelated family was resumed. Preserve all worktrees and raw evidence for pending human/global tasks; do not clean up active QA/dependency inputs. Release this continuation's lock.
+
+
+### October23 W4d resumption
+
+Aedwon said exactly "continue" after the second usage-limit interruption. Current-main policy17db830f retrieved in full; D local38dacd92 is the expected four saved commits ahead of remote5e89e4fa, with known Task6/shared-title/flagged drafts. Integration remains72b04f00. Both relay runners online/idle. Same implementor resumes Task6 and viewer routes. Root owns Task8 and shared title-widget integration, then Task5 live end/list/Done/batch/rating wiring. No completed-family acceptance, independent family audit, upload or integration is claimed. Home-owned Reviews/New controls remain missing; no fabricated substitute.
