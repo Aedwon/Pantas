@@ -457,3 +457,17 @@ Current-main17db830f records this narrow shared ownership before source changes.
 Initial interface RED11397 proves the old constructor lacks this contract; it is a missing-API compile failure, not a behavioral regression claim. Verification11399 initially stopped on runner rg absence before executing tests. Corrected11403 uses the available Python file inventory:26 shared/default/accessibility/gallery/rich-title tests pass. It found only four test trailing-comma infos.11407 applies those mechanical test fixes, renews all3 directly changed tests and two-file analysis:3pass, No issues found. Formatting is clean. Raw command output is W4d-rich-row-green-* and W4d-rich-row-final-*; gzip companions retain original output if readable copies trim trailing whitespace.
 
 This verified shared slice lands before list consumers. It does not complete Task5/6/8, family review, integration or phone acceptance.
+
+
+## October23: ordinary quiz routes read current active-exam Pro coverage
+
+Startup policy refreshed from main17db830f931574f38530c51aed37c7d8ba2645e1. Root identified QuizPage's default false Pro argument as the actual cause of ordinary routes hiding paid wrong-choice notes. Production routes omit that argument. It now defaults null and reads the existing proForActiveExamProvider; explicit existing test overrides remain. The real current paused entitlement feeds ProPausedLine at an actual wrong-answer notes gate. Free and uncovered plans keep no notes invitation. No entitlement calculation, pricing, snapshot, server authority or shared defaults changed.
+
+Actual route RED11404 used production quizRoutes and the real entitlement/catalog active-exam coverage chain. Covered CSE failed to show its paid note; paused CSE failed to show ProPausedLine; uncovered Student Pro on CSE correctly hid the note. The earlier11398 harness timed out180s without a saved subprocess tail and is not behavioral RED evidence. Warming the actual asynchronous coverage using tester.runAsync bounded the harness without changing the asserted production route.
+
+11408: route coverage plus existing quiz chrome checks exit0, `00:01 +9: All tests passed!`. Its following analysis found only trailing-comma infos in the new test.11411 applies those test-only commas, then format2files and analysis both exit0, `No issues found! (ran in 1.0s)`. Production source behavior is unchanged from the9 passing tests. Required checks on the completed combined family remain with root. This scoped correction does not complete Task4's missing Home Reviews caller integration, Task5 end wiring, Task6 viewer, family review/integration or phone acceptance.
+
+Source and command identities are in W4d-task4-route-pro-manifest.json. Exact raw log bytes are retained in gzip when a readable copy needed whitespace normalization. Root now owns the subsequent live end-page replacement in quiz_page.dart; this checkpoint releases that file after the bounded gate correction.
+
+
+Gate-save correction:11413 stopped before staging/commit because the new quiz page and unfinished viewer imported the paywall barrel, which reexports presentation and violates R2.11417 changed those to the existing narrow application-provider and domain imports. The following scoped save renewed the9 route/chrome tests,2file analysis, format, layering and attribution against actual current source. No failing layering result was treated as accepted. The manifest/logs now bind that verified checkpoint rather than the failed save attempt.

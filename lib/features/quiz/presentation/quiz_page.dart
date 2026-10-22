@@ -17,11 +17,14 @@ import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/report_queue.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -40,7 +43,7 @@ class QuizPage extends ConsumerStatefulWidget {
     this.lessonId,
     this.mode = QuizPageMode.quick,
     this.prepared,
-    this.proIsActive = false,
+    this.proIsActive,
     super.key,
   });
   final String examId;
@@ -48,7 +51,7 @@ class QuizPage extends ConsumerStatefulWidget {
   final String? lessonId;
   final QuizPageMode mode;
   final PreparedTodaySession? prepared;
-  final bool proIsActive;
+  final bool? proIsActive;
 
   @override
   ConsumerState<QuizPage> createState() => _QuizPageState();
@@ -59,10 +62,12 @@ String _questionStageKey(QuestionId id) => 'quiz-question-$id';
 class _PreparedQuestionStage extends ConsumerStatefulWidget {
   const _PreparedQuestionStage({
     required this.proIsActive,
+    this.proPaused = false,
     this.viewIndex,
   });
 
   final bool proIsActive;
+  final bool proPaused;
   final int? viewIndex;
 
   @override
@@ -331,6 +336,7 @@ class _PreparedQuestionStageState
           question: question,
           passage: passage,
           proIsActive: widget.proIsActive,
+          proPaused: widget.proPaused,
         ),
       );
 
@@ -344,6 +350,7 @@ class _PreparedQuestionStageState
         passage: passage,
         outcome: session.currentOutcome,
         proIsActive: widget.proIsActive,
+        proPaused: widget.proPaused,
       );
 
   Widget _interactionGate({required bool enabled, required Widget child}) {
@@ -363,6 +370,7 @@ class _QuestionContent extends ConsumerWidget {
   const _QuestionContent({
     required this.question,
     required this.proIsActive,
+    this.proPaused = false,
     this.passage,
     this.outcome,
   });
@@ -370,6 +378,7 @@ class _QuestionContent extends ConsumerWidget {
   final Passage? passage;
   final AnswerOutcome? outcome;
   final bool proIsActive;
+  final bool proPaused;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -434,6 +443,10 @@ class _QuestionContent extends ConsumerWidget {
               wrongPick:
                   proIsActive && !outcome!.isCorrect ? picked?.rationale : null,
             ),
+            if (proPaused && !outcome!.isCorrect) ...[
+              const SizedBox(height: 12),
+              const ProPausedLine(),
+            ],
           ],
         ],
       ),
@@ -478,11 +491,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+    final pro = widget.proIsActive ??
+        ref.watch(proForActiveExamProvider).valueOrNull ??
+        false;
+    final paused = widget.proIsActive == null &&
+        ref.watch(entitlementProvider).valueOrNull?.state ==
+            EntitlementState.paused;
     final state = ref.watch(quizControllerProvider);
     if (state is QuizComplete) {
       return DebriefPage(
         attemptId: state.attempt.id,
-        proIsActive: widget.proIsActive,
+        proIsActive: pro,
         sessionOverride: state.session,
         attemptOverride: state.attempt,
       );
@@ -655,7 +674,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         _PreparedQuestionStage(
-                          proIsActive: widget.proIsActive,
+                          proIsActive: pro,
+                          proPaused: paused,
                           viewIndex: _viewIndex,
                         ),
                         if (_retryWrite != null)
