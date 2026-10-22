@@ -448,3 +448,12 @@ Per standing ruling2, the misleading mixed Today launch is omitted until Home su
 GREEN11384:22 tab/leave-resume/panel tests pass, two-file analysis clean, format0changes. Exact commands/output are W4d-tab-truthful-green-0..2.txt; W4d-tab-truthful-red.txt preserves the actual failure. Scoped diff is clean. Broader family/combined verification, independent review, integration and phone acceptance remain pending.
 
 Evidence hygiene for the root's tab RED: the gzip companion preserves original output bytes; the readable copy trims only trailing whitespace. Root checked the entire committed tab source/test delta and the readable log after normalization. No production source or test behavior changed.
+
+
+## October23: shared rich question-title contract
+
+Current-main17db830f records this narrow shared ownership before source changes. Root added only optional ListRow.titleWidget; required String title and every default row/variant/geometry/action remain unchanged. Rich consumers supply the existing MathText inside single-line DefaultTextStyle (ellipsis, no wrapping). No new generic row, dependency or feature import.
+
+Initial interface RED11397 proves the old constructor lacks this contract; it is a missing-API compile failure, not a behavioral regression claim. Verification11399 initially stopped on runner rg absence before executing tests. Corrected11403 uses the available Python file inventory:26 shared/default/accessibility/gallery/rich-title tests pass. It found only four test trailing-comma infos.11407 applies those mechanical test fixes, renews all3 directly changed tests and two-file analysis:3pass, No issues found. Formatting is clean. Raw command output is W4d-rich-row-green-* and W4d-rich-row-final-*; gzip companions retain original output if readable copies trim trailing whitespace.
+
+This verified shared slice lands before list consumers. It does not complete Task5/6/8, family review, integration or phone acceptance.

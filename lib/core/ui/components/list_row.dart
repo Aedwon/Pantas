@@ -16,6 +16,7 @@ enum ListRowVariant {
 class ListRow extends StatelessWidget {
   const ListRow({
     required this.title,
+    this.titleWidget,
     this.variant = ListRowVariant.navigation,
     this.value,
     this.valueStyle,
@@ -32,6 +33,7 @@ class ListRow extends StatelessWidget {
     super.key,
   });
   final String title;
+  final Widget? titleWidget;
   final ListRowVariant variant;
   final String? value;
   final TextStyle? valueStyle;
@@ -144,7 +146,7 @@ class ListRow extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            label,
+                            titleWidget ?? label,
                             if (subtitle != null)
                               Text(subtitle!, style: context.type.footnote),
                             if (stack && detail != null) detail,
