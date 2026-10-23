@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-23 21:24 Asia/Manila
+State: held
+Holder: Codex W4d finish/review, chat 01a15f12
+Since: 2026-10-23 21:37 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1144,3 +1144,8 @@ Final exact source a5355077607c80501103c95fb897dc9235cf81d9 passes4653full tests
 Working branch web/new-design-w4d-r1 uploaded normally to eb383634b29095370ca8890fba0a48eadc90d03a; actual remote SHA equals intended local HEAD, worktree clean. All unique diagnostic/evidence logs, original audit/fix history, baseline and interrupted runs, exact final raw log/status/hash manifest preserved. Reviewer worktree retained clean at3c64f078; source worktree retained. Current main policy was read on resume; later main commits in this continuation update task decisions/status only.
 
 Overall W4d is not complete or integrated: Home-owned initial Reviews/New shared-row and launch contracts still absent and omitted under standing ruling2. Required next action is land/reconcile that Home contract, wire actual initial callers and verify them before family integration. Do not fabricate Reviews/New from legacy Today or implement unrelated W4b work silently. Report delivery remains the recorded backend no-op limitation. Aedwon phone visual/device accessibility and live acceptance remain unverified. Integration/new-design-r1 stays72b04f00; application main freeze, deployment/publication gates unchanged. Lock released, no cleanup of dependent worktrees.
+
+
+### October23 W4d completion resumed
+
+Latest exact user: "finish w4d please". Root takes the free lock and completes the necessary bounded shared Today dependency within the approved W4d behavior, preserving other W4b work. Report backend delivery is explicitly deferred by the current L2/Task7 and does not block engineering completion. Full prior4653tests/review evidence remains valid for eb383634, not acceptance of new callers. Main L3 records precise shared data/row/sheet, guarded review/new starts and verification before code. Source D eb383634 matches remote, integration72b04f00 and W4b b99c1679 match remote; runners online. No main app/deployment/publication or phone acceptance.
