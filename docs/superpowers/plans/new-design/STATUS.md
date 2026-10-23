@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex W4b continuation, authorized Sonnet takeover
-Since: 2026-10-24 Asia/Manila
+Since: 2026-10-24 02:10 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -35,7 +35,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
-| A2 | W4b Tasks2–10 | Codex | bounded shared Today question dependency completed/integrated with W4d at4113ad78; remaining Home/progress work queued, consume shared contract; server roadmap coordination still required |
+| A2 | W4b Tasks2–10 | Codex, authorized Sonnet takeover | active: clean dependency merge27086aab from accepted4113ad78; client Tasks3–10 under way; necessary C9/C10 server dependency isolated on codex/w4b-server-dependency from accepted0c17bfb0. Exact scope/DTO/privacy ruling main04f184d3. Shared Today reused. Free future-day tap behavior pending Aedwon choice; no family acceptance yet |
 | A3 | W4d Tasks2,4–9 | Codex | ENGINEERING DONE: shared Today dependency and actual Reviews/New initial callers complete; original family audit and bounded dependency reviews closed;4677full tests,91target tests, static clean and2163unchanged source hashes. Sourcecd283f7b/workinge6f8906b/development4113ad78 uploaded, exact remote SHAs verified. Phone/live acceptance and deferred report sender remain separate |
 | A4 | W4e Tasks3–9, CSE launch scope | Codex | ENGINEERING DONE: reviewed/fixed/tested/uploaded feature f608e570 and development integration72b04f00; final combined4439tests pass and analysis/format/layering/attribution clean. Required server reader/answer-review dependency0c17bfb0 independently reviewed,165plain/205emulator pass on Node22. All eight family audit findings plus final exit-cache regression closed; accepted W4c source preserved. Other-exam finales explicitly deferred. Global server/web integration and phone/live acceptance remain later launch gates |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
