@@ -1,14 +1,15 @@
+import 'package:flutter/material.dart' show ValueKey;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
-import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_review_page.dart';
+import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
@@ -36,8 +37,12 @@ List<RouteBase> quizRoutes(Ref ref) => [
 
             final lastAttempt =
                 ref.watch(lastSubmittedMockProvider(request)).valueOrNull;
-            final proIsActive =
-                ref.watch(proForActiveExamProvider).valueOrNull ?? false;
+            final proIsActive = ref
+                    .watch(proForActiveExamProvider)
+                    .unwrapPrevious()
+                    .asData
+                    ?.value ??
+                false;
 
             final customTrack = focus.exam!.isCustom
                 ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
@@ -160,6 +165,9 @@ List<RouteBase> quizRoutes(Ref ref) => [
         builder: (_, state) => QuizPage(
           examId: state.pathParameters['examId']!,
           mode: QuizPageMode.practice,
+          customSessionId: state.extra is ({String customSessionId})
+              ? (state.extra! as ({String customSessionId})).customSessionId
+              : null,
         ),
       ),
       GoRoute(
@@ -180,6 +188,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
       GoRoute(
         path: '/quiz/viewer/:attemptId',
         builder: (_, state) => QuizReviewPage(
+          key: ValueKey('quiz-viewer:${state.uri}'),
           attemptId: state.pathParameters['attemptId']!,
           initialIndex:
               int.tryParse(state.uri.queryParameters['index'] ?? '') ?? 0,
@@ -195,17 +204,32 @@ List<RouteBase> quizRoutes(Ref ref) => [
         ),
       ),
       GoRoute(
+        path: '/quiz/all/:attemptId',
+        builder: (_, state) => QuizSessionEndPage(
+          key: ValueKey('quiz-completed:${state.uri}'),
+          attemptId: state.pathParameters['attemptId']!,
+          all: true,
+          mistakesOnly: state.uri.queryParameters['mistakes'] == 'true',
+        ),
+      ),
+      GoRoute(
         path: '/quiz/debrief/:attemptId',
-        builder: (_, state) =>
-            DebriefPage(attemptId: state.pathParameters['attemptId']!),
+        builder: (_, state) => QuizSessionEndPage(
+          key: ValueKey('quiz-completed:${state.uri}'),
+          attemptId: state.pathParameters['attemptId']!,
+        ),
       ),
       GoRoute(
         path: '/quiz/flagged/:examId',
         builder: (_, state) => Consumer(
           builder: (_, ref, __) => FlaggedListPage(
             examId: state.pathParameters['examId']!,
-            proIsActive:
-                ref.watch(proForActiveExamProvider).valueOrNull ?? false,
+            proIsActive: ref
+                    .watch(proForActiveExamProvider)
+                    .unwrapPrevious()
+                    .asData
+                    ?.value ??
+                false,
           ),
         ),
       ),

@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch_position.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -83,12 +84,14 @@ void main() {
   Future<void> pump(
     WidgetTester tester, {
     int correct = 7,
+    QuizSession? sessionOverride,
     bool pro = false,
     bool batch = false,
     double scale = 1,
     Duration? duration = const Duration(minutes: 9),
   }) async {
-    final session = completedSession(correct: correct, batch: batch);
+    final session =
+        sessionOverride ?? completedSession(correct: correct, batch: batch);
     await tester.pumpApp(
       MediaQuery(
         data: MediaQueryData(
@@ -304,5 +307,21 @@ void main() {
     await tester.pumpApp(const SizedBox());
     await tester.pump(const Duration(seconds: 5));
     expect(tester.takeException(), isNull);
+  });
+  testWidgets(
+      'mistake stem fallback renders actual math through shared rich row',
+      (tester) async {
+    final session = completedSession();
+    final questions = [...session.questions];
+    questions[7] =
+        questions[7].copyWith(shortLabel: null, stem: r'Solve $x^2=4$');
+    await pump(tester, sessionOverride: session.copyWith(questions: questions));
+    expect(
+      find.descendant(
+        of: find.byType(ListRow),
+        matching: find.byType(MathText),
+      ),
+      findsOneWidget,
+    );
   });
 }

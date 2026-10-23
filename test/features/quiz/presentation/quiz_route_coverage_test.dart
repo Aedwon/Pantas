@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -29,6 +31,8 @@ void main() {
         (tester) async {
       final db = inMemoryDatabase();
       final content = inMemoryContentDatabase();
+      var refreshFocus = false;
+      final pendingFocus = Completer<ActiveExamFocus>();
       const question = Question(
         id: 'q',
         version: 1,
@@ -70,8 +74,11 @@ void main() {
           contentDatabaseProvider.overrideWithValue(content),
           devProOverrideProvider.overrideWithValue(null),
           activeExamFocusProvider.overrideWith(
-            (_) async =>
-                ActiveExamFocus.selected(buildExam(id: 'exam_cse_pro')),
+            (_) => refreshFocus
+                ? pendingFocus.future
+                : Future.value(
+                    ActiveExamFocus.selected(buildExam(id: 'exam_cse_pro')),
+                  ),
           ),
           entitlementProvider.overrideWith(
             (_) => Stream.value(
@@ -129,6 +136,40 @@ void main() {
         find.byType(ProPausedLine),
         paused ? findsOneWidget : findsNothing,
       );
+      if (notes) {
+        refreshFocus = true;
+        container.invalidate(activeExamFocusProvider);
+        await tester.pump();
+        expect(container.read(proForActiveExamProvider).isLoading, isTrue);
+        await tester.pump();
+        expect(find.text('Paid wrong-choice note'), findsNothing);
+        pendingFocus
+            .complete(ActiveExamFocus.selected(buildExam(id: 'exam_cse_pro')));
+        for (var i = 0;
+            i < 80 &&
+                container
+                        .read(proForActiveExamProvider)
+                        .unwrapPrevious()
+                        .asData
+                        ?.value !=
+                    true;
+            i++) {
+          await tester.pump(const Duration(milliseconds: 20));
+          await tester.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 2)),
+          );
+        }
+        expect(
+          container
+              .read(proForActiveExamProvider)
+              .unwrapPrevious()
+              .asData
+              ?.value,
+          isTrue,
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Paid wrong-choice note'), findsOneWidget);
+      }
       await tester.pumpWidget(const SizedBox.shrink());
     });
   }

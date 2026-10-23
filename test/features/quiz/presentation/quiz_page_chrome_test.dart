@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -8,6 +9,7 @@ import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
+import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -244,6 +246,53 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Questions'), findsOneWidget);
     expect(find.text('0 of 10 answered'), findsOneWidget);
+  });
+  testWidgets('actual completion uses the rebuilt live session end',
+      (tester) async {
+    final session = QuizSession(
+      sessionId: 'done',
+      examId: 'cse_prof',
+      questions: [sampleQuestions.first],
+      currentIndex: 0,
+      outcomes: [
+        const AnswerOutcome(
+          questionId: 'q_1',
+          questionVersion: 1,
+          chosenChoiceId: 'c_a',
+          correctChoiceId: 'c_a',
+          responseMs: 1,
+        ),
+      ],
+      startedAt: DateTime.utc(2026),
+    );
+    final attempt = Attempt(
+      id: 'done',
+      examId: 'cse_prof',
+      startedAt: session.startedAt,
+      completedAt: DateTime.utc(2026, 1, 1, 0, 1),
+      items: const [
+        AttemptItem(
+          questionId: 'q_1',
+          questionVersion: 1,
+          chosenChoiceId: 'c_a',
+          correctChoiceId: 'c_a',
+          responseMs: 1,
+        ),
+      ],
+    );
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'cse_prof', mode: QuizPageMode.practice),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        quizControllerProvider.overrideWith(
+          (ref) => _FakeQuizController(
+            ref,
+            QuizComplete(attempt: attempt, session: session),
+          ),
+        ),
+      ],
+    );
+    expect(find.byType(QuizSessionEndPage), findsOneWidget);
   });
 }
 

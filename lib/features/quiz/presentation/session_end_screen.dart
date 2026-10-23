@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -266,6 +267,19 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 title: widget
                                         .session.questions[index].shortLabel ??
                                     widget.session.questions[index].stem,
+                                titleWidget: widget.session.questions[index]
+                                            .shortLabel ==
+                                        null
+                                    ? DefaultTextStyle(
+                                        style: type.body,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        softWrap: false,
+                                        child: MathText(
+                                          widget.session.questions[index].stem,
+                                        ),
+                                      )
+                                    : null,
                                 subtitle: widget.subjectNames[
                                     widget.session.questions[index].topicId],
                                 leading: Icon(

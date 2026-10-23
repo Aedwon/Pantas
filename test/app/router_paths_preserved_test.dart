@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/router.dart';
 
 void main() {
-  test('route split preserves every declared path from W1 base', () {
+  test('route split preserves W1 paths and approved quiz additions', () {
     const before = <String>[
       '/home',
       '/study',
@@ -24,6 +24,9 @@ void main() {
       '/quiz/practice/:examId/run',
       '/quiz/retake/:examId',
       '/quiz/inline/:examId/:lessonId',
+      '/quiz/viewer/:attemptId',
+      '/quiz/flagged/:examId/view/:questionId',
+      '/quiz/all/:attemptId',
       '/quiz/debrief/:attemptId',
       '/quiz/flagged/:examId',
       '/quiz/results/:attemptId',

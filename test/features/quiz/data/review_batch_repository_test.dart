@@ -84,7 +84,7 @@ void main() {
       (await (db.select(db.devicePrefs)..where((p) => p.key.equals(key)))
               .getSingleOrNull())
           ?.value;
-  Future<void> finish(QuizSession session) async {
+  Future<QuizSession> finish(QuizSession session) async {
     var answered = session;
     for (final question in session.questions) {
       final outcome = AnswerOutcome(
@@ -105,6 +105,7 @@ void main() {
       attempts: AttemptsRepository(db),
       sessions: sessions,
     ).complete(session: answered, now: now, persisted: true);
+    return answered;
   }
 
   test(
@@ -973,6 +974,70 @@ void main() {
       (await sessions.activeFor(userId: 'local', examId: 'exam'))!.id,
       'custom',
     );
+  });
+  test('stale completed screen cannot claim the third session', () async {
+    final first = (await start())!;
+    final completed = await finish(first.session);
+    final second = (await batches.continueBatch(
+      scope: scope,
+      content: content,
+      now: now,
+      canPersist: () => true,
+      after: completed,
+    ))!;
+    await finish(second.session);
+    final before = await stored();
+    await expectLater(
+      batches.continueBatch(
+        scope: scope,
+        content: content,
+        now: now,
+        canPersist: () => true,
+        after: completed,
+      ),
+      throwsStateError,
+    );
+    expect(await stored(), before);
+    expect(completed.reviewBatch!.ordinal, 1);
+  });
+  test('explicit next duplicates retain one row and reject changed answers',
+      () async {
+    final first = (await start())!;
+    final completed = await finish(first.session);
+    final invalid = completed.copyWith(
+      outcomes: [
+        completed.outcomes.first.copyWith(responseMs: 999),
+        ...completed.outcomes.skip(1),
+      ],
+    );
+    final before = await stored();
+    await expectLater(
+      batches.continueBatch(
+        scope: scope,
+        content: content,
+        now: now,
+        canPersist: () => true,
+        after: invalid,
+      ),
+      throwsStateError,
+    );
+    expect(await stored(), before);
+    final second = (await batches.continueBatch(
+      scope: scope,
+      content: content,
+      now: now,
+      canPersist: () => true,
+      after: completed,
+    ))!;
+    final repeated = (await batches.continueBatch(
+      scope: scope,
+      content: content,
+      now: now,
+      canPersist: () => true,
+      after: completed,
+    ))!;
+    expect(repeated.session.sessionId, second.session.sessionId);
+    expect((await db.select(db.quizSessions).get()).length, 2);
   });
 }
 

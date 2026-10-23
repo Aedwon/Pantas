@@ -27,10 +27,11 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/report_queue.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 import 'package:pantas/features/quiz/presentation/report_form.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
@@ -44,6 +45,7 @@ class QuizPage extends ConsumerStatefulWidget {
     this.mode = QuizPageMode.quick,
     this.prepared,
     this.proIsActive,
+    this.customSessionId,
     super.key,
   });
   final String examId;
@@ -52,6 +54,7 @@ class QuizPage extends ConsumerStatefulWidget {
   final QuizPageMode mode;
   final PreparedTodaySession? prepared;
   final bool? proIsActive;
+  final String? customSessionId;
 
   @override
   ConsumerState<QuizPage> createState() => _QuizPageState();
@@ -463,6 +466,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     });
   }
 
+  String? _seenSessionId;
   int? _viewIndex;
   bool _gridOpen = false;
   bool _leaveOpen = false;
@@ -492,19 +496,25 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   @override
   Widget build(BuildContext context) {
     final pro = widget.proIsActive ??
-        ref.watch(proForActiveExamProvider).valueOrNull ??
+        ref.watch(proForActiveExamProvider).unwrapPrevious().asData?.value ??
         false;
     final paused = widget.proIsActive == null &&
         ref.watch(entitlementProvider).valueOrNull?.state ==
             EntitlementState.paused;
     final state = ref.watch(quizControllerProvider);
     if (state is QuizComplete) {
-      return DebriefPage(
+      return QuizSessionEndPage(
+        key: ValueKey('quiz-end-${state.attempt.id}'),
         attemptId: state.attempt.id,
-        proIsActive: pro,
+        proIsActive: widget.proIsActive,
         sessionOverride: state.session,
-        attemptOverride: state.attempt,
+        fresh: _seenSessionId == state.session.sessionId,
+        custom: widget.customSessionId == state.session.sessionId &&
+            state.session.origin == SessionOrigin.drill,
       );
+    }
+    if (state is QuizRunning && state.session.examId == widget.examId) {
+      _seenSessionId = state.session.sessionId;
     }
     if (state is! QuizRunning) {
       return Scaffold(
@@ -875,9 +885,14 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           );
         }
       case QuizPageMode.practice:
-        // Picker-owned sessions are already persisted before this renderer is
-        // entered. Recreating one here would lose the original picked scope.
-        break;
+        // Use a live prestarted run; cold routes resume only the stored row.
+        final current = ref.read(quizControllerProvider);
+        final hasCurrent = current is QuizRunning &&
+                current.session.examId == widget.examId ||
+            current is QuizComplete && current.session.examId == widget.examId;
+        if (!hasCurrent) {
+          unawaited(controller.resumeToday(examId: widget.examId));
+        }
       case QuizPageMode.retake:
         unawaited(controller.startRetake(examId: widget.examId));
       case QuizPageMode.inline:

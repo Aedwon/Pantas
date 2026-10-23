@@ -162,7 +162,10 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     if (!mounted) return;
     final state = ref.read(quizControllerProvider);
     if (state is QuizRunning) {
-      await context.push('/quiz/practice/${widget.examId}/run');
+      await context.push(
+        '/quiz/practice/${widget.examId}/run',
+        extra: (customSessionId: state.session.sessionId),
+      );
       if (!mounted) return;
       ref
         ..invalidate(practiceIndexProvider(widget.examId))

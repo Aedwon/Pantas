@@ -62,14 +62,20 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
   void initState() {
     super.initState();
     _db = ref.read(appDatabaseProvider);
-    _auth = ref.read(authStateProvider).asData?.value;
+    _auth = ref.read(authStateProvider).unwrapPrevious().asData?.value;
     _authUid = switch (_auth) {
       AnonymousAuthState(:final uid) => uid,
       SignedInAuthState(:final user) => user.uid,
       _ => null,
     };
     _lifetime = ref.read(todayQuizPreparerProvider).accountLifetimeToken;
-    _examId = ref.read(activeExamFocusProvider).asData?.value.exam?.id;
+    _examId = ref
+        .read(activeExamFocusProvider)
+        .unwrapPrevious()
+        .asData
+        ?.value
+        .exam
+        ?.id;
     _boundary = QuizNoteBoundary.capture(_db, isCurrent: _current);
     _future = _load();
   }
@@ -78,11 +84,18 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
       mounted &&
       _lifetime != null &&
       _authUid != null &&
-      ref.read(authStateProvider).asData?.value == _auth &&
+      ref.read(authStateProvider).unwrapPrevious().asData?.value == _auth &&
       identical(ref.read(appDatabaseProvider), _db) &&
       ref.read(todayQuizPreparerProvider).accountLifetimeToken == _lifetime &&
       (_examId == null ||
-          ref.read(activeExamFocusProvider).asData?.value.exam?.id == _examId);
+          ref
+                  .read(activeExamFocusProvider)
+                  .unwrapPrevious()
+                  .asData
+                  ?.value
+                  .exam
+                  ?.id ==
+              _examId);
 
   Future<_LoadedReview> _load() async {
     final boundary = await _boundary;
@@ -130,13 +143,15 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
     if (boundary == null) throw StateError('Review ownership changed');
     Future<bool> canPersist() async {
       if (!_current() ||
-          !(ref.read(proForActiveExamProvider).asData?.value ?? false)) {
+          !(ref.read(proForActiveExamProvider).unwrapPrevious().asData?.value ??
+              false)) {
         return false;
       }
       final valid = await boundary.allows();
       return valid &&
           _current() &&
-          (ref.read(proForActiveExamProvider).asData?.value ?? false);
+          (ref.read(proForActiveExamProvider).unwrapPrevious().asData?.value ??
+              false);
     }
 
     if (!await canPersist()) throw StateError('Review is unavailable');
@@ -164,7 +179,9 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
       ..watch(authStateProvider)
       ..watch(activeExamFocusProvider)
       ..watch(appDatabaseProvider);
-    final pro = ref.watch(proForActiveExamProvider).asData?.value ?? false;
+    final pro =
+        ref.watch(proForActiveExamProvider).unwrapPrevious().asData?.value ??
+            false;
     final paused = ref.watch(entitlementProvider).valueOrNull?.state ==
         EntitlementState.paused;
     return FutureBuilder<_LoadedReview>(

@@ -180,6 +180,11 @@ void main() {
                   body: Column(
                     children: [
                       const Text('Practice running'),
+                      Text('Custom source: ${state.extra is ({
+                        String customSessionId
+                      }) ? (state.extra! as ({
+                          String customSessionId
+                        })).customSessionId : 'missing'}'),
                       TextButton(
                         onPressed: () => context.pop(),
                         child: const Text('Return to picker'),
@@ -536,6 +541,7 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Practice running'), findsOneWidget);
+    expect(find.text('Custom source: practice-test'), findsOneWidget);
     await tester.tap(find.text('Return to picker'));
     await tester.pumpAndSettle();
     expect(find.text('11 questions · ~9 min'), findsOneWidget);

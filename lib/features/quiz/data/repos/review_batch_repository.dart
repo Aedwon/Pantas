@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
@@ -28,8 +29,13 @@ class ReviewBatchRepository {
       _currentScope(userId, examId);
   bool _current(ReviewBatchScope scope) =>
       _currentScope(scope.userId, scope.examId)?.matches(scope) ?? false;
-  void _guard(ReviewBatchScope scope, bool Function() canPersist) {
-    if (!_current(scope) || !canPersist()) throw const _Cancelled();
+  Future<void> _guard(
+    ReviewBatchScope scope,
+    FutureOr<bool> Function() canPersist,
+  ) async {
+    if (!_current(scope)) throw const _Cancelled();
+    final allowed = await canPersist();
+    if (!_current(scope) || !allowed) throw const _Cancelled();
   }
 
   void checkScope(ReviewBatchScope? scope) {
@@ -142,12 +148,12 @@ class ReviewBatchRepository {
     try {
       // Cleanup is committed even when an old principal cannot use a batch.
       await _db.transaction(() async {
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
         await _read(scope);
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
       });
       return await _db.transaction(() async {
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
         final existing = await _read(scope);
         final active = await _active(scope);
         if (existing != null) {
@@ -170,12 +176,12 @@ class ReviewBatchRepository {
           ],
         );
         final questions = await _hydrate(batch, 0, content);
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
         await _insert(batch, 0, now);
         await _save(batch);
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
         final row = (await _row(ids.first))!;
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
         return _session(batch, row, questions);
       });
     } on _Cancelled {
@@ -187,24 +193,91 @@ class ReviewBatchRepository {
     required ReviewBatchScope scope,
     required ContentRepository content,
     required DateTime now,
-    required bool Function() canPersist,
+    required FutureOr<bool> Function() canPersist,
+    QuizSession? after,
   }) async {
-    if (!_current(scope) || !canPersist()) return null;
-    // Orphan/principal invalidation must survive the caller's load failure.
+    if (!_current(scope) || !await canPersist()) return null;
     try {
-      await _db.transaction(() async {
-        _guard(scope, canPersist);
-        await _read(scope);
-        _guard(scope, canPersist);
+      // Keep cleanup durable, but never hold student-data writes for content.
+      final candidate = await _db.transaction(() async {
+        await _guard(scope, canPersist);
+        final batch = await _read(scope);
+        await _guard(scope, canPersist);
+        return batch;
       });
+      if (candidate == null) throw StateError('Reviews batch is unavailable');
+      final index =
+          candidate.nextReady ? candidate.current + 1 : candidate.current;
+      final hydrated = (
+        sessionId: candidate.sessionIds[index],
+        questions: await _hydrate(candidate, index, content)
+      );
+      await _guard(scope, canPersist);
       return await _db.transaction(() async {
-        _guard(scope, canPersist);
+        await _guard(scope, canPersist);
         final batch = await _read(scope);
         if (batch == null) throw StateError('Reviews batch is unavailable');
-        return _claim(batch, scope, content, now, canPersist);
+        if (after != null) await _validateAfter(batch, scope, after);
+        await _guard(scope, canPersist);
+        final claimed = await _claim(
+          batch,
+          scope,
+          content,
+          now,
+          canPersist,
+          hydrated: hydrated,
+        );
+        await _guard(scope, canPersist);
+        return claimed;
       });
     } on _Cancelled {
       return null;
+    }
+  }
+
+  Future<void> _validateAfter(
+    StoredReviewBatch batch,
+    ReviewBatchScope scope,
+    QuizSession after,
+  ) async {
+    final position = after.reviewBatch;
+    if (position == null ||
+        position.batchId != batch.batchId ||
+        position.userId != scope.userId ||
+        position.total != batch.chunks.length) {
+      throw StateError('Completed Reviews session changed');
+    }
+    final index = position.ordinal - 1;
+    if (index < 0 ||
+        index >= batch.chunks.length ||
+        !(batch.nextReady && index == batch.current ||
+            !batch.nextReady && index + 1 == batch.current)) {
+      throw StateError('Completed Reviews session is stale');
+    }
+    final row = await _row(batch.sessionIds[index]);
+    if (row == null ||
+        !_matches(row, batch, index) ||
+        row.completedAt == null ||
+        row.quitAt != null ||
+        after.sessionId != row.id ||
+        after.examId != row.examId ||
+        after.origin.storageValue != row.origin ||
+        !after.isComplete ||
+        row.currentIndex != batch.chunks[index].length ||
+        row.outcomes.length != after.outcomes.length) {
+      throw StateError('Completed Reviews session changed');
+    }
+    validateHydration(batch, index, after.questions);
+    for (var i = 0; i < row.outcomes.length; i++) {
+      final stored = row.outcomes[i];
+      final provided = after.outcomes[i];
+      if (stored.questionId != provided.questionId ||
+          stored.questionVersion != provided.questionVersion ||
+          stored.chosenChoiceId != provided.chosenChoiceId ||
+          stored.correctChoiceId != provided.correctChoiceId ||
+          stored.responseMs != provided.responseMs) {
+        throw StateError('Completed Reviews answers changed');
+      }
     }
   }
 
@@ -213,27 +286,37 @@ class ReviewBatchRepository {
     ReviewBatchScope scope,
     ContentRepository content,
     DateTime now,
-    bool Function() canPersist,
-  ) async {
+    FutureOr<bool> Function() canPersist, {
+    ({String sessionId, List<Question> questions})? hydrated,
+  }) async {
     final active = await _active(scope);
     if (active != null && active.id != batch.sessionIds[batch.current]) {
       throw StateError('Another quiz is paused');
     }
+    final index = batch.nextReady ? batch.current + 1 : batch.current;
+    if (hydrated != null) {
+      if (hydrated.sessionId != batch.sessionIds[index]) {
+        throw StateError('Reviews target changed');
+      }
+      validateHydration(batch, index, hydrated.questions);
+    }
     if (batch.nextReady) {
       final next = batch.current + 1;
-      final questions = await _hydrate(batch, next, content);
-      _guard(scope, canPersist);
+      final questions =
+          hydrated?.questions ?? await _hydrate(batch, next, content);
+      await _guard(scope, canPersist);
       await _insert(batch, next, now);
       final advanced = batch.advance(current: next, nextReady: false);
       await _save(advanced);
-      _guard(scope, canPersist);
+      await _guard(scope, canPersist);
       final row = (await _row(batch.sessionIds[next]))!;
-      _guard(scope, canPersist);
+      await _guard(scope, canPersist);
       return _session(advanced, row, questions);
     }
     if (active == null) throw StateError('Reviews session is unavailable');
-    final questions = await _hydrate(batch, batch.current, content);
-    _guard(scope, canPersist);
+    final questions =
+        hydrated?.questions ?? await _hydrate(batch, batch.current, content);
+    await _guard(scope, canPersist);
     return _session(batch, active, questions);
   }
 
@@ -372,7 +455,7 @@ class ReviewBatchRepository {
     } else {
       await _save(batch.advance(current: batch.current, nextReady: true));
     }
-    _guard(scope!, () => true);
+    await _guard(scope!, () => true);
   }
 
   Future<void> discardForSessions(

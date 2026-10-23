@@ -4,7 +4,8 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/storage/storage.dart' show appDatabaseProvider;
+import 'package:pantas/core/storage/storage.dart'
+    show appDatabaseProvider, contentRepositoryProvider;
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -210,7 +211,8 @@ class QuizController extends StateNotifier<QuizControllerState> {
         final db = _ref.read(appDatabaseProvider);
         final preparer = _ref.read(todayQuizPreparerProvider);
         final lifetime = preparer.accountLifetimeToken;
-        final auth = _ref.read(authStateProvider).asData?.value;
+        final auth =
+            _ref.read(authStateProvider).unwrapPrevious().asData?.value;
         final uid = switch (auth) {
           AnonymousAuthState(:final uid) => uid,
           SignedInAuthState(:final user) => user.uid,
@@ -222,8 +224,16 @@ class QuizController extends StateNotifier<QuizControllerState> {
             identical(_ref.read(appDatabaseProvider), db) &&
             identical(_ref.read(todayQuizPreparerProvider), preparer) &&
             preparer.accountLifetimeToken == lifetime &&
-            _ref.read(authStateProvider).asData?.value == auth &&
-            _ref.read(activeExamFocusProvider).asData?.value.exam?.id == examId;
+            _ref.read(authStateProvider).unwrapPrevious().asData?.value ==
+                auth &&
+            _ref
+                    .read(activeExamFocusProvider)
+                    .unwrapPrevious()
+                    .asData
+                    ?.value
+                    .exam
+                    ?.id ==
+                examId;
         if (uid == null || !current()) {
           throw StateError('Flagged quiz account is unavailable');
         }
@@ -263,6 +273,83 @@ class QuizController extends StateNotifier<QuizControllerState> {
     } catch (e) {
       if (mounted) state = QuizFailure(e.toString());
     }
+  }
+
+  /// Explicit continuation retains the completed screen until a real next row
+  /// commits. A repeated call preserves any pick already made on that row.
+  Future<void> continueReviews(QuizSession completed) async {
+    if (!mounted || completed.reviewBatch == null || !completed.isComplete) {
+      throw StateError('Completed Reviews session is unavailable');
+    }
+    final originalState = state;
+    final position = completed.reviewBatch!;
+    final db = _ref.read(appDatabaseProvider);
+    final preparer = _ref.read(todayQuizPreparerProvider);
+    final lifetime = preparer.accountLifetimeToken;
+    final auth = _ref.read(authStateProvider).unwrapPrevious().asData?.value;
+    final uid = switch (auth) {
+      AnonymousAuthState(:final uid) => uid,
+      SignedInAuthState(:final user) => user.uid,
+      _ => null,
+    };
+    bool current() {
+      if (!mounted) return false;
+      final visible = state;
+      final sameNext = visible is QuizRunning &&
+          visible.session.reviewBatch?.batchId == position.batchId &&
+          visible.session.reviewBatch?.ordinal == position.ordinal + 1;
+      return (identical(visible, originalState) || sameNext) &&
+          uid != null &&
+          lifetime != null &&
+          identical(_ref.read(appDatabaseProvider), db) &&
+          identical(_ref.read(todayQuizPreparerProvider), preparer) &&
+          preparer.accountLifetimeToken == lifetime &&
+          _ref.read(authStateProvider).unwrapPrevious().asData?.value == auth &&
+          _ref
+                  .read(activeExamFocusProvider)
+                  .unwrapPrevious()
+                  .asData
+                  ?.value
+                  .exam
+                  ?.id ==
+              completed.examId;
+    }
+
+    if (!current()) throw StateError('Reviews account is unavailable');
+    final contexts = SyncActiveContextStore(db);
+    final original = await contexts.readSnapshot();
+    if (!current() ||
+        (original?.context != null && original!.context!.uid != uid)) {
+      throw StateError('Reviews account changed');
+    }
+    Future<bool> valid() async {
+      if (!current()) return false;
+      final snapshot = await contexts.readSnapshot();
+      return current() && snapshot?.token == original?.token;
+    }
+
+    final batches = _ref.read(quizReviewBatchRepositoryProvider);
+    final scope = batches.capture(quizLocalUserId, completed.examId);
+    if (scope == null) throw StateError('Reviews account changed');
+    final content = _ref.read(contentRepositoryProvider);
+    final now = _ref.read(nowProvider)();
+    final claimed = await batches.continueBatch(
+      scope: scope,
+      content: content,
+      now: now,
+      canPersist: valid,
+      after: completed,
+    );
+    if (claimed == null || !await valid()) {
+      throw StateError('Reviews account changed');
+    }
+    final visible = state;
+    if (visible is QuizRunning &&
+        visible.session.sessionId == claimed.session.sessionId) {
+      return;
+    }
+    clearQuestionPreparation();
+    state = QuizRunning(session: claimed.session, persisted: true);
   }
 
   Future<void> startDrill({

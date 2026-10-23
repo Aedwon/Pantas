@@ -103,6 +103,32 @@ void main() {
 
   tearDown(() => db.close());
 
+  testWidgets('cold practice route resumes its actual persisted session',
+      (tester) async {
+    final session = QuizSession.start(
+      sessionId: 'cold',
+      examId: 'e',
+      questions: const [q1],
+      startedAt: DateTime.utc(2026),
+    );
+    when(() => launchCoordinator.resumeToday(any()))
+        .thenAnswer((_) async => session);
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e', mode: QuizPageMode.practice),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        quizLaunchCoordinatorProvider.overrideWithValue(launchCoordinator),
+      ],
+    );
+    await tester.pump(const Duration(milliseconds: 600));
+    expect(find.text('Stem One'), findsOneWidget);
+    verify(
+      () => launchCoordinator.resumeToday(
+        const QuizPreparationRequest(userId: quizLocalUserId, examId: 'e'),
+      ),
+    ).called(1);
+  });
+
   testWidgets('renders the first question once start completes',
       (tester) async {
     when(
