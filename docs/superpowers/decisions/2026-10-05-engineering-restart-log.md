@@ -2358,3 +2358,8 @@ Aedwon: "continue and finish work on W4b. i authorize you to take over sonnet". 
 ### October24 W4b Free future-date choice
 
 Root found conflicting Home future-date taps and the Pro-only future-planning rule. Offered "Pro invitation for future dates" (recommended, preserves future-plan restriction) versus "Future lessons for the current week; later weeks need Pro" (more Free preview, weaker restriction). Showed the approved DP_PlanFree and DP_Day screens. Aedwon answered exactly: "Pro invitation for future dates". Client uses the existing approved Free-plan invitation; server excludes future lesson/topic data for Free, including current-week future dates. Past and Today actual data remain available. No new layout or copy is authorized.
+
+
+### October24 web trial notice wording approved
+
+Aedwon selected exactly "Approve web trial wording" after the before-and-after preview at http://127.0.0.1:8768/trial. Preserve proposal v1 at docs/design/proposals/w4b-web-trial-notice-2026-10-24-v1.html. Same HP_Trial strip; only detail becomes "Your free trial ends on {date}. You won’t be charged." and Manage becomes "See Pro" opening the existing Pro page. Header keeps actual remaining days. Runtime end/date come from actual active account trial data, never a sample constant; native store-charge text remains tied to actual store price/date. Disclosed preview scope: static light-mode design source, not running-app capture; dark mode uses existing approved tokens. Alternative offered: keep the trial notice out of web. Approval covers this copy amendment only; phone visual/live acceptance remains separate.
