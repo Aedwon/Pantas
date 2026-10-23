@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex W4d finish/review, chat 01a15f12
-Since: 2026-10-23 11:59 Asia/Manila
+Since: 2026-10-23 15:58 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -36,7 +36,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 |---|---|---|---|
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
 | A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
-| A3 | W4d Tasks2,4–9 | Codex | in progress Oct23: scoped local checkpoints5d3f18ac session-end body/hydration624tests;989a9faa rich rows26tests;20f20fb4 ordinary Pro/paused gate9tests;7ef44776 flagged list/provider/exact-membership28tests;f488de71 shared note-frame timing34tests. Viewer/notes/live end/next/Done/rating/retirement unfinished; flagged original-account guard has4actualREDs→41focusedGREEN, style/disposal check pending. No family audit/upload/integration/phone acceptance. Home Reviews/New caller contract unavailable; preserve accepted W4e server/card routing at final combination |
+| A3 | W4d Tasks2,4–9 | Codex | in progress Oct23: local ec0c5667 saves live completion/All/mistakes/Done/fresh-only rating/guarded next; viewer-notes0f27ea6a.692quiz/review_prompt/app tests and18owned analysis pass;213storage pass at viewer checkpoint. Task9 retirement, accepted72b04 combination, final gates and family audit remain. Home Reviews/New row/launch contract unavailable and omitted; no family acceptance/upload/integration/phone check |
 | A4 | W4e Tasks3–9, CSE launch scope | Codex | ENGINEERING DONE: reviewed/fixed/tested/uploaded feature f608e570 and development integration72b04f00; final combined4439tests pass and analysis/format/layering/attribution clean. Required server reader/answer-review dependency0c17bfb0 independently reviewed,165plain/205emulator pass on Node22. All eight family audit findings plus final exit-cache regression closed; accepted W4c source preserved. Other-exam finales explicitly deferred. Global server/web integration and phone/live acceptance remain later launch gates |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
@@ -1075,3 +1075,12 @@ The original-account flagged guard is saved ate88cc07b:59affected tests and6rene
 D now0f27ea6aa4e4eff0b48ad9c70df4439598a55f9f. Scoped viewer/notes implementation and exact completed/flagged viewer route registration are saved locally. Relay11462 passes32focused tests and213core-storage tests; all14owned Dart files analyze clean, layering/attribution pass. Actual account-cache, editor motion and saved-icon REDs and final logs are committed with raw failure archives. Root reviewed the real mutation/ownership/route source. The saved viewer still depends on planned All questions navigation; live end/all/Done/rating/next and retirement remain unfinished. This is not whole-family review, integration, upload or visual acceptance.
 
 Root has reproduced stale explicit continuation claiming Session3 from an old Session1 screen. The bounded optional-after repository validation now passes37actual batch/storage tests, preserving omitted-after callers and duplicate authoritative next rows. These Task5 changes remain dirty while controller lifecycle tests and live wiring proceed. No separate family audit has started and no application remote moved. Home Reviews/New contracts remain unavailable.
+
+
+### October23 live completion saved; retirement next
+
+Latest exact user: "continue". Root saved local D ec0c56678837f3949880d26039c509b1b0dc77d8 after0f27ea6a. Actual session-end/All/mistakes/viewer navigation, original numbering, saved-note refresh, real custom launch provenance/Done stacks, fresh-only rating and guarded explicit continuation are wired.692quiz/review_prompt/app tests pass; final18owned-file analysis clean, layering/attribution pass. Source/data/controller diff reviewed by root. Raw failures and final evidence committed.
+
+Two actual correctness regressions were fixed before this save: refreshing async values can retain paid data, so owned ready gates use the pinned SDK unwrapPrevious; next-question hydration previously blocked an actual account wipe, so it now runs outside student-data writes and rereads/validates the exact target before a guarded claim.43batch/controller cases, including a real wipe finishing while content remains blocked and no recreated progress, pass. Independent family review remains due.
+
+Task9 retirement is next, followed by accepted integration72b04f00 reconciliation, combined verification and the one independent family audit. Initial Home-owned Reviews/New shared-row and launch contracts remain unavailable and omitted under standing ruling2. No application upload, development/main merge, deployment or phone visual acceptance. Remote D stays5e89e4fa. Preserve unique logs/worktrees and other lanes.
