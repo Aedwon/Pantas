@@ -17,7 +17,7 @@ export async function prepareReviewAnswers(tx: Transaction, db: Firestore, uid: 
     const state = previous.get(a.questionId);
     if (state && state.questionId !== a.questionId) throw new HttpsError('failed-precondition', 'Saved review identity differs.');
     // C7's existing mapper/mirror sets questionVersion=1 for these published questions.
-    return {questionId: a.questionId, questionVersion: 1, correct: a.correct, previous: state};
+    return {questionId: a.questionId, questionVersion: a.questionVersion ?? 1, correct: a.correct, previous: state};
   });
   if (!input.length) return () => {};
   const states = JSON.parse(core().scheduleReviews(JSON.stringify({now: finishedAt, reviews: input}))) as

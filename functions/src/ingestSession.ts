@@ -6,6 +6,9 @@ import {checkAnswers, checkDuration, checkTime} from './_answers.js';
 import {hasLiveProClaim} from './_pro.js';
 import {computeRoadmap} from './roadmap.js';
 import {prepareReviewAnswers} from './serverReviews.js';
+import {assertStudyOwner} from './studyObservations.js';
+import {loadExamContent} from './_examContent.js';
+import {examCatalog} from './revenuecatPasses.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -24,9 +27,22 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
   const now = (deps.now ?? Date.now)();
   const body = data as Record<string, unknown> | null;
-  const sessionId = body?.sessionId;
+  if (!body || typeof body !== 'object' || Array.isArray(body)) throw new HttpsError('invalid-argument', 'Send an object.');
+  const attributed = body.examId !== undefined || body.origin !== undefined;
+  assertStudyOwner(auth.uid, body, attributed);
+  const origins = ['today_topic', 'today_interleaved', 'drill', 'retake', 'inline', 'assessment'];
+  if (attributed && (typeof body.examId !== 'string' || !examCatalog.some(e => e.id === body.examId) ||
+      typeof body.origin !== 'string' || !origins.includes(body.origin))) {
+    throw new HttpsError('invalid-argument', 'Send a known exam and session origin.');
+  }
+  const sessionId = body.sessionId;
   if (typeof sessionId !== 'string' || !SESSION_ID.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
   const answers = checkAnswers(body?.answers, now);
+  if (attributed) {
+    const content = await loadExamContent(deps.db, body.examId as string, now);
+    const ids = new Set(content.questions.map(q => q.id));
+    if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');
+  }
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
@@ -42,11 +58,12 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
     const snapshot = await transaction.get(totalsRef(deps.db, auth.uid));
     const totals = snapshot.exists ? fromDoc(snapshot.data()) : await backfill(transaction, deps.db, auth.uid);
     // Advance existing mock-seeded reviews; broader question seeding stays with C10.
-    const applyReviews = await prepareReviewAnswers(transaction, deps.db, auth.uid, answers, finishedAt, false);
+    const applyReviews = await prepareReviewAnswers(transaction, deps.db, auth.uid, answers, finishedAt, true);
     addSession(totals, answers);
     prune(totals);
     transaction.set(totalsRef(deps.db, auth.uid), toDoc(totals));
-    transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now});
+    transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now,
+      ...(attributed ? {examId: body.examId, origin: body.origin} : {})});
     applyReviews();
     return true;
   });

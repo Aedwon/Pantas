@@ -5,7 +5,8 @@ export const MAX_ID_LENGTH = 128;
 const MIN_TIME = Date.UTC(2020, 0, 1);
 const DAY_MS = 86_400_000;
 
-export type Answer = {questionId: string; chosen: string | null; correct: boolean; answeredAt: number};
+export type Answer = {questionId: string; chosen: string | null; correct: boolean; answeredAt: number;
+  responseMs?: number; questionVersion?: number};
 
 const bad = (message: string) => new HttpsError('invalid-argument', message);
 
@@ -28,7 +29,14 @@ export function checkAnswers(value: unknown, now: number): Answer[] {
     if (typeof questionId !== 'string' || questionId.length < 1 || questionId.length > MAX_ID_LENGTH) throw bad('Bad question id.');
     if (chosen !== null && (typeof chosen !== 'string' || chosen.length > 64)) throw bad('Bad chosen option.');
     if (typeof correct !== 'boolean') throw bad('Correctness must be true or false.');
-    return {questionId, chosen: chosen as string | null, correct, answeredAt: checkTime(row.answeredAt, now, 'answeredAt')};
+    if (row.responseMs !== undefined && (!Number.isSafeInteger(row.responseMs) || (row.responseMs as number) < 0 ||
+        (row.responseMs as number) > DAY_MS)) throw bad('Bad answer time.');
+    if (row.questionVersion !== undefined && (!Number.isSafeInteger(row.questionVersion) ||
+        (row.questionVersion as number) < 1)) throw bad('Bad question version.');
+    return {questionId, chosen: chosen as string | null, correct,
+      answeredAt: checkTime(row.answeredAt, now, 'answeredAt'),
+      ...(row.responseMs === undefined ? {} : {responseMs: row.responseMs as number}),
+      ...(row.questionVersion === undefined ? {} : {questionVersion: row.questionVersion as number})};
   });
 }
 
