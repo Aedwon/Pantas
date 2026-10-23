@@ -136,14 +136,22 @@ class ReviewBatchRepository {
       ? SessionOrigin.todayTopic
       : SessionOrigin.todayInterleaved;
 
+  Future<StoredReviewBatch?> readCurrent(ReviewBatchScope scope) =>
+      _db.transaction(() async {
+        checkScope(scope);
+        final value = await _read(scope);
+        checkScope(scope);
+        return value;
+      });
+
   Future<ReviewBatchSession?> start({
     required PreparedReviewBatch prepared,
     required ContentRepository content,
     required DateTime now,
-    required bool Function() canPersist,
+    required FutureOr<bool> Function() canPersist,
   }) async {
     final scope = prepared.scope;
-    if (!_current(scope) || !canPersist()) return null;
+    if (!_current(scope) || !await canPersist()) return null;
     final ids = [for (final _ in prepared.chunks) const Uuid().v4()];
     try {
       // Cleanup is committed even when an old principal cannot use a batch.
@@ -152,12 +160,38 @@ class ReviewBatchRepository {
         await _read(scope);
         await _guard(scope, canPersist);
       });
-      return await _db.transaction(() async {
+      final existingBefore = await readCurrent(scope);
+      if (existingBefore != null) {
+        return continueBatch(
+          scope: scope,
+          content: content,
+          now: now,
+          canPersist: canPersist,
+        );
+      }
+      if (prepared.chunks.isEmpty) return null;
+      final selected = prepared.chunks.first;
+      final questions = await content
+          .hydrateSelectedQuestions([for (final q in selected) q.id]);
+      if (!const ListEquality<String>().equals(
+            [for (final q in selected) q.id],
+            [for (final q in questions) q.id],
+          ) ||
+          !const ListEquality<int>().equals(
+            [for (final q in selected) q.version],
+            [for (final q in questions) q.version],
+          )) {
+        throw StateError('Reviews content changed');
+      }
+      await _guard(scope, canPersist);
+      var appeared = false;
+      final result = await _db.transaction<ReviewBatchSession?>(() async {
         await _guard(scope, canPersist);
         final existing = await _read(scope);
         final active = await _active(scope);
         if (existing != null) {
-          return _claim(existing, scope, content, now, canPersist);
+          appeared = true;
+          return null;
         }
         if (active != null) throw StateError('Another quiz is paused');
         if (prepared.chunks.isEmpty) return null;
@@ -175,7 +209,7 @@ class ReviewBatchRepository {
               [for (final q in chunk) q.version],
           ],
         );
-        final questions = await _hydrate(batch, 0, content);
+        validateHydration(batch, 0, questions);
         await _guard(scope, canPersist);
         await _insert(batch, 0, now);
         await _save(batch);
@@ -184,6 +218,15 @@ class ReviewBatchRepository {
         await _guard(scope, canPersist);
         return _session(batch, row, questions);
       });
+      if (appeared) {
+        return continueBatch(
+          scope: scope,
+          content: content,
+          now: now,
+          canPersist: canPersist,
+        );
+      }
+      return result;
     } on _Cancelled {
       return null;
     }

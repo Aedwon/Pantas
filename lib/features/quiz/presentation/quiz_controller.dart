@@ -8,6 +8,7 @@ import 'package:pantas/core/storage/storage.dart'
     show appDatabaseProvider, contentRepositoryProvider;
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
+import 'package:pantas/features/quiz/application/quiz_launch_guard.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
@@ -193,48 +194,8 @@ class QuizController extends StateNotifier<QuizControllerState> {
   /// the returned predicate unchanged; old requests cannot rebind it.
   Future<Future<bool> Function()> captureLaunchGuard({
     required ExamId examId,
-  }) async {
-    if (!mounted) {
-      throw StateError('Quiz controller is unavailable');
-    }
-    final db = _ref.read(appDatabaseProvider);
-    final preparer = _ref.read(todayQuizPreparerProvider);
-    final lifetime = preparer.accountLifetimeToken;
-    final auth = _ref.read(authStateProvider).unwrapPrevious().asData?.value;
-    final uid = switch (auth) {
-      AnonymousAuthState(:final uid) => uid,
-      SignedInAuthState(:final user) => user.uid,
-      _ => null,
-    };
-    bool current() =>
-        mounted &&
-        lifetime != null &&
-        uid != null &&
-        identical(_ref.read(appDatabaseProvider), db) &&
-        identical(_ref.read(todayQuizPreparerProvider), preparer) &&
-        preparer.accountLifetimeToken == lifetime &&
-        _ref.read(authStateProvider).unwrapPrevious().asData?.value == auth &&
-        _ref
-                .read(activeExamFocusProvider)
-                .unwrapPrevious()
-                .asData
-                ?.value
-                .exam
-                ?.id ==
-            examId;
-    if (!current()) throw StateError('Quiz account is unavailable');
-    final contexts = SyncActiveContextStore(db);
-    final original = await contexts.readSnapshot();
-    if (!current() ||
-        (original?.context != null && original!.context!.uid != uid)) {
-      throw StateError('Quiz account changed');
-    }
-    return () async {
-      if (!current()) return false;
-      final snapshot = await contexts.readSnapshot();
-      return current() && snapshot?.token == original?.token;
-    };
-  }
+  }) =>
+      captureQuizLaunchGuard(_ref, examId: examId, isAlive: () => mounted);
 
   /// One session built from many picked units, each drawing [perUnit] from
   /// its own pool. Distinct from [startDrill], which draws one topic.

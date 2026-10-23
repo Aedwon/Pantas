@@ -68,6 +68,8 @@ final completedQuizProvider = FutureProvider.autoDispose
               ? 'Your quiz'
               : 'Your quiz · $names'
           : 'Quiz';
+    case SessionOrigin.newQuestions:
+      source = 'New questions';
     case SessionOrigin.todayTopic:
     case SessionOrigin.todayInterleaved:
       // The legacy mixed plan is not a Reviews-only or New-questions batch.
