@@ -1,0 +1,24 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart
+lib/features/quiz/presentation/quiz_session_end_page.dart:14:8: Error: Error when reading 'lib/core/ui/math/math_text.dart': No such file or directory
+import 'package:pantas/core/ui/math/math_text.dart';
+       ^
+lib/features/quiz/presentation/quiz_session_end_page.dart:212:38: Error: The method 'MathText' isn't defined for the type '_QuizSessionEndPageState'.
+ - '_QuizSessionEndPageState' is from 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart' ('lib/features/quiz/presentation/quiz_session_end_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'MathText'.
+                              child: MathText(title))
+                                     ^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: lib/features/quiz/presentation/quiz_session_end_page.dart:14:8: Error: Error when reading 'lib/core/ui/math/math_text.dart': No such file or directory
+  import 'package:pantas/core/ui/math/math_text.dart';
+         ^
+  lib/features/quiz/presentation/quiz_session_end_page.dart:212:38: Error: The method 'MathText' isn't defined for the type '_QuizSessionEndPageState'.
+   - '_QuizSessionEndPageState' is from 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart' ('lib/features/quiz/presentation/quiz_session_end_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'MathText'.
+                                child: MathText(title))
+                                       ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart

@@ -1,0 +1,88 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart
+lib/features/quiz/presentation/quiz_question_viewer.dart:212:43: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                tag: item.mistakeTag,
+                                          ^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:213:44: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                note: item.mistakeNote,
+                                           ^^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:234:55: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                        tooltip: item.mistakeTag != null ||
+                                                      ^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:235:54: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                                item.mistakeNote != null
+                                                     ^^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:239:48: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                          item.mistakeTag != null ||
+                                               ^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:240:56: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                                  item.mistakeNote != null
+                                                       ^^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:243:55: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                          color: item.mistakeTag != null ||
+                                                      ^^^^^^^^^^
+lib/features/quiz/presentation/quiz_question_viewer.dart:244:56: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+ - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+Try accessing using ?. instead.
+                                                  item.mistakeNote != null
+                                                       ^^^^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: lib/features/quiz/presentation/quiz_question_viewer.dart:212:43: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                  tag: item.mistakeTag,
+                                            ^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:213:44: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                  note: item.mistakeNote,
+                                             ^^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:234:55: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                          tooltip: item.mistakeTag != null ||
+                                                        ^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:235:54: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                                  item.mistakeNote != null
+                                                       ^^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:239:48: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                            item.mistakeTag != null ||
+                                                 ^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:240:56: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                                    item.mistakeNote != null
+                                                         ^^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:243:55: Error: Property 'mistakeTag' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                            color: item.mistakeTag != null ||
+                                                        ^^^^^^^^^^
+  lib/features/quiz/presentation/quiz_question_viewer.dart:244:56: Error: Property 'mistakeNote' cannot be accessed on 'AttemptItem?' because it is potentially null.
+   - 'AttemptItem' is from 'package:pantas/core/storage/domain/attempt.dart' ('lib/core/storage/domain/attempt.dart').
+  Try accessing using ?. instead.
+                                                    item.mistakeNote != null
+                                                         ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart

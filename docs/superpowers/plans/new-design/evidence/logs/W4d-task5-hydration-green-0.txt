@@ -1,0 +1,42 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart
+lib/features/quiz/application/completed_quiz.dart:16:11: Error: A value of type 'Question?' can't be assigned to a variable of type 'Question'.
+ - 'Question' is from 'package:pantas/core/storage/domain/question.dart' ('lib/core/storage/domain/question.dart').
+          await content.questionById(item.questionId),
+          ^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart: lib/features/quiz/application/completed_quiz.dart:16:11: Error: A value of type 'Question?' can't be assigned to a variable of type 'Question'.
+   - 'Question' is from 'package:pantas/core/storage/domain/question.dart' ('lib/core/storage/domain/question.dart').
+            await content.questionById(item.questionId),
+            ^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1009:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+
+00:00 +0 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:00 +1 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: many mistakes show three before the complete list
+00:00 +2 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: perfect score omits mistakes and notes but keeps all questions
+00:00 +3 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: only real batch metadata can show a next ordinal
+00:00 +4 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: large text preserves reachable actions without overflow
+00:00 +5 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: elapsed time uses the immutable valid completion endpoint
+00:00 +6 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: next claims once and keeps retryable failure
+00:00 +7 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart

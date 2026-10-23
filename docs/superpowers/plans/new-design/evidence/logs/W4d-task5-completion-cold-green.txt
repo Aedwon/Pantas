@@ -1,0 +1,48 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: (setUpAll)
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: cold practice route resumes its actual persisted session
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: cold practice route resumes its actual persisted session
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the flag sits in the floating bar before Check
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: renders the first question once start completes
+00:01 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:01 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: required passage does not expose answer actions while unresolved
+00:01 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter names the current question and is at least 44dp
+00:01 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: passes topicId to quick quiz start when provided
+00:01 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the flag action names and exposes its set state
+00:01 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: quit button shows confirmation while a session is running
+00:01 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens Questions with the actual answered total
+00:01 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: submitting an answer reveals the answer in place
+00:01 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: actual completion uses the rebuilt live session end
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "QuizSessionEndPage": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart:286:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart line 286
+The test description was:
+  actual completion uses the rebuilt live session end
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +12 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next
+00:01 +12 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: actual completion uses the rebuilt live session end [E]
+  Test failed. See exception logs above.
+  The test description was: actual completion uses the rebuilt live session end
+
+00:01 +13 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares Next when Resume restores an answered question
+00:02 +14 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: Retry preserves Today mode and topic scope
+00:02 +15 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: (tearDownAll)
+00:02 +15 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: actual completion uses the rebuilt live session end

@@ -1,0 +1,23 @@
+Analyzing 2 items...
+
+   info • Use an if-null operator to convert a 'null' to a 'bool'. Try using an if-null operator • lib/features/quiz/presentation/quiz_question_viewer.dart:79:20 • use_if_null_to_convert_nulls_to_bools
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:115:64 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:127:37 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:128:50 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:147:36 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:160:74 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:165:59 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:192:31 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:226:64 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:245:51 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_question_viewer.dart:255:72 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:29:47 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:39:21 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:45:21 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:51:66 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:63:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:63:45 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:64:63 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_viewer_test.dart:88:79 • require_trailing_commas
+
+19 issues found. (ran in 1.0s)

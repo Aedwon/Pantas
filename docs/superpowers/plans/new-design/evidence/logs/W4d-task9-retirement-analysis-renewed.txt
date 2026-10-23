@@ -1,0 +1,28 @@
+Analyzing 3 items...
+
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/quiz.dart:22:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/passage_regression_test.dart:9:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/passage_regression_test.dart:12:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/passage_regression_test.dart:17:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:30:53 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:34:63 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:242:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:249:37 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:250:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:254:42 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:254:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:319:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:327:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:328:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:331:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:335:42 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/passage_regression_test.dart:335:43 • require_trailing_commas
+warning • Unused import: 'package:flutter/material.dart'. Try removing the import directive • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:1:8 • unused_import
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:15:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:16:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:82:52 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:82:53 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:110:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_leave_resume_panel_test.dart:110:74 • require_trailing_commas
+
+24 issues found. (ran in 1.9s)
