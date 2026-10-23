@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
@@ -352,27 +353,53 @@ class AttemptsRepository {
     return null;
   }
 
-  /// Records what the student said went wrong, from the debrief.
-  ///
-  /// Rewrites the whole items blob because they are stored as JSON on the
-  /// attempt row. One tag a tap is not a hot path.
+  /// Replaces one question note against the latest stored Attempt.
+  /// The existing recorder and ownership guard commit or roll back together.
   Future<void> tagItem({
     required AttemptId attemptId,
     required QuestionId questionId,
     required MistakeTag? tag,
+    String? note,
+    bool replaceNote = false,
+    FutureOr<bool> Function()? canPersist,
   }) async {
-    final attempt = await byId(attemptId);
-    if (attempt == null) return;
-    await save(
-      attempt.copyWith(
-        items: [
-          for (final item in attempt.items)
-            item.questionId == questionId
-                ? item.copyWith(mistakeTag: tag)
-                : item,
-        ],
-      ),
-    );
+    Future<void> guard() async {
+      if (canPersist != null && !await canPersist()) {
+        throw StateError('Attempt ownership changed');
+      }
+    }
+
+    await _db.transaction(() async {
+      await _syncRecorder.runRecorded<void>(
+        collection: 'quiz_attempts',
+        rowId: attemptId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () async {
+          await guard();
+          final attempt = await byId(attemptId);
+          await guard();
+          if (attempt == null ||
+              !attempt.items.any((item) => item.questionId == questionId)) {
+            throw StateError('Attempt question is unavailable');
+          }
+          await _write(
+            attempt.copyWith(
+              items: [
+                for (final item in attempt.items)
+                  if (item.questionId != questionId)
+                    item
+                  else if (replaceNote)
+                    item.copyWith(mistakeTag: tag, mistakeNote: note)
+                  else
+                    item.copyWith(mistakeTag: tag),
+              ],
+            ),
+          );
+          await guard();
+        },
+      );
+      await guard();
+    });
   }
 
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>

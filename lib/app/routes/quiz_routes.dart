@@ -1,5 +1,5 @@
-// ignore_for_file: directives_ordering
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/paywall/paywall.dart';
@@ -8,10 +8,9 @@ import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:pantas/features/quiz/presentation/pages/flagged_list_page.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
+import 'package:pantas/features/quiz/presentation/quiz_review_page.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 List<RouteBase> quizRoutes(Ref ref) => [
       GoRoute(
@@ -176,6 +175,23 @@ List<RouteBase> quizRoutes(Ref ref) => [
           examId: state.pathParameters['examId']!,
           lessonId: state.pathParameters['lessonId'],
           mode: QuizPageMode.inline,
+        ),
+      ),
+      GoRoute(
+        path: '/quiz/viewer/:attemptId',
+        builder: (_, state) => QuizReviewPage(
+          attemptId: state.pathParameters['attemptId']!,
+          initialIndex:
+              int.tryParse(state.uri.queryParameters['index'] ?? '') ?? 0,
+          openNotes: state.uri.queryParameters['notes'] == 'true',
+          fromAll: state.uri.queryParameters['fromAll'] == 'true',
+        ),
+      ),
+      GoRoute(
+        path: '/quiz/flagged/:examId/view/:questionId',
+        builder: (_, state) => FlaggedQuestionViewerPage(
+          examId: state.pathParameters['examId']!,
+          questionId: state.pathParameters['questionId']!,
         ),
       ),
       GoRoute(
