@@ -11,8 +11,8 @@ Controlling documents:
 ## Lock
 
 State: held
-Holder: Codex W4d finish/review, chat 01a15f12
-Since: 2026-10-23 21:37 Asia/Manila
+Holder: Codex W4d dependency completion, chat 01a16923
+Since: 2026-10-23 22:30 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1149,3 +1149,8 @@ Overall W4d is not complete or integrated: Home-owned initial Reviews/New shared
 ### October23 W4d completion resumed
 
 Latest exact user: "finish w4d please". Root takes the free lock and completes the necessary bounded shared Today dependency within the approved W4d behavior, preserving other W4b work. Report backend delivery is explicitly deferred by the current L2/Task7 and does not block engineering completion. Full prior4653tests/review evidence remains valid for eb383634, not acceptance of new callers. Main L3 records precise shared data/row/sheet, guarded review/new starts and verification before code. Source D eb383634 matches remote, integration72b04f00 and W4b b99c1679 match remote; runners online. No main app/deployment/publication or phone acceptance.
+
+
+### October23 explicit ownership transfer to dependency completion chat
+
+Aedwon: "yes the previous chat has already stopped due to usage limits. i authorize you to continue". This explicitly transfers the stopped 01a15f12 assignment to chat01a16923. No prior flutter test/codex exec/background relay execution remains. Preserve the known dirty Today dependency patch on D eb383634; remote D, B b99c1679 and development72b04f00 match their local heads. Current policy d0d1a48f read. Continue the already-recorded bounded Today contract, root review, independent dependency review and final verification before upload/development integration. Main app freeze and phone/live/publication gates remain unchanged.
