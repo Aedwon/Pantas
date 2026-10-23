@@ -175,3 +175,8 @@ Clients clear/suppress paid cached data on account/core/exam changes and at acce
 ### Verification and acceptance
 
 Regression-first server emulator cases: original day remains stable after completion, repeat advance idempotence/concurrent ownership, settings/exam revision races, real history and missing past dates, exact exam coverage/expiry and Free payload exclusions, legacy missing metadata, normal review seeding, C8 mock due-feed preservation and immutable observation retry. Native pure calculations and VM/JS outputs must agree with actual sparse/full fixtures. Focused checks during work; final Functions plain/emulator/bridge checks and combined Flutter/static checks before acceptance. One independent family audit plus bounded corrections; lead owns integration. Aedwon phone visual/live staging and release remain separate.
+
+
+### October24 original account envelope correction
+
+New W4b observation/settings/advance writes carry immutable expectedUid captured with the original owner. The server compares it with request.auth.uid before reading/writing and always derives paths from authenticated uid. Local pre/post checks alone cannot prevent the Firebase singleton token changing between the check and actual request dispatch. Reject mismatches; never rebind an old retry. Preserve existing legacy endpoint compatibility without making new W4b callers omit this expectation. Add actual client/token-switch and server mismatch regressions. This is a technical correctness requirement under the existing account-bound data scope, not new entitlement behavior.
