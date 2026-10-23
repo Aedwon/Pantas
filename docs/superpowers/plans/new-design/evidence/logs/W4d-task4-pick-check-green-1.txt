@@ -1,0 +1,17 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: (setUpAll)
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: start() loads questions and transitions to running
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: answer() records and stays, and next() ends the session
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: (tearDownAll)
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: (setUpAll)
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: picks remain changeable and write only when checked
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: Check without a valid ready pick never writes
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: pending Check prevents another submission and changing the pick
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: failed Check keeps the pick and permits retry
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: late Check cannot resurrect a reset session
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: (tearDownAll)
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: startToday launches through the single coordinator owner
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: Today does not start response timing before UI readiness
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: readiness is keyed, idempotent, and resets for Next
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: prepared Next starts response timing in the same transition
+00:00 +11: All tests passed!

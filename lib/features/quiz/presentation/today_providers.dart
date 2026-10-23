@@ -5,6 +5,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
@@ -32,6 +33,7 @@ class SessionPanelInProgress extends SessionPanelState {
     required this.position,
     required this.total,
     this.topicName,
+    this.reviewSession,
   });
 
   /// The one-based question Resume will reopen.
@@ -41,6 +43,7 @@ class SessionPanelInProgress extends SessionPanelState {
   /// Null for sessions created before the topic was recorded, and for drills
   /// and inline lesson quizzes.
   final String? topicName;
+  final ({int ordinal, int total, int done, int questions})? reviewSession;
 }
 
 /// Everything due, weak and new has been worked through for today.
@@ -101,10 +104,22 @@ final sessionPanelProvider =
         (jsonDecode(open.questionIdsJson) as List).cast<String>();
     final total = questionIds.length;
     final position = total == 0 ? 0 : (open.currentIndex + 1).clamp(1, total);
+    final batch = await sessions.reviewBatchFor(
+      open,
+      sessions.reviewBatches.capture(todayUserId, examId),
+    );
     return SessionPanelInProgress(
       position: position,
       total: total,
       topicName: topic?.name,
+      reviewSession: batch == null
+          ? null
+          : (
+              ordinal: batch.current + 1,
+              total: batch.chunks.length,
+              done: open.outcomes.length,
+              questions: total
+            ),
     );
   }
 

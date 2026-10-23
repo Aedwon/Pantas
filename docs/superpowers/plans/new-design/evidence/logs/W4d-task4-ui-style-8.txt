@@ -1,0 +1,7 @@
+Formatted lib/features/quiz/presentation/quiz_page.dart
+Formatted lib/features/quiz/presentation/question_flag_providers.dart
+Formatted lib/core/ui/components/new_design/question_grid_sheet.dart
+Formatted test/features/quiz/presentation/quiz_question_screen_test.dart
+Formatted test/features/quiz/presentation/quiz_page_chrome_test.dart
+Formatted test/features/quiz/presentation/question_flag_providers_test.dart
+Formatted 8 files (6 changed) in 0.02 seconds.

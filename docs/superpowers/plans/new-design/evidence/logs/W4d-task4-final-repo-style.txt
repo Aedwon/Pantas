@@ -1,0 +1,8 @@
+Computing fixes in review_batch_repository.dart...
+Applying fixes...
+
+review_batch_repository.dart
+  curly_braces_in_flow_control_structures - 1 fix
+  require_trailing_commas - 1 fix
+
+2 fixes made in 1 file.

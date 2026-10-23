@@ -17,7 +17,7 @@ import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/paywall/paywall.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tab_home.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
@@ -239,7 +239,7 @@ void main() {
     final tabs = [
       ('Home', '/home', HomeTab),
       ('Study', '/study', StudyTabHome),
-      ('Quiz', '/quiz', QuizTabHome),
+      ('Quiz', '/quiz', QuizTabScreen),
       ('Settings', '/settings', SettingsHomePage),
     ];
     final pages = <String, Element>{};

@@ -1,0 +1,19 @@
+Analyzing 8 items...
+
+   info • Unnecessary use of double quotes. Try using single quotes unless the string contains single quotes • lib/features/quiz/presentation/quiz_page.dart:850:13 • prefer_single_quotes
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:443:67 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:445:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:453:76 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:463:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:468:29 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:470:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:489:65 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:491:27 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:494:11 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/presentation/quiz_question_screen_test.dart:502:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:536:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:541:16 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:551:65 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:559:75 • require_trailing_commas
+
+15 issues found. (ran in 1.3s)

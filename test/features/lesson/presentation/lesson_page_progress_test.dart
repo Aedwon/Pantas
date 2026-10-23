@@ -78,8 +78,7 @@ void main() {
     expect(find.text('Read'), findsNothing);
   });
 
-  testWidgets('a read lesson says so, and says it was automatic',
-      (tester) async {
+  testWidgets('a read lesson shows only the drawn Read line', (tester) async {
     await db.into(db.lessonProgressLocal).insert(
           LessonProgressLocalCompanion.insert(
             lessonId: 'l1',
@@ -97,7 +96,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Read'), findsOneWidget);
-    expect(find.text('marked automatically'), findsOneWidget);
+    expect(find.text('marked automatically'), findsNothing);
     expect(find.text('Mark as read'), findsNothing);
   });
 }

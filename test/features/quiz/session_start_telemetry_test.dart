@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -120,7 +122,7 @@ class FakeQuizSessionRepository implements QuizSessionRepository {
     required SessionOrigin origin,
     required List<QuestionId> questionIds,
     required DateTime startedAt,
-    required bool Function() canPersist,
+    required FutureOr<bool> Function() canPersist,
     TopicId? topicId,
     SubtopicId? subtopicId,
     LessonId? lessonId,

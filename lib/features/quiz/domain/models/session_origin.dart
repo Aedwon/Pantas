@@ -1,7 +1,9 @@
 enum SessionOrigin {
   todayTopic('today_topic'),
   todayInterleaved('today_interleaved'),
+  newQuestions('new_questions'),
   drill('drill'),
+  flagged('flagged'),
   retake('retake'),
   inline('inline'),
 
@@ -20,6 +22,7 @@ enum SessionOrigin {
   final String storageValue;
 
   bool get isStreakEligible =>
+      this == SessionOrigin.newQuestions ||
       this == SessionOrigin.todayTopic ||
       this == SessionOrigin.todayInterleaved;
 

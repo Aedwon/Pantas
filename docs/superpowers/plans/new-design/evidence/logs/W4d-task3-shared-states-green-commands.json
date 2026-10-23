@@ -1,0 +1,46 @@
+[
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-0.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-1.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart",
+      "test/core/error",
+      "test/core/ui/components/loading_state_test.dart"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-2.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-3.txt"
+  }
+]

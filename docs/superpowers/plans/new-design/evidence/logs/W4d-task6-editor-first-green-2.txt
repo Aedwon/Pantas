@@ -1,0 +1,36 @@
+Analyzing 4 items...
+
+  error • The getter 'headline' isn't defined for the type 'PantasType'. Try importing the library that defines 'headline', correcting the name to the name of an existing getter, or defining a getter or field named 'headline' • lib/features/quiz/presentation/quiz_note_editor.dart:104:70 • undefined_getter
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:104:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:111:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:147:51 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:153:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:153:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:160:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:160:78 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:184:54 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:220:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:220:40 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:143:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:143:78 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:146:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:147:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:172:28 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:182:63 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:190:38 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:191:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:198:15 • require_trailing_commas
+   info • Parameter 'db' could be a super parameter. Trying converting 'db' to a super parameter • test/core/storage/data/repos/attempts_repository_notes_test.dart:203:3 • use_super_parameters
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:206:57 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:213:45 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:215:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:16:66 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:16:67 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:22:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:38:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:38:11 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:45:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:93:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:93:11 • require_trailing_commas
+
+32 issues found. (ran in 0.8s)

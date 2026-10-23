@@ -1,0 +1,18 @@
+Analyzing 6 items...
+
+   info • Unnecessary type annotation on a local variable. Try removing the type annotation • lib/features/quiz/application/completed_quiz.dart:13:9 • omit_local_variable_types
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/presentation/debrief_providers.dart:6:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/session_end_screen.dart:233:78 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/session_end_screen.dart:249:60 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/session_end_screen.dart:321:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/presentation/completed_quiz_hydration_test.dart:13:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:32:54 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • test/features/quiz/presentation/completed_quiz_hydration_test.dart:34:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:35:56 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:48:28 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:54:28 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:63:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:63:20 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/completed_quiz_hydration_test.dart:64:27 • require_trailing_commas
+
+14 issues found. (ran in 1.0s)

@@ -1,0 +1,7 @@
+Computing fixes in list_row_title_widget_test.dart...
+Applying fixes...
+
+list_row_title_widget_test.dart
+  require_trailing_commas - 4 fixes
+
+4 fixes made in 1 file.

@@ -111,7 +111,7 @@ void main() {
 
     expect(ending.studentName, 'Aedwon');
     expect(ending.topicName, 'Arithmetic & Number Sense');
-    expect(ending.examAndSubject, 'UPCAT, Mathematics');
+    expect(ending.examAndSubject, 'UPCAT · Mathematics');
   });
 
   test('a skipped name leaves the line absent rather than empty', () {
@@ -137,7 +137,7 @@ void main() {
       nextTopic: geometry,
     ) as TopicFinished;
 
-    expect(ending.dateLine, '27 July 2026');
+    expect(ending.dateLine, 'Jul 27, 2026');
   });
 
   test('no next topic is allowed, and says so', () {

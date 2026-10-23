@@ -1,0 +1,5 @@
+
+✅ Today question row opens the shared sheet at scale=1.0
+✅ Today question row opens the shared sheet at scale=2.0
+
+🎉 2 tests passed.

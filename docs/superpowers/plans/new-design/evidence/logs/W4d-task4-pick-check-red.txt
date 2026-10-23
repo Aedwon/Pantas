@@ -1,0 +1,238 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: test/features/quiz/presentation/quiz_pick_check_test.dart:60:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'a');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:61:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'b');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:62:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+      expect(running().selectedChoiceId, 'b');
+                       ^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:69:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      await controller.check();
+                       ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:77:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'missing');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:78:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      await controller.check();
+                       ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:79:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+      expect(running().selectedChoiceId, isNull);
+                       ^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:90:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'b');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:91:32: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      final checked = controller.check();
+                                 ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:92:22: Error: The getter 'checking' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'checking'.
+      expect(running().checking, isTrue);
+                       ^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:93:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'a');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:94:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      await controller.check();
+                       ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:95:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+      expect(running().selectedChoiceId, 'b');
+                       ^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:98:22: Error: The getter 'checking' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'checking'.
+      expect(running().checking, isFalse);
+                       ^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:100:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      await controller.check();
+                       ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:101:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'a');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:118:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'b');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:119:34: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      await expectLater(controller.check(), throwsStateError);
+                                   ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:120:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+      expect(running().selectedChoiceId, 'b');
+                       ^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:121:22: Error: The getter 'checking' isn't defined for the type 'QuizRunning'.
+   - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'checking'.
+      expect(running().checking, isFalse);
+                       ^^^^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:124:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      await controller.check();
+                       ^^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:134:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+      controller.pick(chosenChoiceId: 'b');
+                 ^^^^
+  test/features/quiz/presentation/quiz_pick_check_test.dart:135:32: Error: The method 'check' isn't defined for the type 'QuizController'.
+   - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'check'.
+      final checked = controller.check();
+                                 ^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart
+test/features/quiz/presentation/quiz_pick_check_test.dart:60:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'a');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:61:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'b');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:62:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+    expect(running().selectedChoiceId, 'b');
+                     ^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:69:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    await controller.check();
+                     ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:77:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'missing');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:78:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    await controller.check();
+                     ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:79:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+    expect(running().selectedChoiceId, isNull);
+                     ^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:90:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'b');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:91:32: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    final checked = controller.check();
+                               ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:92:22: Error: The getter 'checking' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'checking'.
+    expect(running().checking, isTrue);
+                     ^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:93:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'a');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:94:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    await controller.check();
+                     ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:95:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+    expect(running().selectedChoiceId, 'b');
+                     ^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:98:22: Error: The getter 'checking' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'checking'.
+    expect(running().checking, isFalse);
+                     ^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:100:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    await controller.check();
+                     ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:101:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'a');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:118:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'b');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:119:34: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    await expectLater(controller.check(), throwsStateError);
+                                 ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:120:22: Error: The getter 'selectedChoiceId' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'selectedChoiceId'.
+    expect(running().selectedChoiceId, 'b');
+                     ^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:121:22: Error: The getter 'checking' isn't defined for the type 'QuizRunning'.
+ - 'QuizRunning' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'checking'.
+    expect(running().checking, isFalse);
+                     ^^^^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:124:22: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    await controller.check();
+                     ^^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:134:16: Error: The method 'pick' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'pick'.
+    controller.pick(chosenChoiceId: 'b');
+               ^^^^
+test/features/quiz/presentation/quiz_pick_check_test.dart:135:32: Error: The method 'check' isn't defined for the type 'QuizController'.
+ - 'QuizController' is from 'package:pantas/features/quiz/presentation/quiz_controller.dart' ('lib/features/quiz/presentation/quiz_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'check'.
+    final checked = controller.check();
+                               ^^^^^

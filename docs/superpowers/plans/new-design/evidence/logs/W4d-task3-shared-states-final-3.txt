@@ -1,0 +1,76 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: Result Ok holds value and reports isOk
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: Result Err holds AppException and reports isErr
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: Result unwrap on Err throws
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: Result unwrapErr on Ok throws
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: Result map transforms Ok values, leaves Err unchanged
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: AppException subclasses NetworkException carries code and optional technical
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/result_test.dart: AppException subclasses exhaustive switch compiles
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/state_patterns_test.dart: loading announces itself and appears only after 300ms
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/state_patterns_test.dart: loading announces itself and appears only after 300ms
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/app_error_recovery_test.dart: release builder shows the full state and keyboard retry
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/app_error_recovery_test.dart: release builder shows the full state and keyboard retry
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/error/app_error_recovery_test.dart: release builder shows the full state and keyboard retry
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:01 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=2.0
+00:01 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=1.0
+00:01 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=2.0
+00:01 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: singleton Questions overrides, Reset and wheel change
+00:02 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: saved picks discard removed and questionless lesson ids
+00:02 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: many lessons scroll and too-short times cannot be selected
+00:02 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time caption and singleton adjustments stay bounded
+00:02 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: rapid selections and overrides survive leaving and reopening
+00:02 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start forwards actual override and keeps picker below run route
+00:02 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start failure retains picks without opening a run route
+00:02 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time redistributes counts and keeps its selected budget
+00:02 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: large request displays actual pool caps and derived hours
+00:02 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: counts stay at real capacity when the base requests more
+00:02 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: measured pace replaces the starting estimate on the picker
+00:02 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: failed Start retry retries the launch
+00:02 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker header uses drawn navigation and heading positions
+00:02 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: length summary and adjustment labels match drawn metrics
+00:02 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: empty picker keeps drawn helper and dimmed solid Start
+00:03 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker caption carries the drawn downward caret
+00:03 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: nonpositive pace 0 uses the approved estimate in the time wheel
+00:03 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: nonpositive pace -50000 uses the approved estimate in the time wheel
+00:03 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: positive sub-minute estimate stays bounded without a clamp
+00:03 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: pending picker announces loading before delayed shapes appear
+00:03 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: load failure uses shared state and retries every picker input
+00:03 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: save failure retains picks and shared retry saves them
+00:03 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: empty picker keeps its helper with a positive sub-minute pace
+00:03 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: time budget stays selected with a positive fast pace
+00:03 +59: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: mode switches match six lessons and settle at the same count
+00:03 +60: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: mode switches match capped aggregate counts
+00:03 +61: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: repeated mode toggles keep the original capped conversion target
+00:03 +62: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: explicit wheel change starts a new conversion target
+00:03 +63: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: manual allocation starts a new conversion target
+00:03 +64: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Reset starts a new conversion target from the even time split
+00:03 +65: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: changed selected pool starts a new conversion target
+00:03 +66: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: changed effective pace starts a new conversion target
+00:04 +67: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: changed selection starts a new conversion target
+00:04 +68: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: matching clears manual overrides on explicit mode change
+00:04 +69: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: normal picker motion steps bar at 200ms then fades Clear
+00:04 +70: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker uses the drawn thirteen-point filled check
+00:04 +71: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: pace refresh keeps the picker visible and updates its estimate
+00:04 +72: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: motion hold never delays saving picks or survives leaving
+00:04 +73: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: (tearDownAll)
+00:04 +73: All tests passed!

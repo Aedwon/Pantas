@@ -1,0 +1,61 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: many mistakes show three before the complete list
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: perfect score omits mistakes and notes but keeps all questions
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: only real batch metadata can show a next ordinal
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: large text preserves reachable actions without overflow
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: elapsed time uses the immutable valid completion endpoint
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: next claims once and keeps retryable failure
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: dark reduced motion shows final state and usable actions
+
+Warning: A call to tap() with finder "Found 1 widget with text "See all questions": [
+  Text("See all questions", inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, overflow: ellipsis, maxLines: 1, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(174.8, 519.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#747ee relayoutBoundary=up26
+The hit test result at that offset is: HitTestResult(RenderDecoratedBox#2ac9c@Offset(174.8, 7.5), RenderStack#04bb8@Offset(174.8, 519.5), RenderPadding#b000f@Offset(174.8, 519.5), RenderCustomMultiChildLayoutBox#cefec@Offset(174.8, 519.5), _RenderInkFeatures#118e5@Offset(174.8, 519.5), RenderPhysicalModel#8f256@Offset(174.8, 519.5), RenderSemanticsAnnotations#485b9@Offset(174.8, 519.5), RenderRepaintBoundary#a85b0@Offset(174.8, 519.5), RenderIgnorePointer#21062@Offset(174.8, 519.5), RenderAnimatedOpacity#49afa@Offset(174.8, 519.5), RenderAnimatedOpacity#6efe5@Offset(174.8, 519.5), _RenderColoredBox#bb46d@Offset(174.8, 519.5), RenderAnimatedOpacity#73c72@Offset(174.8, 519.5), RenderIgnorePointer#c9008@Offset(174.8, 519.5), RenderAnimatedOpacity#45ef2@Offset(174.8, 519.5), RenderRepaintBoundary#090f2@Offset(174.8, 519.5), RenderSemanticsAnnotations#7e9f0@Offset(174.8, 519.5), RenderOffstage#24ee1@Offset(174.8, 519.5), RenderSemanticsAnnotations#6394a@Offset(174.8, 519.5), _RenderTheater#04410@Offset(174.8, 519.5), RenderAbsorbPointer#6ff0c@Offset(174.8, 519.5), RenderPointerListener#c752a@Offset(174.8, 519.5), RenderSemanticsAnnotations#bd98b@Offset(174.8, 519.5), RenderCustomPaint#cd65b@Offset(174.8, 519.5), RenderSemanticsAnnotations#a69bb@Offset(174.8, 519.5), RenderSemanticsAnnotations#b504e@Offset(174.8, 519.5), RenderSemanticsAnnotations#db064@Offset(174.8, 519.5), RenderTapRegionSurface#6c1a6@Offset(174.8, 519.5), RenderSemanticsAnnotations#1c27d@Offset(174.8, 519.5), RenderSemanticsAnnotations#9bf07@Offset(174.8, 519.5), HitTestEntry<HitTestTarget>#65c8c(_ReusableRenderView#4bc93), HitTestEntry<HitTestTarget>#db8dd(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart:260:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <1>
+  Actual: <0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart:261:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart line 261
+The test description was:
+  dark reduced motion shows final state and usable actions
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +9 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: dark reduced motion shows final state and usable actions [E]
+  Test failed. See exception logs above.
+  The test description was: dark reduced motion shows final state and usable actions
+
+00:00 +9 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: normal motion finishes once and disposes during entry
+00:00 +10 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: dark reduced motion shows final state and usable actions

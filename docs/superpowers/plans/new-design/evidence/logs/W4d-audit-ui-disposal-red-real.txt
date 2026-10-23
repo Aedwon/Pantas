@@ -1,0 +1,97 @@
+
+::group::❌ page disposal cancels actual pending launch custom=false (failed)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: an object with length of <1>
+  Actual: [
+            QuizSessionLocalRow:QuizSessionLocalRow(id: newer-paused, userId: local, examId: e,
+origin: drill, topicId: null, subtopicId: null, lessonId: null, questionIdsJson: ["q"],
+outcomesJson: [], currentIndex: 0, correctCount: 0, startedAt: 2026-01-01 00:00:00.000Z,
+lastAnsweredAt: null, completedAt: null, quitAt: 2026-10-23 21:15:32.141267),
+            QuizSessionLocalRow:QuizSessionLocalRow(id: 1b8a0382-2420-4ffa-a946-3b93c44edc33,
+userId: local, examId: e, origin: flagged, topicId: null, subtopicId: null, lessonId: null,
+questionIdsJson: ["q"], outcomesJson: [], currentIndex: 0, correctCount: 0, startedAt: 2026-10-23
+21:15:32.141267, lastAnsweredAt: null, completedAt: null, quitAt: null)
+          ]
+   Which: has length of <2>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/launch_page_disposal_test.dart:168:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/launch_page_disposal_test.dart line 168
+The test description was:
+  page disposal cancels actual pending launch custom=false
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: page disposal cancels actual pending launch custom=false
+
+::endgroup::
+::group::❌ page disposal cancels actual pending launch custom=true (failed)
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database.
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new _$AppDatabase (package:pantas/core/storage/data/app_database.g.dart:12582:36)
+#4      new AppDatabase (package:pantas/core/storage/data/app_database.dart)
+#5      inMemoryDatabase (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/helpers/in_memory_database.dart:9:35)
+#6      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/launch_page_disposal_test.dart:54:18)
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#9      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class ContentDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database.
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new _$ContentDatabase (package:pantas/core/content/content_database.g.dart:5514:40)
+#4      new ContentDatabase (package:pantas/core/content/content_database.dart)
+#5      inMemoryContentDatabase (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/helpers/in_memory_database.dart:12:5)
+#6      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/launch_page_disposal_test.dart:55:25)
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#9      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/launch_page_disposal_test.dart:143:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/launch_page_disposal_test.dart line 143
+The test description was:
+  page disposal cancels actual pending launch custom=true
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: page disposal cancels actual pending launch custom=true
+
+::endgroup::
+
+::error::0 tests passed, 2 failed.

@@ -1,0 +1,37 @@
+Analyzing 13 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/core/ui/components/today_questions.dart:49:81 • lines_longer_than_80_chars
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/home/application/today_questions.dart:97:22 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/home/application/today_questions.dart:99:27 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/home/application/today_questions.dart:101:24 • prefer_const_literals_to_create_immutables
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/home/application/today_questions.dart:101:26 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/home/application/today_questions.dart:110:37 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/home/application/today_questions.dart:111:7 • require_trailing_commas
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/home/application/today_questions.dart:138:28 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/home/application/today_questions.dart:141:22 • prefer_const_literals_to_create_immutables
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/home/application/today_questions.dart:245:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/home/application/today_questions.dart:247:55 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/quiz_tab_screen.dart:464:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/ui/components/today_questions_test.dart:22:45 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/ui/components/today_questions_test.dart:29:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/today_question_launch_test.dart:41:55 • require_trailing_commas
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:46:20 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:50:22 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:58:28 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:63:27 • prefer_const_literals_to_create_immutables
+   info • The value of the argument is redundant because it matches the default value. Try removing the argument • test/features/quiz/application/today_question_launch_test.dart:64:18 • avoid_redundant_argument_values
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:130:20 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:131:28 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:132:25 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:134:22 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:142:28 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_launch_test.dart:147:27 • prefer_const_literals_to_create_immutables
+   info • The value of the argument is redundant because it matches the default value. Try removing the argument • test/features/quiz/application/today_question_launch_test.dart:148:18 • avoid_redundant_argument_values
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_ui_test.dart:54:22 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_ui_test.dart:58:24 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_ui_test.dart:66:30 • prefer_const_literals_to_create_immutables
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • test/features/quiz/application/today_question_ui_test.dart:71:29 • prefer_const_literals_to_create_immutables
+   info • The value of the argument is redundant because it matches the default value. Try removing the argument • test/features/quiz/application/today_question_ui_test.dart:72:20 • avoid_redundant_argument_values
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/today_question_ui_test.dart:81:72 • require_trailing_commas
+
+33 issues found. (ran in 1.2s)

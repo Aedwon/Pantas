@@ -1,0 +1,177 @@
+
+■ A The crust
+  QVAnswer_n1  11000ms  linear  (loops)
+          0ms  opacity:1;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:0;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:1;[then linear]
+      11000ms  (holds) [then linear]
+
+■ A The crust
+  QVAnswer_n2  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:1;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ A The crust
+  QVAnswer_n3  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:1;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ B The outer core
+  QVAnswer_n1  11000ms  linear  (loops)
+          0ms  opacity:1;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:0;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:1;[then linear]
+      11000ms  (holds) [then linear]
+
+■ B The outer core
+  QVAnswer_n2  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:1;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ B The outer core
+  QVAnswer_n3  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:1;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ C The mantle
+  QVAnswer_n1  11000ms  linear  (loops)
+          0ms  opacity:1;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:0;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:1;[then linear]
+      11000ms  (holds) [then linear]
+
+■ C The mantle
+  QVAnswer_n2  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:1;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ The mantle
+  QVAnswer_n3  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:1;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ D The inner core
+  QVAnswer_n1  11000ms  linear  (loops)
+          0ms  opacity:1;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:0;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:1;[then linear]
+      11000ms  (holds) [then linear]
+
+■ D The inner core
+  QVAnswer_n2  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:1;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ D The inner core
+  QVAnswer_n3  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:1;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ C correct answer The mantle, roughly 2,880 km thick, makes u…
+  QVAnswer_n4  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3200ms  (holds) [then linear]
+       3340ms  opacity:1;[then linear]
+       8200ms  (holds) [then linear]
+       8400ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ 4 of 10 Check 4 of 10 Check 4 of 10 Next
+  QVAnswer_n5  11000ms  linear  (loops)
+          0ms  background:#FFFFFF;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 10px 30px rgba(0,0,0,.12);[then linear]
+       3200ms  (holds) [then linear]
+       3500ms  background:#EFF7F5;box-shadow:inset 0 0 0 1px rgba(11,122,104,.28),0 10px 30px rgba(0,0,0,.12);[then linear]
+       8200ms  (holds) [then linear]
+       8450ms  background:#FFFFFF;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 10px 30px rgba(0,0,0,.12);[then linear]
+      11000ms  (holds) [then linear]
+
+■ 4 of 10 Check
+  QVAnswer_n1  11000ms  linear  (loops)
+          0ms  opacity:1;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:0;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:1;[then linear]
+      11000ms  (holds) [then linear]
+
+■ 4 of 10 Check
+  QVAnswer_n2  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       1500ms  (holds) [then linear]
+       1501ms  opacity:1;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ 4 of 10 Next
+  QVAnswer_n3  11000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       3200ms  (holds) [then linear]
+       3201ms  opacity:1;[then linear]
+       8200ms  (holds) [then linear]
+       8201ms  opacity:0;[then linear]
+      11000ms  (holds) [then linear]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVAnswer_n6  11000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       1100ms  (holds) [then ease]
+       1280ms  opacity:.28;transform:scale(1);[then ease]
+       1620ms  opacity:0;transform:scale(1.5);[then ease]
+      11000ms  (holds) [then ease]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVAnswer_n7  11000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       2800ms  (holds) [then ease]
+       2980ms  opacity:.28;transform:scale(1);[then ease]
+       3320ms  opacity:0;transform:scale(1.5);[then ease]
+      11000ms  (holds) [then ease]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: EARTH SCIENCE AND ASTRONOMY Which layer,…)
+  QVAnswer_n8  11000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       7800ms  (holds) [then ease]
+       7980ms  opacity:.28;transform:scale(1);[then ease]
+       8320ms  opacity:0;transform:scale(1.5);[then ease]
+      11000ms  (holds) [then ease]

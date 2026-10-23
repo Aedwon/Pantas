@@ -1,0 +1,27 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: packs actual whole groups under cap, excludes oversized sets, All stays one chunk
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: freezes membership, captures versions and persists actual 3 sessions
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: cancel during transaction rolls back metadata and first session together
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: duplicate concurrent starts return the same authoritative active session
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion advances atomically and explicit concurrent Continue claims one next row
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: failed metadata terminal write rolls back Attempt and completedAt
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: next create failure rolls back lifecycle and retry claims stored chunk
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: never quits a different custom session to claim Reviews
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: changed lifetime during hydration cancels without writes
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: wrong principal invalidates metadata without changing authoritative progress
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: missing content blocks resume with saved membership and answers unchanged
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: revised content blocks batch resume and retains original versions
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: malformed metadata cannot claim next and keeps active row for explicit discard
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: final completion removes metadata, earlier duplicate completion cannot advance twice
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary create cannot silently discard an unfinished Reviews batch
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: actual account wipe leaves prefs and next use removes orphan metadata
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: lifetime change while content is awaited rolls back first session
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: different exam cannot claim an existing batch
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: legacy resume rejects missing IDs rather than shrinking saved questions
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion account change rolls back Attempt and batch state
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion cannot save a different question order under a batch session ID
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: packing closes a shorter chunk before a whole passage exceeds remaining room
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: strict parser rejects malformed lifecycle, types, scope and duplicate membership
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary resume retains actual batch ordinal and completion keeps that snapshot
+00:00 +25: All tests passed!

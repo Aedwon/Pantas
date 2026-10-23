@@ -1,0 +1,33 @@
+## web/new-design-w4d-r1
+ M lib/app/routes/quiz_routes.dart
+ M lib/core/storage/storage.dart
+ M lib/core/ui/components/list_row.dart
+ M lib/core/ui/components/pantas_page.dart
+ M lib/core/ui/components/progress_ring.dart
+ M lib/features/quiz/presentation/quiz_tab_home.dart
+ M test/app/router_mock_panel_test.dart
+ D test/features/quiz/presentation/quiz_tab_nudge_test.dart
+ M test/features/shell/app_shell_test.dart
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-check-0.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-check-1.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-cleanup-0.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-cleanup-1.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-corrected-0.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-corrected-1.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-corrected-2.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-corrected-3.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-corrected-4.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-final-0.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-final-1.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-final-2.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-final-3.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-final-4.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-final-5.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-lintfix-0.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-lintfix-1.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-lintfix-2.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-paused-red.txt
+?? docs/superpowers/plans/new-design/evidence/logs/W4d-task2-red.txt
+?? lib/features/quiz/presentation/quiz_tab_screen.dart
+?? test/core/ui/components/quiz_row_extensions_test.dart
+?? test/features/quiz/presentation/quiz_tab_screen_test.dart

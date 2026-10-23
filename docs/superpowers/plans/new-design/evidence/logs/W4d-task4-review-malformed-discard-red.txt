@@ -1,0 +1,10 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: explicit malformed batch discard keeps ordinary progress available
+00:00 +0 -1: explicit malformed batch discard keeps ordinary progress available [E]
+  Bad state: Invalid Reviews metadata
+  package:pantas/features/quiz/data/repos/review_batch_repository.dart 91:7  ReviewBatchRepository._read
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: explicit malformed batch discard keeps ordinary progress available

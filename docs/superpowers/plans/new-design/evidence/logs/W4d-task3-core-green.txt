@@ -1,0 +1,62 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: nothing selected says so
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: nothing is selected to begin with
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: three full pools give the wheel value each
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: three full pools give the wheel value each
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a fully selected topic is one unit per lesson
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a fully selected topic is one unit per lesson
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: one selection reads in the singular
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: deselecting one lesson drops the topic to the dash
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: deselecting one lesson drops the topic to the dash
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: a measured pace adds the duration
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a partly selected topic is one unit per kept lesson
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a partly selected topic is one unit per kept lesson
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: total time without a measured pace uses the approved initial pace
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: deselecting the last lesson turns the topic off
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: selecting one lesson alone leaves the topic on the dash
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a topic that cannot unfold is all or nothing
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: clearing drops everything
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: toggling a selected topic turns it off
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: toggling a partly selected topic fills it
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: selecting a topic contributes one unit for each lesson
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: questions mode uses the approved initial pace of 50 seconds
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: total time is divided across lessons instead of multiplied
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: measured pace replaces the approved initial pace
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: no questions in a lesson never become a selectable unit
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: Questions adjustment changes count and time without changing base
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: Total time adjustment moves a question and preserves total budget
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: singleton Total time has no alternate allocation
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: manual counts stay within real pool and keep a question per pick
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: uneven time split and real pool shortfall use actual counts
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +29 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: lib/features/quiz/data/repos/practice_preferences_repository.dart:31:32: Error: A value of type '({Map<dynamic, dynamic> adjustments, Set<String> lessonIds, PracticeUnitMode mode, int value})' can't be returned from an async function with return type 'Future<({Map<String, int> adjustments, Set<String> lessonIds, PracticeUnitMode mode, int value})>'.
+   - 'Map' is from 'dart:core'.
+   - 'Set' is from 'dart:core'.
+   - 'PracticeUnitMode' is from 'package:pantas/features/quiz/domain/picker/practice_summary.dart' ('lib/features/quiz/domain/picker/practice_summary.dart').
+   - 'Future' is from 'dart:async'.
+        lessonIds: picks == null ? <LessonId>{} : Set.unmodifiable(
+                                 ^
+  .
+00:00 +30 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +31 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +32 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: seven-day boundary is recent but an unreviewed seed is eligible
+00:00 +33 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: a short pool contributes what it has
+00:00 +34 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: a small pool tops up recent questions before shortening the run
+00:00 +35 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: a small pool tops up recent questions before shortening the run
+00:00 +36 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: the session is recorded as a drill
+00:00 +37 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: passage grouping is identical in the displayed and durable order
+00:00 +38 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: passage grouping is identical in the displayed and durable order
+00:00 +39 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: fromQuestionIds creates session with exact question list
+00:00 +40 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart
+lib/features/quiz/data/repos/practice_preferences_repository.dart:31:32: Error: A value of type '({Map<dynamic, dynamic> adjustments, Set<String> lessonIds, PracticeUnitMode mode, int value})' can't be returned from an async function with return type 'Future<({Map<String, int> adjustments, Set<String> lessonIds, PracticeUnitMode mode, int value})>'.
+ - 'Map' is from 'dart:core'.
+ - 'Set' is from 'dart:core'.
+ - 'PracticeUnitMode' is from 'package:pantas/features/quiz/domain/picker/practice_summary.dart' ('lib/features/quiz/domain/picker/practice_summary.dart').
+ - 'Future' is from 'dart:async'.
+      lessonIds: picks == null ? <LessonId>{} : Set.unmodifiable(
+                               ^

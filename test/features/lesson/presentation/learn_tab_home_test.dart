@@ -134,6 +134,9 @@ void main() {
     expect(find.text('UPCAT'), findsNothing);
     expect(find.text('VERBAL'), findsOneWidget);
     expect(find.text('Language Proficiency'), findsNothing);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
   });
 
   testWidgets('shows error banner when provider fails', (tester) async {
@@ -190,5 +193,8 @@ void main() {
           .duration,
       Duration.zero,
     );
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
   });
 }

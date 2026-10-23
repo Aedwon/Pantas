@@ -1,0 +1,139 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original stable boundary
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original stable boundary
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: cold practice route resumes its actual persisted session
+00:01 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: cold practice route resumes its actual persisted session
+00:01 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: cold practice route resumes its actual persisted session
+00:01 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: required passage does not expose answer actions while unresolved
+00:02 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +59: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +60: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +61: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +62: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +63: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +64: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +65: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +66: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +67: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+00:02 +68: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:03 +69: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:03 +70: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:03 +71: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:03 +72: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: end score uses completed answers and real elapsed time
+00:03 +73: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +74: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +75: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +76: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +77: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +78: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +79: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +80: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +81: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +82: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +83: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +84: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +85: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:03 +86: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: singleton Questions overrides, Reset and wheel change
+00:03 +87: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: elapsed time uses the immutable valid completion endpoint
+00:03 +88: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer exam transition rolls back pending note and recorder tail
+00:03 +89: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer exam transition rolls back pending note and recorder tail
+00:03 +90: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: next claims once and keeps retryable failure
+00:03 +91: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: saved picks discard removed and questionless lesson ids
+00:03 +92: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer Pro transition rolls back pending note and recorder tail
+00:03 +93: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer Pro transition rolls back pending note and recorder tail
+00:03 +94: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer Pro transition rolls back pending note and recorder tail
+00:03 +95: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer Pro transition rolls back pending note and recorder tail
+00:03 +96: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time caption and singleton adjustments stay bounded
+00:04 +97: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: mistake stem fallback renders actual math through shared rich row
+00:04 +98: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer pending auth transition rolls back pending note and recorder tail
+00:04 +99: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: rapid selections and overrides survive leaving and reopening
+00:04 +100: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: rapid selections and overrides survive leaving and reopening
+00:04 +101: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: viewer rejects a different stored core owner
+00:04 +102: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start forwards actual override and keeps picker below run route
+00:04 +103: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start forwards actual override and keeps picker below run route
+00:04 +104: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start failure retains picks without opening a run route
+00:04 +105: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time redistributes counts and keeps its selected budget
+00:04 +106: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: large request displays actual pool caps and derived hours
+00:04 +107: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: counts stay at real capacity when the base requests more
+00:04 +108: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: measured pace replaces the starting estimate on the picker
+00:04 +109: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: failed Start retry retries the launch
+00:04 +110: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker header uses drawn navigation and heading positions
+00:04 +111: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: length summary and adjustment labels match drawn metrics
+00:04 +112: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: empty picker keeps drawn helper and dimmed solid Start
+00:04 +113: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker caption carries the drawn downward caret
+00:04 +114: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: nonpositive pace 0 uses the approved estimate in the time wheel
+00:04 +115: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: nonpositive pace -50000 uses the approved estimate in the time wheel
+00:04 +116: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: positive sub-minute estimate stays bounded without a clamp
+00:04 +117: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: pending picker announces loading before delayed shapes appear
+00:04 +118: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: load failure uses shared state and retries every picker input
+00:04 +119: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: save failure retains picks and shared retry saves them
+00:04 +120: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: empty picker keeps its helper with a positive sub-minute pace
+00:04 +121: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: time budget stays selected with a positive fast pace
+00:04 +122: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: mode switches match six lessons and settle at the same count
+00:05 +123: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: mode switches match capped aggregate counts
+00:05 +124: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: repeated mode toggles keep the original capped conversion target
+00:05 +125: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: explicit wheel change starts a new conversion target
+00:05 +126: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: manual allocation starts a new conversion target
+00:05 +127: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Reset starts a new conversion target from the even time split
+00:05 +128: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: changed selected pool starts a new conversion target
+00:05 +129: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: changed effective pace starts a new conversion target
+00:05 +130: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: changed selection starts a new conversion target
+00:05 +131: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: matching clears manual overrides on explicit mode change
+00:05 +132: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: normal picker motion steps bar at 200ms then fades Clear
+00:05 +133: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker uses the drawn thirteen-point filled check
+00:05 +134: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: pace refresh keeps the picker visible and updates its estimate
+00:05 +135: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: motion hold never delays saving picks or survives leaving
+00:05 +136: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: (tearDownAll)
+00:05 +136: All tests passed!

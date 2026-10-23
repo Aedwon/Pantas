@@ -1,0 +1,48 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/quiz_row_extensions_test.dart: QZ_Tab ring leads the row at 24 with a 12 gap
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=1.0
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=1.0
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=false scale=1.0
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=false scale=1.0
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=2.0
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=false scale=2.0
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=false scale=2.0
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=true scale=1.0
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=true scale=1.0
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=true scale=1.0
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=true scale=2.0
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=true scale=2.0
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=true scale=2.0
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: #23 assessment completion clears the Quiz assessment gate
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: #24 #27 #28 one Resume returns to the saved session and clears
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: '/quiz/resume/e'
+  Actual: '/quiz'
+   Which: is different. Both strings start the same, but the actual value is missing the following
+trailing characters: /resume/e
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart:118:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart line 118
+The test description was:
+  #24 #27 #28 one Resume returns to the saved session and clears
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +15 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: #24 #27 #28 one Resume returns to the saved session and clears [E]
+  Test failed. See exception logs above.
+  The test description was: #24 #27 #28 one Resume returns to the saved session and clears
+  
+00:00 +15 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: available session has Continue Reviews
+00:01 +16 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: #24 #27 #28 one Resume returns to the saved session and clears

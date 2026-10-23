@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/progress_rule.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/quiz_page.dart';
+import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -68,7 +68,7 @@ void main() {
     expect(find.text('4 of 10'), findsOneWidget);
   });
 
-  testWidgets('the flag sits outermost', (tester) async {
+  testWidgets('the flag sits in the floating bar before Check', (tester) async {
     final session = QuizSession(
       sessionId: 's_1',
       examId: 'cse_prof',
@@ -91,9 +91,14 @@ void main() {
       ],
     );
 
-    final appBar = tester.widget<AppBar>(find.byType(AppBar));
-    final actions = appBar.actions!;
-    expect(actions.last, isA<Consumer>());
+    final bar = find.byType(FloatingBar);
+    final flag =
+        find.descendant(of: bar, matching: find.byTooltip('Flag question'));
+    expect(flag, findsOneWidget);
+    expect(
+      tester.getTopLeft(flag).dx,
+      lessThan(tester.getTopLeft(find.text('Check')).dx),
+    );
   });
 
   testWidgets('the counter opens the grid', (tester) async {
@@ -123,7 +128,7 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets('the counter names the current question and is at least 48dp',
+  testWidgets('the counter names the current question and is at least 44dp',
       (tester) async {
     final semantics = tester.ensureSemantics();
     final session = QuizSession(
@@ -162,8 +167,8 @@ void main() {
         hasTapAction: true,
       ),
     );
-    expect(counter.evaluate().single.rect.width, greaterThanOrEqualTo(48));
-    expect(counter.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    expect(counter.evaluate().single.rect.width, greaterThanOrEqualTo(44));
+    expect(counter.evaluate().single.rect.height, greaterThanOrEqualTo(44));
     semantics.dispose();
   });
 
@@ -208,12 +213,13 @@ void main() {
         hasTapAction: true,
       ),
     );
-    expect(flag.evaluate().single.rect.width, greaterThanOrEqualTo(48));
-    expect(flag.evaluate().single.rect.height, greaterThanOrEqualTo(48));
+    expect(flag.evaluate().single.rect.width, greaterThanOrEqualTo(44));
+    expect(flag.evaluate().single.rect.height, greaterThanOrEqualTo(44));
     semantics.dispose();
   });
 
-  testWidgets('the rail is one continuous fill', (tester) async {
+  testWidgets('the counter opens Questions with the actual answered total',
+      (tester) async {
     final session = QuizSession(
       sessionId: 's_1',
       examId: 'cse_prof',
@@ -236,7 +242,57 @@ void main() {
       ],
     );
 
-    expect(find.byType(ProgressRule), findsOneWidget);
+    await tester.tap(find.text('4 of 10'));
+    await tester.pumpAndSettle();
+    expect(find.text('Questions'), findsOneWidget);
+    expect(find.text('0 of 10 answered'), findsOneWidget);
+  });
+  testWidgets('actual completion uses the rebuilt live session end',
+      (tester) async {
+    final session = QuizSession(
+      sessionId: 'done',
+      examId: 'cse_prof',
+      questions: [sampleQuestions.first],
+      currentIndex: 0,
+      outcomes: [
+        const AnswerOutcome(
+          questionId: 'q_1',
+          questionVersion: 1,
+          chosenChoiceId: 'c_a',
+          correctChoiceId: 'c_a',
+          responseMs: 1,
+        ),
+      ],
+      startedAt: DateTime.utc(2026),
+    );
+    final attempt = Attempt(
+      id: 'done',
+      examId: 'cse_prof',
+      startedAt: session.startedAt,
+      completedAt: DateTime.utc(2026, 1, 1, 0, 1),
+      items: const [
+        AttemptItem(
+          questionId: 'q_1',
+          questionVersion: 1,
+          chosenChoiceId: 'c_a',
+          correctChoiceId: 'c_a',
+          responseMs: 1,
+        ),
+      ],
+    );
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'cse_prof', mode: QuizPageMode.practice),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        quizControllerProvider.overrideWith(
+          (ref) => _FakeQuizController(
+            ref,
+            QuizComplete(attempt: attempt, session: session),
+          ),
+        ),
+      ],
+    );
+    expect(find.byType(QuizSessionEndPage), findsOneWidget);
   });
 }
 

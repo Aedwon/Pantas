@@ -1,6 +1,7 @@
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 
 void main() {
@@ -24,6 +25,26 @@ void main() {
 
     await prefs.setStrictMockMode(value: false);
     expect(await prefs.strictMockMode(), isFalse);
+  });
+
+  test('the pause warning shows until the student has seen it', () async {
+    expect(await prefs.pauseWarningSeen(), isFalse);
+
+    await prefs.setPauseWarningSeen(value: true);
+    expect(await prefs.pauseWarningSeen(), isTrue);
+
+    await prefs.setPauseWarningSeen(value: false);
+    expect(await prefs.pauseWarningSeen(), isFalse);
+  });
+
+  test('the pause warning is remembered on the device, not the account',
+      () async {
+    await prefs.setPauseWarningSeen(value: true);
+
+    expect(
+      await AppPreferencesRepository(db).deviceValue('mock_pause_warning_seen'),
+      'true',
+    );
   });
 
   test('startMock snapshots strict mode onto the attempt', () async {

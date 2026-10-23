@@ -1,0 +1,18 @@
+W These options have been removed and were ignored: --delete-conflicting-outputs
+  0s freezed on 1452 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  0s freezed on 1452 inputs: 1 skipped; integration_test/release/qlp5_emulator_rehearsal_test.dart
+  3s freezed on 1452 inputs: 234 skipped, 3 no-op; spent 3s analyzing; lib/core/ui/components/answer_row.dart
+  4s freezed on 1452 inputs: 353 skipped, 29 no-op; spent 4s analyzing; lib/features/home/presentation/widgets/home_stats_band.dart
+  4s freezed on 1452 inputs: 1358 skipped, 1 output, 93 no-op; spent 4s analyzing
+  0s json_serializable on 2904 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  1s json_serializable on 2904 inputs: 494 skipped, 67 no-op; lib/core/ui/components/pantas_button.freezed.dart
+  1s json_serializable on 2904 inputs: 2235 skipped, 669 no-op; spent 1s analyzing
+  0s drift_dev on 11616 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  0s drift_dev on 11616 inputs: 3832 skipped, 67 output, 1035 same, 1 no-op; test/core/ui/icons/pantas_icons_test.freezed.dart
+W drift_dev on integration_test/release/delete_local_data_e2e_test.dart:
+  You enabled the `generate_connect_constructor` build option. This option is no longer necessary in drift 2.5, as a `DatabaseConnection` can now be passed to the default constructor for generated databases. Consider removing this option.
+  1s drift_dev on 11616 inputs: 8669 skipped, 86 output, 1251 same, 535 no-op; test/features/onboarding/presentation/onboarding_name_step_test.dart.types.temp.dart
+  2s drift_dev on 11616 inputs: 9610 skipped, 86 output, 1251 same, 669 no-op
+  0s source_gen:combining_builder on 5808 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  0s source_gen:combining_builder on 5808 inputs: 5780 skipped, 28 no-op
+  Built with build_runner/aot in 9s; wrote 1338 outputs.

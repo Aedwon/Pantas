@@ -1,0 +1,35 @@
+Analyzing 6 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/domain/picker/practice_summary.dart:58:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_design_rules_test.dart:99:34 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_design_rules_test.dart:109:34 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:10:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:11:3 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:19:29 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:20:8 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:21:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:25:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:40:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:52:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:53:11 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:60:45 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:61:11 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:72:45 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:73:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:85:41 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:91:41 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:97:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:103:47 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:118:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:119:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:126:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_mode_match_test.dart:127:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:720:75 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:727:20 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:748:37 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:749:13 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:751:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:758:50 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:773:61 • require_trailing_commas
+
+31 issues found. (ran in 1.7s)

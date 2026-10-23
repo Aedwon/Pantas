@@ -1,0 +1,40 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart: add note requires a reason and saves selected real value
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:01 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Pro note writes only the viewed original wrong question
+00:01 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: compact 200 percent viewer keeps navigation and notes reachable
+00:01 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: never-answered flags reveal the answer without inventing a result
+00:01 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: one shared frame follows exact opening and closing note tracks
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <274.71179580688477>
+  Actual: <320.6845397949219>
+   Which:  differs by <45.97274398803711>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart:171:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart line 171
+The test description was:
+  one shared frame follows exact opening and closing note tracks
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +9 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: one shared frame follows exact opening and closing note tracks [E]
+  Test failed. See exception logs above.
+  The test description was: one shared frame follows exact opening and closing note tracks
+
+00:01 +9 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: one shared frame follows exact opening and closing note tracks

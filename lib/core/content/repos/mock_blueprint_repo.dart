@@ -28,6 +28,7 @@ class MockBlueprintRepo {
           sectionalTiming: _timingFrom(row.sectionalTiming),
           scoreBands: _bandsFrom(row.scoreBandsJson),
           totalPublishedItems: row.totalPublishedItems,
+          unscoredItems: row.unscoredItems,
           source: _sourceFrom(row.source),
           sourceNote: row.sourceNote,
         ),

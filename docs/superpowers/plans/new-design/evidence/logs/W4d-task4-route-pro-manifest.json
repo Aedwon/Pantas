@@ -1,0 +1,54 @@
+{
+  "base": "989a9faad0656c8b930e24ef4b6954e27537e27d",
+  "policy": "17db830f931574f38530c51aed37c7d8ba2645e1",
+  "sources": {
+    "lib/features/quiz/presentation/quiz_page.dart": "d40388f01348a1da50e5468cb2628b10ebbb9c39f2e803c1d0b1fea6879ce68a",
+    "test/features/quiz/presentation/quiz_route_coverage_test.dart": "6999edb266ff0417fb2e21adb69e97e9c38b1b5d42468b5429a7603f460ba8ec"
+  },
+  "commands": [
+    [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz/presentation/quiz_route_coverage_test.dart",
+      "test/features/quiz/presentation/quiz_page_chrome_test.dart",
+      "--timeout=25s",
+      "--reporter",
+      "expanded"
+    ],
+    [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/presentation/quiz_page.dart",
+      "test/features/quiz/presentation/quiz_route_coverage_test.dart"
+    ],
+    [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib/features/quiz/presentation/quiz_page.dart",
+      "test/features/quiz/presentation/quiz_route_coverage_test.dart"
+    ],
+    [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ]
+  ],
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "passing_tests": 9,
+  "scope": "ordinary coverage/paused gates only; no end-page replacement"
+}

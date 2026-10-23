@@ -1,0 +1,10 @@
+ lib/app/routes/quiz_routes.dart                    |  71 ++++-
+ lib/core/storage/storage.dart                      |   9 -
+ lib/core/ui/components/list_row.dart               |  17 +-
+ lib/core/ui/components/pantas_page.dart            |   4 +-
+ lib/core/ui/components/progress_ring.dart          |  20 +-
+ lib/features/quiz/presentation/quiz_tab_home.dart  |  78 ------
+ test/app/router_mock_panel_test.dart               |   9 +-
+ .../quiz/presentation/quiz_tab_nudge_test.dart     | 302 ---------------------
+ test/features/shell/app_shell_test.dart            |   4 +-
+ 9 files changed, 94 insertions(+), 420 deletions(-)

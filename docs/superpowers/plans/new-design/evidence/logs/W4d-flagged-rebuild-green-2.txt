@@ -1,0 +1,34 @@
+Analyzing 3 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/review_providers.dart:155:6 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/pages/flagged_list_page_test.dart:5:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/pages/flagged_list_page_test.dart:7:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/pages/flagged_list_page_test.dart:13:1 • directives_ordering
+   info • The import of 'package:pantas/core/storage/domain/passage.dart' is unnecessary because all of the used elements are also provided by the import of 'package:pantas/core/storage/storage.dart'. Try removing the import directive • test/features/quiz/presentation/pages/flagged_list_page_test.dart:13:8 • unnecessary_import
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/pages/flagged_list_page_test.dart:15:1 • directives_ordering
+   info • Parameter 'ref' could be a super parameter. Trying converting 'ref' to a super parameter • test/features/quiz/presentation/pages/flagged_list_page_test.dart:31:3 • use_super_parameters
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:55:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:138:21 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:156:24 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:156:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:162:24 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:162:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:190:33 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:265:35 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:311:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:316:72 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:320:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:320:74 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:324:65 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:325:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:333:76 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:334:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:376:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:397:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:406:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:418:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:427:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:431:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/pages/flagged_list_page_test.dart:443:10 • require_trailing_commas
+
+30 issues found. (ran in 1.8s)
