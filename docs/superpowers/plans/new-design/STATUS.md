@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex W4d finish/review, chat 01a15f12
-Since: 2026-10-23 03:10 Asia/Manila
+Since: 2026-10-23 11:59 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1061,3 +1061,10 @@ Aedwon said exactly "continue" after the second usage-limit interruption. Curren
 Root inspected actual source and relay output for989a9faa (26shared/default/rich-row tests,3renewed after mechanical style fixes),20f20fb4 (9real ordinary-route/chrome tests),7ef44776 (28flagged UI/provider/domain tests,17renewed after current-data loading correction) andf488de71 (34shared frame/default/chrome tests). Owned analysis/format and applicable layering/attribution/diff checks pass for each scoped save. All are local working checkpoints, not whole-family review or acceptance. Root verified remote D remains5e89e4fa and accepted development integration72b04f00; no upload/integration occurred.
 
 Bounded correctiond6a96dc5 records original-account flagged launch guards before source edits.11429 reproduced4 actual account/exam/token/wipe failures with1stable case passing;11430 passes41 affected tests after the correction, with9style infos still being cleared and an added pending-disposal case. This guard remains dirty/unaccepted pending its final checks. Viewer/notes and actual ordinary Pro-loss boundary/motion tests continue under the same implementor. Root owns the remaining live end/list/next/Done/rating wiring after Task8 guard save. Home-owned Reviews/New controls remain unavailable; no substitute membership or misleading legacy launch is authorized.
+
+
+### October23 W4d root takeover and account-cache verification
+
+Latest exact user instruction: "continue". Root refreshed current-main AGENTS and full WORKFLOW at9cc82ebc, fetched all remote refs and verified both relay runners online. D local e88cc07b is the expected saved continuation ahead of remote5e89e4fa; integration remains72b04f00. No unexpected source drift. The Task6 implementor stopped after its usage limit; root owns all remaining saved viewer/note drafts and route/end wiring. No concurrent implementor is writing.
+
+The original-account flagged guard is saved ate88cc07b:59affected tests and6renewed lifecycle cases pass, with clean owned analysis/static gates. Actual Task6 cross-account cache regression11450 failed before the recorded9cc82ebc technical amendment. Relay11452 now passes all16affected account/exam/Pro/pending-auth/wipe/core-owner/cache/note-storage tests. The completed-data request retains the original view boundary identity, including retries. This is still uncommitted implementation evidence, not family acceptance. Editor timing, saved-note pop and viewer route checks continue; root still owes live end/all/next/Done/rating, retirement, combination, final gates and independent family audit. Home Reviews/New contracts remain unavailable. No D application upload/integration/main merge, deployment or visual acceptance occurred.
