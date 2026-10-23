@@ -180,3 +180,8 @@ Regression-first server emulator cases: original day remains stable after comple
 ### October24 original account envelope correction
 
 New W4b observation/settings/advance writes carry immutable expectedUid captured with the original owner. The server compares it with request.auth.uid before reading/writing and always derives paths from authenticated uid. Local pre/post checks alone cannot prevent the Firebase singleton token changing between the check and actual request dispatch. Reject mismatches; never rebind an old retry. Preserve existing legacy endpoint compatibility without making new W4b callers omit this expectation. Add actual client/token-switch and server mismatch regressions. This is a technical correctness requirement under the existing account-bound data scope, not new entitlement behavior.
+
+
+### October24 Free future-date access decided
+
+Aedwon selected exactly "Pro invitation for future dates". Both client and server enforce it: Free past/current-day views retain actual data; any future-date/week planning tap opens the existing approved Free plan invitation (DP_PlanFree), with no future lesson/topic payload or local computation behind it. The alternative was current-week future lessons free, later weeks Pro. Recommendation selected preserves the approved future-plan selling point at the cost of requiring Pro for future-day preview. Use existing invitation presentation; no new layout or copy.
