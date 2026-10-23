@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: held
-Holder: Codex W4d dependency completion, chat 01a16923
-Since: 2026-10-23 22:30 Asia/Manila
+State: free
+Holder: none
+Since: 2026-10-23 22:54 Asia/Manila (released)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -35,8 +35,8 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | Task | Work | Owner | Current state/evidence |
 |---|---|---|---|
 | A1 | W4c audit, fixes, verification, integration | Codex | done for engineering: Tasks1–9 accepted/integrated/uploaded at72629940;4225full+1163integration tests; clean static gates; audit1/audit2 findings closed; phone visual/live PWA checks remain separate |
-| A2 | W4b Tasks2–10 | Codex | queued after A1; coordinate server roadmap before local-computation changes |
-| A3 | W4d Tasks2,4–9 | Codex | independent work implemented/reviewed/verified/uploaded eb383634 (source a5355077);4653full tests pass,2157source hashes unchanged, full static clean. Original family audit and bounded corrections closed. Overall W4d still incomplete: Home initial Reviews/New shared-row/launch contract absent under ruling2, so no development integration. Phone/live/backend report acceptance separate. Evidence/W4d.md and final logs saved; worktrees retained |
+| A2 | W4b Tasks2–10 | Codex | bounded shared Today question dependency completed/integrated with W4d at4113ad78; remaining Home/progress work queued, consume shared contract; server roadmap coordination still required |
+| A3 | W4d Tasks2,4–9 | Codex | ENGINEERING DONE: shared Today dependency and actual Reviews/New initial callers complete; original family audit and bounded dependency reviews closed;4677full tests,91target tests, static clean and2163unchanged source hashes. Sourcecd283f7b/workinge6f8906b/development4113ad78 uploaded, exact remote SHAs verified. Phone/live acceptance and deferred report sender remain separate |
 | A4 | W4e Tasks3–9, CSE launch scope | Codex | ENGINEERING DONE: reviewed/fixed/tested/uploaded feature f608e570 and development integration72b04f00; final combined4439tests pass and analysis/format/layering/attribution clean. Required server reader/answer-review dependency0c17bfb0 independently reviewed,165plain/205emulator pass on Node22. All eight family audit findings plus final exit-cache regression closed; accepted W4c source preserved. Other-exam finales explicitly deferred. Global server/web integration and phone/live acceptance remain later launch gates |
 | A5 | W4a Tasks1–11 | Codex | queued by dependency map; CSE Professional/Subprofessional only; no web reminders step |
 | A6 | W4f Tasks2–9 | Codex | queued; Task1 reminder draft parked on its branch, excluded from launch; hide web Reminders; PayMongo gateway required |
@@ -109,10 +109,12 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | Level 4: W3 payments and identity | accepted and integrated Oct 12 (Astra audit 1 fixed, Tasks 14b and 14c; lead review); Task 15 deploys remain | integration/new-design-r1 at 2d438daf; gates/w3-astra-audit-1.md |
 | Level 4: W2 shared components | accepted and integrated Oct 11 (Astra audit 1 fixed); close-out task after W4 | integration/new-design-r1 at b935cbd2; gates/w2-astra-audit-1.md |
 | Level 4: W4h app-wide states | Tasks 1, 2, 3, 5 done and integrated Oct 11 (lead review; 3,730 tests); Task 4 after the other families; Astra audit with the W4 families | integration/new-design-r1 at cee7a9c5; evidence/W4h.md |
-| Level 4: W4 screen families | Unfinished. W4c Tasks1–9 engineering accepted, integrated and uploaded at72629940;4225full and1163integration tests pass, final static gates clean; all audit1/re-audit2 engineering findings closed. Phone visual acceptance and live PWA/server verification remain pending. W4d Tasks1/3 and report entry implemented (Task3 reviewed/uploadedc94868eb); Task2 partial; Task4 UI and standalone Reviews contract reviewed/uploaded10045dbd, actual Reviews selection/caller wiring pending. Tasks5/6/8/9 not resumed here. W4a/f drafts preserved; W4b Task1/day context integrated; W4e CSE launch engineering reviewed/accepted/integrated at72b04f00 with4439combined tests and clean static gates; required server dependency0c17bfb0 uploaded. Other-exam rebuilt finales explicitly deferred. W4g not started. W4d full-family review/integration and all phone acceptance remain pending. | integration/new-design-r1 now72b04f00 for accepted W4c + CSE W4e engineering; currentmainL3 rulings apply |
+| Level 4: W4 screen families | Unfinished overall. W4c Tasks1–9 engineering accepted72629940; CSE W4e engineering accepted72b04f00; W4d Tasks1–9 plus shared Today dependency reviewed/verified/integrated4113ad78 with4677full and91target tests, static clean. W4b remaining Home/progress work, W4a/f drafts and later families remain separate. Phone/live acceptance remains pending. | integration/new-design-r1 now4113ad78; current main L3 rulings control |
 | Level 4: W6 backend hardening | Tasks 1 to 5c done and integrated (Task 5b, Oct 7); Tasks 6 to 8 (live rules snapshot, deploys, final) remain | integration/new-design-r1 at 739ccae1; gates/w6-astra-audit-1.md |
 
 ## Last completed step
+
+Latest, October23: W4d engineering and required shared Today dependency reviewed, verified and integrated/uploaded4113ad78.4677full and91target tests pass, static gates clean, exact source hashes unchanged. Phone/live acceptance and deferred report delivery remain separate.
 
 Latest, October20: W4c Tasks1–9 engineering accepted, both independent audits' findings closed, normal uploads and development integration verified at72629940. Full4225 and integration1163 tests pass; final analysis/format/layering/attribution clean. Phone visual acceptance and live PWA/server checks are separate and pending. Earlier completed-step detail follows.
 
@@ -1159,3 +1161,14 @@ Aedwon: "yes the previous chat has already stopped due to usage limits. i author
 ### October23 W4d Today dependency final verification in progress
 
 Chat01a16923 continues under Aedwon's explicit ownership-transfer authorization. Known dirty Today dependency patch preserved over D eb383634. Shared Home application membership/guarded Reviews-New launch and reusable core row/sheet now connect actual Quiz callers. Independent bounded dependency review found and closed stale retry recapture and omitted review membership; RED11549/11550, GREEN11556.76focused tests pass, full lib/test/tool analysis clean, layering/attribution clean. Final frozen full suite11557 is running with source-manifest/raw output; no completion, upload or integration is claimed yet. B b99c1679 and development72b04f00 remain unchanged. Current lock belongs to this chat. Phone/live acceptance and main application freeze remain separate.
+
+
+### October23 W4d dependency engineering complete and integrated
+
+Finished the bounded shared Home Today dependency and actual W4d Reviews/New initial callers. Exact source cd283f7bb3a3b408e6d4ed821902a93210fb036d; working branch uploaded e6f8906b350f31abeb24425941fd96b1a8f9b3bd; agreed development integrated/uploaded4113ad7844f991d9a858c3771be21974270e9340. Both remote SHAs equal intended local heads, both worktrees clean. Accepted W4c/CSE-W4e ancestry preserved by fast-forward from72b04f00.
+
+Original family Astra audit remains closed. Independent bounded dependency review closes P1 stale retry ownership and P2 omitted Reviews membership; final shared empty-ring/default/divider review has no findings. Final11560:4677full tests pass, exit0 with actual final summary,2163source/config/content hashes unchanged. Full lib/test/tool analysis clean; format1535files/0changes, layering/attribution/diff clean. Exact target source hashes stay unchanged through generation and91renewed affected target tests; all target static gates clean. The full suite is not duplicated for an identical source tree. Raw logs/manifests/source identities/review/integration evidence: https://github.com/Aedwon/Pantas/blob/4113ad7844f991d9a858c3771be21974270e9340/docs/superpowers/plans/new-design/evidence/W4d.md. This evidence lives on the workstream/development branch, not main.
+
+Engineering Tasks1–9 and the missing initial-call dependency are complete for approved scope. Remaining W4b screens/tasks remain separate and queued. Phone visual/device accessibility, live deployed PWA checks and the explicitly deferred report sender remain separate, unaccepted gates. No main app merge, deployment or publication. Retain source/review worktrees for dependent W4b/phone acceptance.11557was intentionally interrupted before the final fidelity correction; its zero exit has no test summary and is explicitly archived as incomplete. Only11560establishes the final full-suite result. One evidence whitespace check stopped saving; normalized text views preserve byte-exact raw originals in gzip.
+
+Recorded 2026-10-23 22:54 Asia/Manila; ownership lock released.
