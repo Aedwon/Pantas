@@ -36,3 +36,19 @@ test('lesson observations preserve earliest actual timestamp and reject an accou
  await m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'lesson-obs-one',readAt:now-1000},deps);
  const row=await db.doc('users/'+uid+'/server/lessonReads/items/lesson-obs-one').get();assert.equal(row.get('readAt'),now-5000);
 });
+
+test('actual new-question and flagged origins ingest, immutable replay survives retired content',async()=>{
+ const uid='w4b-replay';await db.recursiveDelete(db.doc('users/'+uid));
+ for(const origin of ['new_questions','flagged']){
+  const payload={...batch(uid,'observed-'+origin),origin};
+  assert.equal((await recordSession(auth(uid),payload,deps)).stored,true);
+ }
+});
+test('immutable successful replay survives retired content and conflicting reuse fails',async()=>{
+ const uid='w4b-retired';await db.recursiveDelete(db.doc('users/'+uid));
+ const payload=batch(uid,'observed-retired');
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,true);
+ await db.doc('content/questions/items/qs-obs__q').delete();clearExamContentCache();
+ assert.equal((await recordSession(auth(uid),payload,deps)).stored,false);
+ assert.equal(await code(recordSession(auth(uid),{...payload,durationMs:1},deps)),'failed-precondition');
+});

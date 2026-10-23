@@ -30,7 +30,7 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   if (!body || typeof body !== 'object' || Array.isArray(body)) throw new HttpsError('invalid-argument', 'Send an object.');
   const attributed = body.examId !== undefined || body.origin !== undefined;
   assertStudyOwner(auth.uid, body, attributed);
-  const origins = ['today_topic', 'today_interleaved', 'drill', 'retake', 'inline', 'assessment'];
+  const origins = ['today_topic', 'today_interleaved', 'new_questions', 'drill', 'flagged', 'retake', 'inline', 'assessment'];
   if (attributed && (typeof body.examId !== 'string' || !examCatalog.some(e => e.id === body.examId) ||
       typeof body.origin !== 'string' || !origins.includes(body.origin))) {
     throw new HttpsError('invalid-argument', 'Send a known exam and session origin.');
@@ -38,11 +38,6 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   const sessionId = body.sessionId;
   if (typeof sessionId !== 'string' || !SESSION_ID.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
   const answers = checkAnswers(body?.answers, now);
-  if (attributed) {
-    const content = await loadExamContent(deps.db, body.examId as string, now);
-    const ids = new Set(content.questions.map(q => q.id));
-    if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');
-  }
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
@@ -52,12 +47,25 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   }
   const ref = deps.db.doc(`users/${auth.uid}/server/answers/items/${sessionId}`);
   const stored = await deps.db.runTransaction(async (transaction) => {
-    if ((await transaction.get(ref)).exists) return false;
+    const previous = await transaction.get(ref);
+    if (previous.exists) {
+      if (attributed && (previous.get('examId') !== body.examId || previous.get('origin') !== body.origin ||
+          previous.get('startedAt') !== startedAt || previous.get('finishedAt') !== finishedAt ||
+          previous.get('durationMs') !== durationMs || JSON.stringify(previous.get('answers')) !== JSON.stringify(answers))) {
+        throw new HttpsError('failed-precondition', 'This session was already recorded with different observations.');
+      }
+      return false;
+    }
+    if (attributed) {
+      const content = await loadExamContent(deps.db, body.examId as string, now);
+      const ids = new Set(content.questions.map(q => q.id));
+      if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');
+    }
     // The running totals change in this same transaction, so a replay (above) never counts twice.
     // An account from before the totals existed is built from its stored sessions first.
     const snapshot = await transaction.get(totalsRef(deps.db, auth.uid));
     const totals = snapshot.exists ? fromDoc(snapshot.data()) : await backfill(transaction, deps.db, auth.uid);
-    // Advance existing mock-seeded reviews; broader question seeding stays with C10.
+    // Ordinary and mock answers use the same scheduler state.
     const applyReviews = await prepareReviewAnswers(transaction, deps.db, auth.uid, answers, finishedAt, true);
     addSession(totals, answers);
     prune(totals);
