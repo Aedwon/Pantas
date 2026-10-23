@@ -126,3 +126,8 @@ goes); delete Home widgets replaced in Tasks 2 to 5 and their tests; replace eve
 and the subject scope sheet in this family. `grep` finds no `/progress`, `/mock-exam` or
 `/plan/dossier` navigation left in `lib/features/home` or `progress`. All required checks; evidence
 `evidence/W4b.md`; independent review; Aedwon's visual check against the Home boards.
+
+
+## Shared Today dependency available, October23
+
+Reviewed source cd283f7b is integrated/uploaded on agreed development4113ad78. W4d's dependency is complete, without unrelated W4b screens. Task3 consumes lib/features/home/application/today_questions.dart (TodayQuestionLauncher, todayQuestionLauncherProvider, TodayQuestionWork, TodayQuestionKind) and lib/core/ui/components/today_questions.dart (TodayQuestionRow, TodayQuestionsSheet), with existing PantasSheet. Capture the launcher's guard at the original page request; retain the same originalGuard through load/error retry and caller lifetime/generation through start. Do not rebind after account/exam/wipe changes. Use actual stored chunks/New membership; missing content fails recoverably, unrelated paused work survives. New last-row divider is false. Preserve batch preferences/answers, shared defaults and real source metadata. No duplicated quiz presentation, inferred figures or mixed Today substitute. Remaining approved W4b tasks and server roadmap coordination remain queued. Evidence: https://github.com/Aedwon/Pantas/blob/4113ad7844f991d9a858c3771be21974270e9340/docs/superpowers/plans/new-design/evidence/W4d.md.
