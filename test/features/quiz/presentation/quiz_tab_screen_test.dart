@@ -199,7 +199,9 @@ void main() {
     expect(find.text("That's all for today."), findsOneWidget);
   });
 
-  testWidgets('mixed Today never claims a Reviews-only launch', (tester) async {
+  testWidgets(
+      'Continue Reviews does not depend on legacy mixed-plan membership',
+      (tester) async {
     state = const SessionPanelAvailable(
       plan: TodaySessionPlan(
         questions: [],
@@ -209,7 +211,7 @@ void main() {
       ),
     );
     await pump(tester, still: true);
-    expect(find.text('Continue Reviews'), findsNothing);
+    expect(find.text('Continue Reviews'), findsOneWidget);
     expect(find.text('Resume'), findsNothing);
   });
 }

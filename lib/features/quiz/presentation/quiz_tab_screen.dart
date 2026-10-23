@@ -13,10 +13,14 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -72,6 +76,12 @@ class QuizTabScreen extends ConsumerStatefulWidget {
 
 class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     with WidgetsBindingObserver {
+  Future<Future<bool> Function()>? _questionGuard;
+  Future<TodayQuestionWork>? _questionWork;
+  TodayQuestionKind? _questionSheet;
+  int _questionGeneration = 0;
+  bool _startingQuestions = false;
+  bool _questionFailed = false;
   bool _discarding = false;
   bool _saveFailed = false;
 
@@ -96,6 +106,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     final exam = ref.read(activeExamFocusProvider).valueOrNull?.exam;
     if (exam == null) return;
     ref
+      ..invalidate(todayQuestionWorkProvider(exam.id))
+      ..invalidate(roadmapTodayProvider(exam.id))
       ..invalidate(sessionPanelProvider(exam.id))
       ..invalidate(quizTodayCountsProvider(exam.id))
       ..invalidate(quizPracticeCountsProvider(exam.id));
@@ -109,7 +121,14 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
   @override
   Widget build(BuildContext context) {
     final focus = ref.watch(activeExamFocusProvider);
-    return PantasPage(
+    ref.listen(activeExamFocusProvider, (previous, next) {
+      if (previous?.unwrapPrevious().asData?.value.exam?.id !=
+              next.unwrapPrevious().asData?.value.exam?.id &&
+          _questionSheet != null) {
+        _dismissQuestions();
+      }
+    });
+    final page = PantasPage(
       title: 'Quiz',
       bottomInset: 104,
       children: [
@@ -206,6 +225,200 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         ),
       ],
     );
+    final examId = focus.unwrapPrevious().asData?.value.exam?.id;
+    return PantasSheet(
+      page: page,
+      label: _questionSheet == TodayQuestionKind.newQuestions
+          ? 'New questions'
+          : 'Reviews',
+      open: _questionSheet != null && examId != null,
+      onDismiss: _dismissQuestions,
+      readerContents: true,
+      scrollable: false,
+      child: _questionSheet != null && examId != null
+          ? _questionsSheet(examId)
+          : const SizedBox.shrink(),
+    );
+  }
+
+  void _dismissQuestions() {
+    _questionGeneration++;
+    _questionGuard = null;
+    _questionWork = null;
+    if (mounted) {
+      setState(() {
+        _questionSheet = null;
+        _startingQuestions = false;
+        _questionFailed = false;
+      });
+    }
+  }
+
+  void _showQuestions(String examId, TodayQuestionKind kind) {
+    _questionGeneration++;
+    _captureQuestions(examId);
+    _questionWork = ref.read(todayQuestionLauncherProvider).load(
+          examId,
+          originalGuard: _questionGuard,
+        );
+    unawaited(
+      _questionWork!.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+    );
+    setState(() {
+      _questionSheet = kind;
+      _questionFailed = false;
+    });
+  }
+
+  Widget _questionsSheet(String examId) {
+    final kind = _questionSheet!;
+    return FutureBuilder<TodayQuestionWork>(
+      future: _questionWork,
+      builder: (context, snapshot) {
+        final work = snapshot.connectionState != ConnectionState.done
+            ? const AsyncLoading<TodayQuestionWork>()
+            : snapshot.hasError
+                ? AsyncError<TodayQuestionWork>(
+                    snapshot.error!,
+                    snapshot.stackTrace ?? StackTrace.current,
+                  )
+                : AsyncData(snapshot.data!);
+        return work.when(
+          loading: () => loadingFor(work),
+          error: (error, _) => errorFor(
+            'questions',
+            () => setState(() {
+              _questionWork = ref.read(todayQuestionLauncherProvider).load(
+                    examId,
+                    originalGuard: _questionGuard,
+                  );
+              unawaited(
+                _questionWork!
+                    .then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+              );
+            }),
+            error: error,
+          ),
+          data: (data) {
+            final reviews = kind == TodayQuestionKind.reviews;
+            final rows = <Widget>[];
+            if (reviews) {
+              for (var i = 0; i < data.reviewSizes.length; i++) {
+                rows.add(
+                  _sheetRow(
+                    'Session ${i + 1}',
+                    data.reviewProgress[i],
+                    data.reviewSizes[i],
+                  ),
+                );
+              }
+            } else {
+              for (final row in data.newRows) {
+                rows.add(_sheetRow(row.title, row.done, row.total));
+              }
+            }
+            return TodayQuestionsSheet(
+              title: reviews ? 'Reviews' : 'New questions',
+              done: reviews ? data.reviewsDone : data.newDone,
+              total: reviews ? data.reviewsTotal : data.newTotal,
+              rows: rows,
+              startLabel: reviews ? 'Start Reviews' : 'Start New Questions',
+              busy: _startingQuestions,
+              onStart: (reviews
+                      ? data.reviewSizes.isNotEmpty
+                      : data.newQuestions.isNotEmpty)
+                  ? () => unawaited(_startQuestions(examId, kind, work: data))
+                  : null,
+              failure: _questionFailed
+                  ? StateView(
+                      message: 'Could not start your quiz.',
+                      onRetry: () =>
+                          unawaited(_startQuestions(examId, kind, work: data)),
+                    )
+                  : null,
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _sheetRow(String title, int done, int total) => ListRow(
+        title: title,
+        titleWidget: Text(
+          title,
+          style: context.type.body.copyWith(fontSize: 16, height: 1.35),
+        ),
+        value: '$total',
+        valueStyle: context.type.subhead.copyWith(
+          fontSize: 14,
+          color: context.colors.secondaryLabel,
+          fontFeatures: const [FontFeature.tabularFigures()],
+        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 9),
+        minimumHeight: 0,
+        verticalPadding: 9,
+        leading: total > 0 && done == total
+            ? const CheckMark()
+            : ProgressRing(fraction: total == 0 ? 0 : done / total),
+        variant: ListRowVariant.value,
+      );
+
+  void _captureQuestions(String examId) {
+    final generation = _questionGeneration;
+    _questionGuard = ref.read(todayQuestionLauncherProvider).captureGuard(
+          examId,
+          isAlive: () =>
+              mounted &&
+              generation == _questionGeneration &&
+              ref
+                      .read(activeExamFocusProvider)
+                      .unwrapPrevious()
+                      .asData
+                      ?.value
+                      .exam
+                      ?.id ==
+                  examId,
+        );
+  }
+
+  Future<void> _startQuestions(
+    String examId,
+    TodayQuestionKind kind, {
+    TodayQuestionWork? work,
+  }) async {
+    if (_startingQuestions) return;
+    final generation = _questionGeneration;
+    bool current() =>
+        mounted &&
+        generation == _questionGeneration &&
+        ref
+                .read(activeExamFocusProvider)
+                .unwrapPrevious()
+                .asData
+                ?.value
+                .exam
+                ?.id ==
+            examId;
+    setState(() {
+      _startingQuestions = true;
+      _questionFailed = false;
+    });
+    try {
+      final launcher = ref.read(todayQuestionLauncherProvider);
+      if (_questionGuard == null) _captureQuestions(examId);
+      final data =
+          work ?? await launcher.load(examId, originalGuard: _questionGuard);
+      if (!current()) return;
+      await launcher.start(data, kind: kind, isAlive: current);
+      if (!current()) return;
+      _dismissQuestions();
+      await _open('/quiz/resume/${Uri.encodeComponent(examId)}');
+    } on Object {
+      if (current()) setState(() => _questionFailed = true);
+    } finally {
+      if (current()) setState(() => _startingQuestions = false);
+    }
   }
 
   Widget _entry(int delay, Widget child) {
@@ -297,18 +510,35 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           ),
           data: (n) => Column(
             children: [
-              _todayRow(
-                'Reviews',
-                'Questions due today',
-                n.reviewsDone,
-                n.reviewsTotal,
-                paused: state is SessionPanelInProgress,
+              TodayQuestionRow(
+                title: 'Reviews',
+                subtitle: state is SessionPanelInProgress &&
+                        state.reviewSession != null
+                    ? 'Session ${state.reviewSession!.ordinal} '
+                        'of ${state.reviewSession!.total}'
+                    : 'Questions due today',
+                done: state is SessionPanelInProgress &&
+                        state.reviewSession != null
+                    ? state.reviewSession!.done
+                    : n.reviewsDone,
+                total: state is SessionPanelInProgress &&
+                        state.reviewSession != null
+                    ? state.reviewSession!.questions
+                    : n.reviewsTotal,
+                fillDelay: Duration(
+                  milliseconds: state is SessionPanelInProgress ? 600 : 500,
+                ),
+                onTap: () => _showQuestions(examId, TodayQuestionKind.reviews),
               ),
-              _todayRow(
-                'New questions',
-                "From today's lessons",
-                n.newDone,
-                n.newTotal,
+              TodayQuestionRow(
+                title: 'New questions',
+                divider: false,
+                subtitle: "From today's lessons",
+                done: n.newDone,
+                total: n.newTotal,
+                fillDelay: const Duration(milliseconds: 620),
+                onTap: () =>
+                    _showQuestions(examId, TodayQuestionKind.newQuestions),
               ),
             ],
           ),
@@ -352,45 +582,29 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                         .copyWith(color: context.colors.secondaryLabel),
                   ),
                 ),
-              // W4b supplies the real Reviews/New launch contracts. The mixed
-              // legacy Today plan cannot truthfully stand in for either one.
+              if (state is SessionPanelAvailable &&
+                  (counts.unwrapPrevious().asData?.value.reviewsTotal ?? 0) >
+                      (counts.unwrapPrevious().asData?.value.reviewsDone ?? 0))
+                PantasButton(
+                  label: 'Continue Reviews',
+                  busy: _startingQuestions,
+                  onPressed: () => unawaited(
+                    _startQuestions(examId, TodayQuestionKind.reviews),
+                  ),
+                ),
+              if (_questionFailed && _questionSheet == null)
+                StateView(
+                  message: 'Could not start your quiz.',
+                  onRetry: () => unawaited(
+                    _startQuestions(examId, TodayQuestionKind.reviews),
+                  ),
+                ),
             ],
           ),
         ),
       ],
     );
   }
-
-  Widget _todayRow(
-    String label,
-    String detail,
-    int done,
-    int total, {
-    bool paused = false,
-  }) =>
-      ListRow(
-        title: label, subtitle: detail, value: '$done of $total',
-        valueStyle: context.type.subhead.copyWith(
-          fontWeight: FontWeight.w500,
-          color: context.colors.secondaryLabel,
-          fontFeatures: const [FontFeature.tabularFigures()],
-        ),
-        titleColor:
-            total > 0 && done == total ? context.colors.secondaryLabel : null,
-        // W4b owns the shared Today sheets. Add the controls
-        // after that contract lands.
-        variant: ListRowVariant.value,
-        leading: total > 0 && done == total
-            ? const CheckMark()
-            : ProgressRing(
-                fraction: total == 0 ? 0 : done / total,
-                fillDuration: const Duration(milliseconds: 700),
-                fillDelay: Duration(
-                  milliseconds: label == 'Reviews' ? (paused ? 600 : 500) : 620,
-                ),
-              ),
-        divider: true,
-      );
 
   Future<void> _discard(String examId) async {
     if (_discarding) return;
