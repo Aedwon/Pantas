@@ -4,7 +4,7 @@ class StrictModeLifecycle {
     required void Function() onForfeit,
   }) : _onForfeit = onForfeit;
 
-  static const guardDelay = Duration(seconds: 5);
+  static const guardDelay = Duration(seconds: 10);
 
   final bool strictMode;
   final void Function() _onForfeit;

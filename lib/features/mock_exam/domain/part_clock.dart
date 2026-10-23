@@ -5,7 +5,7 @@ enum ClockUrgency { ample, closing, last }
 /// Minutes remaining at which the proctor speaks. Descending, because a
 /// clock that jumped past two of them must report the one the student is
 /// actually at.
-const callThresholdsMinutes = [1, 5, 10, 20];
+const callThresholdsMinutes = [1, 5, 10];
 
 Duration remainingInPart({
   required Duration partLength,

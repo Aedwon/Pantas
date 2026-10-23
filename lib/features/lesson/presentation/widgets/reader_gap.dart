@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class ReaderGap extends StatelessWidget {
   const ReaderGap({
@@ -17,72 +19,81 @@ class ReaderGap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final still = MediaQuery.disableAnimationsOf(context);
     final colors = context.colors;
-    final textStyles = context.textStyles;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (isRead) ...[
-            Row(
-              children: [
-                Text(
-                  '✓',
-                  style: textStyles.bodyMedium.copyWith(
-                    color: colors.board,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 6),
-                Text(
-                  'Read',
-                  style: textStyles.bodyMedium.copyWith(
-                    color: colors.ink,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const Spacer(),
-                Text(
-                  'marked automatically',
-                  style: textStyles.bodySmall.copyWith(
-                    fontSize: 11.5,
-                    color: colors.inkMuted,
-                  ),
-                ),
-              ],
+    final readLine = Row(
+      children: [
+        CustomPaint(
+          key: const ValueKey('reader-read-check'),
+          size: const Size(18, 18),
+          painter: _ReadCheckPainter(colors.accent),
+        ),
+        const SizedBox(width: 8),
+        Text(
+          'Read',
+          style: context.type.subhead.copyWith(
+            fontWeight: FontWeight.w500,
+            color: colors.label,
+          ),
+        ),
+      ],
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (isRead)
+          TweenAnimationBuilder<double>(
+            key: ValueKey(lessonId),
+            tween: Tween(begin: still ? 1 : 0, end: 1),
+            duration: still ? Duration.zero : const Duration(milliseconds: 350),
+            curve: PantasCurves.popB,
+            child: readLine,
+            builder: (_, value, child) => Transform.scale(
+              alignment: Alignment.centerLeft,
+              scale: .6 + .4 * value,
+              child: Opacity(opacity: value.clamp(0.0, 1.0), child: child),
             ),
-            const SizedBox(height: 20),
-          ],
-          if (examId != null)
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: () => context.push('/quiz/inline/$examId/$lessonId'),
-                borderRadius: BorderRadius.circular(5),
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 11,
-                    horizontal: 15,
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: colors.ink),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Text(
-                    'Quiz yourself, 5 questions',
-                    textAlign: TextAlign.center,
-                    style: textStyles.labelLarge.copyWith(
-                      color: colors.ink,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+          )
+        else
+          SizedBox(height: MediaQuery.textScalerOf(context).scale(15) * 1.35),
+        if (examId != null) ...[
+          const SizedBox(height: 18),
+          PantasButton(
+            label: 'Quiz yourself, 5 questions',
+            variant: PantasButtonVariant.neutral,
+            onPressed: () =>
+                startLessonQuiz(context, lessonId, examId: examId!),
+          ),
         ],
-      ),
+      ],
     );
   }
+}
+
+class _ReadCheckPainter extends CustomPainter {
+  const _ReadCheckPainter(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas
+      ..save()
+      ..scale(size.width / 24, size.height / 24)
+      ..drawPath(
+        Path()
+          ..moveTo(5, 12.5)
+          ..lineTo(9.5, 17)
+          ..lineTo(19, 7),
+        Paint()
+          ..color = color
+          ..strokeWidth = 2.6
+          ..style = PaintingStyle.stroke
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round,
+      )
+      ..restore();
+  }
+
+  @override
+  bool shouldRepaint(_ReadCheckPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

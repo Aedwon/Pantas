@@ -1,0 +1,6 @@
+Analyzing 3 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/half_ring_gauge.dart:244:80 • require_trailing_commas
+  error • All final variables must be initialized, but 'unselectedFontWeight' isn't. Try adding an initializer for the field • lib/core/ui/components/segmented_switch.dart:23:9 • final_not_initialized_constructor
+
+2 issues found. (ran in 6.4s)

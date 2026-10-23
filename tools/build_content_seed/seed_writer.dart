@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/sanity/parsers/diagnostic_set_parser.dart';
@@ -80,9 +81,13 @@ Future<void> writeContentSeed({
             .insertOnConflictUpdate(parseLesson(doc));
       });
       await _insertMaybeList(json['mockBlueprint'], (doc) {
-        return db
-            .into(db.contentMockBlueprints)
-            .insertOnConflictUpdate(parseMockBlueprint(doc));
+        final row = parseMockBlueprint(doc);
+        return db.into(db.contentMockBlueprints).insertOnConflictUpdate(
+              // The schema 8 table has no unscored_items column.
+              legacySchema8Fixture
+                  ? row.copyWith(unscoredItems: const Value.absent())
+                  : row,
+            );
       });
       await _insertMaybeList(json['mockExam'], (doc) {
         return db
@@ -118,4 +123,30 @@ class _Schema8ContentSeedDatabase extends ContentDatabase {
 
   @override
   int get schemaVersion => 8;
+
+  // Schema 10 added unscored_items to content_mock_blueprints. Create that
+  // table with its schema 8 definition, in the same position, so the fixture
+  // stays byte-identical.
+  static const _schema8MockBlueprints =
+      'CREATE TABLE "content_mock_blueprints" ("id" TEXT NOT NULL, '
+      '"schema_version" INTEGER NOT NULL, "is_active" INTEGER NOT NULL '
+      'DEFAULT 1 CHECK ("is_active" IN (0, 1)), "updated_at" TEXT NOT NULL, '
+      '"exam_id" TEXT NOT NULL REFERENCES content_exams (id), '
+      '"name" TEXT NOT NULL, "duration_minutes" INTEGER NOT NULL, '
+      '"sections_json" TEXT NOT NULL, "sectional_timing" TEXT NULL, '
+      '"score_bands_json" TEXT NULL, "total_published_items" INTEGER NULL, '
+      '"source" TEXT NULL, "source_note" TEXT NULL, PRIMARY KEY ("id"))';
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+        onCreate: (m) async {
+          for (final entity in allSchemaEntities) {
+            if (entity == contentMockBlueprints) {
+              await customStatement(_schema8MockBlueprints);
+            } else {
+              await m.create(entity);
+            }
+          }
+        },
+      );
 }

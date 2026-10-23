@@ -12,6 +12,8 @@ class StateView extends StatelessWidget {
     this.detail,
     this.actionLabel = 'Try Again',
     this.primaryAction = false,
+    this.boardLayout = false,
+    this.bookmarkLayout = false,
     super.key,
   }) : fullScreen = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
@@ -20,7 +22,11 @@ class StateView extends StatelessWidget {
         icon = null,
         detail = null,
         actionLabel = 'Try Again',
-        primaryAction = true;
+        primaryAction = true,
+        boardLayout = false,
+        bookmarkLayout = false;
+  final bool boardLayout;
+  final bool bookmarkLayout;
   final String message;
   final VoidCallback? onRetry;
   // Error is deliberately not rendered. Callers keep diagnostic handling.
@@ -33,27 +39,36 @@ class StateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primary = !fullScreen && primaryAction;
-    final gap = primary ? 6.0 : 14.0;
+    final compact = primary || boardLayout;
+    final gap = bookmarkLayout
+        ? 8.0
+        : compact
+            ? 6.0
+            : 14.0;
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
-          size: fullScreen
-              ? 36
-              : primary
-                  ? 40
-                  : 60,
+          size: bookmarkLayout
+              ? 34
+              : fullScreen
+                  ? 36
+                  : compact
+                      ? 40
+                      : 60,
           color: fullScreen
               ? context.colors.secondaryLabel
               : context.colors.chevron,
         ),
         child: SizedBox.square(
           key: const ValueKey('state-mark'),
-          dimension: fullScreen
-              ? 36
-              : primary
-                  ? 40
-                  : 60,
+          dimension: bookmarkLayout
+              ? 34
+              : fullScreen
+                  ? 36
+                  : compact
+                      ? 40
+                      : 60,
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
@@ -83,9 +98,17 @@ class StateView extends StatelessWidget {
           message,
           textAlign: TextAlign.center,
           style: context.type.sectionHero.copyWith(
-            fontSize: fullScreen ? 24 : 20,
+            fontSize: bookmarkLayout
+                ? 18
+                : fullScreen
+                    ? 24
+                    : 20,
             height: fullScreen ? 1.25 : 1.35,
-            letterSpacing: fullScreen ? -.288 : -.2,
+            letterSpacing: bookmarkLayout
+                ? -.216
+                : fullScreen
+                    ? -.288
+                    : -.2,
           ),
         ),
         if (fullScreen) ...[
@@ -107,7 +130,7 @@ class StateView extends StatelessWidget {
               textAlign: TextAlign.center,
               style: context.type.subhead.copyWith(
                 color: context.colors.secondaryLabel,
-                height: 1.45,
+                height: bookmarkLayout ? 1.35 : 1.45,
               ),
             ),
           ],
@@ -121,7 +144,7 @@ class StateView extends StatelessWidget {
               horizontalPadding: 26,
             ),
           ] else if (onRetry != null) ...[
-            const SizedBox(height: 20),
+            SizedBox(height: boardLayout ? 6 : 20),
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 220),
               child: PantasButton(
@@ -130,6 +153,8 @@ class StateView extends StatelessWidget {
                 height: 44,
                 fontSize: 15,
                 radius: 99,
+                fullWidth: !boardLayout,
+                horizontalPadding: boardLayout ? 22 : 16,
                 onPressed: onRetry,
               ),
             ),
@@ -137,7 +162,7 @@ class StateView extends StatelessWidget {
         ],
       ],
     );
-    if (primary) {
+    if (compact) {
       return Semantics(
         liveRegion: true,
         child: LayoutBuilder(
@@ -154,6 +179,15 @@ class StateView extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      );
+    }
+    if (bookmarkLayout) {
+      return Semantics(
+        liveRegion: true,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(36, 70, 36, 0),
+          child: content,
         ),
       );
     }

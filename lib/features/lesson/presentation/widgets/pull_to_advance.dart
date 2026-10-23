@@ -1,30 +1,43 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 class PullToAdvance extends StatefulWidget {
   const PullToAdvance({
-    required this.child,
     required this.nextTitle,
     required this.onAdvance,
     required this.isAtEnd,
     required this.lessonId,
+    this.child,
+    this.contentBuilder,
+    this.incomingChild,
+    this.destinationKey,
+    this.contentKey,
+    this.requireIncoming = false,
+    this.enabled = true,
+    this.finishDay = false,
+    this.footerPadding = const EdgeInsets.fromLTRB(0, 36, 0, 60),
+    this.onTransition,
+    this.onCommit,
     super.key,
-  });
+  }) : assert(child != null || contentBuilder != null, 'Content is required.');
 
-  final Widget child;
+  final Widget? child;
+  final Widget Function(Widget footer)? contentBuilder;
+  final Widget? incomingChild;
+  final Object? destinationKey;
+  final Object? contentKey;
+  final bool requireIncoming;
+  final bool enabled;
+  final bool finishDay;
+  final EdgeInsets footerPadding;
+  final ValueChanged<double>? onTransition;
+  final VoidCallback? onCommit;
   final String? nextTitle;
   final VoidCallback? onAdvance;
-
-  /// Changes when the lesson does, which is what tells the arriving half of
-  /// the movement that the new body is on screen.
   final String lessonId;
-
-  /// Whether the reader has reached the end of the lesson.
-  ///
-  /// The handle used to sit under every lesson from the first line, offering
-  /// the next topic to someone who had not read a word of this one. It is an
-  /// ending, so it arrives at the end.
   final ValueListenable<bool> isAtEnd;
 
   @override
@@ -32,215 +45,428 @@ class PullToAdvance extends StatefulWidget {
 }
 
 class _PullToAdvanceState extends State<PullToAdvance>
-    with SingleTickerProviderStateMixin {
-  static const _maxRange = 150.0;
+    with TickerProviderStateMixin {
   static const _threshold = 90.0;
-  static const _leaving = Duration(milliseconds: 190);
-  static const _arriving = Duration(milliseconds: 320);
-
-  /// How far the body is lifted. Positive is up, negative is below the fold.
+  late final AnimationController _motion;
+  late final AnimationController _arrow;
   double _lift = 0;
-  // Created in initState, not lazily. A `late final` initialiser runs on
-  // first touch, and the first touch is `dispose()` when the reader is
-  // closed without ever being pulled, which asks a deactivated state for a
-  // ticker.
-  late final AnimationController _controller;
-  // ignore: use_late_for_private_fields_and_variables
-  Animation<double>? _liftAnimation;
+  double _from = 0;
+  double _to = 0;
   bool _committing = false;
+  bool _holding = false;
+  bool _still = false;
+  bool _pointerCanceled = false;
+  bool _settling = false;
+  Widget? _incoming;
+  Object? _destination;
+  VoidCallback? _advance;
 
-  bool get _hasHandle =>
+  Object get _content => widget.contentKey ?? widget.lessonId;
+  Object? get _next => widget.destinationKey ?? widget.nextTitle;
+  bool get _busy => _committing || _holding;
+  bool get _armed => !_settling && _lift >= _threshold;
+  bool get _hasDestination =>
       widget.nextTitle != null &&
       widget.onAdvance != null &&
-      widget.isAtEnd.value;
-  bool get _isArmed => _lift >= _threshold;
+      (!widget.requireIncoming || widget.incomingChild != null);
+  bool get _hasHandle =>
+      widget.enabled && _hasDestination && widget.isAtEnd.value;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: _leaving);
+    _motion = AnimationController(vsync: this)
+      ..addListener(_tick)
+      ..addStatusListener(_status);
+    _arrow = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 260),
+    );
+    widget.isAtEnd.addListener(_endChanged);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _still = MediaQuery.disableAnimationsOf(context);
+    if (_still) {
+      _arrow
+        ..stop()
+        ..value = _armed ? 1 : 0;
+      if (_motion.isAnimating) {
+        // Complete after dependencies rebuild to keep the parent handoff safe.
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && _still && _motion.isAnimating) _motion.value = 1;
+        });
+      }
+    }
+  }
+
+  @override
+  void didUpdateWidget(PullToAdvance oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.isAtEnd != widget.isAtEnd) {
+      oldWidget.isAtEnd.removeListener(_endChanged);
+      widget.isAtEnd.addListener(_endChanged);
+    }
+    if (!widget.enabled ||
+        (oldWidget.contentKey ?? oldWidget.lessonId) != _content ||
+        (_busy && _destination != _next)) {
+      _reset(notify: false);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && !_busy) widget.onTransition?.call(0);
+      });
+    }
+  }
+
+  void _reset({bool notify = true}) {
+    _motion.stop();
+    _arrow
+      ..stop()
+      ..value = 0;
+    _lift = 0;
+    _settling = false;
+    _committing = false;
+    _holding = false;
+    _incoming = null;
+    _advance = null;
+    if (notify) widget.onTransition?.call(0);
+  }
+
+  void _endChanged() {
+    if (!mounted) return;
+    setState(() {
+      if (!widget.isAtEnd.value) _reset();
+    });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    widget.isAtEnd.removeListener(_endChanged);
+    _motion.dispose();
+    _arrow.dispose();
     super.dispose();
   }
 
-  @override
-  void didUpdateWidget(covariant PullToAdvance oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    // The new lesson is mounted. Bring it up from below, which is the second
-    // half of the movement the hand started.
-    if (_committing && oldWidget.lessonId != widget.lessonId) {
-      _committing = false;
-      _run(from: -_viewportHeight, to: 0, duration: _arriving);
-    }
+  void _tick() {
+    if (!mounted) return;
+    final fraction = PantasCurves.slideA.transform(_motion.value);
+    setState(() => _lift = _from + (_to - _from) * fraction);
+    if (_committing) widget.onTransition?.call(_motion.value);
+    if (_committing && _motion.value == 1) _status(AnimationStatus.completed);
   }
 
-  double get _viewportHeight {
-    final box = context.findRenderObject() as RenderBox?;
-    return box?.size.height ?? 600;
-  }
-
-  void _run({
-    required double from,
-    required double to,
-    required Duration duration,
-    VoidCallback? whenDone,
-  }) {
-    if (MediaQuery.disableAnimationsOf(context)) {
-      _controller.stop();
-      setState(() => _lift = to);
-      whenDone?.call();
+  void _status(AnimationStatus status) {
+    if (status != AnimationStatus.completed || !_committing || !mounted) return;
+    _motion.stop();
+    final callback = _advance;
+    if (_destination != _next || !_hasHandle) {
+      setState(_reset);
       return;
     }
-    _controller
-      ..stop()
-      ..duration = duration
-      ..reset();
-    _liftAnimation = Tween<double>(begin: from, end: to).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
-    )..addListener(() {
-        setState(() => _lift = _liftAnimation!.value);
-      });
-    _controller.forward().whenComplete(() {
-      if (mounted) whenDone?.call();
-    });
-  }
-
-  void _onVerticalDragUpdate(DragUpdateDetails details) {
-    if (!_hasHandle || _committing) return;
     setState(() {
-      _lift = (_lift - details.delta.dy).clamp(0.0, _maxRange);
+      _committing = false;
+      _holding = _incoming != null;
     });
+    callback?.call();
   }
 
-  void _onVerticalDragEnd(DragEndDetails details) {
-    if (!_hasHandle || _committing) return;
-    if (!_isArmed) {
-      _run(from: _lift, to: 0, duration: _leaving);
-      return;
+  void _run(double to, Duration duration) {
+    _motion.stop();
+    _from = _lift;
+    _to = to;
+    _motion.duration = duration;
+    if (_still) {
+      _motion.value = 0;
+      _motion.value = 1;
+    } else {
+      _motion.forward(from: 0);
     }
-    _commitAdvance();
   }
 
-  void _commitAdvance() {
-    if (!_hasHandle || _committing) return;
-    // The hand let go mid-movement, so the body finishes leaving before the
-    // next one starts arriving. The bar and the rail never move: they
-    // describe the reader, not the lesson.
+  void _drag(DragUpdateDetails details) {
+    if (!_hasHandle || _busy) return;
+    _motion.stop();
+    _settling = false;
+    final wasArmed = _armed;
+    setState(() => _lift = (_lift - details.delta.dy).clamp(0.0, 150.0));
+    if (wasArmed != _armed) {
+      if (_armed && !_still) {
+        _arrow.forward(from: 0);
+      } else {
+        _arrow
+          ..stop()
+          ..value = _armed ? 1 : 0;
+      }
+    }
+  }
+
+  void _cancel() {
+    if (!mounted || _busy || _lift == 0) return;
+    _arrow
+      ..stop()
+      ..value = 0;
+    setState(() => _settling = true);
+    _run(0, const Duration(milliseconds: 190));
+  }
+
+  void _release(DragEndDetails details) {
+    if (!_hasHandle || _busy) return;
+    if (_pointerCanceled) return _cancel();
+    if (_armed) {
+      _commit();
+    } else {
+      _cancel();
+    }
+  }
+
+  void _commit() {
+    if (!_hasHandle || _busy) return;
+    final box = context.findRenderObject()! as RenderBox;
+    _incoming = widget.incomingChild;
+    _destination = _next;
+    _advance = widget.onAdvance;
     _committing = true;
-    _run(
-      from: _lift,
-      to: _viewportHeight,
-      duration: _leaving,
-      whenDone: () => widget.onAdvance?.call(),
+    widget.onCommit?.call();
+    _run(box.size.height + _lift, const Duration(milliseconds: 480));
+  }
+
+  Widget _footer(BuildContext context) {
+    if (!_hasDestination) return const SizedBox(width: double.infinity);
+    final colors = context.colors;
+    final arrowColor = Theme.of(context).brightness == Brightness.dark
+        ? colors.controlOutline
+        : const Color(0xFF8E8E93);
+    final duration = _still ? Duration.zero : const Duration(milliseconds: 150);
+    Widget label({required bool armed}) => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              widget.finishDay
+                  ? (armed
+                      ? 'Let go to finish today'
+                      : 'Pull up to finish today')
+                  : armed
+                      ? 'Let go for'
+                      : 'Pull up for',
+              textAlign: TextAlign.center,
+              style:
+                  context.type.subhead.copyWith(color: colors.secondaryLabel),
+            ),
+            if (!widget.finishDay) ...[
+              const SizedBox(height: 2),
+              Text(
+                widget.nextTitle!,
+                textAlign: TextAlign.center,
+                style: context.type.subhead.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: armed ? colors.accent : colors.label,
+                ),
+              ),
+            ],
+          ],
+        );
+    return Visibility(
+      visible: _hasHandle,
+      maintainSize: true,
+      maintainState: true,
+      maintainAnimation: true,
+      child: Padding(
+        padding: widget.footerPadding,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Semantics(
+              button: true,
+              label: widget.finishDay
+                  ? 'Finish today'
+                  : 'Next lesson: ${widget.nextTitle}',
+              onTap: _commit,
+              child: ExcludeSemantics(
+                child: GestureDetector(
+                  onTap: _commit,
+                  behavior: HitTestBehavior.opaque,
+                  child: SizedBox.square(
+                    dimension: 44,
+                    key: const ValueKey('pull-handle'),
+                    child: ProgressRing.pull(
+                      fraction: (_lift / _threshold).clamp(0.0, 1.0),
+                      child: AnimatedBuilder(
+                        animation: _arrow,
+                        builder: (_, __) {
+                          final t = _arrow.value * 260;
+                          final scale = t <= 90
+                              ? 1 + .2 * PantasCurves.easeOut.transform(t / 90)
+                              : 1.2 -
+                                  .2 *
+                                      PantasCurves.easeOut
+                                          .transform((t - 90) / 170);
+                          return Transform.scale(
+                            scale: scale,
+                            child: CustomPaint(
+                              size: const Size(20, 20),
+                              painter: _PullArrowPainter(
+                                color: Color.lerp(
+                                  arrowColor,
+                                  colors.accent,
+                                  _armed
+                                      ? PantasCurves.easeOut
+                                          .transform((t / 90).clamp(0.0, 1.0))
+                                      : 0,
+                                )!,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                AnimatedOpacity(
+                  duration: duration,
+                  opacity: _armed ? 0 : 1,
+                  child: ExcludeSemantics(
+                    excluding: _armed,
+                    child: label(armed: false),
+                  ),
+                ),
+                AnimatedOpacity(
+                  duration: duration,
+                  opacity: _armed ? 1 : 0,
+                  child: ExcludeSemantics(
+                    excluding: !_armed,
+                    child: label(armed: true),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final textStyles = context.textStyles;
-    final animationDuration = MediaQuery.disableAnimationsOf(context)
-        ? Duration.zero
-        : const Duration(milliseconds: 260);
-    final handleDuration = MediaQuery.disableAnimationsOf(context)
-        ? Duration.zero
-        : const Duration(milliseconds: 120);
-
-    Widget footer() => !_hasHandle
-        ? const SizedBox(width: double.infinity)
-        : AnimatedOpacity(
-            opacity: 1,
-            duration: animationDuration,
-            child: Semantics(
-              button: true,
-              label: 'Next lesson: ${widget.nextTitle}',
-              onTap: _commitAdvance,
-              child: ExcludeSemantics(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 16,
-                  ),
-                  alignment: Alignment.center,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      AnimatedContainer(
-                        key: const ValueKey('pull-handle'),
-                        duration: handleDuration,
-                        width: _isArmed ? 52 : 36,
-                        height: 3,
-                        decoration: BoxDecoration(
-                          color: _isArmed ? colors.board : colors.rule,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Pull up for ',
-                              style: textStyles.bodySmall.copyWith(
-                                color: colors.inkMuted,
-                              ),
+    final footer = _footer(context);
+    final body = widget.contentBuilder?.call(footer) ??
+        Column(
+          children: [
+            Expanded(child: widget.child!),
+            footer,
+          ],
+        );
+    final fraction = _holding
+        ? 1.0
+        : _committing
+            ? PantasCurves.slideA.transform(_motion.value)
+            : 0.0;
+    return Listener(
+      onPointerDown: (_) => _pointerCanceled = false,
+      onPointerCancel: (_) => _pointerCanceled = true,
+      child: GestureDetector(
+        onVerticalDragUpdate: _drag,
+        onVerticalDragEnd: _release,
+        onVerticalDragCancel: _cancel,
+        behavior: HitTestBehavior.translucent,
+        excludeFromSemantics: true,
+        child: ClipRect(
+          child: LayoutBuilder(
+            builder: (_, constraints) => Stack(
+              children: [
+                Positioned.fill(
+                  child: Transform.translate(
+                    key: const ValueKey('pull-outgoing'),
+                    offset: Offset(0, -_lift),
+                    child: NotificationListener<ScrollNotification>(
+                      onNotification: (notification) {
+                        if (notification.depth != 0) return false;
+                        if (notification is OverscrollNotification &&
+                            notification.dragDetails != null &&
+                            notification.overscroll > 0) {
+                          _drag(
+                            DragUpdateDetails(
+                              globalPosition:
+                                  notification.dragDetails!.globalPosition,
+                              delta: Offset(0, -notification.overscroll),
                             ),
-                            TextSpan(
-                              text: widget.nextTitle,
-                              style: textStyles.bodySmall.copyWith(
-                                color: _isArmed ? colors.board : colors.ink,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          );
+                        } else if (notification is ScrollUpdateNotification &&
+                            notification.dragDetails != null &&
+                            notification.metrics.pixels >
+                                notification.metrics.maxScrollExtent &&
+                            (notification.scrollDelta ?? 0) > 0) {
+                          _drag(
+                            DragUpdateDetails(
+                              globalPosition:
+                                  notification.dragDetails!.globalPosition,
+                              delta: Offset(0, -notification.scrollDelta!),
                             ),
-                          ],
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                          );
+                        } else if (notification is ScrollEndNotification &&
+                            _lift > 0 &&
+                            !_busy) {
+                          _release(DragEndDetails());
+                        }
+                        return false;
+                      },
+                      child: body,
+                    ),
                   ),
                 ),
-              ),
+                if (_incoming != null)
+                  Positioned.fill(
+                    child: Transform.translate(
+                      key: const ValueKey('pull-incoming'),
+                      offset: Offset(0, constraints.maxHeight * (1 - fraction)),
+                      child: ExcludeFocus(
+                        child: ExcludeSemantics(
+                          child: IgnorePointer(child: _incoming),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
-          );
-
-    return GestureDetector(
-      onVerticalDragUpdate: _onVerticalDragUpdate,
-      onVerticalDragEnd: _onVerticalDragEnd,
-      behavior: HitTestBehavior.translucent,
-      excludeFromSemantics: true,
-      // Clipped to its own box. The lift paints outside its bounds
-      // otherwise, so a pulled sheet slid its first lines up over the reader
-      // bar and off the top of the screen instead of disappearing under it,
-      // which is what the same text does when you simply scroll.
-      child: ClipRect(
-        child: Transform.translate(
-          offset: Offset(0, -_lift),
-          child: Column(
-            children: [
-              Expanded(child: widget.child),
-              // Fades and grows in as the end comes into view rather than
-              // appearing outright, so the arrival is part of the reading.
-              ValueListenableBuilder<bool>(
-                valueListenable: widget.isAtEnd,
-                builder: (context, _, __) {
-                  final child = footer();
-                  if (MediaQuery.disableAnimationsOf(context)) return child;
-                  return AnimatedSize(
-                    duration: animationDuration,
-                    curve: Curves.easeOutCubic,
-                    alignment: Alignment.topCenter,
-                    child: child,
-                  );
-                },
-              ),
-            ],
           ),
         ),
       ),
     );
   }
+}
+
+class _PullArrowPainter extends CustomPainter {
+  const _PullArrowPainter({required this.color});
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas
+      ..save()
+      ..scale(size.width / 24, size.height / 24)
+      ..drawPath(
+        Path()
+          ..moveTo(12, 19)
+          ..lineTo(12, 5)
+          ..moveTo(6, 11)
+          ..lineTo(12, 5)
+          ..lineTo(18, 11),
+        Paint()
+          ..color = color
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2.2
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round,
+      )
+      ..restore();
+  }
+
+  @override
+  bool shouldRepaint(_PullArrowPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

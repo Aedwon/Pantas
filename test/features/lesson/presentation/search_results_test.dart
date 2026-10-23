@@ -72,19 +72,23 @@ void main() {
   testWidgets('the kicker counts the matches', (tester) async {
     await pumpResults(tester, hits: 3);
 
-    expect(find.text('3 lessons'), findsOneWidget);
+    expect(find.text('3 LESSONS'), findsOneWidget);
   });
 
-  testWidgets('one match says lesson, not lessons', (tester) async {
+  testWidgets('one match uses the singular uppercase label', (tester) async {
     await pumpResults(tester);
 
-    expect(find.text('1 lesson'), findsOneWidget);
+    expect(find.text('1 LESSON'), findsOneWidget);
   });
 
   testWidgets('a title match is weighted, not filled', (tester) async {
     await pumpResults(tester);
 
-    final title = tester.widget<RichText>(find.byType(RichText).at(1));
+    final title = tester.widget<RichText>(
+      find.byWidgetPredicate(
+        (w) => w is RichText && w.text.toPlainText() == 'Venn diagrams',
+      ),
+    );
     final leafSpans = <TextSpan>[];
     void collect(TextSpan span) {
       if (span.text != null) leafSpans.add(span);
@@ -111,13 +115,13 @@ void main() {
   testWidgets('an empty query offers the recently opened', (tester) async {
     await pumpResults(tester, query: '', recent: 2);
 
-    expect(find.text('Recently opened'), findsOneWidget);
+    expect(find.text('RECENTLY OPENED'), findsOneWidget);
   });
 
   testWidgets('no matches names what was typed', (tester) async {
     await pumpResults(tester, query: 'swap', hits: 0);
 
-    expect(find.text('Nothing matched "swap"'), findsOneWidget);
+    expect(find.text('Nothing matched “swap”'), findsOneWidget);
     expect(find.text('Try a shorter word, or part of one.'), findsOneWidget);
   });
 }

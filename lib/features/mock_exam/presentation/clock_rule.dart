@@ -13,7 +13,7 @@ class ClockRule extends StatelessWidget implements PreferredSizeWidget {
   final Duration partLength;
 
   @override
-  Size get preferredSize => const Size.fromHeight(1.6);
+  Size get preferredSize => const Size.fromHeight(5);
 
   @override
   Widget build(BuildContext context) {
@@ -22,32 +22,31 @@ class ClockRule extends StatelessWidget implements PreferredSizeWidget {
         remainingFraction(partLength: partLength, remaining: remaining);
     final colors = context.colors;
 
-    final double height;
-    final Color color;
+    const height = 5.0;
+    final color = switch (urgency) {
+      ClockUrgency.ample => colors.accentFill,
+      ClockUrgency.closing => colors.warningText,
+      ClockUrgency.last => colors.wrongText,
+    };
 
-    switch (urgency) {
-      case ClockUrgency.ample:
-        height = 1.0;
-        color = colors.ink.withValues(alpha: 0.55);
-      case ClockUrgency.closing:
-        height = 1.6;
-        color = colors.ink;
-      case ClockUrgency.last:
-        height = 1.6;
-        color = colors.amber;
-    }
-
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: FractionallySizedBox(
-        key: const Key('clock-rule-fill'),
-        widthFactor: fraction,
-        child: Container(
-          key: const Key('clock-rule-bar'),
-          height: height,
-          constraints: BoxConstraints(maxHeight: height),
-          decoration: BoxDecoration(
-            color: color,
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: colors.fill,
+        borderRadius: BorderRadius.circular(99),
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: FractionallySizedBox(
+          key: const Key('clock-rule-fill'),
+          widthFactor: fraction,
+          child: Container(
+            key: const Key('clock-rule-bar'),
+            height: height,
+            constraints: const BoxConstraints(maxHeight: height),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(99),
+            ),
           ),
         ),
       ),

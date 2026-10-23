@@ -11,12 +11,18 @@ class SearchField extends StatefulWidget {
     this.hint = 'Search',
     this.title,
     this.controller,
+    this.onEditingChanged,
+    this.titleInset = 0,
+    this.fieldEntryDelay,
     super.key,
   });
   final ValueChanged<String> onChanged;
   final String hint;
   final String? title;
   final TextEditingController? controller;
+  final ValueChanged<bool>? onEditingChanged;
+  final double titleInset;
+  final Duration? fieldEntryDelay;
   @override
   State<SearchField> createState() => _SearchFieldState();
 }
@@ -33,7 +39,10 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   void _focusChanged() {
-    if (_focus.hasFocus && !_editing) setState(() => _editing = true);
+    if (_focus.hasFocus && !_editing) {
+      setState(() => _editing = true);
+      widget.onEditingChanged?.call(true);
+    }
   }
 
   @override
@@ -85,6 +94,34 @@ class _SearchFieldState extends State<SearchField> {
         ],
       ),
     );
+    final delay = widget.fieldEntryDelay?.inMilliseconds;
+    final enteringField = delay == null
+        ? field
+        : TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: 1),
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : Duration(milliseconds: delay + 450),
+            curve: Interval(
+              delay / (delay + 450),
+              1,
+              curve: PantasCurves.houseOut,
+            ),
+            builder: (context, value, child) => ExcludeFocus(
+              excluding: value == 0,
+              child: ExcludeSemantics(
+                excluding: value == 0,
+                child: Opacity(
+                  opacity: value,
+                  child: Transform.translate(
+                    offset: Offset(0, 12 * (1 - value)),
+                    child: child,
+                  ),
+                ),
+              ),
+            ),
+            child: field,
+          );
     final cancel = TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: _editing ? 1 : 0),
       duration: duration,
@@ -110,6 +147,7 @@ class _SearchFieldState extends State<SearchField> {
           widget.onChanged('');
           FocusManager.instance.primaryFocus?.unfocus();
           setState(() => _editing = false);
+          widget.onEditingChanged?.call(false);
         },
         child: Text(
           'Cancel',
@@ -139,11 +177,11 @@ class _SearchFieldState extends State<SearchField> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 14),
+              padding: EdgeInsets.only(left: widget.titleInset, bottom: 14),
               child: Text(widget.title!, style: context.type.largeTitle),
             ),
           ),
-        Row(children: [Expanded(child: field), cancel]),
+        Row(children: [Expanded(child: enteringField), cancel]),
       ],
     );
   }

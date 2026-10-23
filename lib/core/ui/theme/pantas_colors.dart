@@ -12,6 +12,7 @@ class PantasColors extends AppColors {
     required this.disabledActionLabel,
     required this.separator,
     required this.fill,
+    required this.onFillLabel,
     required this.skeleton,
     required this.chevron,
     required this.accent,
@@ -35,6 +36,7 @@ class PantasColors extends AppColors {
     required this.onAccent,
     required this.onDestructive,
     required this.figureBackground,
+    required this.readerFigureBackground,
     required this.figureViewerBackground,
     required this.onFigureViewer,
     required this.floatingRight,
@@ -57,6 +59,8 @@ class PantasColors extends AppColors {
   final Color disabledActionLabel;
   final Color separator;
   final Color fill;
+  // ST_TopicOpen Today, lead ruling October 12: secondary text on fill.
+  final Color onFillLabel;
   final Color skeleton;
   final Color chevron;
   final Color accent;
@@ -92,6 +96,8 @@ class PantasColors extends AppColors {
   final Color onDestructive;
   // QV_Figure and RD_Figure retain white backing in dark mode.
   final Color figureBackground;
+  // RD_Real: illustrations retain their printed background in either mode.
+  final Color readerFigureBackground;
   // RD_Figure expanded viewer.
   final Color figureViewerBackground;
   // RD_Figure viewer controls.
@@ -122,6 +128,7 @@ class PantasColors extends AppColors {
     disabledActionLabel: Color(0xFFB8B8BD),
     separator: Color(0xFFE3E3E8),
     fill: Color(0xFFEDEDF0),
+    onFillLabel: Color(0xFF636366),
     skeleton: Color(0xFFE6E6EA),
     chevron: Color(0xFFC7C7CC),
     accent: Color(0xFF0B7A68),
@@ -145,6 +152,7 @@ class PantasColors extends AppColors {
     onAccent: Color(0xFFFFFFFF),
     onDestructive: Color(0xFFFFFFFF),
     figureBackground: Color(0xFFFFFFFF),
+    readerFigureBackground: Color(0xFFFAFAF7),
     figureViewerBackground: Color(0xFF000000),
     onFigureViewer: Color(0xFFFFFFFF),
     floatingRight: Color(0xFFEFF7F5),
@@ -166,6 +174,7 @@ class PantasColors extends AppColors {
     disabledActionLabel: Color(0xFF5A5A5E),
     separator: Color(0xFF38383A),
     fill: Color(0xFF2C2C2E),
+    onFillLabel: Color(0xFF98989D),
     skeleton: Color(0xFF2C2C2E),
     chevron: Color(0xFF48484A),
     accent: Color(0xFF2FB39C),
@@ -189,6 +198,7 @@ class PantasColors extends AppColors {
     onAccent: Color(0xFF1C1C1E),
     onDestructive: Color(0xFFFFFFFF),
     figureBackground: Color(0xFFFFFFFF),
+    readerFigureBackground: Color(0xFFFAFAF7),
     figureViewerBackground: Color(0xFF000000),
     onFigureViewer: Color(0xFFFFFFFF),
     floatingRight: Color(0xFF123F37),
@@ -256,6 +266,7 @@ class PantasColors extends AppColors {
     Color? disabledActionLabel,
     Color? separator,
     Color? fill,
+    Color? onFillLabel,
     Color? skeleton,
     Color? chevron,
     Color? accent,
@@ -279,6 +290,7 @@ class PantasColors extends AppColors {
     Color? onAccent,
     Color? onDestructive,
     Color? figureBackground,
+    Color? readerFigureBackground,
     Color? figureViewerBackground,
     Color? onFigureViewer,
     Color? floatingRight,
@@ -308,6 +320,7 @@ class PantasColors extends AppColors {
         disabledActionLabel: disabledActionLabel ?? this.disabledActionLabel,
         separator: separator ?? rule ?? this.separator,
         fill: fill ?? ruleFaint ?? this.fill,
+        onFillLabel: onFillLabel ?? this.onFillLabel,
         skeleton: skeleton ?? this.skeleton,
         chevron: chevron ?? this.chevron,
         accent: accent ?? board ?? this.accent,
@@ -331,6 +344,8 @@ class PantasColors extends AppColors {
         onAccent: onAccent ?? this.onAccent,
         onDestructive: onDestructive ?? this.onDestructive,
         figureBackground: figureBackground ?? this.figureBackground,
+        readerFigureBackground:
+            readerFigureBackground ?? this.readerFigureBackground,
         figureViewerBackground:
             figureViewerBackground ?? this.figureViewerBackground,
         onFigureViewer: onFigureViewer ?? this.onFigureViewer,
@@ -357,6 +372,7 @@ class PantasColors extends AppColors {
           Color.lerp(disabledActionLabel, other.disabledActionLabel, t)!,
       separator: Color.lerp(separator, other.separator, t)!,
       fill: Color.lerp(fill, other.fill, t)!,
+      onFillLabel: Color.lerp(onFillLabel, other.onFillLabel, t)!,
       skeleton: Color.lerp(skeleton, other.skeleton, t)!,
       chevron: Color.lerp(chevron, other.chevron, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
@@ -382,6 +398,8 @@ class PantasColors extends AppColors {
       onDestructive: Color.lerp(onDestructive, other.onDestructive, t)!,
       figureBackground:
           Color.lerp(figureBackground, other.figureBackground, t)!,
+      readerFigureBackground:
+          Color.lerp(readerFigureBackground, other.readerFigureBackground, t)!,
       figureViewerBackground:
           Color.lerp(figureViewerBackground, other.figureViewerBackground, t)!,
       onFigureViewer: Color.lerp(onFigureViewer, other.onFigureViewer, t)!,

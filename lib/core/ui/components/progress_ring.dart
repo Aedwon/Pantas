@@ -13,7 +13,37 @@ class ProgressRing extends StatefulWidget {
     this.fillDuration,
     this.fillDelay = Duration.zero,
     super.key,
-  }) : assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+    this.delay = Duration.zero,
+  })  : studyStyle = false,
+        pullStyle = false,
+        assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+  const ProgressRing.study({
+    required this.fraction,
+    this.delay = Duration.zero,
+    super.key,
+  })  : size = 24,
+        child = null,
+        showCheck = false,
+        fillDuration = null,
+        fillDelay = Duration.zero,
+        pullStyle = false,
+        studyStyle = true,
+        assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+  const ProgressRing.pull({
+    required this.fraction,
+    this.child,
+    super.key,
+  })  : size = 44,
+        delay = Duration.zero,
+        showCheck = false,
+        fillDuration = null,
+        fillDelay = Duration.zero,
+        studyStyle = false,
+        pullStyle = true,
+        assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+  final bool pullStyle;
+  final bool studyStyle;
+  final Duration delay;
   final double fraction;
   final double size;
   final Widget? child;
@@ -31,6 +61,7 @@ class _ProgressRingState extends State<ProgressRing>
   late Animation<double> _check;
   bool? _still;
   _RingPainter? _painter;
+  bool _animated = false;
 
   @override
   void didChangeDependencies() {
@@ -50,23 +81,37 @@ class _ProgressRingState extends State<ProgressRing>
         oldWidget.size != widget.size ||
         oldWidget.showCheck != widget.showCheck ||
         oldWidget.fillDuration != widget.fillDuration ||
-        oldWidget.fillDelay != widget.fillDelay) {
+        oldWidget.fillDelay != widget.fillDelay ||
+        oldWidget.pullStyle != widget.pullStyle ||
+        oldWidget.studyStyle != widget.studyStyle) {
       animate(_fill.value);
     }
   }
 
   void animate(double begin) {
+    if (widget.pullStyle) {
+      _controller.stop();
+      _fill = AlwaysStoppedAnimation(widget.fraction);
+      _check = const AlwaysStoppedAnimation(0);
+      return;
+    }
     final complete = widget.fraction == 1 && widget.showCheck;
-    final delayMs = widget.fillDelay.inMilliseconds;
-    final fillMs =
-        widget.fillDuration?.inMilliseconds ?? (widget.size == 34 ? 1200 : 600);
+    final delayMs = widget.studyStyle
+        ? (!_animated ? widget.delay.inMilliseconds : 0)
+        : widget.fillDelay.inMilliseconds;
+    _animated = true;
+    final fillMs = widget.studyStyle
+        ? 700
+        : widget.fillDuration?.inMilliseconds ??
+            (widget.size == 34 ? 1200 : 600);
     final endMs = delayMs + fillMs + (complete ? 320 : 0);
     _controller.duration = Duration(milliseconds: endMs);
     _fill = _controller.drive(
       Tween(begin: begin, end: widget.fraction).chain(
         CurveTween(
           curve: Interval(
-            (delayMs + (widget.size == 34 ? 300 : 0)) / endMs,
+            (delayMs + (!widget.studyStyle && widget.size == 34 ? 300 : 0)) /
+                endMs,
             (delayMs + fillMs) / endMs,
             curve: PantasCurves.houseOut,
           ),
@@ -100,14 +145,36 @@ class _ProgressRingState extends State<ProgressRing>
 
   @override
   Widget build(BuildContext context) {
+    if (widget.pullStyle) {
+      return SizedBox.square(
+        dimension: 44,
+        child: CustomPaint(
+          key: const ValueKey('progress-ring-paint'),
+          painter: _RingPainter(
+            fraction: _fill,
+            track: context.colors.separator,
+            fill: context.colors.accent,
+            stroke: 2.5,
+            trackStroke: 2.5,
+            radius: 19,
+            cap: StrokeCap.butt,
+          ),
+          child: Center(child: widget.child),
+        ),
+      );
+    }
     final complete = widget.fraction == 1 && widget.showCheck;
     final track = widget.fraction == 0
-        ? context.colors.chevron
+        ? widget.studyStyle
+            ? context.colors.separator
+            : context.colors.chevron
         : widget.size == 34
             ? context.colors.accentTint
             : context.colors.separator;
     final stroke = widget.fraction == 0
-        ? 1.5
+        ? widget.studyStyle
+            ? 2.0
+            : 1.5
         : widget.size == 34
             ? 2.5
             : 2.4;
@@ -153,6 +220,8 @@ class _RingPainter extends CustomPainter {
     required this.fill,
     required this.stroke,
     required double trackStroke,
+    this.radius,
+    StrokeCap cap = StrokeCap.round,
   })  : trackPaint = (Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = trackStroke
@@ -160,19 +229,21 @@ class _RingPainter extends CustomPainter {
         fillPaint = (Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = stroke
-          ..strokeCap = StrokeCap.round
+          ..strokeCap = cap
           ..color = fill),
         super(repaint: fraction);
   final Animation<double> fraction;
   final Color track;
   final Color fill;
   final double stroke;
+  final double? radius;
   final Paint trackPaint;
   final Paint fillPaint;
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-    final radius = stroke == 1.5 ? size.width / 2 - .75 : size.width / 2 - 1.5;
+    final radius = this.radius ??
+        (stroke == 1.5 ? size.width / 2 - .75 : size.width / 2 - 1.5);
     canvas.drawCircle(center, radius, trackPaint);
     if (fraction.value > 0) {
       canvas.drawArc(
@@ -190,5 +261,7 @@ class _RingPainter extends CustomPainter {
       fraction != oldDelegate.fraction ||
       track != oldDelegate.track ||
       fill != oldDelegate.fill ||
-      stroke != oldDelegate.stroke;
+      stroke != oldDelegate.stroke ||
+      radius != oldDelegate.radius ||
+      fillPaint.strokeCap != oldDelegate.fillPaint.strokeCap;
 }

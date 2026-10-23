@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/ink_chevron.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 
-/// Renders search results, the empty query state showing what was recently
-/// opened, or the no-match state.
 class SearchResults extends ConsumerWidget {
   const SearchResults({super.key});
 
@@ -20,86 +19,105 @@ class SearchResults extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final query = ref.watch(searchQueryProvider).trim();
     if (query.isEmpty) {
-      return const _RecentlyOpenedResults();
+      final recent = ref.watch(recentlyOpenedLessonsProvider);
+      return recent.when(
+        loading: () => loadingFor(recent),
+        error: (error, _) => errorFor(
+          'recent lessons',
+          () => ref.invalidate(recentlyOpenedLessonsProvider),
+          error: error,
+        ),
+        data: (lessons) {
+          if (lessons.isEmpty) return const SizedBox.shrink();
+          final map = ref.watch(studyMapProvider).valueOrNull;
+          final topicByLesson = <String, String>{
+            if (map != null)
+              for (final subject in map.subjects)
+                for (final topic in subject.topics)
+                  for (final lesson in topic.lessons) lesson.id: topic.name,
+          };
+          return _ResultGroup(
+            label: 'RECENTLY OPENED',
+            delay: const Duration(milliseconds: 100),
+            children: [
+              for (final lesson in lessons.take(3))
+                ListRow(
+                  title: lesson.title,
+                  titleColor:
+                      lesson.isRead ? context.colors.secondaryLabel : null,
+                  subtitle: topicByLesson[lesson.id],
+                  leading: SizedBox.square(
+                    dimension: 24,
+                    child: lesson.isRead
+                        ? Icon(
+                            PantasIcons.check,
+                            size: 18,
+                            color: context.colors.accent,
+                          )
+                        : null,
+                  ),
+                  value:
+                      lesson.isRead ? null : '${lesson.estimatedMinutes} min',
+                  verticalPadding: 12,
+                  onTap: () => context.push('/lesson/${lesson.id}?from=search'),
+                ),
+            ],
+          );
+        },
+      );
     }
 
-    final asyncHits = ref.watch(searchResultsProvider);
-    return asyncHits.when(
-      loading: () => const FaintBars(),
-      error: (e, _) => const ErrorBanner(
-        variant: ErrorBannerVariant.error,
-        message: 'Could not load search results.',
+    final hits = ref.watch(searchResultsProvider);
+    return hits.when(
+      loading: () => loadingFor(hits),
+      error: (error, _) => errorFor(
+        'search results',
+        () => ref.invalidate(searchResultsProvider),
+        error: error,
       ),
-      data: (hits) {
-        if (hits.isEmpty) {
-          return _NoMatchesState(query: query);
-        }
-
-        return _HitListView(hits: hits);
-      },
-    );
-  }
-}
-
-class _RecentlyOpenedResults extends ConsumerWidget {
-  const _RecentlyOpenedResults();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final asyncRecent = ref.watch(recentlyOpenedLessonsProvider);
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return asyncRecent.when(
-      loading: () => const SizedBox.shrink(),
-      error: (e, _) => const SizedBox.shrink(),
-      data: (recent) {
-        if (recent.isEmpty) return const SizedBox.shrink();
-
-        return ListView(
-          children: [
-            const SizedBox(height: 12),
-            Text(
-              'Recently opened',
-              style: styles.bodySmall.copyWith(
-                fontSize: 11.5,
-                color: colors.inkMuted,
-              ),
-            ),
-            const SizedBox(height: 8),
-            for (final lesson in recent)
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => context.push('/lesson/${lesson.id}?from=study'),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: colors.rule,
-                      ),
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          lesson.title,
-                          style: styles.bodyMedium,
+      data: (results) {
+        if (results.isEmpty) {
+          return Semantics(
+            liveRegion: true,
+            child: LayoutBuilder(
+              builder: (context, constraints) => SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 150),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Nothing matched “$query”',
+                          textAlign: TextAlign.center,
+                          style: context.type.emphasized.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -.24,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        '${lesson.estimatedMinutes}m',
-                        style:
-                            styles.bodySmall.copyWith(color: colors.inkMuted),
-                      ),
-                      const SizedBox(width: 8),
-                      const InkChevron(),
-                    ],
+                        const SizedBox(height: 6),
+                        Text(
+                          'Try a shorter word, or part of one.',
+                          textAlign: TextAlign.center,
+                          style: context.type.subhead.copyWith(
+                            color: context.colors.secondaryLabel,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+            ),
+          );
+        }
+        return _ResultGroup(
+          label:
+              '${results.length} ${results.length == 1 ? 'LESSON' : 'LESSONS'}',
+          children: [
+            for (final hit in results) _HitRow(hit: hit, query: query),
           ],
         );
       },
@@ -107,188 +125,112 @@ class _RecentlyOpenedResults extends ConsumerWidget {
   }
 }
 
-class _NoMatchesState extends StatelessWidget {
-  const _NoMatchesState({required this.query});
-
-  final String query;
+class _ResultGroup extends StatelessWidget {
+  const _ResultGroup({
+    required this.label,
+    required this.children,
+    this.delay = Duration.zero,
+  });
+  final String label;
+  final List<Widget> children;
+  final Duration delay;
 
   @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+  Widget build(BuildContext context) => ListView(
         children: [
-          Text(
-            'Nothing matched "$query"',
-            style: styles.headlineSmall.copyWith(fontSize: 18),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Try a shorter word, or part of one.',
-            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-            textAlign: TextAlign.center,
+          TweenAnimationBuilder<double>(
+            key: ValueKey(label),
+            tween: Tween(begin: 0, end: 1),
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : Duration(milliseconds: 300 + delay.inMilliseconds),
+            curve: Interval(
+              delay.inMilliseconds / (300 + delay.inMilliseconds),
+              1,
+              curve: PantasCurves.houseOut,
+            ),
+            builder: (context, value, child) => Opacity(
+              key: const ValueKey('search-results-opacity'),
+              opacity: value,
+              child: ExcludeFocus(
+                excluding: value == 0,
+                child: ExcludeSemantics(excluding: value == 0, child: child),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Semantics(
+                  liveRegion: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(label, style: context.type.sectionHeader),
+                  ),
+                ),
+                const SizedBox(height: 7),
+                GroupedSection(children: children),
+              ],
+            ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _HitListView extends StatelessWidget {
-  const _HitListView({required this.hits});
-
-  final List<LessonSearchHit> hits;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-    final countLabel =
-        '${hits.length} ${hits.length == 1 ? 'lesson' : 'lessons'}';
-
-    return ListView(
-      children: [
-        const SizedBox(height: 12),
-        Text(
-          countLabel,
-          style: styles.bodySmall.copyWith(
-            fontSize: 11.5,
-            color: colors.inkMuted,
-          ),
-        ),
-        const SizedBox(height: 8),
-        for (final hit in hits) _HitRow(hit: hit),
-      ],
-    );
-  }
+      );
 }
 
 class _HitRow extends StatelessWidget {
-  const _HitRow({required this.hit});
-
+  const _HitRow({required this.hit, required this.query});
   final LessonSearchHit hit;
+  final String query;
 
   @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () => context.push('/lesson/${hit.lessonId}?from=study'),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: colors.rule,
-            ),
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildTitleText(styles, colors, hit),
-            const SizedBox(height: 4),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    hit.topicName,
-                    style: styles.bodySmall.copyWith(color: colors.inkMuted),
+  Widget build(BuildContext context) => ListRow(
+        title: hit.title,
+        richTitle: hit.titleMatch == null
+            ? null
+            : _spans(hit.titleMatch!, context.type.body),
+        subtitle: hit.topicName,
+        richSubtitle:
+            buildSearchSnippet(source: hit.topicName, query: query) == null
+                ? null
+                : _spans(
+                    buildSearchSnippet(source: hit.topicName, query: query)!,
+                    context.type.footnote,
                   ),
-                ),
-                Text(
-                  '${hit.estimatedMinutes}m',
-                  style: styles.bodySmall.copyWith(color: colors.inkMuted),
-                ),
-                const SizedBox(width: 8),
-                const InkChevron(),
-              ],
-            ),
-            if (hit.titleMatch == null && hit.bodySnippet != null) ...[
-              const SizedBox(height: 4),
-              _buildSnippetText(styles, colors, hit.bodySnippet!),
-            ],
-          ],
+        value: '${hit.estimatedMinutes} min',
+        valueStyle: context.type.subhead.copyWith(
+          color: context.colors.secondaryLabel,
+          fontFeatures: const [FontFeature.tabularFigures()],
         ),
-      ),
-    );
-  }
+        verticalPadding: 12,
+        footer: hit.titleMatch == null && hit.bodySnippet != null
+            ? Text.rich(
+                _spans(
+                  hit.bodySnippet!,
+                  context.type.footnote,
+                  matchColor: context.colors.label,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              )
+            : null,
+        onTap: () => context.push('/lesson/${hit.lessonId}?from=search'),
+      );
 
-  Widget _buildTitleText(
-    AppTextStyles styles,
-    AppColors colors,
-    LessonSearchHit hit,
-  ) {
-    final baseStyle = styles.bodyLarge.copyWith(
-      fontWeight: FontWeight.w400,
-      color: colors.ink,
-    );
-
-    final match = hit.titleMatch;
-    if (match == null) {
-      return Text(hit.title, style: baseStyle);
+  TextSpan _spans(SearchSnippet match, TextStyle style, {Color? matchColor}) {
+    final start = match.matchStart;
+    final end = start + match.matchLength;
+    if (start < 0 || end > match.text.length) {
+      return TextSpan(text: match.text, style: style);
     }
-
-    final spans = _buildSpans(
-      fullText: match.text,
-      matchStart: match.matchStart,
-      matchLength: match.matchLength,
-      normalStyle: baseStyle,
-      matchedStyle: baseStyle.copyWith(fontWeight: FontWeight.w700),
+    return TextSpan(
+      style: style,
+      children: [
+        TextSpan(text: match.text.substring(0, start)),
+        TextSpan(
+          text: match.text.substring(start, end),
+          style: style.copyWith(fontWeight: FontWeight.w700, color: matchColor),
+        ),
+        TextSpan(text: match.text.substring(end)),
+      ],
     );
-
-    return Text.rich(TextSpan(children: spans));
-  }
-
-  Widget _buildSnippetText(
-    AppTextStyles styles,
-    AppColors colors,
-    SearchSnippet snippet,
-  ) {
-    final baseStyle = styles.bodySmall.copyWith(
-      fontWeight: FontWeight.w400,
-      color: colors.inkMuted,
-    );
-
-    final spans = _buildSpans(
-      fullText: snippet.text,
-      matchStart: snippet.matchStart,
-      matchLength: snippet.matchLength,
-      normalStyle: baseStyle,
-      matchedStyle: baseStyle.copyWith(
-        fontWeight: FontWeight.w700,
-        color: colors.ink,
-      ),
-    );
-
-    return Text.rich(TextSpan(children: spans));
-  }
-
-  List<TextSpan> _buildSpans({
-    required String fullText,
-    required int matchStart,
-    required int matchLength,
-    required TextStyle normalStyle,
-    required TextStyle matchedStyle,
-  }) {
-    if (matchStart < 0 || matchStart + matchLength > fullText.length) {
-      return [TextSpan(text: fullText, style: normalStyle)];
-    }
-
-    final before = fullText.substring(0, matchStart);
-    final matched = fullText.substring(matchStart, matchStart + matchLength);
-    final after = fullText.substring(matchStart + matchLength);
-
-    return [
-      if (before.isNotEmpty) TextSpan(text: before, style: normalStyle),
-      TextSpan(text: matched, style: matchedStyle),
-      if (after.isNotEmpty) TextSpan(text: after, style: normalStyle),
-    ];
   }
 }

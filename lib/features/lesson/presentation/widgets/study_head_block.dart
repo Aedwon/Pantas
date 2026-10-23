@@ -1,107 +1,76 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/storage/domain/lesson.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/exam_name_line.dart';
-import 'package:pantas/core/ui/components/stats_band.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_map_entry.dart';
 
-/// The exam name, the two figures, and the row that offers to resume.
 class StudyHeadBlock extends ConsumerWidget {
   const StudyHeadBlock({required this.map, super.key});
-
   final StudyMap map;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final lastOpened = ref.watch(lastOpenedLessonProvider).valueOrNull;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ExamNameLine(map.examShortName),
-        StatsBand(
-          figures: [
-            StatFigure(
-              value: '${map.coveredPercent}',
-              suffix: '%',
-              label: 'covered',
-            ),
-            StatFigure(
-              value: _remainingValue(map.minutesLeftToRead),
-              suffix: _remainingSuffix(map.minutesLeftToRead),
-              // Describes the material, not the student. Nothing records how
-              // long anyone actually read.
-              label: 'left to read',
-            ),
-          ],
-        ),
-        if (lastOpened != null) _ResumeRow(lesson: lastOpened),
-      ],
-    );
-  }
-
-  /// Whole hours once there is an hour to report, minutes below that. "0h"
-  /// would be the honest rounding and a useless thing to print.
-  static String _remainingValue(int minutes) =>
-      minutes >= 60 ? '${minutes ~/ 60}' : '$minutes';
-
-  static String _remainingSuffix(int minutes) => minutes >= 60 ? 'h' : 'm';
-}
-
-class _ResumeRow extends StatelessWidget {
-  const _ResumeRow({required this.lesson});
-
-  final Lesson lesson;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 13),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: colors.rule,
-            // ignore: avoid_redundant_argument_values
-            width: AppDimensions.hairline,
-          ),
-        ),
+    final value = ref.watch(lastOpenedLessonProvider);
+    return value.when(
+      loading: () => loadingFor(value),
+      error: (error, _) => errorFor(
+        'last lesson',
+        () => ref.invalidate(lastOpenedLessonProvider),
+        error: error,
       ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      data: (lesson) {
+        if (lesson == null) return const SizedBox.shrink();
+        String? topicName;
+        for (final subject in map.subjects) {
+          for (final topic in subject.topics) {
+            if (topic.id == lesson.topicId) topicName = topic.name;
+          }
+        }
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 24),
+          child: StudyMapEntry(
+            delay: const Duration(milliseconds: 180),
+            child: GroupedSection(
               children: [
-                Text(
-                  'Last opened',
-                  style: styles.bodySmall.copyWith(color: colors.inkMuted),
-                ),
-                Text(
-                  lesson.title,
-                  style: styles.bodyMedium,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text('LAST OPENED', style: context.type.sectionHeader),
+                      const SizedBox(height: 2),
+                      Text(
+                        lesson.title,
+                        style: context.type.sectionHero
+                            .copyWith(fontSize: 22, letterSpacing: -.264),
+                      ),
+                      if (topicName != null) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          topicName,
+                          style: context.type.subhead
+                              .copyWith(color: context.colors.secondaryLabel),
+                        ),
+                      ],
+                      const SizedBox(height: 12),
+                      PantasButton(
+                        label: 'Resume',
+                        onPressed: () => context.push(
+                          '/lesson/${lesson.id}?from=study&resume=true',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 12),
-          IntrinsicWidth(
-            child: BoardButton(
-              label: 'Resume',
-              onPressed: () => context.push('/lesson/${lesson.id}?from=study'),
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

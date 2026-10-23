@@ -15,10 +15,30 @@ class HalfRingGauge extends StatefulWidget {
     super.key,
   })  : correct = null,
         total = null,
+        mockSize = false,
+        numberOpacity = 1,
+        labelOpacity = 1,
+        displayedFraction = null,
         assert(
           fraction >= 0 && fraction <= 1,
           'Accuracy must be between zero and one.',
         );
+
+  /// MK_Results uses a different arc, hero size and baseline from Home.
+  const HalfRingGauge.mock({
+    required this.fraction,
+    required this.label,
+    this.overlayBuilder,
+    this.numberOpacity = 1,
+    this.labelOpacity = 1,
+    this.displayedFraction,
+    super.key,
+  })  : correct = null,
+        total = null,
+        mockSize = true,
+        decimalPlaces = 1,
+        assert(fraction >= -.25 && fraction <= 1, 'Mock score must be valid.');
+
   const HalfRingGauge.quizCount({
     required int correct,
     required int total,
@@ -32,10 +52,18 @@ class HalfRingGauge extends StatefulWidget {
         fraction = total == 0 ? 0 : correct / total,
         label = 'correct',
         overlayBuilder = null,
-        decimalPlaces = 0;
+        decimalPlaces = 0,
+        mockSize = false,
+        numberOpacity = 1,
+        labelOpacity = 1,
+        displayedFraction = null;
 
   final int? correct;
   final int? total;
+  final double numberOpacity;
+  final double labelOpacity;
+  final double? displayedFraction;
+  final bool mockSize;
   final int decimalPlaces;
   final double fraction;
   final String label;
@@ -111,83 +139,90 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 
   @override
   Widget build(BuildContext context) {
-    final quiz = widget.correct != null;
-    final rect = quiz
-        ? const Rect.fromLTWH(24, 10, 216, 216)
-        : const Rect.fromLTWH(18, 10, 184, 184);
     final colors = context.colors;
     final type = context.type;
+    final quiz = widget.correct != null;
+    final large = quiz || widget.mockSize;
     if (_painter == null ||
         _painter!.fraction != _fill ||
         _painter!.fill != colors.accent ||
         _painter!.track != colors.fill ||
-        _painter!.rect != rect) {
+        _painter!.mockSize != large) {
       _painter = _GaugePainter(
         fraction: _fill,
-        rect: rect,
         fill: colors.accent,
         track: colors.fill,
+        mockSize: large,
       );
     }
-    final percentage =
-        (widget.fraction * 100).toStringAsFixed(widget.decimalPlaces);
+    final percentage = ((widget.displayedFraction ?? widget.fraction) * 100)
+        .toStringAsFixed(widget.decimalPlaces);
     return Semantics(
+      hidden: widget.numberOpacity == 0 && widget.labelOpacity == 0,
       label: quiz
           ? '${widget.correct} of ${widget.total} correct'
-          : '${widget.label} $percentage percent',
+          : [
+              if (widget.labelOpacity > 0) widget.label,
+              if (widget.numberOpacity > 0) '$percentage percent',
+            ].join(' '),
       excludeSemantics: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: quiz ? 264 : 220,
-            height: quiz ? 128 : 112,
+            width: large ? 264 : 220,
+            height: large ? 128 : 112,
             child: Stack(
               children: [
                 CustomPaint(
                   key: const ValueKey('half-ring-paint'),
-                  size: quiz ? const Size(264, 128) : const Size(220, 112),
+                  size: large ? const Size(264, 128) : const Size(220, 112),
                   painter: _painter,
                 ),
                 Positioned(
                   left: 0,
                   right: 0,
-                  bottom: quiz ? 2 : 10,
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: quiz
-                        ? _rollingCount(context, type)
-                        : AnimatedBuilder(
-                            animation: _fill,
-                            builder: (context, percent) => Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                Text(
-                                  (_fill.value * 100)
-                                      .toStringAsFixed(widget.decimalPlaces),
-                                  style: type.largeTitle
-                                      .copyWith(
-                                        fontSize: 44,
-                                        letterSpacing: -1.32,
-                                      )
-                                      .tabular,
+                  bottom: large ? 2 : 10,
+                  child: Opacity(
+                    opacity: widget.numberOpacity,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: quiz
+                          ? _rollingCount(context, type)
+                          : AnimatedBuilder(
+                              animation: _fill,
+                              builder: (context, percent) => Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
+                                textBaseline: TextBaseline.alphabetic,
+                                children: [
+                                  Text(
+                                    ((widget.displayedFraction ?? _fill.value) *
+                                            100)
+                                        .toStringAsFixed(widget.decimalPlaces),
+                                    style: type.largeTitle
+                                        .copyWith(
+                                          fontSize: large ? 56 : 44,
+                                          height: large ? 1 : 1.12,
+                                          letterSpacing: large ? -1.68 : -1.32,
+                                        )
+                                        .tabular,
+                                  ),
+                                  const SizedBox(width: 1),
+                                  percent!,
+                                ],
+                              ),
+                              child: Text(
+                                '%',
+                                style: type.emphasized.copyWith(
+                                  fontSize: large ? 24 : 20,
+                                  letterSpacing: -.24,
+                                  color: colors.secondaryLabel,
                                 ),
-                                const SizedBox(width: 1),
-                                percent!,
-                              ],
-                            ),
-                            child: Text(
-                              '%',
-                              style: type.emphasized.copyWith(
-                                fontSize: 20,
-                                letterSpacing: -.24,
-                                color: colors.secondaryLabel,
                               ),
                             ),
-                          ),
+                    ),
                   ),
                 ),
                 if (widget.overlayBuilder != null)
@@ -199,15 +234,20 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
               ],
             ),
           ),
-          SizedBox(height: quiz ? 4 : 6),
-          Text(
-            widget.label,
-            style: quiz
-                ? type.subhead.copyWith(
-                    fontWeight: FontWeight.w500,
-                    color: colors.secondaryLabel,
-                  )
-                : type.subheadStrong,
+          SizedBox(height: large ? 4 : 6),
+          Opacity(
+            opacity: widget.labelOpacity,
+            child: Text(
+              widget.label,
+              style: quiz
+                  ? type.subhead.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: colors.secondaryLabel,
+                    )
+                  : large
+                      ? type.subhead.copyWith(color: colors.secondaryLabel)
+                      : type.subheadStrong,
+            ),
           ),
         ],
       ),
@@ -306,9 +346,9 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 class _GaugePainter extends CustomPainter {
   _GaugePainter({
     required this.fraction,
-    required this.rect,
     required this.fill,
     required this.track,
+    required this.mockSize,
   })  : trackPaint = (Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = 16
@@ -320,8 +360,8 @@ class _GaugePainter extends CustomPainter {
           ..strokeCap = StrokeCap.round
           ..color = fill),
         super(repaint: fraction);
+  final bool mockSize;
   final Animation<double> fraction;
-  final Rect rect;
   final Color fill;
   final Color track;
   final Paint trackPaint;
@@ -329,6 +369,9 @@ class _GaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    final rect = mockSize
+        ? const Rect.fromLTWH(24, 10, 216, 216)
+        : const Rect.fromLTWH(18, 10, 184, 184);
     canvas.drawArc(rect, math.pi, math.pi, false, trackPaint);
     if (fraction.value > 0) {
       canvas.drawArc(rect, math.pi, math.pi * fraction.value, false, fillPaint);
@@ -337,8 +380,8 @@ class _GaugePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_GaugePainter oldDelegate) =>
-      oldDelegate.rect != rect ||
       oldDelegate.fraction != fraction ||
       oldDelegate.fill != fill ||
-      oldDelegate.track != track;
+      oldDelegate.track != track ||
+      oldDelegate.mockSize != mockSize;
 }

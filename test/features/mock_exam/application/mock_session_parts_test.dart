@@ -73,6 +73,8 @@ void main() {
 
     // ignore: cascade_invocations
     controller.closeCurrentPart();
+    expect(controller.state, isA<MockSessionBetweenParts>());
+    controller.startNextPart();
     expect(indexOf(controller), 40);
     expect(controller.currentPartIndex, 1);
 
@@ -103,6 +105,17 @@ void main() {
     expect(controller.remainingInPart, const Duration(minutes: 179));
   });
 
+  test('ending the last part early is a manual terminal reason', () {
+    final controller = sectional()
+      ..closeCurrentPart()
+      ..startNextPart()
+      ..endPartEarly();
+    expect(
+      (controller.state as MockSessionSubmitted).reason,
+      MockSubmitReason.manual,
+    );
+  });
+
   test('closing the last part ends the exam', () {
     final controller = sectional();
     final reasons = <MockSubmitReason>[];
@@ -121,6 +134,7 @@ void main() {
 
     ending
       ..closeCurrentPart()
+      ..startNextPart()
       ..closeCurrentPart();
 
     expect(ending.state, isA<MockSessionSubmitted>());
@@ -136,7 +150,10 @@ void main() {
     // The exam has hours left, but this part is over, so the next one
     // opens on its own full clock.
     expect(controller.currentPartIndex, 1);
-    expect(indexOf(controller), 40);
+    expect(
+      (controller.state as MockSessionBetweenParts).snapshot.currentIndex,
+      40,
+    );
     expect(controller.remainingInPart, const Duration(minutes: 40));
   });
 }

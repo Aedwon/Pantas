@@ -19,92 +19,115 @@ class ListRow extends StatelessWidget {
     this.titleWidget,
     this.variant = ListRowVariant.navigation,
     this.value,
-    this.valueStyle,
-    this.titleColor,
     this.subtitle,
     this.icon,
-    this.leading,
     this.iconColor,
     this.selected = false,
     this.expanded = false,
     this.editor,
     this.onTap,
     this.divider = false,
+    this.richTitle,
+    this.footer,
+    this.leading,
+    this.titleColor,
+    this.verticalPadding = 11,
+    this.richSubtitle,
+    this.valueStyle,
+    this.wrapTitle = false,
+    this.minimumHeight = 44,
+    this.contentPadding,
+    this.leadingGap = 12,
+    this.valueWidget,
+    this.trailingWidget,
     super.key,
   });
   final String title;
   final Widget? titleWidget;
   final ListRowVariant variant;
   final String? value;
-  final TextStyle? valueStyle;
-  final Color? titleColor;
   final String? subtitle;
   final IconData? icon;
-  final Widget? leading;
   final Color? iconColor;
   final bool selected;
   final bool expanded;
   final Widget? editor;
   final VoidCallback? onTap;
   final bool divider;
+  final InlineSpan? richTitle;
+  final Widget? footer;
+  final Widget? leading;
+  final Color? titleColor;
+  final double verticalPadding;
+  final InlineSpan? richSubtitle;
+  final TextStyle? valueStyle;
+  final bool wrapTitle;
+  final double minimumHeight;
+  final EdgeInsetsGeometry? contentPadding;
+  final double leadingGap;
+  final Widget? valueWidget;
+  final Widget? trailingWidget;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
-    final label = Text(
-      title,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-      style: context.type.body.copyWith(
-        color: variant == ListRowVariant.destructive
-            ? c.wrongText
-            : titleColor ?? c.label,
-      ),
+    final labelStyle = context.type.body.copyWith(
+      color: variant == ListRowVariant.destructive
+          ? c.wrongText
+          : titleColor ?? c.label,
     );
-    final detail = value == null
-        ? null
-        : Text(
-            value!,
-            style: valueStyle ?? context.type.rowValue,
-            textAlign: stack ? TextAlign.start : TextAlign.end,
-          );
-    final trailing = switch (variant) {
-      ListRowVariant.navigation =>
-        Icon(PantasIcons.next, size: 16, color: c.chevron),
-      ListRowVariant.switchControl => ExcludeSemantics(
-          child: ExcludeFocus(
-            child: PantasSwitch(
-              value: selected,
-              label: title,
-              onChanged: (_) => onTap?.call(),
+    final label = Text.rich(
+      richTitle ?? TextSpan(text: title),
+      maxLines: wrapTitle ? null : 1,
+      overflow: wrapTitle ? null : TextOverflow.ellipsis,
+      style: labelStyle,
+    );
+    final detail = valueWidget ??
+        (value == null
+            ? null
+            : Text(
+                value!,
+                style: valueStyle ?? context.type.rowValue,
+                textAlign: stack ? TextAlign.start : TextAlign.end,
+              ));
+    final trailing = trailingWidget ??
+        switch (variant) {
+          ListRowVariant.navigation =>
+            Icon(PantasIcons.next, size: 16, color: c.chevron),
+          ListRowVariant.switchControl => ExcludeSemantics(
+              child: ExcludeFocus(
+                child: PantasSwitch(
+                  value: selected,
+                  label: title,
+                  onChanged: (_) => onTap?.call(),
+                ),
+              ),
             ),
-          ),
-        ),
-      ListRowVariant.check => selected
-          ? Icon(PantasIcons.check, size: 20, color: c.accent)
-          : const SizedBox(width: 20),
-      ListRowVariant.radio => Container(
-          width: 22,
-          height: 22,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: selected ? c.accentFill : null,
-            border: Border.all(
-              color: selected ? c.accent : c.controlOutline,
-              width: 1.5,
+          ListRowVariant.check => selected
+              ? Icon(PantasIcons.check, size: 20, color: c.accent)
+              : const SizedBox(width: 20),
+          ListRowVariant.radio => Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: selected ? c.accentFill : null,
+                border: Border.all(
+                  color: selected ? c.accent : c.controlOutline,
+                  width: 1.5,
+                ),
+              ),
+              child: selected
+                  ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
+                  : null,
             ),
-          ),
-          child: selected
-              ? Icon(Icons.circle, size: 8, color: context.colors.onAccent)
-              : null,
-        ),
-      ListRowVariant.inlineEditor => Icon(
-          expanded ? PantasIcons.close : PantasIcons.next,
-          size: 16,
-          color: expanded ? c.accent : c.chevron,
-        ),
-      _ => const SizedBox.shrink(),
-    };
+          ListRowVariant.inlineEditor => Icon(
+              expanded ? PantasIcons.close : PantasIcons.next,
+              size: 16,
+              color: expanded ? c.accent : c.chevron,
+            ),
+          _ => const SizedBox.shrink(),
+        };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -121,11 +144,12 @@ class ListRow extends StatelessWidget {
               child: InkWell(
                 onTap: onTap,
                 child: Container(
-                  constraints: const BoxConstraints(minHeight: 44),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 11,
-                  ),
+                  constraints: BoxConstraints(minHeight: minimumHeight),
+                  padding: contentPadding ??
+                      EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: verticalPadding,
+                      ),
                   decoration: BoxDecoration(
                     border: divider
                         ? Border(
@@ -137,7 +161,7 @@ class ListRow extends StatelessWidget {
                     children: [
                       if (leading != null) ...[
                         leading!,
-                        const SizedBox(width: 12),
+                        SizedBox(width: leadingGap),
                       ] else if (icon != null) ...[
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),
@@ -147,8 +171,12 @@ class ListRow extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             titleWidget ?? label,
-                            if (subtitle != null)
-                              Text(subtitle!, style: context.type.footnote),
+                            if (subtitle != null || richSubtitle != null)
+                              Text.rich(
+                                richSubtitle ?? TextSpan(text: subtitle),
+                                style: context.type.footnote,
+                              ),
+                            if (footer != null) footer!,
                             if (stack && detail != null) detail,
                           ],
                         ),

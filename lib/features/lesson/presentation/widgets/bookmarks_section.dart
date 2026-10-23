@@ -1,130 +1,142 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/ui/components/ink_chevron.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 
 class BookmarksSection extends ConsumerWidget {
-  const BookmarksSection({
-    this.onSeeAll,
-    super.key,
-  });
-
+  const BookmarksSection({this.onSeeAll, super.key});
   final VoidCallback? onSeeAll;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final rowsAsync = ref.watch(bookmarkRowsProvider);
-    final countAsync = ref.watch(bookmarkCountProvider);
-
-    final rows = rowsAsync.valueOrNull ?? const [];
-    final count = countAsync.valueOrNull ?? 0;
-
-    if (rows.isEmpty) {
-      return const SizedBox.shrink();
-    }
-
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: const EdgeInsets.only(bottom: 8),
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: colors.ruleFaint),
-            ),
-          ),
-          child: Row(
-            children: [
-              Text(
-                'Bookmarks',
-                style: styles.headlineSmall,
-              ),
-              const SizedBox(width: 6),
-              Text(
-                '$count',
-                style: styles.bodySmall.copyWith(color: colors.inkMuted),
-              ),
-              const Spacer(),
-              if (count > 3)
-                Semantics(
-                  button: true,
-                  label: 'See all bookmarks',
-                  onTap: onSeeAll,
-                  child: ExcludeSemantics(
-                    child: GestureDetector(
-                      onTap: onSeeAll,
-                      behavior: HitTestBehavior.opaque,
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          minWidth: 48,
-                          minHeight: 48,
-                        ),
-                        child: Center(
-                          child: Text(
-                            'See all',
-                            style: styles.bodySmall.copyWith(
-                              color: colors.board,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
+    final value = ref.watch(bookmarkRowsProvider);
+    return value.when(
+      loading: () => loadingFor(value),
+      error: (error, _) => errorFor(
+        'bookmarks',
+        () => ref.invalidate(bookmarkRowsProvider),
+        error: error,
+      ),
+      data: (rows) => Padding(
+        padding: const EdgeInsets.only(bottom: 24),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
+                  child: SizedBox(
+                    height: rows.isEmpty
+                        ? null
+                        : MediaQuery.textScalerOf(context).scale(15) * 1.35,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(
+                        'BOOKMARKS',
+                        style: context.type.sectionHeader,
+                      ),
+                    ),
+                  ),
+                ),
+                GroupedSection(
+                  children: rows.isEmpty
+                      ? [
+                          Semantics(
+                            liveRegion: true,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 22,
+                              ),
+                              child: Column(
+                                children: [
+                                  ExcludeSemantics(
+                                    child: Icon(
+                                      PantasIcons.bookmark,
+                                      size: 22,
+                                      color: context.colors.tertiaryLabel,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    'Bookmark a lesson to keep it here.',
+                                    textAlign: TextAlign.center,
+                                    style: context.type.subhead.copyWith(
+                                      color: context.colors.secondaryLabel,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+                          ),
+                        ]
+                      : [
+                          for (final row in rows.take(3))
+                            ListRow(
+                              title: row.title,
+                              wrapTitle:
+                                  MediaQuery.textScalerOf(context).scale(17) >
+                                      25.5,
+                              subtitle: row.topicName,
+                              leading: SizedBox.square(
+                                dimension: 24,
+                                child: Icon(
+                                  PantasIcons.bookmark,
+                                  size: 18,
+                                  color: context.colors.secondaryLabel,
+                                ),
+                              ),
+                              trailingWidget: Icon(
+                                PantasIcons.next,
+                                size: 14,
+                                color: context.colors.chevron,
+                              ),
+                              verticalPadding: 12,
+                              onTap: () => context.push(
+                                '/lesson/${row.lessonId}?from=study',
+                              ),
+                            ),
+                        ],
+                ),
+              ],
+            ),
+            if (rows.isNotEmpty)
+              Positioned(
+                top: 0,
+                right: 16,
+                child: TextButton(
+                  onPressed: onSeeAll,
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(44, 44),
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Semantics(
+                    label: 'See all bookmarks',
+                    excludeSemantics: true,
+                    child: SizedBox(
+                      height: 44,
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          'See all',
+                          style: context.type.subheadStrong.copyWith(
+                            color: context.colors.accent,
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
-        for (final row in rows.take(3))
-          GestureDetector(
-            onTap: () => context.push('/lesson/${row.lessonId}'),
-            behavior: HitTestBehavior.opaque,
-            child: Container(
-              constraints: const BoxConstraints(minHeight: 48),
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: colors.ruleFaint),
-                ),
-              ),
-              child: Row(
-                children: [
-                  PennantMark(
-                    isSet: true,
-                    color: colors.inkMuted,
-                    size: 14,
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(row.title, style: styles.bodyMedium),
-                        Text(
-                          '${row.topicName}, ${row.estimatedMinutes} min',
-                          style: styles.bodySmall.copyWith(
-                            color: colors.inkMuted,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  const InkChevron(),
-                ],
-              ),
-            ),
-          ),
-      ],
+      ),
     );
   }
 }

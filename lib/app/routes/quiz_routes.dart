@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart' show ValueKey;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
@@ -29,20 +31,65 @@ List<RouteBase> quizRoutes(Ref ref) => [
               examId: examId,
             );
 
-            final availability =
-                ref.watch(mockAvailabilityProvider(request)).valueOrNull;
-            if (availability == null) {
-              return const QuizTabScreen();
+            final availabilityState =
+                ref.watch(mockAvailabilityProvider(request));
+            final availability = availabilityState.valueOrNull;
+            if (availabilityState.isLoading) {
+              return QuizTabScreen(mockPanel: loadingFor(availabilityState));
             }
-
-            final lastAttempt =
-                ref.watch(lastSubmittedMockProvider(request)).valueOrNull;
-            final proIsActive = ref
-                    .watch(proForActiveExamProvider)
-                    .unwrapPrevious()
-                    .asData
-                    ?.value ??
-                false;
+            if (availabilityState.hasError || availability == null) {
+              return QuizTabScreen(
+                mockPanel: errorFor(
+                  'mock',
+                  () {
+                    if (ref.read(mockUsesServerProvider)) {
+                      ref.invalidate(serverMockAvailabilityProvider(examId));
+                    }
+                    ref.invalidate(mockAvailabilityProvider(request));
+                  },
+                  error: availabilityState.error,
+                ),
+              );
+            }
+            final web = ref.watch(mockUsesServerProvider);
+            final lastAttemptState =
+                ref.watch(lastSubmittedMockProvider(request));
+            if (web && lastAttemptState.isLoading) {
+              return QuizTabScreen(mockPanel: loadingFor(lastAttemptState));
+            }
+            if (web && lastAttemptState.hasError) {
+              return QuizTabScreen(
+                mockPanel: errorFor(
+                  'mock',
+                  () {
+                    final reply = ref
+                        .read(serverMockAvailabilityProvider(examId))
+                        .valueOrNull;
+                    final id = reply?['lastMockId'];
+                    if (id is String) {
+                      ref.invalidate(serverMockResultProvider(id));
+                    }
+                    ref
+                      ..invalidate(serverMockAvailabilityProvider(examId))
+                      ..invalidate(lastSubmittedMockProvider(request));
+                  },
+                  error: lastAttemptState.error,
+                ),
+              );
+            }
+            final lastAttempt = lastAttemptState.valueOrNull;
+            final serverAvailability = web
+                ? ref.watch(serverMockAvailabilityProvider(examId)).valueOrNull
+                : null;
+            final proIsActive = web
+                ? serverAvailability != null &&
+                    serverAvailability['proCovered'] == true
+                : ref
+                        .watch(proForActiveExamProvider)
+                        .unwrapPrevious()
+                        .asData
+                        ?.value ??
+                    false;
 
             final customTrack = focus.exam!.isCustom
                 ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
@@ -83,6 +130,7 @@ List<RouteBase> quizRoutes(Ref ref) => [
                           ?.blueprint
                           .durationMinutes,
                   pro: proIsActive,
+                  freeIntervalDays: web ? 30 : 14,
                   proPaused:
                       ref.watch(entitlementProvider).valueOrNull?.state ==
                           EntitlementState.paused,
@@ -94,13 +142,15 @@ List<RouteBase> quizRoutes(Ref ref) => [
                           ?.results
                           .percent,
                   lastAttemptAt: lastAttempt?.submittedAt,
-                  nextOpensAt:
-                      lastAttempt?.submittedAt?.add(const Duration(days: 14)),
+                  nextOpensAt: web
+                      ? availability.nextOpensAt?.toLocal()
+                      : lastAttempt?.submittedAt?.add(const Duration(days: 14)),
                   customQuestions: customTrack?.questions,
                 ),
                 onSetUp: () => context.push('/quiz/mock/custom-setup'),
                 onChangeSetup: () => context.push('/quiz/mock/custom-setup'),
                 onTake: () {
+                  if (web) ref.invalidate(serverMockSetupCountProvider(examId));
                   if (focus.exam!.isCustom) {
                     if (customTrack != null) {
                       context.push('/quiz/mock/setup?examId=$examId');
@@ -112,6 +162,11 @@ List<RouteBase> quizRoutes(Ref ref) => [
                   }
                 },
                 onResume: () {
+                  final serverId = availability.serverMockId;
+                  if (web && serverId != null) {
+                    context.push('/quiz/mock/resume/$serverId');
+                    return;
+                  }
                   final activeAttempt = availability.activeAttempt;
                   if (activeAttempt != null) {
                     context.push(
@@ -119,11 +174,9 @@ List<RouteBase> quizRoutes(Ref ref) => [
                     );
                   }
                 },
-                onViewResults: () {
-                  if (lastAttempt != null) {
-                    context.push('/mock/results/${lastAttempt.id}');
-                  }
-                },
+                onViewResults: lastAttempt == null
+                    ? null
+                    : () => context.push('/mock/results/${lastAttempt.id}'),
               ),
             );
           },

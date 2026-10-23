@@ -61,7 +61,6 @@ class _SessionHostState extends State<SessionHost> {
       onAnswer: (_) {},
       onToggleFlag: () {},
       onPause: () {},
-      onShowNavigator: () {},
       onEndPartEarly: () => setState(() => _controller.endPartEarly()),
     );
   }
@@ -105,14 +104,14 @@ void main() {
     await tester.tap(find.byKey(const Key('mock-next')));
     await tester.pumpAndSettle();
     expect(find.text('End Part 1 now?'), findsOneWidget);
-    expect(find.textContaining('does not carry over'), findsOneWidget);
+    expect(find.textContaining("doesn't carry over"), findsOneWidget);
   });
 
   testWidgets('with strict on, next is disabled and the reason is shown',
       (tester) async {
     await pumpSession(tester, strictMode: true, atLastItemOfPart: true);
     expect(
-      find.text('Part 1 runs to the end of its time. Strict mock mode is on.'),
+      find.text('Part 1 runs to the end of its time. Strict mode is on.'),
       findsOneWidget,
     );
     final next = tester.widget<InkWell>(find.byKey(const Key('mock-next')));
