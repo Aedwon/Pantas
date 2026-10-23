@@ -199,3 +199,7 @@ Analyzing 2 items...
 No issues found! (ran in 0.6s)
 
 Shared future query checkpoint: RED11594 missing query; GREEN11600 domain174 tests; final focused/static output build/w4b/task7-future-query-final.log and task7-future-query-analysis.log. WeekPreviews.plannedLessonsForDay uses the existing future queue/pacing for actual authored IDs. Sunday grouping changes display boundaries only; StudyDays remains ISO. Task7 presentation is not complete.
+
+## October24 native roadmap ownership slice
+
+RED11603 reproduced same-identity wipe during delayed Today/advance inputs. RED11626 reproduced same-exam scope/date changes during pending hydration. Guard now retains original auth/preparer lifetime/core token, selected exam, date/study-day/scope/content/assessment shaping inputs and caller lifetime. Hydration runs outside writes; one feature-local per-database queue and guarded Drift transaction commit day and history together. Final token/auth/lifetime check follows all asynchronous guard reads. Task3-guard-final:28 tests passed. Native guard scoped analysis clean. No schema/core helper/framework added. This isolated correction does not complete Task3. Remaining screens and server client feed remain in progress.
