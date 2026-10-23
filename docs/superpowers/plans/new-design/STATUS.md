@@ -10,9 +10,9 @@ Controlling documents:
 
 ## Lock
 
-State: free
-Holder: none
-Since: 2026-10-23 22:54 Asia/Manila (released)
+State: held
+Holder: Codex W4b continuation, authorized Sonnet takeover
+Since: 2026-10-24 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1172,3 +1172,8 @@ Original family Astra audit remains closed. Independent bounded dependency revie
 Engineering Tasks1–9 and the missing initial-call dependency are complete for approved scope. Remaining W4b screens/tasks remain separate and queued. Phone visual/device accessibility, live deployed PWA checks and the explicitly deferred report sender remain separate, unaccepted gates. No main app merge, deployment or publication. Retain source/review worktrees for dependent W4b/phone acceptance.11557was intentionally interrupted before the final fidelity correction; its zero exit has no test summary and is explicitly archived as incomplete. Only11560establishes the final full-suite result. One evidence whitespace check stopped saving; normalized text views preserve byte-exact raw originals in gzip.
 
 Recorded 2026-10-23 22:54 Asia/Manila; ownership lock released.
+
+
+### October24 W4b continuation and Sonnet takeover
+
+Aedwon's exact instruction: "continue and finish work on W4b. i authorize you to take over sonnet". Continue approved balanced W4b Tasks2–10 and necessary server insight/roadmap dependencies. Preserve all Sonnet work; no unrelated server, deployment, publication or phone acceptance. Current policy main159afc7f read. W4b local/remote b99c1679 clean, development4113ad78 clean/matching; shared Today dependency is accepted. Two self-hosted relay runners online/idle. Lead takes the free coordination lock and reconciles exact server contracts before dependent edits. No new complexity choice required for existing approved scope.
