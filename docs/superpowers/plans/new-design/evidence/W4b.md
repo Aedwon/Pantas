@@ -189,3 +189,11 @@ Analyzing Pantas-wt-new-design-w4b-r1...
 
 12 issues found. (ran in 4.7s)
 ```
+
+## October24 continuation: isolated exam-day dependency
+
+Policy refreshed through main73aa5b90; accepted4113ad78 merged by lead into worker27086aab. No worker merge/push. Ignored outputs regenerated successfully (relay11567, build/w4b/recovery-generation.log). Lead HP_ExamDay ruling: actual easiest-ordered due reviews, maximum10, including scheduled rest weekdays; no new difficulty classifier. RED11586 confirmed25 instead of10 and absent rest-weekday reviews. Domain GREEN11592:170 tests passed. Focused final result and analysis below. Other W4b screen work remains in progress and uncommitted. No family completion, independent review, visual acceptance or deployment claim.
+
+00:00 +12: All tests passed!
+Analyzing 2 items...
+No issues found! (ran in 0.6s)
