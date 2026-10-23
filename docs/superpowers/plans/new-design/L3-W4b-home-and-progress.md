@@ -131,3 +131,47 @@ and the subject scope sheet in this family. `grep` finds no `/progress`, `/mock-
 ## Shared Today dependency available, October23
 
 Reviewed source cd283f7b is integrated/uploaded on agreed development4113ad78. W4d's dependency is complete, without unrelated W4b screens. Task3 consumes lib/features/home/application/today_questions.dart (TodayQuestionLauncher, todayQuestionLauncherProvider, TodayQuestionWork, TodayQuestionKind) and lib/core/ui/components/today_questions.dart (TodayQuestionRow, TodayQuestionsSheet), with existing PantasSheet. Capture the launcher's guard at the original page request; retain the same originalGuard through load/error retry and caller lifetime/generation through start. Do not rebind after account/exam/wipe changes. Use actual stored chunks/New membership; missing content fails recoverably, unrelated paused work survives. New last-row divider is false. Preserve batch preferences/answers, shared defaults and real source metadata. No duplicated quiz presentation, inferred figures or mixed Today substitute. Remaining approved W4b tasks and server roadmap coordination remain queued. Evidence: https://github.com/Aedwon/Pantas/blob/4113ad7844f991d9a858c3771be21974270e9340/docs/superpowers/plans/new-design/evidence/W4d.md.
+
+
+## Lead ruling, October24: necessary C9/C10 completion after Sonnet takeover
+
+User: "continue and finish work on W4b. i authorize you to take over sonnet".
+This continues approved balanced PWA behavior. Accepted server source0c17bfb0 remains immutable; new work is isolated on codex/w4b-server-dependency. Native metrics/roadmap math on that source and accepted development4113ad78 is identical. Main policy159afc7f and current workflow control. No unrelated payment, deployment, content, platform or publication changes.
+
+The server currently exports BuildRoadmap only: history is always empty; original day membership, remaining work and advance are absent; lessons always have readAt:null. C9 has no client sender. These are real necessary dependencies, not permission to manufacture client-only web authority.
+
+### Technical scope and simplification
+
+Reuse server_dart and its compiled-Dart bridge, not a new package/runtime/framework. Extract native metrics row aggregation into pure functions used by BOTH existing native readers and the server; preserve windows, thresholds, statistical evidence and archetype rules. This supersedes only the older C10 suggestion to introduce a separate shared package. No new dependencies or native SQL/Drift schema. Existing server-only Firestore event/day/history/derived records are authorized C9/C10 storage; verify deny-client rules.
+
+Server lane owns functions/src/{roadmap,ingestSession,_answers,_examContent,_core,index,serverReviews}.ts, new studyObservations.ts/studyInsights.ts, server_dart bridge/codecs/reference/fixtures and metrics/signals pure extraction/readers/tests. Client lane owns Home/Progress/roadmap presentation/providers/routes, metrics labels/catalog/templates, feature-local API/cache/sender and related tests. Client retains roadmap/domain ownership for Sunday week display and the approved plannedLessonsForDay query; server consumes that same query after handoff. No parallel edits to shared pure files. Lead integrates and personally reviews student-data and entitlement paths.
+
+Do not add a server Record/streak engine in this dependency. Your record keeps its existing measured local data and combines accepted authoritative web mock history without double counting. C10 completion here covers authoritative roadmap, performance depth, profile/tendencies and When you work. No inferred historical streak/settings.
+
+### Measured observations
+
+Extend ingestSession compatibly with paired optional examId/origin and optional per-answer responseMs/questionVersion. New senders provide actual stored values; validate origin and content membership. Public ingest cannot claim mock origin or internal mock IDs. Old payloads remain valid, but ambiguous legacy attribution/timing is absent from metrics needing it. Preserve existing all-answer totals and accepted client-supplied correctness trust limit. Seed ordinary reviews through the existing native scheduler; preserve accepted mock mirroring, deduplication and due-feed behavior.
+
+Add recordLessonRead({lessonId,readAt}), authenticated including anonymous, App Check and bounded/rate-limited. Validate actual authored lesson and timestamp; idempotently preserve earliest actual read observation. The client sends only after existing markRead persistence and can upload actual historical stored readAt, never reconstructed activity. Finished-session and lesson retries bind original account/exam/core generation and immutable payload, survive recoverable network failures, and never resend one account's data as another. Use existing persisted session/progress sources instead of a parallel sync framework.
+
+Missing mock flags, measured answer times or section clocks stay absent; no divided session-time proxy or invented observations. Authored C7 catalog supplies exact subjects/topics/lesson ownership/order; never derive metadata from slugs.
+
+### Roadmap read and mutation contract
+
+Preserve existing getRoadmap tier/state/today/comingUp/history fields. Add explicit examId, serverNow, accessRecheckAt, proCovered, revision, remaining, originalDone, canAdvance and current-week observed day statuses. Every request binds explicit original exam/account; stale settings/event/content revisions cannot overwrite a newer selection. Persist one full native DaySnapshot per exam/Philippine day and RoadmapDiff events server-side. Ordinary completion changes remaining, not original quota. Rebuild native digest only for native shaping changes. Keep full digest/global topic order server-private.
+
+Public Today includes only that day's plan/state/completion plus todayTopicOrder restricted to topics represented by its actual membership. Never return full future scope/topic order/digest in a Free snapshot. Unknown past snapshots remain unknown, not fabricated missed days.
+
+Add advanceRoadmap({examId,requestId,expectedDay,expectedRevision}); validate actual originalDone and current ownership/day/revision transactionally. Retry the same immutable requestId returns its original result, never another advance. Reuse native DaySnapshots/PlanningWindows/StudyDays behavior through the bridge. Add getRoadmapDay({examId,date}) and getRoadmapWeek({examId,start}) with the same authoritative data and the client's shared future-lesson query. Pro future readers may proceed. Free future-day access is pending Aedwon's explicit choice because Home week-strip taps and the Pro future-plan rule conflict; do not silently settle it in code.
+
+History uses actual native cause events and approved sentences, no invented historical reasons. Paginate with a stable server cursor; show five then ten per existing design. NewDay/prerequisite-cycle do not become public history.
+
+### Insights and access
+
+getStudyInsights({examId}) returns serverNow/accessRecheckAt/proCovered plus allowed models. Reuse existing mockCoverage for current EXAM coverage, not generic pro token. Free profile is expressly allowed by YO_Free/DECISIONS; Free may receive public profile and overall/subject performance only. Topic/lesson performance, five tendency findings and When you work require current exam coverage. Raw paid signals, hidden findings and full future roadmap never reach Free. Missing data returns actual insufficient-data models without fabricated figures.
+
+Clients clear/suppress paid cached data on account/core/exam changes and at access expiry, refresh authoritative reads, and invalidate roadmap/insights at actual terminal-session/read boundaries. No client web fallback computes hidden Pro sections. Native behavior remains.
+
+### Verification and acceptance
+
+Regression-first server emulator cases: original day remains stable after completion, repeat advance idempotence/concurrent ownership, settings/exam revision races, real history and missing past dates, exact exam coverage/expiry and Free payload exclusions, legacy missing metadata, normal review seeding, C8 mock due-feed preservation and immutable observation retry. Native pure calculations and VM/JS outputs must agree with actual sparse/full fixtures. Focused checks during work; final Functions plain/emulator/bridge checks and combined Flutter/static checks before acceptance. One independent family audit plus bounded corrections; lead owns integration. Aedwon phone visual/live staging and release remain separate.
