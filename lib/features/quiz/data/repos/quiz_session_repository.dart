@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
@@ -59,14 +60,14 @@ class QuizSessionRepository {
     required SessionOrigin origin,
     required List<QuestionId> questionIds,
     required DateTime startedAt,
-    required bool Function() canPersist,
+    required FutureOr<bool> Function() canPersist,
     TopicId? topicId,
     SubtopicId? subtopicId,
     LessonId? lessonId,
   }) async {
     try {
       await _db.transaction(() async {
-        if (!canPersist()) throw const _QuizSessionCreateCancelled();
+        if (!await canPersist()) throw const _QuizSessionCreateCancelled();
 
         await reviewBatches.requireNoBatch(userId, examId);
         await quitAllOpen(
@@ -75,7 +76,7 @@ class QuizSessionRepository {
           quitAt: startedAt,
         );
 
-        if (!canPersist()) throw const _QuizSessionCreateCancelled();
+        if (!await canPersist()) throw const _QuizSessionCreateCancelled();
 
         await _db.into(_db.quizSessions).insert(
               QuizSessionsCompanion.insert(
@@ -91,7 +92,7 @@ class QuizSessionRepository {
               ),
             );
 
-        if (!canPersist()) throw const _QuizSessionCreateCancelled();
+        if (!await canPersist()) throw const _QuizSessionCreateCancelled();
       });
       return true;
     } on _QuizSessionCreateCancelled {

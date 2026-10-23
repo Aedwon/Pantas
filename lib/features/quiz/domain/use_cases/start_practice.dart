@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
@@ -157,6 +159,7 @@ class StartPractice {
     required List<QuestionId> questionIds,
     required DateTime now,
     SessionOrigin origin = SessionOrigin.drill,
+    FutureOr<bool> Function()? canPersist,
   }) async {
     if (questionIds.isEmpty) {
       return const StartPracticeNoQuestions(
@@ -192,7 +195,7 @@ class StartPractice {
       origin: origin,
     );
 
-    await _sessions.create(
+    final created = await _sessions.createGuarded(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
@@ -200,7 +203,9 @@ class StartPractice {
       topicId: session.topicId,
       questionIds: session.questions.map((question) => question.id).toList(),
       startedAt: now,
+      canPersist: canPersist ?? () => true,
     );
+    if (!created) throw StateError('Flagged quiz launch changed');
 
     return StartPracticeStarted(session);
   }
