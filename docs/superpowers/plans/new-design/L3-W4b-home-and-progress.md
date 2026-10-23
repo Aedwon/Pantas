@@ -200,3 +200,8 @@ The web trial is a prepaid server grant without an automatic charge. Never show 
 ### October24 native roadmap persistence ownership
 
 Lead source review found native RoadmapController.advance awaits content/inputs after Home's guard check, then writes day/history without original data-boundary protection; the today read path also persists derived rows. Reproduce delayed hydration followed by same-identity wipe/account/exam change before correction. Reuse the existing original AppDatabase student-data boundary/guard and transaction queue for day plus history persistence; revalidate inside the actual queued transaction. Pass the original page request's guard through relevant controller calls, retain it on Retry, and suppress stale publication. Content waits stay outside the student-data write lock so account clearing can finish promptly. Roadmap providers and repositories/tests are in the existing W4b scope; no core framework/schema change. Include read-build and advance races, page disposal, immutable retry and actual stored-row checks.
+
+
+### October24 available native guard pattern correction
+
+Root initially named withStudentDataWrite in its worker message, but that helper does not exist on accepted27086aab. Reuse the actual quiz/reader feature-local per-database ordering, original captured SyncActiveContextStore token/account lifetime and guarded Drift transaction instead. This corrects the implementation reference, not the required ownership semantics. Do not introduce a global/core helper or hold a write lock over content hydration.
