@@ -210,3 +210,8 @@ Root initially named withStudentDataWrite in its worker message, but that helper
 ### October24 web trial notice wording approved
 
 Aedwon selected exactly "Approve web trial wording" after the before-and-after preview at http://127.0.0.1:8768/trial. Preserve proposal v1 at docs/design/proposals/w4b-web-trial-notice-2026-10-24-v1.html. Same HP_Trial strip; only detail becomes "Your free trial ends on {date}. You won’t be charged." and Manage becomes "See Pro" opening the existing Pro page. Header keeps actual remaining days. Runtime end/date come from actual active account trial data, never a sample constant; native store-charge text remains tied to actual store price/date. Disclosed preview scope: static light-mode design source, not running-app capture; dark mode uses existing approved tokens. Alternative offered: keep the trial notice out of web. Approval covers this copy amendment only; phone visual/live acceptance remains separate.
+
+
+### October24 Task9 cache ownership scope
+
+Native currentArchetypeProvider awaits signal inputs before unguarded cache upsert. During Task9 reproduce same-owner wipe/account changes across that wait; if confirmed, retain original account/core token and validate inside guarded transaction before caching/publication. Client owns the narrow metrics/providers/current_archetype_provider.dart and metrics/data/user_metrics_archetype_repository.dart guard corrections and tests; server retains metrics/signals extraction. No new cache or framework.
