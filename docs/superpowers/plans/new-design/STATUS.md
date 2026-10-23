@@ -1084,3 +1084,10 @@ Latest exact user: "continue". Root saved local D ec0c56678837f3949880d26039c509
 Two actual correctness regressions were fixed before this save: refreshing async values can retain paid data, so owned ready gates use the pinned SDK unwrapPrevious; next-question hydration previously blocked an actual account wipe, so it now runs outside student-data writes and rereads/validates the exact target before a guarded claim.43batch/controller cases, including a real wipe finishing while content remains blocked and no recreated progress, pass. Independent family review remains due.
 
 Task9 retirement is next, followed by accepted integration72b04f00 reconciliation, combined verification and the one independent family audit. Initial Home-owned Reviews/New shared-row and launch contracts remain unavailable and omitted under standing ruling2. No application upload, development/main merge, deployment or phone visual acceptance. Remote D stays5e89e4fa. Preserve unique logs/worktrees and other lanes.
+
+
+### October23 retired quiz UI saved
+
+D local e4de760b3e14c89678ba0c36c2604d9393717ea4 saves Task9's planned source retirement: six replaced UI classes, eight UI-only test files and the three empty review placeholders are removed. Meaningful passage/no-passage/navigation and Leave/Resume refresh regressions now target the living viewer/tab/page.14cases pass; three owned files analyze clean; layering/attribution pass. Underlying Attempt/answer/domain/metrics inputs remain. Legacy redirect paths await their assigned W2 closeout.
+
+This is a local implementation checkpoint. Accepted72b04f00 combination and its generated-content refresh, final combined gates and independent family audit are next; no family completion, upload, integration-target update or phone acceptance. Source worktree has only known untracked diagnostic/evidence logs. Remote D stays5e89e4fa and integration72b04f00. Home Reviews/New shared rows/launch remain deferred under standing ruling2.
