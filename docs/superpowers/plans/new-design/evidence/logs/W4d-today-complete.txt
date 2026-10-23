@@ -1,0 +1,9 @@
+
+✅ actual TodayQuestionKind.reviews launch keeps Reviews and New separate
+✅ actual TodayQuestionKind.newQuestions launch keeps Reviews and New separate
+✅ Today launch rejects wipe without replacing progress
+✅ Today launch rejects page without replacing progress
+✅ Today launch rejects paused without replacing progress
+✅ Today launch rejects version without replacing progress
+
+🎉 6 tests passed.
