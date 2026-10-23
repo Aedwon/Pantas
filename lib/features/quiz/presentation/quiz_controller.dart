@@ -83,8 +83,10 @@ class QuizController extends StateNotifier<QuizControllerState> {
     int count = 10,
     int? randomSeed,
   }) async {
+    if (!mounted) return;
     state = const QuizLoading();
     try {
+      final guard = await captureLaunchGuard(examId: examId);
       final startedAt = _ref.read(nowProvider)();
       final session = await _ref.read(startQuickQuizProvider)(
         examId: examId,
@@ -93,11 +95,32 @@ class QuizController extends StateNotifier<QuizControllerState> {
         now: startedAt,
         randomSeed: randomSeed,
       );
-      state = QuizRunning(
-        session: session,
+      final sessions = _ref.read(quizSessionRepositoryProvider);
+      final created = await sessions.createGuarded(
+        sessionId: session.sessionId,
+        userId: quizLocalUserId,
+        examId: examId,
+        origin: session.origin,
+        questionIds: session.questions.map((q) => q.id).toList(),
+        startedAt: session.startedAt,
+        topicId: topicId,
+        canPersist: () async {
+          if (!await guard()) return false;
+          final active = await sessions.activeFor(
+            userId: quizLocalUserId,
+            examId: examId,
+          );
+          // Quick launch must never silently discard a different paused quiz.
+          return (active == null || active.id == session.sessionId) &&
+              await guard();
+        },
       );
+      if (!created || !await guard()) {
+        throw StateError('Quick quiz launch is no longer available');
+      }
+      state = QuizRunning(session: session, persisted: true);
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (mounted) state = QuizFailure(e.toString());
     }
   }
 
@@ -166,6 +189,53 @@ class QuizController extends StateNotifier<QuizControllerState> {
     }
   }
 
+  /// Captures the original launch owner before UI/content waits. Callers pass
+  /// the returned predicate unchanged; old requests cannot rebind it.
+  Future<Future<bool> Function()> captureLaunchGuard({
+    required ExamId examId,
+  }) async {
+    if (!mounted) {
+      throw StateError('Quiz controller is unavailable');
+    }
+    final db = _ref.read(appDatabaseProvider);
+    final preparer = _ref.read(todayQuizPreparerProvider);
+    final lifetime = preparer.accountLifetimeToken;
+    final auth = _ref.read(authStateProvider).unwrapPrevious().asData?.value;
+    final uid = switch (auth) {
+      AnonymousAuthState(:final uid) => uid,
+      SignedInAuthState(:final user) => user.uid,
+      _ => null,
+    };
+    bool current() =>
+        mounted &&
+        lifetime != null &&
+        uid != null &&
+        identical(_ref.read(appDatabaseProvider), db) &&
+        identical(_ref.read(todayQuizPreparerProvider), preparer) &&
+        preparer.accountLifetimeToken == lifetime &&
+        _ref.read(authStateProvider).unwrapPrevious().asData?.value == auth &&
+        _ref
+                .read(activeExamFocusProvider)
+                .unwrapPrevious()
+                .asData
+                ?.value
+                .exam
+                ?.id ==
+            examId;
+    if (!current()) throw StateError('Quiz account is unavailable');
+    final contexts = SyncActiveContextStore(db);
+    final original = await contexts.readSnapshot();
+    if (!current() ||
+        (original?.context != null && original!.context!.uid != uid)) {
+      throw StateError('Quiz account changed');
+    }
+    return () async {
+      if (!current()) return false;
+      final snapshot = await contexts.readSnapshot();
+      return current() && snapshot?.token == original?.token;
+    };
+  }
+
   /// One session built from many picked units, each drawing [perUnit] from
   /// its own pool. Distinct from [startDrill], which draws one topic.
   Future<void> startPractice({
@@ -173,9 +243,13 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required List<PracticeUnit> units,
     required int perUnit,
     Map<String, int> countsByUnit = const {},
+    Future<bool> Function()? canPersist,
   }) async {
+    if (!mounted) return;
     state = const QuizLoading();
     try {
+      final guard = canPersist ?? await captureLaunchGuard(examId: examId);
+      if (!await guard()) throw StateError('Quiz account changed');
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startPracticeProvider)(
         userId: quizLocalUserId,
@@ -184,7 +258,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
         perUnit: perUnit,
         countsByUnit: countsByUnit,
         now: now,
+        canPersist: guard,
       );
+      if (!await guard()) throw StateError('Quiz account changed');
       switch (result) {
         case StartPracticeStarted(:final session):
           state = QuizRunning(
@@ -195,7 +271,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
           state = QuizFailure(message);
       }
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (mounted) state = QuizFailure(e.toString());
     }
   }
 
@@ -203,51 +279,17 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required ExamId examId,
     required List<QuestionId> questionIds,
     SessionOrigin origin = SessionOrigin.drill,
+    Future<bool> Function()? canPersist,
   }) async {
+    if (!mounted) return;
     state = const QuizLoading();
     try {
-      Future<bool> Function()? canPersist;
-      if (origin == SessionOrigin.flagged) {
-        final db = _ref.read(appDatabaseProvider);
-        final preparer = _ref.read(todayQuizPreparerProvider);
-        final lifetime = preparer.accountLifetimeToken;
-        final auth =
-            _ref.read(authStateProvider).unwrapPrevious().asData?.value;
-        final uid = switch (auth) {
-          AnonymousAuthState(:final uid) => uid,
-          SignedInAuthState(:final user) => user.uid,
-          _ => null,
-        };
-        bool current() =>
-            mounted &&
-            lifetime != null &&
-            identical(_ref.read(appDatabaseProvider), db) &&
-            identical(_ref.read(todayQuizPreparerProvider), preparer) &&
-            preparer.accountLifetimeToken == lifetime &&
-            _ref.read(authStateProvider).unwrapPrevious().asData?.value ==
-                auth &&
-            _ref
-                    .read(activeExamFocusProvider)
-                    .unwrapPrevious()
-                    .asData
-                    ?.value
-                    .exam
-                    ?.id ==
-                examId;
-        if (uid == null || !current()) {
-          throw StateError('Flagged quiz account is unavailable');
-        }
-        final contexts = SyncActiveContextStore(db);
-        final initial = await contexts.readSnapshot();
-        if (!current() ||
-            (initial?.context != null && initial!.context!.uid != uid)) {
-          throw StateError('Flagged quiz account changed');
-        }
-        canPersist = () async {
-          if (!current()) return false;
-          final snapshot = await contexts.readSnapshot();
-          return current() && snapshot?.token == initial?.token;
-        };
+      final guard = canPersist ??
+          (origin == SessionOrigin.flagged
+              ? await captureLaunchGuard(examId: examId)
+              : null);
+      if (guard != null && !await guard()) {
+        throw StateError('Flagged quiz account changed');
       }
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startPracticeProvider).fromQuestionIds(
@@ -256,9 +298,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
             questionIds: questionIds,
             origin: origin,
             now: now,
-            canPersist: canPersist,
+            canPersist: guard,
           );
-      if (canPersist != null && !await canPersist()) {
+      if (guard != null && !await guard()) {
         throw StateError('Flagged quiz account changed');
       }
       switch (result) {

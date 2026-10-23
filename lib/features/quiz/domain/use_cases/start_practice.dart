@@ -68,6 +68,7 @@ class StartPractice {
     required int perUnit,
     required DateTime now,
     Map<String, int> countsByUnit = const {},
+    FutureOr<bool> Function()? canPersist,
   }) async {
     if (units.isEmpty || perUnit <= 0) {
       return const StartPracticeNoQuestions(
@@ -141,7 +142,7 @@ class StartPractice {
       // A session spanning several topics is named after none of them.
       topicId: units.length == 1 ? units.single.topicId : null,
     );
-    await _sessions.create(
+    final created = await _sessions.createGuarded(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
@@ -149,7 +150,9 @@ class StartPractice {
       topicId: session.topicId,
       questionIds: session.questions.map((question) => question.id).toList(),
       startedAt: now,
+      canPersist: canPersist ?? () => true,
     );
+    if (!created) throw StateError('Custom quiz launch changed');
     return StartPracticeStarted(session);
   }
 

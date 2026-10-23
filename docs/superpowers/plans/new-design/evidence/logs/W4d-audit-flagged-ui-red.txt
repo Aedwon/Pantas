@@ -1,0 +1,35 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart
+00:00 +0: flagged UI cannot bind its pending membership to a post-wipe owner
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: empty
+  Actual: [
+            QuizSessionLocalRow:QuizSessionLocalRow(id: fdac1c95-5d03-4b2e-a9b0-50a76df8c052,
+userId: local, examId: e, origin: flagged, topicId: null, subtopicId: null, lessonId: null,
+questionIdsJson: ["q"], outcomesJson: [], currentIndex: 0, correctCount: 0, startedAt: 2026-10-23
+16:46:20.573006, lastAnsweredAt: null, completedAt: null, quitAt: null)
+          ]
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:54:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart line 54
+The test description was:
+  flagged UI cannot bind its pending membership to a post-wipe owner
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: flagged UI cannot bind its pending membership to a post-wipe owner [E]
+  Test failed. See exception logs above.
+  The test description was: flagged UI cannot bind its pending membership to a post-wipe owner
+
+00:01 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart: flagged UI cannot bind its pending membership to a post-wipe owner

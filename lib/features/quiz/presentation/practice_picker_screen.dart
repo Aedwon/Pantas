@@ -151,32 +151,45 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
       _launchFailed = false;
     });
     final units = _selection.units(index);
-    await _writes;
-    if (!mounted) return;
-    await ref.read(quizControllerProvider.notifier).startPractice(
-          examId: widget.examId,
-          units: units,
-          perUnit: summary.perUnit,
-          countsByUnit: summary.countsByUnit,
-        );
-    if (!mounted) return;
-    final state = ref.read(quizControllerProvider);
-    if (state is QuizRunning) {
+    final examId = widget.examId;
+    try {
+      final controller = ref.read(quizControllerProvider.notifier);
+      final guard = await controller.captureLaunchGuard(examId: examId);
+      await _writes;
+      if (!mounted || widget.examId != examId) return;
+      if (!await guard()) throw StateError('Quiz account changed');
+      await controller.startPractice(
+        examId: examId,
+        units: units,
+        perUnit: summary.perUnit,
+        countsByUnit: summary.countsByUnit,
+        canPersist: guard,
+      );
+      if (!mounted || widget.examId != examId) return;
+      if (!await guard()) throw StateError('Quiz account changed');
+      if (!mounted) return;
+      final state = ref.read(quizControllerProvider);
+      if (state is! QuizRunning || state.session.examId != examId) {
+        throw StateError('Custom quiz did not start');
+      }
       await context.push(
-        '/quiz/practice/${widget.examId}/run',
+        '/quiz/practice/$examId/run',
         extra: (customSessionId: state.session.sessionId),
       );
       if (!mounted) return;
       ref
-        ..invalidate(practiceIndexProvider(widget.examId))
-        ..invalidate(practicePaceProvider(widget.examId));
-    } else {
-      setState(() {
-        _launchFailed = true;
-        _failure = 'Could not start your quiz.';
-      });
+        ..invalidate(practiceIndexProvider(examId))
+        ..invalidate(practicePaceProvider(examId));
+    } on Object {
+      if (mounted) {
+        setState(() {
+          _launchFailed = true;
+          _failure = 'Could not start your quiz.';
+        });
+      }
+    } finally {
+      if (mounted) setState(() => _starting = false);
     }
-    if (mounted) setState(() => _starting = false);
   }
 
   @override

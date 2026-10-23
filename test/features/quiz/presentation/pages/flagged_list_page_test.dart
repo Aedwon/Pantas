@@ -35,10 +35,17 @@ class _RecordingController extends QuizController {
   SessionOrigin? requestedOrigin;
   bool fail = false;
   @override
+  Future<Future<bool> Function()> captureLaunchGuard({
+    required String examId,
+  }) async =>
+      () async => true;
+
+  @override
   Future<void> startPracticeFromQuestionIds({
     required String examId,
     required List<String> questionIds,
     SessionOrigin origin = SessionOrigin.drill,
+    Future<bool> Function()? canPersist,
   }) async {
     calls++;
     requestedIds = questionIds;

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
@@ -21,6 +25,31 @@ class _MockStart extends Mock implements StartQuickQuiz {}
 class _MockSubmit extends Mock implements SubmitAnswer {}
 
 class _MockLaunchCoordinator extends Mock implements QuizLaunchCoordinator {}
+
+Future<void> pumpQuiz(
+  WidgetTester tester,
+  Widget child, {
+  List<Override> overrides = const [],
+}) async {
+  final container = ProviderContainer(
+    overrides: [
+      authStateProvider.overrideWith(
+        (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+      ),
+      activeExamFocusProvider.overrideWith(
+        (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+      ),
+      ...overrides,
+    ],
+  );
+  addTearDown(container.dispose);
+  await tester.runAsync(() async {
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
+  });
+  await tester
+      .pumpApp(UncontrolledProviderScope(container: container, child: child));
+}
 
 void main() {
   late _MockStart start;
@@ -113,7 +142,8 @@ void main() {
     );
     when(() => launchCoordinator.resumeToday(any()))
         .thenAnswer((_) async => session);
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e', mode: QuizPageMode.practice),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -148,7 +178,8 @@ void main() {
       ),
     );
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -184,7 +215,8 @@ void main() {
       ),
     );
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -218,7 +250,8 @@ void main() {
       ),
     );
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e', topicId: 't'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -259,7 +292,8 @@ void main() {
       ),
     );
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -319,7 +353,8 @@ void main() {
       ),
     );
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -381,7 +416,8 @@ void main() {
       ),
     );
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -489,7 +525,8 @@ void main() {
       () => launchCoordinator.resumeToday(any()),
     ).thenAnswer((_) async => restored);
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(examId: 'e', mode: QuizPageMode.resume),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -545,7 +582,8 @@ void main() {
       ),
     ).thenAnswer((_) async => const QuizLaunchNoQuestions('No questions'));
 
-    await tester.pumpAppWithProviders(
+    await pumpQuiz(
+      tester,
       const QuizPage(
         examId: 'e',
         topicId: 't',

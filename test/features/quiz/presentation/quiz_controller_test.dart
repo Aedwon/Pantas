@@ -1,14 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+
+import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
 
 class _MockStart extends Mock implements StartQuickQuiz {}
 
@@ -45,9 +52,18 @@ void main() {
   late _MockSubmit submit;
   late _MockCompletionCoordinator complete;
 
-  ProviderContainer makeContainer() {
+  Future<ProviderContainer> makeContainer() async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
     final container = ProviderContainer(
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         quizCompletionCoordinatorProvider.overrideWithValue(complete),
@@ -55,6 +71,8 @@ void main() {
       ],
     );
     addTearDown(container.dispose);
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
     return container;
   }
 
@@ -80,7 +98,7 @@ void main() {
       ),
     ).thenAnswer((_) async => session);
 
-    final container = makeContainer();
+    final container = await makeContainer();
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'e', count: 1);
 
@@ -111,6 +129,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).thenAnswer(
       (_) async => const AnswerOutcome(
@@ -137,7 +158,7 @@ void main() {
       ),
     );
 
-    final container = makeContainer();
+    final container = await makeContainer();
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'e', count: 1);
     notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
@@ -155,6 +176,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).called(1);
 

@@ -6,7 +6,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
@@ -23,6 +28,7 @@ import 'package:pantas/features/quiz/presentation/practice_picker_screen.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
 
 const index = PracticeIndex([
   PracticeSubjectEntry(
@@ -69,6 +75,8 @@ class _MockStartPractice extends Mock implements StartPractice {}
 class _FailingPreferences extends PracticePreferencesRepository {
   _FailingPreferences(super.db);
   bool failSave = false;
+  Completer<void>? pendingSave;
+  Completer<void>? saveEntered;
   int reads = 0;
 
   @override
@@ -84,7 +92,11 @@ class _FailingPreferences extends PracticePreferencesRepository {
     required PracticeUnitMode mode,
     required int value,
     required Map<String, int> adjustments,
-  }) {
+  }) async {
+    if (pendingSave != null) {
+      saveEntered?.complete();
+      await pendingSave!.future;
+    }
     if (failSave) throw StateError('private storage diagnostic');
     return super.save(
       examId,
@@ -140,6 +152,12 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          authStateProvider.overrideWith(
+            (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+          ),
+          activeExamFocusProvider.overrideWith(
+            (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+          ),
           practicePreferencesRepositoryProvider.overrideWithValue(prefs),
           practiceIndexProvider('e').overrideWith(
             (_) => loadIndex?.call() ?? Future<PracticeIndex>.value(source),
@@ -206,6 +224,13 @@ void main() {
         ),
       ),
     );
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(PracticePickerScreen)),
+    );
+    await tester.runAsync(() async {
+      await container.read(authStateProvider.future);
+      await container.read(activeExamFocusProvider.future);
+    });
     if (settle) {
       await tester.pumpAndSettle();
     } else {
@@ -213,6 +238,62 @@ void main() {
     }
     return prefs;
   }
+
+  testWidgets(
+      'custom Start retains the boundary before pending preference writes',
+      (tester) async {
+    final start = _MockStartPractice();
+    var calls = 0;
+    when(
+      () => start(
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
+        units: any(named: 'units'),
+        perUnit: any(named: 'perUnit'),
+        countsByUnit: any(named: 'countsByUnit'),
+        now: any(named: 'now'),
+        canPersist: any(named: 'canPersist'),
+      ),
+    ).thenAnswer((_) async {
+      calls++;
+      return StartPracticeStarted(
+        QuizSession.start(
+          sessionId: 'late',
+          examId: 'e',
+          questions: const [],
+          startedAt: DateTime.utc(2026),
+        ),
+      );
+    });
+    final prefs = await pump(tester, start: start) as _FailingPreferences;
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(PracticePickerScreen)),
+    );
+    await tester.runAsync(
+      () => SyncActiveContextStore(container.read(appDatabaseProvider))
+          .clearStable(),
+    );
+    prefs
+      ..pendingSave = Completer<void>()
+      ..saveEntered = Completer<void>();
+    await tester.tap(find.byKey(const ValueKey('scope-select-t')));
+    await tester.pump();
+    expect(prefs.saveEntered!.isCompleted, isTrue);
+    await tester.tap(find.text('Start'));
+    await tester.pump();
+    await tester.runAsync(
+      () => SyncLocalStateWiper(container.read(appDatabaseProvider)).wipeAll(),
+    );
+    prefs.pendingSave!.complete();
+    for (var i = 0; i < 30; i++) {
+      await tester.pump(const Duration(milliseconds: 20));
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 2)),
+      );
+    }
+    expect(calls, 0);
+    expect(find.text('Practice running'), findsNothing);
+  });
 
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {
@@ -504,6 +585,7 @@ void main() {
         perUnit: any(named: 'perUnit'),
         countsByUnit: any(named: 'countsByUnit'),
         now: any(named: 'now'),
+        canPersist: any(named: 'canPersist'),
       ),
     ).thenAnswer((_) => pending.future);
     await pump(tester, saved: {'a'}, start: start);
@@ -527,6 +609,7 @@ void main() {
         perUnit: 10,
         countsByUnit: {'lesson:a': 11},
         now: any(named: 'now'),
+        canPersist: any(named: 'canPersist'),
       ),
     ).called(1);
     pending.complete(
@@ -559,6 +642,7 @@ void main() {
         perUnit: any(named: 'perUnit'),
         countsByUnit: any(named: 'countsByUnit'),
         now: any(named: 'now'),
+        canPersist: any(named: 'canPersist'),
       ),
     ).thenAnswer((_) async => const StartPracticeNoQuestions('empty'));
     await pump(tester, saved: {'a'}, start: start);
@@ -708,6 +792,7 @@ void main() {
         perUnit: any(named: 'perUnit'),
         countsByUnit: any(named: 'countsByUnit'),
         now: any(named: 'now'),
+        canPersist: any(named: 'canPersist'),
       ),
     ).thenAnswer((_) async {
       calls++;

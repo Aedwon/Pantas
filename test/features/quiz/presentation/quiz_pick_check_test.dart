@@ -3,12 +3,19 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+
+import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
 
 class _Start extends Mock implements StartQuickQuiz {}
 
@@ -71,10 +78,22 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).thenAnswer((_) async => outcome);
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
     container = ProviderContainer(
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
         nowProvider.overrideWithValue(() => now),
@@ -83,6 +102,8 @@ void main() {
     addTearDown(() {
       if (!disposed) container.dispose();
     });
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
     controller = container.read(quizControllerProvider.notifier);
     await controller.start(examId: 'e');
     controller.markQuestionReady(sessionId: 's', questionIndex: 0);
@@ -104,6 +125,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     );
     now = now.add(const Duration(seconds: 2));
@@ -117,6 +141,9 @@ void main() {
         responseMs: 2000,
         now: now,
         origin: running().session.origin.storageValue,
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).called(1);
   });
@@ -139,6 +166,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).thenAnswer((_) => pending.future);
     controller.pick(chosenChoiceId: 'b');
@@ -161,6 +191,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).called(1);
   });
@@ -174,6 +207,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).thenAnswer((_) async {
       if (fails) throw StateError('private storage failure');
@@ -198,6 +234,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).thenAnswer((_) => pending.future);
     controller.pick(chosenChoiceId: 'b');
@@ -218,6 +257,9 @@ void main() {
           responseMs: any(named: 'responseMs'),
           now: any(named: 'now'),
           origin: any(named: 'origin'),
+          sessionId: any(named: 'sessionId'),
+          userId: any(named: 'userId'),
+          examId: any(named: 'examId'),
         ),
       ).thenAnswer((_) => pending.future);
       controller.pick(chosenChoiceId: 'b');

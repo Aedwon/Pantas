@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
@@ -98,17 +99,24 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
       _startFailed = false;
     });
     try {
+      final controller = ref.read(quizControllerProvider.notifier);
+      final guard = await controller.captureLaunchGuard(examId: examId);
+      final storedFlags =
+          await ref.read(questionFlagsRepositoryProvider).flaggedIds();
       final entries = await ref.read(flaggedExamReviewProvider(examId).future);
       if (!mounted || generation != _generation || entries.isEmpty) return;
       final ids = entries.map((entry) => entry.question.id).toList();
-      await ref
-          .read(quizControllerProvider.notifier)
-          .startPracticeFromQuestionIds(
-            examId: examId,
-            questionIds: ids,
-            origin: SessionOrigin.flagged,
-          );
-      if (!mounted || generation != _generation) return;
+      if (!await guard() || ids.any((id) => !storedFlags.contains(id))) {
+        throw StateError('Flagged quiz context changed');
+      }
+      await controller.startPracticeFromQuestionIds(
+        examId: examId,
+        questionIds: ids,
+        origin: SessionOrigin.flagged,
+        canPersist: guard,
+      );
+      if (!mounted || generation != _generation || !await guard()) return;
+      if (!mounted) return;
       final state = ref.read(quizControllerProvider);
       if (state is! QuizRunning ||
           state.session.examId != examId ||
