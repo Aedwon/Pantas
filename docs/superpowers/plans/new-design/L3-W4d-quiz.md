@@ -409,3 +409,10 @@ Root read QV_Sources and current completion/controller/batch repositories. Done 
 - Tests first: real custom/flags/lesson Done stacks; full/mistake list numbers and actual viewer routes; saved note refresh; actual fresh versus historical rating behavior; real next creation, duplicates, stale end screen, failed claim retry, account/exam/wipe/disposal, no generic/custom split and unchanged completion behavior. Root owns the new end/all pages, quiz_page completion consumer, bounded quiz_controller entry, batch repository optional argument and directly affected tests. Existing viewer registrations remain their implementor's scope until its handback.
 
 This fills existing Task5 presentation/caller behavior. Home's initial Reviews/New caller contracts remain unavailable and are not fabricated by this continuation entry. Phone acceptance and final family review/checks remain separate.
+
+
+## Lead Task6 completed-data cache identity, October23
+
+Actual regression11450 kept the original viewer mounted offstage, changed actual auth, wiped local state, published the second core owner, then opened the same attempt ID in a fresh viewer. The database was empty, but the new viewer reused the old global completedQuizProvider result. Original-boundary checks alone do not establish ownership of a result cached under another view's request.
+
+Add one required Object boundary field to the existing CompletedQuizRequest record. Every production consumer passes its own retained original boundary Future/object, never a new value on each getter, a shared singleton or an account-independent constant. This partitions the existing auto-disposed provider cache by its already-required view lifetime. Retry keeps the same original boundary and still cannot rebind after wipe/account change. New end/all consumers follow the same rule. Existing account/database/core-owner checks remain; no new state store, global cache, persisted identifier, history or schema is introduced. Update the new provider's callers/tests and prove actual cross-account wipe/cache isolation.
