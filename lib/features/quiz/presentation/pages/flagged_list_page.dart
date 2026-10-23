@@ -100,7 +100,15 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
     });
     try {
       final controller = ref.read(quizControllerProvider.notifier);
-      final guard = await controller.captureLaunchGuard(examId: examId);
+      final ownerGuard = await controller.captureLaunchGuard(examId: examId);
+      bool pageCurrent() =>
+          mounted && widget.examId == examId && generation == _generation;
+      Future<bool> guard() async {
+        if (!pageCurrent()) return false;
+        final current = await ownerGuard();
+        return pageCurrent() && current;
+      }
+
       final storedFlags =
           await ref.read(questionFlagsRepositoryProvider).flaggedIds();
       final entries = await ref.read(flaggedExamReviewProvider(examId).future);

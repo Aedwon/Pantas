@@ -154,7 +154,14 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     final examId = widget.examId;
     try {
       final controller = ref.read(quizControllerProvider.notifier);
-      final guard = await controller.captureLaunchGuard(examId: examId);
+      final ownerGuard = await controller.captureLaunchGuard(examId: examId);
+      bool pageCurrent() => mounted && widget.examId == examId;
+      Future<bool> guard() async {
+        if (!pageCurrent()) return false;
+        final current = await ownerGuard();
+        return pageCurrent() && current;
+      }
+
       await _writes;
       if (!mounted || widget.examId != examId) return;
       if (!await guard()) throw StateError('Quiz account changed');
