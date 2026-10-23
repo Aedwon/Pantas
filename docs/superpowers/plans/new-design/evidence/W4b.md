@@ -197,3 +197,5 @@ Policy refreshed through main73aa5b90; accepted4113ad78 merged by lead into work
 00:00 +12: All tests passed!
 Analyzing 2 items...
 No issues found! (ran in 0.6s)
+
+Shared future query checkpoint: RED11594 missing query; GREEN11600 domain174 tests; final focused/static output build/w4b/task7-future-query-final.log and task7-future-query-analysis.log. WeekPreviews.plannedLessonsForDay uses the existing future queue/pacing for actual authored IDs. Sunday grouping changes display boundaries only; StudyDays remains ISO. Task7 presentation is not complete.
