@@ -215,3 +215,8 @@ Aedwon selected exactly "Approve web trial wording" after the before-and-after p
 ### October24 Task9 cache ownership scope
 
 Native currentArchetypeProvider awaits signal inputs before unguarded cache upsert. During Task9 reproduce same-owner wipe/account changes across that wait; if confirmed, retain original account/core token and validate inside guarded transaction before caching/publication. Client owns the narrow metrics/providers/current_archetype_provider.dart and metrics/data/user_metrics_archetype_repository.dart guard corrections and tests; server retains metrics/signals extraction. No new cache or framework.
+
+
+### October24 authoritative scope and past-completion inputs
+
+Existing What's included exclusions are real plan-shaping inputs. Extend setExamSettings with optional excludedTopicIds, validate unique authored selected-exam topic IDs and at least one topic remaining, and include actual scope in native/shared digest and server queries. Omitted legacy field preserves existing full-scope compatibility; new W4b caller sends actual persisted exclusions. No new product setting. Mock availability comes from actual selected-exam authored blueprint existence, never a constant true. Past-day/week status derives from real observations completed through that past day's end, including observations received later, not the remaining count from the last time that page was viewed. Unknown original past plans stay unknown. Add focused exact-membership/retired-scope/no-blueprint/late-observation tests.
