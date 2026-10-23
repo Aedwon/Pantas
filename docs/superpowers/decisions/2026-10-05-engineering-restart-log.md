@@ -2353,3 +2353,8 @@ Recorded 2026-10-23 22:54 Asia/Manila; ownership lock released.
 ### October24 W4b completion and necessary Sonnet dependency takeover
 
 Aedwon: "continue and finish work on W4b. i authorize you to take over sonnet". Continue existing approved balanced PWA/W4b scope, including necessary roadmap/insight dependency recovery from Sonnet. Preserve existing server/staging source and accepted mock due feed; no unrelated Sonnet work, deployment or publication. Root holds free coordination lock, read current-main policy159afc7f, verified two online idle relay runners and reconciled clean matching B b99c1679/development4113ad78. Actual relay11564 normally merged accepted development into B27086aab with no conflicts; both unique Task2 commits preserved. No application remote or development target moved. One continuing client worker handles Tasks3–10; bounded server dependency investigation runs on read-only accepted0c17bfb0 until root records exact source/interface ownership before edits. One independent engineering family audit remains at completion; Aedwon phone/live acceptance stays separate.
+
+
+### October24 W4b Free future-date choice
+
+Root found conflicting Home future-date taps and the Pro-only future-planning rule. Offered "Pro invitation for future dates" (recommended, preserves future-plan restriction) versus "Future lessons for the current week; later weeks need Pro" (more Free preview, weaker restriction). Showed the approved DP_PlanFree and DP_Day screens. Aedwon answered exactly: "Pro invitation for future dates". Client uses the existing approved Free-plan invitation; server excludes future lesson/topic data for Free, including current-week future dates. Past and Today actual data remain available. No new layout or copy is authorized.
