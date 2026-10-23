@@ -205,3 +205,8 @@ Lead source review found native RoadmapController.advance awaits content/inputs 
 ### October24 available native guard pattern correction
 
 Root initially named withStudentDataWrite in its worker message, but that helper does not exist on accepted27086aab. Reuse the actual quiz/reader feature-local per-database ordering, original captured SyncActiveContextStore token/account lifetime and guarded Drift transaction instead. This corrects the implementation reference, not the required ownership semantics. Do not introduce a global/core helper or hold a write lock over content hydration.
+
+
+### October24 web trial notice wording approved
+
+Aedwon selected exactly "Approve web trial wording" after the before-and-after preview at http://127.0.0.1:8768/trial. Preserve proposal v1 at docs/design/proposals/w4b-web-trial-notice-2026-10-24-v1.html. Same HP_Trial strip; only detail becomes "Your free trial ends on {date}. You won’t be charged." and Manage becomes "See Pro" opening the existing Pro page. Header keeps actual remaining days. Runtime end/date come from actual active account trial data, never a sample constant; native store-charge text remains tied to actual store price/date. Disclosed preview scope: static light-mode design source, not running-app capture; dark mode uses existing approved tokens. Alternative offered: keep the trial notice out of web. Approval covers this copy amendment only; phone visual/live acceptance remains separate.
