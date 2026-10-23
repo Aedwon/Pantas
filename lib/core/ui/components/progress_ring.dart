@@ -12,6 +12,8 @@ class ProgressRing extends StatefulWidget {
     this.showCheck = true,
     this.fillDuration,
     this.fillDelay = Duration.zero,
+    this.emptyStrokeWidth,
+    this.emptyTrackColor,
     super.key,
     this.delay = Duration.zero,
   })  : studyStyle = false,
@@ -21,7 +23,9 @@ class ProgressRing extends StatefulWidget {
     required this.fraction,
     this.delay = Duration.zero,
     super.key,
-  })  : size = 24,
+  })  : emptyStrokeWidth = null,
+        emptyTrackColor = null,
+        size = 24,
         child = null,
         showCheck = false,
         fillDuration = null,
@@ -33,7 +37,9 @@ class ProgressRing extends StatefulWidget {
     required this.fraction,
     this.child,
     super.key,
-  })  : size = 44,
+  })  : emptyStrokeWidth = null,
+        emptyTrackColor = null,
+        size = 44,
         delay = Duration.zero,
         showCheck = false,
         fillDuration = null,
@@ -41,6 +47,8 @@ class ProgressRing extends StatefulWidget {
         studyStyle = false,
         pullStyle = true,
         assert(fraction >= 0 && fraction <= 1, 'Fraction must be from 0 to 1.');
+  final double? emptyStrokeWidth;
+  final Color? emptyTrackColor;
   final bool pullStyle;
   final bool studyStyle;
   final Duration delay;
@@ -82,6 +90,8 @@ class _ProgressRingState extends State<ProgressRing>
         oldWidget.showCheck != widget.showCheck ||
         oldWidget.fillDuration != widget.fillDuration ||
         oldWidget.fillDelay != widget.fillDelay ||
+        oldWidget.emptyStrokeWidth != widget.emptyStrokeWidth ||
+        oldWidget.emptyTrackColor != widget.emptyTrackColor ||
         oldWidget.pullStyle != widget.pullStyle ||
         oldWidget.studyStyle != widget.studyStyle) {
       animate(_fill.value);
@@ -167,14 +177,14 @@ class _ProgressRingState extends State<ProgressRing>
     final track = widget.fraction == 0
         ? widget.studyStyle
             ? context.colors.separator
-            : context.colors.chevron
+            : widget.emptyTrackColor ?? context.colors.chevron
         : widget.size == 34
             ? context.colors.accentTint
             : context.colors.separator;
     final stroke = widget.fraction == 0
         ? widget.studyStyle
             ? 2.0
-            : 1.5
+            : widget.emptyStrokeWidth ?? 1.5
         : widget.size == 34
             ? 2.5
             : 2.4;
@@ -188,6 +198,9 @@ class _ProgressRingState extends State<ProgressRing>
         track: track,
         fill: context.colors.accent,
         stroke: stroke,
+        radius: widget.fraction == 0 && widget.emptyStrokeWidth != null
+            ? (widget.size - stroke) / 2
+            : null,
         trackStroke: widget.size == 24 && widget.fraction > 0 ? 2 : stroke,
       );
     }
