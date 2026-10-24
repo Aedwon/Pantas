@@ -30,6 +30,43 @@ class HomeNotice {
   final String? secondaryLabel;
 }
 
+String _trialTitle(int days) => days == 0
+    ? 'Pro trial ends today'
+    : 'Pro trial ends in $days ${days == 1 ? "day" : "days"}';
+
+/// The web trial is a prepaid server grant with no automatic charge, so the
+/// notice keeps HP_Trial's strip but never states a store charge or a price
+/// (approved wording, proposal v1, 24 October 2026). Same two-day window as
+/// the native notice. Missing trial evidence means no notice.
+HomeNotice? webTrialHomeNotice({
+  required DateTime? endsAt,
+  required DateTime now,
+}) {
+  if (endsAt == null) return null;
+  final days = DateTime.utc(endsAt.year, endsAt.month, endsAt.day)
+      .difference(DateTime.utc(now.year, now.month, now.day))
+      .inDays;
+  if (days < 0 || days > 2) return null;
+  return HomeNotice(
+    kind: HomeNoticeKind.trial,
+    title: _trialTitle(days),
+    detail: 'Your free trial ends on ${PantasDates.short(endsAt, now: now)}. '
+        'You won\u2019t be charged.',
+    dismissalToken:
+        DateTime(endsAt.year, endsAt.month, endsAt.day).toIso8601String(),
+    primaryLabel: 'See Pro',
+    secondaryLabel: 'Got It',
+  );
+}
+
+/// Web seam. Resolves to the actual end of the account's active trial grant
+/// for the selected exam, from the authoritative server read
+/// (`getStudyInsights.trialEndsAt`). Null until that web reader is wired, and
+/// never inferred locally.
+final webTrialEndsAtProvider = FutureProvider.autoDispose<DateTime?>(
+  (ref) async => null,
+);
+
 HomeNotice? selectHomeNotice(
   List<HomeNotice> candidates,
   Map<HomeNoticeKind, String> dismissed,
@@ -62,6 +99,13 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
       ),
     );
   }
+  if (kIsWeb) {
+    final webTrial = webTrialHomeNotice(
+      endsAt: await ref.watch(webTrialEndsAtProvider.future),
+      now: now,
+    );
+    if (webTrial != null) candidates.add(webTrial);
+  }
   final trial =
       kIsWeb ? null : TrialNotice.fromEntitlement(entitlement, today: now);
   if (trial != null) {
@@ -72,10 +116,7 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
       candidates.add(
         HomeNotice(
           kind: HomeNoticeKind.trial,
-          title: trial.daysRemaining == 0
-              ? 'Pro trial ends today'
-              : 'Pro trial ends in ${trial.daysRemaining} '
-                  '${trial.daysRemaining == 1 ? "day" : "days"}',
+          title: _trialTitle(trial.daysRemaining),
           detail: 'Google Play charges ${package.priceString} '
               'on ${PantasDates.short(trial.chargeDate, now: now)} '
               'to keep Pro. Cancel any time before then.',
