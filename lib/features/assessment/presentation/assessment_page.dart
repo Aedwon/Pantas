@@ -38,6 +38,16 @@ final _startAssessmentProvider = Provider<StartAssessment>(
   ),
 );
 
+/// AS_Question draws "SUBJECT · TOPIC". The card upper-cases it.
+final _questionHeaderProvider =
+    FutureProvider.autoDispose.family<String, String>((ref, topicId) async {
+  final content = ref.watch(contentRepositoryProvider);
+  final topic = await content.topicById(topicId);
+  if (topic == null) return '';
+  final subject = await content.subjectById(topic.subjectId);
+  return subject == null ? topic.name : '${subject.name} · ${topic.name}';
+});
+
 final _completeAssessmentProvider = Provider<CompleteAssessment>(
   (ref) => CompleteAssessment(
     assessmentRepo: AssessmentRepository(ref.watch(appDatabaseProvider)),
@@ -247,9 +257,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Widget build(BuildContext context) {
     final session = _session;
     final question = session?.questions[_index].question;
-    final topic = question == null
+    final header = question == null
         ? null
-        : ref.watch(topicByIdProvider(question.topicId)).valueOrNull;
+        : ref.watch(_questionHeaderProvider(question.topicId)).valueOrNull;
     final passageState = question?.passageId == null
         ? null
         : ref.watch(passageByIdProvider(question!.passageId!));
@@ -280,7 +290,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
         child: Column(
           children: [
             QuestionCard(
-              subject: topic?.name ?? '',
+              subject: header ?? '',
               stem: question!.stem,
               figure: question.figureSpecJson == null
                   ? null

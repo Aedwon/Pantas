@@ -103,6 +103,18 @@ void main() {
     expect(find.text('Answers show at the end.'), findsOneWidget);
   });
 
+  testWidgets('the question header reads SUBJECT · TOPIC as AS_Question draws',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('VERBAL · VOCABULARY'), findsOneWidget);
+    expect(find.text('VOCABULARY'), findsNothing);
+  });
+
   testWidgets('answering last question navigates to results page',
       (tester) async {
     await tester.pumpAppWithRouter(
