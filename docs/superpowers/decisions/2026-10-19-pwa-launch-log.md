@@ -1530,3 +1530,8 @@ which costs Aedwon pasting time while he also reviews rewrites.
 
 Decision: the recommended order. The lead triages the 866 findings first, starting with the 52
 Blockers. D5 (Level 5 in parallel with Level 4) is superseded by this order.
+
+Triage done the same day (`docs/content-coverage-audit-r1` at c059bcfd,
+`level4/paste/results/triage.md`): real 597, judgment 233, reject 14, illustration 2, and 25 rows
+that need two standards rulings from Aedwon (General Information layout; Reasoning layout and
+figures). Rewrites for subjects outside those rulings can start first.
