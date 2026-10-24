@@ -8,6 +8,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
@@ -82,7 +83,39 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   void _back() {
     if (_finishing || _finished) return;
-    setState(() => _flow!.back());
+    late final OnboardingStep? previous;
+    setState(() => previous = _flow!.back());
+    if (previous == OnboardingStep.picker) unawaited(_discardCustomTrack());
+  }
+
+  /// Backing out to the picker abandons the custom track this flow created, so
+  /// it does not linger in the exam list. One with study data is kept.
+  Future<void> _discardCustomTrack() async {
+    final id = _customTrackId;
+    if (id == null) return;
+    _customTrackId = null;
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      final studied =
+          await ref.read(attemptsRepositoryProvider).countForExam(id) > 0 ||
+              await ref.read(assessmentRepositoryProvider).hasCompletedForExam(
+                    id,
+                  );
+      if (studied) {
+        _customTrackId ??= id;
+        return;
+      }
+      await ref.read(customTrackRepositoryProvider).delete(id);
+      if (!mounted) return;
+      ref
+        ..invalidate(examListProvider)
+        ..invalidate(activeExamFocusProvider)
+        ..invalidate(scopedTopicsProvider)
+        ..invalidate(scopedSubjectsProvider);
+    } catch (error, stack) {
+      _customTrackId ??= id;
+      unawaited(telemetry.recordError(error, stack));
+    }
   }
 
   @override
