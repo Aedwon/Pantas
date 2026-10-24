@@ -66,6 +66,20 @@ all 866 findings: `level4/paste/results/triage.md` (summary) and `triage.jsonl` 
 - Next: E4 lesson rewrites from the `real` rows, after the two rulings for those subjects.
   Subjects not affected by the rulings (Mathematics, Language, Reading, Science) can start first.
 
+## October 25: CSE teaching gaps placed
+
+Aedwon approved turning the coverage study's CSE gaps into rewrite work ("for Problem 2, okay go
+do that"). `level4/paste/results/cse-teaching-gaps.md` and `.jsonl`: 378 CSE parts not yet
+explained (361 after merging duplicates): 339 go into 57 existing lessons' rewrite briefs, 12 into
+4 proposed new lessons (three Constitution lessons, one on corruption), 6 lessons get Filipino
+sections, 3 parts skipped (current events, listening). Six lessons may need splitting.
+
+Also found: five Spatial and Abstract Reasoning lessons (figure grouping, figure matrices,
+figure series, mental rotation, paper folding) have CSE Professional questions but were not in
+the 71-lesson paste scope, because the accepted exam map did not tag their lessons for CSE.
+Their prompts already exist (L4-7931, L4-7033, L4-9950, L4-8939, L4-9296). Adding them needs
+Aedwon's go-ahead.
+
 ## Identity
 
 - Current policy and standards: main `168e393dc997de4531f4fdd5b683c66025e75d0e`, published October 10 after the approved question-givens/expected-knowledge distinction. Checklist Q20 applies to question stems; L05 and the lesson guide apply it to worked-example stems in Level 4. Quizzes and bank questions remain Level 5. L25 to L27 and the example-count correction remain active. Level 3 acceptance evidence retains its original `1aaebad9814ba7bd9404d8b43fc010281abb97cf` identity. Refresh current main instructions before Level 4.
