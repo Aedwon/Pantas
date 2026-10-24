@@ -1678,3 +1678,16 @@ Lead result (`docs/content-coverage-audit-r1` at ecbfa88b): 78 of 78 lessons rea
 revalidated, counting check PASS. Triage across 78 lessons: real 656 (497 small, 151 medium, 8
 large), judgment 271, reject 19, illustration 7. The 25 rows held for the layout rulings were
 resolved by the approved rulings. Next: the rewrite plan.
+
+## October 25: rewrite plan drafted
+
+Aedwon's exact request:
+
+> Write the rewrite plan now with everything we agreed.
+
+Drafted `docs/superpowers/plans/pwa-launch/E4-E7-cse-content-rewrite.md` (amends Lane E, tasks
+E3 to E7). Facts found while drafting: lesson figures are PNG files (code-rendered, generated
+through Illustration Studio, or open-licensed), question figures are code-drawn specs; no
+in-lesson quiz items exist; four puzzle lessons have no active question (all need figures); the
+illustration worklist (59 rows) disagrees with its README (278). Awaiting Aedwon: approval at a
+complexity level (balanced recommended) and the figure order.
