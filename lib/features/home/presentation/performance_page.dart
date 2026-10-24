@@ -10,24 +10,10 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/home/application/performance/performance_provider.dart';
+import 'package:pantas/features/home/application/performance/performance_view.dart';
 
-class PerformanceViewData {
-  const PerformanceViewData({
-    required this.subjects,
-    required this.topics,
-    required this.lessons,
-    required this.subjectCounts,
-    required this.lessonLevelAvailable,
-    this.parentSubjectIds = const {},
-  });
-  final List<PerformanceRow> subjects;
-  final List<PerformanceRow> topics;
-  final List<PerformanceRow> lessons;
-  final Map<String, int> subjectCounts;
-  final bool lessonLevelAvailable;
-  final Map<String, String> parentSubjectIds;
-}
+export 'package:pantas/features/home/application/performance/performance_view.dart'
+    show PerformanceViewData;
 
 class PerformancePage extends StatefulWidget {
   const PerformancePage({
