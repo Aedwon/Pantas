@@ -74,22 +74,25 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
     if (notice == null || hidden.contains(notice.kind)) {
       return const SizedBox.shrink();
     }
-    return NoticeStrip(
-      title: notice.title,
-      detail: notice.detail,
-      expanded: _expanded,
-      icon: switch (notice.kind) {
-        HomeNoticeKind.trial || HomeNoticeKind.welcome => PantasIcons.pro,
-        _ => null,
-      },
-      onToggle: notice.detail == null
-          ? null
-          : () => setState(() => _expanded = !_expanded),
-      onClose: () => unawaited(_dismiss(notice)),
-      primaryLabel: notice.primaryLabel,
-      onPrimary: () => _primary(notice),
-      secondaryLabel: notice.secondaryLabel,
-      onSecondary: () => unawaited(_dismiss(notice)),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 22),
+      child: NoticeStrip(
+        title: notice.title,
+        detail: notice.detail,
+        expanded: _expanded,
+        icon: switch (notice.kind) {
+          HomeNoticeKind.trial || HomeNoticeKind.welcome => PantasIcons.pro,
+          _ => null,
+        },
+        onToggle: notice.detail == null
+            ? null
+            : () => setState(() => _expanded = !_expanded),
+        onClose: () => unawaited(_dismiss(notice)),
+        primaryLabel: notice.primaryLabel,
+        onPrimary: () => _primary(notice),
+        secondaryLabel: notice.secondaryLabel,
+        onSecondary: () => unawaited(_dismiss(notice)),
+      ),
     );
   }
 }

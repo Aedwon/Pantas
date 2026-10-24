@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -14,12 +15,14 @@ class HomeExamDateSheet extends StatefulWidget {
     this.initial,
     this.requireDay = false,
     this.saving = false,
+    this.failed = false,
     super.key,
   });
   final DateTime today;
   final ExamDate? initial;
   final bool requireDay;
   final bool saving;
+  final bool failed;
   final ValueChanged<ExamDate> onSave;
 
   @override
@@ -78,6 +81,10 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
             onChanged: (next) => setState(() => _value = next),
           ),
           const SizedBox(height: 18),
+          if (widget.failed && date != null) ...[
+            saveFailureLine(() => widget.onSave(date)),
+            const SizedBox(height: 8),
+          ],
           PantasButton(
             label: 'Save',
             busy: widget.saving,

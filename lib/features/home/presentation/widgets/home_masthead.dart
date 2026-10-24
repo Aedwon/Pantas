@@ -12,10 +12,19 @@ class HomeMasthead extends ConsumerWidget {
   const HomeMasthead({
     required this.examId,
     required this.now,
+    this.notice,
+    this.greeting,
     super.key,
   });
 
   final ExamId examId;
+
+  /// The notice strip, drawn between the week and the greeting. It supplies
+  /// its own spacing and draws nothing when there is no notice.
+  final Widget? notice;
+
+  /// Replaces the hour-band greeting, for example "Welcome back".
+  final String? greeting;
 
   /// Injected so date/greeting states are deterministic in tests.
   final DateTime now;
@@ -59,10 +68,11 @@ class HomeMasthead extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 22),
+        if (notice != null) notice!,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),
           child: Text(
-            greetingFor(now, AppLocalizations.of(context)),
+            greeting ?? greetingFor(now, AppLocalizations.of(context)),
             style: context.type.largeTitle,
           ),
         ),
