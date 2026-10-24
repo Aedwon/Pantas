@@ -15,6 +15,8 @@ void main() {
       '/onboarding/custom/subjects',
       '/notifications/rationale',
       '/plan/dossier/:mockId',
+      '/performance',
+      '/performance/topic/:topicId',
       '/progress/how-you-work',
       '/progress/your-record',
       '/quiz/today/:examId',
