@@ -78,3 +78,6 @@ L4-7033
 L4-9950
 L4-8939
 L4-9296
+# Added October 25: two Reading lessons with CSE gaps in the coverage study but no CSE tag.
+L4-4122
+L4-9601
