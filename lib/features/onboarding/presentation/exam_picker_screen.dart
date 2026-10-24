@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -103,6 +104,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   Future<void> _save() async {
     final id = _selectedId;
     if (id == null || _saving) return;
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
       _failed = false;
@@ -115,7 +117,8 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ref.invalidate(appPreferencesRepositoryProvider);
       }
       await widget.onPicked(id);
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);

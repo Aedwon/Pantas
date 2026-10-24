@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:drift/drift.dart' show BooleanExpressionOperators;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -118,11 +121,18 @@ class AssessmentResultsPage extends ConsumerWidget {
           return _ResultsBody(
             data: value,
             onAcknowledge: () async {
-              await ref
-                  .read(appPreferencesRepositoryProvider)
-                  .setDeviceValue(_seenKey(value.result!), 'true');
-              ref.invalidate(_resultDataProvider(examId));
-              if (context.mounted) context.go('/home');
+              final telemetry = ref.read(telemetryProvider);
+              try {
+                await ref
+                    .read(appPreferencesRepositoryProvider)
+                    .setDeviceValue(_seenKey(value.result!), 'true');
+                ref.invalidate(_resultDataProvider(examId));
+                if (context.mounted) context.go('/home');
+              } catch (error, stack) {
+                unawaited(telemetry.recordError(error, stack));
+                // The body shows its own retry line.
+                rethrow;
+              }
             },
           );
         },

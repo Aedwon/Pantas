@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
@@ -9,6 +10,7 @@ import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
@@ -40,6 +42,22 @@ GoRouter _buildRouter(String examId) => GoRouter(
         ),
       ],
     );
+
+class _FailingAcknowledge extends AppPreferencesRepository {
+  _FailingAcknowledge(super.db);
+
+  @override
+  Future<void> setDeviceValue(String key, String value) =>
+      Future.error(StateError('ack'));
+}
+
+class _ErrorSink extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
 
 class _MissingSubjectContent extends ContentRepository {
   _MissingSubjectContent(super.db, this.missing);
@@ -161,6 +179,26 @@ void main() {
     expect(find.textContaining('12 questions'), findsNothing);
     final ring = tester.widget<HalfRingGauge>(find.byType(HalfRingGauge));
     expect((ring.correct, ring.total), (4, 8));
+  });
+  testWidgets('a failed acknowledgement is reported and can be retried',
+      (tester) async {
+    final sink = _ErrorSink();
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [
+        ...databaseOverrides(),
+        telemetryProvider.overrideWithValue(sink),
+        appPreferencesRepositoryProvider
+            .overrideWithValue(_FailingAcknowledge(db)),
+      ],
+    );
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Go to Today'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(find.text('Home'), findsNothing);
+    expect(sink.errors, hasLength(1));
   });
   testWidgets('Go to Today acknowledges once and reopening goes Home',
       (tester) async {

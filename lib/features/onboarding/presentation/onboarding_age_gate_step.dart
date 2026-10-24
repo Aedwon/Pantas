@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -40,6 +43,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
       setState(() => _blocked = true);
       return;
     }
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
       _failed = false;
@@ -50,7 +54,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
           .setPassedAgeGate(value: true);
       ref.invalidate(appPreferencesRepositoryProvider);
       if (mounted) widget.onAgeGatePassed();
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);

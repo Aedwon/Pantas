@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
@@ -200,6 +203,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
 
   Future<void> _complete() async {
     if (_completing || _session == null) return;
+    final telemetry = ref.read(telemetryProvider);
     _questionClock.stop();
     setState(() {
       _completing = true;
@@ -223,7 +227,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       }
     } on AssessmentAlreadyCompleted {
       if (await _checkOwner() && mounted) context.go('/home');
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _completing = false);

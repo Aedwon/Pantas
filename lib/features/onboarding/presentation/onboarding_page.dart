@@ -39,6 +39,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   bool _finishFailed = false;
   Future<void> _finish() async {
     if (_finishing || _finished) return;
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _finishing = true;
       _finishFailed = false;
@@ -56,7 +57,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         ..invalidate(appPreferencesRepositoryProvider)
         ..invalidate(onboardingProgressProvider);
       GoRouter.maybeOf(context)?.go('/home');
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _finishFailed = true);
     } finally {
       if (mounted) setState(() => _finishing = false);

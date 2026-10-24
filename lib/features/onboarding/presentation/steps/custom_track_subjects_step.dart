@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -93,6 +96,7 @@ class _CustomTrackSubjectsStepState
     final generation = _generation;
     final repo = ref.read(customTrackRepositoryProvider);
     final prefs = ref.read(appPreferencesRepositoryProvider);
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _creating = true;
       _failed = false;
@@ -116,7 +120,8 @@ class _CustomTrackSubjectsStepState
       } else {
         context.go('/onboarding');
       }
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _creating = false);

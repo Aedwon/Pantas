@@ -5,12 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
@@ -39,6 +44,21 @@ GoRouter _buildRouter(String examId) => GoRouter(
         ),
       ],
     );
+
+class _FailingAttempts extends AttemptsRepository {
+  _FailingAttempts(super.db);
+
+  @override
+  Future<Attempt?> byId(AttemptId id) => Future.error(StateError('attempts'));
+}
+
+class _ErrorSink extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
 
 /// Holds the owner check open so a test can tap again while it is pending.
 class _GatedPrefs extends AppPreferencesRepository {
@@ -466,5 +486,27 @@ void main() {
       expect(await container.read(countForExamProvider(customId).future), 1);
       progress.close();
     });
+  });
+
+  testWidgets('a failed completion is reported and offers a retry',
+      (tester) async {
+    final sink = _ErrorSink();
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [
+        ...databaseOverrides(),
+        telemetryProvider.overrideWithValue(sink),
+        attemptsRepositoryProvider.overrideWithValue(_FailingAttempts(db)),
+      ],
+    );
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
+    expect(find.text('Results'), findsNothing);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(sink.errors, hasLength(1));
   });
 }

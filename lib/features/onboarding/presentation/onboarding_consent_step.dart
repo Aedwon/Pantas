@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -30,6 +33,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
 
   Future<void> _continue() async {
     if (!_acceptedTerms || _saving) return;
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
       _failed = false;
@@ -43,7 +47,8 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
         ..invalidate(settingsRepositoryProvider)
         ..invalidate(userSettingsProvider);
       if (mounted) widget.onCompleted();
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
