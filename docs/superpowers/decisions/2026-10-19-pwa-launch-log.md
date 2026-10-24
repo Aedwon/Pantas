@@ -1552,3 +1552,23 @@ Approved:
 
 Not yet done: the lesson style guide is not edited. The lead proposed reviewing other lesson and
 question standards first, so the guide changes land together.
+
+## October 25: question standards review, first answers
+
+Lead proposals: review the fixed counts (20 per lesson, 2 to 3 variants per archetype); move the
+YAML quoting rules into a checking script; keep the blind solve, one correct answer, wrong-choice
+notes and no-clue rules. Aedwon's exact reply:
+
+> * fixed counts remain 20 minimum. near-duplicates are okay for launch, we will build a parameterized question generation engine later on but this is for another conversation
+> * ok
+> * yes okay but i think we need to improve the way this is done.
+>
+> let me know if we're all good with the writing/rewriting standards for lessons and quizzes before we proceed to the next
+
+Decisions: the 20-question minimum stays. Near-duplicate variants are allowed for launch
+(supersedes "no near-duplicates" in the question guide's coverage rule until the generator
+exists). The YAML quoting rules move to a checking script. The protective rules stay, and Aedwon
+wants their process improved (detail pending).
+
+Idea recorded, not approved for build: a parameterized question generation engine after launch,
+to be discussed in its own conversation.
