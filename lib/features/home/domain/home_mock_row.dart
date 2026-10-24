@@ -2,8 +2,6 @@
 /// exam's stored blueprint, never from a constant.
 class HomeMockRow {
   const HomeMockRow({required this.subtitle, this.duration});
-  final String subtitle;
-  final String? duration;
 
   factory HomeMockRow.fromBlueprint({
     required String examShortName,
@@ -13,6 +11,9 @@ class HomeMockRow {
         subtitle: '$examShortName simulation',
         duration: formatMockDuration(durationMinutes),
       );
+
+  final String subtitle;
+  final String? duration;
 }
 
 /// "2 hr 45 min", "3 hr", "45 min".

@@ -51,8 +51,7 @@ void main() {
     expect(extras.mock, isNull);
   });
 
-  test('a missed-work entry from an earlier day is not today\'s note',
-      () async {
+  test("a missed-work entry from an earlier day is not today's note", () async {
     final extras = await readHomeDayExtras(
       today: snapshot(today),
       examShortName: 'UPCAT',

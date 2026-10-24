@@ -1,11 +1,15 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class HomeTodayData {
   HomeTodayData({
@@ -13,11 +17,20 @@ class HomeTodayData {
     required List<HomeTodayLesson> lessons,
     required this.questionWork,
     required this.canAdvance,
+    this.examName = '',
+    this.examShortName = '',
+    this.extras = const HomeDayExtras(),
   }) : lessons = List.unmodifiable(lessons);
   final RoadmapToday today;
   final List<HomeTodayLesson> lessons;
   final TodayQuestionWork? questionWork;
   final bool canAdvance;
+  final String examName;
+  final String examShortName;
+
+  /// The calm line and the mock row, read with the same rule on every
+  /// platform.
+  final HomeDayExtras extras;
 }
 
 typedef HomeTodayLoader = Future<HomeTodayData> Function(
@@ -75,12 +88,33 @@ final homeTodayLoaderProvider = Provider<HomeTodayLoader>((ref) {
     final canAdvance = await ref
         .read(roadmapControllerProvider)
         .canAdvance(examId, originalGuard: originalGuard);
+    final exam = (await ref.read(activeExamFocusProvider.future)).exam;
+    final settings = await ref.read(userSettingsProvider.future);
+    final shortName = exam?.shortName ?? '';
+    final extras = await readHomeDayExtras(
+      today: today.snapshot,
+      examShortName: shortName,
+      studyDays: settings.studyDays,
+      recentChanges: () =>
+          ref.read(roadmapChangeLogRepositoryProvider).recent(examId),
+      priorSnapshot: () => ref
+          .read(roadmapDayRepositoryProvider)
+          .latestBefore(examId, today.snapshot.day),
+      mockDurationMinutes: () async {
+        final blueprints =
+            await ref.read(mockBlueprintRepoProvider).byExam(examId);
+        return blueprints.firstOrNull?.durationMinutes;
+      },
+    );
     if (!await guard()) throw StateError('Home owner changed');
     return HomeTodayData(
       today: today,
       lessons: lessons,
       questionWork: work,
       canAdvance: canAdvance,
+      examName: exam?.name ?? '',
+      examShortName: shortName,
+      extras: extras,
     );
   };
 });
