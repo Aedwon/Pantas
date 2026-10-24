@@ -18,6 +18,8 @@ class NoticeStrip extends StatelessWidget {
     this.secondaryLabel,
     this.onSecondary,
     this.icon,
+    this.iconColor,
+    this.editor,
     super.key,
   });
   final String title;
@@ -31,6 +33,8 @@ class NoticeStrip extends StatelessWidget {
   final String? secondaryLabel;
   final VoidCallback? onSecondary;
   final IconData? icon;
+  final Color? iconColor;
+  final Widget? editor;
   @override
   Widget build(BuildContext context) {
     final duration = MediaQuery.disableAnimationsOf(context)
@@ -64,7 +68,7 @@ class NoticeStrip extends StatelessWidget {
                       Icon(
                         icon ?? PantasIcons.addDate,
                         size: 18,
-                        color: context.colors.secondaryLabel,
+                        color: iconColor ?? context.colors.secondaryLabel,
                       ),
                       const SizedBox(width: 10),
                       Expanded(
@@ -139,6 +143,10 @@ class NoticeStrip extends StatelessWidget {
                       detail!,
                       style: context.type.footnote.copyWith(height: 1.4),
                     ),
+                  if (editor != null) ...[
+                    const SizedBox(height: 12),
+                    editor!,
+                  ],
                   if (primaryLabel != null && secondaryLabel != null) ...[
                     const SizedBox(height: 12),
                     ButtonPair(

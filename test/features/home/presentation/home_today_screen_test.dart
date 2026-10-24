@@ -125,6 +125,80 @@ void main() {
     expect(context?.index, 0);
     expect(context?.date, day);
   });
+  testWidgets('Lessons sheet groups subjects and omits row subtitles',
+      (tester) async {
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: today,
+        lessons: const [
+          HomeTodayLesson(
+            id: 'l1',
+            title: 'Ratios',
+            subject: 'Mathematics',
+            minutes: 8,
+            read: true,
+          ),
+          HomeTodayLesson(
+            id: 'l2',
+            title: 'Cells',
+            subject: 'Science',
+            minutes: 9,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l3',
+            title: 'Fractions',
+            subject: 'Mathematics',
+            minutes: 7,
+            read: false,
+          ),
+          HomeTodayLesson(
+            id: 'l4',
+            title: 'Atoms',
+            subject: 'Science',
+            minutes: 6,
+            read: false,
+          ),
+        ],
+        questionWork: null,
+        canAdvance: false,
+      ),
+    );
+    await tester.tap(find.text('Lessons').first);
+    await tester.pumpAndSettle();
+    final sheet = find.byType(TodayQuestionsSheet);
+    expect(
+      find.descendant(of: sheet, matching: find.text('MATHEMATICS')),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(of: sheet, matching: find.text('SCIENCE')),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(of: sheet, matching: find.text('Mathematics')),
+      findsNothing,
+    );
+    expect(
+      find.descendant(of: sheet, matching: find.text('Read')),
+      findsNothing,
+    );
+    expect(
+      tester
+          .getTopLeft(
+            find.descendant(of: sheet, matching: find.text('Fractions')),
+          )
+          .dy,
+      lessThan(
+        tester
+            .getTopLeft(
+              find.descendant(of: sheet, matching: find.text('SCIENCE')),
+            )
+            .dy,
+      ),
+    );
+  });
   testWidgets('retry retains original page ownership guard', (tester) async {
     final guards = <Future<Future<bool> Function()>>[];
     var tries = 0;

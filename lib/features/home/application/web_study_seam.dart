@@ -1,7 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
 import 'package:pantas/features/home/application/performance/topic_detail.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 
 /// THE web seam for Home and performance.
 ///
@@ -20,14 +24,59 @@ bool get kIsWebStudy => kIsWeb;
 /// (`getStudyInsights.trialEndsAt`). Null means no trial evidence, never a
 /// guess.
 final webTrialEndsAtProvider = FutureProvider.autoDispose<DateTime?>(
-  (ref) async => null,
+  (ref) async {
+    final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+    if (exam == null) return null;
+    final value = await ref.watch(serverStudyInsightsProvider(exam.id).future);
+    final endsAt = value.trialEndsAt;
+    return endsAt == null ? null : DateTime.fromMillisecondsSinceEpoch(endsAt);
+  },
 );
 
 /// Subjects, topics and lessons for the performance screen, from the
 /// server's insights read.
 final webPerformanceViewProvider =
     FutureProvider.autoDispose<PerformanceViewData>(
-  (ref) async => throw StateError('Server insights reader is required'),
+  (ref) async {
+    final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+    if (exam == null) throw StateError('Study exam unavailable');
+    final value = await ref.watch(serverStudyInsightsProvider(exam.id).future);
+    final subjectNames = {for (final row in value.subjects) row.id: row.title};
+    final topicNames = {for (final row in value.topics) row.id: row.title};
+    final subjectOf = {
+      for (final row in value.topics)
+        if (row.parentId != null) row.id: row.parentId!,
+    };
+    PerformanceRow row(StudyPerformanceRow item, String? parent) =>
+        PerformanceRow(
+          id: item.id,
+          title: item.title,
+          subtext: parent,
+          correct: item.correct,
+          answered: item.answered,
+          secondsPerQuestion: null,
+        );
+    return PerformanceViewData(
+      subjects: [for (final item in value.subjects) row(item, null)],
+      topics: [
+        for (final item in value.topics) row(item, subjectNames[item.parentId]),
+      ],
+      lessons: [
+        for (final item in value.lessons) row(item, topicNames[item.parentId]),
+      ],
+      subjectCounts: {
+        for (final item in value.subjects)
+          if (item.topicCount != null) item.id: item.topicCount!,
+      },
+      lessonLevelAvailable: value.lessonLevelAvailable,
+      parentSubjectIds: {
+        ...subjectOf,
+        for (final item in value.lessons)
+          if (subjectOf[item.parentId] != null)
+            item.id: subjectOf[item.parentId]!,
+      },
+    );
+  },
 );
 
 /// One topic's detail from the server's insights read.

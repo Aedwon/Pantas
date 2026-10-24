@@ -207,3 +207,186 @@ RED11603 reproduced same-identity wipe during delayed Today/advance inputs. RED1
 ## October24 saved Home/API/performance slices
 
 Policy7fe91e30. Tests-first Task3 checklist/sheets and original caller guard, Task4 notice priority/pure states, Task5 measured card/sort/filter/Free/paused presentation, immutable expectedUid API, exact response models and original UID/exam/core encrypted cache are implemented. Public cache may restore immediately; paid cache waits for current server evidence after process restart. These are partial slices: Home root/routes, server reader/sender, topic route and complete motions remain pending. No family/task completion or visual/release acceptance claimed. Focused/static evidence:build/w4b/client-slices-focused.log and client-slices-static.log.
+
+## October24 phase 3a partial continuation
+
+Assignment: A2 through A6, B and C. Policy source: origin/main
+94bfe9da3fd906c720bacf9f614496736cd42187. Execution source:
+web/new-design-w4b-r1 at f0d19f94347f64b84e7b74db9766e876afae0d5e.
+Reviewed server contract read from origin/codex/w4b-server-dependency
+2c95a9d910daf49e3526804a8a481af35b298301. No fetch, merge, commit,
+push, dependencies, generated-source edits or device screenshots.
+
+### Item status
+
+- A1: preserved the preexisting uncommitted preference dismissal implementation.
+  Its original focused test command passed seven tests before other edits.
+- A2: Lessons sheet now groups actual subjects in first-seen order and preserves
+  lesson order within each subject. D-56/HE_ManyLessons rows contain no subtitles,
+  duplicate Read label or navigation chevron. Existing lesson launch remains.
+- A3: trial notice uses the timer; service uses the information circle. Date and
+  welcome notices retain calendar and sparkle respectively. Welcome sparkle
+  uses the board accent color. Uses existing
+  Phosphor font per the approved final icon rule. No new font or dependency.
+- A4: month-only notice contains its swipeable day row. Save remains disabled
+  until selection and writes the selected actual date through existing settings.
+  No month-only action opens another date sheet. Shared notice component gained
+  an optional editor slot to place the row within the existing strip and
+  optional icon color to preserve the welcome sparkle accent.
+- A5: searched the boards, decisions, gap files, traceability and both plans.
+  Kept current behavior. See unresolved decisions below.
+- A6: kept current behavior. See unresolved decision below.
+- B: performance subjects/topics/lessons and trial-end seams now consume existing
+  authoritative server insights. Parent labels and topic counts use returned
+  metadata/counts. Free response decoding suppresses depth. Existing guarded
+  request/cache/expiry infrastructure remains. Today and topic detail are NOT
+  implemented. No local web authority or substitute figures were added.
+- C: NOT started. Work stopped at B's missing authoritative topic-detail inputs.
+  No sender or settings-ordering completion is claimed.
+
+### Stop condition: missing topic-detail contract
+
+DT_Topic requires the topic's lessons, their read flags and the measured lessons
+read count. At the specified reviewed server revision, getStudyInsights returns
+performance rows only for lessons with answers. Those rows carry id, title,
+parentId, correct and answered. It returns no lesson read flags or complete
+ordered topic lesson inventory. recordLessonRead is write-only. getRoadmap's
+remaining lesson membership describes Today only. It cannot establish the read
+state of every lesson belonging to an opened topic. The client must not label
+an answered lesson as read or count locally stored reads as authoritative web
+figures. The existing recoverable topic-detail seam remains unchanged. The lead
+must supply the missing authoritative inputs before this view can match its board.
+
+### Open product decisions
+
+1. HE_BackAfterBreak: the calm sentence is approved. Its exact trigger is not
+   specified in the inspected board/decision/gap/plan text. Traceability G-b-9
+   says to retain the existing Welcome back rule. Current implementation uses
+   missedWork plus at least two missed study days since the prior snapshot;
+   no inspected design record establishes that exact condition. Left unchanged.
+2. HP_ProWelcome: no inspected record defines the destination of See What's New.
+   G-b-8 settles notice priority but does not settle this destination. The board
+   shows the action without a destination flow. Existing /performance target
+   remains unchanged.
+3. HE_NothingDue and HP_NoDate: HE_NothingDue shows the covered-everything line
+   with an exam date. HP_NoDate shows reviews. Neither inspected board explicitly
+   covers an empty planning day with no date and does not establish that it means
+   all content is covered. The current Nothing due/covered-everything behavior
+   remains unchanged. No new copy was written.
+
+### Tests seen failing before implementation
+
+- Lessons sheet groups subjects and omits row subtitles:
+  Expected one MATHEMATICS heading; Actual zero.
+- trial notice uses the board timer:
+  Expected IconData U+E492; Actual U+E6A2.
+- service notice uses the board information circle:
+  Expected IconData U+E2CE; Actual null.
+- welcome notice uses the board accent sparkle:
+  Expected accent (#0B7A68); Actual secondary label (#6E6E73).
+- month-only notice picks a day inline before enabling Save:
+  Expected null onPressed before selection; Actual a closure.
+- web performance uses authoritative counts and authored parent names, and
+  Free web performance cannot publish topic or lesson depth:
+  Bad state: Server insights reader is required.
+- web trial end comes from actual server metadata:
+  Expected 1790834400000; Actual null.
+
+All eight new behavior tests subsequently passed. The focused final group passed
+23 tests, including actual selected-day persistence. Temporary test-edit compile
+errors were corrected before the final group; they are not red-stage evidence.
+The initial broad baseline run was interrupted after 9:52 with 2431 passes while
+the roadmap coverage property test remained active. Its shutdown errors are not
+reported as a completed baseline failure. A new exact requested suite was started
+on the final source.
+
+### Changed files
+
+- lib/features/home/presentation/home_today_screen.dart: A2 grouped sheet rows.
+- lib/features/home/presentation/widgets/home_notice_strip.dart: preserved A1,
+  A3 icons and A4 day row/save.
+- lib/core/ui/components/notice_strip.dart: optional editor slot required to put
+  the existing month-only board's row inside the strip. This shared file extends
+  the family's directory list for necessary component reuse.
+- lib/features/home/application/web_study_seam.dart: partial B performance/trial.
+- test/features/home/presentation/home_today_screen_test.dart: A2 regression.
+- test/features/home/presentation/widgets/home_notice_strip_test.dart: A1 retained,
+  A3/A4 regressions and actual date persistence.
+- test/features/home/application/web_study_seam_test.dart: B regressions.
+- This evidence file: partial handoff and stop record.
+
+No visual acceptance or exact animation acceptance is claimed. Read the
+HE_ManyLessons and HP_MonthOnly board sources and ran their timeline tool from
+origin/main, using ignored build copies because design assets are absent from
+this worktree. Aedwon retains visual checking. Full account/exam/wipe race
+verification of the newly requested C sender paths remains undone because C is
+not implemented. The worktree does not contain new-design/STATUS.md; no current
+SSOT update is claimed there. The lead must record this partial checkpoint.
+
+### Static and focused verification
+
+Commands on the final code, exit 0:
+
+```text
+flutter analyze lib test tool
+No issues found! (ran in 5.5s)
+
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1610 files (0 changed) in 3.46 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+flutter test test/features/home/presentation/widgets/home_notice_strip_test.dart test/features/home/presentation/home_today_screen_test.dart test/features/home/application/web_study_seam_test.dart
+00:01 +23: All tests passed!
+```
+
+The final focused group includes the welcome accent correction made after the
+broad suite started. It changes only optional icon color and has no data or engine
+effect. Static checks were repeated after it. The exact requested broad command
+and its result are recorded separately below when it finishes.
+
+### Exact requested broad suite: incomplete
+
+```text
+flutter test test/features/home test/features/roadmap test/features/progress test/features/metrics test/core test/app
+15:50 +2438 -1: Some tests failed.
+
+Failing tests:
+  test/features/roadmap/domain/coverage_property_test.dart: following the plan covers everything before review-only days (did not complete)
+  test/features/roadmap/domain/coverage_property_test.dart: loading test/features/roadmap/domain/coverage_property_test.dart
+```
+
+I interrupted this run after 15:50 because the coverage property test remained
+active. The 2438 other tests passed. Interrupting caused runner shutdown errors
+(Cannot close sink while adding stream / Cannot add event while adding stream).
+This is an INCOMPLETE gate, not an assertion failure attributed to this patch,
+and not a passing suite. The earlier baseline also remained active on the same
+unchanged property test when interrupted after 9:52. Its cause was not diagnosed
+or changed. Logs: build/w4b-phase3a/tests.log and initial-baseline.log.
+
+No changes touch the roadmap engine or its property test. Required independent
+review, combined acceptance and visual checking remain with the lead/Aedwon.
+
+Final tracked code/test patch SHA-256 (git diff -- lib test tool):
+f9c172eafa28b3070519e39ac14b9a49f1eb8139567ae8b95f1e263d3fa35ecc.
+New untracked web_study_seam_test.dart SHA-256:
+9ac0e223db149be94e4d32e6feaef0e7872fa98d95f3196ca97cbb0d65cf1fe0.
+
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b.md
+ M lib/core/ui/components/notice_strip.dart
+ M lib/features/home/application/web_study_seam.dart
+ M lib/features/home/presentation/home_today_screen.dart
+ M lib/features/home/presentation/widgets/home_notice_strip.dart
+ M test/features/home/presentation/home_today_screen_test.dart
+ M test/features/home/presentation/widgets/home_notice_strip_test.dart
+?? test/features/home/application/web_study_seam_test.dart
+```
+
+Seven modified files and one new test file remain uncommitted. No generated
+outputs or dependency files appear in status. git diff --check passed.

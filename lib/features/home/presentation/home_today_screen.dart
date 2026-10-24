@@ -372,8 +372,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
 
   Widget _lessonRow(HomeTodayData data, HomeTodayLesson lesson) => ListRow(
         title: lesson.title,
-        subtitle: lesson.subject,
-        value: lesson.read ? 'Read' : '${lesson.minutes} min',
+        value: lesson.read ? null : '${lesson.minutes} min',
+        variant: ListRowVariant.value,
+        contentPadding: const EdgeInsets.symmetric(vertical: 9),
+        minimumHeight: 0,
+        titleColor: lesson.read ? context.colors.secondaryLabel : null,
         leading: lesson.read
             ? const CheckMark()
             : ProgressRing(fraction: lesson.fraction ?? 0),
@@ -392,7 +395,27 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         title: _sheet == 'lesson' ? _lesson!.title : 'Lessons',
         done: data.lessons.where((l) => l.read).length,
         total: data.lessons.length,
-        rows: [for (final lesson in shown) _lessonRow(data, lesson)],
+        rows: [
+          for (final group
+              in groupBy(shown, (lesson) => lesson.subject).entries) ...[
+            if (_sheet == 'lessons')
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12, bottom: 2),
+                  child: Text(
+                    group.key.toUpperCase(),
+                    style: context.type.sectionHeader.copyWith(
+                      fontSize: 12,
+                      letterSpacing: .48,
+                      color: context.colors.secondaryLabel,
+                    ),
+                  ),
+                ),
+              ),
+            for (final lesson in group.value) _lessonRow(data, lesson),
+          ],
+        ],
         startLabel: _sheet == 'lesson'
             ? (next?.fraction ?? 0) > 0
                 ? 'Resume Lesson'
