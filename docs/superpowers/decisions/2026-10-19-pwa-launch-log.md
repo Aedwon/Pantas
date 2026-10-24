@@ -1450,3 +1450,9 @@ Aedwon offered to set up PayMongo test mode now. The lead gave steps and noted t
 still needs Blaze billing on pantas-staging, because functions cannot deploy without it. Aedwon
 is considering billing from another Google account; the lead advised keeping the project and
 linking a billing account owned by that account. Billing remains pending.
+
+C3 completed at minimal scope on `web/paymongo-r1` b0946994 after lead review: steps 1 to 7,
+including the server `listWebPlans` price list chosen as option A. Full Flutter 4032 pass,
+Functions 118 plain / 143 emulator pass, static checks clean apart from the known branch-age
+deprecation. Not integrated; C5 live test still waits on Blaze and PayMongo test keys. Handoff
+for the W4f Task 6 owner recorded in `pwa-launch/W4-client-coordination.md`.
