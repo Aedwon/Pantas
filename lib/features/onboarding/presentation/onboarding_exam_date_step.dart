@@ -230,6 +230,9 @@ class _OnboardingExamDateStepState
           MonthFirstDatePicker.onboarding(
             value: value,
             today: _today,
+            dayNote: (day) =>
+                '${DateFormat('EEEE, d MMMM', 'en_US').format(day)}'
+                ' · ${_daysFromToday(day.difference(_today).inDays)}',
             onChanged: (next) => setState(() => _value = next),
           ),
         ],
@@ -238,9 +241,12 @@ class _OnboardingExamDateStepState
   }
 }
 
-/// Zero keeps the plural: no board draws this card for an exam today.
-String _daysFromToday(int days) =>
-    days == 1 ? '1 day from today' : '$days days from today';
+/// O_DateKnown and O_DateToday: "42 days from today", and "today" for zero.
+String _daysFromToday(int days) => switch (days) {
+      0 => 'today',
+      1 => '1 day from today',
+      _ => '$days days from today',
+    };
 
 final _dateExamIdProvider = FutureProvider<String?>(
   (ref) => ref.watch(appPreferencesRepositoryProvider).selectedExamId(),

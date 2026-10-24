@@ -17,15 +17,21 @@ class MonthFirstDatePicker extends StatefulWidget {
     required this.value,
     required this.today,
     required this.onChanged,
+    this.dayNote,
     super.key,
   }) : onboarding = false;
   const MonthFirstDatePicker.onboarding({
     required this.value,
     required this.today,
     required this.onChanged,
+    this.dayNote,
     super.key,
   }) : onboarding = true;
   final bool onboarding;
+
+  /// Words for the note under a chosen day. Callers that draw their own note
+  /// pass this; without it the note is the weekday and date.
+  final String Function(DateTime day)? dayNote;
   final MonthFirstDate value;
   final DateTime today;
   final ValueChanged<MonthFirstDate> onChanged;
@@ -207,8 +213,9 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
         : '1 $monthLabel';
     final note = value.day == null
         ? "No day yet? We'll plan from $planningStart and ask later."
-        : DateFormat('EEEE, MMMM d', 'en_US')
-            .format(DateTime(year, value.month!, value.day!));
+        : widget.dayNote?.call(DateTime(year, value.month!, value.day!)) ??
+            DateFormat('EEEE, MMMM d', 'en_US')
+                .format(DateTime(year, value.month!, value.day!));
     Widget card(String key, List<Widget> children) => Container(
           key: ValueKey(key),
           padding: const EdgeInsets.all(14),

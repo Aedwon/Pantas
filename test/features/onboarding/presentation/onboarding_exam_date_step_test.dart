@@ -61,6 +61,7 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('date-day-3')));
         await tester.pumpAndSettle();
         // No board draws a calm line on the date step. It is in the Days card.
+        expect(find.text('Saturday, 3 October · today'), findsOneWidget);
         expect(find.textContaining('what matters most'), findsNothing);
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
@@ -162,6 +163,84 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('1 day from today'), findsOneWidget);
     expect(find.text('1 days from today'), findsNothing);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets('the selected-day note counts days as the boards draw it',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(const [])),
+        ],
+        child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+      viewportSize: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byKey(const ValueKey('date-month-11')));
+    await tester.tap(find.byKey(const ValueKey('date-month-11')));
+    await tester.pumpAndSettle();
+    // A month alone shows no count.
+    expect(find.textContaining('days from today'), findsNothing);
+    await tester.ensureVisible(find.byKey(const ValueKey('date-day-11')));
+    await tester.tap(find.byKey(const ValueKey('date-day-11')));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Wednesday, 11 November · 39 days from today'),
+      findsOneWidget,
+    );
+    await tester.tap(find.byKey(const ValueKey('date-month-10')));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byKey(const ValueKey('date-day-4')));
+    await tester.tap(find.byKey(const ValueKey('date-day-4')));
+    await tester.pumpAndSettle();
+    expect(find.text('Sunday, 4 October · 1 day from today'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets('a published sitting today says "today", not "0 days"',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    final entry = ExamCatalogEntry(
+      id: 'exam_cse_pro',
+      name: 'Civil Service Exam',
+      shortName: 'CSE Professional',
+      priceTier: 'Civil Service',
+      group: 'Civil service',
+      comingSoon: false,
+      hasContent: true,
+      publishedSittings: [
+        PublishedExamSitting(
+          firstDay: today,
+          lastDay: today,
+          sourceUrl: 'https://csc.gov.ph',
+        ),
+      ],
+    );
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value([entry])),
+        ],
+        child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('today'), findsOneWidget);
+    expect(find.text('0 days from today'), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
   });
 }
