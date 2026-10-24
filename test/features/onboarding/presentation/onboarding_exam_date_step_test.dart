@@ -60,7 +60,8 @@ void main() {
         await tester.ensureVisible(find.byKey(const ValueKey('date-day-3')));
         await tester.tap(find.byKey(const ValueKey('date-day-3')));
         await tester.pumpAndSettle();
-        expect(find.text("We'll focus on what matters most."), findsOneWidget);
+        // No board draws a calm line on the date step. It is in the Days card.
+        expect(find.textContaining('what matters most'), findsNothing);
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
         expect(

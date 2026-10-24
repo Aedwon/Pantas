@@ -118,6 +118,11 @@ class _OnboardingStudyDaysStepState
     final addDays = _available.join(' or ');
     final dayCountLabel = _days.length == 1 ? 'study day' : 'study days';
     final invalid = _days.isNotEmpty && !_valid && _available.isNotEmpty;
+    // O_Days draws the calm line with a real day count. Month-only dates have
+    // no count, and an exam today or no date keeps the usual line.
+    final untilExam = date?.daysUntil(_today);
+    final examDays =
+        untilExam != null && untilExam >= 1 && untilExam < 7 ? untilExam : null;
     return PantasPage.onboarding(
       title: 'Which days will you study?',
       detail: 'Your plan only puts work on these days. '
@@ -246,9 +251,13 @@ class _OnboardingStudyDaysStepState
                   invalid
                       ? '$dateDescription Add $addDays '
                           "so there's time to study first."
-                      : 'Days off stay free. '
-                          'Questions that come due on a day off '
-                          'wait for your next study day.',
+                      : examDays != null
+                          ? 'Your exam is in $examDays '
+                              '${examDays == 1 ? 'day' : 'days'}. '
+                              "We'll focus on what matters most."
+                          : 'Days off stay free. '
+                              'Questions that come due on a day off '
+                              'wait for your next study day.',
                   style: context.type.subhead
                       .copyWith(color: c.secondaryLabel, height: 1.4),
                 ),

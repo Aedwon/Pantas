@@ -112,4 +112,107 @@ void main() {
     );
     await tester.pumpWidget(const SizedBox.shrink());
   });
+
+  group('calm line in the Days card (O_Days)', () {
+    final today = DateTime(2026, 10, 3);
+    const calm = "We'll focus on what matters most.";
+    const usual = 'Days off stay free. '
+        'Questions that come due on a day off wait for your next study day.';
+
+    Future<void> pumpWith(
+      WidgetTester tester, {
+      required int day,
+      ExamDate? examDate,
+    }) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      if (examDate != null) {
+        await DriftSettingsRepository(db).updateExamDate(
+          examDate,
+          today: today,
+        );
+      }
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [appDatabaseProvider.overrideWithValue(db)],
+          child: OnboardingStudyDaysStep(now: today, onCompleted: () {}),
+        ),
+        disableAnimations: true,
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(ValueKey('study-day-$day')));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('under a week with a valid day shows the real day count',
+        (tester) async {
+      await pumpWith(
+        tester,
+        examDate: ExamDate.onDay(DateTime(2026, 10, 6)),
+        day: 7,
+      );
+      expect(find.text('Your exam is in 3 days. $calm'), findsOneWidget);
+      expect(find.text(usual), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+
+    testWidgets('one day away reads "1 day"', (tester) async {
+      await pumpWith(
+        tester,
+        examDate: ExamDate.onDay(DateTime(2026, 10, 4)),
+        day: 6,
+      );
+      expect(find.text('Your exam is in 1 day. $calm'), findsOneWidget);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+
+    testWidgets('a week or more away keeps the usual line', (tester) async {
+      await pumpWith(
+        tester,
+        examDate: ExamDate.onDay(DateTime(2026, 10, 10)),
+        day: 7,
+      );
+      expect(find.text(usual), findsOneWidget);
+      expect(find.textContaining('what matters most'), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+
+    testWidgets('a month-only date shows no count', (tester) async {
+      await pumpWith(
+        tester,
+        examDate: ExamDate.inMonth(year: 2026, month: 10),
+        day: 7,
+      );
+      expect(find.text(usual), findsOneWidget);
+      expect(find.textContaining('Your exam is in'), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+
+    testWidgets('exam today and no date show no count', (tester) async {
+      await pumpWith(
+        tester,
+        examDate: ExamDate.onDay(today),
+        day: 7,
+      );
+      expect(find.text(usual), findsOneWidget);
+      expect(find.textContaining('Your exam is in'), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+      await pumpWith(tester, day: 7);
+      expect(find.text(usual), findsOneWidget);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+
+    testWidgets('no day before the exam keeps the board warning, not the line',
+        (tester) async {
+      await pumpWith(
+        tester,
+        examDate: ExamDate.onDay(DateTime(2026, 10, 4)),
+        day: 1,
+      );
+      expect(find.text('None of these fall before your exam'), findsOneWidget);
+      expect(find.textContaining('what matters most'), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  });
 }

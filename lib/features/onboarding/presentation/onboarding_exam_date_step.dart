@@ -116,7 +116,6 @@ class _OnboardingExamDateStepState
         : value.day == null
             ? ExamDate.inMonth(year: value.year, month: value.month!)
             : ExamDate.onDay(DateTime(value.year, value.month!, value.day!));
-    final days = date?.daysUntil(_today);
     return PantasPage.onboarding(
       title: 'When is your exam?',
       progress: 4,
@@ -217,14 +216,6 @@ class _OnboardingExamDateStepState
             today: _today,
             onChanged: (next) => setState(() => _value = next),
           ),
-          if (days != null && days >= 0 && days < 7) ...[
-            const SizedBox(height: 18),
-            Text(
-              "We'll focus on what matters most.",
-              style: context.type.footnote
-                  .copyWith(color: context.colors.secondaryLabel),
-            ),
-          ],
         ],
       ],
     );
