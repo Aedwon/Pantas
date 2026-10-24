@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test, {before, after} from 'node:test';
 import {initializeTestEnvironment, assertFails} from '@firebase/rules-unit-testing';
-import {collection, doc, getDoc, getDocs, setDoc} from 'firebase/firestore';
+import {collection, deleteDoc, doc, getDoc, getDocs, setDoc} from 'firebase/firestore';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 let env;
@@ -15,7 +15,14 @@ before(async () => {
     for (const p of paths) await setDoc(doc(context.firestore(), p), {version: 'v'});
   });
 });
-after(async () => env.cleanup());
+// The suites share one emulator. These placeholder documents (for example a catalog index with no
+// payload) must not outlive this suite, or the next suite's content loader reads them.
+after(async () => {
+  await env.withSecurityRulesDisabled(async context => {
+    for (const p of paths) await deleteDoc(doc(context.firestore(), p));
+  });
+  await env.cleanup();
+});
 
 test('no client, including a current Pro owner, reads or writes content or the server records', async () => {
   const contexts = [
