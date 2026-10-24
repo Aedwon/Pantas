@@ -1482,3 +1482,10 @@ Aedwon's exact comments:
 Decision: the web build uses the standard (unencrypted) browser database. D7 is superseded for
 web only. Native encryption and the native content package are unchanged. Public wording must not
 claim "encrypted on your device" for web; Aedwon writes that wording.
+
+B3 swap done on `web/pwa-staging-r1` 80ddb7c5 after lead review: standard drift web storage
+without cipher or key vault; several tabs share one database where the browser supports shared
+workers; a damaged file is deleted and reopened empty (server holds content and finished
+sessions); other open failures surface without deleting. Web settings sync only for signed-in
+Pro accounts; Free and anonymous accounts keep settings locally; theme is device-local. Full
+Flutter 4026 pass, browser test 5/5, web release build OK. Safari, Firefox and phones unverified.
