@@ -11,8 +11,8 @@ Controlling documents:
 ## Lock
 
 State: held
-Holder: Codex W4a continuation, explicit paused-W4b transfer
-Since: 2026-10-24 16:46 Asia/Manila
+Holder: Claude lead (Opus 5.5), W4a, W4b, W4f takeover authorized by Aedwon
+Since: 2026-10-24 18:25 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1230,3 +1230,8 @@ Tasks4/6/7 and flow wiring are implemented locally, still pending final family a
 Local candidate5adc8db4f4b4c7003a086b885b8836efb8a8089d saves the completed CSE PWA continuation over accepted dependency mergeba5f1e8a. Native reminders remain excluded/parked. Last388combined focused cases plus7bounded completion/Days cases pass; full lib/test/tool analysis clean. Completion telemetry test exposed six repeated terminal writes/events before a latch; corrected real flow asserts exactly one. Second-session assessment cannot replace the completed result. All original draft changes are retained in the saved source/history and pre-merge stash.
 
 Source frozen: full standard gates and one full serial Flutter suite running locally with exact source hashes, raw logs and durable status in build/w4a/final. One fresh independent Astra family audit dispatched read-only against5adc8db4 in Pantas-wt-w4a-review-r1, base4113ad78. Reviewer does not author or duplicate the full suite. No other implementor. No final family acceptance, source upload or development-target integration until actual final results and audit closure. No main app update, web/server combination, deployment, publication or phone acceptance. W4b stays paused and untouched.
+
+
+### October24 Claude lead takes over W4a, W4b and W4f, sequentially
+
+Aedwon: "i permit you to take over the needed workstreams and finish them W4a W4b W4f"; "do them sequentially though". Asked to stop the Codex W4a session first, Aedwon: "it's paused since i hit usage limits which reset at around 9 PM". The Codex lock (16:46) was under two hours old; Aedwon's explicit takeover supersedes it. Claude asked Aedwon not to resume Codex on these families. Order: W4a (finish final verification after the 844bdade format fix, independent family audit, integration), then W4b (continue from the preserved Codex drafts, Tasks 3 to 10), then W4f (Tasks 2 to 9, including C3 web purchase wiring from web/paymongo-r1 b0946994). Existing approved specs, plans, boards and L3 rulings stay binding; Codex's preserved drafts, stash and local commits are kept. Implementors: Sonnet 5.5 high; lead review and verification per family. Policy main 744c3432.
