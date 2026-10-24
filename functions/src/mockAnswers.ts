@@ -1,7 +1,7 @@
 import type {Firestore, Transaction} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
 import type {Answer} from './_answers.js';
-import {addSession, backfill, fromDoc, prune, toDoc, totalsRef} from './_answerTotals.js';
+import {addSession, prune, toDoc, totalsIn, totalsRef} from './_answerTotals.js';
 import {prepareReviewAnswers} from './serverReviews.js';
 
 type Paper = {sections: {questions: {id: string}[]}[]};
@@ -27,9 +27,9 @@ export async function recordMockAnswers(tx: Transaction, db: Firestore, uid: str
   checkPaperAnswers(saved, row.paper);
   const answers = saved.filter(a => a.chosen !== null);
   const snapshot = await tx.get(totalsRef(db, uid));
-  const totals = snapshot.exists ? fromDoc(snapshot.data()) : await backfill(tx, db, uid);
+  const totals = await totalsIn(tx, db, uid, snapshot);
   const applyReviews = await prepareReviewAnswers(tx, db, uid, answers, Number(row.submittedAt), true);
-  addSession(totals, answers); prune(totals);
+  addSession(totals, answers, {startedAt: Number(row.startedAt), finishedAt: Number(row.submittedAt)}); prune(totals);
   tx.set(totalsRef(db, uid), toDoc(totals));
   tx.create(ref, {sessionId, mockId, examId: row.examId, origin: 'mock', startedAt: row.startedAt,
     finishedAt: row.submittedAt, durationMs: row.durationMs, answerCount: answers.length, answers, receivedAt});

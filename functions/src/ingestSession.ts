@@ -1,7 +1,7 @@
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
-import {addSession, backfill, fromDoc, prune, toDoc, totalsRef} from './_answerTotals.js';
+import {addSession, prune, toDoc, totalsIn, totalsRef} from './_answerTotals.js';
 import {checkAnswers, checkDuration, checkTime} from './_answers.js';
 import {hasLiveProClaim} from './_pro.js';
 import {computeRoadmap} from './roadmap.js';
@@ -62,12 +62,13 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
       if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');
     }
     // The running totals change in this same transaction, so a replay (above) never counts twice.
-    // An account from before the totals existed is built from its stored sessions first.
+    // An account from before the totals existed, or from before version 2, is built from its stored sessions first.
     const snapshot = await transaction.get(totalsRef(deps.db, auth.uid));
-    const totals = snapshot.exists ? fromDoc(snapshot.data()) : await backfill(transaction, deps.db, auth.uid);
+    const totals = await totalsIn(transaction, deps.db, auth.uid, snapshot);
     // Ordinary and mock answers use the same scheduler state.
     const applyReviews = await prepareReviewAnswers(transaction, deps.db, auth.uid, answers, finishedAt, true);
-    addSession(totals, answers);
+    // An attributed session reports its actual start and finish; a legacy batch uses each answer's own time.
+    addSession(totals, answers, attributed ? {startedAt, finishedAt} : undefined);
     prune(totals);
     transaction.set(totalsRef(deps.db, auth.uid), toDoc(totals));
     transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now,
