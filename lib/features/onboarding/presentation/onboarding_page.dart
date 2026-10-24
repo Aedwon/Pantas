@@ -33,6 +33,7 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   OnboardingFlow? _flow;
   String _customName = '';
+  String? _customTrackId;
   bool _finishing = false;
   bool _finished = false;
   bool _finishFailed = false;
@@ -179,6 +180,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         return CustomTrackSubjectsStep(
           key: const ValueKey('customSubjects'),
           name: _customName,
+          existingTrackId: _customTrackId,
+          onCreated: (id) => _customTrackId = id,
           onBack: _back,
           onCompleted: () {
             if (_step == OnboardingStep.customSubjects) {

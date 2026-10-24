@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -32,9 +33,19 @@ class CustomTrackSubjectsStep extends ConsumerStatefulWidget {
     required this.name,
     this.onCompleted,
     this.onBack,
+    this.existingTrackId,
+    this.onCreated,
     super.key,
   });
   final String name;
+
+  /// A track this onboarding already created. Returning here from the date
+  /// step reuses it instead of creating a second one.
+  final String? existingTrackId;
+
+  /// Told the new track's id as soon as it exists, so the caller can pass it
+  /// back as [existingTrackId] if the student returns.
+  final ValueChanged<String>? onCreated;
   final VoidCallback? onCompleted;
   final VoidCallback? onBack;
   @override
@@ -49,6 +60,34 @@ class _CustomTrackSubjectsStepState
   bool _failed = false;
   String? _createdId;
   int _generation = 0;
+  Future<String> _createOrReuse(
+    CustomTrackRepository repo,
+    Map<String, Set<TopicId>> subjects,
+    Set<TopicId> included,
+  ) async {
+    final existing = widget.existingTrackId ?? _createdId;
+    if (existing == null) {
+      final id = await repo.create(
+        name: widget.name.trim(),
+        includedTopicIds: included,
+      );
+      widget.onCreated?.call(id);
+      return id;
+    }
+    // Back from the date step lands here with the track already saved. Update
+    // it so the student's last choice wins. Topics outside every subject stay
+    // excluded, as create left them.
+    await repo.rename(examId: existing, name: widget.name.trim());
+    await repo.setExcluded(
+      examId: existing,
+      topicIds: (await repo.excludedTopicIds(existing))
+          .union({for (final topics in subjects.values) ...topics}).difference(
+        included,
+      ),
+    );
+    return existing;
+  }
+
   Future<void> _save(Map<String, Set<TopicId>> subjects) async {
     if (_creating || _selected.isEmpty) return;
     final generation = _generation;
@@ -59,13 +98,10 @@ class _CustomTrackSubjectsStepState
       _failed = false;
     });
     try {
-      final id = _createdId ??
-          await repo.create(
-            name: widget.name.trim(),
-            includedTopicIds: {
-              for (final name in _selected) ...subjects[name] ?? <TopicId>{},
-            },
-          );
+      final included = {
+        for (final name in _selected) ...subjects[name] ?? <TopicId>{},
+      };
+      final id = await _createOrReuse(repo, subjects, included);
       _createdId = id;
       if (!mounted || generation != _generation) return;
       await prefs.setCompletedOnboarding(value: false);
