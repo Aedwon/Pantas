@@ -47,9 +47,9 @@ current lesson still teaches its own learning goal.
 
 | Id | Rule | Severity | How to check | Source |
 |---|---|---|---|---|
-| L01 | A learning goal is recorded and the lesson serves it | Major | Find the goal in the audit records; compare with the content | LSG: Learning goal |
+| L01 | A learning goal is recorded and the lesson serves it | Major | Find the goal in the audit records; compare with the content. Not checked while no goals are recorded (Aedwon, 25 October 2026) | LSG: Learning goal |
 | L02 | Teaching prose is very simple English a Grade 5 student can read, with no filler | Major | Read as a Grade 5 student; flag long or rare-word sentences | LSG: Voice |
-| L03 | Exam verbs are explained in one line on first use | Minor | Find the first use of each exam verb | LSG: Voice |
+| L03 | Exam instruction words with an exam-specific meaning are explained in one line on first use; everyday words are not | Minor | Find the first use of each such word | LSG: Voice |
 | L04 | At most one analogy, in Core Concept | Minor | Count analogies | LSG: Voice |
 | L05 | Example questions use exam wording and supply necessary problem-specific givens without supplying tested knowledge; solutions use simple language | Major | Check example stems against the expected-knowledge rule and compare wording with solutions | LSG: Voice, Examples section |
 | L06 | In-lesson quiz items meet every Q rule | Per Q rule | Run the question checks | LSG: Voice |
@@ -65,7 +65,7 @@ current lesson still teaches its own learning goal.
 | L16 | Section titles are exact; mnemonics only when genuine; extra sections sparing | Minor | Compare headings with the guide | LSG: Section structure |
 | L17 | Subject section fit is followed; every formula appears in Core Concept before any example uses it | Major | Trace each formula in examples back to Core Concept | LSG: Per-subject section fit |
 | L18 | Examples cover every distinct exam-relevant scenario, variation, and edge case within the learning goal, ramp from basic to target-exam difficulty, and avoid near-duplicates | Major | Map each distinct case to a worked example; check the difficulty progression and repeated reasoning | LSG: Examples section |
-| L19 | Solutions show every step as a numbered list with display equations | Major if a step is skipped, otherwise Minor | Follow each solution step by step | LSG: Examples section |
+| L19 | Solutions with two or more steps show every step as a numbered list, key computations as display equations | Major if a step is skipped, otherwise Minor | Follow each solution step by step | LSG: Examples section |
 | L20 | Example and trap headings use `### #N: Title`; traps have a one-line warning and a short explanation | Minor | Compare with the format | LSG: Examples section, Traps section |
 | L21 | Display equations fit a phone screen | Minor | Look for long display lines | LSG: Examples section |
 | L22 | Only allowed formatting: no tables, links, code blocks, or horizontal rules | Major | Search for the banned syntax | LSG: Formatting rules |
@@ -100,5 +100,5 @@ current lesson still teaches its own learning goal.
 | Q16 | The explanation says only why the correct answer is correct, in simple language, with steps when solving is involved | Major | Check for mentions of wrong choices and skipped steps | QSG: Two-level voice |
 | Q17 | Every wrong choice has a note of two or three short sentences: the mistake, why it looks right, one check; it describes the choice, not the student, and does not restate the solution | Major | Check each note's three parts | QSG: Two-level voice |
 | Q18 | Filipino-language items are in Filipino, with simple Filipino explanations and notes, and spelling per the Komisyon sa Wikang Filipino | Major | Check stem, choices, explanation, and notes | QSG: Filipino-language items |
-| Q19 | Each archetype has two or three genuinely different variants, at least 20 active questions per lesson, no near-duplicates | Major | Count active items; compare scenarios | QSG: Coverage discipline |
+| Q19 | Each archetype has two or three variants and the lesson has at least 20 active questions; near-duplicates are allowed for launch (Aedwon, 25 October 2026) | Major | Count active items; compare scenarios | QSG: Coverage discipline |
 | Q20 | Questions supply necessary problem-specific information and referenced material without supplying formulas, definitions, or methods students are expected to know or select | Blocker if the answer is indeterminate, otherwise Major | Solve from the supplied material and expected knowledge; check needed units, rounding, and any recorded formula exception | QSG: Problem information and expected knowledge |

@@ -1572,3 +1572,18 @@ wants their process improved (detail pending).
 
 Idea recorded, not approved for build: a parameterized question generation engine after launch,
 to be discussed in its own conversation.
+
+## October 25: four lesson rule changes approved; guides updated
+
+Lead proposals: explain only exam instruction words with an exam-specific meaning (L03); numbered
+steps only for solutions with two or more steps (L19); drop the learning-goal check while no
+goals are recorded (L01); no claim about a specific exam without a source (B01, already in the
+source policy). Aedwon's exact reply:
+
+> 1. okay with your recommendations
+> 2. i was talking about how we would delegate this to subagents. its entire process. optimize balance for speed because i want to launch early but also accuracy, because this is for building trust. consider that after the engineering run i have 3 ChatGPT Plus subscriptions and 1 Claude Pro subscription
+
+Changed on main: `lesson-style-guide.md` (exam instruction words, exam claims, numbered steps,
+Reasoning and General Information layouts), `content-checklist.md` (L01, L03, L19, Q19),
+`question-style-guide.md` (near-duplicates allowed for launch). Not done yet: the checking script
+that replaces the YAML quoting rules; until it exists the rules stay in the guide.

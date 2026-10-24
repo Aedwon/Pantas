@@ -38,8 +38,13 @@ replace that teaching. Record prerequisite evidence in the audit records.
 - Very simple English a Grade 5 student can read. Short sentences. No
   filler, no long introductions. Every sentence teaches something.
   Filipino-language lessons follow the Filipino section below.
-- Explain exam verbs in one line the first time they appear:
-  `"Evaluate" means find the final number answer.`
+- Explain exam instruction words in one line the first time they appear:
+  `"Evaluate" means find the final number answer.` This covers words with an
+  exam-specific meaning (evaluate, infer, simplify, express). Everyday words
+  such as choose, identify, or find need no explanation.
+- Make no claim about a specific exam's content, format, or answer choices
+  ("appears on every exam", "always among the choices") unless a source backs
+  it, per [source-policy.md](source-policy.md).
 - Friendly-tutor analogies are welcome in Core Concept (building a house,
   twins holding hands), one per lesson at most.
 - Example questions use authentic exam wording and difficulty. Solutions
@@ -131,8 +136,14 @@ section titles generically, so other subjects may adapt them:
 - **Reading Comprehension:** "Speed Tricks & Shortcuts" may be titled
   **"Reading Strategies"**.
 - **Reasoning:** use a reduced layout — **Core Concept → Examples →
-  Traps to Watch For** — and drop Speed Tricks/Mnemonics, which rarely
-  apply. Every example is figure-driven (see Illustration placeholders).
+  Traps to Watch For** — and drop Mnemonics. Keep Speed Tricks & Shortcuts
+  only when it holds a real shortcut. Add a figure where it helps the
+  student see the problem (Venn diagrams for syllogisms, figure series,
+  seating or grid arrangements); number sequences and verbal arguments need
+  none (Aedwon, 25 October 2026).
+- **General Information:** keep Core Concept, Examples, and Traps to Watch
+  For. Speed Tricks & Shortcuts is optional, for a real memory or elimination
+  shortcut only (Aedwon, 25 October 2026).
 
 ## Examples section
 
@@ -149,8 +160,10 @@ section titles generically, so other subjects may adapt them:
   definitions, or methods students are expected to know or select. This does
   not restrict explanations in Core Concept or the worked solution.
 - Body: question sentence with inline math, then `**Solution:**` on its
-  own line, then numbered steps (`1.`, `2.` markdown list), with each
-  key computation as a `$$ ... $$` display line between/after steps.
+  own line, then numbered steps (`1.`, `2.` markdown list) when the
+  solution has two or more steps, with each key computation as a `$$ ... $$`
+  display line between/after steps. A one-step answer may be one sentence,
+  and short side results may stay inline.
 - Keep each display equation narrow enough for a phone screen.
 
 ## Traps section

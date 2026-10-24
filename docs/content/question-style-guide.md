@@ -245,7 +245,9 @@ as English ones. Spelling and usage follow the lesson guide's Filipino section.
 For each subtopic: enumerate every distinct archetype from the subject
 blueprint, write **2–3 differently-phrased variants of each**, ramped in
 difficulty. Variants must differ in scenario or framing, not just swapped
-nouns/numbers — no near-duplicates. **At least 20 active questions per
+nouns/numbers. **For launch, near-duplicates are allowed** when they are
+needed to reach the minimum; a question generator replaces them later
+(Aedwon, 25 October 2026). **At least 20 active questions per
 lesson** (Aedwon, 1 October 2026); figure-pending questions do not count
 toward the 20. Distractors must be plausible and mistake-based (mirror a real
 misconception), never throwaway, and never a second defensible answer.
