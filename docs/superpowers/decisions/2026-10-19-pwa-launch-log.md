@@ -1489,3 +1489,25 @@ workers; a damaged file is deleted and reopened empty (server holds content and 
 sessions); other open failures surface without deleting. Web settings sync only for signed-in
 Pro accounts; Free and anonymous accounts keep settings locally; theme is device-local. Full
 Flutter 4026 pass, browser test 5/5, web release build OK. Safari, Firefox and phones unverified.
+
+## October 25: Level 4 CSE paste run closed out (E2)
+
+Aedwon's exact comments:
+
+> hello, i can't find the chat where you made a http://127.0.0.1:8766 prompt copy paste interface using this command [...] but I'm done with this process already. 71/71 what's next
+
+> Close out Level 4: compile and check the 71 results, record them in status, and show me the findings summary.
+
+Options offered: close out Level 4 first (recommended), or build the Level 5 paste prompts first.
+He chose the close-out.
+
+What changed: the lead added a paste-run close-out on `docs/content-coverage-audit-r1` (20db8920)
+that treats each accepted single read as the lesson result, reruns the form check against the
+pinned lessons, and reuses the existing report builders. Results are in `level4/paste/results/`.
+Checks: 71 of 71 accepted, 0 held; fresh revalidation PASS; counting check PASS; Level 4 test
+files 294 pass. Totals: 866 chat findings (Blocker 52: B03 26, B01 18, B02 8, in 31 lessons;
+Major 628; Minor 186), script findings 93, illustration entries 41, accuracy concerns 20.
+
+Limit recorded: D4 gives one read per lesson with no deciding chat or planted lessons, so the run
+has no miss-rate measure and no second opinion. Some B01 findings are judgment calls rather than
+wrong facts. The lead triages findings before E4 rewrites. Level 4 awaits Aedwon's review.
