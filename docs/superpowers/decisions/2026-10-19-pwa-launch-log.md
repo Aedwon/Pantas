@@ -1649,3 +1649,15 @@ Done for Problem 2: gap list on the audit branch (`level4/paste/results/cse-teac
 361 parts; 339 into 57 lesson briefs, 4 proposed new lessons, Filipino sections in 6 lessons.
 Problem 1 pending: the five lessons and their prompts exist; adding them to the paste page
 needs his go-ahead.
+
+## October 25: five abstract reasoning lessons added to CSE scope
+
+Cause given: the CSE Professional map row "symbolic logic/abstract reasoning" was matched only to
+two logic lessons; in Philippine exam usage abstract reasoning means figure puzzles. Aedwon's
+exact reply:
+
+> okay. proceed then. we're not missing any topic from the SSOT in relation to CSE? you've listed all there is?
+
+Done: the five lessons are in the paste scope (76). Completeness check of all 96 CSE requirement
+rows found two more Reading lessons (choosing a title, fact versus opinion) with CSE gaps and no
+CSE tag; five Mechanical Reasoning lessons left out because CSE lists no mechanical area.
