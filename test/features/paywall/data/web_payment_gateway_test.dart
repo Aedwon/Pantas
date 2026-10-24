@@ -1,4 +1,5 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
@@ -56,6 +57,20 @@ abstract class _Opener {
 
 class _MockOpener extends Mock implements _Opener {}
 
+// ignore: one_member_abstracts
+abstract class _Ledger {
+  Future<List<Map<String, dynamic>>> call(String uid);
+}
+
+class _MockLedger extends Mock implements _Ledger {}
+
+// ignore: one_member_abstracts
+abstract class _Refresher {
+  Future<void> call(String? uid);
+}
+
+class _MockRefresher extends Mock implements _Refresher {}
+
 FirebaseFunctionsException _error(String code) =>
     FirebaseFunctionsException(message: 'server said $code', code: code);
 
@@ -108,6 +123,8 @@ void main() {
       );
       gateway = WebPaymentGateway(
         callable: callable.call,
+        readGrants: (_) async => throw StateError('checkout reads no ledger'),
+        refreshClaims: (_) async => throw StateError('checkout needs no token'),
         openUrl: opener.call,
         now: () => _now,
       );
@@ -211,6 +228,202 @@ void main() {
         (await gateway.purchase(_weekly)).status,
         PaymentOperationStatus.unknownFailure,
       );
+    });
+  });
+
+  group('restore and checkout return', () {
+    late _MockCallable callable;
+    late _MockLedger ledger;
+    late _MockRefresher refresher;
+    late _MockOpener opener;
+    late WebPaymentGateway gateway;
+    var rows = <Map<String, dynamic>>[];
+
+    setUp(() {
+      rows = [];
+      callable = _MockCallable();
+      ledger = _MockLedger();
+      refresher = _MockRefresher();
+      opener = _MockOpener();
+      when(() => ledger('u1')).thenAnswer((_) async => rows);
+      when(() => refresher('u1')).thenAnswer((_) async {});
+      gateway = WebPaymentGateway(
+        callable: callable.call,
+        readGrants: ledger.call,
+        refreshClaims: refresher.call,
+        openUrl: opener.call,
+        now: () => _now,
+      );
+    });
+
+    final ends = _now.add(const Duration(days: 30));
+
+    test('logIn reads the ledger and keeps the entitlement', () async {
+      rows = [_grant('pantas_cs_monthly', ends: ends)];
+
+      await gateway.logIn('u1');
+
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+      expect(gateway.cachedEntitlement?.endsAt, ends);
+      verify(() => ledger('u1')).called(1);
+    });
+
+    test('logIn keeps what it had when the ledger cannot be read', () async {
+      when(() => ledger('u1')).thenThrow(StateError('offline'));
+
+      await gateway.logIn('u1');
+
+      expect(gateway.cachedEntitlement, const Entitlement.free());
+    });
+
+    test('another account never inherits the previous entitlement', () async {
+      rows = [_grant('pantas_cs_monthly', ends: ends)];
+      await gateway.logIn('u1');
+      when(() => ledger('u2')).thenAnswer((_) async => []);
+
+      await gateway.logIn('u2');
+
+      expect(gateway.cachedEntitlement, const Entitlement.free());
+    });
+
+    test('logOut clears the entitlement and forgets the account', () async {
+      rows = [_grant('pantas_cs_monthly', ends: ends)];
+      await gateway.logIn('u1');
+
+      await gateway.logOut();
+
+      expect(gateway.cachedEntitlement, const Entitlement.free());
+      final result = await gateway.restorePurchases();
+      expect(result.status, PaymentOperationStatus.configurationFailure);
+      verify(() => ledger('u1')).called(1);
+    });
+
+    test('restore refreshes the token, then reads and emits the ledger',
+        () async {
+      await gateway.logIn('u1');
+      clearInteractions(ledger);
+      rows = [_grant('pantas_cs_monthly', ends: ends)];
+      final updates = <Entitlement>[];
+      final subscription = gateway.customerInfoUpdates.listen(updates.add);
+
+      final result = await gateway.restorePurchases();
+      await subscription.cancel();
+
+      verifyInOrder([() => refresher('u1'), () => ledger('u1')]);
+      expect(result.status, PaymentOperationStatus.success);
+      expect(result.confirmedEntitlement?.proIsActive, isTrue);
+      expect(result.confirmedEntitlement?.endsAt, ends);
+      expect(updates.last, result.confirmedEntitlement);
+      expect(gateway.cachedEntitlement, result.confirmedEntitlement);
+    });
+
+    test('restore with no grant says there is no active plan', () async {
+      await gateway.logIn('u1');
+
+      final result = await gateway.restorePurchases();
+
+      expect(result.status, PaymentOperationStatus.noActiveSubscription);
+      expect(result.confirmedEntitlement, const Entitlement.free());
+    });
+
+    test('restore reads the ledger even if the token refresh fails', () async {
+      await gateway.logIn('u1');
+      when(() => refresher('u1')).thenThrow(StateError('offline'));
+      rows = [_grant('pantas_cs_weekly', ends: ends)];
+
+      final result = await gateway.restorePurchases();
+
+      expect(result.status, PaymentOperationStatus.success);
+    });
+
+    test('restore leaves the entitlement alone if the ledger fails', () async {
+      rows = [_grant('pantas_cs_monthly', ends: ends)];
+      await gateway.logIn('u1');
+      final before = gateway.cachedEntitlement;
+      when(() => ledger('u1')).thenThrow(
+        FirebaseException(plugin: 'cloud_firestore', code: 'unavailable'),
+      );
+
+      final result = await gateway.restorePurchases();
+
+      expect(result.status, PaymentOperationStatus.networkFailure);
+      expect(result.confirmedEntitlement, isNull);
+      expect(gateway.cachedEntitlement, before);
+    });
+
+    test('restore with nobody signed in touches nothing', () async {
+      final result = await gateway.restorePurchases();
+
+      expect(result.status, PaymentOperationStatus.configurationFailure);
+      verifyNever(() => refresher(any()));
+      verifyNever(() => ledger(any()));
+    });
+
+    test('return from a paid checkout reports Pro active', () async {
+      await gateway.logIn('u1');
+      rows = [_grant('pantas_cs_monthly', ends: ends)];
+
+      final result = await gateway.handleCheckoutReturn(
+        Uri.parse('https://pantas.study/pro?checkout=success'),
+      );
+
+      verify(() => refresher('u1')).called(1);
+      expect(result?.status, PaymentOperationStatus.success);
+      expect(result?.confirmedEntitlement?.proIsActive, isTrue);
+    });
+
+    test('return before the webhook has granted is pending, not failed',
+        () async {
+      await gateway.logIn('u1');
+      clearInteractions(ledger);
+
+      final result = await gateway.handleCheckoutReturn(
+        Uri.parse('https://pantas.study/pro?checkout=success'),
+      );
+
+      // One refresh only. There is no polling loop.
+      verify(() => ledger('u1')).called(1);
+      expect(result?.status, PaymentOperationStatus.entitlementNotActive);
+      expect(result?.result, PaymentResult.notConfirmedYet);
+      expect(result?.confirmedEntitlement, const Entitlement.free());
+    });
+
+    test('a failed read on return is a failure, not pending', () async {
+      await gateway.logIn('u1');
+      when(() => ledger('u1')).thenThrow(StateError('boom'));
+
+      final result = await gateway.handleCheckoutReturn(
+        Uri.parse('https://pantas.study/pro?checkout=success'),
+      );
+
+      expect(result?.status, PaymentOperationStatus.unknownFailure);
+    });
+
+    test('a cancelled checkout changes nothing and calls nothing', () async {
+      await gateway.logIn('u1');
+      clearInteractions(ledger);
+      clearInteractions(refresher);
+
+      final result = await gateway.handleCheckoutReturn(
+        Uri.parse('https://pantas.study/pro?checkout=cancelled'),
+      );
+
+      expect(result?.status, PaymentOperationStatus.userCancelled);
+      verifyNever(() => refresher(any()));
+      verifyNever(() => ledger(any()));
+      verifyNever(() => callable(any(), any()));
+    });
+
+    test('an address that is not a checkout return is ignored', () async {
+      for (final address in [
+        'https://pantas.study/pro',
+        'https://pantas.study/pro?checkout=other',
+        'https://pantas.study/pro?other=success',
+      ]) {
+        expect(await gateway.handleCheckoutReturn(Uri.parse(address)), isNull);
+      }
+      verifyNever(() => refresher(any()));
+      verifyNever(() => ledger(any()));
     });
   });
 

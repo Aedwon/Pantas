@@ -1,11 +1,14 @@
-import 'package:cloud_functions/cloud_functions.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/pass_offering.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 
 /// The product id the server writes on a web trial grant.
@@ -96,22 +99,157 @@ typedef WebCallable = Future<Object?> Function(
 /// Opens a URL, in the same tab on web. Returns false when it could not.
 typedef WebUrlOpener = Future<bool> Function(Uri uri);
 
-class WebPaymentGateway {
+/// Reads every row of `users/{uid}/grants` from the server.
+typedef WebGrantReader = Future<List<Map<String, dynamic>>> Function(
+  String uid,
+);
+
+DateTime _utcNow() => DateTime.now().toUtc();
+
+/// Payments on web: PayMongo checkout and the server grant ledger, in place
+/// of RevenueCat and the stores. The server alone decides who has Pro; this
+/// class opens checkout and reads back what the server granted.
+class WebPaymentGateway implements RevenueCatPassGateway {
   WebPaymentGateway({
     required WebCallable callable,
+    required WebGrantReader readGrants,
+    required Future<void> Function(String? uid) refreshClaims,
     required WebUrlOpener openUrl,
+    PaymentEntitlementState? entitlementState,
     DateTime Function()? now,
   })  : _callable = callable,
+        _readGrants = readGrants,
+        _refreshClaims = refreshClaims,
         _openUrl = openUrl,
-        _now = now ?? DateTime.now;
+        _state = entitlementState ??
+            PaymentEntitlementState(EntitlementSnapshotStore.inMemory()),
+        _now = now ?? _utcNow;
 
   final WebCallable _callable;
+  final WebGrantReader _readGrants;
+  final Future<void> Function(String? uid) _refreshClaims;
   final WebUrlOpener _openUrl;
+  final PaymentEntitlementState _state;
   final DateTime Function() _now;
+  String? _uid;
 
+  @override
+  Entitlement? get cachedEntitlement => _state.current;
+
+  @override
+  Stream<Entitlement> get customerInfoUpdates => _state.updates;
+
+  @override
+  Future<void> initialize() => _state.initialize();
+
+  @override
+  Future<void> configure({required String androidApiKey}) => initialize();
+
+  @override
+  Future<void> logIn(String uid) async {
+    await initialize();
+    if ((_uid ?? await _state.readOwner()) != uid) await _state.clear();
+    _uid = uid;
+    await _state.writeOwner(uid);
+    try {
+      await _readEntitlement(uid);
+    } catch (_) {
+      // A failed read is no news. Keep what was confirmed before.
+    }
+  }
+
+  @override
+  Future<void> clearIdentity() async {
+    _uid = null;
+    await _state.clear();
+  }
+
+  @override
+  Future<void> logOut() => clearIdentity();
+
+  @override
+  Future<PaywallOfferingResult> currentOffering() async =>
+      const PaywallOfferingResult.noCurrentOffering();
+
+  /// Refreshes the sign-in token, reads the grant ledger again and emits
+  /// what the server granted.
+  @override
+  Future<PaymentOperationResult> restorePurchases() async {
+    final uid = _uid;
+    if (uid == null) {
+      return const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.configurationFailure,
+      );
+    }
+    try {
+      await _refreshClaims(uid);
+    } catch (_) {
+      // The ledger is what this screen reads. The server repair job fixes
+      // a token that stays behind.
+    }
+    try {
+      final entitlement = await _readEntitlement(uid);
+      if (entitlement == null) {
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.operationAlreadyInProgress,
+        );
+      }
+      return PaymentOperationResult.authoritative(
+        status: entitlement.coverage(at: _now()).hasKnownCoverage
+            ? PaymentOperationStatus.success
+            : PaymentOperationStatus.noActiveSubscription,
+        entitlement: entitlement,
+      );
+    } catch (error) {
+      return PaymentOperationResult.failure(status: _statusForError(error));
+    }
+  }
+
+  /// Call with the address the page was opened at. Returns null when the
+  /// address is not a checkout return.
+  ///
+  /// After `checkout=success` this reads the ledger once. The webhook can
+  /// lag, so no grant yet is `entitlementNotActive` (not confirmed yet), not
+  /// a failure. There is no polling. After `checkout=cancelled` nothing
+  /// changes.
+  Future<PaymentOperationResult?> handleCheckoutReturn(Uri uri) async {
+    switch (uri.queryParameters['checkout']) {
+      case 'cancelled':
+        return const PaymentOperationResult.failure(
+          status: PaymentOperationStatus.userCancelled,
+        );
+      case 'success':
+        final restored = await restorePurchases();
+        if (restored.status != PaymentOperationStatus.noActiveSubscription) {
+          return restored;
+        }
+        return PaymentOperationResult.authoritative(
+          status: PaymentOperationStatus.entitlementNotActive,
+          entitlement:
+              restored.confirmedEntitlement ?? const Entitlement.free(),
+        );
+    }
+    return null;
+  }
+
+  /// Reads the ledger for [uid] and keeps it as the confirmed entitlement.
+  /// Returns null when the signed-in account changed while reading.
+  Future<Entitlement?> _readEntitlement(String uid) async {
+    final rows = await _readGrants(uid);
+    if (_uid != uid) return null;
+    final entitlement = entitlementFromGrants(rows, at: _now());
+    await _state.acceptAuthoritative(
+      entitlement,
+      shouldContinue: () => _uid == uid,
+    );
+    return _uid == uid ? entitlement : null;
+  }
+
+  @override
   Future<PaymentOperationResult> purchase(PaywallPackage package) =>
       _checkout(package.productId);
 
+  @override
   Future<PaymentOperationResult> purchasePass(
     PaywallPassPackage package, {
     required ExamCatalogEntry exam,
@@ -155,7 +293,7 @@ const _checkoutCallable = 'createPaymongoCheckout';
 
 /// Callable error codes the server sends, in the app's own vocabulary.
 PaymentOperationStatus _statusForError(Object error) {
-  if (error is! FirebaseFunctionsException) {
+  if (error is! FirebaseException) {
     return PaymentOperationStatus.unknownFailure;
   }
   return switch (error.code) {
