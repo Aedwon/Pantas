@@ -11,6 +11,8 @@ import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/presentation/assessment_page.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -249,6 +251,66 @@ void main() {
     expect(find.text('Keep Going'), findsOneWidget);
     expect(find.text('Leave'), findsOneWidget);
     expect(find.text('Stay'), findsNothing);
+  });
+
+  testWidgets('leave dialog stacks a teal Keep Going above red Leave text',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+    final navigator =
+        tester.state<NavigatorState>(find.byType(Navigator).first);
+    unawaited(navigator.maybePop());
+    await tester.pumpAndSettle();
+
+    final colors = Theme.of(tester.element(find.text('Keep Going')))
+        .extension<PantasColors>()!;
+    final keep = tester.widget<PantasButton>(
+      find.widgetWithText(PantasButton, 'Keep Going'),
+    );
+    expect(keep.variant, PantasButtonVariant.primary);
+    expect(keep.fullWidth, isTrue);
+    expect(keep.height, 52);
+    final surface = tester.getRect(
+      find.byKey(const ValueKey('leave-dialog-surface')),
+    );
+    final keepRect = tester.getRect(
+      find.widgetWithText(PantasButton, 'Keep Going'),
+    );
+    final leave = find.text('Leave');
+    expect(keepRect.width, closeTo(surface.width - 40, .5));
+    expect(tester.getTopLeft(leave).dy, greaterThan(keepRect.bottom));
+    final style = tester.widget<Text>(leave).style!;
+    expect(style.color, colors.destructive);
+    expect(style.fontSize, 17);
+    expect(style.fontWeight, FontWeight.w600);
+    // Leave is plain text, not a second filled button.
+    expect(find.widgetWithText(PantasButton, 'Leave'), findsNothing);
+  });
+
+  testWidgets('Keep Going closes the dialog and Leave goes Home',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+    final navigator =
+        tester.state<NavigatorState>(find.byType(Navigator).first);
+    unawaited(navigator.maybePop());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Keep Going'));
+    await tester.pumpAndSettle();
+    expect(find.text('Leave the assessment?'), findsNothing);
+    expect(find.text('1 of 1'), findsOneWidget);
+
+    unawaited(navigator.maybePop());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Leave'));
+    await tester.pumpAndSettle();
+    expect(find.text('Home'), findsOneWidget);
   });
   testWidgets('changed sync owner discards the old picks without writing',
       (tester) async {

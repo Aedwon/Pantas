@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -10,7 +11,6 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
-import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
@@ -235,15 +235,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     _leaveOpen = true;
     final leave = await showDialog<bool>(
       context: context,
-      builder: (context) => CenteredDialog(
-        title: 'Leave the assessment?',
-        message: "Your answers so far won't be kept. "
-            'You can start again from Home.',
-        primaryLabel: 'Leave',
-        secondaryLabel: 'Keep Going',
-        destructive: true,
-        onConfirm: () => Navigator.of(context).pop(true),
-        onCancel: () => Navigator.of(context).pop(false),
+      builder: (context) => _LeaveDialog(
+        onKeepGoing: () => Navigator.of(context).pop(false),
+        onLeave: () => Navigator.of(context).pop(true),
       ),
     );
     _leaveOpen = false;
@@ -419,6 +413,85 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   ),
                 ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// AS_Leave: a full-width teal Keep Going stacked above red Leave text. The
+/// shared centered dialog only draws paired pills, so this one is local.
+class _LeaveDialog extends StatelessWidget {
+  const _LeaveDialog({required this.onKeepGoing, required this.onLeave});
+  final VoidCallback onKeepGoing;
+  final VoidCallback onLeave;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return CallbackShortcuts(
+      bindings: {const SingleActivator(LogicalKeyboardKey.escape): onKeepGoing},
+      child: Dialog(
+        backgroundColor: c.transparent,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        insetPadding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
+        child: DecoratedBox(
+          key: const ValueKey('leave-dialog-surface'),
+          decoration: BoxDecoration(
+            color: c.surface,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: c.shadow.withValues(alpha: .2),
+                blurRadius: 40,
+                offset: const Offset(0, 10),
+              ),
+            ],
+          ),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Leave the assessment?',
+                  style: context.type.emphasized.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -.24,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "Your answers so far won't be kept. "
+                  'You can start again from Home.',
+                  style: context.type.subhead
+                      .copyWith(color: c.secondaryLabel, height: 1.45),
+                ),
+                const SizedBox(height: 18),
+                PantasButton(label: 'Keep Going', onPressed: onKeepGoing),
+                const SizedBox(height: 8),
+                TextButton(
+                  onPressed: onLeave,
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 44),
+                    foregroundColor: c.destructive,
+                  ),
+                  child: Text(
+                    'Leave',
+                    style: context.type.emphasized.copyWith(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -.204,
+                      color: c.destructive,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
