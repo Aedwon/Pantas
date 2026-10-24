@@ -26,8 +26,9 @@ import type {Answer} from './_answers.js';
  *
  * Bounds keep the document under 1 MiB however a client behaves (the real bank is about 3,200
  * questions; one student never sees more than that):
- * - MAX_QUESTIONS and MAX_ID_BYTES cap the question table; ids beyond that are still counted in
- *   `answers` but get no row. A student of the real bank is nowhere near either.
+ * - MAX_QUESTIONS and MAX_ID_BYTES (serialized, escaped UTF-8 bytes) cap the question table.
+ *   Ids beyond that are still counted in `answers` but get no row. A student of the real bank is
+ *   nowhere near either.
  * - MAX_DAYS and MAX_DAY_PAIRS cap the day table; the oldest days are dropped first. The roadmap
  *   uses the day counts only for a median of answers per active day, which 400 recent active days
  *   (more than a year of exam prep) give to the same figure for any realistic student.
@@ -94,7 +95,7 @@ export function addSession(totals: Totals, answers: Answer[], session?: SessionT
     totals.answers += 1;
     let row = totals.questions.get(answer.questionId);
     if (!row) {
-      const bytes = Buffer.byteLength(answer.questionId);
+      const bytes = Buffer.byteLength(JSON.stringify(answer.questionId));
       if (totals.questions.size >= MAX_QUESTIONS || totals.idBytes + bytes > MAX_ID_BYTES) continue;
       row = {index: totals.questions.size, answered: 0, correct: 0, firstCompletedAt: null, mask: 0};
       totals.questions.set(answer.questionId, row);
@@ -191,7 +192,7 @@ export function fromDoc(data: Record<string, unknown> | undefined): Totals {
   for (const [id, answered, correct, firstCompletedAt, mask] of JSON.parse(String(data?.questionsJson ?? '[]')) as
       [string, number, number, number | null | undefined, number | undefined][]) {
     totals.questions.set(id, {index: totals.questions.size, answered, correct, firstCompletedAt: firstCompletedAt ?? null, mask: mask ?? 0});
-    totals.idBytes += Buffer.byteLength(id);
+    totals.idBytes += Buffer.byteLength(JSON.stringify(id));
   }
   for (const [day, counts] of JSON.parse(String(data?.daysJson ?? '[]')) as [string, [number, number][]][]) {
     totals.days.set(day, new Map(counts));

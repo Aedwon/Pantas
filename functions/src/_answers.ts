@@ -1,4 +1,5 @@
 import {HttpsError} from 'firebase-functions/v2/https';
+import {ID_PATTERN} from './content.js';
 
 export const MAX_ANSWERS = 300;
 export const MAX_ID_LENGTH = 128;
@@ -31,7 +32,7 @@ export function checkAnswers(value: unknown, now: number, attributed = false): A
     const row = raw as Record<string, unknown> | null;
     if (!row || typeof row !== 'object') throw bad('Each answer must be an object.');
     const {questionId, chosen, correct} = row;
-    if (typeof questionId !== 'string' || questionId.length < 1 || questionId.length > MAX_ID_LENGTH) throw bad('Bad question id.');
+    if (typeof questionId !== 'string' || !ID_PATTERN.test(questionId) || questionId.length > MAX_ID_LENGTH) throw bad('Bad question id.');
     if (chosen !== null && (typeof chosen !== 'string' || chosen.length > 64)) throw bad('Bad chosen option.');
     if (typeof correct !== 'boolean') throw bad('Correctness must be true or false.');
     if (row.responseMs !== undefined && (!Number.isSafeInteger(row.responseMs) || (row.responseMs as number) < 0 ||
