@@ -89,6 +89,26 @@ Do not touch files owned by W4a, W4b or W4f work in progress. `lib/app/router.da
 Not verifiable here: a real PayMongo checkout and webhook (C5 needs Aedwon's test keys and a
 staging deploy). Report that as unverified.
 
+## Amendment, October 24, 2026: web prices come from the server
+
+Run 1 stopped at the offering: the client has no price source, and
+`test/features/paywall/domain/product_price_source_test.dart` forbids a ₱ sign in paywall
+domain and data code. Options given to Aedwon: (A) the server lists the web plans and prices
+from `functions/src/products.json`, the same source checkout charges, about 1 hour; (B) copy the
+prices into the client and relax the guard test. Aedwon chose "A".
+
+6. Server callable `listWebPlans` (region `asia-southeast1`, `enforceAppCheck: true`, any
+   signed-in account including anonymous, per-account limit with the existing `allowAtMost`
+   pattern). Returns one row per web product from `products.json`: `product`, `priceCentavos`
+   (from the existing `priceCentavos`), a display `priceString` formatted on the server (for
+   example `₱149.00`), the prepaid unit and length, and `examId` for passes. Omit a pass when
+   no sitting is published, matching the checkout precondition. Tests in the Functions runner.
+   Export it from `functions/src/index.ts`.
+7. Client `currentOffering`: call `listWebPlans`, build the existing offering and package types
+   from the rows (price string and amount come from the server, as the store's do). No ₱ sign in
+   client code; the guard test stays unchanged. Map errors as in step 2. An empty list is
+   `noCurrentOffering`.
+
 ## Stop conditions
 
 Any `SUBAGENTS.md` Part 6 condition, plus: no traceable price source; the `Entitlement` model
