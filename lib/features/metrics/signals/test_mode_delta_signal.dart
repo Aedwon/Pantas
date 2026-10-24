@@ -6,6 +6,7 @@ import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
 
@@ -32,10 +33,8 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    var practiceCorrect = 0;
-    var practiceTotal = 0;
-    var mockCorrect = 0;
-    var mockTotal = 0;
+    final practice = <bool>[];
+    final mock = <bool>[];
 
     final attempts = _db.select(_db.attemptsLocal)
       ..where(
@@ -47,8 +46,7 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
       );
     for (final row in await attempts.get()) {
       for (final item in _attemptReader.read(row.itemsJson)) {
-        practiceTotal += 1;
-        if (item.isCorrect) practiceCorrect += 1;
+        practice.add(item.isCorrect);
       }
     }
 
@@ -66,22 +64,14 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
           final answer = payload.answers[questionId];
           final correctIndex = await _content.correctIndex(questionId);
           if (answer == null || correctIndex == null) continue;
-          mockTotal += 1;
-          if (answer.selectedIndex == correctIndex) mockCorrect += 1;
+          mock.add(answer.selectedIndex == correctIndex);
         }
       }
     }
-    if ((practiceTotal == 0 || mockTotal == 0) && window.minSessionCount != 0) {
-      return null;
-    }
-    return PressureDelta(
-      practiceAccuracy:
-          practiceTotal == 0 ? 0 : practiceCorrect / practiceTotal,
-      mockAccuracy: mockTotal == 0 ? 0 : mockCorrect / mockTotal,
-      practiceCorrect: practiceCorrect,
-      practiceTotal: practiceTotal,
-      mockCorrect: mockCorrect,
-      mockTotal: mockTotal,
+    return MetricCalculations.pressure(
+      practice: practice,
+      mock: mock,
+      allowEmpty: window.minSessionCount == 0,
     );
   }
 }

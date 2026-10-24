@@ -1,9 +1,8 @@
-import 'dart:math' as math;
-
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 
 class RetentionShapeSignal implements Signal<RetentionCurve> {
   const RetentionShapeSignal(this._db);
@@ -26,19 +25,9 @@ class RetentionShapeSignal implements Signal<RetentionCurve> {
   }) async {
     if (!window.hasEnoughData) return null;
     final states = await _db.select(_db.reviewStateLocal).get();
-    if (states.isEmpty) return null;
-    final stability = states.fold<double>(0, (sum, row) => sum + row.stability);
-    // The first answer increments reps but is not eligible to be a lapse.
-    final reviews = states.fold<int>(
-      0,
-      (sum, row) => sum + math.max(row.reps - 1, 0),
-    );
-    final lapses = states.fold<int>(0, (sum, row) => sum + row.lapses);
-    return RetentionCurve(
-      averageStability: stability / states.length,
-      lapseRate: reviews == 0 ? 0 : lapses / reviews,
-      reviewCount: reviews,
-      lapseCount: lapses,
-    );
+    return MetricCalculations.retention([
+      for (final row in states)
+        (stability: row.stability, reps: row.reps, lapses: row.lapses),
+    ]);
   }
 }
