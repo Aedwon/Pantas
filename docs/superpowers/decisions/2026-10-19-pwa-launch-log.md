@@ -1622,3 +1622,13 @@ lessons and illustration previews) and Question Studio. The pilot covers several
 rewritten lesson gets a full independent read (all 71 CSE lessons). Work starts after the
 engineering run. The lead designs batched web chat pastes (several lessons per chat) for the
 edits that suit them.
+
+## October 25: model budget for content work
+
+Aedwon's exact comment:
+
+> web chat is virtually unlimited. Codex is the limited one but I have access to much better models like 6.1 Sol and 6 Astra. 6 Astra we've used before for adversarial reviews but this can be done at the very end since it burns a lot of usage
+
+Consequence for the plan: web chat (GPT 6 Sol High, batched pastes) takes all volume work that
+does not need the repository; Codex (6.1 Sol) takes only repository-bound work; 6 Astra runs one
+adversarial review at the end.
