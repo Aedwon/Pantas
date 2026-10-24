@@ -183,9 +183,26 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   @override
   Future<void> logOut() => clearIdentity();
 
+  /// The plans the server sells on the web. The server owns the prices: it
+  /// lists them from the same file checkout charges, and the price string and
+  /// amount here are shown as received, as the store's are on mobile.
   @override
-  Future<PaywallOfferingResult> currentOffering() async =>
-      const PaywallOfferingResult.noCurrentOffering();
+  Future<PaywallOfferingResult> currentOffering() async {
+    try {
+      final reply = await _callable(_plansCallable, {});
+      final rows = reply is Map ? reply['plans'] : null;
+      if (rows is! List<Object?>) {
+        return const PaywallOfferingResult(
+          status: PaywallOfferingStatus.unknownFailure,
+        );
+      }
+      return _offeringFromPlans(rows);
+    } catch (error) {
+      return PaywallOfferingResult(
+        status: _offeringStatusForOperation(_statusForError(error)),
+      );
+    }
+  }
 
   /// Refreshes the sign-in token, reads the grant ledger again and emits
   /// what the server granted.
@@ -344,6 +361,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
 
 const _checkoutCallable = 'createPaymongoCheckout';
 const _trialCallable = 'startWebTrial';
+const _plansCallable = 'listWebPlans';
 
 /// Callable error codes the server sends, in the app's own vocabulary.
 PaymentOperationStatus _statusForError(Object error) {
@@ -393,3 +411,72 @@ Future<List<Map<String, dynamic>>> readGrantsFromFirestore(String uid) async {
 /// brings the student back to the same session.
 Future<bool> openInThisTab(Uri uri) =>
     launchUrl(uri, webOnlyWindowName: '_self');
+
+PaywallOfferingResult _offeringFromPlans(List<Object?> rows) {
+  if (rows.isEmpty) return const PaywallOfferingResult.noCurrentOffering();
+  final recognized = <PaywallPackage>[];
+  final passes = <PaywallPassPackage>[];
+  final unrecognized = <String>[];
+  for (final row in rows) {
+    if (row is! Map || row['product'] is! String) continue;
+    final productId = row['product']! as String;
+    final cents = row['priceCentavos'];
+    final price = row['priceString'];
+    final product = productForId(productId);
+    if (product == null ||
+        cents is! int ||
+        cents <= 0 ||
+        price is! String ||
+        price.isEmpty) {
+      unrecognized.add(productId);
+    } else if (product.kind == ProductKind.pass) {
+      if (row['examId'] == product.examId) {
+        passes.add(
+          PaywallPassPackage(
+            productId: productId,
+            priceString: price,
+            priceAmount: cents / 100,
+          ),
+        );
+      } else {
+        unrecognized.add(productId);
+      }
+    } else if (product.kind == ProductKind.subscription &&
+        product.period != null) {
+      recognized.add(
+        PaywallPackage(
+          sku: product.period!,
+          productId: productId,
+          priceString: price,
+          priceAmount: cents / 100,
+        ),
+      );
+    } else {
+      unrecognized.add(productId);
+    }
+  }
+  return PaywallOfferingResult(
+    status: recognized.isEmpty && passes.isEmpty
+        ? PaywallOfferingStatus.allProductsUnrecognized
+        : unrecognized.isEmpty
+            ? PaywallOfferingStatus.available
+            : PaywallOfferingStatus.mixedProducts,
+    recognizedPackages: recognized,
+    passPackages: passes,
+    unrecognizedProductIds: unrecognized,
+  );
+}
+
+PaywallOfferingStatus _offeringStatusForOperation(
+  PaymentOperationStatus status,
+) =>
+    switch (status) {
+      PaymentOperationStatus.networkFailure =>
+        PaywallOfferingStatus.networkFailure,
+      PaymentOperationStatus.storeFailure => PaywallOfferingStatus.storeFailure,
+      PaymentOperationStatus.configurationFailure =>
+        PaywallOfferingStatus.configurationFailure,
+      PaymentOperationStatus.developerFailure =>
+        PaywallOfferingStatus.developerFailure,
+      _ => PaywallOfferingStatus.unknownFailure,
+    };

@@ -14,7 +14,7 @@ import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 
 final _now = DateTime.utc(2026, 11, 2, 4);
@@ -432,6 +432,182 @@ void main() {
       }
       verifyNever(() => refresher(any()));
       verifyNever(() => ledger(any()));
+    });
+  });
+
+  group('offering from the server plan list', () {
+    late _MockCallable callable;
+    late WebPaymentGateway gateway;
+
+    Map<String, Object?> plan(
+      String product, {
+      Object? cents = 14900,
+      String price = 'server price',
+      Object? examId,
+      Map<String, Object?> prepaid = const {'unit': 'days', 'count': 7},
+    }) =>
+        {
+          'product': product,
+          'priceCentavos': cents,
+          'priceString': price,
+          'prepaid': prepaid,
+          'examId': examId,
+        };
+
+    final allFive = <Object?>[
+      plan('pantas_cs_weekly', cents: 4900, price: 'W'),
+      plan('pantas_cs_monthly', price: 'M'),
+      plan('pantas_cs_yearly', cents: 119900, price: 'Y'),
+      plan(
+        'pantas_pass_cse_pro',
+        cents: 49900,
+        price: 'P1',
+        examId: 'exam_cse_pro',
+        prepaid: const {'unit': 'sitting'},
+      ),
+      plan(
+        'pantas_pass_cse_sub',
+        cents: 49900,
+        price: 'P2',
+        examId: 'exam_cse_sub',
+        prepaid: const {'unit': 'sitting'},
+      ),
+    ];
+
+    void reply(Object? value) => when(() => callable('listWebPlans', any()))
+        .thenAnswer((_) async => value);
+
+    setUp(() {
+      callable = _MockCallable();
+      reply({'plans': allFive});
+      gateway = WebPaymentGateway(
+        callable: callable.call,
+        readGrants: (_) async => const [],
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+    });
+
+    test('asks the server and shows its price strings and amounts', () async {
+      final offering = await gateway.currentOffering();
+
+      verify(() => callable('listWebPlans', {})).called(1);
+      expect(offering.status, PaywallOfferingStatus.available);
+      expect(
+        offering.recognizedPackages.map(
+          (p) => (p.sku, p.productId, p.priceString, p.priceAmount),
+        ),
+        [
+          (PaywallSku.weekly, 'pantas_cs_weekly', 'W', 49.0),
+          (PaywallSku.monthly, 'pantas_cs_monthly', 'M', 149.0),
+          (PaywallSku.yearly, 'pantas_cs_yearly', 'Y', 1199.0),
+        ],
+      );
+      expect(offering.recognizedPackages.any((p) => p.trialEligible), isFalse);
+      expect(
+        offering.passPackages.map(
+          (p) => (p.productId, p.priceString, p.priceAmount),
+        ),
+        [
+          ('pantas_pass_cse_pro', 'P1', 499.0),
+          ('pantas_pass_cse_sub', 'P2', 499.0),
+        ],
+      );
+      expect(offering.unrecognizedProductIds, isEmpty);
+    });
+
+    test('an empty list is no current offering', () async {
+      reply({'plans': <Object?>[]});
+
+      expect(
+        (await gateway.currentOffering()).status,
+        PaywallOfferingStatus.noCurrentOffering,
+      );
+    });
+
+    test('a product this build does not know is reported, not shown', () async {
+      reply({
+        'plans': [plan('pantas_cs_monthly'), plan('pantas_future_plan')],
+      });
+      final mixed = await gateway.currentOffering();
+
+      expect(mixed.status, PaywallOfferingStatus.mixedProducts);
+      expect(mixed.recognizedPackages, hasLength(1));
+      expect(mixed.unrecognizedProductIds, ['pantas_future_plan']);
+
+      reply({
+        'plans': [plan('pantas_future_plan'), plan('promo_student')],
+      });
+      final none = await gateway.currentOffering();
+
+      expect(none.status, PaywallOfferingStatus.allProductsUnrecognized);
+      expect(none.recognizedPackages, isEmpty);
+    });
+
+    test('a row without a valid price or exam match is never shown', () async {
+      reply({
+        'plans': [
+          plan('pantas_cs_weekly', cents: null),
+          plan('pantas_cs_monthly', cents: -1),
+          plan('pantas_cs_yearly', cents: '119900'),
+          plan('pantas_pass_cse_pro', examId: 'exam_cse_sub'),
+          plan('pantas_pass_cse_sub'),
+          plan('pantas_cs_weekly', price: ''),
+        ],
+      });
+
+      final offering = await gateway.currentOffering();
+
+      expect(offering.recognizedPackages, isEmpty);
+      expect(offering.passPackages, isEmpty);
+      expect(offering.status, PaywallOfferingStatus.allProductsUnrecognized);
+      expect(offering.unrecognizedProductIds, hasLength(6));
+    });
+
+    test('a reply that is not a plan list is an unknown failure', () async {
+      for (final bad in <Object?>[
+        null,
+        'plans',
+        {'plans': 'none'},
+        {'other': <Object?>[]},
+      ]) {
+        reply(bad);
+
+        expect(
+          (await gateway.currentOffering()).status,
+          PaywallOfferingStatus.unknownFailure,
+        );
+      }
+    });
+
+    const failures = {
+      'unavailable': PaywallOfferingStatus.networkFailure,
+      'deadline-exceeded': PaywallOfferingStatus.networkFailure,
+      'resource-exhausted': PaywallOfferingStatus.storeFailure,
+      'unauthenticated': PaywallOfferingStatus.configurationFailure,
+      'permission-denied': PaywallOfferingStatus.configurationFailure,
+      'invalid-argument': PaywallOfferingStatus.developerFailure,
+      'internal': PaywallOfferingStatus.unknownFailure,
+    };
+    for (final entry in failures.entries) {
+      test('server error ${entry.key} is ${entry.value.name}', () async {
+        when(() => callable(any(), any())).thenThrow(_error(entry.key));
+
+        final offering = await gateway.currentOffering();
+
+        expect(offering.status, entry.value);
+        expect(offering.recognizedPackages, isEmpty);
+      });
+    }
+
+    test('an error that is not a callable error is unknown', () async {
+      when(() => callable(any(), any())).thenThrow(StateError('broken'));
+
+      expect(
+        (await gateway.currentOffering()).status,
+        PaywallOfferingStatus.unknownFailure,
+      );
     });
   });
 
