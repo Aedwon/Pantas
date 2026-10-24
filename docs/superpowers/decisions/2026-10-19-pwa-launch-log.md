@@ -1535,3 +1535,20 @@ Triage done the same day (`docs/content-coverage-audit-r1` at c059bcfd,
 `level4/paste/results/triage.md`): real 597, judgment 233, reject 14, illustration 2, and 25 rows
 that need two standards rulings from Aedwon (General Information layout; Reasoning layout and
 figures). Rewrites for subjects outside those rulings can start first.
+
+## October 25: two lesson standards rulings approved
+
+Aedwon asked whether the two rulings were the lead's recommendations or current standards. The
+lead answered that both are recommendations and that the current guide says the opposite. His
+exact comment:
+
+> i see. so your recommendation is to make the standards flexible. yes that sounds good and much better than the current rulings. perhaps we can also revisit other rulings/standards?
+
+Approved:
+1. General Information lessons require Traps to Watch For; Speed Tricks & Shortcuts is optional.
+2. Reasoning lessons may keep Speed Tricks & Shortcuts when it holds a real shortcut. Figures are
+   required only where they help (for example Venn diagrams for syllogisms, figure series), not
+   in every example.
+
+Not yet done: the lesson style guide is not edited. The lead proposed reviewing other lesson and
+question standards first, so the guide changes land together.
