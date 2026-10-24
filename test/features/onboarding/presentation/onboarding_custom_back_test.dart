@@ -202,6 +202,70 @@ void main() {
     );
   });
 
+  testWidgets(
+      'after the track is removed the stale selection falls back to '
+      'the picker', (tester) async {
+    final (db, content) = await _pumpFlow(tester);
+    await _createTrackAndReachDate(tester);
+    final id = (await db.select(db.customTrackMetaLocal).get()).single.examId;
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+
+    // The preference still names the deleted track, and nothing breaks.
+    expect(await AppPreferencesRepository(db).selectedExamId(), id);
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(MaterialApp)),
+    );
+    final focus = await container.read(activeExamFocusProvider.future);
+    expect(focus.needsSelection, isTrue);
+    expect(tester.takeException(), isNull);
+
+    // Reopening onboarding with that selection lands on the picker.
+    await tester.pumpWidget(const SizedBox.shrink());
+    await _pumpPage(
+      tester,
+      db,
+      content,
+      OnboardingProgress(
+        agePassed: true,
+        policyAccepted: true,
+        examPicked: true,
+      ),
+    );
+    expect(find.text("My exam isn't listed"), findsOneWidget);
+    expect(find.text('When is your exam?'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a track with an attempt but no assessment is kept',
+      (tester) async {
+    final (db, content) = await _pumpFlow(tester);
+    await _createTrackAndReachDate(tester);
+    final id = (await db.select(db.customTrackMetaLocal).get()).single.examId;
+    await db.into(db.attemptsLocal).insert(
+          AttemptsLocalCompanion.insert(
+            id: 'attempt-1',
+            examId: id,
+            startedAt: DateTime(2026),
+            itemsJson: '[]',
+          ),
+        );
+    expect(await AssessmentRepository(db).hasCompletedForExam(id), isFalse);
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+
+    expect(await db.select(db.customTrackMetaLocal).get(), hasLength(1));
+    expect(
+      (await content.select(content.contentExams).get())
+          .where((exam) => exam.isCustom),
+      hasLength(1),
+    );
+  });
+
   testWidgets('a kept track is not renamed or rescoped by the next custom exam',
       (tester) async {
     final (db, _) = await _pumpFlow(tester);
