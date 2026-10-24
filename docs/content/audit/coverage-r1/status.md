@@ -77,8 +77,16 @@ sections, 3 parts skipped (current events, listening). Six lessons may need spli
 Also found: five Spatial and Abstract Reasoning lessons (figure grouping, figure matrices,
 figure series, mental rotation, paper folding) have CSE Professional questions but were not in
 the 71-lesson paste scope, because the accepted exam map did not tag their lessons for CSE.
-Their prompts already exist (L4-7931, L4-7033, L4-9950, L4-8939, L4-9296). Adding them needs
-Aedwon's go-ahead.
+Their prompts already exist (L4-7931, L4-7033, L4-9950, L4-8939, L4-9296). Aedwon approved
+("okay. proceed then."): added to `scope.txt` and the paste state (now 76: 71 accepted, 5 to
+paste; state backups `*.bak-20251025`). The paste server loads its list at start, so it must be
+restarted. Correction note added under `cse-professional-L091` in `maps/cse-professional.md`.
+
+Completeness check: all 96 CSE requirement rows have a disposition (70 with lesson facets, 12
+unknown at the organizer, 7 context, 4 broad labels, 3 constraints). CSE facets point to 80
+lessons: 73 in the scope, 5 Mechanical Reasoning lessons whose CSE links are all "unknown" (CSE
+lists no mechanical area; left out), and 2 Reading lessons, choosing a title and fact versus
+opinion, with real CSE gaps but no CSE tag on either side. Adding those two awaits Aedwon.
 
 ## Identity
 

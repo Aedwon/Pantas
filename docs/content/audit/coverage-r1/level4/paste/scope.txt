@@ -71,3 +71,10 @@ L4-7017
 L4-9129
 L4-1065
 L4-1972
+# Added October 25: five Spatial and Abstract Reasoning lessons. The CSE Professional map matched
+# "symbolic logic/abstract reasoning" only to two logic lessons; their question files are CSE-tagged.
+L4-7931
+L4-7033
+L4-9950
+L4-8939
+L4-9296

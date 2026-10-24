@@ -469,6 +469,12 @@ Source locator: [line91](../requirements/cse-professional.md#L91). Kind: skill. 
 
 - Reasoning: symbolic logic/abstract reasoning. [1, official]
 
+Correction noted October 25, 2026 (lead; Aedwon approved adding the lessons to CSE scope). In
+Philippine exam usage, "abstract reasoning" means figure puzzles, so this row also leads to the
+five Spatial and Abstract Reasoning lessons: figure grouping, figure matrices, figure series,
+mental rotation, paper folding. Their question files were already tagged `cse-pro`. The accepted
+map text is otherwise unchanged; the Google Doc audited tab is not updated.
+
 Status: PROVISIONAL NAME LEADS.
 
 - `lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic`: `content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md`
