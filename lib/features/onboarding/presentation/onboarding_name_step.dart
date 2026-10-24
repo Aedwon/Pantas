@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -18,6 +21,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
   final _controller = TextEditingController();
   bool _saving = false;
   bool _failed = false;
+  bool _loadFailed = false;
   int _generation = 0;
   @override
   void initState() {
@@ -26,14 +30,17 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
   }
 
   Future<void> _restore() async {
+    final telemetry = ref.read(telemetryProvider);
+    if (_loadFailed) setState(() => _loadFailed = false);
     try {
       final settings =
           await ref.read(settingsRepositoryProvider).readUserSettings();
       if (mounted && _controller.text.isEmpty && settings.name != null) {
         setState(() => _controller.text = settings.name!);
       }
-    } catch (_) {
-      if (mounted) setState(() => _failed = true);
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _loadFailed = true);
     }
   }
 
@@ -47,6 +54,7 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
     final text = _controller.text.trim();
     if (text.isEmpty || _saving) return;
     final generation = _generation;
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
       _failed = false;
@@ -54,7 +62,8 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
     try {
       await ref.read(settingsRepositoryProvider).updateName(text);
       if (mounted && generation == _generation) widget.onCompleted();
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
@@ -79,17 +88,22 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
               label: 'Done',
               busy: _saving,
               onPressed:
-                  _saving || _controller.text.trim().isEmpty ? null : _save,
+                  _saving || _loadFailed || _controller.text.trim().isEmpty
+                      ? null
+                      : _save,
             ),
           ],
         ),
         children: [
-          OnboardingNameField(
-            controller: _controller,
-            label: 'Name',
-            onChanged: (_) => setState(() {}),
-            onSubmitted: (_) => _save(),
-          ),
+          if (_loadFailed)
+            errorFor('name', _restore)
+          else
+            OnboardingNameField(
+              controller: _controller,
+              label: 'Name',
+              onChanged: (_) => setState(() {}),
+              onSubmitted: (_) => _save(),
+            ),
         ],
       );
 }

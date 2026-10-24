@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
@@ -32,6 +35,7 @@ class _OnboardingStudyDaysStepState
   UserSettings? _settings;
   bool _saving = false;
   bool _failed = false;
+  bool _loadFailed = false;
   int _generation = 0;
   late final _today = DateUtils.dateOnly(widget.now ?? DateTime.now());
   @override
@@ -41,6 +45,8 @@ class _OnboardingStudyDaysStepState
   }
 
   Future<void> _load() async {
+    final telemetry = ref.read(telemetryProvider);
+    if (_loadFailed) setState(() => _loadFailed = false);
     try {
       final settings =
           await ref.read(settingsRepositoryProvider).readUserSettings();
@@ -56,8 +62,9 @@ class _OnboardingStudyDaysStepState
           }
         });
       }
-    } catch (_) {
-      if (mounted) setState(() => _failed = true);
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _loadFailed = true);
     }
   }
 
@@ -87,6 +94,7 @@ class _OnboardingStudyDaysStepState
   Future<void> _save() async {
     if (_saving || !_valid) return;
     final generation = _generation;
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
       _failed = false;
@@ -96,7 +104,8 @@ class _OnboardingStudyDaysStepState
           .read(settingsRepositoryProvider)
           .updateStudyDays(StudyDays(_days));
       if (mounted && generation == _generation) widget.onCompleted();
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
@@ -151,120 +160,125 @@ class _OnboardingStudyDaysStepState
           ),
         ],
       ),
-      children: [
-        LayoutBuilder(
-          builder: (context, constraints) {
-            final size = scale.scale(15) > 22 ? 60.0 : 42.0;
-            final children = [
-              for (final day in [7, 1, 2, 3, 4, 5, 6])
-                Semantics(
-                  label: DateFormat('EEEE', 'en_US')
-                      .format(DateTime(2026, 6, day)),
-                  selected: _days.contains(day),
-                  button: true,
-                  excludeSemantics: true,
-                  child: SizedBox(
-                    width: size + 2,
-                    height: size + 2,
-                    child: TextButton(
-                      key: ValueKey('study-day-$day'),
-                      onPressed: _saving
-                          ? null
-                          : () => setState(() {
-                                if (!_days.add(day)) _days.remove(day);
-                              }),
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        backgroundColor:
-                            _days.contains(day) ? c.accentFill : c.surface,
-                        shape: CircleBorder(
-                          side: BorderSide(
-                            color: _days.contains(day)
-                                ? c.accentFill
-                                : c.controlOutline,
-                            width: 1.5,
+      children: _loadFailed
+          ? [errorFor('study days', _load)]
+          : [
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final size = scale.scale(15) > 22 ? 60.0 : 42.0;
+                  final children = [
+                    for (final day in [7, 1, 2, 3, 4, 5, 6])
+                      Semantics(
+                        label: DateFormat('EEEE', 'en_US')
+                            .format(DateTime(2026, 6, day)),
+                        selected: _days.contains(day),
+                        button: true,
+                        excludeSemantics: true,
+                        child: SizedBox(
+                          width: size + 2,
+                          height: size + 2,
+                          child: TextButton(
+                            key: ValueKey('study-day-$day'),
+                            onPressed: _saving
+                                ? null
+                                : () => setState(() {
+                                      if (!_days.add(day)) _days.remove(day);
+                                    }),
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              backgroundColor: _days.contains(day)
+                                  ? c.accentFill
+                                  : c.surface,
+                              shape: CircleBorder(
+                                side: BorderSide(
+                                  color: _days.contains(day)
+                                      ? c.accentFill
+                                      : c.controlOutline,
+                                  width: 1.5,
+                                ),
+                              ),
+                            ),
+                            child: Text(
+                              ['M', 'T', 'W', 'T', 'F', 'S', 'S'][day - 1],
+                              style: context.type.subheadStrong.copyWith(
+                                color:
+                                    _days.contains(day) ? c.onAccent : c.label,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                      child: Text(
-                        ['M', 'T', 'W', 'T', 'F', 'S', 'S'][day - 1],
-                        style: context.type.subheadStrong.copyWith(
-                          color: _days.contains(day) ? c.onAccent : c.label,
-                        ),
-                      ),
-                    ),
+                  ];
+                  return constraints.maxWidth < 7 * (size + 2)
+                      ? Wrap(spacing: 6, runSpacing: 8, children: children)
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: children,
+                        );
+                },
+              ),
+              const SizedBox(height: 28),
+              if (_days.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Text(
+                    'Pick at least one day to continue.',
+                    style:
+                        context.type.subhead.copyWith(color: c.secondaryLabel),
                   ),
-                ),
-            ];
-            return constraints.maxWidth < 7 * (size + 2)
-                ? Wrap(spacing: 6, runSpacing: 8, children: children)
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: children,
-                  );
-          },
-        ),
-        const SizedBox(height: 28),
-        if (_days.isEmpty)
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: Text(
-              'Pick at least one day to continue.',
-              style: context.type.subhead.copyWith(color: c.secondaryLabel),
-            ),
-          )
-        else
-          Container(
-            padding: const EdgeInsets.all(18),
-            decoration: BoxDecoration(
-              color: c.surface,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (invalid)
-                  Text(
-                    'None of these fall before your exam',
-                    style: context.type.emphasized,
-                  )
-                else
-                  Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '${_days.length}',
-                          style: context.type.largeTitle,
-                        ),
-                        TextSpan(
-                          text: '  $dayCountLabel a week',
-                          style: context.type.body.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: c.secondaryLabel,
+                )
+              else
+                Container(
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: c.surface,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (invalid)
+                        Text(
+                          'None of these fall before your exam',
+                          style: context.type.emphasized,
+                        )
+                      else
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${_days.length}',
+                                style: context.type.largeTitle,
+                              ),
+                              TextSpan(
+                                text: '  $dayCountLabel a week',
+                                style: context.type.body.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: c.secondaryLabel,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      const SizedBox(height: 6),
+                      Text(
+                        invalid
+                            ? '$dateDescription Add $addDays '
+                                "so there's time to study first."
+                            : examDays != null
+                                ? 'Your exam is in $examDays '
+                                    '${examDays == 1 ? 'day' : 'days'}. '
+                                    "We'll focus on what matters most."
+                                : 'Days off stay free. '
+                                    'Questions that come due on a day off '
+                                    'wait for your next study day.',
+                        style: context.type.subhead
+                            .copyWith(color: c.secondaryLabel, height: 1.4),
+                      ),
+                    ],
                   ),
-                const SizedBox(height: 6),
-                Text(
-                  invalid
-                      ? '$dateDescription Add $addDays '
-                          "so there's time to study first."
-                      : examDays != null
-                          ? 'Your exam is in $examDays '
-                              '${examDays == 1 ? 'day' : 'days'}. '
-                              "We'll focus on what matters most."
-                          : 'Days off stay free. '
-                              'Questions that come due on a day off '
-                              'wait for your next study day.',
-                  style: context.type.subhead
-                      .copyWith(color: c.secondaryLabel, height: 1.4),
                 ),
-              ],
-            ),
-          ),
-      ],
+            ],
     );
   }
 }

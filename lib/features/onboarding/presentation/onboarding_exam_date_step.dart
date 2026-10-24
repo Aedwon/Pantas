@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
@@ -33,6 +36,7 @@ class _OnboardingExamDateStepState
   late final DateTime _today = DateUtils.dateOnly(widget.now ?? DateTime.now());
   MonthFirstDate? _value;
   bool _loaded = false;
+  bool _loadFailed = false;
   bool _declined = false;
   bool _saving = false;
   bool _failed = false;
@@ -46,20 +50,28 @@ class _OnboardingExamDateStepState
   }
 
   Future<void> _restore() async {
-    final saved = await ref.read(settingsRepositoryProvider).readUserSettings();
-    if (!mounted) return;
-    setState(() {
-      final date = saved.examDate;
-      _value = date == null
-          ? MonthFirstDate(year: _today.year)
-          : MonthFirstDate(
-              year: date.year,
-              month: date.month,
-              day: date.day?.day,
-            );
-      _declined = date != null;
-      _loaded = true;
-    });
+    final telemetry = ref.read(telemetryProvider);
+    if (_loadFailed) setState(() => _loadFailed = false);
+    try {
+      final saved =
+          await ref.read(settingsRepositoryProvider).readUserSettings();
+      if (!mounted) return;
+      setState(() {
+        final date = saved.examDate;
+        _value = date == null
+            ? MonthFirstDate(year: _today.year)
+            : MonthFirstDate(
+                year: date.year,
+                month: date.month,
+                day: date.day?.day,
+              );
+        _declined = date != null;
+        _loaded = true;
+      });
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _loadFailed = true);
+    }
   }
 
   void _back() {
@@ -72,6 +84,7 @@ class _OnboardingExamDateStepState
     final generation = _generation;
     final repo = ref.read(settingsRepositoryProvider);
     final prefs = ref.read(appPreferencesRepositoryProvider);
+    final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
       _failed = false;
@@ -85,7 +98,8 @@ class _OnboardingExamDateStepState
       }
       await prefs.setDeviceValue(onboardingDateAnsweredKey, 'true');
       if (mounted && generation == _generation) widget.onCompleted();
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
@@ -148,7 +162,9 @@ class _OnboardingExamDateStepState
         ],
       ),
       children: [
-        if (!_loaded)
+        if (_loadFailed)
+          errorFor('exam date', _restore)
+        else if (!_loaded)
           loadingFor(const AsyncLoading<void>())
         else if (known != null) ...[
           Container(
