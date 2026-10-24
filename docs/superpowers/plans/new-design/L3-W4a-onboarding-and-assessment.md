@@ -119,3 +119,14 @@ Delete replaced onboarding and assessment widgets and their tests; update
 `test/app/router_onboarding_completion_test.dart` and `router_redirect_test.dart` onboarding cases.
 All required checks; evidence `evidence/W4a.md`; independent review; Aedwon's visual check on his
 phones against the O_* and AS_* boards.
+
+
+## October24 CSE PWA continuation implementation details
+
+The October19 launch adjustment controls: only CSE Professional/Subprofessional built-ins select on web; native catalog behavior remains. Web skips Task8, completes only after valid Name, and never requests notification permission. Native ReminderPrefs screen remains parked with W4f, excluded from launch. Use a platform provider defaulting to kIsWeb for repeatable web-flow tests on the host. Refresh stored completion/progress before Home routing.
+
+Complete Tasks4,6,7 with existing W2 page/calendar/checkbox/button structures. Shared calendar extension supports onboarding geometry and optional-day header, reduced-motion bypass and large-text wrapping without changing the ordinary Settings constructor contract. Keep custom steps inside the onboarding flow; standalone legacy custom URLs return through onboarding. Do not complete on custom-track creation. Tests cover the actual route and persistence.
+
+Tasks9/10 capture measured session start, each committed response duration and stable completion identity in memory. Persist assessment, attempt and review seeds atomically on the original database/generation, making retry idempotent. No schema change. Read elapsed time from the recorded assessment attempt; omit missing legacy duration instead of inventing one. Aggregate subject accuracy from actual topic scores and corpus subjects; weakest topic remains measured. Result acknowledgement uses an existing preference key, per exam, and redirects future results visits to Home. Completed assessments also go Home. Refresh existing Today/roadmap/session caches after completion, preserving the accepted shared contract from development4113ad78.
+
+Before final review, reconcile the accepted development branch4113ad78 into W4a while preserving every local draft and all accepted other-family source. One whole-family Astra audit after implementation, followed only by bounded correction verification. Final combined full suite, lib/test/tool analysis/format, layering/attribution/diff, exact source identity and remote upload evidence. Phone/live PWA acceptance and global web/server combination remain later gates.
