@@ -12,7 +12,7 @@ Controlling documents:
 
 State: held
 Holder: Codex W4b continuation, authorized Sonnet takeover
-Since: 2026-10-24 02:10 Asia/Manila
+Since: 2026-10-24 16:13 Asia/Manila (same authorized continuation, renewed)
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1197,3 +1197,8 @@ Verified local client35fc72a9 warm-up170domain tests and1616d12b future-day/Sund
 ### October24 latest continuation
 
 Aedwon: "continue". Policy refreshed from currentmain7fe91e30; known source drafts preserved. Existing agents resumed under original ownership, no duplicate work. Client82f24718 saves original guard plus atomic day/history persistence after28controller cases, with read/advance wipe, disposal, exam and same-exam shaping races covered. Server63ba5dcc saves immutable attributable C9 retries after content changes and actual new_questions/flagged origins;12emulator tests. Server historical completion correction5emulator cases passed before interruption; authoritative reader/insight/extraction remain dirty and unaccepted. Populated native/VMJS parity test authored, not yet run. Client Tasks3–5 integration and6–10 remain, plus sender/live routing/final verification/audit. Remote source and integration refs unchanged. Current paid-cache authorization and both approved visual choices remain binding.
+
+
+### October24 afternoon same W4b continuation
+
+Latest Aedwon instruction: "continue". Root resumes same authorized W4b takeover, refreshes current policy7fe91e30 and renews its stale02:10lock at16:13Asia/Manila under the existing rule. Existing client/server workers resumed with known drafts, no duplicate workers or source branch uploads. Client latest saved82f24718, server63ba5dcc; accepted development4113ad78 unchanged. Two relay runners verified available. Actual populated parity3tests and historical completion5tests pass; immediate-history/stale-advance/compute-on-write and client reader integration continue. Both approved Free future-date gate and web trial wording preserved; paid cache restore requires fresh coverage. No whole-family acceptance/audit, final combined checks, integration, phone/live/deployment/publication yet.
