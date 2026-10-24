@@ -179,7 +179,7 @@ void main() {
     expect(questions.where((q) => q.topicId == 't2'), hasLength(3));
   });
 
-  test('respects the 35-question cap when topic count exceeds 35', () async {
+  test('respects the 30-question cap when topic count exceeds 30', () async {
     await seedContentSubject(
       contentDb,
       subjectId: 's_many',
@@ -203,8 +203,8 @@ void main() {
     final questions = await selector.select('e1');
 
     expect(questions, isNotEmpty);
-    expect(questions, hasLength(35));
-    expect(questions.map((q) => q.topicId).toSet(), hasLength(35));
+    expect(questions, hasLength(30));
+    expect(questions.map((q) => q.topicId).toSet(), hasLength(30));
   });
 }
 

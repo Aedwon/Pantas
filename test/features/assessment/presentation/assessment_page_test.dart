@@ -6,6 +6,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/presentation/assessment_page.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -16,6 +17,10 @@ import '../../../helpers/pump_app.dart';
 GoRouter _buildRouter(String examId) => GoRouter(
       initialLocation: '/assessment/$examId',
       routes: [
+        GoRoute(
+          path: '/home',
+          builder: (_, __) => const Scaffold(body: Text('Home')),
+        ),
         GoRoute(
           path: '/assessment/:examId',
           builder: (_, state) =>
@@ -76,7 +81,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Question 1 of 1'), findsOneWidget);
+    expect(find.text('1 of 1'), findsOneWidget);
+    expect(find.text('Answers show at the end.'), findsOneWidget);
   });
 
   testWidgets('answering last question navigates to results page',
@@ -88,6 +94,9 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+    expect(find.text('Results'), findsNothing);
+    await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
 
     expect(find.text('Results'), findsOneWidget);
@@ -111,6 +120,9 @@ void main() {
     expect(await container.read(assessmentResultProvider('e1').future), isNull);
 
     await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+    expect(find.text('Results'), findsNothing);
+    await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
 
     expect(
@@ -136,6 +148,9 @@ void main() {
 
     await tester.tap(find.text('Option A'));
     await tester.pumpAndSettle();
+    expect(find.text('Results'), findsNothing);
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
 
     expect(
       container.read(quizSessionPanelRevisionProvider),
@@ -143,8 +158,7 @@ void main() {
     );
   });
 
-  testWidgets('redirects to results when assessment is already completed',
-      (tester) async {
+  testWidgets('completed assessment opens Home without retake', (tester) async {
     await AssessmentRepository(db).saveResult(
       'e1',
       DateTime.utc(2026, 5, 11),
@@ -157,8 +171,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Results'), findsOneWidget);
-    expect(find.text('Question 1 of 1'), findsNothing);
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('1 of 1'), findsNothing);
   });
 
   testWidgets('zero-content exam shows an intentional unavailable state',
@@ -195,5 +209,24 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Leave assessment?'), findsOneWidget);
+  });
+  testWidgets('changed sync owner discards the old picks without writing',
+      (tester) async {
+    final contexts = SyncActiveContextStore(db);
+    await contexts.publishStable(uid: 'original', generationId: 'g1');
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: databaseOverrides(),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+    await contexts.publishStable(uid: 'new-owner', generationId: 'g2');
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
+    expect(await AssessmentRepository(db).hasCompletedForExam('e1'), isFalse);
+    expect(await db.select(db.attemptsLocal).get(), isEmpty);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(find.text('Option A'), findsNothing);
   });
 }

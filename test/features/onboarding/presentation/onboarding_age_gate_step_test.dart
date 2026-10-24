@@ -133,7 +133,7 @@ void main() {
           of: find.text('Try a Different Year'),
           matching: find.byType(Opacity),
         )
-        .first;
+        .last;
     expect(fade, findsOneWidget);
     await tester.pump(const Duration(milliseconds: 150));
     expect(tester.widget<Opacity>(fade).opacity, closeTo(.802403, .002));

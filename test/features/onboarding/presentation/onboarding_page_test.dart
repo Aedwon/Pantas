@@ -114,12 +114,14 @@ void main() {
 
     // Step 5: Exam date
     expect(find.text('When is your exam?'), findsOneWidget);
-    // Pick next year so this flow remains valid even on the last day of a
-    // month.
-    await tester.drag(
-      find.byKey(const ValueKey('year_picker')),
-      const Offset(0, -32),
-    );
+    if (find.text('Different Date').evaluate().isNotEmpty) {
+      await tester.tap(find.text('Different Date'));
+      await tester.pumpAndSettle();
+    }
+    await tester.tap(find.text("I don't know"));
+    await tester.pumpAndSettle();
+    expect(find.text('Which days will you study?'), findsOneWidget);
+    await tester.tap(find.text('Every Day'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

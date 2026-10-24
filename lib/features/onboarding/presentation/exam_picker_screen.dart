@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -60,12 +61,17 @@ class ExamPickerScreen extends ConsumerStatefulWidget {
     required this.onPicked,
     this.onBack,
     this.onCustom,
+    this.cseOnly = kIsWeb,
     super.key,
   });
   final ExamPickerMode mode;
   final FutureOr<void> Function(String) onPicked;
   final VoidCallback? onBack;
   final VoidCallback? onCustom;
+  final bool cseOnly;
+  bool selectable(ExamCatalogEntry entry) =>
+      entry.isSelectable &&
+      (!cseOnly || entry.id == 'exam_cse_pro' || entry.id == 'exam_cse_sub');
   @override
   ConsumerState<ExamPickerScreen> createState() => _ExamPickerScreenState();
 }
@@ -117,7 +123,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   }
 
   void _pick(ExamCatalogEntry entry, String? active) {
-    if (_saving || !entry.isSelectable || (_settings && active == entry.id)) {
+    if (_saving ||
+        !widget.selectable(entry) ||
+        (_settings && active == entry.id)) {
       return;
     }
     setState(() => _selectedId = entry.id);
@@ -143,7 +151,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               title: entry.shortName,
               subtitle: _organizations[entry.id] ?? entry.name,
               selected: selected == entry.id,
-              comingSoon: entry.comingSoon || !entry.hasContent,
+              comingSoon: !widget.selectable(entry),
               settingsMode: _settings,
               divider: index + 1 < entries.length,
               onTap: () => _pick(entry, active),

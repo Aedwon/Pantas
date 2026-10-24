@@ -260,3 +260,36 @@ The new policy-accepted fixture creates sync work on the integrated branch. Rout
 Focused Dart analysis and formatting are checked before this commit. No full suite, phone check, independent acceptance, push or merge is claimed.
 
 Task 1 final focused checks: exit 0, 00:05 +19: All tests passed! Focused analysis: exit 0, No issues found! Formatting and git diff --check: exit 0.
+
+
+## October24 CSE PWA continuation candidate, before family audit
+
+Controlling policy main06c6ca79 read in full, refreshed workflow context21e9ee80; current status/authorization recorde176253d. Read the original approved amendment, L2/L3 W4a, standing W4 rulings and October19 PWA launch spec/plan in full. Later L3 October24 implementation details govern measured completion and the web branch. User expressly resumed W4a while W4b is paused and authorized direct local execution. The original four modified files and one untracked date test were preserved. Remote42ee0327 is an ancestor of original local3b2d8b33; no remote-only commits existed. Retained stash preserves the complete pre-dependency continuation patch.
+
+Accepted development4113ad78 merged into W4a atba5f1e8a. Three explicit shared component conflicts preserve both onboarding and accepted ordinary/quiz/mock/bookmark contracts; automatic ListRow initialization repaired. Generation: exit0,2026outputs.45affected component tests pass. Native/web/source tests run locally, no relay required or used after the user's override.
+
+### Implemented launch scope
+
+- Tasks1/4/6/7: actual storage resume and branch-preserving custom flow, published first-day or month/optional day/unknown date, today allowed, Sunday-first initially empty study days with date availability, required trimmed40-character name and custom name, unticked corpus subjects with at least one required, retained saved Name/days/date on return, shared save/retry UI. Custom creation explicitly keeps completion false. Built-in and custom paths reach date, days and Name inside onboarding. Web writes completion once only after valid Name and emits completion telemetry once. Other built-in exams show Coming soon on web, while native catalog behavior stays unchanged.
+- Task8: web omission is implemented per the approved PWA adjustment. Native ReminderPrefs screen/service remains parked with W4f and is outside this launch candidate; no native reminder completion is claimed.
+- Tasks9/10: selector cap30 with narrowed-track formula preserved; pick/change pick then Next, real count without jumping, real report entry/queue, one destructive leave dialog, not-ready/load/retry states. Completed assessment routes Home. Session start/response timing and stable attempt identity are captured in memory. Attempt, assessment and review seeds commit atomically, same-attempt retry does not seed twice, a second attempt cannot overwrite a completed assessment, original database/account-lifetime/context-token/exam/UI boundary stays checked across waits. Stale picks are discarded with retry UI. Today/Quiz/roadmap caches refresh after completion, including custom tracks.
+- Results aggregate actual topic scores by actual subject, weakest first; show measured count/elapsed duration and weakest topic; no legacy duration is invented. Acknowledgement is keyed to the persisted assessment completion; after Go to Today a later results visit routes Home. AS_Results entry/bar/count tracks are represented through one-shot effects and the shared assessment-count gauge variant. Per-question timing remains excluded from existing legacy assessment speed signals; no W4b insight or learning-rule change is part of this candidate.
+- Task11: unused legacy picker and its superseded tests deleted. Custom URL aliases remain for existing route callers and return through the real flow. No generated files, schema, dependency, price, payment, server ownership, or paused W4b changes.
+
+### Fresh observed checks before freeze
+
+- Original date/cap drafts retained; cap RED expected30/actual35 is in prior evidence. Date APIs/today rejection, required-name/custom-selection, missing study-days view and old flow produced RED failures before implementation.
+- Custom full web flow RED: legacy completion true immediately after custom creation. GREEN: actual custom-to-date-to-days-to-name-to-Home flow keeps false until Name.
+- Saved Name and explicitly saved study days RED before restoration, then13restoration/web cases passed.
+- Account/context replacement RED left old picks active; corrected real UI regression plus seven existing assessment cases pass8.
+- Measured timing/retry identity and second-session completion protections have domain regression coverage; renewed domain pass included in388case run.
+- Date calendar cards/large-text/reduced-motion/selected strip/year320ms tests pass. Reduced-motion AnimatedSize layout mutation was reproduced and bypassed at the shared wrapper; optional-day header wraps without overflow. Day strip uses450ms delay and900ms house-strip curve, selected year uses320ms push; ordinary constructor retained.
+- Results subject aggregation, empty result, one-time acknowledgement, light/dark and200% cases pass7.
+- Final combined focused command: flutter test --no-pub test/features/onboarding test/features/assessment test/app test/features/settings test/core/ui/components/onboarding_date_extensions_test.dart: exit0,01:31 +388: All tests passed!
+- Last bounded web-completion/Days run after telemetry/date-copy correction: exit0,00:02 +7: All tests passed! Telemetry RED produced six completions before the terminal latch; GREEN asserts exactly one.
+- dart analyze lib test tool: exit0, No issues found!
+- git diff --check: exit0. Final full-suite/static identity evidence and whole-family audit are pending, not claimed.
+
+### Fidelity and deferred boundaries
+
+The original approved boards, supplied metrics and sampled timeline are the implementation source. Standing contrast rulings apply: selected weekday uses full onAccent, meaningful checkbox/day boundaries use controlOutline, name placeholders retain the approved low-contrast exemption. No app screenshots, computer control or autonomous visual review. Aedwon's phone visual/device accessibility acceptance remains required. Actual web build/live checks require the separate Lane B/C combination; this accepted development base has no web platform directory. The report form queues locally; its deferred backend sender is unchanged. No publication, deployment, main application update, or family acceptance yet.

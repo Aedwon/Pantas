@@ -1,8 +1,13 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
@@ -11,7 +16,12 @@ import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_study_days_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
+import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
+import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
+
+final onboardingWebProvider = Provider<bool>((ref) => kIsWeb);
 
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
@@ -22,6 +32,36 @@ class OnboardingPage extends ConsumerStatefulWidget {
 
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   OnboardingFlow? _flow;
+  String _customName = '';
+  bool _finishing = false;
+  bool _finished = false;
+  bool _finishFailed = false;
+  Future<void> _finish() async {
+    if (_finishing || _finished) return;
+    setState(() {
+      _finishing = true;
+      _finishFailed = false;
+    });
+    try {
+      await ref
+          .read(appPreferencesRepositoryProvider)
+          .setCompletedOnboarding(value: true);
+      if (!mounted) return;
+      _finished = true;
+      unawaited(
+        ref.read(telemetryProvider).log(TelemetryEvent.onboardingCompleted),
+      );
+      ref
+        ..invalidate(appPreferencesRepositoryProvider)
+        ..invalidate(onboardingProgressProvider);
+      GoRouter.maybeOf(context)?.go('/home');
+    } catch (_) {
+      if (mounted) setState(() => _finishFailed = true);
+    } finally {
+      if (mounted) setState(() => _finishing = false);
+    }
+  }
+
   OnboardingStep? get _step => _flow?.step;
   final Set<OnboardingStep> _loggedSteps = {};
 
@@ -38,6 +78,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   }
 
   void _back() {
+    if (_finishing || _finished) return;
     setState(() => _flow!.back());
   }
 
@@ -122,10 +163,46 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     if (_loggedSteps.add(step)) _logStep(step);
     switch (step) {
       case OnboardingStep.customName:
+        return CustomTrackNameStep(
+          key: const ValueKey('customName'),
+          initialName: _customName,
+          onBack: _back,
+          onContinue: (name) {
+            _customName = name;
+            _setStep(OnboardingStep.customSubjects);
+          },
+        );
       case OnboardingStep.customSubjects:
+        return CustomTrackSubjectsStep(
+          key: const ValueKey('customSubjects'),
+          name: _customName,
+          onBack: _back,
+          onCompleted: () {
+            if (_step == OnboardingStep.customSubjects) {
+              _setStep(OnboardingStep.examDate);
+            }
+          },
+        );
       case OnboardingStep.studyDays:
+        return OnboardingStudyDaysStep(
+          key: const ValueKey('studyDays'),
+          onBack: _back,
+          onCompleted: () {
+            if (_step == OnboardingStep.studyDays) {
+              _setStep(OnboardingStep.name);
+            }
+          },
+        );
       case OnboardingStep.reminders:
-        // Screen tasks wire these branches; Reminders waits for W4f.
+        // Native reminders are parked with W4f; web has no rationale step.
+        if (ref.read(onboardingWebProvider)) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted && !_finishFailed) _finish();
+          });
+          return _finishFailed
+              ? saveFailureLine(_finish)
+              : loadingFor(const AsyncLoading<void>());
+        }
         return const SizedBox.shrink();
       case OnboardingStep.launch:
         return OnboardingLaunchStep(
@@ -169,6 +246,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           key: const ValueKey('picker'),
           child: ExamPickerScreen(
             mode: ExamPickerMode.onboarding,
+            cseOnly: ref.watch(onboardingWebProvider),
+            onCustom: () => _setStep(OnboardingStep.customName),
             onBack: () {
               if (_step == OnboardingStep.picker) _back();
             },
@@ -183,15 +262,23 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         return KeyedSubtree(
           key: const ValueKey('examDate'),
           child: OnboardingExamDateStep(
-            onCompleted: () => _setStep(OnboardingStep.name),
+            onBack: _back,
+            onCompleted: () {
+              if (_step == OnboardingStep.examDate) {
+                _setStep(OnboardingStep.studyDays);
+              }
+            },
           ),
         );
       case OnboardingStep.name:
         return KeyedSubtree(
           key: const ValueKey('name'),
           child: OnboardingNameStep(
+            onBack: _back,
             onCompleted: () {
-              _setStep(OnboardingStep.reminders);
+              if (_step == OnboardingStep.name) {
+                _setStep(OnboardingStep.reminders);
+              }
             },
           ),
         );

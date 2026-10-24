@@ -1,27 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class OnboardingNameStep extends ConsumerStatefulWidget {
-  const OnboardingNameStep({
-    required this.onCompleted,
-    super.key,
-  });
-
+  const OnboardingNameStep({required this.onCompleted, this.onBack, super.key});
   final VoidCallback onCompleted;
-
+  final VoidCallback? onBack;
   @override
   ConsumerState<OnboardingNameStep> createState() => _OnboardingNameStepState();
 }
 
 class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
-  final TextEditingController _controller = TextEditingController();
+  final _controller = TextEditingController();
   bool _saving = false;
+  bool _failed = false;
+  int _generation = 0;
+  @override
+  void initState() {
+    super.initState();
+    _restore();
+  }
 
-  String get _trimmedText => _controller.text.trim();
+  Future<void> _restore() async {
+    try {
+      final settings =
+          await ref.read(settingsRepositoryProvider).readUserSettings();
+      if (mounted && _controller.text.isEmpty && settings.name != null) {
+        setState(() => _controller.text = settings.name!);
+      }
+    } catch (_) {
+      if (mounted) setState(() => _failed = true);
+    }
+  }
 
   @override
   void dispose() {
@@ -29,92 +43,53 @@ class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
     super.dispose();
   }
 
-  Future<void> _onDone() async {
-    if (_trimmedText.isEmpty) return;
-    setState(() => _saving = true);
+  Future<void> _save() async {
+    final text = _controller.text.trim();
+    if (text.isEmpty || _saving) return;
+    final generation = _generation;
+    setState(() {
+      _saving = true;
+      _failed = false;
+    });
     try {
-      await ref.read(settingsRepositoryProvider).updateName(_trimmedText);
-      ref.invalidate(appPreferencesRepositoryProvider);
-      widget.onCompleted();
-    } finally {
-      if (mounted) setState(() => _saving = false);
-    }
-  }
-
-  Future<void> _onSkip() async {
-    setState(() => _saving = true);
-    try {
-      ref.invalidate(appPreferencesRepositoryProvider);
-      widget.onCompleted();
+      await ref.read(settingsRepositoryProvider).updateName(text);
+      if (mounted && generation == _generation) widget.onCompleted();
+    } catch (_) {
+      if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
     }
   }
 
   @override
-  Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-
-    final underlineBorder = UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: colors.rule,
-      ),
-    );
-
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget build(BuildContext context) => PantasPage.onboarding(
+        title: 'What should we call you?',
+        detail:
+            "We'll use this to greet you across the app. A nickname is fine.",
+        progress: 6,
+        onBack: () {
+          _generation++;
+          widget.onBack?.call();
+        },
+        bottom: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(height: 24),
-            Text('What should we call you?', style: styles.displaySmall),
-            const SizedBox(height: 10),
-            Text(
-              "We'll use this to greet you across the app. A nickname is fine.",
-              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
-            ),
-            const SizedBox(height: 24),
-            TextField(
-              controller: _controller,
-              textCapitalization: TextCapitalization.words,
-              maxLength: 40,
-              style: styles.bodyLarge,
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: underlineBorder,
-                enabledBorder: underlineBorder,
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: colors.ink,
-                  ),
-                ),
-                counterText: '',
-              ),
-              onChanged: (_) => setState(() {}),
-            ),
-            const Spacer(),
-            BoardButton(
+            if (_failed) saveFailureLine(_save),
+            PantasButton(
               label: 'Done',
-              onPressed: (_trimmedText.isEmpty || _saving) ? null : _onDone,
-            ),
-            const SizedBox(height: 14),
-            TextButton(
-              onPressed: _saving ? null : _onSkip,
-              style: TextButton.styleFrom(
-                foregroundColor: colors.board,
-                minimumSize: const Size.fromHeight(48),
-                padding: EdgeInsets.zero,
-                textStyle: styles.bodyMedium,
-              ),
-              child: const Text(
-                'Skip',
-              ),
+              busy: _saving,
+              onPressed:
+                  _saving || _controller.text.trim().isEmpty ? null : _save,
             ),
           ],
         ),
-      ),
-    );
-  }
+        children: [
+          OnboardingNameField(
+            controller: _controller,
+            label: 'Name',
+            onChanged: (_) => setState(() {}),
+            onSubmitted: (_) => _save(),
+          ),
+        ],
+      );
 }
