@@ -29,7 +29,6 @@ void main() {
           pro: pro,
           paused: paused,
           onTopic: (_) {},
-          onPractice: () {},
           onPro: () {},
           onBack: () {},
         ),

@@ -21,7 +21,6 @@ class PerformancePage extends StatefulWidget {
     required this.pro,
     required this.paused,
     required this.onTopic,
-    required this.onPractice,
     required this.onPro,
     required this.onBack,
     this.initialLevel = 0,
@@ -35,7 +34,6 @@ class PerformancePage extends StatefulWidget {
   final bool paused;
   final ValueChanged<String> onTopic;
   final ValueChanged<String>? onLesson;
-  final VoidCallback onPractice;
   final VoidCallback onPro;
   final VoidCallback onBack;
   final int initialLevel;
