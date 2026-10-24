@@ -6,6 +6,7 @@ import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/features/home/application/web_study_seam.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/trial_notice.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -58,14 +59,6 @@ HomeNotice? webTrialHomeNotice({
     secondaryLabel: 'Got It',
   );
 }
-
-/// Web seam. Resolves to the actual end of the account's active trial grant
-/// for the selected exam, from the authoritative server read
-/// (`getStudyInsights.trialEndsAt`). Null until that web reader is wired, and
-/// never inferred locally.
-final webTrialEndsAtProvider = FutureProvider.autoDispose<DateTime?>(
-  (ref) async => null,
-);
 
 HomeNotice? selectHomeNotice(
   List<HomeNotice> candidates,

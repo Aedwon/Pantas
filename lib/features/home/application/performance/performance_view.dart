@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
+import 'package:pantas/features/home/application/web_study_seam.dart';
 
 class PerformanceViewData {
   const PerformanceViewData({
@@ -27,6 +28,7 @@ class PerformanceViewData {
 /// is its topics with at least one answer.
 final performanceViewProvider =
     FutureProvider<PerformanceViewData>((ref) async {
+  if (kIsWebStudy) return ref.watch(webPerformanceViewProvider.future);
   final subjects = await ref.watch(
     performanceProvider(const PerformanceQuery(level: TableLevel.subject))
         .future,
