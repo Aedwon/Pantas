@@ -1691,3 +1691,16 @@ through Illustration Studio, or open-licensed), question figures are code-drawn 
 in-lesson quiz items exist; four puzzle lessons have no active question (all need figures); the
 illustration worklist (59 rows) disagrees with its README (278). Awaiting Aedwon: approval at a
 complexity level (balanced recommended) and the figure order.
+
+## October 25: plan revisions, relay hand-in and public repository
+
+Lead proposal: web chats work through the relay; a local hand-in script checks and commits; a
+GitHub check runs on push; the paste page marks items done from the commit. Caveats given: the
+relay runner and Mac must be on; the Pantas repository is public, so lesson and question content
+(including Pro) is readable by anyone. Aedwon's exact reply:
+
+> 1. okay with the caveats. yes public for now. it wouldn't be a problem since nobody really knows about this project except me and some few close people
+> 2. isn't it better to let it display svg? it would be lighter, or is that assumption wrong
+
+Decision: relay hand-in design accepted; repository stays public for now. Illustration format
+under discussion.
