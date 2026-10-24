@@ -83,3 +83,32 @@ D-258 is implemented on this server source: mock submission/strict expiry and on
 Client source f9c28374 wires these models without local web attempt/result writes; actual server access controls paid notes/review. The existing MockCard slot is reconciled as a bounded W4e dependency, without completing unrelated W4d layout/Reviews controls. Future D integration preserves serverMockId/serverExamId/nextOpensAt and the web30day/native14day card contract; do not restore the older D caller's local14day web date. Cursor/marks remain feature-local original-account+mock cache only. Missing original content is recoverable, never evidence to shorten the paper or infer retirement. Other-exam rebuilt finales are explicitly deferred by the CSE launch selection.
 
 Global server/web/PayMongo/content-cache integration remains later in Aedwon's critical path. Rebuild the existing compiled Dart bridge after any change in its source closure and regenerate ignored database code after merged schema changes before judging checks. Preserve source/remote identity, named-account entry ownership and the later human phone/live-staging acceptance gates. App source is entering the agreed development branch under final combined checks; STATUS records the actual acceptance result.
+
+## C3 web purchase gateway handoff for W4f Task 6 (October 24, Claude lead)
+
+Source: `web/paymongo-r1` at b0946994 (pushed; not integrated into `integration/new-design-r1`).
+Plan: `docs/superpowers/plans/pwa-launch/C3-web-purchase-gateway.md` on that branch. Minimal
+scope (Aedwon's choice). Checks at b0946994: full Flutter 4032 pass, paywall and tool tests 533
+pass, Functions 118 plain / 143 emulator pass, tsc, format, layering and attribution clean;
+`flutter analyze lib test` has one known `onReorder` deprecation from the branch's older base,
+already fixed on integration. Real PayMongo checkout, deployed App Check and browser calls are
+unverified until C5 (needs Blaze on pantas-staging and PayMongo test keys).
+
+What Task 6 calls:
+- `WebPaymentGateway implements RevenueCatPassGateway` (`lib/features/paywall/data/
+  web_payment_gateway.dart`). On web, `revenueCatGatewayProvider` builds it (flag
+  `paymentsOnWebProvider`, default `kIsWeb`); mobile construction is unchanged.
+- `currentOffering()`: plans and prices from the `listWebPlans` callable (server
+  `products.json`, the price checkout charges); price strings come formatted from the server.
+  Passes without a published sitting are omitted.
+- `purchase` / `purchasePass`: calls `createPaymongoCheckout` and sends the tab to PayMongo.
+  When the tab opens it returns `failure(operationAlreadyInProgress)`; the page should treat that
+  as "redirecting", not as an error.
+- `handleCheckoutReturn(Uri)` (web only; downcast the gateway): call it on `/pro` load. Null means
+  not a return; `userCancelled` means cancelled; `success` means Pro active; `entitlementNotActive`
+  means paid but not confirmed yet (webhook lag; no polling in minimal scope).
+- `startTrial()` (web only): `WebTrialResult{status: started|notAvailable|failed, operation}`.
+- `restorePurchases()`: token refresh plus a grant ledger read.
+- Anonymous accounts get `permission-denied` from checkout (mapped to `configurationFailure`):
+  do not offer checkout or the trial to them.
+- A grant that lands after a pending return shows on the next restore or login.
