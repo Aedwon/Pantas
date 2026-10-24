@@ -82,11 +82,13 @@ class StateView extends StatelessWidget {
           key: const ValueKey('state-mark'),
           dimension: onboardingBlocked
               ? 72
-              : fullScreen
-                  ? 36
-                  : compact
-                      ? 40
-                      : 60,
+              : bookmarkLayout
+                  ? 34
+                  : fullScreen
+                      ? 36
+                      : compact
+                          ? 40
+                          : 60,
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
@@ -204,6 +206,15 @@ class StateView extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      );
+    }
+    if (bookmarkLayout) {
+      return Semantics(
+        liveRegion: true,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(36, 70, 36, 0),
+          child: content,
         ),
       );
     }
