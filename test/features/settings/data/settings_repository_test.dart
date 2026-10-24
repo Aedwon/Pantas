@@ -101,8 +101,7 @@ void main() {
     expect(settings.updatedAt, DateTime.utc(2026, 5, 22, 12));
   });
 
-  test('allows an exam today and rejects yesterday',
-      () async {
+  test('allows an exam today and rejects yesterday', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final repo = DriftSettingsRepository(
