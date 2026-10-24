@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
@@ -7,6 +8,9 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/paywall/paywall.dart';
@@ -37,10 +41,12 @@ void main() {
     AuthUser? currentUser,
     Entitlement entitlement = const Entitlement.free(),
     bool proForExam = false,
+    List<Override> extra = const [],
   }) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          ...extra,
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
@@ -78,7 +84,46 @@ void main() {
     displayName: 'Student',
   );
 
-  testWidgets('Quiz tab renders MockPanel', (tester) async {
+  testWidgets(
+      'account cooldown without this exam history has no dead results action',
+      (tester) async {
+    await seedContentExam(
+      contentDb,
+      examId: 'exam_cse_sub',
+      code: 'CSE',
+      name: 'CSE Subprofessional',
+      shortName: 'CSE Subprofessional',
+    );
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_sub');
+    await pumpApp(
+      tester,
+      currentUser: signedInUser,
+      extra: [
+        mockUsesServerProvider.overrideWithValue(true),
+        serverMockIdentityProvider.overrideWithValue('a'),
+        serverMockActorProvider.overrideWithValue(() => 'a'),
+        serverMockApiProvider.overrideWithValue(
+          ServerMockApi(
+            (_, __) async => {
+              'examId': 'exam_cse_sub',
+              'serverNow': 2000,
+              'nextEligibleAt': 2592002000,
+              'status': 'cooldown',
+              'proCovered': false,
+              'lastMockId': null,
+            },
+          ),
+        ),
+      ],
+    );
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    await tester.tap(find.text('Quiz'));
+    await tester.pumpAndSettle();
+    expect(find.byType(MockCard), findsOneWidget);
+    expect(find.text('View Last Results'), findsNothing);
+  });
+  testWidgets('Quiz tab renders MockCard', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('upcat');
     await pumpApp(tester);
@@ -87,7 +132,7 @@ void main() {
     await tester.tap(find.text('Quiz'));
     await tester.pumpAndSettle();
 
-    expect(find.byType(MockPanel), findsOneWidget);
+    expect(find.byType(MockCard), findsOneWidget);
   });
 
   testWidgets('signed-in account sees the device-local mock attempt',
@@ -118,6 +163,8 @@ void main() {
 
     await tester.tap(find.text('Quiz'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Resume'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Resume'));
     await tester.pumpAndSettle();
 
@@ -129,7 +176,6 @@ void main() {
     for (final route in [
       '/quiz',
       '/quiz/flagged/upcat',
-      '/mock/review/mock_local',
     ]) {
       testWidgets('route $route uses active-exam coverage $covered',
           (tester) async {
@@ -158,8 +204,7 @@ void main() {
           route,
         );
         final actual = switch (route) {
-          '/quiz' =>
-            tester.widget<MockPanel>(find.byType(MockPanel)).proIsActive,
+          '/quiz' => tester.widget<MockCard>(find.byType(MockCard)).model.pro,
           '/quiz/flagged/upcat' => tester
               .widget<FlaggedListPage>(find.byType(FlaggedListPage))
               .proIsActive,

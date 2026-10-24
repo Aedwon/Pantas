@@ -1,0 +1,72 @@
+Original complete output is preserved in the .gz companion.
+
+#273    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2750:15)
+#274    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2807:11)
+#275    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3111:18)
+#276    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2431:19)
+#277    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#278    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#279    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#280    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#283    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#284    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#285    WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#288    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#289    WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#290    pumpAccessibilitySurface (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/helpers/accessibility.dart:28:16)
+#291    main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart:97:11)
+<asynchronous suspension>
+#292    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#293    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "/0": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart:100:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart line 100
+The test description was:
+  quiz updates count even when fraction stays the same and handles zero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (10) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.0 final frame in Brightness.dark
+00:02 +0 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz updates count even when fraction stays the same and handles zero [E]
+  Test failed. See exception logs above.
+  The test description was: quiz updates count even when fraction stays the same and handles zero
+
+00:02 +1 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.61 final frame in Brightness.dark
+00:02 +2 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 1.0 final frame in Brightness.dark
+00:02 +3 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge delay and intermediate count in Brightness.dark
+00:02 +4 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.0 final frame in Brightness.light
+00:02 +5 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.61 final frame in Brightness.light
+00:02 +6 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 1.0 final frame in Brightness.light
+00:02 +7 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge delay and intermediate count in Brightness.light
+00:02 +8 -4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: mock overlay receives final progress with motion off
+00:02 +9 -4: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz rolling strip and arc share 400 to 1600 millisecond timeline
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz updates count even when fraction stays the same and handles zero

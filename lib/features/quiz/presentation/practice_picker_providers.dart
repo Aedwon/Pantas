@@ -3,6 +3,8 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/data/repos/practice_preferences_repository.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 
 /// Everything the picker lists: subjects in order, their topics in order, and
@@ -64,16 +66,22 @@ final practiceIndexProvider =
   return PracticeIndex(subjects);
 });
 
-/// The student's own average time on one question, or null until seven
-/// finished attempts make an average worth using.
-///
-/// Null hides the footer's minutes unit outright. Converting a request for
-/// twenty minutes into a number of questions without a measured pace would be
-/// a measurement multiplied by an assumption, which is the one thing no figure
-/// in this app may be.
+/// The student's measured pace. The picker uses D-166's approved starting
+/// estimate until a positive measurement exists.
 final practicePaceProvider =
     FutureProvider.family<int?, ExamId>((ref, examId) async {
+  ref.watch(quizSessionPanelRevisionProvider);
   return ref
       .watch(attemptsRepositoryProvider)
       .averageResponseMs(examId: examId);
 });
+
+final practicePreferencesRepositoryProvider =
+    Provider<PracticePreferencesRepository>(
+  (ref) => PracticePreferencesRepository(ref.watch(appDatabaseProvider)),
+);
+final savedPracticePicksProvider =
+    FutureProvider.autoDispose.family<SavedPracticePicks, ExamId>(
+  (ref, examId) =>
+      ref.watch(practicePreferencesRepositoryProvider).read(examId),
+);

@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
-enum PantasButtonVariant { primary, secondary, tertiary, destructive }
+enum PantasButtonVariant { primary, secondary, tertiary, destructive, neutral }
 
 class PantasButton extends StatefulWidget {
   const PantasButton({
@@ -16,6 +16,8 @@ class PantasButton extends StatefulWidget {
     this.radius = 14,
     this.fullWidth = true,
     this.horizontalPadding = 16,
+    this.disabledOpacity,
+    this.disabledForeground,
     super.key,
   })  : _filterChip = false,
         _chipSelected = false;
@@ -32,7 +34,9 @@ class PantasButton extends StatefulWidget {
         fontSize = 14,
         radius = 99,
         fullWidth = false,
-        horizontalPadding = 14;
+        horizontalPadding = 14,
+        disabledOpacity = null,
+        disabledForeground = null;
   final bool _filterChip;
   final bool _chipSelected;
   final String label;
@@ -44,6 +48,8 @@ class PantasButton extends StatefulWidget {
   final double radius;
   final bool fullWidth;
   final double horizontalPadding;
+  final double? disabledOpacity;
+  final Color? disabledForeground;
   @override
   State<PantasButton> createState() => _PantasButtonState();
 }
@@ -88,8 +94,9 @@ class _PantasButtonState extends State<PantasButton> {
     final enabled = onPressed != null || busy;
     final solid = variant == PantasButtonVariant.primary ||
         variant == PantasButtonVariant.destructive;
-    final foreground = !enabled
-        ? c.tertiaryLabel
+    final dimmed = !enabled && widget.disabledOpacity != null;
+    final foreground = !enabled && !dimmed
+        ? widget.disabledForeground ?? c.tertiaryLabel
         : widget._filterChip
             ? widget._chipSelected
                 ? c.surface
@@ -98,11 +105,13 @@ class _PantasButtonState extends State<PantasButton> {
                 ? (variant == PantasButtonVariant.destructive
                     ? c.onDestructive
                     : c.onAccent)
-                : variant == PantasButtonVariant.secondary &&
-                        Theme.of(context).brightness == Brightness.dark
+                : variant == PantasButtonVariant.neutral
                     ? c.label
-                    : c.accent;
-    final background = !enabled
+                    : variant == PantasButtonVariant.secondary &&
+                            Theme.of(context).brightness == Brightness.dark
+                        ? c.label
+                        : c.accent;
+    final background = !enabled && !dimmed
         ? c.fill
         : widget._filterChip
             ? widget._chipSelected
@@ -112,85 +121,92 @@ class _PantasButtonState extends State<PantasButton> {
                 ? variant == PantasButtonVariant.destructive
                     ? c.destructive
                     : c.accentFill
-                : variant == PantasButtonVariant.secondary
-                    ? c.accentTint
-                    : context.colors.transparent;
+                : variant == PantasButtonVariant.neutral
+                    ? c.fill
+                    : variant == PantasButtonVariant.secondary
+                        ? c.accentTint
+                        : context.colors.transparent;
     return Semantics(
-      selected: widget._filterChip ? widget._chipSelected : null,
-      child: AnimatedScale(
-        key: const ValueKey('pantas-button-scale'),
-        scale: MediaQuery.disableAnimationsOf(context)
-            ? 1
-            : _pressed
-                ? .97
-                : 1,
-        duration: MediaQuery.disableAnimationsOf(context)
-            ? Duration.zero
-            : const Duration(milliseconds: 140),
-        curve: PantasCurves.ease,
-        child: ConstrainedBox(
-          constraints: BoxConstraints(minHeight: height),
-          child: TextButton(
-            statesController: _states,
-            onPressed: busy ? null : onPressed,
-            style: ButtonStyle(
-              tapTargetSize:
-                  widget._filterChip ? MaterialTapTargetSize.shrinkWrap : null,
-              minimumSize: WidgetStatePropertyAll(
-                Size(widget.fullWidth ? double.infinity : 0, height),
-              ),
-              padding: WidgetStatePropertyAll(
-                EdgeInsets.symmetric(
-                  horizontal: widget.horizontalPadding,
-                  vertical: widget._filterChip
-                      ? 0
-                      : height == 44
-                          ? 10
-                          : 12,
-                ),
-              ),
-              backgroundColor: WidgetStatePropertyAll(background),
-              foregroundColor: WidgetStatePropertyAll(foreground),
-              shape: WidgetStatePropertyAll(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(radius),
-                ),
-              ),
-              overlayColor:
-                  WidgetStatePropertyAll(foreground.withValues(alpha: .08)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize:
-                  widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-              children: [
-                if (busy) ...[
-                  SizedBox.square(
-                    dimension: 18,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: foreground,
-                      value: MediaQuery.disableAnimationsOf(context) ? 1 : null,
+        selected: widget._filterChip ? widget._chipSelected : null,
+        child: Opacity(
+          opacity: dimmed ? widget.disabledOpacity! : 1,
+          child: AnimatedScale(
+            key: const ValueKey('pantas-button-scale'),
+            scale: MediaQuery.disableAnimationsOf(context)
+                ? 1
+                : _pressed
+                    ? .97
+                    : 1,
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : const Duration(milliseconds: 140),
+            curve: PantasCurves.ease,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: height),
+              child: TextButton(
+                statesController: _states,
+                onPressed: busy ? null : onPressed,
+                style: ButtonStyle(
+                  tapTargetSize: widget._filterChip
+                      ? MaterialTapTargetSize.shrinkWrap
+                      : null,
+                  minimumSize: WidgetStatePropertyAll(
+                    Size(widget.fullWidth ? double.infinity : 0, height),
+                  ),
+                  padding: WidgetStatePropertyAll(
+                    EdgeInsets.symmetric(
+                      horizontal: widget.horizontalPadding,
+                      vertical: widget._filterChip
+                          ? 0
+                          : height == 44
+                              ? 10
+                              : 12,
                     ),
                   ),
-                  const SizedBox(width: 8),
-                ],
-                Flexible(
-                  child: Text(
-                    label,
-                    textAlign: TextAlign.center,
-                    style: context.type.emphasized.copyWith(
-                      color: foreground,
-                      fontSize: fontSize,
-                      letterSpacing: fontSize < 17 ? 0 : -.204,
+                  backgroundColor: WidgetStatePropertyAll(background),
+                  foregroundColor: WidgetStatePropertyAll(foreground),
+                  shape: WidgetStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(radius),
                     ),
                   ),
+                  overlayColor:
+                      WidgetStatePropertyAll(foreground.withValues(alpha: .08)),
                 ),
-              ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize:
+                      widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
+                  children: [
+                    if (busy) ...[
+                      SizedBox.square(
+                        dimension: 18,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: foreground,
+                          value: MediaQuery.disableAnimationsOf(context)
+                              ? 1
+                              : null,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                    Flexible(
+                      child: Text(
+                        label,
+                        textAlign: TextAlign.center,
+                        style: context.type.emphasized.copyWith(
+                          color: foreground,
+                          fontSize: fontSize,
+                          letterSpacing: fontSize < 17 ? 0 : -.204,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

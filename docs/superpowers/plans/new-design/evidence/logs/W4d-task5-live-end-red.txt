@@ -1,0 +1,32 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart
+test/features/quiz/presentation/quiz_session_end_page_test.dart:13:8: Error: Error when reading 'lib/features/quiz/presentation/quiz_session_end_page.dart': No such file or directory
+import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
+       ^
+test/features/quiz/presentation/quiz_session_end_page_test.dart:36:15: Error: Method not found: 'AttemptsRepository'.
+        await AttemptsRepository(db).save(attempt);
+              ^^^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_session_end_page_test.dart:40:52: Error: Undefined name 'contentDatabaseProvider'.
+        appDatabaseProvider.overrideWithValue(db), contentDatabaseProvider.overrideWithValue(content),
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_session_end_page_test.dart:51:45: Error: Method not found: 'QuizSessionEndPage'.
+        GoRoute(path:'/end',builder:(_,__)=>QuizSessionEndPage(attemptId:'a',fresh:view=='fresh')),
+                                            ^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: test/features/quiz/presentation/quiz_session_end_page_test.dart:13:8: Error: Error when reading 'lib/features/quiz/presentation/quiz_session_end_page.dart': No such file or directory
+  import 'package:pantas/features/quiz/presentation/quiz_session_end_page.dart';
+         ^
+  test/features/quiz/presentation/quiz_session_end_page_test.dart:36:15: Error: Method not found: 'AttemptsRepository'.
+          await AttemptsRepository(db).save(attempt);
+                ^^^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_session_end_page_test.dart:40:52: Error: Undefined name 'contentDatabaseProvider'.
+          appDatabaseProvider.overrideWithValue(db), contentDatabaseProvider.overrideWithValue(content),
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_session_end_page_test.dart:51:45: Error: Method not found: 'QuizSessionEndPage'.
+          GoRoute(path:'/end',builder:(_,__)=>QuizSessionEndPage(attemptId:'a',fresh:view=='fresh')),
+                                              ^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart

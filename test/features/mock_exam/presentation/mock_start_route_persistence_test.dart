@@ -7,7 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
@@ -39,6 +40,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Choice A'));
     await tester.pump();
@@ -133,23 +135,28 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('2 of 2'), findsOneWidget);
     expect(
-      tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
-      'q2',
+      tester.widget<QuestionCard>(find.byType(QuestionCard)).stem,
+      'Question q2?',
     );
     await tester.tap(find.byKey(const ValueKey('mock-prev')));
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
     final firstQuestion =
         tester.widget<QuestionCard>(find.byType(QuestionCard));
-    expect(firstQuestion.question.id, 'q1');
-    expect(firstQuestion.chosenChoiceId, 'q1_a');
+    expect(firstQuestion.stem, 'Question q1?');
+    expect(
+      tester.widget<ChoiceRow>(find.byType(ChoiceRow).first).state,
+      ChoiceRowState.picked,
+    );
     expect(find.text('29:15'), findsOneWidget);
     expect(await db.select(db.mockAttempts).get(), hasLength(1));
   });
 
-  testWidgets('timed part expiry is debounced into the saved snapshot',
+  testWidgets('timed part expiry persists a stopped transition',
       (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -233,9 +240,10 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
     expect(
-      tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
-      'q1',
+      tester.widget<QuestionCard>(find.byType(QuestionCard)).stem,
+      'Question q1?',
     );
 
     await tester.runAsync(
@@ -245,10 +253,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 600));
     await tester.pump();
 
-    expect(
-      tester.widget<QuestionCard>(find.byType(QuestionCard)).question.id,
-      'q2',
-    );
+    expect(find.byType(PartTransitionPage), findsOneWidget);
+    expect(find.text('Question q2?'), findsNothing);
     final attempt = await repo.findById('mock_sectional');
     final restored = codec.decode(
       sampledQuestionsJson: attempt!.sampledQuestionsJson,
@@ -256,6 +262,7 @@ void main() {
       flagsJson: attempt.flagsJson,
     );
     expect(restored.currentPartIndex, 1);
+    expect(restored.betweenParts, isTrue);
     expect(restored.partStartedAtSeconds, 60);
     expect(attempt.currentIndex, 1);
   });
@@ -349,6 +356,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('Results'), findsOneWidget);
     final attempt = await repo.findById('mock_strict');
@@ -432,9 +440,11 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Discard saved mock'));
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     expect(find.text('Home'), findsOneWidget);
     expect(
@@ -467,6 +477,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     await tester.tap(find.text('Choice A'));
     for (var tick = 0; tick < 4; tick += 1) {
@@ -505,6 +516,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
     for (var second = 0; second < 30; second += 1) {
       await tester.pump(const Duration(seconds: 1));
@@ -515,7 +527,81 @@ void main() {
     expect(attempt.lastFlushedAt.isAfter(attempt.startedAt), isTrue);
   });
 
-  testWidgets('confirmed leave flushes before the mock route closes',
+  testWidgets('system back pauses and saves the paused paper', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    await _seedMockContent(contentDb);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse');
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
+
+    await tester.tap(find.text('Choice A'));
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Pause'));
+    // The paused screen's hourglass tips for as long as it is open, so the
+    // frame never settles.
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.byType(PausePage), findsOneWidget);
+    final attempt = (await db.select(db.mockAttempts).get()).single;
+    expect(attempt.pausedAtLastFlush, isTrue);
+    expect(jsonDecode(attempt.answersJson), hasLength(1));
+  });
+
+  testWidgets('a student who chose not to see the warning pauses at once',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    await _seedMockContent(contentDb);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse');
+    await AppPreferencesRepository(db)
+        .setDeviceValue('mock_pause_warning_seen', 'true');
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
+
+    await tester.tap(find.byKey(const ValueKey('mock-pause')));
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.text("Real exams don't pause."), findsNothing);
+    expect(find.byType(PausePage), findsOneWidget);
+  });
+
+  testWidgets('leaving the app pauses a paper that is not strict',
       (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -531,29 +617,32 @@ void main() {
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
-          initialRoute: '/mock',
-          routes: {
-            '/': (_) => const Scaffold(body: Text('Home')),
-            '/mock': (_) => const MockStartRoute(
-                  examId: 'exam_cse',
-                  blueprintId: 'bp_cse',
-                ),
-          },
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
         ),
       ),
     );
     await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
 
-    await tester.tap(find.text('Choice A'));
-    await tester.binding.handlePopRoute();
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Leave'));
-    await tester.pumpAndSettle();
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    await tester.pump();
+    final saved = (await db.select(db.mockAttempts).get()).single;
+    expect(saved.pausedAtLastFlush, isTrue);
 
-    expect(find.text('Home'), findsOneWidget);
-    final attempt = (await db.select(db.mockAttempts).get()).single;
-    expect(jsonDecode(attempt.answersJson), hasLength(1));
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byType(PausePage), findsOneWidget);
   });
+}
+
+Future<void> _startPreparedPaperIfPresent(WidgetTester tester) async {
+  final start = find.text('Start the Paper');
+  if (start.evaluate().isEmpty) return;
+  await tester.tap(start);
+  await tester.pumpAndSettle();
 }
 
 Future<void> _seedMockContent(ContentDatabase db) async {

@@ -1,0 +1,45 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: packs actual whole groups under cap, excludes oversized sets, All stays one chunk
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original stable boundary
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original stable boundary
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original stable boundary
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original stable boundary
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion advances atomically and explicit concurrent Continue claims one next row
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original account boundary
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original account boundary
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: next create failure rolls back lifecycle and retry claims stored chunk
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original exam boundary
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original exam boundary
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: changed lifetime during hydration cancels without writes
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original token boundary
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original token boundary
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: missing content blocks resume with saved membership and answers unchanged
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original wipe boundary
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original wipe boundary
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: malformed metadata cannot claim next and keeps active row for explicit discard
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original disposed boundary
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: final completion removes metadata, earlier duplicate completion cannot advance twice
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary create cannot silently discard an unfinished Reviews batch
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: actual account wipe leaves prefs and next use removes orphan metadata
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: lifetime change while content is awaited rolls back first session
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: different exam cannot claim an existing batch
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: legacy resume rejects missing IDs rather than shrinking saved questions
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion account change rolls back Attempt and batch state
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion cannot save a different question order under a batch session ID
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: packing closes a shorter chunk before a whole passage exceeds remaining room
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: strict parser rejects malformed lifecycle, types, scope and duplicate membership
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary resume retains actual batch ordinal and completion keeps that snapshot
+00:00 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: wrong-principal repeated resume stays blocked until original principal returns
+00:00 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: metadata schema version requires an integer rather than an equal double
+00:00 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: stale historical quit cannot delete a newer active Reviews batch
+00:00 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary quiz between chunks preserves Reviews and Continue never quits it
+00:00 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: resume guards lifetime from before its first database await
+00:00 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: another principal cannot discard an anchored batch or its saved row
+00:00 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: explicit inter-chunk discard preserves unrelated quiz and frees Reviews key
+00:01 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completing ordinary quiz between chunks leaves Reviews lifecycle intact
+00:01 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: first metadata write failure rolls back its new ordinary session row
+00:01 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion guards lifetime before its first metadata database await
+00:01 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: explicit malformed batch discard keeps ordinary progress available
+00:01 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: stale completed screen cannot claim the third session
+00:01 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: explicit next duplicates retain one row and reject changed answers
+00:01 +43: All tests passed!

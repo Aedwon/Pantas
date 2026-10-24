@@ -10,10 +10,12 @@ class ScopeLesson {
     required this.id,
     required this.title,
     this.unread = false,
+    this.hasQuestions = true,
   });
   final String id;
   final String title;
   final bool unread;
+  final bool hasQuestions;
 }
 
 @immutable
@@ -43,12 +45,14 @@ class ScopePicker extends StatefulWidget {
     required this.selectedIds,
     required this.onChanged,
     this.atLeastOne = true,
+    this.checkIconSize = 14,
     super.key,
   });
   final List<ScopeSubject> subjects;
   final Set<String> selectedIds;
   final ValueChanged<Set<String>> onChanged;
   final bool atLeastOne;
+  final double checkIconSize;
   @override
   State<ScopePicker> createState() => _ScopePickerState();
 }
@@ -107,9 +111,8 @@ class _ScopePickerState extends State<ScopePicker>
     bool lesson = false,
   }) {
     final c = context.colors;
-    final largeText = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final count = ids.where(widget.selectedIds.contains).length;
-    final checked = count == ids.length;
+    final checked = ids.isNotEmpty && count == ids.length;
     final partial = count > 0 && !checked;
     final mark = SizedBox(
       width: 22,
@@ -161,7 +164,7 @@ class _ScopePickerState extends State<ScopePicker>
                   : checked
                       ? Icon(
                           PantasIcons.check,
-                          size: 14,
+                          size: widget.checkIconSize,
                           color: c.onAccent,
                         )
                       : null,
@@ -192,10 +195,8 @@ class _ScopePickerState extends State<ScopePicker>
                     Expanded(
                       child: Text(
                         title,
-                        maxLines: largeText ? null : 1,
-                        overflow: largeText
-                            ? TextOverflow.visible
-                            : TextOverflow.ellipsis,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: context.type.body.copyWith(
                           fontSize: lesson ? 16 : 17,
                           letterSpacing: lesson ? 0 : -.204,
@@ -251,7 +252,7 @@ class _ScopePickerState extends State<ScopePicker>
                     child: Icon(
                       PantasIcons.next,
                       size: 16,
-                      color: c.tertiaryLabel,
+                      color: c.controlOutline,
                     ),
                   ),
                 ),
@@ -284,8 +285,8 @@ class _ScopePickerState extends State<ScopePicker>
                 lesson.id,
                 lesson.title,
                 {lesson.id},
-                enabled: topic.hasQuestions,
-                unread: lesson.unread,
+                enabled: topic.hasQuestions && lesson.hasQuestions,
+                unread: lesson.unread && lesson.hasQuestions,
                 lesson: true,
               ),
               if (index < topic.lessons.length - 1)
@@ -319,7 +320,10 @@ class _ScopePickerState extends State<ScopePicker>
                       topic.title,
                       topic.lessons.isEmpty
                           ? {topic.id}
-                          : topic.lessons.map((l) => l.id).toSet(),
+                          : topic.lessons
+                              .where((l) => l.hasQuestions)
+                              .map((l) => l.id)
+                              .toSet(),
                       enabled: topic.hasQuestions,
                       expand: topic.lessons.isEmpty
                           ? null

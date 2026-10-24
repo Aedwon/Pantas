@@ -1,0 +1,9 @@
+Analyzing 4 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:97:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:109:74 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_note_editor.dart:109:75 • require_trailing_commas
+   info • The value of the argument is redundant because it matches the default value. Try removing the argument • lib/features/quiz/presentation/quiz_note_editor.dart:224:32 • avoid_redundant_argument_values
+warning • Unused import: 'package:pantas/core/storage/data/app_database.dart'. Try removing the import directive • test/core/storage/data/repos/attempts_repository_notes_test.dart:4:8 • unused_import
+
+5 issues found. (ran in 0.9s)

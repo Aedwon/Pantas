@@ -1,0 +1,20 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: existing button variants retain their colors in Brightness.light
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.light
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.light
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: neutral button Brightness.dark scale=1.0 uses fill and label
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: neutral button Brightness.dark scale=2.0 uses fill and label
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: neutral button Brightness.light scale=1.0 uses fill and label
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: neutral button Brightness.light scale=2.0 uses fill and label
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: neutral button retains shared press and reduced-motion behavior
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: neutral busy and disabled controls cannot trigger an action
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: (tearDownAll)
+00:00 +17: All tests passed!

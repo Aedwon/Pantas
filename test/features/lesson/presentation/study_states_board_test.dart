@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
@@ -20,6 +22,19 @@ void main() {
           await tester.pumpWidget(
             ProviderScope(
               overrides: [
+                activeExamFocusProvider.overrideWith(
+                  (_) async => const ActiveExamFocus.selected(
+                    Exam(
+                      id: 'exam',
+                      code: 'UPCAT',
+                      name: 'UPCAT',
+                      shortName: 'UPCAT',
+                      language: 'en',
+                      isActive: true,
+                      subjects: [],
+                    ),
+                  ),
+                ),
                 studyMapProvider.overrideWith((_) async {
                   if (state == 'error') throw Exception('private error');
                   if (state == 'no-exam') return null;

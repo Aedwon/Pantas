@@ -9,6 +9,15 @@ class PantasPage extends StatelessWidget {
     this.backLabel,
     this.onBack,
     this.bottom,
+    this.bottomInset = 24,
+    this.titleStyle,
+    this.headerTrailing,
+    this.fixedTitle = false,
+    this.backIconSize = 20,
+    this.backIconGap = 0,
+    this.headerPadding = EdgeInsets.zero,
+    this.backPadding = const EdgeInsets.symmetric(horizontal: 16),
+    this.titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
     super.key,
   })  : settingsPicker = false,
         onboarding = false,
@@ -30,14 +39,32 @@ class PantasPage extends StatelessWidget {
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
     super.key,
-  })  : settingsPicker = false,
+  })  : bottomInset = 24,
+        titleStyle = null,
+        headerTrailing = null,
+        fixedTitle = false,
+        backIconSize = 20,
+        backIconGap = 0,
+        headerPadding = EdgeInsets.zero,
+        backPadding = const EdgeInsets.symmetric(horizontal: 16),
+        titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        settingsPicker = false,
         onboarding = true,
         backLabel = 'Back';
   const PantasPage.settingsPicker({
     required this.onBack,
     required this.children,
     super.key,
-  })  : settingsPicker = true,
+  })  : bottomInset = 24,
+        titleStyle = null,
+        headerTrailing = null,
+        fixedTitle = false,
+        backIconSize = 20,
+        backIconGap = 0,
+        headerPadding = EdgeInsets.zero,
+        backPadding = const EdgeInsets.symmetric(horizontal: 16),
+        titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        settingsPicker = true,
         onboarding = true,
         title = 'Exam',
         backLabel = 'Your exam',
@@ -61,61 +88,24 @@ class PantasPage extends StatelessWidget {
   final String? backLabel;
   final VoidCallback? onBack;
   final Widget? bottom;
+  final double bottomInset;
+  final TextStyle? titleStyle;
+  final Widget? headerTrailing;
+  final bool fixedTitle;
+  final double backIconSize;
+  final double backIconGap;
+  final EdgeInsets headerPadding;
+  final EdgeInsets backPadding;
+  final EdgeInsets titlePadding;
+
+  Widget heading(BuildContext context) => Padding(
+        padding: titlePadding,
+        child: Text(title, style: titleStyle ?? context.type.largeTitle),
+      );
+
   @override
-  Widget build(BuildContext context) => onboarding
-      ? _onboardingPage(context)
-      : Scaffold(
-          backgroundColor: context.colors.background,
-          bottomNavigationBar: bottom,
-          body: SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (backLabel != null)
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: TextButton(
-                      onPressed: onBack,
-                      style: TextButton.styleFrom(
-                        minimumSize: const Size(44, 44),
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            PantasIcons.back,
-                            size: 20,
-                            color: context.colors.accent,
-                          ),
-                          Text(
-                            backLabel!,
-                            style: context.type.body
-                                .copyWith(color: context.colors.accent),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(16, 2, 16, 24),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(4, 0, 4, 20),
-                          child: Text(title, style: context.type.largeTitle),
-                        ),
-                        ...children,
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
+  Widget build(BuildContext context) =>
+      onboarding ? _onboardingPage(context) : _ordinaryPage(context);
   Widget _onboardingPage(BuildContext context) => Scaffold(
         backgroundColor: surfaceBackground
             ? context.colors.surface
@@ -248,6 +238,82 @@ class PantasPage extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 34),
                   child: bottom,
                 ),
+            ],
+          ),
+        ),
+      );
+  Widget _ordinaryPage(BuildContext context) => Scaffold(
+        backgroundColor: context.colors.background,
+        bottomNavigationBar: bottom,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (backLabel != null || headerTrailing != null)
+                Padding(
+                  padding: headerPadding,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: backLabel == null
+                              ? const SizedBox.shrink()
+                              : TextButton(
+                                  onPressed: onBack,
+                                  style: TextButton.styleFrom(
+                                    minimumSize: const Size(44, 44),
+                                    padding: backPadding,
+                                    tapTargetSize: fixedTitle
+                                        ? MaterialTapTargetSize.shrinkWrap
+                                        : null,
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        PantasIcons.back,
+                                        size: backIconSize,
+                                        color: context.colors.accent,
+                                      ),
+                                      if (backIconGap > 0)
+                                        SizedBox(width: backIconGap),
+                                      Flexible(
+                                        child: Text(
+                                          backLabel!,
+                                          style: context.type.body.copyWith(
+                                            color: context.colors.accent,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                        ),
+                      ),
+                      if (headerTrailing != null) headerTrailing!,
+                    ],
+                  ),
+                ),
+              if (fixedTitle)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: heading(context),
+                ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.fromLTRB(
+                    16,
+                    fixedTitle ? 0 : 2,
+                    16,
+                    bottomInset,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [if (!fixedTitle) heading(context), ...children],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

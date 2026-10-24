@@ -1,0 +1,7 @@
+Computing fixes in question_flag_providers.dart...
+Applying fixes...
+
+question_flag_providers.dart
+  require_trailing_commas - 1 fix
+
+1 fix made in 1 file.

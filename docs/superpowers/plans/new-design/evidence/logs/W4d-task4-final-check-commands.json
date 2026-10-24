@@ -1,0 +1,68 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--reporter",
+      "expanded"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-final-check-0.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-final-check-1.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-final-check-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-final-check-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-final-check-4.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "lib",
+      "test"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-final-check-5.txt"
+  }
+]

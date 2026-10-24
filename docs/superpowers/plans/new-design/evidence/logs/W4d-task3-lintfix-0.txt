@@ -1,0 +1,16 @@
+Computing fixes in quiz...
+Applying fixes...
+
+data/repos/practice_preferences_repository.dart
+  require_trailing_commas - 4 fixes
+
+domain/picker/practice_summary.dart
+  require_trailing_commas - 2 fixes
+
+domain/use_cases/start_practice.dart
+  require_trailing_commas - 4 fixes
+
+presentation/practice_picker_providers.dart
+  directives_ordering - 1 fix
+
+11 fixes made in 4 files.

@@ -13,6 +13,7 @@ class StateView extends StatelessWidget {
     this.actionLabel = 'Try Again',
     this.primaryAction = false,
     this.boardLayout = false,
+    this.bookmarkLayout = false,
     super.key,
   })  : fullScreen = false,
         onboardingBlocked = false;
@@ -21,7 +22,8 @@ class StateView extends StatelessWidget {
     required this.detail,
     required this.icon,
     super.key,
-  })  : fullScreen = false,
+  })  : bookmarkLayout = false,
+        fullScreen = false,
         onboardingBlocked = true,
         onRetry = null,
         error = null,
@@ -29,7 +31,8 @@ class StateView extends StatelessWidget {
         primaryAction = false,
         boardLayout = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
-      : onboardingBlocked = false,
+      : bookmarkLayout = false,
+        onboardingBlocked = false,
         message = 'Something went wrong.',
         fullScreen = true,
         icon = null,
@@ -45,6 +48,7 @@ class StateView extends StatelessWidget {
   final Widget? icon;
   final bool fullScreen;
   final bool onboardingBlocked;
+  final bool bookmarkLayout;
   final String? detail;
   final String actionLabel;
   final bool primaryAction;
@@ -54,18 +58,22 @@ class StateView extends StatelessWidget {
     final compact = primary || boardLayout;
     final gap = onboardingBlocked
         ? 12.0
-        : compact
-            ? 6.0
-            : 14.0;
+        : bookmarkLayout
+            ? 8.0
+            : compact
+                ? 6.0
+                : 14.0;
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
-          size: fullScreen
-              ? 36
-              : compact
-                  ? 40
-                  : 60,
+          size: bookmarkLayout
+              ? 34
+              : fullScreen
+                  ? 36
+                  : compact
+                      ? 40
+                      : 60,
           color: fullScreen
               ? context.colors.secondaryLabel
               : context.colors.chevron,
@@ -110,15 +118,19 @@ class StateView extends StatelessWidget {
           style: context.type.sectionHero.copyWith(
             fontSize: onboardingBlocked
                 ? 26
-                : fullScreen
-                    ? 24
-                    : 20,
+                : bookmarkLayout
+                    ? 18
+                    : fullScreen
+                        ? 24
+                        : 20,
             height: fullScreen ? 1.25 : 1.35,
             letterSpacing: onboardingBlocked
                 ? -.312
-                : fullScreen
-                    ? -.288
-                    : -.2,
+                : bookmarkLayout
+                    ? -.216
+                    : fullScreen
+                        ? -.288
+                        : -.2,
           ),
         ),
         if (fullScreen) ...[
@@ -142,7 +154,7 @@ class StateView extends StatelessWidget {
                 color: context.colors.secondaryLabel,
                 fontSize: onboardingBlocked ? 17 : 15,
                 letterSpacing: onboardingBlocked ? -.204 : 0,
-                height: onboardingBlocked ? 1.35 : 1.45,
+                height: onboardingBlocked || bookmarkLayout ? 1.35 : 1.45,
               ),
             ),
           ],

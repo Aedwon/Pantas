@@ -26,12 +26,13 @@ void main() {
     return rows.map((row) => row.read<String>('detail')).join(' | ');
   }
 
-  test('fresh schema 9 creates only the E05 indexes required by measured plans',
+  test(
+      'fresh schema 10 creates only the E05 indexes required by measured plans',
       () async {
     final db = ContentDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, 9);
+    expect(db.schemaVersion, 10);
     expect(await indexes(db), containsAll(e05Indexes));
 
     expect(
@@ -68,13 +69,16 @@ void main() {
     for (final name in e05Indexes) {
       await fixture.customStatement('DROP INDEX $name');
     }
+    await fixture.customStatement(
+      'ALTER TABLE content_mock_blueprints DROP COLUMN unscored_items',
+    );
     await fixture.customStatement('PRAGMA user_version = 8');
     await fixture.close();
 
     final upgraded = ContentDatabase(NativeDatabase(file));
     addTearDown(upgraded.close);
 
-    expect(upgraded.schemaVersion, 9);
+    expect(upgraded.schemaVersion, 10);
     expect(await indexes(upgraded), containsAll(e05Indexes));
     expect(
       await plan(

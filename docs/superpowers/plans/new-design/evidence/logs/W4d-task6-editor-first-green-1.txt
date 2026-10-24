@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart
+lib/features/quiz/presentation/quiz_note_editor.dart:104:70: Error: The getter 'headline' isn't defined for the type 'PantasType'.
+ - 'PantasType' is from 'package:pantas/core/ui/theme/pantas_type.dart' ('lib/core/ui/theme/pantas_type.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'headline'.
+                            Text('Why did you miss it?', style: type.headline)),
+                                                                     ^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart: lib/features/quiz/presentation/quiz_note_editor.dart:104:70: Error: The getter 'headline' isn't defined for the type 'PantasType'.
+   - 'PantasType' is from 'package:pantas/core/ui/theme/pantas_type.dart' ('lib/core/ui/theme/pantas_type.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'headline'.
+                              Text('Why did you miss it?', style: type.headline)),
+                                                                       ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart

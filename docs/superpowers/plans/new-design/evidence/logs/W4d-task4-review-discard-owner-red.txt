@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: another principal cannot discard an anchored batch or its saved row
+00:00 +0 -1: another principal cannot discard an anchored batch or its saved row [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<int>'>
+     Which: emitted <1>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/data/review_batch_repository_test.dart 627:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                        _CustomZone.registerUnaryCallback
+  test/features/quiz/data/review_batch_repository_test.dart 625:20  main.<fn>
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: another principal cannot discard an anchored batch or its saved row

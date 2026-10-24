@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -41,17 +44,20 @@ class StartPractice {
     required ContentRepository content,
     required QuizSessionRepository sessions,
     required AttemptsRepository attempts,
+    required ReviewStateRepository reviews,
     QuestionPicker? picker,
     Uuid? uuid,
   })  : _content = content,
         _sessions = sessions,
         _attempts = attempts,
+        _reviews = reviews,
         _picker = picker ?? DrillPicker(),
         _uuid = uuid ?? const Uuid();
 
   final ContentRepository _content;
   final QuizSessionRepository _sessions;
   final AttemptsRepository _attempts;
+  final ReviewStateRepository _reviews;
   final QuestionPicker _picker;
   final Uuid _uuid;
 
@@ -61,6 +67,8 @@ class StartPractice {
     required List<PracticeUnit> units,
     required int perUnit,
     required DateTime now,
+    Map<String, int> countsByUnit = const {},
+    FutureOr<bool> Function()? canPersist,
   }) async {
     if (units.isEmpty || perUnit <= 0) {
       return const StartPracticeNoQuestions(
@@ -68,26 +76,54 @@ class StartPractice {
       );
     }
 
-    final excluded = await _attempts.questionIdsAnsweredSince(
-      examId: examId,
-      since: now.subtract(practiceRecencyWindow),
-    );
-
-    final picked = <Question>[];
-    final used = <QuestionId>{};
+    final topics = <TopicId, List<Question>>{};
+    final pools = <List<Question>>[];
     for (final unit in units) {
-      final pool = await _poolFor(unit);
-      final drawn = _picker.pick(
-        PickContext(
-          allQuestions: pool,
-          requestedLength: perUnit,
-          excludedQuestionIds: excluded,
+      final questions =
+          topics[unit.topicId] ?? await _content.questionsByTopic(unit.topicId);
+      topics[unit.topicId] = questions;
+      pools.add(
+        unit.lessonId == null
+            ? questions
+            : questions.where((q) => q.lessonId == unit.lessonId).toList(),
+      );
+    }
+    final cutoff = now.subtract(practiceRecencyWindow);
+    final outcomes = await _attempts.questionOutcomes(
+      examId: examId,
+      now: now,
+      window: practiceRecencyWindow,
+    );
+    final states = await _reviews.byQuestionIds(
+      pools.expand((pool) => pool).map((question) => question.id),
+    );
+    final excluded = outcomes.keys.toSet();
+    for (final state in states.values) {
+      if (state.reps > 0 && !state.lastReview.isBefore(cutoff)) {
+        excluded.add(state.questionId);
+      }
+    }
+    final drawn = <List<Question>>[];
+    for (final (i, unit) in units.indexed) {
+      drawn.add(
+        _picker.pick(
+          PickContext(
+            allQuestions: pools[i],
+            requestedLength: countsByUnit[unit.key] ?? perUnit,
+            excludedQuestionIds: excluded,
+          ),
         ),
       );
-      for (final question in drawn) {
-        // A question tagged to a lesson also sits in that lesson's topic, so
-        // selecting both would ask it twice.
-        if (used.add(question.id)) picked.add(question);
+    }
+    final picked = <Question>[];
+    final used = <QuestionId>{};
+    final longest = drawn.fold<int>(
+      0,
+      (length, pool) => pool.length > length ? pool.length : length,
+    );
+    for (var i = 0; i < longest; i++) {
+      for (final pool in drawn) {
+        if (i < pool.length && used.add(pool[i].id)) picked.add(pool[i]);
       }
     }
 
@@ -106,15 +142,17 @@ class StartPractice {
       // A session spanning several topics is named after none of them.
       topicId: units.length == 1 ? units.single.topicId : null,
     );
-    await _sessions.create(
+    final created = await _sessions.createGuarded(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
       origin: SessionOrigin.drill,
       topicId: session.topicId,
-      questionIds: picked.map((question) => question.id).toList(),
+      questionIds: session.questions.map((question) => question.id).toList(),
       startedAt: now,
+      canPersist: canPersist ?? () => true,
     );
+    if (!created) throw StateError('Custom quiz launch changed');
     return StartPracticeStarted(session);
   }
 
@@ -123,6 +161,8 @@ class StartPractice {
     required ExamId examId,
     required List<QuestionId> questionIds,
     required DateTime now,
+    SessionOrigin origin = SessionOrigin.drill,
+    FutureOr<bool> Function()? canPersist,
   }) async {
     if (questionIds.isEmpty) {
       return const StartPracticeNoQuestions(
@@ -130,9 +170,17 @@ class StartPractice {
       );
     }
 
+    final flaggedQuestions = origin == SessionOrigin.flagged
+        ? await _content.questionsByIds(questionIds)
+        : null;
     final picked = <Question>[];
     for (final id in questionIds) {
-      final q = await _content.questionById(id);
+      final q = flaggedQuestions == null
+          ? await _content.questionById(id)
+          : flaggedQuestions[id];
+      if (q == null && origin == SessionOrigin.flagged) {
+        throw StateError('Flagged content is unavailable');
+      }
       if (q != null) picked.add(q);
     }
 
@@ -147,28 +195,21 @@ class StartPractice {
       examId: examId,
       questions: picked,
       startedAt: now,
-      origin: SessionOrigin.drill,
+      origin: origin,
     );
 
-    await _sessions.create(
+    final created = await _sessions.createGuarded(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
-      origin: SessionOrigin.drill,
+      origin: origin,
       topicId: session.topicId,
-      questionIds: picked.map((question) => question.id).toList(),
+      questionIds: session.questions.map((question) => question.id).toList(),
       startedAt: now,
+      canPersist: canPersist ?? () => true,
     );
+    if (!created) throw StateError('Flagged quiz launch changed');
 
     return StartPracticeStarted(session);
-  }
-
-  Future<List<Question>> _poolFor(PracticeUnit unit) async {
-    final questions = await _content.questionsByTopic(unit.topicId);
-    final lessonId = unit.lessonId;
-    if (lessonId == null) return questions;
-    return questions
-        .where((question) => question.lessonId == lessonId)
-        .toList();
   }
 }

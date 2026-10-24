@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart
+00:00 +0: ownership invalidation in recorder tail rolls back completed mutation
+00:00 +0 -1: ownership invalidation in recorder tail rolls back completed mutation [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<void>'>
+     Which: emitted <null>
+
+  package:matcher                                                          expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                        expectLater
+  test/core/storage/data/repos/attempts_repository_notes_test.dart 143:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                               _CustomZone.registerUnaryCallback
+  test/core/storage/data/repos/attempts_repository_notes_test.dart 137:5   main.<fn>
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: ownership invalidation in recorder tail rolls back completed mutation

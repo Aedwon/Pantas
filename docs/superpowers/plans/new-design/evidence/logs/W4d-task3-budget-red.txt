@@ -1,0 +1,19 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart
+00:00 +0: Questions adjustment changes count and time without changing base
+00:00 +1: Total time adjustment moves a question and preserves total budget
+00:00 +2: singleton Total time has no alternate allocation
+00:00 +3: manual counts stay within real pool and keep a question per pick
+00:00 +4: uneven time split and real pool shortfall use actual counts
+00:00 +5: stale Total time overrides cannot change the current question budget
+00:00 +5 -1: stale Total time overrides cannot change the current question budget [E]
+  Expected: <12>
+    Actual: <40>
+  
+  package:matcher                                                      expect
+  package:flutter_test/src/widget_tester.dart 473:18                   expect
+  test/features/quiz/domain/picker/practice_adjustment_test.dart 93:5  main.<fn>
+  
+00:00 +5 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: stale Total time overrides cannot change the current question budget

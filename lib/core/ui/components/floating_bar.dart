@@ -14,7 +14,9 @@ class FloatingBar extends StatelessWidget {
     super.key,
   })  : content = null,
         radius = 30,
-        inset = 8;
+        inset = 8,
+        transitionDuration = null,
+        transitionCurve = Curves.linear;
 
   /// QN_Report and QN_WrongOpen replace the row with a growing form.
   const FloatingBar.content({
@@ -22,6 +24,8 @@ class FloatingBar extends StatelessWidget {
     this.state = FloatingBarState.neutral,
     this.radius = 30,
     this.inset = 8,
+    this.transitionDuration,
+    this.transitionCurve = Curves.linear,
     super.key,
   })  : content = child,
         left = const SizedBox.shrink(),
@@ -31,6 +35,8 @@ class FloatingBar extends StatelessWidget {
   final Widget? content;
   final double radius;
   final double inset;
+  final Duration? transitionDuration;
+  final Curve transitionCurve;
   final Widget left;
   final String counter;
   final Widget right;
@@ -47,9 +53,11 @@ class FloatingBar extends StatelessWidget {
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
-          : Duration(
-              milliseconds: state == FloatingBarState.neutral ? 250 : 300,
-            ),
+          : transitionDuration ??
+              Duration(
+                milliseconds: state == FloatingBarState.neutral ? 250 : 300,
+              ),
+      curve: transitionCurve,
       constraints: const BoxConstraints(minHeight: 60),
       padding: EdgeInsets.all(inset),
       decoration: BoxDecoration(

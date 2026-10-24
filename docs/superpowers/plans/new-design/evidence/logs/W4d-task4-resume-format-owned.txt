@@ -1,0 +1,13 @@
+Formatted lib/core/ui/components/new_design/question_grid_sheet.dart
+Formatted lib/features/quiz/application/quiz_completion_coordinator.dart
+Formatted lib/features/quiz/application/quiz_providers.dart
+Formatted lib/features/quiz/data/repos/quiz_session_repository.dart
+Formatted lib/features/quiz/data/repos/review_batch_repository.dart
+Formatted lib/features/quiz/domain/models/review_batch.dart
+Formatted lib/features/quiz/domain/models/review_batch_position.dart
+Formatted lib/features/quiz/domain/use_cases/resume_session.dart
+Formatted lib/features/quiz/presentation/quiz_page.dart
+Formatted test/features/quiz/application/review_batch_scope_test.dart
+Formatted test/features/quiz/data/review_batch_repository_test.dart
+Formatted test/features/quiz/presentation/quiz_question_screen_test.dart
+Formatted 22 files (12 changed) in 0.06 seconds.

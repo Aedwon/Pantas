@@ -1,0 +1,20 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart: test/core/ui/components/practice_scope_extensions_test.dart:20:57: Error: No named parameter with the name 'hasQuestions'.
+                  ScopeLesson(id: 'none', title: 'Empty', hasQuestions: false),
+                                                          ^^^^^^^^^^^^
+  lib/core/ui/components/scope_picker.dart:9:9: Context: Found this candidate, but the arguments don't match.
+    const ScopeLesson({
+          ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart
+test/core/ui/components/practice_scope_extensions_test.dart:20:57: Error: No named parameter with the name 'hasQuestions'.
+                ScopeLesson(id: 'none', title: 'Empty', hasQuestions: false),
+                                                        ^^^^^^^^^^^^
+lib/core/ui/components/scope_picker.dart:9:9: Context: Found this candidate, but the arguments don't match.
+  const ScopeLesson({
+        ^^^^^^^^^^^

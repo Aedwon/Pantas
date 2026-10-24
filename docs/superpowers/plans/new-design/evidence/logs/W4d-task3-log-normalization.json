@@ -1,0 +1,202 @@
+[
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-clarification-green-2.txt",
+    "raw_sha256": "9bbff5d0422a3214f636ba4b3f01b0fc701de0daa6743103919ee152814ec91e",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-clarification-green-2.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-5.txt",
+    "raw_sha256": "ff7603af5b10b61ec447e775604e95de2858e0bc6c7ac6082998e3d6c58ecdc7",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-current-5.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-motion-green-9.txt",
+    "raw_sha256": "4fe9806b2a122fc9e14adbf541213ee79cc33f2db4cdc0e108e3a8ea540b081d",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-motion-green-9.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-rule6-final-3.txt",
+    "raw_sha256": "a7b98a61b1100f74877d34d433daacd56206c53ee8372c54921f967b852024d9",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-rule6-final-3.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-rule6-green-1.txt",
+    "raw_sha256": "fc417894af12976974a3f10d876cb9ac98efaa5dfbe26f99dcc6e906ab0b516e",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-rule6-green-1.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-rule6-red.txt",
+    "raw_sha256": "a53ae19bb28537802909816c2b36e9260163ef88195ade95a8615a81a8749f54",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-rule6-red.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-save-13.txt",
+    "raw_sha256": "3c8f21b6913c0058d64c62768086ad71be4da7c4dd0aa558b6258812ac542479",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-save-13.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-save-style-0.txt",
+    "raw_sha256": "1ce30704774671428a33103aba1740ba56ab13b892664dc6f1c8c7f0784d3fc5",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-save-style-0.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-final-4.txt",
+    "raw_sha256": "590807ac9f73713a7cde89a364411090262b446c9cc58b4a936d6a94b7571fde",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-final-4.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-2.txt",
+    "raw_sha256": "eb43a63edda7efb11b1ab6ed211ff2fa70dfb02792c5da1193fcd016a3155354",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-2.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-3.txt",
+    "raw_sha256": "dc31c3033bdab295d22334bced88fd0d2181223da8cac719338c0940c9dc5fe5",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-green-3.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-red.txt",
+    "raw_sha256": "b280960439be495b8a306c1c4e8f21103e87757a7da4e97681bead90913c5e7c",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-shared-states-red.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-target-green-3.txt",
+    "raw_sha256": "cd1554ec4bb9f8e54b7dcee89794ad3d1a45a3eb220a1d12e9c07e42460e884c",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-target-green-3.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-target-invalidators-red.txt",
+    "raw_sha256": "b0c6989c6958688e942fe34f9f73b00ce264da346995711d2176dd5381930aff",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-target-invalidators-red.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-toggle-drift-red.txt",
+    "raw_sha256": "2a7aec1f78a71699ca4fc84515e8782d3f8c1121ac5ed0ad85a4bee32bb013a4",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-toggle-drift-red.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-access-2.txt",
+    "raw_sha256": "2ac2cc9e6be555a57a8b8c66699a72c4aa9908a5cff066a679ba0bf45de14b8d",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-access-2.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-checkpoint-0.txt",
+    "raw_sha256": "883d84f6cdc573ba603405bbdde699e35480205c3b071cb76cc5475fb8a0366e",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-checkpoint-0.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-checkpoint-1.txt",
+    "raw_sha256": "66b5815e5982c64e95dbf621936f8c2547bb037c6158d8317db685f1c6b335e1",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-checkpoint-1.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-complete-1.txt",
+    "raw_sha256": "70c6e2b77899ca6bd61df3f07a4c113d2a011069fd7b4e6fb4f45e8184bc747c",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-complete-1.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-final-6.txt",
+    "raw_sha256": "e93cc7238c54148dfc9507b75846b054eba70e7125e511bdfbcd2959cc77a9a3",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-final-6.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-guard-5.txt",
+    "raw_sha256": "69eb5dce7e6afe7efc9436fb927a7d2387e744718a18c0c6868004872116f797",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-guard-5.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-hours-5.txt",
+    "raw_sha256": "f10aa13bf2389c00e5e5a589441bdde9531ab0bd161910226243b5b8b8e9fa50",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-hours-5.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-large-5.txt",
+    "raw_sha256": "9e55f658a925cd85c6fce7f3d4cd84f31f5a6f923ce1e630a6b32b1eef7804ba",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-large-5.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-material-2.txt",
+    "raw_sha256": "d52c22030fbfd7acb6ff99bbb495836814ecdb3d91ffb1535bfb628c4f94e531",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-material-2.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-sizing-4.txt",
+    "raw_sha256": "91063514b9cc9cd5f829d77890854c806361a334348e5fbd0aa48a3588352cd1",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-sizing-4.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-1.txt",
+    "raw_sha256": "a7b98a61b1100f74877d34d433daacd56206c53ee8372c54921f967b852024d9",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-1.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-2.txt",
+    "raw_sha256": "59fb86590f44b0163e19a6ed659f4da56302dde5bc9093e87dab546562063f07",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-2.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-6.txt",
+    "raw_sha256": "a4b87e255b4f842263ff2315f058536c557b08f51b73cf7fe989df1e1b2dba2e",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-6.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_Long-outline.txt",
+    "raw_sha256": "9fe084d518eaf9dd9de512f64bb45a79f1016078ce47dd90925046565cba9ea5",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_Long-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_Many-outline.txt",
+    "raw_sha256": "47496abacef4592d069a55c167bc3c5439c1252e5c8ee8b97040ce86d4439ce2",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_Many-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_ManyTime-outline.txt",
+    "raw_sha256": "59b591f07e0afb6aec7069c0afd740bba01769da5e4589c2a105f30ec9eca329",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_ManyTime-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_None-outline.txt",
+    "raw_sha256": "983338766dce29b63f474e37681d16ebb0b73b71a442bf2f7e5566bb57b1c0a0",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_None-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_One-outline.txt",
+    "raw_sha256": "8071d8bf00e75a3142e7502e94987ba8ea63c383a63256af860dbe34bf15ae79",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_One-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_RunsShort-outline.txt",
+    "raw_sha256": "3bcdc85a2dfa1a267463af47b4194821abde7b93f28a0d10b45bcf17206068ae",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_RunsShort-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_Short-outline.txt",
+    "raw_sha256": "4d52b5c41176f47666c83015210cf68a150629105921dc36e48549c6f0d8de28",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZE_Short-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1-outline.txt",
+    "raw_sha256": "dbd4f70fe6734e75c411d029372b6d740c4cbcd17ac001b24f0793db3b9e3402",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1b-outline.txt",
+    "raw_sha256": "c37cc39f17e8a2045344d95836e1c285e08b826fa8834fdb282168a05caa62ad",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1b-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1c-outline.txt",
+    "raw_sha256": "699f03ac0be08dad90c4964107edd371775883d4c8de5bdd35f392445a7c0e1f",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1c-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1d-outline.txt",
+    "raw_sha256": "e6a10232f268f7793021953efe86356b0185021884ed46ed8c970124f45389b8",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZS_1d-outline.txt.gz"
+  },
+  {
+    "path": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZ_Picker-outline.txt",
+    "raw_sha256": "5eaa83131bc261ca6e6f106c7c1b7df0b4abac847f9655546e83830fdb9d834f",
+    "raw_gzip": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-board-QZ_Picker-outline.txt.gz"
+  }
+]

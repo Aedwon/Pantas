@@ -1,0 +1,16 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart
+00:00 +0: flagged launch keeps its original disposed boundary
+00:00 +0 -1: flagged launch keeps its original disposed boundary [E]
+  Bad state: Tried to use QuizController after `dispose` was called.
+
+  Consider checking `mounted`.
+
+  package:state_notifier/state_notifier.dart 175:9                      StateNotifier._debugIsMounted.<fn>
+  package:state_notifier/state_notifier.dart 182:6                      StateNotifier._debugIsMounted
+  package:state_notifier/state_notifier.dart 212:12                     StateNotifier.state=
+  package:pantas/features/quiz/presentation/quiz_controller.dart 264:7  QuizController.startPracticeFromQuestionIds
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original disposed boundary

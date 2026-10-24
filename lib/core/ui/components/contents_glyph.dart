@@ -5,33 +5,39 @@ class ContentsGlyph extends StatelessWidget {
   const ContentsGlyph({
     this.size = 22.0,
     this.color,
+    this.strokeWidth = 1.5,
     super.key,
   });
 
   final double size;
   final Color? color;
+  final double strokeWidth;
 
   @override
   Widget build(BuildContext context) {
     final effectiveColor = color ?? context.colors.ink;
     return CustomPaint(
       size: Size(size, size),
-      painter: _ContentsGlyphPainter(color: effectiveColor),
+      painter: _ContentsGlyphPainter(
+        color: effectiveColor,
+        strokeWidth: strokeWidth,
+      ),
     );
   }
 }
 
 class _ContentsGlyphPainter extends CustomPainter {
-  const _ContentsGlyphPainter({required this.color});
+  const _ContentsGlyphPainter({required this.color, required this.strokeWidth});
 
   final Color color;
+  final double strokeWidth;
 
   @override
   void paint(Canvas canvas, Size size) {
     final scale = size.width / 24.0;
     final stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.5 * scale
+      ..strokeWidth = strokeWidth * scale
       ..strokeCap = StrokeCap.round
       ..color = color;
 
@@ -53,5 +59,5 @@ class _ContentsGlyphPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ContentsGlyphPainter oldDelegate) =>
-      oldDelegate.color != color;
+      oldDelegate.color != color || oldDelegate.strokeWidth != strokeWidth;
 }

@@ -1,0 +1,61 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged practice keeps stored origin, timing and streak rules
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original account boundary
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original account boundary
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original account boundary
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: interleaved start stores today_interleaved origin
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: interleaved start stores today_interleaved origin
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: interleaved start stores today_interleaved origin
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original exam boundary
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original exam boundary
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: empty picker output returns a user-facing no questions failure
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: empty picker output returns a user-facing no questions failure
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original token boundary
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: fromQuestionIds creates session with exact question list
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: fromQuestionIds creates session with exact question list
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: fromQuestionIds creates session with exact question list
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original wipe boundary
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original wipe boundary
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: guarded Today start returns no commit when persistence is cancelled
+00:00 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original disposed boundary
+00:00 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: create stores active session with currentIndex zero
+00:00 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: recordAnswer advances currentIndex correctCount and lastAnsweredAt
+00:00 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: resume returns newest uncompleted unquit session for a user
+00:00 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: complete sets completedAt and quit sets quitAt
+00:00 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: restart discards prior active session only after explicit call
+00:00 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: starting a session closes whatever was left open for that exam
+00:00 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: a session for another exam is left alone
+00:00 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: quitAllOpen closes every open session, not just the newest
+00:00 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create rolls back prior active session when cancelled before insert
+00:00 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create rolls back when cancelled after awaited insert before commit
+00:00 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create commits exactly one replacement when all checkpoints stay valid
+00:01 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:02 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: it has no filter row
+00:02 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the button counts what is in the list
+00:02 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: unflagging updates the count as it happens
+00:02 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+00:02 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: a flagged row opens the real question viewer route
+00:02 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: practice uses scoped flags and the declared run route
+00:02 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: failed practice stays on the list with plain retry
+00:02 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: scoped provider preserves global flags and follows narrowed topics
+00:02 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged content carries its actual required passage
+00:02 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: missing flagged question never silently shortens membership
+00:02 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: missing required flagged passage fails recoverably
+00:02 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged load error uses plain shared retry
+00:02 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=false scale=1.0
+00:02 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=false scale=2.0
+00:02 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=true scale=1.0
+00:02 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=true scale=2.0
+00:02 +59: All tests passed!

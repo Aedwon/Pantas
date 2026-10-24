@@ -129,8 +129,11 @@ void main() {
     // Let the first part's clock expire (tick to 70 mins)
     controller.tickTo(70 * 60);
 
-    // Confirm the paper moves on (now in part 1)
+    // The next part stays stopped until the student explicitly starts it.
     expect(controller.currentPartIndex, 1);
+    expect(controller.state, isA<MockSessionBetweenParts>());
+    expect(controller.canGoPrevious, isFalse);
+    expect(controller.startNextPart(), isTrue);
 
     // Finished part cannot be re-entered
     controller.goTo(0);

@@ -14,6 +14,8 @@ class PantasSheet extends StatefulWidget {
     required this.open,
     required this.onDismiss,
     this.bookmarks = false,
+    this.readerContents = false,
+    this.scrollable = true,
     super.key,
   });
 
@@ -23,6 +25,8 @@ class PantasSheet extends StatefulWidget {
   final bool open;
   final VoidCallback onDismiss;
   final bool bookmarks;
+  final bool readerContents;
+  final bool scrollable;
 
   @override
   State<PantasSheet> createState() => _PantasSheetState();
@@ -35,8 +39,10 @@ class _PantasSheetState extends State<PantasSheet> {
   Widget build(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
     final bookmarks = widget.bookmarks;
+    final readerContents = widget.readerContents;
+    final slideSheet = bookmarks || readerContents;
     final duration = Duration(
-      milliseconds: bookmarks
+      milliseconds: slideSheet
           ? widget.open
               ? 450
               : 400
@@ -54,7 +60,7 @@ class _PantasSheetState extends State<PantasSheet> {
         builder: (context, constraints) => TweenAnimationBuilder<double>(
           tween: Tween(begin: still ? endpoint : 0, end: endpoint),
           duration: still ? Duration.zero : duration,
-          curve: bookmarks ? PantasCurves.slideC : PantasCurves.houseOut,
+          curve: slideSheet ? PantasCurves.slideC : PantasCurves.houseOut,
           builder: (context, sheetProgress, child) => Stack(
             fit: StackFit.expand,
             children: [
@@ -84,11 +90,12 @@ class _PantasSheetState extends State<PantasSheet> {
                   tween: Tween(begin: still ? endpoint : 0, end: endpoint),
                   duration: still
                       ? Duration.zero
-                      : Duration(milliseconds: bookmarks ? 350 : 300),
-                  curve: bookmarks ? PantasCurves.ease : PantasCurves.linear,
+                      : Duration(milliseconds: slideSheet ? 350 : 300),
+                  curve: slideSheet ? PantasCurves.ease : PantasCurves.linear,
                   builder: (context, wash, child) => ModalBarrier(
-                    color: PantasColors.dark.background
-                        .withValues(alpha: .34 * wash),
+                    color: PantasColors.dark.background.withValues(
+                      alpha: (readerContents ? .32 : .34) * wash,
+                    ),
                     onDismiss: widget.onDismiss,
                     semanticsLabel: 'Close ${widget.label}',
                   ),
@@ -96,8 +103,10 @@ class _PantasSheetState extends State<PantasSheet> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: FractionalTranslation(
-                    translation:
-                        Offset(0, (bookmarks ? 1.05 : 1) * (1 - sheetProgress)),
+                    translation: Offset(
+                      0,
+                      (slideSheet ? 1.05 : 1) * (1 - sheetProgress),
+                    ),
                     child: CallbackShortcuts(
                       bindings: {
                         const SingleActivator(LogicalKeyboardKey.escape):
@@ -186,9 +195,11 @@ class _PantasSheetState extends State<PantasSheet> {
                                           }
                                           return false;
                                         },
-                                        child: SingleChildScrollView(
-                                          child: widget.child,
-                                        ),
+                                        child: widget.scrollable
+                                            ? SingleChildScrollView(
+                                                child: widget.child,
+                                              )
+                                            : widget.child,
                                       ),
                                     ),
                                   ),

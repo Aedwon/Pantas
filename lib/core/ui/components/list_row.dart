@@ -17,6 +17,7 @@ enum ListRowVariant {
 class ListRow extends StatelessWidget {
   const ListRow({
     required this.title,
+    this.titleWidget,
     this.variant = ListRowVariant.navigation,
     this.value,
     this.subtitle,
@@ -35,6 +36,9 @@ class ListRow extends StatelessWidget {
     this.richSubtitle,
     this.valueStyle,
     this.wrapTitle = false,
+    this.minimumHeight = 44,
+    this.contentPadding,
+    this.leadingGap = 12,
     this.valueWidget,
     this.trailingWidget,
     super.key,
@@ -70,7 +74,11 @@ class ListRow extends StatelessWidget {
         valueStyle = null,
         wrapTitle = false,
         valueWidget = null,
-        trailingWidget = null;
+        trailingWidget = null,
+        titleWidget = null,
+        minimumHeight = 44,
+        contentPadding = null,
+        leadingGap = 12;
   const ListRow.exam({
     required this.title,
     required this.subtitle,
@@ -98,13 +106,18 @@ class ListRow extends StatelessWidget {
         valueStyle = null,
         wrapTitle = false,
         valueWidget = null,
-        trailingWidget = null;
+        trailingWidget = null,
+        titleWidget = null,
+        minimumHeight = 44,
+        contentPadding = null,
+        leadingGap = 12;
   final bool _exam;
   final bool comingSoon;
   final bool settingsMode;
   final bool _checkbox;
   final Widget? content;
   final String title;
+  final Widget? titleWidget;
   final ListRowVariant variant;
   final String? value;
   final String? subtitle;
@@ -123,6 +136,9 @@ class ListRow extends StatelessWidget {
   final InlineSpan? richSubtitle;
   final TextStyle? valueStyle;
   final bool wrapTitle;
+  final double minimumHeight;
+  final EdgeInsetsGeometry? contentPadding;
+  final double leadingGap;
   final Widget? valueWidget;
   final Widget? trailingWidget;
   @override
@@ -371,11 +387,12 @@ class ListRow extends StatelessWidget {
               child: InkWell(
                 onTap: onTap,
                 child: Container(
-                  constraints: const BoxConstraints(minHeight: 44),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: verticalPadding,
-                  ),
+                  constraints: BoxConstraints(minHeight: minimumHeight),
+                  padding: contentPadding ??
+                      EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: verticalPadding,
+                      ),
                   decoration: BoxDecoration(
                     border: divider
                         ? Border(
@@ -387,7 +404,7 @@ class ListRow extends StatelessWidget {
                     children: [
                       if (leading != null) ...[
                         leading!,
-                        const SizedBox(width: 12),
+                        SizedBox(width: leadingGap),
                       ] else if (icon != null) ...[
                         Icon(icon, size: 22, color: iconColor ?? c.accent),
                         const SizedBox(width: 14),
@@ -396,7 +413,7 @@ class ListRow extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            label,
+                            titleWidget ?? label,
                             if (subtitle != null || richSubtitle != null)
                               Text.rich(
                                 richSubtitle ?? TextSpan(text: subtitle),

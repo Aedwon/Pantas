@@ -1,0 +1,72 @@
+Original complete output is preserved in the .gz companion.
+
+                    <div> width:28px height:28px border-radius:99px background:#FDECEE align-items:center justify-content:center
+                      <div> font-size:12px font-weight:600 color:#D70015 line-height:1.35 font-variant-numeric:tabular-nums "9"
+                  <div> animation:QVEndPro_n31 9000ms linear infinite both
+                    <div> width:28px height:28px border-radius:99px background:#E4F1EE align-items:center justify-content:center
+                      <div> font-size:12px font-weight:600 color:#0B7A68 line-height:1.35 font-variant-numeric:tabular-nums "10"
+                <div> animation:QVEndPro_n32 9000ms linear infinite both
+                  <div> font-size:13px font-weight:400 color:#6E6E73 line-height:1.35 "in 9 minutes"
+            <div> animation:QVEndPro_n38 9000ms linear infinite both
+              <div> flex-direction:column
+                <div> justify-content:space-between align-items:baseline padding:0 16px 7px
+                  <div> font-size:13px font-weight:600 color:#6E6E73 line-height:1.35 letter-spacing:0.02em "YOUR MISTAKES"
+                  <div> font-size:13px font-weight:600 color:#6E6E73 line-height:1.35 font-variant-numeric:tabular-nums "3"
+                <div> background:#FFFFFF border-radius:14px
+                  <div> animation:QVEndPro_n33 9000ms linear infinite both
+                    <div> align-items:center gap:12px
+                      <div> width:22px align-items:center justify-content:center
+                        <svg> width=17 height=17 stroke=#D70015 stroke-width=2.6 fill=none stroke-linecap=round
+                          <path> d=M6.5 6.5l11 11M17.5 6.5l-11 11
+                      <div> align-items:center gap:8px padding:11px 16px 11px 0 min-height:22px
+                        <div>
+                          <div> font-size:17px font-weight:400 color:#1D1D1F line-height:1.35 letter-spacing:-0.012em "The thin, outermost layer of Earth"
+                          <div> font-size:13px font-weight:400 color:#6E6E73 line-height:1.35 "Earth Science"
+                        <div> color:#C4C4C8
+                          <svg> width=16 height=16 stroke=#B8B8BD stroke-width=2.2 fill=none stroke-linecap=round
+                            <path> d=m9.5 5.5 6.5 6.5-6.5 6.5
+                  <div> animation:QVEndPro_n34 9000ms linear infinite both
+                    <div> align-items:center gap:12px
+                      <div> width:22px align-items:center justify-content:center
+                        <svg> width=17 height=17 stroke=#D70015 stroke-width=2.6 fill=none stroke-linecap=round
+                          <path> d=M6.5 6.5l11 11M17.5 6.5l-11 11
+                      <div> align-items:center gap:8px padding:11px 16px 11px 0 min-height:22px
+                        <div>
+                          <div> font-size:17px font-weight:400 color:#1D1D1F line-height:1.35 letter-spacing:-0.012em "Why drill from the ocean floor"
+                          <div> font-size:13px font-weight:400 color:#6E6E73 line-height:1.35 "Earth Science"
+                        <div> color:#C4C4C8
+                          <svg> width=16 height=16 stroke=#B8B8BD stroke-width=2.2 fill=none stroke-linecap=round
+                            <path> d=m9.5 5.5 6.5 6.5-6.5 6.5
+                  <div> animation:QVEndPro_n35 9000ms linear infinite both
+                    <div> align-items:center gap:12px
+                      <div> width:22px align-items:center justify-content:center
+                        <svg> width=17 height=17 stroke=#D70015 stroke-width=2.6 fill=none stroke-linecap=round
+                          <path> d=M6.5 6.5l11 11M17.5 6.5l-11 11
+                      <div> align-items:center gap:8px padding:11px 16px 11px 0 min-height:22px
+                        <div>
+                          <div> font-size:17px font-weight:400 color:#1D1D1F line-height:1.35 letter-spacing:-0.012em "Ionic and covalent bonds"
+                          <div> font-size:13px font-weight:400 color:#6E6E73 line-height:1.35 "Chemistry"
+                        <div> color:#C4C4C8
+                          <svg> width=16 height=16 stroke=#B8B8BD stroke-width=2.2 fill=none stroke-linecap=round
+                            <path> d=m9.5 5.5 6.5 6.5-6.5 6.5
+            <div> animation:QVEndPro_n39 9000ms linear infinite both
+              <div> background:#FFFFFF border-radius:14px
+                <div> align-items:center gap:12px
+                  <div> align-items:center gap:8px padding:11px 16px 11px 0 min-height:22px
+                    <div>
+                      <div> font-size:17px font-weight:400 color:#1D1D1F line-height:1.35 letter-spacing:-0.012em "See all questions"
+                    <div> color:#C4C4C8
+                      <svg> width=16 height=16 stroke=#B8B8BD stroke-width=2.2 fill=none stroke-linecap=round
+                        <path> d=m9.5 5.5 6.5 6.5-6.5 6.5
+            <div> animation:QVEndPro_n36 9000ms linear infinite both
+              <div> background:#FFFFFF border-radius:14px padding:16px flex-direction:column gap:12px
+                <div> font-size:15px font-weight:400 color:#1D1D1F line-height:1.35 line-height:1.45 "Tell Pantas why you got each one wrong. The better your notes, the more every review helps."
+                <div> height:44px border-radius:99px background:#E4F1EE align-items:center justify-content:center
+                  <div> font-size:15px font-weight:600 color:#0B7A68 line-height:1.35 "Finish the Notes"
+            <div> height:120px
+          <div> padding:14px 16px 22px background:linear-gradient(rgba(245,245,247,0), #F5F5F7 26%)
+            <div> animation:QVEndPro_n40 9000ms linear infinite both
+              <div> flex-direction:column gap:4px
+                <button> height:52px width:100% border-radius:14px background:#0B7A68 color:#FFFFFF font-size:17px font-weight:600 letter-spacing:-0.012em align-items:center justify-content:center "Start Session 2"
+                <div> height:44px align-items:center justify-content:center
+                  <div> font-size:17px font-weight:600 color:#0B7A68 line-height:1.35 letter-spacing:-0.012em "Done"

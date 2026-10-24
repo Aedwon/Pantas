@@ -47,6 +47,13 @@ class MockSessionInProgress extends MockSessionState {
   }
 }
 
+class MockSessionBetweenParts extends MockSessionState {
+  const MockSessionBetweenParts(this.snapshot, {required this.endedEarly});
+
+  final MockSessionInProgress snapshot;
+  final bool endedEarly;
+}
+
 class MockSessionPaused extends MockSessionState {
   const MockSessionPaused(this.snapshot);
 

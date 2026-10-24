@@ -1,0 +1,60 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart
+00:00 +0: content opts into exact frame duration and curve
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: Duration:<0:00:00.420000>
+  Actual: Duration:<0:00:00.250000>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart:23:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart line 23
+The test description was:
+  content opts into exact frame duration and curve
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: content opts into exact frame duration and curve [E]
+  Test failed. See exception logs above.
+  The test description was: content opts into exact frame duration and curve
+
+00:00 +0 -1: normal and omitted content defaults stay unchanged
+00:00 +1 -1: frame radius and fill follow the supplied event-relative curve
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: Color:<Color(alpha: 1.0000, red: 1.0000, green: 0.9979, blue: 0.9981, colorSpace:
+ColorSpace.sRGB)>
+  Actual: Color:<Color(alpha: 1.0000, red: 1.0000, green: 0.9925, blue: 0.9931, colorSpace:
+ColorSpace.sRGB)>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart:53:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart line 53
+The test description was:
+  frame radius and fill follow the supplied event-relative curve
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +1 -2: frame radius and fill follow the supplied event-relative curve [E]
+  Test failed. See exception logs above.
+  The test description was: frame radius and fill follow the supplied event-relative curve
+
+00:00 +1 -2: reduced motion overrides a caller-supplied duration
+00:00 +2 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: frame radius and fill follow the supplied event-relative curve

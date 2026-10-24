@@ -91,6 +91,7 @@ class MockBlueprint {
     this.sectionalTiming,
     this.scoreBands,
     this.totalPublishedItems,
+    this.unscoredItems,
     this.source,
     this.sourceNote,
   });
@@ -112,6 +113,10 @@ class MockBlueprint {
   /// exceeds what the sections cover, the setup screen says what is not
   /// included. Null means the exam publishes no total.
   final int? totalPublishedItems;
+
+  /// Items the real exam has that are not scored, so this mock leaves them
+  /// out (CSE personal-information items). Null means none are stated.
+  final int? unscoredItems;
 
   /// Where the blueprint's numbers came from.
   final BlueprintSource? source;

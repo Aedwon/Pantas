@@ -1,0 +1,58 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+test/features/quiz/data/review_batch_repository_test.dart:286:20: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+ - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+    expect(resumed.reviewBatch!.ordinal, 1); expect(resumed.reviewBatch!.total, 3);
+                   ^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:286:61: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+ - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+    expect(resumed.reviewBatch!.ordinal, 1); expect(resumed.reviewBatch!.total, 3);
+                                                            ^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:287:20: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+ - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+    expect(resumed.reviewBatch!.batchId, first.session.sessionId);
+                   ^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:290:27: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+ - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+    expect(second.session.reviewBatch!.ordinal, 2);
+                          ^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:291:20: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+ - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+    expect(resumed.reviewBatch!.ordinal, 1);
+                   ^^^^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: test/features/quiz/data/review_batch_repository_test.dart:286:20: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+   - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+      expect(resumed.reviewBatch!.ordinal, 1); expect(resumed.reviewBatch!.total, 3);
+                     ^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:286:61: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+   - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+      expect(resumed.reviewBatch!.ordinal, 1); expect(resumed.reviewBatch!.total, 3);
+                                                              ^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:287:20: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+   - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+      expect(resumed.reviewBatch!.batchId, first.session.sessionId);
+                     ^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:290:27: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+   - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+      expect(second.session.reviewBatch!.ordinal, 2);
+                            ^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:291:20: Error: The getter 'reviewBatch' isn't defined for the type 'QuizSession'.
+   - 'QuizSession' is from 'package:pantas/features/quiz/domain/quiz_session.dart' ('lib/features/quiz/domain/quiz_session.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'reviewBatch'.
+      expect(resumed.reviewBatch!.ordinal, 1);
+                     ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart

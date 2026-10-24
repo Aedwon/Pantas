@@ -1,0 +1,13 @@
+Analyzing 4 items...
+
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/presentation/quiz_controller.dart:6:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:41:76 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:49:40 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:54:57 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:63:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:64:8 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:71:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:95:22 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_launch_boundary_test.dart:102:25 • require_trailing_commas
+
+9 issues found. (ran in 1.1s)

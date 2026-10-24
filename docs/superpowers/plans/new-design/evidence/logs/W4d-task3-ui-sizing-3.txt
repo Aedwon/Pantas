@@ -1,0 +1,48 @@
+
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 0 metrics and keyboard in Brightness.dark
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 1 metrics and keyboard in Brightness.dark
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 2 metrics and keyboard in Brightness.dark
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 0 metrics and keyboard in Brightness.light
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 1 metrics and keyboard in Brightness.light
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: segment 2 metrics and keyboard in Brightness.light
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.dark scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: picker and length states at Brightness.light scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: singleton Questions overrides, Reset and wheel change
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: saved picks discard removed and questionless lesson ids
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: many lessons scroll and too-short times cannot be selected
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time caption and singleton adjustments stay bounded
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: rapid selections and overrides survive leaving and reopening
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start forwards actual override and keeps picker below run route
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Start failure retains picks without opening a run route
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: Total time redistributes counts and keeps its selected budget
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart: large request displays actual pool caps and derived hours (failed)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "400 questions · ~5.6 hr": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:578:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 578
+The test description was:
+  large request displays actual pool caps and derived hours
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: large request displays actual pool caps and derived hours
+
+::endgroup::
+
+::error::19 tests passed, 1 failed.

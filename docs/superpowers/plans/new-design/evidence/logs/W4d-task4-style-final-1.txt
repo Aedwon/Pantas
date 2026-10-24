@@ -1,0 +1,37 @@
+Computing fixes in quiz...
+Applying fixes...
+
+application/quiz_providers.dart
+  curly_braces_in_flow_control_structures - 1 fix
+  directives_ordering - 1 fix
+  require_trailing_commas - 2 fixes
+
+data/repos/quiz_session_repository.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+  directives_ordering - 1 fix
+  require_trailing_commas - 7 fixes
+
+data/repos/review_batch_repository.dart
+  curly_braces_in_flow_control_structures - 17 fixes
+  directives_ordering - 1 fix
+  require_trailing_commas - 24 fixes
+
+domain/models/review_batch.dart
+  curly_braces_in_flow_control_structures - 6 fixes
+  require_trailing_commas - 11 fixes
+
+domain/models/review_batch_position.dart
+  require_trailing_commas - 1 fix
+
+domain/quiz_session.dart
+  directives_ordering - 1 fix
+
+domain/use_cases/resume_session.dart
+  curly_braces_in_flow_control_structures - 3 fixes
+  directives_ordering - 1 fix
+  require_trailing_commas - 1 fix
+
+presentation/quiz_page.dart
+  require_trailing_commas - 7 fixes
+
+87 fixes made in 8 files.

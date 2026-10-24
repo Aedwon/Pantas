@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
+import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -58,6 +60,47 @@ void main() {
     await container
         .read(appPreferencesRepositoryProvider)
         .setSelectedExamId('e1');
+  });
+
+  test('audit opening refreshes Last opened and cached recents', () async {
+    final last = container.listen(lastOpenedLessonProvider, (_, __) {});
+    final recent = container.listen(recentlyOpenedLessonsProvider, (_, __) {});
+    addTearDown(last.close);
+    addTearDown(recent.close);
+    expect(await container.read(lastOpenedLessonProvider.future), isNull);
+    expect(await container.read(recentlyOpenedLessonsProvider.future), isEmpty);
+    final positions = container.read(readerPositionRepositoryProvider);
+    final boundary =
+        (await positions.captureBoundary('e1', isCurrent: () => true))!;
+    final reader = ReadMarkingController(
+      lessonId: 'l1',
+      examId: 'e1',
+      progressRepository: container.read(lessonProgressRepositoryProvider),
+      preferencesRepository: container.read(appPreferencesRepositoryProvider),
+      positions: positions,
+      boundary: boundary,
+      isCurrent: () => true,
+      onOpened: () {
+        container
+          ..invalidate(lastOpenedLessonProvider)
+          ..invalidate(recentlyOpenedLessonsProvider);
+      },
+    );
+    addTearDown(reader.dispose);
+    await reader.onOpen();
+    await pumpEventQueue();
+    expect(
+      await container
+          .read(appPreferencesRepositoryProvider)
+          .lastOpenedLessonId('e1'),
+      'l1',
+    );
+    expect((await container.read(lastOpenedLessonProvider.future))?.id, 'l1');
+    expect(
+      (await container.read(recentlyOpenedLessonsProvider.future))
+          .map((l) => l.id),
+      ['l1'],
+    );
   });
 
   test('the map reflects what has been read', () async {

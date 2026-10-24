@@ -1,0 +1,13 @@
+Analyzing 8 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/core/ui/components/new_design/question_grid_sheet.dart:192:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:495:66 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:583:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:627:70 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/quiz_page.dart:691:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/quiz_page.dart:845:81 • lines_longer_than_80_chars
+warning • Unused import: 'package:flutter/material.dart'. Try removing the import directive • test/features/quiz/presentation/quiz_page_chrome_test.dart:1:8 • unused_import
+warning • Unused import: 'package:flutter_riverpod/flutter_riverpod.dart'. Try removing the import directive • test/features/quiz/presentation/quiz_page_chrome_test.dart:2:8 • unused_import
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:84:68 • require_trailing_commas
+
+9 issues found. (ran in 1.3s)

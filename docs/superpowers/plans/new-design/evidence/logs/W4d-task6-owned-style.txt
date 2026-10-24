@@ -1,0 +1,5 @@
+Analyzing 14 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/presentation/quiz_review_boundary_integration_test.dart:78:81 • lines_longer_than_80_chars
+
+1 issue found. (ran in 1.0s)

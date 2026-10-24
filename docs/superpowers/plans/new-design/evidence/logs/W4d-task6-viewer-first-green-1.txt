@@ -1,0 +1,181 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart
+00:00 +0: Free viewer navigates the original paper without a notes gate
+══╡ EXCEPTION CAUGHT BY ANIMATION LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown while notifying listeners for AnimationController:
+A RenderAnimatedSize was mutated in its own performLayout implementation.
+A RenderObject must not re-dirty itself while still being laid out.
+The RenderObject being mutated was:
+  RenderAnimatedSize#e8c69 relayoutBoundary=up4
+Consider using the LayoutBuilder widget to dynamically change a subtree during layout.
+
+When the exception was thrown, this was the stack:
+#0      RenderObject._debugCanPerformMutations.<anonymous closure> (package:flutter/src/rendering/object.dart:2383:9)
+#1      RenderObject._debugCanPerformMutations (package:flutter/src/rendering/object.dart:2428:6)
+#2      RenderObject.markNeedsLayout (package:flutter/src/rendering/object.dart:2661:12)
+#3      RenderBox.markNeedsLayout (package:flutter/src/rendering/box.dart:2860:11)
+#4      new RenderAnimatedSize.<anonymous closure> (package:flutter/src/rendering/animated_size.dart:92:15)
+#5      AnimationLocalListenersMixin.notifyListeners (package:flutter/src/animation/listener_helpers.dart:160:19)
+#6      AnimationController._animateToInternal (package:flutter/src/animation/animation_controller.dart:677:9)
+#7      AnimationController.forward (package:flutter/src/animation/animation_controller.dart:484:12)
+#8      RenderAnimatedSize._layoutStable (package:flutter/src/rendering/animated_size.dart:338:19)
+#9      RenderAnimatedSize.performLayout (package:flutter/src/rendering/animated_size.dart:264:9)
+#10     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#11     RenderStack.layoutPositionedChild (package:flutter/src/rendering/stack.dart:551:11)
+#12     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:693:13)
+#13     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#14     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62:11)
+#15     RenderFlex._computeSizes (package:flutter/src/rendering/flex.dart:1275:26)
+#16     RenderFlex.performLayout (package:flutter/src/rendering/flex.dart:1329:32)
+#17     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#18     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262:12)
+#19     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#20     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180:12)
+#21     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113:7)
+#22     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246:7)
+#23     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417:14)
+#24     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#25     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#26     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#27     AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#28     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#29     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#30     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#31     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#34     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#35     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#36     WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#39     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#40     WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#41     main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart:76:18)
+<asynchronous suspension>
+#42     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#43     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The AnimationController notifying listeners was:
+  AnimationController#be5f7(⏭ 1.000; paused)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: Free viewer navigates the original paper without a notes gate [E]
+  Test failed. See exception logs above.
+  The test description was: Free viewer navigates the original paper without a notes gate
+
+00:01 +0 -1: Pro note writes only the viewed original wrong question
+
+Warning: A call to tap() with finder "Found 1 widget with text "Add Note": [
+  Text("Add Note", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Geist, size: 16.0, weight: 600, letterSpacing: 0.0, height: 1.4x, textAlign: center, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(585.5, 761.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(585.5, 761.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#17610 relayoutBoundary=up39
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#f4fc7(_ReusableRenderView#980b1), HitTestEntry<HitTestTarget>#0bf25(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart:94:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY ANIMATION LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown while notifying listeners for AnimationController:
+A RenderAnimatedSize was mutated in its own performLayout implementation.
+A RenderObject must not re-dirty itself while still being laid out.
+The RenderObject being mutated was:
+  RenderAnimatedSize#c2198 relayoutBoundary=up4
+Consider using the LayoutBuilder widget to dynamically change a subtree during layout.
+
+When the exception was thrown, this was the stack:
+#0      RenderObject._debugCanPerformMutations.<anonymous closure> (package:flutter/src/rendering/object.dart:2383:9)
+#1      RenderObject._debugCanPerformMutations (package:flutter/src/rendering/object.dart:2428:6)
+#2      RenderObject.markNeedsLayout (package:flutter/src/rendering/object.dart:2661:12)
+#3      RenderBox.markNeedsLayout (package:flutter/src/rendering/box.dart:2860:11)
+#4      new RenderAnimatedSize.<anonymous closure> (package:flutter/src/rendering/animated_size.dart:92:15)
+#5      AnimationLocalListenersMixin.notifyListeners (package:flutter/src/animation/listener_helpers.dart:160:19)
+#6      AnimationController._animateToInternal (package:flutter/src/animation/animation_controller.dart:677:9)
+#7      AnimationController.forward (package:flutter/src/animation/animation_controller.dart:484:12)
+#8      RenderAnimatedSize._restartAnimation (package:flutter/src/rendering/animated_size.dart:311:17)
+#9      RenderAnimatedSize._layoutStable (package:flutter/src/rendering/animated_size.dart:332:7)
+#10     RenderAnimatedSize.performLayout (package:flutter/src/rendering/animated_size.dart:264:9)
+#11     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#12     RenderStack.layoutPositionedChild (package:flutter/src/rendering/stack.dart:551:11)
+#13     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:693:13)
+#14     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#15     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62:11)
+#16     RenderFlex._computeSizes (package:flutter/src/rendering/flex.dart:1275:26)
+#17     RenderFlex.performLayout (package:flutter/src/rendering/flex.dart:1329:32)
+#18     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#19     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262:12)
+#20     RenderObject.layout (package:flutter/src/rendering/object.dart:2907:7)
+#21     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180:12)
+#22     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113:7)
+#23     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246:7)
+#24     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417:14)
+#25     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2755:7)
+#26     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174:18)
+#27     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187:15)
+#28     AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2433:27)
+#29     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:509:5)
+#30     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#31     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#32     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2260:9)
+#35     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#36     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2249:27)
+#37     WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#40     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#41     WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#42     main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart:91:18)
+<asynchronous suspension>
+#43     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#44     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The AnimationController notifying listeners was:
+  AnimationController#a0edd(⏭ 1.000; paused)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: [(String, MistakeTag, Null):(q1, MistakeTag.misread, null)]
+  Actual: []
+   Which: at location [0] is [] which shorter than expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart:96:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart line 96
+The test description was:
+  Pro note writes only the viewed original wrong question
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: Pro note writes only the viewed original wrong question [E]
+  Test failed. See exception logs above.
+  The test description was: Pro note writes only the viewed original wrong question
+
+00:01 +0 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Pro note writes only the viewed original wrong question

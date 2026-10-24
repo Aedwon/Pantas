@@ -1,0 +1,5 @@
+Formatted lib/features/quiz/presentation/quiz_tab_screen.dart
+Formatted lib/core/ui/components/progress_ring.dart
+Formatted test/core/ui/components/quiz_row_extensions_test.dart
+Formatted test/features/quiz/presentation/quiz_tab_screen_test.dart
+Formatted 9 files (4 changed) in 0.02 seconds.

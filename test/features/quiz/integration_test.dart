@@ -1,10 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../helpers/in_memory_database.dart';
+import '../../helpers/pump_app.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +20,12 @@ void main() {
     final contentDb = openTestContentDatabase();
     final container = ProviderContainer(
       overrides: [
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'exam_cse_pro')),
+        ),
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
       ],
@@ -33,6 +43,8 @@ void main() {
       questionIds: List.generate(10, (i) => 'q$i'),
     );
 
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'exam_cse_pro', count: 2, randomSeed: 1);
 

@@ -79,7 +79,9 @@ class BookmarksSection extends ConsumerWidget {
                           for (final row in rows.take(3))
                             ListRow(
                               title: row.title,
-                              wrapTitle: true,
+                              wrapTitle:
+                                  MediaQuery.textScalerOf(context).scale(17) >
+                                      25.5,
                               subtitle: row.topicName,
                               leading: SizedBox.square(
                                 dimension: 24,
@@ -96,7 +98,7 @@ class BookmarksSection extends ConsumerWidget {
                               ),
                               verticalPadding: 12,
                               onTap: () => context.push(
-                                '/lesson/${row.lessonId}?from=bookmarks',
+                                '/lesson/${row.lessonId}?from=study',
                               ),
                             ),
                         ],

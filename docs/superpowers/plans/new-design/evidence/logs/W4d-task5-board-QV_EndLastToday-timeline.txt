@@ -1,0 +1,157 @@
+
+■ Session finished. Reviews · Session 2 of 2
+  QVEndLastToday_n116  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(6px);[then cubic-bezier(.3,.9,.3,1)]
+        100ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+        480ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ <path>   (in: 0 1 2 3 4 5 6 7 /10)
+  QVEndLastToday_n98  9000ms  linear  (loops)
+          0ms  stroke-dashoffset:339.3;[then cubic-bezier(.2,.8,.25,1)]
+        400ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+       1600ms  stroke-dashoffset:101.8;[then cubic-bezier(.2,.8,.25,1)]
+       9000ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+
+■ 0 1 2 3 4 5 6 7
+  QVEndLastToday_n99  9000ms  linear  (loops)
+          0ms  transform:translateY(0);[then cubic-bezier(.2,.8,.25,1)]
+        400ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+       1600ms  transform:translateY(-448px);[then cubic-bezier(.2,.8,.25,1)]
+       9000ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+
+■ 1
+  QVEndLastToday_n100  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        400ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        660ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+        820ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 2
+  QVEndLastToday_n101  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        490ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        750ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+        910ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 3
+  QVEndLastToday_n102  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        580ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        840ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1000ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 4
+  QVEndLastToday_n103  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        670ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        930ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1090ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 5
+  QVEndLastToday_n104  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        760ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1020ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1180ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 6
+  QVEndLastToday_n105  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        850ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1110ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1270ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 7
+  QVEndLastToday_n106  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        940ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1200ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1360ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 8
+  QVEndLastToday_n107  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+       1030ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1290ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1450ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 9
+  QVEndLastToday_n108  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+       1120ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1380ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1540ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 10
+  QVEndLastToday_n109  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+       1210ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1470ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1630ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ in 9 minutes
+  QVEndLastToday_n110  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(0px);[then cubic-bezier(.3,.9,.3,1)]
+       1600ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       1900ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ YOUR MISTAKES 3 The thin, outermost layer of Earth Earth Sci…
+  QVEndLastToday_n114  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(8px);[then cubic-bezier(.3,.9,.3,1)]
+       1620ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2000ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ The thin, outermost layer of Earth Earth Science
+  QVEndLastToday_n111  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(6px);[then cubic-bezier(.3,.9,.3,1)]
+       1700ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2080ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ Why drill from the ocean floor Earth Science
+  QVEndLastToday_n112  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(6px);[then cubic-bezier(.3,.9,.3,1)]
+       1790ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2170ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ Ionic and covalent bonds Chemistry
+  QVEndLastToday_n113  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(6px);[then cubic-bezier(.3,.9,.3,1)]
+       1880ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2260ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ See all questions
+  QVEndLastToday_n117  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(10px);[then cubic-bezier(.3,.9,.3,1)]
+       2000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2380ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ Tell Pantas why you got each one wrong. The better your note…
+  QVEndLastToday_n115  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(0px);[then cubic-bezier(.3,.9,.3,1)]
+       2260ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2560ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ Done
+  QVEndLastToday_n118  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(0px);[then cubic-bezier(.3,.9,.3,1)]
+       2200ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2500ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]

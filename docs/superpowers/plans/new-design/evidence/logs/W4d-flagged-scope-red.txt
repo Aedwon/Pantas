@@ -1,0 +1,106 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart
+00:00 +0: the flagged list groups by subject
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "Foreign exam question": [
+            Text(null,
+            ╞═╦══ textSpan ═══
+              ║ TextSpan:
+              ║   TextSpan:
+              ║     TextSpan:
+              ║       inherit: true
+              ║       color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+              ║         0.1216, colorSpace: ColorSpace.sRGB)
+              ║       family: Geist
+              ║       size: 15.0
+              ║       weight: 400
+              ║       letterSpacing: 0.0
+              ║       height: 1.4x
+              ║       "Foreign exam question"
+            , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216,
+colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height:
+1.4x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:146:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 146
+The test description was:
+  the flagged list groups by subject
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: the flagged list groups by subject [E]
+  Test failed. See exception logs above.
+  The test description was: the flagged list groups by subject
+
+00:00 +0 -1: it has no filter row
+00:00 +1 -1: the button counts what is in the list
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Practice these 3": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:177:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 177
+The test description was:
+  the button counts what is in the list
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +1 -2: the button counts what is in the list [E]
+  Test failed. See exception logs above.
+  The test description was: the button counts what is in the list
+
+00:00 +1 -2: unflagging updates the count as it happens
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Practice these 3": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:215:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 215
+The test description was:
+  unflagging updates the count as it happens
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +1 -3: unflagging updates the count as it happens [E]
+  Test failed. See exception logs above.
+  The test description was: unflagging updates the count as it happens
+
+00:00 +1 -3: emptying the list says what to do
+00:00 +2 -3: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the button counts what is in the list
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: unflagging updates the count as it happens

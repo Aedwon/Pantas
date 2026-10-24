@@ -1,0 +1,122 @@
+
+■ Session finished. Reviews · Session 1 of 2
+  QVEndPerfectB_n74  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(6px);[then cubic-bezier(.3,.9,.3,1)]
+        100ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+        480ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ <path>   (in: 0 1 2 3 4 5 6 7 8 9 10 /10)
+  QVEndPerfectB_n61  9000ms  linear  (loops)
+          0ms  stroke-dashoffset:339.3;[then cubic-bezier(.2,.8,.25,1)]
+        400ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+       1600ms  stroke-dashoffset:0.0;[then cubic-bezier(.2,.8,.25,1)]
+       9000ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+
+■ 0 1 2 3 4 5 6 7 8 9 10
+  QVEndPerfectB_n62  9000ms  linear  (loops)
+          0ms  transform:translateY(0);[then cubic-bezier(.2,.8,.25,1)]
+        400ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+       1600ms  transform:translateY(-640px);[then cubic-bezier(.2,.8,.25,1)]
+       9000ms  (holds) [then cubic-bezier(.2,.8,.25,1)]
+
+■ 1
+  QVEndPerfectB_n63  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        400ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        660ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+        820ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 2
+  QVEndPerfectB_n64  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        490ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        750ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+        910ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 3
+  QVEndPerfectB_n65  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        580ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        840ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1000ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 4
+  QVEndPerfectB_n66  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        670ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+        930ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1090ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 5
+  QVEndPerfectB_n67  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        760ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1020ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1180ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 6
+  QVEndPerfectB_n68  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        850ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1110ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1270ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 7
+  QVEndPerfectB_n69  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+        940ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1200ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1360ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 8
+  QVEndPerfectB_n70  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+       1030ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1290ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1450ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 9
+  QVEndPerfectB_n71  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+       1120ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1380ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1540ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ 10
+  QVEndPerfectB_n72  9000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.4);[then cubic-bezier(.3,1.4,.5,1)]
+       1210ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+       1470ms  opacity:1;transform:scale(1.12);[then cubic-bezier(.3,1.4,.5,1)]
+       1630ms  opacity:1;transform:none;[then cubic-bezier(.3,1.4,.5,1)]
+       9000ms  (holds) [then cubic-bezier(.3,1.4,.5,1)]
+
+■ in 9 minutes
+  QVEndPerfectB_n73  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(0px);[then cubic-bezier(.3,.9,.3,1)]
+       1600ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       1900ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ See all questions
+  QVEndPerfectB_n75  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(10px);[then cubic-bezier(.3,.9,.3,1)]
+       2000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2380ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ Start Session 2 Done
+  QVEndPerfectB_n76  9000ms  linear  (loops)
+          0ms  opacity:0;transform:translateY(0px);[then cubic-bezier(.3,.9,.3,1)]
+       2200ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       2500ms  opacity:1;transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       9000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
