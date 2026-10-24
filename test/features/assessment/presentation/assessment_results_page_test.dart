@@ -13,6 +13,8 @@ import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
 
@@ -237,6 +239,36 @@ void main() {
       await pumpWithDuration(tester, const Duration(minutes: 24));
       expect(find.text('in 24 minutes'), findsOneWidget);
     });
+  });
+  testWidgets('no saved assessment shows the approved No results state',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('nothing-saved'),
+      overrides: databaseOverrides(),
+    );
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    await tester.pumpAndSettle();
+
+    expect(find.text('No assessment found.'), findsNothing);
+    final view = tester.widget<StateView>(find.byType(StateView));
+    expect(view.primaryAction, isFalse);
+    expect(view.boardLayout, isFalse);
+    expect(view.detail, isNull);
+    expect(find.text('No results yet.'), findsOneWidget);
+    expect(
+      tester.getSize(find.byKey(const ValueKey('state-mark'))),
+      const Size(60, 60),
+    );
+    final button = find.widgetWithText(PantasButton, 'Back to Home');
+    expect(button, findsOneWidget);
+    final pill = tester.widget<PantasButton>(button);
+    expect(pill.variant, PantasButtonVariant.secondary);
+    expect(pill.height, 44);
+    expect(tester.getSize(button).width, lessThanOrEqualTo(220));
+
+    await tester.tap(button);
+    await tester.pumpAndSettle();
+    expect(find.text('Home'), findsOneWidget);
   });
   testWidgets('Go to Today acknowledges once and reopening goes Home',
       (tester) async {

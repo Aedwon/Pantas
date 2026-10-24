@@ -181,7 +181,7 @@ void main() {
       await container.read(assessmentResultProvider('e1').future),
       isNotNull,
       reason: 'the results page reads this provider — a stale null renders '
-          '"No assessment found." after a completed run',
+          '"No results yet." after a completed run',
     );
   });
 

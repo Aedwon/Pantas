@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
@@ -115,7 +116,11 @@ class AssessmentResultsPage extends ConsumerWidget {
           }
           if (value.result == null) {
             return Center(
-              child: Text('No assessment found.', style: context.type.body),
+              child: StateView(
+                message: 'No results yet.',
+                actionLabel: 'Back to Home',
+                onRetry: () => context.go('/home'),
+              ),
             );
           }
           return _ResultsBody(

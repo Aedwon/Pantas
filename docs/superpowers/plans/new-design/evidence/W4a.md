@@ -389,3 +389,10 @@ Round 1 open items now resolved: the picker note and today wording (B), AS_Leave
 ## Round 3: AS_Results elapsed time under one minute
 
 Aedwon approved ("2 is approved") that elapsed time under one minute reads "in under a minute" instead of "in 0 minutes". One minute stays "in 1 minute", more stays "in N minutes". The new test failed first (no "in under a minute" text). Checks: `flutter test test/features/assessment` `00:02 +56: All tests passed!`; `flutter analyze lib test tool` `No issues found!`; format `Formatted 1550 files (0 changed)`; `check_layering: OK`. Still open: "No assessment found." (Aedwon is choosing its design) and the calm line for an exam today.
+
+
+## Round 4: AS_Results no-saved-assessment state
+
+Decision (Aedwon, choosing the previewed options: "Option A for the no-results state"): the state with no saved assessment replaces the plain "No assessment found." text with the default `StateView`: default mark (60 px, chevron color, default icon), message "No results yet.", no detail line, and the secondary pill "Back to Home" (the `onRetry` path: 20 px gap, maximum width 220, height 44) that goes to `/home` with `context.go`. Not `primaryAction`, not `boardLayout`. The view sits in a `Center`, as the old text did. The new test pins the message, the button label and style, the 60 px mark and the navigation to Home; it failed first because the old text was found. Checks: `flutter test test/features/assessment` `00:01 +57: All tests passed!`; `flutter analyze lib test tool` `No issues found!`; format `Formatted 1550 files (0 changed)`; `check_layering: OK`.
+
+Open for Aedwon now: only the calm line for an exam today (no board wording, none shown).
