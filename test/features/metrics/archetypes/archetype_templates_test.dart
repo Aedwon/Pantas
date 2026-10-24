@@ -28,15 +28,15 @@ void main() {
         SignalKey.testModeDelta:
             const PressureDelta(practiceAccuracy: 0.75, mockAccuracy: 0.85),
       },
-      'Your mock accuracy runs 10 pts above practice.'
+      "Exam-day pressure doesn't shake you."
     ),
     (
-      'pressure_tightener',
+      'deep_thinker',
       {
-        SignalKey.testModeDelta:
-            const PressureDelta(practiceAccuracy: 0.85, mockAccuracy: 0.70),
+        SignalKey.perQuestionSpeed:
+            const LatencyDistribution(averageMs: 20000, correctAverageMs: 19000, incorrectAverageMs: 21000, sampleCount: 10, correctCount: 8, incorrectCount: 2),
       },
-      'Your mock accuracy runs 15 pts below practice.'
+      'You take your sweet time, and it shows.'
     ),
     (
       'night_owl_sprinter',
@@ -56,7 +56,7 @@ void main() {
           sampleCount: 20,
         ),
       },
-      'Your best hour is 9 pm and your sessions average 8 minutes.'
+      'Late nights are when you shine.'
     ),
     (
       'early_bird_marathoner',
@@ -67,7 +67,7 @@ void main() {
         SignalKey.sessionShape:
             const DurationDistribution(averageMinutes: 30, sessionCount: 20),
       },
-      'You work best at 7 am and sit for 30 minutes on average.'
+      'Mornings fire you up and get you going.'
     ),
     (
       'numbers_person',
@@ -81,7 +81,7 @@ void main() {
           },
         ),
       },
-      'Your highest subject accuracy is 90% in math or science.'
+      'Numbers bend to your will.'
     ),
     (
       'wordsmith',
@@ -95,7 +95,7 @@ void main() {
           },
         ),
       },
-      'Your highest subject accuracy is 80% in reading or language.'
+      'Words just make sense to you.'
     ),
     (
       'generalist',
@@ -109,7 +109,7 @@ void main() {
           },
         ),
       },
-      'Your subject accuracy ranges from 70% to 80%.'
+      "Give you any subject and you'll handle it."
     ),
     (
       'scholar',
@@ -119,7 +119,7 @@ void main() {
         SignalKey.coverageBreadth:
             const CoveragePct(coveredTopics: 8, totalTopics: 10),
       },
-      'You read first for 12 of 16 lessons and have practiced 8 of 10 topics.'
+      'You learn it fully before you put it to work.'
     ),
     (
       'long_memory',
@@ -127,7 +127,7 @@ void main() {
         SignalKey.retentionShape:
             const RetentionCurve(averageStability: 9, lapseRate: 0.05),
       },
-      'You forget on 5% of your reviews.'
+      'What you learn stays with you.'
     ),
     (
       'bookmark_strategist',
@@ -139,7 +139,7 @@ void main() {
           sectionTimeSeconds: {},
         ),
       },
-      'You revisit 8 of 10 questions you flag.'
+      'You never leave a question unchecked.'
     ),
     (
       'time_master',
@@ -149,7 +149,7 @@ void main() {
           sectionTimeSeconds: {},
         ),
       },
-      'You finish mocks with 90 seconds left on average.'
+      'The clock works for you, not against you.'
     ),
     (
       'closer',
@@ -157,10 +157,10 @@ void main() {
         SignalKey.mockStamina:
             const StaminaDelta(firstHalfAccuracy: 0.7, secondHalfAccuracy: 0.8),
       },
-      'You score higher in the second half of a mock.'
+      'You save your best for last.'
     ),
   ]) {
-    test('$id line states its measured inputs', () {
+    test('$id line uses the approved identity', () {
       expect(line(id, signals), expected);
       for (final key
           in archetypeCatalog.firstWhere((a) => a.id == id).requiredSignals) {
@@ -183,20 +183,4 @@ void main() {
     });
   }
 
-  test('pressure lines follow a changed measured gap', () {
-    expect(
-      line('game_day_player', {
-        SignalKey.testModeDelta:
-            const PressureDelta(practiceAccuracy: 0.6, mockAccuracy: 0.85),
-      }),
-      'Your mock accuracy runs 25 pts above practice.',
-    );
-    expect(
-      line('pressure_tightener', {
-        SignalKey.testModeDelta:
-            const PressureDelta(practiceAccuracy: 0.9, mockAccuracy: 0.7),
-      }),
-      'Your mock accuracy runs 20 pts below practice.',
-    );
-  });
 }

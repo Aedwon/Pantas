@@ -24,7 +24,8 @@ type StoredMock={examId:string;endedBy:string;startedAt:number;submittedAt:numbe
 type Count={correct:number;answered:number};
 type PerformanceRow=Count&{id:string;title:string;parentId:string};
 type Performance={overall:Count;subjects:(Count&{id:string;title:string;topicCount:number})[];
- lessonLevelAvailable:boolean;topics:PerformanceRow[];lessons:PerformanceRow[]};
+ lessonLevelAvailable:boolean;topics:PerformanceRow[];lessons:PerformanceRow[];
+ topicDetails:(Count&{id:string;title:string;subject:string;lessons:{id:string;title:string;read:boolean}[]})[]};
 type Finding={confidence:'early'|'forming'|'clear';value:Record<string,number>|null};
 type Insights={profile:{id:string}|null;tendencies:Record<'pressure'|'stamina'|'study'|'speed'|'memory',Finding>;
  whenYouWork:{peakHour:number;averageMinutes:number;sessionCount:number}|null};
@@ -65,11 +66,11 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   ]);
   if(settings.exists&&settings.get('examId')!==examId)throw new HttpsError('failed-precondition','Your exam changed. Open this screen again.');
   const pro=access.coversExam(examId),topicOf=new Map(content.topics.map(t=>[t.id,t]));
-  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now)]);
+  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),'topic-details-v2-inline-sessions']);
   const response=(derived:Insights,performance:Performance,revision:string)=>{
-   const {topics,lessons,...visible}=performance;
+   const {topics,lessons,topicDetails,...visible}=performance;
    return{examId:examId,serverNow:now,accessRecheckAt:access.recheckAt,proCovered:pro,revision,trialEndsAt,
-    profile:derived.profile,performance:{...visible,...(pro?{topics,lessons}:{})},
+    profile:derived.profile,performance:{...visible,...(pro?{topics,lessons,topicDetails}:{})},
     ...(pro?{tendencies:derived.tendencies,whenYouWork:derived.whenYouWork}:{})};
   };
   if(cache.exists&&cache.get('sourceRevision')===sourceRevision&&Number(cache.get('validUntil'))>now){
@@ -87,7 +88,7 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   const attempts:Attempt[]=answers.docs.filter(d=>d.get('examId')===examId&&typeof d.get('origin')==='string').map(d=>{
    const r=d.data() as StoredSession;return {...r,startedAt:phStamp(Number(r.startedAt)),finishedAt:phStamp(Number(r.finishedAt)),items:r.answers.map(item)};
   });
-  const quizOrigins=new Set(['today_topic','today_interleaved','new_questions','drill','flagged','retake']);
+  const quizOrigins=new Set(['today_topic','today_interleaved','new_questions','drill','flagged','retake','inline']);
   const sessions=attempts.filter(r=>quizOrigins.has(String(r.origin))).map(r=>({...r,total:r.items.length,correct:r.items.filter((a:ObservedItem)=>a.correct).length}));
   const mockRows=mocks.docs.filter(d=>d.get('examId')===examId).map(d=>{
    const r=d.data() as StoredMock,byId=new Map(r.answers.map(a=>[a.questionId,a]));
@@ -111,11 +112,15 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   const topics=content.topics.map(t=>({id:t.id,title:t.name,parentId:t.subjectId,...sum(content.questions.filter(q=>q.topicId===t.id).map(q=>q.id))})).filter(t=>t.answered>0);
   const lessons=content.lessons.map(l=>({id:l.id,title:l.title,parentId:l.topicId,...sum(content.questions.filter(q=>q.lessonId===l.id).map(q=>q.id))})).filter(l=>l.answered>0);
   const subjects=content.subjects.map(s=>({id:s.id,title:s.name,...sum(content.questions.filter(q=>topicOf.get(q.topicId)?.subjectId===s.id).map(q=>q.id)),topicCount:topics.filter(t=>t.parentId===s.id).length})).filter(s=>s.answered>0);
-  const performance={overall:sum(content.questions.map(q=>q.id)),subjects,lessonLevelAvailable:content.questions.some(q=>q.lessonId!==null),topics,lessons};
+  const readIds=new Set(reads.docs.filter(d=>Number.isFinite(Number(d.get('readAt')))&&Number(d.get('readAt'))<=now).map(d=>String(d.get('lessonId'))));
+  const topicDetails=content.topics.map(t=>({id:t.id,title:t.name,subject:subjectOf.get(t.subjectId)!.name,
+   ...sum(content.questions.filter(q=>q.topicId===t.id).map(q=>q.id)),
+   lessons:content.lessons.filter(l=>l.topicId===t.id).map(l=>({id:l.id,title:l.title,read:readIds.has(l.id)}))}));
+  const performance={topicDetails,overall:sum(content.questions.map(q=>q.id)),subjects,lessonLevelAvailable:content.questions.some(q=>q.lessonId!==null),topics,lessons};
   // Cache authority never includes tier: every response rechecks current coverage.
   const nextDay=Date.parse(phDay(now)+'T00:00:00+08:00')+86400000;
   const futureTimes=[...answers.docs.flatMap(d=>[Number(d.get('startedAt')),Number(d.get('finishedAt'))]),
-    ...mocks.docs.map(d=>Number(d.get('submittedAt')))].filter(at=>at>now);
+    ...mocks.docs.map(d=>Number(d.get('submittedAt'))),...reads.docs.map(d=>Number(d.get('readAt')))].filter(at=>at>now);
   tx.set(cacheRef,{examId:examId,sourceRevision,revision,computedAt:now,
    validUntil:Math.min(nextDay,...futureTimes),derivedJson:JSON.stringify(derived),performanceJson:JSON.stringify(performance)});
   return response(derived,performance,revision);

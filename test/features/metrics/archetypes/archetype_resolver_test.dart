@@ -19,10 +19,10 @@ void main() {
   });
 
   for (final (subject, expectedLabel) in [
-    ('subj_upcat_mathematics', 'Numbers Person'),
-    ('Mathematics', 'Numbers Person'),
-    ('subj_upcat_science', 'Numbers Person'),
-    ('Science', 'Numbers Person'),
+    ('subj_upcat_mathematics', 'Math Wizard'),
+    ('Mathematics', 'Math Wizard'),
+    ('subj_upcat_science', 'Math Wizard'),
+    ('Science', 'Math Wizard'),
     ('subj_upcat_language_proficiency', 'Wordsmith'),
     ('Language Proficiency (English & Filipino)', 'Wordsmith'),
     ('subj_upcat_reading_comprehension', 'Wordsmith'),
@@ -35,7 +35,7 @@ void main() {
   ]) {
     test('strongest subject $subject gives $expectedLabel', () {
       final weaker =
-          expectedLabel == 'Numbers Person' ? 'Verbal Ability' : 'Mathematics';
+          expectedLabel == 'Math Wizard' ? 'Verbal Ability' : 'Mathematics';
       final signal = SubjectAccuracySpeed(
         subjects: {
           subject: const SubjectAccuracySpeedRow(
@@ -67,18 +67,18 @@ void main() {
     expect(
       archetypeCatalog.map((a) => a.label),
       containsAll([
-        'Night-Owl Sprinter',
-        'Early Bird Marathoner',
-        'Game-Day Player',
-        'Pressure Tightener',
-        'Bookmark Strategist',
+        'Night Owl',
+        'Early Bird',
+        'Levelheaded',
+        'Deep Thinker',
+        'Thorough Reviewer',
         'Time Master',
         'Closer',
         'Wordsmith',
-        'Numbers Person',
-        'Generalist',
+        'Math Wizard',
+        'All-Rounder',
         'Scholar',
-        'Long Memory',
+        'Strong Recall',
       ]),
     );
   });
@@ -107,7 +107,7 @@ void main() {
       },
     );
 
-    expect(resolved?.label, 'Game-Day Player');
+    expect(resolved?.label, 'Levelheaded');
   });
 
   test('resolver skips archetypes with missing required signals', () {
@@ -144,6 +144,6 @@ void main() {
       },
     );
 
-    expect(resolved?.label, 'Generalist');
+    expect(resolved?.label, 'All-Rounder');
   });
 }

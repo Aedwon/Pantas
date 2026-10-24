@@ -131,9 +131,16 @@ export async function loadStudyContent(db: Firestore, examId: string,
   }
   const allLessons = new Map<string,CatalogLesson>();
   const collect = (docs: CatalogDocument[]) => {
-    for(const doc of docs)for(const lesson of doc.lessons ?? [])if(requestedLessons.has(lesson.id))allLessons.set(lesson.id,lesson);
+    for(const doc of docs)for(const lesson of doc.lessons ?? [])if(requestedTopics.has(refId(lesson.topic)))allLessons.set(lesson.id,lesson);
   };
   collect(selected);
+  // The authored subject names the owning catalog. Question-linked lessons
+  // alone are not the topic inventory: lessons without questions still count.
+  const owners = new Set([...requestedTopics].map(id => {
+    const topic = allTopics.get(id);
+    return topic ? refId(allSubjects.get(refId(topic.subject))?.exam) : '';
+  }).filter(id => id && id !== examId));
+  for (const owner of owners) collect(await withParts(owner));
   for(const id of index?.catalogs ?? []) {
     if ([...requestedLessons].every(id=>allLessons.has(id))) break;
     if(id!==examId)collect(await withParts(id));
@@ -155,7 +162,7 @@ export async function loadStudyContent(db: Firestore, examId: string,
   const subjectOrder=new Map(subjects.map((s,i)=>[s.id,i]));
   const topics=[...requestedTopics].map(id=>allTopics.get(id)!).map(t=>({id:t._id,name:t.name,subjectId:refId(t.subject),ordering:t.ordering??0}))
     .sort((a,b)=>(subjectOrder.get(a.subjectId)!-subjectOrder.get(b.subjectId)!)||a.ordering-b.ordering||a.id.localeCompare(b.id));
-  const lessons=[...allLessons.values()].map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0}));
+  const lessons=[...allLessons.values()].map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0})).sort((a,b)=>a.ordering-b.ordering||a.id.localeCompare(b.id));
   const questions=sets.flatMap(s=>s.questions.map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
     lessonId:s.lesson==null?null:refId(s.lesson),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');

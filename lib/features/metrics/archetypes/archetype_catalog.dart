@@ -8,7 +8,7 @@ import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 final archetypeCatalog = <Archetype>[
   Archetype(
     id: 'night_owl_sprinter',
-    label: 'Night-Owl Sprinter',
+    label: 'Night Owl',
     category: ArchetypeCategory.pace,
     requiredSignals: const {
       SignalKey.timeOfDay,
@@ -27,7 +27,7 @@ final archetypeCatalog = <Archetype>[
   ),
   Archetype(
     id: 'early_bird_marathoner',
-    label: 'Early Bird Marathoner',
+    label: 'Early Bird',
     category: ArchetypeCategory.pace,
     requiredSignals: const {SignalKey.timeOfDay, SignalKey.sessionShape},
     match: (s) {
@@ -38,7 +38,7 @@ final archetypeCatalog = <Archetype>[
   ),
   Archetype(
     id: 'game_day_player',
-    label: 'Game-Day Player',
+    label: 'Levelheaded',
     category: ArchetypeCategory.pressureMode,
     requiredSignals: const {SignalKey.testModeDelta},
     match: (s) {
@@ -47,18 +47,23 @@ final archetypeCatalog = <Archetype>[
     },
   ),
   Archetype(
-    id: 'pressure_tightener',
-    label: 'Pressure Tightener',
-    category: ArchetypeCategory.pressureMode,
-    requiredSignals: const {SignalKey.testModeDelta},
+    id: 'deep_thinker',
+    label: 'Deep Thinker',
+    category: ArchetypeCategory.pace,
+    requiredSignals: const {SignalKey.perQuestionSpeed},
     match: (s) {
-      final x1 = s[SignalKey.testModeDelta]! as PressureDelta;
-      return x1.delta < 0 ? math.min(1, 0.7 + x1.delta.abs()).toDouble() : 0.0;
+      final speed = s[SignalKey.perQuestionSpeed]! as LatencyDistribution;
+      // Slow is the complement of Night Owl's <= 12000 ms fast rule.
+      // Accuracy uses the existing measured correct/incorrect split: more
+      // correct answers than incorrect answers, with no inferred evidence.
+      if (speed.averageMs <= 12000 ||
+          speed.correctCount <= speed.incorrectCount) return 0;
+      return speed.correctCount / (speed.correctCount + speed.incorrectCount);
     },
   ),
   Archetype(
     id: 'bookmark_strategist',
-    label: 'Bookmark Strategist',
+    label: 'Thorough Reviewer',
     category: ArchetypeCategory.strategy,
     requiredSignals: const {SignalKey.flagRevisit, SignalKey.mockPacing},
     match: (s) => (s[SignalKey.flagRevisit]! as FlagRevisitRatio).ratio,
@@ -95,7 +100,7 @@ final archetypeCatalog = <Archetype>[
   ),
   Archetype(
     id: 'numbers_person',
-    label: 'Numbers Person',
+    label: 'Math Wizard',
     category: ArchetypeCategory.subject,
     requiredSignals: const {SignalKey.subjectAffinity},
     match: (s) {
@@ -107,7 +112,7 @@ final archetypeCatalog = <Archetype>[
   ),
   Archetype(
     id: 'generalist',
-    label: 'Generalist',
+    label: 'All-Rounder',
     category: ArchetypeCategory.subject,
     requiredSignals: const {SignalKey.subjectAffinity},
     match: (s) {
@@ -129,7 +134,7 @@ final archetypeCatalog = <Archetype>[
   ),
   Archetype(
     id: 'long_memory',
-    label: 'Long Memory',
+    label: 'Strong Recall',
     category: ArchetypeCategory.studyHabit,
     requiredSignals: const {SignalKey.retentionShape},
     match: (s) =>

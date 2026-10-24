@@ -234,7 +234,7 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
   if (!settings.exists) throw new HttpsError('failed-precondition', 'Set your exam first.');
   const config = settings.data() as ExamSettings;
   if (config.examId !== examId) throw new HttpsError('failed-precondition', 'Your exam changed. Open this screen again.');
-  const [allContent, totalDoc, reads, reviews, mocks, access, previousDays, blueprint] = await Promise.all([
+  const [allContent, totalDoc, reads, reviews, mocks, access, previousDays, blueprint, todayChanges] = await Promise.all([
     loadStudyContent(db, examId, tx), tx.get(totalsRef(db, uid)),
     tx.get(db.collection('users/' + uid + '/server/lessonReads/items')),
     tx.get(db.collection('users/' + uid + '/server/reviews/items')),
@@ -242,6 +242,7 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     mockCoverage(tx, db, uid, now),
     tx.get(studyDays(db, uid).where('examId', '==', examId).orderBy('day', 'desc').limit(14)),
     tx.get(db.doc('content/mocks/items/' + examId)),
+    tx.get(studyHistory(db, uid).where('examId', '==', examId).where('occurredAt', '>=', dayStart(phDay(now))).where('occurredAt', '<', dayStart(phDay(now)) + DAY_MS)),
   ]);
   const excluded = new Set(config.excludedTopicIds ?? []);
   const includedTopics = new Set(allContent.topics.filter(t => !excluded.has(t.id)).map(t => t.id));
@@ -285,7 +286,7 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
   const input = {inputs, completion, priorCompletion, snapshot: prior, digest, now: phStamp(now), operation: 'read'};
   const state = runCoreState(input);
   return {config, content, totals, reads, reviews, mocks, access, pro, today, inputs, input, state,
-    revision: revisionOf(settings.data()!, content.revision, totals, reads), previousDays};
+    revision: revisionOf(settings.data()!, content.revision, totals, reads), previousDays, blueprint, todayChanges};
 }
 function examDateKey(config: ExamSettings) {
   if (!config.examDate) return '';
@@ -337,6 +338,17 @@ function publicToday(context: Awaited<ReturnType<typeof studyContext>>, state: S
     today: state.today, remaining: state.remaining, originalDone: state.originalDone, canAdvance: state.canAdvance,
     todayTopicOrder: (state.snapshot.head as string[]).filter(id => actualTopics.has(id)), weekDays,
     backlogCapped: state.roadmap.backlogCapped,
+    homeExtras: {
+      priorDay: context.previousDays.docs.find(d => d.get('day') < context.today)?.get('day') ?? null,
+      priorWasMockDay: (() => {
+        const row = context.previousDays.docs.find(d => d.get('day') < context.today);
+        return row ? JSON.parse(String(row.get('snapshotJson'))).plan.mockDay === true : false;
+      })(),
+      missedWorkToday: [...state.changes, ...context.todayChanges.docs.map(d => JSON.parse(String(d.get('changeJson'))))].some(c => c.cause === 'missedWork'),
+      studyDays: context.config.studyDays,
+      mockDurationMinutes: Number.isSafeInteger(context.blueprint.get('durationMinutes')) && Number(context.blueprint.get('durationMinutes')) > 0
+        ? Number(context.blueprint.get('durationMinutes')) : null,
+    },
     ...(context.pro ? {comingUp: {examDay: state.roadmap.examDay, reviewOnlyFrom: state.roadmap.reviewOnlyFrom,
       mockDay: state.roadmap.mockDay, weeksAhead: state.roadmap.weeksAhead, topicOrder: state.roadmap.topicOrder}} : {})};
 }

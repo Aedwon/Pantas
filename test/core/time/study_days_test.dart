@@ -2,6 +2,41 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/time/study_days.dart';
 
 void main() {
+  test('long calendar counts use complete weeks without scanning every date',
+      () {
+    final clock = Stopwatch()..start();
+    final days = StudyDays(const [1, 3, 5]);
+    final count = days.countInRange(DateTime(2000, 1, 3), DateTime(2400, 1, 3));
+    expect(count, 62613);
+    expect(clock.elapsed, lessThan(const Duration(seconds: 2)));
+  });
+
+  test('all weekday combinations keep calendar range counts', () {
+    for (var mask = 1; mask < 128; mask++) {
+      final days = StudyDays([
+        for (var day = 1; day <= 7; day++)
+          if (mask & (1 << (day - 1)) != 0) day,
+      ]);
+      for (var offset = 0; offset < 7; offset++) {
+        final start = DateTime(2026, 12, 28 + offset);
+        for (final length in [-1, 0, 1, 6, 7, 8, 29]) {
+          final end = DateTime(start.year, start.month, start.day + length);
+          var expected = 0;
+          for (var day = start;
+              day.isBefore(end);
+              day = DateTime(day.year, day.month, day.day + 1)) {
+            if (days.isStudyDay(day)) expected++;
+          }
+          expect(
+            days.countInRange(start, end),
+            expected,
+            reason: 'mask=$mask start=$start length=$length',
+          );
+        }
+      }
+    }
+  });
+
   final weekdays = StudyDays(const [1, 2, 3, 4, 5]);
 
   test('constructor rejects empty and out-of-range weekdays', () {

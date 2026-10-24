@@ -41,7 +41,11 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
-  const durationMs = checkDuration(body?.durationMs);
+  // A saved quiz can remain paused across days. Preserve its actual wall
+  // interval, while retaining the one-day legacy/active-duration bound.
+  const wallMs = finishedAt - startedAt;
+  const durationMs = checkDuration(body?.durationMs, attributed ? Math.max(86_400_000, wallMs) : 86_400_000);
+  if (durationMs > 86_400_000 && durationMs !== wallMs) throw new HttpsError('invalid-argument', 'Bad wall duration.');
   if (!await allowAtMost(auth.uid, 'ingestSession', deps.dailySessions ?? DAILY_SESSIONS, 86_400_000)) {
     throw new HttpsError('resource-exhausted', 'Daily session limit reached. Try again tomorrow.');
   }

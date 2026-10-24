@@ -258,3 +258,83 @@ test('Free can advance completed Today without paid future payloads',async()=>{
  assert.deepEqual((await advanceStudyRoadmap(auth(uid),payload,deps())).today,out.today);
  assert.equal(await code(readStudyDay(auth(uid),{...body(uid),date:'2026-10-25'},deps())),'permission-denied');
 });
+
+
+test('paid topic details include every authored lesson and actual read states, including cached and expired reads',async()=>{
+ const uid='w4b-topic-reads';const {lessons}=await seed(uid);await trial(uid);
+ const {writeLessonRead}=await import('../lib/studyObservations.js');
+ const first=await readStudyInsights(auth(uid),body(uid),deps());
+ assert.equal(first.performance.topicDetails.length,2);
+ assert.equal(first.performance.topicDetails[0].lessons.length,6);
+ assert.equal(first.performance.topicDetails[0].lessons.every(l=>l.read===false),true);
+ await writeLessonRead(auth(uid),{expectedUid:uid,lessonId:lessons[0].id,readAt:NOW-1000},deps());
+ const result=await readStudyInsights(auth(uid),body(uid),deps());
+ const topic=result.performance.topicDetails[0];
+ assert.equal(topic.id,'topic-cse-alpha');assert.equal(topic.title,'Authored Alpha');
+ assert.equal(topic.subject,'Authored Subject');assert.equal(topic.answered,0);
+ assert.deepEqual(topic.lessons.map(l=>l.read),[true,false,false,false,false,false]);
+ assert.deepEqual(topic.lessons.map(l=>l.id),lessons.slice(0,6).map(l=>l.id));
+ assert.deepEqual((await readStudyInsights(auth(uid),body(uid),deps())).performance.topicDetails,result.performance.topicDetails);
+ await db.doc('users/'+uid+'/grants/trial').update({endsAt:NOW});
+ const free=await readStudyInsights(auth(uid),body(uid),deps());
+ assert.equal('topicDetails'in free.performance,false);
+});
+
+
+test('topic detail resolves all shared-topic lessons even when selected sets already resolve their lesson',async()=>{
+ const uid='w4b-shared-topic-reads';await seed(uid);await trial(uid);
+ const ref=db.doc('content/catalog/items/'+EXAM),catalog=JSON.parse((await ref.get()).get('payload'));
+ const allLessons=catalog.lessons;
+ catalog.subjects[0].exam='exam_upcat';
+ catalog.lessons=[allLessons[0],allLessons[6]];
+ await ref.update({version:'shared-root-v1',payload:JSON.stringify(catalog)});
+ await db.doc('content/catalog/items/index').set({version:'shared-index-v1',payload:JSON.stringify({subjects:catalog.subjects,topics:catalog.topics,catalogs:[EXAM,'exam_upcat']})});
+ await db.doc('content/catalog/items/exam_upcat').set({version:'shared-owner-v1',payload:JSON.stringify({lessons:allLessons})});
+ try {
+  const result=await readStudyInsights(auth(uid),body(uid),deps());
+  assert.equal(result.performance.topicDetails[0].lessons.length,6);
+  assert.equal(result.performance.topicDetails[1].lessons.length,6);
+ } finally {
+  await db.doc('content/catalog/items/index').delete();
+  await db.doc('content/catalog/items/exam_upcat').delete();
+ }
+});
+
+test('public Today extras retain actual carry-over facts across repeated reads',async()=>{
+ const uid='w4b-home-extras';await seed(uid);
+ await db.doc('content/mocks/items/'+EXAM).set({durationMinutes:165});
+ const first=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.equal(first.homeExtras.mockDurationMinutes,165);
+ const next=await readStudyRoadmap(auth(uid),body(uid),deps(NOW+DAY));
+ assert.equal(next.homeExtras.priorDay,first.today.day);
+ assert.equal(next.homeExtras.missedWorkToday,true);
+ const again=await readStudyRoadmap(auth(uid),body(uid),deps(NOW+DAY));
+ assert.equal(again.homeExtras.missedWorkToday,true);
+ assert.equal('changes'in again.homeExtras,false);
+ assert.deepEqual(again.homeExtras.studyDays,[1,2,3,4,5,6,7]);
+ await db.doc('content/mocks/items/'+EXAM).delete();
+});
+
+test('a resumed session preserves an actual wall interval longer than a day',async()=>{
+ const uid='w4b-long-session';const {sets}=await seed(uid);
+ const payload={...body(uid),sessionId:'session_long_saved',origin:'today_topic',startedAt:NOW-2*DAY,finishedAt:NOW,durationMs:2*DAY,answers:[{questionId:sets[0].questions[0].id,chosen:'a',correct:true,responseMs:1400,questionVersion:1}]};
+ await recordSession(auth(uid),payload,deps());
+ const stored=await db.doc('users/'+uid+'/server/answers/items/session_long_saved').get();
+ assert.equal(stored.get('durationMs'),2*DAY);
+ assert.equal(stored.get('answers')[0].answeredAt,undefined);
+ assert.equal(await code(recordSession(auth(uid),{...payload,sessionId:'session_bad_wall',durationMs:2*DAY+1},deps())),'invalid-argument');
+});
+
+test('inline lesson quizzes count toward native session evidence and working hours',async()=>{
+ const uid='w4b-inline-sessions';const {sets}=await seed(uid);await trial(uid);
+ for(let i=0;i<14;i++) {
+  const startedAt=NOW-DAY+i*20*60_000;
+  await recordSession(auth(uid),{...body(uid),sessionId:'inline_session_'+i,origin:i===13?'inline':'drill',
+   startedAt,finishedAt:startedAt+600_000,durationMs:600_000,
+   answers:[{questionId:sets[0].questions[0].id,chosen:'a',correct:true,responseMs:2000,questionVersion:1}]},deps());
+ }
+ const result=await readStudyInsights(auth(uid),body(uid),deps());
+ assert.notEqual(result.profile,null,'the actual fourteen completed quizzes meet the native session floor');
+ assert.equal(result.whenYouWork?.sessionCount,14);
+ assert.equal(result.whenYouWork?.averageMinutes,10);
+});

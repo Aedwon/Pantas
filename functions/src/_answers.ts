@@ -46,7 +46,7 @@ export function checkAnswers(value: unknown, now: number, attributed = false): A
   });
 }
 
-export function checkDuration(value: unknown): number {
-  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > DAY_MS) throw bad('Bad duration.');
+export function checkDuration(value: unknown, maximum = DAY_MS): number {
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > maximum) throw bad('Bad duration.');
   return Math.trunc(value);
 }
