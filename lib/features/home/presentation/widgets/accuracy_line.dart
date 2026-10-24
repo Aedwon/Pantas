@@ -88,8 +88,8 @@ class AccuracyLine extends StatelessWidget {
           child: CustomPaint(
             painter: AccuracyLinePainter(
               series: series,
-              lineColor: colors.board,
-              gridColor: colors.ruleFaint,
+              lineColor: colors.label,
+              gridColor: colors.fill,
             ),
           ),
         ),

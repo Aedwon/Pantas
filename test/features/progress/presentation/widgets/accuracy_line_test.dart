@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/progress/presentation/widgets/accuracy_line.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/features/home/presentation/widgets/accuracy_line.dart';
 
 void main() {
   Widget harness({
@@ -68,12 +68,18 @@ void main() {
     expect(painter.maxY, 100);
   });
 
-  testWidgets('the line is board and the gridlines are ruleFaint',
+  testWidgets('the approved record line is dark and the gridlines use fill',
       (tester) async {
     await tester.pumpWidget(harness(series: sixPoints));
     final painter = painterOf(tester);
-    expect(painter.lineColor, AppColors.light.board);
-    expect(painter.gridColor, AppColors.light.ruleFaint);
+    expect(
+      painter.lineColor,
+      buildLightTheme().extension<PantasColors>()!.label,
+    );
+    expect(
+      painter.gridColor,
+      buildLightTheme().extension<PantasColors>()!.fill,
+    );
   });
 
   testWidgets('exposes a concise spoken summary of the accuracy history',

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 @immutable
@@ -236,7 +237,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     if (items.isEmpty) continue;
     final dt = row.startedAt.toLocal();
     final localDate = DateTime(dt.year, dt.month, dt.day);
-    final weekStart = localDate.subtract(Duration(days: localDate.weekday - 1));
+    final weekStart = PantasDates.weekStart(localDate);
 
     var correctCount = 0;
     for (final item in items) {
