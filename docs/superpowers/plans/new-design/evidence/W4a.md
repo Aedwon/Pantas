@@ -354,3 +354,33 @@ The full suite, integration and visual acceptance remain with the lead and Aedwo
 - Quiz page (W4d, not changed): the live question header passes the topic name only; AS_Question draws "SUBJECT · TOPIC".
 - Silent `catch (_)` remains in consent, age gate, exam picker, onboarding page `_finish`, custom Subjects, assessment `_complete` and results acknowledge. Not in the fix list.
 - Backing out of Subjects to the picker and choosing a built-in exam leaves the created custom track in the exam list.
+
+
+## Round 2 fixes (lead review of items 0 to 12 accepted)
+
+Same policy revision (origin/main 34f28e68). Each item is test first; the new test failed for the stated reason before the change.
+
+| Item | Commit | Failed before the change because |
+|---|---|---|
+| A AS_Leave layout | 9c06499b | Keep Going was an inline pill, not a full-width primary button above red text |
+| B Chosen-day note | da78eded | note read "Wednesday, November 11"; card said "0 days from today" |
+| C Silent catches | 039d7892 | `recordError` received nothing from seven failing saves |
+| D Abandoned custom track | 05c6aa22 | a custom track remained after Back to the picker |
+
+A: the shared dialog only draws a pair of pills, so the assessment feature draws its own dialog (`_LeaveDialog`) from `PantasButton` and theme colors, matching the board: surface radius 20, title 20/700, body 15 at 1.45, full-width 52 high Keep Going, then a 44 high red 17/600 Leave text. No other dialog changed. Escape means Keep Going.
+
+B: `MonthFirstDatePicker` gained an optional `dayNote` parameter. Without it the note is unchanged for every other caller, and a test pins that. The onboarding step supplies "Wednesday, 11 November · 42 days from today", "· 1 day from today" and "· today". Month-only dates still show "No day yet?" with no count. The known-date card prints "today" instead of "0 days from today".
+
+C: reported through `telemetryProvider.recordError` with the user-visible behavior unchanged: consent, age gate, exam picker, custom Subjects, onboarding `_finish`, assessment `_complete`, results acknowledge. The acknowledge error is reported in the page callback and rethrown so the body still shows its retry line.
+
+D: Back to the picker deletes the track this flow created unless it has an attempt or a completed assessment (then it is kept and reused). The exam list, active exam and scope providers are refreshed. The selected-exam preference is not cleared (no existing method); the picker's existing "needs selection" path covers a deleted exam.
+
+### Checks run (after 05c6aa22)
+
+- `flutter test test/features/onboarding test/features/assessment test/core/ui test/app`: `01:07 +1053: All tests passed!`
+- `flutter analyze lib test tool`: `No issues found! (ran in 3.9s)`
+- `dart format --output=none --set-exit-if-changed lib test tool`: `Formatted 1550 files (0 changed)`
+- `dart run tool/check_layering.dart`: `check_layering: OK`
+- `dart run tool/check_no_ai_attribution.dart`: `check_no_ai_attribution: OK`
+
+Round 1 open items now resolved: the picker note and today wording (B), AS_Leave layout (A), silent catches (C), lingering custom track (D). Still open for Aedwon: AS_Results "No assessment found." and "in 0 minutes", and the calm line for an exam today.
