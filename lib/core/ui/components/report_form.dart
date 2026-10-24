@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/quiz/data/report_queue.dart';
 
 /// Shared entry for assessment, live quizzes and the question viewer.
 /// The caller supplies its queue and recolors its icon when this returns true.

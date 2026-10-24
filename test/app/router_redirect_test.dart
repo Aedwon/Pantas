@@ -1,16 +1,20 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/back_chevron.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
@@ -25,6 +29,7 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    await DriftSettingsRepository(db).recordPolicyAcceptance();
     await seedContentExam(
       contentDb,
       examId: 'cse',
@@ -44,10 +49,14 @@ void main() {
   tearDown(() => db.close());
 
   Future<void> pumpApp(WidgetTester tester) async {
+    final catalog = await tester
+        .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
@@ -57,12 +66,16 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    addTearDown(() async {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpAndSettle();
+    });
   }
 
   testWidgets('age gate not passed → boot lands on onboarding welcome',
       (tester) async {
     await pumpApp(tester);
-    expect(find.text('Build your study plan'), findsOneWidget);
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
   });
 
   testWidgets(
@@ -70,7 +83,7 @@ void main() {
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await pumpApp(tester);
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
   });
 
   testWidgets('age gate passed, valid selection → boot lands on home',
@@ -80,7 +93,7 @@ void main() {
     await NotificationRationaleRepository(db).markShown();
     await pumpApp(tester);
     expect(find.text('Home'), findsWidgets);
-    expect(find.text('Choose your exam'), findsNothing);
+    expect(find.text('Which exam are you taking?'), findsNothing);
   });
 
   testWidgets('completed onboarding goes home without a rationale gate',
@@ -306,6 +319,6 @@ void main() {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('removed-exam');
     await pumpApp(tester);
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
   });
 }

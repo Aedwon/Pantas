@@ -8,12 +8,14 @@ class GroupedSection extends StatelessWidget {
     required this.children,
     this.header,
     this.footer,
+    this.headerStyle,
     super.key,
   });
 
   final List<Widget> children;
   final String? header;
   final String? footer;
+  final TextStyle? headerStyle;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -24,7 +26,7 @@ class GroupedSection extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 7),
               child: Text(
                 header!.toUpperCase(),
-                style: context.type.sectionHeader,
+                style: headerStyle ?? context.type.sectionHeader,
               ),
             ),
           DecoratedBox(

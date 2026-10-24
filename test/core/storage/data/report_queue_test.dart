@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/features/quiz/data/report_queue.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 
 import '../../../helpers/in_memory_database.dart';
 

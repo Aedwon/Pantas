@@ -101,8 +101,7 @@ void main() {
     expect(settings.updatedAt, DateTime.utc(2026, 5, 22, 12));
   });
 
-  test('updates exam date only for tomorrow or later and bumps updatedAt',
-      () async {
+  test('allows an exam today and rejects yesterday', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final repo = DriftSettingsRepository(
@@ -111,17 +110,17 @@ void main() {
     );
 
     await repo.updateExamDate(
-      ExamDate.onDay(DateTime(2026, 5, 23)),
+      ExamDate.onDay(DateTime(2026, 5, 22)),
       today: DateTime(2026, 5, 22),
     );
 
     expect(
       (await repo.readUserSettings()).examDate,
-      ExamDate.onDay(DateTime(2026, 5, 23)),
+      ExamDate.onDay(DateTime(2026, 5, 22)),
     );
     await expectLater(
       repo.updateExamDate(
-        ExamDate.onDay(DateTime(2026, 5, 22)),
+        ExamDate.onDay(DateTime(2026, 5, 21)),
         today: DateTime(2026, 5, 22),
       ),
       throwsA(isA<InvalidExamDateException>()),

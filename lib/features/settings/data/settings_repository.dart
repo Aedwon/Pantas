@@ -121,8 +121,7 @@ class DriftSettingsRepository {
   Future<void> updateExamDate(ExamDate date, {required DateTime today}) async {
     // At month precision the comparison is against the month, not the 1st, so
     // the current month stays selectable while it still has days left in it.
-    final earliest = DateTime(today.year, today.month, today.day)
-        .add(const Duration(days: 1));
+    final earliest = DateTime(today.year, today.month, today.day);
     final toCompare = date.day ?? DateTime(date.year, date.month + 1, 0);
     if (toCompare.isBefore(earliest)) {
       throw InvalidExamDateException(date);
