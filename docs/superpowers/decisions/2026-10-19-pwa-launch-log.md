@@ -1704,3 +1704,16 @@ relay runner and Mac must be on; the Pantas repository is public, so lesson and 
 
 Decision: relay hand-in design accepted; repository stays public for now. Illustration format
 under discussion.
+
+## October 25: illustrations as SVG
+
+Lead answer: SVG is usually lighter and sharper; the app's SVG support covers shapes, colors,
+gradients and text but not blur, some styling, or animation. Recommended static SVG with a render
+check, animations as animated WebP. Aedwon's exact reply:
+
+> let's go with svg everything with animations please
+>
+> in the future, when we release for play store app store, they can also display svg correct? if this gets implemented
+
+Decision: every illustration is SVG. How animations are shown is under discussion (animated SVG
+does not play in the app's SVG support).
