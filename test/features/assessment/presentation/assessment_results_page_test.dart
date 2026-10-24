@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -199,6 +200,43 @@ void main() {
     expect(find.text('Could not save your progress.'), findsOneWidget);
     expect(find.text('Home'), findsNothing);
     expect(sink.errors, hasLength(1));
+  });
+  group('elapsed time line', () {
+    Future<void> pumpWithDuration(WidgetTester tester, Duration took) async {
+      final done = DateTime(2026);
+      await db.into(db.attemptsLocal).insert(
+            AttemptsLocalCompanion.insert(
+              id: 'a1',
+              examId: 'e1',
+              startedAt: done.subtract(took),
+              completedAt: Value(done),
+              origin: const Value('assessment'),
+              itemsJson: '[]',
+            ),
+          );
+      await tester.pumpAppWithRouter(
+        _buildRouter('e1'),
+        overrides: databaseOverrides(),
+      );
+      addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('under one minute reads "in under a minute"', (tester) async {
+      await pumpWithDuration(tester, const Duration(seconds: 40));
+      expect(find.text('in under a minute'), findsOneWidget);
+      expect(find.text('in 0 minutes'), findsNothing);
+    });
+
+    testWidgets('one minute and more keep the counted wording', (tester) async {
+      await pumpWithDuration(tester, const Duration(seconds: 70));
+      expect(find.text('in 1 minute'), findsOneWidget);
+    });
+
+    testWidgets('several minutes are plural', (tester) async {
+      await pumpWithDuration(tester, const Duration(minutes: 24));
+      expect(find.text('in 24 minutes'), findsOneWidget);
+    });
   });
   testWidgets('Go to Today acknowledges once and reopening goes Home',
       (tester) async {

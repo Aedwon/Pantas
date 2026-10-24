@@ -314,8 +314,11 @@ class _ResultsBodyState extends State<_ResultsBody>
             1500,
             300,
             Text(
-              'in ${elapsed.inMinutes} '
-              '${elapsed.inMinutes == 1 ? 'minute' : 'minutes'}',
+              switch (elapsed.inMinutes) {
+                0 => 'in under a minute',
+                1 => 'in 1 minute',
+                final minutes => 'in $minutes minutes',
+              },
               style: context.type.footnote.copyWith(color: c.secondaryLabel),
             ),
             offset: 0,

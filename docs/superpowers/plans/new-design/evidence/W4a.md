@@ -384,3 +384,8 @@ D: Back to the picker deletes the track this flow created unless it has an attem
 - `dart run tool/check_no_ai_attribution.dart`: `check_no_ai_attribution: OK`
 
 Round 1 open items now resolved: the picker note and today wording (B), AS_Leave layout (A), silent catches (C), lingering custom track (D). Still open for Aedwon: AS_Results "No assessment found." and "in 0 minutes", and the calm line for an exam today.
+
+
+## Round 3: AS_Results elapsed time under one minute
+
+Aedwon approved ("2 is approved") that elapsed time under one minute reads "in under a minute" instead of "in 0 minutes". One minute stays "in 1 minute", more stays "in N minutes". The new test failed first (no "in under a minute" text). Checks: `flutter test test/features/assessment` `00:02 +56: All tests passed!`; `flutter analyze lib test tool` `No issues found!`; format `Formatted 1550 files (0 changed)`; `check_layering: OK`. Still open: "No assessment found." (Aedwon is choosing its design) and the calm line for an exam today.
