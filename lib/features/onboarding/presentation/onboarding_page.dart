@@ -101,10 +101,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               await ref.read(assessmentRepositoryProvider).hasCompletedForExam(
                     id,
                   );
-      if (studied) {
-        _customTrackId ??= id;
-        return;
-      }
+      // A track with study data stays, but this flow lets go of it: the next
+      // custom exam must make its own track, not rename or rescope this one.
+      if (studied) return;
       await ref.read(customTrackRepositoryProvider).delete(id);
       if (!mounted) return;
       ref

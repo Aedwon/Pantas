@@ -6,6 +6,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -13,6 +14,44 @@ import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+
+Future<void> _pumpPage(
+  WidgetTester tester,
+  AppDatabase db,
+  ContentDatabase content,
+  OnboardingProgress progress,
+) async {
+  final router = GoRouter(
+    initialLocation: '/onboarding',
+    routes: [
+      GoRoute(
+        path: '/onboarding',
+        builder: (_, __) => const OnboardingPage(),
+      ),
+      GoRoute(
+        path: '/home',
+        builder: (_, __) => const Scaffold(body: Text('Home')),
+      ),
+    ],
+  );
+  addTearDown(router.dispose);
+  await tester.pumpAppWithRouter(
+    router,
+    overrides: [
+      appDatabaseProvider.overrideWithValue(db),
+      contentDatabaseProvider.overrideWithValue(content),
+      onboardingWebProvider.overrideWithValue(true),
+      onboardingProgressProvider.overrideWith((ref) async {
+        // The router already holds the active exam in the real app.
+        await ref.watch(activeExamFocusProvider.future);
+        return progress;
+      }),
+      examPickerCatalogProvider.overrideWith((ref) => Stream.value(const [])),
+    ],
+  );
+  addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+  await tester.pumpAndSettle();
+}
 
 Future<(AppDatabase, ContentDatabase)> _pumpFlow(WidgetTester tester) async {
   final db = inMemoryDatabase();
@@ -50,46 +89,27 @@ Future<(AppDatabase, ContentDatabase)> _pumpFlow(WidgetTester tester) async {
     subjectId: 's2',
     name: 'Biology',
   );
-  final router = GoRouter(
-    initialLocation: '/onboarding',
-    routes: [
-      GoRoute(
-        path: '/onboarding',
-        builder: (_, __) => const OnboardingPage(),
-      ),
-      GoRoute(
-        path: '/home',
-        builder: (_, __) => const Scaffold(body: Text('Home')),
-      ),
-    ],
+  await _pumpPage(
+    tester,
+    db,
+    content,
+    OnboardingProgress(agePassed: true, policyAccepted: true),
   );
-  addTearDown(router.dispose);
-  await tester.pumpAppWithRouter(
-    router,
-    overrides: [
-      appDatabaseProvider.overrideWithValue(db),
-      contentDatabaseProvider.overrideWithValue(content),
-      onboardingWebProvider.overrideWithValue(true),
-      onboardingProgressProvider.overrideWith(
-        (ref) async =>
-            OnboardingProgress(agePassed: true, policyAccepted: true),
-      ),
-      examPickerCatalogProvider.overrideWith((ref) => Stream.value(const [])),
-    ],
-  );
-  addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
-  await tester.pumpAndSettle();
   return (db, content);
 }
 
-Future<void> _createTrackAndReachDate(WidgetTester tester) async {
+Future<void> _createTrackAndReachDate(
+  WidgetTester tester, {
+  String name = 'My Exam',
+  String subject = 'Mathematics',
+}) async {
   await tester.tap(find.text("My exam isn't listed"));
   await tester.pumpAndSettle();
-  await tester.enterText(find.byType(TextField), 'My Exam');
+  await tester.enterText(find.byType(TextField), name);
   await tester.pump();
   await tester.tap(find.text('Continue'));
   await tester.pumpAndSettle();
-  await tester.tap(find.text('Mathematics'));
+  await tester.tap(find.text(subject));
   await tester.pump();
   await tester.tap(find.text('Continue'));
   await tester.pumpAndSettle();
@@ -179,6 +199,50 @@ void main() {
       (await content.select(content.contentExams).get())
           .where((exam) => exam.isCustom),
       hasLength(1),
+    );
+  });
+
+  testWidgets('a kept track is not renamed or rescoped by the next custom exam',
+      (tester) async {
+    final (db, _) = await _pumpFlow(tester);
+    await _createTrackAndReachDate(tester);
+    final first = (await db.select(db.customTrackMetaLocal).get()).single;
+    await AssessmentRepository(db).saveResult(
+      first.examId,
+      DateTime(2026),
+      const [],
+    );
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Back'));
+    await tester.pumpAndSettle();
+    final scope = await CustomTrackRepository(
+      db,
+      ProviderScope.containerOf(tester.element(find.byType(MaterialApp)))
+          .read(contentDatabaseProvider),
+    ).excludedTopicIds(first.examId);
+
+    await _createTrackAndReachDate(
+      tester,
+      name: 'Other Exam',
+      subject: 'Science',
+    );
+
+    final tracks = await db.select(db.customTrackMetaLocal).get();
+    expect(tracks, hasLength(2));
+    final kept = tracks.singleWhere((t) => t.examId == first.examId);
+    expect(kept.name, 'My Exam');
+    expect(
+      await CustomTrackRepository(
+        db,
+        ProviderScope.containerOf(tester.element(find.byType(MaterialApp)))
+            .read(contentDatabaseProvider),
+      ).excludedTopicIds(first.examId),
+      scope,
+    );
+    expect(
+      tracks.singleWhere((t) => t.examId != first.examId).name,
+      'Other Exam',
     );
   });
 }
