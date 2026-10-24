@@ -49,8 +49,6 @@ void main() {
       HomeState.nothingDue,
       HomeState.reviewOnly,
       HomeState.dayOff,
-      HomeState.finishedReviewWeek,
-      HomeState.lastDay,
     ]) {
       await show(tester, state, large: true);
       expect(tester.takeException(), isNull);
@@ -63,5 +61,29 @@ void main() {
     expect(find.text('Did you take CSE-P?'), findsOneWidget);
     expect(find.text('Set a New Date'), findsOneWidget);
     expect(find.text('Switch Exams'), findsOneWidget);
+  });
+  testWidgets('day off draws no icon and hides advance when it adds nothing',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: const Scaffold(
+          body: HomeStateCard(
+            state: HomeState.dayOff,
+            examName: 'CSE Professional',
+            examShortName: 'CSE-P',
+            onPrimary: null,
+          ),
+        ),
+      ),
+    );
+    expect(find.text('Day off'), findsOneWidget);
+    expect(find.byType(Icon), findsNothing);
+    expect(find.text('I Want to Advance'), findsNothing);
+  });
+  testWidgets('no content offers only Switch Exam', (tester) async {
+    await show(tester, HomeState.noContent);
+    expect(find.text('Switch Exam'), findsOneWidget);
+    expect(find.text('Switch Exams'), findsNothing);
   });
 }
