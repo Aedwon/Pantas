@@ -60,6 +60,8 @@ class PerformancePage extends StatefulWidget {
   State<PerformancePage> createState() => _PerformancePageState();
 }
 
+String _topicsLabel(int count) => '$count ${count == 1 ? "topic" : "topics"}';
+
 class _PerformancePageState extends State<PerformancePage> {
   late int _level = widget.initialLevel;
   late SortCycleOrder _sort = widget.initialSort;
@@ -71,7 +73,10 @@ class _PerformancePageState extends State<PerformancePage> {
     final subjects = widget.data.subjects.where((r) => r.answered > 0).toList();
     final answered = subjects.fold(0, (sum, r) => sum + r.answered);
     final correct = subjects.fold(0, (sum, r) => sum + r.correct);
-    final level = widget.pro ? _level : 0;
+    final level = _level.clamp(0, widget.data.lessonLevelAvailable ? 2 : 1);
+    // Free keeps the Subjects view. Topics and Lessons slide in but show one
+    // invitation card instead of a list, and the sort button dims (DT_Free).
+    final gated = !widget.pro && level != 0;
     final rows = (level == 0
             ? subjects
             : level == 1
@@ -120,7 +125,7 @@ class _PerformancePageState extends State<PerformancePage> {
             'Topics',
             if (widget.data.lessonLevelAvailable) 'Lessons',
           ],
-          selected: _level.clamp(0, widget.data.lessonLevelAvailable ? 2 : 1),
+          selected: level,
           onChanged: (level) => setState(() {
             _level = level;
             _publish();
@@ -131,72 +136,83 @@ class _PerformancePageState extends State<PerformancePage> {
           alignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            TextButton(
-              onPressed: level == 0 || !widget.pro
-                  ? null
-                  : () => setState(() => _picker = true),
-              child: Text(
-                level == 0
-                    ? '${subjects.length} SUBJECTS'
-                    : _subject == null
-                        ? 'ALL SUBJECTS'
-                        : subjects
-                            .firstWhere((r) => r.id == _subject)
-                            .title
-                            .toUpperCase(),
-                style: context.type.sectionHeader,
+            if (gated)
+              const SizedBox.shrink()
+            else
+              TextButton(
+                onPressed: level == 0 || !widget.pro
+                    ? null
+                    : () => setState(() => _picker = true),
+                child: Text(
+                  level == 0
+                      ? '${subjects.length} SUBJECTS'
+                      : _subject == null
+                          ? 'ALL SUBJECTS'
+                          : subjects
+                              .firstWhere((r) => r.id == _subject)
+                              .title
+                              .toUpperCase(),
+                  style: context.type.sectionHeader,
+                ),
               ),
-            ),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(order, style: context.type.sectionHeader),
-                SortCycleButton(
-                  value: _sort,
-                  onChanged: (sort) => setState(() {
-                    _sort = sort;
-                    _publish();
-                  }),
+                if (!gated) Text(order, style: context.type.sectionHeader),
+                Opacity(
+                  opacity: gated ? .35 : 1,
+                  child: IgnorePointer(
+                    ignoring: gated,
+                    child: SortCycleButton(
+                      value: _sort,
+                      onChanged: (sort) => setState(() {
+                        _sort = sort;
+                        _publish();
+                      }),
+                    ),
+                  ),
                 ),
               ],
             ),
           ],
         ),
-        GroupedSection(
-          children: [
-            for (final row in rows)
-              Column(
-                children: [
-                  ListRow(
-                    title: row.title,
-                    subtitle: level == 0
-                        ? '${widget.data.subjectCounts[row.id] ?? 0} topics'
-                        : '${row.subtext == null ? "" : "${row.subtext} · "} '
-                            '${row.answered} answered',
-                    value: '${(row.accuracy! * 100).round()}%',
-                    valueStyle: context.type.emphasized,
-                    onTap: () => setState(() {
-                      if (!widget.pro) return;
-                      if (level == 0) {
-                        _subject = row.id;
-                        _level = 1;
-                        _publish();
-                      } else if (level == 1) {
-                        widget.onTopic(row.id);
-                      } else {
-                        widget.onLesson?.call(row.id);
-                      }
-                    }),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 13),
-                    child: AccuracyBar.topicRows(accuracy: row.accuracy!),
-                  ),
-                ],
-              ),
-          ],
-        ),
-        if (!widget.pro) ...[
+        if (!gated)
+          GroupedSection(
+            children: [
+              for (final row in rows)
+                Column(
+                  children: [
+                    ListRow(
+                      title: row.title,
+                      subtitle: level == 0
+                          ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
+                          : [
+                              if (row.subtext != null) row.subtext!,
+                              '${row.answered} answered',
+                            ].join(' · '),
+                      value: '${(row.accuracy! * 100).round()}%',
+                      valueStyle: context.type.emphasized,
+                      onTap: () => setState(() {
+                        if (level == 0) {
+                          _subject = row.id;
+                          _level = 1;
+                          _publish();
+                        } else if (level == 1) {
+                          widget.onTopic(row.id);
+                        } else {
+                          widget.onLesson?.call(row.id);
+                        }
+                      }),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 13),
+                      child: AccuracyBar.topicRows(accuracy: row.accuracy!),
+                    ),
+                  ],
+                ),
+            ],
+          ),
+        if (gated) ...[
           const SizedBox(height: 20),
           GroupedSection(
             children: [
