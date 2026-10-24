@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -16,6 +17,7 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart'
     as passage_ui;
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -25,8 +27,6 @@ import 'package:pantas/features/assessment/domain/models/assessment_session.dart
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
-import 'package:pantas/features/quiz/data/report_queue.dart';
-import 'package:pantas/features/quiz/presentation/report_form.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 final _startAssessmentProvider = Provider<StartAssessment>(
