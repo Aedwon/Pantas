@@ -1511,3 +1511,22 @@ Major 628; Minor 186), script findings 93, illustration entries 41, accuracy con
 Limit recorded: D4 gives one read per lesson with no deciding chat or planted lessons, so the run
 has no miss-rate measure and no second opinion. Some B01 findings are judgment calls rather than
 wrong facts. The lead triages findings before E4 rewrites. Level 4 awaits Aedwon's review.
+
+## October 25: rewrite CSE lessons before Level 5
+
+Aedwon's exact comments:
+
+> what do you recommend we do here onwards? should we rewrite the lessons per the audit first? because i think it would be faster than if checking all 3000+ questions and then rewriting them because of the lesson rewrites as well
+
+> go do that in 34 minutes when claude limits reset
+
+Facts given: CSE Level 5 covers about 1,100 questions in 55 question files, not all 3,222. Level 5
+has two parts: question-only checks (answer key, wording, choices, explanations), which lesson
+rewrites do not affect, and the practice-against-teaching check, which does depend on the lessons.
+
+Options: (recommended) triage Level 4 findings, rewrite lessons (E4), then run all of Level 5
+against the rewritten lessons; or run the question-only part of Level 5 during the rewrites,
+which costs Aedwon pasting time while he also reviews rewrites.
+
+Decision: the recommended order. The lead triages the 866 findings first, starting with the 52
+Blockers. D5 (Level 5 in parallel with Level 4) is superseded by this order.
