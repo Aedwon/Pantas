@@ -365,4 +365,10 @@ Publication is a separate decision under `WORKFLOW.md`.
 - Admin lookup tool: by email or PayMongo payment id, list payments, grants and audit rows; flag
   duplicate charges and payments that did not unlock Pro (about half a day; parked October 19).
 - Redemption codes and account-ID grants for extra mocks and Pro (marketing campaigns).
+- Animated lesson illustrations: an in-app player for a subset of standard SVG animation (move,
+  rotate, scale, fade, draw a line), with a check that rejects unsupported tags; look for a
+  ready-made package first. About 3 to 4 days with tests (deferred October 25). Figures marked as
+  animation candidates during the CSE rewrite are upgraded then.
+- Parameterized question generator to replace near-duplicate questions (idea, October 25; its
+  own conversation).
 - Android and iOS store releases.

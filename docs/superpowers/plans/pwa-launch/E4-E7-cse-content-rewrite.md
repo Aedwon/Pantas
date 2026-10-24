@@ -1,6 +1,7 @@
 # CSE content rewrite, figures, question check and build (PWA plan E4 to E7)
 
-Date: October 25, 2026. Status: draft for Aedwon's approval. Amends Lane E of
+Date: October 25, 2026. Status: revision 2, draft for Aedwon's approval (relay hand-in and SVG
+illustrations added the same day). Amends Lane E of
 `docs/superpowers/plans/2026-10-19-pwa-launch.md` (tasks E3 to E7). Every decision it relies on
 is in `docs/superpowers/decisions/2026-10-19-pwa-launch-log.md`, October 25 entries.
 
@@ -20,16 +21,17 @@ accounts. Preparation that needs no ChatGPT can start now.
 - 361 CSE teaching gaps: 339 go into existing lessons, 4 become new lessons (the three branches of
   government, citizenship and voting, amending the Constitution, corruption and its effects), and
   6 English lessons gain a Filipino section.
-- 7 figure requests from the audit, plus the figures the rewrites add, plus 94 questions that are
-  switched off until their figure exists.
+- 7 figure requests from the audit, plus the figures the rewrites add (several per lesson or
+  section where they help), plus 94 questions that are switched off until their figure exists.
 - 1,562 questions in the 78 lessons' question files.
 
 ### Who does what
 
 | Who | Work |
 |---|---|
-| ChatGPT web chat, GPT 6 Sol High (you paste) | Lesson rewrites, 3 or 4 lessons per chat. Full independent read of every rewritten lesson, 2 or 3 per chat. Blind solves, about 25 questions per chat. Question checks and question fix drafts. New questions where a lesson has fewer than 20. |
-| Codex, GPT 6.1 Sol (limited) | Question figure data. Code-drawn lesson figures. New lesson files and their records. Anything the scripts reject twice. |
+| ChatGPT web chat, GPT 6 Sol High (you paste the prompt, nothing else) | Works on your Mac through the relay: lesson rewrites, 3 or 4 lessons per chat; full independent read of every rewritten lesson, 2 or 3 per chat; blind solves, about 25 questions per chat; question checks and fixes; new questions where a lesson has fewer than 20; one brief per figure. |
+| Claude Sonnet 5.5 | Draws every lesson figure as a full-color SVG from its brief. |
+| Codex, GPT 6.1 Sol (limited) | Question figure data. New lesson files and their records. Anything the scripts reject twice. |
 | GPT 6 Astra (once, at the end) | Adversarial review of the riskiest results and a random sample. |
 | Claude lead (Claude Pro) | Scripts, rulings, lesson splits, prerequisite links, sample review, merges, acceptance. Haiku 5.5 runs bulk checks; Sonnet 5.5 takes judgment-heavy bulk work. |
 | You | The pastes. Review in Lesson Author and Question Studio. Final approval. |
@@ -40,8 +42,11 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
 
 1. **Preparation (no ChatGPT, can start now).** Scripts that build one short brief per lesson,
    make the mechanical fixes (numbers in math notation, dashes, headings), and check question
-   file typing. A batch mode for the paste page: one paste holds several lessons or questions,
-   and the reply is split, saved and checked per item. A check of OpenAI's terms on using three
+   file typing. A batch mode for the paste page: it gives you one prompt for several lessons or
+   questions. The chat does the work on your Mac through the relay and runs a hand-in script; the
+   script checks each item, commits accepted work, and pushes it; a GitHub check runs on the
+   push; the page marks the item done from the commit and shows your next prompt. SVG display in
+   the app (a small app change), and a check that renders every SVG the way the app will. A check of OpenAI's terms on using three
    accounts. Outlines for the 4 new lessons and the split proposals for 6 oversized lessons.
 2. **Pilot: about 3 lessons from each of the 6 subjects (about 18 lessons)** through every step:
    rewrite, checks, full read, fixes, my review, your review. It measures pastes, rejections,
@@ -49,10 +54,12 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
    You decide whether to continue, change the split, or stop.
 3. **All lessons, topic by topic.** The writer chats take topic N while the reading chats take
    topic N minus 1. New lessons and splits go through the same steps.
-4. **Figures.** For each needed figure: first an existing code-drawn figure type (Codex writes
-   the data), then a ChatGPT-generated image through Illustration Studio (you export it), then an
-   open-licensed image. If none fits, I decide whether a new figure type is worth building or the
-   figure is dropped. A checker confirms each figure matches its text.
+4. **Figures.** A web chat writes each figure's brief from the rewritten lesson. Sonnet draws
+   it as a full-color static SVG, any shapes or style that serve its purpose; a lesson or section
+   may have several. The render check rejects SVG the app cannot draw. A fresh chat checks each
+   figure against its text. Briefs mark figures that would teach better as animations; those
+   ship static at launch and are upgraded after launch. Puzzle questions keep the app's exact,
+   built-in figure types (Codex writes their data).
 5. **Questions.** A 50-question calibration first. Then a blind solve of every question; a second
    chat with the key settles every answer that differs. A per-file check reads the questions
    against the rewritten lesson: wording, clues, explanations, wrong-choice notes, and whether the
@@ -80,19 +87,27 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
 
 - Your pastes, estimated before the pilot: about 25 for rewrites, 30 for full reads, 65 for blind
   solves plus their disputes, 78 for question checks, and about 40 for question fixes and new
-  questions. About 240 in total. The pilot replaces these estimates with measured numbers.
-- Codex usage under the Plus limits for this work is unknown until the pilot.
+  questions, plus figure brief and figure check pastes (count unknown until the rewrites say
+  how many figures). About 240 before figures. The pilot replaces these estimates with measured numbers.
+- Codex usage under the Plus limits for this work is unknown until the pilot. Sonnet's figure
+  work runs on Claude Pro, the smallest budget; if the pilot shows it cannot cover every figure,
+  web chat draws the rest as SVG.
+- While chats work, the relay runner must be on and your Mac awake.
+- The repository is public, so lesson and question content can be read by anyone (accepted
+  October 25).
 - Four puzzle lessons have no active question today: every question needs a figure. Mental
   rotation has 6. These lessons depend on step 4 to reach 20.
 - No gallery page exists for reviewing all figures at once; Lesson Author's illustration review
   and Question Studio are the review screens.
+- Animations are deferred to after launch (October 25).
 
 ### Decisions for you
 
 1. Approve this plan at **balanced** complexity (the level recommended on October 25; you have not
    picked one yet). Minimal drops the pilot and the per-subject measurement. Hardened adds a
    second reader for General Information legal facts, about a third more reading pastes.
-2. The figure order in step 4: code-drawn first, then ChatGPT image, then open-licensed.
+2. The figure style: before Sonnet draws at scale, you pick from 3 or 4 sample SVG styles in the
+   visual companion.
 
 ## Part B. Agent section
 
@@ -127,17 +142,30 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
    run before it) to report bare numbers, `: ` in unquoted text, LaTeX escapes in double quotes,
    and bare booleans in choice text. When it exists, the guide's typing paragraphs shrink to one
    line pointing to it (separate guide edit, recorded).
-4. **Paste page batch mode** on the audit branch, beside `LessonList` (`paste_lib.py` already
-   expects a second list type). Item lists: `rewrite` (3 to 4 lessons per prompt, one topic),
-   `read` (2 to 3 rewritten lessons per prompt, fresh chat, the Level 4 form per lesson), `solve`
-   (about 25 questions, stem and choices only), `settle` (disputed questions with key and
-   explanation), `qcheck` (one question file plus its rewritten lesson), `qfix` (YAML items).
-   Reply format: one fenced block per item with a start and end marker naming the item id. The
-   page splits the reply, runs each item's checks, saves accepted items, and gives a ready reply
-   for rejected ones. Same safety as `server.py` (local only, host and origin checks). Rewrite
-   items also pass a change guard: a script lists every changed passage and whether a brief row
-   or gap part covers it; uncovered changes are flagged to the reader and the lead, not blocked.
-   Tests with fixtures, as for `paste/tests`.
+4. **Prompt page and relay hand-in** on the audit branch, beside `LessonList` (`paste_lib.py`
+   already expects a second list type). Item lists: `rewrite` (3 to 4 lessons, one topic),
+   `read` (2 to 3 rewritten lessons, fresh chat, the Level 4 form per lesson), `solve` (about 25
+   questions, stem and choices only), `settle` (disputed questions with key and explanation),
+   `qcheck` (one question file plus its rewritten lesson), `qfix` (question items), `figbrief`
+   (figure briefs). The page shows one prompt per batch for Aedwon to paste; nothing is pasted
+   back.
+   - The chat works through `Aedwon/chatgpt-terminal-relay` (private): `workspace_write_file`
+     into an ignored inbox path in the rewrite worktree, then `workspace_exec` of one hand-in
+     command per batch. Verify the relay runbook, runner availability and the visible model
+     before the pilot; a mismatch is a blocker.
+   - The hand-in script validates each item (lesson checks, import check, change guard, form
+     checks), refuses on any change outside the batch's paths, moves accepted files into place,
+     commits them with the batch id, and pushes the rewrite branch. The chat never commits or
+     pushes. Rejections print numbered reasons only; the chat fixes them in the same chat (two
+     attempts, then the item goes to Codex).
+   - A GitHub Actions workflow on the rewrite branch reruns the lesson and question checks on
+     each push (public repository, so minutes are free). A failing push stops new batches.
+   - The page marks an item done when its commit is on the remote branch and the check passed,
+     then shows the next prompt.
+   - Change guard: every changed passage is listed with the brief row or gap part that covers
+     it; uncovered changes are flagged to the reader and the lead, not blocked.
+   - Same local safety as `server.py` (local only, host and origin checks). Tests with fixtures,
+     as for `paste/tests`.
 5. **Terms check**: OpenAI's current terms on one person running several Plus accounts and Codex
    from one machine. Record the result; a conflict is a stop condition for that usage.
 6. **New lessons and splits**: outlines for the 4 new lessons (sections, examples, CSE gap parts
@@ -146,7 +174,14 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
    moves no question ids.
 7. **Illustration worklist**: rerun `tools/audit/list_illustrations.py`; the README says 278 and
    `worklist.tsv` has 59 rows. Reconcile before step 4 counts figures.
-8. **Source ledger**: `docs/content/audit/cse-rewrite-ledger.md` in the `source-policy.md` row
+8. **SVG in the app** (app code; freeze lifted for the PWA scope): add SVG display for lesson
+   illustrations in the portable text renderer (today `CachedNetworkImage`, PNG only), with
+   theme-aware colors for dark mode; extend the lesson import and content upload to carry `.svg`
+   files in place of PNG; a render check script that draws every SVG through the same library as
+   the app and rejects unsupported features (blur and shadow filters, unsupported styling,
+   animation tags). Verified on Android, iOS and web builds. Aedwon approves the look of the
+   sample styles in the visual companion first.
+9. **Source ledger**: `docs/content/audit/cse-rewrite-ledger.md` in the `source-policy.md` row
    format; one row per changed or added fact.
 
 ### P1 pilot
@@ -173,16 +208,22 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
 
 ### P3 figures
 
-- Inputs: illustration triage rows, new `<!-- ILLUSTRATION -->` markers from rewrites, and the
-  94 question figures.
+- Inputs: illustration triage rows, figures the rewrites call for (several per lesson or section
+  allowed), and the 94 question figures.
+- Lesson figures: a `figbrief` chat writes one brief per figure (purpose, content, labels, exact
+  values from the lesson, size, and whether it is an animation candidate). Claude Sonnet 5.5 draws
+  a full-color static SVG per brief; the render check must pass; a fresh web chat compares the
+  rendered figure with the lesson text. Files replace the PNG path:
+  `content/illustrations/<subject>/<topic>/<lesson-slug>/NN-<slug>.svg`, joined to markers by
+  order as today.
+- Animation candidates ship static and are listed for the post-launch animation player (PWA plan,
+  After launch).
 - Question figures: Codex writes `figureSpec` for an existing kind (21 registered in
-  `lib/core/ui/figures/figure_registry.dart`). The figure is checked against the stem and key by
-  a fresh web chat given a rendered PNG.
-- Lesson figures: code-drawn through the existing original-code batches and preview renderer
-  where a kind fits; otherwise an Illustration Studio prompt that Aedwon runs in ChatGPT and
-  exports; otherwise an open-licensed source recorded in `content/illustrations/sources/`.
-- New figure kinds: the lead decides; Claude Sonnet builds with tests; Aedwon approves the look
-  in the visual companion before it is used.
+  `lib/core/ui/figures/figure_registry.dart`), checked against the stem and key by a fresh web
+  chat given a rendered image. If no kind fits, the lead decides between a new kind (Sonnet,
+  with tests) and an SVG figure, if question figures gain SVG support.
+- Sonnet usage is measured in the pilot; if Claude Pro cannot cover every figure, web chat draws
+  the rest as SVG under the same checks.
 
 ### P4 questions (replaces the Level 5 run for CSE)
 
@@ -220,7 +261,9 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
 ### What this plan supersedes
 
 - Lane E's model split of October 19: lesson and question work moves from Codex to batched web
-  chat; figure data moves from Haiku to Codex (Claude Pro has the smallest limits).
+  chat working through the relay; lesson figures move from Haiku figure data to Sonnet SVG;
+  question figure data moves to Codex.
+- The PNG illustration pipeline (Illustration Studio exports): lesson figures are SVG.
 - The October 25 checker-reads-the-diff idea: replaced by a full independent read of every
   rewritten lesson (Aedwon, October 25).
 - The cheaper-model-first blind solve: web chat has no practical limit, so every blind solve uses

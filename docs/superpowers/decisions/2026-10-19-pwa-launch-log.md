@@ -1717,3 +1717,17 @@ check, animations as animated WebP. Aedwon's exact reply:
 
 Decision: every illustration is SVG. How animations are shown is under discussion (animated SVG
 does not play in the app's SVG support).
+
+## October 25: animations deferred to after launch
+
+Aedwon asked whether the first-frame-only SVG limit is ours. Lead answer: it is a gap in
+Flutter's SVG support, which has no animation player; options were a web view per figure, an
+in-app player for the common SVG animation tags (recommended, about 3 to 4 days with tests), or a
+ready-made package (none verified). Aedwon's exact reply:
+
+> hmm go with your recommendation, but honestly these animations, let's defer to post-launch but take note of it
+
+Decision: launch ships static SVG only. After launch: an in-app player for a supported subset of
+standard SVG animation (move, rotate, scale, fade, draw a line), with a check script that rejects
+unsupported tags; check for a ready-made package first. During the rewrite, figure briefs mark
+animation candidates so they can be upgraded later.
