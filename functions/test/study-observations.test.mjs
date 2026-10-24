@@ -13,3 +13,13 @@ test('C9 refuses invalid measured timing and version', () => {
     assert.throws(() => checkAnswers([{...answer,...fields}],now), {code:'invalid-argument'});
   }
 });
+
+test('attributable C9 preserves true absence of an answer timestamp',()=>{
+ const {answeredAt,...untimestamped}=answer;
+ assert.deepEqual(checkAnswers([untimestamped],now,true),[untimestamped]);
+ assert.throws(()=>checkAnswers([untimestamped],now),{code:'invalid-argument'});
+});
+test('attributable C9 still validates an answer timestamp that is sent',()=>{
+ assert.throws(()=>checkAnswers([{...answer,answeredAt:'x'}],now,true),{code:'invalid-argument'});
+ assert.deepEqual(checkAnswers([answer],now,true),[answer]);
+});

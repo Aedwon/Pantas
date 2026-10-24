@@ -37,7 +37,7 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   }
   const sessionId = body.sessionId;
   if (typeof sessionId !== 'string' || !SESSION_ID.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
-  const answers = checkAnswers(body?.answers, now);
+  const answers = checkAnswers(body?.answers, now, attributed);
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
@@ -51,7 +51,7 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
     if (previous.exists) {
       if (attributed && (previous.get('examId') !== body.examId || previous.get('origin') !== body.origin ||
           previous.get('startedAt') !== startedAt || previous.get('finishedAt') !== finishedAt ||
-          previous.get('durationMs') !== durationMs || JSON.stringify(previous.get('answers')) !== JSON.stringify(answers))) {
+          previous.get('durationMs') !== durationMs || JSON.stringify(checkAnswers(previous.get('answers'), now, attributed)) !== JSON.stringify(answers))) {
         throw new HttpsError('failed-precondition', 'This session was already recorded with different observations.');
       }
       return false;

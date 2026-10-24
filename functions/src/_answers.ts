@@ -5,7 +5,7 @@ export const MAX_ID_LENGTH = 128;
 const MIN_TIME = Date.UTC(2020, 0, 1);
 const DAY_MS = 86_400_000;
 
-export type Answer = {questionId: string; chosen: string | null; correct: boolean; answeredAt: number;
+export type Answer = {questionId: string; chosen: string | null; correct: boolean; answeredAt?: number;
   responseMs?: number; questionVersion?: number};
 
 const bad = (message: string) => new HttpsError('invalid-argument', message);
@@ -17,8 +17,13 @@ export function checkTime(value: unknown, now: number, name: string): number {
   return Math.trunc(value);
 }
 
-/** Validates and copies each answer, dropping unknown fields so nothing else is stored. */
-export function checkAnswers(value: unknown, now: number): Answer[] {
+/**
+ * Validates and copies each answer, dropping unknown fields so nothing else is stored. An
+ * attributed batch (exam and origin sent) may leave `answeredAt` out, because the app does not
+ * store a per-answer time; it stays absent and is never replaced by the session's times. A sent
+ * `answeredAt` is always validated. Legacy batches must still carry it.
+ */
+export function checkAnswers(value: unknown, now: number, attributed = false): Answer[] {
   if (!Array.isArray(value) || value.length < 1 || value.length > MAX_ANSWERS) {
     throw bad(`Send 1 to ${MAX_ANSWERS} answers.`);
   }
@@ -34,7 +39,7 @@ export function checkAnswers(value: unknown, now: number): Answer[] {
     if (row.questionVersion !== undefined && (!Number.isSafeInteger(row.questionVersion) ||
         (row.questionVersion as number) < 1)) throw bad('Bad question version.');
     return {questionId, chosen: chosen as string | null, correct,
-      answeredAt: checkTime(row.answeredAt, now, 'answeredAt'),
+      ...(attributed && row.answeredAt === undefined ? {} : {answeredAt: checkTime(row.answeredAt, now, 'answeredAt')}),
       ...(row.responseMs === undefined ? {} : {responseMs: row.responseMs as number}),
       ...(row.questionVersion === undefined ? {} : {questionVersion: row.questionVersion as number})};
   });

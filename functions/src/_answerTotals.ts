@@ -63,6 +63,8 @@ export function addSession(totals: Totals, answers: Answer[]): void {
     }
     row.answered += 1;
     if (answer.correct) row.correct += 1;
+    // An answer with no stored time makes no day count; a day is never invented for it.
+    if (answer.answeredAt === undefined) continue;
     const day = phDay(answer.answeredAt);
     let counts = totals.days.get(day);
     if (!counts) totals.days.set(day, counts = new Map());
