@@ -1587,3 +1587,11 @@ Changed on main: `lesson-style-guide.md` (exam instruction words, exam claims, n
 Reasoning and General Information layouts), `content-checklist.md` (L01, L03, L19, Q19),
 `question-style-guide.md` (near-duplicates allowed for launch). Not done yet: the checking script
 that replaces the YAML quoting rules; until it exists the rules stay in the guide.
+
+## October 25: shared lessons and dependency owners
+
+Lead recommendations: a CSE rewrite may add CSE cases but must not remove a case another tagged
+exam needs; the lead owns the topic and lesson prerequisite links, writers flag new
+dependencies, and the checker confirms the links stay acyclic. Aedwon's exact reply:
+
+> okay sure.
