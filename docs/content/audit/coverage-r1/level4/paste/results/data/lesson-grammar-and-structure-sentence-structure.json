@@ -1,0 +1,323 @@
+{
+ "lesson_sha256": "ef876c783e5ff202618abfac958eb04c26367b048a5da47ba79c99c9d024c1a1",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly: their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.",
+     "problem": "Mere presence of one of these words does not guarantee a dependent clause because some have other grammatical uses. Merriam-Webster lists \"since\" as a preposition, adverb, and conjunction, so the shortcut can misclassify a sentence: https://www.merriam-webster.com/thesaurus/since.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Langkapan** (compound-complex): two or more independent clauses plus at least one dependent clause. \"Umuwi ang bata at natulog agad dahil pagod na siya.\"",
+     "problem": "The packet's Level 3 record says this exact Filipino illustration is uncertain because the second subject is omitted and says source-backed clarification is needed. B01 requires an unconfirmed claim to be left out rather than presented as definitive.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 answer: simple sentence. It has one independent clause; the coordinated subject and coordinated verbs do not create another clause.",
+    "Example 2 answer: compound sentence. \"She wanted to travel abroad\" and \"she could not afford the airfare\" are independent clauses joined by \"but.\"",
+    "Example 3 answer: complex sentence. \"Although the storm was severe\" is dependent, while \"the town suffered minimal damage\" is independent.",
+    "Example 4 answer: compound-complex sentence. \"When the bell rang\" is dependent, and the remaining two clauses are independent and joined by \"and.\""
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required non-math sections are present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For. Mnemonics is optional, and no required figure-dependent content is identified for this lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches classification of all four English sentence structures by clause count and also introduces the Filipino labels payak, tambalan, hugnayan, and langkapan with examples, matching the recorded recognition-level goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Despite having a compound subject (\"teacher and students\") and a compound verb (\"prepared and rehearsed\"), there is only one clause overall (one complete thought, no dependent clause attached).",
+     "problem": "This teaching sentence is long and dense, with several technical phrases and two parenthetical explanations packed into one sentence, which does not meet the very simple Grade 5 prose standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Classify this sentence: \"The teacher and her students prepared and rehearsed the play.\"",
+     "problem": "\"Classify\" is used as an exam command but is never given the required one-line explanation of what the student must do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked stems ask the student to classify a supplied sentence, which provides the complete problem-specific material without giving away the classification method. Each solution then identifies the relevant clauses and states the structure in straightforward language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino uses the same four structures, with these names:",
+     "problem": "The lesson begins teaching Filipino grammar terminology with English explanatory prose. The standards require lessons that teach Filipino grammar to use simple Filipino teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "pass",
+   "checked": [
+    "The illustrative sentences for payak, tambalan, hugnayan, and langkapan are all written in Filipino. The lesson contains no separate in-lesson quiz items."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [
+    "The lesson contains Filipino terminology and example sentences, including payak, tambalan, hugnayan, langkapan, and several Filipino conjunctions."
+   ],
+   "note": "Official KWF spelling and usage must be checked against the designated source outside this packet.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Payak** (simple): one complete thought. \"Umuwi ang bata.\"",
+     "problem": "Beyond the allowed one-time English gloss \"simple,\" the Filipino grammar teaching continues in English with \"one complete thought\" instead of using Filipino teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked or target word, so there is no prompt that must refer to \"the word in bold.\"",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This language-proficiency lesson uses Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, which fits the allowed subject structure. No mathematical formulas occur in the worked examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino uses the same four structures, with these names:",
+     "problem": "The recorded learning goal includes recognizing the local Filipino structure labels and illustrations, but every worked example is English. There is no worked Filipino clause analysis for payak, tambalan, hugnayan, or langkapan.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Each of the four worked examples presents its reasoning as a numbered list without skipping the clause-identification step needed for the classification. No mathematical computation requires display equations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be assessed.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its worked questions depends on a visual figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **simple sentence** has exactly one independent clause and no dependent clause.",
+     "problem": "The student must already understand \"clause,\" \"independent clause,\" and \"dependent clause\" to use this definition, but there is no prerequisite lesson and these terms are not explained before this point.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The four English structures are explained through their clause makeup and stand-alone behavior, while the Filipino subsection maps each local label to its corresponding structure and gives an illustration, which serves the recorded recognition-level Filipino goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly: their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.",
+     "problem": "The shortcut omits the condition that these words must actually be functioning as subordinating conjunctions introducing dependent clauses. Words such as \"since\" and \"while\" can have other grammatical functions, so students are told to rely on a marker mechanically.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "| **Simple** | 1 independent clause | The dog barked. |",
+     "problem": "The numeral 1 appears in lesson prose outside inline math delimiters, contrary to the required math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "| **Compound** | 2+ independent clauses | The dog barked, and the cat ran. |",
+     "problem": "The numeric expression 2+ appears outside inline math delimiters instead of being wrapped in dollar signs.",
+     "source": "single"
+    },
+    {
+     "quote": "| **Complex** | 1 independent + 1+ dependent clauses | Because the dog barked, the cat ran. |",
+     "problem": "The numeric expressions 1 and 1+ appear outside inline math delimiters instead of being written as inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "| **Compound-complex** | 2+ independent + 1+ dependent clauses | Because the dog barked, the cat ran, and it hid under the bed. |",
+     "problem": "The numeric expressions 2+ and 1+ appear outside inline math delimiters instead of being written as inline math.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "**Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly: their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.",
+   "concern": "The claim is too broad because several listed words can serve other grammatical functions, so their mere presence does not prove that the sentence contains a dependent clause.",
+   "source": "single"
+  },
+  {
+   "quote": "- **Langkapan** (compound-complex): two or more independent clauses plus at least one dependent clause. \"Umuwi ang bata at natulog agad dahil pagod na siya.\"",
+   "concern": "The packet's Level 3 record specifically says the omitted second subject makes this illustrative compound-complex analysis uncertain and that source-backed clarification is needed.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

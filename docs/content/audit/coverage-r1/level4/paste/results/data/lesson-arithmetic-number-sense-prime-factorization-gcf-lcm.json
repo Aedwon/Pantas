@@ -1,0 +1,297 @@
+{
+ "lesson_sha256": "46578b494acd8e425516e160ef83fc48c6d0ff2c7dcf666135981a6d29c72419",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions of prime number, prime factorization, GCF, and LCM; each is mathematically correct for the stated integer setting.",
+    "Checked the two-positive-integer identity gcd(a,b) times lcm(a,b) = ab and the 6, 10, 15 counterexample to the restricted continuous-division shortcut; both are correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "#1: 360 = 2^3 × 3^2 × 5, so choice B is correct.",
+    "#2: the shared smallest powers give GCF = 6xy^2, while the largest powers give LCM = 36x^3y^4.",
+    "#3: gcd(84,126,210) = 42, so 42 identical relief bags is correct.",
+    "#4: lcm(15,20,25) = 300 minutes = 5 hours, so the next common departure after 7:00 am is 12:00 pm.",
+    "#5: subtracting 3 makes the number a multiple of lcm(6,8,10) = 120; the smallest resulting number above 10 is 123."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, and no example depends on a missing figure.",
+    "Checked the Level 3 skill record against the lesson: prime factorization, GCF, LCM, common grouping, repeating schedules, and same-remainder construction are all present."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the greatest common factor and the least common multiple of $12x^3y^2$ and $18xy^4$, assuming the variables represent nonzero quantities for the LCM expression.",
+     "problem": "The recorded goal is about using prime powers for common groups, repeating events, and remainder conditions. This full worked example instead develops the separate monomial GCF/LCM extension, so substantial lesson content falls outside the recorded learning goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "This avoids a common error in a \"continuous division\" shortcut: dividing only by primes common to all rows and then multiplying the remaining bottom row does **not** always produce the LCM for three or more numbers.",
+     "problem": "This sentence is long and syntactically dense for the Grade 5 teaching-prose standard. It combines the shortcut, the incorrect procedure, and its limitation in one sentence instead of using short, simple statements.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No specialized exam command verb needing a one-line explanation appears in the lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No teaching analogy appears in the lesson; the P.I.G. and A.L.L. items are presented as mnemonics rather than analogies."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five worked-example stems: each supplies the problem-specific numbers, expressions, timing, or remainder condition needed to answer, without giving the tested GCF/LCM method or factorization procedure.",
+    "Checked the worked solutions for language: the procedural sentences are generally direct and simpler than the corresponding question stems."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repeated exam-reference openers or repeated test-maker phrasing, so there is no repetitive exam-motivation pattern."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson contains no Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the prohibition on Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a particular target word, so the bold-target-word prompt convention is not applicable.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases and the prohibited not-just-X-but-Y construction; none appears.",
+    "Checked sentence openings and the frontmatter summary; openings are reasonably varied and the summary plainly states the lesson content."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. For the GCF, use each shared factor to the smaller exponent.",
+     "problem": "The mathematics section-fit rule requires methods used by examples to be established in Core Concept. The lesson never teaches how the prime-power GCF/LCM method extends to variable factors before Example #2 applies it to x and y powers.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Mapped the recorded goal to worked examples: common grouping is covered by #3, repeating events by #4, and common-remainder construction by #5; #1 supplies a basic prime-factorization case before the application problems.",
+    "The goal-relevant examples progress from direct factorization to contextual GCF, contextual LCM, and the less direct same-remainder construction without duplicating the same reasoning with only changed numbers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Divide repeatedly by primes:",
+     "problem": "Example #1 does not present its solution as a numbered list. It gives an unnumbered instruction, one display equation, and an unnumbered answer sentence, contrary to the required worked-solution format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$360 = 2 \\times 180 = 2^2 \\times 90 = 2^3 \\times 45 = 2^3 \\times 3^2 \\times 5.$$",
+     "problem": "This chained display places several successive equalities and products on one line, making it too wide for the lesson guide's phone-screen display-equation requirement.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson paragraphs and lists: prose paragraphs stay within one to three sentences, and list formatting is used mainly for worked-solution steps rather than excessive teaching bullets."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to assess for specificity or load-bearing prose support.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Factor the coefficients.",
+     "problem": "The term \"coefficients\" is needed to follow Example #2 but is never defined or briefly explained earlier, and the packet provides no prerequisite lesson that teaches it.",
+     "source": "single"
+    },
+    {
+     "quote": "If a factor is still composite, continue factoring it.",
+     "problem": "The term \"composite\" is used as the condition for continuing prime factorization, but the lesson never defines what a composite number is and there is no prerequisite supplying that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the central concepts for meaning and operation: prime number, prime factorization, GCF, and LCM are defined; the lowest-power and largest-power selection methods are stated and demonstrated; the same-remainder transformation is explained in Example #5.",
+    "The two-integer product identity is followed by an explanation that it can recover the LCM when the two numbers and their GCF are known."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked applicability conditions and limitations: GCF and LCM definitions are restricted to positive integers, the product identity explicitly applies to two positive integers, and the monomial example states its nonzero-variable assumption.",
+    "The remainder example handles the greater-than-10 condition explicitly, and the listing-multiples advice limits that shortcut to small numbers while recommending prime factorization for larger values."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L16": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "> **A.L.L.** for LCM: Take **A**ll prime bases and use the **L**argest exponent for each.",
+     "problem": "The mnemonic appears constructed for this lesson instead of being a genuine or natural mnemonic, and its three-letter A.L.L. label does not even map to three stated mnemonic words. The guide says forced mnemonics should be omitted.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

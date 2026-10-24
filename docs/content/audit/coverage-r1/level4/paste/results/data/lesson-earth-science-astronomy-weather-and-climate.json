@@ -1,0 +1,353 @@
+{
+ "lesson_sha256": "27ee10506999abd245aeb254ecb0ecc8d5b41ec0c3da55bb70ca0a70f2175ab7",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the atmospheric-layer order, approximate layer ranges, weather location, stratospheric ozone, mesosphere meteors, thermosphere auroras, and exosphere description against NASA atmosphere references.",
+    "Checked PAGASA's Habagat and Amihan directions, affected regions, normal onset and termination ranges, year-to-year declaration variability, and July-through-October peak typhoon season against PAGASA climate material.",
+    "Checked PAGASA's tropical-cyclone category names and wind-strength basis, plus the distinction between a tropical cyclone and a monsoon, against PAGASA tropical-cyclone information.",
+    "Checked the greenhouse-effect mechanism and the human greenhouse-gas cause of current warming against standard NASA climate explanations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example #1 independently: (a) is weather because it is a short-term condition; (b) is climate because it describes a multi-decade rainfall pattern.",
+    "Solved Example #2 independently: ozone-rich air with temperature increasing with height identifies the stratosphere.",
+    "Solved Example #3 independently: warm, moist southwesterly flow with western-section rain identifies the Southwest Monsoon, or Habagat.",
+    "Solved Example #4 independently: Amihan is not dry everywhere because northeasterly flow can bring rain to exposed eastern areas.",
+    "Solved Example #5 independently: the basic greenhouse effect chiefly concerns absorption and re-emission of outgoing infrared radiation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "PAGASA describes two major monsoon systems:",
+     "problem": "Required monsoon-mechanism content is missing: the lesson gives wind directions and rainfall patterns but does not explain seasonal land-ocean heating, pressure differences, and the resulting wind reversal.",
+     "source": "single"
+    },
+    {
+     "quote": "A tropical cyclone is classified by sustained wind strength.",
+     "problem": "Required tropical-cyclone content is incomplete: the lesson names intensity categories but omits cyclone formation from warm ocean water, low pressure, convection, condensation energy, and rotation.",
+     "source": "single"
+    },
+    {
+     "quote": "**Climate change** is the broader set of persistent changes in the climate system, including temperature, rainfall patterns, ice, sea level, and extremes. Global warming is a major component and driver of current climate change.",
+     "problem": "Required climate-change coverage is missing beyond this list: the lesson does not teach causal physical-effect chains, political/economic/social effects, government responses, or mitigation/adaptation decision reasoning.",
+     "source": "single"
+    },
+    {
+     "quote": "The western North Pacific can produce tropical cyclones throughout the year.",
+     "problem": "Other required weather-system and hazard content is absent: the lesson does not teach sea and land breezes, the ITCZ and rainfall convergence, or hydrometeorological hazards and mitigation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is served directly: the lesson distinguishes weather from climate, classifies atmospheric and Philippine monsoon clues, and explains the greenhouse mechanism and current human-driven warming."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Its few particles can have very high kinetic temperatures, but the gas is extremely thin.",
+     "problem": "The teaching prose uses the unexplained technical phrase “kinetic temperatures,” which is harder than the Grade 5 simple-English standard requires.",
+     "source": "single"
+    },
+    {
+     "quote": "Its climatological onset is typically from the latter half of May into the first half of June, with termination commonly in October; exact onset and termination are declared from observed atmospheric patterns and vary by year.",
+     "problem": "This is a long, dense sentence with advanced wording such as “climatological onset” and “termination,” instead of short Grade 5 teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Classify: (a) \"Heavy rain is falling in Manila this afternoon.\" (b) \"A region's June-to-August rainfall has increased across several decades.\"",
+     "problem": "“Classify” is used as an exam verb without the required one-line explanation on its first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Greenhouse gases absorb and re-emit terrestrial infrared radiation; the mechanism is not simply “heat from the Sun being trapped like inside a glass greenhouse.”",
+     "problem": "The glass-greenhouse comparison is an analogy placed in Traps to Watch For, while the rule allows an analogy only in Core Concept.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five example stems for determinate givens and expected-knowledge leakage; none supplies a formula, definition, or solution method that the student is supposed to select.",
+    "Checked the worked solutions for simpler explanatory language than the stems; the answers state the classification or reasoning without unnecessary exam-style complexity."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeatedly use exam or test-maker motivational openers, so there is no repetitive exam-mention pattern to vary."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson's teaching prose is in English, not Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino grammar-term glossing does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson; its examples are correctly written in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The Filipino terms “Habagat” and “Amihan” appear, so official Filipino spelling and usage require the separate source check specified by this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is English; the Filipino names Habagat and Amihan do not make it Taglish teaching prose.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked or target word, so the bold-target-word prompt rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases, em dashes, repeated sentence openings, and a formulaic “This lesson teaches you” summary; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five worked examples for formulas or calculation rules; none uses a formula, so no example introduces a formula before Core Concept.",
+    "The lesson uses the standard science section structure, and the conceptual content does not require a quantitative formula section."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A tropical cyclone is classified by sustained wind strength.",
+     "problem": "There is no worked example that applies tropical-cyclone intensity categories or distinguishes a cyclone from a monsoon in a realistic scenario, leaving distinct taught cases uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "PAGASA describes two major monsoon systems:",
+     "problem": "The examples identify Habagat and correct an Amihan misconception, but there is no worked scenario for the seasonal heating-and-pressure mechanism that drives monsoon flow.",
+     "source": "single"
+    },
+    {
+     "quote": "**Climate change** is the broader set of persistent changes in the climate system, including temperature, rainfall patterns, ice, sea level, and extremes. Global warming is a major component and driver of current climate change.",
+     "problem": "No worked example applies climate-change physical effects, societal consequences, government responses, mitigation/adaptation decisions, ITCZ rainfall, sea/land breezes, or hazard mitigation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Those clues indicate the **stratosphere**.",
+     "problem": "Example #2 presents its worked solution as a plain sentence instead of the required numbered solution-step list; Examples #3 through #5 use the same non-numbered format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines to test for phone-width fit.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson's prose blocks: paragraphs stay within one to three sentences, and bullets are limited to the atmospheric-layer and monsoon lists where list structure is useful."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The atmosphere placeholder is a single specific figure instruction naming the five layers in ground-up order and placing the ozone layer within the stratosphere; the surrounding prose also teaches the content without the figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A balloon rises above nearly all weather and measures increasing temperature with height while passing through a region rich in ozone. Which layer is it in?",
+     "problem": "Example #2 requires “increasing temperature with height” as a stratosphere clue, but Core Concept never explains that temperature rises with height in the stratosphere.",
+     "source": "single"
+    },
+    {
+     "quote": "Most visible meteors ablate in this region.",
+     "problem": "The necessary term “ablate” is used to describe what happens to meteors without being defined or replaced with a simple explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "PAGASA describes two major monsoon systems:",
+     "problem": "The lesson names and describes Habagat and Amihan but does not explain how seasonal land-ocean heating and pressure differences create and reverse monsoon winds.",
+     "source": "single"
+    },
+    {
+     "quote": "A tropical cyclone is classified by sustained wind strength.",
+     "problem": "The lesson gives cyclone category names but does not explain tropical-cyclone formation or how warm ocean water, rising moist air, pressure, condensation, and rotation sustain the system.",
+     "source": "single"
+    },
+    {
+     "quote": "**Climate change** is the broader set of persistent changes in the climate system, including temperature, rainfall patterns, ice, sea level, and extremes. Global warming is a major component and driver of current climate change.",
+     "problem": "Climate-change effects are mostly named as a list; the lesson does not explain how warming produces the listed physical effects or how those changes lead to social and economic consequences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's applicability limits: atmospheric-layer heights are explicitly approximate, monsoon dates are described as variable, Amihan is not treated as universally dry, and cyclones are distinguished from Habagat despite seasonal overlap.",
+    "Checked the greenhouse and weather-versus-climate rules for scope: the lesson identifies outgoing infrared radiation as the relevant mechanism and long-term statistics as the climate criterion."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "PAGASA describes two major monsoon systems:",
+   "description": "Map of the Philippines with Habagat arrows from the southwest and rain emphasis on western sections, beside Amihan arrows from the northeast and rain emphasis on eastern sections.",
+   "why": "A directional map would make the wind-direction and affected-region contrast much easier to understand and remember.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "The **greenhouse effect** does not work because greenhouse gases simply “trap heat from the Sun.”",
+   "description": "Simple energy-flow diagram showing incoming shortwave sunlight, outgoing infrared from Earth's surface, and greenhouse gases absorbing and re-emitting some infrared upward and downward.",
+   "why": "The mechanism depends on the direction and type of radiation, which is clearer in an energy-flow diagram than in prose alone.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

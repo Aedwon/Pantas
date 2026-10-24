@@ -1,0 +1,270 @@
+{
+ "lesson_sha256": "8869cd323f0c2e1484e6fa0531c137a54971c55a24f94d7b2a8319c7d6a623c1",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions and claims about simile, metaphor, personification, imagery, rhyme scheme, tone, symbolism, and rhyme by sound; none conflicts with standard literary usage."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: I identify \"Time is a thief that steals our youth\" as a metaphor because time is presented as a thief without an explicit comparison marker.",
+    "Example 2: I identify the comparison of the man's hands to tree bark using \"as\" as a simile; \"He works as a teacher\" is literal rather than figurative.",
+    "Example 3: I get ABAB because bay rhymes with away and glow rhymes with blow.",
+    "Example 4: The quoted details support a somber or lonely tone, but those excerpts alone do not establish that loneliness is the poem's symbolic subject."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, and this poetry lesson has no load-bearing figure requirement."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly teaches recognition of figurative language and rhyme and repeatedly requires tone and symbolic interpretation to stay supported by textual evidence, matching the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Poetry** is a broad literary form that can use lineation, rhythm, sound, imagery, figurative language, syntax, and concentrated diction in many different ways.",
+     "problem": "This teaching sentence uses several advanced literary terms and dense phrasing at once, exceeding the required Grade 5 simple-English standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no worked exam prompt using an exam command verb that requires a first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Time is a thief that steals our youth.\"",
+     "problem": "The worked examples present isolated source lines followed by answers instead of authentic exam-style question stems asking the student to identify or interpret something.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language poetry lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar terms that would need English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is written in English and does not teach or test Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching text or Filipino usage in the lesson to check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is English-language content, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This Reading Comprehension lesson uses Core Concept, Examples, a strategy-oriented shortcuts section, and Traps to Watch For; it contains no formulas that require prior introduction."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Poems may also use internal rhyme, slant/near rhyme, alliteration, assonance, consonance, or no regular rhyme at all.",
+     "problem": "Several exam-relevant sound devices introduced by the lesson receive no worked example at all. Personification likewise has no applied example, so the examples do not cover all distinct scenarios taught within the goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The line presents time as a thief without an explicit comparison marker: **metaphor**.",
+     "problem": "Worked answers are given as unnumbered prose instead of the required numbered solution steps. The examples also omit the required standalone Solution label.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width needs to be checked for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders in this lesson to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Poetry** is a broad literary form that can use lineation, rhythm, sound, imagery, figurative language, syntax, and concentrated diction in many different ways.",
+     "problem": "Necessary literary terms including lineation, syntax, and diction are used before their meanings are explained, and there is no prerequisite lesson supplying those explanations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Poems may also use internal rhyme, slant/near rhyme, alliteration, assonance, consonance, or no regular rhyme at all.",
+     "problem": "Internal rhyme, slant rhyme, alliteration, assonance, and consonance are only named. The lesson does not explain what these concepts mean or how they work.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the main rules and shortcuts: the lesson limits like/as simile detection to real comparisons, warns that imagery is not automatically symbolic, bases rhyme on sound rather than spelling, and requires tone claims to use broader textual evidence."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The script candidate uses \"mark\" as the verb meaning indicate in \"mark similes\"; it does not refer to a score, and the lesson does not call questions cards."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

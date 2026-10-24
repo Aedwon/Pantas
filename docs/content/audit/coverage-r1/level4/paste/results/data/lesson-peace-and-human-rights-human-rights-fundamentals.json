@@ -1,0 +1,321 @@
+{
+ "lesson_sha256": "cf3e5d68329b6c61ca5816912dde9af2bb23dcdb1ef7eac09c3b46fca775994c",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the universality and nondiscrimination definition against OHCHR, which states that human rights are inherent to all human beings regardless of nationality, residence, sex, national or ethnic origin, color, religion, language, or other status: https://bangkok.ohchr.org/what-are-human-rights/",
+    "Checked state obligations and application in armed conflict against OHCHR, which confirms that international human rights law imposes obligations on States and that human rights apply in peacetime and wartime: https://www.ohchr.org/Documents/Publications/HR_in_armed_conflict.pdf",
+    "Checked Articles III, IX, and XIII against the 1987 Constitution. Article III is the Bill of Rights and has Sections 1 through 22; Article IX names CSC, COMELEC, and COA as the Constitutional Commissions; Article XIII Section 17 creates the independent Commission on Human Rights: https://officialgazette.gov.ph/constitutions/1987-constitution/"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 before comparing: the Commission on Human Rights is created under Article XIII.",
+    "Solved Example 2 before comparing: human rights law applies in both peacetime and armed conflict, so it does not cease merely because conflict begins.",
+    "Solved Example 3 before comparing: Article III is the Philippine Constitution's Bill of Rights and is the intended answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Therefore, Article III is the primary domestic guarantee of individual rights.",
+     "problem": "The lesson ends after the Examples section. The required baseline sections Speed Tricks & Shortcuts and Traps to Watch For are missing, and no General Information exception in the supplied section-fit rules authorizes dropping them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly serves the recorded goal by defining universal human rights, stating continuing state obligations in peacetime and conflict, locating the Bill of Rights in Article III, and locating the CHR in Article XIII."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Human rights are inherent rights possessed by all human beings, without discrimination based on nationality, place of residence, sex, national or ethnic origin, color, religion, language, or any other status.",
+     "problem": "This is a long, concept-dense teaching sentence with difficult terms such as \"inherent,\" \"discrimination,\" and \"ethnic origin.\" It does not meet the required Grade 5 simple-English standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked question stems do not use an exam command verb such as evaluate, identify, compare, or explain that requires a first-use one-line definition.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in Core Concept or elsewhere in the lesson, so the one-analogy maximum is not exceeded."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all three worked stems: each asks for the tested constitutional location or applicability rule without giving away a definition, formula, or solution method; each solution then gives a direct explanation in short sentences."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repeated exam-name or test-maker openers, so there is no repetitive or unmotivating exam mention to flag."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language General Information lesson, not a lesson teaching Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not Filipino-language teaching and introduces no Filipino grammar term that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so the requirement that examples and quiz items be written in Filipino does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the prohibition on Taglish in Filipino prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No worked question asks about a marked or emphasized target word, so there is no target-word prompt to format as bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson and summary for the listed stock AI phrases, repeated sentence openings, em dashes, and the banned summary opener; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Therefore, Article III is the primary domestic guarantee of individual rights.",
+     "problem": "The lesson uses only Core Concept and Examples, but the supplied subject-fit rules give no reduced-layout exception for General Information. The baseline required Speed Tricks & Shortcuts and Traps to Watch For sections are therefore not followed.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Human rights are inherent rights possessed by all human beings, without discrimination based on nationality, place of residence, sex, national or ethnic origin, color, religion, language, or any other status.",
+     "problem": "The learning goal includes recognizing universal rights, and the lesson teaches nondiscrimination across listed statuses, but none of the worked examples tests a universality or discrimination case. The examples therefore do not cover every distinct exam-relevant case within the goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Match the institution to its constitutional source.",
+     "problem": "This solution instruction appears as an unnumbered step between the Solution label and the numbered list. The required format says solution steps must be presented as a numbered list.",
+     "source": "single"
+    },
+    {
+     "quote": "Recall the core application rules of human rights law.",
+     "problem": "This solution instruction is also left outside the numbered list, contrary to the required numbered-step solution format.",
+     "source": "single"
+    },
+    {
+     "quote": "Identify the primary domestic constitutional bill of rights.",
+     "problem": "This solution instruction is likewise an unnumbered solution step instead of part of the required numbered list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no display-math line whose phone-screen width can be assessed.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs contain one short sentence each, and the only bullet list is the two-item Domestic Constitutional Framework list, which is sparing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and this non-visual topic does not require a load-bearing figure under the supplied rules.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Human rights law primarily binds the state and its organs in their treatment of individuals at all times, during both peacetime and conflict.",
+     "problem": "The lesson requires the learner to understand \"the state and its organs,\" but it never explains that phrase in simple terms before using it, and there is no prerequisite lesson to supply the meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "Serves as the primary domestic constitutional protection of fundamental civil and political liberties in the Philippines.",
+     "problem": "The necessary term \"civil and political liberties\" is used to explain the Bill of Rights but is not defined or briefly explained anywhere in the lesson, with no prerequisite available.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An independent national human rights institution created under **Article XIII (Social Justice and Human Rights)** of the 1987 Constitution.",
+     "problem": "The CHR is named and located constitutionally, but the lesson does not explain what a national human rights institution does or how the CHR works. That leaves the concept at a label-and-location level rather than explaining its meaning and operation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Human rights law primarily binds the state and its organs in their treatment of individuals at all times, during both peacetime and conflict.",
+     "problem": "The lesson states continuous applicability but omits the relevant limitation that this does not mean every right has identical scope at all times; lawful restrictions or derogations can apply under defined conditions. The supplied Level 3 record explicitly identifies this missing qualification.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An independent national human rights institution created under **Article XIII (Social Justice and Human Rights)** of the 1987 Constitution.",
+     "problem": "The prose number 1987 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "A student is asked which article of the 1987 Constitution creates the Commission on Human Rights. Is it Article III, Article IX, or Article XIII?",
+     "problem": "The prose number 1987 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "Article III of the 1987 Constitution is the Bill of Rights.",
+     "problem": "The prose number 1987 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "It contains 22 sections establishing fundamental civil and political liberties.",
+     "problem": "The prose number 22 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

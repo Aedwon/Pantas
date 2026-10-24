@@ -1,0 +1,295 @@
+{
+ "lesson_sha256": "b03d6b02a0430dcab6aaec87a0c7b171fc9b21a363638865d9d64433546b49c9",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the pie-chart angle and percentage relations, bar-axis interpretation, scatter-plot association claims, nonlinear caveat, and correlation-versus-causation statements; all are mathematically and statistically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 solves to 3,000 pesos because 90/360 = 1/4 and one quarter of 12,000 is 3,000.",
+    "Example 2 solves to 126 degrees because 35% of 360 degrees is 0.35 x 360 = 126.",
+    "Example 3 solves to 37.5 thousand pesos because the Monday-to-Thursday mean is 47.5 and 85 - 47.5 = 37.5.",
+    "Example 4 correctly identifies a negative linear association and correctly says the scatter plot alone does not establish causation.",
+    "Example 5 solves to a 20% increase because (1,800 - 1,500) / 1,500 = 0.20."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Confirmed the required Mathematics sections are present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; Mnemonics & Memory Aids is optional.",
+    "Confirmed the pie, bar, and scatter examples that depend on graph context each include a specific one-line FIGURE payload at the relevant location."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson serves the recorded goal by teaching pie-chart proportions and category values, cautious interpretation of linear association, and the difference between numerical scale values and misleading visual impressions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A scatter plot can still contain a nonlinear relationship even when its linear correlation is weak or zero, so inspect the shape instead of assuming that \"no linear correlation\" means \"no relationship of any kind.\"",
+     "problem": "This teaching sentence is too long and uses several advanced terms at once, including nonlinear relationship, linear correlation, and inspect, so it does not meet the very simple Grade 5 reading standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The prompts use direct questions and ordinary wording such as find; no specialized exam command verb appears that needs a one-line gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The plot alone does not establish that more sleep **caused** the reduction in mistakes. Other variables may be involved, and causation requires stronger study design than an observed association.",
+     "problem": "The example stem is adequately specified, but this solution explanation uses advanced wording such as reduction, variables, causation, study design, and observed association, so the solution does not return to simple Grade 5 language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English Mathematics lesson, not a Filipino-language lesson, so the simple-Filipino teaching rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson contains no Filipino grammar terminology, so there is no hard Filipino term that could require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text, so Komisyon sa Wikang Filipino spelling and usage checks do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose, so there is no Taglish usage to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student about a target word, so there is no prompt that must say the word in bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Mean of Monday through Thursday:\n\n$$\\dfrac{40+55+35+60}{4}=47.5$$",
+     "problem": "The mean calculation formula is first introduced inside Example 3. Core Concept does not first teach the mean as the sum of the values divided by the number of values.",
+     "source": "single"
+    },
+    {
+     "quote": "Percent increase uses the starting value as the denominator.",
+     "problem": "The percent-change method is first introduced inside Example 5 instead of Core Concept, even though the solution then uses change divided by the original value.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $35$, Thursday $60$, Friday $85$ (in thousands of pesos). By how much do Friday's sales exceed the mean of the other four days?",
+     "problem": "All bar values are supplied in the question text, so this example does not require the student to decode an axis scale or extract an unstated plotted value, leaving that recorded skill without a worked case.",
+     "source": "single"
+    },
+    {
+     "quote": "> A nonzero axis baseline can visually magnify differences, so read the numerical scale instead of judging only by bar height.",
+     "problem": "The lesson explains truncated-axis risk only as teaching and a trap. It has no worked example comparing the same numerical values on different scales, so the visual-scale portion of the learning goal lacks a distinct worked scenario.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Examples 1, 2, 3, and 5 use numbered solution steps and put each numerical computation in display math; Example 4 is conceptual and uses two numbered reasoning steps with no numerical computation to display."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "Each FIGURE comment is a single specific line with chart type plus labels, values, axis information, or trend, and the surrounding prose supplies enough information to understand the teaching without the rendered figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "By how much do Friday's sales exceed the mean of the other four days?",
+     "problem": "The term mean is needed in the question before the lesson has explained what a mean is or how it is found, and the packet identifies no prerequisite lesson that supplies that explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A truncated axis can make visual differences look larger, but it is not automatically invalid; judge whether the scale and labels allow an accurate interpretation.",
+     "problem": "This introduces the concept of a truncated axis without first explaining what makes an axis truncated. The later trap mentions a nonzero baseline, but the earlier teaching does not point forward to that explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Pie-chart formulas are tied to a 360-degree whole, scatter claims are limited to roughly linear trends and include a nonlinear caveat, causation is explicitly limited, truncated axes are treated as context-dependent, and percent change names the original baseline."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "A truncated axis can make visual differences look larger, but it is not automatically invalid; judge whether the scale and labels allow an accurate interpretation.",
+   "description": "Two side-by-side bar charts showing the same pair of values, one with a y-axis starting at 0 and one with a y-axis starting close to the values, with identical bar labels and numbers.",
+   "why": "Seeing the same numerical difference on two axis scales makes the visual exaggeration caused by truncation immediately clear.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "A scatter plot can still contain a nonlinear relationship even when its linear correlation is weak or zero, so inspect the shape instead of assuming that \"no linear correlation\" means \"no relationship of any kind.\"",
+   "description": "A scatter plot with points following a clear U-shaped curve, showing a strong nonlinear pattern despite little straight-line trend.",
+   "why": "The figure would make the difference between no linear correlation and no relationship visible instead of leaving it as an abstract warning.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

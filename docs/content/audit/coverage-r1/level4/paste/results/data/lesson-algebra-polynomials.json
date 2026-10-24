@@ -1,0 +1,331 @@
+{
+ "lesson_sha256": "569fc5f0e8e9a420ef0a8e7bd71209f9b785ac12269db0232b6dfcb3aa95af9b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the polynomial definition: finite sums with nonnegative integer exponents correctly exclude negative and fractional powers.",
+    "Checked the Remainder and Factor Theorems: division by x-c gives remainder P(c), and x-c is a factor exactly when P(c)=0.",
+    "Checked the synthetic-division condition and sign rule: standard synthetic division uses c for a divisor x-c.",
+    "Checked FOIL and SOAP: FOIL correctly describes distribution for two binomials, and SOAP gives the standard sign pattern for sums and differences of cubes.",
+    "Checked the substitution warning: one matching input value cannot prove two polynomial expressions are identical for every x."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: 2A-B = 7x^2-8x+11, matching the lesson.",
+    "Solved Example 2 independently: (x-3)(x+3)(x^2+9) = (x^2-9)(x^2+9) = x^4-81.",
+    "Solved Example 3 independently: 6x^2-7x-3 = (3x+1)(2x-3), matching the lesson.",
+    "Solved Example 4 independently: P(2)=16-24+4-5=-9, so the remainder is -9.",
+    "Solved Example 5 independently: substituting x=3 gives 27-9k=0, so k=3.",
+    "Solved Example 6 independently: P(2)=0 gives 2a+b=-5 and P(-1)=0 gives a-b=8, so a=1, b=-7, and a+b=-6."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required mathematics sections are present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For.",
+    "The optional Mnemonics & Memory Aids section contains established mnemonics rather than a required missing section.",
+    "No example depends on a diagram or other load-bearing figure, so no required illustration placeholder is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded classification goal is served by the opening definition and its rule on allowed exponents.",
+    "The combine and expand goal is served by the operations section and worked addition, subtraction, and multiplication material.",
+    "The quadratic factoring goal is served by the monic and nonmonic discussion plus the worked nonmonic factoring example.",
+    "The remainder and factor constraint goal is served by the theorem section and Examples 4 through 6."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A polynomial in $x$ is a finite sum of terms of the form $a_kx^k$, where each coefficient $a_k$ is a number and each exponent $k$ is a nonnegative integer.",
+     "problem": "This opening sentence packs several advanced terms and ideas into one long sentence, including finite sum, coefficient, exponent, and nonnegative integer, which is above the required Grade 5 teaching-prose standard.",
+     "source": "single"
+    },
+    {
+     "quote": "A numerical substitution can help **disprove** an incorrect proposed simplification quickly.",
+     "problem": "The phrase uses abstract vocabulary such as numerical substitution, disprove, and proposed simplification without simpler wording, making the teaching prose harder than the required Grade 5 level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If $A=3x^2-2x+5$ and $B=-x^2+4x-1$, simplify $2A-B$.",
+     "problem": "The exam verb \"simplify\" appears without the required one-line explanation of what the student is being asked to do.",
+     "source": "single"
+    },
+    {
+     "quote": "Factor $6x^2-7x-3$ completely.",
+     "problem": "The exam verb \"Factor\" appears without a one-line explanation on its first use as an instruction.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 supplies the definitions of A and B but does not supply the simplification method being tested.",
+    "Example 2 gives only the expression to evaluate and does not disclose the special-product method in the question stem.",
+    "Example 3 asks for complete factorization without giving the factoring procedure or the needed factors.",
+    "Example 4 supplies the polynomial and divisor but does not state the Remainder Theorem inside the question stem.",
+    "Example 5 supplies the factor condition and polynomial but leaves selection of the Factor Theorem to the student.",
+    "Example 6 supplies the polynomial and quadratic divisor without giving the factorization or system-solving method in the stem."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar or use Filipino grammar terms.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text requiring a Komisyon sa Wikang Filipino spelling check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$(x-3)(x+3)=x^2-9$$",
+     "problem": "Example 2 uses the difference-of-squares identity before Core Concept has stated its formula. Core Concept only names the identity, so the formula is introduced for the first time inside the example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If $A=3x^2-2x+5$ and $B=-x^2+4x-1$, simplify $2A-B$.",
+     "problem": "The recorded learning goal includes classifying polynomial terms, but the worked examples begin with polynomial operations and never include a polynomial-versus-nonpolynomial classification case.",
+     "source": "single"
+    },
+    {
+     "quote": "Find $(x-3)(x+3)(x^2+9)$.",
+     "problem": "The multiplication coverage relies on special-product identities and does not provide a worked example of general term-by-term polynomial multiplication by distribution.",
+     "source": "single"
+    },
+    {
+     "quote": "Factor $6x^2-7x-3$ completely.",
+     "problem": "The lesson teaches both monic and nonmonic quadratic factoring, but its only direct quadratic-factorization example is nonmonic, leaving the distinct monic case without a worked example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Then subtract all terms of $B$:",
+     "problem": "Example 1 presents its solution as unnumbered prose and equations instead of the required numbered sequence of solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "$$(x-3)(x+3)=x^2-9$$",
+     "problem": "Example 2 gives successive equations without any numbered solution steps, contrary to the required worked-example format.",
+     "source": "single"
+    },
+    {
+     "quote": "By the Remainder Theorem, the remainder is $P(2)$.",
+     "problem": "Example 4 uses unnumbered prose followed by a display equation instead of presenting each solution step as a numbered list.",
+     "source": "single"
+    },
+    {
+     "quote": "Set the polynomial equal to $0$ at $x=3$.",
+     "problem": "Example 5 gives the substitution and algebra as unnumbered prose and equations instead of numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For a monic quadratic $x^2+bx+c$, two numbers that multiply to $c$ and add to $b$ give a direct factorization.",
+     "problem": "The term \"monic quadratic\" is required to understand this factoring rule but is never defined, and there is no prerequisite lesson supplying the meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "Standard synthetic division is a shortcut for a linear divisor of the form $x-c$.",
+     "problem": "The lesson uses the term \"synthetic division\" without explaining what the procedure is before later giving a sign rule for it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Polynomial long division works for division by a nonzero polynomial.",
+     "problem": "Polynomial long division is only named with a condition; the lesson never explains the division algorithm or how the method works.",
+     "source": "single"
+    },
+    {
+     "quote": "For sums or differences of cubes, the common **SOAP** mnemonic can help with signs: Same, Opposite, Always Positive.",
+     "problem": "The lesson names a mnemonic for cube factoring without teaching the sum-of-cubes and difference-of-cubes identities or explaining how the mnemonic maps onto them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For sums or differences of cubes, the common **SOAP** mnemonic can help with signs: Same, Opposite, Always Positive.",
+     "problem": "The mnemonic is introduced without the underlying cube identities, so the student is not shown the precise pattern and conditions under which each sign choice applies.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,162 @@
+# SALN Filing, Public Access, and Divestment
+
+Lesson: `lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment`. Lesson version: `46e226a923d1`. Standards: `710d7062b594`.
+
+## Findings from the chat read
+
+- **B02** (Blocker; one read, paste run)
+  - Quote: "Therefore, the employee must file the initial SALN within 30 days after assuming office."
+  - Problem: The question gives June 1 and asks for a deadline, but the worked answer never converts the thirty-day period into the calendar deadline. It therefore leaves Example 1's requested answer incomplete.
+- **B03** (Blocker; one read, paste run)
+  - Quote: "Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window."
+  - Problem: The lesson ends after the Examples section and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections. No supplied subject-specific rule allows General Information lessons to drop both sections.
+- **B08** (Minor; one read, paste run)
+  - Quote: "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections."
+  - Problem: The prose numerals 8 and 6713 are outside inline math, contrary to the rule that numbers in prose must be inside $...$.
+- **B08** (Minor; one read, paste run)
+  - Quote: "- **Relatives in government:** Public officials and employees must identify and disclose, to the best of their knowledge and information, relatives in government in the form, manner, and frequency prescribed by the Civil Service Commission. Under RA 6713, "relatives" means persons within the fourth civil degree of consanguinity or affinity, including bilas, inso, and balae."
+  - Problem: The prose numeral 6713 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "1. **Assumption of office:** Within 30 days after assumption of office."
+  - Problem: The prose number 30 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "2. **Annual filing:** On or before April 30 of every year thereafter."
+  - Problem: The prose number 30 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "3. **Separation from service:** Within 30 days after separation from the service."
+  - Problem: The prose number 30 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "RA 6713 assigns filing offices by category:"
+  - Problem: The prose numeral 6713 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "- **Inspection and copying:** Filed statements must be available for inspection at reasonable hours. They become available for copying or reproduction after 10 working days from filing."
+  - Problem: The prose number 10 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation."
+  - Problem: The prose number 10 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days. For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose."
+  - Problem: The prose numbers 30 and 60 are outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "A newly appointed government employee starts working on June 1. By what deadline must the employee file their initial Statement of Assets, Liabilities and Net Worth (SALN)?"
+  - Problem: The prose date number 1 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "Identify the SALN deadline for assumption of office under Section 8 of RA 6713."
+  - Problem: The prose numerals 8 and 6713 are outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "1. Under RA 6713, a covered official or employee must file after assumption of office."
+  - Problem: The prose numeral 6713 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "2. The deadline is within 30 days after assumption of office."
+  - Problem: The prose number 30 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "3. Therefore, the employee must file the initial SALN within 30 days after assuming office."
+  - Problem: The prose number 30 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "Apply the divestment timeframes in RA 6713."
+  - Problem: The prose numeral 6713 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "2. The official must resign from the private business position within 30 days."
+  - Problem: The prose number 30 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "3. The official must divest the relevant shareholdings or interests within 60 days."
+  - Problem: The prose number 60 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "4. Therefore, the deadlines are 30 days for resignation and 60 days for divestment."
+  - Problem: The prose numbers 30 and 60 are outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "A journalist requests a copy of a local official's SALN filed 8 years ago. When does a filed statement become available for copying, and how long does it remain available to the public?"
+  - Problem: The prose number 8 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "Review the accessibility and retention rules under Section 8."
+  - Problem: The prose numeral 8 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "2. They become available for copying or reproduction after 10 working days from filing."
+  - Problem: The prose number 10 is outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "3. They remain available to the public for 10 years after receipt, and an 8-year-old statement is still within that period."
+  - Problem: The prose numbers 10 and 8 are outside inline math.
+- **B08** (Minor; one read, paste run)
+  - Quote: "4. Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window."
+  - Problem: The prose numbers 10 and 10 are outside inline math.
+- **B10** (Major; one read, paste run)
+  - Quote: "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation."
+  - Problem: Retention is a reserved user-facing term and appears directly in the lesson text.
+- **B10** (Major; one read, paste run)
+  - Quote: "Review the accessibility and retention rules under Section 8."
+  - Problem: The reserved user-facing term retention appears again in the third worked solution.
+- **L02** (Major; one read, paste run)
+  - Quote: "Public officials and employees must identify and disclose, to the best of their knowledge and information, relatives in government in the form, manner, and frequency prescribed by the Civil Service Commission."
+  - Problem: This is a long, clause-heavy sentence with formal legal wording such as prescribed, form, manner, and frequency. It is not very simple Grade 5 teaching prose.
+- **L02** (Major; one read, paste run)
+  - Quote: "For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose."
+  - Problem: The sentence uses the uncommon legal verb reckon and the phrase implementing rules without a simpler explanation, so the teaching prose exceeds the Grade 5 reading standard.
+- **L03** (Minor; one read, paste run)
+  - Quote: "Identify the SALN deadline for assumption of office under Section 8 of RA 6713."
+  - Problem: Identify is used as an exam-style directive without the required one-line explanation on its first use.
+- **L03** (Minor; one read, paste run)
+  - Quote: "Apply the divestment timeframes in RA 6713."
+  - Problem: Apply is used as an exam-style directive without a one-line explanation of what the student should do.
+- **L05** (Major; one read, paste run)
+  - Quote: "The official must divest the relevant shareholdings or interests within 60 days."
+  - Problem: The worked solution relies on divest and shareholdings instead of explaining the action in simple language, so the solution does not meet the simple-language requirement.
+- **L05** (Major; one read, paste run)
+  - Quote: "Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window."
+  - Problem: The phrase public-availability window is more abstract than needed for a worked solution and is not simple Grade 5 language.
+- L11: needs a source check; not judged here.
+- **L18** (Major; one read, paste run)
+  - Quote: "RA 6713 assigns filing offices by category:"
+  - Problem: The learning goal requires recognition of statutory filing locations, but none of the worked examples asks the student to distinguish or choose among any of the filing-office categories.
+- **L18** (Major; one read, paste run)
+  - Quote: "2. **Annual filing:** On or before April 30 of every year thereafter."
+  - Problem: Annual filing is a distinct filing-interval scenario in the learning goal, but there is no worked example applying this annual deadline.
+- **L18** (Major; one read, paste run)
+  - Quote: "3. **Separation from service:** Within 30 days after separation from the service."
+  - Problem: Separation from service is a distinct filing-interval scenario, but there is no worked example applying the separation deadline.
+- **L18** (Major; one read, paste run)
+  - Quote: "- **Family financial disclosures:** The required declarations include the official or employee, their spouse, and unmarried children under eighteen years of age living in their household."
+  - Problem: Coverage of spouses and unmarried household children under eighteen is a distinct coverage case, but the Examples section contains no coverage or boundary example.
+- **L18** (Major; one read, paste run)
+  - Quote: "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation."
+  - Problem: The lesson gives a within-ten-years case only. It has no worked example for the distinct post-ten-year destruction exception when an ongoing investigation requires retention.
+- **L18** (Major; one read, paste run)
+  - Quote: "For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose."
+  - Problem: The divestment example covers only a newly appointed official. It omits the distinct already-serving case where the clock begins when the conflict arises.
+- **L19** (Major if a step is skipped, otherwise Minor; one read, paste run)
+  - Quote: "Identify the SALN deadline for assumption of office under Section 8 of RA 6713."
+  - Problem: This solution content appears after the Solution label but outside the numbered list. The required format says the solution should proceed directly as numbered steps.
+- **L19** (Major if a step is skipped, otherwise Minor; one read, paste run)
+  - Quote: "Apply the divestment timeframes in RA 6713."
+  - Problem: This solution content is an unnumbered setup line between the Solution label and the numbered steps, contrary to the required numbered-step format.
+- **L19** (Major if a step is skipped, otherwise Minor; one read, paste run)
+  - Quote: "Review the accessibility and retention rules under Section 8."
+  - Problem: This solution content is also outside the numbered list, so the third solution does not put every solution step in the required numbered format.
+- **L25** (Major; one read, paste run)
+  - Quote: "Under RA 6713, "relatives" means persons within the fourth civil degree of consanguinity or affinity, including bilas, inso, and balae."
+  - Problem: The lesson uses consanguinity, affinity, bilas, inso, and balae without explaining the kinship terms or how the fourth civil degree is understood. There is no prerequisite lesson to supply those meanings.
+- **L25** (Major; one read, paste run)
+  - Quote: "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections."
+  - Problem: The lesson names Business Interests and Financial Connections without explaining what those terms mean before relying on the disclosure obligation.
+- **L25** (Major; one read, paste run)
+  - Quote: "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days."
+  - Problem: Conflict of interest, divest, and shareholdings are necessary to understand this rule, but the lesson does not define or plainly explain those terms before the example uses them.
+- **L26** (Major; one read, paste run)
+  - Quote: "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections."
+  - Problem: The lesson states the names of the required declarations but does not explain what the SALN or the business-interest and financial-connection disclosure contains or how those declarations work.
+- **L26** (Major; one read, paste run)
+  - Quote: "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days."
+  - Problem: This gives deadlines but not the meaning of divestment or how a person actually divests an interest, so the concept is named and timed without being explained.
+- **L27** (Major; one read, paste run)
+  - Quote: "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections."
+  - Problem: The lesson says covered officials and employees but never states the statutory excluded categories, so students are not told the coverage limitation needed to know when the filing rule applies.
+- **L27** (Major; one read, paste run)
+  - Quote: "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days."
+  - Problem: The lesson gives the timing rule but omits relevant limitations on what counts as true divestment, including that transfer cannot be to the official's spouse or relatives within the fourth civil degree.
+
+## Findings from the script
+
+None.
+
+## Illustration review
+
+- missing, medium priority, concept, code. At: "RA 6713 assigns filing offices by category:". Draw: A compact routing diagram mapping each official category to its statutory filing office, with separate branches for Congress, courts, national executives, regional or local officials, armed-forces ranks, and all other covered officials.. Why: The lesson asks students to recognize several easily confused category-to-office mappings; a visual routing map would make those distinctions easier to compare and remember.

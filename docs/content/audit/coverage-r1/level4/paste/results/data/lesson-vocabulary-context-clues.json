@@ -1,0 +1,295 @@
+{
+ "lesson_sha256": "1004b14592a4b0a5b3c36d8ed5e58b9bfa8ddb11b5d58808b697e21b53136b2b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's factual claims about context clues, signal words, tone, spelling similarity, and the meanings used in the worked examples; none is materially incorrect."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: C, because \"or official command\" directly restates the meaning of edict.",
+    "Example #2 blind solve: C, because the listed animals and \"active after dark\" indicate active at night.",
+    "Example #3 blind solve: A, because loving parties and meeting people indicates sociable, contrasted with Simon's isolation.",
+    "Example #4 blind solve: C, because repetitive familiar phrases heard many times are clichéd statements.",
+    "Example #5 blind solve: B, because turning away to keep others from seeing tears supports itinago."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; no required figure is needed for these text-based vocabulary examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches inference from definition, example, contrast, and situation clues, then tells students to plug a candidate back in to check grammar and intended meaning."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Similar spelling can reflect real etymological relationships or pure coincidence.",
+     "problem": "The terms \"etymological relationships\" and \"pure coincidence\" are much harder than the Grade 5 teaching-prose target and are not simplified or explained.",
+     "source": "single"
+    },
+    {
+     "quote": "If two choices remain plausible, use finer clues such as collocation, connotation, register, and the grammatical role of the word.",
+     "problem": "This sentence stacks several advanced language terms in one instruction, making the teaching prose too difficult for the required Grade 5 reading level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No exam command verb is used in a question or instruction that needs a first-use one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in Core Concept or anywhere else in the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The king's **edict**, or official command, required all citizens to pay the tax.",
+     "problem": "The example gives a sentence and answer choices but no exam-style question or instruction asking what the target word means; the same prompt omission occurs in all five examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeatedly invoke exams or reuse a stock exam-motivation opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language vocabulary lesson, not a Filipino-language teaching lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No hard Filipino grammar term appears in the teaching prose; the Filipino material is only a vocabulary example.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson; its single Filipino example sentence and answer choices are already in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino text, so its Filipino spelling and usage require checking against the Komisyon sa Wikang Filipino source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose to assess for Taglish; only one Filipino example and its choices appear.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The forest contains many *nocturnal* animals, such as owls, bats, and flying foxes, that are active after dark.",
+     "problem": "The target word nocturnal is italicized instead of bold, so it breaks the required target-word emphasis.",
+     "source": "single"
+    },
+    {
+     "quote": "The king's **edict**, or official command, required all citizens to pay the tax.",
+     "problem": "The example has a bold target word but no prompt saying \"the word in bold\"; the same missing prompt occurs across the examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "No listed stock AI phrase or em dash appears; sentence openings vary, and the summary is a plain description rather than the banned stock summary opening."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The Language Proficiency lesson uses an allowed section structure. No worked example uses any mathematical formula, so there is no formula that must be traced back to Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Synonym or near-synonym:** a nearby expression supplies similar meaning.",
+     "problem": "Synonym or near-synonym clues are taught as a distinct clue type, but there is no worked example devoted to recognizing or using that scenario.",
+     "source": "single"
+    },
+    {
+     "quote": "**Plug the candidate back in.** The best choice should preserve both the grammar and the sentence's intended meaning.",
+     "problem": "The learning goal includes checking a candidate against grammar and context, but no worked example explicitly demonstrates the substitution-and-grammar check.",
+     "source": "single"
+    },
+    {
+     "quote": "If two choices remain plausible, use finer clues such as collocation, connotation, register, and the grammatical role of the word.",
+     "problem": "The lesson names the important edge case where two meanings remain plausible, but provides no worked example that resolves such ambiguity with finer clues.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The phrase \"or official command\" directly restates *edict*. The best answer is **C**.",
+     "problem": "The worked solution is unnumbered prose instead of the required numbered-step format; the same formatting issue appears in all five solutions.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no phone-width equation to assess.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three sentences, and the only bullet list is the compact list of clue types."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders, and no example depends on a figure or diagram.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If two choices remain plausible, use finer clues such as collocation, connotation, register, and the grammatical role of the word.",
+     "problem": "Collocation, connotation, register, and grammatical role are introduced as tools students should use, but none is explained before that advice depends on them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "use finer clues such as collocation, connotation, register, and the grammatical role of the word.",
+     "problem": "These finer-clue concepts are only named. The lesson does not explain what each one means or how it helps distinguish between plausible word senses.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that context may narrow rather than prove a meaning, signal words are not proof, tone alone is insufficient, and finer clues are needed when multiple choices remain plausible."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

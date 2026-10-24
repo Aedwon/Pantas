@@ -1,0 +1,285 @@
+{
+ "lesson_sha256": "5005f4f39665becdb813bda427c4a132f01952b6f2ccc3e26a67457b2cb29331",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's factual claims about time-signal words, past perfect anteriority, written order versus event order, and stated cause-before-effect sequencing; they are correct in the narrative sequencing context taught here."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: kneading comes first, resting/rising second, and baking last.",
+    "Solved Example 2 independently: the family evacuated before the fire department arrived.",
+    "Solved Example 3 independently: engineers warned officials first, repairs were then delayed, and the bridge collapsed afterward.",
+    "Solved Example 4 independently: the order is (b) studying law, (c) passing the bar exam, (d) working as a junior associate, then (a) becoming partner."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and none of its example questions depends on a required figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly teaches the recorded goal by using explicit time relations, locally explaining past perfect, separating written order from chronological order, and combining these with stated causal context."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Sequencing** questions ask you to identify the correct order in which events happened. This sounds simple, but passages frequently describe events out of chronological order: through flashbacks, foreshadowing, or simply mentioning a later consequence before circling back to explain its cause.",
+     "problem": "This opening uses long, dense wording and several uncommon terms such as \"chronological,\" \"flashbacks,\" \"foreshadowing,\" and \"consequence,\" making the teaching prose harder than the required Grade 5 level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Order these four events: (a) becoming partner, (b) studying law, (c) passing the bar exam, (d) working as a junior associate.",
+     "problem": "The exam command verb \"Order\" is used without the required one-line explanation of what the student must do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked-example stems give the passage facts needed for a determinate sequencing answer without supplying a separate solution method, and the solutions return to direct explanatory language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terminology that could require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino examples and quiz-item requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the prohibition on Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specifically emphasized target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson follows an appropriate Reading Comprehension structure with Core Concept, Examples, a strategy-oriented shortcut section, and Traps to Watch For; no mathematical formulas are used in any example."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 covers explicit time-signal words, Example 2 covers past perfect, Example 3 covers presentation order versus chronology with stated causal context, and Example 4 combines multiple clues; the examples progress from direct clues to combined reasoning without near-duplicate cases."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Each of the four worked solutions presents its reasoning as a numbered step list. No numerical computation occurs, so there are no key computations that require display equations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could exceed a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Sequencing** questions ask you to identify the correct order in which events happened. This sounds simple, but passages frequently describe events out of chronological order: through flashbacks, foreshadowing, or simply mentioning a later consequence before circling back to explain its cause.",
+     "problem": "The second sentence is substantially longer than the short-sentence formatting standard, packing several separate ideas into one sentence.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Sequencing is immediately described as finding the order in which events happened; time-signal words are listed with their ordering role, and past perfect is explained with an example before students must apply it."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains how sequencing works through three mechanisms: explicit time signals, tense relationships, and stated cause-and-effect, then demonstrates each mechanism in worked examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that time-signal words may not appear for every event, describes past perfect as usually relating an earlier event to another nearby past event, and limits causal ordering to passages that present a cause and its effect."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "| Random labels (A, B, C, D) | Earliest event | 1 (First) |\n| Random labels (A, B, C, D) | Second event | 2 (Second) |\n| Random labels (A, B, C, D) | Third event | 3 (Third) |\n| Random labels (A, B, C, D) | Latest event | 4 (Fourth) |",
+     "problem": "The numerals 1, 2, 3, and 4 appear as ordinary prose text instead of being wrapped in inline math as required by the math-notation rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Three tools help determine the true sequence.",
+   "description": "Draw a simple horizontal timeline showing four scrambled lettered events being rearranged from earliest to latest, with arrows pointing toward the chronological order.",
+   "why": "A timeline would make the central idea of separating presentation order from actual event order immediately visible to students.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,265 @@
+{
+ "lesson_sha256": "917c00bb7d998766d61d1f9ca65542de620268641369003825c807b7948cce4f",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions and stated conditions for ratio, proportion, direct proportion, inverse proportion, partitive proportion, cross-multiplication, and the fixed-job worker-time model; the mathematical claims are correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 independently gives 14 cups because 4/24 = x/84, so x = 14.",
+    "Example 2 independently gives 10 days because 6 times 15 = 9x, so x = 10.",
+    "Example 3 independently gives Php 60,000 because 2 + 3 + 5 = 10 parts and 5/10 of 120,000 is 60,000.",
+    "Example 4 independently gives 77 meters because the 3-part difference equals 21 meters, one part is 7 meters, and 11 parts total 77 meters.",
+    "Example 5 independently gives 26 2/3 more days because 800 person-days remain after 10 days and 800/30 = 26 2/3."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, plus an optional natural mnemonic section; no question requires a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to choose direct, inverse, or partitive models, solve proportional problems, and separate completed from remaining work; the lesson teaches all three models and includes a mid-problem remaining-work example."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "specific reciprocal relationship",
+     "problem": "The word \"reciprocal\" is comparatively advanced and is not explained here, so this sentence is not consistently at the required very simple Grade 5 English level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No worked-example question uses an exam command verb such as evaluate or determine that needs a one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All five example stems provide the quantities and conditions needed for a determinate answer without giving the formula or solution method being tested, and the worked solutions return to simple explanatory language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and introduces no Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are appropriately written in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would require checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the rule against Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a particular target word, so no bold target-word prompt is required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$24x=4\\times84=336$$",
+     "problem": "This example uses the cross-multiplication rule before that rule is introduced. The general formula $AD=BC$ appears only later in Speed Tricks & Shortcuts, not in Core Concept as required for a mathematics lesson.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Coverage includes a basic direct case, a fixed-work inverse case, ordinary partitive sharing, partitive sharing from a given difference, and a mid-problem inverse change that separates completed and remaining work; the sequence moves from basic cases to the more involved change case without merely changing numbers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five worked solutions: each proceeds through numbered steps and places the key setup, arithmetic, or algebra calculations in display equations before giving the final answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its worked questions depends on a figure that would require one.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "specific reciprocal relationship",
+     "problem": "The lesson uses the mathematical term \"reciprocal\" without explaining its meaning before relying on it to describe inverse proportion.",
+     "source": "single"
+    },
+    {
+     "quote": "$$40\\times20=800\\text{ person-days}$$",
+     "problem": "The compound unit \"person-days\" first appears inside this computation without first explaining what one person-day represents.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Direct proportion is explained through a constant ratio and $y=kx$, inverse proportion through a constant product and $y=\\dfrac{k}{x}$, and partitive proportion through dividing a total according to ratio-parts; later material also shows how equivalent ratios, cross-multiplication, and worker-time relationships operate."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states nonzero-denominator and nonzero-quantity conditions, distinguishes constant ratio from merely increasing together and constant product from merely changing in opposite directions, and limits the worker-time shortcut to fixed work, equal constant worker rates, and divisible tasks."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "3. **Partitive Proportion.** A total is divided into shares according to a stated ratio.",
+   "description": "Draw a bar split into four equal blocks, with three blocks labeled for one recipient and one block labeled for the other to show a 3:1 split.",
+   "why": "A simple ratio bar would make the meaning of partitive sharing and ratio-parts visible before students use the method in the worked examples.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

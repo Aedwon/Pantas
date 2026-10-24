@@ -1,0 +1,346 @@
+{
+ "lesson_sha256": "5e71c398b57a4d6567948047c11b295e70df7fe0534e7701cde7ad1332410348",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the mathematical claims: a finite list can admit multiple continuations; arithmetic, geometric, changing-difference, interleaved, recurrence, and alphabet-position descriptions are factually sound."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: the differences are all +5, so the next term is 24; this matches the lesson.",
+    "Example #2 blind solve: each term is multiplied by 3, so 54 times 3 is 162; this matches the lesson.",
+    "Example #3 blind solve: the differences are 1, 2, 3, 4, so the next difference is 5 and the next term is 17; this matches the lesson.",
+    "Example #4 blind solve: B, D, G, K map to 2, 4, 7, 11; differences 2, 3, 4 imply 16 next, which is P; this matches the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the intended next term: $4,9,14,19,\\ldots$",
+     "problem": "This Reasoning example has no figure or ILLUSTRATION placeholder, even though the subject-fit standard says every Reasoning example is figure-driven. The same required figure is absent from Examples #2 through #4.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches testing a simple rule against all shown terms, then works arithmetic, geometric, changing-difference, and alphabet-position continuations, directly serving the recorded goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A finite list does **not** mathematically determine one unique continuation.",
+     "problem": "This sentence uses abstract terms such as “finite,” “mathematically determine,” and “unique continuation,” making the teaching prose harder than the required Grade 5 level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked questions use only the ordinary instruction verb “Find”; no specialized exam verb appears that needs a one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Each worked stem supplies the sequence itself without giving away the rule, and the solutions explain the intended continuation in direct language without adding unnecessary givens."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no Filipino grammar terms in this English-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino examples and quiz wording are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains English teaching prose rather than Filipino prose, so the Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Start with simple transformations.** Check constant differences, ratios, alternating positions, repeated operations, and simple recurrences.",
+     "problem": "This content is placed in a Speed Tricks & Shortcuts section, but the subject-fit rule for Reasoning requires the reduced Core Concept → Examples → Traps layout and says to drop Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the intended next letter: $B,D,G,K,\\ldots$",
+     "problem": "The worked examples cover arithmetic, geometric, changing-difference, and alphabet-position patterns, but omit distinct numerical cases taught in Core Concept: interleaved odd/even rules, alternating operations, and recurrence patterns.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "All shown consecutive differences are $+5$, so the simple arithmetic continuation gives **24**.",
+     "problem": "Example #1 gives the whole solution as prose instead of numbered steps and provides no display equation for the key computation.",
+     "source": "single"
+    },
+    {
+     "quote": "Each term is multiplied by $3$, so the simple geometric continuation gives",
+     "problem": "Example #2 has a display equation, but the solution is not presented as a numbered step list as required.",
+     "source": "single"
+    },
+    {
+     "quote": "The differences are $1,2,3,4$. Continuing that simple difference pattern with $+5$ gives **17**.",
+     "problem": "Example #3 gives the reasoning in prose instead of numbered steps and has no display equation for the key computation.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Convert to positions: $2,4,7,11$.\n2. Differences are $2,3,4$.\n3. Continuing with difference $5$ gives $16$.\n4. Letter 16 is **P**.",
+     "problem": "Example #4 uses numbered steps, but its key conversions and difference computations remain inline instead of being shown as display equations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "The only display equation, $54\\times3=162$, is short and comfortably narrow enough for a phone screen."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no ILLUSTRATION placeholder to assess for specificity or load-bearing prose support.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Geometric:** constant nonzero ratio, e.g. $3,6,12,24,\\ldots$.",
+     "problem": "The term “ratio” is needed to understand the geometric pattern, but it is used without being explained, and there is no prerequisite lesson supplying that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Recurrence:** later terms depend on earlier terms, as in the Fibonacci sequence.",
+     "problem": "The lesson names Fibonacci as the recurrence example but never explains its sum-of-the-two-previous-terms rule, so this concept is named without showing how it works.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that finite lists are not uniquely determined, requires candidate rules to fit every shown term, limits geometric patterns to a constant nonzero ratio, and warns that alphabet positions do not apply to every letter pattern."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "All shown consecutive differences are $+5$, so the simple arithmetic continuation gives **24**.",
+     "problem": "The answer number 24 appears in prose as bold text instead of inline math, violating the rule that numbers in prose must be inside $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "The differences are $1,2,3,4$. Continuing that simple difference pattern with $+5$ gives **17**.",
+     "problem": "The answer number 17 appears in prose as bold text instead of inline math, so the number is not wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "4. Letter 16 is **P**.",
+     "problem": "The number 16 appears in prose outside inline math; it should be written inside $...$ under the lesson math-notation rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Find the intended next term: $4,9,14,19,\\ldots$",
+   "description": "Show $4\\to9\\to14\\to19\\to?$ with a $+5$ arc above each jump.",
+   "why": "A repeated-jump diagram makes the constant-difference rule visible at a glance.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Find the intended next term: $2,6,18,54,\\ldots$",
+   "description": "Show $2\\to6\\to18\\to54\\to?$ with a $\\times3$ label on every arrow.",
+   "why": "The arrows make the constant-ratio transformation and its repetition easy to see.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Find the intended next term: $2,3,5,8,12,\\ldots$",
+   "description": "Show the sequence with first-difference labels $+1,+2,+3,+4,+5$ in a second row beneath it.",
+   "why": "A difference ladder makes the changing-difference pattern clearer than prose alone.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Find the intended next letter: $B,D,G,K,\\ldots$",
+   "description": "Show B(2) → D(4) → G(7) → K(11) → P(16) with jump labels $+2,+3,+4,+5$.",
+   "why": "Pairing letters with positions lets students see both the alphabet conversion and the growing differences.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,300 @@
+{
+ "lesson_sha256": "7123255c0056fcf6690f91d495a5afa73a15c65fb8823df7756977d07956381a",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Confirmed the current CSE Professional scope against the CSC's 14 March 2027 examination announcement: Analytical Ability includes \"Identifying assumptions and drawing conclusions.\" Source: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_06_Conduct%20of%2014%20March%202027%20CSE-PPT%20orig%20signed.pdf",
+    "Checked the logic claims used by the lesson: a necessary assumption must be required by the reasoning, deductive conclusions must follow from the premises, and existential \"some\" means at least one in standard formal logic."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Example 1 blind solve: none of A, B, or C is logically necessary as written; B is the closest choice but adds a usability mechanism not required by the stated premise.",
+    "Example 2 blind solve: No. A conditional claim can be true even if completion cannot be administratively verified.",
+    "Example 3 blind solve: Maria must be a full-time employee because all administrative officers are full-time employees and Maria is one.",
+    "Example 4 blind solve: No. \"Some inspectors are certified auditors\" does not entail that any inspector is not a certified auditor."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(B) The proposed overpass would actually be usable in a way that reduces pedestrian-vehicle interaction at the intersection.",
+     "problem": "Choice B is not established as a necessary unstated assumption. The stated premise already says adding the overpass will reduce conflicts, while B adds a particular usability mechanism. Negating B does not logically force that stated premise to be false, so the keyed answer is not necessary as written.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required Core Concept, Examples, and Traps to Watch For sections are present. The verbal-logic examples are fully specified in text and do not depend on a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson serves the recorded goal by teaching unstated necessary assumptions, the negation test, deductive must-follow conclusions, and the distinction between deductive necessity and evidence-supported conclusions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "This is a diagnostic heuristic, so apply it to the argument's actual reasoning rather than to whether the conclusion is imaginable in some other way.",
+     "problem": "This teaching sentence is too difficult for the Grade 5 readability target. \"Diagnostic heuristic\" is uncommon jargon, and the sentence is long and abstract.",
+     "source": "single"
+    },
+    {
+     "quote": "In ordinary verbal reasoning, a question may instead ask for the conclusion **best supported** by evidence; then the standard is evidential support rather than formal necessity.",
+     "problem": "The sentence uses abstract terms such as \"evidential support\" and \"formal necessity\" without simplifying them, making the teaching prose harder than the required Grade 5 level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked prompts use question forms such as \"Which\" and \"Does\" rather than exam command verbs that need a one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the lesson stays within the one-analogy maximum."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Premises: \"All administrative officers are full-time employees. Maria is an administrative officer.\"",
+     "problem": "Example 3 provides premises but no question or instruction before the solution, so the worked example does not use a complete exam-style question stem.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson mentions the CSE scope once to establish relevance and does not repeat formulaic exam-motivation openers elsewhere."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language reasoning lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino and therefore introduces no Filipino grammar terms that require English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so its worked examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would require a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the prohibition on Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specifically marked target word, so the bold-target-word rule is not triggered.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the teaching prose and summary for the listed stock AI phrases, repeated sentence openings, and formulaic summary wording; none of the prohibited patterns appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**For assumptions, find the gap between reasons and conclusion.** Ask what has to be true for the stated reason to support that conclusion.",
+     "problem": "This content appears under a Speed Tricks & Shortcuts section, but the subject is Reasoning, whose section-fit rule requires the reduced Core Concept → Examples → Traps layout and says to drop Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In ordinary verbal reasoning, a question may instead ask for the conclusion **best supported** by evidence; then the standard is evidential support rather than formal necessity.",
+     "problem": "The lesson introduces best-supported evidential conclusions as part of the learning goal, but no worked example asks the student to rank or select an evidence-supported conclusion. All worked conclusion cases are deductive.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "No. The conditional claim could still be true even if the organization had a poor or nonexistent verification procedure. Verification may be practically important for administering the policy, but it is **not logically required for the truth of the stated conditional**. Do not confuse operational convenience with a necessary logical assumption.",
+     "problem": "Example 2 gives its worked solution as a prose paragraph instead of numbered solution steps. Examples 3 and 4 also use unnumbered prose, so the required numbered-step solution format is not followed consistently.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be evaluated.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three sentences, and the only bullet list is the short four-item Key Rules list."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders, and none of the text-based verbal-logic examples requires a figure to state the question.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An **assumption** is an unstated proposition an argument relies on.",
+     "problem": "The definition depends on the logic term \"proposition\" without explaining it. There is no prerequisite lesson, so the student is expected to know an undefined necessary term.",
+     "source": "single"
+    },
+    {
+     "quote": "In a deductive task, a valid conclusion must be true whenever the stated premises are true.",
+     "problem": "The term \"premises\" is needed to understand this rule but is not explained until the later Key Rules section, with no signpost or reminder before this first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In ordinary verbal reasoning, a question may instead ask for the conclusion **best supported** by evidence; then the standard is evidential support rather than formal necessity.",
+     "problem": "The lesson names and contrasts the best-supported standard but does not explain how to judge which conclusion is best supported by the evidence, leaving a central part of the learning goal only thinly taught.",
+     "source": "single"
+    },
+    {
+     "quote": "**For conclusions, preserve quantifiers.** *Some, all, none, may,* and *must* carry different logical strength.",
+     "problem": "The lesson says these quantifiers differ in logical strength, but it never explains how \"none\" and \"may\" work. They are named without the meaning or inference behavior students need.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The negation test is limited to necessary assumptions and to the argument's actual reasoning; the lesson distinguishes \"must follow\" from weaker support standards and states the exception that formal \"some\" means at least one unless the problem says otherwise."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "Therefore **(B)** is a necessary assumption of this argument.",
+   "concern": "The keyed conclusion is not logically established by the argument as written. Choice B adds a specific usability mechanism, while the stated premise already asserts that the overpass will reduce conflicts; negating B does not necessarily destroy that premise.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

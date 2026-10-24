@@ -1,0 +1,379 @@
+{
+ "lesson_sha256": "39d463ed50c5e4412fa67b22ec038af9f514a736be99418f2f72e9727849bf6f",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked Section 11(a)-(d) against the Supreme Court E-Library text at https://elibrary.judiciary.gov.ph//thebookshelf//showdocs/2/6474: the six-month salary fine ceiling, one-year suspension ceiling, gravity-based removal, five-year and P5,000 ceilings for Sections 7, 8, and 9, discretionary disqualification, private-conspirator liability and joint trial, P25,000 statement-use penalty, heavier-penalty rule, and administrative removal without criminal prosecution all match the statute."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: up to five years of imprisonment, a fine up to P5,000, or both, with possible disqualification from public office at the court's discretion.",
+    "Example 2 blind solve: yes. A private accomplice in the conspiracy is subject to the same penal liabilities as the public official or employee and is tried jointly with that person.",
+    "Example 3 blind solve: yes. A violation proven in a proper administrative proceeding can support removal or dismissal even when no criminal prosecution has been instituted."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, the officer may be removed or dismissed administratively even without a criminal case.",
+     "problem": "The lesson ends after the Examples section and omits the default required Speed Tricks & Shortcuts and Traps to Watch For sections. The packet gives no General Information subject exception that permits dropping them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly maps general violations, Sections 7/8/9 violations, private-conspiracy participation, prohibited statement use, heavier-penalty cases, and administrative proceedings to Section 11 consequences, and Example 3 explicitly distinguishes administrative removal from criminal prosecution."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Private individuals who participate in a conspiracy as co-principals, accomplices, or accessories with public officials or employees face the same penal liabilities and are tried jointly with them.",
+     "problem": "This sentence is long and uses several unexplained legal terms at once, including conspiracy, co-principals, accomplices, accessories, and penal liabilities, which is not simple Grade 5 teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson's question prompts do not use an exam command verb such as identify, determine, evaluate, compare, or explain that needs a one-line first-use gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears anywhere in Core Concept or the rest of the lesson, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 supplies that Section 7 was violated and asks for the resulting Section 11 penalties, so the violation status is a problem-specific given rather than the tested penalty rule.",
+    "Example 2 supplies the conspiracy and accomplice status and asks whether Section 11 penalizes the private participant; it does not give away the same-liability or joint-trial rule.",
+    "Example 3 supplies an administrative finding and absence of a criminal case, then asks whether administrative removal is still possible; it does not supply the administrative-independence answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat stock exam-motivation openers or repetitive mentions of a target exam."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, not a Filipino-language lesson, so the Filipino Grade 5 prose rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This English-language lesson does not introduce Filipino grammar terms that would require a first-use English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so there is no requirement for its examples and quiz items to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would need checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt asks the learner to identify or reason about a marked target word, so the bold-target-word convention does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the summary, Core Concept, and all three solutions: none uses the listed stock AI phrases, sentence openings are not repeated three times in a row, and the summary does not begin with the banned stock pattern."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "No formula is used in any worked example, so there is no formula-to-Core-Concept trace to perform; the lesson is non-quantitative and uses the standard Core Concept and Examples titles that it does include."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **General violations:** A fine not exceeding the equivalent of six months' salary, suspension not exceeding one year, or removal from office, depending on the gravity of the offense and after due notice and hearing by the appropriate body or agency.",
+     "problem": "No worked example covers the distinct general-violation consequence path, including the salary-based fine ceiling, suspension ceiling, gravity-based removal, and due-notice-and-hearing condition.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Prohibited use of filed statements:** An official or employee may bring an action against a person who obtains or uses a statement for a purpose prohibited by Section 8(D). The court may assess against that person a penalty of up to P25,000.",
+     "problem": "No worked example covers the distinct prohibited-statement-use consequence or asks the learner to select the P25,000 ceiling for that category.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Heavier penalty rule:** If another law imposes a heavier penalty for the violation, prosecution proceeds under that statute.",
+     "problem": "No worked example covers the distinct heavier-penalty scenario in which the learner must choose prosecution under the other statute.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Apply the statutory penalty for Sections 7, 8, and 9 violations under Section 11.",
+     "problem": "This is an unnumbered solution instruction placed after **Solution:** even though the required format says the solution should proceed through numbered steps.",
+     "source": "single"
+    },
+    {
+     "quote": "Review the rule on private individuals in Section 11.",
+     "problem": "This is an unnumbered solution instruction placed after **Solution:** instead of being included in the numbered solution-step list.",
+     "source": "single"
+    },
+    {
+     "quote": "Check the rule on administrative independence.",
+     "problem": "This is an unnumbered solution instruction placed after **Solution:** instead of being included in the numbered solution-step list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display-math lines whose phone-screen width can be evaluated.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three short sentences, and the only bullet lists are the compact penalty and enforcement summaries."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders and none of the worked questions depends on a supplied figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Private individuals who participate in a conspiracy as co-principals, accomplices, or accessories with public officials or employees face the same penal liabilities and are tried jointly with them.",
+     "problem": "The lesson relies on the legal categories co-principal, accomplice, and accessory, plus the phrase penal liabilities, without explaining what those terms mean. The packet lists no prerequisite lesson that supplies those meanings.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Administrative independence:** A violation proven in a proper administrative proceeding is sufficient cause for removal or dismissal even if no criminal prosecution is instituted.",
+     "problem": "The phrase proper administrative proceeding is necessary to understand the condition for administrative removal, but the lesson does not explain what that term means and has no prerequisite to supply it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains how each consequence works at the level of its learning goal: it states the available general sanctions, the special Sections 7/8/9 criminal penalties, equal liability and joint trial for private conspirators, the statement-use action and ceiling, the heavier-statute rule, and the independence of administrative removal from criminal prosecution."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Prohibited use of filed statements:** An official or employee may bring an action against a person who obtains or uses a statement for a purpose prohibited by Section 8(D). The court may assess against that person a penalty of up to P25,000.",
+     "problem": "The lesson makes the Section 8(D) prohibited-purpose condition load-bearing but never explains which purposes are prohibited, so the learner cannot tell when this penalty rule applies.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Section 11 of RA 6713 specifies penalties and administrative consequences for violations of the Code of Conduct.",
+     "problem": "The numbers in \"Section 11\" and \"RA 6713\" appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Violations of Sections 7, 8, or 9:** Imprisonment of up to five years, a fine of up to P5,000, or both, with possible disqualification from holding public office at the discretion of the court.",
+     "problem": "The section numbers and the numeric fine amount appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Prohibited use of filed statements:** An official or employee may bring an action against a person who obtains or uses a statement for a purpose prohibited by Section 8(D). The court may assess against that person a penalty of up to P25,000.",
+     "problem": "The Section 8(D) reference and P25,000 amount appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "A public official violates Section 7 by taking outside employment in a regulated private business without authorization. What maximum criminal penalties under Section 11 of RA 6713 can be imposed?",
+     "problem": "The Section 7, Section 11, and RA 6713 numbers appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the statutory penalty for Sections 7, 8, and 9 violations under Section 11.",
+     "problem": "The section numbers 7, 8, 9, and 11 appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Section 11 provides specific penalties for violations of Sections 7, 8, or 9.",
+     "problem": "The section numbers in this numbered solution sentence appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "2. The maximum criminal penalties are imprisonment of up to five years, a fine of up to P5,000, or both, with possible disqualification from public office at the court's discretion.",
+     "problem": "The numeric fine amount P5,000 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "3. Therefore, the maximum penalties are up to five years of imprisonment and a P5,000 fine, which may be imposed together.",
+     "problem": "The numeric fine amount P5,000 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "A private businessman conspires with a government officer in a violation of RA 6713 and participates as an accomplice. Can the private businessman be penalized under Section 11?",
+     "problem": "The numbers in RA 6713 and Section 11 appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "Review the rule on private individuals in Section 11.",
+     "problem": "The number in Section 11 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "3. Therefore, the private businessman can be tried jointly and can face the same penal liabilities under RA 6713.",
+     "problem": "The number in RA 6713 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "An administrative investigation finds a public officer guilty of violating RA 6713, but no criminal case has been filed in court. Can the officer be removed from service administratively?",
+     "problem": "The number in RA 6713 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Under Section 11, a violation proven in a proper administrative proceeding is sufficient cause for removal or dismissal.",
+     "problem": "The number in Section 11 appears in prose outside inline math delimiters.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Section 11 of RA 6713 specifies penalties and administrative consequences for violations of the Code of Conduct.",
+   "description": "A compact flow diagram that branches Section 11 into general administrative sanctions, Sections 7/8/9 criminal penalties, private-conspirator liability, prohibited statement-use penalties, and the heavier-law and no-criminal-case conditions.",
+   "why": "The learning goal asks students to match violation categories to consequences and distinguish administrative action from criminal prosecution; seeing the consequence paths side by side would make those distinctions easier to compare.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

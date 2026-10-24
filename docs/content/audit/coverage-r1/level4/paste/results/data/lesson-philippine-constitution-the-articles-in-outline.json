@@ -1,0 +1,332 @@
+{
+ "lesson_sha256": "6262438b175d7a69c6a55a4356710a4c2a35611072db88f4ce9b7f7ba6a327ba",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the Preamble-plus-18-Articles structure, Article XI for Accountability of Public Officers, Article IX-B for the Civil Service Commission, and the current CSE-PPT General Information scope including the Philippine Constitution against official sources. https://officialgazette.gov.ph/constitutions/1987-constitution/"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: public-officer accountability and impeachment are located in Article XI.",
+    "Solved Example 2 independently: excluding the Preamble, Article I through Article XVIII gives 18 articles.",
+    "Solved Example 3 independently: the Civil Service Commission is in Article IX, sub-part B, so the answer is Article IX-B."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. The Civil Service Commission is covered under Article IX-B.",
+     "problem": "The lesson ends after Examples and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections. The missing trap section is especially relevant to the lesson goal because it could warn that an article title identifies location but does not teach the substantive constitutional rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Knowing the article structure helps you locate major constitutional topics without implying that the CSC publishes specific questions in advance.",
+     "problem": "The recorded goal also requires students not to equate an article title with substantive constitutional knowledge. The lesson explains location and a separate caution about predicting CSC questions, but it never teaches the required title-versus-substance distinction.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "States the purposes and aspirations expressed by the sovereign Filipino people in ordaining and promulgating the Constitution.",
+     "problem": "This teaching sentence uses difficult words such as \"aspirations,\" \"ordaining,\" and \"promulgating\" without simpler wording, which exceeds the required Grade 5 teaching standard.",
+     "source": "single"
+    },
+    {
+     "quote": "The Civil Service Examination's General Information scope includes the Philippine Constitution. Knowing the article structure helps you locate major constitutional topics without implying that the CSC publishes specific questions in advance.",
+     "problem": "Phrases such as \"General Information scope,\" \"constitutional topics,\" and \"without implying\" make this teaching prose more complex than the required simple Grade 5 English.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The example stems contain no specialized exam command verb that requires a one-line explanation on first use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears anywhere in Core Concept or the worked examples, so the lesson stays within the one-analogy maximum."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 gives the topic to locate but does not supply the Article XI answer or a lookup method; its solution returns to direct, simple language.",
+    "Example 2 asks for the article count without supplying 18 in the stem; the solution derives it from Article I through Article XVIII.",
+    "Example 3 asks for the Civil Service Commission's article and sub-part without supplying Article IX-B in the stem; the solution locates it from the taught outline."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson mentions the Civil Service Examination once and ties that mention to why knowing the article structure is useful, without repetitive exam-motivation openers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and is not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example and quiz wording requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino-language teaching text whose spelling or usage requires a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question refers to a marked, emphasized, underlined, or bold target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases, repeated three-sentence openings, em dashes, and the banned summary opener; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This General Information lesson contains no formulas, so no example can introduce a formula before Core Concept; it also does not use a conflicting subject-specific alternate section title."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A citizen wants to read the constitutional rules on impeachable officers and public accountability. Which article of the 1987 Constitution should the citizen review?",
+     "problem": "The worked examples practice locating a topic but never cover the distinct learning-goal case of recognizing that an article title gives a location without supplying substantive constitutional knowledge.",
+     "source": "single"
+    },
+    {
+     "quote": "A student is asked to count the total number of articles in the 1987 Constitution, excluding the Preamble. What is the total count?",
+     "problem": "This basic counting task is placed after the more demanding topic-to-article lookup in Example 1, so the examples do not consistently ramp from basic to target-exam difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Match the subject to the article outline.",
+     "problem": "This is a solution instruction placed before the numbered list instead of being presented as a numbered solution step.",
+     "source": "single"
+    },
+    {
+     "quote": "Recall the structure of the Constitution.",
+     "problem": "This is a solution instruction placed before the numbered list instead of being presented as a numbered solution step.",
+     "source": "single"
+    },
+    {
+     "quote": "Locate the Civil Service Commission within the constitutional structure.",
+     "problem": "This is a solution instruction placed before the numbered list instead of being presented as a numbered solution step.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width needs to be checked for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "The prose paragraphs contain only one or two short sentences, and the single long bullet list is the article index that forms the lesson's core reference."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders and no question whose answer depends on a missing figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the terms needed for the method: the Preamble receives a purpose description, Article IX's lettered sub-parts are shown before they are tested, and Roman numeral XVIII is explicitly connected to 18 in the worked solution."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Knowing the article structure helps you locate major constitutional topics without implying that the CSC publishes specific questions in advance.",
+     "problem": "The lesson explains that the outline helps locate topics, but it does not explain the other essential part of its own learning goal: an article title is only a location label and does not itself teach the constitutional rule or principle under that article.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Knowing the article structure helps you locate major constitutional topics without implying that the CSC publishes specific questions in advance.",
+     "problem": "The lesson states a limitation about not predicting CSC questions, but omits the relevant limitation on the lookup method itself: knowing an article title or number does not establish substantive knowledge of the provisions inside it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The 1987 Constitution of the Republic of the Philippines consists of a Preamble and 18 Articles.",
+     "problem": "The numbers 1987 and 18 appear in prose outside inline math delimiters, contrary to the lesson math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "A citizen wants to read the constitutional rules on impeachable officers and public accountability. Which article of the 1987 Constitution should the citizen review?",
+     "problem": "The number 1987 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "A student is asked to count the total number of articles in the 1987 Constitution, excluding the Preamble. What is the total count?",
+     "problem": "The number 1987 appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "3. Roman numeral XVIII equals 18.",
+     "problem": "The number 18 in the sentence appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "4. The Constitution contains 18 articles.",
+     "problem": "The number 18 in the sentence appears in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "Which main article and sub-part of the 1987 Constitution cover the Civil Service Commission?",
+     "problem": "The number 1987 appears in prose outside inline math delimiters.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

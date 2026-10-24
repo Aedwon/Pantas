@@ -1,0 +1,281 @@
+{
+ "lesson_sha256": "caeafadafc2d1d122170d5a888b63b2d86c7116694a7b4371bf2b17f423a9178",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's claims about inference, evidence strength, ordinary background knowledge, and unsupported conclusions; these are standard reading-comprehension principles, while the Maria, stock-market, student, and kitchen scenes are hypothetical examples rather than historical factual claims."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example #1 independently: repeated watch-checking, entrance-glancing, and foot-tapping support waiting with impatience or anxiety, but not a specific person or reason.",
+    "Solved Example #2 independently: B is the best-supported choice because the price decline immediately following the announcement supports a negative market reaction; A invents a scandal and C predicts bankruptcy without evidence.",
+    "Solved Example #3 independently: being two days late establishes lateness but does not establish laziness, indifference to grades, or another motive.",
+    "Solved Example #4 independently: the late hour, textbooks, coffee cups, and unfinished document support late-night studying or work, but not the exact subject, emotional state, or a next-day exam."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required Reading Comprehension structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the optional mnemonic section is omitted, and no load-bearing exam figure is required for this textual-inference lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to choose an English textual inference whose content and certainty match the evidence. Core Concept teaches evidence-based inference and proportional certainty, while the examples practice best-supported conclusions, unsupported motives, and combining clues."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An **inference** is a conclusion supported by evidence that is not simply stated as the answer in the same explicit form. It combines textual information with ordinary reasoning and, when appropriate, limited background knowledge needed to understand the text.",
+     "problem": "This teaching prose is substantially above the Grade 5 simplicity target. Phrases such as \"same explicit form,\" \"textual information,\" and \"limited background knowledge\" are abstract, and the sentences carry several ideas at once.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no exam-question directive verb that students must interpret, such as evaluate, identify, determine, or infer.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "Checked Core Concept and the rest of the lesson for friendly-tutor analogies; no analogy is used, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Maria checked her watch for the third time in five minutes, glanced repeatedly at the entrance, and tapped her foot.",
+     "problem": "Example #1 supplies only stimulus text and then immediately gives the inference. It never asks an exam-style question, so the learner does not practice authentic question wording. Examples #3 and #4 follow the same pattern.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Checked references to tests and answer selection across Core Concept, shortcuts, and traps; they are brief, varied, and tied to choosing conclusions from evidence rather than repeating a stock exam-motivation opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English Reading Comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino and therefore contains no Filipino grammar terms requiring English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is written and taught in English, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is entirely English teaching prose, so the Filipino no-Taglish rule cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No example or prompt asks the learner about a specifically marked target word, so bold-target wording requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for the prohibited stock phrases, em-dash-like AI constructions, repeated sentence openings, and a formulaic \"This lesson teaches you\" summary; none appears, and the summary plainly states the lesson topic."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a Reading Comprehension lesson using Core Concept, Examples, a permitted strategy-style section, and Traps to Watch For. No formula is used in any example, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Mapped the distinct goal-relevant cases: Example #1 gives a basic supported inference, #2 compares support strength among alternatives, #3 rejects an unsupported motive or personality judgment, and #4 combines several clues while limiting certainty. The sequence moves from a basic inference to more demanding evidence calibration without merely changing numbers or wording."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(B) is best supported. The timing and price movement support a negative market reaction. (A) invents a cause for the resignation; (C) makes a much stronger future claim than the evidence supports.",
+     "problem": "The only example explicitly labeled with a Solution gives its reasoning as one prose paragraph rather than numbered solution steps. The other examples also move directly from stimulus text to an answer or explanation without the required numbered worked-solution structure.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be assessed.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson's paragraphs and lists: prose blocks stay within one to three sentences, and bullets are limited to the four inference criteria rather than replacing ordinary teaching paragraphs."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The existing concept-diagram placeholder specifies three clue phrases connected by arrows to one inference or conclusion and includes a semantics label. The surrounding prose fully teaches the inference process without requiring the image."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The company's stock price fell 15% after the CEO's resignation was announced, and trading volume increased.",
+     "problem": "The example introduces the specialized finance term \"trading volume\" without explaining it or pointing to prior teaching. A student who does not already know the term may need outside domain knowledge to understand all of the supplied evidence.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the central concept of inference: the lesson defines what an inference is, distinguishes reasoning from explicit-detail retrieval, explains support strength, and shows how unsupported additions make a conclusion weaker."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked conditions and limitations on inference: conclusions must remain proportionate to evidence; ordinary background knowledge is limited; possibility alone is insufficient; stronger certainty words require stronger evidence; and a strong conclusion is acceptable when the text directly supports it."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The company's stock price fell 15% after the CEO's resignation was announced, and trading volume increased.",
+     "problem": "The number 15% appears in prose outside inline math delimiters, contrary to the rule that every number in prose must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "The kitchen light was still on at 3 a.m. Textbooks covered the table beside empty coffee cups, and a laptop showed an unfinished document.",
+     "problem": "The number 3 appears in prose outside inline math delimiters, contrary to the rule that every number in prose must be wrapped in $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

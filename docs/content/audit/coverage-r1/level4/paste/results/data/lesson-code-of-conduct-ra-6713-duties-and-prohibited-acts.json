@@ -1,0 +1,368 @@
+{
+ "lesson_sha256": "2713fa46b4cfc6ad70a00ff54a1b66a6f7b9ce63aa17ce9e04de997742140fa9",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked R.A. 6713 Sections 5 and 7 against Lawphil at https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html. The 15-working-day response rule, reply-content requirement, 45-working-day annual report, public access duty, practicable three-signatory limit, prohibited acts, and one-year post-service restrictions match the statute.",
+    "Checked the implementing-rule details against the Civil Service Commission's Rules Implementing R.A. 6713 at https://www.csc.gov.ph/phocadownload/userupload/irmo/government%20issuances/RA6713/Code%20of%20Conduct%20and%20Ethical%20Standards.pdf. The source supports the reasonable-time criteria and the qualified three-signatory rule."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 from its question before comparing: the office must respond within 15 working days from receipt. The lesson gives the same answer.",
+    "Solved Example 2 from its question before comparing: the former professional is restricted for 1 year after separation for matters before the former office. The lesson gives the same answer.",
+    "Solved Example 3 from its question before comparing: as far as practicable, the document should have no more than 3 signatories. The lesson gives the same answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, the practical limit is three signatories.",
+     "problem": "The lesson ends immediately after the Examples section. The required section structure also calls for Speed Tricks & Shortcuts and Traps to Watch For, and no subject-specific reduced layout is provided for General Information.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal requires recognizing R.A. 6713 duties, response periods, prohibited transactions, and keeping gift and permission conditions distinct.",
+    "Core Concept teaches response deadlines, prohibited transactions, private-practice permission, and a separate gift-exception section, so the lesson directly serves the recorded goal even though later rules identify coverage gaps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The law's implementing rules also identify failures to perform certain duties as grounds for administrative disciplinary action.",
+     "problem": "This teaching sentence uses dense legal wording such as \"implementing rules\" and \"administrative disciplinary action\" without a simpler restatement, which is above the required Grade 5 reading level.",
+     "source": "single"
+    },
+    {
+     "quote": "Owning, controlling, managing, or accepting specified roles or employment in a private enterprise regulated, supervised, or licensed by their office, unless expressly allowed by law.",
+     "problem": "This is a long sentence packed with uncommon legal and regulatory terms. It is not simple Grade 5 teaching prose and needs to be broken down and explained.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify the statutory deadline for responding to public communications under Section 5.",
+     "problem": "\"Identify\" is used as an exam-style command verb without the required one-line explanation on its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the post-employment restriction under Section 7.",
+     "problem": "\"Apply\" is used as an exam-style command verb without the required one-line explanation on its first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears anywhere in Core Concept, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify the statutory deadline for responding to public communications under Section 5.",
+     "problem": "The solution uses legalistic wording such as \"statutory deadline\" and \"public communications\" instead of the simple solution language required for worked examples.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the post-employment restriction under Section 7.",
+     "problem": "This solution lead-in uses the abstract legal phrase \"post-employment restriction\" without a simple explanation, so the solution language is not at the required simplicity level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repetitive exam-motivation openers or repeated stock references to test-makers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language General Information lesson, not a lesson that teaches Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose and therefore introduces no Filipino grammar terms.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so its worked examples are not required to be in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage would require a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose, so the prohibition on Taglish cannot apply here.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word whose bold formatting must be identified.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the summary and teaching prose for the listed stock AI phrases, repeated sentence openings, all-caps emphasis, and em dashes; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "General Information has no separate subject-specific section adaptation in the supplied guide, and this lesson does not use any mathematical or quantitative formula.",
+    "Checked all three worked examples: none uses a formula, so no example introduces or relies on a formula that was absent from Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The implementing rules identify circumstances that are not covered by the gift prohibition, including:",
+     "problem": "The learning goal requires keeping gift conditions distinct, but none of the worked examples asks the student to classify a gift, donor relationship, transaction connection, or foreign-government exception.",
+     "source": "single"
+    },
+    {
+     "quote": "To help reduce bureaucratic delay, Section 5 gives a practical limit for signatories on official papers and documents. As far as practicable, what is that limit?",
+     "problem": "All three examples are direct recall of a deadline, a one-year period, or a signatory count. They do not cover the many distinct prohibited-act scenarios, annual-report duty, public-access duty, confidential-information cases, or permission and exception conditions, and there is no ramp to application-level exam difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify the statutory deadline for responding to public communications under Section 5.",
+     "problem": "This is an instructional solution step placed between the Solution label and the numbered list. The rule requires every solution step to be part of the numbered list.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the post-employment restriction under Section 7.",
+     "problem": "This is another unnumbered solution step before the numbered list, so the solution does not keep every step in numbered-list form.",
+     "source": "single"
+    },
+    {
+     "quote": "Recall the efficiency rule under Section 5.",
+     "problem": "This third solution also inserts an unnumbered instructional step before the numbered list, repeating the same formatting breach.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation-width issue to evaluate on a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Act on letters and requests:** Respond within 15 working days from receipt of letters, telegrams, or other communications sent by the public. The reply must state the action taken on the request. Under the implementing rules, failure to act promptly within this period is a ground for administrative disciplinary action.",
+     "problem": "The teaching is dominated by three long bullet runs for duties, prohibited acts, and gift exceptions. That is substantially more than the guide's requirement to use bullet lists sparingly.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders and no figure-dependent question or concept that requires a placeholder under the supplied rules.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Under the implementing rules, failure to act promptly within this period is a ground for administrative disciplinary action.",
+     "problem": "The necessary term \"administrative disciplinary action\" is used as a consequence without being explained in student-level language, and there is no prerequisite lesson to supply that meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "- Gifts from family members or relatives on family celebrations without an expectation of pecuniary gain or benefit.",
+     "problem": "The condition depends on the uncommon legal term \"pecuniary gain or benefit,\" but the lesson never explains that it means a money or financial benefit.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The implementing rules identify circumstances that are not covered by the gift prohibition, including:",
+     "problem": "The lesson mostly names gift exceptions in a list. It does not explain how the exception system works or how to decide which conditions control a concrete gift scenario, even though distinguishing those conditions is part of the learning goal.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Outside employment:** Owning, controlling, managing, or accepting specified roles or employment in a private enterprise regulated, supervised, or licensed by their office, unless expressly allowed by law.",
+     "problem": "The concept is presented as a label plus a compressed rule. The lesson does not explain what the referenced \"specified roles\" are or how the regulated-enterprise connection makes the prohibition operate.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Process documents promptly:** Official papers and documents must be processed and completed within a reasonable time. As far as practicable, they should contain no more than three signatories.",
+     "problem": "The lesson never explains how \"reasonable time\" is determined. The implementing rules supply criteria and also qualify the three-signatory rule when law or regulation provides otherwise, so students are missing conditions needed to know when the rule applies.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Private practice:** Engaging in private professional practice unless authorized by the Constitution or law and the practice does not conflict or tend to conflict with official functions. For 1 year after leaving public office, the professional cannot practice in connection with a matter before the former office.",
+     "problem": "The post-service limitations are incomplete. R.A. 6713 continues the outside-enterprise and recommendation prohibitions for one year after separation, while private practice instead has the distinct one-year former-office matter restriction stated here.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Act on letters and requests:** Respond within 15 working days from receipt of letters, telegrams, or other communications sent by the public.",
+     "problem": "The numeral 15 appears in prose without inline math delimiters. The same formatting error recurs with the lesson's 45-day, 1-year, date, and section-number references.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the script candidate \"marks of courtesy.\" Here \"marks\" means signs or tokens of courtesy, not exam scores, and the lesson never calls questions \"cards\"."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "The implementing rules identify circumstances that are not covered by the gift prohibition, including:",
+   "description": "A decision flow showing the gift prohibition first, then the separate paths for nominal unsolicited gifts, family-celebration gifts, qualified donations, and foreign-government gifts or travel.",
+   "why": "The learning goal asks students to keep gift and permission conditions distinct; a compact flow would make the conditions and branches easier to compare without replacing the prose.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

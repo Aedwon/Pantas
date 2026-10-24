@@ -1,0 +1,285 @@
+{
+ "lesson_sha256": "6bfa59d54134a9aea9bef089f20c9bf73bf9f2d07fac307ce88abef2e6af783a",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the rules for $2$, $3$, $5$, $6$, and $10$ against OpenStax divisibility tests: https://openstax.org/books/prealgebra-2e/pages/2-4-find-multiples-and-factors.",
+    "Verified the stated tests for $7$, $8$, $9$, and $11$ against Wolfram MathWorld: https://mathworld.wolfram.com/DivisibilityTests.html.",
+    "Checked the coprime-product split, the shared-factor counterexample, and the statements about $0$; each is mathematically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example #1 independently: $5+7+x+8+1=21+x$, so divisibility by $9$ gives $x=6$.",
+    "Solved Example #2 independently: only $24,534$ is even and has digit sum $18$, so the answer is B.",
+    "Solved Example #3 independently: the alternating sums are $7+b$ and $8$, so $b-1=0$ and $b=1$.",
+    "Solved Example #4 independently: $34Y$ forces $Y=4$ for divisibility by $8$; then $16+X=18$, so $X=2$ and $X+Y=6$."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Confirmed the lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, plus the optional Mnemonics & Memory Aids section.",
+    "No example or required skill in this packet depends on a diagram, graph, or other figure, so no required illustration is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to test divisibility, constrain missing digits, and combine tests only for coprime factors; the lesson addresses all three through its rules, missing-digit examples, combined-test example, and shared-factor trap."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "When checking divisibility by $3$ or $9$, you can ignore any group of digits whose sum is a multiple of $9$ because removing such a group does not change the digit sum modulo $9$.",
+     "problem": "This sentence is long and introduces the unexplained technical word \"modulo,\" making the teaching prose harder than the required Grade 5 level.",
+     "source": "single"
+    },
+    {
+     "quote": "Only $1$ remains, so the original digit sum is congruent to $1$ modulo $9$ and the number is divisible by neither $3$ nor $9$.",
+     "problem": "The unexplained terms \"congruent\" and \"modulo\" make this explanation unnecessarily technical for the required simple teaching voice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not use a specialized exam command such as evaluate, simplify, or determine that needs a one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No explanatory analogy is used in the lesson; the brief \"gate\" wording functions as a mnemonic label rather than an analogy that teaches the concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all four worked-example stems: each gives the problem-specific digits, values, or answer choices needed, and none supplies the divisibility rule or solution method being tested.",
+    "The worked solutions use direct instructional sentences and show the reasoning needed to reach each answer without adding irrelevant information."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "There are no repeated exam-reference openers or repeated test-maker phrases in the lesson, so no repetitive exam-motivation pattern appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a lesson that teaches Filipino language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No Filipino grammar term appears because the lesson is written in English and teaches mathematics.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino, so its examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is English mathematics content, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specifically marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock phrases and repetitive sentence openings; none of the banned stock wording appears, and the summary begins plainly with \"Learn how\" rather than the prohibited template."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "* **Rule for $9$:** If the sum of the digits is divisible by $9$, the whole number is divisible by $9$.",
+     "problem": "A rule used in the worked examples is taught in Mnemonics & Memory Aids instead of Core Concept. For mathematics, the substantive rule should be introduced in Core Concept before an example relies on it.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Since $72 = 8 \\times 9$ and $8$ and $9$ are relatively prime, the number must be divisible by both $8$ and $9$.",
+     "problem": "Example #4 uses the relatively-prime product split before the lesson teaches that split; the fuller rule appears only later under Speed Tricks & Shortcuts, not in Core Concept.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "* **Rule for $5$:** The last digit must be $5$ or $0$.",
+     "problem": "The lesson teaches last-digit divisibility tests, but the Examples section gives no worked scenario for divisibility by $5$ or $10$; coverage of this distinct exam-relevant case is therefore incomplete.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "* A) $2 + 4 + 5 + 3 + 2 = 16$",
+     "problem": "Example #2 puts key computations in bullet points with inline math. The solution-format rule requires key computations to appear as display equations within the numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every display equation in Examples #1, #3, and #4; each is a short single-line expression that fits comfortably on a phone screen."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three short sentences, and bullet lists are used for rules, answer choices, or compact calculations rather than as the default prose format."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder and no figure-dependent question that would require one.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Since $72 = 8 \\times 9$ and $8$ and $9$ are relatively prime, the number must be divisible by both $8$ and $9$.",
+     "problem": "The term \"relatively prime\" is needed to understand why the combined test is valid, but it is used before being explained and is never actually defined in the lesson.",
+     "source": "single"
+    },
+    {
+     "quote": "Only $1$ remains, so the original digit sum is congruent to $1$ modulo $9$ and the number is divisible by neither $3$ nor $9$.",
+     "problem": "The terms \"congruent\" and \"modulo\" are necessary to understand this shortcut explanation, but neither term is defined before or at this use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains how each divisibility test is applied, including which digits or digit sums to inspect, and it develops combined divisibility through a worked example plus a shared-factor trap."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states the key applicability conditions: the $6$ test requires both $2$ and $3$, the product split requires relatively prime factors, shared factors may fail, the $11$ test allows a zero difference, and division by $0$ is excluded."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

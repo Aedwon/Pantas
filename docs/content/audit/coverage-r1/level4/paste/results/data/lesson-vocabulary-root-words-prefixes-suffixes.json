@@ -1,0 +1,343 @@
+{
+ "lesson_sha256": "5d680a50e140edb349936ff3fe59657959f0ecffa94c8c7f8b11da76c3b37d03",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the Filipino affix claims: unlapi, gitlapi, hulapi, kabilaan, and laguhan are presented consistently with their stated positional roles.",
+    "Checked the classical-element claims: pseudo- supports false or imitation, omni- means all, and chron-/chrono- means time.",
+    "Checked the etymology claims for circumlocution, malevolent, benevolent, benign, and collaborate; no factual contradiction was identified."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 solved independently: pseudo- contributes false or imitation, so the answer is B.",
+    "Example 2 solved independently: the root of pinagsumikapan is sikap, so the answer is A.",
+    "Example 3 solved independently: kabataan shows ka-...-an around bata, so the answer is A.",
+    "Example 4 solved independently: circumlocution means an indirect or roundabout expression, so the answer is B.",
+    "Example 5 does not pose a question or give an answer key, so there is no keyed response to verify under B02."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Confirmed the required lesson structure is present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; the optional mnemonic section is omitted.",
+    "Checked the examples for figure dependence; none of the questions requires a missing figure to determine its answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches genuine English word elements, Filipino affix patterns, context confirmation, and rejection of accidental letter resemblance, which directly serves the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **root**, **base**, or **stem** carries central lexical meaning, while an **affix** is a bound form attached to a base. These terms overlap in school usage but are not always identical in linguistic analysis.",
+     "problem": "Terms such as \"lexical meaning,\" \"bound form,\" and \"linguistic analysis\" are advanced and are not explained in Grade 5-level language.",
+     "source": "single"
+    },
+    {
+     "quote": "Do not treat these as mechanically productive in every word that happens to begin with the same letters. For example, *benign* is historically related to Latin words for good/kindly, but analyzing modern *benign* as simply productive prefix *bene-* + a transparent English root is not a reliable word-building rule.",
+     "problem": "This paragraph uses dense specialist wording such as \"mechanically productive\" and \"transparent English root\" in a long sentence that is not simple Grade 5 teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Tukuyin ang salitang-ugat ng *pinagsumikapan*.",
+     "problem": "The exam command \"Tukuyin\" appears without the required one-line explanation of what the student must do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The speaker's **circumlocution** made the answer unnecessarily indirect. The Latin-derived elements relate to \"around\" and \"speaking,\" which supports the sense \"speaking around a point\" or using an indirect, wordy expression.",
+     "problem": "The example stem supplies the etymological clues and essentially states the tested meaning before asking the student to choose an answer.",
+     "source": "single"
+    },
+    {
+     "quote": "The lexical base is **sikap**. The larger word contains affixal material built around that base. For an exam item, identify the meaningful base instead of assuming every substring is itself a root.",
+     "problem": "The solution uses specialist phrases such as \"lexical base,\" \"affixal material,\" and \"substring\" instead of returning to simple teaching language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson; its teaching prose is primarily English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the all-examples-in-Filipino requirement does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino text and Filipino morphology terms, so official KWF spelling and usage must be checked separately.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching-prose section to evaluate for Taglish.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The claim was **pseudoscientific**, using the appearance of science without reliable scientific evidence. What does *pseudo-* contribute?",
+     "problem": "The tested element *pseudo-* is not bold, and the prompt does not refer to it using the required phrase \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "Tukuyin ang salitang-ugat ng *pinagsumikapan*.",
+     "problem": "The target word *pinagsumikapan* is italic rather than bold, and the prompt does not say \"the word in bold.\"",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The language-proficiency lesson uses the permitted general sections, and no mathematical or quantitative formula appears in any example, so no formula is introduced late."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino descriptions also use **kabilaan** for affixation on both sides and **laguhan** for combinations involving prefix, infix, and suffix.",
+     "problem": "Laguhan is a distinct Filipino affix pattern taught in Core Concept, but no worked example asks the student to recognize or use it.",
+     "source": "single"
+    },
+    {
+     "quote": "A familiar-looking sequence of letters is not automatically a prefix or root.",
+     "problem": "Rejecting unreliable letter-based parsing is central to the learning goal, but no worked example makes the student compare a tempting false segmentation with a valid analysis.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "*Pseudo-* means false or imitation. Answer: **B**.",
+     "problem": "The worked solution is plain prose rather than the required numbered solution-step format.",
+     "source": "single"
+    },
+    {
+     "quote": "The lexical base is **sikap**. The larger word contains affixal material built around that base. For an exam item, identify the meaningful base instead of assuming every substring is itself a root.",
+     "problem": "This multi-part explanation is presented as a paragraph instead of numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no phone-width equation to evaluate.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Do not treat these as mechanically productive in every word that happens to begin with the same letters. For example, *benign* is historically related to Latin words for good/kindly, but analyzing modern *benign* as simply productive prefix *bene-* + a transparent English root is not a reliable word-building rule.",
+     "problem": "The second sentence is long and clause-heavy, so this paragraph does not satisfy the requirement for short sentences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Breaking a word into meaningful parts can help infer meaning, but only if those parts are actually part of the word's morphology or etymology. A familiar-looking sequence of letters is not automatically a prefix or root.",
+     "problem": "The necessary terms \"morphology\" and \"etymology\" are used to state the lesson's main reliability test but are not explained beforehand, and there is no prerequisite lesson.",
+     "source": "single"
+    },
+    {
+     "quote": "Filipino affixation is highly productive and interacts with phonological and grammatical patterns. Examples include:",
+     "problem": "The term \"phonological\" is needed to understand the warning about Filipino word changes, but it is never explained before or after this use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino affixation is highly productive and interacts with phonological and grammatical patterns. Examples include:",
+     "problem": "The lesson names phonological and grammatical interaction but does not explain how the listed Filipino affixes change meaning or grammar, leaving a core part of the learning goal under-taught.",
+     "source": "single"
+    },
+    {
+     "quote": "- *-um-* in forms such as *sumulat* from *sulat*;\n- *-in-* in forms such as *sinulat* from *sulat*;\n- *ka-...-an* in many nouns such as *kabataan* from *bata*.",
+     "problem": "These examples show surface forms only; they do not explain what each affix pattern contributes or how the student should use that contribution to infer meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson limits word-part inference to genuine morphology or etymology, warns that familiar letters alone are insufficient, and requires context to confirm an inference.",
+    "It also states that classical elements are not mechanically productive in every similar-looking word and that one fixed affix-stripping order does not work for every Filipino word."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B10": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The same surface letters can behave differently across roots and constructions, so root-finding should use known Filipino morphology and meaning—not only an \"outside-in peeling\" algorithm.",
+     "problem": "Student-facing text contains the reserved word \"algorithm,\" which B10 explicitly forbids.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Common affix positions include:",
+   "description": "A labeled word-part diagram showing a base with a prefix before it, an infix inserted inside it, a suffix after it, kabilaan on both sides, and laguhan combining prefix, infix, and suffix.",
+   "why": "It would make the positional differences visible, especially infix versus kabilaan versus laguhan, which are central concepts currently taught only in text.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

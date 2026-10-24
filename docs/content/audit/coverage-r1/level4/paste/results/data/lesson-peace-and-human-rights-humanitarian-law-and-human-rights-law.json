@@ -1,0 +1,279 @@
+{
+ "lesson_sha256": "0fecd2ce36661d426f299da61a7e73d76048a0cea04731d228a5ee5897a9065b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the CSE scope statement against the CSC 2026 examination announcement, which lists Peace and Human Rights Issues and Concepts under General Information: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+    "Verified HRL/IHL timing, emergency derogation, bound parties, protective purpose, and peacetime implementation points against ICRC explanations: https://www.icrc.org/en/document/what-difference-between-ihl-and-human-rights-law and https://www.icrc.org/en/document/FAQ-rules-of-war-ihl?language=en"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "#1 blind solve: Yes. IHL binds non-state armed groups when they are parties to an armed conflict; this matches the lesson's answer.",
+    "#2 blind solve: Human rights law continues to apply in routine peacetime; IHL is limited to armed conflict apart from peacetime implementation duties.",
+    "#3 blind solve: HRL applies in peace and armed conflict and primarily places duties on states; IHL applies in armed conflict and binds all conflict parties. The lesson's answer is substantively correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Therefore, IHL is specifically the law of armed conflict binding its parties, while human rights law applies in peace and in war and primarily governs state obligations toward individuals.",
+     "problem": "The lesson ends after Examples and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections. General Information has no stated subject-specific exception allowing those required sections to be dropped.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal asks students to compare timing, duty-bearing actors, and broad protective purpose. Scope of Application teaches timing, Bound Entities teaches the actors, and Primary Purpose of IHL teaches the stated protective purpose."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In a qualifying emergency, states may derogate from some human-rights obligations under the applicable legal rules, but certain fundamental rights remain non-derogable.",
+     "problem": "This long sentence relies on advanced legal vocabulary such as \"derogate\" and \"non-derogable\" without simple explanations, so the teaching prose is not consistently understandable at the Grade 5 standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Examine who is bound by International Humanitarian Law (IHL).",
+     "problem": "The exam-style verb \"Examine\" is used without the required one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An exam question asks for a key difference between Human Rights Law and International Humanitarian Law regarding when they apply and who they bind. Which statement is correct?",
+     "problem": "The prompt uses selection wording, \"Which statement is correct?\", but supplies no candidate statements or choices. The worked-example question is therefore not a complete self-contained exam-style item.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage requires a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson and contains no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a particular target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This General Information lesson uses no formulas or quantitative methods, so no example introduces a formula before Core Concept. The guide specifies no special alternate section fit for General Information beyond the generic structural requirements assessed under B03."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Therefore, IHL is specifically the law of armed conflict binding its parties, while human rights law applies in peace and in war and primarily governs state obligations toward individuals.",
+     "problem": "The worked examples cover timing and bound parties, but none gives a worked scenario testing the learning goal's broad protective purpose of IHL. They also do not directly test the concurrent applicability of HRL and IHL during armed conflict.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Examine who is bound by International Humanitarian Law (IHL).",
+     "problem": "An unnumbered solution instruction appears between the Solution label and the numbered steps. The required worked-solution format calls for solution steps to be presented as a numbered list; the same unnumbered lead-in pattern appears in the other examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could be checked for phone-screen fit.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders and none of its questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In a qualifying emergency, states may derogate from some human-rights obligations under the applicable legal rules, but certain fundamental rights remain non-derogable.",
+     "problem": "The necessary legal terms \"derogate\" and \"non-derogable\" are used before their meanings are explained, and the packet identifies no prerequisite lesson that teaches them.",
+     "source": "single"
+    },
+    {
+     "quote": "Primarily places legal duties and obligations on states in relation to persons within their jurisdiction.",
+     "problem": "The term \"jurisdiction\" is central to the stated scope of human-rights duties but is not explained before students need its meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "One useful distinction is between International Human Rights Law (HRL) and International Humanitarian Law (IHL), two distinct but complementary bodies of law.",
+     "problem": "The lesson names HRL and IHL as \"complementary\" but never explains what that relationship means or how the two bodies can operate together during armed conflict.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In a qualifying emergency, states may derogate from some human-rights obligations under the applicable legal rules, but certain fundamental rights remain non-derogable.",
+     "problem": "The lesson introduces an important exception but does not explain what makes an emergency qualify or the relevant limits on derogation, so students cannot tell when the exception applies.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

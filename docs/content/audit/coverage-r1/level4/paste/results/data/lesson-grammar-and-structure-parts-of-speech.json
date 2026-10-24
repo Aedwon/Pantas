@@ -1,0 +1,275 @@
+{
+ "lesson_sha256": "77833e2b083702fee12a818325bb32a78e2e7a41bf41ee5642498bf11bc4c1c4",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the English word-class descriptions for noun, pronoun, verb, adjective, adverb, preposition, conjunction, and interjection; they are compatible with traditional school grammar.",
+    "Verified the Lope K. Santos category list against the Komisyon sa Wikang Filipino edition of Balarila ng Wikang Pambansa: https://kwf.gov.ph/wp-content/uploads/Balarila-ng-Wikang-Pambansa-1.pdf"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Compare: \"We met *before* dinner\" and \"We left *before* it rained.\"",
+     "problem": "The stem only says to compare the sentences and does not ask what feature to identify. From the question alone, there is no unique requested answer, although the solution assumes the student must classify *before* in each sentence.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and none of its examples requires a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches classification of English words by grammatical function, shows context-sensitive classification, distinguishes Filipino from English categories, and includes a worked pang-uri example, matching the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Modern grammars sometimes divide words differently—for example, by treating determiners as a separate class—so \"eight parts of speech\" is a useful **traditional school classification**, not the only possible linguistic analysis.",
+     "problem": "This sentence is too dense for the Grade 5 teaching-prose standard and uses advanced terms such as \"determiners,\" \"classification,\" and \"linguistic analysis\" without simpler wording.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In \"The *diligent* student finished her project *quickly*,\" identify the italicized words.",
+     "problem": "The exam verb \"identify\" is used as a command without the required one-line explanation of what the student must do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Compare: \"We met *before* dinner\" and \"We left *before* it rained.\"",
+     "problem": "This worked-example stem is under-specified. It does not tell the student to classify *before* or otherwise state what comparison to make, so the intended task is not determinate from the question wording.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is primarily an English-language lesson, not a Filipino-language teaching lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar in Filipino prose where English glosses for hard Filipino terms would apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson; its one Filipino worked example is already written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "Filipino text and Filipino grammatical terms are present, so official spelling and usage review is required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish usage can be evaluated under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In \"The *diligent* student finished her project *quickly*,\" identify the italicized words.",
+     "problem": "The target words are italicized and the prompt explicitly says \"italicized words.\" The standard requires target words to be bold and the prompt to refer to the word or words in bold.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The Language Proficiency lesson uses the standard Core Concept, Examples, Speed Tricks & Shortcuts, and Traps structure; no formulas are used in any example, so there is no formula-introduction violation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In \"The *diligent* student finished her project *quickly*,\" identify the italicized words.",
+     "problem": "The examples do not cover every distinct English class taught by the lesson. Pronouns and interjections receive no worked example even though the learning goal is to classify English words by grammatical function.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "*Matapang* gives a quality of *sundalo*, so in the traditional school classification it functions as a **pang-uri**.",
+     "problem": "Example 3 presents its solution as an ordinary paragraph instead of the required numbered solution-step list. No mathematical display equation is needed for this language example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so phone-screen equation width cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under the placeholder-specific rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Pronoun**: can stand in positions associated with noun phrases (*she*, *they*, *it*, *who*).",
+     "problem": "The lesson relies on the technical term \"noun phrases\" to explain pronouns without first explaining what a noun phrase is, and there is no prerequisite lesson supplying that meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "2. In \"before it rained,\" *before* introduces a subordinate clause in traditional school grammar: subordinating conjunction.",
+     "problem": "The solution requires the student to understand \"subordinate clause\" and \"subordinating conjunction,\" but neither term is explained before it is used and there is no prerequisite lesson.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The Core Concept explains word classes through grammatical function, gives functional descriptions for all eight traditional English classes, shows that one spelling can have different classes in context, and explains why Filipino categories must be analyzed separately."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that the eight-class scheme is a traditional school classification, explains that class depends on use, gives exceptions to the -ly clue, and warns that English and Filipino categories do not map one-to-one."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

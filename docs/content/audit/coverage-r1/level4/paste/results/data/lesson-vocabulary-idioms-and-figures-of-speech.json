@@ -1,0 +1,336 @@
+{
+ "lesson_sha256": "693494c82c4e8f88fd6724b8d30021b8d45d085335725b8f8b7eba990bfb674d",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked “back to square one” against Merriam-Webster; the lesson’s meaning of returning to the beginning after failed work matches the reference.",
+    "Checked the Dickinson passage and metaphor classification against the Poetry Foundation; presenting hope directly as a bird-like thing is correctly classified as metaphor.",
+    "Checked “naghigpit ng sinturon” against National Library learning material; the contextual answer nagtipid sa gastusin is supported.",
+    "Checked the listed Filipino device mappings against educational references; pagtutulad/simile, pagwawangis/metaphor, personipikasyon/personification, and pagmamalabis/hyperbole are consistent."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved #1 independently: the lost unsaved work requires starting over, so B is correct.",
+    "Solved #2 independently: “wind whispered” gives a human communicative action to wind, so C is correct.",
+    "Solved #3 independently: “naghigpit ng sinturon” in a low-income context means nagtipid sa gastusin, so B is correct.",
+    "Solved #4 independently under the stem’s stated extreme-exaggeration context: pagmamalabis, B, is correct.",
+    "Solved #5 independently: hope is directly presented as a bird-like thing without like or as, so metaphor is correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For in the required order.",
+    "Mnemonics & Memory Aids is optional, and no example depends on a required figure or other missing visual."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches idiom meaning from context, literal-versus-figurative checks, selected figures of speech, and English/Filipino labels and examples, all serving the recorded goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **figure of speech** uses language in a nonliteral, patterned, or rhetorically marked way. Figures can overlap, and classification sometimes depends on context and interpretation.",
+     "problem": "This teaching prose uses abstract terms such as “rhetorically marked” and “classification” without simpler wording, which is above the required Grade 5 reading level.",
+     "source": "single"
+    },
+    {
+     "quote": "Terminology can vary across textbooks, so identify the actual linguistic effect in the example as well as the label.",
+     "problem": "“Terminology” and “linguistic effect” are unnecessarily difficult for Grade 5 teaching prose and are not explained in simpler words.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked question prompts do not use a command-style exam verb such as evaluate, determine, or identify that needs a first-use gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used in Core Concept or elsewhere; the lesson uses definitions and direct examples only."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Umuulan ng salapi sa negosyo niya.\" If the context makes clear that this is an extreme exaggeration of abundant earnings, which figure is being used?",
+     "problem": "The stem supplies “extreme exaggeration,” which is the defining tested knowledge for pagmamalabis/hyperbole, so it effectively gives away the classification instead of only supplying problem-specific context.",
+     "source": "single"
+    },
+    {
+     "quote": "\"Hope is the thing with feathers / That perches in the soul.\" The speaker presents hope in terms of a bird-like \"thing with feathers\" without *like* or *as*. The dominant figure is **metaphor**.",
+     "problem": "Example #5 is not written as an exam-style question. It states the reasoning and the answer directly in the example body, so it does not function as a worked exam question.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Exam motivation is brief and varied: the lesson refers to “school questions” in one place and “exam-style items” in another without repeating a stock opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Terminology can vary across textbooks, so identify the actual linguistic effect in the example as well as the label.",
+     "problem": "The lesson teaches Filipino vocabulary and figures of speech, but this teaching in the Filipino section is written in English instead of simple Filipino as required for Filipino-language content.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "pass",
+   "checked": [
+    "In the Filipino Terms teaching, sawikain is glossed as an idiomatic expression, tayutay as figure of speech, and pagtutulad, pagwawangis, personipikasyon, and pagmamalabis are each mapped to their English device on first teaching use."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "What does **naghigpit ng sinturon** mean in this context?",
+     "problem": "The Filipino sawikain example uses an English question prompt instead of keeping the example in Filipino.",
+     "source": "single"
+    },
+    {
+     "quote": "Under that stated context, the exaggerated claim is **pagmamalabis**. A different literary context could invite additional figurative readings, so classification should follow the dominant effect being tested.",
+     "problem": "The Filipino tayutay example gives its worked explanation in English, so the example is not fully in Filipino as required.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino text, so its Filipino spelling and usage require checking against the official Komisyon sa Wikang Filipino source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Treat signal words as clues, not proofs.** *Like, as, parang,* and *tulad ng* often introduce comparisons, but first check whether an actual figurative comparison is being made.",
+     "problem": "This teaching sentence mixes English instructional prose with Filipino signal words in the same explanation instead of using consistently simple Filipino teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt asks the student about a single target word; the bolded targets in the examples are multiword idiom phrases or answer emphasis.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "No listed stock AI phrase or em dash appears, sentence openings vary, and the summary begins plainly with “Learn how” instead of a repeated template."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a language-proficiency lesson, so no formula is used in any example and no formula needs prior introduction in Core Concept.",
+    "The section set fits language proficiency: Core Concept, Examples, a retained generic Speed Tricks & Shortcuts section, and Traps to Watch For."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Some expressions can be used literally in other sentences.",
+     "problem": "The lesson states the literal-use edge case but never works a paired literal-context example, so the idiomatic-versus-literal scenario is not fully covered by a worked example.",
+     "source": "single"
+    },
+    {
+     "quote": "Common school-level figures include:",
+     "problem": "The lesson lists simile, alliteration, onomatopoeia, and oxymoron as target devices but gives no worked classification example for those distinct scenarios; the existing examples therefore do not cover every exam-relevant variation introduced by the lesson.",
+     "source": "single"
+    },
+    {
+     "quote": "In Filipino instructional materials:",
+     "problem": "The Filipino section names pagtutulad, pagwawangis, and pagbibigay-katauhan/personipikasyon, but none receives a worked Filipino application example, leaving distinct Filipino-device scenarios uncovered.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The lost work means Mark has to start over. Answer: **B**.",
+     "problem": "Examples #1 through #4 use paragraph solutions instead of numbered solution steps, and #5 has no separate Solution block at all, so the required worked-solution format is missing.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation-width issue to check on a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Body paragraphs stay within one to three sentences, and bullets are limited to the two central term lists where list formatting is useful."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders, and none of the lesson’s questions depends on a figure that would require one.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"The wind whispered through the dark forest.\" Which figure is most clearly foregrounded?",
+     "problem": "The question requires the student to understand “foregrounded,” but that term is not explained before use and there is no prerequisite lesson supplying its meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Idiom is explained as a conventional expression whose whole meaning may differ from its component words, with context used to recover that meaning.",
+    "Each English figure is given a functional definition, and the Filipino labels point back to those already explained English concepts rather than appearing as unexplained names."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that like/as do not automatically make a simile, that idioms can have literal uses elsewhere, and that overlapping figures must be classified by the dominant effect in context."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B07": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for British spellings; the script candidate “analyses” is the plural noun of “analysis,” not the British verb spelling “analyse.”"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every script candidate for “mark”; both occurrences are the proper name Mark, and the lesson does not use marks for scores or cards for questions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

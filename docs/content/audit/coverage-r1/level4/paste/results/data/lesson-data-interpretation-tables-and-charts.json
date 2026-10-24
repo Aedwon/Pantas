@@ -1,0 +1,331 @@
+{
+ "lesson_sha256": "980938c62677e2b7d88c9440ae00dc932762f8b5e6cb6c6b59a1168bd4160598",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the stated unit-scale, total, difference, and mean concepts against standard arithmetic and data-reading facts; none of the lesson's factual claims are incorrect or require a hard-to-remember external fact."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved example 1 independently: $12 + 15 + 18 + 11 = 56$ thousand pesos, so the answer is $56,000$ pesos.",
+    "Solved example 2 independently: $450 - 320 = 130$, so Factory A produced $130$ more units.",
+    "Solved example 3 independently: $(40,000 + 50,000 + 60,000) / 3 = 50,000$, so the average monthly revenue is $50,000$ pesos."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. The average monthly revenue is $50,000$ pesos.",
+     "problem": "The mathematics lesson ends after Examples and omits the required \"Speed Tricks & Shortcuts\" and \"Traps to Watch For\" sections. Mnemonics are optional, but these two standard mathematics sections are required.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "Compared the lesson with the recorded goal: it addresses reading category and unit information, converting a thousands scale, computing a total, finding a category difference, and calculating a time-period mean."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Candidates must accurately read quantities, compute totals, and evaluate differences between categories.",
+     "problem": "This teaching sentence uses formal words such as \"Candidates,\" \"quantities,\" and \"evaluate\" instead of the very simple English expected for a Grade 5 reader.",
+     "source": "single"
+    },
+    {
+     "quote": "Calculate values directly from the tabulated figures without rounding unnecessarily.",
+     "problem": "\"Tabulated figures\" and \"rounding unnecessarily\" are unnecessarily formal phrasing for the required Grade 5 teaching voice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked questions use ordinary directives such as \"What is\" and \"Find\" rather than a specialized exam verb that needs a one-line definition.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "Checked Core Concept and the rest of the lesson for analogies; no analogy is used, so the one-analogy maximum is not exceeded."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all three worked-example stems: each supplies the specific values and units needed to answer, does not give away a formula or solution method, and asks a direct exam-style calculation question. The solution instructions remain short and task-focused."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's limited exam-oriented wording; it does not repeat a stock exam-warning opener or use repetitive motivational phrasing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language mathematics lesson, so the simple-Filipino teaching standard does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terminology that would require an English gloss on first use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs checking against Komisyon sa Wikang Filipino standards.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish prohibition does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify, interpret, or act on a particular target word in the prompt.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases, repeated three-sentence openings, em-dash-style constructions, and a formulaic \"This lesson teaches you\" summary; none appear."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$\\dfrac{150,000}{3} = 50,000$$",
+     "problem": "Example 3 uses the arithmetic-mean relation by summing the values and dividing by the number of periods, but Core Concept never introduces that formula or relation before the example uses it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A table shows quarterly office expenses in thousands of pesos: Quarter 1 is $12$, Quarter 2 is $15$, Quarter 3 is $18$, and Quarter 4 is $11$. What is the total expense for the year in pesos?",
+     "problem": "The learning goal includes reading the meaning and scale of numerical categories, but this example supplies every supposed table value directly in prose. The student never has to locate a row-column value or otherwise read an actual table.",
+     "source": "single"
+    },
+    {
+     "quote": "A bar chart shows production output for two factories. Factory A produced $450$ units and Factory B produced $320$ units. How many more units did Factory A produce than Factory B?",
+     "problem": "The chart example repeats both plotted values in the question text, so the student can answer without reading the chart or its scale. This leaves the chart-reading part of the learning goal without a genuine worked scenario.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all three worked solutions: each calculation is broken into numbered steps, and the addition, subtraction, conversion, and division computations are shown as separate display equations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every display equation; each contains only a short arithmetic expression and is narrow enough to fit comfortably on a phone screen."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson paragraphs and lists; prose blocks are one or two short sentences, while lists are limited to the reading strategy and required solution steps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the existing bar-chart figure marker: it specifies chart type, both labels and values, y-axis label, minimum, maximum, step, and a semantics label. The surrounding question also states enough information to remain understandable without the rendered figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the average monthly revenue.",
+     "problem": "The student is asked for an average before the lesson has explained what an average or arithmetic mean means. With no prerequisite lesson identified, that necessary term is introduced too late.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. **Read Column and Row Headers:** Understand what each row and column represents before calculating.",
+     "problem": "This names the table-reading action but does not explain how row and column categories combine to identify a value, and no worked example demonstrates that process. The reading part of the lesson's own learning goal is therefore not fully taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the applicable conditions in the lesson: the strategy distinguishes thousands, millions, and raw units, and example 1 converts by $1,000$ specifically because its data are stated in thousands. No shortcut or special-case rule with an unstated limitation is used."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A table shows quarterly office expenses in thousands of pesos: Quarter 1 is $12$, Quarter 2 is $15$, Quarter 3 is $18$, and Quarter 4 is $11$. What is the total expense for the year in pesos?",
+     "problem": "The numerals in \"Quarter 1,\" \"Quarter 2,\" \"Quarter 3,\" and \"Quarter 4\" are numbers in prose but are not wrapped in inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "A table records monthly revenue for three consecutive months: Month 1 is $40,000$ pesos, Month 2 is $50,000$ pesos, and Month 3 is $60,000$ pesos. Find the average monthly revenue.",
+     "problem": "The numerals in \"Month 1,\" \"Month 2,\" and \"Month 3\" are numbers in prose but are not wrapped in inline math delimiters.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "exact_exam_figure",
+   "method": "table_or_formula",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "A table shows quarterly office expenses in thousands of pesos: Quarter 1 is $12$, Quarter 2 is $15$, Quarter 3 is $18$, and Quarter 4 is $11$. What is the total expense for the year in pesos?",
+   "description": "Show a two-column table with Quarter 1 through Quarter 4 and office expenses 12, 15, 18, and 11, with the expense column labeled as thousands of pesos.",
+   "why": "The lesson is meant to teach reading tables, but the current example gives every value in prose. A real table would let the student practice locating category values and noticing the unit scale.",
+   "source": "single"
+  },
+  {
+   "kind": "exact_exam_figure",
+   "method": "code",
+   "priority": "high",
+   "status": "insufficient",
+   "position_quote": "A bar chart shows production output for two factories. Factory A produced $450$ units and Factory B produced $320$ units. How many more units did Factory A produce than Factory B?",
+   "description": "Keep the two-bar chart for Factory A and Factory B with a 0-to-500 units axis, but make the student obtain the values from the bars instead of repeating 450 and 320 in the question text.",
+   "why": "The existing chart is relevant, but the prose supplies both answers directly, so the student does not actually practice reading the chart or its scale.",
+   "source": "single"
+  },
+  {
+   "kind": "exact_exam_figure",
+   "method": "table_or_formula",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "A table records monthly revenue for three consecutive months: Month 1 is $40,000$ pesos, Month 2 is $50,000$ pesos, and Month 3 is $60,000$ pesos. Find the average monthly revenue.",
+   "description": "Show a two-column table with Month 1, Month 2, and Month 3 alongside revenues of 40,000, 50,000, and 60,000 pesos.",
+   "why": "A table would make the example practice the lesson's stated table-reading skill instead of giving all three values only in prose before the mean calculation.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

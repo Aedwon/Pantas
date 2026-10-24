@@ -1,0 +1,377 @@
+{
+ "lesson_sha256": "7e13ffaf3f3e4402576163ccbef20b41bf88f10828c229b1ee6a775587a04feb",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's definitions of deductive validity and soundness, and the stated forms of modus ponens, modus tollens, affirming the consequent, denying the antecedent, and disjunctive syllogism; they are logically correct.",
+    "Checked the factual premises used in the worked examples: whales are mammals and mammals are warm-blooded, while the universal claim that all birds can fly is false because penguins are flightless."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: from all mammals being warm-blooded and a whale being a mammal, the whale conclusion follows; both premises are true, so the argument is valid and sound.",
+    "Example 2: passing the exam does not entail having studied hard, so the conclusion does not follow and the argument is invalid.",
+    "Example 3: if proper operation implies ringing during a fire and the alarm did not ring, modus tollens gives that it was not operating properly under the stated conditions.",
+    "Example 4: the form is valid, but the premise that all birds can fly is false, so the argument is valid but unsound.",
+    "Example 5: from A or B together with not A, B follows, so the stated cabinet argument is a valid disjunctive syllogism."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"All mammals are warm-blooded. A whale is a mammal. Therefore, a whale is warm-blooded.\"",
+     "problem": "This Reasoning example has no illustration or illustration placeholder, although the subject-fit standard requires every Reasoning example to be figure-driven.",
+     "source": "single"
+    },
+    {
+     "quote": "\"If a student studies hard, they will pass the exam. Maria passed the exam. Therefore, Maria studied hard.\"",
+     "problem": "This Reasoning example has no illustration or illustration placeholder, although the subject-fit standard requires every Reasoning example to be figure-driven.",
+     "source": "single"
+    },
+    {
+     "quote": "\"If the alarm is working properly under these conditions, it will ring during a fire. It did not ring during the fire. Therefore, it was not working properly under those stated conditions.\"",
+     "problem": "This Reasoning example has no illustration or illustration placeholder, although the subject-fit standard requires every Reasoning example to be figure-driven.",
+     "source": "single"
+    },
+    {
+     "quote": "\"All birds can fly. A penguin is a bird. Therefore, a penguin can fly.\"",
+     "problem": "This Reasoning example has no illustration or illustration placeholder, although the subject-fit standard requires every Reasoning example to be figure-driven.",
+     "source": "single"
+    },
+    {
+     "quote": "\"Either the document is in Cabinet A or it is in Cabinet B. It is not in Cabinet A. Therefore, it is in Cabinet B.\"",
+     "problem": "This Reasoning example has no illustration or illustration placeholder, although the subject-fit standard requires every Reasoning example to be figure-driven.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly teaches validity versus soundness, several valid and invalid deductive forms, and a trap showing that $P\\rightarrow Q$ does not justify reversing the conditional."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Deduction does **not** have to move from a general statement to a more specific one. Deductive arguments can have general or particular premises and conclusions; what matters is the logical consequence relation.",
+     "problem": "The sentence uses abstract terms such as particular premises and logical consequence relation without simple explanation, making the teaching prose too difficult for the Grade 5 reading standard.",
+     "source": "single"
+    },
+    {
+     "quote": "A **categorical syllogism** is a deductive argument built from categorical propositions involving classes or categories.",
+     "problem": "The phrase categorical propositions is advanced terminology and is not restated in simple Grade 5 language.",
+     "source": "single"
+    },
+    {
+     "quote": "Under the stated inclusive disjunction, this is a **disjunctive syllogism**, another valid form.",
+     "problem": "Inclusive disjunction and disjunctive syllogism appear together in a dense sentence without a simple-language explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no exam command verb such as evaluate, identify, determine, or compare that needs a first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"All mammals are warm-blooded. A whale is a mammal. Therefore, a whale is warm-blooded.\"",
+     "problem": "The worked example supplies only an argument and no exam-style question or instruction telling the student what to determine; the other worked examples use the same statement-only format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language logic lesson, so the Filipino teaching-prose readability rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language logic lesson, so no Filipino grammar term needs an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language logic lesson, so the requirement for Filipino examples and quiz items does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson contains no Filipino teaching text, so Filipino spelling and usage do not require a source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language logic lesson, so the prohibition on Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a highlighted target word, so the bold-target-word prompt rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Separate validity from truth.** First ask whether the conclusion follows assuming the premises; only then assess whether the premises are actually true.",
+     "problem": "This content is placed in a Speed Tricks & Shortcuts section, but the subject-fit standard for Reasoning requires the reduced Core Concept → Examples → Traps layout and says to drop Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. If $P$, then $Q$.\n2. $P$.\n3. Therefore, $Q$.",
+     "problem": "Modus ponens is taught as a distinct valid form in Core Concept but has no worked example, so the examples do not cover every taught exam-relevant form.",
+     "source": "single"
+    },
+    {
+     "quote": "**Denying the antecedent:** If $P$ then $Q$; not $P$; therefore not $Q$.",
+     "problem": "Denying the antecedent is taught as a distinct invalid conditional form but has no worked example, leaving a separate reversal-related case uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "\"Either the document is in Cabinet A or it is in Cabinet B. It is not in Cabinet A. Therefore, it is in Cabinet B.\"",
+     "problem": "The final example is still a short one-step form-recognition item, so the sequence does not clearly ramp from basic practice to authentic target-exam difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The conclusion follows necessarily from the two premises. The argument is valid; because these premises are also true, this example is sound.",
+     "problem": "The worked solution is a prose paragraph rather than numbered solution steps; the same unnumbered solution format is used throughout the Examples section.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display-equation lines to check for phone-width overflow.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to assess; missing required Reasoning figures are recorded under B03 instead.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. If $P$, then $Q$.\n2. $P$.\n3. Therefore, $Q$.",
+     "problem": "The symbols $P$ and $Q$ are used to teach conditional forms without first explaining that they stand for propositions or statements.",
+     "source": "single"
+    },
+    {
+     "quote": "Under the stated inclusive disjunction, this is a **disjunctive syllogism**, another valid form.",
+     "problem": "Inclusive disjunction is needed to understand the explanation but is not defined or reminded anywhere before this use.",
+     "source": "single"
+    },
+    {
+     "quote": "**For category arguments, use set/circle relationships.** Visualizing inclusion and exclusion can make quantifier mistakes easier to spot.",
+     "problem": "The term quantifier is needed to understand what mistake the shortcut targets, but the lesson never explains what a quantifier is.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Other examples include disjunctive syllogism and valid chains of conditionals.",
+     "problem": "Valid chains of conditionals are only named; the lesson does not explain what a conditional chain means or how the conclusion follows through the chain.",
+     "source": "single"
+    },
+    {
+     "quote": "**For category arguments, use set/circle relationships.** Visualizing inclusion and exclusion can make quantifier mistakes easier to spot.",
+     "problem": "The lesson names set/circle reasoning as a method but does not explain how class inclusion or exclusion is represented or used to test a conclusion.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the main applicability limits: validity is explicitly conditional on the premises, soundness additionally requires true premises, and the reversing-a-conditional trap states that $P\\rightarrow Q$ does not imply $Q\\rightarrow P$.",
+    "Checked the disjunctive-syllogism example for its stated condition and the lesson's warning that modus ponens and modus tollens are not the only valid deductive patterns."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "\"All mammals are warm-blooded. A whale is a mammal. Therefore, a whale is warm-blooded.\"",
+   "description": "Draw nested circles showing whales inside mammals and mammals inside warm-blooded animals, with one whale marked inside the innermost class.",
+   "why": "The nested sets make the categorical inclusion and necessary conclusion visible instead of leaving the class relation purely verbal.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "\"If a student studies hard, they will pass the exam. Maria passed the exam. Therefore, Maria studied hard.\"",
+   "description": "Draw a one-way arrow from studies hard to passes, then show the attempted reverse arrow from passes to studies hard crossed out.",
+   "why": "The diagram directly shows why affirming the consequent reverses a one-way conditional and is invalid.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "\"If the alarm is working properly under these conditions, it will ring during a fire. It did not ring during the fire. Therefore, it was not working properly under those stated conditions.\"",
+   "description": "Draw a conditional flow from working properly to rings during fire, then trace not ringing backward by modus tollens to not working properly.",
+   "why": "A compact flow diagram helps students see the valid direction of modus tollens and distinguish it from reversing the conditional.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "\"All birds can fly. A penguin is a bird. Therefore, a penguin can fly.\"",
+   "description": "Draw a valid class-inclusion chain from penguin to bird to flyer, while marking the first universal premise as factually false.",
+   "why": "The figure separates valid logical structure from the false premise, reinforcing the difference between validity and soundness.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "\"Either the document is in Cabinet A or it is in Cabinet B. It is not in Cabinet A. Therefore, it is in Cabinet B.\"",
+   "description": "Draw Cabinet A and Cabinet B as two labeled options, cross out A, and highlight B as the remaining disjunct.",
+   "why": "The elimination picture makes disjunctive syllogism immediate and contrasts it with the conditional forms taught earlier.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

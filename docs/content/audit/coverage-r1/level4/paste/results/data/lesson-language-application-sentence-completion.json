@@ -1,0 +1,312 @@
+{
+ "lesson_sha256": "8f7f4249fdb388a2ca20a1a6d54ffaa0dc6371609193a936fe22a6e1b6327901",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the lesson's CSE scope claim against the Civil Service Commission's 09 August 2026 CSE-PPT announcement, which lists Sentence completion under Verbal Ability: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Example 1: my answer is B, successful, because although sets a contrast between the heavy-rain forecast and the unexpectedly good outcome.",
+    "Example 2: my answer is C, unsafe, because severe bridge damage supports deeming the bridge unsafe for public use.",
+    "Example 3: my answer is that both A and B are viable; each creates a grammatical, coherent contrast after Despite, so the item is ambiguous.",
+    "Example 4: my answer is C, approved; approve does not agree with singular committee here, approving lacks an auxiliary, and approval is a noun."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(A) careless, confident (B) thorough, nervous (C) thorough, confident (D) minimal, nervous",
+     "problem": "The keyed answer B is not unique. A is also grammatical and gives a coherent despite-contrast: careless preparation would normally reduce confidence, yet she felt confident.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; the optional mnemonic section is absent, and this sentence-completion lesson requires no figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to choose a coherent completion by combining discourse meaning, grammatical form, and word combination; the lesson directly teaches context relations, grammar fit, collocation, and whole-sentence checking."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Agreement, tense/aspect, complementation, articles, prepositions, and parallel structure can eliminate choices.",
+     "problem": "This sentence stacks several uncommon grammar terms without simple wording, making the teaching prose harder than the Grade 5 reading standard.",
+     "source": "single"
+    },
+    {
+     "quote": "Discourse relations can be more nuanced than positive versus negative tone.",
+     "problem": "Words such as discourse relations, nuanced, and versus make this warning unnecessarily difficult for the required Grade 5 teaching level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not use an exam command verb such as evaluate, identify, or determine in an item prompt.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used in Core Concept or elsewhere in the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In this standalone sentence, **approved** produces the natural reading of one completed review-and-decision event and supplies a finite verb.",
+     "problem": "The solution uses abstract phrases such as standalone sentence, natural reading, review-and-decision event, and finite verb instead of the required simple teaching language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The only explicit exam reference is the opening CSE-scope statement, which establishes why sentence completion matters; there is no repeated exam opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language sentence-completion lesson, not a Filipino-language teaching lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar term that would require an English gloss on first use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are not required to be in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is in English, so the prohibition on Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt refers to a target word by formatting, so the bold-target-word prompt rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases and em dashes, varies sentence openings, and uses a plain summary beginning with Learn how."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson uses the allowed Language Proficiency structure with Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For.",
+    "No worked example uses a formula, so there are no example formulas that must first be introduced in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Words such as *although, because, therefore, however,* and *for example* can signal contrast, cause, result, or illustration.",
+     "problem": "The worked examples cover contrast and cause, but none works a result or illustration relation, so the taught discourse-relation cases are not fully covered.",
+     "source": "single"
+    },
+    {
+     "quote": "**Collocation and idiom.** Some words naturally occur together: *strong evidence*, *make a decision*, *interested in*.",
+     "problem": "Collocation and idiom are part of the lesson's completion method and learning goal, but no worked example requires choosing or eliminating an answer by word combination.",
+     "source": "single"
+    },
+    {
+     "quote": "Agreement, tense/aspect, complementation, articles, prepositions, and parallel structure can eliminate choices.",
+     "problem": "The examples give only one narrow finite-verb grammar case; they do not work the other distinct grammar eliminators the lesson names, such as articles, prepositions, or parallel structure.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "*Although* sets up a contrast between the bad forecast and the outcome. **Successful** provides that contrast and fits grammatically.",
+     "problem": "The worked solutions are written as unnumbered prose rather than numbered solution steps. No reasoning step is clearly skipped, but the required solution format is not followed.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation-width issue to judge for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three sentences, and the lesson does not overuse bullet lists."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and no sentence-completion example depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Agreement, tense/aspect, complementation, articles, prepositions, and parallel structure can eliminate choices.",
+     "problem": "Several necessary grammar terms are introduced as names only, without explaining their meanings before students are expected to use them to eliminate choices.",
+     "source": "single"
+    },
+    {
+     "quote": "and supplies a finite verb.",
+     "problem": "Finite verb is used to justify the answer in Example 4 without being defined earlier in this lesson, and there is no prerequisite lesson supplying that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Agreement, tense/aspect, complementation, articles, prepositions, and parallel structure can eliminate choices.",
+     "problem": "The lesson names these grammar concepts but does not explain how each one works or how a student would use it to judge a completion.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Signal words are explicitly limited to clues rather than automatic positive/negative rules, and multiple blanks are said not to require a fixed solving order.",
+    "The lesson states that tense depends on timeline and context instead of one nearby phrase, and it limits the collocation shortcut to cases where similar options need distinguishing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The word marks appears only in therefore marks a result or inference, where marks means signals rather than a score; the lesson does not call questions cards."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "(A) careless, confident (B) thorough, nervous (C) thorough, confident (D) minimal, nervous",
+   "concern": "Example 3 is ambiguous because both A and B can form a grammatical and coherent contrast with Despite, so B is not uniquely supported.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

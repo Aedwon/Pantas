@@ -1,0 +1,302 @@
+{
+ "lesson_sha256": "a90cc08a2af76d30c151a4afb469e00ff5ada134b0ffdb657d0cc6e1795fae6d",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the school-grammar distinction between phrases and finite clauses, including the stated limitation that nonfinite constructions complicate the shortcut.",
+    "Checked the definitions and behavior of independent and dependent clauses, including subordination by because, although, when, if, while, and relative words.",
+    "Checked the claims about fragments, imperatives, and nonfinite clauses against standard English grammar; none of the lesson's factual claims is materially wrong."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: (a) \"under the old bridge\" is a phrase, while (b) \"the cat slept\" is an independent clause.",
+    "Solved Example 2 independently: (a) \"Although she was tired\" is dependent, while (b) \"She finished her homework.\" is independent.",
+    "Solved Example 3 independently: adding an independent clause such as \"we went home instead\" correctly completes \"Because the store was closed\".",
+    "Solved Example 4 independently: the isolated although-clause is a fragment in ordinary formal prose, and adding \"some students were still confused\" forms a complete sentence."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are all present for this language-proficiency lesson.",
+    "Checked figure needs: this grammar lesson has no figure-dependent question or concept that requires an illustration placeholder."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches the recorded goal directly by distinguishing phrases, independent clauses, and dependent clauses, then showing clause combination and fragment repair."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In traditional school grammar, a **clause** contains a predicative relationship built around a verb, usually with an expressed or understood subject.",
+     "problem": "The teaching prose is too advanced for the Grade 5 readability standard. Terms such as \"predicative relationship\" and \"expressed or understood subject\" are not explained in simple language.",
+     "source": "single"
+    },
+    {
+     "quote": "The familiar shortcut \"a clause has a subject and a verb; a phrase does not have both\" works for many basic exam examples, but it is not a complete linguistic definition.",
+     "problem": "This sentence introduces an abstract linguistic qualification in a long, dense form instead of using short, simple teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Using the basic school distinction, classify: (a) \"under the old bridge\"; (b) \"the cat slept.\"",
+     "problem": "The exam verb \"classify\" is used without the required one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "Checked Core Concept for analogies; it uses no analogy, so it stays within the one-analogy maximum."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. (a) is a prepositional phrase; it contains no finite predication.",
+     "problem": "The worked solution is not in simple language. \"Finite predication\" is technical wording that the lesson has not made easy for a Grade 5 reader.",
+     "source": "single"
+    },
+    {
+     "quote": "1. (a) is subordinate because *although* marks a concessive relation requiring a larger clause in ordinary standard prose.",
+     "problem": "The worked solution uses dense terms such as \"concessive relation\" and \"ordinary standard prose\" instead of the required simple solution language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Checked exam references across the lesson: they appear as basic exam examples, school-grammar questions, and formal sentence-completion tasks rather than repeating one stock opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terms that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino examples are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage needs KWF verification.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the Filipino no-Taglish rule cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or act on a specially emphasized target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for the listed stock AI phrases, repeated sentence openings, em dashes, and a formulaic summary; none is present."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Checked section fit for Language Proficiency: the lesson uses the standard Core Concept, Examples, Speed Tricks & Shortcuts, and Traps structure. No example uses any formula, so there is no formula that requires prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "English also has **nonfinite clauses** such as \"to finish the project\" or \"walking down the street,\" whose verb does not carry ordinary finite tense/agreement.",
+     "problem": "The lesson identifies the nonfinite-clause boundary as an important edge case but gives no worked example where the student must distinguish that case. The required scenario coverage is therefore incomplete.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Because the store was closed, **we went home instead**.\"",
+     "problem": "Example 3 gives the answer directly instead of presenting the solution as numbered steps, which the rule requires for every worked solution.",
+     "source": "single"
+    },
+    {
+     "quote": "As written in isolation, this subordinate clause is a sentence fragment in ordinary formal prose. A repair is: \"Although the teacher explained the lesson twice, **some students were still confused**.\"",
+     "problem": "Example 4 gives its reasoning and repair as a paragraph rather than numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so phone-width equation fitting cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "English also has **nonfinite clauses** such as \"to finish the project\" or \"walking down the street,\" whose verb does not carry ordinary finite tense/agreement.",
+     "problem": "This teaching sentence is long and clause-heavy, so it does not meet the formatting rule that paragraph sentences should be short.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to assess for specificity or prose independence.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In traditional school grammar, a **clause** contains a predicative relationship built around a verb, usually with an expressed or understood subject. A **phrase** is a smaller grammatical unit that does not function as a finite clause.",
+     "problem": "Necessary terms are used before they are adequately explained. In particular, \"predicative relationship\" and \"finite clause\" carry the core distinction but are not defined in student-friendly terms first.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the core concepts for meaning and function: clause versus phrase, independent versus dependent status, subordination, combining clauses, and fragment repair are each explained with examples or operational tests."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked conditions and exceptions: the lesson limits the subject/verb shortcut, notes nonfinite-clause analysis differences, qualifies the stand-alone test, warns that subordinators need parsing, and explains that fragments can be deliberate outside formal prose."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the script candidate using \"marks\": it means that although signals a concessive relation, not a score. The lesson does not use \"marks\" for points or \"cards\" for questions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

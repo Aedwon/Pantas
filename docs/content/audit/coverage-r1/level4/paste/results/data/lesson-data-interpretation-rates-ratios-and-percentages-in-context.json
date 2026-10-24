@@ -1,0 +1,298 @@
+{
+ "lesson_sha256": "4df3ad154b8dfa20be9be8137d34bd040a4f0d684156d193d3b5dfdc518f550b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A positive result is an increase and a negative result is a decrease.",
+     "problem": "This sign interpretation is not generally correct when the original value is negative. With a negative original value, the percentage-change formula can produce a negative result even when the new value is numerically greater.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: I computed the change as 65 - 50 = 15, then 15/50 x 100% = 30%, matching the lesson.",
+    "Example 2: I computed 50/200 = 0.25 and 0.25 x 100% = 25%, matching the lesson.",
+    "Example 3: the greatest common divisor of 60 and 40 is 20, and dividing both terms by 20 gives 3:2, matching the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The simplified ratio is $3:2$.",
+     "problem": "The required Mathematics section \"Speed Tricks & Shortcuts\" is missing between the Examples section and Traps to Watch For.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches using the original value as the percent-change denominator, finding a part of a total, and simplifying a ratio while preserving the requested order, which directly serves every part of the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"A to B\" and \"B to A\" are reciprocal ratios, not interchangeable descriptions.",
+     "problem": "The terms \"reciprocal ratios\" and \"interchangeable descriptions\" are unnecessarily advanced for the required Grade 5 teaching-prose standard.",
+     "source": "single"
+    },
+    {
+     "quote": "State the absolute change or use a different, explicitly defined comparison measure.",
+     "problem": "This sentence uses abstract wording such as \"explicitly defined comparison measure\" instead of simple Grade 5 language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No specialized exam verb requiring a one-line explanation appears in the worked-example prompts.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All three worked-example stems provide the contextual values and requested comparison without giving away a formula or solution method, and their solutions return to short, direct instructional language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language mathematics lesson, so the Filipino teaching-prose requirement does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson contains no Filipino grammar terms that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example and quiz wording requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage would require a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish prohibition does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially emphasized target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The simplified ratio is $3:2$.",
+     "problem": "The Mathematics section fit is incomplete because the required \"Speed Tricks & Shortcuts\" section is omitted before Traps to Watch For.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An agency budget increased from $50$ million pesos in 2020 to $65$ million pesos in 2021. Find the percentage increase.",
+     "problem": "The only worked percentage-change example is an increase. The recorded skill set also includes percent decrease and signed change, but the lesson gives no worked example for that distinct exam-relevant case.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 uses three numbered steps with display equations for the change, division, and conversion to percent; Example 2 uses two numbered steps with both calculations displayed; Example 3 uses three numbered steps and displays the final ratio simplification."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$\\text{Percentage Change}=\\dfrac{\\text{New Value}-\\text{Original Value}}{\\text{Original Value}}\\times100\\%$$",
+     "problem": "This display equation is too wide for a typical phone screen because both numerator and denominator contain long text labels on one line.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to assess for specificity or surrounding explanatory prose.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For integer counts, a ratio such as $60:40$ can be simplified by dividing both terms by their greatest common divisor.",
+     "problem": "The term \"greatest common divisor\" is needed to use the stated simplification method, but the lesson never explains what that term means before students must use it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For integer counts, a ratio such as $60:40$ can be simplified by dividing both terms by their greatest common divisor.",
+     "problem": "The lesson names the greatest-common-divisor method but does not explain how to find the divisor or why dividing both ratio terms by it produces an equivalent lowest-term ratio.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A positive result is an increase and a negative result is a decrease.",
+     "problem": "The lesson omits the condition needed for this sign shortcut: it works as stated when the original reference value is positive, but can reverse the interpretation when the original value is negative.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An agency budget increased from $50$ million pesos in 2020 to $65$ million pesos in 2021. Find the percentage increase.",
+     "problem": "The prose numbers 2020 and 2021 are outside inline math delimiters, contrary to the rule that every number in prose must be inside $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "A positive result is an increase and a negative result is a decrease.",
+   "concern": "The statement is overgeneralized. If the original value is negative, the sign of the computed percentage change does not reliably indicate whether the new value increased or decreased numerically.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

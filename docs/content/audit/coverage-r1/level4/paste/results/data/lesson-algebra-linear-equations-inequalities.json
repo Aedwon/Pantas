@@ -1,0 +1,330 @@
+{
+ "lesson_sha256": "adf727715070361c4e5ba22d208edff80f9aceee28452ebe81beda47db1e774e",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the stated linear-equation forms, inequality comparison signs, slope-intercept form, dashed and solid boundary meanings, reversal after multiplying or dividing by a negative number, standard-form slope condition, intercept method, and perpendicular, vertical, and horizontal slope cases; all are mathematically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 solved independently: cross-multiplication gives 9x-3=2x+8, then 7x=11, so x=11/7.",
+    "Example 2 solved independently: expansion gives -5x>5, and division by -5 reverses the sign, so x<-1.",
+    "Example 3 solved independently: 2x+5y=10 has slope -2/5, so the perpendicular slope is 5/2; through (3,-1), the line is 5x-2y=17.",
+    "Example 4 solved independently: the boundary through (0,3) and (3,0) is x+y=3; the dashed boundary and included test point (0,0) give x+y<3.",
+    "Example 5 solved independently: b+s=30 and 150b+400s=7000 give s=10 and b=20, so 20 basic calculators were sold."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, with the optional Mnemonics & Memory Aids section also included.",
+    "Checked the figure-dependent inequality example: its coordinate-graph placeholder specifies the dashed boundary, two points, shaded side, and semantics needed to draw the figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A store sells basic calculators for Php $150$ and scientific calculators for Php $400$. If it sells $30$ calculators for total revenue of Php $7,000$, how many basic calculators were sold?",
+     "problem": "This worked two-variable system modeling problem is outside the recorded learning goal, which covers one-variable linear relations, slope/intercept/boundary information, and interpretation of a two-variable linear-inequality region.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Read the Core Concept, all worked-solution prose, shortcuts, and traps for sentence length and vocabulary; the prose is short and direct, and technical words are limited to necessary mathematics terms."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Solve $-2(x-4)>3x+13$.",
+     "problem": "The exam verb \"Solve\" is used in a worked-example prompt without the required one-line explanation of what the verb asks the student to do.",
+     "source": "single"
+    },
+    {
+     "quote": "Find the equation of the line through $(3,-1)$ that is perpendicular to $2x+5y=10$.",
+     "problem": "The exam verb \"Find\" is used in a worked-example prompt without a one-line explanation on its first use as an exam instruction.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in the lesson, so the one-analogy maximum is not exceeded."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five example stems: each supplies only problem-specific values, points, prices, totals, or graph facts, and none gives the formula or solution method the student is expected to select.",
+    "Checked the worked solutions separately; they return to short instructional language after the exam-style prompts."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat stock exam-motivation openers or reuse one exam mention pattern across sections."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No Filipino grammar term appears because this is an English mathematics lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose, so the Taglish prohibition does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or reason about a target word by formatting.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases, repeated sentence openings, em-dash-style phrasing, and a formulaic summary; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Because $B=5\\ne0$, the slope of $Ax+By=C$ is $-\\dfrac{A}{B}$.",
+     "problem": "The standard-form slope formula is introduced for the first time inside Example 3 instead of appearing earlier in Core Concept.",
+     "source": "single"
+    },
+    {
+     "quote": "2. A nonvertical line perpendicular to a line of nonzero slope has slope equal to the negative reciprocal.",
+     "problem": "The perpendicular-slope relationship is introduced inside Example 3 rather than being established first in Core Concept.",
+     "source": "single"
+    },
+    {
+     "quote": "3. Use point-slope form.",
+     "problem": "Point-slope form is invoked here and used in the next displayed equation, but its formula is never introduced in Core Concept before the example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In one variable, its solution is shown on a number line.",
+     "problem": "The lesson names one-variable inequality graphing but gives no worked example showing endpoint choice and shading direction on a number line.",
+     "source": "single"
+    },
+    {
+     "quote": "When graphing $y=mx+b$, start at the $y$-intercept and use the slope as rise over run to locate another point.",
+     "problem": "This graphing procedure has no worked example that constructs a line from slope-intercept information, leaving a distinct in-goal scenario uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "If $B=0$, the equation is a vertical line $x=\\dfrac{C}{A}$ and its slope is undefined.",
+     "problem": "Vertical and horizontal slope edge cases are taught but never worked as an example, so the example set does not cover this distinct exam-relevant variation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Let $b$ be the number of basic calculators and $s$ the number of scientific calculators.",
+     "problem": "Example 5 presents its solution as unnumbered prose and equations instead of the required numbered sequence of solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "All displayed equations are short single-line expressions or equations and fit the phone-width requirement."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three short sentences, and bullet lists are used only for the two boundary-style rules."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The only existing figure placeholder is specific enough to draw from: it identifies a coordinate graph, the dashed boundary through (0,3) and (3,0), the shaded side, and a semantics label.",
+    "The inequality question also states the boundary points, dashed style, and inclusion of (0,0) in words, so the prose remains usable without the image."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Checked slope, y-intercept, standard form, point-slope form, and perpendicular-line terminology against the identified coordinate-geometry prerequisite; that prerequisite teaches their meanings and formulas, while this lesson gives short reminders or direct uses.",
+    "Checked new inequality symbols and boundary conventions locally; comparison symbols, dashed versus solid boundaries, and negative-sign reversal are explained before the worked inequality examples use them."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In one variable, its solution is shown on a number line.",
+     "problem": "The lesson names the number-line representation but does not explain how open versus closed endpoints and left-versus-right shading work.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Cross-multiply.",
+     "problem": "The lesson uses equation-solving procedures without explaining the equality-preserving idea that equivalent operations must keep both sides balanced.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the stated conditions and exceptions: slope-intercept form is limited to nonvertical lines; m=-A/B is conditioned on B not being zero; B=0 is handled as vertical; dashed versus solid boundaries distinguish strict and inclusive inequalities; negative multiplication or division reverses an inequality; test points must not lie on the boundary; the origin is only convenient when the boundary misses it; and perpendicular-slope shortcuts exclude zero or undefined slopes."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "In one variable, its solution is shown on a number line.",
+   "description": "Draw a horizontal number line for $x<-1$ with an open circle at $-1$ and shading with an arrow to the left.",
+   "why": "It would make endpoint inclusion and shading direction concrete, which the current prose does not teach.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "When graphing $y=mx+b$, start at the $y$-intercept and use the slope as rise over run to locate another point.",
+   "description": "Draw a coordinate plane with a sample line in slope-intercept form, marking the $y$-intercept and a rise-over-run step to a second point.",
+   "why": "It would show how the stated graphing procedure becomes an actual line instead of leaving the process only in words.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

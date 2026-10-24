@@ -1,0 +1,504 @@
+{
+ "lesson_sha256": "46e226a923d1aa8759cfe0536b965fcee0390fcb19dd3e1f9823a4259b90f16f",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the official CSC-hosted RA 6713 text for the sworn SALN and financial-disclosure duty, family coverage, filing intervals, statutory filing offices, inspection, copying after ten working days, and ten-year public availability; the lesson's factual statements match.",
+    "Checked the official CSC-hosted implementing rules for divestment: the thirty-day resignation period, sixty-day divestment period, and already-serving clock reckoned from when the conflict arises match the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Example 1, solved before reading the solution: thirty days after a June 1 assumption gives a July 1 calendar deadline when the first day is excluded and the last included; the lesson only restates the interval.",
+    "Example 2, solved independently: for the supplied new-appointee conflict, resign from the private business position within thirty days from assumption and divest the relevant interest within sixty days from assumption.",
+    "Example 3, solved independently: copying is available after ten working days from filing; public availability lasts ten years after receipt, so a statement received eight years ago is still within that period."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Therefore, the employee must file the initial SALN within 30 days after assuming office.",
+     "problem": "The question gives June 1 and asks for a deadline, but the worked answer never converts the thirty-day period into the calendar deadline. It therefore leaves Example 1's requested answer incomplete.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window.",
+     "problem": "The lesson ends after the Examples section and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections. No supplied subject-specific rule allows General Information lessons to drop both sections.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to recognize statutory SALN coverage, filing locations and intervals, and apply supplied conflict and retention cases; the Core Concept teaches those topics and Examples 1 to 3 exercise filing, conflict, and public-availability cases."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Public officials and employees must identify and disclose, to the best of their knowledge and information, relatives in government in the form, manner, and frequency prescribed by the Civil Service Commission.",
+     "problem": "This is a long, clause-heavy sentence with formal legal wording such as prescribed, form, manner, and frequency. It is not very simple Grade 5 teaching prose.",
+     "source": "single"
+    },
+    {
+     "quote": "For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose.",
+     "problem": "The sentence uses the uncommon legal verb reckon and the phrase implementing rules without a simpler explanation, so the teaching prose exceeds the Grade 5 reading standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify the SALN deadline for assumption of office under Section 8 of RA 6713.",
+     "problem": "Identify is used as an exam-style directive without the required one-line explanation on its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the divestment timeframes in RA 6713.",
+     "problem": "Apply is used as an exam-style directive without a one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The official must divest the relevant shareholdings or interests within 60 days.",
+     "problem": "The worked solution relies on divest and shareholdings instead of explaining the action in simple language, so the solution does not meet the simple-language requirement.",
+     "source": "single"
+    },
+    {
+     "quote": "Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window.",
+     "problem": "The phrase public-availability window is more abstract than needed for a worked solution and is not simple Grade 5 language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language grammar lesson, so the Filipino grammar-gloss rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is in English and contains no Filipino-language example or quiz item.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains the Filipino kinship terms bilas, inso, and balae; the packet requires a needs_source_check verdict for Filipino text.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is English, so the Filipino-only Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt refers to a target word or asks about a word in bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "General Information has no special section adaptation in the supplied per-subject list, and no formula or quantitative expression is used in any worked example, so no example introduces a formula before Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "RA 6713 assigns filing offices by category:",
+     "problem": "The learning goal requires recognition of statutory filing locations, but none of the worked examples asks the student to distinguish or choose among any of the filing-office categories.",
+     "source": "single"
+    },
+    {
+     "quote": "2. **Annual filing:** On or before April 30 of every year thereafter.",
+     "problem": "Annual filing is a distinct filing-interval scenario in the learning goal, but there is no worked example applying this annual deadline.",
+     "source": "single"
+    },
+    {
+     "quote": "3. **Separation from service:** Within 30 days after separation from the service.",
+     "problem": "Separation from service is a distinct filing-interval scenario, but there is no worked example applying the separation deadline.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Family financial disclosures:** The required declarations include the official or employee, their spouse, and unmarried children under eighteen years of age living in their household.",
+     "problem": "Coverage of spouses and unmarried household children under eighteen is a distinct coverage case, but the Examples section contains no coverage or boundary example.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.",
+     "problem": "The lesson gives a within-ten-years case only. It has no worked example for the distinct post-ten-year destruction exception when an ongoing investigation requires retention.",
+     "source": "single"
+    },
+    {
+     "quote": "For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose.",
+     "problem": "The divestment example covers only a newly appointed official. It omits the distinct already-serving case where the clock begins when the conflict arises.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify the SALN deadline for assumption of office under Section 8 of RA 6713.",
+     "problem": "This solution content appears after the Solution label but outside the numbered list. The required format says the solution should proceed directly as numbered steps.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the divestment timeframes in RA 6713.",
+     "problem": "This solution content is an unnumbered setup line between the Solution label and the numbered steps, contrary to the required numbered-step format.",
+     "source": "single"
+    },
+    {
+     "quote": "Review the accessibility and retention rules under Section 8.",
+     "problem": "This solution content is also outside the numbered list, so the third solution does not put every solution step in the required numbered format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no display equations in this nonquantitative legal-content lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders for rule L23 to evaluate.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Under RA 6713, \"relatives\" means persons within the fourth civil degree of consanguinity or affinity, including bilas, inso, and balae.",
+     "problem": "The lesson uses consanguinity, affinity, bilas, inso, and balae without explaining the kinship terms or how the fourth civil degree is understood. There is no prerequisite lesson to supply those meanings.",
+     "source": "single"
+    },
+    {
+     "quote": "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections.",
+     "problem": "The lesson names Business Interests and Financial Connections without explaining what those terms mean before relying on the disclosure obligation.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days.",
+     "problem": "Conflict of interest, divest, and shareholdings are necessary to understand this rule, but the lesson does not define or plainly explain those terms before the example uses them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections.",
+     "problem": "The lesson states the names of the required declarations but does not explain what the SALN or the business-interest and financial-connection disclosure contains or how those declarations work.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days.",
+     "problem": "This gives deadlines but not the meaning of divestment or how a person actually divests an interest, so the concept is named and timed without being explained.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections.",
+     "problem": "The lesson says covered officials and employees but never states the statutory excluded categories, so students are not told the coverage limitation needed to know when the filing rule applies.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days.",
+     "problem": "The lesson gives the timing rule but omits relevant limitations on what counts as true divestment, including that transfer cannot be to the official's spouse or relatives within the fourth civil degree.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections.",
+     "problem": "The prose numerals 8 and 6713 are outside inline math, contrary to the rule that numbers in prose must be inside $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Relatives in government:** Public officials and employees must identify and disclose, to the best of their knowledge and information, relatives in government in the form, manner, and frequency prescribed by the Civil Service Commission. Under RA 6713, \"relatives\" means persons within the fourth civil degree of consanguinity or affinity, including bilas, inso, and balae.",
+     "problem": "The prose numeral 6713 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "1. **Assumption of office:** Within 30 days after assumption of office.",
+     "problem": "The prose number 30 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "2. **Annual filing:** On or before April 30 of every year thereafter.",
+     "problem": "The prose number 30 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "3. **Separation from service:** Within 30 days after separation from the service.",
+     "problem": "The prose number 30 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "RA 6713 assigns filing offices by category:",
+     "problem": "The prose numeral 6713 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Inspection and copying:** Filed statements must be available for inspection at reasonable hours. They become available for copying or reproduction after 10 working days from filing.",
+     "problem": "The prose number 10 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.",
+     "problem": "The prose number 10 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days. For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose.",
+     "problem": "The prose numbers 30 and 60 are outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "A newly appointed government employee starts working on June 1. By what deadline must the employee file their initial Statement of Assets, Liabilities and Net Worth (SALN)?",
+     "problem": "The prose date number 1 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "Identify the SALN deadline for assumption of office under Section 8 of RA 6713.",
+     "problem": "The prose numerals 8 and 6713 are outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Under RA 6713, a covered official or employee must file after assumption of office.",
+     "problem": "The prose numeral 6713 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "2. The deadline is within 30 days after assumption of office.",
+     "problem": "The prose number 30 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "3. Therefore, the employee must file the initial SALN within 30 days after assuming office.",
+     "problem": "The prose number 30 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "Apply the divestment timeframes in RA 6713.",
+     "problem": "The prose numeral 6713 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "2. The official must resign from the private business position within 30 days.",
+     "problem": "The prose number 30 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "3. The official must divest the relevant shareholdings or interests within 60 days.",
+     "problem": "The prose number 60 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "4. Therefore, the deadlines are 30 days for resignation and 60 days for divestment.",
+     "problem": "The prose numbers 30 and 60 are outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "A journalist requests a copy of a local official's SALN filed 8 years ago. When does a filed statement become available for copying, and how long does it remain available to the public?",
+     "problem": "The prose number 8 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "Review the accessibility and retention rules under Section 8.",
+     "problem": "The prose numeral 8 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "2. They become available for copying or reproduction after 10 working days from filing.",
+     "problem": "The prose number 10 is outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "3. They remain available to the public for 10 years after receipt, and an 8-year-old statement is still within that period.",
+     "problem": "The prose numbers 10 and 8 are outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "4. Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window.",
+     "problem": "The prose numbers 10 and 10 are outside inline math.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B10": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.",
+     "problem": "Retention is a reserved user-facing term and appears directly in the lesson text.",
+     "source": "single"
+    },
+    {
+     "quote": "Review the accessibility and retention rules under Section 8.",
+     "problem": "The reserved user-facing term retention appears again in the third worked solution.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "RA 6713 assigns filing offices by category:",
+   "description": "A compact routing diagram mapping each official category to its statutory filing office, with separate branches for Congress, courts, national executives, regional or local officials, armed-forces ranks, and all other covered officials.",
+   "why": "The lesson asks students to recognize several easily confused category-to-office mappings; a visual routing map would make those distinctions easier to compare and remember.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

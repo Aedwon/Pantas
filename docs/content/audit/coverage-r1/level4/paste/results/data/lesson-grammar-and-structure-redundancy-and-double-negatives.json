@@ -1,0 +1,287 @@
+{
+ "lesson_sha256": "d8c82f05c8a0fc09b84aedd831f5cb37219d5b10f6d243ca678801b15c62bc47",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked negative concord against Yale Grammatical Diversity Project: multiple negative elements can express one semantic negation in several English dialects.",
+    "Checked hardly, scarcely, and seldom against Cambridge Grammar: they have negative meaning, and hardly/scarcely can mean almost not at all.",
+    "Checked established phrases against Cambridge Dictionary: advance warning is a recognized collocation, and close proximity is also an established collocation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Example 1: the stem alone has no determinate task; if the task is to remove unnecessary repetition, my answer is \"Please return to the office.\"",
+    "Example 2: my standard-edited-English answers are \"She doesn't want any help with the project\" or \"She wants no help with the project.\"",
+    "Example 3: my answer is no; \"advance warning\" can carry useful meaning when advance distinguishes an earlier warning from a last-minute one.",
+    "Example 4: my standard-edited-English answer is \"I can hardly hear you.\""
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Please return back to the office.\"",
+     "problem": "The stem gives no task or question. From the quoted sentence alone, a student cannot know whether to edit, explain, classify, or simply repeat it, so the worked answer is not determinate from the question alone.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson has Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; no forced mnemonic is needed and no question depends on a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly teaches the recorded goal: it distinguishes unnecessary from meaningful repetition and converts negative concord to standard edited English without reversing the original negative meaning."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Redundancy** in editing means unnecessary repetition of meaning. But a phrase is not automatically wrong merely because two words overlap in meaning: repetition can add emphasis, precision, contrast, rhythm, or an established idiomatic meaning.",
+     "problem": "The second sentence is long and uses several abstract or uncommon words such as precision and idiomatic, making the teaching prose harder than the Grade 5 simplicity standard.",
+     "source": "single"
+    },
+    {
+     "quote": "Many English dialects use **negative concord**, where several negative forms work together to express one negative meaning. In such a dialect, \"I don't have no money\" means \"I have no money\"—it does **not** become a positive statement by mathematical cancellation. Negative concord is systematic grammar, though it is normally avoided when a task requires standard edited English.",
+     "problem": "This paragraph packs several advanced ideas and terms into long sentences, including dialect, negative concord, mathematical cancellation, and systematic grammar, instead of using shorter Grade 5-level teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Rewrite for standard edited English: \"She doesn't want no help with the project.\"",
+     "problem": "The exam verb \"Rewrite\" appears without the required one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Do not do arithmetic with negatives.** English negation is grammar and meaning, not multiplication of plus and minus signs.",
+     "problem": "This is a comparison to arithmetic used as an analogy, but the rule allows an analogy only in Core Concept, not in Speed Tricks & Shortcuts.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Please return back to the office.\"",
+     "problem": "This worked-example stem does not state an exam task such as edit, revise, or choose the best correction, so it is not a complete authentic exam-style question.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language grammar lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar terms, so no Filipino term needs an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino examples and items are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson has no Filipino teaching prose, so the Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a target word by referring to formatting.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This Language Proficiency lesson uses an allowed section pattern. No formulas appear in any worked example, so there is no formula that must be traced back to Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"The result was **not unexpected**\" is standard and means roughly \"the result was somewhat expected.\" Context determines the interpretation.",
+     "problem": "The lesson teaches the distinct case where two negative elements create a qualified positive meaning, but the Examples section has no worked example for that exam-relevant variation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If the intended meaning is simply \"come back,\" *return* already supplies that meaning: \"Please **return to the office**.\"",
+     "problem": "The worked solution is presented as an ordinary paragraph instead of the required numbered solution-step list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display lines to test for phone width.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Redundancy** in editing means unnecessary repetition of meaning. But a phrase is not automatically wrong merely because two words overlap in meaning: repetition can add emphasis, precision, contrast, rhythm, or an established idiomatic meaning.",
+     "problem": "Although the paragraph has only two sentences, the second sentence is too long to meet the requirement for short sentences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders in this lesson to evaluate for specificity or load-bearing use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In **standard edited English**, negative words such as *nobody, nothing, never,* and *nowhere* are normally not combined with a negative verb when the intended meaning is one negation:",
+     "problem": "The central term \"standard edited English\" is used to define the rule and later appears in example tasks, but the lesson never explains what that term means.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Redundancy is defined as unnecessary repetition and is explained through meaning-preserving versus meaning-changing edits; negative concord is defined and its one-negative interpretation is explained."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states the needed conditions and exceptions: redundancy depends on context, negative concord is dialectal and avoided for standard-edited-English tasks, genuine two-negative meanings can be valid, and hardly/scarcely normally do not take another negative."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

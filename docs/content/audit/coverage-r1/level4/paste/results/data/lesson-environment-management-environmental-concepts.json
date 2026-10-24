@@ -1,0 +1,339 @@
+{
+ "lesson_sha256": "a0189c67fc25dc3a130d731773449e86dde303beeaa8fa2ff2fce15adc06c4a0",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "The Civil Service Commission's 2026 CSE-PPT announcement lists Environment Management and Protection under General Information: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+    "RA 9003 supports source segregation, the four named waste categories, and waste diversion through source reduction, reuse, recycling, and composting: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html",
+    "EMB guidance defines the ECC as a decision document after EIA review and states that covered projects require the EIA/ECC process before implementation: https://eia.emb.gov.ph/wp-content/uploads/2016/06/eia-ecc.pdf",
+    "PD 1586 establishes the Philippine Environmental Impact Statement System and requires an ECC for declared environmentally critical projects or areas: https://issuances-library.senate.gov.ph/legislative%2Bissuances/Presidential%20Decree%20No.%201586%2C%20s.%201978",
+    "RA 10121 establishes a proactive, comprehensive DRRM system spanning prevention or mitigation, preparedness, response, and recovery or rehabilitation: https://lawphil.net/statutes/repacts/ra2010/ra_10121_2010.html",
+    "Checked the four Core Concept factual claims in the audited lesson text against those primary sources."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 from the question alone: the household separates waste where it is generated, so my answer is segregation at source; this matches the lesson.",
+    "Solved Example 2 from the question alone: composting keeps material out of disposal facilities, so my answer is waste diversion; this matches the lesson.",
+    "Solved Example 3 from the question alone: a project already stated to be covered by the Philippine EIS System must secure an Environmental Compliance Certificate before implementation; this matches the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "4. Therefore, the required document is an Environmental Compliance Certificate.",
+     "problem": "The lesson ends after Examples and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections. No General Information exception to the default section structure is provided in this packet.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "RA 10121 strengthened the Philippine disaster-management framework by emphasizing prevention and mitigation, preparedness, response, and rehabilitation and recovery, instead of focusing only on post-disaster response.",
+     "problem": "The recorded learning goal is limited to recognizing source segregation, waste diversion, and the ECC requirement for an already covered project. This separate DRRM teaching does not serve that recorded goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Projects covered by the system—such as declared Environmentally Critical Projects or projects in Environmentally Critical Areas—must secure the required ECC before implementation.",
+     "problem": "This sentence packs several legal terms and conditions into one long statement, including 'declared', 'Environmentally Critical Projects', 'Environmentally Critical Areas', and 'implementation'. It is not very simple Grade 5 teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Which environmental concept does this practice demonstrate?",
+     "problem": "The exam verb 'demonstrate' is used in the first example without the required one-line explanation on first use.",
+     "source": "single"
+    },
+    {
+     "quote": "What environmental management principle does this describe?",
+     "problem": "The exam verb 'describe' is used in the second example without the required one-line explanation on first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 supplies the household sorting situation but does not give the definition being tested; its solution explains the match in simple steps.",
+    "Example 2 supplies the composting outcome and disposal reduction but does not name the tested principle; its solution identifies diversion and explains why.",
+    "Example 3 supplies the necessary condition that the project is already covered by the Philippine EIS System without supplying the ECC answer; its solution explains the requirement."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the Filipino teaching-prose readability rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach Filipino grammar and contains no hard Filipino grammar term needing an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the rule requiring Filipino examples and quiz items does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino-language teaching prose or examples, so KWF spelling review is not applicable.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not Filipino teaching prose, so the prohibition on Taglish in Filipino lessons does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question in this lesson refers to a target word, so the bold-target-word prompt rule cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "No worked example uses a formula or quantitative computation, so there is no formula introduced for the first time inside an example.",
+    "The lesson uses the standard Core Concept and Examples titles where those sections appear; the missing default sections are recorded separately under B03."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A community composting program turns organic waste into soil conditioner, reducing the amount of waste sent to disposal facilities. What environmental management principle does this describe?",
+     "problem": "Waste diversion is taught as including reduction, reuse, recycling, and composting, but the worked coverage demonstrates only composting. The other distinct diversion methods are left without worked scenarios.",
+     "source": "single"
+    },
+    {
+     "quote": "A proposed project is classified as covered by the Philippine Environmental Impact Statement System. What document must the proponent secure through the environmental impact assessment process before project implementation?",
+     "problem": "All three examples remain direct concept-recognition questions. The sequence does not ramp from a basic case to a more authentic target-exam variation or edge case within the recorded learning goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Match the practice to its environmental concept.",
+     "problem": "This is an unnumbered solution instruction placed between the Solution label and the numbered list, so not every solution step is presented as a numbered step.",
+     "source": "single"
+    },
+    {
+     "quote": "Identify the process of keeping waste out of disposal facilities.",
+     "problem": "This is an unnumbered solution instruction placed before the numbered steps, contrary to the required numbered-step solution format.",
+     "source": "single"
+    },
+    {
+     "quote": "Identify the decision document required for projects covered by the Philippine EIS System.",
+     "problem": "This is an unnumbered solution instruction placed before the numbered steps, contrary to the required numbered-step solution format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be judged.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of the three example questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A decision document issued to a project proponent after review under the Philippine Environmental Impact Statement System.",
+     "problem": "The necessary term 'project proponent' is used in the ECC definition and again in Example 3 without being explained, and Level 3 found no prerequisite lesson.",
+     "source": "single"
+    },
+    {
+     "quote": "waste is classified into categories such as compostable, recyclable, non-recyclable, and special waste.",
+     "problem": "The waste-category terms are introduced as part of the concept but their meanings are never explained. 'Special waste' in particular is not self-explanatory, and there is no prerequisite lesson.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "RA 10121 strengthened the Philippine disaster-management framework by emphasizing prevention and mitigation, preparedness, response, and rehabilitation and recovery, instead of focusing only on post-disaster response.",
+     "problem": "The lesson names the four DRRM areas but does not explain what they mean or how they work. With no prerequisite lesson, this is naming instead of concept teaching.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The source-segregation statement gives its relevant legal applicability under RA 9003 and states that segregation is primarily conducted at the source.",
+    "The ECC rule states the key condition that the project is covered by the Philippine EIS System and the timing condition that the ECC is required before implementation.",
+    "No formula or shortcut is taught that needs an unstated applicability condition or exception."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Under RA 9003, segregation must primarily be conducted at the source and waste is classified into categories such as compostable, recyclable, non-recyclable, and special waste.",
+     "problem": "The prose number 9003 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "RA 10121 strengthened the Philippine disaster-management framework by emphasizing prevention and mitigation, preparedness, response, and rehabilitation and recovery, instead of focusing only on post-disaster response.",
+     "problem": "The prose number 10121 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "PD 1586 established the Philippine Environmental Impact Statement System.",
+     "problem": "The prose number 1586 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Projects covered by the system—such as declared Environmentally Critical Projects or projects in Environmentally Critical Areas—must secure the required ECC before implementation.",
+   "description": "Flowchart showing a covered project moving through environmental review to an ECC decision document before project implementation.",
+   "why": "The sequence is central to the ECC concept, and a simple flow would make the order and condition easier to understand than the dense legal sentence alone.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

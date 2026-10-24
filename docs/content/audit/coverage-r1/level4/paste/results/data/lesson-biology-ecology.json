@@ -1,0 +1,341 @@
+{
+ "lesson_sha256": "ce76e7dd6b64124ff597334093984b15116ed99a2f93d40b74699eaef88f3874",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the ecosystem and biome definitions, food-chain arrow direction, trophic roles, energy-transfer caveat, carbon and nitrogen cycle statements, and symbiosis categories for scientific accuracy; none conflicts with standard introductory ecology."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: grass is the producer, grasshopper the primary consumer, frog the secondary consumer, and hawk the tertiary consumer, matching the lesson.",
+    "Example 2 blind solve: 10% of 10,000 kJ is 1,000 kJ for primary consumers, then 10% of 1,000 kJ is 100 kJ for secondary consumers, matching the lesson.",
+    "Example 3 blind solve: harming-host nutrient extraction is parasitism, reciprocal pollination benefit is mutualism, and shelter with no detectable host effect is commensalism, matching the lesson.",
+    "Example 4 blind solve: most plants cannot use atmospheric N2 directly; nitrogen fixation makes ammonia/ammonium available for biological use or later nitrification, matching the lesson's answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required science lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the optional mnemonic section is reasonably omitted.",
+    "Checked figure needs: the trophic-energy pyramid has an existing figure specification, and no worked question on this lesson depends on an absent load-bearing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal covers ecosystem feeding, energy transfer, matter cycling, and partner effects; the lesson directly teaches food chains/webs, trophic energy, carbon/nitrogen/phosphorus/water cycles, and symbiosis."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **biome** is a large ecological region characterized mainly by climate and dominant vegetation, with associated animal and microbial communities. A biome contains many ecosystems rather than being a single ecosystem scaled up.",
+     "problem": "This teaching prose uses long sentences and advanced words such as \"characterized,\" \"dominant vegetation,\" and \"microbial communities,\" which is above the required Grade 5 reading level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Arrange grass, grasshopper, frog, and hawk into a simple food chain and identify their trophic roles in that simplified chain.",
+     "problem": "The exam verbs \"Arrange\" and \"identify\" first appear here without the required one-line explanations of what the student must do.",
+     "source": "single"
+    },
+    {
+     "quote": "A problem tells you to assume $10\\%$ trophic transfer efficiency. Producers contain $10{,}000$ kJ of usable production. Under that stated assumption, estimate the energy transferred to primary and then secondary consumers.",
+     "problem": "The exam verb \"estimate\" first appears here without a one-line explanation of what the instruction means.",
+     "source": "single"
+    },
+    {
+     "quote": "Classify these simplified relationships: (a) a tapeworm drawing nutrients from a dog and harming it; (b) a pollinator receiving food while pollinating a plant; (c) an organism gaining shelter while measurements show no detectable effect on its host.",
+     "problem": "The exam verb \"Classify\" first appears here without the required one-line explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Atmospheric $N_2$ contains a strong triple bond and is chemically unavailable to most organisms.",
+     "problem": "This worked-solution sentence is not in the required simple language; \"chemically unavailable\" is unnecessarily difficult for the Grade 5 teaching benchmark.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, not Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and introduces no Filipino grammar terms.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example language is not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a target word in bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The only calculation formula used in an example is multiplying by $0.10$ for each stated trophic step; Core Concept introduces that factor before Example 2 in the paragraph beginning \"The familiar **10% rule**\".",
+    "The symbiosis sign notation $(+,+)$, $(+,0)$, and $(+,-)$ used in Example 3 is introduced first in Core Concept under Symbiotic Relationships; the other examples use no formulas."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **food web** combines many connected feeding relationships in an ecosystem. Because many organisms eat at more than one trophic level, real food webs are not always neat four-step ladders.",
+     "problem": "The learning goal includes interpreting ecosystem feeding, but the worked examples cover only a single chain and never show a branching food web or a consequence of changing one member.",
+     "source": "single"
+    },
+    {
+     "quote": "The **water cycle** moves water through reservoirs such as oceans, atmosphere, land, groundwater, and living organisms.",
+     "problem": "Matter cycling is part of the learning goal, yet the examples work only the nitrogen cycle; there is no worked carbon, phosphorus, or water-cycle interpretation to cover those distinct scenarios.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all four worked solutions: each uses a numbered list. Example 2 places both key calculations on separate display-equation lines, while the three conceptual examples contain no numerical computation that requires a display equation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The existing energy-pyramid figure specification is a single specific drawable instruction with labeled levels and percentages, and the surrounding prose still explains trophic energy transfer without depending on the image."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A problem tells you to assume $10\\%$ trophic transfer efficiency. Producers contain $10{,}000$ kJ of usable production. Under that stated assumption, estimate the energy transferred to primary and then secondary consumers.",
+     "problem": "The unit abbreviation \"kJ\" is used without first explaining that it means kilojoules, and there is no prerequisite lesson identified to supply that explanation.",
+     "source": "single"
+    },
+    {
+     "quote": "Nitrogen-fixing prokaryotes convert $N_2$ to ammonia.",
+     "problem": "The term \"prokaryotes\" appears in the worked explanation without being defined or briefly reminded beforehand, despite there being no prerequisite lesson to supply its meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The **water cycle** moves water through reservoirs such as oceans, atmosphere, land, groundwater, and living organisms.",
+     "problem": "This only names reservoirs and says water moves among them; it does not explain the processes that make the water cycle work, such as evaporation, condensation, precipitation, or return flow.",
+     "source": "single"
+    },
+    {
+     "quote": "The **phosphorus cycle** is dominated by movement through rocks, soils, organisms, and water and has no major atmospheric gaseous reservoir comparable with the carbon or nitrogen cycles.",
+     "problem": "This gives reservoirs and one limitation but does not explain how phosphorus actually moves through the cycle, so the concept is named more than it is taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked applicability and exceptions: the lesson explicitly limits the 10% rule to stated approximation problems, notes that trophic efficiency varies, explains that omnivores may occupy different trophic levels, and makes symbiosis categories depend on evidence and context."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The familiar **10% rule** is a classroom approximation, not a universal constant.",
+     "problem": "The number 10% appears in prose outside inline math; the notation rule requires prose numbers to be inside `$...$`.",
+     "source": "single"
+    },
+    {
+     "quote": "This is an estimate based on the problem's 10% assumption, not a law that all ecosystems obey exactly.",
+     "problem": "The number 10% appears in prose outside inline math instead of the required `$10\\%$` form.",
+     "source": "single"
+    },
+    {
+     "quote": "For trophic-energy calculations, use 10% only when the lesson/problem presents it as an approximation or explicitly instructs you to assume it.",
+     "problem": "The number 10% appears in prose outside inline math instead of the required `$10\\%$` form.",
+     "source": "single"
+    },
+    {
+     "quote": "Trophic transfer efficiency varies; 10% is a useful rule of thumb for simple problems.",
+     "problem": "The number 10% appears in prose outside inline math instead of the required `$10\\%$` form.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "A **food web** combines many connected feeding relationships in an ecosystem. Because many organisms eat at more than one trophic level, real food webs are not always neat four-step ladders.",
+   "description": "Draw a small branching food web with a producer feeding two primary consumers and one predator receiving arrows from more than one prey.",
+   "why": "A branching diagram would make the difference between a linear food chain and a connected food web immediately visible.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "The **nitrogen cycle** includes several distinct microbial processes. **Nitrogen fixation** converts atmospheric $N_2$ into ammonia ($NH_3$, commonly present as ammonium $NH_4^+$ in water/soil). **Nitrification** then converts ammonium to nitrite and nitrate. Plants assimilate usable nitrogen compounds, while **denitrification** returns nitrogen gases to the atmosphere.",
+   "description": "Draw a simple nitrogen-cycle flow diagram linking atmospheric N2, ammonia/ammonium, nitrite/nitrate, plant uptake, and denitrification with labeled process arrows.",
+   "why": "The process names are easy to confuse; a flow diagram would show their order and direction more clearly than prose alone.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,319 @@
+{
+ "lesson_sha256": "f7b19fb9eb88b49fe77ab620e28994231d4a2f2890a9a245c3121c1ae03de522",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "> **is means equals. Of means multiply. Per means divide.**",
+     "problem": "The statement \"is means equals\" is too absolute and is contradicted later by the lesson itself: \"$5$ is less than $x$\" becomes $5 < x$, not an equation. The keyword needs a condition instead of being stated as a universal fact.",
+     "source": "single"
+    },
+    {
+     "quote": "The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.",
+     "problem": "The heading makes a specific UPCAT-scope claim for this problem family. The official UPCAT page confirms a Mathematics subtest but does not confirm that consecutive-even-integer setup as UPCAT content, so the hard-to-remember exam claim remains unconfirmed and should be left out. Source checked: https://upcat.up.edu.ph/",
+     "source": "single"
+    },
+    {
+     "quote": "Exams like the DOST-SEI will give you scary expressions with big numbers to plug in.",
+     "problem": "This is a specific claim about DOST-SEI exam content and style. The official DOST-SEI scholarship helpdesk material checked does not confirm this pattern, so the claim is unconfirmed and should be left out. Source checked: https://helpdesk.sei.dost.gov.ph/faqs",
+     "source": "single"
+    },
+    {
+     "quote": "Then, put $x = 2$ into the letters in choices A, B, C, and D. The choice that gives your matching answer is correct.",
+     "problem": "One test value cannot prove that a translated expression is uniquely correct. Different answer choices can coincide at $x = 2$; for example, $x + 2$ and $2x$ both give $4$. The shortcut needs a collision check or additional test value.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: \"four less than three times k\" is 3k - 4, matching the lesson answer.",
+    "Example #2 blind solve: 4(2a - 3b) - 2(a - 5b) = 8a - 12b - 2a + 10b = 6a - 2b, matching the lesson answer.",
+    "Example #3 blind solve: (-2)^3 - 4(-2)(3) + 3^2 = -8 + 24 + 9 = 25, matching the lesson answer.",
+    "Example #4 blind solve: x, x + 2, and x + 4 sum to S, so x = (S - 6)/3 and the largest is (S + 6)/3, matching the lesson answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The mathematics lesson contains Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For in the required structure.",
+    "No worked example depends on a diagram or other required figure, so no required illustration is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly serves the recorded goal by teaching translation, simplification through distribution and like terms, evaluation by substitution, and a consecutive-even-integer model."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "The teaching prose is mostly short and direct, using simple explanations such as letters standing for unknown numbers, grouping like parts, and plugging in values; realistic exam stems carry the denser wording."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.",
+     "problem": "The exam verb \"Express\" appears here without the required one-line explanation on its first use. The lesson explains translate, simplify, and evaluate, but not express.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked-example stems give the values and conditions needed to solve them without supplying the tested formula or method; the solutions then return to simpler teaching language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language mathematics lesson, so the Filipino-language teaching rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar and contains no hard Filipino grammar term requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the Filipino examples and quiz-language requirement does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text, so Komisyon sa Wikang Filipino spelling review does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt asks the student to identify or interpret a target word by formatting, so this target-word rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "First, distribute the outside numbers. This means multiply the number outside the parentheses by everything inside.",
+     "problem": "The worked example uses the distributive rule before any distributive formula is introduced in Core Concept. For a mathematics lesson, a formula used in a solution must first appear in Core Concept.",
+     "source": "single"
+    },
+    {
+     "quote": "Even numbers jump by $2$. So, the next even number is $x + 2$. The largest is $x + 4$.",
+     "problem": "The consecutive-even-integer model $x, x + 2, x + 4$ is introduced for the first time inside the worked example instead of being established in Core Concept before the example uses it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "> **is means equals. Of means multiply. Per means divide.**",
+     "problem": "The learning goal broadly includes translating verbal relationships, and the lesson explicitly teaches \"of\" and \"per\" as distinct translation patterns, but the Examples section gives no worked example for either pattern. Distinct taught translation cases therefore lack the required worked coverage.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "5. The final answer is $3k - 4$.",
+     "problem": "Example #1 keeps its key result only in inline math. The solution steps are numbered, but the required key computation or final expression is not shown as a display equation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Always look to simplify *before* you plug in numbers. Exams like the DOST-SEI will give you scary expressions with big numbers to plug in. Do not plug them in right away. If you factor or simplify the letters first, the math becomes very easy.",
+     "problem": "This teaching paragraph has four sentences, exceeding the required one-to-three short sentences per paragraph.",
+     "source": "single"
+    },
+    {
+     "quote": "If a multiple-choice question asks you to translate a word problem into letters, plug in a real number! Make up a simple number, like $x = 2$. Solve the word problem in your head using the number $2$. Then, put $x = 2$ into the letters in choices A, B, C, and D. The choice that gives your matching answer is correct.",
+     "problem": "This teaching paragraph has five sentences, exceeding the required one-to-three short sentences per paragraph.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its worked questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.",
+     "problem": "The meaning of \"consecutive even integers\" is needed to understand the question, but it is not explained before this first use and there is no prerequisite lesson. The explanation that they differ by $2$ comes only inside the solution.",
+     "source": "single"
+    },
+    {
+     "quote": "If you factor or simplify the letters first, the math becomes very easy.",
+     "problem": "The lesson tells students to \"factor\" but never explains what factoring means, and no prerequisite lesson supplies that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Translation is explained as changing words into symbols and reinforced with keyword behavior; simplification is demonstrated through distribution and combining like terms; evaluation is shown through substitution and order of operations; the consecutive-even model is worked as x, x + 2, x + 4."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "> **is means equals. Of means multiply. Per means divide.**",
+     "problem": "The keyword rule omits the condition on \"is.\" The lesson later shows \"$5$ is less than $x$\" as an inequality, so students need the limitation that \"is\" signals equality only in an equality statement, not inside every comparison phrase.",
+     "source": "single"
+    },
+    {
+     "quote": "Then, put $x = 2$ into the letters in choices A, B, C, and D. The choice that gives your matching answer is correct.",
+     "problem": "The substitution shortcut omits the condition that one chosen value can make two different expressions coincide. Students need to check for ties and use another value when more than one choice matches.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "> **is means equals. Of means multiply. Per means divide.**",
+   "concern": "The first clause is stated as a universal rule, but the lesson itself later gives \"$5$ is less than $x$\" as $5 < x$. The keyword needs a condition.",
+   "source": "single"
+  },
+  {
+   "quote": "The choice that gives your matching answer is correct.",
+   "concern": "A single substitution value does not guarantee a unique match because different expressions can give the same value at the chosen input.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

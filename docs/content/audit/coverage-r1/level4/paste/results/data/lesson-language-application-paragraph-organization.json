@@ -1,0 +1,287 @@
+{
+ "lesson_sha256": "0d31c7024268d90892f29464e198c7152ca677c959ba650146fc1cb12bb4ff3e",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the CSE scope claim against the official CSC 2026 CSE-PPT announcement, which lists Paragraph organization under Verbal Ability: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+    "Checked the lesson's claims about backward reference, transition meaning, chronology, and cause/effect ordering; the stated caveats keep them accurate rather than absolute."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: C is the best opening because it introduces the river-settlement situation without an unexplained this/these reference.",
+    "Example #2 blind solve: B best follows C because these limited resources can refer to the fertile soil and reliable water just introduced.",
+    "Example #3 blind solve: A then D completes the chain, giving the full order C → B → A → D.",
+    "Example #4 blind solve: however signals contrast with prior discourse but does not by itself determine one exact immediately preceding sentence."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, and this language lesson has no required figure-dependent content."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to arrange a self-contained set of English sentences coherently using meaning and reference; the lesson directly teaches opening orientation, reference, transitions, chronology, cause/effect, and full-order checking."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Reference and cohesion.** Pronouns and demonstratives such as *it, this, these,* and *they* often refer back to something already available in the text or context. In a self-contained scrambled paragraph, an unexplained backward reference is strong evidence that another sentence should come first. It is not a universal rule that a pronoun can never begin a paragraph.",
+     "problem": "This teaching uses advanced terms such as \"demonstratives,\" \"self-contained,\" \"backward reference,\" and \"universal rule\" in a dense explanation without simpler wording, which exceeds the required Grade 5 teaching-prose standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson uses ordinary question wording and no specialized exam verb that needs a one-line definition.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in Core Concept, so the lesson stays within the one-analogy maximum."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It signals contrast with an idea already established in the discourse—for example, support for the policy or an expectation that it would be accepted. It cannot tell you by itself exactly which sentence must immediately precede it; you still need the paragraph's meaning.",
+     "problem": "The worked solution is not in the required simple language: \"discourse,\" \"expectation,\" and \"immediately precede\" make the explanation substantially harder than the Grade 5 solution standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Exam context is used sparingly and in different ways, including the CSE scope and scrambled-paragraph exercises, without repeating a stock motivational opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language paragraph-organization lesson, not a Filipino-language teaching lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No hard Filipino grammar term appears because the lesson teaches paragraph organization in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so its examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish usage could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A paragraph contains \"However, not everyone agreed with the new policy.\" What does *however* tell you?",
+     "problem": "The question targets the word however, but the target word is italicized instead of bold and the prompt does not say \"the word in bold\" as required.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for the listed stock AI phrases, repeated sentence openings, and formulaic summary wording; none of the prohibited phrasing patterns appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a Language Proficiency lesson, and its section set is compatible with that subject. No formula is used in any example, so there is no formula-introduction violation to trace."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Chronology and procedure.** Time markers and sequence words can establish what happens first, next, and later.",
+     "problem": "Chronology and procedural ordering are taught as a distinct exam-relevant scenario, but the Examples section contains no worked chronology or procedure arrangement.",
+     "source": "single"
+    },
+    {
+     "quote": "**Cause and effect.** A result generally needs its relevant cause or condition to be understandable, but writers can sometimes present an effect first and explain its cause afterward. Follow the actual discourse signals.",
+     "problem": "Cause/effect ordering, including the stated effect-first variation, is part of the lesson's taught method but has no worked example, leaving a distinct scenario and edge case uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "What best follows sentence (C)?",
+     "problem": "Examples #1 through #3 reuse successive pieces of the same C → B → A → D sentence set instead of providing distinct scenarios, while other taught ordering cases remain unworked.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(C) introduces the situation without an unexplained backward reference. The other sentences contain *this/these* expressions that depend on information supplied elsewhere in the set.",
+     "problem": "The solution is written as prose instead of numbered solution steps. Its reasoning is present, so this is a solution-format breach rather than an omitted reasoning step.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so phone-width equation fitting cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson paragraphs and lists: paragraphs stay within one to three sentences, and there are no excessive bullet lists."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and its paragraph-ordering content does not require a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Necessary ideas are introduced before use: reference is explained through words that refer back, transitions are described as logical relationships, and chronology and cause/effect are explained before the examples or traps rely on them."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept explains how each ordering clue works: openings orient, references point backward, transitions express relationships, chronology supplies sequence, and cause/effect supplies logical dependency."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the main limitations and exceptions: topic sentences are not universal, pronouns may begin paragraphs with wider context, transitions do not fix positions, and effect-before-cause can be valid when signaled."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Checked both script candidates: \"Mark references\" uses mark as an instruction to annotate, and \"therefore marks\" uses marks to mean indicates; neither refers to a score. No use of cards appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

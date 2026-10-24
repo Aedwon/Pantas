@@ -1,0 +1,354 @@
+{
+ "lesson_sha256": "642b9d416d27a7873cf7465135a5ebea9cbfe4b9f7afb96f4f12f8d1ea74a856",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the bar-chart baseline and line-chart nonzero-axis distinction; the lesson's distinction is factually correct.",
+    "Checked the truncated-axis example: values 85 and 81 shown from a baseline of 80 produce displayed bar lengths of 5 and 1, greatly exaggerating their actual magnitude difference."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: from the buildup, completed sandcastle, and destructive wave, I independently get a reading about impermanence or the fragility of effort, matching the solution.",
+    "Example #2: from the large moving boulder labeled taxes, the worried citizens figure, and their relationship, I independently get a threatening burden and a critical stance, matching the solution.",
+    "Example #3: ordering 50, 70, 60, and 90 gives April as highest and February as second-highest, matching the answer.",
+    "Example #4: with a baseline of 80, the displayed bar lengths are 5 and 1 while the actual values are 85 and 81, so the truncated bars greatly exaggerate the difference, matching the solution."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A three-panel comic shows a man carefully building an elaborate sandcastle, the completed castle, then a wave washing it away while he watches with a resigned expression.",
+     "problem": "This visual-media worked example requires the comic itself as a load-bearing question figure, but the lesson provides only an HTML illustration placeholder rather than a completed figure.",
+     "source": "single"
+    },
+    {
+     "quote": "A cartoon shows a large boulder labeled \"taxes\" rolling toward a worried figure labeled \"citizens.\"",
+     "problem": "This visual-media worked example requires the editorial cartoon itself as a load-bearing question figure, but the lesson provides only an HTML illustration placeholder rather than a completed figure.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A three-panel comic shows a man carefully building an elaborate sandcastle, the completed castle, then a wave washing it away while he watches with a resigned expression.",
+     "problem": "The recorded goal requires keeping verbal inference distinct from actual visual extraction, but the comic is supplied entirely as prose and the lesson never explicitly teaches that distinction.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The scale should match the analytical purpose and make changes interpretable without distortion.",
+     "problem": "This teaching sentence uses abstract words such as analytical, interpretable, and distortion without simpler wording, making it harder than the Grade 5 reading standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Interpret a symbol from context.",
+     "problem": "The exam verb \"Interpret\" is used as an instruction without the required one-line explanation of what the verb asks the student to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No friendly-tutor analogy is used in the teaching prose; references to analogy as an editorial-cartoon technique are subject matter, not an instructional analogy."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A three-panel comic shows a man carefully building an elaborate sandcastle, the completed castle, then a wave washing it away while he watches with a resigned expression.",
+     "problem": "The worked examples give stimuli or data but no exam-style question stem asking the student what to identify, infer, rank, or interpret before the solution appears.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repetitive CET or exam-motivation openers, so there is no repeated exam phrasing that violates this rule."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson's teaching prose is in English, not Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar or use hard Filipino grammar terms.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word that must be identified in bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the listed stock AI phrases and found none; sentence openings vary, and the summary begins plainly with \"Learn how\" rather than the prohibited repeated-summary formula."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a Reading Comprehension lesson using the permitted core, example, strategy, and traps structure. No mathematical formula appears in any example, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "By contrast, a **line chart** emphasizes position and change, so its vertical axis does not necessarily need to begin at zero.",
+     "problem": "Line-chart interpretation is taught as a distinct quantitative case, but there is no worked line-chart example applying position, trend, or nonzero-axis interpretation.",
+     "source": "single"
+    },
+    {
+     "quote": "Editorial cartoons comment on public issues using techniques such as symbolism, caricature, analogy, labeling, juxtaposition, irony, and exaggeration.",
+     "problem": "Several distinct cartoon techniques are introduced, but the worked cartoon example covers only the labeled boulder scenario; caricature, analogy, juxtaposition, and irony receive no worked application.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Because the bar lengths begin visually at 80, the displayed length ratio greatly exaggerates the actual magnitude ratio 85:81. Check the numerical scale instead of judging only from the apparent bar sizes.",
+     "problem": "This worked solution is a prose paragraph rather than numbered steps, and it does not show the truncated bar lengths or ratio comparison with display equations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width can be checked for phone-screen fit.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **bar chart** uses bar length to represent magnitude. Because length is measured from a baseline, truncating the quantitative axis can exaggerate differences; a zero baseline is normally appropriate when bar lengths encode absolute magnitudes. By contrast, a **line chart** emphasizes position and change, so its vertical axis does not necessarily need to begin at zero. The scale should match the analytical purpose and make changes interpretable without distortion.",
+     "problem": "This paragraph contains four sentences, exceeding the required one-to-three-sentence paragraph limit.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "Each HTML illustration placeholder gives a concrete drawable scene with subjects, labels, actions, and expressions; the surrounding prose also describes the intended visual evidence."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Editorial cartoons comment on public issues using techniques such as symbolism, caricature, analogy, labeling, juxtaposition, irony, and exaggeration.",
+     "problem": "The lesson names analogy, juxtaposition, irony, and exaggeration as necessary cartoon-analysis terms but does not explain their meanings before students are expected to use the technique list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Charts encode quantitative information through position, length, angle, area, color, or other visual channels.",
+     "problem": "Angle, area, and color are named as quantitative visual channels but the lesson never explains how those encodings represent values or how a student should read them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the main rules for applicability limits: symbol meaning is explicitly context-dependent, final-panel importance is not universal, cartoon stance is not always singular, and the zero-baseline guidance distinguishes bar-length encoding from line-position encoding."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Monthly sales are January 50, February 70, March 60, and April 90 thousand pesos.",
+     "problem": "The numbers 50, 70, 60, and 90 appear in prose outside inline math delimiters, contrary to the lesson math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "A bar chart starts at 80 and compares values 85 and 81.",
+     "problem": "The numbers 80, 85, and 81 appear in prose outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "Because the bar lengths begin visually at 80, the displayed length ratio greatly exaggerates the actual magnitude ratio 85:81. Check the numerical scale instead of judging only from the apparent bar sizes.",
+     "problem": "The number 80 and the ratio 85:81 appear in prose outside inline math delimiters.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "insufficient",
+   "position_quote": "Interpret a symbol from context. An eagle does not have one universal meaning in every image, and a labeled boulder's significance depends on its relation to other elements.",
+   "description": "Draw the labeled TAXES boulder rolling toward a smaller worried CITIZENS figure so students can inspect scale, motion, labels, and expression directly.",
+   "why": "The lesson is teaching students to combine several pieces of visual evidence, but the current HTML placeholder is not a completed student-visible illustration.",
+   "source": "single"
+  },
+  {
+   "kind": "exact_exam_figure",
+   "method": "code",
+   "priority": "high",
+   "status": "insufficient",
+   "position_quote": "A three-panel comic shows a man carefully building an elaborate sandcastle, the completed castle, then a wave washing it away while he watches with a resigned expression.",
+   "description": "Draw three comic panels showing the man building the sandcastle, the completed castle, and the wave destroying it while he watches resignedly.",
+   "why": "The visual sequence is the evidence students are supposed to interpret, so a prose description alone does not test actual extraction from panels.",
+   "source": "single"
+  },
+  {
+   "kind": "exact_exam_figure",
+   "method": "code",
+   "priority": "high",
+   "status": "insufficient",
+   "position_quote": "A cartoon shows a large boulder labeled \"taxes\" rolling toward a worried figure labeled \"citizens.\"",
+   "description": "Draw the large TAXES boulder rolling downhill toward a smaller worried CITIZENS figure, preserving the labels, relative scale, motion, and facial expression.",
+   "why": "The student should infer stance from visual relationships rather than receive all relevant evidence through a verbal description.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

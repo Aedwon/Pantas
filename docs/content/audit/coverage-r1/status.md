@@ -1,4 +1,4 @@
-STATE: BLOCKED level 4 runs as a CSE-only paste run by Aedwon (71 lessons); Codex stays stopped
+STATE: BLOCKED level 4 CSE paste run done (71 of 71), awaiting Aedwon's review; Codex stays stopped
 
 # Coverage audit status
 
@@ -18,6 +18,36 @@ for CSE questions in parallel with Level 4 (D5), both through ChatGPT web chats 
   October 11 queue are not used.
 - The STATE line stays BLOCKED on purpose: the autorun watcher resumes Codex when it reads RUNNING.
 - Level 5 paste prompts are not built yet.
+
+## October 25: Level 4 CSE paste run closed out
+
+Aedwon reported "I'm done with this process already. 71/71" and asked the lead to "Close out
+Level 4: compile and check the 71 results, record them in status, and show me the findings summary."
+
+- Paste run state checked: 71 of 71 packets have an accepted role A form, 0 held, 0 todo. Hand-in
+  log: 71 accepted events, last at 2026-10-24T17:05:22Z.
+- New `level4/paste/close_out.py` turns each accepted single read into the lesson's result (the
+  shape `compare.apply_ruling` writes, finding source `single`) and reuses `report.py` for the
+  per-lesson findings, illustration list, counting check and hold list. `report.py` gained two
+  class attributes so the paste report says "one read" instead of "both reads agreed".
+- Fresh validation: every saved form passed `form.validate` again against the pinned lesson.
+  Counting check: PASS (71 read, 0 held, 0 unaccounted; every in-scope rule has a verdict; every
+  quote still found in the lesson).
+- Results: `level4/paste/results/` (`summary.md`, `counting-check.md`, `hold-list.md`,
+  `illustrations.md`, `findings/<lesson>.md`, `data/<lesson>.json`).
+- Totals: chat findings 866 (Blocker 52, Major 628, Minor 186) across 71 lessons; Blockers are B03
+  26, B01 18, B02 8 in 31 lessons. Top rules: L18 128, L25 99, L19 98, B08 96, L02 89, L26 65.
+  Script findings: L22 43, L20 27, B06 22, B08 1. Illustration entries 41, accuracy concerns 20,
+  needs-source-check verdicts 14.
+- Limits: one read per lesson (D4), no deciding chat, no planted lessons, so there is no miss-rate
+  measure and no second opinion on any finding. Spot reading shows some B01 findings are judgment
+  calls (an unconfirmed exam-content claim, an over-absolute keyword rule) rather than wrong facts.
+  The lead triages findings before rewrites (E4).
+- Tests: `paste/tests/test_close_out.py` added (3 tests). Every `level4/tests` and `paste/tests`
+  file run with `python3 -I`: 294 pass, 0 fail. `test_paste_server.py` fails to import when run
+  alone (it expects `level4/tests` on the path; unchanged, existing behavior); with that path set
+  it passes 5 of 5.
+- Level 4 for CSE is complete and awaits Aedwon's review. Level 5 (D5) prompts are still not built.
 
 ## Identity
 

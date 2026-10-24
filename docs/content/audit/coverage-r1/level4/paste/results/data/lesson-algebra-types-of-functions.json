@@ -1,0 +1,362 @@
+{
+ "lesson_sha256": "62e0e563e022868ca9a4abbfc92069250973de432ff9830bd7836cafdb98ad77",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the quadratic vertex formula and opening rules: x=-b/(2a) gives x=2 for x^2-4x+3, and a=1>0 makes the vertex a minimum.",
+    "Checked the rational facts: zeros of the original denominator are excluded from the domain; for (x+1)/(x-2), x=2 is an uncanceled pole and y=1 is the equal-degree horizontal asymptote.",
+    "Checked the exponential and logarithmic restrictions and inverse relation: a>0, a!=1, log arguments are positive, growth occurs for a>1, and decay for 0<a<1.",
+    "Checked the asymptote and growth claims: horizontal or slant asymptotes may be crossed, and a fixed-base exponential with a>1 eventually outgrows any fixed polynomial."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: 3x-7 is linear, 5^x is exponential, and x^5 is a polynomial power function rather than an exponential.",
+    "Example 2 blind solve: the vertex is (2,-1), and because the leading coefficient is positive, it is a minimum.",
+    "Example 3 blind solve: the vertical asymptote is x=2 and the horizontal asymptote is y=1.",
+    "Example 4 blind solve: |2x-5|=7 gives x=6 or x=-1, and both satisfy the original equation.",
+    "Example 5 blind solve: 2^(x+1)=32 gives x=4, and log base 3 of 81 equals 4.",
+    "Example 6 blind solve: f(2)=5 and f(-3)=9, so f(2)+f(-3)=14."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the mathematics section structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present with the exact required titles; the mnemonic section is optional.",
+    "Checked figure needs in the lesson: the function-family gallery is placed in Core Concept and the rational-asymptote example has its own specific graph placeholder."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The Level 3 goal is served: the lesson identifies common families, works a quadratic vertex and rational asymptotes, and gives absolute-value, exponential/logarithmic, and piecewise worked examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For a fixed exponential base $a>1$, $a^x$ eventually grows faster than any fixed polynomial as $x\\to\\infty$. This statement does **not** apply to an exponential with $0<a<1$, which decays as $x$ increases.",
+     "problem": "This trap uses dense terms and a long two-clause explanation such as \"fixed polynomial\" and behavior as x approaches infinity without simplifying them to the Grade 5 teaching-prose standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Classify $f(x)=3x-7$, $g(x)=5^x$, and $h(x)=x^5$.",
+     "problem": "The exam verb \"Classify\" is used as a command without the required one-line explanation before its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "Solve $2^{x+1}=32$, then evaluate $\\log_3 81$.",
+     "problem": "The exam verb \"evaluate\" appears without the required one-line explanation of what the student is being asked to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used in Core Concept or elsewhere in the lesson, so the one-analogy maximum is not exceeded."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all six worked-example stems: each supplies the specific functions, values, conditions, or branch definitions needed for a determinate answer, and none gives away a tested general formula or solution method.",
+    "Checked the worked solutions: their explanatory sentences are short and direct even where the separate step-numbering rule is violated."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repetitive exam-motivation openers or repeated stock references to CETs or test-makers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and is not a Filipino-language teaching lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terminology that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires KWF source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the Filipino-teaching-prose Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question refers to a target word by formatting, so the bold-target-word prompt rule is not triggered.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases, em-dash-style filler, repeated identical sentence openings, and a templated summary; none of those patterns appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 uses the linear form f(x)=mx+b and exponential form f(x)=a^x, both introduced under Linear and Exponential in Core Concept; x^5 is problem data rather than a newly introduced general formula.",
+    "Example 2 uses f(x)=ax^2+bx+c and x=-b/(2a), both introduced under Quadratic in Core Concept before the worked example.",
+    "Example 3 uses the rational quotient f(x)=P(x)/Q(x) and the original-denominator restriction Q(x)!=0, both introduced under Rational in Core Concept; y=1 is the computed asymptote value, not a newly stated general formula.",
+    "Example 4 uses absolute-value notation |x|, introduced under Absolute value in Core Concept before the example.",
+    "Example 5 uses the exponential form a^x and logarithmic form log_a x, both introduced under Exponential and Logarithmic in Core Concept.",
+    "Example 6 uses problem-specific branch formulas supplied in the stem after Core Concept has already introduced what a piecewise function is."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Rational graphs may have vertical, horizontal, or slant asymptotes, and they may also have removable discontinuities.",
+     "problem": "The lesson gives a worked example only for vertical and equal-degree horizontal asymptotes. It provides no worked slant-asymptote or removable-discontinuity case even though those are distinct graph scenarios named in the teaching.",
+     "source": "single"
+    },
+    {
+     "quote": "Transformed absolute-value functions can shift, stretch, or reflect this graph.",
+     "problem": "Shift, stretch, and reflection are distinct absolute-value graph variations, but none receives a worked example, so the stated graph behavior is not covered by the examples.",
+     "source": "single"
+    },
+    {
+     "quote": "If $a>1$, the function grows as $x$ increases; if $0<a<1$, it decays.",
+     "problem": "Growth and decay are distinct exponential cases, but the examples only solve a same-base exponential equation and do not work either growth or decay behavior.",
+     "source": "single"
+    },
+    {
+     "quote": "For graph matching, identify the family first, then test an easy input such as $x=0$ **when $0$ belongs to the domain**. One point can eliminate candidates, but a single matching point does not prove two graphs are identical.",
+     "problem": "Graph matching is presented as an exam-relevant recognition method, but there is no worked graph-matching example showing the method at target difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Since $32=2^5$:",
+     "problem": "Example 5 presents its reasoning and display equations without a numbered solution-step list, contrary to the required worked-solution format.",
+     "source": "single"
+    },
+    {
+     "quote": "For $x=2$, use the second rule:",
+     "problem": "Example 6 presents branch selection and calculations as prose plus display equations without numbering the solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every display equation in the six examples and traps; each is short enough to fit a phone-width math block without requiring a long horizontal line."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three short sentences, and the lesson does not rely on long or dense bullet lists."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The function-gallery placeholder names all seven graph families and gives a clear semantics label, while the rational placeholder specifies the formula and both asymptotes.",
+    "The surrounding prose remains understandable without either image, so neither placeholder is load-bearing outside the allowed figure-driven exception."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Rational graphs may have vertical, horizontal, or slant asymptotes, and they may also have removable discontinuities.",
+     "problem": "The terms \"slant asymptote\" and \"removable discontinuity\" are introduced without explanation in this lesson or the identified prerequisite, before students are expected to recognize rational graph features.",
+     "source": "single"
+    },
+    {
+     "quote": "**Absolute value:** $f(x)=|x|$ has a V-shaped graph and outputs only nonnegative values.",
+     "problem": "The notation |x| and the meaning of absolute value are not defined before the lesson later uses the concept to split an absolute-value equation into two cases.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Transformed absolute-value functions can shift, stretch, or reflect this graph.",
+     "problem": "The lesson names shift, stretch, and reflection but does not explain how a transformed absolute-value function produces those changes, so the concept is only named.",
+     "source": "single"
+    },
+    {
+     "quote": "$$2x-5=7\\quad\\text{or}\\quad2x-5=-7$$",
+     "problem": "The worked solution uses the two-branch absolute-value rule without first explaining why an equation |u|=c with positive c leads to u=c or u=-c.",
+     "source": "single"
+    },
+    {
+     "quote": "Rational graphs may have vertical, horizontal, or slant asymptotes, and they may also have removable discontinuities.",
+     "problem": "Slant asymptotes and removable discontinuities are named but their meaning and mechanism are not explained; the prerequisite lesson does not supply those explanations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Numerator and denominator have the same degree. Their leading coefficients are both $1$, so the horizontal asymptote is:",
+     "problem": "The lesson teaches only the equal-degree horizontal-asymptote case inside the example. It does not explain the other degree conditions or when cancellation changes a denominator zero from a vertical asymptote into a removable hole.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "Rational graphs may have vertical, horizontal, or slant asymptotes, and they may also have removable discontinuities.",
+   "description": "Side-by-side rational graphs showing a labeled slant asymptote in one graph and a labeled removable hole in another.",
+   "why": "The existing rational example only visualizes vertical and horizontal asymptotes, so these two named graph features remain hard to distinguish visually.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "Transformed absolute-value functions can shift, stretch, or reflect this graph.",
+   "description": "Four small coordinate graphs showing y=|x|, a shifted V, a narrower stretched V, and an upside-down reflected V.",
+   "why": "A comparison figure would make the three transformation effects visible instead of leaving them as names only.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "If $a>1$, the function grows as $x$ increases; if $0<a<1$, it decays.",
+   "description": "One coordinate plane comparing y=2^x with y=(1/2)^x, labeled growth and decay.",
+   "why": "Seeing the two curves together makes the base-condition difference between exponential growth and decay immediately clear.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,312 @@
+{
+ "lesson_sha256": "cfd0eb81a296d9b2e6e45f9e08b6c535ca4a318d7704e79e2a13ad61ded770a4",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the CSE scope claim against the Civil Service Commission's 09 August 2026 CSE-PPT announcement: Verbal Ability includes Word meaning for both levels, while Subprofessional Clerical Ability includes Spelling. https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+    "Checked the affect/effect claims against Merriam-Webster: affect is usually an influence verb, effect is usually a result noun, effect can mean bring about as a verb, and noun affect is used for observable emotional response. https://www.merriam-webster.com/grammar/affect-vs-effect-usage-difference",
+    "Checked the remaining stated distinctions for internal factual consistency; no clear factual contradiction was found, while official Filipino spelling and usage remains reserved for L11 as required by this packet."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: A) affect. After modal will, the blank needs a base-form verb, and affect gives the required meaning of influence.",
+    "Example 2: B) its. The blank modifies guidelines possessively; expanding it as it is or it has does not fit the sentence.",
+    "Example 3: B) nang. Mabilis states the manner of running, so the intended standard construction is nang mabilis.",
+    "Example 4: B) Sina. The blank directly precedes a coordinated set of personal names, so Sina is the intended standard form.",
+    "Example 5: B) The new law effected major changes in procedure. Here effected is a verb meaning brought about."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For in the allowed Language Proficiency structure; no example depends on a required visual figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to choose commonly confused English and Filipino forms using grammatical role and sentence meaning, and the lesson directly teaches and practices affect/effect, its/it's, ng/nang, and sila/sina using those cues."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In formal edited Filipino, use **sina** when directly marking a coordinated set of personal names. Colloquial and regional speech can show other constructions, so do not describe everyday speakers as \"ungrammatical\" merely because they differ from the formal target variety.",
+     "problem": "This teaching prose is well above the Grade 5 simplicity target. It relies on dense terms such as coordinated set, colloquial, regional, ungrammatical, and formal target variety in a long sentence.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No worked prompt uses a specialized exam command verb such as evaluate, identify, or compare that needs a one-line first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used in Core Concept or elsewhere in the lesson, so the one-analogy maximum is not exceeded."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All five example stems provide enough sentence context for a determinate answer without supplying the definition or selection method being tested, and each solution returns to short explanatory prose."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson mentions the Civil Service Examination scope once for relevance and does not repeat a stock exam-motivation opener across traps or examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The distinction between Filipino **ng** and **nang** cannot be reduced to one English translation. Useful school-grammar cues include:",
+     "problem": "This section teaches Filipino grammar in English. The Filipino-language standard requires teaching prose for Filipino grammar content to be written in simple Filipino.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The Filipino sections use target forms ng, nang, sila, and sina, but they do not introduce a hard Filipino grammar term that needs a first-use English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "pass",
+   "checked": [
+    "The worked items that test Filipino usage, Example 3 for nang/ng and Example 4 for sila/sina, use Filipino stems and Filipino answer choices; the English items test English forms."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino usage claims for ng/nang and sila/sina, so this packet requires L11 to remain needs_source_check against the official language source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching-prose passage to inspect for Taglish; the Filipino instruction is written in English, which is handled under L08.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Which sentence uses **effect** as a verb correctly?",
+     "problem": "The prompt explicitly refers to a bold target word but does not use the required wording \"the word in bold.\"",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "No listed stock AI phrase or em dash appears, sentence openings are varied, and the summary plainly begins with \"Learn how grammar and context\" rather than a stock lesson-summary formula."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is Language Proficiency, and its Core Concept, Examples, Speed Tricks & Shortcuts, and Traps layout is permitted. Examples 1 through 5 use grammar and usage decisions only; no formula appears or is introduced inside an example."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "There are important exceptions. **Effect** can be a verb meaning \"to bring about\" (\"The reform effected major changes\"), and **affect** can be a noun in psychology meaning an observable expression of emotion.",
+     "problem": "The lesson works the less-common effect-as-verb case in Example 5, but it never gives a worked example for the distinct affect-as-noun exception introduced here.",
+     "source": "single"
+    },
+    {
+     "quote": "- **it's** is a contraction of **it is** or **it has**: \"It's clear\" / \"It's been approved.\"",
+     "problem": "The worked its/it's item tests possession only. The distinct positive it-has contraction case named here is not independently worked, leaving that variation uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "- **ng** commonly marks a non-topic noun phrase, possession/relationship, quantities, and certain time expressions: *kumain ng mangga*, *bahay ng guro*, *alas singko ng hapon*.",
+     "problem": "No worked example has ng as the correct choice for any of these functions. The lesson therefore lacks a positive ng decision, including the named quantity and time-expression cases.",
+     "source": "single"
+    },
+    {
+     "quote": "- **nang** commonly introduces an adverbial manner expression, can mean \"when\" in clauses such as *nang dumating siya*, and appears in repeated-action constructions such as *takbo nang takbo*.",
+     "problem": "Example 3 works only the manner use. Its when-clause nang is supplied rather than solved, and no worked example covers the repeated-action construction.",
+     "source": "single"
+    },
+    {
+     "quote": "- **sila** is a plural personal pronoun: \"Umalis sila.\"",
+     "problem": "The only worked sila/sina item has sina as the correct answer. There is no worked example in which sila must be selected as the pronoun.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "After modal *will*, the sentence needs a base-form verb meaning \"influence.\" **Affect** is the ordinary choice: \"will severely affect.\"",
+     "problem": "The worked solution is presented as an unnumbered prose paragraph instead of numbered solution steps. The same unnumbered solution pattern is used for all five examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation width to assess for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Prose paragraphs stay within one to three sentences, and bullet lists are limited to compact definition or choice lists rather than replacing the teaching with excessive bullets."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of the worked questions depends on a figure that would require one.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **ng** commonly marks a non-topic noun phrase, possession/relationship, quantities, and certain time expressions: *kumain ng mangga*, *bahay ng guro*, *alas singko ng hapon*.",
+     "problem": "The lesson relies on \"non-topic noun phrase\" as a decision cue but never explains what a topic or non-topic noun phrase means, and there is no prerequisite lesson to supply that meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "- **nang** commonly introduces an adverbial manner expression, can mean \"when\" in clauses such as *nang dumating siya*, and appears in repeated-action constructions such as *takbo nang takbo*.",
+     "problem": "The lesson uses \"adverbial manner expression\" as a key cue for nang without explaining the grammar term before the worked example relies on manner.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Each pair is given a usable meaning and selection method: affect/effect uses role plus meaning with exceptions, its/it's uses possession versus contraction expansion, ng/nang uses construction cues, and sila/sina uses pronoun versus personal-name marking."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states the main affect/effect exceptions, both allowed expansions of it's, the warning that ng/nang has several functions and cannot be reduced to ano/paano, and the formal-edited scope plus colloquial/regional caveat for sina."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "All occurrences of mark or marks describe grammatical marking, such as ng marking a noun phrase or sina marking personal names; none refers to a score, and the lesson never calls questions cards."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

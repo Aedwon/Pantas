@@ -1,0 +1,317 @@
+{
+ "lesson_sha256": "c7e78887716c49ffc64bc6b14e58ab2f5a25016f3ca861dcfb4cdce2e2f1c4f6",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the English tense/aspect distinction, including that future meaning is commonly expressed with constructions such as will or be going to rather than a dedicated future inflection.",
+    "Checked the active/passive descriptions, including be + past participle, the existence of get-passives, and the warning that be alone does not make a clause passive.",
+    "Checked the Filipino note's broad claims about aspect, voice/focus, and variation in affix behavior across verb classes; no factual error was identified."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: yesterday requires past time for both coordinated events, so 'walked' and 'bought' is correct.",
+    "Example 2 blind solve: 'The dog chased the ball' is active, while 'The ball was chased by the dog' is passive.",
+    "Example 3 blind solve: preserving past time while making the agent the subject gives 'A famous author wrote the novel.'",
+    "Example 4 blind solve: with 'By the time the guests arrived,' 'had cooked' is the clearest choice for an earlier completed past event."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and it includes timeline-based form choice, passive identification, and passive-to-active conversion for the recorded goal.",
+    "No example or required content in the packet depends on a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson serves the recorded goal by teaching timeline-based tense/aspect choice, identifying active versus passive clauses, and converting a passive clause to active while keeping past time."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "These labels are useful for editing, but tense and aspect are not the same thing: tense locates a situation in time, while aspect presents it as ongoing, completed relative to another time, habitual, and so on.",
+     "problem": "This sentence is too dense for the Grade 5 teaching-prose standard and relies on abstract wording such as 'locates,' 'habitual,' and 'completed relative to another time' without simpler unpacking.",
+     "source": "single"
+    },
+    {
+     "quote": "Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause.",
+     "problem": "This teaching sentence uses advanced linguistic terms such as 'verbal morphology' and 'arguments in the clause,' which are not simple Grade 5 English.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No exam command verb appears in the worked-example questions that would require a first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in Core Concept, so the lesson stays within the one-analogy maximum."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Yesterday, she *walks* to the store and *bought* bread.\"",
+     "problem": "The worked example gives only the sentence and no exam-style command telling the learner what to do, so it is not an authentic exam-style question stem.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repeated exam-motivation openers or repeated 'test-makers' phrasing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language grammar lesson with an English explanation of Filipino grammar, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause.",
+     "problem": "The hard Filipino grammar term aspekto first appears in the preceding heading without an English gloss and is repeated here without the required first-use gloss.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not written as a Filipino-language lesson, so the Filipino-example and Filipino-quiz-language requirement does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino terminology and forms, so spelling and usage require checking against the official Filipino language source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose to evaluate for Taglish; the Filipino subsection is explained in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No worked question refers to a target word that must be bolded or calls it 'the word in bold.'",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "No listed stock AI phrase appears, sentence openings are varied, and the summary begins plainly with 'Learn how' rather than the banned stock summary opening."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "No worked example uses a mathematical formula, so there is no formula to trace to Core Concept. The lesson uses the standard Core Concept, Examples, Speed Tricks & Shortcuts, and Traps sections permitted for language proficiency."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The time phrase *yesterday* places both coordinated events in the past. Standard correction: \"Yesterday, she *walked* to the store and *bought* bread.\"",
+     "problem": "The tense/aspect examples do not cover several forms taught in Core Concept, including future with will, present progressive, and present perfect, so the form-selection goal is not fully exercised.",
+     "source": "single"
+    },
+    {
+     "quote": "(a) \"The dog chased the ball.\" (b) \"The ball was chased by the dog.\"",
+     "problem": "Passive identification is shown only with a basic be-passive pair; the lesson also teaches get-passives and warns about nonpassive be clauses, but neither distinct case gets a worked example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The time phrase *yesterday* places both coordinated events in the past. Standard correction: \"Yesterday, she *walked* to the store and *bought* bread.\"",
+     "problem": "This solution is written as a paragraph instead of a numbered step list. The reasoning is present, so the breach is formatting rather than a skipped reasoning step.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display-math lines to check for phone-width fit.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three sentences, and the only substantial bullet list is the compact set of tense/aspect examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to judge for specificity or prose independence.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The most common passive uses a form of **be + past participle** (*was cooked, is written, has been finished*).",
+     "problem": "Past participle is necessary to understand the passive pattern, but the lesson never explains what a past participle is before using the term, and there is no prerequisite lesson.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Future meaning with *will***: \"She *will write* a letter.\"",
+     "problem": "This only names and exemplifies the form; it does not explain when or why a learner should choose will, so part of the form-selection goal is not actually taught.",
+     "source": "single"
+    },
+    {
+     "quote": "**Present perfect**: \"She *has written* a letter.\" — relates a prior event or state to the present in one of several ways.",
+     "problem": "The lesson says the present perfect relates a prior event or state to the present 'in one of several ways' but never explains those ways or how they guide form choice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "English also has a **get-passive** in suitable contexts: \"The window got broken.\"",
+     "problem": "The lesson says get-passives work in 'suitable contexts' but never explains what makes a context suitable, so the applicability condition is left undefined.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Reviewed the script candidate: 'marks' is a normal subject-matter verb in the phrase about morphology marking aspekto, not a score term, and the lesson never calls questions 'cards'."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "**Build the timeline before choosing a form.** Ask when each event happens relative to the others and to the present.",
+   "description": "A simple horizontal timeline showing an earlier past event, a later past event, the present, and labels linking past perfect to the earlier event.",
+   "why": "The lesson tells students to build a timeline, and a compact visual would make relative time and past-perfect ordering easier to understand.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

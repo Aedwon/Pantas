@@ -1,0 +1,332 @@
+{
+ "lesson_sha256": "db4dd522670e7b6c9b87126fc6cbf0500cbdfbe89e5b6c338697bca055c50db9",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the CSE scope claim against CSC Examination Announcement No. 03 s. 2026: Verbal Ability lists Error recognition and Sentence structure. Source: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+    "Checked the agreement examples: singular each takes has; an along with phrase does not change the plural head committee members; with neither...nor, agreement with the nearer plural employees supports were.",
+    "Checked the pronoun claim against current standard guidance: singular they/their is accepted in modern English, including guidance summarized by Purdue OWL and APA."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: the error is have; the singular head each requires has, while singular their can remain.",
+    "Example 2 blind solve: were is correct because the plural subject committee members controls agreement; along with their supervisor does not change the head.",
+    "Example 3 blind solve: no correction is required; with neither...nor, the nearer subject employees is plural, so were is acceptable.",
+    "Example 4 blind solve: the opening modifier must describe Maria, so a correct repair is \"Rushing to catch the bus, Maria left the umbrella behind.\""
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; the packet specifies no required figure for this language lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to identify a specific English sentence error or accept a correct sentence using grammatical evidence; the checklist and worked agreement, correct-sentence, and modifier examples directly practice that task."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The current public Civil Service Examination scope includes **error recognition** and **sentence structure** under verbal ability. Public scope descriptions do not guarantee one fixed item format, one error per sentence, or a \"no error\" option, so prepare for the skill rather than an invented template.",
+     "problem": "This teaching paragraph is long and uses abstract phrases such as \"public scope descriptions,\" \"fixed item format,\" and \"invented template,\" making it harder than the required Grade 5 prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Evaluate: \"Neither the manager nor the employees were informed about the schedule change.\"",
+     "problem": "The exam verb \"Evaluate\" appears without the required one-line explanation on first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Rushing to catch the bus, the umbrella was left behind by Maria.\"",
+     "problem": "Example 4 gives only a sentence and no exam-style instruction telling the student whether to identify, explain, or correct the error.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar terms, so the Filipino gloss rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is in English and does not contain Filipino teaching examples or quiz items.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt refers to a target word that must be identified as \"the word in bold.\"",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a Language Proficiency lesson using the permitted section pattern. No worked example uses a formula, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. **Pronoun reference**: is the antecedent clear, and does the pronoun fit the intended number/meaning?",
+     "problem": "Pronoun reference is part of the lesson's stated error-checking scope, but there is no worked example for unclear antecedents or pronoun-number repair.",
+     "source": "single"
+    },
+    {
+     "quote": "3. **Verb timeline**: are tense/aspect choices logically motivated?",
+     "problem": "Tense and aspect are named as a checking scenario, but no worked example teaches or practices choosing between tense or aspect forms.",
+     "source": "single"
+    },
+    {
+     "quote": "5. **Parallelism**: are coordinated or compared elements structurally compatible?",
+     "problem": "Parallel structure is a distinct exam-relevant scenario in the checklist, but the Examples section contains no worked parallelism case.",
+     "source": "single"
+    },
+    {
+     "quote": "6. **Clause boundaries and punctuation**: are independent/dependent clauses connected correctly?",
+     "problem": "Clause-boundary and punctuation errors are in scope, but no worked example covers a run-on, comma splice, clause connection, or similar boundary case.",
+     "source": "single"
+    },
+    {
+     "quote": "7. **Word form and usage**: does the word have the required grammatical form and meaning?",
+     "problem": "Word form and usage are listed as a distinct scenario, but there is no worked example that diagnoses or repairs such an error.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The plural subject is *committee members*. The *along with* phrase does not make *supervisor* the head of the subject. Use **were**.",
+     "problem": "Example 2 presents its solution as an unnumbered paragraph instead of numbered solution steps; Examples 3 and 4 use the same unnumbered format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could be checked on a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. **Subject-verb agreement**: identify the actual subject and finite verb.",
+     "problem": "The term \"finite verb\" is needed for the checklist but is never explained before students are told to identify one.",
+     "source": "single"
+    },
+    {
+     "quote": "2. **Pronoun reference**: is the antecedent clear, and does the pronoun fit the intended number/meaning?",
+     "problem": "The term \"antecedent\" is used as required knowledge without any explanation, and the packet identifies no prerequisite lesson that teaches it.",
+     "source": "single"
+    },
+    {
+     "quote": "3. **Verb timeline**: are tense/aspect choices logically motivated?",
+     "problem": "The lesson requires students to reason about \"aspect\" without explaining what aspect means or how it differs from tense.",
+     "source": "single"
+    },
+    {
+     "quote": "6. **Clause boundaries and punctuation**: are independent/dependent clauses connected correctly?",
+     "problem": "The terms \"independent\" and \"dependent\" clauses are required to use this check, but neither term is explained and there is no prerequisite.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. **Verb timeline**: are tense/aspect choices logically motivated?",
+     "problem": "This names tense and aspect but does not explain how tense/aspect consistency works or how a student decides which form is justified.",
+     "source": "single"
+    },
+    {
+     "quote": "5. **Parallelism**: are coordinated or compared elements structurally compatible?",
+     "problem": "This names parallelism and gives a test question, but it does not explain what parallel structure means or how matching structures work.",
+     "source": "single"
+    },
+    {
+     "quote": "6. **Clause boundaries and punctuation**: are independent/dependent clauses connected correctly?",
+     "problem": "This names clause boundaries but does not teach how independent and dependent clauses may be connected or how punctuation controls the boundary.",
+     "source": "single"
+    },
+    {
+     "quote": "7. **Word form and usage**: does the word have the required grammatical form and meaning?",
+     "problem": "This names word form and usage but does not explain how grammatical form is selected or how students can diagnose a usage error.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. **Verb timeline**: are tense/aspect choices logically motivated?",
+     "problem": "The lesson does not state the conditions that make particular tense or aspect choices appropriate, so students cannot apply this check reliably.",
+     "source": "single"
+    },
+    {
+     "quote": "5. **Parallelism**: are coordinated or compared elements structurally compatible?",
+     "problem": "The lesson does not explain when coordinated or compared elements must use parallel structure or what variations remain acceptable.",
+     "source": "single"
+    },
+    {
+     "quote": "6. **Clause boundaries and punctuation**: are independent/dependent clauses connected correctly?",
+     "problem": "The lesson gives no conditions for when clause types may be joined with commas, conjunctions, semicolons, or other boundary choices.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

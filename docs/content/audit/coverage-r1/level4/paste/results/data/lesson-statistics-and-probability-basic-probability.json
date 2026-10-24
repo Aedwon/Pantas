@@ -1,0 +1,291 @@
+{
+ "lesson_sha256": "e36816c628ec385838378d74193e8b644cd9865435b2fed370406772d6cf5cfa",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the equally likely probability model, complement rule, multiplication and addition rules, independence and dependence claims, probability bounds, and gambler's-fallacy statement; each is mathematically correct.",
+    "Checked the standard-deck facts: 52 cards, four 13-card suits, 26 red and 26 black cards, 12 face cards, and four cards of each rank are correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 solved independently: outcomes greater than 4 are 5 and 6, so the probability is 2/6 = 1/3.",
+    "Example 2 solved independently: six of the 36 ordered two-die outcomes sum to 7, so the probability is 6/36 = 1/6.",
+    "Example 3 solved independently: head and 6 has probability (1/2)(1/6) = 1/12.",
+    "Example 4 solved independently: two reds without replacement has probability (5/8)(4/7) = 20/56 = 5/14.",
+    "Example 5 solved independently: king or queen is 8/52 = 2/13; king or heart is (4 + 13 - 1)/52 = 16/52 = 4/13.",
+    "Example 6 solved independently: at least one head in three tosses is 1 - (1/2)^3 = 7/8."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Verified that the required mathematics sections Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are all present with the required titles.",
+    "Checked every worked question for dependence on a supplied figure; none requires a load-bearing exam figure to determine its answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal requires count, complement, conditional-product, and overlap-adjusted addition choices; the lesson teaches each and supplies a worked example for each of those rule families."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For any events $A$ and $B$ with the needed conditional probability defined:",
+     "problem": "This sentence uses abstract wording and the unexplained technical phrase \"conditional probability defined,\" which is not simple Grade 5 teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked prompts use the ordinary verb \"Find\" and do not introduce a specialized exam verb such as evaluate or simplify.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all six example stems: each supplies the problem-specific die, coin, marble, or deck facts needed for a determinate answer without giving away the probability formula or solution method.",
+    "Checked the worked solutions after the stems; their explanations stay focused on the reasoning needed for the stated question."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson contains no Filipino teaching prose or Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are correctly written in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would require checking against the official source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish usage could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a particular target word in the prompt.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 uses favorable outcomes divided by total outcomes, introduced in Core Concept before the examples.",
+    "Example 2 uses the same equally likely probability formula introduced in Core Concept before the examples.",
+    "Example 3 uses the independent-events multiplication rule, introduced under the Core Concept subsection \"And\": multiplication rule.",
+    "Example 4 uses the general conditional multiplication rule and its dependent-events interpretation, both introduced in Core Concept before the example.",
+    "Example 5 uses the addition rule, its mutually exclusive reduction, and overlap subtraction, all introduced under the Core Concept subsection \"Or\": addition rule.",
+    "Example 6 uses the complement rule and multiplication of independent tosses, both introduced in Core Concept before the example."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "summary: \"How to compute probabilities for single and combined events, with and without replacement.\"",
+     "problem": "The lesson promises both replacement cases, but every sequential-sampling worked example is without replacement. There is no worked with-replacement case showing the reset of counts and resulting probability choice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The events are independent.",
+     "problem": "Example 3 gives its reasoning and computation without any numbered solution step, although the rule requires every solution step to be presented as a numbered list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders whose wording or surrounding prose can be evaluated under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$P(A\\text{ and }B)=P(A)\\,P(B\\mid A)$$",
+     "problem": "The notation for conditional probability is used before the lesson explains what $P(B\\mid A)$ means or how the condition after the bar should be read.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The $36$ ordered pairs are equally likely.",
+     "problem": "The solution asserts the 36-outcome sample space without explaining how two six-face dice produce 6 times 6 ordered outcomes or what the order represents.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "summary: \"How to compute probabilities for single and combined events, with and without replacement.\"",
+     "problem": "The lesson explains how no replacement changes the second draw, but never explains the contrasting with-replacement condition, where the item is returned and the original counts are restored.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every scripted occurrence of \"card\" and \"cards\"; each refers to physical playing cards in a standard deck, not to quiz questions. The lesson does not use \"marks\" for points."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "table_or_formula",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "The $36$ ordered pairs are equally likely.",
+   "description": "A 6-by-6 two-dice outcome grid labeling each ordered pair and highlighting the six cells whose sum is 7.",
+   "why": "It would make the asserted total of 36 outcomes visible and show why reversing the two dice creates different ordered outcomes.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

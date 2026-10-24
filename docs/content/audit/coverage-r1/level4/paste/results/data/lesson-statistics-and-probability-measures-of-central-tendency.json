@@ -1,0 +1,310 @@
+{
+ "lesson_sha256": "fbc1514e8265ab0a9d4e7d2470f8dc127fea3db8fff03957376916cfa8361afb",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions of arithmetic mean, median, and mode, including the odd/even median rules and the qualified no-mode convention.",
+    "Checked the claims about outliers: the mean is sensitive to extreme values, while the median depends on order and is often more representative for strongly skewed data.",
+    "Checked the mean-change claims: adding the old mean leaves the mean unchanged, adding a larger value raises it, and adding a smaller value lowers it.",
+    "Checked the backward-mean and weighted-mean arithmetic principles; both are mathematically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example #1 independently: (4+7+8+10+11)/5 = 40/5 = 8, matching the lesson.",
+    "Solved Example #2 independently: sorting gives 3,5,7,9,11,15, so the median is (7+9)/2 = 8, matching the lesson.",
+    "Solved Example #3 independently: 7 occurs three times and is the first set's mode; under the stated lesson convention, 1,2,3,4 has no mode.",
+    "Solved Example #4 independently: four scores averaging 85 total 340; the known three total 258; the missing score is 340-258 = 82.",
+    "Solved Example #5 independently: (90x3 + 85x2 + 80x5)/(3+2+5) = 840/10 = 84, matching the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the mathematics section structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; no forced mnemonic section is needed.",
+    "Checked for figure-dependent teaching or example questions. None requires a diagram, graph, or other load-bearing figure to determine the answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal requires computing and interpreting mean, median, and mode, recovering an unknown value from a mean, and applying explicit weights. The lesson teaches each of those areas and gives worked examples for mean, even-sized median, mode, backward mean, and weighted mean."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The median depends mainly on order, so an extreme value's exact magnitude has much less effect on it.",
+     "problem": "This teaching sentence uses the abstract phrase \"exact magnitude\" and a relatively complex causal construction instead of the very simple Grade 5 English required by the lesson standard.",
+     "source": "single"
+    },
+    {
+     "quote": "For a mean of nearby numbers, a convenient reference value can reduce arithmetic.",
+     "problem": "The terms \"convenient reference value\" and \"reduce arithmetic\" are unnecessarily abstract for Grade 5 teaching prose and are not immediately restated in simpler language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the mode of $2,4,4,5,7,7,7,9$ and describe the mode of $1,2,3,4$ using the convention in this lesson.",
+     "problem": "The exam verb \"describe\" appears without the required one-line explanation of what the student is expected to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 supplies only the data values and asks for the mean; it does not give the mean formula or solution method.",
+    "Example #2 supplies the unsorted data and asks for the median; it does not tell the student which positions to select.",
+    "Example #3 supplies both data sets and identifies the lesson's convention only where that convention affects the requested description.",
+    "Example #4 supplies the mean, count, and three known quiz scores without supplying the backward-mean formula or subtraction method.",
+    "Example #5 supplies grades and explicit unit weights without supplying the weighted-mean formula; its solution then explains the calculation in simple steps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terminology requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage would require a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which prohibited Taglish usage could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify, interpret, or otherwise act on a specially marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The **mean** (arithmetic average) is found by adding all values and dividing by the number of values.",
+     "problem": "This begins a run of three consecutive Core Concept paragraphs opening with \"The\" (The mean, The median, The mode), which breaks the requirement to vary sentence openings and rhythm.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Multiply each value by its weight.",
+     "problem": "The weighted-mean calculation rule is introduced for the first time inside Example #5. Core Concept gives only the ordinary mean formula and never introduces the weighted-mean formula or procedure before the example uses it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "With an odd number of values, it is the single middle value.",
+     "problem": "Odd-sized median selection is a distinct exam-relevant case taught in Core Concept, but there is no worked example that makes the student sort an odd-sized set and select its median.",
+     "source": "single"
+    },
+    {
+     "quote": "A set may have one mode or several modes when multiple values tie for the highest frequency.",
+     "problem": "The lesson teaches tied highest frequencies and multiple modes, but no worked example covers a data set with two or more modes.",
+     "source": "single"
+    },
+    {
+     "quote": "For $20,22,25,26,300$, the mean is $78.6$ while the median is $25$.",
+     "problem": "The outlier case is supplied only as a finished result in the traps section. There is no worked example requiring the student to compute or justify which center better represents such a distribution.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "4. The fourth score was $82$. Check: $(258+82)/4=85$.",
+     "problem": "The verification computation is embedded inline inside the numbered step instead of being placed on its own display-math line as required for worked-solution computations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Which measure best represents the center depends on the data and the purpose. The mean uses every numerical value and is sensitive to extreme values. The median depends mainly on order, so an extreme value's exact magnitude has much less effect on it. For a strongly skewed data set or one with extreme outliers, the median is often a better description of a typical center.",
+     "problem": "This paragraph contains four sentences, exceeding the formatting rule that paragraphs contain one to three short sentences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate for specificity, usefulness, or prose independence.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A student earns $90$ in a $3$-unit subject, $85$ in a $2$-unit subject, and $80$ in a $5$-unit subject. Find the weighted mean grade.",
+     "problem": "The lesson reaches the weighted-mean example without first explaining what a weight means or what a weighted mean represents. There is no prerequisite lesson to supply that meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "If you choose $8$ for $4,7,8,10,11$, the deviations are $-4,-1,0,+2,+3$, which sum to $0$, so the mean is exactly $8$.",
+     "problem": "The term \"deviations\" is used as necessary shortcut vocabulary without being defined or briefly explained before the student is expected to interpret the listed positive and negative values.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A student earns $90$ in a $3$-unit subject, $85$ in a $2$-unit subject, and $80$ in a $5$-unit subject. Find the weighted mean grade.",
+     "problem": "Weighted mean is part of the recorded learning goal, but Core Concept never explains what weighted averaging means or why larger weights give a value more influence. The worked procedure alone does not supply the required concept explanation before use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked median applicability conditions: the lesson distinguishes odd and even data-set sizes and requires sorting before selecting middle values.",
+    "Checked mode limitations: the lesson states that ties can create several modes and explicitly identifies its introductory no-mode convention.",
+    "Checked outlier conditions: the lesson limits the median preference to strongly skewed data or data with extreme outliers instead of presenting it as a universal rule.",
+    "Checked weighted averaging and mean shortcuts: the traps section says weights or units must affect numerator and denominator, while the added-value shortcut states the conditions for unchanged, rising, or falling means."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

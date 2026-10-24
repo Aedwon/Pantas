@@ -1,0 +1,264 @@
+{
+ "lesson_sha256": "7e63615cd19d4d8567330da02b760b40b6adf35c8714a041d09b81b47bd20181",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the stated operation hierarchy, equal-priority left-to-right rules, fraction-bar grouping, and negative-base exponent distinction; all are mathematically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: solving independently gives 16 ÷ 4 × 2 + 3 = 11.",
+    "Example #2: solving independently gives 2[5 + 3(4 - 2)^2] - 10 = 24.",
+    "Example #3: the numerator is 29 and the denominator is 2, giving 29/2.",
+    "Example #4: substituting x = -2 and y = 3 gives 4 - (-18) - 6 = 16."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required Mathematics sections are present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For. The optional mnemonic section is also present, and no required figure is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson serves the recorded goal with grouped numerical expressions, nested grouping, fraction-bar grouping, left-to-right equal-priority operations, and an algebraic substitution example."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Read the teaching prose throughout Core Concept, memory aids, examples, shortcut, and traps; sentences are short, direct, and generally use simple vocabulary without filler."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "First, evaluate **G**rouping symbols or **P**arentheses.",
+     "problem": "The exam verb \"evaluate\" is used without the required one-line explanation of what the verb asks the student to do.",
+     "source": "single"
+    },
+    {
+     "quote": "Simplify: $2 [ 5 + 3 ( 4 - 2 )^2 ] - 10$.",
+     "problem": "The exam verb \"Simplify\" appears in a worked-example prompt without a one-line explanation when it is first introduced.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked-example stems use normal exam-style instructions and provide only the values and expressions needed to solve them; none supplies a tested formula or solution method, and the solutions return to simple language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, not Filipino, so the Filipino teaching-prose rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and introduces no Filipino grammar terminology requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English Mathematics lesson, so the requirement for Filipino examples and quiz items does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would require a Komisyon sa Wikang Filipino check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino, so the rule against Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a target word, so the bold-word prompt convention does not apply in this lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "No worked example uses a general formula that is introduced for the first time in the Examples section; the examples apply only the operation-order rules already stated in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Second, evaluate **E**xponents and roots.",
+     "problem": "Roots are included in the operation hierarchy, but no worked example requires evaluating a root. This leaves a distinct operation type named by the lesson without worked-example coverage.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Examples #1 through #4 all present their solutions as numbered steps, and each key arithmetic computation is shown on a separate display-equation line."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and its order-of-operations teaching does not depend on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Second, evaluate **E**xponents and roots.",
+     "problem": "The terms \"exponents\" and \"roots\" are used before their meanings are explained. The exponent prerequisite is not referenced or briefly recalled here, and roots are not explained locally.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Second, evaluate **E**xponents and roots.",
+     "problem": "Root evaluation is only named as part of the operation order. The lesson does not explain what a root means or how a student evaluates one.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Substitute the values, using parentheses around the negative value of $x$.",
+     "problem": "Substitution with a negative input is part of the recorded learning goal, but the method is first stated inside a worked solution. The lesson does not first explain why the negative value should be parenthesized when substituted.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the equal-priority left-to-right conditions, fraction-bar grouping rule, shortcut limitation, and negative-base parentheses distinction; the relevant conditions and exceptions are stated."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

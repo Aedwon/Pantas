@@ -1,0 +1,287 @@
+{
+ "lesson_sha256": "ce73f6fef6351fc5cb77538c05092ae97842170a08e69146a5768dfda3ba48e0",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions and claims about main ideas, topic sentences, implied ideas, paragraph unity, supporting details, and topic-versus-main-idea distinctions; none is materially incorrect. The fiction-benefit statements occur as premises inside an example passage rather than as facts the lesson asks the student to accept independently."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: my answer is that the first sentence states the main idea that fiction offers benefits beyond entertainment; the later sentences give specific benefits, matching the lesson.",
+    "Example 2: my answer is that the coach shows unusually strong commitment to supporting her team, matching the lesson's implied main idea.",
+    "Example 3: my answer is that \"Reading fiction improves empathy\" is too narrow because it covers only one of several benefits in Example 1, matching the lesson.",
+    "Example 4: my answer is that \"Reading is good\" is too broad because it loses the passage's narrower focus on benefits of fiction beyond entertainment, matching the lesson.",
+    "Example 5: my answer is that the paksa is pagtatanim ng gulay sa bakuran and the pangunahing ideya is that planting vegetables at home has many benefits, matching the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Found Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, with no forced mnemonic section. The lesson also includes a specific main-idea concept diagram, and no example requires an absent load-bearing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches topic, main idea, topic sentence, supporting detail, stated and implied English main ideas, and the Filipino paksa-versus-pangunahing-ideya distinction named in the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A paragraph can include transitions, qualifications, counterpoints, definitions, or conclusions that serve the larger development of the idea.",
+     "problem": "This sentence uses several abstract or uncommon terms at once, including \"qualifications\" and \"counterpoints,\" making the teaching prose harder than the required Grade 5 simple-English standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No explicit worked-example question uses an exam-command verb that requires a one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Reading fiction offers benefits beyond simple entertainment. Studies suggest it can improve empathy by exposing readers to different perspectives. It also strengthens vocabulary and comprehension through exposure to varied language. Many readers also use fiction for relaxation.\"",
+     "problem": "Example 1 gives only the passage and then a solution. It does not provide an authentic exam-style question stem telling the student what to identify.",
+     "source": "single"
+    },
+    {
+     "quote": "\"The coach arrived an hour before practice to set up equipment. She stayed late after games to review footage with players. On weekends, she checked on their academic progress.\"",
+     "problem": "Example 2 likewise omits the exam-style question itself, so the worked example does not model realistic target-exam wording.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat stock exam-reference openers or overuse a single test-motivation phrase."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is primarily an English reading-comprehension lesson, not a Filipino-language teaching lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach a hard Filipino grammar term that requires an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson; its Filipino material is a specific contrast example inside an English reading lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino text, so its spelling and usage require checking against the official Filipino source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson's teaching prose is English rather than Filipino teaching prose subject to the no-Taglish rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specifically marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for the listed stock AI phrases, repetitive sentence openings, and a formulaic summary opening; none appears, and the summary plainly describes the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The reading-comprehension section structure is acceptable, and no mathematical or quantitative formula appears in any example, so there is no formula introduced after Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Many expository paragraphs place it near the beginning, but there is no rule that it must be first—or that every paragraph contains one explicit topic sentence.",
+     "problem": "The lesson teaches that a topic sentence can occur somewhere other than the beginning, but no worked example covers that distinct scenario.",
+     "source": "single"
+    },
+    {
+     "quote": "When the main idea is implied, infer it from the pattern of details, relationships, examples, contrasts, and conclusions in the passage.",
+     "problem": "The only implied-main-idea example is a very short three-sentence passage with one clear pattern. There is no harder worked case using multiple paragraphs or competing emphasis, so the examples do not ramp through the important implied-main-idea variation to target-exam difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The first sentence states the central idea, and the later sentences develop examples of those benefits.",
+     "problem": "This worked solution is presented as an unnumbered paragraph rather than as numbered solution steps, which does not follow the required worked-example solution format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could exceed a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three sentences, and the only bullet list is the brief two-item Filipino topic-versus-main-idea comparison."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The existing main-idea figure specification clearly names the central idea, three supporting details, and its semantic purpose, while the surrounding prose independently teaches the concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Main idea, topic sentence, unity, paksa, and pangunahing ideya are defined or immediately explained before their meanings are needed in the examples and strategies."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains what a main idea and topic sentence mean, how implied main ideas are inferred from patterns, how paragraph unity works, and how topic differs from the claim made about it."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states key limitations and conditions: topic sentences need not be first or explicit, position alone is not proof, and a main-idea choice must cover important passage parts without adding unsupported claims."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Reading fiction improves empathy\" is too narrow for Example 1 because it covers only one benefit.",
+     "problem": "The numeral in \"Example 1\" appears in prose outside inline math delimiters, violating the rule that numbers in prose must be inside math notation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

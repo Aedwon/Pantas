@@ -1,0 +1,257 @@
+{
+ "lesson_sha256": "3250dc130a5097d2490328dd6b06298f43190964e432501e555e7538d1566b4b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's discount, markup, simple-interest, compound-interest, compounding-frequency, successive-discount, and Rule of 72 claims; none conflicts with the stated definitions or calculations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: Php 1,500 × 0.80 = Php 1,200, matching the lesson.",
+    "Example #2 blind solve: Php 30,000 × 0.80 × 0.90 = Php 21,600, matching the lesson.",
+    "Example #3 blind solve: Php 1,200 × 1.25 = Php 1,500, matching the lesson.",
+    "Example #4 blind solve: T = 4500 ÷ (15000 × 0.06) = 5 years, matching the lesson.",
+    "Example #5 blind solve: 10000(1 + 0.04/2)^(2×2) = 10824.3216, about Php 10,824; using the supplied 1.02^4 ≈ 1.0824 gives Php 10,824 exactly."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The mathematics lesson has Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and none of its worked questions depends on a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to model price changes and calculate simple and compound interest with compatible rate and time periods; the lesson teaches discounts, markups, simple interest, compounding frequency, and future value directly."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the teaching prose apart from authentic example stems: sentences are short, direct, and mostly use common words, while technical terms are introduced with brief explanations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No exam command verb such as evaluate, simplify, compare, or identify appears in a question prompt.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five worked-example stems: each supplies the needed prices, rates, times, or approximation without giving the simple-interest or compound-interest formula, and the solutions return to short step-by-step language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This English-language lesson does not introduce Filipino grammar terminology.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the Filipino-teaching-prose Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt asks about a target word, so there is no target word that must be bolded.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Simple-interest formula I = PRT is introduced in Core Concept under Simple and Compound Interest before Example #4 uses it.",
+    "Compound-amount formula A = P(1 + r)^t is introduced in Core Concept under Simple and Compound Interest before Example #5 uses it.",
+    "Examples #1 to #3 use ordinary percentage arithmetic already taught by the prerequisite and do not introduce a new named formula."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Mapped the Level 3 scenarios to worked examples: basic discount (#1), successive discounts (#2), cost-based markup (#3), simple interest with unknown time (#4), and compound interest with frequency and future value (#5). The sequence moves from basic price changes to multi-step interest work without repeating the same scenario."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Checked Examples #1 through #5: each solution is a numbered list, and every key numerical computation is placed on its own display-equation line before the stated answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to judge for specificity or load-bearing use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "How many years will it take for an investment of Php $15,000$ to earn Php $4,500$ in simple interest at $6\\%$ per annum?",
+     "problem": "The term \"per annum\" is needed to interpret the rate as annual in Example #4, but the lesson does not explain that term before or during the example and gives no prerequisite reminder for it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Discount, markup, interest, simple interest, and compound interest are each defined in plain language, and the lesson explains how discounts change price, how markup is added to cost, and how compounding adds interest to the balance."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked stated conditions and limits: simple interest ties annual rate to time in years, compound interest requires a per-period rate and total periods, compounding frequency must be converted consistently, markup is distinguished from profit, and the Rule of 72 is labeled a rough approximation for compound growth."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For **compound growth**, the **Rule of 72** gives a rough doubling-time estimate: divide $72$ by the annual percentage rate.",
+     "problem": "The number 72 in the prose name \"Rule of 72\" is outside inline math. Under the rule, that prose number must be wrapped in $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

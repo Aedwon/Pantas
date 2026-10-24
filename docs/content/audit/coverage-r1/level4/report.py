@@ -34,6 +34,9 @@ def source_line():
 
 
 class Data:
+    reads_heading = "Findings from the two reads"
+    source_words = {"both": "both reads agreed"}
+
     def __init__(self, state_dir=None, mechanical_dir=None, lesson_text=None):
         self._lesson_text = lesson_text or handin._lesson_text
         self.state_dir = Path(state_dir or l4lib.STATE_DIR)
@@ -180,7 +183,7 @@ def lesson_findings(data, packet_id):
     severity = _severity()
     lines = ["# %s" % entry["title"], "", "Lesson: `%s`. Lesson version: `%s`. Standards: `%s`." % (
         entry["lesson_id"], result["lesson_sha256"][:12], result["standards_commit"][:12]), "",
-             "## Findings from the two reads", ""]
+             "## %s" % data.reads_heading, ""]
     any_finding = False
     for rule_id in sorted(result["rules"]):
         record = result["rules"][rule_id]
@@ -188,7 +191,7 @@ def lesson_findings(data, packet_id):
             lines.append("- %s: needs a source check; not judged here." % rule_id)
         for finding in record["findings"]:
             any_finding = True
-            source = "both reads agreed" if finding.get("source") == "both" else "a deciding chat ruled"
+            source = data.source_words.get(finding.get("source"), "a deciding chat ruled")
             lines += ["- **%s** (%s; %s)" % (rule_id, severity.get(rule_id, ""), source),
                       "  - Quote: \"%s\"" % l4lib.norm(finding["quote"]),
                       "  - Problem: %s" % l4lib.norm(finding["problem"])]

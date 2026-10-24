@@ -1,0 +1,257 @@
+{
+ "lesson_sha256": "98d561710ddac1e1e927dad40ab0c2c8e9eb146b8c2db89466bd9a823db5db0e",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "I checked the definitions and contrasts for modifier, misplaced modifier, dangling modifier, attachment, and focus scope; the stated interpretations and repairs are grammatically sound."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: my repair for the cheese-modifies-pasta reading is \"The waiter served the customer the pasta covered in cheese,\" which matches the lesson's conditional repair.",
+    "Example 2: my repairs are \"After finishing the marathon, she enjoyed a warm bath\" or \"After she finished the marathon, a warm bath felt amazing\"; both remove the dangling modifier.",
+    "Example 3: my choice is (B), because the tourists are the logical drivers and the introductory phrase therefore attaches to the main-clause subject.",
+    "Example 4: my reading is that \"only\" limits \"she\" in (A) and \"him\" in (B), matching the lesson's explanation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; no figure is required to understand these grammar examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly teaches modifier targets, ambiguous attachment, dangling modifiers and repairs, and focus-modifier scope, matching the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **modifier** is a word, phrase, or clause that supplies information about another element in a sentence. Clear writing places a modifier where readers can identify its intended target without confusion. \"Keep the modifier close to what it modifies\" is a useful editing heuristic, not a rule that every modifier must be physically adjacent to its target.",
+     "problem": "This teaching paragraph uses abstract terms such as \"element,\" \"intended target,\" and \"editing heuristic\" and long sentence structures that are too difficult for the required Grade 5 reading level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked examples do not use an exam command verb that needs a one-line first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"The waiter served the pasta to the customer covered in cheese.\"",
+     "problem": "The example supplies only a sentence and never states the exam task or the intended meaning to preserve, so the student is not given a determinate exam-style question.",
+     "source": "single"
+    },
+    {
+     "quote": "The understood finisher should also be represented as the appropriate subject of the main clause. For example:",
+     "problem": "The solution uses technical phrasing such as \"understood finisher\" and \"appropriate subject of the main clause\" instead of the required simple solution language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English grammar lesson, so the Filipino teaching-prose readability rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach in Filipino, so Filipino grammar-term glossing does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is in English and contains no Filipino-language examples or quiz items to evaluate.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling and usage checks do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is in English, so the prohibition on Taglish in Filipino prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a target word by typographic emphasis.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson uses the permitted Language Proficiency structure. No worked example uses a mathematical formula, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 covers ambiguous attachment, Examples 2 and 3 cover dangling-subject repair and recognition, and Example 4 covers focus scope. The sequence moves from direct repair to comparison and scope interpretation without repeating the same reasoning with changed details."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If the intended meaning is that the pasta had cheese, place the phrase where that reading is unambiguous: \"The waiter served the customer **the pasta covered in cheese**.\"",
+     "problem": "The worked solution is presented as prose instead of the required numbered solution-step list. No display equation is needed for this language example, but the numbered-step format is still absent.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be checked.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders in the lesson, and no example depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The position of *almost* changes its scope.",
+     "problem": "Scope is central to the learning goal, but the lesson uses the term before explaining what \"scope\" means and there is no prerequisite lesson to supply that explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains what modifiers do, how placement can create ambiguous attachment, how a dangling modifier arises from a missing or mismatched target, and how focus-modifier placement changes what is limited."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that proximity is a heuristic rather than a mechanical rule, limits the introductory-participial-phrase rule with \"normally,\" and gives the explicit own-subject exception plus traps against overgeneralizing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

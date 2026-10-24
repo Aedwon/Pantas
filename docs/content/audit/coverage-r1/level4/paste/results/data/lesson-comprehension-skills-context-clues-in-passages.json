@@ -1,0 +1,290 @@
+{
+ "lesson_sha256": "6ce52b5524744864a2118df4fe30d3ebd62f111ec29aa386d38b22f730ec4ad0",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the worked vocabulary meanings: Cambridge Dictionary defines consternation as worry, shock, or confusion, matching the lesson's anxious dismay, shock, or distress.",
+    "Verified amicable against Cambridge Dictionary as pleasant and friendly, matching the lesson's inferred meaning of friendly or good-natured.",
+    "Verified gregarious against Cambridge Dictionary as liking to be with other people and negligence as failure to give enough care or attention; both uses in Core Concept are accurate.",
+    "Verified bric-a-brac against Merriam-Webster as small, usually decorative objects and procrastinate as intentionally putting off something that should be done; the lesson's meanings are consistent."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Blind-solved Example 1 from the passage alone: consternation means shock, anxious distress, or alarm, which agrees with the lesson's answer.",
+    "Blind-solved Example 2 from the listed attic objects: bric-a-brac means assorted small old or decorative objects, which agrees with the lesson's answer.",
+    "Blind-solved Example 3 from the warm early behavior contrasted with later hostility: amicable means friendly or peaceful, which agrees with the lesson's answer.",
+    "Blind-solved Example 4 from the unfinished work and last-minute panic: procrastination means delaying work that should be done, which agrees with the lesson's answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For in the required sequence; the optional mnemonic section is omitted.",
+    "None of the worked questions depends on a diagram, photograph, graph, or other visual information, so no load-bearing figure is required."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to infer unfamiliar-word meaning from explanatory, example, contrast, and cause/effect cues across nearby sentences. Core Concept teaches all four clue types and the worked section includes one case for each."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Look for signal words that reveal the clue type:** \"such as,\" \"including,\" or a colon followed by a list often signals an example clue; \"however,\" \"unlike,\" or \"but\" often signals a contrast clue; \"because,\" \"led to,\" or \"resulted in\" often signals a cause-and-effect clue.",
+     "problem": "This teaching sentence packs three clue categories, many signal phrases, and several semicolon-linked clauses into one sentence. It is not the very simple, short Grade 5 teaching prose required by the rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked prompts do not use an exam-direction verb such as evaluate, identify, compare, or calculate; they directly ask what a word likely means.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the lesson stays within the maximum of one analogy in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. Since the later mood is described as hostile and the sentence structure implies \"amicable\" describes the opposite early mood, \"amicable\" must relate to friendliness.",
+     "problem": "This worked-solution step uses abstract phrasing such as \"sentence structure implies\" and a long multi-clause sentence instead of the simple solution language required by the rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson mentions reading-comprehension exams once to explain why passage-level context matters and does not repeat a stock exam-motivation opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terms that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are correctly presented in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage would need checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in this lesson, so the prohibition on Taglish cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"The committee's decision was met with *consternation*. Members expressed shock, anxiously debated the implications for hours, and several left the meeting visibly distressed.\" What does \"consternation\" likely mean?",
+     "problem": "The target word is italicized instead of bold, and the prompt names the word in quotation marks instead of referring to \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "\"The old attic was filled with *bric-a-brac*: a cracked porcelain vase, a rusty tin soldier, mismatched teacups, and a faded photograph in a broken frame.\" What does \"bric-a-brac\" likely mean?",
+     "problem": "The target word is italicized instead of bold, and the prompt names the word in quotation marks instead of referring to \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "\"At first, the negotiations seemed *amicable*. The two sides shook hands warmly and exchanged friendly small talk. However, by the third session, the mood had shifted entirely into hostility, with raised voices and slammed doors replacing the earlier warmth.\" What does \"amicable\" likely mean?",
+     "problem": "The target word is italicized instead of bold, and the prompt names the word in quotation marks instead of referring to \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "\"Her constant *procrastination* meant that by the night before the deadline, she had only completed a rough outline, forcing her to stay awake until dawn finishing the entire report in a panic.\" What does \"procrastination\" likely mean?",
+     "problem": "The target word is italicized instead of bold, and the prompt names the word in quotation marks instead of referring to \"the word in bold.\"",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases, varies sentence openings across sections, and uses a plain frontmatter summary beginning with \"Learn how\" rather than the prohibited stock summary opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The reading-comprehension lesson uses Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, which fits the permitted reading layout. No mathematical formula appears in any example, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"The old attic was filled with *bric-a-brac*: a cracked porcelain vase, a rusty tin soldier, mismatched teacups, and a faded photograph in a broken frame.\" What does \"bric-a-brac\" likely mean?",
+     "problem": "The only worked example-clue case puts the unfamiliar word and all revealing examples in the same sentence. It therefore does not cover using an example clue spread across nearby sentences, which is part of the recorded passage-level learning goal.",
+     "source": "single"
+    },
+    {
+     "quote": "\"Her constant *procrastination* meant that by the night before the deadline, she had only completed a rough outline, forcing her to stay awake until dawn finishing the entire report in a panic.\" What does \"procrastination\" likely mean?",
+     "problem": "The only worked cause-and-effect case keeps the target word, cause, and effect in one sentence. It does not cover finding a cause/effect clue elsewhere among nearby sentences, so the examples do not cover every passage-level variation in the learning goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked solutions present their reasoning as numbered markdown steps. The reading-comprehension examples contain no mathematical computation, so no display equation is needed."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose width can be evaluated for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three sentences, and the only substantial bullet list is the four-item list of context-clue types in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its text-based context-clue questions requires a figure to be answerable.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Contrast clue**: a nearby idea is the opposite of the unfamiliar word, helping you infer its meaning by elimination.",
+     "problem": "The lesson uses the central skill term \"infer\" and the method phrase \"by elimination\" before explaining what either means. No prerequisite lesson is identified to supply those meanings.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept explains how each of the four clue types works, not only its name: explanation describes meaning, examples reveal a category, contrast supplies an opposite, and cause/effect uses a result. It also teaches scanning before and after the target word and summarizing the surrounding sentences."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The shortcut section qualifies signal words with \"often signals\" instead of treating them as guarantees, while Trap 3 states that an inferred meaning must fit all surrounding clues rather than one isolated detail."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

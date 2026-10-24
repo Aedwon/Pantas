@@ -1,0 +1,312 @@
+{
+ "lesson_sha256": "10734c517c52a9ef7688ea850a1f21ee7d6ae6f5621f6b2744ffd4f21963ddd8",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [
+    "I checked the statute and agency claims in the supplied lesson text, including all eight laws and both agency entries.",
+    "CSC's official CSE-PPT scope lists Environment Management and Protection under General Information, supporting the opening scope claim.",
+    "RA 9003, RA 8749, RA 9275, RA 9729, PD 1586, RA 9147, and RA 7586 as amended by RA 11038 matched the cited statutory titles or described purposes in the sources checked.",
+    "EMB sources support its DENR-bureau status and implementation mandate for PD 1586, RA 8749, RA 9003, and RA 9275; the Climate Change Commission source supports its policy role and attachment to the Office of the President."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It established the National Disaster Risk Reduction and Management Council (NDRRMC).",
+     "problem": "RA 10121 did not create the council from nothing. Section 5 says the existing National Disaster Coordinating Council shall henceforth be known as the NDRRMC. Saying it established the NDRRMC is materially imprecise. Source: https://lawphil.net/statutes/repacts/ra2010/ra_10121_2010.html",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: a mandatory source-segregation program plus an open-dump prohibition points to RA 9003; the lesson's answer is RA 9003.",
+    "Example #2 blind solve: the Philippine DRRM framework and NDRRMC point to RA 10121; the lesson's answer is RA 10121, while the separate established-NDRRMC wording issue is flagged under B01.",
+    "Example #3 blind solve: the Environmental Management Bureau is part of the Department of Environment and Natural Resources; the lesson's answer is DENR."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [
+    "Core Concept and Examples are present, no illustration is required to make any current question determinate, and the missing standard sections are the content-structure blocker."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, the bureau's parent department is the DENR.",
+     "problem": "The lesson ends immediately after the Examples section. It omits the standard required Speed Tricks & Shortcuts and Traps to Watch For sections, and the packet gives General Information no section-structure exemption.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to match environmental purposes to statutes and identify named agency roles; Core Concept teaches statute-purpose pairs plus DENR, EMB, and Climate Change Commission roles, and the examples practice those matches."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It establishes an air-pollution control framework and prohibits incineration, as defined by the Act, of municipal, biomedical, and hazardous wastes when the process emits poisonous and toxic fumes, subject to the Act's stated exceptions.",
+     "problem": "This teaching sentence is long and clause-heavy, and it uses several uncommon legal or technical terms without simple wording. It is above the packet's Grade 5 teaching-prose standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No example question uses an exam command verb such as evaluate, compare, or explain that needs a first-use gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 gives the municipality's waste actions but does not give the tested Republic Act number or a lookup method; its solution returns to direct, simple matching language.",
+    "Example #2 asks for the law from the DRRM framework and NDRRMC clues without supplying the answer or a recall method; its solution identifies the act step by step.",
+    "Example #3 gives EMB's regulatory role but not its parent department, so the tested agency relationship is not supplied in the stem; the solution states the relationship directly."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson's teaching prose is in English, not Filipino, so the Filipino readability rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson and introduces no Filipino grammar term needing an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is in English and does not teach Filipino, so the Filipino-example language requirement does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text to check against Komisyon sa Wikang Filipino spelling or usage.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is English-language teaching prose, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked target word, so there is no target-word bolding or prompt wording to judge.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a non-quantitative General Information lesson. No formula appears in any worked example, so no example introduces a formula before Core Concept, and the packet specifies no separate General Information formula convention."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, the bureau's parent department is the DENR.",
+     "problem": "The Examples section ends after covering RA 9003, RA 10121/NDRRMC, and EMB/DENR. It has no worked matching case for RA 8749, RA 9275, RA 9729/Climate Change Commission, PD 1586/ECC, RA 9147, or RA 7586 as amended by RA 11038, although those are distinct statute-purpose or agency-role cases within the learning goal. The three examples also remain at essentially the same recall/matching difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Match the subject of ecological solid-waste management to its statutory title and number.",
+     "problem": "This solution reasoning line appears after Solution and before the numbered list, so not every solution step is presented as a numbered list as required.",
+     "source": "single"
+    },
+    {
+     "quote": "Identify the act that established the modern disaster-risk framework.",
+     "problem": "This solution reasoning line appears after Solution and before the numbered list, so the solution format contains an unnumbered reasoning step.",
+     "source": "single"
+    },
+    {
+     "quote": "Recall the government structure for environmental regulation.",
+     "problem": "This solution reasoning line appears after Solution and before the numbered list, so the solution format contains an unnumbered reasoning step.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no display equations in this non-quantitative lesson, so phone-width equation fitting cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **RA 9003:** Ecological Solid Waste Management Act of 2000. It requires measures such as segregation at source and waste diversion and prohibits open dumps.",
+     "problem": "Core Concept is dominated by two bullet lists, with eight statute bullets and two agency bullets. That is not sparing use of bullet lists under this formatting rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and none of the current example questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **RA 9003:** Ecological Solid Waste Management Act of 2000. It requires measures such as segregation at source and waste diversion and prohibits open dumps.",
+     "problem": "Key terms used to communicate the law's purpose, especially waste diversion and segregation at source, are not explained before students need them. The packet lists no prerequisite lesson that supplies those meanings.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **RA 9729:** Climate Change Act of 2009. It created the Climate Change Commission and requires a National Strategic Framework on Climate Change.",
+     "problem": "The National Strategic Framework on Climate Change is only named. The lesson does not explain what the framework means, what it is for, or how it works, and there is no prerequisite lesson to reuse.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **RA 8749:** Philippine Clean Air Act of 1999. It establishes an air-pollution control framework and prohibits incineration, as defined by the Act, of municipal, biomedical, and hazardous wastes when the process emits poisonous and toxic fumes, subject to the Act's stated exceptions.",
+     "problem": "The lesson tells students that exceptions exist but does not state what those exceptions are. That leaves the applicability conditions of the incineration prohibition unexplained, and no prerequisite supplies them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **RA 9003:** Ecological Solid Waste Management Act of 2000. It requires measures such as segregation at source and waste diversion and prohibits open dumps.",
+     "problem": "The statute number 9003 and year 2000 are numbers in prose but are not wrapped in inline math delimiters. The same pattern recurs throughout the statute list and worked solutions.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "2. It established the National Disaster Risk Reduction and Management Council (NDRRMC).",
+   "concern": "RA 10121 says the existing National Disaster Coordinating Council shall henceforth be known as the NDRRMC, so saying the Act established the council without that reorganization nuance is materially imprecise.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

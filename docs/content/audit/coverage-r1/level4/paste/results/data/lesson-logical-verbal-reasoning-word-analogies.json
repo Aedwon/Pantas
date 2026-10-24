@@ -1,0 +1,267 @@
+{
+ "lesson_sha256": "e71036bbea689b0c3a9ef259685974034398db0fd6c9e300b4c151a8ac3441b5",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's factual relation claims and examples; none requires a hard-to-remember external fact, and the stated word relationships are factually sound."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(A) cow, leaf (B) cow, branch (C) cat, leaf (D) horse, root",
+     "problem": "The double analogy has more than one defensible answer: both leaf and branch are parts of a tree, so choices A and B both satisfy the lesson's stated part-to-whole relation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Compared the lesson with the required Reasoning content structure and figure needs; Core Concept, Examples, and Traps are present, and these verbal analogy questions do not require figures."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches writing or identifying a precise relation, preserving direction, transferring it to another pair, and checking both halves of a double analogy, which directly serves the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Natural-language relationships are rarely mathematically unique. Two words can be related in several ways, so the goal is to find the **most specific relationship that the item and answer choices support**, not to assume there is one metaphysically exact relationship between the words.",
+     "problem": "This teaching prose is not Grade 5 simple English. Phrases such as \"mathematically unique\" and \"metaphysically exact relationship\" are unnecessarily advanced for the required reading level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked questions do not use an exam command verb such as evaluate, identify, compare, or infer that needs a one-line explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A useful relationship is \"an author has a central creative role in producing a book.\" Among the options, a director has a corresponding central creative role in producing/directing a **movie**. Answer: **B**.",
+     "problem": "The worked solution is not in the required simple language. \"Central creative role\" and \"corresponding central creative role\" are abstract phrasing that makes the explanation harder than necessary.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language reasoning lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose and therefore introduces no Filipino grammar term that needs an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the requirement that examples and quiz items be in Filipino does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage needs checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a visually marked target word, so the bold-target wording rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Write the relationship as a sentence before looking at choices.** Specific wording reduces vague associations.",
+     "problem": "This content appears under a Speed Tricks & Shortcuts section, but the subject-fit rule for Reasoning requires the reduced Core Concept → Examples → Traps layout and says to drop Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Cause/product:** *fire : ash*.",
+     "problem": "Cause/product is presented as a distinct common relationship type, but no worked example covers it. The examples therefore do not cover every distinct exam-relevant scenario introduced by the lesson.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"A pen is used to write\" maps most closely to \"scissors are used to **cut**.\" Answer: **B**.",
+     "problem": "This worked solution is a prose paragraph instead of a numbered list of solution steps, contrary to the required worked-example solution format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display math lines whose phone-width fit can be judged.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson has no illustration placeholders, and these verbal analogy examples do not depend on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the analogy notation, direction language, relation labels, and example-specific terms; the notation is paired with its plain-language equivalent, and needed meanings are supplied before or at first use."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Cause/product:** *fire : ash*.",
+     "problem": "The lesson names this relationship type and gives one pair, but it does not explain what a cause/product relation means or how a student recognizes or transfers it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's applicability guidance: it explains that word pairs can support several relationships, that direction must be preserved, that choices can resolve ambiguity, and that role relations should not be overstated."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "2. Petal → flower is part → whole; **leaf** → tree matches that relation.",
+   "concern": "The keyed choice is not unique because branch → tree also satisfies the same stated part-to-whole relation, making choice B defensible alongside choice A.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

@@ -1,0 +1,311 @@
+{
+ "lesson_sha256": "81d93b7940eef954f6787bd841ad2ba84f2f25aa6f2ff1e6f633622bd70a44f7",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [
+    "Verified the Act title, February 20, 1989 approval date, March 25, 1989 effectivity date, the eight Section 4 norm names and order, and the political-neutrality and simple-living descriptions against Lawphil and Supreme Court sources."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Section 4 of RA 6713 sets forth eight specific norms of conduct that every public official and employee must observe at all times.",
+     "problem": "The scope is overstated. Section 4(A) says the norms are standards of personal conduct \"in the discharge and execution of official duties,\" not a blanket rule that all eight must be observed \"at all times.\" Source: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: Section 4(A) lists eight standards, so my answer is 8.",
+    "Example #2 blind solve: equal service regardless of political party maps to Political neutrality.",
+    "Example #3 blind solve: modest living and avoiding ostentatious wealth maps to Simple living."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. This norm is titled Simple living.",
+     "problem": "The lesson ends here after Examples. The required section structure still needs Speed Tricks & Shortcuts and Traps to Watch For; neither section is present.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The Core Concept names and describes all eight norms, Example #2 classifies the supplied political-neutrality behavior, and Example #3 classifies the supplied simple-living behavior."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Public officials and employees shall perform and discharge their duties with the highest degree of excellence, professionalism, intelligence, and skill. They shall enter public service with utmost devotion and dedication to duty.",
+     "problem": "This teaching prose uses dense legal wording and uncommon terms such as \"discharge,\" \"utmost devotion,\" and \"dedication,\" instead of the very simple Grade 5 English required by the lesson voice standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked-question stems do not use a command-style exam verb such as evaluate, identify, analyze, or determine.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in Core Concept or elsewhere in the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A civil service review question asks how many statutory norms of conduct are defined in Section 4 of RA 6713. What is the total count?",
+     "problem": "Example #1 uses meta framing about a review question instead of presenting the question itself in authentic exam wording. The tested count could be asked directly.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A civil service review question asks how many statutory norms of conduct are defined in Section 4 of RA 6713. What is the total count?",
+     "problem": "This is the lesson's only explicit exam/review mention, and it merely labels the item as a review question. It does not motivate why the topic matters on the exam or identify a useful exam-facing trick.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson; its teaching prose is in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose and therefore no Filipino grammar term requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino, so the Filipino-only requirement for examples and quiz items cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would require a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question refers to a target word, underlined word, or word in bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Public officials and employees shall perform and discharge their duties with the highest degree of excellence, professionalism, intelligence, and skill.",
+     "problem": "The norm entries repeatedly open with the same \"Public officials and employees shall\" construction, producing the repeated sentence-opening pattern that L15 requires the lesson to vary.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "No worked example uses any formula, so there is no formula to trace back to Core Concept. The lesson uses the general Core Concept and Examples structure; no subject-specific formula rule is triggered."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Mapped the recorded goal to the examples: #1 recalls and enumerates the eight norms, #2 classifies the supplied political-neutrality behavior, and #3 classifies the supplied simple-living behavior. The sequence moves from recall to behavior classification, and the two classification cases are the two behaviors named in the learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Recall the official list of norms in Section 4 of RA 6713.",
+     "problem": "Example #1 begins its reasoning with an unnumbered solution step before the numbered list. L19 requires every solution step to be presented as part of the numbered steps.",
+     "source": "single"
+    },
+    {
+     "quote": "Match the behavior to the appropriate norm under Section 4.",
+     "problem": "Example #2 begins with an unnumbered reasoning step before the numbered list, instead of putting every solution step in the required numbered format.",
+     "source": "single"
+    },
+    {
+     "quote": "Identify the norm governing personal lifestyle and display of wealth.",
+     "problem": "Example #3 begins with an unnumbered reasoning step before the numbered list, instead of putting every solution step in the required numbered format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation width to evaluate for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs are one or two sentences, and list use is limited to the eight-norm enumeration plus the numbered worked-solution steps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and none of its legal-conduct examples depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "maintain the principle of public accountability",
+     "problem": "The term \"public accountability\" is necessary to understand the lesson's description of Commitment to democracy, but the lesson never explains what the term means, and there is no prerequisite lesson to supply that explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Each of the eight named norms is followed by conduct showing its meaning: public interest over personal interest, competent duty, fair treatment, party-neutral service, prompt public service, loyalty to country, democratic accountability and constitutional loyalty, and modest living. The lesson therefore teaches the recorded recognition and two classification goals rather than listing names alone."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Section 4 of RA 6713 sets forth eight specific norms of conduct that every public official and employee must observe at all times.",
+     "problem": "The lesson does not teach the governing applicability condition that Section 4(A) frames these standards around the discharge and execution of official duties. Instead it states the broader \"at all times\" scope, so learners are not given the relevant boundary of the rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Republic Act No. 6713, also known as the Code of Conduct and Ethical Standards for Public Officials and Employees, was approved on February 20, 1989 and took effect on March 25, 1989.",
+     "problem": "Numbers in prose are not wrapped in inline math. This sentence leaves 6713 and every date numeral outside $...$, and the same issue recurs with Section 4, ordinal references, and the count 8 throughout the examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "Section 4 of RA 6713 sets forth eight specific norms of conduct that every public official and employee must observe at all times.",
+   "concern": "Section 4(A) states that the eight norms are standards of personal conduct in the discharge and execution of official duties; the lesson's blanket \"at all times\" scope is broader than the statutory framing.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

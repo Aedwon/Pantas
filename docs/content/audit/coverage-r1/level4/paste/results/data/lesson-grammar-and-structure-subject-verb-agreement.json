@@ -1,0 +1,310 @@
+{
+ "lesson_sha256": "5c7656d85dc4198c52f7d1babf58ca02ab99e2613535c31663ba1135f50d260c",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the English agreement claims about intervening nouns, collective nouns across American and British usage, singular indefinite pronouns, quantifier reference, compound subjects, and nearer-subject agreement with or/nor.",
+    "Checked the Filipino comparison that verb morphology is not normally driven by English-style subject number and that Filipino verb grammar uses distinctions including aspect and focus/voice."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: the head subject is singular \"list,\" so \"is\" is correct.",
+    "Solved Example 2 independently: with the committee treated as one unit in American English, singular \"has\" is the natural answer.",
+    "Solved Example 3 independently: \"water\" is a singular mass-noun reference, so \"has\" is correct.",
+    "Solved Example 4 independently: the nearer subject \"employees\" is plural, so \"were\" is the expected edited-English form."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and no genuinely required figure is missing for these text-based agreement cases."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson directly serves the recorded goal by teaching head-subject selection, number agreement, contextual collective and quantifier agreement, intervening-noun distractions, and the distinction from Filipino grammar."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In English, **subject-verb agreement** means the form of a finite verb must agree with its subject in person and number when the verb has distinct agreement forms.",
+     "problem": "This opening definition uses unexplained technical terms such as \"finite verb,\" \"person,\" and \"distinct agreement forms,\" making the teaching prose harder than the required Grade 5 reading level.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Choose the correct verb: The list of items on the shelf *(is / are)* long.",
+     "problem": "\"Choose\" is used as an exam instruction at its first occurrence, but the lesson does not give the required one-line explanation of that exam verb.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If the ordering produces an awkward agreement pattern, recast the sentence instead of forcing a clumsy construction.",
+     "problem": "The solution uses advanced wording such as \"recast,\" \"agreement pattern,\" and \"clumsy construction\" instead of the simple solution language required by this rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat stock exam-motivation openers or repetitive test-maker phrasing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English subject-verb agreement lesson; the short Filipino comparison does not make it a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino grammar instead marks distinctions such as **aspekto** and **pokus/voice**, while markers such as *ang*, *ng*, and *sa* have their own syntactic roles.",
+     "problem": "The hard Filipino grammar term **aspekto** appears without a short English gloss on first use, while **pokus/voice** does provide one.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the requirement that its examples and quiz items be written in Filipino does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino grammar terms and usage, so packet instructions require this rule to remain needs_source_check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is English, not Filipino, so the rule banning Taglish within Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt asks the learner to identify or act on a specific target word, so the bold-target-word convention is not triggered.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases, repetitive sentence openings, and a formulaic \"This lesson teaches you\" summary; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The Language Proficiency lesson uses an acceptable Core Concept, Examples, Speed Tricks & Shortcuts, and Traps structure. No formula appears in any example, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Indefinite pronouns** such as *everybody*, *someone*, and *nothing* normally take a singular verb: \"Everybody *is* welcome.\"",
+     "problem": "This is a distinct agreement scenario taught in Core Concept, but it receives only an inline illustration and no worked example, so example coverage is incomplete.",
+     "source": "single"
+    },
+    {
+     "quote": "**Compound subjects** joined by *and* are usually plural: \"Ana and Ben *are* here.\"",
+     "problem": "The lesson teaches the distinct compound-subject-with-*and* case but provides no worked example for it, so not every exam-relevant scenario in scope is covered.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The committee is viewed as one unit, so singular *has* is natural: \"The committee *has* reached a decision.\" A plural form can occur in varieties such as British English when the members are emphasized individually.",
+     "problem": "Example 2 gives its solution as a prose paragraph instead of the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "\"Water\" is a mass noun here, so singular *has* agrees with the amount referred to: \"Most of the water *has* evaporated.\"",
+     "problem": "Example 3 gives its solution as a prose paragraph instead of the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "The nearer subject is plural \"employees,\" so *were* is the expected form. If the ordering produces an awkward agreement pattern, recast the sentence instead of forcing a clumsy construction.",
+     "problem": "Example 4 gives its solution as a prose paragraph instead of the required numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be judged.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Collective nouns** such as *team*, *family*, and *committee* can be treated as a unit or as their individual members. Singular agreement is especially common in American English when the group is viewed as one unit (\"The team *is* practicing\"). Plural agreement is more common in British English and can also emphasize individual members (\"The team *are* arguing among themselves\"). Use the meaning and the variety/style expected in the passage.",
+     "problem": "This paragraph contains four sentences, exceeding the required one-to-three-sentence paragraph limit.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its examples depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In English, **subject-verb agreement** means the form of a finite verb must agree with its subject in person and number when the verb has distinct agreement forms.",
+     "problem": "The lesson requires the meanings of \"finite verb,\" grammatical \"person,\" and grammatical \"number\" immediately, but it does not explain those terms first and there is no prerequisite lesson to supply them.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In English, **subject-verb agreement** means the form of a finite verb must agree with its subject in person and number when the verb has distinct agreement forms.",
+     "problem": "Person agreement is named as part of subject-verb agreement but never explained or demonstrated, so the lesson does not fully teach how that stated part of the concept works.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the conditions and exceptions for intervening phrases, collective nouns by meaning and English variety, quantifiers by reference, and/nor proximity, awkward mixed-number cases, and the English-versus-Filipino limitation; the lesson states when each rule applies."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson uses \"marks\" only in the grammatical sense of indicating distinctions and \"mark\" only in \"mark ... wrong\"; neither is score terminology, and the lesson never calls questions \"cards.\""
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

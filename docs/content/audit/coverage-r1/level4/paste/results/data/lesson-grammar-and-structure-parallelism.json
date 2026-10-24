@@ -1,0 +1,278 @@
+{
+ "lesson_sha256": "be18765d177f1a289de7954d8d7f7e634e0fe9767df6504a4aed9a0eb6a0220c",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"She enjoys hiking and to swim\": both \"hiking\" and \"to swim\" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.",
+     "problem": "The packet's Level 3 record says \"enjoy\" rejects a to-infinitive complement. In this sentence, \"to swim\" is therefore not a valid complement of \"enjoy,\" so the example has a verb-pattern error in addition to the parallelism problem.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: I would change \"jumping higher\" to a form parallel with the other coordinated infinitives; \"to run faster, to jump higher, and to try harder\" is correct.",
+    "Example 2: I would remove the extra clause after \"but also\" and write \"The festival was not only fun but also educational.\"",
+    "Example 3: Choice (B) is correct because \"install,\" \"update,\" and \"troubleshoot\" are coordinated base verbs under the shared \"how to\" construction.",
+    "Example 4: I would change \"to watch\" to \"watching,\" giving \"Reading a book is more relaxing than watching television.\""
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; Mnemonics is optional, and this grammar lesson has no figure-dependent content."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches matching forms in lists, paired correlative conjunctions, and comparisons through its core teaching and four worked examples, directly serving the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Parallelism especially matters with **correlative conjunctions**, word pairs that connect two balanced parts: *either...or*, *neither...nor*, *not only...but also*, *both...and*. Whatever grammatical form follows the first word of the pair must be matched by the same form after the second word.",
+     "problem": "This teaching is packed into two long, terminology-heavy sentences. The density and sentence length are above the guide's Grade 5 benchmark for short, simple teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify and fix the parallelism error: \"The coach told the team to run faster, jumping higher, and to try harder.\"",
+     "problem": "The exam verbs \"Identify\" and \"fix\" appear in the first worked prompt without the required one-line explanation of what the student should do.",
+     "source": "single"
+    },
+    {
+     "quote": "Choose the sentence with correct parallel structure: (A) \"The manual explains how to install the software, updating it, and troubleshoot common errors.\" (B) \"The manual explains how to install the software, update it, and troubleshoot common errors.\"",
+     "problem": "The exam verb \"Choose\" appears for the first time without the required one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked stems use realistic grammar-test wording, provide the complete sentence or choices needed to answer, do not give away the parallelism rule in the stem, and the solutions return to plain explanatory language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language grammar lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach in Filipino, so Filipino grammar-term glossing does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is in English, so the Filipino-example language requirement cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the rule against Taglish in Filipino teaching prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a target word in bold or refers to an underlined or otherwise marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The section set is acceptable for Language Proficiency, and none of the four examples uses a mathematical formula that would need prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "The examples cover a simple list, correlative-conjunction balance, a shared-infinitive/base-verb list, and comparison parallelism. They vary the reasoning rather than only changing words or values, and they progress from direct repair to selection and comparison cases."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Each of the four solutions presents its reasoning as a numbered three-step list. These language examples contain no computations or equations, so no display equation is needed to show a missing calculation step."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could exceed a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and no example depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "After \"not only,\" the sentence uses the adjective \"fun.\" After \"but also,\" it awkwardly uses a full clause, \"it was educational,\" instead of matching with just the adjective \"educational.\"",
+     "problem": "The solution relies on the grammar labels \"adjective\" and \"full clause\" without explaining them first, and the packet provides no prerequisite lesson that teaches those meanings.",
+     "source": "single"
+    },
+    {
+     "quote": "In (B), all three items (\"install,\" \"update,\" and \"troubleshoot\") use the same base verb form.",
+     "problem": "The term \"base verb form\" is needed to understand why choice (B) is parallel, but the lesson never explains what a base verb is before using the term.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "In (B), all three items (\"install,\" \"update,\" and \"troubleshoot\") use the same base verb form.",
+     "problem": "The solution names the shared base-verb pattern but does not explain how the single infinitive marker in \"how to install\" can govern the later coordinated verbs \"update\" and \"troubleshoot.\" The shared-infinitive concept is therefore used without being taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Scan the list for matching endings.** For any list joined by \"and\" or \"or,\" quickly check whether each item ends the same way (all \"-ing,\" all \"to + verb,\" all plain nouns, and so on).",
+     "problem": "This shortcut gives no limitation for constructions where a marker can be shared, such as Example 3's \"how to install, update, and troubleshoot.\" Without that condition, students may wrongly expect every parallel item to repeat the same visible ending or infinitive marker.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "\"She enjoys hiking and to swim\": both \"hiking\" and \"to swim\" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.",
+   "concern": "The packet's Level 3 record notes that \"enjoy\" rejects a to-infinitive complement, so this sentence has a verb-complement error as well as a parallelism mismatch.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

@@ -1,0 +1,295 @@
+{
+ "lesson_sha256": "e8918a3a82e3e80fe74a0c3006741730b562721a0d1fa2d0048917730178c840",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "The purpose section correctly treats persuade, inform, and entertain as common but non-exhaustive categories and allows a passage to combine purposes.",
+    "The tone section correctly distinguishes tone from purpose and explains that tone is inferred from textual choices and context.",
+    "The point-of-view section correctly distinguishes first person, second person, third-person limited, omniscient, and objective by narrator position and access to information."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: My answer is persuasion because the sentence directly urges the reader to vote yes.",
+    "Example #2: My answer is critical or disapproving because shameless, squeeze, and overworked all express negative judgment.",
+    "Example #3: My answer is third-person omniscient because the narration gives Marco's thought and also states information beyond his awareness.",
+    "Example #4: My answer is third-person limited for the quoted sentence because it directly reports one character's mental state; a version limited to observable actions and speech would be third-person objective."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and none of its examples depends on a required figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches how to infer purpose and tone from textual choices and how to distinguish narrative perspectives by narrator position and access to information, matching the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It is inferred from diction, imagery, syntax, emphasis, and context.",
+     "problem": "This sentence relies on several unexplained academic terms, especially diction and syntax, so the teaching prose is not simple enough for the stated Grade 5 reading standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not use an exam command verb as a question instruction that needs a first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used in Core Concept or elsewhere in the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Vote yes on Proposition 12 to protect our local parks for future generations.",
+     "problem": "This passage is presented as the entire example prompt with no exam-style question asking the student to identify or infer the author's purpose; the same answer-without-question pattern is used throughout the Examples section.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains no repetitive exam or CET opener and does not use rote test-motivation phrasing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach Filipino grammar terms or Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so Taglish restrictions do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt asks the student to identify or interpret a specific target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases and em dashes, varies sentence openings, and uses a plain summary rather than the banned formula."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The Reading Comprehension lesson uses an allowed section layout. No worked example uses a formula, so there is no formula that must be traced back to Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A passage can have more than one purpose, with one more central than the others.",
+     "problem": "Mixed purpose is explicitly taught as an exam-relevant variation, but no worked example asks the student to weigh multiple purposes and identify the dominant one.",
+     "source": "single"
+    },
+    {
+     "quote": "**First person:** a narrator uses forms such as *I* or *we* and participates in or recounts the events.",
+     "problem": "First-person narration is part of the taught perspective set, but there is no worked first-person classification example.",
+     "source": "single"
+    },
+    {
+     "quote": "**Second person:** the text addresses a *you* and may cast that addressee as a participant.",
+     "problem": "Second-person narration is part of the taught perspective set, but there is no worked second-person classification example.",
+     "source": "single"
+    },
+    {
+     "quote": "\"A shameless attempt to squeeze more profit from overworked employees\" uses strongly evaluative diction. The tone is **critical/disapproving**.",
+     "problem": "The only tone example is a short passage with uniformly negative cues, so the examples do not ramp to a sustained target-exam passage where several or competing tone cues must be weighed.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The direct call to action makes **persuasion** the dominant purpose.",
+     "problem": "The worked answer is given as a single prose sentence with no Solution label and no numbered reasoning steps, so the required worked-example solution format is missing.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could exceed a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three sentences, and the only bullet list is the focused five-item list of narrative perspectives."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to judge under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It is inferred from diction, imagery, syntax, emphasis, and context.",
+     "problem": "The lesson tells students to use diction, imagery, syntax, and emphasis as tone evidence without first explaining what those terms mean, and there is no prerequisite lesson supplying those meanings.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Author's purpose is defined and tied to what a text is doing, tone is defined and tied to textual evidence, and point of view is defined through narrator position plus access to information."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states key limitations and exceptions: purpose categories are not exhaustive, passages may mix purposes, tone differs from purpose, pronouns alone do not prove point of view, first person need not equal the real author, and objective narration may reveal no thoughts."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Proposition 12 to protect our local parks for future generations.",
+     "problem": "The numeral 12 appears in prose outside inline math delimiters, which breaks the form's rule that numbers in prose must be written inside `$...$`.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

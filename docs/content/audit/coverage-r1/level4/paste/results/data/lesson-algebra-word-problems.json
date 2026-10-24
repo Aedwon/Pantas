@@ -1,0 +1,327 @@
+{
+ "lesson_sha256": "1035dfab36a970f460b8f58c208561843d2215b724facc78aa44a2870fb3440b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "CETs use these six costumes over and over.",
+     "problem": "This is an unconfirmed exam-scope claim. The packet's Level 3 record says the named word-problem scope is official for CSE, while coverage of these exact families and depth is unknown or weak elsewhere.",
+     "source": "single"
+    },
+    {
+     "quote": "The unasked value is always in the choices.",
+     "problem": "This universal claim about answer choices is not verified. The Level 3 record explicitly says claims that the unasked value always appears in the choices are not verified exam facts.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: solving 3b + 6 = 2(b + 6) gives b = 6, so Ana is 18; the six-year check gives 24 and 12.",
+    "Example 2: 60t + 80t = 350 gives 140t = 350 and t = 2.5 hours.",
+    "Example 3: 1/6 + 1/3 = 1/2 room per hour, so one room takes 2 hours.",
+    "Example 4: 0.20x + 4 = 0.30(x + 8) gives 1.6 = 0.10x and x = 16 liters; 7.2/24 = 0.30.",
+    "Example 5: x + y = 20 and x + 5y = 52 give 4y = 32, so y = 8 five-peso coins.",
+    "Example 6: t + u = 9 and u - t = 3 give u = 6 and t = 3, so the original number is 36 and its reverse is 63."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The math lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; the mnemonic section is optional, and none of the six worked questions requires a load-bearing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches equation setup for age, motion, work, mixture, coin, and digit problems and repeatedly returns to answering the quantity requested, matching the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Time is the reciprocal of the rate.",
+     "problem": "The word \"reciprocal\" is advanced for the Grade 5 teaching-language standard and is used without a simple explanation in that sentence.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the original number.",
+     "problem": "The exam command verb \"Find\" is used in the digit-problem prompt without the required one-line explanation on first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson uses one recurring costume analogy, and it is introduced in Core Concept rather than in an example or trap."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Time is the reciprocal of the rate.",
+     "problem": "The worked solutions are required to return to simple teaching language, but this solution introduces the unexplained technical word \"reciprocal\" instead.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson uses one CET mention to motivate the topic and later refers to trap choices and test-makers with different wording rather than repeating one stock exam opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No Filipino grammar term appears because this is an English mathematics lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching text whose spelling or usage needs a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson uses English teaching prose, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases, varies sentence openings, and uses a plain frontmatter summary that does not begin with \"This lesson teaches you\"."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Time is the reciprocal of the rate.",
+     "problem": "The work example first introduces the relationship time = 1/rate inside the worked solution. Core Concept teaches rate = 1/time and adding rates, but it does not state the inverse time relationship before the example uses it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For motion problems, add the speeds when moving apart or toward each other, and subtract the speeds when one chases the other.",
+     "problem": "The lesson names moving toward each other and chase motion as distinct motion cases, but only opposite-direction separation has a worked example. Those named variations are therefore not covered by worked examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Let $b$ be Ben's age now. Then Ana's age now is $3b$.",
+     "problem": "This setup is part of the worked solution but appears before the numbered list, so the solution does not keep every solution step in numbered steps.",
+     "source": "single"
+    },
+    {
+     "quote": "4. Ben is $6$, so Ana is $3 \\times 6 = 18$. The question asks for Ana, so the answer is $18$.",
+     "problem": "The key computation for the requested answer is kept inline instead of being placed on its own display-equation line as required for worked solutions.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$\\dfrac{1}{6} + \\dfrac{1}{3} = \\dfrac{1}{6} + \\dfrac{2}{6} = \\dfrac{3}{6} = \\dfrac{1}{2}$$",
+     "problem": "This display chains several fractions across one line and is too wide for the phone-screen constraint; it should be split into narrower display steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three short sentences, and non-solution bulleting is limited to the four-step modeling plan."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no ILLUSTRATION placeholder to evaluate under this placeholder-specific rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Time is the reciprocal of the rate.",
+     "problem": "The necessary term \"reciprocal\" is used to justify the work calculation before its meaning is explained, and there is no prerequisite lesson supplying that explanation.",
+     "source": "single"
+    },
+    {
+     "quote": "Pure alcohol in: $0.20x$ from the first solution and $0.50(8) = 4$ from the second.",
+     "problem": "The solution silently converts 20% to 0.20 and 50% to 0.50 without explaining percent-to-decimal conversion, and the packet identifies no prerequisite lesson for it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Age is explained through equal time change for everyone; motion links distance, rate, and time; work explains per-hour rates and addition; mixture explains conserved pure amount; coin problems separate count from value; and digit problems explain place value and reversal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For work problems with two workers, use this shortcut formula: time together equals the product of the times over the sum of the times.",
+     "problem": "The shortcut is stated for any two-worker work problem without saying it assumes fixed positive rates, both workers doing the same job, and both contributing together for the modeled interval.",
+     "source": "single"
+    },
+    {
+     "quote": "For motion problems, add the speeds when moving apart or toward each other, and subtract the speeds when one chases the other.",
+     "problem": "The relative-speed shortcut does not state the constant-rate and compatible-direction conditions under which this add-or-subtract rule is valid.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Two cars leave the same gas station at the same time and drive in opposite directions.",
+   "description": "Show one gas station at center with two cars moving in opposite directions, labeled 60 kph and 80 kph, with the growing separation marked between them.",
+   "why": "A simple direction diagram would make the idea that the two traveled distances add to the total separation easier to see.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [
+  {
+   "quote": "The unasked value is always in the choices.",
+   "concern": "This is an unsupported universal statement about exam distractors and can easily be false for a particular test item.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

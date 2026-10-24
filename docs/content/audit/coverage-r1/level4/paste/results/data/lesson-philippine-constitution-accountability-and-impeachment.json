@@ -1,0 +1,310 @@
+{
+ "lesson_sha256": "7c835cee0223566747f057fc362fefa1bcc4f9154390c4676434fb5aaad39633",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified Article XI, Sections 1 and 2 against the Official Gazette 1987 Constitution at https://officialgazette.gov.ph/constitutions/1987-constitution/. The public-trust standard, the five impeachable-officer categories, the six impeachment grounds, and the exclusion of other officers from impeachment all match the source."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: a Regional Trial Court judge is not on the Article XI impeachable-officer list, so the answer is no.",
+    "Example 2 blind solve: betrayal of public trust is expressly one of the Article XI impeachment grounds, so the answer is yes.",
+    "Example 3 blind solve: choice (C), a Cabinet Secretary, is not on the Article XI impeachable-officer list."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "4. Therefore, a Cabinet Secretary is not subject to removal by impeachment.",
+     "problem": "The lesson ends after Examples and omits the required \"Speed Tricks & Shortcuts\" and \"Traps to Watch For\" sections. The guide makes only \"Mnemonics & Memory Aids\" optional, and no subject-specific exception for General Information is provided.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, betrayal of public trust is a valid constitutional ground for impeachment.",
+     "problem": "The recorded goal requires keeping officer/ground list checks separate from adjudicating a legal case. The lesson verifies that a named ground is on the list but never teaches that this does not establish the accusation, sufficiency of facts, liability, conviction, or case merits.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Article XI, Section 1 states that public office is a public trust. Public officers and employees must at all times be accountable to the people, serve them with utmost responsibility, integrity, loyalty, and efficiency, act with patriotism and justice, and lead modest lives.",
+     "problem": "The second sentence is long and dense for the Grade 5 teaching-prose standard, with several abstract terms packed into one sentence and no simpler explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked questions do not use an exam command verb such as evaluate, identify, compare, or explain in the question stem.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All three example stems supply the specific office or alleged ground needed for the classification task without giving away a method or definition, and their solutions return to simple list-comparison language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the Filipino Grade 5 teaching-prose rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar and contains no hard Filipino grammar term requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish prohibition does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or reason about a target word that would need bold formatting.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Which official is NOT subject to removal by impeachment under Article XI?",
+     "problem": "The lesson uses ALL-CAPS \"NOT\" for emphasis, which the supplied emphasis rules prohibit; the word should not be capitalized merely for stress.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson is General Information and uses no formulas or quantitative methods. No example introduces or depends on a formula that should first appear in Core Concept; the separate missing-section issue is recorded under B03."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "4. Therefore, a Cabinet Secretary is not subject to removal by impeachment.",
+     "problem": "The examples end without a direct President or Vice-President eligibility case and without a case where an alleged ground is outside the exclusive constitutional list. Those are distinct list-check variations within the recorded learning goal, so coverage is incomplete.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Check the closed list of impeachable officers under Article XI, Section 2.",
+     "problem": "This is the first solution step, but it appears as unnumbered prose before the numbered list. The rule requires every solution step to be in the numbered list.",
+     "source": "single"
+    },
+    {
+     "quote": "Verify the ground against the closed list of constitutional grounds.",
+     "problem": "This is the first solution step, but it appears as unnumbered prose before the numbered list. The rule requires every solution step to be in the numbered list.",
+     "source": "single"
+    },
+    {
+     "quote": "Compare each title against the five impeachable offices.",
+     "problem": "This is the first solution step, but it appears as unnumbered prose before the numbered list. The rule requires every solution step to be in the numbered list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation width to evaluate for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Public officers and employees must at all times be accountable to the people, serve them with utmost responsibility, integrity, loyalty, and efficiency, act with patriotism and justice, and lead modest lives.",
+     "problem": "This paragraph contains a long, clause-heavy sentence instead of a short sentence, so it breaks the one-to-three short-sentences formatting rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its list-classification questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "For the narrow list-check task, the needed meanings are supplied before use: \"only\" establishes the closed officer list, \"exclusively\" establishes the closed ground list, the Constitutional Commissions are named as CSC, COMELEC, and COA, and impeachment is framed as a route for removal from office."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains how the closed-list method works by stating which officers alone are impeachable, which grounds alone qualify, and that all other officers are excluded; all three examples then demonstrate membership checks against those lists."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, betrayal of public trust is a valid constitutional ground for impeachment.",
+     "problem": "The lesson does not state the key limitation that matching an accusation to a named constitutional ground is only a list-membership check. It does not by itself establish the facts, legal sufficiency, merits, conviction, or removal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Article XI, Section 1 states that public office is a public trust.",
+     "problem": "The numeral 1 appears in prose outside inline math. Under B08, prose numbers must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "Under Article XI, Section 2, only the following public officials may be removed from office by impeachment:",
+     "problem": "The numeral 2 appears in prose outside inline math. Under B08, prose numbers must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "Article XI, Section 2 restricts the grounds for impeachment exclusively to:",
+     "problem": "The numeral 2 appears in prose outside inline math. Under B08, prose numbers must be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "Check the closed list of impeachable officers under Article XI, Section 2.",
+     "problem": "The numeral 2 appears in prose outside inline math. Under B08, prose numbers must be wrapped in $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

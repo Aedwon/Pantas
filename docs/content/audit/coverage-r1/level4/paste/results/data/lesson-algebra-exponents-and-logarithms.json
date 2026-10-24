@@ -1,0 +1,318 @@
+{
+ "lesson_sha256": "1d3cbe111aa3cbf7581ee324b70c6f2771ae0e725f476b2e2f1f16295588d263",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [
+    "Checked the exponent and logarithm laws, domain statements, inverse relationship, and common-log convention for factual correctness."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$(a^m)^n=a^{mn}$$",
+     "problem": "As stated for all cases where the indicated powers are defined, this is false over the reals. With a=-1, m=2, and n=1/2, the left side is 1 while the right side is -1, and both sides are defined.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: combining exponents gives x^5/y^2.",
+    "Example 2: 8^(-2/3) equals 1/4.",
+    "Example 3: log base 3 of 81 equals 4.",
+    "Example 4: the condensed expression is log(x^2 y / z^3).",
+    "Example 5: rewriting to base 2 gives 4x-2=3x+3, so x=5.",
+    "Example 6: log base 10 of 12 equals 2a+b."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required mathematics section structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present.",
+    "No example depends on a figure, graph, table, or other required illustration."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches simplifying powers, logarithms as inverse exponentials, and combining logarithmic expressions under stated domain conditions, matching the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the teaching prose for short sentences, filler, and unnecessarily difficult wording; the explanations are generally direct and concise for the subject."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Simplify $\\dfrac{(x^3y^2)(x^4y^{-1})}{x^2y^3}$ for nonzero $x$ and $y$.",
+     "problem": "The exam verb \"Simplify\" appears without the required one-line explanation on its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "Evaluate $8^{-\\dfrac{2}{3}}$.",
+     "problem": "The exam verb \"Evaluate\" appears without the required one-line explanation on its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "For $x>0$, $y>0$, and $z>0$, express $2\\log(x)+\\log(y)-3\\log(z)$ as a single common logarithm.",
+     "problem": "The exam verb \"express\" appears without the required one-line explanation on its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "Solve $4^{2x-1}=8^{x+1}$.",
+     "problem": "The exam verb \"Solve\" appears without the required one-line explanation on its first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "Counted analogies in the lesson; none are used, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all six worked-example stems: they use standard exam commands, give needed values and conditions, and do not hand students an untaught solution method.",
+    "Checked the worked solutions for simple instructional language after the exam-style question stems."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for repeated or formulaic exam mentions and trap openers; the lesson does not repeat a canned exam-motivation phrase."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terms that require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino examples are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage needs KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is English-language teaching prose, so the Filipino Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked target word or refers to a word that should be bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for the listed stock AI phrases, em-dash-like stock constructions, repetitive sentence openings, and a generic summary opener; none are present."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 uses the same-base product law, quotient law, and negative-exponent reciprocal, all introduced under Laws of Exponents in Core Concept.",
+    "Example 2 uses the negative-exponent reciprocal and fractional-exponent root rule, both introduced under Laws of Exponents in Core Concept.",
+    "Example 3 uses the logarithm-to-exponential definition introduced before the laws in Core Concept.",
+    "Example 4 uses the logarithm power, product, and quotient laws, all introduced under Laws of Logarithms in Core Concept.",
+    "Example 5 uses the power-of-a-power law introduced under Laws of Exponents in Core Concept.",
+    "Example 6 uses the logarithm product and power laws introduced under Laws of Logarithms in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Rewrite the negative exponent.",
+     "problem": "The worked examples cover negative and fractional exponents but never cover the distinct zero-exponent case identified in the Level 3 record, so example coverage of defined powers is incomplete.",
+     "source": "single"
+    },
+    {
+     "quote": "Write the equivalent exponential equation:",
+     "problem": "The logarithm examples cover direct evaluation and log-law manipulation but do not work a logarithmic equation with an unknown argument, a distinct inverse-log scenario identified in the Level 3 record.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Write the equivalent exponential equation:",
+     "problem": "Example 3 presents its solution as unnumbered prose and display equations instead of the required numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every display equation for width; each is short enough to fit a phone screen without an obviously overlong line."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson paragraphs and lists; prose paragraphs stay within one to three short sentences, and bullet-style content is used sparingly."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its algebra examples depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Because the exponential function with base $2$ is one-to-one, equate exponents.",
+     "problem": "The term \"one-to-one\" is needed to justify equating exponents, but the lesson never explains what one-to-one means before using it.",
+     "source": "single"
+    },
+    {
+     "quote": "For $x>0$, $y>0$, and $z>0$, express $2\\log(x)+\\log(y)-3\\log(z)$ as a single common logarithm.",
+     "problem": "The example uses \"common logarithm\" before the lesson explains that an unwritten log base means base 10; that explanation appears only later in Traps to Watch For.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For expressions where the indicated powers and divisions are defined:",
+     "problem": "The lesson's stated goal covers simplifying defined powers, but it never explains the zero-exponent identity a^0=1 for nonzero a, which the Level 3 record identifies as a distinct skill.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$(a^m)^n=a^{mn}$$",
+     "problem": "The lesson does not state the limitation needed for negative real bases with fractional outer exponents. Merely saying the indicated powers are defined is insufficient because both sides can be defined and still differ.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "$$(a^m)^n=a^{mn}$$",
+   "concern": "This power-of-a-power identity is stated too broadly for real exponents. For example, with a=-1, m=2, and n=1/2, the left side is 1 but the right side is -1 although both are defined.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

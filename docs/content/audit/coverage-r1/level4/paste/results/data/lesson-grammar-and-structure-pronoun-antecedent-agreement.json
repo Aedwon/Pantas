@@ -1,0 +1,299 @@
+{
+ "lesson_sha256": "d41382c5695a149b0beda13638c4d5097672b5fc3b4739ff1aafa94c642ecfc3",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked singular they for generic and nonbinary singular reference, including ordinary they-verb agreement, against MLA Style Center and Chicago Manual of Style guidance: https://style.mla.org/using-singular-they/ and https://www.chicagomanualofstyle.org/qanda/data/faq/topics/Pronouns/faq0031.html.",
+    "Checked the lesson's claim that singular they has a long English history against the University of Illinois summary of OED evidence tracing it to 1375: https://blogs.uofi.uillinois.edu/view/25/677177.",
+    "Checked collective-noun agreement by unit versus individual members against Cambridge Grammar, which allows singular or plural agreement according to meaning: https://dictionary.cambridge.org/us/grammar/british-grammar/nouns-plural.",
+    "Checked Filipino personal-pronoun sets and ang/ng/sa-associated forms against KWF's Balarila and the University of Hawai‘i Filipino grammar tables; ako/ko/akin, siya/niya/kaniya, and sila/nila/kanila are supported: https://kwf.gov.ph/wp-content/uploads/Balarila-ng-Wikang-Pambansa-1.pdf and https://www.hawaii.edu/filipino/Grammar_Topics/Grammar_3-1.html.",
+    "Checked that Filipino siya is third-person singular without an English he/she gender split against University of Hawai‘i Press material glossing siya as he/she: https://manifold.uhpress.hawaii.edu/read/tagalog-for-beginners/section/5bb087e3-9a08-429e-b742-00c182e26f40."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: solving from the stem alone, Each is singular but can take gender-neutral singular their, so the answer is their.",
+    "Example #2: solving from the stem alone, company is treated as one organization, so the answer is its.",
+    "Example #3: solving from the stem alone, Liza and Carlo form a plural antecedent, so the answer is their.",
+    "Example #4: solving from the stem alone, she can refer to either Mrs. Santos or Anna; naming the intended person removes the ambiguity."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; the optional mnemonic section is omitted, and this pronoun lesson has no required figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson serves the recorded goal by teaching English pronoun reference through number, meaning, singular they, collective and compound antecedents, mixed or/nor cases, and ambiguity, while limiting the Filipino note to introducing personal-pronoun forms."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Forms such as *his or her* are also possible in some contexts, but they are not inherently more grammatical than singular *their*. Do not assume an exam must prefer *his or her* unless the item or style guide explicitly establishes that convention.",
+     "problem": "This teaching prose uses abstract, advanced wording such as \"inherently,\" \"grammatical,\" and \"explicitly establishes that convention,\" which is above the required Grade 5 reading level.",
+     "source": "single"
+    },
+    {
+     "quote": "Filipino personal pronouns are commonly grouped by syntactic form, including forms associated with *ang*, *ng*, and *sa* roles.",
+     "problem": "The phrase \"grouped by syntactic form\" and the unexplained role terminology are too technical for the required simple Grade 5 teaching prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Choose the natural modern form: Each of the students must submit *(their / its)* essay by Friday.",
+     "problem": "The exam verb \"Choose\" appears here for the first time, but the lesson never gives the required one-line explanation of what \"Choose\" means.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 asks the learner to select between their and its without giving the agreement rule, and its solution explains the rule in simple language.",
+    "Example #2 supplies the sentence and two pronoun choices without supplying the tested collective-noun rule; the solution gives the needed reason.",
+    "Example #3 supplies the compound antecedent and two choices without giving away the plural-agreement rule; the solution states the reason.",
+    "Example #4 presents the ambiguous sentence itself and asks what is unclear; the solution identifies both possible antecedents and gives a clear repair."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson with only a short Filipino reference note, not Filipino teaching prose.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino personal pronouns are commonly grouped by syntactic form, including forms associated with *ang*, *ng*, and *sa* roles.",
+     "problem": "The hard Filipino grammar term \"Panghalip Panao\" is introduced in the heading immediately before this text without the required short English gloss on first use, such as \"personal pronoun.\"",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson; its worked examples test English pronoun reference, not Filipino usage.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino text and Filipino pronoun forms, so KWF spelling and usage require the mandated source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The Filipino subsection is explained in English, so there is no Filipino teaching prose here to evaluate for Taglish.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked target word, so the bold-target-word prompt rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson uses the Language Proficiency section structure with Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For. It contains no formulas, so no example introduces a formula before Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "With antecedents joined by *or/nor*, a pronoun can become awkward if one option is singular and another plural. Instead of relying on a mechanical \"nearest antecedent\" rule for pronouns, rewrite for clarity when possible: \"Neither the coach nor the players brought the equipment they needed\" or \"Neither the players nor the coach brought the required equipment.\"",
+     "problem": "Mixed singular/plural antecedents joined by or/nor are taught as a distinct exam-relevant case, but the Examples section has no worked example that makes the learner handle this case.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"Company\" refers to the organization as one unit, so *its* is appropriate.",
+     "problem": "Example #2's solution is plain prose instead of the required numbered solution-step list.",
+     "source": "single"
+    },
+    {
+     "quote": "The compound antecedent is plural, so *their* is correct.",
+     "problem": "Example #3's solution is plain prose instead of the required numbered solution-step list.",
+     "source": "single"
+    },
+    {
+     "quote": "The reader cannot tell whether *she* means Mrs. Santos or Anna. Name the intended person: \"When Mrs. Santos spoke to Anna, Anna seemed upset.\"",
+     "problem": "Example #4's solution is plain prose instead of the required numbered solution-step list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no equation-width issue to check on a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "With antecedents joined by *or/nor*, a pronoun can become awkward if one option is singular and another plural. Instead of relying on a mechanical \"nearest antecedent\" rule for pronouns, rewrite for clarity when possible: \"Neither the coach nor the players brought the equipment they needed\" or \"Neither the players nor the coach brought the required equipment.\"",
+     "problem": "This paragraph has only two sentences, but the second is long and clause-heavy rather than a short sentence as the formatting rule requires.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders in this lesson, and no figure is required for the pronoun content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Filipino personal pronouns are commonly grouped by syntactic form, including forms associated with *ang*, *ng*, and *sa* roles.",
+     "problem": "The lesson uses \"syntactic form\" and the ang, ng, and sa role labels without explaining what those terms mean, so the grouping is not understandable to a learner from this lesson alone.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Examples include *ako/ko/akin*, *siya/niya/kaniya*, and plural forms such as *sila/nila/kanila*.",
+     "problem": "The Filipino pronoun sets are listed, but the lesson does not explain how the different forms work or what distinguishes their sentence roles; Level 3 likewise records these as named-only.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Singular they states when it applies and distinguishes antecedent verb agreement from they-verb agreement; the lesson also notes that his or her may be used in some contexts.",
+    "Collective-noun reference states the unit-versus-members condition and notes English-variety differences, while compound and is qualified as normally plural.",
+    "Mixed or/nor reference states the singular/plural awkwardness condition and recommends rewriting for clarity instead of forcing a nearest-antecedent shortcut.",
+    "Ambiguous reference states the limiting condition directly: a pronoun should not leave two equally plausible antecedents."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

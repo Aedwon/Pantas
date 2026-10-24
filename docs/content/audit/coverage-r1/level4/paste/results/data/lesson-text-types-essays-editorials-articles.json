@@ -1,0 +1,304 @@
+{
+ "lesson_sha256": "3b10c0b0c8815c32cc2fc4ee53ae3387f7f3d58bdbb38431c983ffa370480ff2",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the editorial-versus-individual-opinion distinction against the lesson's definitions of institutional editorials and named-writer opinion pieces; no factual contradiction was found.",
+    "Checked the lesson's claims about sourcing, attribution, labeling, and editorial judgment for internal consistency and factual plausibility; no inaccurate claim was identified."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "#1 own solve: a neutral, attributed city announcement fits news reporting.",
+    "#2 own solve: the funding criticism is opinion; it is an editorial only with institutional authorship, otherwise it can be a signed column, op-ed, or commentary.",
+    "#3 own solve: first-person experience followed by reflection fits a personal essay.",
+    "#4 own solve: the first sentence reports an attributed estimate, while the second advocates repeal; the lesson's contrast is correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are all present; Mnemonics & Memory Aids is optional, and no figure-dependent task requires a missing figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches classification by purpose, authorship, evidence, and stance, then applies those cues to essays, editorials/opinion, and news without teaching writing production."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Text types overlap, so classify a passage from its **purpose, authorship, structure, evidence, and stance**, not from one signal word.",
+     "problem": "This opening packs several abstract terms, including authorship and stance, into one sentence before explaining them. That is not very simple Grade 5 teaching prose.",
+     "source": "single"
+    },
+    {
+     "quote": "Reporting still involves editorial judgment about relevance, sourcing, framing, and context, so \"objective\" should not be understood as having no human choices at all.",
+     "problem": "This sentence is long and concept-dense, with several abstract journalism terms and a qualified idea about objectivity. It exceeds the lesson's Grade 5 simplicity target.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Text types overlap, so classify a passage from its **purpose, authorship, structure, evidence, and stance**, not from one signal word.",
+     "problem": "The exam verb \"classify\" first appears here without a one-line explanation of what the student is being asked to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in Core Concept or elsewhere, so the lesson stays within the one-analogy limit."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"City officials announced yesterday that the new bridge project will be completed six months ahead of schedule, according to a press release issued Tuesday.\"",
+     "problem": "The example supplies only an excerpt and then explains it; it does not give an exam-style question asking the student to classify or interpret the text. The other examples use the same non-question format.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "No exam or CET mentions appear, so there are no repetitive or unmotivating exam-reference openers to flag."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar, so Filipino grammar-term glossing does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is in English and contains no Filipino-language examples or quiz items.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching text whose spelling or usage requires a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is English, so the Filipino no-Taglish rule cannot apply here.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt asks about a marked target word, so the bold-target-word rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The listed stock AI phrases are absent, sentence openings vary, and the frontmatter summary plainly describes the lesson rather than using the banned template."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This Reading Comprehension lesson uses the permitted generic section structure, and no mathematical formula appears in any example or solution, so there is no formula-ordering breach."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Essays can be personal, expository, analytical, or argumentative.",
+     "problem": "Only the personal-essay case receives a worked example. Expository, analytical, and argumentative essay interpretation are distinct cases named by the lesson but are not worked.",
+     "source": "single"
+    },
+    {
+     "quote": "A passage can also blend reporting, analysis, and commentary. Use the evidence in the passage itself and any available label or byline.",
+     "problem": "The lesson identifies blended texts and label/byline evidence as important classification cases, but no worked example requires the student to handle either case. The examples therefore do not cover the full set of distinct scenarios taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "This sentence attributes a checkable claim to a source and does not itself advocate a position. In context, it fits **news reporting**.",
+     "problem": "The worked answer is given as ordinary prose rather than a numbered solution. The same unnumbered answer format is used for all four examples, so the required stepwise solution format is absent.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so phone-width equation fitting cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **news report/article** primarily reports verified information about events or issues. Many professional news organizations distinguish news reporting from opinion/commentary and expect the two to be clearly labeled. Reporting still involves editorial judgment about relevance, sourcing, framing, and context, so \"objective\" should not be understood as having no human choices at all. The key distinction is that straight reporting does not present the writer's personal advocacy as the article's main purpose.",
+     "problem": "This paragraph contains four sentences, exceeding the rule's maximum of three sentences per paragraph.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders and no figure-dependent question that would require one.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Use the evidence in the passage itself and any available label or byline.",
+     "problem": "The lesson relies on a byline as a classification cue but never explains what a byline is before students are asked to use it.",
+     "source": "single"
+    },
+    {
+     "quote": "**Look at attribution and evidence.** Straight news commonly identifies sources for contested claims; opinion writing may also cite evidence but uses it to argue a stated position.",
+     "problem": "Attribution is introduced as a necessary reading cue without being defined or briefly explained, leaving an important term unexplained.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Essay, editorial, op-ed/commentary/column, and news report are each given meanings plus purpose or authorship distinctions, and the lesson explains overlap instead of only listing genre names."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states the main classification limits: editorial depends on institutional authorship, individual opinion may be a column/op-ed/commentary, reporting can contain judgment or analysis, opinion can use facts, and texts can blend categories."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A news report may say, \"Officials estimate the policy will raise ₱2 million annually.\" An opinion piece may argue, \"The policy unfairly burdens working families and should be repealed.\"",
+     "problem": "The numeral 2 appears in prose as ₱2 outside inline math delimiters. The math-notation rule requires numbers in prose to be wrapped in `$...$`.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

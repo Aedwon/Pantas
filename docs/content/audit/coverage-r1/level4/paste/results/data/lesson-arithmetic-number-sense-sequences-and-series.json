@@ -1,0 +1,290 @@
+{
+ "lesson_sha256": "dccf450a299166b1d0bda9697f2cfc2e17e3c3566f81acdf3c0c0ba34554a81e",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the arithmetic nth-term and sum formulas, geometric nth-term and finite-sum formulas including the r=1 case, the infinite-geometric convergence condition and sum, the harmonic-sequence definition, the Fibonacci-type recurrence, and the arithmetic middle-term average property; all are mathematically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: 4+24(3)=76, matching the lesson.",
+    "Example 2 blind solve: the 15th row has 76 seats and the arithmetic sum is 15(20+76)/2=720, matching the lesson.",
+    "Example 3 blind solve: 3(-2)^7=-384, matching the lesson.",
+    "Example 4 blind solve: the ratio is 1/3 and 18/(1-1/3)=27, matching the lesson.",
+    "Example 5 blind solve: reciprocals are 2,5,8,...; the sixth reciprocal is 17, so the requested term is 1/17, matching the lesson.",
+    "Example 6 blind solve: z=x+y=(2a+1)+(3a-2)=5a-1, matching the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required mathematics sections Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the mnemonic section is optional, and none of the worked questions depends on a required figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson defines sequence versus series, teaches common arithmetic, geometric, Fibonacci-type, and harmonic rules, shows term finding, and distinguishes finite sums from convergent and divergent infinite geometric series, serving the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs and solution steps use short sentences, direct wording, and little filler; necessary mathematical vocabulary is presented in otherwise simple English."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the $8^{\\text{th}}$ term of $3,-6,12,-24,\\dots$.",
+     "problem": "The exam verb \"Find\" is used in a question without a one-line explanation of what the verb asks the student to do.",
+     "source": "single"
+    },
+    {
+     "quote": "Evaluate $18+6+2+\\dfrac{2}{3}+\\dots$.",
+     "problem": "The exam verb \"Evaluate\" is used without the required one-line explanation on its first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All six worked-example stems give the problem-specific terms, values, or conditions needed for a determinate answer without supplying the formula or method being tested; the solutions return to simple explanatory language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat canned exam-motivation openers or rely on repetitive references to test-makers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson contains no Filipino grammar terminology requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the Filipino teaching-prose Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specifically marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases and em-dash-style constructions, sentence openings vary sufficiently, and the summary plainly states the content instead of using a canned lesson-summary opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Consecutive terms satisfy $x+y=z$.",
+     "problem": "The symbolic Fibonacci-type recurrence $x+y=z$ is introduced for the first time inside the worked example; Core Concept states the relationship only in prose, while L17 requires every formula used in an example to appear in Core Concept first.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Finite geometric series for $r\\ne1$:",
+     "problem": "Finite geometric-series sums are taught as a distinct exam-relevant case but receive no worked example, so the example set does not cover every distinct scenario.",
+     "source": "single"
+    },
+    {
+     "quote": "If $r=1$, all $n$ terms equal $a_1$, so $S_n=na_1$.",
+     "problem": "The special r=1 finite-geometric case is an explicit edge case in the teaching but has no worked example showing how to recognize and solve it.",
+     "source": "single"
+    },
+    {
+     "quote": "If $|r|\\ge1$, the infinite geometric series diverges and has no finite sum.",
+     "problem": "The divergent infinite-geometric case is an explicit edge case, but every infinite-series example uses a convergent ratio, leaving this case unworked.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "Each worked solution is organized as numbered steps, and the arithmetic or algebraic computations that produce the answer are shown on display-equation lines."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "The displayed equations are short single-line formulas or computations and none is unusually wide for a phone content column."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three short sentences, and list formatting is limited to the sequence-type list and numbered solution steps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under the placeholder-specific rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The reciprocals of its nonzero terms form an arithmetic sequence.",
+     "problem": "The lesson requires students to use reciprocals to understand and solve harmonic sequences but never explains that taking a reciprocal means replacing a nonzero number x with 1/x; the prerequisite also does not supply that definition with a reminder.",
+     "source": "single"
+    },
+    {
+     "quote": "Infinite geometric series converges only when $|r|<1$:",
+     "problem": "The term \"converges\" is needed to understand the recorded learning goal and the infinite-series rule, but its meaning is not explained before it is used.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Infinite geometric series converges only when $|r|<1$:",
+     "problem": "The lesson states the convergence condition and then gives a sum formula, but it never explains what convergence means or how an infinite sequence of partial sums can approach a finite value.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Applicability conditions are stated where needed: harmonic reciprocals require nonzero terms; the finite geometric formula handles r not equal to 1 and gives the r=1 exception; the infinite sum requires |r|<1 and states the divergent alternative; the arithmetic term-count shortcut requires nonzero d and membership of the last term; and the middle-term shortcut requires a finite arithmetic sequence with an odd number of terms."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

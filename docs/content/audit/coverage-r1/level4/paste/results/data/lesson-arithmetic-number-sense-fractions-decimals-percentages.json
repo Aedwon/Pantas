@@ -1,0 +1,333 @@
+{
+ "lesson_sha256": "5c2f5a66c7be71ea28805836a119f66a70945e75797939d497e7663d5126bbb0",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the representation statements, percent-decimal conversion rules, successive-discount reasoning, Percent Switcheroo identity, common fraction-percent equivalents, and percent-of versus percent-more relationships; all are mathematically correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: 0.125 = 125/1000 = 1/8, so the lesson's answer 1/8 is correct.",
+    "Example #2: 3/4 = 0.75 and 25% = 0.25; 0.75 + 0.50 - 0.25 = 1.00, so the answer is correct.",
+    "Example #3: 0.40x = 72 gives x = 180; 15% of 180 is 27, so the answer is correct.",
+    "Example #4: (1/4) divided by (5/8) = (1/4)(8/5) = 2/5 = 0.4 = 40%, so the answer is correct.",
+    "Example #5: applying 20% off leaves 80% of the price, then 25% off that leaves 60% of the original, so the equivalent discount is 40%."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Confirmed the required Mathematics structure is present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; the optional Mnemonics & Memory Aids section is also present.",
+    "Checked all example stems for referenced visual material; none depends on an absent figure, table, passage, or other required illustration."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "To turn a percentage into a decimal, divide by $100$. To turn a decimal into a percentage, multiply by $100$. To turn a fraction into a decimal, divide the numerator by the denominator; then multiply the decimal by $100$ if you need a percentage.",
+     "problem": "The recorded goal also requires choosing the correct base for percentage calculations, but Core Concept teaches only conversion directions and never teaches a general way to identify the percentage base before examples require it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Read the Core Concept, mnemonic, worked solutions, shortcuts, and traps for sentence length, common wording, and filler; the teaching prose is short and direct, while subject-term explanation gaps are handled under L25."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Evaluate $\\dfrac{3}{4} + 0.50 - 25\\%$ and express the answer as a decimal.",
+     "problem": "The exam verb \"Evaluate\" appears for the first time here, but the lesson never gives the required one-line explanation of what that verb asks the student to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five example stems: each supplies the problem-specific numbers and conditions needed for a determinate answer without giving away the tested conversion or percentage method, and each solution returns to short, simple language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is in English, so Filipino readability requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No Filipino grammar terms appear, so first-use English glosses are not applicable.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example and item language is not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text requiring an official spelling or usage check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "Teaching prose is English, so the Taglish restriction for Filipino prose does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt refers to a target word that would require bolding and the phrase \"the word in bold.\"",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$$0.125 = \\dfrac{125}{1000}$$",
+     "problem": "This decimal-to-fraction place-value method is first introduced inside Example #1. Core Concept does not teach the method or formula before the example uses it.",
+     "source": "single"
+    },
+    {
+     "quote": "$$0.40x = 72$$",
+     "problem": "This percent-amount equation is first introduced inside Example #3. Core Concept does not first teach the percent-base relationship or the equation form used here.",
+     "source": "single"
+    },
+    {
+     "quote": "$$P = \\dfrac{1}{4} \\times \\dfrac{8}{5} = \\dfrac{2}{5}=0.4$$",
+     "problem": "The solution uses division by a fraction through multiplication by its reciprocal, but Core Concept never introduces that method before the example uses it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "To turn a percentage into a decimal, divide by $100$. To turn a decimal into a percentage, multiply by $100$. To turn a fraction into a decimal, divide the numerator by the denominator; then multiply the decimal by $100$ if you need a percentage.",
+     "problem": "The examples do not fully work every conversion scenario named by the learning goal. Fraction-to-decimal and percent-to-decimal appear only as stated intermediate results, and there is no worked percent-to-fraction conversion, so coverage is incomplete.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. After a $20\\%$ discount, $80$ remains.",
+     "problem": "Example #5 states key calculations in prose instead of showing them as display equations. The same solution also states the final-price and total-drop calculations without display equations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **fraction** compares a numerator with a denominator, where the denominator is not zero.",
+     "problem": "The lesson uses \"numerator\" and \"denominator\" to define a fraction and later tells students to divide one by the other, but it never explains which part of a fraction each term names.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The last digit is in the thousandths place, so:",
+     "problem": "The decimal-to-fraction method is developed for the first time inside this worked example instead of being explained as a general concept before application.",
+     "source": "single"
+    },
+    {
+     "quote": "If $40\\%$ of a number is $72$, what is $15\\%$ of the same number?",
+     "problem": "The lesson's goal requires choosing the correct percentage base, but no general explanation of what the base is or how to identify it appears before this example requires that reasoning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the stated applicability of fraction denominators, the decimal-percent multiply/divide-by-100 rules, Percent Switcheroo for real x and y, successive discounts using changing bases, and percent-of versus percent-more; the relevant conditions are stated where the rules are used."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **fraction** compares a numerator with a denominator, where the denominator is not zero. A **decimal** represents values using powers of $10$. A **percentage** means \"per hundred\" or \"out of 100.\"",
+     "problem": "The numeral 100 appears in prose outside inline math in the phrase \"out of 100,\" which violates the rule that numbers in prose must be inside $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "> **D** to **P**: multiply by $100$, so the decimal point moves 2 places right.",
+     "problem": "The numeral 2 appears in prose outside inline math, so it should be wrapped as $2$.",
+     "source": "single"
+    },
+    {
+     "quote": "> **P** to **D**: divide by $100$, so the decimal point moves 2 places left.",
+     "problem": "The numeral 2 appears in prose outside inline math, so it should be wrapped as $2$.",
+     "source": "single"
+    },
+    {
+     "quote": "The percent sign ($\\%$) can remind you that percent means \"per 100.\"",
+     "problem": "The numeral 100 appears in prose outside inline math in \"per 100,\" which violates the math-notation rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "Fractions, decimals, and percentages are three ways to represent the same quantities.",
+   "description": "A three-node conversion map linking fraction, decimal, and percentage, with arrows labeled fraction to decimal: divide numerator by denominator; decimal to percent: multiply by 100; percent to decimal: divide by 100.",
+   "why": "It would make the relationships among the three representations visible at a glance and help students choose the correct conversion direction.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "A retail store applies a $20\\%$ discount on a jacket. During a clearance sale, an additional $25\\%$ discount is applied to the discounted price. What is the total equivalent percentage discount from the original price?",
+   "description": "A 100-unit bar shrinking to 80 units after the first discount, then to 60 units after the second discount, with each percentage labeled against its current base.",
+   "why": "It would show why successive discounts use different base amounts and why the discounts cannot simply be added.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,280 @@
+{
+ "lesson_sha256": "e21f031450775025e09c266b8a964ba4396da5f21a8eeb7e9a494c70dd9f59cf",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "The public CSC CSE-PPT scope lists spelling under Subprofessional Clerical Ability, matching the lesson's scope claim.",
+    "KWF's Ortograpiyang Pambansa gives Spanish cuento with the Filipino adaptations kwento and kuwento, supporting the bounded variant claim.",
+    "The checked English spellings include conceive, seize, truly, argument, noticeable, managing, occurrence, beginning, and referred; no incorrect standard spelling was found."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 blind solve: B, concieve, is the misspelling; conceive is standard, while chief, neighbor, and seize are standard.",
+    "Example #2 blind solve: C, truely, is the misspelling; truly is standard, while argument, noticeable, and managing are standard.",
+    "Example #3 blind solve: A, occurrence, is the standard spelling; the other three choices are misspellings.",
+    "Example #4 blind solve: B is supported; KWF lists kwento and kuwento as adaptations of Spanish cuento."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, and no figure-dependent content requires a placeholder."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to recognize selected English spelling patterns and exceptions and use authoritative evidence for one bounded Filipino variant case; the lesson directly teaches both parts."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "For many one-syllable words and stressed final syllables ending in a single consonant after a single vowel, the final consonant doubles before certain vowel-initial suffixes: *run → running, begin → beginning*.",
+     "problem": "This sentence is too long and jargon-heavy for the Grade 5 teaching-prose standard, especially the unexplained phrases \"stressed final syllables\" and \"vowel-initial suffixes\".",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Choose the standard spelling:",
+     "problem": "The exam verb \"Choose\" first appears here without the required one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four example stems use direct exam-style wording, provide the complete choices needed for a determinate answer, and do not supply a formula or method that gives away the tested spelling knowledge."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson; it discusses one Filipino orthography case but does not use Filipino teaching prose.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not introduce a hard Filipino grammar term that requires an English gloss on first use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the requirement that lesson examples and quiz items be in Filipino does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino forms, including kwento and kuwento, so the packet requires needs_source_check for L11.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish usage can be evaluated.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt refers to a specially marked target word, so the bold-target-word prompt rule is not triggered.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson fits Language Proficiency structure and uses no formulas in any worked example, so there is no formula that must be introduced first in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**C**. The standard spelling is **truly**. The other three show why simple suffix rules have exceptions and spelling-preservation patterns.",
+     "problem": "The suffix section teaches dropping silent e, retaining e, and lexical exceptions as distinct cases, but this worked example directly solves only truly; managing and noticeable remain unworked distractors, so the distinct suffix cases do not each get a worked example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**B** is misspelled; the standard spelling is **conceive**. Notice that *seize* is also standard even though it does not follow the familiar mnemonic. This is why the rhyme is a memory aid, not a universal rule.",
+     "problem": "The worked solution is prose rather than a numbered list of solution steps. No display equation is needed for this spelling item, but the required numbered-step format is still missing.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display-equation lines to test for phone-screen width.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and no example depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Spelling is partly regular and partly lexical: patterns can help, but many words must also be learned individually.",
+     "problem": "The necessary term \"lexical\" is used immediately as part of the core explanation but is never defined or restated in simple language.",
+     "source": "single"
+    },
+    {
+     "quote": "The exact pattern depends on stress, spelling, and suffix; it is not merely \"CVC always doubles.\"",
+     "problem": "The abbreviation \"CVC\" is needed to understand the stated limitation and later trap, but the lesson never explains that it means consonant-vowel-consonant.",
+     "source": "single"
+    },
+    {
+     "quote": "**Look at the whole morphological family.** *Begin/beginning* and *refer/referred* can help you see stress/doubling patterns, but remember that families can also contain irregularities.",
+     "problem": "The term \"morphological family\" is presented as a shortcut students should use, but its meaning is not explained before the student is expected to use it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains how the limited i-before-e mnemonic works, how silent-e changes and exceptions behave, how stress and word shape affect consonant doubling, and why KWF references override blanket loanword rules."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states major applicability limits: i-before-e is only a memory aid, silent-e behavior varies by word and suffix, CVC alone does not guarantee doubling, and Filipino variants must be checked against KWF rather than a blanket rule."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The only flagged use is \"Do not mark one wrong,\" where mark means judge or label an answer wrong, not a score; the lesson does not use marks for points or cards for questions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,383 @@
+{
+ "lesson_sha256": "839c248c06bbbb1b31466e39226d8212c30914d8d00c388ca0fb25cbcf05d60c",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lexical claims and word senses used for synonym, antonym, fast, bark, ephemeral, mitigate, aggravate, maralita, and sycophantic; none conflicts with the meanings used in the lesson.",
+    "Checked the current CSE scope claim against the 2026 Civil Service Commission examination scope; Verbal Ability includes word meaning in English and Filipino."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: ephemeral means short-lived, so B, fleeting, is the best answer.",
+    "Example 2 blind solve: mitigate means make less severe, so A, aggravate, is the best opposite.",
+    "Example 3 blind solve: in the sentence about dreams collapsing because of a disaster, C, nasira, is the closest contextual choice.",
+    "Example 4 blind solve: maralita in the poor or impoverished sense contrasts with B, mayaman.",
+    "Example 5 blind solve: agreeing with bad ideas to gain favor signals excessive flattery, so B is correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Compared the lesson with the required Language Proficiency structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, and the optional mnemonic section is not required.",
+    "Checked for figure-dependent teaching or questions; this vocabulary lesson has no required figure, graph, diagram, or illustration-dependent example."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches choosing synonyms and antonyms by active context, includes both English and Filipino examples, and introduces finer limits involving sense, connotation, formality, intensity, and types of opposition."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "True interchangeability in every sentence is rare: near-synonyms can differ in connotation, formality, intensity, grammar, or typical collocations.",
+     "problem": "This teaching sentence uses several abstract or uncommon terms at once and is too dense for the required Grade 5 reading level.",
+     "source": "single"
+    },
+    {
+     "quote": "The behavior shows obsequious flattery for personal advantage. **B** is the closest choice.",
+     "problem": "The worked solution uses the uncommon phrase \"obsequious flattery\" instead of explaining the reasoning in very simple English.",
+     "source": "single"
+    },
+    {
+     "quote": "There is no evidence-based rule that a synonym is \"usually choice A\" or that the odd-looking option is normally correct. Use language evidence, not imagined item-writer habits.",
+     "problem": "This trap explanation uses abstract phrasing such as \"evidence-based\" and \"item-writer habits,\" making the teaching prose harder than the Grade 5 standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Choose the word closest in meaning to **ephemeral**:",
+     "problem": "The lesson uses the exam command \"Choose\" without giving the required one-line explanation when that exam verb first appears.",
+     "source": "single"
+    },
+    {
+     "quote": "Select the word most nearly opposite to **mitigate**:",
+     "problem": "The later exam command \"Select\" also appears without a one-line explanation of what the student is being asked to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "### #1: Assuming Synonyms Are Exact Twins\n\n> Near-synonyms often differ in register, connotation, intensity, or collocation.",
+     "problem": "The \"exact twins\" comparison is an analogy placed in Traps to Watch For, while the rule allows at most one analogy and requires it to be in Core Concept.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The manager's **sycophantic** assistant agreed with every bad idea in hopes of gaining favor.",
+     "problem": "Example 5 gives a context sentence and choices but no actual question or instruction, so the worked example does not use complete exam-style wording.",
+     "source": "single"
+    },
+    {
+     "quote": "The behavior shows obsequious flattery for personal advantage. **B** is the closest choice.",
+     "problem": "The solution is not written in the required simple language because \"obsequious flattery\" is harder than the teaching standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Here *gumuho* figuratively means the dreams collapsed or were ruined. **Nasira** is the closest option in this sentence. Another context could favor a different near-synonym.",
+     "problem": "This explanation teaches the meaning and use of a Filipino target word in English instead of using simple Filipino for Filipino-language teaching content.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains Filipino vocabulary, but it introduces no hard Filipino grammar term that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Which is closest in context?",
+     "problem": "The prompt for the Filipino synonym example is in English, so the Filipino example is not fully written in Filipino as required.",
+     "source": "single"
+    },
+    {
+     "quote": "Which is the clearest opposite of **maralita** in the sense \"poor/impoverished\"?",
+     "problem": "The prompt for the Filipino antonym example is in English, so the Filipino example is not fully written in Filipino as required.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "checked": [],
+   "note": "The lesson contains Filipino text, so spelling and usage require checking against the official Komisyon sa Wikang Filipino source.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Choose the word closest in meaning to **ephemeral**:",
+     "problem": "The target word is bold, but the prompt does not use the required wording \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "Select the word most nearly opposite to **mitigate**:",
+     "problem": "The target word is bold, but the prompt does not tell the student to answer about \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "Which is closest in context?",
+     "problem": "This prompt refers back to the bold Filipino target word but does not use the required phrase \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "Which is the clearest opposite of **maralita** in the sense \"poor/impoverished\"?",
+     "problem": "The target word is bold, but the prompt does not use the required phrase \"the word in bold.\"",
+     "source": "single"
+    },
+    {
+     "quote": "The manager's **sycophantic** assistant agreed with every bad idea in hopes of gaining favor.",
+     "problem": "The target word is bold, but Example 5 has no prompt at all and therefore never says \"the word in bold.\"",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the Language Proficiency section fit: the standard core sections are usable for this subject, and no mathematical or quantitative formula appears in any example or solution."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "True interchangeability in every sentence is rare: near-synonyms can differ in connotation, formality, intensity, grammar, or typical collocations.",
+     "problem": "The examples do not work distinct selection cases for register or formality, collocation, and a direct connotation or intensity contrast even though these are taught as exam-relevant limits.",
+     "source": "single"
+    },
+    {
+     "quote": "Some pairs are gradable (*hot/cold*), some are complementary in a given system (*alive/dead*), and some describe converse relationships (*buy/sell*).",
+     "problem": "No worked example makes the student apply complementary or converse antonymy, and the gradable hot/cold case is only stated rather than worked as a selection problem.",
+     "source": "single"
+    },
+    {
+     "quote": "A word may have several senses. The best synonym or antonym must match the **sense used in the sentence**, not merely the first dictionary definition you remember.",
+     "problem": "No worked example requires choosing between different senses of the same form, even though active-sense discrimination is central to the learning goal.",
+     "source": "single"
+    },
+    {
+     "quote": "**Use prefixes and roots only as clues.** A familiar element can narrow possibilities, but it cannot replace knowledge of the whole word.",
+     "problem": "The lesson gives no worked example in which a prefix or root is used as a clue and then checked against the word's contextual meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "*Ephemeral* means lasting a very short time. **Fleeting** is the closest option. Answer: **B**.",
+     "problem": "Example 1 presents its solution as a prose paragraph instead of the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "In the sense \"make less severe,\" the closest opposite is **aggravate**, \"make worse or more severe.\" Answer: **A**.",
+     "problem": "Example 2 presents its reasoning as prose instead of the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "Here *gumuho* figuratively means the dreams collapsed or were ruined. **Nasira** is the closest option in this sentence. Another context could favor a different near-synonym.",
+     "problem": "Example 3 presents its reasoning as prose instead of the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "**Solution:** **B, mayaman**.",
+     "problem": "Example 4 gives only an inline answer and does not provide the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "The behavior shows obsequious flattery for personal advantage. **B** is the closest choice.",
+     "problem": "Example 5 presents its reasoning as prose instead of the required numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose phone-screen width can be checked.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its vocabulary questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "True interchangeability in every sentence is rare: near-synonyms can differ in connotation, formality, intensity, grammar, or typical collocations.",
+     "problem": "The lesson uses collocations as a criterion for choosing near-synonyms but never explains what a collocation is before students need that meaning.",
+     "source": "single"
+    },
+    {
+     "quote": "Some pairs are gradable (*hot/cold*), some are complementary in a given system (*alive/dead*), and some describe converse relationships (*buy/sell*).",
+     "problem": "The terms gradable, complementary, and converse are introduced as necessary antonym categories without first explaining what those terms mean.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Some pairs are gradable (*hot/cold*), some are complementary in a given system (*alive/dead*), and some describe converse relationships (*buy/sell*).",
+     "problem": "The lesson mostly names these antonym types and supplies pairs; it does not explain how complementary and converse opposition work or how to recognize them.",
+     "source": "single"
+    },
+    {
+     "quote": "True interchangeability in every sentence is rare: near-synonyms can differ in connotation, formality, intensity, grammar, or typical collocations.",
+     "problem": "Collocation is presented as a meaningful way near-synonyms differ, but the lesson never explains what that concept means or how it affects word choice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's applicability limits: sense must match the exact sentence, near-synonyms can differ by context and degree, gradable opposites can have middle values, and prefixes or roots are clues only rather than exceptionless meaning codes."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

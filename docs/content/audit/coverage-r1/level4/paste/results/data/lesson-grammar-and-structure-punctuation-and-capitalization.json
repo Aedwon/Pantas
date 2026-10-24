@@ -1,0 +1,326 @@
+{
+ "lesson_sha256": "64659c131b134f542b0f6ef93283613e24cf22ea132269cc2cbaed18f65df65b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the comma rules for series, coordinating conjunctions, introductory elements, and nonessential information against Purdue OWL comma guidance.",
+    "Checked semicolon joining of independent clauses and comma-splice repair against Purdue OWL punctuation guidance.",
+    "Checked the lesson's apostrophe, title-capitalization, and quotation-capitalization statements for standard edited-English accuracy; no factual error was found."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: from the sentence alone, I get three valid repairs shown by the lesson: add a coordinating conjunction with a comma, use a semicolon, or split it into two sentences.",
+    "Example 2: my answer is \"its\" because the company possesses the product line; \"it is new product line\" and \"it has new product line\" do not fit.",
+    "Example 3: my answer is (B) because both sides of its semicolon are independent clauses; (A) has a subordinate because-clause.",
+    "Example 4: my answer is that both forms are correct under the stated convention: \"President Reyes\" is a formal title with a name, while \"the president\" is generic."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson has Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, which are the required language-proficiency lesson sections used here.",
+    "No figure is required by this punctuation-and-capitalization topic, and there is no figure-dependent example that needs an illustration placeholder."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to apply comma, semicolon, apostrophe, and capitalization conventions while distinguishing style-dependent choices; the lesson directly teaches all four areas and repeatedly qualifies style-dependent cases."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Punctuation helps show grammatical structure and relationships between ideas. Some conventions are stable; others depend on the style guide being followed.",
+     "problem": "The opening relies on abstract terms such as \"grammatical structure,\" \"conventions,\" and \"style guide\" without simpler wording, which is harder than the required Grade 5 teaching prose.",
+     "source": "single"
+    },
+    {
+     "quote": "Set off nonrestrictive/nonessential information: \"My brother, who lives in Cebu, is visiting.\" Restrictive information that identifies which person or thing is meant is normally not set off with commas.",
+     "problem": "This teaching sentence uses dense grammar terminology and a long contrast before those terms are made simple, so it does not meet the very-simple Grade 5 prose standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Compare: \"We met **President Reyes** yesterday\" and \"We met **the president** yesterday.\"",
+     "problem": "\"Compare\" is used as an exam-style instruction, but the lesson does not give the required one-line explanation of what that verb asks the student to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the lesson stays within the limit of at most one analogy in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "\"The concert was amazing, everyone stayed until the end.\"",
+     "problem": "Example 1 gives only the faulty sentence and no explicit exam-style instruction telling the student what to do, so the worked example stem is incomplete as a question.",
+     "source": "single"
+    },
+    {
+     "quote": "Compare: \"We met **President Reyes** yesterday\" and \"We met **the president** yesterday.\"",
+     "problem": "Example 4 tells the student only to compare two forms and never asks a determinate exam-style question, even though the solution supplies the intended distinction.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat canned exam or test-maker openers; its few strategy statements are phrased differently and tied to the punctuation choice being taught."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language punctuation and capitalization lesson, so the Filipino teaching-prose standard does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This English-language lesson does not teach Filipino grammar terms, so the Filipino-term gloss rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is not a Filipino-language lesson, so its examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage could be checked against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is English teaching prose rather than Filipino teaching prose, so the prohibition on Taglish in Filipino lessons does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt refers to a target word by saying \"the word\" or otherwise asking about a specifically marked word, so this emphasis rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases, uses varied sentence openings, and its summary starts directly with \"Learn\" instead of a repeated template such as \"This lesson teaches you.\""
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This is a Language Proficiency lesson, so no mathematics or quantitative-science formula requirement applies; the generic Speed Tricks & Shortcuts section is permitted because the guide says language lessons may, not must, retitle it.",
+    "No worked example uses a formula, so there is no formula that needed to appear earlier in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It can also separate complicated list items that already contain commas.",
+     "problem": "Complex-list semicolons are part of the taught scope, but there is no worked example showing that distinct semicolon scenario or how to place the separators.",
+     "source": "single"
+    },
+    {
+     "quote": "Apostrophes commonly mark possession (*Maria's book*) and omitted letters in contractions (*don't*, *it's*). **Its** is the possessive determiner; **it's** means *it is* or *it has*.",
+     "problem": "The examples test only its versus it's. They do not provide distinct worked examples for forming possessives or ordinary contractions, leaving exam-relevant apostrophe scenarios uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "A direct quotation that is itself a complete sentence normally begins with a capital letter: She said, \"The meeting is over.\" A quoted word or fragment embedded in a sentence need not: The word \"meeting\" appears twice.",
+     "problem": "The complete-quotation versus embedded-fragment distinction is taught but never appears in a worked example, so the examples do not cover every distinct scenario in the lesson goal.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Both sides are independent clauses. Possible repairs include:",
+     "problem": "The worked solution uses prose followed by ordinary bullets instead of numbered solution steps. No reasoning step is missing, but the required numbered-step format is not followed.",
+     "source": "single"
+    },
+    {
+     "quote": "The blank shows possession, so **its** is correct. The substitution *it is new product line* does not work.",
+     "problem": "This worked answer is presented as an unnumbered paragraph rather than the required numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display-math lines whose phone-screen width can be assessed.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Capitalize sentence beginnings and proper names. Capitalization of titles depends partly on style and function. Formal titles directly before names are often capitalized (\"President Reyes\"), while occupational descriptions are commonly lowercase (\"the president,\" \"the doctor\"). Some institutional or editorial styles also capitalize certain titles used alone, so \"only before a name\" is too absolute.",
+     "problem": "This paragraph contains four sentences, exceeding the rule that paragraphs contain one to three short sentences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders in the lesson, and this punctuation topic has no figure-dependent question that requires one.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Place a comma before a coordinating conjunction (*and, but, or, so, for, nor, yet*) when it joins two independent clauses: \"She studied hard, and she passed.\"",
+     "problem": "The lesson uses \"coordinating conjunction\" and \"independent clauses\" as necessary decision terms without explaining what either term means, and there is no prerequisite lesson to supply those meanings.",
+     "source": "single"
+    },
+    {
+     "quote": "(B). Both clauses can stand independently. In (A), the *because*-clause is subordinate.",
+     "problem": "The solution introduces \"subordinate\" as a grammar term without first explaining its meaning or linking it to an explained prerequisite.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It can also separate complicated list items that already contain commas.",
+     "problem": "This names the complex-list use of semicolons but does not explain the placement procedure or show how semicolons separate the list's larger items, so the concept is not fully taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Apostrophes commonly mark possession (*Maria's book*) and omitted letters in contractions (*don't*, *it's*). **Its** is the possessive determiner; **it's** means *it is* or *it has*.",
+     "problem": "The possessive-apostrophe rule omits relevant conditions for plural possessives and names ending in s, so students are not told when apostrophe placement changes.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The only use of \"mark\" is the subject-matter phrase \"mark possession,\" not a score. The lesson does not use \"marks\" for points or \"cards\" for questions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

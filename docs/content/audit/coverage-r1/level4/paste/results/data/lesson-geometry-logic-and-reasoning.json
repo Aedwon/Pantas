@@ -1,0 +1,309 @@
+{
+ "lesson_sha256": "83c3b1ee1c66bcd379e99cac3eb28effcd8228612c4b334900cdb6c3bad10c0b",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [
+    "Checked the converse, inverse, and contrapositive definitions and equivalence pairs against OpenStax's Equivalent Statements section.",
+    "Checked the stated Law of Syllogism pattern against standard geometry logic references; the $p$ to $q$, $q$ to $r$, therefore $p$ to $r$ pattern is correct.",
+    "Checked the counterexample, biconditional, divisibility, square, and prime-number claims directly; no other factual error was found."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Using one true statement plus a matching fact is the **Law of Detachment**.",
+     "problem": "This is too broad. The Law of Detachment specifically requires a true conditional $p$ implies $q$ together with its true hypothesis $p$, which permits conclusion $q$. Any true statement plus a vaguely \"matching\" fact is not sufficient. OpenStax states the required conditional-and-hypothesis structure: https://openstax.org/books/contemporary-mathematics/pages/2-7-logical-arguments",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Blind-solved Example 1: hypothesis is that the number is divisible by $6$; conclusion is that it is divisible by $3$.",
+    "Blind-solved Example 2: converse is wet ground implies rain; inverse is no rain implies dry ground; contrapositive is dry ground implies no rain.",
+    "Blind-solved Example 3: a valid answer needs wet ground without rain, such as ground made wet by a sprinkler; the lesson instead uses a mopped floor.",
+    "Blind-solved Example 4: choice C is the contrapositive and therefore the logically equivalent statement.",
+    "Blind-solved Example 5 from the supplied premises: Rico enrolls at UP and then moves to Diliman, so the final conclusion is correct."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A janitor mops the floor. The ground is wet, but it is not raining.",
+     "problem": "The proposed counterexample changes the relevant object from the ground to a floor. Mopping a floor does not establish that the hypothesis \"the ground is wet\" is true, so the counterexample is not valid as written.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the mathematics section structure: Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are all present with the required titles.",
+    "Checked all worked questions for load-bearing figure dependence; none requires a figure to determine its answer, so no required example figure is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "Mapped the recorded goal to the lesson: Example 1 identifies conditional parts, Example 2 rewrites converse/inverse/contrapositive forms, Examples 3 and 4 test counterexamples and equivalence, and Example 5 chains conditional conclusions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Here is the most important fact in this lesson.",
+     "problem": "This sentence is filler rather than teaching content. The voice rule says every sentence should teach something and specifically requires no filler.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Identify the hypothesis and conclusion: \"If a number is divisible by $6$, then it is divisible by $3$.\"",
+     "problem": "The exam verb \"Identify\" appears as an instruction without the required one-line explanation of what the student should do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Chain the conditionals like dominoes.",
+     "problem": "This is an analogy inside the Examples section. The rule allows at most one analogy and requires any analogy to appear in Core Concept.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all five example stems: they use direct exam-style tasks such as identify, write, determine truth by counterexample, select an equivalent statement, and draw a conclusion from givens.",
+    "Checked the stems for expected-knowledge leakage: necessary statements and premises are supplied, while the tested definitions and transformation methods are not supplied in the question stems.",
+    "Checked the solution language separately from the stems; the explanations use short, direct wording appropriate to the lesson voice."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino examples are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino text whose spelling or usage requires KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the Filipino teaching-prose Taglish rule cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt refers to a target word or asks the student about the word in bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "This chain is called the **Law of Syllogism**: if $p$ leads to $q$ and $q$ leads to $r$, then $p$ leads to $r$.",
+     "problem": "The $p$ to $q$, $q$ to $r$, therefore $p$ to $r$ chaining formula is introduced for the first time inside Example 5. Mathematics formulas and formal patterns used in examples must first appear in Core Concept.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Mapped distinct goal cases to worked examples: identifying parts is Example 1, rewriting all three derived forms is Example 2, falsifying by counterexample is Example 3, recognizing logical equivalence is Example 4, and chaining conditional conclusions is Example 5.",
+    "Checked progression: the lesson moves from naming parts, to constructing forms, to testing truth, to multiple-choice equivalence, and finally to multi-premise deduction without near-duplicate examples.",
+    "Biconditional construction is not part of the recorded Level 3 learning goal, so its lack of a worked construction example does not create an L18 coverage gap."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The hypothesis follows \"if\". The conclusion follows \"then\".",
+     "problem": "These are solution reasoning steps placed before the numbered list. The rule requires every solution step to be presented as part of the numbered solution list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so phone-width display fitting cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to assess under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Checked first-use teaching for conditional statement, hypothesis, conclusion, converse, inverse, contrapositive, counterexample, biconditional, and logical equivalence; each receives a definition or immediately accompanying form before later use.",
+    "Checked the symbols $p$, $q$, and $r$: $p$ and $q$ are established in Core Concept, while $r$ appears only in the self-contained chaining explanation where its role is clear."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Checked that converse, inverse, and contrapositive are explained by both their transformation rule and resulting if-then form, not merely named.",
+    "Checked that counterexamples are explained by the required true-hypothesis and false-conclusion structure and then demonstrated in an example.",
+    "Checked that conditional chaining is demonstrated step by step in Example 5 and that the syllogism pattern is stated explicitly, so the chaining concept is shown in operation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Using one true statement plus a matching fact is the **Law of Detachment**.",
+     "problem": "The required conditions are not stated precisely. Detachment applies when a conditional $p$ implies $q$ is true and its hypothesis $p$ is true; the phrase \"one true statement plus a matching fact\" does not tell students when the rule actually applies.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "From one conditional, you can build three new statements:",
+   "description": "Draw a four-box logic map showing the original $p$ to $q$, converse $q$ to $p$, inverse not-$p$ to not-$q$, and contrapositive not-$q$ to not-$p$, with arrows labeled swap and negate and links between the equivalent pairs.",
+   "why": "A compact visual map would make the four forms and their relationships easier to distinguish and remember than four similar text lines alone.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [
+  {
+   "quote": "A janitor mops the floor. The ground is wet, but it is not raining.",
+   "concern": "The example does not establish its stated hypothesis because a mopped floor is not necessarily the ground, so the proposed counterexample is invalid as written.",
+   "source": "single"
+  },
+  {
+   "quote": "Using one true statement plus a matching fact is the **Law of Detachment**.",
+   "concern": "This description is overbroad. The law requires a true conditional and affirmation of that conditional's hypothesis, not merely any true statement and a matching fact.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

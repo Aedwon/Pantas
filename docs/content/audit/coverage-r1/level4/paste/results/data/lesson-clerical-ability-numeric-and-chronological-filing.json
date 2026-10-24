@@ -1,0 +1,301 @@
+{
+ "lesson_sha256": "ba8207ed8eb2148974031e1a74009ccd7fa721505bd64d7a20b138eaf481dcee",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the current CSC scope against the official 14 March 2027 CSE-PPT announcement: Subprofessional Clerical Ability includes Filing, and the published scope does not prescribe a single numeric or chronological filing convention. Source: https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_06_Conduct%20of%2014%20March%202027%20CSE-PPT%20orig%20signed.pdf",
+    "Checked the ordering claims: leading zeros do not change an ordinary numeric value; complete dates sort by year, then month, then day; fixed-width YYYY-MM-DD strings sort lexicographically in the same order as those dates; dotted identifiers can require non-decimal comparison when the system defines them as codes."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "#1 blind solve: 0389, 0395, 0401, 0452 from smallest to largest.",
+    "#2 blind solve: November 5, 2023; January 20, 2024; March 15, 2024; February 10, 2025 from oldest to newest.",
+    "#3 blind solve: 12.008 is smaller than 12.05 and 12.1.",
+    "#4 blind solve: with the same first segment 12 and integer subcodes 5, 1, and 8, code 12.1 comes first."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept, Examples, and Traps to Watch For are present, and none of the filing examples depends on a missing question figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson serves the recorded goal by distinguishing numeric values, calendar dates, and segmented reference codes, then showing sorting under stated directions while preserving displayed identifier formats."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "ISO-style notation `YYYY-MM-DD` is convenient because ordinary lexicographic order matches chronological order for complete dates written in that fixed format, but it is a date notation—not a rule that every physical file must be stored oldest-first.",
+     "problem": "This sentence is too long and uses the rare term \"lexicographic\" without simple wording, so the teaching prose is above the Grade 5 readability target.",
+     "source": "single"
+    },
+    {
+     "quote": "Hyphenated, dotted, or segmented identifiers may be treated as numeric values, hierarchical codes, or character strings depending on the system.",
+     "problem": "The sentence stacks several abstract terms such as \"segmented identifiers,\" \"hierarchical codes,\" and \"character strings\" instead of using very simple Grade 5 English.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Arrange $0452$, $0389$, $0401$, $0395$ from smallest to largest.",
+     "problem": "The exam verb \"Arrange\" is used as an instruction before the lesson gives the required one-line explanation of what that verb asks the student to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in the lesson, so it stays within the limit of at most one analogy in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Suppose a filing system contains codes `12.05`, `12.1`, and `12.008` and says each segment after the period is a separate **integer subcode**. Then compare the first segments (all 12), followed by subcodes 5, 1, and 8. Under that rule, `12.1` comes first.",
+     "problem": "Example #4 is not presented as an exam-style question. It gives the comparison method and the answer directly, so the stem supplies the method instead of asking the student to apply it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson mentions the CSE scope once for context and does not repeat a canned exam-motivation opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, not as a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose or Filipino grammar term to gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino examples are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage needs KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson has no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt asks the student to identify or act on a target word in the text.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "No listed stock AI phrase appears, sentence openings are varied, and the summary plainly describes the lesson instead of using the banned stock summary opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Identify the key and direction first.** Ask: numeric value or code? oldest-first or newest-first?",
+     "problem": "This content sits in a Speed Tricks & Shortcuts section, but the subject is Reasoning, whose required subject fit is the reduced Core Concept → Examples → Traps layout with Speed Tricks dropped.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If the task instead requested reverse chronological filing, reverse that order.",
+     "problem": "Reverse chronological order is a distinct direction within the learning goal, but it is only mentioned after the oldest-to-newest example instead of receiving its own worked example as required for each distinct variation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Write equivalent decimal places if helpful:",
+     "problem": "Example #3 continues with bullet points and a conclusion instead of numbered solution steps with the key computations shown as display equations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "The display lines for the numeric ordering examples are short and fit comfortably within a phone-width equation line."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three sentences, and bullets are limited to the short chronological-direction and decimal-normalization lists."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "ISO-style notation `YYYY-MM-DD` is convenient because ordinary lexicographic order matches chronological order for complete dates written in that fixed format, but it is a date notation—not a rule that every physical file must be stored oldest-first.",
+     "problem": "The necessary term \"lexicographic order\" is used to explain why the date format sorts correctly, but the lesson never explains what lexicographic order means before relying on it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains how ordinary numeric identifiers compare by value, how chronological dates compare year then month then day, and how a system-defined segmented code can compare integer subcodes instead of decimal values."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states the main conditions and limits: follow the specified filing direction, leading zeros can be format characters, YYYY-MM-DD sorting is limited to complete fixed-format dates, and dotted identifiers must not be assumed to be decimals."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Arrange: March 15, 2024; January 20, 2024; November 5, 2023; February 10, 2025.",
+     "problem": "The date numbers are written as plain prose instead of being enclosed in inline math delimiters as required for every number in prose.",
+     "source": "single"
+    },
+    {
+     "quote": "Suppose a filing system contains codes `12.05`, `12.1`, and `12.008` and says each segment after the period is a separate **integer subcode**. Then compare the first segments (all 12), followed by subcodes 5, 1, and 8. Under that rule, `12.1` comes first.",
+     "problem": "The numeric codes use code spans instead of inline math, and the prose numbers 12, 5, 1, and 8 are also outside `$...$`, so the lesson breaks the math-notation rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

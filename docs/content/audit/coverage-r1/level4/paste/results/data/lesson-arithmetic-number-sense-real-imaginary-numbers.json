@@ -1,0 +1,313 @@
+{
+ "lesson_sha256": "fef553d885a90aa5a1261147d4c8f52bf0c55ee95670d565e1e5868931a81dab",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the number-set definitions, including the stated natural-number convention, rational and irrational decimal behavior, and the nesting of the real-number sets.",
+    "Checked the complex-number facts: i^2=-1, the four-power cycle of i, complex form a+bi, the conjugate product identity, and the negative-square-root restriction."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: B is false because this lesson defines natural numbers as starting at 1.",
+    "Solved Example 2 independently: i^143=-i and i^2024=1, so the answer is 1-i.",
+    "Solved Example 3 independently: (3-4i)(2+5i)=26+7i.",
+    "Solved Example 4 independently: (2+3i)/(1-i)=-1/2+(5/2)i.",
+    "Checked the additional numerical examples: i^1997=i, (3+4i)(3-4i)=25, and sqrt(-4)sqrt(-9)=-6 under principal complex square roots."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The mathematics lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, plus the optional Mnemonics & Memory Aids section.",
+    "The number-set nesting concept has a specific nested-boxes figure, and none of the worked questions requires a missing question figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to classify real-number sets and use the imaginary unit to multiply or divide complex numbers; the lesson teaches number-set classification and includes worked complex multiplication and division."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Reduce each exponent modulo $4$.",
+     "problem": "The solution uses the uncommon technical word \"modulo\" without first explaining it in simple Grade 5 language.",
+     "source": "single"
+    },
+    {
+     "quote": "so the real-number identity $\\sqrt{a}\\sqrt{b}=\\sqrt{ab}$ cannot be applied blindly when both radicands are negative.",
+     "problem": "This teaching sentence uses the rare term \"radicands\" and a relatively dense construction instead of the required very simple Grade 5 prose.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Evaluate $i^{143}+i^{2024}$.",
+     "problem": "The exam verb \"Evaluate\" is used without the required one-line explanation on its first use.",
+     "source": "single"
+    },
+    {
+     "quote": "Express $\\dfrac{2+3i}{1-i}$ in standard form $a+bi$.",
+     "problem": "The exam verb \"Express\" is used without the required one-line explanation on its first use.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in the lesson, so it stays within the maximum of one analogy in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "The four worked questions use plausible exam-style wording, provide the problem-specific information needed for a determinate answer, and do not give away a tested formula or solution method in the stems.",
+    "The worked solutions use short direct instructions and show the arithmetic needed to reach each answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeatedly use stock exam or test-maker openers, so there is no repetitive exam-motivation phrasing to flag."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson does not teach Filipino grammar and contains no Filipino grammar terms needing English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is in English and contains no Filipino-language examples or quiz items.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage needs a Komisyon sa Wikang Filipino source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the Filipino teaching-prose rule against Taglish does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or reason about a specially marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for the listed stock AI phrases and found none; sentence openings vary, and the summary plainly states the lesson content without the banned template."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The powers of $i$ repeat every four powers:",
+     "problem": "The four-power pattern used by Example 2 is introduced in Mnemonics & Memory Aids instead of Core Concept, but mathematics formulas used in examples must first appear in Core Concept.",
+     "source": "single"
+    },
+    {
+     "quote": "Multiply numerator and denominator by the conjugate $1+i$ so the denominator becomes real.",
+     "problem": "Example 4 uses the conjugate-product method before Core Concept introduces the conjugate identity; the general identity appears only later in Speed Tricks & Shortcuts.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 covers classification across integer, rational, irrational, real, and the stated natural-number convention; Example 2 covers powers of i; Example 3 covers complex multiplication; Example 4 covers complex division.",
+    "The examples move from basic classification through an exponent-cycle problem to multiplication and then division, without repeating the same reasoning with only changed numbers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "$143$ leaves remainder $3$, so $i^{143}=i^3=-i$.",
+     "problem": "This is a key computation in the worked solution, but it is kept inline instead of being placed on its own display-equation line as required.",
+     "source": "single"
+    },
+    {
+     "quote": "$2024$ leaves remainder $0$, so $i^{2024}=1$.",
+     "problem": "This second key computation is also kept inline instead of being shown as a display equation between numbered solution steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every display equation in the examples, shortcuts, and traps; each is short enough to fit a typical phone-width lesson view."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three short sentences, and the only ordinary bullet list is the compact four-item powers-of-i memory list."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The existing nested-boxes figure specification is one specific drawable line with named boxes and a semantics label, while the surrounding prose fully teaches the number-set nesting without relying on the image."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Reduce each exponent modulo $4$.",
+     "problem": "The term \"modulo\" is needed to follow the method but is never defined or explained before the solution uses it.",
+     "source": "single"
+    },
+    {
+     "quote": "Multiply numerator and denominator by the conjugate $1+i$ so the denominator becomes real.",
+     "problem": "The term \"conjugate\" and what makes 1+i the conjugate of 1-i are not explained before the division method depends on that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Expand.",
+     "problem": "Complex multiplication is part of the learning goal, but the lesson never teaches the multiplication method in Core Concept; the method first appears as an instruction inside the worked example.",
+     "source": "single"
+    },
+    {
+     "quote": "Multiply numerator and denominator by the conjugate $1+i$ so the denominator becomes real.",
+     "problem": "Complex division is part of the learning goal, but the conjugate method is introduced only while solving the example instead of being explained beforehand as a concept and method.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Express $\\dfrac{2+3i}{1-i}$ in standard form $a+bi$.",
+     "problem": "The lesson teaches complex division but never states the essential limitation that the complex divisor must be nonzero.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

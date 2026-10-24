@@ -1,0 +1,310 @@
+{
+ "lesson_sha256": "2d73d6e795016065c6cb947045a4e06fd93b8e73b90f42eb1ba274b68582acb5",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions and equations for the commutative, associative, distributive, identity, additive inverse, and multiplicative inverse properties, including the nonzero restriction and the statement that zero has no multiplicative inverse."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved Example 1 independently: choice B swaps the factors, so B is the commutative property of multiplication.",
+    "Solved Example 2 independently: the reciprocal of $-\\dfrac{2}{3}$ is $-\\dfrac{3}{2}$, whose additive inverse is $\\dfrac{3}{2}$, so A is correct.",
+    "Solved Example 3 independently: $4(2x-3y)-2(x+5y)=8x-12y-2x-10y=6x-22y$, so A is correct.",
+    "Solved Example 4 independently: $847\\times63+847\\times37=847(63+37)=847\\times100=84,700$, so A is correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required mathematics lesson structure: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, with an optional natural mnemonic section. No required figure is needed for these symbolic examples."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "4. Choice D is the multiplicative identity property.",
+     "problem": "The learning goal says students should use identities to simplify calculations, but identity is only defined and then recognized as a distractor. There is no worked example that actually uses an additive or multiplicative identity to simplify a calculation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the teaching prose for sentence length, vocabulary, and filler. Sentences are short and direct, and the necessary technical property names are paired with simple explanations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Simplify $4(2x - 3y) - 2(x + 5y)$.",
+     "problem": "The exam verb \"Simplify\" appears without the required one-line explanation when it is first used.",
+     "source": "single"
+    },
+    {
+     "quote": "Evaluate $847 \\times 63 + 847 \\times 37$.",
+     "problem": "The exam verb \"Evaluate\" appears without the required one-line explanation when it is first used.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson for friendly-tutor analogies. It uses mnemonic word associations but no actual analogy, so it stays within the one-analogy limit."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all four example stems for determinate problem information and for formulas or methods being improperly supplied. The stems use normal exam wording, provide all needed values, and do not give away the tested method. The solutions use simple language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for repeated or formulaic exam-motivation lines. The lesson does not repeatedly invoke exams or reuse a stock exam-related opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach Filipino grammar and contains no Filipino grammar terms needing an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino examples and quiz wording are not required.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-teaching-prose Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specifically marked target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked for the listed stock AI phrases, repetitive sentence openings, and a formulaic summary. None of the banned stock phrases appear, sentence openings vary, and the summary plainly names the lesson content."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. Combine like terms.",
+     "problem": "The mathematics example depends on collecting like terms, but Core Concept never introduces or explains that method before the example uses it.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Factor out the common factor $847$.",
+     "problem": "Reverse distribution by factoring out a common factor is first introduced inside the worked example. Core Concept gives only the forward distributive forms, while the explicit reverse-distribution teaching appears later under Speed Tricks & Shortcuts.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "4. Choice D is the multiplicative identity property.",
+     "problem": "Identity is only treated as a distractor in an identification example. The examples do not include a worked case where an additive or multiplicative identity is actually used to simplify a calculation, even though that is part of the learning goal.",
+     "source": "single"
+    },
+    {
+     "quote": "Zero has no multiplicative inverse because division by zero is undefined.",
+     "problem": "The lesson teaches the zero restriction as an important inverse edge case, but no worked example tests or applies that distinct case.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. The multiplicative inverse of $-\\dfrac{2}{3}$ is $-\\dfrac{3}{2}$.",
+     "problem": "The inverse transformation is a key mathematical step but is kept inline in prose instead of being shown as a display equation as required for worked-solution computations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "Checked every display equation for width. Each equation is short enough to fit comfortably on a phone screen without a long unbroken expression."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Checked paragraph length and list use throughout the lesson. Paragraphs stay within one to three short sentences, while lists are limited to answer choices and numbered solution steps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its symbolic mathematics examples depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. Combine like terms.",
+     "problem": "The lesson requires students to combine like terms without first explaining what like terms are or how to recognize them, and no prerequisite lesson is identified.",
+     "source": "single"
+    },
+    {
+     "quote": "1. Factor out the common factor $847$.",
+     "problem": "The example requires students to understand a common factor and the instruction to factor it out before those ideas are explained, with no prerequisite lesson identified.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. Combine like terms.",
+     "problem": "Collecting like terms is only named as an instruction. The lesson does not explain what makes terms alike or how their coefficients are combined, so the method is not actually taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the important applicability limits: the lesson restricts multiplicative inverses to nonzero values, states that zero has no multiplicative inverse, says subtraction and division are not commutative or associative in general, and explains that reverse distribution requires a common factor."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**1. Commutative Property**",
+     "problem": "The numbered property label uses a prose number outside inline math. The same formatting is repeated for properties 2 through 5, contrary to the rule that numbers in prose belong inside `$...$`.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

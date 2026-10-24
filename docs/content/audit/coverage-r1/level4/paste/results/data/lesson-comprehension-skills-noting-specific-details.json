@@ -1,0 +1,296 @@
+{
+ "lesson_sha256": "f7492173a0dfbd8cbf2d0868446791bd3dbfcfcd799d8d4c487fd23d77f42caa",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A passage states: \"The bridge, completed in 1932, spans 1,280 meters and was, at the time, the longest suspension bridge in the world.\" What year was the bridge completed?",
+     "problem": "This hard-to-remember historical premise is not reliable as written. The 1,280-meter span and former world-record description match the Golden Gate Bridge, but the Golden Gate Bridge District says it opened in 1937 and set the 1,280-meter span record then, not in 1932. Source: https://www.goldengate.org/exhibits/facts-and-figures-about-the-bridge/",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Solved each worked example from its question alone before comparing: #1 = 1932, #2 = Dr. Elena Cruz, #3 = the third paragraph, and #4 = April. Each matches the lesson's stated answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson has Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For in the required structure. No example depends on a figure, so no required illustration is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to locate directly stated details by role or time condition using scanning and a passage overview. The lesson teaches scanning, skimming for passage structure, role matching in example #2, and historical-versus-current time matching in example #4."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Skimming** means reading quickly through a passage to get a general sense of its content and structure, without reading every word carefully. Skimming is useful before answering questions, to build a rough mental map of where different topics appear in the passage (introduction, examples, conclusion).",
+     "problem": "This teaching uses several abstract phrases and long multi-clause sentences, including \"general sense,\" \"content and structure,\" and \"rough mental map,\" so it is harder than the required Grade 5 simple-English style.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson uses ordinary question words such as what, who, and which, but no exam command verb that needs a one-line definition.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in the lesson, so it stays within the limit of at most one analogy in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A long passage has four paragraphs: one about a discovery's history, one about its scientific explanation, one about its modern applications, and one about future research. A question asks about a specific detail related to \"modern applications.\" Which paragraph should you scan first?",
+     "problem": "This is a meta-description of a passage rather than an authentic reading-comprehension passage or exam-style item. It supplies each paragraph's topic instead of making the student skim actual text to discover the structure.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat stock exam-name openers; its limited test-oriented language is tied to time pressure, scanning, and avoiding planted detail traps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This English lesson does not introduce Filipino grammar terms that would need English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino examples and quiz-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text, so Komisyon sa Wikang Filipino spelling review does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is in English, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question refers to a specially marked target word, so the bold-target-word prompt rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases and em dashes, sentence openings are not repeated three times in a row, and the summary plainly names skimming, scanning, and locating details."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The reading-comprehension lesson uses the allowed section structure. It contains no formulas, so there is no formula that an example uses before Core Concept introduces it."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A long passage has four paragraphs: one about a discovery's history, one about its scientific explanation, one about its modern applications, and one about future research. A question asks about a specific detail related to \"modern applications.\" Which paragraph should you scan first?",
+     "problem": "The only worked example for using a passage overview gives the paragraph topics directly instead of providing a longer passage to skim. That leaves the passage-overview part of the learning goal without a worked example at realistic target-exam difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked solutions use numbered steps and state each reasoning step needed to reach the answer. None involves a calculation or equation, so there is no key computation that needs display math."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines to check for phone-screen width.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three sentences, and the lesson does not use bullet lists in its teaching prose."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Specific detail, skimming, and scanning are defined in Core Concept before the examples use them. The lesson also explains what kinds of details to scan for, such as names, dates, numbers, and keywords."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept explains both what skimming and scanning mean and how each works: skimming builds a passage overview, while scanning searches for a requested detail after the reader knows what to find."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The key skill for detail questions: identify the exact keyword or phrase from the question (a name, number, or unique term), then scan the passage for that keyword, rather than re-reading the entire passage from the beginning.",
+     "problem": "This presents exact keyword matching as the key method but never states the important limitation that a question may paraphrase the passage. The shortcut can fail when the requested detail is expressed with different words.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A passage states: \"The bridge, completed in 1932, spans 1,280 meters and was, at the time, the longest suspension bridge in the world.\" What year was the bridge completed?",
+     "problem": "The prose contains the numbers 1932 and 1,280 outside inline math. B08 requires numbers in prose to be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "3. The passage directly states \"completed in 1932.\" The answer is 1932.",
+     "problem": "The two uses of 1932 in prose are outside inline math. B08 requires prose numbers to be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "A passage states: \"The festival, historically held in March, was moved to April in 2015 due to scheduling conflicts, and has remained in April ever since.\" In what month is the festival currently held?",
+     "problem": "The year 2015 appears in prose outside inline math. B08 requires numbers in prose to be wrapped in $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "1. The passage mentions both March (the historical month) and April (the month after the 2015 change).",
+     "problem": "The year 2015 appears in prose outside inline math. B08 requires numbers in prose to be wrapped in $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "A passage states: \"The bridge, completed in 1932, spans 1,280 meters and was, at the time, the longest suspension bridge in the world.\" What year was the bridge completed?",
+   "concern": "The sentence appears to combine Golden Gate Bridge facts with the wrong year: official Golden Gate sources place the 1,280-meter world-record span at its 1937 opening, not 1932.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

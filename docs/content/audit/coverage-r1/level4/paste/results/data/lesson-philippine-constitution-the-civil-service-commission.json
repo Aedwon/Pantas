@@ -1,0 +1,335 @@
+{
+ "lesson_sha256": "620d01c9e182bf4b4861c0ac6ad4d95da500c1f6f7bec5d3163e8aa0c6484ea2",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Official Gazette Article IX-B, Section 1(1) confirms the Chairman-plus-two-Commissioners composition, natural-born citizenship, age 35 minimum, public-administration capacity, and immediately-preceding-election candidacy bar: https://officialgazette.gov.ph/constitutions/1987-constitution/",
+    "Official Gazette Article IX-B, Section 1(2) confirms presidential appointment with Commission on Appointments consent and the regular seven-year term without reappointment: https://officialgazette.gov.ph/constitutions/1987-constitution/",
+    "Official Gazette Article IX-B, Section 3 confirms that the Civil Service Commission is the Government's central personnel agency: https://officialgazette.gov.ph/constitutions/1987-constitution/"
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Blind solve #1: the Commission has three members, one Chairman and two Commissioners.",
+    "Blind solve #2: the result cannot be determined from 'local elections held last year' unless the stem states those were the elections immediately preceding the appointment.",
+    "Blind solve #3: no, a Commissioner who completed a full seven-year term cannot be reappointed."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. Since the applicant ran in the immediately preceding election, the applicant is disqualified.",
+     "problem": "The stem says only that the applicant ran in local elections held last year. That does not establish that those elections were the election immediately preceding the appointment, so the stated disqualification is not determined by the question.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "3. Therefore, the Commissioner cannot be reappointed for another term.",
+     "problem": "The lesson ends after the Examples section and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections from the standard lesson structure.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is to recognize CSC composition, appointment qualifications, and regular-term limits; Core Concept teaches all three and the examples practice composition, candidacy disqualification, and reappointment."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Qualifications:** Must possess proven capacity for public administration.",
+     "problem": "This uses abstract legal wording such as 'possess,' 'capacity,' and 'public administration' without simpler Grade 5 wording or explanation.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked questions do not use an exam command verb such as evaluate, identify, compare, or explain.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "An applicant for Civil Service Commissioner ran as a candidate in the local elections held last year. Is this applicant qualified for appointment under Article IX-B?",
+     "problem": "The question omits the necessary timing fact that the cited election was the election immediately preceding the appointment, so the stem does not provide enough information for a determinate answer.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language General Information lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This English lesson does not introduce Filipino grammar terms that would need English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino examples and quiz-item language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage requires a Komisyon sa Wikang Filipino check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question prompt refers to a target word that must be bolded or described as 'the word in bold.'",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "All three worked examples are non-quantitative constitutional questions and use no formula, so no example introduces a formula absent from Core Concept; the generic Core Concept and Examples headings are compatible with this non-math subject."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Citizenship:** Must be **natural-born citizens** of the Philippines.",
+     "problem": "Natural-born citizenship is a distinct appointment qualification in the learning goal, but no worked example asks the learner to recognize or apply it.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Age:** Must be **at least 35 years of age** at the time of appointment.",
+     "problem": "The age requirement is a distinct appointment qualification, including a clear boundary at age 35, but no worked example covers it.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Qualifications:** Must possess proven capacity for public administration.",
+     "problem": "Proven capacity for public administration is a distinct appointment qualification, but no worked example covers what would satisfy or fail this requirement.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. 1 Chairman + 2 Commissioners = 3 members in total.",
+     "problem": "This is the example's key computation, but it is written inside list text instead of as a separate display equation as required for worked-solution computations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could be checked against a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under the placeholder-specific rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Citizenship:** Must be **natural-born citizens** of the Philippines.",
+     "problem": "The term 'natural-born citizens' is necessary to understand this qualification, but the lesson does not explain it and there is no prerequisite lesson.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Qualifications:** Must possess proven capacity for public administration.",
+     "problem": "The lesson does not explain what 'proven capacity' or 'public administration' means before the learner must understand this qualification, and no prerequisite supplies that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Article IX, Section B of the 1987 Constitution establishes the Civil Service Commission as the central personnel agency of the Philippine Government.",
+     "problem": "The lesson names the CSC as the central personnel agency but never explains what that role means or what the Commission does in that role.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Qualifications:** Must possess proven capacity for public administration.",
+     "problem": "The lesson states this qualification but does not explain what capacity for public administration means or how the requirement works in practice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Term of office:** Appointed for a term of **seven years, without reappointment**.",
+     "problem": "The lesson gives the regular term rule without the relevant constitutional exceptions and limits: first appointees had staggered terms, and an appointment to a vacancy is only for the predecessor's unexpired term.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Appointing authority:** Appointed by the **President with the consent of the Commission on Appointments**.",
+     "problem": "The appointment teaching omits the constitutional limitation that no CSC member may be appointed or designated in a temporary or acting capacity.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Article IX, Section B of the 1987 Constitution establishes the Civil Service Commission as the central personnel agency of the Philippine Government.",
+     "problem": "The number 1987 appears in prose outside inline math delimiters, contrary to the lesson math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Age:** Must be **at least 35 years of age** at the time of appointment.",
+     "problem": "The number 35 appears in prose outside inline math delimiters, contrary to the lesson math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "A student is asked how many members make up the Civil Service Commission under Article IX-B of the 1987 Constitution. What is the composition?",
+     "problem": "The number 1987 appears in prose outside inline math delimiters, contrary to the lesson math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "2. 1 Chairman + 2 Commissioners = 3 members in total.",
+     "problem": "The arithmetic numbers and operators are written as plain prose instead of math notation, and the numbers are not wrapped in inline math.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "2. Since the applicant ran in the immediately preceding election, the applicant is disqualified.",
+   "concern": "The question stem says only that the applicant ran in local elections held last year. It never establishes that those were the elections immediately preceding the appointment, so this conclusion is unsupported.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

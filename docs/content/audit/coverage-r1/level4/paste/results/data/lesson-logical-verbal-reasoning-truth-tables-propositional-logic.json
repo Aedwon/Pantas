@@ -1,0 +1,287 @@
+{
+ "lesson_sha256": "cc849c94c8cba0819373b34588a3de376dd3535fe5ddb3a4fff754839cc61d5d",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the definitions and truth conditions for propositions, truth tables, negation, conjunction, inclusive disjunction, and the material conditional; each stated truth condition is correct.",
+    "Checked the claim that a conditional with a false antecedent is true in classical propositional logic, including the distinction from everyday causal intuition."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: P AND Q over (T,T), (T,F), (F,T), (F,F) gives T, F, F, F, matching the lesson.",
+    "Example 2 blind solve: false OR true is true, matching the lesson.",
+    "Example 3 blind solve: false implies false is true for the material conditional, matching the lesson.",
+    "Example 4 blind solve: (true AND false) OR true = false OR true = true, matching the lesson."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked that Core Concept, Examples, and Traps to Watch For are present, so the required reasoning lesson content is not missing.",
+    "Checked the topic for required load-bearing figures; truth-table and connective evaluation can be taught from symbols and truth values here, so no required figure is missing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches how to read truth values for NOT, AND, OR, and IF...THEN, build a complete two-variable AND truth table, and evaluate a grouped expression, which directly serves the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "This reflects the idea that a conditional promise is only broken when the condition happens ($P$ is true) but the promised result does not ($Q$ is false); if the condition never happens, the promise cannot be broken.",
+     "problem": "This teaching sentence is long and clause-heavy for the Grade 5 readability standard. It should be split into shorter sentences with one idea at a time.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Build the complete truth table for \"$P \\land Q$.\"",
+     "problem": "The exam verb \"Build\" is used in the first worked question without the required one-line explanation of what the verb asks the student to do.",
+     "source": "single"
+    },
+    {
+     "quote": "If $P$ is true, $Q$ is false, and $R$ is true, evaluate \"$(P \\land Q) \\lor R$.\"",
+     "problem": "The exam verb \"evaluate\" is used without the required one-line explanation of what the verb means.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**For combined expressions, always solve the innermost parentheses first**, exactly like order of operations in math, then work outward to the final connective.",
+     "problem": "This adds an order-of-operations analogy outside Core Concept after the lesson already used the conditional-promise analogy in Core Concept, exceeding the one-analogy limit.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all four worked-example stems: each gives only the truth assignments needed for a determinate answer and does not supply a tested connective rule or solution method.",
+    "Checked the worked solutions for plain language; they explain the reasoning directly without adding unnecessary technical wording."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language logic lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach Filipino grammar terms that would need English glosses.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its examples are not required to be in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs source checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language lesson, so the Filipino teaching-prose Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No prompt refers to a marked, underlined, or otherwise targeted word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Memorize each connective with one key phrase**: And needs \"both true\" to be true; or needs \"at least one true\" to be true; the conditional is \"only false when the if-part is true but the then-part is false.\"",
+     "problem": "This content appears under a Speed Tricks & Shortcuts section, but the subject-fit rule for Reasoning requires the reduced Core Concept → Examples → Traps layout and says to drop Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If $P$ is false and $Q$ is true, what is the truth value of \"$P \\lor Q$\"?",
+     "problem": "The examples move from the AND truth table directly to OR and conditional evaluation without any worked negation example, leaving a distinct taught connective without worked-example coverage.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. First evaluate the inner expression, \"$P \\land Q$\": $P$ is true, $Q$ is false, so and requires both true. This is false.",
+     "problem": "The solution uses a numbered step, but the key computation stays inline. Rule L19 requires key computations in worked solutions to be shown as display equations.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations to check for phone-screen width.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders to evaluate under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Before the examples, Core Concept defines proposition, truth table, negation, conjunction, disjunction, conditional, the T/F truth values, and each connective symbol used later."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept explains how each connective changes or combines truth values, and the examples apply those rules to both single connectives and a grouped compound expression."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states the decisive conditions for every connective, explicitly says OR is inclusive when both inputs are true, and explains that the formal conditional is false only for true antecedent and false consequent.",
+    "The trap section also distinguishes formal propositional conditionals from everyday causal intuition, giving the relevant limitation for applying the truth-table rule."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L13": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "| $P$ | $Q$ | NOT ($\\neg P$) | AND ($P \\land Q$) | OR ($P \\lor Q$) | IF...THEN ($P \\rightarrow Q$) |",
+     "problem": "The connective names are written in ALL CAPS for emphasis in a user-facing table. They are ordinary words, not acronyms or proper nouns, so this breaks the emphasis rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

@@ -1,0 +1,283 @@
+{
+ "lesson_sha256": "d9fd2e9bad452851471bbf318c6f2b3c5933dcff801d33df368050739a2f6bb8",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the current CSC CSE-PPT scope claim against the official 2026 examination announcement, which lists Clerical Ability with filing, and checked the system-dependent surname-prefix/spacing claims against published filing manuals that use different treatments. The alphabetical facts in the examples are also correct."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: surname → given name → middle name gives Santos, Juan Antonio.",
+    "Example 2 blind solve: removing spaces gives DELACRUZ versus DELGADO; the first difference is A versus G, so De la Cruz comes first.",
+    "Example 3 blind solve: under the stated city tie-break, Boston alphabetically precedes Chicago."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the required lesson blocks and question materials: Core Concept, Examples, and Traps to Watch For are present, and none of the three text-based filing questions references an absent figure or other missing problem material."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches how to build a surname-first personal-name filing key, compare later units only after earlier ties, follow a stated system, and preserve the recorded surname spelling, which directly serves the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The current public CSE clerical-ability scope includes **filing**, but it does not publish one universal indexing manual for every filing item.",
+     "problem": "This opening uses long, abstract wording such as \"clerical-ability scope,\" \"universal,\" and \"indexing manual\" before the learner has been given simpler language for the idea, making the teaching prose harder than the Grade 5 standard.",
+     "source": "single"
+    },
+    {
+     "quote": "Names containing particles such as *De, de, Del, De la, van, von,* or *San* should be filed according to the governing filing rule and the person's established surname.",
+     "problem": "This sentence relies on difficult terms such as \"particles,\" \"governing,\" and \"established surname\" in one long construction instead of explaining the idea in short, simple Grade 5 language.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No exam command verb such as evaluate, identify, or determine is introduced in the lesson in a way that needs a first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "Counted the Core Concept analogies; the lesson uses no analogy, so it stays within the one-analogy limit."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Checked all three worked-example stems: each supplies the system-specific filing condition needed for a determinate answer without giving away a separate method the learner is expected to select, and the solutions return to straightforward language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson mentions the CSE once to establish why filing matters and does not repeat a stock exam-motivation opener."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language filing lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or hard Filipino grammar term that would need an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its worked examples are not required to be written in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson has no Filipino teaching text whose spelling or usage needs checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English and contains no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the learner to identify or interpret a target word by referring to formatting such as bold or underlining.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the listed stock AI phrases, repeated sentence openings, and the frontmatter summary; none of the banned phrases appears, openings are varied, and the summary is plain rather than formulaic."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "## Speed Tricks & Shortcuts\n\n**Read the filing rule before sorting.** Do not import a rule from a different filing system.",
+     "problem": "The lesson is tagged as subject-reasoning, but the Reasoning section fit requires the reduced Core Concept → Examples → Traps to Watch For layout and says to drop Speed Tricks. This extra section breaks that required subject layout.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A common personal-name convention is to index by surname first, then given name, then middle name or initial:",
+     "problem": "The worked examples never show the key successive-unit cases where two records share a surname and must be ordered by given name, or share surname and given name and must be ordered by middle name. Those are distinct cases inside the lesson's stated method and learning goal.",
+     "source": "single"
+    },
+    {
+     "quote": "Suffixes such as *Jr., Sr., II,* and *III* can be used as later filing units when necessary to distinguish otherwise identical names.",
+     "problem": "The lesson teaches suffixes as a later filing-unit case but gives no worked example that applies a suffix to break an otherwise identical-name tie, leaving this exam-relevant variation uncovered.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Under the stated city tie-break rule, **Boston** comes before **Chicago**. Without such an instruction or established filing convention, location is not automatically the universal tie-breaker.",
+     "problem": "Example 3 presents its worked solution as an unnumbered paragraph. The examples standard requires worked solutions to show their steps as a numbered list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no equation lines whose width can be checked for a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Scanned the lesson body: prose paragraphs stay within one to three sentences, and bullet or numbered lists are used only for the filing example and solution steps."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, so there is no placeholder wording or surrounding figure-dependent prose to judge under this rule.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the central filing terms in order: the lesson introduces surname, given name, and middle name as the ordered parts of a personal-name key before referring to filing units, then immediately gives examples of later units such as given name, middle name, date, and location; suffixes and surname particles are also identified before use."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Suffixes such as *Jr., Sr., II,* and *III* can be used as later filing units when necessary to distinguish otherwise identical names. Exact treatment depends on the filing system being used.",
+     "problem": "The section is titled \"Suffixes and titles,\" but this teaching explains only suffixes. It never explains what a title means for the filing key or how title handling works under a stated filing system.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the lesson's applicability limits: it repeatedly says to follow the stated system, makes particle treatment conditional on that system, preserves actual surname spelling, makes suffix treatment system-dependent, and uses city only when specified."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L13": {
+   "verdict": "pass",
+   "checked": [
+    "Reviewed the script flags DELACRUZ and DELGADO: they are literal comparison letter sequences, not ALL-CAPS emphasis. CSE is a genuine acronym, and italics are limited to light emphasis or names."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}
