@@ -11,8 +11,8 @@ Controlling documents:
 ## Lock
 
 State: held
-Holder: Codex W4b continuation, authorized Sonnet takeover
-Since: 2026-10-24 16:13 Asia/Manila (same authorized continuation, renewed)
+Holder: Codex W4a continuation, explicit paused-W4b transfer
+Since: 2026-10-24 16:46 Asia/Manila
 
 Rule: a run takes the lock by setting State to held with its start time, then pushes. If the lock
 is held and younger than 2 hours, a run exits. A lock older than 2 hours is stale and may be
@@ -1207,3 +1207,12 @@ Latest Aedwon instruction: "continue". Root resumes same authorized W4b takeover
 ### October24 client presentation/API checkpoint saved
 
 Client localc71b00c7 saves the scoped Home checklist/sheets/notices/state/performance presentation and original-account API/public cache/validated models. Actual relay11675:41affected tests pass,21Dart paths analysis clean. Root opened source/stat and actual output. This is partial Tasks3–5 and client infrastructure, not live Home/routes wiring or family acceptance. Plan/day/record/tendencies screens and authoritative sender/cache/reader integration remain in progress; source remote stillb99c1679/development4113ad78 unchanged. Server63ba5dcc plus authoritative reader/pure-extraction draft remains local. Shared CSE metadata closure is authorized under current main L3a14038e3, without uploader/schema redesign. Deep Thinker eligibility question pending; other work continues. Final family audit, combined checks, accepted integration/upload, phone/live/deployment/publication remain outstanding.
+
+
+### October24 W4a continuation authorized while W4b is paused
+
+Aedwon: "continue and finish W4a work"; "yes reconcile, then continue working"; "W4b work is currently paused due to reaching usage limits. you may continue.
+
+btw you don't have to use the relay since you're codex and have access directly to my local project files."
+
+Root takes coordination ownership for W4a only. Preserve all paused W4b/client/server work. Direct local execution is explicitly authorized. Policy main06c6ca79 refreshed in full. W4a local3b2d8b33 descends from remote42ee0327 with accepted W4c dependency merges; no remote-only commits. Four modified files and one new date-extension test are preserved drafts. Current development4113ad78 remains the integration target; no main app merge, publication, deployment or phone acceptance is authorized. Continue approved CSE PWA scope: no web reminders step.

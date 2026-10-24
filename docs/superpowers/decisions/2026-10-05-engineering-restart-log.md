@@ -2363,3 +2363,14 @@ Root found conflicting Home future-date taps and the Pro-only future-planning ru
 ### October24 web trial notice wording approved
 
 Aedwon selected exactly "Approve web trial wording" after the before-and-after preview at http://127.0.0.1:8768/trial. Preserve proposal v1 at docs/design/proposals/w4b-web-trial-notice-2026-10-24-v1.html. Same HP_Trial strip; only detail becomes "Your free trial ends on {date}. You won’t be charged." and Manage becomes "See Pro" opening the existing Pro page. Header keeps actual remaining days. Runtime end/date come from actual active account trial data, never a sample constant; native store-charge text remains tied to actual store price/date. Disclosed preview scope: static light-mode design source, not running-app capture; dark mode uses existing approved tokens. Alternative offered: keep the trial notice out of web. Approval covers this copy amendment only; phone visual/live acceptance remains separate.
+
+
+### October24 W4a continuation and execution path
+
+Aedwon: "continue and finish W4a work". After exact local/remote drift was reported, Aedwon: "yes reconcile, then continue working". Root confirmed remote42ee0327 is an ancestor of local3b2d8b33; preserved all five dirty draft paths without reset or rewriting.
+
+Aedwon: "W4b work is currently paused due to reaching usage limits. you may continue.
+
+btw you don't have to use the relay since you're codex and have access directly to my local project files."
+
+This transfers the coordination lock to W4a while preserving the W4b pause and permits direct local tools. Approved CSE PWA scope and designs remain binding. No additional complexity menu, product amendment or routine execution approval is required.
