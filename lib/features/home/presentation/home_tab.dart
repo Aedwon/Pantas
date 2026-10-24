@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -83,12 +84,14 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
       _saving = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await ref
           .read(settingsActionsProvider)
           .saveExamDate(date, today: DateTime.now());
       if (mounted) _closeDate();
-    } on Object {
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) {
         setState(() {
           _saving = false;

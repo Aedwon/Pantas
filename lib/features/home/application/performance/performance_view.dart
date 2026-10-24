@@ -12,7 +12,11 @@ class PerformanceViewData {
     required this.subjectCounts,
     required this.lessonLevelAvailable,
     this.parentSubjectIds = const {},
+    this.overallCorrect,
+    this.overallAnswered,
   });
+  final int? overallCorrect;
+  final int? overallAnswered;
   final List<PerformanceRow> subjects;
   final List<PerformanceRow> topics;
   final List<PerformanceRow> lessons;

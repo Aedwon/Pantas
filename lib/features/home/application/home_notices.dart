@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/trial_notice.dart';
@@ -77,8 +77,12 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
   final flags = ref.watch(remoteFlagsProvider);
   final settings = await ref.watch(userSettingsProvider.future);
   final focus = await ref.watch(activeExamFocusProvider.future);
-  final entitlement = await ref.watch(entitlementProvider.future);
-  final pro = await ref.watch(proForActiveExamProvider.future);
+  final server = ref.watch(studyUsesServerProvider);
+  final entitlement =
+      server ? null : await ref.watch(entitlementProvider.future);
+  final pro = server
+      ? ref.watch(currentStudyCoverageProvider)
+      : await ref.watch(proForActiveExamProvider.future);
   final preferences = ref.read(appPreferencesRepositoryProvider);
   final now = ref.read(nowProvider)();
   final candidates = <HomeNotice>[];
@@ -92,7 +96,7 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
       ),
     );
   }
-  if (kIsWeb) {
+  if (server) {
     final webTrial = webTrialHomeNotice(
       endsAt: await ref.watch(webTrialEndsAtProvider.future),
       now: now,
@@ -100,11 +104,11 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
     if (webTrial != null) candidates.add(webTrial);
   }
   final trial =
-      kIsWeb ? null : TrialNotice.fromEntitlement(entitlement, today: now);
+      server ? null : TrialNotice.fromEntitlement(entitlement!, today: now);
   if (trial != null) {
     final offering = await ref.watch(paywallOfferingProvider.future);
     final package = offering.recognizedPackages
-        .firstWhereOrNull((p) => p.productId == entitlement.productId);
+        .firstWhereOrNull((p) => p.productId == entitlement!.productId);
     if (package != null) {
       candidates.add(
         HomeNotice(

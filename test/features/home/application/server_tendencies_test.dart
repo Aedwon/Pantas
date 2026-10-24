@@ -42,12 +42,17 @@ void main() {
         },
         'tendencies': {
           for (final key in ['pressure', 'stamina', 'study', 'speed', 'memory'])
-            key: {'confidence': 'forming', 'value': null},
+            key: {
+              'confidence': 'forming',
+              'value': null,
+              'unmetRequirements': <String>[],
+            },
         },
       },
       examId: 'e',
     );
     final work = serverTendencies(value, name: null);
+    expect(work.tendencies.every((t) => t.unlockAction.isEmpty), isTrue);
     expect(
       work.tendencies.every((t) => t.confidence == TendencyConfidence.forming),
       isTrue,

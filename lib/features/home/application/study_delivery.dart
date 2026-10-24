@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
@@ -38,8 +40,12 @@ class StudySettingsPublication {
 /// Captured before a local mutation. No settings are sent by opening a page.
 /// Offline failures retain the queue's immutable original-owner retry.
 final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
+  final telemetry = ref.read(telemetryProvider);
   return ({String? examId}) async {
-    final intent = ref.read(studyWritesProvider).beginSettings();
+    final intent = ref.read(studyWritesProvider).beginSettings(
+          examId:
+              examId ?? ref.read(activeExamFocusProvider).valueOrNull?.exam?.id,
+        );
     final captured = await _request(ref, examId: examId)
         .catchError((Object error, StackTrace stack) {
       intent.cancel();
@@ -88,7 +94,8 @@ final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
             (_) {
               ref.read(roadmapRevisionProvider.notifier).bump();
             },
-            onError: (Object _, StackTrace __) {},
+            onError: (Object error, StackTrace stack) =>
+                unawaited(telemetry.recordError(error, stack)),
           ),
         );
       },
@@ -161,6 +168,7 @@ final studyObservationDeliveryProvider =
 /// Retry stored observations after startup and actual terminal/read boundaries.
 /// Settings are sent only by an explicit intent, never by this watcher.
 final studyDeliveryLifecycleProvider = Provider<void>((ref) {
+  final telemetry = ref.read(telemetryProvider);
   final auth = ref.watch(authStateProvider).unwrapPrevious().asData?.value;
   if (auth is! SignedInAuthState && auth is! AnonymousAuthState) return;
   ref
@@ -169,7 +177,8 @@ final studyDeliveryLifecycleProvider = Provider<void>((ref) {
   unawaited(
     ref.read(studyObservationDeliveryProvider)().then<void>(
           (_) {},
-          onError: (Object _, StackTrace __) {},
+          onError: (Object error, StackTrace stack) =>
+              unawaited(telemetry.recordError(error, stack)),
         ),
   );
 });

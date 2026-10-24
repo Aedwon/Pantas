@@ -12,17 +12,23 @@ class HomePerformanceCard extends StatelessWidget {
     required this.rows,
     required this.pro,
     required this.onOpen,
+    this.overallCorrect,
+    this.overallAnswered,
     super.key,
   });
+  final int? overallCorrect;
+  final int? overallAnswered;
   final List<PerformanceRow> rows;
   final bool pro;
   final VoidCallback onOpen;
   @override
   Widget build(BuildContext context) {
     final measured = rows.where((r) => r.answered > 0).toList();
-    final answered = measured.fold(0, (sum, r) => sum + r.answered);
+    final answered =
+        overallAnswered ?? measured.fold<int>(0, (sum, r) => sum + r.answered);
     if (answered == 0) return const SizedBox.shrink();
-    final correct = measured.fold(0, (sum, r) => sum + r.correct);
+    final correct =
+        overallCorrect ?? measured.fold<int>(0, (sum, r) => sum + r.correct);
     return GroupedSection(
       header: 'Your performance',
       children: [

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_read_cache.dart';
@@ -27,10 +26,7 @@ void main() {
         isCurrent: () async => true,
         api: StudyApi((name, _) async => {'examId': 'e', 'actual': 'server'}),
       ),
-      beforeRead: () async => throw FirebaseFunctionsException(
-        code: 'invalid-argument',
-        message: 'Retired question',
-      ),
+      beforeRead: () async => throw StateError('Malformed local observation'),
     );
     expect((await reader.read('getRoadmap').last)['actual'], 'server');
   });

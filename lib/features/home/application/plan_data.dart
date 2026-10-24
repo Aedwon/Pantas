@@ -33,12 +33,12 @@ String planStudyDaysLabel(Set<int> weekdays) {
   return 'You study $selected.';
 }
 
-/// Missing historic details remain absent pending DP_History's legacy-copy
-/// decision. Never replace a historic value with today's settings or exam.
+/// Legacy rows show only stored facts. Never replace a historic value with
+/// today's settings or exam.
 String? planHistoryText(RoadmapChange change, {required String examName}) =>
     switch (change.cause) {
-      RoadmapChangeCause.examChanged =>
-        'You switched to $examName. Your plan was rebuilt for it.',
+      RoadmapChangeCause.examChanged => 'Your plan changed on '
+          '${DateFormat('MMM d', 'en_US').format(change.occurredAt)}.',
       RoadmapChangeCause.examPassed =>
         'Your exam date passed. Your plan waits for a new date.',
       RoadmapChangeCause.missingExamDate =>
@@ -53,7 +53,9 @@ String? planHistoryText(RoadmapChange change, {required String examName}) =>
             'The rest wait for the next days.',
       RoadmapChangeCause.advanced when change.advancedCompleted == null =>
         "You added tomorrow's lessons to today.",
-      _ => null,
+      RoadmapChangeCause.newDay || RoadmapChangeCause.prerequisiteCycle => null,
+      _ => 'Your plan changed on '
+          '${DateFormat('MMM d', 'en_US').format(change.occurredAt)}.',
     };
 
 ({int done, int total}) planChecklistProgress(DayPlan plan, DayPlan remaining) {

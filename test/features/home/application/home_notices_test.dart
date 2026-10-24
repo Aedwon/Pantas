@@ -1,9 +1,45 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/application/web_study_seam.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
+
+import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
 
 HomeNotice notice(HomeNoticeKind kind, {String token = 'yes'}) =>
     HomeNotice(kind: kind, title: kind.name, dismissalToken: token);
 void main() {
+  test('web welcome follows server coverage even when native Pro is active',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final scope = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        userSettingsProvider.overrideWith((_) async => UserSettings.defaults()),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+        entitlementProvider
+            .overrideWith((_) => Stream.value(const Entitlement.free())),
+        proForActiveExamProvider.overrideWith((_) async => true),
+        studyUsesServerProvider.overrideWithValue(true),
+        currentStudyCoverageProvider.overrideWithValue(false),
+        webTrialEndsAtProvider.overrideWith((_) async => null),
+      ],
+    );
+    addTearDown(scope.dispose);
+    final notice = await scope.read(homeNoticeProvider.future);
+    expect(notice?.kind, isNot(HomeNoticeKind.welcome));
+  });
+
   test('notice priority is service, trial, welcome, no date, month only', () {
     final candidates = [
       for (final kind in HomeNoticeKind.values.reversed) notice(kind),

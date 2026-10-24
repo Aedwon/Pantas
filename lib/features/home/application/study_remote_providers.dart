@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -70,6 +71,7 @@ final studySnapshotReaderProvider = FutureProvider.autoDispose
   );
   return StudySnapshotReader(
     request: request,
+    recordError: ref.read(telemetryProvider).recordError,
     // Reads upload actual observations, never a new settings intent. Default
     // local settings on a restored device must not overwrite server settings.
     beforeRead: () async {
@@ -147,4 +149,16 @@ final currentStudyCoverageProvider = Provider.autoDispose<bool>((ref) {
           ?.value
           .proCovered ??
       false;
+});
+
+/// Retained paid values cannot turn an unresolved coverage check into Free.
+final studyCoverageLoadingProvider = Provider.autoDispose<bool>((ref) {
+  if (!ref.watch(studyUsesServerProvider)) {
+    final coverage = ref.watch(proForActiveExamProvider);
+    return coverage.isLoading && !coverage.hasValue;
+  }
+  final focus = ref.watch(activeExamFocusProvider);
+  final exam = focus.valueOrNull?.exam;
+  if (exam == null) return focus.isLoading;
+  return ref.watch(serverStudyInsightsProvider(exam.id)).isLoading;
 });

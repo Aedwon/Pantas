@@ -30,17 +30,23 @@ Map<String, Object?> studySessionPayload(Attempt attempt) {
   };
 }
 
-/// One feature-local queue per database. A new intent replaces a failed retry
-/// immediately. A dispatched write finishes before its successor.
+/// One feature-local queue per database. A new intent replaces the same exam
+/// retry immediately. A dispatched write finishes before its successor.
+/// Retries are in memory only and are lost when the process restarts.
 class StudyWrites {
   Future<void> _tail = Future<void>.value();
   Future<void> _latestSettings = Future<void>.value();
   int _intent = 0;
-  Future<void> Function()? _retry;
+  final _retries = <String, ({String examId, Future<void> Function() send})>{};
+  final _intents = <String, int>{};
 
-  StudySettingsIntent beginSettings() {
-    final result = StudySettingsIntent._(this, ++_intent);
-    _retry = null;
+  StudySettingsIntent beginSettings({String? examId}) {
+    if (examId == null) _intents.updateAll((_, __) => -1);
+    final scope = examId ?? '';
+    final result = StudySettingsIntent._(this, ++_intent, scope);
+    _intents[scope] = result._id;
+    _retries
+        .removeWhere((_, retry) => examId == null || retry.examId == examId);
     _latestSettings = result._completion.future;
     // A failed unobserved reservation must not create an unhandled error.
     unawaited(
@@ -53,7 +59,7 @@ class StudyWrites {
   }
 
   Future<void> settings(StudyRequest request, Map<String, Object?> payload) =>
-      beginSettings().publish(request, payload);
+      beginSettings(examId: request.examId).publish(request, payload);
 
   Future<void> _publish(
     StudySettingsIntent intent,
@@ -62,13 +68,18 @@ class StudyWrites {
   ) {
     final saved =
         (jsonDecode(jsonEncode(payload)) as Map).cast<String, Object?>();
+    final key = '${request.uid}/${request.examId}';
     Future<void> send() async {
-      if (intent._id != _intent) return;
+      if (_intents[intent._scope] != intent._id) return;
+      // Other exams keep their retry until the original owner is active.
+      if (!await request.isCurrent()) return;
       await request.read('setExamSettings', payload: saved);
-      if (intent._id == _intent) _retry = null;
+      if (_intents[intent._scope] == intent._id) _retries.remove(key);
     }
 
-    if (intent._id == _intent) _retry = send;
+    if (_intents[intent._scope] == intent._id) {
+      _retries[key] = (examId: request.examId, send: send);
+    }
     final dispatched = _enqueue(send)
       ..then<void>(
         (_) => intent._finish(),
@@ -83,7 +94,21 @@ class StudyWrites {
     });
   }
 
-  Future<void> retrySettings() => _enqueue(() async => _retry?.call());
+  Future<void> retrySettings() => _enqueue(() async {
+        Object? firstError;
+        StackTrace? firstStack;
+        for (final retry in _retries.values.toList()) {
+          try {
+            await retry.send();
+          } catch (error, stack) {
+            firstError ??= error;
+            firstStack ??= stack;
+          }
+        }
+        if (firstError != null) {
+          Error.throwWithStackTrace(firstError, firstStack!);
+        }
+      });
 
   Future<void> _enqueue(Future<void> Function() operation) {
     final result = _tail.then((_) => operation());
@@ -95,9 +120,10 @@ class StudyWrites {
 /// A tap reserves ordering before any owner/settings hydration can yield.
 /// Failed local persistence cancels it without restoring an older retry.
 class StudySettingsIntent {
-  StudySettingsIntent._(this._writes, this._id);
+  StudySettingsIntent._(this._writes, this._id, this._scope);
   final StudyWrites _writes;
   final int _id;
+  final String _scope;
   final _completion = Completer<void>();
   bool _submitted = false;
   Future<void> publish(StudyRequest request, Map<String, Object?> payload) {

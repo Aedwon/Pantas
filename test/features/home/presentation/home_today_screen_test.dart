@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,16 +12,25 @@ import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_today.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/home/data/study_api.dart';
+import 'package:pantas/features/home/data/study_read_cache.dart';
+import 'package:pantas/features/home/data/study_snapshot_reader.dart';
 import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
+
+import '../../../helpers/in_memory_database.dart';
 
 final day = DateTime(2026, 10, 24);
 final plan = DayPlan(
@@ -48,6 +60,7 @@ final today = RoadmapToday(
 
 void main() {
   quietDayTests();
+  auditTests();
   testWidgets('lesson sheet starts the real lesson with its day context',
       (tester) async {
     LessonDayContext? context;
@@ -289,7 +302,22 @@ Future<void> pumpData(
   WidgetTester tester,
   HomeTodayData data, {
   VoidCallback? onSetDate,
+  List<Override> overrides = const [],
 }) async {
+  final router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (_, __) => HomeTodayScreen(
+          examId: 'e1',
+          onSetDate: onSetDate,
+          pageBuilder: (today, _) =>
+              Scaffold(body: SingleChildScrollView(child: today)),
+        ),
+      ),
+    ],
+  );
+  addTearDown(router.dispose);
   await tester.pumpWidget(
     ProviderScope(
       key: UniqueKey(),
@@ -310,16 +338,9 @@ Future<void> pumpData(
         homeTodayLoaderProvider
             .overrideWith((ref) => (examId, guard) async => data),
         todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+        ...overrides,
       ],
-      child: MaterialApp(
-        theme: buildLightTheme(),
-        home: HomeTodayScreen(
-          examId: 'e1',
-          onSetDate: onSetDate,
-          pageBuilder: (today, _) =>
-              Scaffold(body: SingleChildScrollView(child: today)),
-        ),
-      ),
+      child: MaterialApp.router(theme: buildLightTheme(), routerConfig: router),
     ),
   );
   await tester.pumpAndSettle();
@@ -498,5 +519,149 @@ void quietDayTests() {
       find.text('Your UPCAT simulation moved to today.'),
       findsOneWidget,
     );
+  });
+}
+
+StudyRoadmap auditRoadmap() => StudyRoadmap.decode(
+      {
+        'examId': 'e1',
+        'serverNow': 100,
+        'proCovered': false,
+        'revision': 'r',
+        'state': 'planning',
+        'today': {
+          'day': '2026-10-24',
+          'lessonIds': <String>[],
+          'reviewQuestionIds': <String>[],
+          'newQuestionIds': <String>[],
+          'advancedIds': <String>[],
+          'isMockDay': false,
+          'isRestDay': false,
+        },
+        'remaining': {
+          'day': '2026-10-24',
+          'lessonIds': <String>[],
+          'reviewQuestionIds': <String>[],
+          'newQuestionIds': <String>[],
+          'advancedIds': <String>[],
+          'isMockDay': false,
+          'isRestDay': false,
+        },
+        'weekDays': <Object?>[],
+        'originalDone': true,
+        'canAdvance': true,
+        'todayTopicOrder': <String>[],
+      },
+      examId: 'e1',
+    );
+
+class _AuditPreparer extends TodayQuizPreparer {
+  _AuditPreparer()
+      : super(
+          readStamp: (_) => throw UnimplementedError(),
+          buildPlan: (_) => throw UnimplementedError(),
+          now: DateTime.now,
+        );
+  final calls = <QuizPreparationRequest>[];
+  @override
+  Future<PreparedTodaySession> prepare(QuizPreparationRequest request) async {
+    calls.add(request);
+    throw StateError('Stop after captured request');
+  }
+}
+
+void auditTests() {
+  for (final code in [
+    'failed-precondition',
+    'permission-denied',
+    'unavailable',
+  ]) {
+    testWidgets('advance $code retains only a retryable request',
+        (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sent = <String>[];
+      final request = StudyRequest(
+        uid: 'u',
+        examId: 'e1',
+        isCurrent: () async => true,
+        api: StudyApi((_, p) async {
+          sent.add(p['requestId']! as String);
+          throw FirebaseFunctionsException(code: code, message: 'Rejected');
+        }),
+      );
+      await pumpData(
+        tester,
+        HomeTodayData(
+          today: todayFor(dayPlan: emptyPlan(rest: true), originalDone: true),
+          lessons: const [],
+          questionWork: null,
+          canAdvance: true,
+        ),
+        overrides: [
+          studyUsesServerProvider.overrideWithValue(true),
+          serverStudyRoadmapProvider('e1')
+              .overrideWith((_) => Stream.value(auditRoadmap())),
+          studySnapshotReaderProvider('e1').overrideWith(
+            (_) async => StudySnapshotReader(
+              request: request,
+              cache: StudyReadCache(
+                db,
+                uid: 'u',
+                examId: 'e1',
+                coreToken: 'c',
+                isCurrent: () async => true,
+              ),
+            ),
+          ),
+        ],
+      );
+      await tester.tap(find.text('I Want to Advance'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Try Again'));
+      await tester.pumpAndSettle();
+      expect(sent, hasLength(2));
+      expect(sent.first == sent.last, code == 'unavailable');
+    });
+  }
+  testWidgets('web Free weakest practice starts general exam practice',
+      (tester) async {
+    final preparer = _AuditPreparer();
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: todayFor(dayPlan: emptyPlan()),
+        lessons: const [],
+        questionWork: null,
+        canAdvance: false,
+      ),
+      overrides: [
+        studyUsesServerProvider.overrideWithValue(true),
+        todayQuizPreparerProvider.overrideWithValue(preparer),
+        serverStudyRoadmapProvider('e1')
+            .overrideWith((_) => Stream.value(auditRoadmap())),
+        serverStudyInsightsProvider('e1').overrideWith(
+          (_) => Stream.value(
+            StudyInsights.decode(
+              {
+                'examId': 'e1',
+                'serverNow': 100,
+                'proCovered': false,
+                'revision': 'r',
+                'performance': {
+                  'overall': {'correct': 0, 'answered': 0},
+                  'subjects': <Object?>[],
+                },
+              },
+              examId: 'e1',
+            ),
+          ),
+        ),
+      ],
+    );
+    await tester.tap(find.text('Practice Weakest Topics'));
+    await tester.pumpAndSettle();
+    expect(preparer.calls, hasLength(1));
+    expect(preparer.calls.single.topicId, isNull);
   });
 }

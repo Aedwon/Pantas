@@ -8,6 +8,7 @@ void main() {
     WidgetTester tester,
     HomeState state, {
     bool large = false,
+    bool hasExamDate = true,
   }) async {
     await tester.pumpWidget(
       MaterialApp(
@@ -22,6 +23,7 @@ void main() {
             body: SingleChildScrollView(
               child: HomeStateCard(
                 state: state,
+                hasExamDate: hasExamDate,
                 examName: 'CSE Professional',
                 examShortName: 'CSE-P',
                 onPrimary: () {},
@@ -35,6 +37,12 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  testWidgets('no date and no due work makes no coverage claim',
+      (tester) async {
+    await show(tester, HomeState.nothingDue, hasExamDate: false);
+    expect(find.text('Nothing due today'), findsOneWidget);
+    expect(find.text("You've covered everything in your plan."), findsNothing);
+  });
   testWidgets('assessment has only its approved action and no quick quiz',
       (tester) async {
     await show(tester, HomeState.assessment);

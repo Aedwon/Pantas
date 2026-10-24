@@ -17,6 +17,8 @@ void main() {
   Widget show(
     List<PerformanceRow> rows, {
     bool pro = false,
+    int? overallCorrect,
+    int? overallAnswered,
     bool large = false,
   }) =>
       MaterialApp(
@@ -30,6 +32,8 @@ void main() {
             body: SingleChildScrollView(
               child: HomePerformanceCard(
                 rows: rows,
+                overallCorrect: overallCorrect,
+                overallAnswered: overallAnswered,
                 pro: pro,
                 onOpen: () {},
               ),
@@ -37,6 +41,17 @@ void main() {
           ),
         ),
       );
+  testWidgets('server overall includes answers outside displayed subjects',
+      (tester) async {
+    await tester.pumpWidget(
+      show([row('Math', 1, 2)], overallCorrect: 3, overallAnswered: 4),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<HalfRingGauge>(find.byType(HalfRingGauge)).fraction,
+      .75,
+    );
+  });
   testWidgets(
       'overall accuracy uses every finished answer, empty subjects stay hidden',
       (tester) async {

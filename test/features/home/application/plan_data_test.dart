@@ -130,7 +130,7 @@ void main() {
         change(RoadmapChangeCause.examChanged),
         examName: 'CSE-P',
       ),
-      'You switched to CSE-P. Your plan was rebuilt for it.',
+      'Your plan changed on Oct 25.',
     );
     expect(
       planHistoryText(
@@ -169,7 +169,7 @@ void main() {
         change(RoadmapChangeCause.examDateChanged),
         examName: 'CSE-P',
       ),
-      isNull,
+      'Your plan changed on Oct 25.',
     );
   });
   test('week labels preserve Sunday boundaries and custom study days', () {

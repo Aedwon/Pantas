@@ -54,10 +54,11 @@ final archetypeCatalog = <Archetype>[
     match: (s) {
       final speed = s[SignalKey.perQuestionSpeed]! as LatencyDistribution;
       // Slow is the complement of Night Owl's <= 12000 ms fast rule.
-      // Accuracy uses the existing measured correct/incorrect split: more
-      // correct answers than incorrect answers, with no inferred evidence.
+      // Correct answers take longer than incorrect answers.
       if (speed.averageMs <= 12000 ||
-          speed.correctCount <= speed.incorrectCount) {
+          speed.correctCount == 0 ||
+          speed.incorrectCount == 0 ||
+          speed.correctAverageMs <= speed.incorrectAverageMs) {
         return 0;
       }
       return speed.correctCount / (speed.correctCount + speed.incorrectCount);

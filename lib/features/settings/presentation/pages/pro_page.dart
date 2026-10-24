@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -40,10 +41,12 @@ Uri googlePlaySubscriptionManagementUri(Entitlement entitlement) {
 class ProPage extends ConsumerStatefulWidget {
   const ProPage({
     this.subscriptionLauncher = launchGooglePlaySubscriptionManagement,
+    this.onTryPro,
     super.key,
   });
 
   final SubscriptionManagementLauncher subscriptionLauncher;
+  final VoidCallback? onTryPro;
 
   @override
   ConsumerState<ProPage> createState() => _ProPageState();
@@ -92,6 +95,12 @@ class _ProPageState extends ConsumerState<ProPage> {
           SettingsGroup(
             title: 'Manage',
             children: [
+              if (!kIsWeb && !entitlement.proIsActive)
+                SettingsValueRow(
+                  title: 'Try Pro',
+                  showChevron: true,
+                  onTap: _restorePending ? null : widget.onTryPro,
+                ),
               Semantics(
                 button: true,
                 enabled: !_managePending,

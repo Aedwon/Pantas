@@ -14,6 +14,7 @@ class HomeStateCard extends StatelessWidget {
     required this.onPrimary,
     this.onSecondary,
     this.examDateLabel,
+    this.hasExamDate = true,
     super.key,
   });
   final HomeState state;
@@ -24,6 +25,7 @@ class HomeStateCard extends StatelessWidget {
   final VoidCallback? onPrimary;
   final VoidCallback? onSecondary;
   final String? examDateLabel;
+  final bool hasExamDate;
 
   String get _title => switch (state) {
         HomeState.assessment => 'First, a short assessment',
@@ -118,8 +120,10 @@ class HomeStateCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(_title, style: context.type.emphasized),
-              const SizedBox(height: 6),
-              detail,
+              if (state != HomeState.nothingDue || hasExamDate) ...[
+                const SizedBox(height: 6),
+                detail,
+              ],
             ],
           ),
         ),

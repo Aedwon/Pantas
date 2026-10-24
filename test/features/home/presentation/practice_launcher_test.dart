@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/practice_launcher.dart';
 import 'package:pantas/features/quiz/application/quiz_preparation_stamp.dart';
@@ -75,7 +77,17 @@ PreparedTodaySession prepared({required bool empty}) => PreparedTodaySession(
       preparedAt: DateTime(2026, 10, 24, 10),
     );
 
+class _ErrorSink extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
+
 void main() {
+  final sink = _ErrorSink();
+
   late _Preparer preparer;
   Object? extra;
 
@@ -112,7 +124,10 @@ void main() {
     );
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [todayQuizPreparerProvider.overrideWithValue(preparer)],
+        overrides: [
+          todayQuizPreparerProvider.overrideWithValue(preparer),
+          telemetryProvider.overrideWithValue(sink),
+        ],
         child: MaterialApp.router(
           theme: buildLightTheme(),
           routerConfig: router,
@@ -148,6 +163,7 @@ void main() {
     preparer.failure = Exception('boom');
     await pump(tester);
     expect(find.text('Could not prepare this quiz.'), findsOneWidget);
+    expect(sink.errors, contains(preparer.failure));
     expect(find.text('quiz'), findsNothing);
   });
 }

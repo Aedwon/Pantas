@@ -12,6 +12,7 @@ import 'package:pantas/features/home/data/plan_history_reader.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_guard.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -73,8 +74,9 @@ final planViewProvider =
   final now = localDay(ref.read(nowProvider)().toLocal());
   final settings = await ref.watch(userSettingsProvider.future);
   final days = settings.examDate?.daysUntil(now);
-  final subtitle =
-      days != null && days >= 0 ? '$days days until ${exam.shortName}' : null;
+  final subtitle = days != null && days >= 0
+      ? '$days ${days == 1 ? 'day' : 'days'} until ${exam.shortName}'
+      : null;
   final nodes = <PlanNode>[];
   final history = <PlanHistoryEntry>[];
   Map<String, Object?>? next;
@@ -209,7 +211,6 @@ final planViewProvider =
   for (var i = 0; i < changes.length && i < limit; i++) {
     final c = changes[i];
     // Old exam-change rows lack the historic target. Do not use today's exam.
-    if (c.cause == RoadmapChangeCause.examChanged) continue;
     final text = planHistoryText(c, examName: exam.shortName);
     if (text == null) continue;
     final age = now.difference(localDay(c.occurredAt)).inDays;
@@ -254,7 +255,12 @@ final planDayViewProvider =
       await captureQuizLaunchGuard(ref, examId: exam.id, isAlive: () => alive);
   final now = localDay(ref.read(nowProvider)().toLocal());
   final future = date.isAfter(now);
-  if (future && !ref.watch(currentStudyCoverageProvider)) {
+  final covered = !future ||
+      (ref.watch(studyUsesServerProvider)
+          ? (await ref.watch(serverStudyInsightsProvider(exam.id).future))
+              .proCovered
+          : await ref.watch(proForActiveExamProvider.future));
+  if (!covered) {
     return PlanDayView(
       date: date,
       plan: null,

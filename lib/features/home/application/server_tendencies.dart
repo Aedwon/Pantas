@@ -12,7 +12,7 @@ HowYouWork serverTendencies(StudyInsights source, {required String? name}) {
   final id = source.profileId;
   final profile = archetypeCatalog.where((a) => a.id == id).firstOrNull;
   final cards = <Tendency>[];
-  for (final (key, kind, heading, left, right, unlock) in [
+  for (final (key, kind, heading, left, right, _) in [
     (
       'pressure',
       TendencyId.underPressure,
@@ -134,7 +134,7 @@ HowYouWork serverTendencies(StudyInsights source, {required String? name}) {
         rightFigure: b,
         sentence: sentence,
         isLoss: loss,
-        unlockAction: unlock,
+        unlockAction: _unmetCopy(key, finding),
         confidence: confidence,
       ),
     );
@@ -172,4 +172,32 @@ HowYouWork serverTendencies(StudyInsights source, {required String? name}) {
             ),
           ],
   );
+}
+
+String _unmetCopy(String key, Map<String, Object?>? finding) {
+  final requirements = finding?['unmetRequirements'];
+  if (requirements is! List || requirements.isEmpty) return '';
+  final missing = requirements.cast<String>().toSet();
+  return switch (key) {
+    'pressure' => missing.contains('practice') && missing.contains('mock')
+        ? 'Answer practice questions and finish one full length mock'
+        : missing.contains('practice')
+            ? 'Answer practice questions'
+            : 'Finish one full length mock',
+    'speed' => missing.contains('correct') && missing.contains('incorrect')
+        ? 'Answer timed questions correctly and incorrectly'
+        : missing.contains('correct')
+            ? 'Answer timed questions correctly'
+            : 'Answer timed questions incorrectly',
+    'study' => missing.contains('lesson') && missing.contains('practice')
+        ? 'Read a lesson and answer questions in its topic'
+        : missing.contains('practice')
+            ? 'Answer questions in a topic you have read'
+            : missing.contains('lesson')
+                ? 'Read a lesson in a topic you have practiced'
+                : 'Read a lesson and answer questions in its topic',
+    'stamina' => 'Finish one full length mock',
+    'memory' => 'Review more questions',
+    _ => '',
+  };
 }

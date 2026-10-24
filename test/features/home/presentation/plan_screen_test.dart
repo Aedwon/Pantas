@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
@@ -18,6 +19,32 @@ import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  testWidgets('coverage loading never shows the Free invitation',
+      (tester) async {
+    final pending = Completer<bool>();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          proForActiveExamProvider.overrideWith((_) => pending.future),
+          planViewProvider(5).overrideWith(
+            (_) async =>
+                const PlanView(done: 0, total: 0, nodes: [], history: []),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanWeekScreen(start: '2026-10-25'),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Unlock with Pro'), findsNothing);
+    expect(find.bySemanticsLabel('Loading'), findsOneWidget);
+    pending.complete(false);
+    await tester.pumpAndSettle();
+  });
+
   testWidgets('a day opened from Home names Home as its return destination',
       (tester) async {
     final date = DateTime(2026, 10, 26);
@@ -90,6 +117,38 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Could not load your plan.'), findsOneWidget);
     expect(find.text('Lessons by day'), findsNothing);
+    expect(
+      tester.widget<StateView>(find.byType(StateView)).boardLayout,
+      isTrue,
+    );
+  });
+  testWidgets('unknown day uses the approved plan error layout',
+      (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          planDayViewProvider('2026-10-18').overrideWith(
+            (_) async => PlanDayView(
+              date: DateTime(2026, 10, 18),
+              plan: null,
+              remaining: null,
+              lessons: const [],
+              kind: 'unknown',
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const PlanDayScreen(date: '2026-10-18'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<StateView>(find.byType(StateView)).boardLayout,
+      isTrue,
+    );
+    expect(find.text('Could not load your plan.'), findsOneWidget);
   });
   testWidgets(
       'history appends without replacing the visible plan while loading',

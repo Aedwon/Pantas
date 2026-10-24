@@ -42,10 +42,12 @@ class StudySnapshotReader {
     required this.request,
     required this.cache,
     this.beforeRead,
+    this.recordError,
   });
   final StudyRequest request;
   final StudyReadCache cache;
   final Future<void> Function()? beforeRead;
+  final Future<void> Function(Object, StackTrace)? recordError;
   Stream<Map<String, Object?>> read(String kind) async* {
     final cached = await cache.read(kind);
     if (cached != null) yield cached;
@@ -53,9 +55,8 @@ class StudySnapshotReader {
     try {
       try {
         await beforeRead?.call();
-      } on FirebaseFunctionsException {
-        // Retain rejected/offline observations for retry. They cannot prevent
-        // reading the account's already accepted authoritative data.
+      } catch (error, stack) {
+        await recordError?.call(error, stack);
         if (!await request.isCurrent()) rethrow;
       }
       final current = await request.read(kind);

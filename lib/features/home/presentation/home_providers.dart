@@ -1,10 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
-import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
@@ -205,47 +203,3 @@ double todayCompletionFraction({required int total, required int left}) {
 
 int _count(RoadmapDayCounts counts) =>
     counts.lessons + counts.newQuestions + counts.reviews;
-
-@immutable
-class LessonsRead {
-  const LessonsRead({required this.read, required this.total});
-
-  final int read;
-  final int total;
-
-  @override
-  bool operator ==(Object other) =>
-      other is LessonsRead && other.read == read && other.total == total;
-
-  @override
-  int get hashCode => Object.hash(read, total);
-}
-
-final lessonsReadProvider =
-    FutureProvider.family<LessonsRead, ExamId>((ref, examId) async {
-  final db = ref.watch(appDatabaseProvider);
-  final contentDb = ref.watch(contentDatabaseProvider);
-  final subjectRows = await (contentDb.select(contentDb.contentSubjects)
-        ..where((s) => s.examId.equals(examId)))
-      .get();
-  final subjectIds = subjectRows.map((s) => s.id).toList();
-  if (subjectIds.isEmpty) return const LessonsRead(read: 0, total: 0);
-
-  final topicRows = await (contentDb.select(contentDb.contentTopics)
-        ..where((t) => t.subjectId.isIn(subjectIds)))
-      .get();
-  final topicIds = topicRows.map((t) => t.id).toList();
-  if (topicIds.isEmpty) return const LessonsRead(read: 0, total: 0);
-
-  final lessonRows = await (contentDb.select(contentDb.contentLessons)
-        ..where((l) => l.topicId.isIn(topicIds)))
-      .get();
-  final lessonIds = lessonRows.map((l) => l.id).toSet();
-  if (lessonIds.isEmpty) return const LessonsRead(read: 0, total: 0);
-
-  final progressRows = await (db.select(db.lessonProgressLocal)
-        ..where((p) => p.lessonId.isIn(lessonIds)))
-      .get();
-
-  return LessonsRead(read: progressRows.length, total: lessonRows.length);
-});

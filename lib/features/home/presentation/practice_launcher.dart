@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 
@@ -13,11 +14,14 @@ Future<void> startTopicPractice(
   BuildContext context,
   WidgetRef ref, {
   required String examId,
-  required String topicId,
+  String? topicId,
+  Future<bool> Function()? isCurrent,
 }) async {
   final messenger = ScaffoldMessenger.of(context);
   final router = GoRouter.of(context);
+  final telemetry = ref.read(telemetryProvider);
   try {
+    if (isCurrent != null && !await isCurrent()) return;
     final prepared = await ref.read(todayQuizPreparerProvider).prepare(
           QuizPreparationRequest(
             userId: quizLocalUserId,
@@ -25,6 +29,7 @@ Future<void> startTopicPractice(
             topicId: topicId,
           ),
         );
+    if (isCurrent != null && !await isCurrent()) return;
     if (!context.mounted) return;
     if (prepared.plan.isEmpty) {
       messenger.showSnackBar(
@@ -34,11 +39,14 @@ Future<void> startTopicPractice(
     }
     unawaited(
       router.push(
-        '/quiz/today/$examId?topicId=$topicId',
+        topicId == null
+            ? '/quiz/today/$examId'
+            : '/quiz/today/$examId?topicId=$topicId',
         extra: prepared,
       ),
     );
-  } on Object {
+  } on Object catch (error, stack) {
+    unawaited(telemetry.recordError(error, stack));
     if (!context.mounted) return;
     messenger.showSnackBar(
       const SnackBar(content: Text('Could not prepare this quiz.')),

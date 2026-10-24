@@ -924,3 +924,251 @@ No production source changed during or after the final serial gate. Evidence-onl
 edits occur afterwards. `git diff --check` is clean. Client status has 123 paths;
 server status has 19. Both HEADs and branches remain as assigned; nothing is saved
 to Git history or uploaded as application source.
+
+
+## October 25 audit resume after usage limit
+
+Policy read from existing origin/main `1a5089e0203af65b02dc03f3ac8d466770e07f11`.
+Client HEAD remains `ac5a2a6353cd10b6bf0d5dabb1bcbdcbecc6fafe`.
+Server HEAD remains `c0bdae14c8cccdeaed564eb027ac21cd41c3949e`.
+The supplied dirty changes were retained in both worktrees. No fetch, pull,
+commit, merge, push, deployment, dependency addition, or pinned content rebuild.
+Server was never merged into client. This is worker evidence, not independent
+review, integration, live acceptance, or Aedwon's visual acceptance.
+
+### User decisions applied
+
+- Exact selection: "2+ missed study days (Rec.)". Existing `homeDayNoteFor`
+  already counts only study days strictly between the last stored day and today.
+  Two or more shows "Welcome back" and "Items you missed are in today's reviews."
+  One missed day keeps the carried-over line. Existing domain tests cover both
+  boundaries and exclusion of rest days. No threshold change was needed.
+- Exact selection: "Show what's known (Rec.)". Old rows without the facts needed
+  for a detailed sentence now show "Your plan changed on {stored date}." Existing
+  true cause-specific sentences remain. No current exam is substituted for a
+  missing historic exam. Stored topic IDs do not supply historic topic names.
+- Exact selection: "Drop the covered line (Rec.)". Nothing due with no exam date
+  shows only "Nothing due today". The coverage claim is omitted.
+
+### Audit disposition
+
+1. Done. Payload construction runs inside each observation's catch boundary.
+   A malformed completed interval cannot block later valid sessions. A failed
+   upload is recorded and does not prevent the authoritative snapshot read.
+2. Done. Definitive advance rejection clears the immutable pending envelope and
+   refreshes the server roadmap. Transient failures keep the same envelope.
+3. Done. Resource exhaustion stops the flush. Invalid arguments, missing content,
+   and other definitive callable rejections get original-owner rejection receipts.
+   Rejected observations are not retried on every view. Transient failures retry.
+4. Done. The listed async action failures call telemetry.recordError. Masthead
+   and performance errors expose the existing retry component.
+5. Done. Web Welcome-to-Pro uses authoritative current exam coverage.
+6. Done. Weakest practice rechecks the original account/exam guard after awaits.
+   Web orders only server-returned topic performance. No returned performance
+   starts general exam practice without a local topic ranking.
+7. Done. Server returns actual unmet requirement tokens. Client renders only
+   their existing instruction copy. No unmet requirement means no such line.
+8. Done. Removed unused LessonsRead and lessonsReadProvider. Miss-cause inputs stay.
+9. Done. Countdown uses "1 day until ..." and reports zero as "0 days until ...".
+   Original-summary question count uses "1 question".
+10. Partial. Server missing past study days now map to missed, rest days to rest.
+    Explicit missing day detail remains unknown without fabricated plan membership.
+    Client unknown-day/week failures now use the approved DP_Error component layout,
+    with regression tests. No approved board defines a distinct missing-plan state.
+    Replacing the load-error sentence with a separate unknown-day state still needs
+    the lead's board/copy decision. No new state or invented quota was introduced.
+11. Done. New settings intent supersedes the same exam's retry and preserves
+    other exams' original envelopes. Queue remains in memory. Process restart
+    loses pending settings retries; no native schema change was made.
+12. Done. Deep Thinker requires overall average strictly above 12,000 ms,
+    observations of correct and incorrect answers, and correct-answer average
+    time strictly greater than incorrect-answer average time. This mirrors the
+    existing Night Owl fast boundary. It does not compare answer counts.
+13. Done. Web Home overall accuracy uses the returned overall numerator and
+    denominator, including answers absent from displayed subject rows.
+14. Done. Coverage loading shows loading in plan/week screens and future-day
+    providers. It does not briefly show the Free invitation.
+15. Done. Restored the existing native Try Pro purchase control until W4f.
+    Existing payment behavior remains. No new web checkout behavior was added.
+Additional server regression: future-dated lesson reads are excluded.
+
+### Regression-first evidence recovered and observed
+
+Inherited RED logs were recovered from /tmp and copied into ignored
+`build/w4b-audit-resume/`. Their assertion output was read, not inferred from names:
+- w4b-red1.log: authoritative read aborted after rejected historic upload.
+- w4b-red1b.log: permanent rejection repeated; rate limit sent both observations
+  when only the first should be sent.
+- w4b-red2.log: legacy-history sentence, hidden masthead failure, missing Try Pro.
+- w4b-red3.log: another exam's retry lost, wrong overall figure, no-date coverage claim.
+- w4b-red4.log and w4b-red4state.log: false unmet-instruction line, silent practice
+  failure, hidden performance failure.
+- w4b-red5.log: web welcome followed native entitlement.
+- w4b-red6b.log: definitive advance rejection retained the old request; Free web
+  weakest practice failed to start general practice.
+- w4b-red14.log: unresolved coverage displayed the Free invitation.
+Compilation failures in earlier attempts are not counted as behavioral RED proof.
+Original separate RED evidence was not recovered for the inherited malformed-timing
+assertion, text-only plural fixes, or dead-provider removal. Those are checked by
+current source review and final tests; this record does not invent TDD history.
+Server RED proof for unmet requirements, future lessons, missing week days, and
+Deep Thinker is retained in its evidence file and actual build/w4b-audit logs.
+
+New tests during this resume:
+- /tmp/w4b-plan-red.log: unknown day and week StateView.boardLayout were false,
+  expected true. Production changed only after observing both assertion failures.
+- /tmp/w4b-observations-red.log: permission-denied and failed-precondition repeated
+  on the second flush. Production changed after observing those failures.
+  Two earlier test-setup compilation errors were corrected before the real RED run.
+
+Initial focused client check: `flutter test test/features/home
+ test/features/settings/presentation/pro_page_payments_test.dart`, exit 0,
+`00:11 +339: All tests passed!`.
+
+### Verification environment and limitations
+
+Installed Node 22 and Java 21 used for backend checks. Exact npm test passed the
+183 plain tests but could not start Firestore on occupied port 8080. No foreign
+process was stopped. Equivalent complete emulator globs ran using an ignored
+/tmp config with unchanged rule/index paths and isolated ports, 235 passed.
+
+The first parallel layering/attribution invocations collided while copying
+native dylibs under .dart_tool. They failed operationally, before their checks.
+They must run sequentially after the full Flutter suite; these failures are not
+reported as clean gates. Analyzer and formatter were clean after fixing inherited
+lint/format findings. Full final results and exact status follow below.
+
+
+### Final copy/layout correction
+
+Board text extraction confirmed DP_Error says "Could not load your plan." and
+DT_Error says "Could not load your performance." The inherited Home error paths
+used home/progress nouns instead. Added assertions for the exact approved text
+and board layout, observed both failures in /tmp/w4b-error-copy-red.log, then
+corrected those paths. No new error copy was introduced.
+
+The first full client run was deliberately interrupted after over 3,500 passing
+cases for this correction. It is incomplete evidence, not a full-suite pass.
+A new exact full flutter test run is underway on the final source, followed by
+sequential static gates to avoid the native-library copy collision.
+
+Focused post-correction result:
+```text
+flutter test test/features/home/presentation/widgets/home_masthead_test.dart test/features/home/presentation/widgets/home_performance_section_test.dart test/features/home/presentation/plan_screen_test.dart test/features/home/data/study_observations_test.dart
+00:01 +19: All tests passed!
+```
+
+
+### Final client gate output and source identity
+
+Exact full Flutter invocation completed successfully. After it finished, two
+assertions received style-only cleanup and Try Pro's unchanged purchase-page
+navigation moved into the app route's existing composition boundary. The initial
+layering check correctly rejected the inherited direct Settings-to-paywall-screen
+import. ProPage now receives its callback from settingsRoutes. No route, checkout,
+payment or entitlement behavior was added. The focused test now actually taps
+Try Pro and checks its destination. The router/settings tests were rerun after
+this correction. All final static checks then ran sequentially and passed.
+The full suite was not repeated after this bounded routing/style correction;
+its affected behaviors are covered by the fresh focused results below.
+
+One file beyond the initial audit's explicit filenames was necessary:
+lib/app/routes/settings_routes.dart, to keep feature screen composition in app
+and satisfy the existing layering rule. No spec or plan was changed.
+
+Actual command summaries:
+
+```text
+flutter test
+06:56 +4836: All tests passed!
+
+flutter test test/features/home/presentation/widgets/home_masthead_test.dart test/features/home/presentation/widgets/home_performance_section_test.dart
+00:00 +7: All tests passed!
+
+flutter test test/features/settings/presentation/pro_page_payments_test.dart test/app/router_settings_test.dart test/app/router_paths_preserved_test.dart
+00:01 +17: All tests passed!
+
+flutter analyze lib test tool
+Analyzing 3 items...
+No issues found! (ran in 2.4s)
+
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1601 files (0 changed) in 1.55 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+git diff --check
+exit 0
+```
+
+All listed final commands exited 0. Build-hook progress prefixes are in the raw
+logs; they are not analyzer/layering/attribution findings. JSON command/exit
+records and the actual complete logs are in ignored build/w4b-audit-resume.
+The source/test manifest has 39 files and excludes evidence to avoid a circular
+hash. Manifest SHA-256: `70d0dd7812d4257864d9b1c7eaefc2dd12437d33677abd62585bf6aa6620bcef`.
+
+Server's repeated results: tsc0, plain183/183, isolated emulator235/235,
+metrics/roadmap313/313, generated bridge current. Exact npm test's default8080
+failure remains disclosed in the server evidence. Shared source comparison:
+40 existing metrics/signals, metrics/domain, roadmap/domain and archetype Dart
+files, zero differences. The sole later shared adjustment shortened a comment;
+the server bridge was rebuilt and rechecked.
+
+Open product decision, audit10: no approved board supplies a distinct missing
+stored past-day/week state. DP_Error is retained with its approved copy/layout.
+The lead must select the missing-plan state/copy before that part can be called
+complete. Server missed/rest parity is complete. All other audit items and all
+three supplied user decisions are implemented or confirmed. Pending settings
+retries are lost at process restart. No schema change was made to persist them.
+
+Independent review, lead integration, phone visual checks and live staging were
+not performed. All changes remain uncommitted. No fetch/pull, deploy or new
+ dependency. Client was never merged with the server worktree.
+
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b.md
+ M lib/app/routes/settings_routes.dart
+ M lib/features/home/application/home_notices.dart
+ M lib/features/home/application/performance/performance_view.dart
+ M lib/features/home/application/plan_data.dart
+ M lib/features/home/application/plan_provider.dart
+ M lib/features/home/application/server_tendencies.dart
+ M lib/features/home/application/study_delivery.dart
+ M lib/features/home/application/study_remote_providers.dart
+ M lib/features/home/application/web_study_seam.dart
+ M lib/features/home/data/study_observations.dart
+ M lib/features/home/data/study_snapshot_reader.dart
+ M lib/features/home/data/study_writes.dart
+ M lib/features/home/presentation/home_providers.dart
+ M lib/features/home/presentation/home_tab.dart
+ M lib/features/home/presentation/home_today_screen.dart
+ M lib/features/home/presentation/plan_screen.dart
+ M lib/features/home/presentation/practice_launcher.dart
+ M lib/features/home/presentation/widgets/home_masthead.dart
+ M lib/features/home/presentation/widgets/home_notice_strip.dart
+ M lib/features/home/presentation/widgets/home_performance_card.dart
+ M lib/features/home/presentation/widgets/home_performance_section.dart
+ M lib/features/home/presentation/widgets/home_state_card.dart
+ M lib/features/metrics/archetypes/archetype_catalog.dart
+ M lib/features/settings/presentation/pages/pro_page.dart
+ M test/features/home/application/home_notices_test.dart
+ M test/features/home/application/plan_data_test.dart
+ M test/features/home/application/server_tendencies_test.dart
+ M test/features/home/data/study_observations_test.dart
+ M test/features/home/data/study_snapshot_reader_test.dart
+ M test/features/home/data/study_writes_test.dart
+ M test/features/home/presentation/home_today_screen_test.dart
+ M test/features/home/presentation/plan_screen_test.dart
+ M test/features/home/presentation/practice_launcher_test.dart
+ M test/features/home/presentation/widgets/home_masthead_test.dart
+ M test/features/home/presentation/widgets/home_performance_card_test.dart
+ M test/features/home/presentation/widgets/home_state_card_test.dart
+ M test/features/metrics/archetypes/archetype_identity_test.dart
+ M test/features/settings/presentation/pro_page_payments_test.dart
+?? test/features/home/presentation/widgets/home_performance_section_test.dart
+```

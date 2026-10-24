@@ -5,6 +5,30 @@ import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_writes.dart';
 
 void main() {
+  test('a new exam intent retains another exams pending retry', () async {
+    final sent = <String>[];
+    var online = false;
+    StudyRequest request(String exam) => StudyRequest(
+          uid: 'u',
+          examId: exam,
+          isCurrent: () async => true,
+          api: StudyApi((_, p) async {
+            sent.add(p['examId']! as String);
+            if (!online) throw StateError('offline');
+            return <String, Object?>{};
+          }),
+        );
+    final writes = StudyWrites();
+    await expectLater(
+      writes.settings(request('a'), {'v': 1}),
+      throwsStateError,
+    );
+    online = true;
+    await writes.settings(request('b'), {'v': 2});
+    await writes.retrySettings();
+    expect(sent, ['a', 'b', 'a']);
+  });
+
   test('reserving a new local mutation synchronously retires failed retries',
       () async {
     final sent = <int>[];

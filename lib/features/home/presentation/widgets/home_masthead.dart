@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
@@ -35,8 +36,21 @@ class HomeMasthead extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final masthead = ref.watch(homeMastheadProvider).valueOrNull;
-    final week = ref.watch(weekStripProvider(examId)).valueOrNull;
+    final headState = ref.watch(homeMastheadProvider);
+    final weekState = ref.watch(weekStripProvider(examId));
+    if (headState.hasError || weekState.hasError) {
+      return errorFor(
+        'plan',
+        () {
+          ref
+            ..invalidate(homeMastheadProvider)
+            ..invalidate(weekStripProvider(examId));
+        },
+        boardLayout: true,
+      );
+    }
+    final masthead = headState.valueOrNull;
+    final week = weekState.valueOrNull;
     if (masthead == null || week == null) return const FaintBars();
 
     return Column(

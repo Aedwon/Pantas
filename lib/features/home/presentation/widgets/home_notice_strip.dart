@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -45,6 +46,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
       _saving = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await ref.read(settingsActionsProvider).saveExamDate(
             ExamDate.onDay(day),
@@ -56,7 +58,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         _expanded = false;
         _pickedDay = null;
       });
-    } on Object {
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);

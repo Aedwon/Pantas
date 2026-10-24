@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
@@ -64,6 +65,29 @@ HomeMastheadData data(ExamDate? date) => HomeMastheadData(
     );
 
 void main() {
+  testWidgets('failed masthead shows the existing retry state', (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          homeMastheadProvider
+              .overrideWith((ref) async => throw StateError('offline')),
+          weekStripProvider(_examId).overrideWith((ref) async => _week),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: Scaffold(
+            body: HomeMasthead(examId: _examId, now: DateTime(2026)),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Could not load your plan.'), findsOneWidget);
+    final state = tester.widget<StateView>(find.byType(StateView));
+    expect(state.boardLayout, isTrue);
+    expect(find.text('Try Again'), findsOneWidget);
+  });
+
   testWidgets('renders Sunday-first week, exact-date chip, and greeting only',
       (tester) async {
     await tester.pumpWidget(

@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
@@ -129,6 +131,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       _busy = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await ref
           .read(todayQuestionLauncherProvider)
@@ -138,7 +141,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       await context
           .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
       if (_current()) _retry();
-    } on Object {
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (current()) setState(() => _failed = true);
     } finally {
       if (current()) setState(() => _busy = false);
@@ -152,6 +156,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       _busy = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       if (!await (await _guard)() ||
           !mounted ||
@@ -182,7 +187,18 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             .advance(widget.examId, originalGuard: _guard);
       }
       if (_current() && generation == _generation) _retry();
-    } on Object {
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (error is FirebaseFunctionsException &&
+          !const {
+            'unavailable',
+            'deadline-exceeded',
+            'resource-exhausted',
+            'network-request-failed',
+          }.contains(error.code)) {
+        _pendingAdvance = null;
+        ref.invalidate(serverStudyRoadmapProvider(widget.examId));
+      }
       if (_current() && generation == _generation) {
         setState(() => _failed = true);
       }
@@ -242,21 +258,45 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   }
 
   Future<void> _practiceWeakest() async {
-    final topics = await ref.read(topicAccuracyProvider.future);
-    if (!mounted || !_current()) return;
-    final weakest = topics.firstWhereOrNull((t) => t.answered > 0);
-    if (weakest == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No questions are ready right now.')),
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      final guard = await _guard;
+      String? topicId;
+      if (ref.read(studyUsesServerProvider)) {
+        final insights =
+            await ref.read(serverStudyInsightsProvider(widget.examId).future);
+        final topics = insights.topics.where((t) => t.answered > 0).toList()
+          ..sort((a, b) {
+            final accuracy = a.accuracy!.compareTo(b.accuracy!);
+            return accuracy != 0 ? accuracy : a.id.compareTo(b.id);
+          });
+        topicId = topics.firstOrNull?.id;
+      } else {
+        final topics = await ref.read(topicAccuracyProvider.future);
+        topicId = topics.firstWhereOrNull((t) => t.answered > 0)?.topicId;
+      }
+      if (!await guard() || !mounted || !_current()) return;
+      if (topicId == null && !ref.read(studyUsesServerProvider)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No questions are ready right now.')),
+        );
+        return;
+      }
+      await startTopicPractice(
+        context,
+        ref,
+        examId: widget.examId,
+        topicId: topicId,
+        isCurrent: guard,
       );
-      return;
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted && _current()) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not prepare this quiz.')),
+        );
+      }
     }
-    await startTopicPractice(
-      context,
-      ref,
-      examId: widget.examId,
-      topicId: weakest.topicId,
-    );
   }
 
   String? _noteText(HomeTodayData data) => switch (data.extras.note) {
@@ -346,6 +386,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           },
           examName: data.examName,
           examShortName: data.examShortName,
+          hasExamDate: data.today.snapshot.digest.examDate.isNotEmpty,
           examDateLabel: passed && examDay != null
               ? DateFormat('d MMMM', 'en_US').format(examDay)
               : null,
@@ -384,7 +425,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       doneNote: view.doneNote,
       examShortName: data.examShortName,
       originalSummary: '$originals ${originals == 1 ? "lesson" : "lessons"} · '
-          '$questions questions',
+          '$questions ${questions == 1 ? "question" : "questions"}',
       reviewSubtitle: sizes.length > 1
           ? '${work!.reviewsTotal} due · ${sizes.length} sessions of '
               '${work.preparedReviews.preferences.sessionLength}'

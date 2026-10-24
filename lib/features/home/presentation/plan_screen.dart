@@ -41,6 +41,9 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
     final view = arrived ?? displayed.unwrapPrevious().asData?.value;
     if (arrived != null) _displayLimit = _limit;
     final pro = ref.watch(currentStudyCoverageProvider);
+    if (!pro && ref.watch(studyCoverageLoadingProvider)) {
+      return _waiting(context, const AsyncLoading<void>(), () {});
+    }
     if (view == null) {
       return _waiting(
         context,
@@ -99,7 +102,10 @@ Widget _waiting<T>(
       backLabel: 'Home',
       onBack: () => _back(context),
       children: [
-        if (value.hasError) errorFor('plan', retry) else loadingFor(value),
+        if (value.hasError)
+          errorFor('plan', retry, boardLayout: true)
+        else
+          loadingFor(value),
       ],
     );
 
@@ -226,6 +232,9 @@ class PlanWeekScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pro = ref.watch(currentStudyCoverageProvider);
+    if (!pro && ref.watch(studyCoverageLoadingProvider)) {
+      return _waiting(context, const AsyncLoading<void>(), () {});
+    }
     if (!pro) return const PlanScreen();
     final value = ref.watch(planWeekViewProvider(start));
     final days = value.unwrapPrevious().asData?.value;

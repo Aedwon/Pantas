@@ -57,6 +57,8 @@ final webPerformanceViewProvider =
           secondsPerQuestion: null,
         );
     return PerformanceViewData(
+      overallCorrect: value.correct,
+      overallAnswered: value.answered,
       subjects: [for (final item in value.subjects) row(item, null)],
       topics: [
         for (final item in value.topics) row(item, subjectNames[item.parentId]),
