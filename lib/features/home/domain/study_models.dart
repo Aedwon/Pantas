@@ -114,6 +114,7 @@ class StudyInsights extends StudyEnvelope {
     this.tendencies,
     this.whenYouWork,
     this.trialEndsAt,
+    this.topicDetails = const [],
   });
   factory StudyInsights.decode(Object? value, {required String examId}) {
     final map = studyMap(value);
@@ -141,6 +142,9 @@ class StudyInsights extends StudyEnvelope {
       subjects: rows('subjects'),
       topics: pro ? rows('topics') : const [],
       lessons: pro ? rows('lessons') : const [],
+      topicDetails: pro && performance['topicDetails'] != null
+          ? studyRows(performance['topicDetails'])
+          : const [],
       lessonLevelAvailable: performance['lessonLevelAvailable'] == true,
       profileId: map['profile'] == null
           ? null
@@ -154,6 +158,7 @@ class StudyInsights extends StudyEnvelope {
           map['trialEndsAt'] == null ? null : studyWhole(map['trialEndsAt']),
     );
   }
+  final List<Map<String, Object?>> topicDetails;
   final String revision;
   final int correct;
   final int answered;
@@ -179,6 +184,7 @@ class StudyRoadmap extends StudyEnvelope {
     required this.canAdvance,
     required this.todayTopicOrder,
     required this.weekDays,
+    this.homeExtras,
     this.comingUp,
     this.history,
   });
@@ -210,6 +216,8 @@ class StudyRoadmap extends StudyEnvelope {
       canAdvance: map['canAdvance']! as bool,
       todayTopicOrder: _ids(map['todayTopicOrder']),
       weekDays: studyRows(map['weekDays']),
+      homeExtras:
+          map['homeExtras'] == null ? null : studyMap(map['homeExtras']),
       comingUp:
           pro && map['comingUp'] != null ? studyMap(map['comingUp']) : null,
       history: pro && map['history'] != null ? studyMap(map['history']) : null,
@@ -223,6 +231,7 @@ class StudyRoadmap extends StudyEnvelope {
   final bool canAdvance;
   final List<String> todayTopicOrder;
   final List<Map<String, Object?>> weekDays;
+  final Map<String, Object?>? homeExtras;
   final Map<String, Object?>? comingUp;
   final Map<String, Object?>? history;
 }

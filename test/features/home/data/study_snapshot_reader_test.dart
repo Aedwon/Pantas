@@ -1,11 +1,40 @@
 import 'dart:async';
+
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_read_cache.dart';
 import 'package:pantas/features/home/data/study_snapshot_reader.dart';
+
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  test('authoritative read remains available after rejected historic upload',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final reader = StudySnapshotReader(
+      cache: StudyReadCache(
+        db,
+        uid: 'u',
+        examId: 'e',
+        coreToken: 'c',
+        isCurrent: () async => true,
+      ),
+      request: StudyRequest(
+        uid: 'u',
+        examId: 'e',
+        isCurrent: () async => true,
+        api: StudyApi((name, _) async => {'examId': 'e', 'actual': 'server'}),
+      ),
+      beforeRead: () async => throw FirebaseFunctionsException(
+        code: 'invalid-argument',
+        message: 'Retired question',
+      ),
+    );
+    expect((await reader.read('getRoadmap').last)['actual'], 'server');
+  });
+
   test('public cached snapshot arrives before fresh paid model', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);

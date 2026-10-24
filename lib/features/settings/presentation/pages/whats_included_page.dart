@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/components/topic_scope_index.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 
 final whatsIncludedDataProvider = FutureProvider.family<
     ({Exam exam, List<TopicScopeSubjectData> subjects, Set<TopicId> excluded}),
@@ -133,9 +134,13 @@ class WhatsIncludedPage extends ConsumerWidget {
                     } else {
                       newExclusions.add(topic.id);
                     }
-                    await ref
-                        .read(customTrackRepositoryProvider)
-                        .setExcluded(examId: examId, topicIds: newExclusions);
+                    final publish = await ref
+                        .read(studySettingsCaptureProvider)(examId: examId);
+                    await publish.apply(
+                      () => ref
+                          .read(customTrackRepositoryProvider)
+                          .setExcluded(examId: examId, topicIds: newExclusions),
+                    );
                     ref
                       ..invalidate(trackScopeProvider(examId))
                       ..invalidate(scopedTopicsProvider(examId))
@@ -157,9 +162,13 @@ class WhatsIncludedPage extends ConsumerWidget {
                       newExclusions.removeAll(topicIds);
                     }
 
-                    await ref
-                        .read(customTrackRepositoryProvider)
-                        .setExcluded(examId: examId, topicIds: newExclusions);
+                    final publish = await ref
+                        .read(studySettingsCaptureProvider)(examId: examId);
+                    await publish.apply(
+                      () => ref
+                          .read(customTrackRepositoryProvider)
+                          .setExcluded(examId: examId, topicIds: newExclusions),
+                    );
                     ref
                       ..invalidate(trackScopeProvider(examId))
                       ..invalidate(scopedTopicsProvider(examId))

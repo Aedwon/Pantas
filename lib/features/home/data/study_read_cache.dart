@@ -37,6 +37,9 @@ class StudyReadCache {
     if (encoded == null) return null;
     final value = Map<String, Object?>.of(studyMap(jsonDecode(encoded)));
     value['proCovered'] = false;
+    // A restored public snapshot has no paid access to expire. Reusing its
+    // old deadline can cancel every fresh request in an immediate retry loop.
+    value['accessRecheckAt'] = null;
     value.removeWhere(
       (key, _) => const {
         'comingUp',
@@ -49,7 +52,10 @@ class StudyReadCache {
     if (value['performance'] != null) {
       final performance =
           Map<String, Object?>.of(studyMap(value['performance']))
-            ..removeWhere((key, _) => key == 'topics' || key == 'lessons');
+            ..removeWhere(
+              (key, _) =>
+                  key == 'topics' || key == 'lessons' || key == 'topicDetails',
+            );
       value['performance'] = Map<String, Object?>.unmodifiable(performance);
     }
     return Map.unmodifiable(value);

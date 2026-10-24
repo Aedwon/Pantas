@@ -7,7 +7,13 @@ import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 @immutable
 class StudentRecord {
@@ -52,6 +58,10 @@ class StudentRecord {
 final recordNowProvider = Provider<DateTime?>((ref) => null);
 
 final recordProvider = FutureProvider<StudentRecord>((ref) async {
+  await ref.watch(studyCoreEpochProvider.future);
+  ref
+    ..watch(quizSessionPanelRevisionProvider)
+    ..watch(roadmapRevisionProvider);
   final db = ref.watch(appDatabaseProvider);
   final now = ref.watch(recordNowProvider) ?? DateTime.now();
 
@@ -60,9 +70,43 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final streakRow = await (db.select(db.streakLocal)
         ..where((s) => s.id.equals(1)))
       .getSingleOrNull();
-  final mockAttemptsRows = await (db.select(db.mockAttempts)
-        ..where((m) => m.status.equals('completed')))
-      .get();
+  final mockAccuracy = <String, ({int correct, int total})>{};
+  final List<MockAttempt> mockAttemptsRows;
+  if (ref.watch(mockUsesServerProvider)) {
+    final history = await ref.watch(mockHistoryProvider.future);
+    mockAttemptsRows = [for (final entry in history) entry.attempt];
+    for (final entry in history) {
+      final sections = entry.results.sections;
+      if (sections.isNotEmpty) {
+        mockAccuracy[entry.attempt.id] = (
+          correct: sections.fold(0, (sum, s) => sum + s.correct),
+          total: sections.fold(0, (sum, s) => sum + s.total)
+        );
+      }
+    }
+  } else {
+    final stored = await (db.select(db.mockAttempts)
+          ..where((m) => m.status.equals('completed')))
+        .get();
+    mockAttemptsRows = stored.map(MockAttempt.fromRow).toList();
+    for (final mock in mockAttemptsRows) {
+      if (mock.sectionResultsJson == null) continue;
+      final data = jsonDecode(mock.sectionResultsJson!);
+      if (data is! Map || data['sections'] is! List) continue;
+      var correct = 0;
+      var total = 0;
+      for (final section in data['sections']! as List) {
+        if (section is! Map ||
+            section['correct'] is! int ||
+            section['total'] is! int) {
+          continue;
+        }
+        correct += section['correct']! as int;
+        total += section['total']! as int;
+      }
+      if (total > 0) mockAccuracy[mock.id] = (correct: correct, total: total);
+    }
+  }
   // Skip a mirrored answer only when its completed mock is counted below.
   final countedMockIds = mockAttemptsRows.map((m) => m.id).toSet();
   final attemptsRows = allAttemptsRows
@@ -232,7 +276,12 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
 
   // 7. Accuracy series (one point per week of prep, empty if < 2 points)
   final weeklyAttempts = <DateTime, ({int correct, int total})>{};
-  for (final row in attemptsRows) {
+  for (final row in allAttemptsRows.where(
+    (a) =>
+        !AttemptOrigins.mirrored.contains(a.origin) ||
+        !mockAccuracy.containsKey(a.id),
+  )) {
+    if (row.completedAt == null) continue;
     final items = parseAttemptItems(row.itemsJson);
     if (items.isEmpty) continue;
     final dt = row.startedAt.toLocal();
@@ -248,6 +297,17 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     weeklyAttempts[weekStart] = (
       correct: prev.correct + correctCount,
       total: prev.total + items.length,
+    );
+  }
+
+  for (final mock in mockAttemptsRows) {
+    final counts = mockAccuracy[mock.id];
+    if (counts == null || counts.total == 0) continue;
+    final week = PantasDates.weekStart(mock.startedAt.toLocal());
+    final before = weeklyAttempts[week] ?? (correct: 0, total: 0);
+    weeklyAttempts[week] = (
+      correct: before.correct + counts.correct,
+      total: before.total + counts.total
     );
   }
 

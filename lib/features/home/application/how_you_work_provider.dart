@@ -3,12 +3,16 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/home/application/server_tendencies.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/domain/tendency_confidence.dart';
 import 'package:pantas/features/metrics/providers/current_archetype_provider.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 enum TendencyId {
@@ -80,12 +84,22 @@ class HowYouWork {
 }
 
 final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
+  await ref.watch(studyCoreEpochProvider.future);
+  ref
+    ..watch(quizSessionPanelRevisionProvider)
+    ..watch(roadmapRevisionProvider);
   final focus = await ref.watch(activeExamFocusProvider.future);
   final examId = focus.exam?.id;
 
   final userSettings = await ref.watch(userSettingsProvider.future);
   final rawName = userSettings.name?.trim();
   final name = (rawName == null || rawName.isEmpty) ? null : rawName;
+
+  if (ref.watch(studyUsesServerProvider)) {
+    if (examId == null) throw StateError('Study exam unavailable');
+    final remote = await ref.watch(serverStudyInsightsProvider(examId).future);
+    return serverTendencies(remote, name: name);
+  }
 
   String? archetype;
   String? archetypeLine;
@@ -186,8 +200,8 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     final absDiff = _formatGap(diff.abs(), pressureConfidence);
     final isLoss = pressureDelta.mockAccuracy < pressureDelta.practiceAccuracy;
     final sentence = diff > 0
-        ? 'Accuracy drops $absDiff% under exam pressure.'
-        : 'Accuracy rises $absDiff% under exam pressure.';
+        ? 'Your accuracy drops under exam pressure.'
+        : 'Your accuracy rises under exam pressure.';
     underPressure = Tendency(
       id: TendencyId.underPressure,
       heading: 'Under pressure',
@@ -228,8 +242,8 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     final isLoss =
         staminaDelta.secondHalfAccuracy < staminaDelta.firstHalfAccuracy;
     final sentence = diff > 0
-        ? 'Accuracy drops $absDiff% in the second half of a mock.'
-        : 'Accuracy rises $absDiff% in the second half of a mock.';
+        ? 'Your accuracy drops in the second half of a mock.'
+        : 'Your accuracy rises in the second half of a mock.';
     stamina = Tendency(
       id: TendencyId.stamina,
       heading: 'Stamina',
@@ -274,8 +288,9 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       leftLabel: 'read first',
       rightLabel: 'answered first',
       gap: '$diff',
-      leftFigure: '$readCount',
-      rightFigure: '$quizCount',
+      leftFigure: '${(100 * readCount / (readCount + quizCount)).round()}%',
+      rightFigure:
+          '${100 - (100 * readCount / (readCount + quizCount)).round()}%',
       sentence: studyConfidence == TendencyConfidence.clear ? sentence : null,
       confidence: studyConfidence,
       isLoss: false,
@@ -306,11 +321,11 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     final diffSec = incorrectSec - correctSec;
     final absDiff = _formatGap(diffSec.abs(), speedConfidence);
     final sentence = diffSec > 0
-        ? 'You spend ${absDiff}s longer on questions you get wrong.'
-        : 'You answer ${absDiff}s faster on questions you get wrong.';
+        ? 'You take longer on questions you get wrong.'
+        : 'You answer faster on questions you get wrong.';
     howYouAnswer = Tendency(
       id: TendencyId.howYouAnswer,
-      heading: 'How you answer',
+      heading: 'How long you answer',
       leftLabel: 'when correct',
       rightLabel: 'when wrong',
       gap: '${absDiff}s',
@@ -318,13 +333,13 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
       rightFigure: '${incorrectSec.round()}s',
       sentence: speedConfidence == TendencyConfidence.clear ? sentence : null,
       confidence: speedConfidence,
-      isLoss: diffSec != 0,
+      isLoss: diffSec > 0,
       unlockAction: speedUnlock,
     );
   } else {
     howYouAnswer = Tendency(
       id: TendencyId.howYouAnswer,
-      heading: 'How you answer',
+      heading: 'How long you answer',
       leftLabel: 'when correct',
       rightLabel: 'when wrong',
       gap: null,
@@ -345,9 +360,8 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
   if (retentionShape != null && retentionShape.reviewCount > 0) {
     final days = retentionShape.averageStability.round();
     final lapsePct = (retentionShape.lapseRate * 100).round();
-    final daysText = _daysInWords(days);
-    final sentence =
-        'what you learn holds about $daysText days before you need it again';
+    const sentence =
+        'You retain information for days before needing to refresh.';
     howLongYouRemember = Tendency(
       id: TendencyId.howLongYouRemember,
       heading: 'How long you remember',
@@ -378,10 +392,10 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
 
   final tendencies = [
     underPressure,
-    stamina,
-    howYouStudy,
     howYouAnswer,
+    howYouStudy,
     howLongYouRemember,
+    stamina,
   ];
 
   final whenYouWork = <({String title, String subtext, String meta})>[];
@@ -394,18 +408,18 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     whenYouWork.addAll([
       (
         title: 'Peak hour',
-        subtext: 'Measured from your highest accuracy',
+        subtext: '',
         meta: _formatHour(bestHour),
       ),
       (
-        title: 'Session length',
-        subtext: 'Average sit duration',
-        meta: '${sessionShape.averageMinutes.round()} minutes',
+        title: 'Average session',
+        subtext: '',
+        meta: '${sessionShape.averageMinutes.round()} min',
       ),
       (
-        title: 'Total sits',
-        subtext: 'Completed study sessions',
-        meta: '${sessionShape.sessionCount} sessions',
+        title: 'Total sessions',
+        subtext: '',
+        meta: '${sessionShape.sessionCount}',
       ),
     ]);
   }
@@ -418,29 +432,6 @@ final howYouWorkProvider = FutureProvider<HowYouWork>((ref) async {
     whenYouWork: whenYouWork,
   );
 });
-
-String _daysInWords(int n) {
-  const words = [
-    'zero',
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-    'six',
-    'seven',
-    'eight',
-    'nine',
-    'ten',
-    'eleven',
-    'twelve',
-    'thirteen',
-    'fourteen',
-    'fifteen',
-  ];
-  if (n >= 0 && n < words.length) return words[n];
-  return n.toString();
-}
 
 String _formatHour(int hour) {
   if (hour == 0) return '12 am';

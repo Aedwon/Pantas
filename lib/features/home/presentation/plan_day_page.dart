@@ -128,7 +128,7 @@ class PlanWeekPage extends StatelessWidget {
     required this.studyDaysLabel,
     required this.onBack,
     required this.onDay,
-    required this.onChange,
+    this.onChange,
     super.key,
   });
   final String title;
@@ -136,7 +136,7 @@ class PlanWeekPage extends StatelessWidget {
   final String studyDaysLabel;
   final VoidCallback onBack;
   final ValueChanged<DateTime> onDay;
-  final VoidCallback onChange;
+  final VoidCallback? onChange;
   @override
   Widget build(BuildContext context) => PantasPage(
         title: title,
@@ -188,10 +188,11 @@ class PlanWeekPage extends StatelessWidget {
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 Text(studyDaysLabel, style: context.type.footnote),
-                TextButton(
-                  onPressed: onChange,
-                  child: const Text('Change'),
-                ),
+                if (onChange != null)
+                  TextButton(
+                    onPressed: onChange,
+                    child: const Text('Change'),
+                  ),
               ],
             ),
           ),

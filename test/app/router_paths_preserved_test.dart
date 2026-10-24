@@ -9,16 +9,17 @@ void main() {
       '/home',
       '/study',
       '/quiz',
-      '/progress',
       '/onboarding',
       '/onboarding/custom/name',
       '/onboarding/custom/subjects',
       '/notifications/rationale',
-      '/plan/dossier/:mockId',
+      '/plan',
+      '/plan/day/:date',
+      '/plan/week/:start',
       '/performance',
+      '/record',
+      '/tendencies',
       '/performance/topic/:topicId',
-      '/progress/how-you-work',
-      '/progress/your-record',
       '/quiz/today/:examId',
       '/quiz/resume/:examId',
       '/quiz/quick/:examId',
@@ -65,6 +66,15 @@ void main() {
     expect(
       collectRoutePaths(includeDebugGallery: false),
       unorderedEquals(before),
+    );
+  });
+  test('retired Progress and dossier routes are absent', () {
+    expect(
+      collectRoutePaths(includeDebugGallery: false).where(
+        (path) =>
+            path.startsWith('/progress') || path.startsWith('/plan/dossier'),
+      ),
+      isEmpty,
     );
   });
   test('branch roots are selected by path, not family list position', () {

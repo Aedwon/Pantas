@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 
@@ -8,10 +10,11 @@ void main() {
     for (var i = 0; i < 17; i++)
       PlanHistoryEntry(id: 'h$i', date: 'Today', text: 'Actual change $i'),
   ];
-  Widget show({bool pro = true, bool paused = false}) => MaterialApp(
+  Widget show({bool pro = true, bool paused = false, bool motion = false}) =>
+      MaterialApp(
         theme: buildLightTheme(),
         home: MediaQuery(
-          data: const MediaQueryData(disableAnimations: true),
+          data: MediaQueryData(disableAnimations: !motion),
           child: PlanPage(
             pro: pro,
             paused: paused,
@@ -41,6 +44,23 @@ void main() {
           ),
         ),
       );
+  testWidgets('timeline draws the segment before the next node',
+      (tester) async {
+    await tester.pumpWidget(show(motion: true));
+    await tester.pump(const Duration(milliseconds: 540));
+    final line =
+        tester.widget<Transform>(find.byKey(const ValueKey('plan-line-0')));
+    expect(line.transform.storage[5], closeTo(0.5, 0.02));
+    await tester.pumpAndSettle();
+  });
+  testWidgets('only week rows drill down', (tester) async {
+    await tester.pumpWidget(show());
+    final today = tester.widget<ListRow>(
+      find.byWidgetPredicate((w) => w is ListRow && w.title == '2 of 4 done'),
+    );
+    expect(today.onTap, isNull);
+    expect(find.byType(PantasLogo), findsOneWidget);
+  });
   testWidgets('history starts at five, adds ten, and ends honestly',
       (tester) async {
     await tester.pumpWidget(show());

@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_catalog.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_resolver.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_templates.dart';
@@ -8,6 +10,7 @@ import 'package:pantas/features/metrics/data/user_metrics_archetype_repository.d
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 
 @immutable
 class CurrentArchetypeRequest {
@@ -58,6 +61,40 @@ final currentArchetypeProvider = FutureProvider.family
     .autoDispose<CurrentArchetype?, CurrentArchetypeRequest>(
         (ref, request) async {
   final db = ref.watch(appDatabaseProvider);
+  var alive = true;
+  ref.onDispose(() => alive = false);
+  final contexts = SyncActiveContextStore(db);
+  final auth = ref.watch(authStateProvider).unwrapPrevious().asData?.value;
+  final preparer = ref.read(todayQuizPreparerProvider);
+  final lifetime = preparer.accountLifetimeToken;
+  if (auth == null || lifetime == null) {
+    throw StateError('Profile owner unavailable');
+  }
+  final original = await contexts.readSnapshot();
+  final prefs = ref.read(appPreferencesRepositoryProvider);
+  final selected = await prefs.selectedExamId();
+  Future<bool> current() async {
+    if (!alive ||
+        !identical(ref.read(appDatabaseProvider), db) ||
+        preparer.accountLifetimeToken != lifetime ||
+        ref.read(authStateProvider).unwrapPrevious().asData?.value != auth) {
+      return false;
+    }
+    final snapshot = await contexts.readSnapshot();
+    final exam = await prefs.selectedExamId();
+    return alive &&
+        snapshot?.token == original?.token &&
+        exam == selected &&
+        (exam == null || exam == request.examId) &&
+        preparer.accountLifetimeToken == lifetime &&
+        ref.read(authStateProvider).unwrapPrevious().asData?.value == auth;
+  }
+
+  Future<void> requireCurrent() async {
+    if (!await current()) throw StateError('Profile owner changed');
+  }
+
+  await requireCurrent();
   final repo = UserMetricsArchetypeRepository(db);
   final windowName = request.window.name;
   final cached = await repo.bestValid(
@@ -66,6 +103,7 @@ final currentArchetypeProvider = FutureProvider.family
     window: windowName,
     now: request.now,
   );
+  await requireCurrent();
   if (cached != null) {
     final label = archetypeCatalog
         .where((archetype) => archetype.id == cached.archetypeId)
@@ -76,7 +114,7 @@ final currentArchetypeProvider = FutureProvider.family
         id: cached.archetypeId,
         label: label,
         matchScore: cached.matchScore,
-        synthesizedCopy: cached.synthesizedCopy,
+        synthesizedCopy: archetypeIdentityLine(cached.archetypeId),
       );
     }
   }
@@ -94,9 +132,11 @@ final currentArchetypeProvider = FutureProvider.family
         ),
       ).future,
     );
+    await requireCurrent();
     final value = result?.value;
     if (value != null) signals[key] = value;
   }
+  await requireCurrent();
   final resolved = const ArchetypeResolver().resolve(archetypeCatalog, signals);
   if (resolved == null) return null;
   final copy = const ArchetypeTemplates().synthesize(resolved, signals);
@@ -111,7 +151,9 @@ final currentArchetypeProvider = FutureProvider.family
       computedAt: request.now,
       validUntil: request.now.add(const Duration(hours: 24)),
     ),
+    canPersist: current,
   );
+  await requireCurrent();
   return CurrentArchetype(
     id: resolved.id,
     label: resolved.label,

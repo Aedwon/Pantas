@@ -100,9 +100,7 @@ class _OnboardingStudyDaysStepState
       _failed = false;
     });
     try {
-      await ref
-          .read(settingsRepositoryProvider)
-          .updateStudyDays(StudyDays(_days));
+      await ref.read(settingsActionsProvider).updateStudyDays(StudyDays(_days));
       if (mounted && generation == _generation) widget.onCompleted();
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));

@@ -390,3 +390,537 @@ git status --short
 
 Seven modified files and one new test file remain uncommitted. No generated
 outputs or dependency files appear in status. git diff --check passed.
+
+## October 24 resumed lead brief: current uncommitted continuation
+
+Policy read with `git show origin/main`: `94bfe9da3fd906c720bacf9f614496736cd42187`.
+Client HEAD remains `06a917892198ebd773f7df9fcef3ac876f19a083`.
+Server HEAD remains `2c95a9d910daf49e3526804a8a481af35b298301`.
+Both supplied dirty patches were read and retained. No fetch, pull, commit,
+merge, push, deploy, dependency installation, protected-content rebuild, or
+app screenshot capture occurred. This is an incomplete implementation checkpoint,
+not family acceptance.
+
+### Work-list status
+
+1. Part B: server-backed Today membership, remaining work, advance permission,
+   observed week states and topic lesson read states now feed the existing
+   client models. The public adapter is never persisted or passed to the local
+   planner. Topic details and their paid caches suppress read flags on Free.
+   The web Today extras remain incomplete: calm/carry-over/mock-change notes and
+   mock duration lack a wired authoritative read. Paid cache restoration remains
+   conservative after restart.
+2. Part C: immutable session payloads retain actual start/finish, wall duration,
+   origin, response times and versions. They omit per-answer answeredAt.
+   Existing stored attempts/lesson reads are retried with original account/core
+   receipts through the remote-read boundary. Settings writes serialize and a
+   newer intent supersedes an old retry. Advance retains one request ID/day/
+   revision across retry. Lesson completion now invalidates server reads and
+   uploads its actual persisted readAt before refreshing. Native observation
+   delivery and all settings/scope/assessment sender entry points are not yet
+   verified as a complete platform matrix. Do not mark Part C complete.
+3. Task 8: `/record` consumes the W4e history reader and the existing measured
+   local record. Web mock totals/history come from that reader without writing
+   local mock rows. The extension slot after Your mocks is exposed as
+   `wrappedRecordRowProvider`; it draws nothing until W4g supplies a widget.
+   Task 9: labels/identity lines, Deep Thinker, retired Pressure Tightener cache
+   handling and the narrow native original-owner guard are implemented. The
+   tendencies model uses approved no-figure sentences and study shares. Web
+   formats only server-returned findings and confidence. `/tendencies` and the
+   two Home rows are wired. Presentation is still incomplete against the boards.
+   Tasks 6 and 7 are not implemented by this continuation.
+4. Task 10 is NOT done. Old Progress/Home widgets and legacy route redirects
+   remain. Week-strip taps and View full plan remain unwired.
+5. This evidence and the server evidence are updated, with final commands below.
+
+### Decisions and source gaps
+
+- The cited `4113ad78` Home masthead lines 73–84 contain the `<12`, `<18`
+  greeting hour bands only. `git grep -i 'welcome.back' 4113ad78 --
+  lib/features/home` returns no match. The only all-history introduction found
+  by `git log --all -S 'Welcome back' -- lib/features/home` is the later
+  `c8b3e32d` implementation. Therefore the requested historical trigger cannot
+  be recovered from that cited source. Current native behavior is preserved;
+  no replacement trigger was invented. Board HE_BackAfterBreak / G-b-9 remains
+  unresolved for exact historical-rule restoration.
+- HP_ProWelcome already targets `/performance`; the binding destination stays.
+- HE_NothingDue / HP_NoDate: keep the existing no-date empty-day behavior, as
+  explicitly instructed. No new copy or coverage claim was authored.
+- DP_History: stored native changes carry cause, time, count changes and first
+  topic names/IDs. They do not retain every historic exam date, scope change,
+  affected content kind or study-day setting needed by the board's exact
+  sentences. A fallback for older rows must be settled before inventing their
+  missing details. No history sentence was fabricated in this continuation.
+
+### Independent review and fidelity limits
+
+A read-only independent reviewer inspected both dirty patches. They confirmed
+missing lesson-read invalidation and missing web Today extras. The former has a
+regression-first correction. The latter remains incomplete.
+
+The reviewer proposed that watching a StreamProvider `.future` permanently kept
+its first cached public result. A controlled public-then-Pro StreamController
+regression passed against the existing production code: the derived performance
+model changed from zero topics to one. This finding was declined on observed
+behavior, and that regression is retained.
+
+Known D-83 / YO4_Picks differences in the initial tendencies presentation:
+pressure scale ticks/drop segment, Stamina percentage and 1H/2H labels, and
+extra-time-only coloring still require correction. D-81 Strong Recall and
+Thorough Reviewer still need their check detail. Full board motion and the
+constant profile-card height are not accepted. No 1:1 visual claim is made.
+
+### Test-first evidence and test environment corrections
+
+Behavioral RED observations in this continuation:
+- Approved tendency sentences/shares failed against the old numeric sentences
+  and read/answered counts; the updated model tests subsequently passed.
+- Web record with server-only mock history expected 10 questions and received 0;
+  the updated reader integration subsequently passed 19 record tests.
+- A persisted lesson read followed by roadmap revision expected a second
+  settings/read-observation/insights sequence but received only the original
+  two requests; revision observation now triggers that actual sequence.
+- New Today adapter, sender, server tendency formatter and screen APIs were
+  introduced with tests that first failed to compile because their planned
+  production APIs did not exist. These are API-contract REDs, not semantic
+  failure observations. Setup/compile errors from missing test imports are not
+  counted as behavioral RED evidence.
+- The inherited profile guard race tests initially timed out before entering
+  their delayed signal because initial authentication had not been awaited.
+  Corrected setup reaches the actual boundary. All nine tests passed.
+- The prior run's original RED evidence for inherited server topic details and
+  archetype changes was not recovered. No new claim is made about having seen
+  those changes fail before their original implementation.
+
+One test run was invalidated by overlapping automatic fixes and formatting,
+which damaged new test text. The damaged tests were repaired and focused checks
+passed. Source/style mutations are now sequential. A broad run also encountered
+three transient missing-sqlite-library errors while other test processes rebuilt
+native assets. These are recorded failures, not accepted exceptions. Final full
+verification must run without another Flutter test in the same worktree.
+
+Raw commands/results are retained in `build/w4b-resume/` (ignored). A separate
+pure-Dart probe confirmed that the roadmap property test was spending hundreds
+of milliseconds per daily rebuild, not waiting on a device or network.
+
+### Necessary shared calendar performance ruling
+
+The long preview regression failed at 60.553789 seconds. Profiling the daily
+rebuild showed that planning-window construction also calls the existing
+`StudyDays.countInRange`, not only the future query. A direct 400-year count
+regression also exceeded its two-second budget. The correction belongs in that
+existing pure count: full weeks plus at most six remaining weekdays, with all
+127 weekday selections checked against calendar iteration over seven starting
+weekdays and seven ranges (negative, empty, partial week, full week and year
+crossing). No schema, framework, scheduling policy or student-facing figure is
+added. `lib/core/time/study_days.dart` is the one additional production file
+outside the original task file table. Both worktrees receive identical source.
+The intermediate WeekPreviews optimization is removed as unnecessary. The
+original future lesson-query implementation remains intact.
+
+### Final scope correction and additional regressions
+
+This section supersedes earlier continuation wording about settings writes on
+read. Opening Home/performance must not overwrite an existing account's server
+settings with a restored device's local defaults. A read-safety regression saw
+`setExamSettings, getStudyInsights` when only the authoritative read was allowed.
+Read-time settings publication was removed. `StudyWrites` and immutable advance
+requests are tested, but explicit settings/onboarding/scope/assessment sender
+entry points are still NOT wired. Part C remains incomplete. Do not infer full
+sender completion from its queue tests.
+
+Additional RED-to-GREEN corrections:
+- A superseded settings caller completed before its replacement was accepted.
+  Two-intent and three-intent tests now require the caller to wait for the actual
+  latest accepted write; errors retain the immutable retry.
+- A stale local Pro state exposed the Topics table despite current web server
+  coverage being Free. Web gates now use current authoritative coverage; paid
+  screens discard retained previous data while loading/error states change.
+- Public cache restore retained a past paid recheck deadline. The regression
+  expected null and received 101. Restored public models now have no paid expiry
+  timer; only fresh authoritative responses schedule access rechecks.
+- Web Today's week ring counted advanced work against the original day. The
+  regression expected 1 and received 0.5. Both platforms now exclude advanced
+  membership from that original-day fraction.
+- Web Home incorrectly used a missing local assessment result to hide actual
+  server Today. The restored-account widget regression now shows authoritative
+  Today without requiring a local assessment row.
+
+The shared calendar correction also fast-paths every-day membership and counts
+complete weeks without constructing local midnights. The future query retains
+one remaining-study-day count and decrements it exactly once per emitted study
+ day. A temporary duplicate decrement was caught by the existing exact-membership
+ tests and removed. Both shared files are byte-identical across worktrees. No
+quota, topic order, weekday convention, schema or planning rule was changed.
+The source file additions outside the initial file table are the existing core
+calendar helper and its bounded-cost/exhaustive weekday tests. Earlier wording
+that the intermediate query refinement was removed is superseded here.
+
+
+## October 25 continuation: completion audit
+
+The user explicitly selected local policy/workstream revision
+`2329b9ee7d404c7e6e750ba375cf1391613c7d0f`. Both worktree HEADs remain
+`06a917892198ebd773f7df9fcef3ac876f19a083` (client) and
+`2c95a9d910daf49e3526804a8a481af35b298301` (server). At startup the local
+origin/main ref was already `6378b0f9fa1387bd155a7616ef522209d95bedf8`.
+The diff from the selected revision touches content guides/checklist, the PWA
+log, and its resume record. It does not change the selected policies or W4b
+controlling documents. No fetch or pull was performed. All supplied dirty
+changes were retained. No commit, merge, push, dependency, deploy, package
+rebuild, or app screenshot capture was performed.
+
+The preceding October 24 status is a historical checkpoint. The actual supplied
+patch at this continuation already includes the plan/day/week route wiring,
+web Today extras, settings sender entry points, and Task 9 chart corrections.
+The following source inventory supersedes its statements that these are absent.
+
+### Source inventory and remaining contracts
+
+- Part B: Today uses original/remaining server membership, actual observed week
+  states, server advance permission and public Today extras. Extras return the
+  actual previous stored day, its mock flag, today's missed-work event, stored
+  weekdays, and authored blueprint duration. They expose no future plan/history
+  to Free. Topic detail uses authored lesson inventory and stored read flags,
+  with fresh exam-specific paid coverage. Shared-topic catalogs include lessons
+  without questions. Public cache restore remains possible; paid restoration
+  after restart waits for fresh server coverage.
+- Part C: app lifecycle observes terminal quiz and lesson/roadmap revisions on
+  native and web. Stored immutable attempts and lesson reads are retried under
+  the captured UID/exam/core. Sessions preserve actual start/finish/wall time,
+  origin, response time and question version, without per-answer answeredAt.
+  Mock submission keeps W4e's existing atomic server observation path.
+- Settings sends occur only after explicit local mutation. Entry points include
+  onboarding finish and study-day selection, assessment completion, date save
+  and clear, study-day updates, exam switching, and topic/subject scope changes.
+  Each capture reserves ordering before hydration; failed local mutations cancel
+  it. Publication checks original ownership, sends expectedUid, reads persisted
+  exclusions/date/weekdays/assessment state, and retains immutable failed writes.
+  Opening Home/performance does not publish device defaults.
+- Advance retains the request ID, expected day, revision and expectedUid across
+  retries. Existing guarded launch/advance tests cover account, exam, wipe and
+  caller lifetime. Native and web retain their separate planner/read authority.
+- Tasks 6/7: plan, day and week routes, Sunday week math, past completion facts,
+  future lesson queries, early-read state, Free future invitation and history
+  pagination are present. Today remains noninteractive on the plan summary.
+  Week rows drill down; rest rows do not. Home week-strip taps and View full plan
+  are wired. Unknown stored days no longer produce empty lesson rows in a week;
+  the week uses the existing recoverable plan error.
+- Task 8: measured local record combines W4e's web mock history without local
+  web mock-result writes. The Wrapped extension slot remains available to W4g.
+- Task 9: approved labels/identity lines, Deep Thinker evidence rule, native
+  original-owner cache guard, Home rows and tendencies route are present.
+  Pressure scale/drop segment, Stamina axes, extra-time-only loss coloring,
+  profile check details and common profile height are implemented in the patch.
+  Independent review found an omitted inline-quiz session in server insight
+  aggregation; its correction and regression are recorded in server evidence.
+- Task 10: old Progress presentation/providers and replaced Home widgets/tests
+  are deleted. Recording inputs remain under Home. Retired Progress/dossier
+  route redirects are removed. No application navigation pushes /progress or
+  /paywall. The old Try Pro row on Settings Pro looped through the retired
+  paywall redirect back into itself; that row is omitted pending W4f's purchase
+  presentation, under the standing missing-contract rule. Manage/Restore remain.
+
+Missing contracts, not new product choices:
+
+- DP_Week/DP_WeekCustom Change needs W4f's Study days settings destination.
+  This worktree has no such screen/route. The optional control remains omitted;
+  no dead destination or new settings UI was invented.
+- W4f owns the replacement Settings Pro purchase presentation; W4g owns the
+  Wrapped record row. This family supplies their destination/extension seams.
+
+### Preserved product decisions
+
+1. HE_BackAfterBreak / G-b-9: the cited historical masthead has greeting hour
+   bands but no Welcome back trigger. The existing current trigger and calm line
+   remain unchanged pending Aedwon's decision.
+2. DP_History / G-b-21: older stored change rows lack details needed for some
+   exact board sentences. No historic date, exam, scope, or study-day detail is
+   reconstructed from current settings. The existing omissions remain pending
+   the approved fallback wording. This is not complete history-copy acceptance.
+3. HE_NothingDue / HP_NoDate: an empty no-date day has no matching board that
+   establishes covered-everything meaning. Current behavior remains unchanged.
+
+### New regression observations
+
+- Retired-route regression: expected no Progress/dossier routes; actual four
+  retired redirects. After deletion, all three route-inventory tests passed.
+- Retired paywall-loop regression: expected no Try Pro reentry control on its
+  own destination; actual one control. After removing that obsolete row, all
+  ten payment-management tests passed.
+- Unknown-week regression: expected the recoverable plan error; actual none,
+  because the screen rendered unknown days as empty lesson rows. The correction
+  passed all three plan-screen tests.
+
+The focused inherited client baseline ran through terminal relay request 11686,
+exit 0. Its transport truncated the full output, so no recovered total is
+claimed from that request. New RED/GREEN command logs are in /tmp/w4b-*-red.log
+and /tmp/w4b-*-green.log for this session. Final durable local gate logs live in
+build/w4b-completion/; summary results are appended below after completion.
+
+### Review and fidelity limits
+
+One read-only independent family reviewer inspected tracked and untracked source
+in both worktrees. They confirmed the server inline-session parity defect and
+reported no additional confirmed Important/Critical finding. The lead reproduced
+and corrected that finding with an emulator test. The reviewer ran no tests or
+source mutations. No second review is claimed.
+
+No phone/live-staging or visual 1:1 acceptance is claimed. The known omitted
+Change control and the pending History/Welcome back/no-date states above remain
+explicit board gaps. The source charts and profile refinements do not establish
+pixel/motion acceptance. Aedwon retains that check under WORKFLOW.md.
+
+
+### Final navigation corrections and layout checks
+
+A direct HP_ExamDay source check found the Today header's View full plan action
+was omitted at the Home caller. The new warm-up regression expected that visible
+action and found none. Wiring the existing callback to /plan passed 21 focused
+Home/route tests. No warm-up membership or launch behavior changed.
+
+A day opened from Home also showed Your plan as its return label. Its new
+regression expected Home and found none. The day now retains its actual calling
+page label: Home from the week strip, the actual week title when opened from a
+week. All 9 focused plan-screen/page tests passed. Six additional layout checks
+passed for future/past day and week rows in light/dark themes at 200% text,
+including read state, actual past counts, future count suppression, study-day
+navigation and inert rest rows. No app screenshots were captured.
+
+The first complete Flutter run (relay11689) passed 4811 tests and failed three
+obsolete redirect tests: Free dossier redirect, Pro dossier redirect and the old
+Progress destination map. This was a recorded failed gate. The two dossier tests
+were deleted with their removed route; Progress entries were removed from the
+legacy redirect map. Route inventory continues to require those retired paths
+to be absent. The subsequent focused 21-test Home/router run passed.
+
+The same first run's static gates were clean:
+
+```text
+flutter analyze lib test tool
+No issues found! (ran in 5.9s)
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1600 files (0 changed) in 1.67 seconds.
+dart run tool/check_layering.dart
+check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+```
+
+The final rerun after the navigation corrections is relay11694. No production
+source changes are made while that run is active. Its actual results follow.
+
+
+### Files beyond the original screen-task table
+
+- `lib/core/time/study_days.dart` and its test: inherited bounded-cost calendar
+  correction required to finish the real roadmap coverage gate. See the prior
+  exhaustive-weekday and long-preview evidence. Both worktrees match.
+- `lib/core/ui/components/pantas_logo.dart` and the onboarding logo wrapper:
+  inherited extraction of the existing exact logo paths so the plan milestone
+  can reuse them in monochrome instead of drawing a near-duplicate.
+- `lib/app/app.dart`: observes the existing feature-local delivery lifecycle on
+  native and web. No core synchronization framework was added.
+- Settings, onboarding and assessment call sites: necessary Part C explicit
+  settings/assessment/scope publication entry points authorized by the lead
+  brief and later C9/C10 rulings.
+- Settings Pro and its payment test: removes its sole remaining retired-paywall
+  push, which redirected back to the same Pro page. The replacement purchase
+  presentation remains W4f-owned under the missing-contract rule.
+- Route inventory/redirect tests: retire old Progress/dossier expectations with
+  the corresponding routes. Other families' redirect coverage remains.
+
+The latest shared-source comparison confirms byte identity for every Dart file
+under metrics/signals and roadmap/domain across both worktrees. The server
+compiled bridge check remains current. Final logs and per-file dirty-source
+hashes are in each worktree's ignored build/w4b-completion directory. These logs
+are verification evidence, not a commit or durable remote handoff.
+
+
+### Native-asset test-runner race
+
+Relay11694 completed with 4816 tests passed and 1 failed. The failed case was
+`test/tool/content_seed_writer_test.dart`, seed_writer creates an openable content
+database from fixture JSON. Its nested `dart run` exited 255 while dlopen loaded
+`.dart_tool/lib/libsqlite3mc.dylib`: Mach-O __TEXT extended beyond the file's
+current length 0x100000. This is an observed partial native-asset write, not a seed
+assertion or roadmap failure. The first full run had passed this same case.
+
+An isolated rerun of the unchanged seed-writer test file passed 2/2 in two seconds.
+No source, dependency, fixture, protected package, or test expectation changed.
+The final full suite is rerun with `flutter test --concurrency=1` (relay11695),
+serializing test-file child build hooks. The original exact parallel command's
+failed result remains recorded; it is not relabeled as a pass. The serialized
+full suite's actual output and repeated static gates follow below.
+
+
+The layout-test addition initially replaced the three pre-existing day-page tests.
+All three original cases were recovered verbatim from HEAD and restored alongside
+the six new cases. The serial full runner had not yet loaded that file when it
+was restored. The restored file retains all nine cases, including the original future-question,
+past-completion and rest-day assertions. Execution is confirmed only by the final
+log below. No production source changed during the serial run. The final manifest includes the restored
+file; the earlier 4816+1 run was not the final acceptance object.
+
+
+### Final client gate output
+
+Relay11695 exited 0 on the final source. The complete serial suite includes the
+restored three original day-page cases and all six additional layout cases.
+
+```text
+flutter test --concurrency=1
+🎉 4820 tests passed.
+
+flutter analyze lib test tool
+Analyzing 3 items...
+No issues found! (ran in 4.0s)
+
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1600 files (0 changed) in 1.52 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b.md
+ M lib/app/app.dart
+ M lib/app/routes/home_routes.dart
+ M lib/core/time/study_days.dart
+ M lib/features/assessment/presentation/assessment_page.dart
+ M lib/features/home/application/home_day_extras.dart
+ M lib/features/home/application/home_today.dart
+ M lib/features/home/application/how_you_work_provider.dart
+ M lib/features/home/application/performance/topic_detail.dart
+ M lib/features/home/application/record_provider.dart
+ M lib/features/home/application/study_remote_providers.dart
+ D lib/features/home/application/tendencies_provider.dart
+ D lib/features/home/application/up_next_provider.dart
+ M lib/features/home/application/web_study_seam.dart
+ M lib/features/home/data/study_read_cache.dart
+ M lib/features/home/data/study_snapshot_reader.dart
+ M lib/features/home/domain/study_models.dart
+ M lib/features/home/presentation/home_providers.dart
+ M lib/features/home/presentation/home_tab.dart
+ M lib/features/home/presentation/home_today_screen.dart
+ M lib/features/home/presentation/performance_screen.dart
+ M lib/features/home/presentation/plan_day_page.dart
+ M lib/features/home/presentation/plan_page.dart
+ M lib/features/home/presentation/widgets/home_masthead.dart
+ M lib/features/home/presentation/widgets/home_performance_section.dart
+ D lib/features/home/presentation/widgets/home_stats_band.dart
+ D lib/features/home/presentation/widgets/practice_panel.dart
+ D lib/features/home/presentation/widgets/tendencies_panel.dart
+ D lib/features/home/presentation/widgets/tendency_card.dart
+ D lib/features/home/presentation/widgets/up_next_panel.dart
+ M lib/features/metrics/archetypes/archetype_catalog.dart
+ M lib/features/metrics/archetypes/archetype_templates.dart
+ M lib/features/metrics/data/user_metrics_archetype_repository.dart
+ M lib/features/metrics/providers/current_archetype_provider.dart
+ M lib/features/onboarding/presentation/onboarding_page.dart
+ M lib/features/onboarding/presentation/onboarding_study_days_step.dart
+ M lib/features/onboarding/presentation/onboarding_welcome_step.dart
+ D lib/features/progress/application/pace_provider.dart
+ D lib/features/progress/data/.gitkeep
+ D lib/features/progress/domain/.gitkeep
+ D lib/features/progress/presentation/.gitkeep
+ D lib/features/progress/presentation/pages/how_you_work_page.dart
+ D lib/features/progress/presentation/progress_page.dart
+ D lib/features/progress/presentation/widgets/gap_comparison.dart
+ D lib/features/progress/presentation/widgets/level_control.dart
+ D lib/features/progress/presentation/widgets/performance_section.dart
+ D lib/features/progress/presentation/widgets/subject_scope_sheet.dart
+ D lib/features/progress/presentation/widgets/table_head.dart
+ D lib/features/progress/presentation/widgets/why_you_miss_section.dart
+ D lib/features/progress/presentation/widgets/your_pace_panel.dart
+ M lib/features/roadmap/application/roadmap_providers.dart
+ M lib/features/roadmap/domain/week_preview.dart
+ M lib/features/settings/application/settings_providers.dart
+ M lib/features/settings/presentation/pages/change_exam_page.dart
+ M lib/features/settings/presentation/pages/pro_page.dart
+ M lib/features/settings/presentation/pages/whats_included_page.dart
+ M test/app/router_paths_preserved_test.dart
+ M test/app/router_redirect_test.dart
+ M test/core/time/study_days_test.dart
+ M test/features/home/application/home_day_extras_test.dart
+ M test/features/home/application/how_you_work_provider_test.dart
+ M test/features/home/application/record_provider_test.dart
+ M test/features/home/application/study_remote_providers_test.dart
+ D test/features/home/application/tendencies_provider_test.dart
+ D test/features/home/application/up_next_provider_test.dart
+ M test/features/home/application/web_study_seam_test.dart
+ M test/features/home/data/study_read_cache_test.dart
+ M test/features/home/data/study_snapshot_reader_test.dart
+ M test/features/home/presentation/home_tab_test.dart
+ M test/features/home/presentation/home_today_screen_test.dart
+ M test/features/home/presentation/performance_screen_test.dart
+ M test/features/home/presentation/plan_day_page_test.dart
+ M test/features/home/presentation/plan_page_test.dart
+ D test/features/home/presentation/widgets/home_stats_band_test.dart
+ D test/features/home/presentation/widgets/practice_panel_test.dart
+ D test/features/home/presentation/widgets/tendencies_panel_test.dart
+ D test/features/home/presentation/widgets/tendency_card_test.dart
+ D test/features/home/presentation/widgets/up_next_panel_test.dart
+ M test/features/metrics/archetypes/archetype_resolver_test.dart
+ M test/features/metrics/archetypes/archetype_templates_test.dart
+ M test/features/metrics/providers/current_archetype_provider_test.dart
+ D test/features/progress/application/pace_provider_test.dart
+ D test/features/progress/mock_feeds_progress_test.dart
+ D test/features/progress/presentation/pages/how_you_work_page_test.dart
+ D test/features/progress/presentation/progress_page_test.dart
+ D test/features/progress/presentation/widgets/accuracy_line_test.dart
+ D test/features/progress/presentation/widgets/gap_comparison_test.dart
+ D test/features/progress/presentation/widgets/level_control_test.dart
+ D test/features/progress/presentation/widgets/performance_section_test.dart
+ D test/features/progress/presentation/widgets/subject_scope_test.dart
+ D test/features/progress/presentation/widgets/table_head_test.dart
+ D test/features/progress/presentation/widgets/why_you_miss_section_test.dart
+ D test/features/progress/presentation/widgets/your_pace_panel_test.dart
+ M test/features/settings/application/settings_actions_test.dart
+ M test/features/settings/presentation/pro_page_payments_test.dart
+ D test/tool/progress_boundary_test.dart
+?? lib/core/ui/components/pantas_logo.dart
+?? lib/features/home/application/plan_data.dart
+?? lib/features/home/application/plan_provider.dart
+?? lib/features/home/application/server_tendencies.dart
+?? lib/features/home/application/server_today.dart
+?? lib/features/home/application/study_delivery.dart
+?? lib/features/home/data/plan_history_reader.dart
+?? lib/features/home/data/study_observations.dart
+?? lib/features/home/data/study_writes.dart
+?? lib/features/home/presentation/plan_screen.dart
+?? lib/features/home/presentation/record_screen.dart
+?? lib/features/home/presentation/tendencies_page.dart
+?? lib/features/home/presentation/tendencies_screen.dart
+?? test/features/home/application/plan_data_test.dart
+?? test/features/home/application/record_server_history_test.dart
+?? test/features/home/application/server_tendencies_test.dart
+?? test/features/home/application/server_today_test.dart
+?? test/features/home/application/study_coverage_test.dart
+?? test/features/home/data/plan_history_reader_test.dart
+?? test/features/home/data/study_observations_test.dart
+?? test/features/home/data/study_writes_test.dart
+?? test/features/home/presentation/plan_screen_test.dart
+?? test/features/home/presentation/record_screen_test.dart
+?? test/features/home/presentation/tendencies_page_test.dart
+?? test/features/home/presentation/widgets/accuracy_line_test.dart
+?? test/features/metrics/archetypes/archetype_identity_test.dart
+?? test/features/roadmap/domain/week_preview_performance_test.dart
+```
+
+The exact unmodified `flutter test` invocation was run and its native-asset
+copy failure is recorded above. The successful final full-suite command adds
+only concurrency 1, so nested Dart build hooks do not overwrite a library another
+test file is loading. No failing assertion was skipped, disabled or accepted as
+a baseline exception. All 4820 cases ran.
+
+The client source/test manifest contains 122 changed/deleted paths,
+including untracked additions. Manifest SHA-256: `46b755a1c2ec618c2a9073a6a5ba947b441806fde81c62b28679e35a60f049fd`.
+The machine-readable per-file hashes remain in build/w4b-completion/source-manifest.json.
+No production source changed during or after the final serial gate. Evidence-only
+edits occur afterwards. `git diff --check` is clean. Client status has 123 paths;
+server status has 19. Both HEADs and branches remain as assigned; nothing is saved
+to Git history or uploaded as application source.

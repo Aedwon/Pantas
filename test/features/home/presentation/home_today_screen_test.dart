@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -13,6 +14,8 @@ import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
@@ -348,6 +351,62 @@ HomeTodayData dataFor(
     );
 
 void quietDayTests() {
+  testWidgets('exam-day warm-up keeps the View full plan action',
+      (tester) async {
+    final examToday = todayFor(
+      dayPlan: DayPlan(
+        day: DateTime(2026, 11, 11),
+        lessonIds: const [],
+        reviewQuestionIds: const ['warmup'],
+        newQuestionIds: const [],
+        isMockDay: false,
+        advancedIds: const {},
+      ),
+    );
+    final batch = PreparedReviewBatch.fromReviews(
+      scope: const ReviewBatchScope(
+        userId: 'u',
+        examId: 'e1',
+        principal: 'u',
+        accountLifetimeToken: 'original',
+      ),
+      preferences: QuizPreferences.defaults,
+      localDay: DateTime(2026, 11, 11),
+      orderedDueReviews: const [
+        Question(
+          id: 'warmup',
+          version: 1,
+          examIds: ['e1'],
+          topicId: 't',
+          language: 'en',
+          stem: 'Measured review',
+          choices: [],
+          explanation: '',
+        ),
+      ],
+    );
+    await pumpData(
+      tester,
+      HomeTodayData(
+        today: examToday,
+        lessons: const [],
+        questionWork: TodayQuestionWork(
+          examId: 'e1',
+          today: examToday,
+          preparedReviews: batch,
+          storedReviews: null,
+          newQuestions: const [],
+          reviewProgress: const [0],
+          newRows: const [],
+          guard: () async => true,
+        ),
+        canAdvance: false,
+        examShortName: 'UPCAT',
+      ),
+    );
+    expect(find.text('Warm-up reviews'), findsOneWidget);
+    expect(find.text('View full plan'), findsOneWidget);
+  });
   testWidgets('a day off offers advance only when the engine permits it',
       (tester) async {
     await pumpData(
@@ -415,7 +474,7 @@ void quietDayTests() {
     await tester.tap(find.text('Set a New Date'));
     expect(asked, 1);
   });
-  testWidgets('the calm line sits above Today and View full plan is absent',
+  testWidgets('the calm line sits above Today and View full plan is available',
       (tester) async {
     await pumpData(
       tester,
@@ -425,7 +484,7 @@ void quietDayTests() {
       ),
     );
     expect(find.text('Unfinished items are added to today.'), findsOneWidget);
-    expect(find.text('View full plan'), findsNothing);
+    expect(find.text('View full plan'), findsOneWidget);
   });
   testWidgets('a moved mock names the exam simulation', (tester) async {
     await pumpData(

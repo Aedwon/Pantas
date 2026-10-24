@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
@@ -93,13 +92,6 @@ class _ProPageState extends ConsumerState<ProPage> {
           SettingsGroup(
             title: 'Manage',
             children: [
-              if (!entitlement.proIsActive)
-                SettingsValueRow(
-                  title: 'Try Pro',
-                  showChevron: true,
-                  onTap:
-                      _restorePending ? null : () => context.push('/paywall'),
-                ),
               Semantics(
                 button: true,
                 enabled: !_managePending,

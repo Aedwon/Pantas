@@ -89,16 +89,22 @@ abstract final class WeekPreviews {
     var day = localDay(today);
     final stop = localDay(reviewOnlyFrom);
     var next = 0;
+    if (queue.isEmpty) return;
+    // The remaining calendar is unchanged while this preview is built.
+    var daysLeft = studyDays.countInRange(
+      DateTime(day.year, day.month, day.day + 1),
+      stop,
+    );
     while (next < queue.length) {
       day = DateTime(day.year, day.month, day.day + 1);
       if (!day.isBefore(stop)) break;
       if (!studyDays.isStudyDay(day)) continue;
-      final daysLeft = studyDays.countInRange(day, stop);
       final perDay = PlanningWindows.perDay(queue.length - next, daysLeft);
       final ids = <LessonId>[];
       for (var i = 0; i < perDay && next < queue.length; i++, next++) {
         ids.add(queue[next].id);
       }
+      daysLeft--;
       yield MapEntry(day, List.unmodifiable(ids));
     }
   }

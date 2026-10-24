@@ -16,7 +16,9 @@ import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/home/data/study_writes.dart';
 import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
@@ -25,6 +27,8 @@ import 'package:pantas/features/home/presentation/widgets/home_exam_day.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
+import 'package:uuid/uuid.dart';
 
 /// Owns one Home request, including its retries and every asynchronous launch.
 /// Closing the page invalidates the original captured account/exam boundary.
@@ -55,6 +59,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   bool _busy = false;
   bool _failed = false;
   int _generation = 0;
+  StudyAdvance? _pendingAdvance;
 
   bool _current() =>
       mounted &&
@@ -154,9 +159,28 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           generation != _generation) {
         return;
       }
-      await ref
-          .read(roadmapControllerProvider)
-          .advance(widget.examId, originalGuard: _guard);
+      if (ref.read(studyUsesServerProvider)) {
+        if (_pendingAdvance == null) {
+          final remote =
+              await ref.read(serverStudyRoadmapProvider(widget.examId).future);
+          final reader =
+              await ref.read(studySnapshotReaderProvider(widget.examId).future);
+          if (!await (await _guard)()) throw StateError('Home owner changed');
+          _pendingAdvance = StudyAdvance(
+            reader.request,
+            requestId: const Uuid().v4(),
+            expectedDay: dayKey(remote.today.day),
+            expectedRevision: remote.revision,
+          );
+        }
+        await _pendingAdvance!.send();
+        _pendingAdvance = null;
+        ref.invalidate(serverStudyRoadmapProvider(widget.examId));
+      } else {
+        await ref
+            .read(roadmapControllerProvider)
+            .advance(widget.examId, originalGuard: _guard);
+      }
       if (_current() && generation == _generation) _retry();
     } on Object {
       if (_current() && generation == _generation) {
@@ -182,6 +206,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   @override
   Widget build(BuildContext context) {
     ref.watch(activeExamFocusProvider);
+    if (ref.watch(studyUsesServerProvider)) {
+      ref.listen(serverStudyRoadmapProvider(widget.examId), (_, next) {
+        if (next.hasValue && _current()) _retry();
+      });
+    }
     return FutureBuilder<HomeTodayData>(
       future: _request,
       builder: (context, snapshot) {
@@ -252,6 +281,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       HomeTodayKind.checklist => _list(data, view),
       HomeTodayKind.examDay => HomeExamDay(
           examShortName: data.examShortName,
+          onPlan: () => unawaited(context.push<void>('/plan')),
           reviewsTotal: data.questionWork?.reviewsTotal ?? 0,
           reviewsDone: data.questionWork?.reviewsDone ?? 0,
           busy: _busy,
@@ -306,7 +336,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const HomeTodayHeader(),
+        HomeTodayHeader(onPlan: () => unawaited(context.push<void>('/plan'))),
         HomeStateCard(
           state: switch (view.kind) {
             HomeTodayKind.nothingDue => HomeState.nothingDue,
@@ -341,6 +371,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     ].where((id) => !data.today.snapshot.plan.advancedIds.contains(id)).length;
     final sizes = work?.reviewSizes ?? const <int>[];
     return HomeTodayChecklist(
+      onPlan: () => unawaited(context.push<void>('/plan')),
       lessons: data.lessons,
       reviewsDone: work?.reviewsDone ?? 0,
       reviewsTotal: work?.reviewsTotal ?? 0,

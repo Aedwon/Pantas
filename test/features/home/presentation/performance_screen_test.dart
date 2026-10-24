@@ -8,6 +8,9 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
+import 'package:pantas/features/home/application/performance/topic_detail.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/performance_screen.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -55,12 +58,15 @@ Future<void> pump(
   WidgetTester tester, {
   bool pro = true,
   bool paused = false,
+  bool server = false,
+  bool realTopic = false,
+  String initialPath = '/home',
   Future<PerformanceViewData> Function()? load,
 }) async {
   lastPush = null;
   saved.clear();
   final router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: initialPath,
     routes: [
       GoRoute(
         path: '/home',
@@ -79,6 +85,9 @@ Future<void> pump(
         path: '/performance/topic/:topicId',
         builder: (_, state) {
           lastPush = state.uri.path;
+          if (realTopic) {
+            return TopicScreen(topicId: state.pathParameters['topicId']!);
+          }
           return const Scaffold(body: Text('topic'));
         },
       ),
@@ -94,6 +103,37 @@ Future<void> pump(
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
+        if (realTopic)
+          topicDetailProvider('Geometry').overrideWith(
+            (_) async => TopicDetail(
+              topicId: 'Geometry',
+              name: 'Private topic detail',
+              subject: 'Mathematics',
+              correct: 7,
+              answered: 9,
+              lessons: const [],
+            ),
+          ),
+        studyUsesServerProvider.overrideWithValue(server),
+        if (server)
+          serverStudyInsightsProvider('e').overrideWith(
+            (_) => Stream.value(
+              StudyInsights.decode(
+                {
+                  'examId': 'e',
+                  'serverNow': 1,
+                  'revision': 'r',
+                  'proCovered': false,
+                  'performance': {
+                    'overall': {'correct': 8, 'answered': 10},
+                    'subjects': <Object?>[],
+                    'lessonLevelAvailable': false,
+                  },
+                },
+                examId: 'e',
+              ),
+            ),
+          ),
         performanceViewProvider
             .overrideWith((ref) => (load ?? () async => view)()),
         tableOrderProvider.overrideWith(_Order.new),
@@ -129,11 +169,34 @@ Future<void> pump(
     ),
   );
   await tester.pumpAndSettle();
-  await tester.tap(find.text('open'));
-  await tester.pumpAndSettle();
+  if (initialPath == '/home') {
+    await tester.tap(find.text('open'));
+    await tester.pumpAndSettle();
+  }
 }
 
 void main() {
+  testWidgets('a direct native Free topic route shows the approved invitation',
+      (tester) async {
+    await pump(
+      tester,
+      pro: false,
+      realTopic: true,
+      initialPath: '/performance/topic/Geometry',
+    );
+    expect(find.text('Private topic detail'), findsNothing);
+    expect(find.text('Unlock with Pro'), findsOneWidget);
+  });
+
+  testWidgets('web uses current server coverage over a stale local Pro state',
+      (tester) async {
+    await pump(tester, server: true);
+    await tester.tap(find.text('Topics'));
+    await tester.pumpAndSettle();
+    expect(find.text('Unlock with Pro'), findsOneWidget);
+    expect(find.text('Geometry'), findsNothing);
+  });
+
   testWidgets('shows the measured overall accuracy and subjects',
       (tester) async {
     await pump(tester);

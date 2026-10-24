@@ -29,20 +29,35 @@ Map<String, Object?> suppressExpiredStudyAccess(
   if (performance is Map) {
     public['performance'] =
         Map<String, Object?>.from(performance.cast<String, Object?>())
-          ..removeWhere((key, _) => key == 'topics' || key == 'lessons');
+          ..removeWhere(
+            (key, _) =>
+                key == 'topics' || key == 'lessons' || key == 'topicDetails',
+          );
   }
   return Map.unmodifiable(public);
 }
 
 class StudySnapshotReader {
-  const StudySnapshotReader({required this.request, required this.cache});
+  const StudySnapshotReader({
+    required this.request,
+    required this.cache,
+    this.beforeRead,
+  });
   final StudyRequest request;
   final StudyReadCache cache;
+  final Future<void> Function()? beforeRead;
   Stream<Map<String, Object?>> read(String kind) async* {
     final cached = await cache.read(kind);
     if (cached != null) yield cached;
     final elapsed = Stopwatch()..start();
     try {
+      try {
+        await beforeRead?.call();
+      } on FirebaseFunctionsException {
+        // Retain rejected/offline observations for retry. They cannot prevent
+        // reading the account's already accepted authoritative data.
+        if (!await request.isCurrent()) rethrow;
+      }
       final current = await request.read(kind);
       final safe = suppressExpiredStudyAccess(current, elapsed.elapsed);
       await cache.write(kind, current);

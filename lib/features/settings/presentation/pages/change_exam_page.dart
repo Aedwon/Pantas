@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 
 class ExamChangeResult {
@@ -67,9 +68,14 @@ class ChangeExamPage extends ConsumerWidget {
                       selected: selected,
                       onTap: () async {
                         if (selected) return;
-                        await ref
-                            .read(appPreferencesRepositoryProvider)
-                            .setSelectedExamId(exam.id);
+                        final publish = await ref.read(
+                          studySettingsCaptureProvider,
+                        )(examId: exam.id);
+                        await publish.apply(
+                          () => ref
+                              .read(appPreferencesRepositoryProvider)
+                              .setSelectedExamId(exam.id),
+                        );
                         final carryableCount = await ref
                             .read(carryableCountProvider(exam.id).future);
 

@@ -9,6 +9,8 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/features/home/application/server_today.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_inputs_reader.dart';
@@ -77,14 +79,25 @@ class RoadmapRevision extends Notifier<int> {
 
 /// Today's plan for one exam. Recomputed whenever a screen starts watching
 /// it and whenever the revision moves.
-final roadmapTodayProvider =
-    FutureProvider.autoDispose.family<RoadmapToday, ExamId>((ref, examId) {
+final roadmapTodayProvider = FutureProvider.autoDispose
+    .family<RoadmapToday, ExamId>((ref, examId) async {
   ref
     ..watch(roadmapRevisionProvider)
     ..watch(quizSessionPanelRevisionProvider)
     // An exam date or scope change must reach a plan already on screen.
     ..watch(userSettingsProvider)
     ..watch(trackScopeProvider(examId));
+  if (ref.watch(studyUsesServerProvider)) {
+    final remote = await ref.watch(serverStudyRoadmapProvider(examId).future);
+    final settings = await ref.watch(userSettingsProvider.future);
+    final date = settings.examDate;
+    return serverToday(
+      remote,
+      examDate:
+          date == null ? '' : '${date.storageValue}:${date.precision.name}',
+      studyDays: settings.studyDays,
+    );
+  }
   return ref.read(roadmapControllerProvider).today(examId);
 });
 
@@ -94,6 +107,10 @@ final roadmapCanAdvanceProvider =
     FutureProvider.autoDispose.family<bool, ExamId>((ref, examId) async {
   // Recomputed whenever today's plan is.
   await ref.watch(roadmapTodayProvider(examId).future);
+  if (ref.watch(studyUsesServerProvider)) {
+    return (await ref.watch(serverStudyRoadmapProvider(examId).future))
+        .canAdvance;
+  }
   return ref.read(roadmapControllerProvider).canAdvance(examId);
 });
 

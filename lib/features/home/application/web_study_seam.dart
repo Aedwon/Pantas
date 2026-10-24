@@ -82,6 +82,30 @@ final webPerformanceViewProvider =
 /// One topic's detail from the server's insights read.
 final webTopicDetailProvider =
     FutureProvider.autoDispose.family<TopicDetail, String>(
-  (ref, topicId) async =>
-      throw StateError('Server insights reader is required'),
+  (ref, topicId) async {
+    final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+    if (exam == null) throw StateError('Study exam unavailable');
+    final value = await ref.watch(serverStudyInsightsProvider(exam.id).future);
+    if (!value.proCovered) throw StateError('Topic coverage required');
+    final topics = value.topicDetails.where((t) => t['id'] == topicId);
+    if (topics.length != 1) throw StateError('Topic unavailable');
+    final topic = topics.single;
+    final today = await ref.watch(todayLessonIdsProvider(exam.id).future);
+    return TopicDetail(
+      topicId: topicId,
+      name: studyString(topic['title']),
+      subject: studyString(topic['subject']),
+      correct: studyWhole(topic['correct']),
+      answered: studyWhole(topic['answered']),
+      lessons: [
+        for (final lesson in studyRows(topic['lessons']))
+          TopicLesson(
+            id: studyString(lesson['id']),
+            title: studyString(lesson['title']),
+            read: lesson['read'] == true,
+            today: today.contains(lesson['id']),
+          ),
+      ],
+    );
+  },
 );

@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/table_order_prefs.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
@@ -49,6 +50,10 @@ class TopicDetail {
 final todayLessonIdsProvider =
     FutureProvider.autoDispose.family<Set<String>, String>((ref, examId) async {
   try {
+    if (ref.watch(studyUsesServerProvider)) {
+      final today = await ref.watch(serverStudyRoadmapProvider(examId).future);
+      return today.today.lessonIds.toSet();
+    }
     final today = await ref.watch(roadmapTodayProvider(examId).future);
     return today.snapshot.plan.lessonIds.toSet();
   } on Object {

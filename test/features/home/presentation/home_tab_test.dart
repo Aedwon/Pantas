@@ -14,9 +14,11 @@ import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
@@ -88,6 +90,7 @@ Widget harness({
   ActiveExamFocus? focus,
   AssessmentResult? result,
   bool throwError = false,
+  bool server = false,
   RoadmapToday? today,
   HomeNotice? notice,
   HomeDayNote? note,
@@ -104,6 +107,40 @@ Widget harness({
   );
   return ProviderScope(
     overrides: [
+      studyUsesServerProvider.overrideWithValue(server),
+      if (server) currentStudyCoverageProvider.overrideWithValue(false),
+      if (server)
+        serverStudyRoadmapProvider(examId).overrideWith((_) {
+          final plan = <String, Object?>{
+            'day': '2026-10-24',
+            'lessonIds': ['l1'],
+            'reviewQuestionIds': <String>[],
+            'newQuestionIds': <String>[],
+            'isMockDay': false,
+            'isRestDay': false,
+            'advancedIds': <String>[],
+          };
+          return Stream.value(
+            StudyRoadmap.decode(
+              {
+                'examId': examId,
+                'serverNow': 1,
+                'proCovered': false,
+                'revision': 'r',
+                'state': 'planning',
+                'today': plan,
+                'remaining': plan,
+                'originalDone': false,
+                'canAdvance': false,
+                'todayTopicOrder': <String>[],
+                'weekDays': [
+                  for (var i = 0; i < 7; i++) {'state': 'unknown'},
+                ],
+              },
+              examId: examId,
+            ),
+          );
+        }),
       activeExamFocusProvider.overrideWith((ref) async {
         if (throwError) throw Exception('PlatformException(42)');
         return focus ?? const ActiveExamFocus.selected(exam);
@@ -168,6 +205,15 @@ AssessmentResult assessed() => AssessmentResult(
     );
 
 void main() {
+  testWidgets(
+      'web Home uses authoritative Today without a local assessment result',
+      (tester) async {
+    await tester.pumpWidget(harness(server: true));
+    await tester.pumpAndSettle();
+    expect(find.text('Ratios'), findsOneWidget);
+    expect(find.text('First, a short assessment'), findsNothing);
+  });
+
   setUp(() {
     final view = TestWidgetsFlutterBinding.ensureInitialized();
     view.platformDispatcher.views.first.physicalSize = const Size(390, 1600);

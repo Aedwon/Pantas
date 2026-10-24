@@ -33,7 +33,8 @@ void main() {
     await tester.pump();
   }
 
-  testWidgets('free Settings has a working Try Pro route', (tester) async {
+  testWidgets('Pro destination cannot reenter the retired paywall flow',
+      (tester) async {
     final gateway = SettingsGateway(initial: const Entitlement.free());
     final router = GoRouter(
       initialLocation: '/settings/pro',
@@ -55,10 +56,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Try Pro'));
-    await tester.pumpAndSettle();
-
-    expect(find.text('Paywall'), findsOneWidget);
+    expect(find.text('Try Pro'), findsNothing);
+    expect(find.text('Restore purchases'), findsOneWidget);
   });
 
   testWidgets('Settings Restore uses the real payment controller path',

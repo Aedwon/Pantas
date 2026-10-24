@@ -19,6 +19,8 @@ void main() {
     );
     await cache.write('getStudyInsights', {
       'examId': 'cse',
+      'serverNow': 100,
+      'accessRecheckAt': 101,
       'proCovered': true,
       'performance': {
         'overall': {'correct': 1, 'answered': 2},
@@ -27,14 +29,27 @@ void main() {
           {'id': 'paid'},
         ],
         'lessons': <Object?>[],
+        'topicDetails': [
+          {
+            'id': 'paid-topic',
+            'lessons': [
+              {'read': true},
+            ],
+          }
+        ],
       },
       'tendencies': {'hidden': 1},
       'whenYouWork': {'hidden': 1},
     });
     final restored = await cache.read('getStudyInsights');
     expect(restored?['proCovered'], false);
+    expect(restored?['accessRecheckAt'], isNull);
     expect(restored?.containsKey('tendencies'), false);
     expect((restored?['performance'] as Map?)?.containsKey('topics'), false);
+    expect(
+      (restored?['performance'] as Map?)?.containsKey('topicDetails'),
+      false,
+    );
     final other = StudyReadCache(
       db,
       uid: 'u2',

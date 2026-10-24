@@ -8,6 +8,8 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
+import 'package:pantas/features/home/application/server_today.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
@@ -75,6 +77,27 @@ final weekStripProvider =
   final now = ref.watch(nowProvider)();
   final today = localDay(now);
   final settings = await ref.watch(userSettingsProvider.future);
+
+  if (ref.watch(studyUsesServerProvider)) {
+    final remote = await ref.watch(serverStudyRoadmapProvider(examId).future);
+    final plan = remote.today;
+    final remaining = remote.remaining;
+    return HomeWeekStripData(
+      states: serverWeekStates(remote.weekDays),
+      todayFraction: todayCompletionFraction(
+        total: [
+          ...plan.lessonIds,
+          ...plan.reviewQuestionIds,
+          ...plan.newQuestionIds,
+        ].where((id) => !plan.advancedIds.contains(id)).length,
+        left: [
+          ...remaining.lessonIds,
+          ...remaining.reviewQuestionIds,
+          ...remaining.newQuestionIds,
+        ].where((id) => !plan.advancedIds.contains(id)).length,
+      ),
+    );
+  }
 
   // Ensure today's canonical snapshot has been built before the strip reads
   // the repository directly. This does not build or mutate historical days.

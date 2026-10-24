@@ -8,10 +8,13 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/home_today.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
@@ -98,38 +101,38 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
   @override
   Widget build(BuildContext context) {
     final examId = widget.examId;
-    final asyncResult = ref.watch(assessmentResultProvider(examId));
     final settings = ref.watch(userSettingsProvider).valueOrNull;
     final now = DateTime.now();
-    final page = asyncResult.when(
-      loading: () => loadingFor(asyncResult),
-      error: (_, __) => errorFor(
-        'home',
-        () => ref.invalidate(assessmentResultProvider(examId)),
-      ),
-      data: (result) => result == null
-          ? _list(
-              context,
-              now: now,
-              today: _AssessmentCard(examId: examId),
-              notices: false,
-            )
-          : HomeTodayScreen(
-              // A new exam date or study days rebuild today's plan, so the
-              // screen starts a fresh guarded request.
-              key: ValueKey(
-                'today-$examId-${settings?.examDate?.storageValue}',
-              ),
-              examId: examId,
-              onSetDate: () => _openDate(HomeNoticeKind.noDate),
-              pageBuilder: (today, data) => _list(
+    Widget todayScreen() => HomeTodayScreen(
+          key: ValueKey('today-$examId-${settings?.examDate?.storageValue}'),
+          examId: examId,
+          onSetDate: () => _openDate(HomeNoticeKind.noDate),
+          pageBuilder: (today, data) =>
+              _list(context, now: now, today: today, data: data),
+        );
+    Widget nativeHome() {
+      final result = ref.watch(assessmentResultProvider(examId));
+      return result.when(
+        loading: () => loadingFor(result),
+        error: (_, __) => errorFor(
+          'home',
+          () => ref.invalidate(assessmentResultProvider(examId)),
+        ),
+        data: (assessment) => assessment == null
+            ? _list(
                 context,
                 now: now,
-                today: today,
-                data: data,
-              ),
-            ),
-    );
+                today: _AssessmentCard(examId: examId),
+                notices: false,
+              )
+            : todayScreen(),
+      );
+    }
+
+    // A restored web account may have server assessment evidence without a
+    // local result row. Its authoritative Today state owns this choice.
+    final page =
+        ref.watch(studyUsesServerProvider) ? todayScreen() : nativeHome();
     return PantasSheet(
       page: page,
       label: 'Exam date',
@@ -189,6 +192,21 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
         if (showPerformance) ...[
           const SizedBox(height: 22),
           const HomePerformanceSection(),
+          const SizedBox(height: 24),
+          GroupedSection(
+            header: 'More about you',
+            children: [
+              ListRow(
+                title: 'Your record',
+                divider: true,
+                onTap: () => unawaited(context.push<void>('/record')),
+              ),
+              ListRow(
+                title: 'Your tendencies',
+                onTap: () => unawaited(context.push<void>('/tendencies')),
+              ),
+            ],
+          ),
         ],
       ],
     );

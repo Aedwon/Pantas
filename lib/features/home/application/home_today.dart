@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
@@ -42,7 +42,7 @@ typedef HomeTodayLoader = Future<HomeTodayData> Function(
 /// The native reader must never become a web fallback.
 final homeTodayLoaderProvider = Provider<HomeTodayLoader>((ref) {
   return (examId, originalGuard) async {
-    if (kIsWeb) throw StateError('Server roadmap reader is required');
+    final server = ref.read(studyUsesServerProvider);
     final guard = await originalGuard;
     if (!await guard()) throw StateError('Home owner changed');
     final work = await ref.read(todayQuestionLauncherProvider).load(
@@ -85,27 +85,37 @@ final homeTodayLoaderProvider = Provider<HomeTodayLoader>((ref) {
         ),
       );
     }
-    final canAdvance = await ref
-        .read(roadmapControllerProvider)
-        .canAdvance(examId, originalGuard: originalGuard);
+    final canAdvance = server
+        ? (await ref.read(serverStudyRoadmapProvider(examId).future)).canAdvance
+        : await ref
+            .read(roadmapControllerProvider)
+            .canAdvance(examId, originalGuard: originalGuard);
     final exam = (await ref.read(activeExamFocusProvider.future)).exam;
     final settings = await ref.read(userSettingsProvider.future);
     final shortName = exam?.shortName ?? '';
-    final extras = await readHomeDayExtras(
-      today: today.snapshot,
-      examShortName: shortName,
-      studyDays: settings.studyDays,
-      recentChanges: () =>
-          ref.read(roadmapChangeLogRepositoryProvider).recent(examId),
-      priorSnapshot: () => ref
-          .read(roadmapDayRepositoryProvider)
-          .latestBefore(examId, today.snapshot.day),
-      mockDurationMinutes: () async {
-        final blueprints =
-            await ref.read(mockBlueprintRepoProvider).byExam(examId);
-        return blueprints.firstOrNull?.durationMinutes;
-      },
-    );
+    final extras = server
+        ? serverHomeDayExtras(
+            day: today.snapshot.day,
+            isMockDay: today.snapshot.plan.isMockDay,
+            examShortName: shortName,
+            facts: (await ref.read(serverStudyRoadmapProvider(examId).future))
+                .homeExtras,
+          )
+        : await readHomeDayExtras(
+            today: today.snapshot,
+            examShortName: shortName,
+            studyDays: settings.studyDays,
+            recentChanges: () =>
+                ref.read(roadmapChangeLogRepositoryProvider).recent(examId),
+            priorSnapshot: () => ref
+                .read(roadmapDayRepositoryProvider)
+                .latestBefore(examId, today.snapshot.day),
+            mockDurationMinutes: () async {
+              final blueprints =
+                  await ref.read(mockBlueprintRepoProvider).byExam(examId);
+              return blueprints.firstOrNull?.durationMinutes;
+            },
+          );
     if (!await guard()) throw StateError('Home owner changed');
     return HomeTodayData(
       today: today,

@@ -29,6 +29,7 @@ import 'package:pantas/features/assessment/application/assessment_result_provide
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
@@ -216,9 +217,13 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     });
     try {
       if (!await _checkOwner()) return;
-      await ref
-          .read(_completeAssessmentProvider)
-          .call(session: _session!, now: DateTime.now(), canPersist: _owner);
+      final publish =
+          await ref.read(studySettingsCaptureProvider)(examId: widget.examId);
+      await publish.apply(
+        () => ref
+            .read(_completeAssessmentProvider)
+            .call(session: _session!, now: DateTime.now(), canPersist: _owner),
+      );
       if (!await _checkOwner()) return;
       ref
         ..invalidate(assessmentResultProvider(widget.examId))

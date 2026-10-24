@@ -241,52 +241,6 @@ void main() {
     expect(find.textContaining('Legal: privacy'), findsNothing);
   });
 
-  testWidgets('free user opening retired dossier route redirects home',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await pumpApp(tester);
-
-    final container = ProviderScope.containerOf(
-      tester.element(find.text('Home').first),
-    );
-    final router = container.read(routerProvider);
-    router.go('/plan/dossier/mock_1');
-    await tester.pumpAndSettle();
-
-    expect(router.routerDelegate.currentConfiguration.uri.path, '/home');
-  });
-
-  testWidgets('pro user opening retired dossier route also redirects home',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(contentDb),
-          entitlementProvider.overrideWith(
-            (_) => Stream.value(
-              const Entitlement(plan: EntitlementPlan.monthly),
-            ),
-          ),
-        ],
-        child: const App(flavor: Flavor.dev),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    final container = ProviderScope.containerOf(
-      tester.element(find.text('Home').first),
-    );
-    final router = container.read(routerProvider);
-    router.go('/plan/dossier/mock_1');
-    await tester.pumpAndSettle();
-
-    expect(router.routerDelegate.currentConfiguration.uri.path, '/home');
-  });
-
   testWidgets('every other retired route reaches its living destination',
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
@@ -296,9 +250,6 @@ void main() {
         ProviderScope.containerOf(tester.element(find.text('Home').first));
     final router = container.read(routerProvider);
     for (final entry in <String, String>{
-      '/progress': '/home',
-      '/progress/how-you-work': '/home',
-      '/progress/your-record': '/home',
       '/mock-exam': '/home',
       '/notifications/rationale': '/home',
       '/review': '/quiz',

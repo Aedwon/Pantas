@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
@@ -52,6 +53,9 @@ class PlanPage extends StatefulWidget {
     required this.onWeek,
     required this.onPro,
     this.subtitle,
+    this.initialShown = 5,
+    this.loadingMore = false,
+    this.paginationError,
     this.hasMore = false,
     this.onMore,
     super.key,
@@ -63,6 +67,9 @@ class PlanPage extends StatefulWidget {
   final List<PlanNode> nodes;
   final List<PlanHistoryEntry> history;
   final String? subtitle;
+  final int initialShown;
+  final bool loadingMore;
+  final Widget? paginationError;
   final VoidCallback onBack;
   final VoidCallback onToday;
   final ValueChanged<String> onWeek;
@@ -74,7 +81,13 @@ class PlanPage extends StatefulWidget {
 }
 
 class _PlanPageState extends State<PlanPage> {
-  int _shown = 5;
+  late int _shown;
+  @override
+  void initState() {
+    super.initState();
+    _shown = widget.initialShown;
+  }
+
   final _expanded = <String>{};
   Widget _entry(
     int start,
@@ -82,6 +95,9 @@ class _PlanPageState extends State<PlanPage> {
     Widget child, {
     double x = 0,
     double y = 0,
+    bool draw = false,
+    bool pop = false,
+    Key? effectKey,
   }) {
     if (MediaQuery.disableAnimationsOf(context)) return child;
     return TweenAnimationBuilder<double>(
@@ -90,14 +106,28 @@ class _PlanPageState extends State<PlanPage> {
       curve: Interval(
         start / (start + duration),
         1,
-        curve: PantasCurves.houseOut,
+        curve: draw
+            ? PantasCurves.linear
+            : pop
+                ? PantasCurves.popB
+                : PantasCurves.houseOut,
       ),
       child: child,
       builder: (_, value, child) => Opacity(
-        opacity: value,
+        opacity: value.clamp(0, 1),
         child: Transform.translate(
           offset: Offset(x * (1 - value), y * (1 - value)),
-          child: child,
+          child: Transform.scale(
+            key: effectKey,
+            alignment: draw ? Alignment.topCenter : Alignment.center,
+            scaleX: pop ? .3 + .7 * value : 1,
+            scaleY: draw
+                ? value
+                : pop
+                    ? .3 + .7 * value
+                    : 1,
+            child: child,
+          ),
         ),
       ),
     );
@@ -113,6 +143,9 @@ class _PlanPageState extends State<PlanPage> {
     final last =
         widget.nodes.where((n) => n.kind == PlanNodeKind.exam).firstOrNull;
     final visible = widget.history.take(_shown).toList();
+    final historyStart = widget.nodes.isEmpty
+        ? 350
+        : 350 + (widget.nodes.length - 1) * 260 + 270;
     return PantasPage(
       title: 'Your plan',
       backLabel: 'Home',
@@ -132,18 +165,18 @@ class _PlanPageState extends State<PlanPage> {
           0,
           450,
           GroupedSection(
+            header: 'Today',
             children: [
               ListRow(
-                title: 'Today',
+                title: '${widget.done} of ${widget.total} done',
                 subtitle: widget.done == widget.total
                     ? null
                     : 'Reviews and new questions left',
-                value: '${widget.done} of ${widget.total} done',
                 leading: ProgressRing(
                   fraction: widget.total == 0 ? 0 : widget.done / widget.total,
                   size: 36,
                 ),
-                onTap: widget.onToday,
+                variant: ListRowVariant.value,
               ),
             ],
           ),
@@ -167,12 +200,12 @@ class _PlanPageState extends State<PlanPage> {
             ),
           ),
           const SizedBox(height: 24),
-          _entry(2700, 500, _heading('History'), y: 14),
+          _entry(historyStart, 500, _heading('History'), y: 14),
           GroupedSection(
             children: [
               for (var i = 0; i < visible.length; i++)
                 _entry(
-                  2900 + i * 80,
+                  historyStart + 200 + i * 80,
                   500,
                   ListRow(
                     title: visible[i].text,
@@ -205,12 +238,14 @@ class _PlanPageState extends State<PlanPage> {
                 PantasButton(
                   label: 'See more',
                   variant: PantasButtonVariant.tertiary,
-                  onPressed: () => setState(() {
-                    _shown += 10;
-                    if (_shown > widget.history.length) {
-                      widget.onMore?.call();
-                    }
-                  }),
+                  onPressed: widget.loadingMore
+                      ? null
+                      : () => setState(() {
+                            _shown += 10;
+                            if (_shown > widget.history.length) {
+                              widget.onMore?.call();
+                            }
+                          }),
                 )
               else
                 Padding(
@@ -226,6 +261,7 @@ class _PlanPageState extends State<PlanPage> {
                 ),
             ],
           ),
+          if (widget.paginationError != null) widget.paginationError!,
         ] else ...[
           GroupedSection(
             children: [
@@ -321,28 +357,48 @@ class _PlanPageState extends State<PlanPage> {
                   top: 12,
                   bottom: -12,
                   child: _entry(
-                    start,
-                    260,
+                    start + 120,
+                    140,
                     Container(
                       width: node.reviewOnly ? 2 : 1.5,
                       color: node.reviewOnly
                           ? context.colors.label
                           : context.colors.separator,
                     ),
+                    draw: true,
+                    effectKey: ValueKey('plan-line-$index'),
                   ),
                 ),
               Positioned(
                 top: 14,
                 child: _entry(
                   start,
-                  260,
-                  Icon(
-                    icon,
-                    size: node.kind == PlanNodeKind.week ? 10 : 22,
-                    color: index == 0
-                        ? context.colors.accent
-                        : context.colors.label,
-                  ),
+                  node.kind == PlanNodeKind.exam ? 420 : 260,
+                  node.kind == PlanNodeKind.week
+                      ? Container(
+                          width: 10,
+                          height: 10,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: index == 0
+                                ? context.colors.accent
+                                : Colors.transparent,
+                            border: Border.all(
+                              color: index == 0
+                                  ? context.colors.accent
+                                  : context.colors.secondaryLabel,
+                              width: 1.5,
+                            ),
+                          ),
+                        )
+                      : node.kind == PlanNodeKind.exam
+                          ? const PantasLogo(size: 28, monochrome: true)
+                          : Icon(
+                              icon,
+                              size: 22,
+                              color: context.colors.secondaryLabel,
+                            ),
+                  pop: true,
                 ),
               ),
             ],

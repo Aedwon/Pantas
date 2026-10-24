@@ -2,6 +2,7 @@ import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/home_mock_row.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
@@ -47,6 +48,35 @@ Future<HomeDayExtras> readHomeDayExtras({
             : HomeMockRow.fromBlueprint(
                 examShortName: examShortName,
                 durationMinutes: minutes,
+              )
+        : null,
+  );
+}
+
+/// Uses only the public facts returned for this account's actual Today.
+HomeDayExtras serverHomeDayExtras({
+  required DateTime day,
+  required bool isMockDay,
+  required String examShortName,
+  required Map<String, Object?>? facts,
+}) {
+  if (facts == null) return const HomeDayExtras();
+  final rawMinutes = facts['mockDurationMinutes'];
+  return HomeDayExtras(
+    note: homeDayNoteFor(
+      day: day,
+      isMockDay: isMockDay,
+      priorDay: facts['priorDay'] == null ? null : studyDay(facts['priorDay']),
+      priorWasMockDay: facts['priorWasMockDay'] == true,
+      missedWorkToday: facts['missedWorkToday'] == true,
+      studyDays: StudyDays((facts['studyDays']! as List).cast<int>()),
+    ),
+    mock: isMockDay
+        ? rawMinutes == null
+            ? HomeMockRow(subtitle: '$examShortName simulation')
+            : HomeMockRow.fromBlueprint(
+                examShortName: examShortName,
+                durationMinutes: studyWhole(rawMinutes),
               )
         : null,
   );

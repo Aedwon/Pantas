@@ -33,6 +33,23 @@ RoadmapChange change(RoadmapChangeCause cause, DateTime at) => RoadmapChange(
     );
 
 void main() {
+  test('server facts supply carry-over and authored mock duration', () {
+    final value = serverHomeDayExtras(
+      day: DateTime(2026, 10, 25),
+      isMockDay: true,
+      examShortName: 'CSE-P',
+      facts: {
+        'priorDay': '2026-10-24',
+        'priorWasMockDay': true,
+        'missedWorkToday': true,
+        'studyDays': [1, 2, 3, 4, 5, 6, 7],
+        'mockDurationMinutes': 165,
+      },
+    );
+    expect(value.note, HomeDayNote.mockMoved);
+    expect(value.mock!.duration, '2 hr 45 min');
+  });
+
   final today = DateTime(2026, 10, 28);
 
   test('a missed-work entry written today with a stored day yesterday',
