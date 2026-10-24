@@ -73,5 +73,28 @@ test('a version 1 totals document is rebuilt once from the stored sessions, neve
  assert.deepEqual([...completedOn(totals,'2026-10-24').ids].sort(),['q-a','q-b']);
  assert.deepEqual([...completedOn(totals,'2026-10-23').ids],['q-a']);
  assert.equal((await db.doc('users/'+uid+'/server/answerTotals').get()).get('version'),2);
+ await items.doc('not-ingested-yet').set({answers:[{questionId:'q-later',chosen:'a',correct:true,answeredAt:now}]});
  const again=await loadTotals(db,uid);assert.equal(again.sessions,2,'the second read does not rebuild or recount');
+ assert.equal(again.questions.has('q-later'),false);
+ assert.deepEqual(again,totals);
+});
+
+test('ingestSession upgrades existing v1 totals and counts old and new sessions exactly once',async()=>{
+ const {ingestSession}=await import('../lib/ingestSession.js');
+ const {fromDoc,completedOn}=await import('../lib/_answerTotals.js');
+ const uid='w4b-ingest-v1';await db.recursiveDelete(db.doc('users/'+uid));
+ const earlier=now-86400000;
+ await db.doc('users/'+uid+'/server/answers/items/legacy-before-v2').set({answers:[{questionId:'q-old',chosen:'a',correct:true,answeredAt:earlier}]});
+ const ref=db.doc('users/'+uid+'/server/answerTotals');
+ await ref.set({version:1,sessions:1,answers:1,questionsJson:'[["q-old",1,1]]',daysJson:'[]'});
+ const payload={sessionId:'ingest-upgrade-v2',startedAt:now-1000,finishedAt:now,durationMs:1000,
+  answers:[{questionId:'q-new',chosen:'a',correct:false,answeredAt:now}]};
+ assert.equal((await ingestSession.run({auth:auth(uid),data:payload})).stored,true);
+ const saved=(await ref.get()).data(),totals=fromDoc(saved);
+ assert.equal(saved.version,2);assert.equal(totals.sessions,2);assert.equal(totals.answers,2);
+ assert.equal(totals.questions.get('q-old').firstCompletedAt,earlier);
+ assert.equal(totals.questions.get('q-new').firstCompletedAt,now);
+ assert.deepEqual([...completedOn(totals,'2026-10-24').ids],['q-new']);
+ assert.equal((await ingestSession.run({auth:auth(uid),data:payload})).stored,false);
+ assert.deepEqual((await ref.get()).data(),saved);
 });

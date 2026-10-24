@@ -108,10 +108,10 @@ test('the day window keeps the most recent days and reports what it dropped', ()
 
 test('the question table is capped, and the stored document stays under 1 MiB in the worst case', () => {
   const T = Date.parse('2026-11-01T00:00:00+08:00');
-  // Two hostile shapes: the most rows (short ids) and the longest ids (fewest rows).
-  for (const idLength of [24, 128]) {
+  // Hostile shapes: short ids, longest ids, and legacy ids that expand when JSON escapes them.
+  for (const idLength of [24, 128, 'control']) {
     const totals = emptyTotals();
-    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength, 'x');
+    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength === 'control' ? 128 : idLength, idLength === 'control' ? '\u0001' : 'x');
     for (let n = 0; n < 40; n += 1) addSession(totals, Array.from({length: 300}, (_, i) => ans(id(n * 300 + i), T + n * 86_400_000)));
     assert.ok(totals.questions.size <= MAX_QUESTIONS);
     assert.ok(totals.idBytes <= MAX_ID_BYTES);
@@ -222,9 +222,9 @@ test('v2: the stored document round-trips, and a v1 document is recognized for b
 
 test('v2: the stored document stays under 1 MiB at the real worst case, mask and first completion included', () => {
   const T = Date.parse('2026-11-01T00:00:00+08:00');
-  for (const idLength of [24, 128]) {
+  for (const idLength of [24, 128, 'control']) {
     const totals = emptyTotals();
-    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength, 'x');
+    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength === 'control' ? 128 : idLength, idLength === 'control' ? '\u0001' : 'x');
     for (let n = 0; n < 40; n += 1) {
       addSession(totals, Array.from({length: 300}, (_, i) => bare(id(n * 300 + i))),
         {startedAt: T + n * 86_400_000, finishedAt: T + n * 86_400_000 + 1000});
@@ -239,11 +239,23 @@ test('v2: the stored document stays under 1 MiB at the real worst case, mask and
     }
     prune(totals);
     const doc = toDoc(totals);
+    assert.equal(fromDoc(doc).idBytes,totals.idBytes,'reloaded totals retain the escaped byte budget');
     // Firestore counts a string as its UTF-8 bytes plus one, a field name as its bytes plus one, and a
     // number as 8; 1 KiB of margin covers the document name and overhead.
     const bytes = Object.entries(doc).reduce((sum, [name, value]) =>
       sum + Buffer.byteLength(name) + 1 + (typeof value === 'string' ? Buffer.byteLength(value) + 1 : 8), 0) + 1024;
     console.log(`v2 worst case, ${totals.questions.size} rows of ${idLength}-byte ids: ${bytes} bytes`);
     assert.ok(bytes < 1_048_576 - 100_000, `worst case is ${bytes} bytes`);
+  }
+});
+
+// Validation must reject hostile ids before either legacy or attributed ingest stores them.
+test('ingest answer validation rejects control characters and non-content ids', async () => {
+  const {checkAnswers} = await import('../lib/_answers.js');
+  for (const attributed of [false, true]) {
+    for (const questionId of ['q\u0001', 'q\n', 'q\u007f', 'q/foreign', 'q:internal']) {
+      assert.throws(() => checkAnswers([ans(questionId, T0)], T0, attributed), {code: 'invalid-argument'});
+    }
+    assert.equal(checkAnswers([ans('q.Valid_1-2', T0)], T0, attributed)[0].questionId, 'q.Valid_1-2');
   }
 });

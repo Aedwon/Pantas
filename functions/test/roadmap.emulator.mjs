@@ -2,7 +2,7 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
-import {build, saveExamSettings, serveRoadmap} from '../lib/roadmap.js';
+import {build, saveExamSettings, readStudyRoadmap} from '../lib/roadmap.js';
 import {recordSession} from '../lib/ingestSession.js';
 import {blueprintItem, lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
@@ -37,6 +37,12 @@ const stored = async uid => {
 
 test('seed content', async () => {
   await writeContent(db, [set('ta', 'a'), set('tb', 'b'), ...lessons, blueprint], [], {});
+  await db.doc('content/catalog/items/'+EXAM).set({version:'roadmap-fixture-v1',payload:JSON.stringify({id:EXAM,
+    subjects:[{_id:'subject-roadmap',name:'Subject',exam:EXAM}],
+    topics:['ta','tb'].map(t=>({_id:'topic_dost_sei_'+t,name:t,subject:'subject-roadmap'})),
+    lessons:['ta','tb'].flatMap(t=>[1,2,3].map(n=>({id:`lesson-rm-${t}-${n}`,title:'T',topic:'topic_dost_sei_'+t,ordering:n}))),
+    sets:['ta','tb'].map((t,n)=>({id:'set-'+t,topic:'topic_dost_sei_'+t,lesson:`lesson-rm-${t}-1`,exams:[EXAM],
+      questions:Array.from({length:12},(_,i)=>({id:(n?'b':'a')+i}))}))})});
   clearExamContentCache();
 });
 
@@ -60,8 +66,8 @@ test('saving exam settings validates the shape and stores it server-only', async
 test('without settings there is no roadmap to serve', async () => {
   const uid = 'r-none';
   await reset(uid);
-  const out = await serveRoadmap(named(uid), {}, d());
-  assert.deepEqual(out, {tier: 'free', state: 'noSettings'});
+  await assert.rejects(readStudyRoadmap(named(uid), {expectedUid:uid,examId:EXAM}, d()),
+    {code:'failed-precondition',message:'Set your exam first.'});
 });
 
 test('storing a session recomputes the roadmap from stored answers, using the Philippine calendar day', async () => {
@@ -93,23 +99,28 @@ test('a Free account gets Today only; a Pro account also gets Coming up and Hist
   const uid = 'r-tier';
   await reset(uid);
   await saveExamSettings(named(uid), settings(), d());
-  const free = await serveRoadmap(named(uid), {}, d());
+  const free = await readStudyRoadmap(named(uid), {expectedUid:uid,examId:EXAM}, d());
   assert.equal(free.tier, 'free');
   assert.equal(free.state, 'planning');
   assert.equal(free.today.day, '2026-11-20');
-  assert.deepEqual(Object.keys(free).sort(), ['backlogCapped', 'state', 'tier', 'today']);
+  assert.equal(free.examId,EXAM);
+  assert.equal(free.proCovered,false);
+  assert.ok(free.remaining);assert.equal(typeof free.revision,'string');
   const text = JSON.stringify(free);
   for (const key of ['weeksAhead', 'changes', 'mockDay', 'topicOrder', 'reviewOnlyFrom', 'examDay', 'comingUp', 'history']) {
     assert.equal(text.includes(`"${key}"`), false, key);
   }
-  const live = await serveRoadmap(pro(uid), {}, d());
+  await db.doc(`users/${uid}/grants/paid`).set({source:'paymongo',product:'pantas_pro_monthly',tier:'student',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+  const live = await readStudyRoadmap(pro(uid), {expectedUid:uid,examId:EXAM}, d());
   assert.equal(live.tier, 'pro');
   assert.deepEqual(live.today, free.today);
   assert.ok(Array.isArray(live.comingUp.weeksAhead) && live.comingUp.weeksAhead.length > 0);
   assert.equal(live.comingUp.examDay, '2027-02-15');
   assert.ok(Array.isArray(live.history.changes));
-  // An expired Pro claim is Free.
-  const expired = await serveRoadmap(named(uid, {pro: true, proUntil: NOW - 1}), {}, d());
+  // Exam coverage comes from the ledger, independently of token claims.
+  assert.equal((await readStudyRoadmap(named(uid), {expectedUid:uid,examId:EXAM}, d())).tier,'pro');
+  await db.doc(`users/${uid}/grants/paid`).update({endsAt:NOW-1});
+  const expired = await readStudyRoadmap(named(uid, {pro: true, proUntil: NOW - 1}), {expectedUid:uid,examId:EXAM}, d());
   assert.equal(expired.tier, 'free');
   assert.equal('comingUp' in expired, false);
 });
@@ -118,14 +129,15 @@ test('serving on a later Philippine day recomputes instead of returning yesterda
   const uid = 'r-stale';
   await reset(uid);
   await saveExamSettings(named(uid), settings(), d());
-  const next = await serveRoadmap(named(uid), {}, d(NOW + 2 * DAY));
+  const next = await readStudyRoadmap(named(uid), {expectedUid:uid,examId:EXAM}, d(NOW + 2 * DAY));
   assert.equal(next.today.day, '2026-11-22');
-  assert.equal((await stored(uid)).roadmap.today.day, '2026-11-22');
+  const saved=await db.doc(`users/${uid}/server/roadmapDays/items/${EXAM}:2026-11-22`).get();
+  assert.deepEqual(JSON.parse(saved.get('stateJson')).today,next.today);
 });
 
 test('serving refuses signed-out callers and honours the rate limit', async () => {
-  assert.equal(await code(serveRoadmap(undefined, {}, d())), 'unauthenticated');
-  assert.equal(await code(serveRoadmap(named('r-lim'), {}, d(NOW, {allow: async () => false}))), 'resource-exhausted');
+  assert.equal(await code(readStudyRoadmap(undefined, {expectedUid:'r-lim',examId:EXAM}, d())), 'unauthenticated');
+  assert.equal(await code(readStudyRoadmap(named('r-lim'), {expectedUid:'r-lim',examId:EXAM}, d(NOW, {allow: async () => false}))), 'resource-exhausted');
 });
 
 // Running totals. The reference is the full scan that build() used before totals existed.
@@ -232,7 +244,7 @@ test('totals: an account from before this change is backfilled once, by a rebuil
     await db.doc(`users/${uid}/server/answers/items/sess-old-0002`).set({sessionId: 'sess-old-0002', answers: batch('x', ['b0', 'a1'], day(2)).answers});
     assert.equal((await totalsDoc(uid).get()).exists, false);
     if (via === 'rebuild') {
-      const out = await serveRoadmap(named(uid), {}, d(day(3)));
+      const out = await readStudyRoadmap(named(uid), {expectedUid:uid,examId:EXAM}, d(day(3)));
       assert.equal(out.state, 'planning');
       assert.equal((await totalsDoc(uid).get()).get('sessions'), 2);
     } else {
@@ -241,6 +253,5 @@ test('totals: an account from before this change is backfilled once, by a rebuil
       assert.equal((await totalsDoc(uid).get()).get('answers'), 6);
     }
     await sameRoadmap(uid, day(3), true, via);
-    assert.equal((await stored(uid)).answerSessions, via === 'rebuild' ? 2 : 3);
   }
 });

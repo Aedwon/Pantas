@@ -160,40 +160,6 @@ export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapD
   return {stored: true};
 }
 
-type Served = {tier: 'free' | 'pro'; state: string; today?: Record<string, unknown>; backlogCapped?: boolean;
-  comingUp?: Record<string, unknown>; history?: Record<string, unknown>};
-
-/**
- * Returns the stored roadmap, cut to the tier. Free: Today. Pro: Today, Coming up and History.
- * The Pro parts are never in a Free response. A stored roadmap from an earlier Philippine day, or
- * built for the other tier, is rebuilt first.
- */
-export async function serveRoadmap(auth: Auth, _data: unknown, deps: RoadmapDeps): Promise<Served> {
-  if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
-  const now = (deps.now ?? Date.now)();
-  if (!await (deps.allow ?? allowDefault)(auth.uid, 'getRoadmap')) {
-    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
-  }
-  const pro = hasLiveProClaim(auth.token as {pro?: unknown; proUntil?: unknown}, now);
-  const tier = pro ? 'pro' : 'free';
-  const [stored, currentTotals] = await Promise.all([roadmapRef(deps.db, auth.uid).get(), loadTotals(deps.db, auth.uid)]);
-  let roadmap: Roadmap;
-  if (stored.exists && stored.get('today') === phDay(now) && stored.get('pro') === pro && stored.get('answerSessions') === currentTotals.sessions) {
-    roadmap = JSON.parse(String(stored.get('roadmapJson'))) as Roadmap;
-  } else {
-    const fresh = await computeRoadmap(deps.db, auth.uid, pro, now);
-    if (!fresh) return {tier, state: 'noSettings'};
-    roadmap = fresh.roadmap;
-  }
-  const out: Served = {tier, state: roadmap.state, today: roadmap.today, backlogCapped: roadmap.backlogCapped};
-  if (pro) {
-    out.comingUp = {examDay: roadmap.examDay, reviewOnlyFrom: roadmap.reviewOnlyFrom, mockDay: roadmap.mockDay,
-      weeksAhead: roadmap.weeksAhead, topicOrder: roadmap.topicOrder};
-    out.history = {changes: roadmap.changes};
-  }
-  return out;
-}
-
 export const setExamSettings = onCall(
   {region: 'asia-southeast1', enforceAppCheck: true},
   request => saveExamSettings(request.auth, request.data, {db: getFirestore()}));

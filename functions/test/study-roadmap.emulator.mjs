@@ -220,3 +220,41 @@ test('an attributed session without answer times that crosses midnight completes
  assert.equal(saturday.today.day,'2026-10-24');
  for(const id of ids)assert.equal(saturday.today.newQuestionIds.includes(id)||saturday.remaining.newQuestionIds.includes(id),false,'seen questions are not new again');
 });
+
+async function readyToAdvance(uid,pro=false){
+ await seed(uid);if(pro)await trial(uid);
+ const first=await readStudyRoadmap(auth(uid),body(uid),deps());
+ for(const lessonId of first.today.lessonIds)await db.doc('users/'+uid+'/server/lessonReads/items/'+lessonId).set({lessonId,readAt:NOW});
+ const {addSession}=await import('../lib/_answerTotals.js');const totals=emptyTotals();
+ addSession(totals,[...first.today.newQuestionIds,...first.today.reviewQuestionIds].map(questionId=>({questionId,chosen:'a',correct:true,answeredAt:NOW})));
+ await db.doc('users/'+uid+'/server/answerTotals').set(toDoc(totals));
+ const ready=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.equal(ready.originalDone,true);assert.equal(ready.canAdvance,true);
+ return {...body(uid),expectedDay:ready.today.day,expectedRevision:ready.revision};
+}
+test('concurrent advances with one expected revision have exactly one winner',async()=>{
+ const uid='w4b-advance-race',request=await readyToAdvance(uid,true);
+ const results=await Promise.allSettled(['advance-race-one','advance-race-two'].map(requestId=>advanceStudyRoadmap(auth(uid),{...request,requestId},deps())));
+ assert.equal(results.filter(r=>r.status==='fulfilled').length,1);
+ const loser=results.find(r=>r.status==='rejected');assert.equal(loser.reason.code,'failed-precondition');
+ assert.equal(loser.reason.message,'Your plan changed. Open it again.');
+ assert.equal((await db.collection('users/'+uid+'/server/roadmapAdvances/items').get()).size,1);
+ const winner=results.find(r=>r.status==='fulfilled').value;
+ assert.deepEqual((await readStudyRoadmap(auth(uid),body(uid),deps())).today,winner.today);
+});
+test('advance rejects yesterday expectedDay even with today revision',async()=>{
+ const uid='w4b-advance-rollover';await readyToAdvance(uid,true);
+ const today=await readStudyRoadmap(auth(uid),body(uid),deps(NOW+DAY));
+ await assert.rejects(advanceStudyRoadmap(auth(uid),{...body(uid),requestId:'advance-rollover',expectedDay:'2026-10-24',expectedRevision:today.revision},deps(NOW+DAY)),
+  {code:'failed-precondition',message:'Your plan changed. Open it again.'});
+ assert.equal((await db.collection('users/'+uid+'/server/roadmapAdvances/items').get()).size,0);
+});
+test('Free can advance completed Today without paid future payloads',async()=>{
+ const uid='w4b-free-advance',request=await readyToAdvance(uid);
+ const payload={...request,requestId:'free-advance-one'};
+ const out=await advanceStudyRoadmap(auth(uid),payload,deps());
+ assert.equal(out.proCovered,false);assert.equal(out.tier,'free');assert.ok(out.today.advancedIds.length>0);
+ for(const field of ['comingUp','history','digest','topicOrder','weeksAhead'])assert.equal(field in out,false);
+ assert.deepEqual((await advanceStudyRoadmap(auth(uid),payload,deps())).today,out.today);
+ assert.equal(await code(readStudyDay(auth(uid),{...body(uid),date:'2026-10-25'},deps())),'permission-denied');
+});

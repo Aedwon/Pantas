@@ -4,7 +4,7 @@ import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {beginMock, changeMock, readMock, recordMock} from '../lib/mock.js';
 import {serveMockResults} from '../lib/mockReader.js';
-import {saveExamSettings, serveRoadmap} from '../lib/roadmap.js';
+import {saveExamSettings, readStudyRoadmap} from '../lib/roadmap.js';
 import {recordSession} from '../lib/ingestSession.js';
 import {questionSetItems, blueprintItem, writeContent} from '../lib/contentUpload.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
@@ -26,6 +26,9 @@ test('seed mock-review content',async()=>{
  const set=questionSetItems({meta:{subject:'s',topic:'review',exams:['cse-pro']},questions:Array.from({length:6},(_,i)=>({id:`mrq${i}`,stem:'x',choices:[{text:'a',correct:true},{text:'b'}]}))},'mock-review/q.yaml').item;
  const blueprint=blueprintItem({exam:EXAM,name:'Paper',durationMinutes:60,sectionalTiming:'none',sections:[{id:'s',name:'Paper',questionCount:3,suggestedMinutes:60,topicIds:['topic_cse_pro_review'],topicWeights:{topic_cse_pro_review:1}}]});
  await writeContent(db,[set,blueprint],[],{});clearExamContentCache();
+ await db.doc('content/catalog/items/'+EXAM).set({version:'mock-review-fixture-v1',payload:JSON.stringify({id:EXAM,
+  subjects:[{_id:'subject-review',name:'Review',exam:EXAM}],topics:[{_id:'topic_cse_pro_review',name:'Review',subject:'subject-review'}],lessons:[],
+  sets:[{id:'set-review',topic:'topic_cse_pro_review',exams:[EXAM],questions:Array.from({length:6},(_,i)=>({id:`mrq${i}`}))}]})});
 });
 test('submission atomically records chosen answers, totals and review states once',async()=>{
  const uid='mr-record', out=await start(uid);const body=await submit(uid,out);
@@ -55,17 +58,18 @@ test('an all-blank paper records the terminal session without invented answered 
 test('mock answers invalidate same-day roadmap cache and ordinary review advances the existing scheduler state',async()=>{
  const uid='mr-roadmap',out=await start(uid);await saveExamSettings(named(uid),settings,deps());
  await submit(uid,out);
- await serveRoadmap(named(uid),{},deps(NOW+2000));
- assert.equal((await db.doc(`users/${uid}/server/roadmap`).get()).get('answerSessions'),1);
+ const first=await readStudyRoadmap(named(uid),{expectedUid:uid,examId:EXAM},deps(NOW+2000));
+ assert.equal(first.today.day,'2026-11-20');
  const wrong=out.paper.sections[0].questions[1].id;
- await serveRoadmap(named(uid),{},deps(NOW+2*DAY));
- let stored=(await db.doc(`users/${uid}/server/roadmap`).get()).data();
- assert.equal(stored.answerSessions,1);assert.ok(JSON.parse(stored.roadmapJson).today.reviewQuestionIds.includes(wrong));
+ const due=await readStudyRoadmap(named(uid),{expectedUid:uid,examId:EXAM},deps(NOW+2*DAY));
+ assert.ok(due.today.reviewQuestionIds.includes(wrong));
  const at=NOW+2*DAY+1000;
  await recordSession(named(uid),{sessionId:'ordinary-review-1',startedAt:at-1000,finishedAt:at,durationMs:1000,answers:[{questionId:wrong,chosen:'a',correct:true,answeredAt:at}]},deps(at));
  const state=JSON.parse((await reviews(uid).doc(encodeURIComponent(wrong)).get()).get('stateJson'));
  assert.equal(state.reps,2);assert.equal(Date.parse(state.lastReview),at);assert.ok(Date.parse(state.due)>at);
- stored=(await db.doc(`users/${uid}/server/roadmap`).get()).data();assert.equal(stored.answerSessions,2);
+ const refreshed=await readStudyRoadmap(named(uid),{expectedUid:uid,examId:EXAM},deps(at));
+ assert.equal(refreshed.remaining.reviewQuestionIds.includes(wrong),false);
+ assert.notEqual(refreshed.revision,due.revision);
 });
 test('a completed legacy result reconciles once and cannot overwrite a newer review',async()=>{
  const uid='mr-legacy',out=await start(uid);await submit(uid,out);
@@ -103,4 +107,22 @@ test('review-state failure rolls back submission and answer totals before a succ
  assert.equal((await db.doc(`users/${uid}/server/answerTotals`).get()).exists,false);
  await reviews(uid).doc(encodeURIComponent(first)).delete();
  await recordMock(named(uid),body,deps(NOW+1000));assert.equal((await totals(uid)).sessions,1);
+});
+
+test('mock mirror counts on actual start day and completes on finish day across midnight',async()=>{
+ const uid='mr-midnight';await db.recursiveDelete(db.doc('users/'+uid));
+ const startAt=Date.parse('2026-11-20T23:55:00+08:00'),finishAt=startAt+600000;
+ const out=await beginMock(named(uid),{examId:EXAM},deps(startAt));
+ const sent=answers(out.paper).map(a=>({...a,answeredAt:finishAt}));
+ const payload={mockId:out.mockId,answers:sent,durationMs:600000};
+ await recordMock(named(uid),payload,deps(finishAt));
+ const {fromDoc,completedOn}=await import('../lib/_answerTotals.js');
+ const saved=await totals(uid),sum=fromDoc(saved),ids=sent.filter(a=>a.chosen!==null).map(a=>a.questionId).sort();
+ assert.deepEqual([...sum.days.keys()],['2026-11-20']);
+ assert.equal([...sum.days.get('2026-11-20').values()].reduce((a,b)=>a+b,0),ids.length);
+ assert.deepEqual([...completedOn(sum,'2026-11-21').ids].sort(),ids);
+ assert.equal(completedOn(sum,'2026-11-20').ids.size,0);
+ for(const id of ids)assert.equal(sum.questions.get(id).firstCompletedAt,finishAt);
+ const mirror=await ledger(uid,out.mockId).get();assert.equal(mirror.get('startedAt'),startAt);assert.equal(mirror.get('finishedAt'),finishAt);
+ await recordMock(named(uid),payload,deps(finishAt+1000));assert.deepEqual(await totals(uid),saved);
 });
