@@ -28,3 +28,7 @@ export { getRoadmap } from './roadmap.js';
 export {getMockAvailability, getMockResults, getMockHistory, updateMockReview} from './mockReader.js';
 
 export {recordLessonRead} from './studyObservations.js';
+
+export {advanceRoadmap,getRoadmapDay,getRoadmapWeek} from './roadmap.js';
+
+export {getStudyInsights} from './studyInsights.js';
