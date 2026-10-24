@@ -1,8 +1,16 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/application/trusted_clock.dart';
+import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
+import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
+import 'package:pantas/features/paywall/data/revenuecat_config.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
@@ -531,6 +539,66 @@ void main() {
         PaymentOperationStatus.configurationFailure,
       );
       verifyNever(() => callable(any(), any()));
+    });
+  });
+
+  group('gateway selection', () {
+    ProviderContainer container({
+      required bool web,
+      String androidApiKey = '',
+    }) {
+      final created = ProviderContainer(
+        overrides: [
+          paymentsOnWebProvider.overrideWithValue(web),
+          pendingPurchaseStoreProvider.overrideWithValue(
+            PendingPurchaseStore.inMemory(),
+          ),
+          revenueCatConfigProvider.overrideWithValue(
+            RevenueCatConfig.fromEnvironment(androidApiKey: androidApiKey),
+          ),
+          trustedClockProvider.overrideWithValue(
+            TrustedClock(
+              readValue: (_) async => null,
+              writeValue: (_, __) async {},
+              elapsedNow: () async => null,
+            ),
+          ),
+          entitlementSnapshotStoreProvider.overrideWithValue(
+            EntitlementSnapshotStore.inMemory(),
+          ),
+        ],
+      );
+      addTearDown(created.dispose);
+      return created;
+    }
+
+    test('web builds the web gateway, with or without a store key', () {
+      for (final key in ['', 'goog_test_key']) {
+        expect(
+          container(web: true, androidApiKey: key)
+              .read(revenueCatGatewayProvider),
+          isA<WebPaymentGateway>(),
+        );
+      }
+    });
+
+    test('the web gateway serves the paywall controller pass path', () {
+      expect(
+        container(web: true).read(revenueCatGatewayProvider),
+        isA<RevenueCatPassGateway>(),
+      );
+    });
+
+    test('mobile construction is unchanged', () {
+      expect(
+        container(web: false).read(revenueCatGatewayProvider),
+        isA<DisabledRevenueCatGateway>(),
+      );
+      expect(
+        container(web: false, androidApiKey: 'goog_test_key')
+            .read(revenueCatGatewayProvider),
+        isA<LiveRevenueCatGateway>(),
+      );
     });
   });
 

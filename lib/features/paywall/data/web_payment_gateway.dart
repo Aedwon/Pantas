@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
@@ -10,6 +12,7 @@ import 'package:pantas/features/paywall/domain/pass_offering.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// The product id the server writes on a web trial grant.
 const _webTrialProduct = 'web_trial';
@@ -362,3 +365,31 @@ PaymentOperationStatus _statusForError(Object error) {
     _ => PaymentOperationStatus.unknownFailure,
   };
 }
+
+const _functionsRegion = 'asia-southeast1';
+
+/// The real [WebCallable]: the project's Cloud Functions region.
+Future<Object?> callFirebaseFunction(
+  String name,
+  Map<String, Object?> data,
+) async {
+  final result = await FirebaseFunctions.instanceFor(region: _functionsRegion)
+      .httpsCallable(name)
+      .call<Object?>(data);
+  return result.data;
+}
+
+/// The real [WebGrantReader]. It throws when Firebase is not ready, so the
+/// caller keeps the last confirmed entitlement instead of reading "none".
+Future<List<Map<String, dynamic>>> readGrantsFromFirestore(String uid) async {
+  if (Firebase.apps.isEmpty) throw StateError('Firebase is not initialized.');
+  final snapshot = await FirebaseFirestore.instance
+      .collection('users/$uid/grants')
+      .get(const GetOptions(source: Source.server));
+  return [for (final doc in snapshot.docs) doc.data()];
+}
+
+/// The real [WebUrlOpener]: checkout replaces this tab, so the return URL
+/// brings the student back to the same session.
+Future<bool> openInThisTab(Uri uri) =>
+    launchUrl(uri, webOnlyWindowName: '_self');
