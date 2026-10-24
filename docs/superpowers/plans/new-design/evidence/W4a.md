@@ -293,3 +293,64 @@ Accepted development4113ad78 merged into W4a atba5f1e8a. Three explicit shared c
 ### Fidelity and deferred boundaries
 
 The original approved boards, supplied metrics and sampled timeline are the implementation source. Standing contrast rulings apply: selected weekday uses full onAccent, meaningful checkbox/day boundaries use controlOutline, name placeholders retain the approved low-contrast exemption. No app screenshots, computer control or autonomous visual review. Aedwon's phone visual/device accessibility acceptance remains required. Actual web build/live checks require the separate Lane B/C combination; this accepted development base has no web platform directory. The report form queues locally; its deferred backend sender is unchanged. No publication, deployment, main application update, or family acceptance yet.
+
+
+## October 24 audit fixes (lead rulings, fix list at 844bdade)
+
+Policy revision: origin/main 34f28e689f73ae4406b78f023bd1506cae928fa4. AGENTS.md, WORKFLOW.md, SUBAGENTS.md, L3 W4a and the cited boards (O_Days, O_DateKnown, O_DateToday, AS_Leave, AS_Question, AS_Results) read from that revision. Base 844bdade. No push, merge or schema change. Each item is test first: the new test was run and failed for the stated reason before the change.
+
+| Item | Commit | Failed before the change because |
+|---|---|---|
+| 0 Layering R2 | f63ddb89 | `check_layering` reported R2: assessment page imported a quiz screen |
+| 1 Bookmark layout | a6d2553a | mark was 60 not 34 |
+| 2 Next re-entry guard | b4592ebd | second tap skipped a question (3 of 3 shown instead of 2 of 3) |
+| 3 Native dead end | f4f41750 | native never reached Home after Name; web logged a reminders step |
+| 4 O_Days calm line | 49324e16 | calm line absent from the Days card, still on the date step |
+| 5 AS_Leave copy | aae4180d | old title found, board title absent |
+| 6 Custom Back | cc395f11 | two custom tracks after Back then Continue |
+| 7 Today plan and Progress count | 4f9803bf | Progress count stayed 0 (Today test passes on the integrated refresh and fails when it is removed) |
+| 8 Silent failures | 0dfe0d9d | spinner never ended, wrong retry, no error report |
+| 10 "1 day" | c8e0a853 | "1 days from today" absent of singular |
+| 11 Results ring | 1d4f59a7 | ring said 12 questions, rows covered 8 |
+| 12 Question header | 885387e6 | header showed the topic only |
+
+Item 0 resolution: the report form and its queue only depend on core, so both moved without behavior change to `lib/core/ui/components/report_form.dart` and `lib/core/storage/data/report_queue.dart` with their tests. Quiz imports updated (W4d-owned files `quiz_page.dart` and `quiz_review_page.dart`, import lines only). No baseline or exception changed.
+
+Item 3: the reminders step is now only the "finish onboarding" state on every platform (loading, or the save-failure line with retry), and it logs no step event. Name completes onboarding on web and native.
+
+Item 4 condition: shown in the Days card for a day-precision exam date 1 to 6 days away once a valid day is chosen, with the real count ("1 day" at one). Month-only dates, an exam today and no date keep the usual Days line. The 1-to-6 bound is D-34 ("Under a week away") and L3 Task 4; the board draws only the 3-day case.
+
+Item 6: the page remembers the created track. Re-entering Subjects renames and re-scopes it (topics outside every subject stay excluded as `create` left them).
+
+Item 8: reports go through `telemetryProvider.recordError`, the helper bootstrap uses. Covered: date restore and save, Days load and save, Name restore and save.
+
+### Checks run (after the last fix commit 885387e6)
+
+- `flutter test test/features/onboarding test/features/assessment test/core/ui test/app`: `01:08 +1039: All tests passed!`
+- `flutter analyze lib test tool`: `No issues found! (ran in 4.0s)`
+- `dart format --output=none --set-exit-if-changed lib test tool`: exit 0, `Formatted 1549 files (0 changed)`
+- `dart run tool/check_layering.dart`: `check_layering: OK`
+- `dart run tool/check_no_ai_attribution.dart`: `check_no_ai_attribution: OK`
+
+The full suite, integration and visual acceptance remain with the lead and Aedwon.
+
+### Known limits, recorded and not changed
+
+- "Today" is the device-local date. No plan line requires Philippine time and students are in the Philippines.
+- Hardware-keyboard capitalization in the Name field.
+- The "A or B or C" join in the Days warning.
+
+### Open items for Aedwon
+
+- AS_Results "No assessment found.": the page shows this plain line when no result exists. No board draws that state, and no copy or control was added.
+- AS_Results "in 0 minutes": an assessment under one minute prints "in 0 minutes". The board draws only "in 24 minutes". No board wording for under a minute.
+- O_DateKnown card for an exam today: the card prints "0 days from today". No board draws the card for today. O_DateToday draws "today" only in the calendar note.
+- Calendar note in the date step: O_DateKnown and O_DateToday draw "Wednesday, 11 November · 42 days from today" (and "· today"). The shared picker prints "Wednesday, November 11" with no count.
+- AS_Leave layout: the board stacks a full-width teal "Keep Going" above a red "Leave" text. The dialog draws two inline pills (red Leave, gray Keep Going). Only the copy was changed.
+- Calm line for an exam today: no board wording; none shown.
+
+### Other findings
+
+- Quiz page (W4d, not changed): the live question header passes the topic name only; AS_Question draws "SUBJECT · TOPIC".
+- Silent `catch (_)` remains in consent, age gate, exam picker, onboarding page `_finish`, custom Subjects, assessment `_complete` and results acknowledge. Not in the fix list.
+- Backing out of Subjects to the picker and choosing a built-in exam leaves the created custom track in the exam list.
