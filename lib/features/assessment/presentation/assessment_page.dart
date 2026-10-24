@@ -62,6 +62,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   bool _failed = false;
   bool _unavailable = false;
   bool _completing = false;
+  bool _advancing = false;
   bool _leaveOpen = false;
   int _generation = 0;
   Future<bool> Function()? _owner;
@@ -153,28 +154,38 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   }
 
   Future<void> _next() async {
+    // Capture what this tap answers before awaiting, and ignore a second tap
+    // while the owner check is pending, so no answer is recorded twice and no
+    // question is skipped.
     final session = _session;
     final picked = _picked;
-    if (session == null || picked == null || _completing) return;
-    if (!await _checkOwner()) return;
-    final updated = session.copyWithAnswer(
-      questionId: session.questions[_index].question.id,
-      chosenChoiceId: picked,
-      elapsedMs: _questionClock.elapsedMilliseconds,
-    );
-    _questionClock
-      ..reset()
-      ..start();
-    if (_index + 1 < session.questions.length) {
-      setState(() {
-        _session = updated;
-        _index++;
-        _picked = null;
-      });
-      return;
+    final index = _index;
+    if (session == null || picked == null || _completing || _advancing) return;
+    _advancing = true;
+    try {
+      if (!await _checkOwner()) return;
+      if (!mounted || !identical(session, _session)) return;
+      final updated = session.copyWithAnswer(
+        questionId: session.questions[index].question.id,
+        chosenChoiceId: picked,
+        elapsedMs: _questionClock.elapsedMilliseconds,
+      );
+      _questionClock
+        ..reset()
+        ..start();
+      if (index + 1 < session.questions.length) {
+        setState(() {
+          _session = updated;
+          _index = index + 1;
+          _picked = null;
+        });
+        return;
+      }
+      setState(() => _session = updated);
+      await _complete();
+    } finally {
+      _advancing = false;
     }
-    setState(() => _session = updated);
-    await _complete();
   }
 
   Future<void> _complete() async {

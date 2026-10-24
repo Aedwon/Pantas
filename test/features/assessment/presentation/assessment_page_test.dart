@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -32,6 +35,19 @@ GoRouter _buildRouter(String examId) => GoRouter(
         ),
       ],
     );
+
+/// Holds the owner check open so a test can tap again while it is pending.
+class _GatedPrefs extends AppPreferencesRepository {
+  _GatedPrefs(super.db);
+  Completer<void>? gate;
+
+  @override
+  Future<String?> selectedExamId() async {
+    final pending = gate;
+    if (pending != null) await pending.future;
+    return super.selectedExamId();
+  }
+}
 
 Future<ContentDatabase> _seedContentDb() async {
   final db = inMemoryContentDatabase();
@@ -228,5 +244,76 @@ void main() {
     expect(await db.select(db.attemptsLocal).get(), isEmpty);
     expect(find.text('Try Again'), findsOneWidget);
     expect(find.text('Option A'), findsNothing);
+  });
+
+  testWidgets('two rapid Next taps record each answer once and skip nothing',
+      (tester) async {
+    for (final id in ['q2', 'q3']) {
+      await seedContentQuestion(
+        contentDb,
+        questionId: id,
+        topicId: 't1',
+        examId: 'e1',
+        stem: 'Stem of $id?',
+        correctText: 'Option A',
+        wrongText: 'Option B',
+      );
+    }
+    final prefs = _GatedPrefs(db);
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [
+        ...databaseOverrides(),
+        appPreferencesRepositoryProvider.overrideWithValue(prefs),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('1 of 3'), findsOneWidget);
+
+    // The selector decides the order, so answer by the stem on screen.
+    const wanted = {
+      'What does ephemeral mean?': ('q1', 'Option B'),
+      'Stem of q2?': ('q2', 'Option A'),
+      'Stem of q3?': ('q3', 'Option B'),
+    };
+    final chosen = <String, String>{};
+    Future<void> answerCurrent({required bool doubleTap}) async {
+      final stem = wanted.keys.firstWhere(
+        (s) => find.text(s).evaluate().isNotEmpty,
+      );
+      final (id, text) = wanted[stem]!;
+      chosen[id] = text;
+      await tester.tap(find.text(text));
+      await tester.pump();
+      if (doubleTap) prefs.gate = Completer<void>();
+      await tester.tap(find.text('Next'));
+      if (doubleTap) {
+        await tester.pump();
+        await tester.tap(find.text('Next'));
+        prefs.gate!.complete();
+        prefs.gate = null;
+      }
+      await tester.pumpAndSettle();
+    }
+
+    await answerCurrent(doubleTap: true);
+    expect(find.text('2 of 3'), findsOneWidget);
+    await answerCurrent(doubleTap: false);
+    expect(find.text('3 of 3'), findsOneWidget);
+    await answerCurrent(doubleTap: false);
+    expect(find.text('Results'), findsOneWidget);
+
+    final rows = await db.select(db.attemptsLocal).get();
+    expect(rows, hasLength(1));
+    final items = (jsonDecode(rows.single.itemsJson) as List)
+        .cast<Map<String, dynamic>>();
+    expect(items, hasLength(3));
+    expect({
+      for (final item in items)
+        item['questionId'] as String: item['chosenChoiceId'] as String,
+    }, {
+      for (final entry in chosen.entries)
+        entry.key: '${entry.key}_${entry.value == 'Option A' ? 'a' : 'b'}',
+    });
   });
 }
