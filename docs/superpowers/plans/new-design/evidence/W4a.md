@@ -396,3 +396,15 @@ Aedwon approved ("2 is approved") that elapsed time under one minute reads "in u
 Decision (Aedwon, choosing the previewed options: "Option A for the no-results state"): the state with no saved assessment replaces the plain "No assessment found." text with the default `StateView`: default mark (60 px, chevron color, default icon), message "No results yet.", no detail line, and the secondary pill "Back to Home" (the `onRetry` path: 20 px gap, maximum width 220, height 44) that goes to `/home` with `context.go`. Not `primaryAction`, not `boardLayout`. The view sits in a `Center`, as the old text did. The new test pins the message, the button label and style, the 60 px mark and the navigation to Home; it failed first because the old text was found. Checks: `flutter test test/features/assessment` `00:01 +57: All tests passed!`; `flutter analyze lib test tool` `No issues found!`; format `Formatted 1550 files (0 changed)`; `check_layering: OK`.
 
 Open for Aedwon now: only the calm line for an exam today (no board wording, none shown).
+
+
+## Round 5: independent re-review fixes (full suite at 370bd0a9 green)
+
+| Finding | Commit | Failed before the change because |
+|---|---|---|
+| 1 Failed assessment start not reported | 94d086b3 | `recordError` received nothing; an exam with no questions stays unreported (pinned) |
+| 2 Kept custom track still held by the flow | 3e36de8b | the next custom exam renamed and rescoped the track that had data |
+| 3 Tests: stale selection and attempts check | 8c680166 | pins that pass on current behavior; mutating the attempts check makes the attempt test fail |
+| 4 "I don't know" while the date load failed | 272f65ce | button was enabled and would overwrite a stored date that never loaded |
+
+Finding 3 detail: after Back deletes the track, the selected-exam preference still names it, `activeExamFocusProvider` returns needsSelection, and the picker shows with no error, both in the same session and when onboarding reopens (the test warms the active exam as the router does). The known-date card "today" copy is left as is, pending Aedwon.
