@@ -153,7 +153,8 @@ class _OnboardingExamDateStepState
           PantasButton(
             label: known == null ? "I don't know" : 'Different Date',
             variant: PantasButtonVariant.tertiary,
-            onPressed: _saving
+            // Until the stored date has loaded, this would overwrite it unseen.
+            onPressed: _saving || !_loaded
                 ? null
                 : () => known == null
                     ? _save(null)

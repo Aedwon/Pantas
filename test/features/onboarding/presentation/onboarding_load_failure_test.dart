@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
@@ -65,9 +67,11 @@ void main() {
     WidgetTester tester,
     Widget step, {
     bool failWrites = false,
+    Future<void> Function(DriftSettingsRepository repo)? seed,
   }) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    if (seed != null) await seed(DriftSettingsRepository(db));
     final settings = _FlakySettings(db, failWrites: failWrites);
     await pumpAccessibilitySurface(
       tester,
@@ -108,6 +112,29 @@ void main() {
       find.text('Pick the month. Add the day if you know it.'),
       findsOneWidget,
     );
+  });
+
+  testWidgets("I don't know cannot overwrite a stored date that never loaded",
+      (tester) async {
+    final today = DateTime(2026, 10, 3);
+    final stored = ExamDate.onDay(DateTime(2026, 11, 11));
+    late DriftSettingsRepository repo;
+    await pump(
+      tester,
+      OnboardingExamDateStep(now: today, onCompleted: () {}),
+      seed: (r) async {
+        repo = r;
+        await r.updateExamDate(stored, today: today);
+      },
+    );
+    expect(find.text('Could not load your exam date.'), findsOneWidget);
+    final skip = tester.widget<PantasButton>(
+      find.widgetWithText(PantasButton, "I don't know"),
+    );
+    expect(skip.onPressed, isNull);
+    await tester.tap(find.text("I don't know"), warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect((await repo.readUserSettings()).examDate, stored);
   });
 
   testWidgets('days step load failure retries the load, not the save',
