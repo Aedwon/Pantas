@@ -19,6 +19,7 @@ import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -70,7 +71,11 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       ),
       GoRoute(
         path: '/settings/pro',
-        builder: (_, __) => const ProPage(),
+        builder: (context, _) => ProPage(
+          onTryPro: () => Navigator.of(context).push<void>(
+            MaterialPageRoute(builder: (_) => const PaywallPage()),
+          ),
+        ),
       ),
       GoRoute(
         path: '/settings/subscription',

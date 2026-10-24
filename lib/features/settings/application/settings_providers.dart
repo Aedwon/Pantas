@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
@@ -109,7 +110,10 @@ class SettingsActions {
   }
 
   Future<void> updateStudyDays(StudyDays days) async {
-    await _ref.read(settingsRepositoryProvider).updateStudyDays(days);
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref.read(settingsRepositoryProvider).updateStudyDays(days),
+    );
     _ref.invalidate(userSettingsProvider);
     _publishPlanChange();
     await _ref.read(notificationServiceProvider).rescheduleForForeground();
@@ -121,17 +125,23 @@ class SettingsActions {
       _ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
 
   Future<void> setExamDate(ExamDate date, {required DateTime today}) async {
-    await _ref
-        .read(settingsRepositoryProvider)
-        .updateExamDate(date, today: today);
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref
+          .read(settingsRepositoryProvider)
+          .updateExamDate(date, today: today),
+    );
     _ref.invalidate(userSettingsProvider);
     _publishPlanChange();
   }
 
   Future<String> saveExamDate(ExamDate date, {required DateTime today}) async {
-    await _ref
-        .read(settingsRepositoryProvider)
-        .updateExamDate(date, today: today);
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref
+          .read(settingsRepositoryProvider)
+          .updateExamDate(date, today: today),
+    );
     final day = date.day;
     if (day != null) {
       await _ref
@@ -149,7 +159,9 @@ class SettingsActions {
   /// "I don't know yet", which is a real answer rather than a refusal, so it
   /// removes both keys instead of leaving a stale precision behind.
   Future<void> clearExamDate() async {
-    await _ref.read(settingsRepositoryProvider).clearExamDate();
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish
+        .apply(() => _ref.read(settingsRepositoryProvider).clearExamDate());
     _ref.invalidate(userSettingsProvider);
     _publishPlanChange();
   }

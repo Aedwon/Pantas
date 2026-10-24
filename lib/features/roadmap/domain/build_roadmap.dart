@@ -50,6 +50,7 @@ abstract final class BuildRoadmap {
 
     // Reviews only: the exam is today or has passed, or there is no date to
     // pace against (spec 4.1). No new material is scheduled.
+    final isExamDay = inputs.examDate?.day == today;
     final reviewsOnly = window.examDay == null ||
         window.daysLeft <= 0 ||
         window.state == RoadmapState.examPassedAwaitingAnswer;
@@ -66,7 +67,7 @@ abstract final class BuildRoadmap {
       lessons: inputs.lessons,
       questions: inputs.questions,
       seenQuestionIds: inputs.seenQuestionIds,
-      dueReviews: isStudyDay ? inputs.dueReviews : const [],
+      dueReviews: isStudyDay || isExamDay ? inputs.dueReviews : const [],
       answeredPerActiveDay: inputs.answeredPerActiveDay,
       lessonsToday: reviewsOnly || !isStudyDay
           ? 0
@@ -100,7 +101,10 @@ abstract final class BuildRoadmap {
       today: DayPlan(
         day: today,
         lessonIds: selection.lessonIds,
-        reviewQuestionIds: selection.reviewQuestionIds,
+        // The approved optional warm-up keeps the scheduler's actual order.
+        reviewQuestionIds: isExamDay
+            ? selection.reviewQuestionIds.take(10).toList()
+            : selection.reviewQuestionIds,
         newQuestionIds: selection.newQuestionIds,
         isMockDay: isStudyDay && mockDay != null && mockDay == today,
         isRestDay: !isStudyDay,

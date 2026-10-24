@@ -3,6 +3,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 
 class SessionShapeSignal implements Signal<DurationDistribution> {
   const SessionShapeSignal(this._db);
@@ -66,11 +67,6 @@ class SessionShapeSignal implements Signal<DurationDistribution> {
       }
     }
 
-    if (minutes.isEmpty) return null;
-    final average = minutes.reduce((a, b) => a + b) / minutes.length;
-    return DurationDistribution(
-      averageMinutes: average,
-      sessionCount: minutes.length,
-    );
+    return MetricCalculations.sessionShape(minutes);
   }
 }

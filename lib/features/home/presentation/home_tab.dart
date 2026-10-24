@@ -1,19 +1,30 @@
 // lib/features/home/presentation/home_tab.dart
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
+import 'package:pantas/features/home/application/home_notices.dart';
+import 'package:pantas/features/home/application/home_today.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/domain/home_day_note.dart';
+import 'package:pantas/features/home/domain/home_today_view.dart';
+import 'package:pantas/features/home/presentation/home_today_screen.dart';
+import 'package:pantas/features/home/presentation/widgets/home_exam_date_sheet.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
-import 'package:pantas/features/home/presentation/widgets/home_stats_band.dart';
-import 'package:pantas/features/home/presentation/widgets/practice_panel.dart';
-import 'package:pantas/features/home/presentation/widgets/tendencies_panel.dart';
-import 'package:pantas/features/home/presentation/widgets/up_next_panel.dart';
+import 'package:pantas/features/home/presentation/widgets/home_notice_strip.dart';
+import 'package:pantas/features/home/presentation/widgets/home_performance_section.dart';
+import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class HomeTab extends ConsumerWidget {
   const HomeTab({super.key});
@@ -25,17 +36,16 @@ class HomeTab extends ConsumerWidget {
     return Scaffold(
       body: SafeArea(
         child: asyncFocus.when(
-          loading: () => const _HomeLoading(),
-          error: (_, __) => _HomeError(
-            onRetry: () => ref.invalidate(activeExamFocusProvider),
+          loading: () => loadingFor(asyncFocus),
+          error: (_, __) => errorFor(
+            'home',
+            () => ref.invalidate(activeExamFocusProvider),
           ),
           data: (focus) {
             if (focus.needsSelection || focus.exam == null) {
-              return const _ChooseExamHome();
+              return chooseExamFallback(context);
             }
-            return _SelectedExamHome(
-              examId: focus.exam!.id,
-            );
+            return _SelectedExamHome(examId: focus.exam!.id);
           },
         ),
       ),
@@ -43,143 +53,181 @@ class HomeTab extends ConsumerWidget {
   }
 }
 
-class _SelectedExamHome extends ConsumerWidget {
+class _SelectedExamHome extends ConsumerStatefulWidget {
   const _SelectedExamHome({required this.examId});
 
   final ExamId examId;
 
-  Widget _upNextPanel(BuildContext context, WidgetRef ref) =>
-      const UpNextPanel();
-
-  Widget _practicePanel(BuildContext context, WidgetRef ref) =>
-      const PracticePanel();
-
-  Widget _tendenciesPanel(BuildContext context, WidgetRef ref) =>
-      const TendenciesPanel();
-
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final asyncResult = ref.watch(assessmentResultProvider(examId));
-    final now = DateTime.now();
-
-    return asyncResult.when(
-      loading: () => const _HomeLoading(),
-      error: (_, __) => _HomeError(
-        onRetry: () => ref.invalidate(assessmentResultProvider(examId)),
-      ),
-      data: (result) => ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        children: [
-          HomeMasthead(now: now),
-          const SizedBox(height: 16),
-          if (result == null)
-            _NoAssessmentHome(examId: examId)
-          else ...[
-            HomeStatsBand(examId: examId, now: now),
-            const SizedBox(height: 16),
-            // Block order, spec Section 3. Each stub is replaced by exactly
-            // one later plan; do not reorder them.
-            _upNextPanel(context, ref), // Home plan 4
-            _practicePanel(context, ref), // Home plan 5
-            _tendenciesPanel(context, ref), // Home plan 6
-          ],
-        ],
-      ),
-    );
-  }
+  ConsumerState<_SelectedExamHome> createState() => _SelectedExamHomeState();
 }
 
-class _ChooseExamHome extends StatelessWidget {
-  const _ChooseExamHome();
+class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
+  HomeNoticeKind? _dateSheet;
+  bool _saving = false;
+  bool _failed = false;
+
+  void _openDate(HomeNoticeKind? kind) => setState(() {
+        _dateSheet = kind ?? HomeNoticeKind.noDate;
+        _failed = false;
+      });
+
+  void _closeDate() => setState(() {
+        _dateSheet = null;
+        _saving = false;
+        _failed = false;
+      });
+
+  Future<void> _saveDate(ExamDate date) async {
+    if (_saving) return;
+    setState(() {
+      _saving = true;
+      _failed = false;
+    });
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      await ref
+          .read(settingsActionsProvider)
+          .saveExamDate(date, today: DateTime.now());
+      if (mounted) _closeDate();
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) {
+        setState(() {
+          _saving = false;
+          _failed = true;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
+    final examId = widget.examId;
+    final settings = ref.watch(userSettingsProvider).valueOrNull;
+    final now = DateTime.now();
+    Widget todayScreen() => HomeTodayScreen(
+          key: ValueKey('today-$examId-${settings?.examDate?.storageValue}'),
+          examId: examId,
+          onSetDate: () => _openDate(HomeNoticeKind.noDate),
+          pageBuilder: (today, data) =>
+              _list(context, now: now, today: today, data: data),
+        );
+    Widget nativeHome() {
+      final result = ref.watch(assessmentResultProvider(examId));
+      return result.when(
+        loading: () => loadingFor(result),
+        error: (_, __) => errorFor(
+          'home',
+          () => ref.invalidate(assessmentResultProvider(examId)),
+        ),
+        data: (assessment) => assessment == null
+            ? _list(
+                context,
+                now: now,
+                today: _AssessmentCard(examId: examId),
+                notices: false,
+              )
+            : todayScreen(),
+      );
+    }
 
+    // A restored web account may have server assessment evidence without a
+    // local result row. Its authoritative Today state owns this choice.
+    final page =
+        ref.watch(studyUsesServerProvider) ? todayScreen() : nativeHome();
+    return PantasSheet(
+      page: page,
+      label: 'Exam date',
+      open: _dateSheet != null,
+      onDismiss: _closeDate,
+      child: HomeExamDateSheet(
+        today: now,
+        initial:
+            _dateSheet == HomeNoticeKind.monthOnly ? settings?.examDate : null,
+        requireDay: _dateSheet == HomeNoticeKind.monthOnly,
+        saving: _saving,
+        failed: _failed,
+        onSave: (date) => unawaited(_saveDate(date)),
+      ),
+    );
+  }
+
+  Widget _list(
+    BuildContext context, {
+    required DateTime now,
+    required Widget today,
+    HomeTodayData? data,
+    bool notices = true,
+  }) {
+    final view = data == null
+        ? null
+        : homeTodayViewFor(
+            state: data.today.snapshot.state,
+            plan: data.today.snapshot.plan,
+            originalDone: data.today.originalDone,
+            canAdvance: data.canAdvance,
+            examDate: data.today.snapshot.digest.examDate,
+          );
+    final showPerformance = view != null &&
+        view.kind != HomeTodayKind.noContent &&
+        view.kind != HomeTodayKind.assessment;
     return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 104),
       children: [
-        Text('Choose your exam', style: styles.headlineMedium),
-        const SizedBox(height: 6),
-        Text(
-          'Pick the exam you are reviewing for.',
-          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+        HomeMasthead(
+          examId: widget.examId,
+          now: now,
+          greeting: data?.extras.note == HomeDayNote.welcomeBack
+              ? 'Welcome back'
+              : null,
+          notice: !notices ||
+                  view?.kind == HomeTodayKind.noContent ||
+                  view?.kind == HomeTodayKind.assessment
+              ? null
+              : HomeNoticeStrip(
+                  onDate: _openDate,
+                  onRoute: (route) => unawaited(context.push<void>(route)),
+                ),
         ),
-        const SizedBox(height: 20),
-        BoardButton(
-          label: 'Get started',
-          onPressed: () => context.go('/onboarding'),
-        ),
+        const SizedBox(height: 22),
+        today,
+        if (showPerformance) ...[
+          const SizedBox(height: 22),
+          const HomePerformanceSection(),
+          const SizedBox(height: 24),
+          GroupedSection(
+            header: 'More about you',
+            children: [
+              ListRow(
+                title: 'Your record',
+                divider: true,
+                onTap: () => unawaited(context.push<void>('/record')),
+              ),
+              ListRow(
+                title: 'Your tendencies',
+                onTap: () => unawaited(context.push<void>('/tendencies')),
+              ),
+            ],
+          ),
+        ],
       ],
     );
   }
 }
 
-class _NoAssessmentHome extends StatelessWidget {
-  const _NoAssessmentHome({required this.examId});
+/// Before the assessment Home shows only the week, the greeting and this card:
+/// no Today, no performance, no quick quiz (D-64, HE_BeforeAssessment).
+class _AssessmentCard extends StatelessWidget {
+  const _AssessmentCard({required this.examId});
 
   final ExamId examId;
 
   @override
-  Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Build your study plan', style: styles.headlineMedium),
-        const SizedBox(height: 6),
-        Text(
-          'Take the assessment to find what to study first.',
-          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-        ),
-        const SizedBox(height: 20),
-        BoardButton(
-          label: 'Start the assessment',
-          onPressed: () => context.push('/assessment/$examId'),
-        ),
-        const SizedBox(height: 10),
-        BoardButton(
-          label: 'Try a quick quiz',
-          secondary: true,
-          onPressed: () => context.push('/quiz/quick/$examId'),
-        ),
-      ],
-    );
-  }
-}
-
-class _HomeLoading extends StatelessWidget {
-  const _HomeLoading();
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-      children: const [FaintBars()],
-    );
-  }
-}
-
-class _HomeError extends StatelessWidget {
-  const _HomeError({required this.onRetry});
-
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-      children: [
-        ErrorBanner(
-          variant: ErrorBannerVariant.error,
-          message: 'Could not load your home. Pull down to try again.',
-          actionLabel: 'Try again',
-          onAction: onRetry,
-        ),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => HomeStateCard(
+        state: HomeState.assessment,
+        examName: '',
+        examShortName: '',
+        onPrimary: () => unawaited(context.push<void>('/assessment/$examId')),
+      );
 }

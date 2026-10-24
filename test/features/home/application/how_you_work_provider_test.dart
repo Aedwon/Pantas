@@ -300,8 +300,14 @@ void main() {
             work.tendencies.firstWhere((t) => t.id == TendencyId.howYouStudy);
         final memory = work.tendencies
             .firstWhere((t) => t.id == TendencyId.howLongYouRemember);
-        expect(study.leftFigure, '$readCount');
-        expect(study.rightFigure, '$answeredCount');
+        expect(
+          study.leftFigure,
+          '${(100 * readCount / (readCount + answeredCount)).round()}%',
+        );
+        expect(
+          study.rightFigure,
+          '${100 - (100 * readCount / (readCount + answeredCount)).round()}%',
+        );
         expect(study.confidence, confidence);
         expect(memory.leftFigure, '9d');
         expect(memory.confidence, confidence);
@@ -314,7 +320,7 @@ void main() {
         expect(
           memory.sentence,
           confidence == TendencyConfidence.clear
-              ? 'what you learn holds about nine days before you need it again'
+              ? 'You retain information for days before needing to refresh.'
               : null,
         );
         c.dispose();
@@ -390,7 +396,7 @@ void main() {
         );
         expect(
           speed.sentence,
-          varied ? 'You answer 1s faster on questions you get wrong.' : null,
+          varied ? 'You answer faster on questions you get wrong.' : null,
         );
       });
     }
@@ -458,14 +464,14 @@ void main() {
       expect(
         pressure.sentence,
         rises
-            ? 'Accuracy rises 0.3% under exam pressure.'
-            : 'Accuracy drops 0.3% under exam pressure.',
+            ? 'Your accuracy rises under exam pressure.'
+            : 'Your accuracy drops under exam pressure.',
       );
       expect(
         stamina.sentence,
         rises
-            ? 'Accuracy rises 0.3% in the second half of a mock.'
-            : 'Accuracy drops 0.3% in the second half of a mock.',
+            ? 'Your accuracy rises in the second half of a mock.'
+            : 'Your accuracy drops in the second half of a mock.',
       );
     });
   }
@@ -484,12 +490,13 @@ void main() {
       expect(speed.leftFigure, '1s');
       expect(speed.rightFigure, '1s');
       expect(speed.gap, '0.4s');
+      expect(speed.isLoss, slower);
       expect(speed.confidence, TendencyConfidence.clear);
       expect(
         speed.sentence,
         slower
-            ? 'You spend 0.4s longer on questions you get wrong.'
-            : 'You answer 0.4s faster on questions you get wrong.',
+            ? 'You take longer on questions you get wrong.'
+            : 'You answer faster on questions you get wrong.',
       );
     });
   }
@@ -517,7 +524,7 @@ void main() {
       expect(
         memory.sentence,
         confidence == TendencyConfidence.clear
-            ? 'what you learn holds about nine days before you need it again'
+            ? 'You retain information for days before needing to refresh.'
             : null,
       );
     });
@@ -528,10 +535,10 @@ void main() {
     const studyUnlock = 'Read a lesson in a topic you have practiced';
     expect(work.tendencies.map((t) => t.unlockAction), [
       'Finish one full length mock',
-      'Finish one full length mock',
-      studyUnlock,
       'Answer timed questions incorrectly',
+      studyUnlock,
       'Review more questions',
+      'Finish one full length mock',
     ]);
   });
 
@@ -546,10 +553,10 @@ void main() {
       work.tendencies.map((t) => t.id),
       [
         TendencyId.underPressure,
-        TendencyId.stamina,
-        TendencyId.howYouStudy,
         TendencyId.howYouAnswer,
+        TendencyId.howYouStudy,
         TendencyId.howLongYouRemember,
+        TendencyId.stamina,
       ],
     );
   });
@@ -619,8 +626,8 @@ void main() {
     expect(study.heading, 'How you study');
     expect(study.sentence, isNull);
     expect(study.confidence, TendencyConfidence.forming);
-    expect(study.leftFigure, '12');
-    expect(study.rightFigure, '4');
+    expect(study.leftFigure, '75%');
+    expect(study.rightFigure, '25%');
     expect(study.gap, '8');
     expect(
       study.isLoss,

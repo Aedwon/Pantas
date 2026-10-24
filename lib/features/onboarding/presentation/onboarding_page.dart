@@ -11,6 +11,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
@@ -46,9 +47,12 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       _finishFailed = false;
     });
     try {
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setCompletedOnboarding(value: true);
+      final publish = await ref.read(studySettingsCaptureProvider)();
+      await publish.apply(
+        () => ref
+            .read(appPreferencesRepositoryProvider)
+            .setCompletedOnboarding(value: true),
+      );
       if (!mounted) return;
       _finished = true;
       unawaited(

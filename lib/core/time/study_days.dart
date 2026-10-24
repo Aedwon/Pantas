@@ -53,16 +53,19 @@ final class StudyDays {
 
   bool get isEveryDay => _mask == all._mask;
 
-  bool isStudyDay(DateTime day) => _contains(day.weekday);
+  bool isStudyDay(DateTime day) => isEveryDay || _contains(day.weekday);
 
   /// Study days in [from, to), by local calendar day. 0 when to <= from.
   int countInRange(DateTime from, DateTime to) {
-    final end = localDay(to);
-    var count = 0;
-    for (var day = localDay(from);
-        day.isBefore(end);
-        day = DateTime(day.year, day.month, day.day + 1)) {
-      if (isStudyDay(day)) count++;
+    final length = localDaysBetween(from, to);
+    if (length <= 0) return 0;
+    if (isEveryDay) return length;
+    final firstWeekday = from.weekday;
+    // Each complete week contains the same selected weekdays. Only the
+    // final partial week needs checking; long plans must not scan every date.
+    var count = (length ~/ 7) * weekdays.length;
+    for (var offset = 0; offset < length % 7; offset++) {
+      if (_contains((firstWeekday - 1 + offset) % 7 + 1)) count++;
     }
     return count;
   }
