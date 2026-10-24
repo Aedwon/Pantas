@@ -1,4 +1,4 @@
-STATE: BLOCKED level 4 CSE paste run done (71 of 71), awaiting Aedwon's review; Codex stays stopped
+STATE: BLOCKED level 4 CSE done and triaged; two standards rulings await Aedwon; Codex stays stopped
 
 # Coverage audit status
 
@@ -48,6 +48,23 @@ Level 4: compile and check the 71 results, record them in status, and show me th
   alone (it expects `level4/tests` on the path; unchanged, existing behavior); with that path set
   it passes 5 of 5.
 - Level 4 for CSE is complete and awaits Aedwon's review. Level 5 (D5) prompts are still not built.
+
+## October 25: Level 4 CSE findings triaged
+
+Aedwon chose to rewrite lessons before Level 5 (main decision log, October 25). The lead triaged
+all 866 findings: `level4/paste/results/triage.md` (summary) and `triage.jsonl` (every row).
+
+- Method: lead ruled the 52 Blockers; nine Claude Sonnet 5.5 second reads ruled the 814 Major and
+  Minor findings by subject batch; lead sampled each verdict, read every reject, and overrode one
+  Blocker and seven Reasoning layout rows.
+- Verdicts: real 597 (including 5 lead-added problems the audit missed), judgment 233, ruling 25,
+  reject 14, illustration 2. Real fix sizes: 460 small, 129 medium, 8 large. All 71 lessons have
+  at least one real finding.
+- Blockers: real 26, ruling 18, judgment 6, illustration 2.
+- Waiting on Aedwon: two standards rulings (General Information layout, 12 lessons; Reasoning
+  layout and figures, 7 lessons). Recommendations are in `triage.md`.
+- Next: E4 lesson rewrites from the `real` rows, after the two rulings for those subjects.
+  Subjects not affected by the rulings (Mathematics, Language, Reading, Science) can start first.
 
 ## Identity
 
