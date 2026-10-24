@@ -1632,3 +1632,20 @@ Aedwon's exact comment:
 Consequence for the plan: web chat (GPT 6 Sol High, batched pastes) takes all volume work that
 does not need the repository; Codex (6.1 Sol) takes only repository-bound work; 6 Astra runs one
 adversarial review at the end.
+
+## October 25: CSE teaching gaps and the five skipped lessons
+
+Aedwon asked whether the 71 lessons were already corrected from the earlier exam research. The
+lead explained they are existing lessons tagged for CSE, not yet edited, and raised two gaps.
+Aedwon's exact replies:
+
+> wait huh i don't quite understand what you want to do. please don't mention level 4 level x y z just tell me what those exactly mean
+
+> for Problem 1, they're missing, so I can't technically paste like I did the 71 because they don't exist right? or am I misunderstanding something here? did you mean pasting for this plan we're about to make? idk
+>
+> for Problem 2, okay go do that
+
+Done for Problem 2: gap list on the audit branch (`level4/paste/results/cse-teaching-gaps.md`):
+361 parts; 339 into 57 lesson briefs, 4 proposed new lessons, Filipino sections in 6 lessons.
+Problem 1 pending: the five lessons and their prompts exist; adding them to the paste page
+needs his go-ahead.
