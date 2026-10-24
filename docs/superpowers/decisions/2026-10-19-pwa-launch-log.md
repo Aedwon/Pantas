@@ -1661,3 +1661,9 @@ exact reply:
 Done: the five lessons are in the paste scope (76). Completeness check of all 96 CSE requirement
 rows found two more Reading lessons (choosing a title, fact versus opinion) with CSE gaps and no
 CSE tag; five Mechanical Reasoning lessons left out because CSE lists no mechanical area.
+
+Aedwon's exact reply on the two Reading lessons:
+
+> Add choosing a title and fact versus opinion to the CSE scope and the paste page.
+
+Done: CSE lesson scope is 78 (71 checked, 7 to paste).
