@@ -5,7 +5,11 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
 
@@ -36,6 +40,15 @@ GoRouter _buildRouter(String examId) => GoRouter(
         ),
       ],
     );
+
+class _MissingSubjectContent extends ContentRepository {
+  _MissingSubjectContent(super.db, this.missing);
+  final String missing;
+
+  @override
+  Future<Subject?> subjectById(SubjectId id) async =>
+      id == missing ? null : super.subjectById(id);
+}
 
 void main() {
   late AppDatabase db;
@@ -110,6 +123,44 @@ void main() {
     expect(find.text('Vocabulary'), findsOneWidget);
     expect(find.text('YOUR PLAN STARTS WITH'), findsOneWidget);
     expect(find.text('in 24 minutes'), findsNothing);
+  });
+  testWidgets('the ring counts only the subjects the rows show',
+      (tester) async {
+    // Topic t9 scored, but its subject cannot be read, so it has no row.
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's9',
+      examId: 'e1',
+      name: 'Lost',
+      ordering: 2,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't9',
+      subjectId: 's9',
+      name: 'Orphan topic',
+    );
+    await AssessmentRepository(db).saveResult('e1', DateTime(2027), [
+      const TopicScore(topicId: 't1', correct: 0, total: 3),
+      const TopicScore(topicId: 't2', correct: 3, total: 3),
+      const TopicScore(topicId: 't3', correct: 1, total: 2),
+      const TopicScore(topicId: 't9', correct: 4, total: 4),
+    ]);
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [
+        ...databaseOverrides(),
+        contentRepositoryProvider
+            .overrideWithValue(_MissingSubjectContent(contentDb, 's9')),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Verbal'), findsOneWidget);
+    expect(find.text('Lost'), findsNothing);
+    expect(find.textContaining('8 questions'), findsOneWidget);
+    expect(find.textContaining('12 questions'), findsNothing);
+    final ring = tester.widget<HalfRingGauge>(find.byType(HalfRingGauge));
+    expect((ring.correct, ring.total), (4, 8));
   });
   testWidgets('Go to Today acknowledges once and reopening goes Home',
       (tester) async {

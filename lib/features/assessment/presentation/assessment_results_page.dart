@@ -252,10 +252,14 @@ class _ResultsBodyState extends State<_ResultsBody>
   @override
   Widget build(BuildContext context) {
     final result = widget.data.result!;
-    final masteries = result.topicMasteries;
-    final total = masteries.fold(0, (sum, m) => sum + m.total);
-    final correct = masteries.fold(0, (sum, m) => sum + m.correct);
-    final weakest = masteries.firstOrNull;
+    // Only topics whose subject is shown count, so the ring agrees with rows.
+    final shown = [
+      for (final m in result.topicMasteries)
+        if (widget.data.topicSubjectNames.containsKey(m.topic.id)) m,
+    ];
+    final total = shown.fold(0, (sum, m) => sum + m.total);
+    final correct = shown.fold(0, (sum, m) => sum + m.correct);
+    final weakest = shown.firstOrNull;
     final weakestSubject =
         widget.data.topicSubjectNames[weakest?.topic.id] ?? '';
     final c = context.colors;
