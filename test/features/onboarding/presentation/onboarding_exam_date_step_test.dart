@@ -126,4 +126,42 @@ void main() {
     );
     await tester.pumpWidget(const SizedBox.shrink());
   });
+
+  testWidgets('a sitting tomorrow reads "1 day from today"', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    final entry = ExamCatalogEntry(
+      id: 'exam_cse_pro',
+      name: 'Civil Service Exam',
+      shortName: 'CSE Professional',
+      priceTier: 'Civil Service',
+      group: 'Civil service',
+      comingSoon: false,
+      hasContent: true,
+      publishedSittings: [
+        PublishedExamSitting(
+          firstDay: DateTime(2026, 10, 4),
+          lastDay: DateTime(2026, 10, 4),
+          sourceUrl: 'https://csc.gov.ph',
+        ),
+      ],
+    );
+    await pumpAccessibilitySurface(
+      tester,
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value([entry])),
+        ],
+        child: OnboardingExamDateStep(now: today, onCompleted: () {}),
+      ),
+      disableAnimations: true,
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('1 day from today'), findsOneWidget);
+    expect(find.text('1 days from today'), findsNothing);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
 }

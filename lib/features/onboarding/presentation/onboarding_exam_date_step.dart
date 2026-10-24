@@ -210,7 +210,7 @@ class _OnboardingExamDateStepState
                         style: context.type.emphasized,
                       ),
                       Text(
-                        '${known.difference(_today).inDays} days from today',
+                        _daysFromToday(known.difference(_today).inDays),
                         style: context.type.subhead
                             .copyWith(color: context.colors.secondaryLabel),
                       ),
@@ -237,6 +237,10 @@ class _OnboardingExamDateStepState
     );
   }
 }
+
+/// Zero keeps the plural: no board draws this card for an exam today.
+String _daysFromToday(int days) =>
+    days == 1 ? '1 day from today' : '$days days from today';
 
 final _dateExamIdProvider = FutureProvider<String?>(
   (ref) => ref.watch(appPreferencesRepositoryProvider).selectedExamId(),
