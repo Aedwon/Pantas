@@ -1667,3 +1667,14 @@ Aedwon's exact reply on the two Reading lessons:
 > Add choosing a title and fact versus opinion to the CSE scope and the paste page.
 
 Done: CSE lesson scope is 78 (71 checked, 7 to paste).
+
+## October 25: the 7 added lessons done
+
+Aedwon's exact comment:
+
+> done with all 7
+
+Lead result (`docs/content-coverage-audit-r1` at ecbfa88b): 78 of 78 lessons read and
+revalidated, counting check PASS. Triage across 78 lessons: real 656 (497 small, 151 medium, 8
+large), judgment 271, reject 19, illustration 7. The 25 rows held for the layout rulings were
+resolved by the approved rulings. Next: the rewrite plan.
