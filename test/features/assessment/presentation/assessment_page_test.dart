@@ -8,11 +8,13 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/assessment/presentation/assessment_page.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -324,6 +326,71 @@ void main() {
     }, {
       for (final entry in chosen.entries)
         entry.key: '${entry.key}_${entry.value == 'Option A' ? 'a' : 'b'}',
+    });
+  });
+
+  group('custom assessment refreshes what other tabs already cached', () {
+    late String customId;
+
+    setUp(() async {
+      customId = await CustomTrackRepository(db, contentDb)
+          .create(name: 'PUP CET', includedTopicIds: {'t1'});
+    });
+
+    Future<ProviderContainer> finishAssessment(WidgetTester tester) async {
+      // Unmount even when an expectation fails, or the database close hangs.
+      addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+      await tester.pumpAppWithRouter(
+        _buildRouter(customId),
+        overrides: databaseOverrides(),
+      );
+      await tester.pumpAndSettle();
+      return ProviderScope.containerOf(
+        tester.element(find.byType(MaterialApp)),
+      );
+    }
+
+    Future<void> answerAndFinish(WidgetTester tester) async {
+      await tester.tap(find.text('Option A'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Next'));
+      await tester.pumpAndSettle();
+      expect(find.text('Results'), findsOneWidget);
+    }
+
+    testWidgets('Today shows the new plan after a custom assessment',
+        (tester) async {
+      final container = await finishAssessment(tester);
+      // Today is on screen in the tab shell before the assessment starts.
+      final today = container.listen(
+        roadmapTodayProvider(customId),
+        (_, __) {},
+      );
+      await tester.pumpAndSettle();
+      final before = today.read().requireValue;
+      expect(before.snapshot.digest.assessmentCompleted, isFalse);
+
+      await answerAndFinish(tester);
+
+      await tester.pumpAndSettle();
+      final after = today.read().requireValue;
+      expect(after.snapshot.digest.assessmentCompleted, isTrue);
+      today.close();
+    });
+
+    testWidgets('Progress reads the new attempt, not a cached count',
+        (tester) async {
+      final container = await finishAssessment(tester);
+      final progress = container.listen(
+        countForExamProvider(customId),
+        (_, __) {},
+      );
+      expect(await container.read(countForExamProvider(customId).future), 0);
+
+      await answerAndFinish(tester);
+
+      expect(await container.read(countForExamProvider(customId).future), 1);
+      progress.close();
     });
   });
 }

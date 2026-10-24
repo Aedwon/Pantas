@@ -204,6 +204,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       ref
         ..invalidate(assessmentResultProvider(widget.examId))
         ..invalidate(assessmentCompletedProvider(widget.examId))
+        ..invalidate(countForExamProvider(widget.examId))
         ..invalidate(roadmapTodayProvider(widget.examId));
       ref.read(todayQuizPreparerProvider).invalidateAll();
       ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
