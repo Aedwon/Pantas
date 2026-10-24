@@ -17,10 +17,10 @@ const firstCatalogWait = Duration(seconds: 10);
 /// every repository on web reads the tables it reads on native.
 ///
 /// Three sources fill it: the catalog (structure, no text), items from the
-/// encrypted cache at start, and each [ContentService.changes] event. Lesson
-/// bodies and question text arrive when a repository first asks for them
-/// through the [ContentFetchHook]. Rows are upserted, so a catalog refresh
-/// never erases fetched text, and a Free downgrade (which the service
+/// cache in the study database at start, and each [ContentService.changes]
+/// event. Lesson bodies and question text arrive when a repository first asks
+/// for them through the [ContentFetchHook]. Rows are upserted, so a catalog
+/// refresh never erases fetched text, and a Free downgrade (which the service
 /// announces as a changed item) strips the Pro notes here as well.
 class ContentMirror implements ContentFetchHook {
   ContentMirror({required ContentDatabase db, required ContentService service})
@@ -45,9 +45,10 @@ class ContentMirror implements ContentFetchHook {
   StreamSubscription<ContentItem>? _subscription;
   Future<void>? _refreshing;
 
-  /// Fills the database from the encrypted cache and refreshes the catalog.
-  /// With a cached catalog this completes at once and the refresh runs in the
-  /// background; with none, it waits up to [firstCatalogWait] for the first.
+  /// Fills the database from the cache in the study database and refreshes the
+  /// catalog. With a cached catalog this completes at once and the refresh
+  /// runs in the background; with none, it waits up to [firstCatalogWait] for
+  /// the first.
   Future<void> start() async {
     _subscription ??= _service.changes.listen(_enqueue);
     // Catalog documents first, so a question set finds its index rows.

@@ -4,7 +4,7 @@ import 'package:drift/drift.dart';
 import 'package:pantas/core/content/remote/content_item.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 
-/// Server content kept in the study database (encrypted on web).
+/// Server content kept in the study database.
 class ContentCache {
   ContentCache(this._db, {int Function()? nowMs})
       : _nowMs = nowMs ?? (() => DateTime.now().millisecondsSinceEpoch);

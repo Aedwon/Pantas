@@ -48,7 +48,7 @@ Future<List<Override>> bootstrapContentOverrides({
 final contentFetchHookProvider = Provider<ContentFetchHook?>((ref) => null);
 
 /// The web content source: an in-memory [ContentDatabase] that
-/// [contentMirrorProvider] fills from the encrypted cache and the server.
+/// [contentMirrorProvider] fills from the study database cache and the server.
 /// Callers read it exactly as they read the bundled database on native.
 Future<List<Override>> bootstrapWebContentOverrides({
   Future<ContentDatabase> Function() open = openInMemoryContentDatabase,

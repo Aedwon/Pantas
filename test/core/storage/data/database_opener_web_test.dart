@@ -76,6 +76,10 @@ void main() {
     await _put(first, 'k', 'written');
     await first.close();
 
+    // The stored file is a plain SQLite database, not ciphertext.
+    final stored = await _readFile(name);
+    expect(String.fromCharCodes(stored.take(15)), 'SQLite format 3');
+
     final second = await _open(name);
     expect(await _get(second, 'k'), 'written');
     await second.close();

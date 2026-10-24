@@ -346,9 +346,10 @@ Future<void> _bootstrap(
   }
 }
 
-/// Web only. Fills the in-memory content database from the encrypted cache,
-/// refreshes the catalog, and starts watching sign-out so cached Pro-only
-/// fields are removed. A failure leaves the app running without content.
+/// Web only. Fills the in-memory content database from the cache in the study
+/// database, refreshes the catalog, and starts watching sign-out so cached
+/// Pro-only fields are removed. A failure leaves the app running without
+/// content.
 Future<void> _startWebContent(ProviderContainer container) async {
   try {
     await container.read(contentMirrorProvider).start();

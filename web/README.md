@@ -6,25 +6,41 @@ launch presentation and installation. No app screen was changed.
 
 ## SQLite and Drift
 
-`sqlite3.wasm` is the unmodified encrypted `sqlite3mc.wasm` asset from
+The web study database is a standard, unencrypted browser database (decision of
+October 24, 2026, D7 reversed for web). Native keeps SQLCipher for the study
+database and the protected content package; neither changed.
+
+`sqlite3.wasm` is the unmodified `sqlite3mc.wasm` asset from
 [sqlite3 3.5.1](https://github.com/simolus3/sqlite3.dart/releases/tag/sqlite3-3.5.1):
 
 https://github.com/simolus3/sqlite3.dart/releases/download/sqlite3-3.5.1/sqlite3mc.wasm
 
 SHA-256: `62a34ec725631c0438e4255ce0c6059099bf8e7fb331e7d4d91a38e075f43a19`.
-This matches `lib/src/hook/asset_hashes.dart` in the locked sqlite3 package.
-Its wasm build enables only ChaCha20, not SQLCipher. The app opener selects the
-upstream `multipleciphers-indexeddb` VFS shim. Direct VFS opens reject encryption;
-the shim enables it without changing the wasm. A random database key is wrapped
-with a non-extractable Web Crypto AES-GCM key. IndexedDB stores only the wrapped
-key record and encrypted database pages. Native SQLCipher stays unchanged.
+This matches `lib/src/hook/asset_hashes.dart` in the locked sqlite3 package. The
+web opener never sets a cipher or a key, so it runs as plain SQLite.
 
-The app uses Drift's IndexedDB executor and awaits flushes after writes. Web Locks
-allow one active database tab, preventing separate cached VFS instances from
-overwriting progress. A second owner fails explicitly. Close releases ownership.
-Missing required browser APIs fail closed. Wrapping protects copied browser
-files, not code running on the site. Shared workers and OPFS are not integrated
-into this opener; browser and phone acceptance remain pending.
+The app opens the study database with Drift's `WasmDatabase.open` using this wasm
+and `drift_worker.js`. Drift picks the best storage the browser offers: OPFS in a
+shared worker, OPFS with locks (needs cross-origin isolation headers), IndexedDB
+in a shared worker, then IndexedDB in a dedicated worker. The first three let
+several tabs share one database. The last cannot, so the opener keeps a one-tab
+guard (a Web Lock) for that mode only, and a second tab fails with an explicit
+error. A browser that can keep nothing (in-memory only) is refused.
+
+The database is named `pantas-study-v2`. The test builds that kept an encrypted
+`pantas-study-v1` database and a `pantas-study-key-v1` key record are left in
+browser storage and never opened. Nothing was released with them. If the file
+cannot be read ("not a database" or malformed), the opener deletes it and starts
+an empty database, because the server holds the account's content and finished
+sessions. Any other open failure is shown as an error and deletes nothing.
+
+Test it in a headless browser (needs a Chrome or Chromium; set `CHROME_EXECUTABLE`
+if it is not in the default place). `test/web_assets` links to the wasm and worker
+in this folder so the test server can serve them:
+
+```sh
+flutter test --platform chrome test/core/storage/data/database_opener_web_test.dart
+```
 
 `drift_worker.js` is compiled from `tool/web/drift_worker.dart` against locked
 **drift 2.34.3** and **sqlite3 3.5.1**, with **Dart 3.12.2**. It uses Drift's
@@ -36,8 +52,6 @@ dart compile js --no-source-maps -O2 tool/web/drift_worker.dart -o web/drift_wor
 ```
 
 The `.deps` output is a compiler intermediate, not a runtime requirement.
-The app opener uses the wasm directly. The standard worker remains shipped for
-the planned content path, which is stopped.
 
 ## Blocked content path
 
@@ -56,29 +70,6 @@ defines for web apiKey, appId, authDomain, and measurementId. Project ID, sender
 and bucket come from the existing matching project configuration. Console setup
 and real sign-in remain unverified. Google sign-in 7 requires its rendered web
 button. That visible change was stopped for lead review.
-
-## Reproduce the encryption findings
-
-These probes execute the shipped wasm and real Dart VFS classes. The second host
-uses fake-indexeddb 6.2.4 and synthetic OPFS and Web Locks adapters under Node.
-They do not establish real browser storage behavior. All keys and rows are
-synthetic. The real app opener probe checks encrypted persistence, non-extractable
-wrapping keys, tamper refusal, recovery, and owner exclusion.
-
-```sh
-PROBE_DIR=$(mktemp -d)
-npm install --prefix "$PROBE_DIR" --no-audit --no-fund fake-indexeddb@6.2.4
-export PANTAS_FAKE_IDB="$PROBE_DIR/node_modules/fake-indexeddb"
-dart compile js tool/web/probe_encrypted_wasm.dart -o build/probe_encrypted_wasm.js
-node tool/web/probe_encrypted_wasm.cjs
-node tool/web/probe_browser_host.cjs
-dart compile js tool/web/verify_web_database.dart -o build/verify_web_database.js
-PANTAS_PROBE_SCRIPT=verify_web_database.js node tool/web/probe_browser_host.cjs
-```
-
-PANTAS_FAKE_IDB is required; the probe refuses to run without it.
-Evidence, exact matrix output, maintainer sources, and content stop reasoning:
-`docs/superpowers/plans/pwa-launch/evidence/B3-encrypted-web-db.md`.
 
 ## Staging hosting (B4, config only)
 
@@ -112,7 +103,7 @@ opens a `ContentDatabase` in memory (drift on `sqlite3.wasm`, no worker, no stor
 overrides `contentDatabaseProvider` with it, so every existing caller reads the same tables
 it reads on native. `ContentMirror` (`lib/core/content/remote/content_mirror.dart`) fills it:
 
-1. At start, from the encrypted `CachedContent` table: catalog documents first, then
+1. At start, from the `CachedContent` table of the study database: catalog documents first, then
    lessons and question sets.
 2. From the server: the catalog is refreshed in the background (at once when nothing is
    cached, waiting up to 10 seconds), and again when a different account signs in.

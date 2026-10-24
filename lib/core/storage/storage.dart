@@ -59,7 +59,8 @@ final appPreferencesRepositoryProvider = Provider<AppPreferencesRepository>(
   (ref) => AppPreferencesRepository(ref.watch(appDatabaseProvider)),
 );
 
-/// Opens the encrypted DB and returns a ProviderContainer override list.
+/// Opens the study database (SQLCipher on native, the standard browser
+/// database on web) and returns a ProviderContainer override list.
 /// Call from main bootstrap.
 Future<List<Override>> bootstrapStorageOverrides() async {
   final db = await openEncryptedDatabase();
