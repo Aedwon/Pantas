@@ -104,6 +104,19 @@ typedef WebGrantReader = Future<List<Map<String, dynamic>>> Function(
   String uid,
 );
 
+enum WebTrialStatus { started, notAvailable, failed }
+
+class WebTrialResult {
+  const WebTrialResult({required this.status, required this.operation});
+
+  final WebTrialStatus status;
+
+  /// The same outcome in the shared payment vocabulary. When [status] is
+  /// [WebTrialStatus.started] this is the ledger read that followed, so it
+  /// carries the new entitlement unless that read failed.
+  final PaymentOperationResult operation;
+}
+
 DateTime _utcNow() => DateTime.now().toUtc();
 
 /// Payments on web: PayMongo checkout and the server grant ledger, in place
@@ -232,6 +245,43 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     return null;
   }
 
+  /// Starts the once-per-account web trial on the server, then reads the
+  /// ledger. The server refuses a second trial and any account that ever had
+  /// Pro with `failed-precondition`, which is [WebTrialStatus.notAvailable].
+  Future<WebTrialResult> startTrial() async {
+    if (_uid == null) {
+      return const WebTrialResult(
+        status: WebTrialStatus.failed,
+        operation: PaymentOperationResult.failure(
+          status: PaymentOperationStatus.configurationFailure,
+        ),
+      );
+    }
+    try {
+      await _callable(_trialCallable, {});
+    } catch (error) {
+      if (error is FirebaseException && error.code == 'failed-precondition') {
+        return const WebTrialResult(
+          status: WebTrialStatus.notAvailable,
+          operation: PaymentOperationResult.failure(
+            status: PaymentOperationStatus.entitlementNotActive,
+          ),
+        );
+      }
+      return WebTrialResult(
+        status: WebTrialStatus.failed,
+        operation: PaymentOperationResult.failure(
+          status: _statusForError(error),
+        ),
+      );
+    }
+    // The trial is committed on the server even if this read fails.
+    return WebTrialResult(
+      status: WebTrialStatus.started,
+      operation: await restorePurchases(),
+    );
+  }
+
   /// Reads the ledger for [uid] and keeps it as the confirmed entitlement.
   /// Returns null when the signed-in account changed while reading.
   Future<Entitlement?> _readEntitlement(String uid) async {
@@ -290,6 +340,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
 }
 
 const _checkoutCallable = 'createPaymongoCheckout';
+const _trialCallable = 'startWebTrial';
 
 /// Callable error codes the server sends, in the app's own vocabulary.
 PaymentOperationStatus _statusForError(Object error) {

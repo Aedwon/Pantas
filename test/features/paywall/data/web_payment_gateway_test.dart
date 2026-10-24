@@ -427,6 +427,113 @@ void main() {
     });
   });
 
+  group('web trial', () {
+    late _MockCallable callable;
+    late _MockLedger ledger;
+    late _MockRefresher refresher;
+    late WebPaymentGateway gateway;
+    var rows = <Map<String, dynamic>>[];
+
+    setUp(() {
+      rows = [];
+      callable = _MockCallable();
+      ledger = _MockLedger();
+      refresher = _MockRefresher();
+      when(() => ledger('u1')).thenAnswer((_) async => rows);
+      when(() => refresher('u1')).thenAnswer((_) async {});
+      when(() => callable('startWebTrial', any())).thenAnswer((_) async {
+        rows = [_trial(ends: _now.add(const Duration(days: 7)))];
+        return {
+          'startsAt': _now.millisecondsSinceEpoch,
+          'endsAt': _now.add(const Duration(days: 7)).millisecondsSinceEpoch,
+        };
+      });
+      gateway = WebPaymentGateway(
+        callable: callable.call,
+        readGrants: ledger.call,
+        refreshClaims: refresher.call,
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+    });
+
+    test('starting the trial calls the server, then reads the ledger',
+        () async {
+      await gateway.logIn('u1');
+      clearInteractions(ledger);
+
+      final result = await gateway.startTrial();
+
+      verify(() => callable('startWebTrial', {})).called(1);
+      verifyInOrder([() => refresher('u1'), () => ledger('u1')]);
+      expect(result.status, WebTrialStatus.started);
+      expect(result.operation.status, PaymentOperationStatus.success);
+      expect(result.operation.confirmedEntitlement?.isTrial, isTrue);
+      expect(gateway.cachedEntitlement?.state, EntitlementState.trial);
+    });
+
+    test('a trial that started stays started if the ledger read fails',
+        () async {
+      await gateway.logIn('u1');
+      when(() => ledger('u1')).thenThrow(
+        FirebaseException(plugin: 'cloud_firestore', code: 'unavailable'),
+      );
+
+      final result = await gateway.startTrial();
+
+      expect(result.status, WebTrialStatus.started);
+      expect(result.operation.status, PaymentOperationStatus.networkFailure);
+    });
+
+    test('a trial already used is not available', () async {
+      await gateway.logIn('u1');
+      clearInteractions(ledger);
+      clearInteractions(refresher);
+      when(() => callable('startWebTrial', any())).thenThrow(
+        _error('failed-precondition'),
+      );
+
+      final result = await gateway.startTrial();
+
+      expect(result.status, WebTrialStatus.notAvailable);
+      verifyNever(() => refresher(any()));
+      verifyNever(() => ledger(any()));
+    });
+
+    const failures = {
+      'resource-exhausted': PaymentOperationStatus.storeFailure,
+      'permission-denied': PaymentOperationStatus.configurationFailure,
+      'unauthenticated': PaymentOperationStatus.configurationFailure,
+      'unavailable': PaymentOperationStatus.networkFailure,
+      'internal': PaymentOperationStatus.unknownFailure,
+    };
+    for (final entry in failures.entries) {
+      test('server error ${entry.key} is a failure, not "not available"',
+          () async {
+        await gateway.logIn('u1');
+        when(() => callable('startWebTrial', any())).thenThrow(
+          _error(entry.key),
+        );
+
+        final result = await gateway.startTrial();
+
+        expect(result.status, WebTrialStatus.failed);
+        expect(result.operation.status, entry.value);
+      });
+    }
+
+    test('with nobody signed in the server is never called', () async {
+      final result = await gateway.startTrial();
+
+      expect(result.status, WebTrialStatus.failed);
+      expect(
+        result.operation.status,
+        PaymentOperationStatus.configurationFailure,
+      );
+      verifyNever(() => callable(any(), any()));
+    });
+  });
+
   group('grant ledger mapping', () {
     test('an active subscription grant becomes a prepaid plan', () {
       final ends = _now.add(const Duration(days: 30));
