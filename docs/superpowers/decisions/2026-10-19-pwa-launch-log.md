@@ -1604,3 +1604,21 @@ cited rules; the checker reads the diff and the brief; effort matches fix size; 
 first for blind solves. Savings to be measured in the one-subject pilot. Aedwon's exact reply:
 
 > okay sounds good to me. what else?
+
+## October 25: QA tool, pilot shape, full re-read, start, web chat batches
+
+Lead asked: where Aedwon reviews (staging blocked on Blaze), which pilot subject, whether every
+rewrite gets a full independent read, and when to start. Aedwon's exact reply:
+
+> 1. use the lesson studio or what was it called? there's a tool that existed before
+> 2. try on multiple subjects please since they each have different things going on right
+> 3. i'm okay with doubling checking time since this is a QA thing. full independent read should be done. how many lessons is this?
+> 4. when we're done with engineering we start with this.
+>
+> also, consider some parts we could use the web chat for the edits, it runs on 6 Sol High. there should be some items that it could cover multiple. but this should be unlike the one where I had to paste 1 lesson at a time. maybe we can do the multiple lessons at a time yknow, to save some time and effort
+
+Decisions: Aedwon reviews in the existing Lesson Author (`tools/lesson_author`, local, renders
+lessons and illustration previews) and Question Studio. The pilot covers several subjects. Every
+rewritten lesson gets a full independent read (all 71 CSE lessons). Work starts after the
+engineering run. The lead designs batched web chat pastes (several lessons per chat) for the
+edits that suit them.
