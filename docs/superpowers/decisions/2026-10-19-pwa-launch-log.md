@@ -1456,3 +1456,29 @@ including the server `listWebPlans` price list chosen as option A. Full Flutter 
 Functions 118 plain / 143 emulator pass, static checks clean apart from the known branch-age
 deprecation. Not integrated; C5 live test still waits on Blaze and PayMongo test keys. Handoff
 for the W4f Task 6 owner recorded in `pwa-launch/W4-client-coordination.md`.
+
+
+### October 24: web study database encryption (D7) reversed
+
+Context: the lead proposed B3 browser verification of the encrypted web study database. Aedwon
+asked why encryption is still needed after Pro content moved to per-request delivery (C7).
+Facts given: D7 was decided on October 19 when the whole corpus was to ship to the browser; after
+C7 the browser holds only items the student opened and was entitled to, the catalog, the current
+unfinished session and possibly settings. Finished sessions go to Firebase (C9), which encrypts
+stored data automatically; traffic is HTTPS; server rules limit each account to its own data; the
+browser isolates each site's storage. Business view given: local encryption does not protect
+revenue (a Pro student can screenshot or script requests; server limits are the real defense); it
+helps a little on shared or lost devices; its main value is the claim "encrypted on your device".
+Costs of keeping it: untested-in-browser wasm cipher shim, key-loss crash handling, one-tab limit,
+B3 verification (about 3 hours). The lead recommended dropping it. Native apps keep SQLCipher;
+store declarations are unchanged.
+
+Aedwon's exact comments:
+
+> i don't think it's worth building. how about you what do you think
+
+> okay then proceed, record this decision and start the swap.
+
+Decision: the web build uses the standard (unencrypted) browser database. D7 is superseded for
+web only. Native encryption and the native content package are unchanged. Public wording must not
+claim "encrypted on your device" for web; Aedwon writes that wording.
