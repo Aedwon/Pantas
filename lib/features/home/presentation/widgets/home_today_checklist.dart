@@ -245,7 +245,11 @@ class HomeTodayHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(left: 16, right: 8),
+        padding: EdgeInsets.only(
+          left: 16,
+          right: 8,
+          bottom: onPlan == null ? 7 : 0,
+        ),
         child: Wrap(
           alignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
@@ -259,9 +263,7 @@ class HomeTodayHeader extends StatelessWidget {
                   style: context.type.subhead
                       .copyWith(color: context.colors.accent),
                 ),
-              )
-            else
-              const SizedBox(height: 44),
+              ),
           ],
         ),
       );

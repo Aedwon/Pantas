@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
@@ -14,8 +15,14 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/home_today.dart';
+import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/home/domain/home_day_note.dart';
+import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/home/presentation/practice_launcher.dart';
+import 'package:pantas/features/home/presentation/widgets/home_exam_day.dart';
+import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
@@ -25,10 +32,17 @@ class HomeTodayScreen extends ConsumerStatefulWidget {
   const HomeTodayScreen({
     required this.examId,
     required this.pageBuilder,
+    this.onSetDate,
     super.key,
   });
   final String examId;
-  final Widget Function(Widget today) pageBuilder;
+
+  /// Draws the page around Today. The loaded data is null while loading or
+  /// after a failure, so the page can react to it (for example the greeting).
+  final Widget Function(Widget today, HomeTodayData? data) pageBuilder;
+
+  /// Opens Home's date sheet. Owned by Home, which hosts the sheet.
+  final VoidCallback? onSetDate;
   @override
   ConsumerState<HomeTodayScreen> createState() => _HomeTodayScreenState();
 }
@@ -180,7 +194,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                 : loadingFor(const AsyncLoading<HomeTodayData>())
             : _checklist(data);
         return PantasSheet(
-          page: widget.pageBuilder(today),
+          page: widget.pageBuilder(today, data),
           label: _sheet == 'lessons'
               ? 'Lessons'
               : _sheet == 'lesson'
@@ -198,7 +212,127 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
     );
   }
 
+  Future<void> _practiceWeakest() async {
+    final topics = await ref.read(topicAccuracyProvider.future);
+    if (!mounted || !_current()) return;
+    final weakest = topics.firstWhereOrNull((t) => t.answered > 0);
+    if (weakest == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No questions are ready right now.')),
+      );
+      return;
+    }
+    await startTopicPractice(
+      context,
+      ref,
+      examId: widget.examId,
+      topicId: weakest.topicId,
+    );
+  }
+
+  String? _noteText(HomeTodayData data) => switch (data.extras.note) {
+        HomeDayNote.carried => 'Unfinished items are added to today.',
+        HomeDayNote.welcomeBack => "Items you missed are in today's reviews.",
+        HomeDayNote.mockMoved =>
+          'Your ${data.examShortName} simulation moved to today.',
+        null => null,
+      };
+
   Widget _checklist(HomeTodayData data) {
+    final snapshot = data.today.snapshot;
+    final view = homeTodayViewFor(
+      state: snapshot.state,
+      plan: snapshot.plan,
+      originalDone: data.today.originalDone,
+      canAdvance: data.canAdvance,
+      examDate: snapshot.digest.examDate,
+    );
+    final note = _noteText(data);
+    final body = switch (view.kind) {
+      HomeTodayKind.checklist => _list(data, view),
+      HomeTodayKind.examDay => HomeExamDay(
+          examShortName: data.examShortName,
+          reviewsTotal: data.questionWork?.reviewsTotal ?? 0,
+          reviewsDone: data.questionWork?.reviewsDone ?? 0,
+          busy: _busy,
+          onRow: () => _show('reviews'),
+          onStart: () => unawaited(_start(data, TodayQuestionKind.reviews)),
+        ),
+      HomeTodayKind.assessment || HomeTodayKind.noContent => HomeStateCard(
+          state: view.kind == HomeTodayKind.assessment
+              ? HomeState.assessment
+              : HomeState.noContent,
+          examName: data.examName,
+          examShortName: data.examShortName,
+          onPrimary: () => view.kind == HomeTodayKind.assessment
+              ? unawaited(
+                  context.push<void>('/assessment/${widget.examId}'),
+                )
+              : unawaited(context.push<void>('/settings/exam/change')),
+        ),
+      HomeTodayKind.nothingDue ||
+      HomeTodayKind.reviewOnly ||
+      HomeTodayKind.dayOff ||
+      HomeTodayKind.passed =>
+        _quietDay(data, view),
+    };
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (note != null) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: Text(
+              note,
+              style: context.type.subhead.copyWith(
+                color: context.colors.secondaryLabel,
+                height: 1.4,
+              ),
+            ),
+          ),
+          const SizedBox(height: 22),
+        ],
+        body,
+        if (_failed && _sheet == null)
+          errorFor('plan', () => unawaited(_advance())),
+      ],
+    );
+  }
+
+  Widget _quietDay(HomeTodayData data, HomeTodayView view) {
+    final passed = view.kind == HomeTodayKind.passed;
+    final digestDate = data.today.snapshot.digest.examDate.split(':').first;
+    final examDay = DateTime.tryParse(digestDate);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const HomeTodayHeader(),
+        HomeStateCard(
+          state: switch (view.kind) {
+            HomeTodayKind.nothingDue => HomeState.nothingDue,
+            HomeTodayKind.reviewOnly => HomeState.reviewOnly,
+            HomeTodayKind.dayOff => HomeState.dayOff,
+            _ => HomeState.passed,
+          },
+          examName: data.examName,
+          examShortName: data.examShortName,
+          examDateLabel: passed && examDay != null
+              ? DateFormat('d MMMM', 'en_US').format(examDay)
+              : null,
+          onPrimary: switch (view.kind) {
+            HomeTodayKind.dayOff =>
+              view.offersAdvance ? () => unawaited(_advance()) : null,
+            HomeTodayKind.passed => widget.onSetDate,
+            _ => () => unawaited(_practiceWeakest()),
+          },
+          onSecondary: () =>
+              unawaited(context.push<void>('/settings/exam/change')),
+        ),
+      ],
+    );
+  }
+
+  Widget _list(HomeTodayData data, HomeTodayView view) {
     final work = data.questionWork;
     final originals = data.lessons.where((l) => !l.advanced).length;
     final questions = [
@@ -206,36 +340,33 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       ...data.today.snapshot.plan.newQuestionIds,
     ].where((id) => !data.today.snapshot.plan.advancedIds.contains(id)).length;
     final sizes = work?.reviewSizes ?? const <int>[];
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        HomeTodayChecklist(
-          lessons: data.lessons,
-          reviewsDone: work?.reviewsDone ?? 0,
-          reviewsTotal: work?.reviewsTotal ?? 0,
-          newDone: work?.newDone ?? 0,
-          newTotal: work?.newTotal ?? 0,
-          canAdvance: data.canAdvance,
-          isMockDay: data.today.snapshot.plan.isMockDay,
-          originalSummary:
-              '$originals ${originals == 1 ? "lesson" : "lessons"} · '
-              '$questions questions',
-          reviewSubtitle: sizes.length > 1
-              ? '${work!.reviewsTotal} due · ${sizes.length} sessions of '
-                  '${work.preparedReviews.preferences.sessionLength}'
-              : 'Questions due today',
-          advancing: _busy,
-          onLesson: (lesson) => _show('lesson', lesson: lesson),
-          onLessons: () => _show('lessons'),
-          onReviews: () => _show('reviews'),
-          onNew: () => _show('new'),
-          onPlan: () => context.push('/plan'),
-          onAdvance: () => unawaited(_advance()),
-          onMock: () => unawaited(_mock()),
-        ),
-        if (_failed && _sheet == null)
-          errorFor('plan', () => unawaited(_advance())),
-      ],
+    return HomeTodayChecklist(
+      lessons: data.lessons,
+      reviewsDone: work?.reviewsDone ?? 0,
+      reviewsTotal: work?.reviewsTotal ?? 0,
+      newDone: work?.newDone ?? 0,
+      newTotal: work?.newTotal ?? 0,
+      canAdvance: data.canAdvance,
+      isMockDay: data.today.snapshot.plan.isMockDay,
+      mockSubtitle: data.extras.mock?.subtitle,
+      mockDuration: data.extras.mock?.duration,
+      doneNote: view.doneNote,
+      examShortName: data.examShortName,
+      originalSummary: '$originals ${originals == 1 ? "lesson" : "lessons"} · '
+          '$questions questions',
+      reviewSubtitle: sizes.length > 1
+          ? '${work!.reviewsTotal} due · ${sizes.length} sessions of '
+              '${work.preparedReviews.preferences.sessionLength}'
+          : 'Questions due today',
+      advancing: _busy,
+      onLesson: (lesson) => _show('lesson', lesson: lesson),
+      onLessons: () => _show('lessons'),
+      onReviews: () => _show('reviews'),
+      onNew: () => _show('new'),
+      // Task 6 adds the plan route. Until it exists nothing pushes to it, so
+      // the link is not drawn.
+      onAdvance: () => unawaited(_advance()),
+      onMock: () => unawaited(_mock()),
     );
   }
 

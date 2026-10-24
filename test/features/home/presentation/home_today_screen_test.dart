@@ -6,8 +6,10 @@ import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
+import 'package:pantas/features/home/domain/home_day_note.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
@@ -42,6 +44,7 @@ final today = RoadmapToday(
 );
 
 void main() {
+  quietDayTests();
   testWidgets('lesson sheet starts the real lesson with its day context',
       (tester) async {
     LessonDayContext? context;
@@ -51,7 +54,7 @@ void main() {
           path: '/',
           builder: (_, __) => HomeTodayScreen(
             examId: 'e1',
-            pageBuilder: (today) =>
+            pageBuilder: (today, _) =>
                 Scaffold(body: SingleChildScrollView(child: today)),
           ),
         ),
@@ -154,7 +157,7 @@ void main() {
           theme: buildLightTheme(),
           home: HomeTodayScreen(
             examId: 'e1',
-            pageBuilder: (today) => Scaffold(body: today),
+            pageBuilder: (today, _) => Scaffold(body: today),
           ),
         ),
       ),
@@ -177,4 +180,190 @@ class _Launcher extends TodayQuestionLauncher {
     required bool Function() isAlive,
   }) async =>
       () async => isAlive();
+}
+
+RoadmapToday todayFor({
+  RoadmapState state = RoadmapState.planning,
+  DayPlan? dayPlan,
+  String examDate = '2026-11-11:day',
+  bool originalDone = false,
+}) {
+  final p = dayPlan ?? plan;
+  return RoadmapToday(
+    snapshot: DaySnapshot(
+      plan: p,
+      digest: RoadmapDigest(
+        examId: 'e1',
+        examDate: examDate,
+        scopeTopicIds: const [],
+        contentRevision: 'v1',
+        assessmentCompleted: true,
+        recordedMockCount: 0,
+      ),
+      topicOrderHead: const [],
+      state: state,
+    ),
+    remaining: p,
+    originalDone: originalDone,
+  );
+}
+
+Future<void> pumpData(
+  WidgetTester tester,
+  HomeTodayData data, {
+  VoidCallback? onSetDate,
+}) async {
+  await tester.pumpWidget(
+    ProviderScope(
+      key: UniqueKey(),
+      overrides: [
+        activeExamFocusProvider.overrideWith(
+          (ref) async => const ActiveExamFocus.selected(
+            Exam(
+              id: 'e1',
+              code: 'UPCAT',
+              name: 'UP College Admissions Test',
+              shortName: 'UPCAT',
+              language: 'en',
+              isActive: true,
+              subjects: [],
+            ),
+          ),
+        ),
+        homeTodayLoaderProvider
+            .overrideWith((ref) => (examId, guard) async => data),
+        todayQuestionLauncherProvider.overrideWith(_Launcher.new),
+      ],
+      child: MaterialApp(
+        theme: buildLightTheme(),
+        home: HomeTodayScreen(
+          examId: 'e1',
+          onSetDate: onSetDate,
+          pageBuilder: (today, _) =>
+              Scaffold(body: SingleChildScrollView(child: today)),
+        ),
+      ),
+    ),
+  );
+  await tester.pumpAndSettle();
+}
+
+DayPlan emptyPlan({bool rest = false, DateTime? at}) => DayPlan(
+      day: at ?? day,
+      lessonIds: const [],
+      reviewQuestionIds: const [],
+      newQuestionIds: const [],
+      isMockDay: false,
+      isRestDay: rest,
+      advancedIds: const {},
+    );
+
+HomeTodayData dataFor(
+  RoadmapToday today, {
+  bool canAdvance = false,
+  HomeDayExtras extras = const HomeDayExtras(),
+}) =>
+    HomeTodayData(
+      today: today,
+      lessons: const [],
+      questionWork: null,
+      canAdvance: canAdvance,
+      examName: 'UP College Admissions Test',
+      examShortName: 'UPCAT',
+      extras: extras,
+    );
+
+void quietDayTests() {
+  testWidgets('a day off offers advance only when the engine permits it',
+      (tester) async {
+    await pumpData(
+      tester,
+      dataFor(
+        todayFor(dayPlan: emptyPlan(rest: true)),
+        canAdvance: true,
+      ),
+    );
+    expect(find.text('Day off'), findsOneWidget);
+    expect(find.text('I Want to Advance'), findsOneWidget);
+    await pumpData(
+      tester,
+      dataFor(todayFor(dayPlan: emptyPlan(rest: true))),
+    );
+    expect(find.text('Day off'), findsOneWidget);
+    expect(find.text('I Want to Advance'), findsNothing);
+  });
+  testWidgets('everything covered reads Nothing due with optional practice',
+      (tester) async {
+    await pumpData(
+      tester,
+      dataFor(
+        todayFor(state: RoadmapState.allCovered, dayPlan: emptyPlan()),
+      ),
+    );
+    expect(find.text('Nothing due today'), findsOneWidget);
+    expect(
+      find.text("You've covered everything in your plan."),
+      findsOneWidget,
+    );
+    expect(find.text('Practice Weakest Topics'), findsOneWidget);
+  });
+  testWidgets('exam day with no eligible reviews claims no warm-up',
+      (tester) async {
+    await pumpData(
+      tester,
+      dataFor(
+        todayFor(
+          dayPlan: emptyPlan(at: DateTime(2026, 11, 11)),
+        ),
+      ),
+    );
+    expect(find.text('UPCAT is today.'), findsOneWidget);
+    expect(find.text('Start Warm-up'), findsNothing);
+    expect(find.textContaining('easy review'), findsNothing);
+  });
+  testWidgets('exam passed asks for a new date through Home', (tester) async {
+    var asked = 0;
+    await pumpData(
+      tester,
+      dataFor(
+        todayFor(
+          state: RoadmapState.examPassedAwaitingAnswer,
+          dayPlan: emptyPlan(at: DateTime(2026, 11, 20)),
+        ),
+      ),
+      onSetDate: () => asked++,
+    );
+    expect(find.text('Did you take UPCAT?'), findsOneWidget);
+    expect(
+      find.text("Your UPCAT date was 11 November. Tell us what's next."),
+      findsOneWidget,
+    );
+    await tester.tap(find.text('Set a New Date'));
+    expect(asked, 1);
+  });
+  testWidgets('the calm line sits above Today and View full plan is absent',
+      (tester) async {
+    await pumpData(
+      tester,
+      dataFor(
+        todayFor(),
+        extras: const HomeDayExtras(note: HomeDayNote.carried),
+      ),
+    );
+    expect(find.text('Unfinished items are added to today.'), findsOneWidget);
+    expect(find.text('View full plan'), findsNothing);
+  });
+  testWidgets('a moved mock names the exam simulation', (tester) async {
+    await pumpData(
+      tester,
+      dataFor(
+        todayFor(),
+        extras: const HomeDayExtras(note: HomeDayNote.mockMoved),
+      ),
+    );
+    expect(
+      find.text('Your UPCAT simulation moved to today.'),
+      findsOneWidget,
+    );
+  });
 }

@@ -162,7 +162,7 @@ void main() {
               path: '/quiz',
               builder: (_, __) => HomeTodayScreen(
                 examId: 'e',
-                pageBuilder: (today) =>
+                pageBuilder: (today, _) =>
                     Scaffold(body: SingleChildScrollView(child: today)),
               ),
             ),
