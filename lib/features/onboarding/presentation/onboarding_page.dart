@@ -160,7 +160,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   }
 
   Widget _buildStep(OnboardingStep step) {
-    if (_loggedSteps.add(step)) _logStep(step);
+    // Reminders is never shown, so it is not a step a student reached.
+    if (step != OnboardingStep.reminders && _loggedSteps.add(step)) {
+      _logStep(step);
+    }
     switch (step) {
       case OnboardingStep.customName:
         return CustomTrackNameStep(
@@ -194,16 +197,15 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           },
         );
       case OnboardingStep.reminders:
-        // Native reminders are parked with W4f; web has no rationale step.
-        if (ref.read(onboardingWebProvider)) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (mounted && !_finishFailed) _finish();
-          });
-          return _finishFailed
-              ? saveFailureLine(_finish)
-              : loadingFor(const AsyncLoading<void>());
-        }
-        return const SizedBox.shrink();
+        // Native reminders are parked with W4f and excluded from launch, so
+        // no platform draws this step. It only finishes what Name started,
+        // and also covers a resume after Name was saved but completion was not.
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && !_finishFailed) _finish();
+        });
+        return _finishFailed
+            ? saveFailureLine(_finish)
+            : loadingFor(const AsyncLoading<void>());
       case OnboardingStep.launch:
         return OnboardingLaunchStep(
           key: const ValueKey('launch'),
