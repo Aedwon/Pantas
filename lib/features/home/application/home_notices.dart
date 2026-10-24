@@ -1,0 +1,140 @@
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/trial_notice.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+
+enum HomeNoticeKind { service, trial, welcome, noDate, monthOnly }
+
+class HomeNotice {
+  const HomeNotice({
+    required this.kind,
+    required this.title,
+    required this.dismissalToken,
+    this.detail,
+    this.primaryLabel,
+    this.secondaryLabel,
+  });
+  final HomeNoticeKind kind;
+  final String title;
+  final String dismissalToken;
+  final String? detail;
+  final String? primaryLabel;
+  final String? secondaryLabel;
+}
+
+HomeNotice? selectHomeNotice(
+  List<HomeNotice> candidates,
+  Map<HomeNoticeKind, String> dismissed,
+) {
+  for (final kind in HomeNoticeKind.values) {
+    final notice = candidates.firstWhereOrNull((n) => n.kind == kind);
+    if (notice != null && dismissed[kind] != notice.dismissalToken) {
+      return notice;
+    }
+  }
+  return null;
+}
+
+final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
+  final flags = ref.watch(remoteFlagsProvider);
+  final settings = await ref.watch(userSettingsProvider.future);
+  final focus = await ref.watch(activeExamFocusProvider.future);
+  final entitlement = await ref.watch(entitlementProvider.future);
+  final pro = await ref.watch(proForActiveExamProvider.future);
+  final preferences = ref.read(appPreferencesRepositoryProvider);
+  final now = ref.read(nowProvider)();
+  final candidates = <HomeNotice>[];
+  final service = flags.serviceMessage;
+  if (service != null) {
+    candidates.add(
+      HomeNotice(
+        kind: HomeNoticeKind.service,
+        title: service,
+        dismissalToken: service,
+      ),
+    );
+  }
+  final trial =
+      kIsWeb ? null : TrialNotice.fromEntitlement(entitlement, today: now);
+  if (trial != null) {
+    final offering = await ref.watch(paywallOfferingProvider.future);
+    final package = offering.recognizedPackages
+        .firstWhereOrNull((p) => p.productId == entitlement.productId);
+    if (package != null) {
+      candidates.add(
+        HomeNotice(
+          kind: HomeNoticeKind.trial,
+          title: trial.daysRemaining == 0
+              ? 'Pro trial ends today'
+              : 'Pro trial ends in ${trial.daysRemaining} '
+                  '${trial.daysRemaining == 1 ? "day" : "days"}',
+          detail: 'Google Play charges ${package.priceString} '
+              'on ${PantasDates.short(trial.chargeDate, now: now)} '
+              'to keep Pro. Cancel any time before then.',
+          dismissalToken: trial.chargeDate.toIso8601String(),
+          primaryLabel: 'Manage',
+          secondaryLabel: 'Got It',
+        ),
+      );
+    }
+  }
+  if (pro) {
+    candidates.add(
+      const HomeNotice(
+        kind: HomeNoticeKind.welcome,
+        title: "You're in. Welcome to Pro.",
+        detail: 'Topics, lessons and your tendencies are open now.',
+        dismissalToken: 'yes',
+        primaryLabel: "See What's New",
+        secondaryLabel: 'Got It',
+      ),
+    );
+  }
+  final date = settings.examDate;
+  if (date == null) {
+    candidates.add(
+      const HomeNotice(
+        kind: HomeNoticeKind.noDate,
+        title: 'Add your exam date',
+        detail: 'Your plan paces each day to it. '
+            'Until then, today is reviews only.',
+        dismissalToken: 'yes',
+        primaryLabel: 'Add Exam Date',
+        secondaryLabel: 'Later',
+      ),
+    );
+  }
+  if (date != null &&
+      date.day == null &&
+      date.year == now.year &&
+      date.month == now.month) {
+    final month = DateFormat('MMMM', 'en_US').format(date.monthStart);
+    candidates.add(
+      HomeNotice(
+        kind: HomeNoticeKind.monthOnly,
+        title:
+            'Do you know the day of your ${focus.exam?.shortName ?? "exam"}?',
+        detail: "It's $month. Your plan is paced to the end of the month "
+            'until you pick the day.',
+        dismissalToken: date.storageValue,
+        primaryLabel: 'Save',
+        secondaryLabel: 'Not Yet',
+      ),
+    );
+  }
+  final dismissed = <HomeNoticeKind, String>{};
+  for (final kind in HomeNoticeKind.values) {
+    final token =
+        await preferences.deviceValue('home_notice_dismissed_${kind.name}');
+    if (token != null) dismissed[kind] = token;
+  }
+  return selectHomeNotice(candidates, dismissed);
+});

@@ -203,3 +203,7 @@ Shared future query checkpoint: RED11594 missing query; GREEN11600 domain174 tes
 ## October24 native roadmap ownership slice
 
 RED11603 reproduced same-identity wipe during delayed Today/advance inputs. RED11626 reproduced same-exam scope/date changes during pending hydration. Guard now retains original auth/preparer lifetime/core token, selected exam, date/study-day/scope/content/assessment shaping inputs and caller lifetime. Hydration runs outside writes; one feature-local per-database queue and guarded Drift transaction commit day and history together. Final token/auth/lifetime check follows all asynchronous guard reads. Task3-guard-final:28 tests passed. Native guard scoped analysis clean. No schema/core helper/framework added. This isolated correction does not complete Task3. Remaining screens and server client feed remain in progress.
+
+## October24 saved Home/API/performance slices
+
+Policy7fe91e30. Tests-first Task3 checklist/sheets and original caller guard, Task4 notice priority/pure states, Task5 measured card/sort/filter/Free/paused presentation, immutable expectedUid API, exact response models and original UID/exam/core encrypted cache are implemented. Public cache may restore immediately; paid cache waits for current server evidence after process restart. These are partial slices: Home root/routes, server reader/sender, topic route and complete motions remain pending. No family/task completion or visual/release acceptance claimed. Focused/static evidence:build/w4b/client-slices-focused.log and client-slices-static.log.
