@@ -3,6 +3,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 
 class MockPacingSignal implements Signal<PacingProfile> {
@@ -27,9 +28,7 @@ class MockPacingSignal implements Signal<PacingProfile> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    final spareSeconds = <int>[];
-    final sectionTotals = <String, int>{};
-    final sectionCounts = <String, int>{};
+    final observed = <({int spareSeconds, Map<String, int> sectionTimes})>[];
 
     var query = _db.select(_db.mockAttempts)
       ..where(
@@ -47,36 +46,24 @@ class MockPacingSignal implements Signal<PacingProfile> {
     for (final row in await query.get()) {
       final total = row.totalTimeSeconds;
       if (total == null) continue;
-      spareSeconds.add((row.durationMinutes * 60) - total);
+
       final payload = _reader.read(
         sampledQuestionsJson: row.sampledQuestionsJson,
         answersJson: row.answersJson,
         flagsJson: row.flagsJson,
         sectionResultsJson: row.sectionResultsJson,
       );
-      for (final section in payload.sectionResults) {
-        sectionTotals.update(
-          section.sectionId,
-          (value) => value + section.timeSeconds,
-          ifAbsent: () => section.timeSeconds,
-        );
-        sectionCounts.update(
-          section.sectionId,
-          (value) => value + 1,
-          ifAbsent: () => 1,
-        );
-      }
+      observed.add(
+        (
+          spareSeconds: row.durationMinutes * 60 - total,
+          sectionTimes: {
+            for (final section in payload.sectionResults)
+              section.sectionId: section.timeSeconds,
+          }
+        ),
+      );
     }
-    if (spareSeconds.isEmpty) return null;
-    return PacingProfile(
-      averageSpareSeconds: _average(spareSeconds),
-      sectionTimeSeconds: {
-        for (final entry in sectionTotals.entries)
-          entry.key: (entry.value / sectionCounts[entry.key]!).round(),
-      },
-    );
-  }
 
-  double _average(List<int> values) =>
-      values.reduce((a, b) => a + b) / values.length;
+    return MetricCalculations.pacing(observed);
+  }
 }

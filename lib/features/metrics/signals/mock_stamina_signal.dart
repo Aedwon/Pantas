@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
 
@@ -30,10 +31,7 @@ class MockStaminaSignal implements Signal<StaminaDelta> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    var firstCorrect = 0;
-    var firstTotal = 0;
-    var secondCorrect = 0;
-    var secondTotal = 0;
+    final observed = <List<bool>>[];
 
     var query = _db.select(_db.mockAttempts)
       ..where(
@@ -57,30 +55,15 @@ class MockStaminaSignal implements Signal<StaminaDelta> {
       final questionIds = [
         for (final section in payload.sections) ...section.questionIds,
       ];
-      final midpoint = questionIds.length ~/ 2;
-      for (var i = 0; i < questionIds.length; i += 1) {
-        final questionId = questionIds[i];
-        final answer = payload.answers[questionId];
-        final isCorrect = answer != null &&
-            answer.selectedIndex == await _correctIndex(questionId);
-        if (i < midpoint) {
-          firstTotal += 1;
-          if (isCorrect) firstCorrect += 1;
-        } else {
-          secondTotal += 1;
-          if (isCorrect) secondCorrect += 1;
-        }
-      }
+      observed.add([
+        for (final questionId in questionIds)
+          payload.answers[questionId] != null &&
+              payload.answers[questionId]!.selectedIndex ==
+                  await _correctIndex(questionId),
+      ]);
     }
-    if (firstTotal == 0 || secondTotal == 0) return null;
-    return StaminaDelta(
-      firstHalfAccuracy: firstCorrect / firstTotal,
-      secondHalfAccuracy: secondCorrect / secondTotal,
-      firstHalfCorrect: firstCorrect,
-      firstHalfTotal: firstTotal,
-      secondHalfCorrect: secondCorrect,
-      secondHalfTotal: secondTotal,
-    );
+
+    return MetricCalculations.stamina(observed);
   }
 
   Future<int?> _correctIndex(String questionId) =>
