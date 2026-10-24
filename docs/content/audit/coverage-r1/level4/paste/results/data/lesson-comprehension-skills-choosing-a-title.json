@@ -1,0 +1,275 @@
+{
+ "lesson_sha256": "63c30ecffce8bbdb5a1b3d6807ea44402dfd7958ed2d95ff070eaa5c174746fd",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the bee-pollination premise against FAO: pollinators support plant reproduction and food security, and pollinator decline threatens agrifood systems (https://www.fao.org/cgrfa/news/news-detail/towards-a-global-pollinator-platform/en).",
+    "Checked the other factual premises: solar, wind, and hydroelectric power are renewable-energy types; the empire and proposed-law examples are intentionally generic or hypothetical rather than claims about named events."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: I chose (B), because it covers both pollination and the food-security consequence described in the passage.",
+    "Example 2: I judged the solar-only title too narrow because the passage also covers wind and hydroelectric power.",
+    "Example 3: I judged \"Ancient History\" too broad because it does not identify the specific empire or event discussed.",
+    "Example 4: I chose (C), because it states the passage's argument that the law harms small businesses more than it helps consumers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson includes Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; Mnemonics is optional, and none of the worked questions depends on a required figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is choosing a title that matches central point, scope, and stated argument; the core criteria and four worked examples all practice those choices."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Think of choosing a title as finding the \"just right\" fit: not too narrow (missing parts of the passage), not too broad (could apply to many different passages), but matching the passage's actual main idea precisely.",
+     "problem": "This teaching sentence is long and layered, with two parenthetical explanations and the abstract word \"precisely,\" so it is not very simple Grade 5 English.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Explain why \"Solar Power: The Energy of the Future\" would be a poor title for this passage.",
+     "problem": "The exam verb \"Explain\" is used as a command, but the lesson never gives the required one-line explanation of what that verb asks the student to do.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "There is one analogy, the \"just right\" fit comparison, and it appears in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A title focusing on just one part of a multi-part passage is too narrow, since it misrepresents the passage's actual full scope.",
+     "problem": "The worked solution uses abstract vocabulary such as \"misrepresents\" and \"actual full scope\" instead of the simple language required for solutions.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat a canned exam-motivation opener or reuse the same exam-reference phrasing across sections."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach Filipino grammar terms, so Filipino-term glossing cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its examples are not required to be in Filipino.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs a KWF source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English, so the Filipino teaching-prose rule against Taglish does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a target word or refers to \"the word in bold.\"",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A passage discusses how bees pollinate flowers",
+     "problem": "All four worked-example questions begin with \"A passage,\" so their sentence openings are repetitive instead of varied.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "The reading-comprehension lesson uses Core Concept, Examples, a strategy-style shortcut section, and Traps to Watch For; it uses no formulas that would need prior introduction."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A passage discusses how bees pollinate flowers, how this process helps plants reproduce, and how declining bee populations threaten global food supplies.",
+     "problem": "Every worked example gives the passage's content as an explicit summary. None makes the student identify the central point from an actual passage before choosing a title, so the lesson misses an exam-relevant variation and does not reach authentic target difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked solutions use numbered steps and show the full reasoning needed for a reading-comprehension choice; there are no computations that require display equations."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so phone-width equation fitting cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three sentences, and the only ordinary bullet list is the short three-item title-criteria list."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no illustration placeholders, and none of its questions depends on a figure.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson pairs \"main idea\" with \"central point,\" explains scope as covering the passage instead of one small part, and explains too broad and too narrow before the examples use those distinctions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Find the main idea first, then shrink it into a short phrase.",
+     "problem": "The lesson tells students to find the main idea first but never teaches how to identify that main idea from a passage. With no prerequisite lesson supplied, a necessary part of the method is only named, not explained.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "If the passage discusses multiple distinct points, ideas, or examples, the title must be broad enough to cover all of them, not just the one mentioned first or most memorably.",
+     "problem": "This shortcut is stated too absolutely. A good title should follow the passage's main emphasis and central point; it does not need to literally cover every supporting example or detail, so the needed limitation is missing.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}

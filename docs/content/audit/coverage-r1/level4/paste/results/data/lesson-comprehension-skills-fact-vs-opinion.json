@@ -1,0 +1,368 @@
+{
+ "lesson_sha256": "464037937cd313598ea538ef9a226343295c15e62346c207cb759ee5fc6c5fce",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Verified the U.S. Census Bureau description of population projections as future population estimates based on assumptions about fertility/births, mortality/deaths, and migration: https://www.census.gov/data/academy/resources/one-pagers/population-projections.html",
+    "Verified the Philippine Department of Tourism states that the Philippines has 7,641 islands, so the example claim that it has more than 7,000 islands is true: https://www.tourism.gov.ph/article/island-hopping-0-21/",
+    "Checked that the stadium and 10-million-population statements are presented as example claims, not as assertions about a named real stadium or an actual named agency projection."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "fail",
+   "checked": [
+    "Independent answer for #1: (a) is a factual-type geographic claim; (b) is an evaluative opinion about beauty.",
+    "Independent answer for #2: the sentence is an underspecified empirical/generalized claim; measurable criteria can make it clearly checkable, while missing evidence affects support rather than claim type.",
+    "Independent answer for #3: the construction cost is a factual-type claim, while calling it an unnecessary waste is evaluative.",
+    "Independent answer for #4: it is a projection or forecast under assumptions, not an established fact about the future population."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Treat it as an opinion unless the text supplies measurable criteria and evidence for a narrower factual claim.",
+     "problem": "Lack of evidence does not by itself turn an empirical comparative claim into an opinion. The sentence is underspecified, but evidential support and claim type must remain separate.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, with the optional mnemonic section omitted.",
+    "No example depends on a visual figure, and the learning goal does not require a diagram or other load-bearing illustration."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [
+    "Compared the lesson with the recorded goal: it teaches factual claims, evaluative judgments, projections, and the support/type distinction, but Example #2 contradicts that last distinction."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Treat it as an opinion unless the text supplies measurable criteria and evidence for a narrower factual claim.",
+     "problem": "The recorded goal requires separating claim type from truth or evidential support, but this example makes evidence a condition for treating the claim as factual-type.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A **factual claim** is a claim whose truth or falsity can in principle be checked against evidence, measurement, records, or observation.",
+     "problem": "This definition uses abstract phrasing such as \"truth or falsity\" and \"in principle\" instead of the very simple Grade 5 English required for teaching prose.",
+     "source": "single"
+    },
+    {
+     "quote": "It is a model-based statement about a possible or expected future outcome under stated or implicit assumptions.",
+     "problem": "Terms such as \"model-based,\" \"outcome,\" and \"implicit assumptions\" make this core definition substantially harder than the required Grade 5 teaching voice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No exam command verb is used as a student prompt that needs a one-line first-use explanation.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy appears in Core Concept; the lesson uses definitions and literal examples instead."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [
+    "All four example blocks were checked for an explicit exam-style task; each supplies a statement or pair of statements without a direct classification question."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(a) \"The Philippines has more than 7,000 islands.\"",
+     "problem": "The worked example presents statements but never gives an exam-style question or instruction telling the student what to identify, so the task is only inferred from the heading.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not use repetitive exam-motivation openers or repeated mentions of CETs or test-makers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reading-comprehension lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terms requiring an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage needs KWF checking.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked target word, so bold-target-word prompt rules do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "No listed stock AI phrase or em dash appears; sentence openings vary, and the summary plainly names the lesson content without the banned template."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "pass",
+   "checked": [
+    "This reading-comprehension lesson uses an allowed generic section layout; Reading Strategies is optional rather than required.",
+    "No formulas or quantitative methods appear in any example, so there is no formula that needed prior introduction in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [
+    "Mapped the examples to the goal: #1 covers basic fact versus opinion, #2 attempts confident wording/support, #3 covers mixed factual and evaluative content, and #4 covers an uncertain projection.",
+    "The sequence generally rises from basic classification to mixed and forecast cases, and the examples are not near-duplicates."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A claim can be factual in type but poorly supported or false.",
+     "problem": "This learning-goal distinction is only stated in the shortcut section. No worked example makes the student classify a false or poorly supported factual-type claim without confusing support with claim type.",
+     "source": "single"
+    },
+    {
+     "quote": "The existence of a published projection is factual; its future outcome has not yet been observed.",
+     "problem": "This distinct projection case appears in a trap, but the worked examples cover only the projection itself and never work a factual claim about a published projection.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "(a) is a checkable geographic claim. (b) is a value judgment about beauty.",
+     "problem": "The worked solution is an unnumbered prose paragraph instead of a numbered step list as required.",
+     "source": "single"
+    },
+    {
+     "quote": "The phrase *it is obvious* does not make the universal comparison factual.",
+     "problem": "This worked answer is written as an unnumbered paragraph rather than numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "The cost is a factual claim if supported by records; \"unnecessary waste\" is an evaluative judgment.",
+     "problem": "This worked answer is not presented as a numbered list of solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "This is an evidence-based **projection**, not an established fact about the 2030 population.",
+     "problem": "The projection solution is prose rather than a numbered solution-step list.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose width could overflow a phone screen.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Paragraphs stay within one to three sentences, and the only bullet list is the short three-item comparison under projections and forecasts."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There are no illustration placeholders in the lesson to evaluate for specificity or load-bearing use.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [
+    "Factual claim, opinion/value judgment, and projection/forecast are explicitly introduced before later use, but the projection definition depends on unexplained technical terms."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "It is a model-based statement about a possible or expected future outcome under stated or implicit assumptions.",
+     "problem": "The definition relies on the technical ideas \"model-based\" and \"assumptions\" before explaining what a model or an assumption means, and there is no prerequisite lesson to supply those meanings.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "Factual claim is explained by checkability against evidence and the warning that factual type does not guarantee truth.",
+    "Opinion/value judgment is explained as evaluation, preference, recommendation, or stance depending on values or criteria, including a mixed-sentence example.",
+    "Projection/forecast is explained as a future-oriented statement dependent on assumptions, with the Census Bureau example showing fertility, mortality, and migration assumptions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that factual-type claims may be false or poorly supported, so truth and support are not conditions of claim type.",
+    "It states that projections concern uncertain future outcomes and depend on assumptions, and distinguishes a published projection from the future outcome itself.",
+    "It states that evaluative language can sometimes be tied to measurable criteria and that numbers may be estimates, forecasts, fabricated figures, or measurements."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [
+    "Checked every script-flagged numeric occurrence; all seven candidates are genuine prose-number violations under the lesson math-notation rule."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "- **Fact about a projection:** \"The agency projects a population of 10 million by 2030.\" This can be verified by checking the agency's published projection.",
+     "problem": "The prose numerals 10 and 2030 are written outside inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Projection itself:** \"The population will be 10 million in 2030.\" This concerns an uncertain future outcome and depends on assumptions.",
+     "problem": "The prose numerals 10 and 2030 are not wrapped in inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "- **Opinion:** \"A population of 10 million would be disastrous.\" This is an evaluative judgment unless the relevant standard of \"disastrous\" is defined and defended.",
+     "problem": "The prose numeral 10 appears outside the required inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "(a) \"The Philippines has more than 7,000 islands.\"",
+     "problem": "The prose number 7,000 is not enclosed in inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "\"The new stadium cost ₱2 billion to build and is an unnecessary waste of public money.\"",
+     "problem": "The prose numeral 2 is outside inline math even though every number in prose must use dollar delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "\"Based on current assumptions, the population is projected to reach 10 million by 2030.\"",
+     "problem": "The prose numerals 10 and 2030 are written outside inline math.",
+     "source": "single"
+    },
+    {
+     "quote": "This is an evidence-based **projection**, not an established fact about the 2030 population.",
+     "problem": "The prose numeral 2030 is not wrapped in inline math delimiters.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "Treat it as an opinion unless the text supplies measurable criteria and evidence for a narrower factual claim.",
+   "concern": "This conflates evidential support with claim type. An unsupported or vague empirical generalization does not become an opinion merely because the text supplies no evidence.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

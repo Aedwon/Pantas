@@ -1,0 +1,331 @@
+{
+ "lesson_sha256": "face82a0ced97ec7ca4b3e4b10b8eb5566e64dbc1ee7735b3e182a6819f16f71",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Most matrices use one of these three approaches, so working through them in order is an efficient default strategy.",
+     "problem": "The claim that most figure matrices fit these three approaches is unconfirmed by the packet. The Level 3 record explicitly says the covered 2x2/3x3 cases are not a full or current matrix taxonomy.",
+     "source": "single"
+    },
+    {
+     "quote": "**For $3 \\times 3$ matrices specifically, always check whether the third item in a row or column is a combination of the first two**, since this pattern type appears frequently and is easy to miss if you're only looking for simple step-by-step progressions.",
+     "problem": "The statement that this combination pattern appears frequently is an unconfirmed frequency claim. The packet provides no source or complete taxonomy that establishes how often this pattern occurs.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 blind solve: the blank is a square; a 90° turn leaves an unmarked square visually unchanged.",
+    "Example 2 blind solve: the counts increase by 1 across the row, so the blank must contain 5 dots.",
+    "Example 3 blind solve: the bottom row requires large size and the right-most position requires black shading, so the answer is a large black shape.",
+    "Example 4 blind solve: combining both diagonal-line features gives a square containing both diagonals, forming an X."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required Reasoning sections Core Concept, Examples, and Traps to Watch For are present, and every figure-dependent worked example has an adjacent cell-by-cell matrix FIGURE specification."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches row transformations, column checks, separate row/column feature tracking, and feature combination, directly serving the recorded goal of completing described matrices."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "2. Apply the same row pattern to the bottom row: starting with a square, rotating it $90°$ gives a square that looks the same as an unrotated square (since a square has rotational symmetry every $90°$), but if the square has some distinguishing mark (like a dot in one corner), that mark would move to the next corner.",
+     "problem": "This is a long multi-clause sentence with nested parenthetical ideas and the technical term 'rotational symmetry.' It is not the short, very simple Grade 5 teaching prose required by the rule.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The example questions use direct 'What should...' wording and do not introduce an exam command verb that needs a first-use definition.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1 supplies the two row shapes and the observed rotation; Example 2 supplies the dot counts; Example 3 states the size and shading patterns; Example 4 supplies both source-cell features. The stems provide problem-specific givens without handing over a separate formula or solution method."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language reasoning lesson, so the Filipino Grade 5 teaching-prose rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terms that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so the requirement for Filipino examples and quiz items does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling and usage checks do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the Taglish restriction does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word that must be identified as bold.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Check rows first, then columns, then consider combination patterns if neither alone fully explains the grid.** Most matrices use one of these three approaches, so working through them in order is an efficient default strategy.",
+     "problem": "Reasoning lessons are required to use the reduced Core Concept → Examples → Traps layout and drop Speed Tricks. This teaching appears inside an extra Speed Tricks & Shortcuts section, so the subject section fit is not followed.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A useful additional check for $3 \\times 3$ matrices: sometimes the third figure in a row (or column) is some combination of the first two (like the union or overlap of their features), rather than following a simple step-by-step progression.",
+     "problem": "The lesson introduces overlap as a distinct combination case, but no worked example demonstrates an overlap/intersection rule. Only union/superposition is worked, so the examples do not cover every distinct combination scenario the lesson itself introduces.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "1. Identify the row pattern: within each row, the dot count increases by $1$ moving left to right ($1 \\to 2 \\to 3$, then $2 \\to 3 \\to 4$).",
+     "problem": "The key numerical progression is kept inside the prose as inline math. L19 requires key computations in worked solutions to be shown as display equations between or after numbered steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations using $$...$$, so there are no display-math lines to assess for phone-screen width.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Some matrices follow a single pattern that applies consistently in one direction (only across rows, or only down columns). Others combine two patterns at once: one rule governing rows, and a different rule governing columns simultaneously, similar to combining features in a figure series.",
+     "problem": "This paragraph contains a long, clause-heavy second sentence rather than short sentences. It breaks the formatting rule that paragraphs use one to three short sentences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "Each FIGURE comment specifies rows, columns, cell-by-cell visual features, and a semantics label; each worked-example stem also describes the visible pattern and blank cell, so the examples remain understandable in prose."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A useful additional check for $3 \\times 3$ matrices: sometimes the third figure in a row (or column) is some combination of the first two (like the union or overlap of their features), rather than following a simple step-by-step progression.",
+     "problem": "The terms 'union' and 'overlap' are introduced as different feature-combination possibilities without being defined before their meanings are needed. The packet lists no prerequisite lesson that supplies those meanings.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "> The third figure in a row or column is sometimes the overlap or combination of the first two, rather than a simple next-step continuation.",
+     "problem": "Overlap is named as a matrix rule, but the lesson never explains how an overlap/intersection rule works or which features it retains. The only worked combination example teaches union/superposition instead.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A useful additional check for $3 \\times 3$ matrices: sometimes the third figure in a row (or column) is some combination of the first two (like the union or overlap of their features), rather than following a simple step-by-step progression.",
+     "problem": "The lesson names union and overlap as alternative combination rules but gives no condition for deciding when one applies instead of the other. Students therefore lack the applicability rule needed to choose the correct combination.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A $3 \\times 3$ matrix's rows show an increasing number of dots inside a circle: row 1 has circles with $1$, $2$, $3$ dots; row 2 has circles with $2$, $3$, $4$ dots; row 3 has circles with $3$, $4$, and (blank). How many dots should the blank cell have?",
+     "problem": "The numerals in 'row 1,' 'row 2,' and 'row 3' are numbers in prose but are not wrapped in inline math delimiters.",
+     "source": "single"
+    },
+    {
+     "quote": "2. Confirm this same increase applies to row 3: $3 \\to 4 \\to \\, ?$, continuing the \"+1\" pattern.",
+     "problem": "The numeral in 'row 3' and the quoted '+1' are numbers or operators in prose outside inline math, violating the lesson math-notation rule.",
+     "source": "single"
+    },
+    {
+     "quote": "Example 3 shows how size follows the column direction while shading follows the row direction: solving only one direction misses half the required answer.",
+     "problem": "The numeral in 'Example 3' appears in prose outside inline math, contrary to the rule that every number in prose must be inside $...$.",
+     "source": "single"
+    },
+    {
+     "quote": "In Example 1, the top row and bottom row start with completely different shapes (triangle vs. square), but the same rotation rule ($90°$ rotation) applies to both: recognizing the rule, not memorizing specific shapes, is the key skill.",
+     "problem": "The numeral in 'Example 1' appears in prose outside inline math, contrary to the rule that every number in prose must be inside $...$.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "Both uses of 'mark' refer to a distinguishing visual mark on a square, not a score; the lesson does not use 'cards' for questions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "missing",
+   "position_quote": "A useful additional check for $3 \\times 3$ matrices: sometimes the third figure in a row (or column) is some combination of the first two (like the union or overlap of their features), rather than following a simple step-by-step progression.",
+   "description": "Side-by-side three-cell matrix rows showing union retaining all features and overlap retaining only shared features in the third cell.",
+   "why": "A direct visual comparison would make the two named combination rules distinct instead of leaving 'union' and 'overlap' as unexplained labels.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

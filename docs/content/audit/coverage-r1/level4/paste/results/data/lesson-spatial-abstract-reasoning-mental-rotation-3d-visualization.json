@@ -1,0 +1,290 @@
+{
+ "lesson_sha256": "52ec61d29ed961edb382c9bd4b77c07565ab6261b7ccf75647b0309c950358f2",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "checked": [
+    "Checked that proper rigid rotations preserve distances, adjacency, and handedness, while a mirror reflection is generally not a rotation.",
+    "Checked the stated invalid six-square net by folding orientations; two squares map to the same cube-face orientation.",
+    "Checked the parallel-ray cylinder projections: axial projection is a circle of cylinder diameter, and the perpendicular side projection is a rectangle of cylinder height by diameter.",
+    "Checked the point-source limitation and the statements about silhouettes, surface markings, and through-hole visibility against projection geometry."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: The extra square folds to the face opposite the center, so it becomes the top face.",
+    "Example #2: No. Folding the stated pattern makes two squares occupy the same cube-face orientation.",
+    "Example #3: The ideal shadow is a circle whose diameter equals the cylinder's diameter.",
+    "Example #4: The ideal shadow is a rectangle with the cylinder's height and a width equal to its diameter."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "Core Concept, Examples, and Traps to Watch For are present, and each of the four worked examples has a specific FIGURE placeholder for its spatial setup."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Mental rotation** asks whether two views can represent the same rigid object after rotation. A true rotation preserves distances, adjacency, handedness/chirality, and the relative arrangement of parts. A mirror image is not generally obtainable by rotation alone.",
+     "problem": "The recorded goal includes rotation-comparison work, but the lesson never develops a concrete paired-view comparison; it only states general invariants and the reflection distinction.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A true rotation preserves distances, adjacency, handedness/chirality, and the relative arrangement of parts.",
+     "problem": "This sentence packs several abstract or rare terms into one clause without simple wording, which is above the Grade 5 teaching-prose standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No exam-specific command verb such as evaluate or simplify appears in the worked questions.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four stems provide only the needed net or lighting setup and ask for the result without supplying the tested method; the solutions return to short explanatory prose."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English-language spatial-reasoning lesson, not a Filipino-language lesson.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terms needing an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson does not teach Filipino, so Filipino example-language requirements do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage requires a source check.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The teaching prose is in English, so the Filipino no-Taglish rule cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially bolded target word.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**For rotations, preserve handedness and adjacency.** A mirrored arrangement is not a rotation unless the object itself has the relevant symmetry.",
+     "problem": "This content appears under Speed Tricks & Shortcuts, but the Reasoning subject fit requires the reduced Core Concept to Examples to Traps layout and says to drop Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A cross net has one central square with four edge-neighbors and one extra square attached beyond one of those neighbors. If the center becomes the bottom, which face becomes the top?",
+     "problem": "The example set covers cube nets and cylinder projections but never gives a worked paired-view mental-rotation comparison, leaving a distinct scenario in the recorded learning goal without an example.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Fold the four neighbors upward as side faces. The extra square attached beyond one side then folds over to the remaining face opposite the center: the **top**.",
+     "problem": "This multi-action fold solution is written as prose instead of numbered steps, so the required step-by-step worked-solution format is not followed.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations whose phone-screen width can be checked.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "The cube-net and cylinder FIGURE comments each give a specific drawable setup, and each worked-example stem states enough geometry to follow the question without seeing the figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A true rotation preserves distances, adjacency, handedness/chirality, and the relative arrangement of parts.",
+     "problem": "Handedness/chirality is necessary to the lesson's rotation test but is introduced without explaining what the term means, and there is no prerequisite lesson to supply that meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**For rotations, preserve handedness and adjacency.** A mirrored arrangement is not a rotation unless the object itself has the relevant symmetry.",
+     "problem": "The lesson names invariants and a symmetry caveat but never explains how to compare or trace a concrete pair of rotated views, so the mental-rotation method is not fully taught.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the rotation/reflection symmetry caveat, the rejection of a universal cube-net spacing rule, the six-distinct-face condition, and the parallel-ray versus point-source shadow limits."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "missing",
+   "position_quote": "**Mental rotation** asks whether two views can represent the same rigid object after rotation.",
+   "description": "Show two labeled 3D objects from different viewpoints, with one true rotation match and one mirror-image nonmatch, preserving visible adjacency and handedness cues.",
+   "why": "A side-by-side comparison would make the central rotation-versus-reflection test concrete instead of leaving it as abstract prose.",
+   "source": "single"
+  },
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "medium",
+   "status": "insufficient",
+   "position_quote": "Tracking the folds causes two squares to map to the same cube-face orientation before all six distinct faces are filled. The pattern is therefore **not a valid cube net**.",
+   "description": "Show the invalid six-square net folding in stages, ending with the two colliding squares highlighted on the same cube face.",
+   "why": "The existing flat-net figure shows the starting pattern but not the orientation collision that makes the net invalid.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [],
+ "rulings": []
+}

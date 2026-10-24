@@ -1,7 +1,7 @@
 # Level 4 counting check
 
-Lessons in the corpus: 71.
-Read with a finished result: 71. On hold: 0. Unaccounted: 0.
+Lessons in the corpus: 78.
+Read with a finished result: 78. On hold: 0. Unaccounted: 0.
 
 Rules judged by the chats: B01, B02, B03, L01, L02, L03, L04, L05, L07, L08, L09, L10, L11, L12, L14, L15, L17, L18, L19, L21, L22a, L23, L25, L26, L27.
 Rules checked by script: B06, B07, B08, B09, B10, L13, L16, L20, L22, L24.

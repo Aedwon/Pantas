@@ -1,0 +1,314 @@
+{
+ "lesson_sha256": "2c220182a90786afbb48e9b5232755183265fe4af35e6d869bf9d5405525834c",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [
+    "Checked the side-count claims, symmetry claims, region-count claims, and shaded-dot counts in all four worked examples."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The fourth figure's lines do not pass through the center, creating an uneven split (an odd number of regions, $3$), breaking the \"lines through center create even regions\" pattern.",
+     "problem": "This states a false causal rule. Two lines that miss the center do not necessarily create an odd number of regions; two off-center chords can intersect and create four regions. The specific prompt gives three regions, but being off-center alone does not imply that result.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1 solved independently: square, rectangle, and rhombus have 4 sides; triangle has 3, so the triangle is the odd-one-out.",
+    "Example #2 solved independently: the circle, square, and equilateral triangle each have at least one reflection line; the stated lopsided blob has none, so the blob is the odd-one-out.",
+    "Example #3 solved independently from the stated region counts: 2, 4, and 6 are even while 3 is odd, so the fourth circle is the odd-one-out.",
+    "Example #4 solved independently: four figures have one shaded dot and the fifth has two, so the fifth figure is the odd-one-out."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, and Traps to Watch For, and every worked reasoning example has a figure specification at the question."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches finding a shared feature, identifying the exception, and checking the proposed rule against all belonging figures, which directly serves the recorded learning goal."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Since the rule is not stated, approach this systematically by checking figures against a checklist of common shared-feature categories:",
+     "problem": "The sentence uses abstract wording such as \"systematically\" and \"shared-feature categories\" that is harder than the required Grade 5 teaching voice.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "pass",
+   "checked": [
+    "The only exam-style verb, \"identify,\" is immediately paraphrased as finding the figure that does not belong and finding which figure breaks the rule."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in Core Concept, so the one-analogy maximum is respected."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "Each worked question supplies the figures or their problem-specific visual facts without giving a formula, definition, or solution method; the solutions return to simpler teaching language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeatedly use exam-name openers or repetitive motivational exam phrasing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino-language content.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text, so Filipino spelling and KWF usage do not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is English-language teaching, so the Filipino no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks about a marked or target word, so the bold-target-word rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "Checked the teaching prose and summary for the listed stock AI phrases, repeated sentence openings, all-caps emphasis, and formulaic summary wording; none appears."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Run through the checklist categories systematically** (side count, symmetry, enclosed regions, curve vs. straight, shading) rather than staring at the figures hoping a rule jumps out: a checklist approach finds subtle rules faster than random guessing.",
+     "problem": "This reasoning lesson includes a Speed Tricks & Shortcuts section, but the subject-fit rule requires the reduced Reasoning layout of Core Concept, Examples, and Traps to Watch For, dropping Speed Tricks.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Curved vs. straight lines**: are most figures made entirely of straight lines (or entirely of curves), while one mixes both or uses the opposite type?",
+     "problem": "Curve-versus-straight grouping is taught as a common shared-feature category but has no worked example, so a distinct exam-relevant scenario named by the lesson is uncovered.",
+     "source": "single"
+    },
+    {
+     "quote": "A figure that looks unusual in size or orientation might still share the true underlying rule (like side count or symmetry) with the rest of the group, while a more \"normal-looking\" figure actually breaks the rule.",
+     "problem": "The lesson warns about misleading size or orientation but gives no worked example where visual salience conflicts with the real grouping rule, leaving this stated edge case unpracticed.",
+     "source": "single"
+    },
+    {
+     "quote": "**Confirm your rule against all the \"belonging\" figures before finalizing your answer**, not just two or three of them: a rule that fits three figures but fails on the supposed fourth \"correct\" one is not the actual rule.",
+     "problem": "The examples only confirm rules that work immediately. None shows a candidate rule failing and being revised, or two plausible all-member rules competing, so validation is not practiced at target difficulty.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "pass",
+   "checked": [
+    "All four worked solutions use numbered steps in order, and each reasoning step needed to reach the odd-one-out is stated; none requires a mathematical display equation."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display lines to test for phone width.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Figure grouping** questions present several figures and ask you to identify the one that does not belong with the others. The figures that do belong together share some common rule or feature; your job is to discover that shared rule, then find which figure breaks it.",
+     "problem": "This paragraph uses two long, clause-heavy sentences instead of the required short teaching sentences, making it denser than the formatting rule allows.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "<!-- FIGURE: {\"kind\": \"shape-row\", \"shapes\": [{\"form\": \"circle\"}, {\"form\": \"square\"}, {\"form\": \"triangle\"}, {\"form\": \"blob\"}], \"semanticsLabel\": \"A row of four shapes: a circle, a square, a triangle, and an irregular blob.\"} -->",
+     "problem": "The figure specification is not specific enough for the symmetry question: it does not require an equilateral triangle or a blob with no reflection axis, so an artist or renderer could draw a figure that does not support the intended answer.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A figure that looks unusual in size or orientation might still share the true underlying rule (like side count or symmetry) with the rest of the group, while a more \"normal-looking\" figure actually breaks the rule.",
+     "problem": "The term \"orientation\" is needed to understand this trap but is never explained, and there is no prerequisite lesson that supplies its meaning.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson explains what figure grouping means and how to do it: compare shared-feature categories, find the exception, inspect internal details when needed, and validate the rule against every belonging figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The correct approach is to find the rule that makes four (or however many) figures belong to one consistent group, leaving exactly one figure that clearly does not fit that same rule.",
+     "problem": "The lesson presents the method as if one clear rule will always isolate one figure, but it never explains the limitation that more than one plausible grouping rule can fit the same set or make a question underdetermined.",
+     "source": "single"
+    },
+    {
+     "quote": "The fourth figure's lines do not pass through the center, creating an uneven split (an odd number of regions, $3$), breaking the \"lines through center create even regions\" pattern.",
+     "problem": "The explanation omits the condition that the exact arrangement of the off-center lines matters; missing the center by itself does not guarantee three or any odd number of regions.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "exact_exam_figure",
+   "method": "code",
+   "priority": "high",
+   "status": "insufficient",
+   "position_quote": "Four figures are shown: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?",
+   "description": "Draw a perfect circle, a square, an equilateral triangle, and a clearly asymmetric lopsided blob with no reflection axis.",
+   "why": "The current figure specification only says triangle and blob, so the exact symmetry properties needed to verify the answer are not guaranteed visually.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [
+  {
+   "quote": "The fourth figure's lines do not pass through the center, creating an uneven split (an odd number of regions, $3$), breaking the \"lines through center create even regions\" pattern.",
+   "concern": "Not passing through the center does not itself force two lines to create three or an odd number of regions; off-center chords can intersect and create four regions.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

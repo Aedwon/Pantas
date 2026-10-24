@@ -1,0 +1,310 @@
+{
+ "lesson_sha256": "a91b8646e7b924a68ca5f5b8ff354ecd76f4954a68a1977d5f3f2fb2f7a7db47",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "eight evenly spaced holes.",
+     "problem": "The Example #4 figure label says the eight reflected holes are evenly spaced. Symmetry from exact half-folds does not guarantee equal spacing; the spacing depends on the punch location within the folded packet.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example #1: reversing one vertical fold makes the two reflected halves of the fold-edge notch meet, so the result is one connected symmetric opening.",
+    "Example #2: two complete half-folds with an interior punch through all four layers away from both folds produce four separate reflected holes.",
+    "Example #3: a cut located at the intersection of both fold lines maps back onto that same central location under both reflections, so the copies connect or coincide rather than becoming four separate holes.",
+    "Example #4: three complete half-folds with all eight layers cut and the punch away from every fold line produce eight separate holes."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson contains Core Concept, Examples, and Traps to Watch For, and each of the four reasoning examples has its own paper-fold figure specification showing the folded and unfolded state."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The recorded goal is served by teaching reverse-order unfolding, layer-count conditions, interior versus fold-line cuts, separate versus connected openings, and the limit that exact final geometry can depend on cut shape."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The layers have all been cut, but the copies **coincide or connect at the center** rather than becoming four separated holes.",
+     "problem": "The word \"coincide\" is unnecessarily difficult for Grade 5 teaching prose and is not explained in simple language at this point. A common word such as \"overlap\" would be easier to read.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked questions use prompts such as \"What happens\" and \"How many\" rather than an exam command verb that needs a one-line definition.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [
+    "No analogy is used anywhere in the lesson, so the lesson stays within the limit of at most one analogy in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "pass",
+   "checked": [
+    "All four example stems provide the needed fold count, cut location, layer condition, and cut type without giving students the reflection method or a solution formula. The solutions return to short explanatory language."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson does not repeat stock exam-motivation openers or repeatedly introduce traps with the same test-maker phrasing."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is an English reasoning lesson, not a lesson that teaches Filipino grammar, vocabulary, or reading.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching prose or Filipino grammar terms that would require an English gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "This is not a Filipino-language lesson, so its examples are correctly written in English.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino text whose spelling or usage would require checking against Komisyon sa Wikang Filipino guidance.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "There is no Filipino teaching prose in which Taglish usage could occur.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a particular target word, so the target-word bolding rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson avoids the listed stock AI phrases and em dashes, varies sentence openings, and uses a plain summary specific to paper folding and cutting."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [
+    "The only formula used in a worked example is the three-fold case $2^3=8$, and Core Concept introduces the general $2^n$ layer relationship before Example #4 uses it."
+   ],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Undo folds in reverse order.** Reflect the cut across the last fold first, then the previous fold, until the sheet is fully opened.",
+     "problem": "Reasoning lessons are required to use the reduced Core Concept → Examples → Traps to Watch For layout and drop Speed Tricks & Shortcuts. This material appears inside a Speed Tricks & Shortcuts section, so the subject-specific section fit is not followed.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "A rectangular sheet is folded in half three times so the punched location contains all eight layers. A small circular punch is made through the interior of the folded packet, away from all fold lines. How many separate holes appear?",
+     "problem": "The examples cover cuts through all available layers and cuts on fold lines, but none works the distinct layer-location case where a cut crosses only some layers, such as near an irregular packet boundary. That case is explicitly taught as something students must check and is part of the learning goal's layer conditions.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Reflecting the cut across either fold maps it onto itself at the intersection. The layers have all been cut, but the copies **coincide or connect at the center** rather than becoming four separated holes.",
+     "problem": "Example #3 gives its worked solution as a prose paragraph instead of the required numbered solution steps.",
+     "source": "single"
+    },
+    {
+     "quote": "so unfolding produces **eight separate symmetric holes**.",
+     "problem": "Example #4 ends with prose around a display equation instead of presenting the worked solution as a numbered list of steps.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson has one display equation, $2^3=8$, and it is short enough to fit comfortably on a phone screen."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [
+    "Teaching paragraphs stay within one to three short sentences, and the only ordinary bullet list is the concise five-item condition list in Core Concept."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "Each paper-fold figure specification names the fold directions, cut type and location, unfolded state, and a concrete semantic description. The surrounding prose also explains each example without requiring the image to supply missing reasoning."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "reflect the cut across each fold line.",
+     "problem": "Reflection is the central operation students must perform, but the lesson never explains what reflecting across a fold line means geometrically, such as placing the copy on the opposite side at the same distance from the fold.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Reflect the cut across the last fold first, then the previous fold, until the sheet is fully opened.",
+     "problem": "This tells students the order in which to reflect cuts but not how the reflection changes a cut's position and orientation. The core method is therefore named procedurally without fully explaining how it works.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that $2^n$ is only an upper layer count, gives the all-layers and away-from-fold-lines conditions for separate copies, explains fold-line merging, distinguishes interior holes from edge notches, and warns that irregular folds or boundary cuts may cross fewer layers."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The phrase \"Mark fold-line cuts specially\" uses \"mark\" as a verb meaning identify or flag a cut, not as a score; the lesson does not call questions cards or scores marks."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [
+  {
+   "kind": "concept",
+   "method": "code",
+   "priority": "high",
+   "status": "insufficient",
+   "position_quote": "eight evenly spaced holes.",
+   "description": "Show eight reflected holes symmetric across the three fold lines, with spacing determined by the original punch position rather than forcing equal spacing.",
+   "why": "The current figure specification can teach a false geometry rule by implying that symmetry after three half-folds always produces equal spacing.",
+   "source": "single"
+  }
+ ],
+ "accuracy_concerns": [
+  {
+   "quote": "eight evenly spaced holes.",
+   "concern": "The figure label overstates the geometry. Three exact half-folds can produce eight symmetric reflected holes, but equal spacing depends on the punch position and is not guaranteed.",
+   "source": "single"
+  }
+ ],
+ "rulings": []
+}

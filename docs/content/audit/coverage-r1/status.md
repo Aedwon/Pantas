@@ -1,4 +1,4 @@
-STATE: BLOCKED level 4 CSE scope now 78 (71 done, 7 to paste); rewrite plan pending; Codex stays stopped
+STATE: BLOCKED level 4 CSE done for 78 lessons and triaged; rewrite plan next; Codex stays stopped
 
 # Coverage audit status
 
@@ -87,6 +87,15 @@ unknown at the organizer, 7 context, 4 broad labels, 3 constraints). CSE facets 
 lessons: 73 in the scope, 5 Mechanical Reasoning lessons whose CSE links are all "unknown" (CSE
 lists no mechanical area; left out), and 2 Reading lessons, choosing a title and fact versus
 opinion, with real CSE gaps but no CSE tag on either side. Aedwon approved adding both ("Add choosing a title and fact versus opinion to the CSE scope and the paste page."): L4-4122 and L4-9601 added; scope now 78, 7 to paste.
+
+## October 25: the 7 added lessons read and triaged
+
+Aedwon reported "done with all 7". Paste state: 78 of 78 accepted, 0 held. Close-out rerun:
+fresh validation PASS, counting check PASS (78 read). Findings 947 (Blocker 58, Major 687, Minor
+202); the 866 earlier rows are unchanged. Lead ruled the 6 new Blockers; a Sonnet second read
+ruled the other 75. The approved layout rulings converted the 25 `ruling` rows. Triage now: real
+656 (497 small, 151 medium, 8 large), judgment 271, reject 19, illustration 7, across 78 lessons.
+Next: the rewrite plan.
 
 ## Identity
 

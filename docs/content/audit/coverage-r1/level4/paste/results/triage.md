@@ -1,6 +1,6 @@
 # Level 4 CSE findings triage
 
-Date: October 25, 2026. Input: the 866 chat findings in `findings/` and `data/` (one ChatGPT read
+Date: October 25, 2026. Input: the 947 chat findings (866 from the first 71 lessons; 81 from 7 lessons added the same day) in `findings/` and `data/` (one ChatGPT read
 per lesson, decision D4). Policy read from main `c40dcd61`.
 
 ## Method
@@ -19,12 +19,12 @@ per lesson, decision D4). Policy read from main `c40dcd61`.
 
 ## Totals
 
-Verdicts: real 597, judgment 233, ruling 25, reject 14, illustration 2.
+Verdicts: real 656, judgment 271, reject 19, illustration 7.
 
-Real findings by fix size: small 460, medium 129, large 8. Real findings by subject: mathematics 169, language-proficiency 157, general-information 138, reading-comprehension 61, reasoning 46, science 26.
-Every one of the 71 lessons has at least one real finding.
+Real findings by fix size: small 497, medium 151, large 8. Real findings by subject: mathematics 169, language-proficiency 157, general-information 150, reasoning 78, reading-comprehension 76, science 26.
+Every one of the 78 lessons has at least one real finding.
 
-Most common real rules: L02 87, L25 84, L18 77, B08 72, L19 49, L26 49, L05 41, L27 27. In plain terms: hard words and terms used
+Most common real rules: L02 94, L25 89, L18 85, B08 81, L26 54, L19 50, L05 45, L27 29. In plain terms: hard words and terms used
 before they are explained (L02, L25), taught cases with no worked example (L18), numbers outside
 math notation (B08), solutions not written as numbered steps (L19), concepts named but not
 explained (L26).
@@ -33,7 +33,7 @@ Lessons with the most real findings: code-of-conduct-ra-6713-statements-of-asset
 
 ## Blockers
 
-Of the 52 Blocker findings: real 26, ruling 18, judgment 6, illustration 2.
+Of the 58 Blocker findings: real 43, judgment 7, illustration 7, reject 1.
 
 Real errors a student would learn wrong (fix first):
 - Wrong or incomplete worked answers: SALN deadline never given as a date; the janitor
@@ -53,7 +53,12 @@ Judgment calls (6): the "is means equals" line (a trap already states its limit)
 values, the bridge passage that copies Golden Gate figures with a wrong year, the "since"
 shortcut caveat, and a Filipino clause example that needs a source check.
 
-## Rulings needed from Aedwon
+## Rulings (approved by Aedwon, October 25)
+
+Both recommendations below were approved and are now in the lesson style guide. The 25 `ruling`
+rows were converted: 12 General Information rows are real (add Traps), 7 Reasoning Speed Tricks
+rows are judgment, 5 syllogism figure rows are illustration (Venn diagrams), and 1 number-sequence
+row is reject.
 
 1. **General Information layout (12 findings).** All 12 CSE General Information lessons have only
    Core Concept and Examples. The guide has no exception for this subject, so the audit failed
@@ -71,6 +76,13 @@ shortcut caveat, and a Filipino clause example that needs a source check.
 
 - Rewrite `real` rows. Skip `judgment` rows unless the fix is free while editing that passage.
   Ignore `reject` rows. `illustration` rows go to E6.
-- Apply the two rulings above before rewriting General Information and Reasoning.
-- The 460 small fixes are sentence-level; the 129 medium fixes are mostly one new worked example
+- The 497 small fixes are sentence-level; the 151 medium fixes are mostly one new worked example
   or one rewritten solution; the 8 large fixes are new sections or new teaching blocks.
+
+## Added the same day: 7 lessons
+
+Five Spatial and Abstract Reasoning lessons and two Reading lessons were added to the CSE scope
+and read. The lead ruled their 6 Blockers (5 real: a fact-versus-opinion rule that mixes claim type
+with evidence, a false region rule, three unsourced claims about how common item types are; 1
+judgment). A Sonnet second read ruled the other 75 (41 real, 30 judgment, 4 reject) and found one
+non-determinate matrix example, added as a lead-added row.

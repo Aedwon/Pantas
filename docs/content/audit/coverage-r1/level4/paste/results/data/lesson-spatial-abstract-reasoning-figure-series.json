@@ -1,0 +1,328 @@
+{
+ "lesson_sha256": "c64be0e462d66f3cd73b3039528094b55af20714604f972749060ad8efec41dd",
+ "standards_commit": "710d7062b594f2daeab4903b4271cb64563790a2",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Rotation by a constant angle, alternating states, incremental counts, and interleaved rules are common item structures.",
+     "problem": "The claim that these are common item structures is a prevalence claim, and the packet provides no source confirming it; Level 3 explicitly records this prevalence statement as unverified.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B02": {
+   "verdict": "pass",
+   "checked": [
+    "Example 1: from up → upper-right → right, the next orientation is lower-right under a constant 45-degree clockwise rotation.",
+    "Example 2: triangle, square, pentagon correspond to 3, 4, 5 sides, so the next shape is a hexagon with 6 sides.",
+    "Example 3: black, white, black alternates fill, so the next implied fill is white.",
+    "Example 4: fill should be white; the exact next size is indeterminate unless the choices or visual system define a larger size state, matching the lesson's conditional answer."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B03": {
+   "verdict": "pass",
+   "checked": [
+    "The required Reasoning content sections Core Concept, Examples, and Traps to Watch For are present.",
+    "Each of the four worked figure-series examples has its own one-line FIGURE metadata, and Core Concept also has a concrete dot-position series figure."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L01": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson teaches tracking separate visual features, combining their changes, checking every transition, and choosing a simple consistent continuation.",
+    "It also preserves the Level 3 limits by warning that finite series are not mathematically unique and that an undefined next size must not be invented."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L02": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Verify a candidate rule against **every shown transition** and use the answer choices to resolve ambiguity.",
+     "problem": "Terms such as \"candidate rule,\" \"transition,\" and \"resolve ambiguity\" make this teaching sentence harder than the required Grade 5 simple-English standard.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The worked prompts do not use an exam command verb such as evaluate, identify, compare, or explain that needs a first-use gloss.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L04": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L05": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Black circle → white circle → black circle.",
+     "problem": "This worked example gives only a sequence and does not state a question sentence asking the student what to determine.",
+     "source": "single"
+    },
+    {
+     "quote": "Small black triangle → medium white triangle → large black triangle.",
+     "problem": "This is not a determinate question: it omits both an explicit prompt and the answer choices or defined size scale needed to determine the next size.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L07": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is an English-language reasoning lesson, so the Filipino teaching-prose readability rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar teaching, so Filipino grammar-term glosses are not applicable.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so the requirement for Filipino examples and quiz items does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no Filipino teaching text whose spelling or usage would need checking against Komisyon sa Wikang Filipino sources.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson is written in English rather than Filipino teaching prose, so the no-Taglish rule does not apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "No worked prompt refers to a target word or asks about \"the word in bold,\" so the target-word formatting rule cannot apply.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L15": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L17": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Track one feature at a time.** Separate orientation, count, fill, size, and position before combining them.",
+     "problem": "Reasoning lessons must use the reduced Core Concept → Examples → Traps layout and drop Speed Tricks; this teaching appears inside a Speed Tricks & Shortcuts section.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L18": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "**Track one feature at a time.** Separate orientation, count, fill, size, and position before combining them.",
+     "problem": "Position is named as a feature to track, but there is no worked example that teaches or practices a changing-position series.",
+     "source": "single"
+    },
+    {
+     "quote": "count of dots/marks;",
+     "problem": "Dot or mark count is listed as a feature, but no worked example covers a dot-count or mark-count progression.",
+     "source": "single"
+    },
+    {
+     "quote": "symmetry or other relationships among parts.",
+     "problem": "Symmetry and part relationships are listed as features, but no worked example covers either kind of progression.",
+     "source": "single"
+    },
+    {
+     "quote": "Rotation by a constant angle, alternating states, incremental counts, and interleaved rules are common item structures.",
+     "problem": "Interleaved rules are named but never worked, and the rotation coverage stays limited to one constant-angle case rather than including a changing-angle or other nonconstant transformation.",
+     "source": "single"
+    },
+    {
+     "quote": "**Use the choices to test the intended rule.** The correct candidate should preserve every relevant feature transformation.",
+     "problem": "No worked example supplies an actual answer-choice set, so students never practice the stated strategy of testing a candidate rule against choices.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L19": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The line rotates $45^\\circ$ clockwise each step, so the intended next orientation is **lower-right**.",
+     "problem": "This worked solution is a prose sentence rather than numbered solution steps; the same unnumbered solution format is used for all four examples.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "checked": [],
+   "note": "The lesson contains no display equations, so there are no display lines whose phone-screen width can be judged.",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L22a": {
+   "verdict": "pass",
+   "checked": [],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L23": {
+   "verdict": "pass",
+   "checked": [
+    "Every FIGURE entry is a single specific line describing drawable shapes, states, order, and blank-frame status for the relevant series.",
+    "The surrounding example text states the visible sequence or transformation, so the teaching remains understandable without relying on an unseen decorative image."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "L25": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "Rotation by a constant angle, alternating states, incremental counts, and interleaved rules are common item structures.",
+     "problem": "The necessary term \"interleaved rules\" is introduced as a pattern type but never explained before students are expected to recognize or use it.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L26": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "symmetry or other relationships among parts.",
+     "problem": "The lesson names symmetry and part relationships as features but does not explain what patterns in those relationships look like or how to track them.",
+     "source": "single"
+    },
+    {
+     "quote": "Rotation by a constant angle, alternating states, incremental counts, and interleaved rules are common item structures.",
+     "problem": "Interleaved rules are only named; the lesson never explains how an interleaved series is organized or how to follow its separate subsequences.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "L27": {
+   "verdict": "pass",
+   "checked": [
+    "The lesson states that finite visual series can fit more than one rule and uses simplicity plus answer choices to limit the intended interpretation.",
+    "It warns not to invent an undefined next size unless choices or the visual system establish it, and it says rotation angle and direction need enough transitions to confirm the pattern."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  },
+  "B08": {
+   "verdict": "fail",
+   "checked": [],
+   "note": "",
+   "findings": [
+    {
+     "quote": "The simple count pattern is $3,4,5$, so the intended continuation is a **hexagon** with 6 sides.",
+     "problem": "The number 6 appears in prose outside inline math; the notation rule requires prose numbers to be wrapped in dollar signs.",
+     "source": "single"
+    }
+   ],
+   "state": "single",
+   "source": "single"
+  },
+  "B09": {
+   "verdict": "pass",
+   "checked": [
+    "The only use of \"marks\" is \"dots/marks,\" where marks means visual symbols rather than score points; the lesson does not use \"cards\" for questions."
+   ],
+   "note": "",
+   "findings": [],
+   "state": "single",
+   "source": "single"
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "rulings": []
+}
