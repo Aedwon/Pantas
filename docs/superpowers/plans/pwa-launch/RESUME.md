@@ -26,6 +26,8 @@ decision and its exact wording).
 | E2 Level 4, E3 Level 5 | Level 4 running: Aedwon pasting (prompt allows web search for B01 since 622a7e35); Level 5 prompts not built | audit branch |
 | Lane A (W4) | Codex (W4c, W4b, W4d) resets Oct 20, 2:49 AM; progress on main a0ebc84b to 33b3fd2e. W4e is Claude's: pushed at 3b454b3a; Tasks 1 to 3 saved, 4 and 5 partial, 6 to 9 and the web mock adapter not started; unscoredItems column (content schema 10, installer pin 10) and the approved line pushed at f6b76e56 (E02 seed hash regression fixed); Oct 20: real-corpus build checked on the Mac (manifest declared 9, fix assigned); W4e run 1 pushed at b5da6f99 (manifest fix; Tasks 4, 5, 8, 9; web mock adapter; 4,116 tests pass). Open: Tasks 6, 7; builder-chosen visible details need Aedwon's approval (log, Oct 20) | Codex session 01a1410a; W4e: Claude lead |
 | PayMongo account | Aedwon creating it | none |
+| C3 web purchase gateway (Oct 24) | minimal scope chosen; steps 1 to 5 built and lead-reviewed (grant ledger mapping, checkout, return handler, web trial, web provider); server price list for the offering (option A) in progress; pre-existing TTL guard failure fixed at 85489661. Real checkout unverified until C5 | branch `web/paymongo-r1`, plan `pwa-launch/C3-web-purchase-gateway.md` there |
+| Blaze on pantas-staging (Oct 24) | still pending; Aedwon considering a billing account under another Google account | none |
 | CSE mock blueprint | done, lead-reviewed, merged into staging (2c2332e0). Confirm with Aedwon the shown line "The real exam has 170 items" | `web/cse-mock-blueprint-r1` |
 | Roadmap running totals | done, lead-reviewed, merged into staging (2c2332e0) | `web/roadmap-totals-r1` |
 

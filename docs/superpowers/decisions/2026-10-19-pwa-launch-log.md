@@ -1423,3 +1423,30 @@ Root asked: "Should W4e completion cover the CSE launch scope or every exam in t
 ### CSE W4e engineering closeout under the expanded authorization
 
 The approved CSE-only continuation is engineering accepted after whole-family review, regression corrections and4439combined Flutter tests with clean static gates. Source is uploaded on E f608e570 and development72b04f00; the required separately reviewed server dependency is0c17bfb0 with165plain/205emulator pass. The necessary answer-to-review connection reuses the exact existing native scheduler, not new learning mechanics. Original server/staging ownership, native other-exam behavior and later global/human/release stages remain intact. No further product choice or execution permission was required, and no unrelated family was started. Detailed source identities, audit rulings, evidence and preserved handoffs are in STATUS and each working branch's existing evidence.
+
+
+### October 24: C3 web purchase gateway chosen as parallel Claude work
+
+Aedwon asked the Claude lead to continue W4 work in parallel with W4a and W4b (ChatGPT models
+on those). Policy read: main 8d1d6303. Lane A tasks belong to Codex, so the lead offered
+Claude-owned tasks that do not collide with W4a/W4b: C3 web purchase gateway (recommended;
+unblocks W4f Task 6; real payment untestable until PayMongo test keys), B5 HTML loading screen
+(needs a visual approval round first), L4 legal and refund pages (Aedwon writes the wording).
+Aedwon selected "C3 web purchase (Recommended)". Complexity options: minimal (interface W4f
+calls, fake-server tests, about 2 to 3 hours), balanced (plus abandoned-checkout recovery and a
+pending state, about 4 to 5 hours), hardened (plus duplicate/tampered return checks, about a
+day). Aedwon selected "Minimal (Recommended)". Plan:
+`docs/superpowers/plans/pwa-launch/C3-web-purchase-gateway.md` on `web/paymongo-r1`.
+
+Run 1 (Sonnet 5.5 high) built steps 1 to 5 and stopped at the offering: the client has no
+price source and a guard test forbids a ₱ sign in paywall code. Options: (A) the server lists
+web plans and prices from `functions/src/products.json`, the same source checkout charges,
+about 1 hour; (B) copy prices into the client and relax the guard. Aedwon: "A". The lead also
+found a pre-existing failure on the branch (account-document TTL guard flagged the PayMongo
+dedupe writes) and fixed it without behavior change at 85489661 (full Flutter 4019 pass,
+Functions 110 plain / 142 emulator pass, tsc clean).
+
+Aedwon offered to set up PayMongo test mode now. The lead gave steps and noted that the C5 run
+still needs Blaze billing on pantas-staging, because functions cannot deploy without it. Aedwon
+is considering billing from another Google account; the lead advised keeping the project and
+linking a billing account owned by that account. Billing remains pending.
