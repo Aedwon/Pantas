@@ -1595,3 +1595,12 @@ exam needs; the lead owns the topic and lesson prerequisite links, writers flag 
 dependencies, and the checker confirms the links stay acyclic. Aedwon's exact reply:
 
 > okay sure.
+
+## October 25: writer batching and token savings
+
+Lead recommendation: one Codex session per topic batch of 4 to 6 lessons, then a fresh session;
+scripts make mechanical fixes; a script-built brief per lesson carries only its real findings and
+cited rules; the checker reads the diff and the brief; effort matches fix size; cheaper model
+first for blind solves. Savings to be measured in the one-subject pilot. Aedwon's exact reply:
+
+> okay sounds good to me. what else?
