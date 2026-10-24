@@ -224,7 +224,17 @@ void main() {
     await navigator.maybePop();
     await tester.pumpAndSettle();
 
-    expect(find.text('Leave assessment?'), findsOneWidget);
+    // AS_Leave copy, exactly as the board draws it.
+    expect(find.text('Leave the assessment?'), findsOneWidget);
+    expect(
+      find.text(
+        "Your answers so far won't be kept. You can start again from Home.",
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Keep Going'), findsOneWidget);
+    expect(find.text('Leave'), findsOneWidget);
+    expect(find.text('Stay'), findsNothing);
   });
   testWidgets('changed sync owner discards the old picks without writing',
       (tester) async {

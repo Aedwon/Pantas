@@ -225,10 +225,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     final leave = await showDialog<bool>(
       context: context,
       builder: (context) => CenteredDialog(
-        title: 'Leave assessment?',
-        message: 'Your progress will be lost.',
+        title: 'Leave the assessment?',
+        message: "Your answers so far won't be kept. "
+            'You can start again from Home.',
         primaryLabel: 'Leave',
-        secondaryLabel: 'Stay',
+        secondaryLabel: 'Keep Going',
         destructive: true,
         onConfirm: () => Navigator.of(context).pop(true),
         onCancel: () => Navigator.of(context).pop(false),
