@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 
 HomeTodayLesson lesson(
@@ -28,6 +29,8 @@ Widget harness(
   bool large = false,
   bool advance = false,
   bool mock = false,
+  bool plan = true,
+  HomeDoneNote? note,
 }) =>
     MaterialApp(
       theme: dark ? buildDarkTheme() : buildLightTheme(),
@@ -50,7 +53,11 @@ Widget harness(
               onLessons: () {},
               onReviews: () {},
               onNew: () {},
-              onPlan: () {},
+              onPlan: plan ? () {} : null,
+              doneNote: note,
+              examShortName: 'UPCAT',
+              mockSubtitle: 'UPCAT simulation',
+              mockDuration: '2 hr 45 min',
               onAdvance: () {},
               onMock: () {},
             ),
@@ -133,4 +140,46 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  testWidgets('without a plan route the link is not drawn', (tester) async {
+    await tester.pumpWidget(harness([lesson(0)], plan: false));
+    await tester.pumpAndSettle();
+    expect(find.text('TODAY'), findsOneWidget);
+    expect(find.text('View full plan'), findsNothing);
+  });
+  testWidgets('mock row leads with its simulation name and real duration',
+      (tester) async {
+    await tester.pumpWidget(harness([lesson(0)], mock: true));
+    await tester.pumpAndSettle();
+    expect(find.text('Mock exam'), findsOneWidget);
+    expect(find.text('UPCAT simulation'), findsOneWidget);
+    expect(find.text('2 hr 45 min'), findsOneWidget);
+  });
+  testWidgets('a finished review-only week closes without an advance offer',
+      (tester) async {
+    await tester.pumpWidget(
+      harness([], note: HomeDoneNote.reviewWeek),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text("That's all for today."), findsOneWidget);
+    expect(
+      find.text(
+        "This last week is reviews only, so there's nothing new to bring "
+        'forward.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('I Want to Advance'), findsNothing);
+  });
+  testWidgets('the last day names the exam', (tester) async {
+    await tester.pumpWidget(harness([], note: HomeDoneNote.lastDay));
+    await tester.pumpAndSettle();
+    expect(find.text('UPCAT is tomorrow. Rest well tonight.'), findsOneWidget);
+  });
+  testWidgets('a plain finished day shows only the closing title',
+      (tester) async {
+    await tester.pumpWidget(harness([], note: HomeDoneNote.plain));
+    await tester.pumpAndSettle();
+    expect(find.text("That's all for today."), findsOneWidget);
+    expect(find.textContaining('tomorrow'), findsNothing);
+  });
 }

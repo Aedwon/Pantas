@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
+import 'package:pantas/features/home/domain/home_today_view.dart';
 
 export 'package:pantas/features/home/domain/home_today_lesson.dart';
 
@@ -26,10 +27,13 @@ class HomeTodayChecklist extends StatelessWidget {
     required this.onLessons,
     required this.onReviews,
     required this.onNew,
-    required this.onPlan,
     required this.onAdvance,
     required this.onMock,
+    this.onPlan,
     this.mockSubtitle,
+    this.mockDuration,
+    this.doneNote,
+    this.examShortName = '',
     this.originalSummary,
     this.reviewSubtitle = 'Questions due today',
     this.advancing = false,
@@ -46,10 +50,15 @@ class HomeTodayChecklist extends StatelessWidget {
   final VoidCallback onLessons;
   final VoidCallback onReviews;
   final VoidCallback onNew;
-  final VoidCallback onPlan;
+  final VoidCallback? onPlan;
   final VoidCallback onAdvance;
   final VoidCallback onMock;
   final String? mockSubtitle;
+  final String? mockDuration;
+
+  /// The closing line when the day is finished and nothing can advance.
+  final HomeDoneNote? doneNote;
+  final String examShortName;
   final String? originalSummary;
   final String reviewSubtitle;
   final bool advancing;
@@ -66,24 +75,7 @@ class HomeTodayChecklist extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16, right: 8),
-          child: Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              Text('TODAY', style: context.type.sectionHeader),
-              TextButton(
-                onPressed: onPlan,
-                child: Text(
-                  'View full plan',
-                  style: context.type.subhead
-                      .copyWith(color: context.colors.accent),
-                ),
-              ),
-            ],
-          ),
-        ),
+        HomeTodayHeader(onPlan: onPlan),
         GroupedSection(
           children: [
             if (advanced) ...[
@@ -103,6 +95,9 @@ class HomeTodayChecklist extends StatelessWidget {
               ListRow(
                 title: 'Mock exam',
                 subtitle: mockSubtitle,
+                value: mockDuration,
+                valueStyle: context.type.subhead
+                    .copyWith(color: context.colors.secondaryLabel),
                 leading: const ProgressRing(fraction: 0),
                 onTap: onMock,
                 divider: true,
@@ -152,7 +147,7 @@ class HomeTodayChecklist extends StatelessWidget {
               ),
             if (canAdvance)
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -160,7 +155,7 @@ class HomeTodayChecklist extends StatelessWidget {
                       "That's all for today.",
                       style: context.type.emphasized,
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     Text(
                       advanced
                           ? 'Want to keep going? '
@@ -171,10 +166,9 @@ class HomeTodayChecklist extends StatelessWidget {
                               "Tomorrow's lesson and its new "
                               'questions move to today. '
                               'Stop whenever you like.',
-                      style: context.type.subhead
-                          .copyWith(color: context.colors.secondaryLabel),
+                      style: context.type.footnote.copyWith(height: 1.4),
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 8),
                     PantasButton(
                       label: 'I Want to Advance',
                       busy: advancing,
@@ -183,12 +177,38 @@ class HomeTodayChecklist extends StatelessWidget {
                     ),
                   ],
                 ),
+              )
+            else if (doneNote != null)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      "That's all for today.",
+                      style: context.type.emphasized,
+                    ),
+                    if (_doneDetail != null)
+                      Text(
+                        _doneDetail!,
+                        style: context.type.footnote.copyWith(height: 1.4),
+                      ),
+                  ],
+                ),
               ),
           ],
         ),
       ],
     );
   }
+
+  String? get _doneDetail => switch (doneNote) {
+        HomeDoneNote.reviewWeek => 'This last week is reviews only, so '
+            "there's nothing new to bring forward.",
+        HomeDoneNote.lastDay => '$examShortName is tomorrow. '
+            'Rest well tonight.',
+        HomeDoneNote.plain || null => null,
+      };
 
   Widget lessonRow(
     BuildContext context,
@@ -215,5 +235,34 @@ class HomeTodayChecklist extends StatelessWidget {
               ),
         onTap: () => onLesson(lesson),
         divider: true,
+      );
+}
+
+/// The TODAY label and, once the plan page exists, its link.
+class HomeTodayHeader extends StatelessWidget {
+  const HomeTodayHeader({this.onPlan, super.key});
+  final VoidCallback? onPlan;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(left: 16, right: 8),
+        child: Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            Text('TODAY', style: context.type.sectionHeader),
+            if (onPlan != null)
+              TextButton(
+                onPressed: onPlan,
+                child: Text(
+                  'View full plan',
+                  style: context.type.subhead
+                      .copyWith(color: context.colors.accent),
+                ),
+              )
+            else
+              const SizedBox(height: 44),
+          ],
+        ),
       );
 }
