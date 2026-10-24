@@ -97,6 +97,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Future<void> _load() async {
     final generation = ++_generation;
     final db = ref.read(appDatabaseProvider);
+    final telemetry = ref.read(telemetryProvider);
     final prefs = ref.read(appPreferencesRepositoryProvider);
     setState(() {
       _session = null;
@@ -144,7 +145,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       _questionClock
         ..reset()
         ..start();
-    } catch (error) {
+    } catch (error, stack) {
+      // An exam with no questions is a state, not a fault.
+      if (error is! NoAssessmentQuestionsError) {
+        unawaited(telemetry.recordError(error, stack));
+      }
       if (mounted && generation == _generation) {
         setState(() {
           _unavailable = error is NoAssessmentQuestionsError;

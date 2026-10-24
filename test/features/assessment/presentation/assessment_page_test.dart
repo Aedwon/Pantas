@@ -52,6 +52,14 @@ class _FailingAttempts extends AttemptsRepository {
   Future<Attempt?> byId(AttemptId id) => Future.error(StateError('attempts'));
 }
 
+class _FailingAssessments extends AssessmentRepository {
+  _FailingAssessments(super.db);
+
+  @override
+  Future<bool> hasCompletedForExam(ExamId examId) =>
+      Future.error(StateError('assessments'));
+}
+
 class _ErrorSink extends DisabledTelemetry {
   final errors = <Object>[];
   @override
@@ -508,5 +516,44 @@ void main() {
     expect(find.text('Results'), findsNothing);
     expect(find.text('Try Again'), findsOneWidget);
     expect(sink.errors, hasLength(1));
+  });
+
+  testWidgets('a failed start is reported and offers a retry', (tester) async {
+    final sink = _ErrorSink();
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [
+        ...databaseOverrides(),
+        telemetryProvider.overrideWithValue(sink),
+        assessmentRepositoryProvider.overrideWithValue(_FailingAssessments(db)),
+      ],
+    );
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    await tester.pumpAndSettle();
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(sink.errors, hasLength(1));
+  });
+
+  testWidgets('an exam with no questions is a state, not a reported error',
+      (tester) async {
+    await seedContentExam(
+      contentDb,
+      examId: 'empty',
+      code: 'ACET',
+      name: 'ACET',
+      ordering: 2,
+    );
+    final sink = _ErrorSink();
+    await tester.pumpAppWithRouter(
+      _buildRouter('empty'),
+      overrides: [
+        ...databaseOverrides(),
+        telemetryProvider.overrideWithValue(sink),
+      ],
+    );
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    await tester.pumpAndSettle();
+    expect(find.text("Assessment isn't ready yet"), findsOneWidget);
+    expect(sink.errors, isEmpty);
   });
 }
