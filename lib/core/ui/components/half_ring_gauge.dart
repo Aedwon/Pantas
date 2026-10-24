@@ -13,7 +13,8 @@ class HalfRingGauge extends StatefulWidget {
     this.overlayBuilder,
     this.decimalPlaces = 0,
     super.key,
-  })  : correct = null,
+  })  : assessment = false,
+        correct = null,
         total = null,
         mockSize = false,
         numberOpacity = 1,
@@ -33,7 +34,8 @@ class HalfRingGauge extends StatefulWidget {
     this.labelOpacity = 1,
     this.displayedFraction,
     super.key,
-  })  : correct = null,
+  })  : assessment = false,
+        correct = null,
         total = null,
         mockSize = true,
         decimalPlaces = 1,
@@ -42,6 +44,8 @@ class HalfRingGauge extends StatefulWidget {
   const HalfRingGauge.quizCount({
     required int correct,
     required int total,
+    this.assessment = false,
+    this.labelOpacity = 1,
     super.key,
   })  : assert(
           correct >= 0 && total >= correct,
@@ -55,9 +59,9 @@ class HalfRingGauge extends StatefulWidget {
         decimalPlaces = 0,
         mockSize = false,
         numberOpacity = 1,
-        labelOpacity = 1,
         displayedFraction = null;
 
+  final bool assessment;
   final int? correct;
   final int? total;
   final double numberOpacity;
@@ -107,9 +111,14 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 
   void animate(double begin, {double beginCount = 0}) {
     final quiz = widget.correct != null;
-    _controller.duration = Duration(milliseconds: quiz ? 1600 : 1400);
+    _controller.duration =
+        Duration(milliseconds: quiz ? (widget.assessment ? 1500 : 1600) : 1400);
     final curve = quiz
-        ? const Interval(.25, 1, curve: Cubic(.2, .8, .25, 1))
+        ? Interval(
+            widget.assessment ? 4 / 15 : .25,
+            1,
+            curve: const Cubic(.2, .8, .25, 1),
+          )
         : const Interval(3 / 14, 1, curve: PantasCurves.houseOut);
     _count = _controller.drive(
       Tween(begin: beginCount, end: (widget.correct ?? 0).toDouble())

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
+import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/quiz/data/report_queue.dart';
-import 'package:pantas/features/quiz/presentation/report_form.dart';
 
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';

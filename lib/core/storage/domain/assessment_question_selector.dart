@@ -11,7 +11,7 @@ import 'package:pantas/core/storage/domain/topic.dart';
 class AssessmentQuestionSelector {
   AssessmentQuestionSelector(this._content, this._reviewRepo);
 
-  static const _maxQuestions = 35;
+  static const _maxQuestions = 30;
 
   final ContentRepository _content;
   final ReviewStateRepository _reviewRepo;

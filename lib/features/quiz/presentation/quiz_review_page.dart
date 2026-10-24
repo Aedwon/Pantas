@@ -7,17 +7,17 @@ import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
-import 'package:pantas/features/quiz/data/report_queue.dart';
 import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
 import 'package:pantas/features/quiz/presentation/quiz_question_viewer.dart';
-import 'package:pantas/features/quiz/presentation/report_form.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
 
 typedef _LoadedReview = ({

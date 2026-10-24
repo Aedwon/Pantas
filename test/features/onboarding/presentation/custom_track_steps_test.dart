@@ -4,8 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/ink_checkbox.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
@@ -89,16 +88,16 @@ void main() {
       );
       await tester.pump();
 
-      var button = tester.widget<BoardButton>(
-        find.widgetWithText(BoardButton, 'Continue'),
+      var button = tester.widget<PantasButton>(
+        find.widgetWithText(PantasButton, 'Continue'),
       );
       expect(button.onPressed, isNull);
 
       await tester.enterText(find.byType(TextField), 'PUP CET');
       await tester.pump();
 
-      button = tester.widget<BoardButton>(
-        find.widgetWithText(BoardButton, 'Continue'),
+      button = tester.widget<PantasButton>(
+        find.widgetWithText(PantasButton, 'Continue'),
       );
       expect(button.onPressed, isNotNull);
     });
@@ -115,8 +114,8 @@ void main() {
       await tester.enterText(find.byType(TextField), '   ');
       await tester.pump();
 
-      final button = tester.widget<BoardButton>(
-        find.widgetWithText(BoardButton, 'Continue'),
+      final button = tester.widget<PantasButton>(
+        find.widgetWithText(PantasButton, 'Continue'),
       );
       expect(button.onPressed, isNull);
     });
@@ -146,52 +145,21 @@ void main() {
       expect(find.text('Science'), findsOneWidget);
     });
 
-    testWidgets('every subject arrives ticked', (tester) async {
+    testWidgets('every subject arrives unticked', (tester) async {
       await pumpSubjectsStep(tester);
 
-      final checkboxFinder = find.byWidgetPredicate((w) => w is InkCheckbox);
-      final checkboxes = tester.widgetList<InkCheckbox>(checkboxFinder);
-      expect(checkboxes.length, equals(2));
-      for (final cb in checkboxes) {
-        expect(cb.state, equals(InkCheckState.on));
-      }
-    });
-
-    testWidgets('unticking everything is allowed and creates a track',
-        (tester) async {
-      await pumpSubjectsStep(tester);
-
-      // Untick Mathematics
-      await tester.tap(find.text('Mathematics'));
-      await tester.pump();
-
-      // Untick Science
-      await tester.tap(find.text('Science'));
-      await tester.pump();
-
-      final button = tester.widget<BoardButton>(
-        find.widgetWithText(BoardButton, 'Continue'),
-      );
-      expect(button.onPressed, isNotNull);
-
-      await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
-      await tester.pumpAndSettle();
-
-      final exams = await contentDb.select(contentDb.contentExams).get();
-      final custom = exams.where((e) => e.isCustom).firstOrNull;
-      expect(custom, isNotNull);
-      expect(custom!.name, equals('PUP CET'));
-
-      // All topics should be excluded since none were included
-      final exclusions = await db.select(db.trackScopeLocal).get();
-      expect(exclusions.length, equals(3));
+      final button = tester
+          .widget<PantasButton>(find.widgetWithText(PantasButton, 'Continue'));
+      expect(button.onPressed, isNull);
     });
 
     testWidgets('continuing creates the track and sets active exam',
         (tester) async {
       await pumpSubjectsStep(tester);
 
-      await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+      await tester.tap(find.text('Mathematics'));
+      await tester.pump();
+      await tester.tap(find.widgetWithText(PantasButton, 'Continue'));
       await tester.pumpAndSettle();
 
       final exams = await contentDb.select(contentDb.contentExams).get();

@@ -1,46 +1,62 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/components/value_wheel.dart';
+import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
 class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   const OnboardingAgeGateStep({
     required this.onAgeGatePassed,
     required this.currentYear,
+    this.onBack,
     super.key,
   });
-
   final VoidCallback onAgeGatePassed;
+  final VoidCallback? onBack;
   final int currentYear;
-
   @override
   ConsumerState<OnboardingAgeGateStep> createState() =>
       _OnboardingAgeGateStepState();
 }
 
 class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
-  static const _minAge = 13;
-  late final int _minYear = widget.currentYear - 100;
-  late final int _maxYear = widget.currentYear;
-  late final int _defaultYear = widget.currentYear - 18;
-  late int _selectedYear = _defaultYear;
-  bool _yearSelected = false;
+  late final List<int> _years =
+      List.generate(101, (i) => widget.currentYear - 100 + i);
+  late int _selectedYear = widget.currentYear - 14;
   bool _blocked = false;
+  bool _returning = false;
   bool _saving = false;
+  bool _failed = false;
 
-  Future<void> _onContinue() async {
-    final cutoff = widget.currentYear - _minAge;
-    if (_selectedYear > cutoff) {
+  Future<void> _continue() async {
+    if (_saving) return;
+    if (_selectedYear > widget.currentYear - 13) {
       setState(() => _blocked = true);
       return;
     }
-    setState(() => _saving = true);
+    final telemetry = ref.read(telemetryProvider);
+    setState(() {
+      _saving = true;
+      _failed = false;
+    });
     try {
-      final repo = ref.read(appPreferencesRepositoryProvider);
-      await repo.setPassedAgeGate(value: true);
+      await ref
+          .read(appPreferencesRepositoryProvider)
+          .setPassedAgeGate(value: true);
       ref.invalidate(appPreferencesRepositoryProvider);
-      widget.onAgeGatePassed();
+      if (mounted) widget.onAgeGatePassed();
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -48,77 +64,77 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
 
   @override
   Widget build(BuildContext context) {
-    if (_blocked) return _buildBlocked(context);
-    return _buildInput(context);
-  }
-
-  Widget _buildInput(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-    final years = List<int>.generate(
-      _maxYear - _minYear + 1,
-      (i) => _minYear + i,
+    final back = widget.onBack ?? () => Navigator.of(context).maybePop();
+    if (_blocked) {
+      final page = PantasPage.onboarding(
+        title: '',
+        onBack: back,
+        centerBody: true,
+        surfaceBackground: true,
+        bottom: PantasButton(
+          label: 'Try a Different Year',
+          onPressed: () => setState(() {
+            _blocked = false;
+            _returning = true;
+          }),
+        ),
+        children: const [
+          StateView.onboardingBlocked(
+            message: "Pantas isn't available yet",
+            detail: "Sorry, this app isn't available for users under 13.",
+            icon: OnboardingLogo(size: 72),
+          ),
+        ],
+      );
+      return PantasEffects.fade(
+        duration: const Duration(milliseconds: 300),
+        builder: (_, progress, child) => IgnorePointer(
+          ignoring: progress == 0,
+          child: ExcludeFocus(excluding: progress == 0, child: child!),
+        ),
+        child: page,
+      );
+    }
+    final page = PantasPage.onboarding(
+      title: 'When were you born?',
+      detail: 'We only ask this once and never keep it.',
+      progress: 1,
+      onBack: back,
+      bottom: PantasButton(
+        label: 'Continue',
+        onPressed: _saving ? null : _continue,
+        busy: _saving,
+      ),
+      children: [
+        Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: context.colors.surface,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: ValueWheel.birthYear(
+            values: [for (final year in _years) '$year'],
+            selectedIndex: _years.indexOf(_selectedYear),
+            label: 'Birth year',
+            onSelected: (index) =>
+                setState(() => _selectedYear = _years[index]),
+          ),
+        ),
+        if (_failed) saveFailureLine(_continue),
+      ],
     );
-    final initialIndex = years.indexOf(_defaultYear);
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 24),
-            Text('Quick check', style: styles.displaySmall),
-            const SizedBox(height: 10),
-            Text(
-              'When were you born?',
-              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
-            ),
-            const SizedBox(height: 24),
-            Expanded(
-              child: CupertinoPicker.builder(
-                itemExtent: 32,
-                scrollController:
-                    FixedExtentScrollController(initialItem: initialIndex),
-                onSelectedItemChanged: (i) => setState(() {
-                  _selectedYear = years[i];
-                  _yearSelected = true;
-                }),
-                childCount: years.length,
-                itemBuilder: (context, i) => Center(child: Text('${years[i]}')),
+    return _returning
+        ? KeyedSubtree(
+            key: const ValueKey('age-return-motion'),
+            child: PantasEffects.push(
+              duration: const Duration(milliseconds: 380),
+              builder: (_, progress, child) => IgnorePointer(
+                ignoring: progress == 0,
+                child: ExcludeFocus(excluding: progress == 0, child: child!),
               ),
+              child: page,
             ),
-            BoardButton(
-              label: 'Continue',
-              onPressed: (_saving || !_yearSelected) ? null : _onContinue,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBlocked(BuildContext context) {
-    final styles = context.textStyles;
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Sorry, this app isn't available for users under 13.",
-              style: styles.headlineMedium,
-            ),
-            const SizedBox(height: 24),
-            BoardButton(
-              label: 'Try a different year',
-              secondary: true,
-              onPressed: () => setState(() => _blocked = false),
-            ),
-          ],
-        ),
-      ),
-    );
+          )
+        : page;
   }
 }

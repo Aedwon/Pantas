@@ -68,7 +68,7 @@ void main() {
     expect(rebalanceGateway.dates, [DateTime(2026, 9, 14)]);
   });
 
-  test('saving today exam date rejects without writing', () async {
+  test('saving yesterday exam date rejects without writing', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final container = ProviderContainer(
@@ -78,7 +78,7 @@ void main() {
 
     await expectLater(
       container.read(settingsActionsProvider).saveExamDate(
-            ExamDate.onDay(DateTime(2026, 5, 22)),
+            ExamDate.onDay(DateTime(2026, 5, 21)),
             today: DateTime(2026, 5, 22),
           ),
       throwsA(isA<InvalidExamDateException>()),
