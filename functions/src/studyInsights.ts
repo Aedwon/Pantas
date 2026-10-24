@@ -26,7 +26,7 @@ type PerformanceRow=Count&{id:string;title:string;parentId:string};
 type Performance={overall:Count;subjects:(Count&{id:string;title:string;topicCount:number})[];
  lessonLevelAvailable:boolean;topics:PerformanceRow[];lessons:PerformanceRow[];
  topicDetails:(Count&{id:string;title:string;subject:string;lessons:{id:string;title:string;read:boolean}[]})[]};
-type Finding={confidence:'early'|'forming'|'clear';value:Record<string,number>|null};
+type Finding={unmetRequirements:string[];confidence:'early'|'forming'|'clear';value:Record<string,number>|null};
 type Insights={profile:{id:string}|null;tendencies:Record<'pressure'|'stamina'|'study'|'speed'|'memory',Finding>;
  whenYouWork:{peakHour:number;averageMinutes:number;sessionCount:number}|null};
 const bad=(message:string)=>new HttpsError('invalid-argument',message);
@@ -66,7 +66,7 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   ]);
   if(settings.exists&&settings.get('examId')!==examId)throw new HttpsError('failed-precondition','Your exam changed. Open this screen again.');
   const pro=access.coversExam(examId),topicOf=new Map(content.topics.map(t=>[t.id,t]));
-  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),'topic-details-v2-inline-sessions']);
+  const sourceRevision=JSON.stringify([examId,content.revision,totalDoc.get('sessions')??0,observationRevision.get('value')??0,phDay(now),'topic-details-v3-unmet-requirements']);
   const response=(derived:Insights,performance:Performance,revision:string)=>{
    const {topics,lessons,topicDetails,...visible}=performance;
    return{examId:examId,serverNow:now,accessRecheckAt:access.recheckAt,proCovered:pro,revision,trialEndsAt,

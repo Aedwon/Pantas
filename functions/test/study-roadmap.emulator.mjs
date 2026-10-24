@@ -338,3 +338,12 @@ test('inline lesson quizzes count toward native session evidence and working hou
  assert.equal(result.whenYouWork?.sessionCount,14);
  assert.equal(result.whenYouWork?.averageMinutes,10);
 });
+
+test('week strip past study days without stored plans are missed while rest days stay rest',async()=>{
+ const uid='w4b-missing-past';await seed(uid);
+ await db.doc('users/'+uid+'/server/settings').update({studyDays:[1,2,3,4,5,6]});
+ const view=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.equal(view.weekDays.find(d=>d.day==='2026-10-23').state,'missed');
+ assert.equal(view.weekDays.find(d=>d.day==='2026-10-18').state,'rest');
+ assert.equal((await readStudyDay(auth(uid),{...body(uid),date:'2026-10-23'},deps())).kind,'unknown');
+});

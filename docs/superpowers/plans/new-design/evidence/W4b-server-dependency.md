@@ -211,3 +211,235 @@ Functions emulator tests, same npm test globs on isolated ports
 Dart SDK reports 3.12.2 stable on macos_arm64. The prior 313 Dart tests and bridge
 freshness check remain applicable to the unchanged Dart/JS inputs. No source
 changed after this runtime verification. All 19 status entries remain uncommitted.
+
+## October 25 independent audit fixes
+
+Policy read from existing origin/main
+`1a5089e0203af65b02dc03f3ac8d466770e07f11`; execution HEAD
+`c0bdae14c8cccdeaed564eb027ac21cd41c3949e`, initially clean. Explicit user
+instruction prohibited fetch/pull and commits. No dependency, deployment,
+commit, push, merge, native schema, or shared pure-library change occurred.
+
+- Audit 7: each paid tendency finding now supplies `unmetRequirements` tokens
+  based only on actual server observation counts. Pressure uses practice/mock;
+  speed correct/incorrect; study lesson/practice/matchedTopic; stamina mock;
+  memory reviews. Empty means the observation prerequisites exist, independently
+  of confidence. Values remain hidden until clear and all fields remain paid.
+  Derived cache source revision invalidates prior cached shapes. Client maps
+  these tokens to existing approved copy.
+- Audit 10: explicit October 25 ruling changes missing stored past-day week-strip
+  status to missed for configured study days, rest otherwise. No historical plan
+  or quota is invented; direct missing day detail remains unknown.
+- Future lesson-read observations are filtered out before workflow aggregation.
+  Native shared aggregation, thresholds and profile rules remain unchanged.
+
+Test-first evidence:
+- Core requirements regression failed with actual undefined versus expected
+  ['practice','mock'] before addition.
+- Future lesson regression was rerun after requirement addition and failed with
+  actual [] versus expected ['lesson']. Filtering future reads made it pass.
+- Real emulator week-strip regression failed with actual unknown versus missed
+  before the server mapping change. Rest and direct unknown detail are asserted.
+- Focused core suite after fixes: tests 6, pass 6, fail 0. VM/JS fixture comparison
+  includes the actual new requirements for sparse and populated scenarios.
+
+Final verification results follow below. Default Firestore port8080 was occupied;
+no foreign process was stopped. Emulator fallback uses an ignored temporary
+config with unchanged rules/index paths and isolated auth29099/firestore28080/
+storage29199 ports. Runtime is installed Node22 with Java21, disposable
+XDG_CONFIG_HOME and NO_UPDATE_NOTIFIER=1. No credentials or global settings moved.
+
+Backend summaries (actual output, Node22/Java21):
+
+```text
+cd functions && npx tsc --noEmit
+exit 0
+
+PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+# tests 183
+# pass 183
+# fail 0
+Error: Could not start Firestore Emulator, port taken.
+
+Equivalent full emulator test globs with isolated temporary config
+# tests 235
+# pass 235
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+Script exited successfully (code 0)
+
+server_dart/build.sh --check
+generated JS is current
+```
+
+Logs live in ignored `build/w4b-audit/`. As directed by the lead, shared archetype
+catalog/templates were copied byte-for-byte from the client after observing two
+parity differences. Both differences were formatting only. The bridge was rebuilt
+and rechecked; no output behavior changed. Focused core comparisons reran green
+and archetype Flutter tests reran after parity correction. This formatting-only
+change does not invalidate the backend behavior evidence above.
+
+```text
+flutter test test/features/metrics/archetypes
+00:00 +32: All tests passed!
+
+Shared source comparison (signals, roadmap/domain, archetypes)
+Shared files compared: 34 differences: []
+```
+
+### October 25 Deep Thinker correction
+
+Current user ruling explicitly requires slow overall (>12,000 ms) and correct
+answers slower than incorrect answers. Audit found prior source actually checked
+correct-answer majority. A regression with average12,001/correct16,000/
+incorrect11,000 ms and correct2/incorrect8 failed with score0 before correction.
+The catalog now compares the two actual time averages and requires observations
+on both sides. Existing overall boundary and matching score remain unchanged.
+Regression also covers equal/shorter correct times and absent sides. Shared
+catalog and regression were copied to the client and remain identical.
+
+```text
+flutter test test/features/metrics/archetypes
+00:00 +32: All tests passed!
+server_dart/build.sh --check
+generated JS is current
+```
+
+The bridge was rebuilt and VM fixtures regenerated. Full backend checks and
+post-correction metrics checks follow; earlier results are superseded for the
+changed profile behavior. Original combined metrics/roadmap run remains active
+on the long200-seed coverage property test, with312 passes observed so far.
+
+```text
+Post-correction: flutter test test/features/metrics
+00:04 +104: All tests passed!
+
+Post-correction: cd functions && npx tsc --noEmit
+exit 0
+
+Post-correction: Functions full plain glob
+# tests 183
+# pass 183
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+
+Changed Dart format check
+Formatted 4 files (0 changed) in 0.01 seconds.
+```
+
+```text
+flutter test test/features/metrics test/features/roadmap
+00:52 +312: /Users/aedwon/Documents/Projects/Pantas-wt-w4b-server-dependency/test/features/roadmap/domain/coverage_property_test.dart: following the plan covers everything before review-only days
+03:42 +313: All tests passed!
+```
+
+This full run started before the profile condition correction; the post-correction
+104-test metrics run above covers that changed shared behavior. Roadmap inputs
+were unchanged throughout the full run. No test failure occurred.
+
+```text
+Post-correction: full emulator globs, isolated unchanged-rule configuration
+# tests 235
+# pass 235
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+Script exited successfully (code 0)
+
+Final bridge check
+generated JS is current
+
+git diff --check
+exit 0
+
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b-server-dependency.md
+ M functions/src/generated/pantas_core.js
+ M functions/src/roadmap.ts
+ M functions/src/studyInsights.ts
+ M functions/test/study-insights-core.test.mjs
+ M functions/test/study-roadmap.emulator.mjs
+ M lib/features/metrics/archetypes/archetype_catalog.dart
+ M lib/features/metrics/archetypes/archetype_templates.dart
+ M server_dart/fixtures/insights_expected.json
+ M server_dart/insights_codec.dart
+ M test/features/metrics/archetypes/archetype_identity_test.dart
+```
+
+No open server product decision. Independent review and combined client acceptance
+belong to the lead. No deployed callable, phone, browser or visual acceptance is
+claimed. All edits remain uncommitted.
+
+
+## October 25 audit resume after usage limit: repeated final checks
+
+Policy remained existing origin/main 1a5089e0203af65b02dc03f3ac8d466770e07f11.
+HEAD remained c0bdae14c8cccdeaed564eb027ac21cd41c3949e. Supplied dirty patch
+retained. No fetch, pull, commit, merge, push, deployment or dependency addition.
+No source from this worktree was merged into the client.
+
+Client lint cleanup shortened one archetype comment. The catalog was copied
+byte-for-byte here and the bridge rebuilt, then checked current. This is a
+comment-only source input correction. Executable profile behavior is unchanged.
+All 40 shared existing Dart files in metrics/signals, metrics/domain,
+roadmap/domain and archetypes match the client byte-for-byte.
+
+Actual repeated results, installed Node22 and Java21 for npm:
+
+```text
+cd functions && PATH=/opt/homebrew/opt/node@22/bin:$PATH npx tsc --noEmit
+exit 0
+
+PATH=/opt/homebrew/opt/node@22/bin:/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+# tests 183
+# pass 183
+# fail 0
+Error: Could not start Firestore Emulator, port taken.
+
+Equivalent complete emulator globs, isolated temporary config
+# tests 235
+# pass 235
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+Script exited successfully (code 0)
+
+flutter test test/features/metrics test/features/roadmap
+04:50 +313: All tests passed!
+
+server_dart/build.sh --check
+generated JS is current
+```
+
+No foreign emulator process was stopped. The ignored /tmp/w4b-resume-firebase.json
+config resolves unchanged real rule/index paths and uses auth29099/firestore28080/
+storage29199, isolated hub/logging ports and no emulator UI. Disposable
+XDG_CONFIG_HOME and NO_UPDATE_NOTIFIER=1 avoid the known CLI config-write issue.
+Exact npm command failed at occupied default8080; equivalent isolated execution
+is reported separately. No live backend, phone, browser or visual acceptance.
+
+Logs copied into ignored build/w4b-audit-resume. Source/test manifest excludes
+this evidence file to avoid a circular hash. Manifest SHA-256: `0e59607a59304c5022d277d036fd337ca0a46c7935944ef21cf1500da0f3246d`.
+No open server product decision. Lead review and integration remain separate.
+All edits remain uncommitted.
+
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b-server-dependency.md
+ M functions/src/generated/pantas_core.js
+ M functions/src/roadmap.ts
+ M functions/src/studyInsights.ts
+ M functions/test/study-insights-core.test.mjs
+ M functions/test/study-roadmap.emulator.mjs
+ M lib/features/metrics/archetypes/archetype_catalog.dart
+ M lib/features/metrics/archetypes/archetype_templates.dart
+ M server_dart/fixtures/insights_expected.json
+ M server_dart/insights_codec.dart
+ M test/features/metrics/archetypes/archetype_identity_test.dart
+```

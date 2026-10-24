@@ -323,7 +323,10 @@ function publicToday(context: Awaited<ReturnType<typeof studyContext>>, state: S
     if (day > context.today) return {day, state: 'unknown'};
     if (day === context.today) return {day, state: 'today', plan: state.today, remaining: state.remaining};
     const stored = context.previousDays.docs.find(d => d.get('day') === day);
-    if (!stored) return {day, state: 'unknown'};
+    if (!stored) {
+      const weekday = new Date(day + 'T00:00:00Z').getUTCDay() || 7;
+      return {day, state: context.config.studyDays.includes(weekday) ? 'missed' : 'rest'};
+    }
     const masked = completedOn(context.totals, day);
     // A day of this week is always within the mask; if it ever is not, say unknown rather than guess.
     if (!masked.covered) return {day, state: 'unknown'};

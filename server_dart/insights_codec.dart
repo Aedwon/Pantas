@@ -36,7 +36,8 @@ Row studyInsightsFromJson(Row input) {
       _rows(input['attempts']).where((r) => r['examId'] == examId).toList();
   final mocks =
       _rows(input['mocks']).where((r) => r['examId'] == examId).toList();
-  final lessons = _rows(input['lessons']);
+  final lessons =
+      _rows(input['lessons']).where((row) => _by(row, 'readAt', now)).toList();
   final reviews = _rows(input['reviews']);
   final count = sessions.where((r) => _by(r, 'finishedAt', now)).length +
       mocks
@@ -196,7 +197,9 @@ Row studyInsightsFromJson(Row input) {
   };
   // Coverage is allTime-only natively and must not enter a prepWindow profile.
   final profile = const ArchetypeResolver().resolve(archetypeCatalog, signals);
-  Row finding(TendencyConfidence confidence, Row? value) => {
+  Row finding(TendencyConfidence confidence, Row? value, List<String> unmet) =>
+      {
+        'unmetRequirements': unmet,
         'confidence': confidence.name,
         'value': confidence == TendencyConfidence.clear ? value : null,
       };
@@ -229,6 +232,10 @@ Row studyInsightsFromJson(Row input) {
                 'mockCorrect': pressure.mockCorrect,
                 'mockTotal': pressure.mockTotal,
               },
+        [
+          if (pressure == null || pressure.practiceTotal == 0) 'practice',
+          if (pressure == null || pressure.mockTotal == 0) 'mock'
+        ],
       ),
       'stamina': finding(
         staminaConfidence,
@@ -242,6 +249,7 @@ Row studyInsightsFromJson(Row input) {
                 'secondHalfCorrect': stamina.secondHalfCorrect,
                 'secondHalfTotal': stamina.secondHalfTotal,
               },
+        [if (stamina == null) 'mock'],
       ),
       'study': finding(
         studyConfidence,
@@ -253,6 +261,15 @@ Row studyInsightsFromJson(Row input) {
                 'readLessonCount': workflow.readLessonCount,
                 'practicedTopicCount': workflow.practicedTopicCount,
               },
+        [
+          if (workflow == null || workflow.readLessonCount == 0) 'lesson',
+          if (workflow == null || workflow.practicedTopicCount == 0) 'practice',
+          if (workflow != null &&
+              workflow.readLessonCount > 0 &&
+              workflow.practicedTopicCount > 0 &&
+              workflow.readThenQuizCount + workflow.quizFirstCount == 0)
+            'matchedTopic'
+        ],
       ),
       'speed': finding(
         speedConfidence,
@@ -270,6 +287,10 @@ Row studyInsightsFromJson(Row input) {
                 'correctLogVariance': speed.correctLogVariance,
                 'incorrectLogVariance': speed.incorrectLogVariance,
               },
+        [
+          if (speed == null || speed.correctCount == 0) 'correct',
+          if (speed == null || speed.incorrectCount == 0) 'incorrect'
+        ],
       ),
       'memory': finding(
         memoryConfidence,
@@ -281,6 +302,7 @@ Row studyInsightsFromJson(Row input) {
                 'lapseCount': memory.lapseCount,
                 'reviewCount': memory.reviewCount,
               },
+        [if (memory == null || memory.reviewCount == 0) 'reviews'],
       ),
     },
     'whenYouWork': hours == null || duration == null || hours.buckets.isEmpty
