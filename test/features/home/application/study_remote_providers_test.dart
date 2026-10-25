@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -18,6 +19,51 @@ import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  test(
+      'explicit settings send lesson exclusions beside topics '
+      'for the original owner', () async {
+    final db = inMemoryDatabase();
+    final content = inMemoryContentDatabase();
+    addTearDown(db.close);
+    addTearDown(content.close);
+    await SyncActiveContextStore(db).clearStable();
+    await AppPreferencesRepository(db).setSelectedExamId('e');
+    final sent = Completer<Map<String, Object?>>();
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(content),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'original')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+        studyApiProvider.overrideWithValue(
+          StudyApi((name, data) async {
+            if (name == 'setExamSettings') sent.complete(data);
+            return <String, Object?>{};
+          }),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
+    final captured =
+        await container.read(studySettingsCaptureProvider)(examId: 'e');
+    await captured.apply(
+      () => container
+          .read(customTrackRepositoryProvider)
+          .setExcluded(examId: 'e', topicIds: {'t'}, lessonIds: {'l2', 'l1'}),
+    );
+    final payload = await sent.future;
+    expect(payload['expectedUid'], 'original');
+    expect(payload['examId'], 'e');
+    expect(payload['excludedTopicIds'], ['t']);
+    expect(payload['excludedLessonIds'], ['l1', 'l2']);
+  });
+
   test('native delivery sends stored observations without opening a web page',
       () async {
     final db = inMemoryDatabase();

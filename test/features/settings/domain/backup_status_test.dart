@@ -9,7 +9,7 @@ void main() {
       syncStatus: const SyncIdle(),
     );
 
-    expect(status.headline, "Your progress isn't backed up");
+    expect(status.headline, 'Your progress isn’t backed up');
     expect(status.actionLabel, 'Sign in with Google');
   });
 
@@ -42,7 +42,7 @@ void main() {
       syncStatus: SyncFailedSince(since: DateTime.utc(2026, 5, 22)),
     );
 
-    expect(status.headline, "Couldn't back up");
+    expect(status.headline, 'Couldn’t back up');
     expect(status.actionLabel, 'Try again');
   });
 }

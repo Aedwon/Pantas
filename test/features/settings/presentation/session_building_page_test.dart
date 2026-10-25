@@ -23,16 +23,16 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Blocked'), findsOneWidget);
-    expect(find.text('Every question from the chosen topic'), findsOneWidget);
+    expect(find.text('One topic only'), findsOneWidget);
+    expect(find.text('Grouped by topic, one topic at a time.'), findsOneWidget);
     expect(find.text('Interleaved tail'), findsOneWidget);
     expect(
-      find.text('Seven from the topic, three from elsewhere'),
+      find.text('Mostly one topic, some others.'),
       findsOneWidget,
     );
     expect(find.text('Fully mixed'), findsOneWidget);
     expect(
-      find.text('No two consecutive questions from the same topic'),
+      find.text('No two in a row from the same topic.'),
       findsOneWidget,
     );
   });
@@ -68,7 +68,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    for (final label in ['Blocked', 'Interleaved tail', 'Fully mixed']) {
+    for (final label in ['One topic only', 'Interleaved tail', 'Fully mixed']) {
       final control = find.bySemanticsLabel(RegExp('^$label'));
       expect(control, findsOneWidget);
       final semantics = tester.getSemantics(control);

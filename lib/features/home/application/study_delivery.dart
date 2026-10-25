@@ -67,6 +67,9 @@ final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
         final scope = await ref
             .read(customTrackRepositoryProvider)
             .excludedTopicIds(request.examId);
+        final lessons = await ref
+            .read(customTrackRepositoryProvider)
+            .excludedLessonIds(request.examId);
         final assessed = await ref
             .read(assessmentRepositoryProvider)
             .hasCompletedForExam(request.examId);
@@ -87,6 +90,7 @@ final studySettingsCaptureProvider = Provider<StudySettingsCapture>((ref) {
                     },
           'studyDays': settings.studyDays.weekdays.toList()..sort(),
           'excludedTopicIds': scope.toList()..sort(),
+          'excludedLessonIds': lessons.toList()..sort(),
           'assessmentCompleted': assessed,
         };
         unawaited(

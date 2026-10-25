@@ -15,6 +15,7 @@ class CenteredDialog extends StatelessWidget {
     this.destructive = false,
     this.inlineActions = false,
     this.content,
+    this.allowEscape = true,
     super.key,
   });
   final String title;
@@ -26,6 +27,7 @@ class CenteredDialog extends StatelessWidget {
   final bool destructive;
   final bool inlineActions;
   final Widget? content;
+  final bool allowEscape;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -60,7 +62,10 @@ class CenteredDialog extends StatelessWidget {
           ),
         );
     return CallbackShortcuts(
-      bindings: {const SingleActivator(LogicalKeyboardKey.escape): onCancel},
+      bindings: {
+        if (allowEscape)
+          const SingleActivator(LogicalKeyboardKey.escape): onCancel,
+      },
       child: Dialog(
         backgroundColor: context.colors.transparent,
         elevation: 0,

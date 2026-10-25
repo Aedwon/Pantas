@@ -1,55 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
 
 import '../../../helpers/pump_app.dart';
 
 void main() {
-  testWidgets(
-      'privacy page renders title update date DPO contact and delete deep link',
+  testWidgets('privacy is a plain reading page with no account controls',
       (tester) async {
-    var location = '/legal/privacy';
-    final router = GoRouter(
-      initialLocation: location,
-      routes: [
-        GoRoute(
-          path: '/legal/:doc',
-          builder: (_, state) => LegalDocumentPage(
-            documentId: state.pathParameters['doc']!,
-            contact: defaultLegalContact,
-          ),
-        ),
-        GoRoute(
-          path: '/settings/account',
-          builder: (_, __) => const Scaffold(body: Text('Account destination')),
-        ),
-      ],
-      redirect: (_, state) {
-        location = state.uri.toString();
-        return null;
-      },
+    await tester.pumpApp(
+      const LegalDocumentPage(
+        documentId: 'privacy',
+        contact: defaultLegalContact,
+      ),
     );
-
-    await tester.pumpAppWithRouter(router);
-
-    expect(find.text('Privacy Policy'), findsWidgets);
-    expect(find.textContaining('Updated May 23, 2026'), findsOneWidget);
-
-    await tester.drag(find.byType(ListView), const Offset(0, -500));
-    await tester.pumpAndSettle();
-
-    expect(find.text(defaultLegalContact.dpoEmail), findsOneWidget);
-    // There is no postal address. Aedwon has no office, and a placeholder
-    // printed under a privacy policy is worse than none.
-    expect(find.textContaining('Metro Manila'), findsNothing);
-
-    await tester.tap(find.text('Manage account data'));
-    await tester.pumpAndSettle();
-
-    expect(location, '/settings/account');
-    expect(find.text('Account destination'), findsOneWidget);
+    expect(find.text('Privacy policy'), findsOneWidget);
+    expect(find.text('Manage account data'), findsNothing);
+    expect(find.text('Data Protection Officer'), findsNothing);
   });
 
   testWidgets('terms page renders terms sections', (tester) async {

@@ -9,7 +9,7 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/back_chevron.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
@@ -167,18 +167,18 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Settings'), findsWidgets);
-    expect(find.text('How you practice'), findsOneWidget);
-    expect(find.byType(SettingsBar), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
+    expect(find.byType(PantasPage), findsOneWidget);
     expect(
       find.ancestor(
-        of: find.byType(SettingsBar),
+        of: find.byType(PantasPage),
         matching: find.byType(AppShell),
       ),
       findsOneWidget,
     );
     expect(
       find.descendant(
-        of: find.byType(SettingsBar),
+        of: find.byType(PantasPage),
         matching: find.byType(BackChevron),
       ),
       findsNothing,
@@ -191,7 +191,7 @@ void main() {
       router.routerDelegate.currentConfiguration.uri.toString(),
       '/settings',
     );
-    expect(find.text('How you practice'), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
   });
 
   testWidgets('settings detail routes build', (tester) async {
@@ -206,7 +206,7 @@ void main() {
 
     router.go('/settings/account');
     await tester.pumpAndSettle();
-    expect(find.text('Account'), findsWidgets);
+    expect(find.text('Pantas ID'), findsOneWidget);
 
     router.go('/settings/backup');
     await tester.pumpAndSettle();
@@ -214,13 +214,13 @@ void main() {
 
     router.go('/settings/about');
     await tester.pumpAndSettle();
-    expect(find.text('About'), findsWidgets);
+    expect(find.text('Pantas'), findsOneWidget);
 
     // The old path is kept as a redirect, so a link from an older build still
     // lands somewhere real. The page itself is now named Pro.
     router.go('/settings/subscription');
     await tester.pumpAndSettle();
-    expect(find.text('Pro'), findsWidgets);
+    expect(find.text('PANTAS PRO'), findsOneWidget);
   });
 
   testWidgets('/legal/privacy route builds real legal page', (tester) async {
@@ -236,8 +236,8 @@ void main() {
     router.go('/legal/privacy');
     await tester.pumpAndSettle();
 
-    expect(find.text('Privacy Policy'), findsWidgets);
-    expect(find.textContaining('RA 10173'), findsWidgets);
+    expect(find.text('Privacy policy'), findsWidgets);
+    expect(find.text('Your rights'), findsOneWidget);
     expect(find.textContaining('Legal: privacy'), findsNothing);
   });
 

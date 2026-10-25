@@ -20,11 +20,14 @@ import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/pass_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
-import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
+
+export 'package:pantas/core/content/data/exam_catalog_repository.dart'
+    show ExamCatalogEntry;
 
 final revenueCatConfigProvider = Provider<RevenueCatConfig>(
   (ref) => RevenueCatConfig.fromEnvironment(),
@@ -80,10 +83,25 @@ final trustedClockProvider = Provider<TrustedClock>((ref) {
   );
 });
 
+/// True when payments go through PayMongo and the server grant ledger.
+/// A provider so tests can choose, because `kIsWeb` is fixed per platform.
+final paymentsOnWebProvider = Provider<bool>((ref) => kIsWeb);
+
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
   final config = ref.watch(revenueCatConfigProvider);
   final entitlementState = ref.watch(paymentEntitlementStateProvider);
   final clock = ref.watch(trustedClockProvider);
+  if (ref.watch(paymentsOnWebProvider)) {
+    final gateway = WebPaymentGateway(
+      callable: callFirebaseFunction,
+      readGrants: readGrantsFromFirestore,
+      refreshClaims: refreshPaymentClaimToken,
+      openUrl: openInThisTab,
+      entitlementState: entitlementState,
+    );
+    ref.onDispose(() => unawaited(gateway.clearIdentity()));
+    return gateway;
+  }
   if (!config.isEnabled) {
     return DisabledRevenueCatGateway(entitlementState, clock);
   }
@@ -124,9 +142,17 @@ final entitlementProvider = StreamProvider<Entitlement>((ref) {
       .startWith(cached);
 });
 
+// The target-exam upgrade needs the full catalog, before changing focus.
+// An account change must refresh account-specific trial eligibility.
+final unfilteredPaywallOfferingProvider =
+    FutureProvider<PaywallOfferingResult>((ref) async {
+  await ref.watch(authStateProvider.future);
+  return ref.watch(revenueCatGatewayProvider).currentOffering();
+});
+
 final paywallOfferingProvider =
     FutureProvider<PaywallOfferingResult>((ref) async {
-  final offering = await ref.watch(revenueCatGatewayProvider).currentOffering();
+  final offering = await ref.watch(unfilteredPaywallOfferingProvider.future);
   if (offering.passPackages.isEmpty) return offering;
   final focus = await ref.watch(activeExamFocusProvider.future);
   final catalog =
@@ -170,7 +196,8 @@ final proForActiveExamProvider = FutureProvider<bool>((ref) async {
 
 final paywallPackagesProvider = FutureProvider((ref) async {
   final offering = await ref.watch(paywallOfferingProvider.future);
-  return paywallDisplayOrder(offering.recognizedPackages);
+  return [...offering.recognizedPackages]
+    ..sort((a, b) => a.sku.index.compareTo(b.sku.index));
 });
 
 final paywallControllerProvider = Provider<PaywallController>((ref) {
@@ -186,3 +213,24 @@ extension _StartWith<T> on Stream<T> {
     yield* this;
   }
 }
+
+final activeProCatalogEntryProvider =
+    FutureProvider<ExamCatalogEntry?>((ref) async {
+  final focus = await ref.watch(activeExamFocusProvider.future);
+  final catalog =
+      await ref.watch(examCatalogRepositoryProvider).watchAll().first;
+  return catalog.where((e) => e.id == focus.exam?.id).firstOrNull;
+});
+
+// Catalog names belong to each owned pass, including passes for another exam.
+final ownedPassCatalogEntriesProvider =
+    FutureProvider<Map<String, ExamCatalogEntry>>((ref) async {
+  final entitlement = await ref.watch(entitlementProvider.future);
+  if (entitlement.passes.isEmpty) return const {};
+  final entries =
+      await ref.watch(examCatalogRepositoryProvider).watchAll().first;
+  return {
+    for (final entry in entries)
+      if (entitlement.passes.containsKey(entry.id)) entry.id: entry,
+  };
+});

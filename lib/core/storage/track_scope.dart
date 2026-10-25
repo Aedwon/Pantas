@@ -20,6 +20,11 @@ final trackScopeProvider = FutureProvider.family<Set<TopicId>, ExamId>(
       ref.watch(customTrackRepositoryProvider).excludedTopicIds(examId),
 );
 
+final lessonScopeProvider = FutureProvider.family<Set<LessonId>, ExamId>(
+  (ref, examId) =>
+      ref.watch(customTrackRepositoryProvider).excludedLessonIds(examId),
+);
+
 /// What is in this student's exam.
 ///
 /// The single answer for both kinds of track. Every feature that used to ask

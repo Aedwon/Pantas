@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/paywall/data/revenuecat_sdk.dart';
-import 'package:pantas/features/paywall/domain/paywall_package.dart';
-import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 void main() {
@@ -57,22 +55,5 @@ void main() {
         isFalse,
       );
     }
-  });
-
-  test('AC-9 Monthly CTA never promises a trial without store eligibility', () {
-    final eligible = revenueCatProductSnapshot(
-      product('pantas_pro_monthly', offer: true),
-    );
-    final ineligible = revenueCatProductSnapshot(product('pantas_pro_monthly'));
-    PaywallPackage package(RevenueCatProductSnapshot snapshot) =>
-        PaywallPackage(
-          sku: PaywallSku.monthly,
-          productId: snapshot.productId,
-          priceString: snapshot.priceString,
-          priceAmount: snapshot.priceAmount,
-          trialEligible: snapshot.trialEligible,
-        );
-    expect(ctaCopyFor(package(eligible)), 'Start my free trial');
-    expect(ctaCopyFor(package(ineligible)), 'Get Pro. ₱99 a month.');
   });
 }

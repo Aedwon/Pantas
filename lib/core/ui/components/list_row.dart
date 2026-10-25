@@ -41,6 +41,7 @@ class ListRow extends StatelessWidget {
     this.leadingGap = 12,
     this.valueWidget,
     this.trailingWidget,
+    this.mutuallyExclusive = false,
     super.key,
   })  : content = null,
         _checkbox = false,
@@ -53,7 +54,8 @@ class ListRow extends StatelessWidget {
     required this.onTap,
     this.content,
     super.key,
-  })  : _checkbox = true,
+  })  : mutuallyExclusive = false,
+        _checkbox = true,
         variant = ListRowVariant.check,
         value = null,
         subtitle = null,
@@ -88,7 +90,8 @@ class ListRow extends StatelessWidget {
     this.settingsMode = false,
     this.divider = false,
     super.key,
-  })  : _exam = true,
+  })  : mutuallyExclusive = false,
+        _exam = true,
         _checkbox = false,
         variant = ListRowVariant.check,
         value = null,
@@ -115,6 +118,7 @@ class ListRow extends StatelessWidget {
   final bool comingSoon;
   final bool settingsMode;
   final bool _checkbox;
+  final bool mutuallyExclusive;
   final Widget? content;
   final String title;
   final Widget? titleWidget;
@@ -381,7 +385,8 @@ class ListRow extends StatelessWidget {
                 ? selected
                 : null,
             toggled: variant == ListRowVariant.switchControl ? selected : null,
-            inMutuallyExclusiveGroup: variant == ListRowVariant.radio,
+            inMutuallyExclusiveGroup:
+                mutuallyExclusive || variant == ListRowVariant.radio,
             child: Material(
               color: context.colors.transparent,
               child: InkWell(
@@ -428,8 +433,9 @@ class ListRow extends StatelessWidget {
                         const SizedBox(width: 8),
                         Flexible(child: detail),
                       ],
-                      if (variant != ListRowVariant.value &&
-                          variant != ListRowVariant.destructive) ...[
+                      if (trailingWidget != null ||
+                          (variant != ListRowVariant.value &&
+                              variant != ListRowVariant.destructive)) ...[
                         const SizedBox(width: 8),
                         trailing,
                       ],

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 typedef DeleteAccountCallback = Future<void> Function();
 
-class DeleteAccountPage extends StatefulWidget {
+class DeleteAccountPage extends ConsumerStatefulWidget {
   const DeleteAccountPage({
     required this.isAnonymous,
     required this.entitlement,
@@ -14,167 +19,225 @@ class DeleteAccountPage extends StatefulWidget {
     required this.onDelete,
     super.key,
   });
-
   final bool isAnonymous;
   final SettingsEntitlementSnapshot entitlement;
   final String dpoEmail;
   final DeleteAccountCallback onDelete;
-
   @override
-  State<DeleteAccountPage> createState() => _DeleteAccountPageState();
+  ConsumerState<DeleteAccountPage> createState() => _DeleteAccountPageState();
 }
 
-class _DeleteAccountPageState extends State<DeleteAccountPage> {
-  var _isDeleting = false;
-  var _isDeleted = false;
-  String? _error;
-
-  @override
-  Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-    final billingLine = widget.isAnonymous
-        ? anonymousDeleteWarning(widget.entitlement)
-        : deleteAccountBillingLine(widget.entitlement);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.isAnonymous ? 'Delete data' : 'Delete account'),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        children: [
-          Text(
-            widget.isAnonymous ? 'Delete your data?' : 'Delete your account?',
-            style: styles.headlineMedium,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            widget.isAnonymous
-                ? 'Your progress on this device will be permanently deleted. '
-                    'Sign in first if you want to keep it.'
-                : "You'll lose everything you've done in the app: your study "
-                    'plan, quiz history, mock exam results, and progress.',
-            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-          ),
-          if (billingLine != null) ...[
-            const SizedBox(height: 16),
-            Text(
-              billingLine,
-              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-            ),
-          ],
-          const SizedBox(height: 16),
-          Text("You can't undo this.", style: styles.bodyMedium),
-          const SizedBox(height: 24),
-          if (_isDeleted) ...[
-            Semantics(
-              liveRegion: true,
-              child: Text(
-                'Deletion request completed.',
-                style: styles.bodyMedium,
-              ),
-            ),
-            const SizedBox(height: 16),
-          ],
-          if (_error != null) ...[
-            Semantics(
-              liveRegion: true,
-              child: Text(
-                'We could not complete deletion. Try again or contact our DPO '
-                'at ${widget.dpoEmail}.',
-                style: styles.bodySmall.copyWith(color: colors.rust),
-              ),
-            ),
-            const SizedBox(height: 16),
-          ],
-          BoardButton(
-            label: 'Cancel',
-            secondary: true,
-            onPressed:
-                _isDeleting ? null : () => Navigator.of(context).maybePop(),
-          ),
-          const SizedBox(height: 8),
-          _RustButton(
-            onPressed: _isDeleting ? null : _delete,
-            child: _isDeleting
-                ? Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const SizedBox.square(
-                        dimension: 18,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Deleting...',
-                        style: styles.labelLarge.copyWith(color: Colors.white),
-                      ),
-                    ],
-                  )
-                : Text(
-                    _error != null
-                        ? 'Try again'
-                        : widget.isAnonymous
-                            ? 'Yes, delete my data'
-                            : 'Yes, delete my account',
-                    style: styles.labelLarge.copyWith(color: Colors.white),
-                  ),
-          ),
-        ],
-      ),
-    );
-  }
+class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
+  bool _isDeleting = false;
+  bool _isDeleted = false;
+  bool _failed = false;
 
   Future<void> _delete() async {
+    if (_isDeleting || _isDeleted) return;
     setState(() {
       _isDeleting = true;
-      _error = null;
+      _failed = false;
     });
-
+    final telemetry = ref.read(telemetryProvider);
     try {
       await widget.onDelete();
-      if (!mounted) return;
-      setState(() => _isDeleted = true);
-    } catch (_) {
-      if (!mounted) return;
-      setState(() => _error = 'delete_failed');
+      if (mounted) setState(() => _isDeleted = true);
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
+      if (mounted) setState(() => _failed = true);
     } finally {
-      if (mounted) {
-        setState(() {
-          _isDeleting = false;
-        });
-      }
+      if (mounted) setState(() => _isDeleting = false);
     }
   }
-}
-
-class _RustButton extends StatelessWidget {
-  const _RustButton({required this.onPressed, required this.child});
-
-  final VoidCallback? onPressed;
-  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final enabled = onPressed != null;
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
-      child: Container(
-        constraints:
-            const BoxConstraints(minHeight: AppDimensions.minTapTarget),
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-        decoration: BoxDecoration(
-          color: enabled ? colors.rust : colors.rust.withValues(alpha: 0.5),
-          borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
+    final billing = widget.isAnonymous
+        ? anonymousDeleteWarning(widget.entitlement)
+        : ref.watch(paymentsOnWebProvider)
+            ? widget.entitlement.isTrial
+                ? 'Your free trial will end if you delete now.'
+                : null
+            : deleteAccountBillingLine(widget.entitlement);
+    Widget consequence(Widget icon, String text) => Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              icon,
+              const SizedBox(width: 12),
+              Expanded(
+                child:
+                    Text(text, style: context.type.body.copyWith(fontSize: 16)),
+              ),
+            ],
+          ),
+        );
+    return PantasPage(
+      title: '',
+      backLabel: 'Account',
+      onBack: _isDeleting ? null : () => Navigator.of(context).maybePop(),
+      bottom: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (!_isDeleted) ...[
+                PantasButton(
+                  label: _failed ? 'Try again' : 'Delete My Data',
+                  variant: PantasButtonVariant.destructive,
+                  busy: _isDeleting,
+                  onPressed: _isDeleting ? null : _delete,
+                ),
+                PantasButton(
+                  label: widget.isAnonymous ? 'Cancel' : 'Keep My Account',
+                  variant: PantasButtonVariant.tertiary,
+                  onPressed: _isDeleting
+                      ? null
+                      : () => Navigator.of(context).maybePop(),
+                ),
+              ] else
+                PantasButton(
+                  label: 'Close',
+                  onPressed: () => Navigator.of(context).maybePop(),
+                ),
+            ],
+          ),
         ),
-        alignment: Alignment.center,
-        child: child,
       ),
+      children: [
+        Text(
+          widget.isAnonymous ? 'Delete your data?' : 'Delete your account?',
+          style: context.type.pageTitle,
+        ),
+        const SizedBox(height: 6),
+        Text(
+          widget.isAnonymous
+              ? 'Your progress on this device will be permanently deleted. '
+                  'Sign in first if you want to keep it.'
+              : 'This can’t be undone.',
+          style: context.type.body
+              .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
+        ),
+        const SizedBox(height: 22),
+        GroupedSection(
+          children: [
+            if (!widget.isAnonymous) ...[
+              consequence(
+                SizedBox.square(
+                  dimension: 22,
+                  child: CustomPaint(
+                    foregroundPainter: _UserSlashPainter(
+                      context.colors.surface,
+                      context.colors.destructive,
+                    ),
+                    child: Icon(
+                      PantasIcons.profile,
+                      size: 22,
+                      color: context.colors.destructive,
+                    ),
+                  ),
+                ),
+                'Your account is removed.',
+              ),
+              consequence(
+                Icon(
+                  PantasIcons.cloudSlash,
+                  size: 22,
+                  color: context.colors.destructive,
+                ),
+                'Anything backed up to it is erased.',
+              ),
+            ],
+            consequence(
+              Icon(
+                PantasIcons.phoneSlash,
+                size: 22,
+                color: context.colors.destructive,
+              ),
+              'Progress on this phone is erased too.',
+            ),
+          ],
+        ),
+        if (billing != null) ...[
+          const SizedBox(height: 22),
+          GroupedSection(
+            children: [
+              consequence(
+                Icon(
+                  PantasIcons.appError,
+                  size: 22,
+                  color: context.colors.destructive,
+                ),
+                billing,
+              ),
+            ],
+          ),
+        ],
+        if (_isDeleting) ...[
+          const SizedBox(height: 22),
+          Semantics(
+            liveRegion: true,
+            child: Text('Deleting...', style: context.type.body),
+          ),
+        ],
+        if (_isDeleted) ...[
+          const SizedBox(height: 22),
+          Semantics(
+            liveRegion: true,
+            child:
+                Text('Deletion request completed.', style: context.type.body),
+          ),
+        ],
+        if (_failed) ...[
+          const SizedBox(height: 22),
+          Semantics(
+            liveRegion: true,
+            child: Text(
+              'We could not complete deletion. Try again or contact our DPO '
+              'at ${widget.dpoEmail}.',
+              style: context.type.footnote
+                  .copyWith(color: context.colors.destructive),
+            ),
+          ),
+        ],
+      ],
     );
   }
+}
+
+// The board masks a slash over the regular user glyph.
+class _UserSlashPainter extends CustomPainter {
+  const _UserSlashPainter(this.background, this.color);
+  final Color background;
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final start = Offset(size.width * 48 / 256, size.height * 40 / 256);
+    final end = Offset(size.width * 208 / 256, size.height * 216 / 256);
+    canvas
+      ..drawLine(
+        start,
+        end,
+        Paint()
+          ..color = background
+          ..strokeWidth = size.width * 44 / 256
+          ..strokeCap = StrokeCap.round,
+      )
+      ..drawLine(
+        start,
+        end,
+        Paint()
+          ..color = color
+          ..strokeWidth = size.width * 16 / 256
+          ..strokeCap = StrokeCap.round,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_UserSlashPainter oldDelegate) =>
+      background != oldDelegate.background || color != oldDelegate.color;
 }

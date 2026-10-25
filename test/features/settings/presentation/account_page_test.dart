@@ -14,13 +14,12 @@ void main() {
       user: null,
     );
 
-    expect(find.text('Sign in with Google'), findsOneWidget);
+    expect(find.text('Continue with Google'), findsOneWidget);
     expect(
-      find.textContaining('does not by itself back up local progress'),
-      findsOneWidget,
-    );
-    expect(
-      find.textContaining('Cloud sync is available with Pantas Pro'),
+      find.text(
+        'Your progress stays on this phone. Signing in gives you an '
+        'account you can come back to.',
+      ),
       findsOneWidget,
     );
   });
@@ -37,11 +36,11 @@ void main() {
       ),
     );
 
-    expect(find.text('Reader'), findsOneWidget);
+    expect(find.text('Add your name'), findsNWidgets(2));
     expect(
       find.text(
-        'Your study progress stays on this device. Cloud sync is available '
-        'with Pantas Pro.',
+        'Your progress stays on this phone only. With Pro, it’s '
+        'backed up and syncs across your devices.',
       ),
       findsOneWidget,
     );
@@ -55,11 +54,11 @@ void main() {
     ]);
     await _pumpAccount(tester, repository: repository, user: null);
 
-    await tester.tap(find.text('Sign in with Google'));
+    await tester.tap(find.text('Continue with Google'));
     await tester.pumpAndSettle();
     expect(find.text('You need a connection to sign in.'), findsOneWidget);
 
-    await tester.tap(find.text('Sign in with Google'));
+    await tester.tap(find.text('Continue with Google'));
     await tester.pumpAndSettle();
     expect(find.text('You need a connection to sign in.'), findsNothing);
   });
@@ -71,15 +70,14 @@ void main() {
     );
     await _pumpAccount(tester, repository: repository, user: null);
 
-    await tester.tap(find.text('Sign in with Google'));
+    await tester.tap(find.text('Continue with Google'));
     await tester.pumpAndSettle();
 
     expect(find.text('You need a connection to sign in.'), findsNothing);
     expect(find.textContaining('merge'), findsNothing);
   });
 
-  testWidgets('sign-out dialog does not promise universal restore',
-      (tester) async {
+  testWidgets('sign-out dialog explains account restore', (tester) async {
     await _pumpAccount(
       tester,
       repository: SequencedAuthRepository(const []),
@@ -90,11 +88,15 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Sign out'));
+    await tester.ensureVisible(find.text('Sign Out'));
+    await tester.tap(find.text('Sign Out'));
     await tester.pumpAndSettle();
 
     expect(
-      find.textContaining('Only progress already synced through Pantas Pro'),
+      find.text(
+        'Your progress is saved to your account. '
+        'It comes back when you sign in again.',
+      ),
       findsOneWidget,
     );
     expect(find.textContaining('restore it'), findsNothing);

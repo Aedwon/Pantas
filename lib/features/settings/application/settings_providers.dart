@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
@@ -205,5 +206,17 @@ final activeExamShortNameProvider = Provider<String>((ref) {
 /// screen is unchanged: no row is hidden, disabled or badged by entitlement.
 final proRowValueProvider = Provider<String>((ref) {
   final entitlement = ref.watch(entitlementProvider).valueOrNull;
-  return entitlement != null && entitlement.proIsActive ? 'Pro' : 'Free';
+  if (entitlement == null || !entitlement.proIsActive) return 'Free';
+  if (entitlement.isTrial && entitlement.endsAt != null) {
+    final days = entitlement.endsAt!.difference(DateTime.now()).inHours / 24;
+    final remaining = days.ceil().clamp(0, 7);
+    return 'Trial, $remaining ${remaining == 1 ? 'day' : 'days'} left';
+  }
+  return switch (entitlement.plan) {
+    EntitlementPlan.weekly => 'Weekly',
+    EntitlementPlan.monthly => 'Monthly',
+    EntitlementPlan.yearly => 'Yearly',
+    EntitlementPlan.free =>
+      entitlement.passes.isNotEmpty ? 'Season Pass' : 'Pro',
+  };
 });

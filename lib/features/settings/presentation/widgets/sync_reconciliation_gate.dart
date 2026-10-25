@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/l10n/app_localizations.dart';
 
 class SyncReconciliationGate extends ConsumerWidget {
@@ -27,35 +28,21 @@ class SyncReconciliationGate extends ConsumerWidget {
         child,
         const ModalBarrier(dismissible: false, color: Colors.black54),
         Center(
-          child: AlertDialog(
-            title: Text(strings.syncReconciliationTitle),
-            content: Text(strings.syncReconciliationBody),
-            actions: [
-              OutlinedButton(
-                style:
-                    const ButtonStyle(splashFactory: InkRipple.splashFactory),
-                onPressed: () {
-                  unawaited(
-                    runtime.chooseReconciliation(
-                      SyncReconciliationChoice.keepMyAccount,
-                    ),
-                  );
-                },
-                child: Text(strings.syncKeepMyAccount),
+          child: CenteredDialog(
+            title: strings.syncReconciliationTitle,
+            message: strings.syncReconciliationBody,
+            primaryLabel: strings.syncKeepThisDevice,
+            secondaryLabel: strings.syncKeepMyAccount,
+            allowEscape: false,
+            onConfirm: () => unawaited(
+              runtime.chooseReconciliation(
+                SyncReconciliationChoice.keepThisDevice,
               ),
-              FilledButton(
-                style:
-                    const ButtonStyle(splashFactory: InkRipple.splashFactory),
-                onPressed: () {
-                  unawaited(
-                    runtime.chooseReconciliation(
-                      SyncReconciliationChoice.keepThisDevice,
-                    ),
-                  );
-                },
-                child: Text(strings.syncKeepThisDevice),
-              ),
-            ],
+            ),
+            onCancel: () => unawaited(
+              runtime
+                  .chooseReconciliation(SyncReconciliationChoice.keepMyAccount),
+            ),
           ),
         ),
       ],

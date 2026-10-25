@@ -2,21 +2,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/legal/legal.dart';
 
 void main() {
-  test('privacy fallback includes RA 10173 rights and delete account route',
-      () {
-    final document = legalDocumentFallbacks['privacy'];
-
-    expect(document, isNotNull);
-    expect(document!.title, 'Privacy Policy');
+  test('privacy uses the approved plain summary', () {
+    final document = legalDocumentFallbacks['privacy']!;
     expect(
-      document.sections.map((section) => section.body).join('\n'),
-      allOf([
-        contains('RA 10173'),
-        contains('export'),
-        contains('correction'),
-        contains('/settings/account'),
-      ]),
+      document.sections.map((s) => s.heading),
+      ['What we collect', 'What we never do', 'Your rights'],
     );
+    expect(
+        document.sections.last.body,
+        'You can see, correct or delete your data at any time. '
+        'Contact our data protection officer from About.');
   });
 
   test('terms fallback has stable title and last updated date', () {

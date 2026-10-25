@@ -8,6 +8,14 @@ import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
 void main() {
   final icons = <String, Object>{
+    'unlimitedMocks': PantasIcons.unlimitedMocks,
+    'answerNotes': PantasIcons.answerNotes,
+    'studyHabits': PantasIcons.studyHabits,
+    'proBackup': PantasIcons.proBackup,
+    'topicResults': PantasIcons.topicResults,
+    'copy': PantasIcons.copy,
+    'cloudSlash': PantasIcons.cloudSlash,
+    'phoneSlash': PantasIcons.phoneSlash,
     'homeTab': PantasIcons.homeTab,
     'studyTab': PantasIcons.studyTab,
     'quizTab': PantasIcons.quizTab,
@@ -55,13 +63,13 @@ void main() {
     'proSettings': PantasIcons.proSettings,
     'profile': PantasIcons.profile,
   };
-  test('exactly the 46 approved getters resolve without a lock', () {
+  test('approved core and Settings getters resolve without a lock', () {
     final source =
         File('lib/core/ui/icons/pantas_icons.dart').readAsStringSync();
     final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
         .allMatches(source)
         .map((match) => match.group(1));
-    expect(icons, hasLength(46));
+    expect(icons, hasLength(54));
     expect(names, unorderedEquals(icons.keys));
     expect(names, isNot(contains('locked')));
     expect(names, isNot(contains('lock')));
@@ -770,6 +778,14 @@ void main() {
   });
   test('regular glyphs keep their pinned 2.1.0 codepoints', () {
     const codepoints = <String, int>{
+      'unlimitedMocks': 0xe634,
+      'answerNotes': 0xe34c,
+      'studyHabits': 0xe156,
+      'proBackup': 0xe1ae,
+      'topicResults': 0xeadc,
+      'copy': 0xe1ca,
+      'cloudSlash': 0xe1b6,
+      'phoneSlash': 0xee46,
       'appError': 0xe4e2,
       'homeTab': 0xe2c2,
       'studyTab': 0xe0e6,
@@ -808,7 +824,7 @@ void main() {
       'proSettings': 0xe6a2,
       'profile': 0xe4c2,
     };
-    expect(codepoints, hasLength(37));
+    expect(codepoints, hasLength(45));
     for (final entry in codepoints.entries) {
       final icon = icons[entry.key]! as IconData;
       expect(icon.codePoint, entry.value, reason: entry.key);

@@ -44,6 +44,10 @@ class RoadmapInputsReader {
           ? ''
           : '${examDate.storageValue}:${examDate.precision.name}',
       scopeTopicIds: [for (final topic in scope.topics) topic.id],
+      excludedLessonIds: (await _ref
+              .read(customTrackRepositoryProvider)
+              .excludedLessonIds(examId))
+          .toList(),
       contentRevision: await _contentRevision(),
       assessmentCompleted: await _ref
           .read(assessmentRepositoryProvider)
@@ -101,6 +105,9 @@ class RoadmapInputsReader {
     final scope = await _scope(examId);
     final topicIds = [for (final topic in scope.topics) topic.id];
 
+    final excludedLessons = await _ref
+        .read(customTrackRepositoryProvider)
+        .excludedLessonIds(examId);
     final selection = await content.selectionRowsByTopics(topicIds);
     final lessonMeta = await content.lessonMetaByTopics(topicIds);
     final db = _ref.read(appDatabaseProvider);
@@ -114,12 +121,13 @@ class RoadmapInputsReader {
     final questions = [
       for (final topicId in topicIds)
         for (final row in selection[topicId] ?? const <QuestionSelectionRow>[])
-          RoadmapQuestion(
-            id: row.id,
-            topicId: row.topicId,
-            lessonId: row.lessonId,
-            passageId: row.passageId,
-          ),
+          if (!excludedLessons.contains(row.lessonId))
+            RoadmapQuestion(
+              id: row.id,
+              topicId: row.topicId,
+              lessonId: row.lessonId,
+              passageId: row.passageId,
+            ),
     ];
     final scopedQuestionIds = {for (final q in questions) q.id};
     final endOfToday = DateTime(day.year, day.month, day.day + 1);
@@ -155,12 +163,13 @@ class RoadmapInputsReader {
       lessons: [
         for (final topicId in topicIds)
           for (final lesson in lessonMeta[topicId] ?? const <LessonMeta>[])
-            RoadmapLesson(
-              id: lesson.id,
-              topicId: lesson.topicId,
-              ordering: lesson.ordering,
-              readAt: readAt[lesson.id],
-            ),
+            if (!excludedLessons.contains(lesson.id))
+              RoadmapLesson(
+                id: lesson.id,
+                topicId: lesson.topicId,
+                ordering: lesson.ordering,
+                readAt: readAt[lesson.id],
+              ),
       ],
       questions: questions,
       seenQuestionIds: {for (final state in states) state.questionId},

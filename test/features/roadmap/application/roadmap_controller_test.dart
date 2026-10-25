@@ -176,6 +176,26 @@ void main() {
           change.cause,
       ];
 
+  test('lesson exclusion rebuilds a stored plan and removes linked questions',
+      () async {
+    await controller().today('e1');
+    final before =
+        await container.read(roadmapInputsReaderProvider).digest('e1');
+    await container
+        .read(customTrackRepositoryProvider)
+        .setExcluded(examId: 'e1', topicIds: {}, lessonIds: {'t1_l0'});
+    await controller().today('e1');
+    final after =
+        await container.read(roadmapInputsReaderProvider).digest('e1');
+    expect(after, isNot(before));
+    expect(builtInputs.last.lessons.any((l) => l.id == 't1_l0'), isFalse);
+    expect(
+      builtInputs.last.questions.any((q) => q.lessonId == 't1_l0'),
+      isFalse,
+    );
+    expect(builtInputs.last.lessons.any((l) => l.id == 't1_l1'), isTrue);
+  });
+
   test('pending Today does not restore data after same-identity wipe',
       () async {
     await SyncActiveContextStore(db).clearStable();

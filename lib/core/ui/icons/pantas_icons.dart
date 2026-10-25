@@ -2,6 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 
 abstract final class PantasIcons {
+  static IconData get unlimitedMocks =>
+      const IconData(0xe634, fontFamily: 'Phosphor');
+  static IconData get answerNotes =>
+      const IconData(0xe34c, fontFamily: 'Phosphor');
+  static IconData get studyHabits =>
+      const IconData(0xe156, fontFamily: 'Phosphor');
+  static IconData get proBackup =>
+      const IconData(0xe1ae, fontFamily: 'Phosphor');
+  static IconData get topicResults =>
+      const IconData(0xeadc, fontFamily: 'Phosphor');
+  static IconData get copy => const IconData(0xe1ca, fontFamily: 'Phosphor');
+  static IconData get cloudSlash =>
+      const IconData(0xe1b6, fontFamily: 'Phosphor');
+  static IconData get phoneSlash =>
+      const IconData(0xee46, fontFamily: 'Phosphor');
   static IconData get homeTab => const IconData(0xe2c2, fontFamily: 'Phosphor');
   static IconData get studyTab =>
       const IconData(0xe0e6, fontFamily: 'Phosphor');

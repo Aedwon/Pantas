@@ -2,11 +2,65 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
+class _ChangingOfferingGateway extends FakeGateway {
+  int reads = 0;
+  @override
+  Future<PaywallOfferingResult> currentOffering() async {
+    reads++;
+    return PaywallOfferingResult(
+      status: PaywallOfferingStatus.available,
+      recognizedPackages: [
+        PaywallPackage(
+          sku: PaywallSku.monthly,
+          productId: 'pantas_cs_monthly',
+          priceString: '₱149',
+          priceAmount: 149,
+          trialEligible: reads == 1,
+        ),
+      ],
+      passPackages: const [
+        PaywallPassPackage(
+          productId: 'pantas_pass_cse_pro',
+          priceString: '₱499',
+          priceAmount: 499,
+        ),
+      ],
+    );
+  }
+}
+
 void main() {
+  test(
+      'full offering preserves target passes and refreshes eligibility '
+      'when identity changes', () async {
+    final owner = StateProvider<String>((_) => 'a');
+    final gateway = _ChangingOfferingGateway();
+    final container = ProviderContainer(
+      overrides: [
+        authStateProvider.overrideWith(
+          (ref) => Stream.value(AuthState.anonymous(uid: ref.watch(owner))),
+        ),
+        revenueCatGatewayProvider.overrideWithValue(gateway),
+      ],
+    );
+    addTearDown(container.dispose);
+    final first =
+        await container.read(unfilteredPaywallOfferingProvider.future);
+    expect(first.passPackages.single.productId, 'pantas_pass_cse_pro');
+    expect(first.recognizedPackages.single.trialEligible, isTrue);
+    container.read(owner.notifier).state = 'b';
+    await container.pump();
+    final second =
+        await container.read(unfilteredPaywallOfferingProvider.future);
+    expect(second.recognizedPackages.single.trialEligible, isFalse);
+  });
+
   test('entitlementProvider returns free when gateway has no cached info',
       () async {
     final container = ProviderContainer(

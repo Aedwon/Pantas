@@ -41,7 +41,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      final button = find.text('Sign in with Google');
+      final button = find.text('Continue with Google');
       expect(button, findsOneWidget);
       await tester.tap(button);
       await tester.pumpAndSettle();
