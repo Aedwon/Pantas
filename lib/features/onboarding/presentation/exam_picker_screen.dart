@@ -117,6 +117,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         ref.invalidate(appPreferencesRepositoryProvider);
       }
       await widget.onPicked(id);
+      if (_settings && mounted) setState(() => _selectedId = null);
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _failed = true);

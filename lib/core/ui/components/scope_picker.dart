@@ -46,6 +46,7 @@ class ScopePicker extends StatefulWidget {
     required this.onChanged,
     this.atLeastOne = true,
     this.checkIconSize = 14,
+    this.minimumSelectionMessage,
     super.key,
   });
   final List<ScopeSubject> subjects;
@@ -53,6 +54,7 @@ class ScopePicker extends StatefulWidget {
   final ValueChanged<Set<String>> onChanged;
   final bool atLeastOne;
   final double checkIconSize;
+  final String? minimumSelectionMessage;
   @override
   State<ScopePicker> createState() => _ScopePickerState();
 }
@@ -97,6 +99,7 @@ class _ScopePickerState extends State<ScopePicker>
       if (!MediaQuery.disableAnimationsOf(context)) _shake.forward(from: 0);
       return;
     }
+    if (_shaking != null) setState(() => _shaking = null);
     widget.onChanged(Set.unmodifiable(next));
   }
 
@@ -355,6 +358,17 @@ class _ScopePickerState extends State<ScopePicker>
             ),
             const SizedBox(height: 24),
           ],
+          if (_shaking != null && widget.minimumSelectionMessage != null)
+            Semantics(
+              liveRegion: true,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  widget.minimumSelectionMessage!,
+                  style: context.type.footnote,
+                ),
+              ),
+            ),
         ],
       );
 }

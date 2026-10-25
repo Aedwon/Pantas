@@ -4,7 +4,7 @@ import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
@@ -27,7 +27,10 @@ void main() {
       await tester.pumpAppWithProviders(page, overrides: []);
       await tester.pumpAndSettle();
 
-      expect(find.byType(SettingsBar), findsOneWidget);
+      expect(
+        find.byType(PantasPage),
+        findsOneWidget,
+      );
       expect(find.byType(AppBar), findsNothing);
     }
   });
@@ -36,9 +39,7 @@ void main() {
     await tester.pumpAppWithProviders(const ProPage(), overrides: []);
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('Weekly'), findsOneWidget);
-    expect(find.textContaining('Monthly'), findsOneWidget);
-    expect(find.textContaining('Yearly'), findsOneWidget);
+    expect(find.textContaining('₱'), findsNothing);
     expect(find.textContaining('Lifetime'), findsNothing);
   });
 
@@ -46,7 +47,7 @@ void main() {
     await tester.pumpAppWithProviders(const ProPage(), overrides: []);
     await tester.pumpAndSettle();
 
-    expect(find.text('Manage in Google Play'), findsOneWidget);
+    expect(find.text('Manage in Google Play'), findsNothing);
     expect(find.text('Restore purchases'), findsOneWidget);
   });
 
@@ -63,7 +64,7 @@ void main() {
       ],
     );
 
-    expect(find.text('Sign in with Google'), findsOneWidget);
+    expect(find.text('Continue with Google'), findsOneWidget);
     expect(find.text('Delete my data'), findsOneWidget);
   });
 
@@ -86,8 +87,8 @@ void main() {
     );
 
     expect(find.text('aerol@example.com'), findsOneWidget);
-    expect(find.text('Sign out'), findsOneWidget);
-    expect(find.text('Delete account'), findsOneWidget);
+    expect(find.text('Sign Out'), findsOneWidget);
+    expect(find.text('Delete Account'), findsOneWidget);
   });
 
   testWidgets('delete account page renders billing warning and destructive CTA',
@@ -105,7 +106,7 @@ void main() {
 
     expect(find.text('Delete your account?'), findsOneWidget);
     expect(find.textContaining("you'll still be charged"), findsOneWidget);
-    expect(find.text('Yes, delete my account'), findsOneWidget);
+    expect(find.text('Delete My Data'), findsOneWidget);
   });
 
   testWidgets('the backup page still renders all five states', (tester) async {
@@ -127,7 +128,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(SettingsBar), findsOneWidget);
+      expect(find.byType(PantasPage), findsOneWidget);
     }
   });
 }

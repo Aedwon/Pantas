@@ -9,7 +9,7 @@ import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 
 void main() {
   group('Backup page copy', () {
-    testWidgets('shows "Not backed up yet" when no sync date exists',
+    testWidgets('shows "Not backed up" when no sync date exists',
         (tester) async {
       await tester.pumpWidget(
         ProviderScope(
@@ -27,7 +27,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('Not backed up yet'), findsOneWidget);
+      expect(find.text('Not backed up'), findsOneWidget);
       expect(find.textContaining('items left'), findsNothing);
       expect(find.textContaining('Pending queue'), findsNothing);
     });
@@ -52,7 +52,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('Last backed up 2026-08-03'), findsOneWidget);
+      expect(find.text('Last backed up'), findsOneWidget);
+      expect(find.textContaining('Aug 3, 2026'), findsOneWidget);
     });
   });
 }

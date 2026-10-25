@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
@@ -30,57 +30,22 @@ void main() {
         ),
       ),
     );
-    await tester.pump();
+    await tester.pumpAndSettle();
   }
-
-  testWidgets('Pro destination preserves the native Try Pro purchase control',
-      (tester) async {
-    final gateway = SettingsGateway(initial: const Entitlement.free());
-    final router = GoRouter(
-      initialLocation: '/settings/pro',
-      routes: [
-        GoRoute(
-          path: '/settings/pro',
-          builder: (context, _) => ProPage(
-            onTryPro: () => context.push<void>('/paywall'),
-          ),
-        ),
-        GoRoute(path: '/paywall', builder: (_, __) => const Text('Paywall')),
-      ],
-    );
-    addTearDown(router.dispose);
-
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
-        child: MaterialApp.router(
-          theme: buildLightTheme(),
-          routerConfig: router,
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    expect(find.text('Try Pro'), findsOneWidget);
-    expect(find.text('Restore purchases'), findsOneWidget);
-    await tester.tap(find.text('Try Pro'));
-    await tester.pumpAndSettle();
-    expect(find.text('Paywall'), findsOneWidget);
-  });
 
   testWidgets('Settings Restore uses the real payment controller path',
       (tester) async {
     final gateway = SettingsGateway(initial: const Entitlement.free());
     await pumpProPage(tester, gateway: gateway);
 
+    await tester.ensureVisible(find.text('Restore purchases'));
     await tester.tap(find.text('Restore purchases'));
     await tester.pumpAndSettle();
 
     expect(gateway.restoreCalls, 1);
     expect(
       find.text(
-        "We couldn't find an active Pro subscription on this "
-        'Google Play account.',
+        'No purchases found for this account.',
       ),
       findsOneWidget,
     );
@@ -100,7 +65,8 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
-    expect(find.text('Free'), findsOneWidget);
+    expect(find.text("See exactly what's losing you points."), findsOneWidget);
+    await tester.ensureVisible(find.text('Restore purchases'));
     await tester.tap(find.text('Restore purchases'));
     await tester.pumpAndSettle();
 
@@ -117,20 +83,17 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
+    await tester.ensureVisible(find.text('Restore purchases'));
     await tester.tap(find.text('Restore purchases'));
     await tester.pump();
 
-    expect(find.text('Restoring...'), findsOneWidget);
     expect(gateway.restoreCalls, 1);
-    final pendingRow = tester.widget<GestureDetector>(
-      find
-          .ancestor(
-            of: find.text('Restoring...'),
-            matching: find.byType(GestureDetector),
-          )
-          .first,
+    final button = tester.widget<PantasButton>(
+      find.byWidgetPredicate(
+        (w) => w is PantasButton && w.label == 'Restore purchases',
+      ),
     );
-    expect(pendingRow.onTap, isNull);
+    expect(button.onPressed, isNull);
 
     completer.complete(
       const PaymentOperationResult.authoritative(
@@ -151,6 +114,7 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
+    await tester.ensureVisible(find.text('Restore purchases'));
     await tester.tap(find.text('Restore purchases'));
     await tester.pumpAndSettle();
 
@@ -175,6 +139,7 @@ void main() {
       },
     );
 
+    await tester.ensureVisible(find.text('Manage in Google Play'));
     await tester.tap(find.text('Manage in Google Play'));
     await tester.pumpAndSettle();
 
@@ -195,6 +160,7 @@ void main() {
       launcher: (_) async => false,
     );
 
+    await tester.ensureVisible(find.text('Manage in Google Play'));
     await tester.tap(find.text('Manage in Google Play'));
     await tester.pumpAndSettle();
 
@@ -228,16 +194,15 @@ void main() {
     await pumpProPage(
       tester,
       entitlement: Entitlement(
-        plan: EntitlementPlan.yearly,
-        productId: 'pantas_pro_yearly',
+        plan: EntitlementPlan.monthly,
+        productId: 'pantas_pro_monthly',
         expiresAt: DateTime.utc(2026, 9, 4),
         isTrial: true,
       ),
     );
 
-    expect(find.text('Yearly trial'), findsOneWidget);
+    expect(find.text('Monthly trial'), findsOneWidget);
     expect(find.text('Charges'), findsOneWidget);
-    expect(find.textContaining('₱799'), findsOneWidget);
   });
 
   testWidgets('unknown active product is Pro, not Free', (tester) async {

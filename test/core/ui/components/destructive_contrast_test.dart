@@ -54,13 +54,11 @@ void main() {
           ),
         ),
       );
-      _expectWhiteOnRed(tester, 'Yes, delete my account');
-      await tester.tap(find.text('Yes, delete my account'));
+      _expectWhiteOnRed(tester, 'Delete My Data');
+      await tester.tap(find.text('Delete My Data'));
       await tester.pump();
-      expect(
-        tester.widget<Text>(find.text('Deleting...')).style!.color,
-        Colors.white,
-      );
+      _expectWhiteOnRed(tester, 'Delete My Data');
+      expect(find.text('Deleting...'), findsOneWidget);
       expect(
         tester
             .widget<CircularProgressIndicator>(
@@ -77,20 +75,25 @@ void main() {
 
 void _expectWhiteOnRed(WidgetTester tester, String label) {
   final foreground = tester.widget<Text>(find.text(label)).style!.color!;
-  final backgrounds = tester
-      .widgetList<Container>(
-        find.ancestor(
-          of: find.text(label),
-          matching: find.byType(Container),
-        ),
-      )
-      .map((box) => box.decoration)
-      .whereType<BoxDecoration>();
-  final background = backgrounds
-      .firstWhere(
-        (decoration) => decoration.color == PantasColors.light.destructive,
-      )
-      .color!;
+  final buttons =
+      find.ancestor(of: find.text(label), matching: find.byType(TextButton));
+  final Color background;
+  if (buttons.evaluate().isNotEmpty) {
+    background = tester
+        .widget<TextButton>(buttons.first)
+        .style!
+        .backgroundColor!
+        .resolve({})!;
+  } else {
+    background = tester
+        .widgetList<Container>(find.ancestor(
+            of: find.text(label), matching: find.byType(Container)))
+        .map((box) => box.decoration)
+        .whereType<BoxDecoration>()
+        .firstWhere(
+            (decoration) => decoration.color == PantasColors.light.destructive)
+        .color!;
+  }
   expect(foreground, Colors.white);
   expect(
     (foreground.computeLuminance() + 0.05) /

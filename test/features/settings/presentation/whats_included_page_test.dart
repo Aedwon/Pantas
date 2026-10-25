@@ -10,7 +10,7 @@ import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/ink_checkbox.dart';
+import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 
@@ -99,12 +99,24 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the screen states the rule before the list', (tester) async {
+  testWidgets('the last included topic stays selected', (tester) async {
+    await pumpPage(tester);
+    await tester.tap(find.text('Algebra'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Geometry'));
+    await tester.pumpAndSettle();
+    final exclusions = await db.select(db.trackScopeLocal).get();
+    expect(exclusions.map((e) => e.topicId), ['top_1']);
+    expect(find.text('At least one topic stays ticked.'), findsOneWidget);
+  });
+
+  testWidgets('the screen has the approved scope footer', (tester) async {
     await pumpPage(tester);
 
     expect(
       find.text(
-        "Unticking something hides it. Nothing you've done is deleted.",
+        "Untick what you don't need. It gets removed from your plan, "
+        "and your answers on it won't be deleted.",
       ),
       findsOneWidget,
     );
@@ -114,11 +126,8 @@ void main() {
       (tester) async {
     await pumpPage(tester);
 
-    final checkboxFinder = find.byWidgetPredicate((w) => w is InkCheckbox);
-    final checkboxes = tester.widgetList<InkCheckbox>(checkboxFinder);
-    for (final cb in checkboxes) {
-      expect(cb.state, equals(InkCheckState.on));
-    }
+    final picker = tester.widget<ScopePicker>(find.byType(ScopePicker));
+    expect(picker.selectedIds, {'top_1', 'top_2'});
   });
 
   testWidgets('unticking a topic writes an exclusion', (tester) async {
@@ -133,17 +142,15 @@ void main() {
     expect(exclusions.first.topicId, equals('top_1'));
   });
 
-  testWidgets('unticking one topic drops its subject to the dash',
+  testWidgets('unticking one topic keeps the other topic selected',
       (tester) async {
     await pumpPage(tester);
 
     await tester.tap(find.text('Algebra'));
     await tester.pumpAndSettle();
 
-    final checkboxFinder = find.byWidgetPredicate((w) => w is InkCheckbox);
-    final checkboxes = tester.widgetList<InkCheckbox>(checkboxFinder).toList();
-    // Subject row checkbox is index 0
-    expect(checkboxes[0].state, equals(InkCheckState.partial));
+    final picker = tester.widget<ScopePicker>(find.byType(ScopePicker));
+    expect(picker.selectedIds, {'top_2'});
   });
 
   testWidgets('re-ticking removes the exclusion', (tester) async {

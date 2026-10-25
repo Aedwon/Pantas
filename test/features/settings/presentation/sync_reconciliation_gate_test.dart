@@ -5,6 +5,8 @@ import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/presentation/widgets/sync_reconciliation_gate.dart';
 import 'package:pantas/l10n/app_localizations.dart';
 
@@ -34,11 +36,11 @@ void main() {
       findsOneWidget,
     );
     expect(
-      find.widgetWithText(FilledButton, 'Keep this device'),
+      find.byType(CenteredDialog),
       findsOneWidget,
     );
     expect(
-      find.widgetWithText(OutlinedButton, 'Keep my account'),
+      find.text('Keep my account'),
       findsOneWidget,
     );
     expect(
@@ -70,10 +72,11 @@ void main() {
 Widget _app(GateRuntime runtime) {
   return ProviderScope(
     overrides: [syncRuntimeProvider.overrideWith((ref) => runtime)],
-    child: const MaterialApp(
+    child: MaterialApp(
+      theme: buildLightTheme(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Scaffold(
+      home: const Scaffold(
         body: SyncReconciliationGate(
           child: Text('underlying'),
         ),
