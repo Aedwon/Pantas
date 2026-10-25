@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "rewrites": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "0c2f781f5bfb47344d2ba9d8e0b6a1191bf9e173"
+ },
+ "sha256": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "5d300b67f8d07ade420c60ad23b6e72cfaf77de00f9b816f22486c7fbea4ca85"
+ },
+ "paths": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+ },
+ "id": "RD-065",
+ "type": "read",
+ "created": "2026-10-25T21:21:12+00:00"
+}
