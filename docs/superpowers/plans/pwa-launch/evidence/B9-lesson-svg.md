@@ -1,9 +1,27 @@
 # B9 lesson SVG evidence
 
-Status: partial hand-in. Items 1, 2 and 4 implemented and reviewed. Item 3 is
-partial pending the oversized-PNG decision. Item 5 passed APP tests/static gates,
-Android and web builds; iOS dev build is blocked by the existing scheme setup.
-No acceptance, commit, push, deployment, device run, or screenshot capture.
+Status: review fixes round 1 implemented, committed locally, not pushed. The
+oversized-image decision is resolved by the lead ruling below. Full APP suite,
+static gates, render check fixtures, Android debug build and the STAGING uploader
+tests and web build passed on the SHAs below. iOS is unverified: the dev iOS build
+was blocked by the existing scheme setup and was not rerun. No visual acceptance,
+device run, screenshot capture, deployment or push.
+
+Source SHAs after the review fixes, before this evidence commit:
+
+| Tree | Branch | Base | Head |
+|---|---|---|---|
+| APP | web/lesson-svg-r1 | cff80d81cfb0a67a0b3b0df83303551d47b81891 | b77ad101 |
+| STAGING | web/pwa-staging-r1 | bf6f58e665ff50678cbcbb0b5caa1fbe3436837a | 24baa017 |
+
+| Review item | APP | STAGING |
+|---|---|---|
+| 1 Reuse decoded data-URL bytes | a91dbcab | 7ecc59f5 |
+| 2 Malformed data URLs show the failure state | f509f32e | c418a6db |
+| 3 Misnamed and unused figure files fail | f7cb304c | 932005a0 |
+| 4 Same credit and size rules on seed and upload | 7c6421a0 | 9d8fe850 |
+| 5 SVG frame, loading and failure like PNG | 31245d19 | 24baa017 |
+| 6 Render check names and use cycles | b77ad101 | none (the checker is APP only) |
 
 ## Scope and source
 
@@ -11,6 +29,7 @@ Policy read with git show origin/main, without fetch or pull:
 73572280cf4d9478d56e42247be04dad8ad1acd9.
 APP: web/lesson-svg-r1, 0a21e5b9ed2fc4bc75abd2fc6d7b6b2e2528afc7.
 STAGING: web/pwa-staging-r1, 80ddb7c52f1b9728d7c07945f480d2ed0c3d5950.
+(The first hand-in. The review fixes below start from the commits cff80d81 and bf6f58e6.)
 Live remote inspection found STAGING at that SHA. APP remote branch does not yet
 exist. APP's pre-existing pubspec.yaml and pubspec.lock changes were preserved.
 No other worktrees were touched.
@@ -312,6 +331,89 @@ Relay #11699 was canceled after the expanded-view assertion failed. It provides
 no completed full-suite evidence. Relay #11700 completed the final APP run, with one
 Flutter command at a time. Earlier failed checks remain recorded, not relabeled.
 
+## Review fixes, round 1
+
+Policy read with git show origin/main, without fetch or pull. Each fix had its test
+written first and seen failing, in one commit per item, in APP and then in STAGING.
+STAGING carries identical copies of the shared renderer, loader, seed-tool and
+content files (checked with cmp after the last commit).
+
+1. Memoize decoded bytes. Tests: loaders for one URL compare equal across rebuilds
+   and themes; a parent rebuild keeps the same loader. Both failed first
+   (Expected and Actual both `SvgBytesLoader`, not equal). A 16-entry least recently
+   used cache keyed by URL now returns the same bytes.
+2. Malformed data URLs. 12 widget tests (four bad URLs through the portable, reader
+   and legacy renderers) failed first with `FormatException` thrown building
+   `_ContentImage` and `_ImageBlockRenderer`. One helper now returns null for a
+   malformed URL and each renderer shows its existing failure state.
+3. Misnamed and unused figures. Failed first: eight misnamed names (one digit, upper
+   case, `.SVG`, `.jpg`, underscore, `00`, too shallow, too deep), an unused figure,
+   a figure in a lesson with no markers, a figure folder with no lesson file, and a
+   symbolic link in place of a figure. Seed, export and upload now stop with the file
+   path and the rule. STAGING failed first on the same cases in the uploader tests.
+4. Same rules on both sides (lead ruling). Failed first: a local PNG with no credit,
+   an SVG replacing an entry whose credit is missing, and the size limit (four
+   tests). The seed and the upload now give the credit `Pantas` only to a new
+   original SVG, which the authoring note defines. Both count the 900,000-byte
+   limit the same way. The seed drops the figure that would pass it, with a warning,
+   as before B9. The upload rejects the lesson. One test pair uses the same body and
+   the same two sizes (674,916 bytes kept, 674,917 over) on each side. No PNG hosting.
+   The three founder PNGs under reading-comprehension had no credit entry and relied
+   on the old default, so `content/illustrations/sources/pantas.yaml` now names them
+   with the credit Pantas. That file is a content decision for the lead to confirm.
+5. Layout parity. The size test compares an SVG and a PNG of the same size, with and
+   without width and height, in the portable, reader and legacy renderers: all 18
+   cases were already equal, so no sizing rule changed. The failure test failed
+   first: a failed SVG sat outside the frame in legacy content. It now sits inside
+   like a PNG. The loading space was already inside the frame. A PNG data-URL test
+   covers the path the seed uses for PNGs. The authoring note has size guidance.
+6. Render check. Failed first: seven misnamed names exit 0 (the `.SVG` file was not
+   even listed), and two `<use>` cycle fixtures raised nothing. The check now applies
+   the path rule under `content/illustrations` and reports cycles with their ids.
+   Fixture folders outside that path have no name rule.
+
+Remaining differences, for the lead:
+
+- An existing asset-map entry with a URL and no credit: the upload stops on it; the
+  seed still drops that image with a warning, as before B9, because an existing test
+  fixes that behavior.
+- The full uploader dry run still refuses two lessons over the size limit
+  (reading-comprehension/text-types/visual-media and
+  science/earth-science-astronomy/layers-of-the-earth) and the malformed ratio and
+  proportion question YAML. The seed drops the over-limit figures with a warning.
+  Those lessons wait for smaller SVG replacements.
+
+### Review fixes gate output
+
+APP, on head b77ad101, one Flutter command at a time:
+
+```text
+flutter test (full):           07:48 +4909: All tests passed!
+flutter analyze lib test tool: No issues found! (ran in 3.9s)
+dart format --output=none --set-exit-if-changed lib test: Formatted 1601 files (0 changed)
+dart run tool/check_layering.dart:            check_layering: OK (exit 0)
+dart run tool/check_no_ai_attribution.dart:   check_no_ai_attribution: OK (exit 0)
+python3 tools/check_lesson_svgs_test.py:      Ran 6 tests ... OK
+python3 tools/check_lesson_svgs.py tools/svg_fixtures/pass:  +5: All tests passed! (exit 0)
+python3 tools/check_lesson_svgs.py tools/svg_fixtures/fail --validate-only:
+  SVG preflight: 26 files, 26 failures (exit 1; names use-cycle.svg and use-self.svg)
+flutter build apk --debug --flavor dev -t lib/main_dev.dart:
+  Running Gradle task 'assembleDevDebug'... 24.3s
+  Built build/app/outputs/flutter-apk/app-dev-debug.apk (exit 0)
+```
+
+STAGING, on head 24baa017:
+
+```text
+node --test tools/upload_content/:  tests 18, pass 18, fail 0
+flutter test (lesson_markdown, test/tools, lesson_svg): +117: All tests passed!
+dart format --output=none --set-exit-if-changed lib test tools/content ...: 0 changed
+flutter build web --release -t lib/main_staging.dart: Built build/web (exit 0)
+```
+
+Not verified in this round: iOS build, any device or emulator run, visual
+acceptance, the full STAGING Flutter suite.
+
 ## Known blockers and decisions
 
 The full uploader dry run currently refuses all writes:
@@ -331,6 +433,8 @@ weakened. Aedwon has been asked whether to place illustrations in the existing
 web Hosting build and store URLs. No hosting change or deployment is authorized
 by an unanswered question. This remains an open decision and item 3 is partial
 until the oversized local PNG path is resolved.
+
+Superseded: the lead ruled no PNG hosting. See Review fixes, round 1, item 4.
 
 ## Scope additions discovered from source
 
@@ -948,11 +1052,9 @@ is intentionally excluded from its own identity inventory.
 
 ## Outstanding decisions and next action
 
-1. Decide whether oversized local images should be published in the existing web
-   Hosting build and referenced by URL. Recommended: existing Hosting, which adds
-   asset-copy/publishing work but no new service. Keeping only inline data avoids
-   that work but blocks two existing PNG lessons and similarly large future SVGs.
-   The async question remains unanswered. No hosting work or deployment ran.
+1. Resolved by the lead ruling: no PNG hosting. Oversized lessons wait for SVG
+   replacements; the seed drops an over-limit figure with a warning and the upload
+   rejects the lesson. See Review fixes, round 1, item 4.
 2. Restore the existing dev iOS scheme through the owning setup workstream, then
    rerun the required iOS command. This is a setup blocker, not a figure design choice.
 3. The content rewrite owner fixes the existing malformed ratio/proportion YAML.
