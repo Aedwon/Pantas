@@ -1,0 +1,389 @@
+{
+ "batch": "RD-019",
+ "lesson_id": "lesson-language-application-error-identification",
+ "path": "content/lessons/language-proficiency/language-application/error-identification.md",
+ "lesson_sha256": "6eec9a022b000e62a418e5249c50eb4b744ad6cdf0c3b7c89f262d456e0b5286",
+ "rewrite_commit": "b4c380cbb023b28e1d2bddf6b993e131f46ea69a",
+ "form": {
+  "packet": "lesson-language-application-error-identification",
+  "role": "A",
+  "lesson_sha256": "6eec9a022b000e62a418e5249c50eb4b744ad6cdf0c3b7c89f262d456e0b5286",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the grammar facts: singular they for one person, a before consonant sound, past perfect as had plus past participle, comma splice versus run-on, simple/compound/complex definitions.",
+     "Checked the Filipino facts: kahapon marks time, dito marks place, baka/marahil/maaari mark possibility, sumulat/sumusulat/susulat as done/ongoing/not yet, payak/tambalan/hugnayan definitions."
+    ],
+    "note": "No wrong fact found. Each statement matches standard English and Filipino grammar references.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Solved all 19 examples from the stems alone. #1 has, #2 were, #4 finished and had sent, #5 was checking, #6 speaking and watching, #8 clear, #10 (C), #11 Maria after the opening phrase, #12 (A) confusing, #13 (B) lengthy, #14 their, #15 (B) pupunta, #16 lumindol and natuwa, #17 (B) baka, #18 (B), #19 (A) masaya all match.",
+     "Example #3 repair and Example #7 repair differ from my own answer or assume more than the stem says."
+    ],
+    "note": "Example #3 gives a repair that is still ambiguous, so its answer is not safely unique.",
+    "findings": [
+     {
+      "quote": "Write **\"Ana was worried when she spoke to Liza.\"**",
+      "problem": "The stem names two women, so 'she' can still mean Liza after the rewrite. The solution says the reference is now clear, but a clear repair repeats the name or restructures the sentence, for example 'When Ana spoke to Liza, Ana was worried'."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Found Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For in order with exact titles.",
+     "Confirmed no figure is required: the brief lists Figures: None and no example depends on a picture."
+    ],
+    "note": "Required sections are present and no mnemonic section is needed. I could not see the outline entry itself.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read every Core Concept paragraph for sentence length and word difficulty; the long CSE scope paragraph from the brief is gone.",
+     "Read the solutions of #1 to #19 and Speed Tricks for rare words; terms such as finite verb and discourse no longer appear."
+    ],
+    "note": "Mostly short, plain sentences. The aspect sentence ('at a given point') is a little abstract but is followed by a concrete example.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Searched every stem for exam instruction words: Correct, Choose, Rewrite, closest in meaning, opposite in meaning.",
+     "Confirmed Evaluate no longer appears, and found no word like infer or simplify used without an explanation."
+    ],
+    "note": "No instruction word with a special exam meaning is used unexplained.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned Core Concept and the rest of the lesson for comparisons or story-style analogies and found none."
+    ],
+    "note": "The lesson has no analogy, so it stays within the limit of one.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Compared each stem with its solution: #1 to #14 give only the sentence and the task, and the solutions use plain words.",
+     "Checked #3 and #9 stems; they give the needed facts (who owns the files, the stated meaning of each modal) and the solutions stay simple."
+    ],
+    "note": "Stems give only needed information and the solutions use plain words. Example #9 states each meaning outright, which is less like an exam item but acceptable.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for exam mentions and repeated openers such as 'Test-makers often'; the lesson makes no exam mentions."
+    ],
+    "note": "No exam mentions are repeated.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino Core Concept section and examples #15 to #19 for sentence length and word choice."
+    ],
+    "note": "The Filipino prose uses short sentences and common words at a Grade 5 level.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "fail",
+    "checked": [
+     "Checked first uses: pandiwa, pang-abay, panghalip, pang-ugnay, pang-uri, and sugnay are glossed.",
+     "Found payak, tambalan, hugnayan, and sugnay na makapag-iisa used with no English gloss."
+    ],
+    "note": "Several hard sentence-structure terms have no English gloss on first use.",
+    "findings": [
+     {
+      "quote": "Ang payak na pangungusap ay may isang sugnay na makapag-iisa.",
+      "problem": "The terms payak, tambalan, hugnayan, and sugnay na makapag-iisa/di-makapag-iisa are hard grammar terms with no short English gloss (simple, compound, complex, independent, dependent) on first use."
+     }
+    ]
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked stems and solutions of examples #15 to #19; all are written in Filipino."
+    ],
+    "note": "The Filipino examples and their solutions are in Filipino.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson contains Filipino text; spelling and usage cannot be confirmed against the Komisyon sa Wikang Filipino from here.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino teaching prose for English words outside glosses; found none."
+    ],
+    "note": "No Taglish found; loan words such as relasyon and impormasyon are common Filipino.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Checked #12 and #13 and #19, the examples that point to a target word. In each the word is bold and #12 and #13 say 'the word in bold'.",
+     "#19 says 'salitang nakadiin' and bolds the word; the phrase does not say bold, but the word is bold and I do not find a clear breach."
+    ],
+    "note": "English prompts meet the rule. The Filipino wording 'nakadiin' is less exact than 'nakabold'; I judged it acceptable but am not certain.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for the listed stock phrases such as it is important to note, delve, crucial, furthermore, and not just X but Y; none found.",
+     "Read the summary and paragraph openings; the summary is plain and openings vary."
+    ],
+    "note": "No stock AI phrasing found and openings are varied.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "No formulas in this subject. Traced each example rule back to Core Concept: agreement, pronoun reference, past and past perfect, progressive, modals, parallel, clause boundaries, word form, sentence types, dangling modifier, prefix.",
+     "Confirmed section titles are the exact Language Proficiency layout."
+    ],
+    "note": "Every rule an example uses is taught first in Core Concept.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped each brief case to an example: pronoun #3, tense and aspect #4 and #5, parallelism #6, clause boundaries #7, word form #8, modals #9, sentence type #10.",
+     "Compared with the original example quoted in the brief (Neither the manager nor the employees were informed); no example in the rewrite covers it."
+    ],
+    "note": "The rewrite adds the missing cases but drops the neither/nor compound-subject case that the original taught.",
+    "findings": [
+     {
+      "quote": "**Subject-verb agreement** means matching the subject and main verb.",
+      "problem": "The original lesson worked a neither...nor compound-subject agreement case (brief L03 quote). The rewrite removed it and teaches only each-of and an interrupting phrase, so a case another tagged exam needs is gone."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed every multi-step solution (#1, #2, #3, #4, #5, #6, #7, #9, #10, #11, #12, #13, #14, #15 to #18): all use numbered steps.",
+     "Confirmed the one-step solutions (#19) may be a sentence."
+    ],
+    "note": "All multi-step solutions are numbered; there are no equations.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations, so line length does not apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [
+     "Counted sentences in each Core Concept paragraph; most have three or fewer.",
+     "Found two paragraphs with four sentences."
+    ],
+    "note": "Two paragraphs run past three sentences.",
+    "findings": [
+     {
+      "quote": "A simple sentence has one independent clause.",
+      "problem": "This paragraph lists four sentence types in four sentences, over the limit of three."
+     },
+     {
+      "quote": "Maaaring magpahayag ang pandiwa ng kilos, pangyayari, o karanasan.",
+      "problem": "This paragraph has four sentences, over the limit of three."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no placeholders and the brief says no figures are needed.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced needed terms: main verb, antecedent, pronoun, modifier, aspect, past participle, phrase, clause, independent, dependent, comma splice, run-on, prefix, suffix, root are each explained before use.",
+     "Finite verb and unexplained aspect from the brief are gone."
+    ],
+    "note": "Needed terms are explained. 'Base verb' in the modal paragraph is not defined, but the examples show it.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Read each concept for how it works: agreement, pronoun reference, modifiers, parallel, word form, tense and aspect, modals, clause types and boundaries.",
+     "Checked that each has a rule plus an example, not only a name."
+    ],
+    "note": "Concepts are explained with meaning and a working rule.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked conditions: interrupting phrases, singular they, past perfect not for every past verb, comma plus joining word, comma after a leading dependent clause.",
+     "Checked the Traps section repeats the main limits."
+    ],
+    "note": "Conditions and limits are stated for the main rules.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Write **\"Ana was worried when she spoke to Liza.\"**",
+    "concern": "The pronoun 'she' can still refer to Liza, so the stated fix may not remove the ambiguity that the example claims to repair."
+   },
+   {
+    "quote": "One repair for both is **\"The office closed early because the storm became stronger.\"**",
+    "concern": "The original has no stated link between the two clauses, so the repair adds a cause the stem does not give."
+   }
+  ],
+  "brief_items": {
+   "lesson-language-application-error-identification|L18|0": {
+    "status": "fixed",
+    "quote": "Rewrite \"When Ana spoke to Liza, she was worried\" to make the reference clear.",
+    "note": "Example #3 now works an unclear antecedent and pronoun number. The ambiguity repair is weak, as noted under B02."
+   },
+   "lesson-language-application-error-identification|L18|1": {
+    "status": "fixed",
+    "quote": "By the time the meeting began, he (had sent / sends) it to the team.",
+    "note": "Example #4 works simple past versus past perfect and #5 works past progressive, so tense and aspect choice is now shown."
+   },
+   "lesson-language-application-error-identification|L18|2": {
+    "status": "fixed",
+    "quote": "Correct both sentences: \"The job requires planning, writing, and to speak clearly.\"",
+    "note": "Example #6 repairs a broken list and a broken comparison."
+   },
+   "lesson-language-application-error-identification|L18|3": {
+    "status": "fixed",
+    "quote": "Correct these sentences: \"The office closed early, the storm became stronger.\"",
+    "note": "Example #7 works a comma splice and a run-on with repairs."
+   },
+   "lesson-language-application-error-identification|L18|4": {
+    "status": "fixed",
+    "quote": "Choose the correct word: \"The supervisor gave a (clarity / clearly / clear / clarify) explanation.\"",
+    "note": "Example #8 diagnoses word form by the job of the blank."
+   },
+   "lesson-language-application-error-identification|L02|0": {
+    "status": "fixed",
+    "quote": "Read the directions before deciding how many changes to make.",
+    "note": "The long CSE scope paragraph is replaced by one short plain sentence."
+   },
+   "lesson-language-application-error-identification|L03|0": {
+    "status": "fixed",
+    "quote": "Correct the error: \"Each of the students have submitted their assignment on time.\"",
+    "note": "Evaluate no longer appears and the stem uses a plain task. The old neither/nor example was removed, which is flagged under L18."
+   },
+   "lesson-language-application-error-identification|L05|0": {
+    "status": "fixed",
+    "quote": "Choose a clear correction: \"Rushing to catch the bus, the umbrella was left behind by Maria.\"",
+    "note": "Example 11 now states the task, a clear correction."
+   },
+   "lesson-language-application-error-identification|L25|0": {
+    "status": "fixed",
+    "quote": "**Subject-verb agreement** means matching the subject and main verb.",
+    "note": "Finite verb is replaced with main verb in the checklist step."
+   },
+   "lesson-language-application-error-identification|L25|2": {
+    "status": "fixed",
+    "quote": "**Aspect** shows whether we view an action as ongoing or already complete at a given point.",
+    "note": "Aspect is now defined and tied to examples before it is used."
+   },
+   "language-proficiency-language-application#3": {
+    "status": "fixed",
+    "quote": "The past progressive uses *was* or *were* plus an *-ing* form: *She was reading when I called*.",
+    "note": "Core Concept and examples #4 and #5 diagnose tense and aspect choice."
+   },
+   "language-proficiency-language-application#4": {
+    "status": "fixed",
+    "quote": "**Parallel structure** uses matching forms for items doing the same job.",
+    "note": "Parallel structure is defined and Example #6 repairs a list and a comparison."
+   },
+   "language-proficiency-language-application#22": {
+    "status": "fixed",
+    "quote": "Use the past perfect to make an earlier past action clear: *She had finished before the meeting began*.",
+    "note": "Past versus past perfect and progressive aspect are defined with contrasting contexts and worked in #4 and #5."
+   },
+   "language-proficiency-language-application#23": {
+    "status": "fixed",
+    "quote": "**Modal verbs** add meanings such as ability, permission, duty, or possibility.",
+    "note": "Modal meanings and base-verb construction are taught and worked in Example #9."
+   },
+   "language-proficiency-language-application#28": {
+    "status": "fixed",
+    "quote": "A **phrase** is a word group without its own subject-and-verb pair, such as *after the meeting*.",
+    "note": "Phrase, clause, independent and dependent clauses and sentence types are defined and used in Example #10."
+   },
+   "language-proficiency-language-application#55": {
+    "status": "fixed",
+    "quote": "Ang *baka, marahil,* at *maaari* ay nagpapakita ng posibilidad.",
+    "note": "Filipino possibility, time and place adverbs, and verb forms by time are taught and worked in #15 to #17."
+   },
+   "language-proficiency-language-application#56": {
+    "status": "fixed",
+    "quote": "Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: \"**Maligaya** ang mga empleyado sa magandang balita\"?",
+    "note": "Example #19 adds a Filipino synonym item, though the Core Concept does not teach synonyms in Filipino, so coverage is thin."
+   },
+   "lesson-language-application-error-identification|L19|0": {
+    "status": "fixed",
+    "quote": "1. The subject is the plural *committee members*.",
+    "note": "Example #2 solution is now a numbered list."
+   },
+   "lesson-language-application-error-identification|L25|1": {
+    "status": "fixed",
+    "quote": "Its **antecedent** is the noun it refers to.",
+    "note": "Antecedent is glossed in Core Concept."
+   },
+   "lesson-language-application-error-identification|L25|3": {
+    "status": "fixed",
+    "quote": "An **independent clause** can stand alone; a **dependent clause** cannot",
+    "note": "Independent and dependent clauses are defined."
+   },
+   "lesson-language-application-error-identification|L26|0": {
+    "status": "fixed",
+    "quote": "**Tense** places an action in time.",
+    "note": "Tense and aspect are explained with a how-to and examples."
+   },
+   "lesson-language-application-error-identification|L26|1": {
+    "status": "fixed",
+    "quote": "Comparisons also need matching parts: *Reading is easier than writing*.",
+    "note": "Parallel meaning and matching are explained with list and comparison examples."
+   },
+   "lesson-language-application-error-identification|L26|2": {
+    "status": "fixed",
+    "quote": "A comma alone creates a **comma splice**.",
+    "note": "Clause joining and punctuation are explained, with run-on and comma splice defined."
+   },
+   "lesson-language-application-error-identification|L26|3": {
+    "status": "fixed",
+    "quote": "For **word form**, ask what job the word does.",
+    "note": "Word form selection is explained by the word's job."
+   },
+   "lesson-language-application-error-identification|L27|0": {
+    "status": "fixed",
+    "quote": "Do not use it for every past action.",
+    "note": "Conditions for past perfect versus simple past are stated."
+   },
+   "lesson-language-application-error-identification|L27|1": {
+    "status": "fixed",
+    "quote": "Use *planning, writing, and speaking*, not *planning, writing, and to speak*.",
+    "note": "The lesson says parallel applies to items doing the same job; it does not list acceptable variations."
+   },
+   "lesson-language-application-error-identification|L27|2": {
+    "status": "fixed",
+    "quote": "Join independent clauses with a period, a semicolon, or a comma plus a joining word such as *and, but,* or *so*.",
+    "note": "Valid ways to join clauses are listed, and when a comma is needed after a leading dependent clause."
+   }
+  }
+ }
+}

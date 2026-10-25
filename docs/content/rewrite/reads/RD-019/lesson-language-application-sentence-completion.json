@@ -1,0 +1,278 @@
+{
+ "batch": "RD-019",
+ "lesson_id": "lesson-language-application-sentence-completion",
+ "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+ "lesson_sha256": "c3cbcbd696464ced00def53954e5ee07017d30b4e8d1a0ded62a6af3ffdec9b4",
+ "rewrite_commit": "b4c380cbb023b28e1d2bddf6b993e131f46ea69a",
+ "form": {
+  "packet": "lesson-language-application-sentence-completion",
+  "role": "A",
+  "lesson_sha256": "c3cbcbd696464ced00def53954e5ee07017d30b4e8d1a0ded62a6af3ffdec9b4",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked grammar facts: a university, an hour, interested in, keep an eye on, strong evidence, enjoy plus -ing, want plus to, had plus past participle.",
+     "Checked Filipino facts: kahapon needs a past action, kaya shows result, ngunit shows contrast, malaking tulong and matinding ulan."
+    ],
+    "note": "No wrong fact found.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved from the stems: #1 successful, #2 unsafe, #3 thorough/nervous (relaxed pairs fail the despite contrast, careless/nervous and rushed/unprepared are consistent), #4 approved, #5 check, #7 to leave/talking, #8 strong, #9 in, #10 the/an, #11 filing, #12 For example, #13 eye, #14 ipinasa, #15 kaya, #16 tulong.",
+     "Example #6 gives had finished and was reading; I agree, though finished could be argued."
+    ],
+    "note": "Every key matches my own answer. The brief's non-unique key in #3 is fixed.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Found Core Concept, Examples, Speed Tricks & Shortcuts, Traps to Watch For with exact titles; the brief lists no figures."
+    ],
+    "note": "Required sections are present. I could not see the outline entry itself.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the grammar sections for sentence length and rare words; the stacked terms such as complementation and tense/aspect are gone.",
+     "Read Speed Tricks and Traps for abstract wording."
+    ],
+    "note": "Short, plain sentences. 'The kind of word and the shape it takes' is a little abstract but is followed by examples.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked instruction words: Choose the best completion and the best pair are everyday wording; no infer, evaluate, or simplify appears."
+    ],
+    "note": "No exam word needs a one-line explanation.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned Core Concept and the rest for analogies and found none."
+    ],
+    "note": "No analogy appears, so the limit of one is met.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the stems of #1 to #16 with their solutions; stems give only the sentence and choices.",
+     "Read solutions for jargon; finite verb and natural reading are gone."
+    ],
+    "note": "Stems read like exam items and solutions are plain. Example #6 splits choices in an unusual way.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for exam mentions or repeated openers; none appear."
+    ],
+    "note": "No exam mentions are repeated.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino section and examples #14 to #16 for sentence length and word choice."
+    ],
+    "note": "Short sentences and common words.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first use of the term pang-ugnay: it is glossed as (connector); no other hard grammar term appears."
+    ],
+    "note": "The one hard term is glossed once.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked stems, choices, and solutions of #14, #15, #16; all are in Filipino."
+    ],
+    "note": "The Filipino examples are in Filipino.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson contains Filipino text; spelling cannot be confirmed against the Komisyon sa Wikang Filipino from here.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino prose for English words outside the gloss; none."
+    ],
+    "note": "No Taglish found.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No example prompt in this lesson points to a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for stock phrases (it is important to note, crucial, furthermore, not just X but Y); none.",
+     "Checked the summary and paragraph openings for variety."
+    ],
+    "note": "No stock AI phrasing found.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "No formulas. Traced each example to Core Concept: contrast and cause, two blanks, word form, agreement, past and past perfect, verb patterns, collocation, preposition, articles, parallel, example transition, idiom.",
+     "Section titles are exact."
+    ],
+    "note": "Everything an example uses is taught first.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped cases: contrast #1, cause #2, two blanks #3, word form #4, agreement #5, tense #6, verb pattern #7, collocation #8, preposition #9, articles #10, parallel #11, illustration #12, idiom #13, Filipino #14 to #16.",
+     "Checked the optional result/illustration gap; #12 and #2 now cover it."
+    ],
+    "note": "Brief cases are covered. The difficulty ramp is loose after #6.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed multi-step solutions #1, #2, #3, #4, #5, #6, #7, #8, #10, #11, #12 and the Filipino ones; all use numbered steps.",
+     "Confirmed one-step solutions #9 and #13 may be a sentence."
+    ],
+    "note": "Multi-step solutions are numbered.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations, so line length does not apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [
+     "Counted sentences per paragraph; most have three or fewer.",
+     "Found one four-sentence paragraph in Grammar Clues."
+    ],
+    "note": "One paragraph runs past three sentences.",
+    "findings": [
+     {
+      "quote": "Learn these patterns with the first verb.",
+      "problem": "This paragraph has four sentences, over the limit of three."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no placeholders and the brief says no figures are needed.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced needed terms: noun, adjective, adverb, subject-verb agreement, simple past, past progressive, past participle, countable noun, preposition, parallel structure, collocation, idiom are defined before use.",
+     "Finite verb is gone; 'main verb' is used without a definition."
+    ],
+    "note": "Terms are explained. 'Main verb' and 'base verb' are not defined, but they are plain enough for the examples.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked agreement, time forms, verb patterns, articles, prepositions, parallel structure, collocation, and idiom for how each works and how to use it as a clue."
+    ],
+    "note": "Concepts include meaning and how to use them to judge a completion.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limits stated: signal word alone is not enough, had not for every past verb, a/an by sound, the depends on context, check all blanks together."
+    ],
+    "note": "Conditions and limits are stated in Core Concept and Traps.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Choose the best forms: \"By the time the desk opened, I ______ the form.",
+    "concern": "The lesson itself says simple past may be enough when before or after makes the order clear, so 'finished' could be argued for the first blank."
+   }
+  ],
+  "brief_items": {
+   "lesson-language-application-sentence-completion|L18|1": {
+    "status": "fixed",
+    "quote": "**Strong evidence** is the usual combination for convincing support.",
+    "note": "Example #8 requires choosing by word combination."
+   },
+   "lesson-language-application-sentence-completion|L18|2": {
+    "status": "fixed",
+    "quote": "The applicant is interested ______ the training program.",
+    "note": "Examples #5, #7, #9, #10, #11 work agreement, verb patterns, prepositions, articles and parallel structure."
+   },
+   "lesson-language-application-sentence-completion|L26|0": {
+    "status": "fixed",
+    "quote": "**Subject-verb agreement** means matching the subject and verb.",
+    "note": "Each grammar check is now explained with a how-to and an example."
+   },
+   "lesson-language-application-sentence-completion|B02|0": {
+    "status": "fixed",
+    "quote": "(A) thorough, relaxed",
+    "note": "Choice A is changed so only thorough, nervous gives the despite contrast; the key B is now unique."
+   },
+   "lesson-language-application-sentence-completion|L02|0": {
+    "status": "fixed",
+    "quote": "**Word form** means the kind of word and the shape it takes.",
+    "note": "The stacked grammar-term sentence is replaced by plain explanations."
+   },
+   "lesson-language-application-sentence-completion|L05|0": {
+    "status": "fixed",
+    "quote": "The sentence needs a main verb after *the committee*.",
+    "note": "The solution drops standalone sentence and natural reading and uses plain words."
+   },
+   "lesson-language-application-sentence-completion|L19|0": {
+    "status": "fixed",
+    "quote": "*Although* links the bad forecast to an unexpected outcome.",
+    "note": "Solutions are now numbered steps."
+   },
+   "lesson-language-application-sentence-completion|L25|0": {
+    "status": "fixed",
+    "quote": "A **noun** names a person, place, thing, or idea.",
+    "note": "The grammar terms are now explained before use."
+   },
+   "lesson-language-application-sentence-completion|L25|1": {
+    "status": "fixed",
+    "quote": "The sentence needs a main verb after *the committee*.",
+    "note": "Finite verb is replaced by main verb in the solution."
+   },
+   "lesson-language-application-sentence-completion|L02|1": {
+    "status": "fixed",
+    "quote": "Read signal words and the ideas they connect. A contrast must make sense in the full sentence.",
+    "note": "The warning is now plain and short."
+   },
+   "lesson-language-application-sentence-completion|L18|0": {
+    "status": "fixed",
+    "quote": "Some office supplies can be reused. ______, a folder in good condition can hold a new set of papers.",
+    "note": "Example #12 works an illustration link, and #2 works a result."
+   }
+  }
+ }
+}

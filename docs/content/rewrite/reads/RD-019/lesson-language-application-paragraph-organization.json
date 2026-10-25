@@ -1,0 +1,280 @@
+{
+ "batch": "RD-019",
+ "lesson_id": "lesson-language-application-paragraph-organization",
+ "path": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+ "lesson_sha256": "dee7bb73a9d29e3118be6955a2f69a61a20041c74f83ecd10cc413890346ccd0",
+ "rewrite_commit": "b4c380cbb023b28e1d2bddf6b993e131f46ea69a",
+ "form": {
+  "packet": "lesson-language-application-paragraph-organization",
+  "role": "A",
+  "lesson_sha256": "dee7bb73a9d29e3118be6955a2f69a61a20041c74f83ecd10cc413890346ccd0",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the claims about reference words, transitions (however = contrast, therefore = result, for example = illustration, in addition = adds a point), and cause versus effect order.",
+     "Checked Filipino facts: dahil and sapagkat introduce cause, kaya introduces effect, dito points to a place."
+    ],
+    "note": "No wrong fact found.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved ordering items myself: #1 C-B-A-D (resources, competition, conflicts, wars), #2 C-A-B, #4 C-B-D-A, #5 B-C-A, #6 B-A, #7 A-B, #12 B-C-D-A, #13 B-A.",
+     "Solved comprehension items: #8 (B), #9 Monday, #10 submit an application, #11 keep a paper option; all match the solutions."
+    ],
+    "note": "Each worked order is unique and every comprehension answer is supported by the text.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Found Core Concept, Examples, Speed Tricks & Shortcuts, Traps to Watch For with exact titles; no figure is required (brief: Figures None)."
+    ],
+    "note": "Required sections are present. I could not see the outline entry itself.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read Clues to Order and Understanding the Ordered Text for sentence length and rare words; demonstrative, self-contained and universal rule are gone.",
+     "Read the example solutions, including #3, for plain wording; discourse and immediately precede are gone."
+    ],
+    "note": "Plain, short sentences throughout.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the instruction words: Arrange is everyday, coherent is explained in #1, infer is defined in Core Concept before #10."
+    ],
+    "note": "No exam word is used without its one-line explanation.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned for analogies in all sections and found none."
+    ],
+    "note": "No analogy appears, so the limit of one is met.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Compared stems of #1 to #14 with their solutions; stems give the sentences and the task only.",
+     "Read the solutions for hard words and found plain language."
+    ],
+    "note": "Stems give needed information only and solutions are simple. Some stems (#10, #11, #14) are open-ended rather than multiple choice.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for exam mentions or repeated openers; none appear."
+    ],
+    "note": "No exam mentions are repeated.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino section and examples #12 to #14 for sentence length and word choice."
+    ],
+    "note": "Short sentences and common words.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first uses: sanhi (cause), bunga (effect), paksa (topic), and balangkas (outline) are glossed."
+    ],
+    "note": "Each hard Filipino term is glossed once on first use.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked stems and solutions of #12, #13, #14; all are in Filipino."
+    ],
+    "note": "The Filipino examples are in Filipino.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson contains Filipino text; spelling cannot be confirmed against the Komisyon sa Wikang Filipino from here.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Read Filipino prose for English words outside glosses; none."
+    ],
+    "note": "No Taglish found.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "fail",
+    "checked": [
+     "Found #3 correct: **However** is bold and the prompt says 'the word in bold'.",
+     "Found #14 asks about the meaning of sanggunian with the word in italics and no mention of bold."
+    ],
+    "note": "Example #14 asks about a target word but does not make it bold or say so.",
+    "findings": [
+     {
+      "quote": "Ano ang ibig sabihin ng *sanggunian* sa talata?",
+      "problem": "The question targets the word sanggunian but shows it in italics, not bold, and the prompt does not say it is in bold."
+     }
+    ]
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for stock phrases such as it is important to note, crucial, furthermore, and not just X but Y; none.",
+     "Checked the summary and paragraph openings for variety."
+    ],
+    "note": "No stock AI phrasing found.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "No formulas. Traced each example idea to Core Concept: reference words, general-to-example, contrast transition, procedure order, time order, cause and effect (both directions), main idea, detail, inference, text kinds, Filipino connectors and outline.",
+     "Section titles are the exact titles."
+    ],
+    "note": "Everything an example uses is taught first.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped cases to examples: reference chain #1, general idea then example #2, contrast #3, procedure #4, time order #5, cause first #6, effect first #7, comprehension #8 to #11, Filipino #12 to #14.",
+     "Checked near-duplicates: #6 and #7 differ by order of cause, so they are distinct."
+    ],
+    "note": "The brief cases and the main ordering variations are covered. The chain example is longer than later ones, so the difficulty ramp is loose.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed multi-step solutions #1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #14; all are numbered lists.",
+     "#14 step 4 introduces a short bullet outline, which is allowed."
+    ],
+    "note": "All multi-step solutions are numbered.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations, so line length does not apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences per paragraph in Core Concept, Speed Tricks, and Traps; all have three or fewer, and one short bullet outline is used."
+    ],
+    "note": "Paragraphs stay within three sentences and bullets are sparing.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no placeholders and the brief says no figures are needed.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced needed terms: reference words, transition, chronology, cause, effect, main idea, detail, infer, coherent, balangkas are defined before use.",
+     "Found no unexplained jargon in the solutions."
+    ],
+    "note": "Terms are explained before use.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each concept (references, transitions, chronology, cause and effect, main idea, inference) for how it works and a method to apply it."
+    ],
+    "note": "Concepts include meaning and how to use them.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limits stated: pronoun may start a real paragraph, transition does not fix position, not every paragraph starts general, effect can precede cause, inference needs clues."
+    ],
+    "note": "Conditions and exceptions are stated in Core Concept and Traps.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-language-application-paragraph-organization|L18|0": {
+    "status": "fixed",
+    "quote": "(C) First, write your name and contact details in the form's fields.",
+    "note": "Examples #4 and #5 give a procedure order and a time order."
+   },
+   "lesson-language-application-paragraph-organization|L18|1": {
+    "status": "fixed",
+    "quote": "(B) The reason for these cancellations was that floodwater had blocked the school road.",
+    "note": "Examples #6 and #7 work cause first and effect first."
+   },
+   "lesson-language-application-paragraph-organization|L02|0": {
+    "status": "fixed",
+    "quote": "**Reference words**, such as *it, this, these,* and *they*, often point to something already named.",
+    "note": "The hard terms are replaced with plain wording."
+   },
+   "lesson-language-application-paragraph-organization|L05|0": {
+    "status": "fixed",
+    "quote": "The second sentence limits the first idea: support was common, but it was not shared by everyone.",
+    "note": "The solution now uses plain words with no discourse or expectation."
+   },
+   "lesson-language-application-paragraph-organization|L14|0": {
+    "status": "fixed",
+    "quote": "What does the word in bold tell you?",
+    "note": "However is bold and the prompt says the word in bold. Example #14 has a similar problem and is flagged under L14."
+   },
+   "lesson-language-application-paragraph-organization|L19|0": {
+    "status": "fixed",
+    "quote": "(C) names the groups, river, and resources without needing an earlier sentence.",
+    "note": "Solutions are now numbered steps."
+   },
+   "language-proficiency-language-application#11": {
+    "status": "fixed",
+    "quote": "**Chronology** is time order.",
+    "note": "Chronology and procedure are taught and worked in #4 and #5."
+   },
+   "language-proficiency-language-application#44": {
+    "status": "fixed",
+    "quote": "The **main idea** is the main point the text makes about its topic.",
+    "note": "Main idea, detail, inference and text kinds are taught and worked in #8 to #11."
+   },
+   "language-proficiency-language-application#51": {
+    "status": "fixed",
+    "quote": "Ang *una, pagkatapos, sumunod,* at *sa wakas* ay tumutulong sa pagkakasunod-sunod.",
+    "note": "Filipino sequence connectors are taught and worked in #12."
+   },
+   "language-proficiency-language-application#52": {
+    "status": "fixed",
+    "quote": "Karaniwang ipinapakilala ng *dahil* at *sapagkat* ang sanhi; maaaring ipakilala ng *kaya* ang bunga.",
+    "note": "Filipino causal connectors are taught and worked in #13."
+   },
+   "language-proficiency-language-application#54": {
+    "status": "fixed",
+    "quote": "Sa paggawa ng **balangkas** (outline), ilagay ang pangunahing ideya at ang mga detalyeng sumusuporta rito.",
+    "note": "Topic, key word meaning, explanation and outline are taught and worked in #14."
+   },
+   "lesson-language-application-paragraph-organization|L18|2": {
+    "status": "fixed",
+    "quote": "(C) Offices can offer documents in forms that meet different readers' needs.",
+    "note": "Examples #1 to #3 now cover three different ideas instead of one shared chain."
+   }
+  }
+ }
+}
