@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 4,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "## Left open by the earlier read (RD-068)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The prompt requires distinguishing coverage from SALN exemptions but supplies no primary-source wording establishing this blanket filing exemption. This hard-to-remember legal claim needs a source check; it cannot be confirmed from the permitted text alone.\n   > The rules exempt free-service volunteers from filing the SALN and financial disclosures.\n2. Rule L18 (Major). Problem: No worked example applies the continuing outside-business or recommendation ban, or the distinct former-office practice limit. These are distinct cases explicitly taught here, and the brief requires keeping the prior one-year case while adding application examples. The former one-year example has been lost.\n   > The outside-business and recommendation bans continue for $1$ year after leaving office.",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "## Left open by the earlier read (RD-068)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This precise relationship definition is a hard-to-remember factual addition without source evidence in the prompt. Its accuracy cannot be confirmed from the permitted material; the family-gift classification now depends on it. Request a primary-source check before acceptance.\n   > Inso refers to the wife of an elder brother or male cousin."
+ },
+ "id": "RW-075",
+ "type": "rewrite",
+ "created": "2026-10-25T22:51:32+00:00"
+}

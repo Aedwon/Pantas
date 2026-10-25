@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-peace-and-human-rights-human-rights-fundamentals",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+ ],
+ "topic": "general-information/peace-and-human-rights",
+ "round": 4,
+ "paths": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md"
+ },
+ "extra_brief": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "## Left open by the earlier read (RD-071)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The packet supplies no factual source for this operational CHR claim or the other detailed legal claims. I cannot confirm them against a source within the supplied-only review. This is an unconfirmed-fact finding, not a determination that the claim is false.\n   > The process may lead to findings, referrals, legal help, counseling, or steps to protect victims.\n2. Rule L18 (Major). Problem: The lesson now teaches all 22 sections, but several distinct application cases have no worked example. In particular, lawful travel limits, suspension of habeas corpus, compelled testimony, and imprisonment for debt are explained without a worked case. These are distinct constitutional protections within the expanded scope, not changes of nouns in existing examples.\n   > Section $6$ protects the choice of home and travel.",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "## Left open by the earlier read (RD-071)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: No treaty text or source excerpt is supplied to confirm this precise article attribution or the other detailed treaty rules. The supplied-only review cannot establish source verification. This flags unconfirmed facts, not a demonstrated false statement.\n   > Article $127$ of the Third Geneva Convention requires teaching its rules in peace and war, including military instruction."
+ },
+ "id": "RW-076",
+ "type": "rewrite",
+ "created": "2026-10-25T22:51:32+00:00"
+}

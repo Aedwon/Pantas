@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-tenses-and-voice"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 4,
+ "paths": {
+  "lesson-grammar-and-structure-tenses-and-voice": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md"
+ },
+ "extra_brief": {
+  "lesson-grammar-and-structure-tenses-and-voice": "## Left open by the earlier read (RD-073)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson teaches must as a conclusion from evidence, but no worked example applies that meaning. Examples #13–#15 use requirements, advice, prohibition, and possibility only. Drawing a conclusion with must is a distinct modal-meaning case, not a change of nouns or numbers.\n   > *Must* can also express a strong conclusion: \"The lights are on, so someone must be home.\""
+ },
+ "id": "RW-078",
+ "type": "rewrite",
+ "created": "2026-10-25T22:51:32+00:00"
+}
