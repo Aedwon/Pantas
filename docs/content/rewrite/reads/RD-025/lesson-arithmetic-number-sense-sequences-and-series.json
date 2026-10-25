@@ -1,0 +1,253 @@
+{
+ "batch": "RD-025",
+ "lesson_id": "lesson-arithmetic-number-sense-sequences-and-series",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
+ "lesson_sha256": "7b4a37212e4fc954c209c95b274a3e25b88325bfe049efaa356013a8c6cb726c",
+ "rewrite_commit": "89efa84d6bd3a15bed09eb6df3c14c200390ec91",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-sequences-and-series",
+  "role": "A",
+  "lesson_sha256": "7b4a37212e4fc954c209c95b274a3e25b88325bfe049efaa356013a8c6cb726c",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked constant-difference and ratio definitions, Fibonacci addition, harmonic reciprocals, arithmetic term and both sum formulas, geometric term and finite sum formulas, r=1 sum, convergence rule for the nonzero geometric sequences defined here, term-count rearrangement and odd middle-term average. All are algebraically consistent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 37 by successive odd differences; #2 76; #3 720 seats; #4 -384; #5 189; #6 27; #7 1/17; #8 5a-1; #9 40; #10 no finite sum. The shortcut example sums to 75. Each matches."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, ten examples, Speed Tricks & Shortcuts and Traps to Watch For are present. Mnemonics are optional and omitted. Finite geometric sums and number-pattern discovery requested by the brief are included; no required figure is indicated."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Pattern checks, reciprocal definition and convergence explanation are in short plain sentences. Technical sequence names are defined rather than left unexplained."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "3. Simplify.",
+      "problem": "Simplify is used as an exam-specific mathematical instruction without the required one-line meaning on its first use in Example 3. The Evaluate gloss does not explain Simplify."
+     }
+    ]
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogies occur in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All stems supply lists, term counts or word-problem quantities needed. Fibonacci variables give expressions without giving the recurrence. No tested formula is supplied in a question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about named exams or repeated exam openers occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the topic directly; sentence openings vary and listed stock phrases are absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "#1 uses subtraction checks from Finding a Number Pattern; #2 uses a_n=a_1+(n-1)d; #3 uses S_n=n[2a_1+(n-1)d]/2; #4 uses a_n=a_1 r^(n-1); #5 uses a_1(1-r^n)/(1-r); #6 uses a_1/(1-r) with |r|<1; #7 uses reciprocal 1/x and the arithmetic-term rule; #8 uses z=x+y; #9 uses S_n=na_1; #10 uses |r|>=1 divergence. All occur in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Ten worked cases cover differences-of-differences discovery, arithmetic far term and word-problem sum, signed geometric term, finite geometric sum, infinite convergent sum, harmonic term, algebraic Fibonacci recurrence, r=1 finite sum and divergent infinite series. No duplicate numeric-only examples occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step example is numbered. Key arithmetic and substitutions are displayed; #10 needs no arithmetic beyond recognizing ratio 2 and the divergence condition. No solution step is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Displayed computations are short expressions suitable for a phone width."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions use short paragraphs; the five pattern-check bullets are a compact checklist and the remaining prose uses paragraphs within the sentence limit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder is used or needed for these verbal and numerical problems.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "$$a_n=a_1+(n-1)d$$",
+      "problem": "The formulas need the meanings of a_n, S_n and S_infinity. Core Concept defines a_1, n, d and r but never defines these output symbols before students must use them. The later trap identifies a_n and S_n without a forward reference at first use."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Constant differences and ratios explain sequence types; Fibonacci and harmonic transformations explain their mechanisms; worked substitutions show term and sum use; convergence is explained through adding more terms and approaching a finite number."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Finite geometric rule excludes r=1 and teaches that exception; infinite formula requires |r|<1 with divergence taught separately; reciprocals require nonzero inputs; term-count shortcut requires nonzero difference and an actual final term in the sequence."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|0": {
+    "status": "fixed",
+    "quote": "Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\\dots$.",
+    "note": "Example 5 now works a finite geometric-series sum with ratio 2."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L03|1": {
+    "status": "fixed",
+    "quote": "\"Evaluate\" means find the final number answer.",
+    "note": "The Evaluate gloss now precedes the infinite-series question."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L25|0": {
+    "status": "fixed",
+    "quote": "The **reciprocal** of a nonzero number $x$ is $\\dfrac{1}{x}$.",
+    "note": "Reciprocal is defined before the harmonic-sequence definition uses it."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L25|1": {
+    "status": "fixed",
+    "quote": "An infinite geometric series **converges** when its sum gets closer and closer to one finite number as more terms are added.",
+    "note": "Convergence has a plain meaning before its condition and formula."
+   },
+   "mathematics-arithmetic-number-sense#80": {
+    "status": "fixed",
+    "quote": "Check whether the differences form their own simple pattern.",
+    "note": "General discovery checks are taught and Example 1 works a changing-difference pattern."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L03|0": {
+    "status": "fixed",
+    "quote": "What is the $25^{\\text{th}}$ term of $4,7,10,13,\\dots$?",
+    "note": "Find is an everyday verb and needs no special gloss; the revised arithmetic question is clear."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L17|0": {
+    "status": "fixed",
+    "quote": "For three consecutive terms $x,y,z$:",
+    "note": "Core Concept now displays z=x+y before the variable example uses it."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|1": {
+    "status": "fixed",
+    "quote": "A geometric series has $8$ terms, and every term is $5$. What is the sum?",
+    "note": "Example 9 now demonstrates the r=1 finite-sum exception."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|2": {
+    "status": "fixed",
+    "quote": "Does the infinite geometric series $3+6+12+24+\\dots$ have a finite sum?",
+    "note": "Example 10 now works a divergent infinite-geometric case."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L26|0": {
+    "status": "fixed",
+    "quote": "An infinite geometric series **converges** when its sum gets closer and closer to one finite number as more terms are added.",
+    "note": "The new explanation connects convergence to sums approaching one finite value."
+   }
+  }
+ }
+}
