@@ -19,6 +19,7 @@ LESSON_END = ">>>>>>>> LESSON END"
 BRIEF_START = "<<<<<<<< BRIEF START"
 BRIEF_END = ">>>>>>>> BRIEF END"
 FORBIDDEN = ("{{", "}}", "TODO", "TBD", "ROLE", "ATTEMPT", "<batch", "<lesson", "\u2014")
+RELAY_WORDS = ("relay", "terminal", "handin.py", "workspace", "git_push")
 BRITISH = ("colour", "practise", "behaviour", "analyse", "organise", "centre", "grey", "favour")
 
 
@@ -36,11 +37,16 @@ class Parts:
         return "\n".join(text for authored, text in self.parts if authored)
 
 
-def check_authored(parts):
-    """Raise when this tool's own text holds a placeholder, an em dash or a British spelling."""
+def check_authored(parts, pull_request=False):
+    """Raise when this tool's own text holds a placeholder, an em dash or a British spelling.
+
+    A pull-request prompt must also hold no word of the old terminal relay.
+    """
     text = parts.authored()
     bad = [word for word in FORBIDDEN if word in text]
     bad += [word for word in BRITISH if re.search(r"\b%s" % word, text, re.I)]
+    if pull_request:
+        bad += [word for word in RELAY_WORDS if word in text.lower()]
     if bad:
         raise rw_lib.RewriteError("the prompt text still holds: %s" % ", ".join(bad))
 
@@ -142,6 +148,68 @@ def relay_steps(batch, file_ext, what, write_noun):
     return "\n".join(lines)
 
 
+# ---- pull request steps ------------------------------------------------------
+
+PR_RULES = """
+Rules for the hand-in:
+
+- Read no other issue or pull request. Open no other file or repository, and create no other branch. Open no other pull request.
+- Change no file other than the files named above. Never merge the pull request yourself.
+- The check never prints %(what)s text. Its reasons name rules, counts, and line numbers. Fix the %(what)s from those, using the %(what)s you wrote.
+- If a sign-in, usage limit, or security prompt appears, or the connector refuses an action, stop and tell the user. Do not work around it.
+- When the comment says ACCEPTED, reply with the one word `done`.
+"""
+
+
+def pr_branch(batch):
+    return rw_lib.PR_BRANCH_PREFIX + batch["id"]
+
+
+def pr_steps(batch, what, file_note):
+    """The 'How to hand in' section for the pull-request path. what: 'lesson' or 'form'."""
+    branch, base, repo = pr_branch(batch), rw_lib.BRANCH, rw_lib.REPO
+    lines = [
+        "## How to hand in",
+        "",
+        "You hand in with the GitHub connector, in the repository `%s`. Do these steps in order." % repo,
+        "",
+        "**Step 1. Create the branch.** Create the branch `%s` from the current head of the branch `%s`. "
+        "Use exactly this name." % (branch, base),
+        "",
+        "**Step 2. Commit the files.** Commit every %s in this batch to the branch `%s`, each at the path "
+        "given as \"File path\" above. %s Commit the whole file each time, from its first line to its last. "
+        "Use LF line ends and end the file with exactly one final newline. Every %s in the batch must be in the "
+        "pull request." % (what, branch, file_note, what),
+        "",
+        "**Step 3. Open the pull request.** Open one pull request from `%s` into `%s`. Give it the title "
+        "`[handin] %s`. Keep the description empty or to one line." % (branch, base, batch["id"]),
+        "",
+        "**Step 4. Wait for the check.** A check named `CSE hand-in` runs on the pull request, and a bot then "
+        "adds one comment to it. Look for the comment about once a minute, up to ten times. A rejected hand-in "
+        "shows the check as failed: that is expected, so read the comment. The bot updates this same comment "
+        "each time you commit again, so read it again after each commit.",
+        "",
+        "**Step 5. Act on the comment.** The comment has a heading that is one of these words.",
+        "",
+        "- `ACCEPTED`: the check passed and a workflow merges the pull request. You are done.",
+        "- `REJECTED`: the comment lists numbered reasons under each file or under \"Pull request\". Fix exactly "
+        "the listed reasons and nothing else. Commit the fixed %ss to the same branch (step 2), then go back to "
+        "step 4. Do not open a new pull request. You may fix after the first and the second rejection only."
+        % what,
+        "- `HELD`, `IGNORED`, or `ERROR`: stop. Do not commit again and do not try other values. Tell the user "
+        "the word and nothing else.",
+    ]
+    return "\n".join(lines) + "\n" + PR_RULES % {"what": what}
+
+
+PR_ENFORCED = """
+What the check also enforces on the pull request:
+
+- It changes only the files named above, each at its exact path, and every one of them is in it.
+- It adds no other file, and deletes, renames, or moves no file.
+"""
+
+
 # ---- the rewrite prompt --------------------------------------------------------
 
 REWRITE_RULES = """
@@ -183,7 +251,16 @@ What the check enforces:
 """
 
 
-def _lesson_blocks(ctx, parts, batch, briefs):
+def _save_path(batch, lesson_id, brief, mode):
+    """Where the chat saves a file: a path in the repository for a pull request, the relay's folder otherwise."""
+    if mode == "pr":
+        if batch["type"] == "read":
+            return "%s/%s/%s.json" % (rw_lib.READS_REL, batch["id"], lesson_id)
+        return brief["path"]
+    return "%s/%s/%s%s" % (rw_lib.INBOX_REL, batch["id"], lesson_id, batch["_ext"])
+
+
+def _lesson_blocks(ctx, parts, batch, briefs, mode="relay"):
     total = len(batch["lessons"])
     for number, lesson_id in enumerate(batch["lessons"], 1):
         brief = briefs[lesson_id]
@@ -194,14 +271,23 @@ def _lesson_blocks(ctx, parts, batch, briefs):
         expected = batch.get("sha256", {}).get(lesson_id)
         if expected and l4lib.sha256_text(text) != expected:
             raise rw_lib.RewriteError("lesson %s changed after this batch was built" % lesson_id)
-        parts.add("## Lesson %d of %d: `%s`\n\nSave file: `%s/%s/%s%s`\nTagged exams: %s"
-                  % (number, total, lesson_id, rw_lib.INBOX_REL, batch["id"], lesson_id, batch["_ext"],
+        label = "File path" if mode == "pr" else "Save file"
+        parts.add("## Lesson %d of %d: `%s`\n\n%s: `%s`\nTagged exams: %s"
+                  % (number, total, lesson_id, label, _save_path(batch, lesson_id, brief, mode),
                      ", ".join(brief["exams"])))
-        parts.add("### Brief\n\n" + _block(BRIEF_START, brief["text"], BRIEF_END), authored=False)
+        brief_text = brief["text"]
+        if batch.get("extra_brief", {}).get(lesson_id):
+            brief_text = brief_text.rstrip("\n") + "\n\n" + batch["extra_brief"][lesson_id]
+        parts.add("### Brief\n\n" + _block(BRIEF_START, brief_text, BRIEF_END), authored=False)
         yield lesson_id, brief, text
 
 
-def rewrite_prompt(ctx, batch):
+# (how the lesson is handed in, what the chat uses for it) in the two intro bullets
+HOW = {"relay": ("through the terminal relay", "relay requests"), "pr": ("as a pull request on GitHub", "GitHub steps")}
+
+
+def rewrite_prompt(ctx, batch, mode="relay"):
+    """mode "relay" is the old terminal relay hand-in; "pr" hands in by pull request."""
     batch = dict(batch, _ext=".md")
     briefs = briefs_mod.load_all(ctx)
     parts = Parts()
@@ -211,21 +297,31 @@ def rewrite_prompt(ctx, batch):
         "You rewrite %d lessons of the Pantas exam review app. Pantas prepares Filipino students for the Civil "
         "Service Exam (CSE) and for other entrance and scholarship exams. Every lesson comes with a brief that "
         "lists what to fix and what Civil Service Exam teaching to add. For each lesson you write the full new "
-        "lesson file and hand it in through the terminal relay.\n\n"
+        "lesson file and hand it in %s.\n\n"
         "The lessons are all from the topic `%s`.\n\n"
         "- This prompt holds everything you need: the standards, each lesson's brief, and each lesson's current "
         "text.\n"
-        "- Use only this prompt and the relay requests under \"How to hand in\". Do not open any other file, "
+        "- Use only this prompt and the %s under \"How to hand in\". Do not open any other file, "
         "issue, or pull request in any repository.\n"
         "- Every wording decision is yours. Do not ask the user anything. Your chat reply is not read by anyone. "
-        "Your result is the hand-in." % (len(batch["lessons"]), batch["topic"]))
+        "Your result is the hand-in." % (len(batch["lessons"]), HOW[mode][0], batch["topic"], HOW[mode][1]))
+    if batch.get("extra_brief"):
+        parts.add("## A second round\n\nSome lessons were rewritten before, and an independent reader found "
+                  "problems left. The brief of such a lesson ends with a section called \"Left open by the "
+                  "earlier read\". Fix those items too. The current lesson text below is the earlier rewrite.")
     add_standards(ctx, parts)
     parts.add("## Rules for the rewrite\n" + REWRITE_RULES)
-    for lesson_id, brief, text in _lesson_blocks(ctx, parts, batch, briefs):
+    for lesson_id, brief, text in _lesson_blocks(ctx, parts, batch, briefs, mode):
         parts.add("### Current lesson text\n\n" + _block(LESSON_START, text, LESSON_END), authored=False)
-    parts.add(relay_steps(dict(batch), ".md", "lesson", "the whole lesson file"))
-    parts.add(ENFORCED)
-    check_authored(parts)
+    if mode == "pr":
+        parts.add(pr_steps(batch, "lesson", "The path is the lesson's own file, which already exists on the branch: "
+                           "you replace its content."))
+        parts.add(ENFORCED + PR_ENFORCED + "- Each lesson file has LF line ends and one final newline, exactly as the check "
+                  "would write it.\n")
+    else:
+        parts.add(relay_steps(dict(batch), ".md", "lesson", "the whole lesson file"))
+        parts.add(ENFORCED)
+    check_authored(parts, pull_request=mode == "pr")
     return parts.text()
 
 
@@ -240,7 +336,7 @@ def _rules_table(rule_ids):
     return "\n".join(rows)
 
 
-def read_prompt(ctx, batch):
+def read_prompt(ctx, batch, mode="relay"):
     batch = dict(batch, _ext=".json")
     briefs = briefs_mod.load_all(ctx)
     prerequisites = ctx.prerequisites()
@@ -253,14 +349,14 @@ def read_prompt(ctx, batch):
         "lesson against the lesson standards, and you check every brief item against the rewritten text. You "
         "report findings. You change nothing.\n\n"
         "- This prompt holds everything you need: the standards, each lesson's brief, and each rewritten lesson.\n"
-        "- Judge only from this prompt. Use only the relay requests under \"How to hand in\". Do not open any "
+        "- Judge only from this prompt. Use only the %s under \"How to hand in\". Do not open any "
         "other file, issue, or pull request in any repository. You have not seen how the lessons were written, "
         "and the check depends on that.\n"
         "- Every verdict is yours. Do not ask the user anything. Your chat reply is not read by anyone. Your "
-        "result is the hand-in." % len(batch["lessons"]))
+        "result is the hand-in." % (len(batch["lessons"]), HOW[mode][1]))
     add_standards(ctx, parts)
     parts.add((rw_lib.RELAY_DIR / "l4" / "judging.md").read_text(encoding="utf-8"), authored=False)
-    for lesson_id, brief, text in _lesson_blocks(ctx, parts, batch, briefs):
+    for lesson_id, brief, text in _lesson_blocks(ctx, parts, batch, briefs, mode):
         pkt = readpacket.packet(lesson_id, text, brief["path"])
         record = ctx.accepted("rewrite", lesson_id) or {}
         parts.add("### Rewritten lesson text\n\n" + _block(LESSON_START, text, LESSON_END), authored=False)
@@ -287,9 +383,13 @@ def read_prompt(ctx, batch):
         parts.add("### Rules on the form for this lesson\n\n" + _rules_table(pkt["rule_ids"]), authored=False)
         form_json = json.dumps(readpacket.blank_form(pkt, brief), indent=1, ensure_ascii=False)
         parts.add("### The form for `%s`\n\nFill this in. Keep every key. Do not add or remove rules or brief "
-                  "items. Save it as `%s/%s/%s.json`.\n\n```json\n%s\n```"
-                  % (lesson_id, rw_lib.INBOX_REL, batch["id"], lesson_id, form_json))
-    parts.add(relay_steps(dict(batch), ".json", "form", "the whole form as JSON"))
+                  "items. Save it as `%s`.\n\n```json\n%s\n```"
+                  % (lesson_id, _save_path(batch, lesson_id, brief, mode), form_json))
+    if mode == "pr":
+        parts.add(pr_steps(batch, "form", "The path is new: the file does not exist yet. Its content is the "
+                           "filled-in form as JSON, and nothing else."))
+    else:
+        parts.add(relay_steps(dict(batch), ".json", "form", "the whole form as JSON"))
     parts.add(
         "What the check enforces:\n\n"
         "- Every quote is at least 8 characters, copied exactly from the rewritten lesson, and not a bare heading.\n"
@@ -298,6 +398,7 @@ def read_prompt(ctx, batch):
         "- `not_applicable` is allowed only on L03, L14, L21, L23, and L08 to L12.\n"
         "- Empty values are `[]` and `\"\"`, never `null`.\n"
         "- Do not reuse one `checked` text across several rules. Say what you checked for each rule.\n"
-        "- Every brief item has a status, `fixed` or `not_fixed`, with a quote and a note.")
-    check_authored(parts)
+        "- Every brief item has a status, `fixed` or `not_fixed`, with a quote and a note."
+        + ("\n" + PR_ENFORCED if mode == "pr" else ""))
+    check_authored(parts, pull_request=mode == "pr")
     return parts.text()

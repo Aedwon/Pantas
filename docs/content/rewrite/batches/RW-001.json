@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
+  "lesson-data-interpretation-tables-and-charts"
+ ],
+ "topic": "mathematics/data-interpretation",
+ "round": 1,
+ "paths": {
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
+  "lesson-data-interpretation-tables-and-charts": "content/lessons/mathematics/data-interpretation/tables-and-charts.md"
+ },
+ "id": "RW-001",
+ "type": "rewrite",
+ "created": "2026-10-25T07:30:57+00:00"
+}

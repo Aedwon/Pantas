@@ -118,7 +118,9 @@ class RewritePlan(unittest.TestCase):
         planner.plan(self.ctx)
         self.assertFalse(str(self.ctx.state).startswith(str(self.ctx.root)))
         self.assertTrue((self.ctx.state / "batches.json").exists())
-        self.assertEqual(F.git(self.ctx.root, "status", "--porcelain").strip(), "")
+        # Only the batch files are new in the repository: they are committed by the lead.
+        self.assertEqual(F.git(self.ctx.root, "status", "--porcelain", "--untracked-files=all").split(),
+                         ["??", "%s/RW-001.json" % rw_lib.BATCHES_REL] + ["??", "%s/RW-002.json" % rw_lib.BATCHES_REL])
 
     def test_state_folder_override_by_environment(self):
         import os

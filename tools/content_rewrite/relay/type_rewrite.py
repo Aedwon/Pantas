@@ -29,6 +29,8 @@ class RewriteType(item_types.ItemType):
     commit_verb = "rewrite"
     batch_size = 4
     priority = 1
+    expected_status = "M"
+    verbatim = True
 
     def plan(self, ctx):
         briefs = briefs_mod.load_all(ctx)
@@ -65,8 +67,8 @@ class RewriteType(item_types.ItemType):
     def target_paths(self, batch, key):
         return [batch["paths"][key]]
 
-    def prompt(self, ctx, batch):
-        return prompts.rewrite_prompt(ctx, batch)
+    def prompt(self, ctx, batch, mode="pr"):
+        return prompts.rewrite_prompt(ctx, batch, mode)
 
     def check_item(self, ctx, batch, key, raw):
         brief = briefs_mod.load_all(ctx)[key]
@@ -74,7 +76,7 @@ class RewriteType(item_types.ItemType):
             new = rw_lib.clean_text(raw)
         except UnicodeError:
             return item_types.ItemResult(["the saved file is not valid UTF-8 text"], readable=False)
-        base = ctx.git.show("HEAD:" + brief["path"])
+        base = ctx.git.show("%s:%s" % (ctx.base_ref, brief["path"]))
         if base is None:
             return item_types.ItemResult(["the lesson is not in the repository at this commit"])
         reasons, notes = checks.check_rewrite_text(base, new, brief["path"])
@@ -86,9 +88,7 @@ class RewriteType(item_types.ItemType):
                 lines = sorted({c["line"] for c in loose})
                 notes.append("%d changed passages match no brief item or gap part (lines %s)"
                              % (len(loose), ", ".join(str(n) for n in lines[:15])))
-            # Only a passage with no match keeps its text: the reader is shown those.
-            flags = [{"line": c["line"], "kind": c["kind"], "by": c["by"],
-                      "text": c["text"] if c["by"] is None else ""} for c in changes]
+            flags = checks.change_flags(base, new, brief)
         record = {"sha256": l4lib.sha256_text(new), "changes": flags}
         return item_types.ItemResult(reasons, notes, {brief["path"]: new.encode("utf-8")}, record)
 

@@ -40,9 +40,10 @@ def stray_changes(ctx, allowed):
         stray.append("(the worktree is not on the rewrite branch)")
     raw = git.text("status", "--porcelain", "-z", "--no-renames", "--untracked-files=all")
     inbox = rw_lib.INBOX_REL + "/"
+    batches = rw_lib.BATCHES_REL + "/"   # the planner writes batch files here before the lead commits them
     for entry in (e for e in raw.split("\0") if e):
         path = entry[3:]
-        if path.startswith(inbox) or path in allowed:
+        if path.startswith(inbox) or path.startswith(batches) or path in allowed:
             continue
         stray.append(path)
     # A file flagged skip-worktree or assume-unchanged is hidden from git status, so an edit to it goes unseen.
@@ -136,13 +137,11 @@ def process(batch_id, attempt, ctx=None):
         raw = raws[key] = path.read_bytes()
         path.unlink()
         try:
-            result = kind.check_item(ctx, batch, key, raw)
+            result = item_types.check_safely(ctx, kind, batch, key, raw)
         except rw_lib.RewriteError as exc:
             ctx.stop(str(exc), batch_id)
             ctx.event(batch=batch_id, attempt=attempt, item=key, result="stopped")
             return 3, ["STOPPED: %s. Do not hand in again." % exc]
-        except Exception:  # an item must never crash the check; an unknown fault is a rejection
-            result = item_types.ItemResult(["the file could not be checked; write it again in full"])
         (rejected if result.reasons else accepted).append((key, result))
 
     lines, commit = [], None

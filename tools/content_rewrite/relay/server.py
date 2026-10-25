@@ -7,8 +7,8 @@ Binds to this Mac only. Every request must name this server as its Host, so a we
 own domain at 127.0.0.1 is refused. Every POST also needs the X-Rewrite header and, when the browser
 sends one, this page's own Origin, so no other site can post here. These are the rules of the Level 4
 paste page. The page shows the next batch with a Copy prompt button and each batch's state. Nothing is
-pasted back: a chat hands in through the relay, and a batch is done when its commit is on the remote
-branch and the GitHub check passed.
+pasted back: a chat hands in by pull request, and a batch is done when its pull request is merged into
+the rewrite branch and the push check on the merge passed.
 Python 3.9 standard library only.
 """
 import json
@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import item_types  # noqa: E402
 import planner  # noqa: E402
+import pr_sync  # noqa: E402
 import rw_lib  # noqa: E402
 import status  # noqa: E402
 
@@ -53,17 +54,24 @@ class App:
         self.lock = threading.Lock()
         self.cache, self.cached_at = None, None
         self.remote_at, self.fetched, self.runs, self.runs_error = None, True, None, None
+        self.prs, self.prs_error = None, None
 
     def _refresh_remote(self):
         self.fetched = status.fetch(self.ctx.git)
         try:
-            planner.plan(self.ctx, kinds=["read"])
-        except rw_lib.RewriteError:
-            pass  # a read batch that cannot be planned yet is not a page error
-        try:
             self.runs, self.runs_error = self.gh.runs(), None
         except status.GhError as exc:
             self.runs, self.runs_error = None, exc
+        if hasattr(self.gh, "prs"):
+            try:
+                self.prs, self.prs_error = self.gh.prs(), None
+                pr_sync.sync(self.ctx, self.prs)   # merged rewrites become accepted, so reads can be planned
+            except (status.GhError, rw_lib.RewriteError) as exc:
+                self.prs, self.prs_error = None, exc
+        try:
+            planner.plan(self.ctx, kinds=["read"])
+        except rw_lib.RewriteError:
+            pass  # a read batch that cannot be planned yet is not a page error
         self.remote_at = self.clock()
 
     def view(self, force=False):
@@ -73,8 +81,8 @@ class App:
                 self._refresh_remote()
                 force = True
             if force or self.cache is None or now - self.cached_at >= self.LOCAL_SECONDS:
-                runs, error = self.runs, self.runs_error
-                self.cache = status.overview(self.ctx, _Fixed(runs, error), self.fetched)
+                fixed = _Fixed(self.runs, self.runs_error, self.prs, self.prs_error)
+                self.cache = status.overview(self.ctx, fixed, self.fetched)
                 self.cached_at = self.clock()
             return self.cache
 
@@ -84,9 +92,12 @@ class App:
             raise rw_lib.RewriteError("that batch is not in this run")
         return batch
 
-    def prompt(self, batch_id):
+    def prompt(self, batch_id, mode="pr"):
+        """The page hands in by pull request. mode=relay gives the old terminal-relay prompt, for manual use."""
         batch = self._batch(batch_id)
-        return item_types.get(batch["type"]).prompt(self.ctx, batch)
+        if mode not in ("pr", "relay"):
+            raise rw_lib.RewriteError("mode must be pr or relay")
+        return item_types.get(batch["type"]).prompt(self.ctx, batch, mode)
 
     def copied(self, batch_id):
         self._batch(batch_id)
@@ -97,13 +108,18 @@ class App:
 class _Fixed:
     """A gh stand-in that returns the runs the App already fetched."""
 
-    def __init__(self, runs, error):
-        self._runs, self._error = runs, error
+    def __init__(self, runs, error, prs=None, prs_error=None):
+        self._runs, self._error, self._prs, self._prs_error = runs, error, prs, prs_error
 
     def runs(self):
         if self._error is not None:
             raise self._error
         return self._runs
+
+    def prs(self):
+        if self._prs_error is not None:
+            raise self._prs_error
+        return self._prs or []
 
 
 def make_handler(app, page_path):
@@ -142,7 +158,7 @@ def make_handler(app, page_path):
                 self._json(200, app.view())
             elif url.path == "/api/prompt":
                 try:
-                    self._send(200, app.prompt(query.get("id", "")))
+                    self._send(200, app.prompt(query.get("id", ""), query.get("mode", "pr")))
                 except rw_lib.RewriteError as exc:
                     self._send(400, str(exc))
             else:

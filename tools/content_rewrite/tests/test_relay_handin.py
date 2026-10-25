@@ -30,6 +30,7 @@ class HandinCase(unittest.TestCase):
         self.addCleanup(self.repo.cleanup)
         self.ctx = self.repo.ctx
         planner.plan(self.ctx)
+        self.repo.commit_batches()
 
     def hand_in(self, attempt="1"):
         return handin.process(BATCH, attempt, self.ctx)

@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification",
+  "lesson-language-application-paragraph-organization",
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "round": 1,
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md",
+  "lesson-language-application-paragraph-organization": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "id": "RW-002",
+ "type": "rewrite",
+ "created": "2026-10-25T07:30:57+00:00"
+}

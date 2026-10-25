@@ -10,7 +10,7 @@ Plan: `docs/superpowers/plans/pwa-launch/E4-E7-cse-content-rewrite.md` on main (
 | P0.1 brief builder | done | d978d5a9; 78 briefs + `new-lessons.md`; 11 tests pass |
 | P0.2 mechanical fixer | done, applied | bd03b0b1; 62 tests pass; 15 dash and 52 number fixes in 22 lessons, idempotent; 36 items left for writers (`needs-review`); 27 traps without a one-line warning and 43 table rows left for writers |
 | P0.3 question typing check | done | d978d5a9; 24 tests pass; 8 real problems in `science/physics/light-and-optics.yaml` (not CSE) |
-| P0.4 prompt page and relay hand-in | phase 1 done (rewrite, read) | `tools/content_rewrite/relay/`; 118 tests pass; 28 rewrite batches planned; GitHub check passes (736d8b47); read form rule text synced to checklist 14a218d8; tools live on this branch, not the audit branch |
+| P0.4 prompt page and relay hand-in | phase 1 done (rewrite, read); pull-request hand-in added Oct 25 (see below) | `tools/content_rewrite/relay/`; 118 tests pass; 28 rewrite batches planned; GitHub check passes (736d8b47); read form rule text synced to checklist 14a218d8; tools live on this branch, not the audit branch |
 | P0.5 terms check | done | main `docs/superpowers/decisions/2026-10-25-cse-rewrite-p0-notes.md` |
 | P0.6 new lessons and splits | applied, not committed | Plans in `docs/content/rewrite/plans/`. Oct 25 decisions applied: 5 splits (Bill of Rights x4, environment x4 plus laws, duties x2, tenses x2), 8 new part lessons plus 4 new lessons as stubs (12 files each for lesson and questions), 41 questions moved with ids unchanged (3,215 ids before and after), 12 `outline.json` entries, `split-map.json` (99 rows) applied by the brief builder (86 briefs; row totals unchanged), 18 builder tests pass. New files hold teaching only where it was moved; the rest is `<!-- REWRITE -->`. Each new file is short of 20 questions. Open: first-part titles kept (question C), tenses Filipino part inherits all 9 exam tags (question F) |
 | P0.7 illustration worklist | done | 7 markers in the corpus, 3 in CSE lessons; README count stale |
@@ -41,3 +41,20 @@ New question shortfall to 20: 14 lessons, about 240 questions in all.
   as instructed and did not work around it. Do not retry around the check; the lead designs a
   path that does not carry file writes in issue bodies.
 - Next: lead reviews the 14 rewrites and 6 reads after the Claude usage reset.
+
+## October 25: pull-request hand-in (built, not yet run on GitHub)
+
+Replaces the relay issues for rewrite and read batches. The chat commits to `cse-inbox/<batch id>` with the
+GitHub connector and opens a pull request `[handin] <batch id>` into this branch. Workflow
+`.github/workflows/cse-handin.yml` (check name `CSE hand-in`) runs `relay/handin_ci.py`, keeps one bot comment,
+holds the pull request (label `held`) on the third rejection, and squash-merges an accepted one. The old relay
+hand-in still works for manual use (`/api/prompt?id=<batch>&mode=relay`).
+
+- Batch definitions are now files in `docs/content/rewrite/batches/<batch id>.json` (the lead commits them
+  before any hand-in); the state folder keeps only the order.
+- A merge by `GITHUB_TOKEN` starts no push workflow, so the hand-in workflow starts `cse-rewrite-checks.yml`
+  with `workflow_dispatch` (added to that file; needs `actions: write`). The page reads that run.
+- `planner.py requeue` adds a read's open findings and not-fixed brief items to a new rewrite batch.
+  RW-007 (the three RA 6713 lessons) was made this way.
+- Live test: commit and push this branch, then run on a throwaway branch `cse-inbox/RW-007` a hand-in with
+  the three lessons (or a one-line change in a fixture batch), open the pull request, and read the Actions tab.

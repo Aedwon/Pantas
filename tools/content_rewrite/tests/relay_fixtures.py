@@ -112,6 +112,11 @@ class Repo:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8") if isinstance(text, str) else path.write_bytes(text)
 
+    def commit_batches(self):
+        """Commit the batch files the planner wrote, as the lead does before a hand-in."""
+        git(self.root, "add", "--", rw_lib.BATCHES_REL)
+        git(self.root, "commit", "-q", "-m", "batches")
+
     def head(self):
         return git(self.root, "rev-parse", "HEAD").strip()
 
@@ -170,3 +175,27 @@ def good_form(repo, lesson_id_, status="fixed"):
 
 def repo_git_show(repo, path):
     return git(repo.root, "show", "HEAD:" + path)
+
+
+# ---- helpers for the pull-request hand-in --------------------------------------
+
+def pr_branch(repo, batch_id, files, remove=()):
+    """Make the branch cse-inbox/<batch id> from the rewrite branch, commit `files` ({path: text or bytes}) and
+    delete `remove`, then go back to the rewrite branch. Returns (base commit, head commit)."""
+    base = repo.head()
+    git(repo.root, "checkout", "-q", "-b", rw_lib.PR_BRANCH_PREFIX + batch_id, rw_lib.BRANCH)
+    for rel, data in files.items():
+        path = repo.root / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data if isinstance(data, bytes) else data.encode("utf-8"))
+    for rel in remove:
+        (repo.root / rel).unlink()
+    git(repo.root, "add", "-A")
+    git(repo.root, "commit", "-q", "--allow-empty", "-m", "hand-in")
+    head = repo.head()
+    git(repo.root, "checkout", "-q", rw_lib.BRANCH)
+    return base, head
+
+
+def read_path(batch_id, lesson_id_):
+    return "%s/%s/%s.json" % (rw_lib.READS_REL, batch_id, lesson_id_)

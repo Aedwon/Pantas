@@ -23,21 +23,30 @@ class Gh:
     def __init__(self, root):
         self.root = root
 
-    def runs(self):
-        """Workflow runs on the rewrite branch, newest first: [{"headSha", "conclusion"}]."""
+    def _json(self, args, what):
         try:
-            proc = subprocess.run(
-                ["gh", "run", "list", "--branch", rw_lib.BRANCH, "--workflow", WORKFLOW,
-                 "--json", "headSha,conclusion", "--limit", "50"],
-                cwd=str(self.root), stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+            proc = subprocess.run(["gh"] + args, cwd=str(self.root), stdout=subprocess.PIPE,
+                                  stderr=subprocess.PIPE, timeout=60)
         except (OSError, subprocess.SubprocessError) as exc:
             raise GhError("gh is not available (%s)" % type(exc).__name__)
         if proc.returncode != 0:
-            raise GhError("gh could not list runs")
+            raise GhError("gh could not list %s" % what)
         try:
             return json.loads(proc.stdout.decode("utf-8"))
         except ValueError:
             raise GhError("gh returned something that is not JSON")
+
+    def runs(self):
+        """Workflow runs on the rewrite branch, newest first: [{"headSha", "conclusion"}]."""
+        return self._json(["run", "list", "--branch", rw_lib.BRANCH, "--workflow", WORKFLOW,
+                           "--json", "headSha,conclusion", "--limit", "50"], "runs")
+
+    def prs(self):
+        """Hand-in pull requests into the rewrite branch, any state: [{"number", "state", "headRefName",
+        "mergeCommit": {"oid"} or None, "labels": [{"name"}]}]. One call for every batch."""
+        found = self._json(["pr", "list", "--state", "all", "--base", rw_lib.BRANCH, "--json",
+                            "number,state,headRefName,mergeCommit,labels", "--limit", "200"], "pull requests")
+        return [pr for pr in found if str(pr.get("headRefName", "")).startswith(rw_lib.PR_BRANCH_PREFIX)]
 
 
 def fetch(git):
@@ -74,7 +83,29 @@ def check_outcome(git, runs, commit):
 WORST = ("failed", "unknown", "running", "none", "passed")  # a batch shows its worst commit
 
 
-def batch_view(ctx, batch, runs, copied, events):
+def pr_state(prs, batch_id):
+    """('merged', pr), ('held', pr), ('open', pr) or (None, None) for the hand-in pull requests of one batch."""
+    mine = [pr for pr in prs or [] if pr.get("headRefName") == rw_lib.PR_BRANCH_PREFIX + batch_id]
+    for want in ("MERGED", "OPEN"):
+        for pr in sorted((p for p in mine if p.get("state") == want), key=lambda p: p["number"], reverse=True):
+            if want == "MERGED" and pr.get("mergeCommit"):
+                return "merged", pr
+            if want == "OPEN":
+                held = any(label.get("name") == "held" for label in pr.get("labels") or [])
+                return ("held" if held else "open"), pr
+    return None, None
+
+
+CHECK_STATES = {
+    "passed": ("done", "Done: merged, check passed"),
+    "failed": ("check_failed", "Merged, check failed"),
+    "running": ("pushed", "Merged, check running"),
+    "none": ("pushed", "Merged, waiting for the check"),
+    "unknown": ("check_unknown", "Merged, check unknown"),
+}
+
+
+def batch_view(ctx, batch, runs, copied, events, prs=None):
     kind = item_types.get(batch["type"])
     keys = kind.items(batch)
     mine = []
@@ -86,7 +117,20 @@ def batch_view(ctx, batch, runs, copied, events):
     held = [key for key in keys if ctx.is_held(batch["id"], key)]
     view = {"id": batch["id"], "type": batch["type"], "topic": batch["topic"], "lessons": keys,
             "accepted": len(mine), "commits": [rw_lib.short(c) for c in commits], "done": False}
-    if held:
+    pr_kind, pr = pr_state(prs, batch["id"])
+    if pr_kind == "merged":
+        # The pull-request hand-in: done when the pull request is merged and the push check on the merge passed.
+        commit = pr["mergeCommit"]["oid"]
+        view["commits"] = [rw_lib.short(commit)]
+        state, label = CHECK_STATES[check_outcome(ctx.git, runs, commit)]
+        view["done"] = state == "done"
+    elif pr_kind == "held":
+        state, label = "held", "Held: pull request #%d needs the lead" % pr["number"]
+        view["pr"] = pr["number"]
+    elif pr_kind == "open":
+        state, label = "pr_open", "Pull request #%d open" % pr["number"]
+        view["pr"] = pr["number"]
+    elif held:
         state, label = "held", "Held: %d of %d need the lead" % (len(held), len(keys))
     elif not mine:
         touched = any(e.get("batch") == batch["id"] for e in events)
@@ -113,28 +157,35 @@ def batch_view(ctx, batch, runs, copied, events):
 
 def overview(ctx, gh, fetched=True):
     """The page's state: every batch, the next one to start, and anything that blocks starting it."""
-    runs, notes = None, []
+    runs, prs, notes = None, None, []
     try:
         runs = gh.runs()
     except GhError as exc:
         notes.append("Check unknown: %s." % exc)
+    if hasattr(gh, "prs"):
+        try:
+            prs = gh.prs()
+        except GhError as exc:
+            notes.append("Pull request state unknown: %s." % exc)
     if not fetched:
         notes.append("The last git fetch failed, so pushed and done may be out of date.")
     data = ctx.load_batches()
     copied, events = ctx.copied(), ctx.events()
-    views = [batch_view(ctx, data["batches"][i], runs, copied, events) for i in data["order"]]
+    views = [batch_view(ctx, data["batches"][i], runs, copied, events, prs) for i in data["order"]]
     blocked = None
     failed = [v["id"] for v in views if v["state"] == "check_failed"]
     if failed:
         blocked = "The GitHub check failed for %s. Fix it before starting a new batch." % ", ".join(failed)
     elif ctx.stopped():
         blocked = "The run is stopped (an unexpected change was found). Fix the cause, then delete stop.json in the state folder."
+    held = [{"id": v["id"], "pr": v.get("pr")} for v in views if v["state"] == "held"]
     pending = [v for v in views if v["state"] == "not_started"]
     pending.sort(key=lambda v: item_types.get(v["type"]).priority)  # stable: batches keep their order within a type
     return {
         "batches": views,
         "next": None if blocked or not pending else pending[0]["id"],
         "blocked": blocked,
+        "held": held,
         "notes": notes,
         "counts": {"total": len(views), "done": sum(1 for v in views if v["done"])},
     }

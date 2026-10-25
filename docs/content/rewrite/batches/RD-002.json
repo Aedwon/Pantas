@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct": "b0a6543c48bad9031053426c877a2ed3818a1253",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "b0a6543c48bad9031053426c877a2ed3818a1253",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "b0a6543c48bad9031053426c877a2ed3818a1253"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct": "a12a9a9fd566124909924477e286137e1f6da0b667b10fe0ebb24492e0891056",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "6bb3931f8a6293f45bffa046ea968a8b0bdeba4ebe583999b718392ddf4fcd19",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "5898388dd12a058e2ccced9ea23b8c762892887a13c8d49ceaab1335f2893b90"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct": "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+ },
+ "id": "RD-002",
+ "type": "read",
+ "created": "2026-10-25T07:41:06+00:00"
+}

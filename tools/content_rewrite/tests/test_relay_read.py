@@ -31,6 +31,7 @@ class ReadCase(unittest.TestCase):
         code, _ = F.accept_rewrite(self.repo, "RW-001")
         assert code == 0
         planner.plan(self.ctx, kinds=["read"])
+        self.repo.commit_batches()
         self.batch = self.ctx.batch(BATCH)
         self.lessons = self.batch["lessons"]
         self.form = F.good_form(self.repo, self.lessons[0])

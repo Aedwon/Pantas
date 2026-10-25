@@ -10,6 +10,8 @@ name: CSE rewrite checks
 on:
   push:
     branches: [content/cse-rewrite-r1]
+  # The hand-in workflow merges with GITHUB_TOKEN, which starts no push workflow, so it starts this one by hand.
+  workflow_dispatch:
 
 permissions:
   contents: read

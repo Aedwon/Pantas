@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification",
+  "lesson-language-application-paragraph-organization",
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "rewrites": {
+  "lesson-language-application-error-identification": "2ccea9e8d6df7157fee1a06d8194816fc9af9af8",
+  "lesson-language-application-paragraph-organization": "2ccea9e8d6df7157fee1a06d8194816fc9af9af8",
+  "lesson-language-application-sentence-completion": "2ccea9e8d6df7157fee1a06d8194816fc9af9af8"
+ },
+ "sha256": {
+  "lesson-language-application-error-identification": "871fc25e5aeb425b8211f7a288d0a73c39b7b51c40acf2e19ab51d950dee5018",
+  "lesson-language-application-paragraph-organization": "74565e65f465b07a0584ed06882bfd4bb3581b001e4f2a082236ee2e420cf924",
+  "lesson-language-application-sentence-completion": "73817e27b0580f88fb6ed553ef92b2cda72440f9985a2ec020c9abb20d5ae9f4"
+ },
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md",
+  "lesson-language-application-paragraph-organization": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "id": "RD-003",
+ "type": "read",
+ "created": "2026-10-25T07:41:46+00:00"
+}

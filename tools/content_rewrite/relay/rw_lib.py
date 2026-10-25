@@ -29,9 +29,13 @@ WORKSPACE = "Pantas-wt-cse-rewrite-r1"
 INBOX_REL = "tools/content_rewrite/relay/inbox"
 BRIEFS_REL = "docs/content/rewrite/briefs"
 READS_REL = "docs/content/rewrite/reads"
+BATCHES_REL = "docs/content/rewrite/batches"
+PR_BRANCH_PREFIX = "cse-inbox/"
+HANDIN_CI_REL = "tools/content_rewrite/relay/handin_ci.py"
 HANDIN_REL = "tools/content_rewrite/relay/handin.py"
 LESSON_ROOT_REL = "content/lessons"
 RELAY_REPO = "Aedwon/chatgpt-terminal-relay"
+REPO = "Aedwon/Pantas"
 STANDARDS_REF = "origin/main"
 STANDARDS_FILES = ("docs/content/lesson-style-guide.md", "docs/content/content-checklist.md")
 
@@ -84,6 +88,12 @@ class Git:
         return subprocess.run(["git"] + list(args), cwd=str(self.root), stdout=subprocess.DEVNULL,
                               stderr=subprocess.DEVNULL, env=env).returncode == 0
 
+    def show_bytes(self, spec):
+        """Raw file content at a ref ("HEAD:path"), or None when there is none."""
+        proc = subprocess.run(["git", "show", spec], cwd=str(self.root), stdout=subprocess.PIPE,
+                              stderr=subprocess.DEVNULL, env=dict(os.environ, GIT_TERMINAL_PROMPT="0"))
+        return proc.stdout if proc.returncode == 0 else None
+
     def show(self, spec):
         """File content at a ref ("HEAD:path"), or None when there is none."""
         proc = subprocess.run(["git", "show", spec], cwd=str(self.root), stdout=subprocess.PIPE,
@@ -94,10 +104,13 @@ class Git:
 class Ctx:
     """Where things are: the worktree, the state folder and git."""
 
-    def __init__(self, root=None, state_dir=None, git=None):
+    def __init__(self, root=None, state_dir=None, git=None, base_ref="HEAD"):
         self.root = Path(root or default_root())
         self.state = Path(state_dir or default_state())
         self.git = git or Git(self.root)
+        # The commit whose lesson text a check compares with. The pull-request hand-in sets it to the commit
+        # the branch started from; the local hand-in compares with HEAD.
+        self.base_ref = base_ref
 
     # -- paths
     def inbox_dir(self, batch_id):
@@ -107,17 +120,43 @@ class Ctx:
         return self.state.joinpath(*parts)
 
     # -- batches
+    # A batch definition is a file in the repository (BATCHES_REL/<id>.json), so the pull-request check can read
+    # it at the base commit. The state folder keeps only progress: the order of the batches. A state file from
+    # before this change holds the definitions inline; they are still read, and moved to files on the next save.
+    def batch_file(self, batch_id):
+        return self.root / BATCHES_REL / (batch_id + ".json")
+
     def load_batches(self):
         path = self.state_file("batches.json")
-        if not path.exists():
-            return {"order": [], "batches": {}}
-        return json_load(path)
+        data = json_load(path) if path.exists() else {"order": [], "batches": {}}
+        batches = {}
+        for batch_id in data["order"]:
+            file = self.batch_file(batch_id)
+            batches[batch_id] = json_load(file) if file.exists() else data.get("batches", {}).get(batch_id)
+            if batches[batch_id] is None:
+                raise RewriteError("batch %s has no batch file in the repository" % batch_id)
+        return {"order": list(data["order"]), "batches": batches}
 
     def save_batches(self, data):
-        json_save(self.state_file("batches.json"), data)
+        """Write each new batch to its file (an existing file is never changed) and the order to the state."""
+        for batch_id in data["order"]:
+            file = self.batch_file(batch_id)
+            batch = data["batches"][batch_id]
+            if not file.exists():
+                json_save(file, batch)
+            elif json_load(file) != batch:
+                raise RewriteError("batch %s differs from its batch file; a batch is never changed" % batch_id)
+        json_save(self.state_file("batches.json"), {"order": list(data["order"])})
 
     def batch(self, batch_id):
         return self.load_batches()["batches"].get(batch_id)
+
+    def batch_at(self, ref, batch_id):
+        """A batch as committed at `ref`, or None."""
+        if not re.fullmatch(r"[A-Z]{2}-\d{3}", batch_id or ""):
+            return None
+        text = self.git.show("%s:%s/%s.json" % (ref, BATCHES_REL, batch_id))
+        return json.loads(text) if text else None
 
     # -- accepted work, one record per lesson and kind
     def accepted_path(self, kind, lesson_id):

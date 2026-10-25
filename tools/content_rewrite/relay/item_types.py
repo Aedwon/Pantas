@@ -15,6 +15,8 @@ What a type provides:
   prompt(ctx, batch)     the prompt Aedwon pastes into a chat
   target_paths(batch, key)   repo paths a hand-in may write for one item
   check_item(ctx, batch, key, raw)   returns an ItemResult
+  expected_status        git status letter a pull request must show for each file ("M" changed, "A" added)
+  verbatim               True when the placed file must equal the checked, cleaned bytes (a lesson)
 Python 3.9 standard library only.
 """
 import importlib
@@ -47,6 +49,8 @@ class ItemType:
     prefix = ""
     file_ext = ""
     commit_verb = ""
+    expected_status = "M"
+    verbatim = False
     priority = 5   # which type the page offers first when several have a batch waiting; lower goes first
 
     def plan(self, ctx):
@@ -55,7 +59,8 @@ class ItemType:
     def items(self, batch):
         return list(batch["lessons"])
 
-    def prompt(self, ctx, batch):
+    def prompt(self, ctx, batch, mode="pr"):
+        """The prompt for a chat. mode "pr" hands in by pull request; "relay" is the old terminal relay."""
         raise NotImplementedError
 
     def target_paths(self, batch, key):
@@ -66,6 +71,19 @@ class ItemType:
 
     def inbox_name(self, key):
         return key + self.file_ext
+
+
+def check_safely(ctx, kind, batch, key, raw):
+    """The one way both hand-ins run an item's check: an ItemResult, or RewriteError for a fault in the run itself.
+
+    An unknown fault inside the check is never a crash: it is a rejection that asks for the file again.
+    """
+    try:
+        return kind.check_item(ctx, batch, key, raw)
+    except rw_lib.RewriteError:
+        raise
+    except Exception:
+        return ItemResult(["the file could not be checked; write it again in full"])
 
 
 def register(item_type):

@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
+  "lesson-data-interpretation-tables-and-charts"
+ ],
+ "topic": "mathematics/data-interpretation",
+ "rewrites": {
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": "34ecd529a56363e3a20f2047188544bd7aa37bb5",
+  "lesson-data-interpretation-tables-and-charts": "34ecd529a56363e3a20f2047188544bd7aa37bb5"
+ },
+ "sha256": {
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": "697334b60428784df0616e6996b94694fce59fa9b730921dd3a26e9238bf506b",
+  "lesson-data-interpretation-tables-and-charts": "b8a10e10966ffe36c8205584347889ec2d0168475d354d6f6c603e724d59361a"
+ },
+ "paths": {
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": "content/lessons/mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md",
+  "lesson-data-interpretation-tables-and-charts": "content/lessons/mathematics/data-interpretation/tables-and-charts.md"
+ },
+ "id": "RD-001",
+ "type": "read",
+ "created": "2026-10-25T07:34:36+00:00"
+}

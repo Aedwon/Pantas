@@ -27,7 +27,7 @@ class RewritePrompt(unittest.TestCase):
         self.ctx = self.repo.ctx
         planner.plan(self.ctx)
         self.batch = self.ctx.batch("RW-001")
-        self.text = item_types.get("rewrite").prompt(self.ctx, self.batch)
+        self.text = item_types.get("rewrite").prompt(self.ctx, self.batch, "relay")
 
     def test_holds_brief_and_current_lesson_for_every_lesson(self):
         for lesson_id in self.batch["lessons"]:
@@ -84,13 +84,13 @@ class RewritePrompt(unittest.TestCase):
     def test_embedded_text_is_not_checked(self):
         self.repo.write(F.lesson_path("alpha"), F.lesson_text("alpha") + "\nOld text \u2014 with a dash and colour.\n")
         F.git(self.repo.root, "commit", "-qam", "dash")
-        text = item_types.get("rewrite").prompt(self.ctx, self.batch)
+        text = item_types.get("rewrite").prompt(self.ctx, self.batch, "relay")
         self.assertIn("Old text \u2014 with a dash and colour.", text)
 
     def test_missing_standards_is_an_error(self):
         F.git(self.repo.root, "update-ref", "-d", "refs/remotes/origin/main")
         with self.assertRaises(rw_lib.RewriteError):
-            item_types.get("rewrite").prompt(self.ctx, self.batch)
+            item_types.get("rewrite").prompt(self.ctx, self.batch, "relay")
 
 
 class ReadPrompt(unittest.TestCase):
@@ -112,7 +112,7 @@ class ReadPrompt(unittest.TestCase):
             F.accept_rewrite(self.repo, "RW-001")
         planner.plan(self.ctx, kinds=["read"])
         batch = self.ctx.batch("RD-001")
-        return batch, item_types.get("read").prompt(self.ctx, batch)
+        return batch, item_types.get("read").prompt(self.ctx, batch, "relay")
 
     def test_holds_rewritten_lessons_brief_form_and_standards(self):
         batch, text = self.accept_and_plan()
@@ -159,7 +159,7 @@ class ReadPrompt(unittest.TestCase):
         lid = batch["lessons"][0]
         other = batch["lessons"][1]
         (self.ctx.state / "prerequisites.json").write_text(json.dumps({lid: [other]}))
-        text = item_types.get("read").prompt(self.ctx, batch)
+        text = item_types.get("read").prompt(self.ctx, batch, "relay")
         self.assertIn("#### Prerequisite lesson: %s" % other, text)
 
     def test_a_lesson_changed_after_the_batch_was_built_is_an_error(self):
@@ -167,7 +167,7 @@ class ReadPrompt(unittest.TestCase):
         self.repo.write(F.lesson_path("alpha"), F.rewritten("alpha") + "\nextra\n")
         F.git(self.repo.root, "commit", "-qam", "edit")
         with self.assertRaises(rw_lib.RewriteError):
-            item_types.get("read").prompt(self.ctx, batch)
+            item_types.get("read").prompt(self.ctx, batch, "relay")
 
 
 if __name__ == "__main__":

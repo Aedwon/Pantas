@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Plan batches. State lives in ~/.pantas-rewrite (override: PANTAS_REWRITE_STATE), never in the repo.
+"""Plan batches. Progress lives in ~/.pantas-rewrite (override: PANTAS_REWRITE_STATE). Each batch definition is a file in
+docs/content/rewrite/batches/<batch id>.json, which the pull-request check reads at the base commit.
 
 Usage:
   python3 -I tools/content_rewrite/relay/planner.py plan     add batches for lessons not yet planned
   python3 -I tools/content_rewrite/relay/planner.py list     show every batch
   python3 -I tools/content_rewrite/relay/planner.py requeue <lesson-id>...
-                                                              new rewrite batch for lessons from one topic
+                                                              new rewrite batch for lessons from one topic;
+                                                              its brief adds what their latest read left open
+  python3 -I tools/content_rewrite/relay/planner.py export   write every batch to its file under
+                                                              docs/content/rewrite/batches (the lead commits them)
 
 The plan only ever adds batches. A batch id is never reused or changed. To limit the pilot, put the lesson
 ids (one per line, # comments allowed) in <state>/selection.txt before running plan.
@@ -17,7 +21,9 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import briefs as briefs_mod  # noqa: E402
 import item_types  # noqa: E402
+import readfindings  # noqa: E402
 import rw_lib  # noqa: E402
 
 
@@ -43,8 +49,20 @@ def plan(ctx, kinds=None):
 
 
 def requeue(ctx, lesson_ids):
-    """A new rewrite batch for lessons that already have one, for example after a read found problems."""
+    """A new rewrite batch for lessons that already have one, for example after a read found problems.
+
+    The batch carries, for each lesson, what the lesson's latest read left open: failed rule findings, accuracy
+    concerns and brief items not fixed. The prompt adds them to the lesson's brief.
+    """
     batch = item_types.get("rewrite").propose(ctx, lesson_ids)
+    briefs = briefs_mod.load_all(ctx)
+    extra = {}
+    for lesson_id in lesson_ids:
+        text = readfindings.brief_addition(readfindings.open_items(ctx, lesson_id, briefs[lesson_id]))
+        if text:
+            extra[lesson_id] = text
+    if extra:
+        batch["extra_brief"] = extra
     data = ctx.load_batches()
     batch_id = next_id(data, "RW")
     data["batches"][batch_id] = dict(batch, id=batch_id, type="rewrite", created=rw_lib.now())
@@ -64,6 +82,10 @@ def main(argv):
         for batch_id in data["order"]:
             batch = data["batches"][batch_id]
             print("%s %-7s %-40s %s" % (batch_id, batch["type"], batch["topic"], " ".join(batch["lessons"])))
+        return 0
+    if argv[1:] == ["export"]:
+        ctx.save_batches(ctx.load_batches())
+        print("batch files: %d" % len(ctx.load_batches()["order"]))
         return 0
     if len(argv) >= 3 and argv[1] == "requeue":
         print("batch added: " + requeue(ctx, argv[2:]))

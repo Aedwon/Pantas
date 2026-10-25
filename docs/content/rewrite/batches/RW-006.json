@@ -1,0 +1,13 @@
+{
+ "lessons": [
+  "lesson-earth-science-astronomy-weather-and-climate"
+ ],
+ "topic": "science/earth-science-astronomy",
+ "round": 1,
+ "paths": {
+  "lesson-earth-science-astronomy-weather-and-climate": "content/lessons/science/earth-science-astronomy/weather-and-climate.md"
+ },
+ "id": "RW-006",
+ "type": "rewrite",
+ "created": "2026-10-25T07:30:57+00:00"
+}

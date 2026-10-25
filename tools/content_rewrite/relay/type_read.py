@@ -18,6 +18,7 @@ class ReadType(item_types.ItemType):
     commit_verb = "read"
     batch_size = 3
     priority = 0
+    expected_status = "A"
 
     def plan(self, ctx):
         """Read batches for rewritten lessons that no read batch covers yet.
@@ -54,13 +55,13 @@ class ReadType(item_types.ItemType):
     def target_paths(self, batch, key):
         return ["%s/%s/%s.json" % (rw_lib.READS_REL, batch["id"], key)]
 
-    def prompt(self, ctx, batch):
-        return prompts.read_prompt(ctx, batch)
+    def prompt(self, ctx, batch, mode="pr"):
+        return prompts.read_prompt(ctx, batch, mode)
 
     def check_item(self, ctx, batch, key, raw):
         brief = briefs_mod.load_all(ctx)[key]
         path = brief["path"]
-        text = ctx.git.show("HEAD:" + path)
+        text = ctx.git.show("%s:%s" % (ctx.base_ref, path))
         if text is None or l4lib.sha256_text(text) != batch["sha256"][key]:
             raise rw_lib.RewriteError("the lesson no longer matches this batch")
         try:

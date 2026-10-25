@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-choosing-a-title",
+  "lesson-comprehension-skills-noting-specific-details",
+  "lesson-comprehension-skills-fact-vs-opinion"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "round": 1,
+ "paths": {
+  "lesson-comprehension-skills-choosing-a-title": "content/lessons/reading-comprehension/comprehension-skills/choosing-a-title.md",
+  "lesson-comprehension-skills-noting-specific-details": "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
+  "lesson-comprehension-skills-fact-vs-opinion": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md"
+ },
+ "id": "RW-004",
+ "type": "rewrite",
+ "created": "2026-10-25T07:30:57+00:00"
+}

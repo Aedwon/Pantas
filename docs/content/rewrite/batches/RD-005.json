@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
+  "lesson-logical-verbal-reasoning-word-analogies",
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "rewrites": {
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": "31e5d8de31aaf31969b221ac4c03abfbacd22897",
+  "lesson-logical-verbal-reasoning-word-analogies": "31e5d8de31aaf31969b221ac4c03abfbacd22897",
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "1161478420e67a2e3577f9d1c9b01f47d2d44a6c"
+ },
+ "sha256": {
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": "db59b1a739596a022f9919af4bc5b728a36bc9616f73f93df244b34410b18fdb",
+  "lesson-logical-verbal-reasoning-word-analogies": "a885ec414e2f5745cdfc48b91b6f6776c727c1a74a1a76d5f6564decb66c87d7",
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "05dbeac333788ad7fcc4da52197fbbc5f61519c0c781d65d76af8b8e4a1d48a2"
+ },
+ "paths": {
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": "content/lessons/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.md",
+  "lesson-logical-verbal-reasoning-word-analogies": "content/lessons/reasoning/logical-verbal-reasoning/word-analogies.md",
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md"
+ },
+ "id": "RD-005",
+ "type": "read",
+ "created": "2026-10-25T07:50:56+00:00"
+}

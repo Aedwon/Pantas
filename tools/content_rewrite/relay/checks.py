@@ -202,5 +202,14 @@ def change_guard(base, new, brief):
     return changes
 
 
+def change_flags(base, new, brief):
+    """The change guard's result in the form stored with an accepted rewrite.
+
+    Only a passage with no match keeps its text: the reader is shown those and no others.
+    """
+    return [{"line": c["line"], "kind": c["kind"], "by": c["by"], "text": c["text"] if c["by"] is None else ""}
+            for c in change_guard(base, new, brief)]
+
+
 def uncovered(changes):
     return [c for c in changes if c["by"] is None]

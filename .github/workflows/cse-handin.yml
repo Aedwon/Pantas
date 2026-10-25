@@ -1,0 +1,127 @@
+# The hand-in for the CSE content rewrite. A ChatGPT chat commits its files to a branch cse-inbox/<batch id>
+# with the GitHub connector and opens a pull request into content/cse-rewrite-r1. This workflow checks it,
+# keeps one bot comment up to date, and merges an accepted pull request. Decisions live in
+# tools/content_rewrite/relay/pr_guard.py (tested), the checks in handin_ci.py.
+#
+# Safety: this is a pull_request workflow, never pull_request_target. It runs only for a branch in this
+# repository opened by Aedwon. The tools that run come from the base commit ("trusted"), never from the
+# branch under test ("pr"), and every value from the pull request reaches a script through an environment
+# variable, never through the shell text.
+#
+# NOT TESTED ON GITHUB. First run: see the live test steps in STATUS.md.
+name: CSE hand-in checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [content/cse-rewrite-r1]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write   # only to start the push checks after a merge: a merge by GITHUB_TOKEN starts no push workflow
+
+concurrency:
+  group: cse-handin-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  handin:
+    name: CSE hand-in
+    # A pull_request trigger cannot filter on the head branch, so the job skips every other branch.
+    if: startsWith(github.head_ref, 'cse-inbox/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR: ${{ github.event.pull_request.number }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - name: Check out the tools from the base commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+
+      - name: Decide whether this pull request may hand in
+        id: guard
+        env:
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          HEAD_REF: ${{ github.head_ref }}
+          BASE_REF: ${{ github.base_ref }}
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: python3 -I trusted/tools/content_rewrite/relay/pr_guard.py guard --ignored-file "$RUNNER_TEMP/ignored.md"
+
+      - name: Say the pull request is ignored
+        if: steps.guard.outputs.run != 'true'
+        # A pull request from a fork has a read-only token, so this comment may fail. That is fine.
+        run: gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/ignored.md" || true
+
+      - name: Check out the pull request with its history
+        if: steps.guard.outputs.run == 'true'
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check the hand-in
+        id: check
+        if: steps.guard.outputs.run == 'true'
+        env:
+          BATCH: ${{ steps.guard.outputs.batch }}
+          PANTAS_REWRITE_ROOT: ${{ github.workspace }}/pr
+        run: |
+          set +e
+          python3 -I trusted/tools/content_rewrite/relay/handin_ci.py "$BATCH" "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/report.md"
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Decide what happens next
+        id: decide
+        if: steps.guard.outputs.run == 'true'
+        env:
+          CODE: ${{ steps.check.outputs.code }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/issues/$PR/comments" --paginate > "$RUNNER_TEMP/comments.json"
+          python3 -I trusted/tools/content_rewrite/relay/pr_guard.py decide --exit-code "$CODE" --head "$HEAD_SHA" \
+            --comments "$RUNNER_TEMP/comments.json" --report "$RUNNER_TEMP/report.md" --out "$RUNNER_TEMP/comment.md"
+
+      - name: Post or update the bot comment
+        if: steps.guard.outputs.run == 'true'
+        env:
+          COMMENT_ID: ${{ steps.decide.outputs.comment_id }}
+        run: |
+          if [ -n "$COMMENT_ID" ]; then
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$COMMENT_ID" -F body=@"$RUNNER_TEMP/comment.md" > /dev/null
+          else
+            gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/comment.md"
+          fi
+
+      - name: Hold the pull request for the lead
+        if: steps.guard.outputs.run == 'true' && steps.decide.outputs.verdict == 'held'
+        run: |
+          gh label create held --repo "$GITHUB_REPOSITORY" --color B60205 --description "Waits for the lead" --force || true
+          gh pr edit "$PR" --repo "$GITHUB_REPOSITORY" --add-label held
+
+      - name: Merge the accepted pull request
+        if: steps.guard.outputs.run == 'true' && steps.decide.outputs.verdict == 'accepted'
+        env:
+          BATCH: ${{ steps.guard.outputs.batch }}
+        run: |
+          gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --squash --delete-branch --match-head-commit "$HEAD_SHA" \
+            --subject "[handin] $BATCH (#$PR)" --body "Checked by the CSE hand-in workflow."
+
+      - name: Start the push checks on the merged branch
+        if: steps.guard.outputs.run == 'true' && steps.decide.outputs.verdict == 'accepted'
+        # The merge was made with GITHUB_TOKEN, which starts no push workflow, so the push checks are started here.
+        run: gh workflow run cse-rewrite-checks.yml --repo "$GITHUB_REPOSITORY" --ref content/cse-rewrite-r1
+
+      - name: Fail the check unless the hand-in was accepted
+        if: steps.guard.outputs.run == 'true' && steps.decide.outputs.verdict != 'accepted'
+        run: |
+          echo "The hand-in was not accepted. The bot comment on the pull request says why."
+          exit 1

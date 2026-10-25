@@ -40,7 +40,7 @@ button.primary { background: var(--accent); color: var(--accent-text); border-co
 .what small { display: block; color: var(--muted); overflow-wrap: anywhere; }
 .badge { font-size: .8rem; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted); }
 .badge.done { color: var(--ok); background: var(--ok-bg); border-color: transparent; }
-.badge.pushed, .badge.handed_in, .badge.in_progress, .badge.copied { color: var(--warn); background: var(--warn-bg); border-color: transparent; }
+.badge.pushed, .badge.handed_in, .badge.in_progress, .badge.copied, .badge.pr_open { color: var(--warn); background: var(--warn-bg); border-color: transparent; }
 .badge.check_failed, .badge.held, .badge.check_unknown { color: var(--bad); background: var(--bad-bg); border-color: transparent; }
 .empty { color: var(--muted); padding: 24px 0; }
 </style>
@@ -121,10 +121,13 @@ function notices(messages, bad) {
 
 function render(data) {
   document.getElementById("progress").replaceChildren(
-    el("strong", {}, String(data.counts.done)), " of " + data.counts.total + " batches done (pushed, check passed)");
+    el("strong", {}, String(data.counts.done)), " of " + data.counts.total + " batches done (merged, check passed)");
   const messages = data.notes.slice();
   if (data.blocked) messages.unshift(data.blocked);
-  notices(messages, !!data.blocked);
+  for (const held of data.held || []) {
+    messages.push("Held for the lead: " + held.id + (held.pr ? " (pull request #" + held.pr + ")" : ""));
+  }
+  notices(messages, !!data.blocked || !!(data.held && data.held.length));
 
   const byId = new Map(data.batches.map(b => [b.id, b]));
   const next = document.getElementById("next");
