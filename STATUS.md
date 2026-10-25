@@ -76,5 +76,5 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
   rejections (backup `~/.pantas-rewrite/rejections.json.bak-rw006`), ran the hand-in: one
   rejection (ILLUS, STRUCT), Codex fixed both, accepted as 58f22421 after rebase. Codex's
   sandbox cannot commit in this worktree, so the lead runs the hand-in for Codex batches.
-- RD-006 and RD-007 are duplicates (same lessons, same rewrite commit); use RD-006 only.
+- RD-007 duplicated RD-006 (same lessons, same rewrite commit) and was removed unused.
   RD-008 reads RW-006.
