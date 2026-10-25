@@ -149,7 +149,8 @@ function render(data) {
       el("span", {class: "id"}, batch.id),
       el("span", {class: "what"}, batch.topic, el("small", {}, batch.lessons.join(", "))),
       el("span", {class: "badge " + batch.state}, batch.label));
-    if (!batch.done && batch.state !== "replaced") row.append(copyButton(batch, false, "Copy prompt again"));
+    if (!batch.done && batch.state !== "replaced")
+      row.append(copyButton(batch, false, batch.state === "not_started" ? "Copy prompt" : "Copy prompt again"));
     return row;
   }));
 }
