@@ -1,87 +1,116 @@
 ---
 _id: "lesson-comprehension-skills-choosing-a-title"
 title: "Choosing an Appropriate Title"
-summary: "Learn how to pick the best title for a passage by matching it to the passage's main idea and scope."
+summary: "Learn how to choose a title that matches a passage's main idea, focus, and scope."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
-estimatedMinutes: 8
+estimatedMinutes: 10
 isActive: true
 ---
 ## Core Concept
 
-Choosing the best title for a passage is closely related to finding its main idea: a good title captures the passage's central point in just a few words.
+A good title gives the passage's **main idea** in a few words. It should tell what the whole passage is mainly about, not just name one detail.
+
+To find the main idea, ask two questions. What topic comes up through most of the passage? What is the author mainly saying about that topic?
+
+Details, examples, and stories support the main idea. Do not let one memorable detail become the title unless that detail is also the passage's main focus.
 
 A strong title should be:
 
-- **Accurate**: it reflects what the passage actually discusses, not something only loosely related.
-- **Complete enough**: it covers the full scope of the passage, not just one small part of it.
-- **Not too broad**: it should not be so general that it could fit almost any passage on the same general subject.
+- **Accurate**: it matches what the passage says.
+- **Complete enough**: it covers the passage's main focus.
+- **Not too broad**: it is not so general that it could fit many unrelated passages.
+- **True to the author's stance**: if the passage argues for or against something, the title should show that focus when it matters.
 
-Think of choosing a title as finding the "just right" fit: not too narrow (missing parts of the passage), not too broad (could apply to many different passages), but matching the passage's actual main idea precisely.
+Think of the best title as a "just right" fit. It should be wide enough for the main idea but not so wide that it loses the passage's focus.
 
+A title does not need to name every example. If several details all support one central point, a title can name that central point instead.
 
 ## Examples
 
 ### #1: Choosing Between Title Options
 
-A passage discusses how bees pollinate flowers, how this process helps plants reproduce, and how declining bee populations threaten global food supplies. Which title fits best? (A) "Bees," (B) "The Vital Role of Bees in Pollination and Food Security," (C) "How Flowers Reproduce."
+A passage explains that bees move pollen between flowers, that this helps many plants reproduce, and that fewer bees can make food production harder. Which title fits best? (A) "Bees," (B) "Why Bee Pollination Matters to Plants and Food," (C) "How Flowers Reproduce."
 
 **Solution:**
-1. (A) "Bees" is too broad and vague: it does not capture the specific focus on pollination and food security.
-2. (C) "How Flowers Reproduce" is too narrow: it ignores the passage's discussion of declining bee populations and food supply risks.
-3. (B) captures both main elements discussed (pollination's importance and the food security risk from declining bee populations): this is the best title.
+1. (A) is too broad. It names the topic but not the passage's main point.
+2. (C) is too narrow. It leaves out the passage's focus on bees and food production.
+3. (B) covers the main idea. It is the best title.
 
-### #2: Spotting a Title That's Too Narrow
+### #2: Finding the Main Idea from a Full Passage
 
-A passage discusses three different renewable energy sources: solar, wind, and hydroelectric power. Explain why "Solar Power: The Energy of the Future" would be a poor title for this passage.
+Read the passage.
 
-**Solution:**
-1. The passage discusses three energy sources, but this title mentions only one of them (solar).
-2. A title focusing on just one part of a multi-part passage is too narrow, since it misrepresents the passage's actual full scope.
-3. A better title would reference renewable energy more broadly, such as "Comparing Renewable Energy Sources: Solar, Wind, and Hydroelectric Power."
+Many students bring reusable water bottles to school. This can reduce the number of single-use plastic bottles thrown away each day. Some schools also add refill stations so students can get clean water without buying another bottle. These changes work best when students can easily refill their bottles during the school day.
 
-### #3: Spotting a Title That's Too Broad
-
-A passage specifically discusses the causes and effects of a single historical event, the fall of a particular ancient empire. Explain why "Ancient History" would be a poor title.
+Which title best fits the passage? (A) "School Water Rules," (B) "How Reusable Bottles Can Cut Plastic Waste at School," (C) "Why Students Get Thirsty."
 
 **Solution:**
-1. "Ancient History" could describe almost any passage about any ancient civilization or period: it does not specify what this particular passage discusses.
-2. This title is too broad/vague, failing to reflect the passage's specific focus (the fall of one particular empire and its causes/effects).
-3. A better, more precise title would name the specific empire and events discussed.
+1. The repeated topic is reusable bottles and refilling them at school.
+2. The main point is that these choices can reduce plastic waste.
+3. (B) states that main point. (A) is too general, and (C) is not what the passage is mainly about.
 
-### #4: Choosing a Title for an Argumentative Passage
+### #3: Avoiding a Title That Is Too Narrow
 
-A passage argues that a proposed new law would harm small businesses more than it helps consumers. Which title fits best? (A) "Small Businesses," (B) "New Laws," (C) "Why This Proposed Law Would Hurt Small Businesses More Than It Helps Consumers."
+A passage explains three ways a town can get renewable energy: solar power, wind power, and water power. Why is "Solar Power for the Town" a poor title?
 
 **Solution:**
-1. (A) and (B) are both far too broad, missing the passage's specific argument (not just its general subject).
-2. Since the passage makes a clear argument (harm outweighing benefit), the title should reflect that specific stance and comparison, not just the general topic.
-3. (C) captures the passage's specific argument precisely and is the best title.
+1. The passage is not mainly about solar power alone.
+2. Solar power is only one part of the larger topic.
+3. A better title would name renewable energy in the town, because that idea covers all three examples.
+
+### #4: Choosing a Title for an Argument
+
+A passage argues that a proposed rule would cost small stores more money while giving customers little benefit. Which title fits best? (A) "Small Stores," (B) "New Rules," (C) "Why the Proposed Rule May Hurt Small Stores."
+
+**Solution:**
+1. The passage takes a clear position about the proposed rule.
+2. (A) and (B) name only broad topics.
+3. (C) shows the passage's main argument, so it is the best title.
+
+### #5: Pagpili ng Pamagat sa Filipino
+
+Basahin ang talata.
+
+Maraming mag-aaral ang nahihirapang mag-aral kapag kulang sila sa tulog. Kapag maaga silang natutulog, mas handa silang makinig at gumawa ng gawain sa klase. Mahalaga rin ang regular na oras ng pagtulog upang masanay ang katawan sa tamang pahinga.
+
+Alin ang pinakamainam na pamagat? (A) "Mga Mag-aaral," (B) "Kahalagahan ng Sapat at Regular na Tulog sa Pag-aaral," (C) "Mga Gawain sa Klase."
+
+**Solution:**
+1. Ang talata ay tungkol sa tulog at pag-aaral.
+2. Ang pangunahing diwa ay nakatutulong ang sapat at regular na tulog sa pag-aaral.
+3. Pinakamainam ang (B). Masyadong malawak ang (A), at isang maliit na bahagi lamang ang tinutukoy ng (C).
 
 ## Speed Tricks & Shortcuts
 
-**Find the main idea first, then shrink it into a short phrase.** Since a good title is essentially a compressed version of the main idea, solving for the main idea first makes choosing the title much easier.
+**Find the main idea first, then shorten it.** Say the main idea in one simple sentence. Then look for the title that keeps the same meaning in fewer words.
 
-**Eliminate any title mentioning only part of a multi-part passage.** If the passage clearly covers several distinct points, cross out any title that names only one of them.
+**Check the title's size.** A title is too narrow if it covers only a supporting detail. It is too broad if it could fit many passages with different main points.
 
-**Eliminate any title so general it could fit unrelated passages on a similar broad subject.** A useful test: could this exact title also fit a completely different passage on the same general topic? If yes, it is likely too broad.
+**Match the title to the passage's strongest focus.** A passage may mention many examples, but the title should follow the central point those examples support.
 
 ## Traps to Watch For
 
-### #1: Choosing a Title That Covers Only One Part of the Passage
+### #1: Choosing One Memorable Detail
 
-> If the passage discusses multiple distinct points, ideas, or examples, the title must be broad enough to cover all of them, not just the one mentioned first or most memorably.
+> A detail can be important without being the passage's main idea.
 
-A passage about three energy sources needs a title referencing all three (or renewable energy generally), not just the one mentioned in the opening sentence.
+Do not choose a title just because it names the first, longest, or most memorable example. Ask what all the important parts are helping the author explain.
 
-### #2: Choosing a Title That's Too Generic
+### #2: Choosing a Title That Is Too Generic
 
-> A title so broad it could apply to countless other passages fails to capture what makes this particular passage distinct.
+> A title that fits many different passages may be too broad.
 
-Single-word or overly simple titles like "Bees" or "Ancient History" are common trap answers, since they are technically related to the topic but miss the passage's specific angle or argument.
+Titles such as "Bees" or "School" may match the topic but miss the passage's main point. Look for a title that adds the passage's real focus.
 
-### #3: Ignoring the Passage's Argument or Stance When Choosing a Title
+### #3: Trying to Put Every Detail in the Title
 
-> If a passage makes a clear argument or takes a stance (rather than simply describing facts), the best title should reflect that argument, not just the neutral topic.
+> A title should cover the main idea, not list every supporting example.
 
-A passage arguing against a proposed law needs a title reflecting that critical stance, not a neutral title like "New Laws," which fails to capture the passage's persuasive angle.
+If several examples support one point, a shorter title about that point can still be complete. Do not reject it just because one small example is not named.
+
+### #4: Ignoring the Author's Stance
+
+> When a passage argues for or against something, a neutral title may miss its main point.
+
+A passage that argues a rule will hurt small stores needs a title about that concern. A title like "New Rules" is related, but it hides the passage's position.
