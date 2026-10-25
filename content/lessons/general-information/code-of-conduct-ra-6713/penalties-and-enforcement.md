@@ -1,7 +1,7 @@
 ---
 _id: "lesson-code-of-conduct-ra-6713-penalties-and-enforcement"
 title: "Penalties and Enforcement under RA 6713"
-summary: "Learn the main penalties under RA 6713, how cases are enforced, and when special penalty rules apply."
+summary: "RA 6713 sets penalties, protects a fair hearing, and assigns enforcement duties to public bodies."
 subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
@@ -10,164 +10,201 @@ isActive: true
 
 ## Core Concept
 
-Section $11$ of RA $6713$ gives penalties for violations of the Code. Section $12$ explains the main enforcement role of the Civil Service Commission.
+Section "'$11$ of RA $6713$ gives penalties for violations of the Code. Section $12$ assigns enforcement duties. First find the rule broken, then match it to the right penalty and process.
 
 ### General Administrative Penalties
 
-For a violation of RA $6713$, a public official or employee may face:
+A public official or employee who violates the Code may face a fine of up to $6$ months'"' salary, suspension of up to "'$1$ year, or removal. The proper body chooses the sanction based on how serious the offense is. These are ceilings, not automatic penalties for every violation.
 
-- a fine of up to the equivalent of $6$ months' salary,
-- suspension of up to $1$ year, or
-- removal from office, depending on how serious the offense is.
+The body must give **due notice and hearing** before imposing the sanction. Due notice tells the person what charge they must answer. A hearing gives them a fair chance to answer and present evidence.
 
-These penalties require **due notice and hearing** by the proper body or agency. Due notice means the person is told the charge or alleged violation. A hearing means the person is given a fair chance to answer the charge and present their side.
+An **administrative proceeding** is the lawful process for deciding a work-related charge against a public official or employee. The body considers the charge, the answer, and the evidence before deciding. An accusation alone does not prove a violation.
 
-RA $6713$ itself does not give one complete hearing sequence or one evidence rule for every administrative case. The proper procedure depends on the body handling the case and the other rules that apply.
+RA $6713$ does not give one full hearing sequence or one evidence rule for every body. The rules of the body handling the case govern the steps and the level of proof needed. Do not assume that a criminal court'"'s rules apply to every administrative case.
 
-### Criminal Penalties for Sections $7$, $8$, or $9$
+### Criminal Penalties and Separate Cases
 
-A violation of Section $7$, $8$, or $9$ may be punished by imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also disqualify the person from holding public office.
+Violations of Sections "'$7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also disqualify the person from holding public office. Disqualification is up to the court, not automatic.
 
-If another law gives a heavier penalty for the same violation, prosecution must proceed under that other law.
+If another law gives a heavier penalty for the violation, prosecution proceeds under that law. **Prosecution** means bringing and pursuing a criminal case.
 
-### Administrative and Criminal Cases Are Separate
-
-A violation proven in a proper administrative proceeding can be enough for removal or dismissal even when no criminal case is filed. A **proper administrative proceeding** is a case handled through the lawful administrative process, including the required notice and hearing.
+A violation proven in a proper administrative proceeding is enough cause for removal or dismissal. No criminal case has to be filed first. Administrative discipline and criminal prosecution are separate paths.
 
 ### Private Persons Who Join a Violation
 
-A **conspiracy** means two or more people agree to commit an offense together and decide to carry it out. Section $11$ can also apply when a private person joins an RA $6713$ violation with a public official or employee.
+A **conspiracy** exists when people agree to commit an offense and decide to carry it out. Section $11$ also covers private people who participate with public officials or employees as co-principals, accomplices, or accessories. They face the same **penal liabilities**, meaning criminal responsibility and penalties under this rule, and are tried jointly with the public officials or employees.
 
-The private person's role depends on what the person did. The law may treat the person as a co-principal, accomplice, or accessory. The private person can face the same **penal liabilities**, meaning criminal responsibility and penalties under this rule, and can be tried with the public official or employee.
+The role depends on what the person did. These terms come from criminal law:
 
-These role names come from criminal law:
+- A **co-principal** directly carries out the offense, directly forces or induces another to do it, or gives help without which it could not be completed.
+- An **accomplice** knows the unlawful purpose and helps before or during the offense. The help does not make the person a principal.
+- An **accessory** knows the offense was committed and takes part only afterward in a way covered by law. Examples include helping someone profit from the offense or hiding its tools or evidence to prevent discovery.
 
-- A **co-principal** directly takes part in the offense, makes another person commit it, or gives help without which it could not be completed.
-- An **accomplice** knows about the offense and helps before or while it is being carried out, but the help does not make the person a co-principal.
-- An **accessory** knows the offense was committed and helps afterward in a way covered by criminal law, such as helping profit from it or hiding evidence in a covered case.
+Not every act after an offense makes someone an accessory. Helping an offender escape has further legal conditions. For example, the criminal-law rule includes abuse of public office or certain listed crimes.
 
-The facts must support the role. Knowing about the offense alone is not enough.
+Mere knowledge is not participation. Also, timing alone does not settle the role. Someone who agreed beforehand and directly carried out part of the offense cannot avoid being a principal by calling their final act later help.
 
 ### Misuse of Filed Statements
 
-Section $8(D)$ bans obtaining or using a filed statement for a purpose contrary to morals or public policy. It also bans use for a commercial purpose, except use by news and communications media to inform the general public.
+A **SALN** is a Statement of Assets, Liabilities and Net Worth. It reports property, other assets, and debts. Public access to a filed statement does not allow every use of it.
 
-The official or employee concerned may bring an action against a person who obtains or uses a statement for one of these prohibited purposes. The court may assess a penalty of up to ₱$25{,}000$. If another applicable sanction is heavier, the heavier sanction applies.
+Section $8(D)$ bans obtaining or using a statement for a purpose contrary to morals or public policy. It also bans commercial use, except use by news and communications media to inform the general public.
 
-### Who Enforces the Law
+The official or employee concerned may bring an action over such misuse. The court may assess a penalty of up to ₱$25{,}000$. If another applicable sanction is heavier, that heavier sanction applies.
 
-Section $12$ gives the **Civil Service Commission (CSC)** primary responsibility for administering and enforcing RA $6713$. The CSC sends cases that call for prosecution to the proper authorities. It may also start administrative action or disciplinary measures allowed by law.
+### Who Handles Enforcement
 
-Each House of Congress keeps its power to discipline its own members for disorderly behavior. The Ombudsman must also take steps to protect citizens who report acts or omissions that violate RA $6713$.
+The **Civil Service Commission (CSC)** has primary responsibility for administering and enforcing RA $6713$. It sends cases requiring prosecution to the proper authorities. The CSC may also start administrative action and disciplinary measures allowed by law.
 
-RA $6713$ does not set one general appeal route for every case. The proper hearing, review, and appeal process depends on the body handling the case and the other rules that apply.
+Each House of Congress keeps the power to discipline its own members for disorderly behavior. The **Ombudsman** must take steps to protect citizens who report acts or failures to act that violate the Code.
+
+The protection duty does not mean every reporter automatically receives a particular benefit or legal immunity. Section $12$ states the Ombudsman'"'s duty. It does not list a single protection package for every report.
+
+RA "'$6713$ does not set one appeal route for all cases. An **appeal** asks a higher body to review a decision. The right review body and filing steps depend on the office deciding the case and the rules that apply to it.
 
 ## Examples
 
 ### #1: General Violation Penalties
 
-A public employee is found liable for a general violation of RA $6713$ after due notice and hearing. Which administrative penalties may be imposed under Section $11$?
+After due notice and hearing, a public employee is found liable for a general violation of RA $6713$. The employee earns ₱$30{,}000$ a month. What are the statutory fine and suspension ceilings, and may removal be imposed?
 
 **Solution:**
 
-1. This is the general penalty rule, not the special criminal rule for Sections $7$, $8$, or $9$.
-2. The possible sanctions are a fine of up to $6$ months' salary, suspension of up to $1$ year, or removal depending on the gravity of the offense.
-3. The answer must also keep the condition that due notice and hearing come before the sanction.
+1. The fine ceiling is the equivalent of $6$ months'"' salary.
+
+"'$$
+6 '"\times 30{,}000 = 180{,}000
+"'$$
+
+2. The fine may be up to **₱$180{,}000$**. Suspension may be up to **$1$ year**.
+3. Removal is also possible depending on how serious the offense is. The required notice and hearing have taken place.
+4. The ceilings do not mean the body must impose the maximum sanction.
 
 ### #2: Penalties for a Section $7$ Violation
 
-A public official is proven to have committed a violation of Section $7$. What maximum criminal penalties under Section $11$ of RA $6713$ may be imposed?
+A public official is proven to have violated Section $7$. What maximum criminal penalties under Section $11$ may the court impose?
 
 **Solution:**
 
-1. Section $7$ is one of the three sections covered by the special criminal penalty rule.
-2. The penalty may be imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both.
-3. The court may also disqualify the person from holding public office.
+1. Section $7$ falls under the special criminal penalty rule.
+2. The court may impose imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both.
+3. It may also order disqualification from public office. That added consequence is at the court'"'s discretion.
 
-### #3: Identifying a Private Accomplice
+### #3: A Private Co-Principal
 
-A private businessperson knows that a public officer plans an RA $6713$ violation. Before the violation, the businessperson knowingly supplies records that help carry it out. The public officer could still complete the violation without those records. Which role best fits the private person, and can Section $11$ apply?
-
-**Solution:**
-
-1. The private person knowingly helped before the offense was carried out.
-2. The help was useful, but the offense could still be completed without it. The private person also did not directly carry out the offense.
-3. These facts fit the role of an **accomplice**.
-4. Section $11$ can apply the same penal liabilities under this rule and allow joint trial with the public officer.
-
-### #4: Commercial Use of a Filed SALN
-
-A company obtains a public employee's filed SALN and uses the information to build a paid marketing list. The company is not a news or communications organization. Is this use prohibited under Section $8(D)$, and what Section $11$ consequence may apply?
+An officer and a private consultant agree to sell confidential agency information for their own gain. The officer obtains the records through the job. The consultant knowingly carries out the agreed sale. Which participation role fits the consultant?
 
 **Solution:**
 
-1. The use is commercial and does not fall under the news-media exception for informing the public.
-2. Section $8(D)$ therefore treats the use as prohibited.
-3. The official or employee concerned may bring an action, and the court may assess a penalty of up to ₱$25{,}000$.
-4. If another applicable law gives a heavier sanction, the heavier sanction applies.
+1. Both agreed on the unlawful plan and carried it out.
+2. The consultant directly performed part of the offense by selling the records. This is direct participation, not mere knowledge or minor help.
+3. The consultant is a **co-principal**. Under Section "'$11$, a private participant can face the same penal liabilities and be tried jointly with the officer.
 
-### #5: Heavier Penalty Under Another Law
+### #4: A Private Accomplice
 
-The same act violates RA $6713$ and another law. The other law provides a heavier penalty. Under Section $11$, which law is used for prosecution?
-
-**Solution:**
-
-1. Section $11$ has a heavier-penalty rule.
-2. When another law punishes the violation more heavily, prosecution proceeds under that other law.
-3. The answer is **the law with the heavier penalty**.
-
-### #6: Administrative Removal Without a Criminal Case
-
-A public officer is found liable for an RA $6713$ violation in a proper administrative proceeding. No criminal case has been filed. Can the officer still be removed or dismissed administratively?
+A businessperson learns of an officer'"'s plan to commit an RA "'$6713$ offense. Knowing its unlawful purpose, the businessperson supplies records before it happens. The records help, but the offense does not depend on them. The businessperson does not directly carry out or induce the offense. Which role fits?
 
 **Solution:**
 
-1. Administrative liability is separate from criminal prosecution under Section $11$.
-2. A violation proven in a proper administrative proceeding is enough cause for removal or dismissal.
-3. The officer may therefore be removed or dismissed even without a criminal case.
+1. The person knowingly gave help before the offense.
+2. The help was not essential, and the person did not directly carry out or induce the offense.
+3. These facts fit an **accomplice**. Section $11$ covers a private person participating in this role with the public officer.
 
-### #7: CSC Case Referral
+### #5: A Private Accessory
 
-The CSC receives an RA $6713$ case that may require criminal prosecution. What does Section $12$ allow the CSC to do?
-
-**Solution:**
-
-1. The CSC has primary responsibility for administering and enforcing RA $6713$.
-2. It sends prosecution cases to the proper authorities for action.
-3. It may also take administrative or disciplinary action when the law allows it.
-
-### #8: Protection for a Reporting Citizen
-
-A citizen reports an act by a public official that may violate RA $6713$ and fears retaliation. Which institution does Section $12$ direct to take steps to protect citizens who report violations?
+A private person takes no part in planning or carrying out an officer'"'s completed offense. After learning what happened, the person knowingly destroys the tool used in it to prevent discovery. The person is unrelated to the officer. Which participation role fits these facts?
 
 **Solution:**
 
-1. Section $12$ gives this protection role to the Ombudsman.
-2. The rule covers citizens who report acts or omissions of public officials or employees that violate the law.
-3. The answer is **the Ombudsman**.
+1. The person knew of the completed offense and had not taken part as a principal or accomplice.
+2. Destroying its tool to prevent discovery is a covered form of later help.
+3. The role is **accessory**. Section "'$11$ includes private participants in this role with public officers or employees.
+
+### #6: Checking Disputed Facts
+
+An officer denies wrongdoing after sharing an agency file with a business owner. Records show the file was confidential, came to the officer through work, and was not public. Messages show it was shared to give that owner an unfair advantage. Which rule should be examined, and what penalty path may follow if the violation is proven?
+
+**Solution:**
+
+1. Section $7$ bans using or sharing confidential work information that is not public to serve private interests, give an unfair advantage, or harm public interest.
+2. The records and messages support those required facts. The denial must still be considered through the proper process.
+3. If the Section $7$ violation is proven, the criminal ceiling is $5$ years'"' imprisonment, ₱"'$5{,}000$ in fines, or both. The court may also disqualify the officer.
+4. Administrative discipline is separately possible after the required proceeding. A complaint alone does not impose either penalty.
+
+### #7: Commercial Use of a Filed SALN
+
+A company uses a public employee'"'s filed SALN to build a paid marketing list. It is not a news or communications organization informing the public. Is this use prohibited, and what consequence may apply?
+
+**Solution:**
+
+1. The company uses the statement for a commercial purpose outside the stated media exception.
+2. Section "'$8(D)$ prohibits this use.
+3. The employee concerned may bring an action. The court may assess a penalty of up to ₱$25{,}000$, subject to the heavier-sanction rule.
+
+### #8: A Heavier Penalty in Another Law
+
+The same violation is punishable under RA $6713$ and another law. The other law provides a heavier penalty. Which law governs prosecution under Section $11$?
+
+**Solution:**
+
+1. Section $11$ directs prosecution under the other law when its penalty is heavier.
+2. The case therefore proceeds under **the other law**.
+
+### #9: Removal Without a Criminal Case
+
+A proper administrative proceeding proves an officer'"'s RA "'$6713$ violation. No criminal case has been filed. May the officer still be removed or dismissed?
+
+**Solution:**
+
+1. A violation proven through the proper administrative process is enough cause for removal or dismissal.
+2. Section $11$ does not require a criminal case first. Administrative removal or dismissal is possible.
+
+### #10: Referral and Fair Process
+
+The CSC receives a complaint with evidence of a possible RA $6713$ offense. May it treat the complaint as an automatic conviction? What should happen to a case requiring prosecution?
+
+**Solution:**
+
+1. A complaint is an accusation, not a finding of guilt. Any administrative sanction requires the proper process, including notice and a chance to answer.
+2. The CSC sends cases requiring prosecution to the proper authorities. It may also start lawful administrative action.
+3. Any later appeal must follow the rules for the body that decides the case. Section $12$ does not supply one universal appeal route.
+
+### #11: Protecting a Reporting Citizen
+
+A citizen reports a possible Code violation and fears retaliation. Which institution does Section $12$ direct to take protective steps?
+
+**Solution:**
+
+The **Ombudsman** must take steps to protect citizens who report violations by public officials or employees.
 
 ## Traps to Watch For
 
-### #1: Not Every Violation Has the Same Penalty
+### #1: Treating Every Penalty as Automatic
 
-> First identify which rule was violated.
+> A maximum penalty is a ceiling.
 
-General violations use the general fine, suspension, or removal rule. Violations of Sections $7$, $8$, or $9$ also have the special criminal penalties stated in Section $11$.
+The general sanction depends on the seriousness of the offense and requires notice and hearing. Court-ordered disqualification is also not automatic.
 
-### #2: A Criminal Case Is Not Required for Administrative Removal
+### #2: Waiting for a Criminal Case
 
-> Do not wait for a criminal conviction when the question asks about administrative discipline.
+> Administrative removal does not require a criminal case first.
 
-A violation proven in a proper administrative proceeding can support removal or dismissal even if no criminal prosecution is filed.
+A violation proven in a proper administrative proceeding can support removal or dismissal. The two processes are separate.
 
-### #3: A Filed Statement Is Public, but Its Use Is Not Unlimited
+### #3: Choosing a Role From Timing Alone
 
-> Public access does not make every later use lawful.
+> Check knowledge, the act done, and whether the help was essential.
 
-Section $8(D)$ still bans uses contrary to morals or public policy and most commercial uses. News and communications media have a stated exception for informing the general public.
+An accomplice knowingly helps before or during the offense without becoming a principal. An accessory takes part afterward in a legally covered way and did not already participate as a principal or accomplice.
 
-### #4: The CSC Does Not Personally Prosecute Every Case
+### #4: Assuming Public Access Allows Any Use
 
-> Separate administration and referral from prosecution.
+> Public access still has use limits.
 
-The CSC has primary enforcement responsibility, can take administrative action, and sends prosecution cases to the proper authorities.
+Commercial marketing is not the news-media exception. Uses contrary to morals or public policy are also prohibited.
+
+### #5: Mixing Agency Duties
+
+> Match the task to the agency.
+
+The CSC administers the Code and refers prosecution cases. The Ombudsman has the stated duty to protect reporting citizens. A referral does not replace a hearing or establish guilt.
