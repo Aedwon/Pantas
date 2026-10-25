@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-algebra-algebraic-expressions",
+  "lesson-algebra-exponents-and-logarithms",
+  "lesson-algebra-linear-equations-inequalities"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-algebraic-expressions": "f5a93a148bdf7e43c8145f88096ffae358a5ed19",
+  "lesson-algebra-exponents-and-logarithms": "f5a93a148bdf7e43c8145f88096ffae358a5ed19",
+  "lesson-algebra-linear-equations-inequalities": "f5a93a148bdf7e43c8145f88096ffae358a5ed19"
+ },
+ "sha256": {
+  "lesson-algebra-algebraic-expressions": "9537a54e48779e79a28af028c25e4871d7af9b53c9b432aa512d10585ce565e4",
+  "lesson-algebra-exponents-and-logarithms": "2880f1eae7bd0a91a3e99b5f917070d577cdd47640799100c2e1670d2cfa7461",
+  "lesson-algebra-linear-equations-inequalities": "239c807afc57391b0dd233dd89983507ac96b0d79f5b55ca38dee062c25b7d1c"
+ },
+ "paths": {
+  "lesson-algebra-algebraic-expressions": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+  "lesson-algebra-exponents-and-logarithms": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "lesson-algebra-linear-equations-inequalities": "content/lessons/mathematics/algebra/linear-equations-inequalities.md"
+ },
+ "id": "RD-026",
+ "type": "read",
+ "created": "2026-10-25T15:37:07+00:00"
+}

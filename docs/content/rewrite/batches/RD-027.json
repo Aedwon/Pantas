@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-clerical-ability-alphabetic-filing-rules",
+  "lesson-clerical-ability-numeric-and-chronological-filing"
+ ],
+ "topic": "reasoning/clerical-ability",
+ "rewrites": {
+  "lesson-clerical-ability-alphabetic-filing-rules": "1a8c563d0eb5daea95f9b36ba3ceee78abc98dbd",
+  "lesson-clerical-ability-numeric-and-chronological-filing": "1a8c563d0eb5daea95f9b36ba3ceee78abc98dbd"
+ },
+ "sha256": {
+  "lesson-clerical-ability-alphabetic-filing-rules": "61d0c7da7e8062025f0ec3d54f8d3e92235101ba06d72d42600bf4281313153a",
+  "lesson-clerical-ability-numeric-and-chronological-filing": "5a0d3f6be68406b2f75a15f48afdeccfeeb54b4a090e12490e437a1c62487832"
+ },
+ "paths": {
+  "lesson-clerical-ability-alphabetic-filing-rules": "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+  "lesson-clerical-ability-numeric-and-chronological-filing": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
+ },
+ "id": "RD-027",
+ "type": "read",
+ "created": "2026-10-25T15:42:16+00:00"
+}

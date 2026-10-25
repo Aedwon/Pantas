@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-business-math",
+  "lesson-arithmetic-number-sense-divisibility-rules",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-business-math": "532e66b6f75ff21b014f43a829ecbc8f6e047ecf",
+  "lesson-arithmetic-number-sense-divisibility-rules": "532e66b6f75ff21b014f43a829ecbc8f6e047ecf",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "532e66b6f75ff21b014f43a829ecbc8f6e047ecf"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-business-math": "43fd4f408e21ea2863d7f395d94b2af385fa08b26143d18894278496582716da",
+  "lesson-arithmetic-number-sense-divisibility-rules": "6980645f145e2af539369ccd5bccb7fe12dbd9974dbaf713f6accc877f0771c2",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "a9f53e373f887a20fb16302f6654ef5d3a06e49cc234861c9dd9b37f366c6a6a"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-business-math": "content/lessons/mathematics/arithmetic-number-sense/business-math.md",
+  "lesson-arithmetic-number-sense-divisibility-rules": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md"
+ },
+ "id": "RD-024",
+ "type": "read",
+ "created": "2026-10-25T15:30:27+00:00"
+}

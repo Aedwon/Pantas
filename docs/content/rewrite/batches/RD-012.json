@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-environment-management-species-resources-and-environmental-decisions",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "rewrites": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "9737750698b9638227acd0cbe771f6778b3c229c",
+  "lesson-environment-management-the-environmental-laws": "9737750698b9638227acd0cbe771f6778b3c229c"
+ },
+ "sha256": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "07cced4ea56de66bcc88f022afbbd2a7ddd43570e48bf5c4584359a912cd7c88",
+  "lesson-environment-management-the-environmental-laws": "bfcf9965c8b37d3b9d61c829b6e1c859b37bdcce6f69e94e1f595dc293dfe375"
+ },
+ "paths": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "id": "RD-012",
+ "type": "read",
+ "created": "2026-10-25T14:57:44+00:00"
+}

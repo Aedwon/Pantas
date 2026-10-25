@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-ratio-and-proportion",
+  "lesson-arithmetic-number-sense-real-imaginary-numbers",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-ratio-and-proportion": "89efa84d6bd3a15bed09eb6df3c14c200390ec91",
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "89efa84d6bd3a15bed09eb6df3c14c200390ec91",
+  "lesson-arithmetic-number-sense-sequences-and-series": "89efa84d6bd3a15bed09eb6df3c14c200390ec91"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-ratio-and-proportion": "b525a87fb90ffa097c9ccec4e867c1c1983f02d96b29469388411ac11a173498",
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "ba36cb729e7d8b7e477ef388ed1ed1aeb1995a060a486a9eec28dcef66fc29ee",
+  "lesson-arithmetic-number-sense-sequences-and-series": "7b4a37212e4fc954c209c95b274a3e25b88325bfe049efaa356013a8c6cb726c"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-ratio-and-proportion": "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "id": "RD-025",
+ "type": "read",
+ "created": "2026-10-25T15:31:48+00:00"
+}

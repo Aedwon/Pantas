@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-figure-grouping",
+  "lesson-spatial-abstract-reasoning-figure-matrices",
+  "lesson-spatial-abstract-reasoning-figure-series"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "rewrites": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "712ed6def3a9106264a3b1c6ed7d8c033ded3901",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "712ed6def3a9106264a3b1c6ed7d8c033ded3901",
+  "lesson-spatial-abstract-reasoning-figure-series": "712ed6def3a9106264a3b1c6ed7d8c033ded3901"
+ },
+ "sha256": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "240f14558b593c243bdd067d5a73431214887fea6d2727460cd806bb89644079",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "4543fddaa78973bcbe7bf3d1fe14af2374b4e600108f79f614e91bd9ee82996b",
+  "lesson-spatial-abstract-reasoning-figure-series": "3df03f613ace845b7b2a42ba4babb11455c735d35523e803e6aaefde86e467c3"
+ },
+ "paths": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+  "lesson-spatial-abstract-reasoning-figure-series": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md"
+ },
+ "id": "RD-031",
+ "type": "read",
+ "created": "2026-10-25T15:46:15+00:00"
+}

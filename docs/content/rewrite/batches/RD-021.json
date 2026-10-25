@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-parts-of-speech",
+  "lesson-grammar-and-structure-sentence-structure",
+  "lesson-grammar-and-structure-subject-verb-agreement"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "rewrites": {
+  "lesson-grammar-and-structure-parts-of-speech": "241990f223e0fc932e578da889d58ea10d8038d9",
+  "lesson-grammar-and-structure-sentence-structure": "016a7d27e708373088ff55f249b5ea914b39bb69",
+  "lesson-grammar-and-structure-subject-verb-agreement": "016a7d27e708373088ff55f249b5ea914b39bb69"
+ },
+ "sha256": {
+  "lesson-grammar-and-structure-parts-of-speech": "b39a7755fd9de7bcacc6764f5e038c7c3638d73a61d870ceb4a4467a7b8b9e74",
+  "lesson-grammar-and-structure-sentence-structure": "f09150f8967c0fc9ba1acc0de90564d675b74d1a5265923b8dc3f2c10b91ade9",
+  "lesson-grammar-and-structure-subject-verb-agreement": "0629b6ad0c40f1f65b0e42aa4e3a407fe86c55fd7f0adda0cbc67c5773f52c40"
+ },
+ "paths": {
+  "lesson-grammar-and-structure-parts-of-speech": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
+  "lesson-grammar-and-structure-sentence-structure": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md",
+  "lesson-grammar-and-structure-subject-verb-agreement": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md"
+ },
+ "id": "RD-021",
+ "type": "read",
+ "created": "2026-10-25T15:08:45+00:00"
+}

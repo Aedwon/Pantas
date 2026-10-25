@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-vocabulary-confusing-words",
+  "lesson-vocabulary-context-clues",
+  "lesson-vocabulary-idioms-and-figures-of-speech"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-confusing-words": "f5d1f602c5bc44b076d523007b1618d7a8dd5bd1",
+  "lesson-vocabulary-context-clues": "f5d1f602c5bc44b076d523007b1618d7a8dd5bd1",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "f5d1f602c5bc44b076d523007b1618d7a8dd5bd1"
+ },
+ "sha256": {
+  "lesson-vocabulary-confusing-words": "8a73b81ed5ef11b7f4dde007a8652305c156b7861c8a25399b7f94d5beedee92",
+  "lesson-vocabulary-context-clues": "70d0d773cb34ef7f13cad4b6f6cf26da97d710ada0cd694f5ffb6e935784d63f",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "b25e1aed5b616d939b15e341cf50a35dbdce2df5045774265f5a38d8d116a789"
+ },
+ "paths": {
+  "lesson-vocabulary-confusing-words": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+  "lesson-vocabulary-context-clues": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md"
+ },
+ "id": "RD-022",
+ "type": "read",
+ "created": "2026-10-25T15:09:24+00:00"
+}

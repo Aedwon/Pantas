@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-accountability-and-impeachment",
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "aad5e3c4f81ebf65a4a53655cd0dee97e59abe3d",
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": "aad5e3c4f81ebf65a4a53655cd0dee97e59abe3d",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": "aad5e3c4f81ebf65a4a53655cd0dee97e59abe3d"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "b51bb079968b3ba589f1805d3a9531a55f849b040312b5f5050728980f7ee189",
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": "6bc6c87bed550a3c14ecb347a48382e597aaa51959e87dd338065740b595d536",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": "55143929ad619af84ee57446cde632830e8225effa8f5237fd669e7e8b4cb90d"
+ },
+ "paths": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": "content/lessons/general-information/philippine-constitution/bill-of-rights-property-courts-and-custody.md",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": "content/lessons/general-information/philippine-constitution/bill-of-rights-punishment-detention-and-limits-on-laws.md"
+ },
+ "id": "RD-013",
+ "type": "read",
+ "created": "2026-10-25T14:59:05+00:00"
+}

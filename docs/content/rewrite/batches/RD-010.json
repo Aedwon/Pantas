@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-environment-management-disaster-risk-reduction-and-management",
+  "lesson-environment-management-environmental-concepts",
+  "lesson-environment-management-environmental-problems-and-climate-change"
+ ],
+ "topic": "general-information/environment-management",
+ "rewrites": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "90572e20202de04b8d2c53599bb6d5a17bf6fa15",
+  "lesson-environment-management-environmental-concepts": "90572e20202de04b8d2c53599bb6d5a17bf6fa15",
+  "lesson-environment-management-environmental-problems-and-climate-change": "90572e20202de04b8d2c53599bb6d5a17bf6fa15"
+ },
+ "sha256": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "06e573c28fbf768ba46aa8fcd73889f09b5651b8ca7f240c3d1b699dbd9cf3e4",
+  "lesson-environment-management-environmental-concepts": "15925d0102d50f31bc384a7256ccff288ecf8870e44c28970fab9a1341c87b77",
+  "lesson-environment-management-environmental-problems-and-climate-change": "5f831487c4b3bc45614a31823385fcd7192963e4e51bc84c6bb9114d746e7c03"
+ },
+ "paths": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "content/lessons/general-information/environment-management/disaster-risk-reduction-and-management.md",
+  "lesson-environment-management-environmental-concepts": "content/lessons/general-information/environment-management/environmental-concepts.md",
+  "lesson-environment-management-environmental-problems-and-climate-change": "content/lessons/general-information/environment-management/environmental-problems-and-climate-change.md"
+ },
+ "id": "RD-010",
+ "type": "read",
+ "created": "2026-10-25T14:55:44+00:00"
+}
