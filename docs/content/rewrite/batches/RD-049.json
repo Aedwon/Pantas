@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-civil-service-commission"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-the-civil-service-commission": "6d3ab3d3b0a56350edf8967bb70bb79e7963ac27"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-the-civil-service-commission": "6c251a040de39f57b0cacd94473be05a61e57665de1f8c9e44d402e890b390de"
+ },
+ "paths": {
+  "lesson-philippine-constitution-the-civil-service-commission": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+ },
+ "id": "RD-049",
+ "type": "read",
+ "created": "2026-10-25T19:34:35+00:00"
+}
