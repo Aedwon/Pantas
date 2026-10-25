@@ -58,3 +58,11 @@ hand-in still works for manual use (`/api/prompt?id=<batch>&mode=relay`).
   RW-007 (the three RA 6713 lessons) was made this way.
 - Live test: commit and push this branch, then run on a throwaway branch `cse-inbox/RW-007` a hand-in with
   the three lessons (or a one-line change in a fixture batch), open the pull request, and read the Actions tab.
+
+## October 25: pull-request hand-in live
+
+Committed dd8365cf (319 tests pass). Live test PR #30 (`cse-inbox/RW-007`, one of three lessons):
+the `CSE hand-in` check rejected it in 14 seconds, naming the two missing lessons; PR closed
+unmerged. The merge path is untested until the first real batch. Branch `cse-inbox/RW-007`
+still exists with the test commit; it must be deleted (Aedwon's approval) before the real RW-007.
+Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major problems.
