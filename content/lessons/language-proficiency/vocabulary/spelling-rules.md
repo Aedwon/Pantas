@@ -1,41 +1,65 @@
 ---
 _id: "lesson-vocabulary-spelling-rules"
 title: "Spelling Rules"
-summary: "Learn reliable spelling patterns, common exceptions, and how standard English and Filipino orthography handle difficult forms."
+summary: "Learn useful English and Filipino spelling patterns, common exceptions, and a step-by-step way to check longer words."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-Spelling is partly regular and partly lexical: patterns can help, but many words must also be learned individually. The current public Civil Service Examination scope lists **spelling** under clerical ability; it does not publish a guaranteed list of words or one universal trick for solving spelling items.
+Spelling has patterns, but some words must be learned one by one. A pattern can help you check a word, but it cannot replace the standard spelling of that word.
+
+The current public Civil Service Examination scope lists **spelling** under clerical ability. It does not give a guaranteed list of words, so learn useful patterns and common standard forms.
 
 ### The "I Before E" Mnemonic Is Limited
 
-The old rhyme "i before e except after c" is **not a dependable general rule** for English spelling. It works for a useful subset such as *believe, receive,* and *conceive*, but many standard words do not fit the rhyme: *weird, seize, science, height, either,* and others.
+The old rhyme "i before e except after c" can help with some words such as *believe, receive,* and *conceive*. It does not work for every English word.
 
-Use the mnemonic only as a memory aid for words you already know belong to the pattern. Do not apply "for everything else put i first."
+Standard words such as *weird, seize, science,* and *height* do not fit the simple rhyme. Use the rhyme as a memory aid, not as a rule for every word.
 
 ### Adding Suffixes
 
-Suffix spelling depends on the word and the suffix.
+A **suffix** is a word part added at the end of a base. Spelling can change when a suffix is added.
 
-- A final silent **e** is often dropped before a vowel-initial suffix: *manage → managing, hope → hoping*.
-- It is often retained when needed to preserve pronunciation or spelling: *notice → noticeable, courage → courageous* has its own pattern.
-- Some words are lexical exceptions: *true → truly, argue → argument*.
+A final silent **e** is often dropped before a suffix that begins with a vowel. For example, *manage* becomes *managing*, and *hope* becomes *hoping*.
 
-### Doubling Final Consonants
+Sometimes the **e** stays because it helps keep the expected sound or spelling. For example, *notice* becomes *noticeable*.
 
-For many one-syllable words and stressed final syllables ending in a single consonant after a single vowel, the final consonant doubles before certain vowel-initial suffixes: *run → running, begin → beginning*. The exact pattern depends on stress, spelling, and suffix; it is not merely "CVC always doubles."
+Some common words do not follow the simple pattern. For example, *true* becomes *truly*, and *argue* becomes *argument*.
+
+### Doubling a Final Consonant
+
+A **syllable** is a beat or part of a word that has one main vowel sound. **Stress** is the syllable you say more strongly.
+
+In many short words, a final consonant doubles before a suffix such as *-ing* when the word ends in one vowel followed by one consonant. For example, *run* becomes *running*.
+
+The same idea can appear in longer words when the last syllable is stressed. *Begin* has stress on its last syllable, so *begin* becomes *beginning*.
+
+Do not use a simple consonant-vowel-consonant shape as an automatic rule. *Visit* becomes *visiting*, not *visitting*.
+
+### Checking Longer Words by Syllable
+
+For a long word, do not guess from its full shape at once. Work through it in parts.
+
+1. Say the word slowly.
+2. Break it into syllables.
+3. Listen for the main vowel sound in each syllable.
+4. Match the sounds to the spelling you know.
+5. Check common suffix, doubling, and exception patterns.
+
+For *beginning*, you can hear *be-gin-ning*. The strong middle part helps explain why the final *n* of *begin* doubles before *-ing*.
+
+Sound is a clue, not a perfect spelling guide. English has many words whose spelling cannot be predicted from sound alone.
 
 ### Filipino Orthography and Loanwords
 
-The Komisyon sa Wikang Filipino's **Ortograpiyang Pambansa** provides principles for adapting and writing Filipino words, including loanwords. Standardization does not always mean there is only one acceptable adaptation.
+The Komisyon sa Wikang Filipino's **Ortograpiyang Pambansa** gives rules and examples for writing Filipino, including borrowed words. A borrowed word can sometimes have more than one accepted form.
 
-For example, KWF's orthography explicitly gives Spanish *cuento* with accepted Filipino adaptations **kwento / kuwento**. Therefore, it is incorrect to teach that *kwento* must always be rejected in favor of *kuwento*.
+For example, the KWF reference gives **kwento / kuwento** as Filipino adaptations of Spanish *cuento*. Do not reject *kwento* only because another form, *kuwento*, also exists.
 
-Other forms are lexical and should be checked in the applicable KWF dictionary/orthographic reference instead of inferred from a blanket "always keep i/u before y/w" rule.
+When an item asks about official Filipino spelling, use the accepted standard form. Do not invent a blanket rule from texting habits or from one borrowed word.
 
 ## Examples
 
@@ -50,24 +74,68 @@ D) seize
 
 **Solution:**
 
-**B** is misspelled; the standard spelling is **conceive**. Notice that *seize* is also standard even though it does not follow the familiar mnemonic. This is why the rhyme is a memory aid, not a universal rule.
+1. The standard spelling is **conceive**.
+2. Choice **B**, *concieve*, switches the vowel order. The answer is **B**.
 
-### #2: Silent E and Suffixes
+### #2: Dropping a Silent E
 
-Which is misspelled?
+Which spelling is standard?
 
-A) argument  
-B) noticeable  
-C) truely  
-D) managing
+A) manageing  
+B) managing  
+C) mannaging  
+D) managging
 
 **Solution:**
 
-**C**. The standard spelling is **truly**. The other three show why simple suffix rules have exceptions and spelling-preservation patterns.
+1. *Manage* ends in a silent *e*.
+2. Before *-ing*, the final *e* is dropped, so the standard spelling is **managing**. The answer is **B**.
 
-### #3: Doubling a Final Consonant
+### #3: Keeping a Silent E
+
+Which spelling is standard?
+
+A) noticable  
+B) noticeable  
+C) noticeible  
+D) notiseable
+
+**Solution:**
+
+1. The base word is *notice*.
+2. In **noticeable**, the final *e* stays before *-able*. The answer is **B**.
+
+### #4: A Common Exception
+
+Which spelling is standard?
+
+A) truely  
+B) trueley  
+C) truly  
+D) truley
+
+**Solution:**
+
+1. The word comes from *true*.
+2. Its standard form is **truly**, not *truely*. The answer is **C**.
+
+### #5: Doubling a Final Consonant
 
 Choose the standard spelling:
+
+A) beginning  
+B) begining  
+C) beggining  
+D) begininning
+
+**Solution:**
+
+1. The last syllable of *begin* is stressed.
+2. The final *n* doubles before *-ing*, giving **beginning**. The answer is **A**.
+
+### #6: Using Syllables to Check a Longer Word
+
+Which spelling is standard for the word pronounced in three syllables as *oc-cur-rence*?
 
 A) occurrence  
 B) occurrance  
@@ -76,47 +144,67 @@ D) ocurrence
 
 **Solution:**
 
-**Occurrence** is standard: *occur* contributes the doubled *c*, and the derived noun is spelled with double *r* and *-ence*.
+1. Break the word into parts: *oc-cur-rence*.
+2. The standard spelling keeps double *c*, double *r*, and ends in *-ence*. The answer is **A**.
 
-### #4: Filipino Loanword Variation
+### #7: Filipino Loanword Variation
 
-Which statement is supported by KWF's *Ortograpiyang Pambansa*?
+Which statement matches the KWF example for Spanish *cuento*?
 
-A) Only *kuwento* is standard; *kwento* is always wrong.  
-B) Both *kwento* and *kuwento* are listed adaptations of Spanish *cuento*.  
-C) Filipino loanwords must retain Spanish spelling exactly.  
-D) Every *w* in a loanword must be preceded by *u*.
+A) Only *kuwento* is accepted.  
+B) Both *kwento* and *kuwento* are listed adaptations.  
+C) Filipino must keep the Spanish spelling *cuento*.  
+D) Every *w* in a borrowed word must have *u* before it.
 
 **Solution:**
 
-**B**. KWF lists **kwento / kuwento** as adaptations. Orthography must be learned from the actual standard, not from a blanket rule invented from a few examples.
+1. The KWF example lists **kwento / kuwento**.
+2. Both forms are given as adaptations, so the answer is **B**.
 
 ## Speed Tricks & Shortcuts
 
-**Use patterns to generate candidates, not to overrule known spelling.** If a mnemonic conflicts with a familiar standard word, the word wins.
+**Use patterns to check a spelling, not to overrule a word you know is standard.** A mnemonic is a helper, not a law.
 
-**Look at the whole morphological family.** *Begin/beginning* and *refer/referred* can help you see stress/doubling patterns, but remember that families can also contain irregularities.
+**Look at related word forms.** Pairs such as *begin/beginning* and *refer/referred* can help you notice where doubling happens.
 
-**For Filipino, consult KWF-standard forms when the item is explicitly about official orthography.** Do not assume texting variants, Spanish originals, or one phonetic shortcut automatically determine the answer.
+**Break long words into syllables.** Say each part, listen for the main sounds, then check the spelling pattern.
+
+**For Filipino, use KWF-standard forms when the item asks about official spelling.** Do not rely on texting forms or on one rule guessed from a few examples.
 
 ## Traps to Watch For
 
 ### #1: Treating "I Before E" as a Law
 
-> English contains many standard counterexamples. Use the rhyme only for the limited patterns it actually helps you remember.
+> Many standard English words do not follow the simple rhyme.
 
-### #2: Applying One Silent-E Rule to Every Suffix
+Use it only as a memory aid for words where it actually helps.
 
-> *Managing, noticeable, truly,* and *argument* illustrate different spelling behaviors. Learn the pattern plus common lexical exceptions.
+### #2: Using One Silent-E Rule for Every Word
 
-### #3: Doubling Every CVC Ending
+> A final *e* may be dropped, kept, or changed as part of a common exception.
 
-> Consonant doubling depends on stress, word shape, and suffix. Compare *begin → beginning* with *visit → visiting*.
+Compare *managing, noticeable, truly,* and *argument*. Learn the pattern together with common exceptions.
 
-### #4: Rejecting KWF-Accepted Variant Spellings
+### #3: Doubling Every Consonant-Vowel-Consonant Ending
 
-> KWF explicitly lists both **kwento** and **kuwento**. Do not mark one wrong solely because a classroom mnemonic says every *w* needs a preceding *u*.
+> Word length and stress matter.
 
-### #5: Inventing Exam Word Lists
+Compare *begin → beginning* with *visit → visiting*. The visible letter shape alone is not enough.
 
-> Official scope can tell you that spelling is tested; it does not reveal the exact words or distractor patterns that will appear.
+### #4: Trusting Sound Alone
+
+> English spelling does not always match pronunciation one sound at a time.
+
+Syllables can help you check a long word, but standard spelling still decides the answer.
+
+### #5: Rejecting KWF-Accepted Variants
+
+> KWF lists both **kwento** and **kuwento** in its example.
+
+Do not mark one wrong only because a classroom shortcut prefers the other.
+
+### #6: Inventing an Exam Word List
+
+> An exam scope can say that spelling is tested without revealing the exact words that will appear.
+
+Prepare with standard forms, useful patterns, and careful checking.
