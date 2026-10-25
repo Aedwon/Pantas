@@ -1,0 +1,105 @@
+meta:
+  subject: general-information
+  topic: philippine-constitution
+  subtopic: bill-of-rights-the-accused-and-the-trial
+  exams:
+  - cse-pro
+  - cse-sub
+questions:
+- id: q-philippine-constitution-bill-of-rights-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the privilege of the writ of habeas corpus designed to protect?
+
+    '
+  choices:
+  - text: Liberty against unlawful detention
+    correct: true
+  - text: Freedom from all state property assessments
+    rationale: 'This confuses custody review with property taxation. Both involve state power. Check whether a person is detained.
+
+      '
+  - text: Property rights in municipal land disputes
+    rationale: 'This confuses personal custody with land possession. Both can involve a court order. Check the restraint on the person.
+
+      '
+  - text: Equal access to government civil employment
+    rationale: 'This chooses employment equality. Both concern legal protection. Check whether the issue is detention.
+
+      '
+  explanation: 'Habeas corpus provides a process for examining the legal basis of a person''s detention. Its purpose is to protect liberty against unlawful custody.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0007
+  type: single_choice
+  difficulty: easy
+  stem: 'Which guarantee treats an accused person as innocent until the contrary is proved?
+
+    '
+  choices:
+  - text: Presumption of innocence
+    correct: true
+  - text: Automatic release from every criminal proceeding
+    rationale: 'This turns a presumption into immunity. The accused begins as innocent. Check whether proceedings can still test guilt.
+
+      '
+  - text: Automatic pardon before any court hears the case
+    rationale: 'This substitutes forgiveness for a starting presumption. Both may benefit an accused person. Check whether guilt has been determined.
+
+      '
+  - text: A ban on every lawful question by state investigators
+    rationale: 'This turns the presumption into a total inquiry ban. Investigation concerns possible guilt. Check the actual guarantee.
+
+      '
+  explanation: 'Section 14 requires that the accused be presumed innocent until the contrary is proved.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0015
+  type: single_choice
+  difficulty: hard
+  stem: 'Which right protects against being compelled to be a witness against oneself?
+
+    '
+  choices:
+  - text: Protection from self-incrimination
+    correct: true
+  - text: Freedom from involuntary servitude
+    rationale: 'This selects forced-work protection. Both concern compulsion. Check work versus testimony.
+
+      '
+  - text: Right to speedy disposition of cases
+    rationale: 'This selects delay protection. Both can matter in proceedings. Check time taken versus compelled evidence.
+
+      '
+  - text: Protection against ex post facto laws
+    rationale: 'This selects retroactive penal-law protection. Both protect a person facing state action. Check the type of legal threat.
+
+      '
+  explanation: 'Section 17 says no person shall be compelled to be a witness against themselves.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0019
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which body is included in the right to speedy disposition of cases described in the lesson?
+
+    '
+  choices:
+  - text: An administrative body deciding a case
+    correct: true
+  - text: Only a criminal trial court, with all other adjudicative bodies excluded
+    rationale: 'This confuses speedy disposition with criminal-trial protection. Trials have speed requirements. Check the broader range of bodies.
+
+      '
+  - text: Only a legislative committee discussing a bill before any case is decided
+    rationale: 'This substitutes lawmaking for disposition of a case. Committees have proceedings. Check whether an adjudicative case is involved.
+
+      '
+  - text: Only a private club arranging an event rather than deciding a legal case
+    rationale: 'This treats any schedule as a constitutional case. Delays can occur anywhere. Check the bodies named in the protection.
+
+      '
+  explanation: 'Section 16 covers cases before judicial, quasi-judicial, and administrative bodies.
+
+    '

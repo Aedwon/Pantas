@@ -494,3 +494,77 @@ questions:
   explanation: 'The laws in the lesson cover waste, air, water, climate, disasters, wildlife, protected areas, and project review. A problem must be matched to the relevant subjects.
 
     '
+- id: q-environment-management-environmental-concepts-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'What environmental decision document must a project covered by the Philippine EIS System secure before implementation?
+
+    '
+  choices:
+  - text: An ECC
+    correct: true
+  - text: A business permit alone, without environmental review
+    rationale: 'This treats commercial permission as environmental clearance. The permit authorizes business activity. Check whether the required EIS review occurred.
+
+      '
+  - text: A building permit alone, even for a covered critical project
+    rationale: 'This treats construction approval as environmental clearance. A building permit is needed for many projects. Check the distinct environmental requirement.
+
+      '
+  - text: A statement written by the proponent declaring all impacts acceptable
+    rationale: 'This treats self-assessment as the decision document. The proponent supplies information. Check who reviews and issues the clearance.
+
+      '
+  explanation: 'The Environmental Compliance Certificate, or ECC, is the decision document issued after environmental review for covered projects. It must be secured before implementation.
+
+    '
+- id: q-environment-management-environmental-concepts-0014
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which sequence best fits a project known to be covered by the EIS System?
+
+    '
+  choices:
+  - text: Environmental review, ECC, implementation
+    correct: true
+  - text: Implementation first, then ECC only if complaints arise
+    rationale: 'This postpones clearance until after work begins. Complaints can reveal impacts. Check the pre-implementation requirement.
+
+      '
+  - text: Business registration first, then implementation without EIS review
+    rationale: 'This substitutes registration for environmental review. Registration is an official step. Check the separate EIS obligation.
+
+      '
+  - text: ECC drafted by the proponent, then approval assumed without review
+    rationale: 'This turns an applicant''s document into official clearance. The proponent prepares project information. Check whether a reviewing authority issues the decision.
+
+      '
+  explanation: 'The covered project undergoes environmental review and secures the required ECC before implementation.
+
+    '
+- id: q-environment-management-environmental-concepts-0015
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which claim about an ECC follows from the lesson?
+
+    '
+  choices:
+  - text: It is an environmental decision document.
+    correct: true
+  - text: It is a universal replacement for every other project permit.
+    rationale: 'This makes one clearance cover all regulation. An ECC is an official document. Check its environmental purpose.
+
+      '
+  - text: It is required for every activity solely because people call it a project.
+    rationale: 'This ignores coverage under the EIS System. Many projects need review. Check whether the activity is covered.
+
+      '
+  - text: It can be replaced by a proponent's statement that the site looks safe.
+    rationale: 'This replaces review with an informal judgment. A safe-looking site feels reassuring. Check the required formal process.
+
+      '
+  explanation: 'An ECC is the decision document resulting from review under the Philippine EIS System for a covered project.
+
+    '

@@ -19,6 +19,7 @@ The Civil Service Examination's General Information scope includes Environment M
 - **RA 9729:** Climate Change Act of 2009. It created the Climate Change Commission and requires a National Strategic Framework on Climate Change.
 - **RA 10121:** Philippine Disaster Risk Reduction and Management Act of 2010. It established the modern disaster risk reduction and management framework and the National Disaster Risk Reduction and Management Council (NDRRMC).
 - **PD 1586:** Established the Philippine Environmental Impact Statement System. Projects covered by the system must secure the required Environmental Compliance Certificate (ECC) before implementation.
+- **Environmental Compliance Certificate (ECC):** A decision document issued to a project proponent after review under the Philippine Environmental Impact Statement System. Projects covered by the system, such as declared Environmentally Critical Projects or projects in Environmentally Critical Areas, must secure the required ECC before implementation.
 - **RA 9147:** Wildlife Resources Conservation and Protection Act. It provides for the conservation and protection of wildlife resources and their habitats.
 - **RA 7586, as amended by RA 11038:** The National Integrated Protected Areas System (NIPAS) Act of 1992 was amended and expanded by the Expanded NIPAS Act of 2018, which governs the establishment and management of protected areas under the system.
 
@@ -63,3 +64,15 @@ Recall the government structure for environmental regulation.
 1. The Environmental Management Bureau is a bureau of the Department of Environment and Natural Resources.
 2. It implements major environmental laws including the Clean Air Act, Clean Water Act, Ecological Solid Waste Management Act, and Philippine EIS System.
 3. Therefore, the bureau's parent department is the DENR.
+
+### #4: Environmental Compliance Certificate Requirement
+
+A proposed project is classified as covered by the Philippine Environmental Impact Statement System. What document must the proponent secure through the environmental impact assessment process before project implementation?
+
+**Solution:**
+Identify the decision document required for projects covered by the Philippine EIS System.
+
+1. PD 1586 established the Philippine Environmental Impact Statement System.
+2. Covered projects must secure the required environmental clearance before implementation.
+3. The decision document issued after the environmental review is the Environmental Compliance Certificate (ECC).
+4. Therefore, the required document is an Environmental Compliance Certificate.

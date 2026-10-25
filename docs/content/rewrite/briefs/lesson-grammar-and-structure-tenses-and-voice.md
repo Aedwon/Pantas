@@ -25,15 +25,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: This sentence is too dense for the Grade 5 teaching-prose standard and relies on abstract wording such as 'locates,' 'habitual,' and 'completed relative to another time' without simpler unpacking.
 - Triage reason: The tense versus aspect sentence is dense and abstract for Grade 5.
 
-### 3. `lesson-grammar-and-structure-tenses-and-voice|L02|1`
-- Rule: L02
-- Fix size: small
-- Quote:
-> Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause.
-- Problem: This teaching sentence uses advanced linguistic terms such as 'verbal morphology' and 'arguments in the clause,' which are not simple Grade 5 English.
-- Triage reason: "Verbal morphology" and "arguments in the clause" are advanced terms.
-
-### 4. `lesson-grammar-and-structure-tenses-and-voice|L05|0`
+### 3. `lesson-grammar-and-structure-tenses-and-voice|L05|0`
 - Rule: L05
 - Fix size: small
 - Quote:
@@ -41,15 +33,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The worked example gives only the sentence and no exam-style command telling the learner what to do, so it is not an authentic exam-style question stem.
 - Triage reason: Example 1 gives a sentence with no task.
 
-### 5. `lesson-grammar-and-structure-tenses-and-voice|L09|0`
-- Rule: L09
-- Fix size: small
-- Quote:
-> Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause.
-- Problem: The hard Filipino grammar term aspekto first appears in the preceding heading without an English gloss and is repeated here without the required first-use gloss.
-- Triage reason: "Aspekto" has no English gloss in the heading or here.
-
-### 6. `lesson-grammar-and-structure-tenses-and-voice|L25|0`
+### 4. `lesson-grammar-and-structure-tenses-and-voice|L25|0`
 - Rule: L25
 - Fix size: small
 - Quote:
@@ -57,7 +41,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: Past participle is necessary to understand the passive pattern, but the lesson never explains what a past participle is before using the term, and there is no prerequisite lesson.
 - Triage reason: "Past participle" is needed for the passive rule and is never explained.
 
-### 7. `lesson-grammar-and-structure-tenses-and-voice|L26|1`
+### 5. `lesson-grammar-and-structure-tenses-and-voice|L26|1`
 - Rule: L26
 - Fix size: small
 - Quote:
@@ -65,7 +49,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The lesson says the present perfect relates a prior event or state to the present 'in one of several ways' but never explains those ways or how they guide form choice.
 - Triage reason: "In one of several ways" is vague; the present perfect uses should be named.
 
-### 8. `lesson-grammar-and-structure-tenses-and-voice|lead-add|0`
+### 6. `lesson-grammar-and-structure-tenses-and-voice|lead-add|0`
 - Rule: lead-added
 - Fix size: small
 - Quote:
@@ -99,88 +83,33 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
   - Explicit choice/formation method beyond the local statement or illustration.
   - A reasoned application of this facet, rather than a label or illustrative form.
 
-### 4. `language-proficiency-grammar-and-structure#88`
-- Facet: Filipino completed/perfective aspect
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Procedure or distinction needed to apply this label in a new sentence.
-  - A reasoned application of this facet, rather than a label or illustrative form.
-
-### 5. `language-proficiency-grammar-and-structure#89`
-- Facet: Filipino ongoing/imperfective aspect
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Procedure or distinction needed to apply this label in a new sentence.
-  - A reasoned application of this facet, rather than a label or illustrative form.
-
-### 6. `language-proficiency-grammar-and-structure#90`
-- Facet: Filipino contemplated forms
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Procedure or distinction needed to apply this label in a new sentence.
-  - A reasoned application of this facet, rather than a label or illustrative form.
-
-### 7. `language-proficiency-grammar-and-structure#91`
-- Facet: Filipino recently completed forms
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Procedure or distinction needed to apply this label in a new sentence.
-  - A reasoned application of this facet, rather than a label or illustrative form.
-
-### 8. `language-proficiency-grammar-and-structure#92`
-- Facet: Filipino aspect form variation
-- Verdict: thin
-- Tier: official
-- Missing ideas:
-  - Explicit choice/formation method beyond the local statement or illustration.
-  - A reasoned application of this facet, rather than a label or illustrative form.
-
-### 9. `language-proficiency-grammar-and-structure#93`
-- Facet: Filipino voice/focus relations
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Procedure or distinction needed to apply this label in a new sentence.
-  - A reasoned application of this facet, rather than a label or illustrative form.
-
-### 10. `language-proficiency-grammar-and-structure#94`
+### 4. `language-proficiency-grammar-and-structure#94`
 - Facet: English modal meaning/use: ability
 - Verdict: absent
 - Tier: curriculum
 - Missing ideas:
   - Will future meaning is illustrated; can/could ability selection is not taught.
 
-### 11. `language-proficiency-grammar-and-structure#95`
+### 5. `language-proficiency-grammar-and-structure#95`
 - Facet: English modal meaning/use: permission
 - Verdict: absent
 - Tier: curriculum
 - Missing ideas:
   - Permission meanings and modal choices are not taught.
 
-### 12. `language-proficiency-grammar-and-structure#96`
+### 6. `language-proficiency-grammar-and-structure#96`
 - Facet: English modal meaning/use: obligation
 - Verdict: absent
 - Tier: curriculum
 - Missing ideas:
   - Must/should/have-to obligation contrasts are not taught.
 
-### 13. `language-proficiency-grammar-and-structure#97`
+### 7. `language-proficiency-grammar-and-structure#97`
 - Facet: English modal meaning/use: possibility
 - Verdict: absent
 - Tier: curriculum
 - Missing ideas:
   - May/might/could possibility choices are not taught.
-
-### 14. `language-proficiency-grammar-and-structure#104`
-- Facet: Filipino time adverbs/adverbial phrases
-- Verdict: absent
-- Tier: curriculum
-- Missing ideas:
-  - Filipino temporal adverb placement/choice and interaction with verb time/aspect are not taught.
 
 ## Optional, fix only if editing that passage anyway
 
@@ -197,7 +126,6 @@ None.
 
 | L02 | Teaching prose is very simple English a Grade 5 student can read, with no filler | Major | Read as a Grade 5 student; flag long or rare-word sentences | LSG: Voice |
 | L05 | Example questions use exam wording and supply necessary problem-specific givens without supplying tested knowledge; solutions use simple language | Major | Check example stems against the expected-knowledge rule and compare wording with solutions | LSG: Voice, Examples section |
-| L09 | A hard Filipino grammar term gets a short English gloss on first use only | Minor | Find first uses | LSG: Filipino-language lessons |
 | L18 | Examples cover every distinct exam-relevant scenario, variation, and edge case within the learning goal, ramp from basic to target-exam difficulty, and avoid near-duplicates | Major | Map each distinct case to a worked example; check the difficulty progression and repeated reasoning | LSG: Examples section |
 | L19 | Solutions with two or more steps show every step as a numbered list, key computations as display equations | Major if a step is skipped, otherwise Minor | Follow each solution step by step | LSG: Examples section |
 | L25 | Necessary terms, symbols, and units are explained before their meanings are needed | Major | Trace needed meanings to local teaching, an identified prerequisite, or a clearly signposted later section under the shared reuse rule | LSG: Teaching completeness |

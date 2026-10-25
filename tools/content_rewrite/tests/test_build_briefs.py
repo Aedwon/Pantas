@@ -129,6 +129,88 @@ class FixtureTests(unittest.TestCase):
             self.assertIn("new-lessons.md", first)
 
 
+class SplitMapTests(unittest.TestCase):
+    def setUp(self):
+        self.rules = bb.parse_checklist(RULES_MD)
+        self.map = {
+            "lesson-a|B01|0": "lesson-b",      # triage row follows its passage
+            "t#1": "lesson-b",                 # add-to gap moves
+            "t#2": "lesson-b",                 # Filipino-section gap moves and keeps its flag
+        }
+        self.briefs, _, self.stats = bb.build_briefs(TRIAGE, GAPS, TAGS, self.rules,
+                                                     split_map=self.map)
+
+    def test_mapped_rows_move_once(self):
+        a, b = self.briefs["lesson-a"], self.briefs["lesson-b"]
+        self.assertNotIn("`lesson-a|B01|0`", a)
+        self.assertEqual(b.count("`lesson-a|B01|0`"), 1)
+        for k in ("t#1", "t#2"):
+            self.assertNotIn("`%s`" % k, a)
+            self.assertEqual(b.count("`%s`" % k), 1)
+        self.assertIn("FILIPINO SECTION", b)
+
+    def test_unmapped_rows_stay(self):
+        self.assertIn("`lesson-b|L22a|0`", self.briefs["lesson-b"])
+        self.assertIn("`lesson-a|L02|1`", self.briefs["lesson-a"])
+
+    def test_totals_unchanged(self):
+        _, _, plain = bb.build_briefs(TRIAGE, GAPS, TAGS, self.rules)
+        for k in ("real", "gap", "judgment", "illustration", "new_gap"):
+            self.assertEqual(self.stats[k], plain[k], k)
+
+    def test_empty_map_is_default(self):
+        again = bb.build_briefs(TRIAGE, GAPS, TAGS, self.rules, split_map={})
+        plain = bb.build_briefs(TRIAGE, GAPS, TAGS, self.rules)
+        self.assertEqual(again[0], plain[0])
+
+    def test_map_can_create_a_brief(self):
+        briefs, _, _ = bb.build_briefs(TRIAGE, GAPS, TAGS, self.rules,
+                                       split_map={"t#1": "lesson-new"})
+        self.assertIn("lesson-new", briefs)
+        self.assertIn("`t#1`", briefs["lesson-new"])
+
+
+class NewLessonTagTests(unittest.TestCase):
+    def test_tags_from_lesson_file_and_inherited_exams(self):
+        import json
+        lid = "lesson-x-split-part"
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "content", "lessons", "subj", "topic"))
+            with open(os.path.join(d, "content", "lessons", "subj", "topic", "split-part.md"),
+                      "w", encoding="utf-8") as f:
+                f.write('---\n_id: "%s"\ntitle: "Split Part"\n---\n## Core Concept\n' % lid)
+            tags_path = os.path.join(d, "tags.json")
+            with open(tags_path, "w", encoding="utf-8") as f:
+                json.dump({"lessons": []}, f)
+            old = dict(bb.CSE_ADDED)
+            bb.CSE_ADDED.clear()
+            bb.CSE_ADDED[lid] = ["cse-professional", "pupcet"]
+            bb.CSE_ADDED["lesson-x-not-on-disk"] = ["cse-professional"]
+            try:
+                tags = bb.load_tags(tags_path, d)
+            finally:
+                bb.CSE_ADDED.clear()
+                bb.CSE_ADDED.update(old)
+        self.assertEqual(tags[lid], {"path": "content/lessons/subj/topic/split-part.md",
+                                     "title": "Split Part",
+                                     "exams": ["cse-professional", "pupcet"]})
+        self.assertNotIn("lesson-x-not-on-disk", tags)
+
+    @unittest.skipUnless(os.path.exists(bb.DEFAULT_TAGS), "audit inputs not present")
+    def test_every_split_and_new_lesson_has_a_tag_entry(self):
+        tags = bb.load_tags(bb.DEFAULT_TAGS, bb.WORKTREE)
+        with open(os.path.join(bb.WORKTREE, bb.SPLIT_MAP), encoding="utf-8") as f:
+            targets = set(__import__("json").load(f).values())
+        new_ids = [k for k in bb.CSE_ADDED if "-comprehension-" not in k and "-spatial-" not in k]
+        self.assertEqual(len(new_ids), 12)
+        for lid in new_ids:
+            self.assertIn(lid, tags, lid)
+            self.assertTrue(tags[lid]["exams"], lid)
+            self.assertTrue(os.path.exists(os.path.join(bb.WORKTREE, tags[lid]["path"])), lid)
+        for lid in targets:
+            self.assertIn(lid, tags, lid)
+
+
 class RealInputTests(unittest.TestCase):
     @unittest.skipUnless(os.path.exists(bb.DEFAULT_TRIAGE) and os.path.exists(bb.DEFAULT_GAPS)
                          and os.path.exists(bb.DEFAULT_TAGS), "audit inputs not present")
@@ -137,9 +219,19 @@ class RealInputTests(unittest.TestCase):
         gaps = bb.read_jsonl(bb.DEFAULT_GAPS)
         tags = bb.load_tags(bb.DEFAULT_TAGS, bb.WORKTREE)
         rules = bb.parse_checklist(bb.git_show("docs/content/content-checklist.md"))
+        split_map = bb.load_split_map(os.path.join(bb.WORKTREE, bb.SPLIT_MAP))
+        by_id = {r["id"]: r for r in triage}
+        by_key = {g["key"]: g for g in gaps}
+        for k in split_map:
+            self.assertTrue(k in by_id or k in by_key, k)
+            if k in by_key:
+                self.assertFalse(by_key[k]["duplicate_of"], k)
+            else:
+                self.assertIn(by_id[k]["verdict"], ("real", "judgment", "illustration"), k)
         with tempfile.TemporaryDirectory() as d1, tempfile.TemporaryDirectory() as d2:
             for d in (d1, d2):
-                briefs, new_md, stats = bb.build_briefs(triage, gaps, tags, rules)
+                briefs, new_md, stats = bb.build_briefs(triage, gaps, tags, rules,
+                                                        split_map=split_map)
                 bb.write_all(briefs, new_md, d)
             for f in sorted(os.listdir(d1)):
                 self.assertEqual(rd(os.path.join(d1, f)),
@@ -175,6 +267,13 @@ class RealInputTests(unittest.TestCase):
                     if ("`%s`" % r["id"]) in text and r["verdict"] != "reject":
                         for rid in bb.rule_ids(r["rule"]):
                             self.assertIn(rules[rid], text.split("## Rules cited")[1], (f, rid))
+            # a mapped row sits in the brief of the lesson it was mapped to, and nowhere else
+            for k, dest in split_map.items():
+                key = "`%s`" % k
+                holders = [f for f, b in texts.items() if f != "new-lessons.md" and key in b]
+                if k in by_id and by_id[k]["verdict"] == "reject":
+                    continue
+                self.assertEqual(holders, [dest + ".md"], k)
             for lid in set(b for b in texts if b != "new-lessons.md"):
                 self.assertTrue(os.path.exists(os.path.join(bb.WORKTREE, tags[lid[:-3]]["path"])), lid)
 

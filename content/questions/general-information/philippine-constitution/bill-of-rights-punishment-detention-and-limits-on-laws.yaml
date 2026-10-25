@@ -1,0 +1,153 @@
+meta:
+  subject: general-information
+  topic: philippine-constitution
+  subtopic: bill-of-rights-punishment-detention-and-limits-on-laws
+  exams:
+  - cse-pro
+  - cse-sub
+questions:
+- id: q-philippine-constitution-bill-of-rights-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'Protecting an individual from being prosecuted twice for the same criminal offense is known as what?
+
+    '
+  choices:
+  - text: Protection against double jeopardy
+    correct: true
+  - text: Protection against ex post facto laws
+    rationale: 'This selects retroactive punishment. Both constrain criminal law. Check repeated jeopardy versus a later law.
+
+      '
+  - text: Protection against bills of attainder
+    rationale: 'This selects legislative punishment without trial. Both prevent unfair punishment. Check whether a legislature or a repeated prosecution is involved.
+
+      '
+  - text: Privilege against self-incrimination
+    rationale: 'This selects compelled testimony. Both protect people facing prosecution. Check the particular repeated-offense issue.
+
+      '
+  explanation: 'Double jeopardy protects against a second trial for the same offense after a valid first case has ended in a way covered by the rule. The first court must have authority, the charge must be valid, and the accused must have entered a plea. The legal effect also depends on how that first case ended.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0009
+  type: single_choice
+  difficulty: hard
+  stem: 'A law that penalizes an act that was not punishable at the time it was committed is prohibited as what?
+
+    '
+  choices:
+  - text: Ex post facto law
+    correct: true
+  - text: Legislative bill of attainder
+    rationale: 'This selects punishment without judicial trial. Both are prohibited laws. Check the backward change in criminal consequences.
+
+      '
+  - text: Judicial writ of prohibition
+    rationale: 'This selects a court remedy. Court orders can stop unlawful action. Check whether the problem is a retroactive statute.
+
+      '
+  - text: Executive emergency decree
+    rationale: 'This selects an instrument by its issuer. Decrees may have legal force. Check the retroactive penal effect.
+
+      '
+  explanation: 'An ex post facto law retroactively makes previously unpunishable conduct criminal. Article III prohibits such penal laws.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0010
+  type: single_choice
+  difficulty: hard
+  stem: 'A legislative act that inflicts punishment without a judicial trial is prohibited under Article III as what?
+
+    '
+  choices:
+  - text: Bill of attainder
+    correct: true
+  - text: Ex post facto law
+    rationale: 'This selects a backward-looking penal change. Both are forbidden legislative acts. Check whether retroactivity or lack of trial is central.
+
+      '
+  - text: Double jeopardy rule
+    rationale: 'This selects repeated jeopardy. Both prevent improper punishment. Check whether a prior prosecution is described.
+
+      '
+  - text: Search warrant decree
+    rationale: 'This selects authority for a search. Both can be official documents. Check whether the legislature itself imposes punishment.
+
+      '
+  explanation: 'A bill of attainder legislatively imposes punishment without a judicial trial. Section 22 prohibits it.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Section 20 prohibits imprisonment solely for which reason?
+
+    '
+  choices:
+  - text: Debt or unpaid poll tax
+    correct: true
+  - text: Any offense involving a financial transaction even when a separate crime is proven
+    rationale: 'This turns a debt protection into immunity for financial crime. Money is involved in both. Check debt alone versus a distinct offense.
+
+      '
+  - text: Any failure to comply with an otherwise valid penal law
+    rationale: 'This makes the protection a general punishment ban. Imprisonment is restricted in some cases. Check the specifically protected cause.
+
+      '
+  - text: Any conviction that requires the court to examine a written contract
+    rationale: 'This treats a contract''s presence as immunity. Debts can arise from contracts. Check the actual basis of imprisonment.
+
+      '
+  explanation: 'Section 20 bars imprisonment for debt or non-payment of a poll tax. The question concerns that reason alone.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Which punishment is prohibited in the lesson''s Article III summary?
+
+    '
+  choices:
+  - text: Cruel or degrading punishment
+    correct: true
+  - text: Any punishment imposed after due conviction regardless of its lawful form
+    rationale: 'This treats the Constitution as prohibiting all punishment. Article III limits punishment. Check the specific forbidden qualities.
+
+      '
+  - text: Only punishment that an official personally dislikes imposing
+    rationale: 'This makes personal preference the legal test. Punishment can involve difficult judgments. Check the constitutional standard.
+
+      '
+  - text: Only punishment imposed by a body outside the executive branch
+    rationale: 'This makes branch identity the sole test. Different bodies have different roles. Check cruelty and degradation.
+
+      '
+  explanation: 'Article III prohibits cruel, degrading, or inhuman punishment. The protection concerns the nature of the punishment.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement correctly combines political-belief and involuntary-servitude protections?
+
+    '
+  choices:
+  - text: Beliefs alone cannot justify detention; servitude has a conviction exception.
+    correct: true
+  - text: Any unpopular belief permits detention, while any official may impose labor without conviction.
+    rationale: 'This removes both safeguards. Authorities may seek order. Check the stated limits on detention and compulsion.
+
+      '
+  - text: Political beliefs are protected only if they match the government, and conviction never matters to labor.
+    rationale: 'This reverses the protections. Beliefs can be politically contested. Check the word solely and the crime exception.
+
+      '
+  - text: All detention is forbidden in every case, and all punishment after conviction is automatically unlawful.
+    rationale: 'This makes limited guarantees absolute bans. Article III protects liberty. Check the specific reasons and exceptions.
+
+      '
+  explanation: 'Section 18 bars detention solely for political beliefs and aspirations. It prohibits involuntary servitude except as punishment after due conviction for a crime.
+
+    '

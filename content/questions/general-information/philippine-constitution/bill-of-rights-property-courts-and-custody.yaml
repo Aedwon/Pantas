@@ -1,0 +1,130 @@
+meta:
+  subject: general-information
+  topic: philippine-constitution
+  subtopic: bill-of-rights-property-courts-and-custody
+  exams:
+  - cse-pro
+  - cse-sub
+questions:
+- id: q-philippine-constitution-bill-of-rights-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Which guarantee applies when government takes private property for public use?
+
+    '
+  choices:
+  - text: Just compensation
+    correct: true
+  - text: Freedom to form associations for lawful purposes
+    rationale: 'This selects organizational freedom. Both are civil liberties. Check the public taking of property.
+
+      '
+  - text: Freedom from being a compelled witness against oneself
+    rationale: 'This selects self-incrimination protection. Government can affect both interests. Check the kind of state action.
+
+      '
+  - text: Freedom from punishment for unpaid private debt
+    rationale: 'This selects a debt-related liberty. Both concern financial interests. Check taking for public use.
+
+      '
+  explanation: 'Section 9 requires just compensation when private property is taken for public use.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which clause states that no law impairing the obligation of contracts shall be passed?
+
+    '
+  choices:
+  - text: Non-impairment
+    correct: true
+  - text: Equal protection of the laws
+    rationale: 'This selects treatment across persons or groups. Both limit state action. Check the specific contract obligation.
+
+      '
+  - text: Security against unreasonable searches and seizures
+    rationale: 'This selects search protection. Government may obtain private papers. Check whether the issue is a contract law.
+
+      '
+  - text: Protection against compelled self-incrimination
+    rationale: 'This selects testimony protection. Both protect individuals. Check the obligation that the law would impair.
+
+      '
+  explanation: 'Section 10 contains the non-impairment rule for obligations of contracts.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0012
+  type: single_choice
+  difficulty: easy
+  stem: 'What right guarantees that a person in custodial investigation must be informed of the right to remain silent and to counsel?
+
+    '
+  choices:
+  - text: Miranda rights
+    correct: true
+  - text: Habeas corpus
+    rationale: 'This selects review of detention. Both concern a person in custody. Check the warning about silence and counsel.
+
+      '
+  - text: Right to bail
+    rationale: 'This selects conditional pretrial release. Both can protect an accused person. Check the custodial information requirement.
+
+      '
+  - text: Double jeopardy
+    rationale: 'This selects protection against repeated jeopardy. Both concern criminal proceedings. Check whether a prior case is described.
+
+      '
+  explanation: 'The custodial protections commonly called Miranda rights include information about remaining silent and competent, independent counsel. Article III, Section 12 contains these protections.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0016
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'Which situation fits the constitutional bail exception described in the lesson?
+
+    '
+  choices:
+  - text: A reclusion-perpetua charge with strong evidence of guilt
+    correct: true
+  - text: Any accusation at all, even when the law allows bail and evidence is weak
+    rationale: 'This treats every charge as an exception. A charge begins prosecution. Check both the penalty and evidence conditions.
+
+      '
+  - text: A minor charge with weak evidence merely because a prosecutor opposes release
+    rationale: 'This substitutes opposition for the constitutional test. The prosecutor can object. Check the specified exception.
+
+      '
+  - text: Any accused person who remains silent during custodial investigation
+    rationale: 'This treats using a right as loss of another right. Silence may frustrate questioning. Check the actual bail conditions.
+
+      '
+  explanation: 'The lesson names persons charged with an offense punishable by reclusion perpetua when evidence of guilt is strong. Both features form the stated exception.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'May poverty alone be used to deny access to courts and adequate legal assistance?
+
+    '
+  choices:
+  - text: No, poverty alone cannot justify denial.
+    correct: true
+  - text: Yes, because constitutional court access is reserved only for people who can pay freely
+    rationale: 'This makes wealth a qualification. Court proceedings can cost money. Check the poverty protection.
+
+      '
+  - text: Yes, unless the person first wins the entire case without any legal assistance
+    rationale: 'This makes success a condition of help. Courts decide claims. Check whether assistance must be available before the result.
+
+      '
+  - text: No, but only when the person is also a government employee entitled to office support
+    rationale: 'This adds public employment as a condition. Employees may receive support. Check the protection for any person.
+
+      '
+  explanation: 'Section 11 protects court and quasi-judicial access and adequate legal assistance from denial by reason of poverty.
+
+    '

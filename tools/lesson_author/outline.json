@@ -703,6 +703,21 @@
               "sections": []
             },
             {
+              "title": "Verb Aspect and Focus in Filipino / Aspekto at Pokus ng Pandiwa",
+              "slug": "filipino-verb-aspect-and-focus",
+              "sections": []
+            },
+            {
+              "title": "Verb Aspect and Focus in Filipino / Aspekto at Pokus ng Pandiwa",
+              "slug": "filipino-verb-aspect-and-focus",
+              "sections": []
+            },
+            {
+              "title": "Verb Aspect and Focus in Filipino / Aspekto at Pokus ng Pandiwa",
+              "slug": "filipino-verb-aspect-and-focus",
+              "sections": []
+            },
+            {
               "title": "Phrases and Clauses (Independent vs. Dependent)",
               "slug": "phrases-and-clauses",
               "sections": []
@@ -954,12 +969,54 @@
         {
           "name": "Philippine Constitution",
           "slug": "philippine-constitution",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Article III, Part 2: Property, Court Access, and Persons in Custody",
+              "slug": "bill-of-rights-property-courts-and-custody",
+              "sections": []
+            },
+            {
+              "title": "Article III, Part 3: Rights of the Accused",
+              "slug": "bill-of-rights-the-accused-and-the-trial",
+              "sections": []
+            },
+            {
+              "title": "Article III, Part 4: Detention, Punishment, and Limits on Laws",
+              "slug": "bill-of-rights-punishment-detention-and-limits-on-laws",
+              "sections": []
+            },
+            {
+              "title": "The Three Branches of Government and Their Powers",
+              "slug": "the-three-branches-and-their-powers",
+              "sections": []
+            },
+            {
+              "title": "Articles IV and V: Citizenship and Suffrage",
+              "slug": "citizenship-and-suffrage",
+              "sections": []
+            },
+            {
+              "title": "Article XVII: Amending and Revising the Constitution",
+              "slug": "amending-and-revising-the-constitution",
+              "sections": []
+            }
+          ]
         },
         {
           "name": "Code of Conduct (RA 6713)",
           "slug": "code-of-conduct-ra-6713",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Prohibited Acts and Gift Rules under RA 6713 (Section 7)",
+              "slug": "prohibited-acts-and-gift-rules",
+              "sections": []
+            },
+            {
+              "title": "Corruption and Its Effects",
+              "slug": "corruption-and-its-effects",
+              "sections": []
+            }
+          ]
         },
         {
           "name": "Peace and Human Rights",
@@ -969,7 +1026,23 @@
         {
           "name": "Environment Management",
           "slug": "environment-management",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Disaster Risk Reduction and Management (RA 10121)",
+              "slug": "disaster-risk-reduction-and-management",
+              "sections": []
+            },
+            {
+              "title": "Environmental Problems and Climate Change",
+              "slug": "environmental-problems-and-climate-change",
+              "sections": []
+            },
+            {
+              "title": "Protecting Species and Resources, and Choosing Among Options",
+              "slug": "species-resources-and-environmental-decisions",
+              "sections": []
+            }
+          ]
         }
       ]
     }

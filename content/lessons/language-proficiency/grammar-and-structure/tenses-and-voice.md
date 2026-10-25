@@ -39,12 +39,6 @@ The most common passive uses a form of **be + past participle** (*was cooked, is
 
 Passive voice is not inherently bad writing. It is useful when the agent is unknown, obvious, unimportant, deliberately backgrounded, or when the affected entity is the topic. Active voice is often more direct when the agent matters.
 
-### Sa Filipino: Aspekto at Voice/Focus
-
-Filipino should not be mapped mechanically onto English tense or active/passive categories. Filipino verbal morphology prominently marks **aspekto** and a voice/focus system that relates the verb to different arguments in the clause. Traditional instructional labels commonly include completed/perfective, ongoing/imperfective, and contemplated forms, with some teaching traditions also distinguishing recently completed forms.
-
-Examples such as *kumain, kumakain,* and *kakain* are useful patterns, but affix behavior varies across verb classes. Do not assume every root forms its aspects by exactly the same syllable-reduplication rule.
-
 ## Examples
 
 ### #1: Correcting an Unmotivated Tense Shift
@@ -104,7 +98,3 @@ Make the agent the subject while preserving the time reference: "A famous author
 ### #4: Saying Passive Voice Is Always Weak
 
 > Passive voice can be the clearest choice when the affected entity is the topic or the agent is unknown/unimportant.
-
-### #5: Treating Filipino Aspect as English Tense with Translated Names
-
-> Filipino aspect and voice/focus have their own grammatical system and should be learned on their own terms.

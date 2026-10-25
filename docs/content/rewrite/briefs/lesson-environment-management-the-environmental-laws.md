@@ -9,7 +9,23 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 
 ## Fix these
 
-### 1. `lesson-environment-management-the-environmental-laws|B03|0`
+### 1. `lesson-environment-management-environmental-concepts|B03|0`
+- Rule: B03
+- Fix size: medium
+- Quote:
+> 4. Therefore, the required document is an Environmental Compliance Certificate.
+- Problem: The lesson ends after Examples and omits the required Speed Tricks & Shortcuts and Traps to Watch For sections. No General Information exception to the default section structure is provided in this packet.
+- Triage reason: Approved ruling (Oct 25): add Traps to Watch For; Speed Tricks optional.
+
+### 2. `lesson-environment-management-environmental-concepts|L18|1`
+- Rule: L18
+- Fix size: medium
+- Quote:
+> A proposed project is classified as covered by the Philippine Environmental Impact Statement System. What document must the proponent secure through the environmental impact assessment process before project implementation?
+- Problem: All three examples remain direct concept-recognition questions. The sequence does not ramp from a basic case to a more authentic target-exam variation or edge case within the recorded learning goal.
+- Triage reason: All three items are plain recall and DRRM has none; add a harder item such as telling diversion from segregation.
+
+### 3. `lesson-environment-management-the-environmental-laws|B03|0`
 - Rule: B03
 - Fix size: medium
 - Quote:
@@ -17,7 +33,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The lesson ends immediately after the Examples section. It omits the standard required Speed Tricks & Shortcuts and Traps to Watch For sections, and the packet gives General Information no section-structure exemption.
 - Triage reason: Approved ruling (Oct 25): add Traps to Watch For; Speed Tricks optional.
 
-### 2. `lesson-environment-management-the-environmental-laws|L18|0`
+### 4. `lesson-environment-management-the-environmental-laws|L18|0`
 - Rule: L18
 - Fix size: medium
 - Quote:
@@ -25,7 +41,23 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The Examples section ends after covering RA 9003, RA 10121/NDRRMC, and EMB/DENR. It has no worked matching case for RA 8749, RA 9275, RA 9729/Climate Change Commission, PD 1586/ECC, RA 9147, or RA 7586 as amended by RA 11038, although those are distinct statute-purpose or agency-role cases within the learning goal. The three examples also remain at essentially the same recall/matching difficulty.
 - Triage reason: Eight statutes but only three recall examples; add matching cases for ECC, climate commission, clean water or air.
 
-### 3. `lesson-environment-management-the-environmental-laws|B01|0`
+### 5. `lesson-environment-management-environmental-concepts|L02|0`
+- Rule: L02
+- Fix size: small
+- Quote:
+> Projects covered by the system—such as declared Environmentally Critical Projects or projects in Environmentally Critical Areas—must secure the required ECC before implementation.
+- Problem: This sentence packs several legal terms and conditions into one long statement, including 'declared', 'Environmentally Critical Projects', 'Environmentally Critical Areas', and 'implementation'. It is not very simple Grade 5 teaching prose.
+- Triage reason: One sentence packs ECP, ECA, declared, and implementation; split and explain plainly.
+
+### 6. `lesson-environment-management-environmental-concepts|L25|0`
+- Rule: L25
+- Fix size: small
+- Quote:
+> A decision document issued to a project proponent after review under the Philippine Environmental Impact Statement System.
+- Problem: The necessary term 'project proponent' is used in the ECC definition and again in Example 3 without being explained, and Level 3 found no prerequisite lesson.
+- Triage reason: Project proponent is unexplained; say the person or company that wants to build the project.
+
+### 7. `lesson-environment-management-the-environmental-laws|B01|0`
 - Rule: B01
 - Fix size: small
 - Quote:
@@ -33,7 +65,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: RA 10121 did not create the council from nothing. Section 5 says the existing National Disaster Coordinating Council shall henceforth be known as the NDRRMC. Saying it established the NDRRMC is materially imprecise. Source: https://lawphil.net/statutes/repacts/ra2010/ra_10121_2010.html
 - Triage reason: RA 10121 renamed the existing NDCC as the NDRRMC; 'established' is imprecise.
 
-### 4. `lesson-environment-management-the-environmental-laws|B08|0`
+### 8. `lesson-environment-management-the-environmental-laws|B08|0`
 - Rule: B08
 - Fix size: small
 - Quote:
@@ -41,7 +73,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The statute number 9003 and year 2000 are numbers in prose but are not wrapped in inline math delimiters. The same pattern recurs throughout the statute list and worked solutions.
 - Triage reason: Number in prose sits outside inline math; the style guide requires wrapping every number. Applies to RA numbers and years.
 
-### 5. `lesson-environment-management-the-environmental-laws|L02|0`
+### 9. `lesson-environment-management-the-environmental-laws|L02|0`
 - Rule: L02
 - Fix size: small
 - Quote:
@@ -49,7 +81,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: This teaching sentence is long and clause-heavy, and it uses several uncommon legal or technical terms without simple wording. It is above the packet's Grade 5 teaching-prose standard.
 - Triage reason: Long clause-heavy sentence; split it and name the exceptions in plain words.
 
-### 6. `lesson-environment-management-the-environmental-laws|L19|0`
+### 10. `lesson-environment-management-the-environmental-laws|L19|0`
 - Rule: L19
 - Fix size: small
 - Quote:
@@ -57,7 +89,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: This solution reasoning line appears after Solution and before the numbered list, so not every solution step is presented as a numbered list as required.
 - Triage reason: Unnumbered lead-in line sits before the numbered steps; fold it into step 1 or drop it.
 
-### 7. `lesson-environment-management-the-environmental-laws|L19|1`
+### 11. `lesson-environment-management-the-environmental-laws|L19|1`
 - Rule: L19
 - Fix size: small
 - Quote:
@@ -65,7 +97,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: This solution reasoning line appears after Solution and before the numbered list, so the solution format contains an unnumbered reasoning step.
 - Triage reason: Unnumbered lead-in line sits before the numbered steps; fold it into step 1 or drop it.
 
-### 8. `lesson-environment-management-the-environmental-laws|L19|2`
+### 12. `lesson-environment-management-the-environmental-laws|L19|2`
 - Rule: L19
 - Fix size: small
 - Quote:
@@ -73,7 +105,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: This solution reasoning line appears after Solution and before the numbered list, so the solution format contains an unnumbered reasoning step.
 - Triage reason: Unnumbered lead-in line sits before the numbered steps; fold it into step 1 or drop it.
 
-### 9. `lesson-environment-management-the-environmental-laws|L25|0`
+### 13. `lesson-environment-management-the-environmental-laws|L25|0`
 - Rule: L25
 - Fix size: small
 - Quote:
@@ -81,7 +113,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: Key terms used to communicate the law's purpose, especially waste diversion and segregation at source, are not explained before students need them. The packet lists no prerequisite lesson that supplies those meanings.
 - Triage reason: Segregation at source and waste diversion are used without a plain meaning; add a short gloss.
 
-### 10. `lesson-environment-management-the-environmental-laws|L26|0`
+### 14. `lesson-environment-management-the-environmental-laws|L26|0`
 - Rule: L26
 - Fix size: small
 - Quote:
@@ -89,7 +121,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The National Strategic Framework on Climate Change is only named. The lesson does not explain what the framework means, what it is for, or how it works, and there is no prerequisite lesson to reuse.
 - Triage reason: Fact error: RA 9729 requires a Framework Strategy on Climate Change (Sec. 11), not a National Strategic Framework; fix name and say what it is for.
 
-### 11. `lesson-environment-management-the-environmental-laws|L27|0`
+### 15. `lesson-environment-management-the-environmental-laws|L27|0`
 - Rule: L27
 - Fix size: small
 - Quote:
@@ -97,7 +129,7 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 - Problem: The lesson tells students that exceptions exist but does not state what those exceptions are. That leaves the applicability conditions of the incineration prohibition unexplained, and no prerequisite supplies them.
 - Triage reason: RA 8749 Sec. 20 exempts siga, traditional burning for farming, culture, health or food, and crematoria; the lesson says exceptions exist but not what they are.
 
-### 12. `lesson-environment-management-the-environmental-laws|lead-add|0`
+### 16. `lesson-environment-management-the-environmental-laws|lead-add|0`
 - Rule: lead-added
 - Fix size: small
 - Quote:
@@ -107,127 +139,66 @@ Rule: a rewrite may add CSE cases but never removes a case another tagged exam n
 
 ## CSE teaching to add
 
-### 1. `general-information-environment-management#35`
+### 1. `general-information-environment-management#15`
+- Facet: Environmentally Critical Project category
+- Verdict: named-only
+- Tier: official
+- Missing ideas:
+  - No classification criteria.
+
+### 2. `general-information-environment-management#16`
+- Facet: Environmentally Critical Area category
+- Verdict: named-only
+- Tier: official
+- Missing ideas:
+  - No classification criteria.
+
+### 3. `general-information-environment-management#17`
+- Facet: Recognize PD1586 EIS-system association
+- Verdict: thin
+- Tier: official
+- Missing ideas:
+  - Association appears in solution; broader decree operation untaught.
+
+### 4. `general-information-environment-management#35`
 - Facet: RA9003 source segregation and waste diversion
 - Verdict: thin
 - Tier: official
 - Missing ideas:
   - Operational definitions live in companion concepts lesson; law-number lookup remains locally supplied.
 
-### 2. `general-information-environment-management#38`
+### 5. `general-information-environment-management#38`
 - Facet: Conditional toxic-fume incineration prohibition
 - Verdict: thin
 - Tier: official
 - Missing ideas:
   - Poisonous/toxic-fume condition stated; statutory exceptions and treatment criteria not specified.
 
-### 3. `general-information-environment-management#40`
+### 6. `general-information-environment-management#40`
 - Facet: Water Quality Management Areas
 - Verdict: named-only
 - Tier: official
 - Missing ideas:
   - Area designation or management method absent.
 
-### 4. `general-information-environment-management#41`
+### 7. `general-information-environment-management#41`
 - Facet: Wastewater-discharge regulation
 - Verdict: thin
 - Tier: official
 - Missing ideas:
   - No discharge thresholds, permits or compliance procedure.
 
-### 5. `general-information-environment-management#44`
-- Facet: National Strategic Framework on Climate Change
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Contents and policy application absent.
-
-### 6. `general-information-environment-management#47`
-- Facet: DRRM prevention and mitigation domain
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Domains listed in solution; no action classification.
-
-### 7. `general-information-environment-management#48`
-- Facet: DRRM preparedness domain
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Domains listed in solution; no action classification.
-
-### 8. `general-information-environment-management#49`
-- Facet: DRRM response domain
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Domains listed in solution; no action classification.
-
-### 9. `general-information-environment-management#50`
-- Facet: DRRM rehabilitation and recovery domain
-- Verdict: named-only
-- Tier: official
-- Missing ideas:
-  - Domains listed in solution; no action classification.
-
-### 10. `general-information-environment-management#53`
-- Facet: RA9147 wildlife-resource conservation
-- Verdict: thin
-- Tier: official
-- Missing ideas:
-  - Purpose only; no species/conservation action or protected-habitat rule.
-
-### 11. `general-information-environment-management#54`
-- Facet: RA9147 wildlife-habitat protection
-- Verdict: thin
-- Tier: official
-- Missing ideas:
-  - Protection purpose does not teach ecosystem mechanism.
-
-### 12. `general-information-environment-management#56`
-- Facet: Protected-area establishment and management
-- Verdict: thin
-- Tier: official
-- Missing ideas:
-  - Policy purpose only; no classification or local action case.
-
-### 13. `general-information-environment-management#57`
+### 8. `general-information-environment-management#57`
 - Facet: DENR broad environment/resource governance
 - Verdict: thin
 - Tier: official
 - Missing ideas:
   - Mandate summary, not exact agency powers or decentralization.
 
-### 14. `general-information-environment-management#63`
-- Facet: Explain specific government responses to local problems
-- Verdict: thin
-- Tier: curriculum
-- Missing ideas:
-  - Waste program and agency names are recognition context; implementation/effectiveness not taught.
-
-### 15. `general-information-environment-management#64`
-- Facet: Select species/resource conservation actions
-- Verdict: absent
-- Tier: curriculum
-- Missing ideas:
-  - Protect/conserve purposes named without concrete actions.
-
-### 16. `general-information-environment-management#65`
-- Facet: Explain human impacts on ecosystems
-- Verdict: absent
-- Tier: curriculum
-- Missing ideas:
-  - Statute names do not explain causal ecosystem impacts.
-
-### 17. `general-information-environment-management#66`
-- Facet: Evaluate environmental policy alternatives and tradeoffs
-- Verdict: absent
-- Tier: curriculum
-- Missing ideas:
-  - No evidence-based decision comparison; curriculum support does not prove full official depth.
-
 ## Optional, fix only if editing that passage anyway
 
+- `lesson-environment-management-environmental-concepts|B08|2` (B08): The prose number 1586 is outside inline math, violating the rule that numbers in prose must be wrapped in $...$. Reason: Only a statute or section identifier is outside math; wrapping it is awkward and defensible to skip.
+- `lesson-environment-management-environmental-concepts|L19|2` (L19): This is an unnumbered solution instruction placed before the numbered steps, contrary to the required numbered-step solution format. Reason: The one-line lead-in before the numbered steps is not a skipped step; folding it into step one is optional.
 - `lesson-environment-management-the-environmental-laws|L22a|0` (L22a): Core Concept is dominated by two bullet lists, with eight statute bullets and two agency bullets. That is not sparing use of bullet lists under this formatting rule. Reason: A statute list suits bullets; the list is short items and splitting it would not help students.
 
 ## Figures

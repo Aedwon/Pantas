@@ -20,6 +20,7 @@ DEFAULT_TAGS = AUDIT + "/lesson-exam-tags.json"
 REPO = "/Users/aedwon/Documents/Projects/Pantas"
 WORKTREE = "/Users/aedwon/Documents/Projects/Pantas-wt-cse-rewrite-r1"
 OUT_DIR = "docs/content/rewrite/briefs"
+SPLIT_MAP = "docs/content/rewrite/plans/split-map.json"
 
 PLACE_RE = re.compile(r"^(add to|Filipino section in)\s+(\S+)\s*$")
 NEW_RE = re.compile(r"^new lesson:\s*(.+?)\s*$")
@@ -74,12 +75,20 @@ def quote_block(text):
     return "\n".join("> " + ln if ln else ">" for ln in text.splitlines())
 
 
-def build_briefs(triage, gaps, tags, rules, lesson_titles=None):
+def load_split_map(path):
+    """Map a triage id or gap key to the lesson that now holds its passage (P0.6 splits)."""
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_briefs(triage, gaps, tags, rules, lesson_titles=None, split_map=None):
     """Return (briefs, new_lessons_md, stats).
 
     briefs: {lesson_id: markdown}. tags: {lesson_id: {path, title, exams}}.
+    split_map: {triage id or gap key: lesson id}; a mapped row goes to that lesson's brief.
     """
     lesson_titles = lesson_titles or {}
+    split_map = split_map or {}
     per = {}
 
     def slot(lid):
@@ -88,7 +97,7 @@ def build_briefs(triage, gaps, tags, rules, lesson_titles=None):
 
     for r in triage:
         if r.get("verdict") in ("real", "judgment", "illustration"):
-            slot(r["lesson"])[r["verdict"]].append(r)
+            slot(split_map.get(r["id"], r["lesson"]))[r["verdict"]].append(r)
     new_groups = {}
     skipped_gaps = []
     for g in gaps:
@@ -96,7 +105,7 @@ def build_briefs(triage, gaps, tags, rules, lesson_titles=None):
             continue
         kind, target = parse_place(g.get("place"))
         if kind in ("add", "filipino"):
-            slot(target)["gaps"].append((kind, g))
+            slot(split_map.get(g["key"], target))["gaps"].append((kind, g))
         elif kind == "new":
             new_groups.setdefault(target, []).append(g)
         else:
@@ -232,7 +241,22 @@ def load_tags(tags_path, worktree):
     for lesson_id, exams in CSE_ADDED.items():
         if lesson_id in tags:
             tags[lesson_id]["exams"] += [e for e in exams if e not in tags[lesson_id]["exams"]]
+        else:
+            found = find_lesson_file(worktree, lesson_id)
+            if found:
+                tags[lesson_id] = {"path": found[0], "title": found[1], "exams": list(exams)}
     return tags
+
+
+def find_lesson_file(worktree, lesson_id):
+    """Return (relative path, title) of the lesson file with this _id, or None."""
+    for path in sorted(glob.glob(os.path.join(worktree, "content", "lessons", "*", "*", "*.md"))):
+        with open(path, encoding="utf-8") as f:
+            head = f.read(2000)
+        if re.search(r'^_id:\s*"%s"\s*$' % re.escape(lesson_id), head, re.M):
+            m = re.search(r'^title:\s*"(.*)"\s*$', head, re.M)
+            return os.path.relpath(path, worktree), (m.group(1) if m else lesson_id)
+    return None
 
 
 CSE_ADDED = {
@@ -243,6 +267,35 @@ CSE_ADDED = {
     "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": ["cse-professional"],
     "lesson-comprehension-skills-choosing-a-title": ["cse-professional", "cse-subprofessional"],
     "lesson-comprehension-skills-fact-vs-opinion": ["cse-professional", "cse-subprofessional"],
+    # Lessons created by the October 25 splits (P0.6). Split parts keep the tags of the lesson
+    # they came from. The audit tag file has no entry for them, so load_tags reads each lesson
+    # file in the worktree for its path and title.
+    "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody":
+        ["cse-professional", "cse-subprofessional", "pupcet"],
+    "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial":
+        ["cse-professional", "cse-subprofessional", "pupcet"],
+    "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws":
+        ["cse-professional", "cse-subprofessional", "pupcet"],
+    "lesson-environment-management-disaster-risk-reduction-and-management":
+        ["cse-professional", "cse-subprofessional"],
+    "lesson-environment-management-environmental-problems-and-climate-change":
+        ["cse-professional", "cse-subprofessional"],
+    "lesson-environment-management-species-resources-and-environmental-decisions":
+        ["cse-professional", "cse-subprofessional"],
+    "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules":
+        ["cse-professional", "cse-subprofessional"],
+    "lesson-grammar-and-structure-filipino-verb-aspect-and-focus":
+        ["acet", "cse-professional", "cse-subprofessional", "dcat", "dost-sei", "pupcet",
+         "sm-foundation", "upcat", "ustet"],
+    # New lessons (new-lessons-outlines.md, lead decisions October 25).
+    "lesson-philippine-constitution-the-three-branches-and-their-powers":
+        ["cse-professional", "cse-subprofessional", "pupcet"],
+    "lesson-philippine-constitution-citizenship-and-suffrage":
+        ["cse-professional", "cse-subprofessional", "pupcet"],
+    "lesson-philippine-constitution-amending-and-revising-the-constitution":
+        ["cse-professional", "cse-subprofessional", "pupcet"],
+    "lesson-code-of-conduct-ra-6713-corruption-and-its-effects":
+        ["cse-professional", "cse-subprofessional"],
 }
 
 
@@ -270,13 +323,15 @@ def main(argv=None):
     ap.add_argument("--gaps", default=DEFAULT_GAPS)
     ap.add_argument("--tags", default=DEFAULT_TAGS)
     ap.add_argument("--worktree", default=WORKTREE)
+    ap.add_argument("--split-map", default=None)
     ap.add_argument("--out", default=None)
     a = ap.parse_args(argv)
     out_dir = a.out or os.path.join(a.worktree, OUT_DIR)
     rules = parse_checklist(git_show("docs/content/content-checklist.md"))
     tags = load_tags(a.tags, a.worktree)
+    split_map = load_split_map(a.split_map or os.path.join(a.worktree, SPLIT_MAP))
     briefs, new_md, stats = build_briefs(read_jsonl(a.triage), read_jsonl(a.gaps),
-                                         tags, rules)
+                                         tags, rules, split_map=split_map)
     no_file = sorted(lid for lid in briefs
                      if lid not in tags or
                      not os.path.exists(os.path.join(a.worktree, tags[lid]["path"])))

@@ -1,0 +1,156 @@
+meta:
+  subject: general-information
+  topic: environment-management
+  subtopic: disaster-risk-reduction-and-management
+  exams:
+  - cse-pro
+  - cse-sub
+questions:
+- id: q-environment-management-environmental-concepts-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'What broad shift does RA 10121 emphasize in disaster management?
+
+    '
+  choices:
+  - text: Proactive risk reduction
+    correct: true
+  - text: Waiting for damage before starting all disaster planning
+    rationale: 'This makes management purely reactive. Response is a visible disaster activity. Check the preventive and preparedness work.
+
+      '
+  - text: Replacing local preparedness with dependence on outside relief
+    rationale: 'This treats relief as the whole framework. Outside aid can help after a disaster. Check the local efforts that reduce risk beforehand.
+
+      '
+  - text: Treating reconstruction as the only valid disaster-management activity
+    rationale: 'This restricts the framework to recovery. Rebuilding is important. Check the other phases in the lesson.
+
+      '
+  explanation: 'RA 10121 emphasizes prevention, mitigation, preparedness, response, and recovery. Managing risks before harm occurs is a central part of that approach.
+
+    '
+- id: q-environment-management-environmental-concepts-0007
+  type: single_choice
+  difficulty: medium
+  stem: 'Under RA 10121, what national council serves as the lead coordinating body for disaster risk reduction and management?
+
+    '
+  choices:
+  - text: NDRRMC
+    correct: true
+  - text: DENR
+    rationale: 'This selects the environmental department as the whole disaster council. Environmental hazards affect risk. Check the council specifically established for disaster management.
+
+      '
+  - text: NEDA
+    rationale: 'This selects an economic-planning body. Development planning affects resilience. Check the national disaster council named in RA 10121.
+
+      '
+  - text: DSWD
+    rationale: 'This selects a relief-related department instead of the council. Social welfare supports disaster response. Distinguish a participating department from the coordinating council.
+
+      '
+  explanation: 'RA 10121 establishes the National Disaster Risk Reduction and Management Council, or NDRRMC, to coordinate the national disaster framework.
+
+    '
+- id: q-environment-management-environmental-concepts-0016
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which activity is disaster preparedness?
+
+    '
+  choices:
+  - text: Practicing an evacuation before a hazard occurs
+    correct: true
+  - text: Distributing food only after residents lose their homes
+    rationale: 'This selects response. Both protect affected people. Check whether the activity happens before the hazard.
+
+      '
+  - text: Rebuilding a damaged bridge after floodwaters recede
+    rationale: 'This selects recovery. Both support community safety. Check the timing and purpose.
+
+      '
+  - text: Waiting for a hazard warning before deciding whether any plan is needed
+    rationale: 'This treats delayed planning as preparedness. Warnings can trigger action. Check whether people are already ready to act.
+
+      '
+  explanation: 'An evacuation practice prepares people to act before danger occurs. It belongs to preparedness.
+
+    '
+- id: q-environment-management-environmental-concepts-0017
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which action mainly reduces expected flood damage before the flood?
+
+    '
+  choices:
+  - text: Mitigating the hazard through protective planning
+    correct: true
+  - text: Supplying meals once homes have already been damaged
+    rationale: 'This selects immediate response. It helps flood-affected people. Check whether it reduces damage beforehand.
+
+      '
+  - text: Repairing destroyed classrooms after the emergency ends
+    rationale: 'This selects rehabilitation. Repairs restore safety. Check whether the action precedes the damage.
+
+      '
+  - text: Recording losses only after each flood without changing exposure
+    rationale: 'This treats documentation as prevention. Loss records can guide planning. Check whether this action changes the risk.
+
+      '
+  explanation: 'Protective planning aims to lessen expected harm before a flood. That is mitigation within disaster risk reduction.
+
+    '
+- id: q-environment-management-environmental-concepts-0018
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which action most clearly belongs to rehabilitation and recovery?
+
+    '
+  choices:
+  - text: Restoring damaged community services
+    correct: true
+  - text: Giving the first rescue assistance during the active emergency
+    rationale: 'This selects response. Both help affected communities. Check whether services are being restored after damage.
+
+      '
+  - text: Teaching an evacuation procedure before a storm is forecast
+    rationale: 'This selects preparedness. It helps communities function safely. Check the point in the disaster cycle.
+
+      '
+  - text: Reducing exposure to a future hazard before any damage occurs
+    rationale: 'This selects prevention or mitigation. It also supports resilience. Check whether the action restores an existing loss.
+
+      '
+  explanation: 'Rehabilitation and recovery rebuild or restore conditions and services after a disaster''s damage.
+
+    '
+- id: q-environment-management-environmental-concepts-0022
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'A municipality funds rescue and rebuilding but ignores hazard prevention and readiness. Which assessment best follows the disaster-management framework?
+
+    '
+  choices:
+  - text: It omits important work before a disaster.
+    correct: true
+  - text: It is complete because rescue and rebuilding replace prevention and readiness.
+    rationale: 'This makes response and recovery the whole framework. They are visible and necessary. Check the phases aimed at reducing harm beforehand.
+
+      '
+  - text: It should remove rescue because proactive risk reduction is the only phase.
+    rationale: 'This treats a proactive emphasis as rejection of response. Prevention receives attention in the law. Check the full set of phases.
+
+      '
+  - text: It needs only a new council name without changing funded activities.
+    rationale: 'This substitutes a label for readiness. Institutions coordinate the work. Check which actual activities are missing.
+
+      '
+  explanation: 'The framework includes prevention and mitigation, preparedness, response, and recovery. Rescue and rebuilding alone leave the pre-disaster phases uncovered.
+
+    '
