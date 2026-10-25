@@ -9,19 +9,53 @@ isActive: true
 ---
 ## Core Concept
 
-A **ratio** compares two quantities by division. It can be written as $2:3$ or $\dfrac{2}{3}$ when the denominator is nonzero.
+A **ratio** compares two quantities by division. It can be written as $2:3$ or $\dfrac{2}{3}$ when the denominator is not $0$.
 
-A **proportion** is a statement that two ratios are equal.
+A **proportion** says that two ratios are equal.
 
-1. **Direct Proportion.** Two quantities $x$ and $y$ are directly proportional when their ratio is constant: $y=kx$ for a constant $k$. If $k>0$, increasing one quantity increases the other at the same proportional rate.
+### Direct, Inverse, and Partitive Proportion
 
-2. **Inverse Proportion.** Two nonzero quantities $x$ and $y$ are inversely proportional when their product is constant: $xy=k$, or equivalently $y=\dfrac{k}{x}$. If $k>0$, increasing one quantity decreases the other in a specific reciprocal relationship.
+In a **direct proportion**, two quantities keep the same ratio. If $y$ is directly proportional to $x$, then:
 
-3. **Partitive Proportion.** A total is divided into shares according to a stated ratio. For example, dividing a prize in the ratio $3:1$ gives one recipient three of every four equal ratio-parts and the other recipient one part.
+$$y=kx$$
+
+The number $k$ is a constant, so its value does not change. When $k>0$, making $x$ larger makes $y$ larger by the same scale factor.
+
+In an **inverse proportion**, two nonzero quantities keep the same product. If $y$ is inversely proportional to $x$, then:
+
+$$xy=k$$
+
+or:
+
+$$y=\dfrac{k}{x}$$
+
+When $k>0$, making one quantity larger makes the other smaller. For example, if one quantity doubles, the other is cut in half.
+
+In a **partitive proportion**, a total is split into shares using a ratio. A ratio of $3:1$ has $4$ equal ratio-parts, with one share getting $3$ parts and the other getting $1$ part.
+
+### Equal Ratios and Cross-Multiplication
+
+When two ratios are equal, you can cross-multiply. For nonzero $B$ and $D$:
+
+$$\dfrac{A}{B}=\dfrac{C}{D}$$
+
+so:
+
+$$AD=BC$$
+
+Use this only after you have set up two equal ratios in the same order.
+
+### Distance, Rate, and Time
+
+**Rate** tells how much distance is covered in one unit of time. Distance, rate, and time are connected by:
+
+$$d=rt$$
+
+Here $d$ is distance, $r$ is rate, and $t$ is time. The time unit in the rate must match the time unit used for $t$.
+
+At a fixed rate, distance and time are directly proportional. For a fixed distance, rate and time are inversely proportional because $rt=d$ stays constant.
 
 ## Mnemonics & Memory Aids
-
-For direct proportion, equivalent ratios can be set equal. For inverse proportion, the corresponding products are equal because the product is constant.
 
 > For partitive proportion: **Add the parts, divide the whole, multiply by the needed part.**
 
@@ -33,7 +67,7 @@ A bakery uses $4$ cups of flour to make $24$ large muffins. At this rate, how ma
 
 **Solution:**
 
-1. The flour-to-muffin ratio is constant.
+1. The flour-to-muffin ratio stays the same.
 
 $$\dfrac{4}{24}=\dfrac{x}{84}$$
 
@@ -45,7 +79,7 @@ $$24x=4\times84=336$$
 
 $$x=14$$
 
-The baker needs $14$ cups of flour.
+The bakery needs $14$ cups of flour.
 
 ### #2: Basic Inverse Proportion
 
@@ -53,11 +87,11 @@ A contractor estimates that $6$ workers, all working at the same constant rate, 
 
 **Solution:**
 
-1. For a fixed amount of work with equal worker rates, workers and time are inversely proportional.
+1. For a fixed job with equal worker rates, workers and time are inversely proportional.
 
 $$6\times15=9x$$
 
-2. Solve.
+2. Solve for $x$.
 
 $$x=\dfrac{90}{9}=10$$
 
@@ -89,15 +123,15 @@ A piece of copper wire is cut into two pieces in the ratio $4:7$. If the longer 
 
 **Solution:**
 
-1. The difference in ratio parts is:
+1. Find the difference in ratio parts.
 
 $$7-4=3$$
 
-2. Three parts correspond to $21$ meters, so one part is:
+2. The $3$-part difference is $21$ meters, so one part is:
 
 $$\dfrac{21}{3}=7\text{ meters}$$
 
-3. The total number of parts is $11$.
+3. The total is $11$ parts.
 
 $$11\times7=77$$
 
@@ -105,11 +139,11 @@ The wire was $77$ meters long.
 
 ### #5: Inverse Proportion with a Mid-Problem Change
 
-A group of $40$ people has enough identical daily food portions for $30$ days. After $10$ days, $10$ people leave. Assuming the daily portion per person stays the same, how many more days will the remaining food last?
+A group of $40$ people has enough identical daily food portions for $30$ days. After $10$ days, $10$ people leave. If each person keeps receiving the same daily portion, how many more days will the remaining food last?
 
 **Solution:**
 
-1. After $10$ days, $20$ days' worth of food for $40$ people remains.
+1. After $10$ days, there are $20$ days of food left for $40$ people. One **person-day** means enough food for $1$ person for $1$ day.
 
 $$40\times20=800\text{ person-days}$$
 
@@ -123,22 +157,51 @@ $$\dfrac{800}{30}=\dfrac{80}{3}=26\dfrac{2}{3}$$
 
 The remaining food lasts $26\dfrac{2}{3}$ more days.
 
+### #6: Distance, Rate, and Time
+
+A service vehicle must travel $240$ kilometers. If it travels at a constant rate of $80$ kilometers per hour, how long will the trip take?
+
+**Solution:**
+
+1. Use $d=rt$ with $d=240$ and $r=80$.
+
+$$240=80t$$
+
+2. Divide by $80$.
+
+$$t=\dfrac{240}{80}=3$$
+
+The trip will take $3$ hours.
+
 ## Speed Tricks & Shortcuts
 
-- **Cross-multiplication.** For $\dfrac{A}{B}=\dfrac{C}{D}$ with nonzero denominators, $AD=BC$.
-- **Worker-time model.** For a fixed job, if every worker has the same constant work rate and adding workers does not change that rate, workers $\times$ time is constant. Do not use this model when worker productivity changes or tasks cannot be divided among workers.
-- **Partitive variable.** A ratio $2:3:4$ can be represented by shares $2x$, $3x$, and $4x$.
+- **Keep ratio order the same.** If the first ratio is flour to muffins, the second ratio must also be flour to muffins.
+- **Worker-time model.** For a fixed job, workers $\times$ time stays constant only when every worker has the same constant work rate and the work can be shared.
+- **Partitive variable.** A ratio $2:3:4$ can be written as shares $2x$, $3x$, and $4x$.
+- **Distance shortcut.** For a fixed distance, a higher rate means less time. Check that your answer moves in that direction.
 
 ## Traps to Watch For
 
-### #1: Assuming every same-direction change is direct proportion
+### #1: Assuming Every Same-Direction Change Is Direct Proportion
 
-Two quantities can both increase without being directly proportional. Direct proportion requires a constant ratio $\dfrac{y}{x}$.
+> Two quantities increasing together does not prove direct proportion.
 
-### #2: Assuming every opposite-direction change is inverse proportion
+Direct proportion needs a constant ratio $\dfrac{y}{x}$. If that ratio changes, the relationship is not direct proportion.
 
-One quantity increasing while another decreases is not enough. In inverse proportion, the product $xy$ must remain constant.
+### #2: Assuming Every Opposite-Direction Change Is Inverse Proportion
 
-### #3: Ignoring work already completed
+> One quantity rising while another falls does not prove inverse proportion.
 
-If a work rate or group size changes partway through a problem, separate the completed portion from the remaining portion before applying the new rate relationship.
+Inverse proportion needs a constant product $xy$. If the product changes, the relationship is not inverse proportion.
+
+### #3: Ignoring Work or Supplies Already Used
+
+> Separate what is already finished or used before solving the remaining part.
+
+If a group size or rate changes partway through a problem, first find what remains. Then apply the new relationship to that remaining amount.
+
+### #4: Mixing Time Units
+
+> Match the time unit in the rate with the time unit in the problem.
+
+A rate in kilometers per hour must use time in hours unless you convert the units first.
