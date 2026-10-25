@@ -86,14 +86,27 @@ const examKey = (settings: ExamSettings) => `${settings.examId}|${JSON.stringify
  */
 export async function build(db: Firestore, uid: string, settings: ExamSettings, pro: boolean, now: number,
   view?: (topicOf: Map<string, string>) => Promise<AnswerView>) {
-  const catalog = await db.doc('content/catalog/items/' + settings.examId).get();
-  const allContent = catalog.exists ? await loadStudyContent(db, settings.examId)
-    : await loadExamContent(db, settings.examId, now);
-  const content = {...allContent,
-    topics: allContent.topics.filter(t => !settings.excludedTopicIds?.includes(t.id)),
-    lessons: allContent.lessons.filter(l => !settings.excludedTopicIds?.includes(l.topicId) && !settings.excludedLessonIds?.includes(l.id)),
-    questions: allContent.questions.filter(q => !settings.excludedTopicIds?.includes(q.topicId) &&
-      (!('lessonId' in q) || q.lessonId === null || !settings.excludedLessonIds?.includes(q.lessonId as string)))};
+  const legacy = await loadExamContent(db, settings.examId, now);
+  // Keep the compatibility reader. Authored links only identify excluded work.
+  const needsAuthoredLinks = settings.excludedLessonIds?.length ||
+    settings.excludedTopicIds?.some(id => !legacy.topics.some(t => t.id === id));
+  const scope = needsAuthoredLinks ? await loadStudyContent(db, settings.examId) : null;
+  const links = new Map(scope?.questions.map(q => [q.id, q]) ?? []);
+  const lessonLinks = new Map(scope?.lessons.map(l => [l.id, l]) ?? []);
+  const lessons = legacy.lessons.filter(l =>
+    !settings.excludedTopicIds?.includes(l.topicId) &&
+    !settings.excludedTopicIds?.includes(lessonLinks.get(l.id)?.topicId ?? l.topicId) &&
+    !settings.excludedLessonIds?.includes(l.id));
+  const questions = legacy.questions.filter(q =>
+    !settings.excludedTopicIds?.includes(q.topicId) &&
+    !settings.excludedTopicIds?.includes(links.get(q.id)?.topicId ?? q.topicId) &&
+    !settings.excludedLessonIds?.includes(links.get(q.id)?.lessonId ?? ''))
+    .map(q => ({...q, lessonId: links.get(q.id)?.lessonId ?? null}));
+  const content = {topics: legacy.topics.filter(t =>
+    !settings.excludedTopicIds?.includes(t.id) &&
+    (questions.some(q => q.topicId === t.id) || lessons.some(l => l.topicId === t.id) ||
+      !legacy.questions.some(q => q.topicId === t.id) && !legacy.lessons.some(l => l.topicId === t.id))),
+    lessons, questions};
   const topicOf = new Map(content.questions.map(question => [question.id, question.topicId]));
   // One read of the running totals. `view` lets a test supply the old full scan to compare against.
   const answers = await (view ? view(topicOf) : loadTotals(db, uid).then(totals => viewOf(totals, topicOf)));
@@ -166,7 +179,9 @@ export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapD
           content.topics.every(t => (settings.excludedTopicIds ?? []).includes(t.id))) throw bad('Choose at least one known topic.');
       if (settings.excludedLessonIds?.some(id => !content.lessons.some(l => l.id === id)) ||
           (settings.excludedLessonIds?.length && content.lessons.every(l =>
-            settings.excludedTopicIds?.includes(l.topicId) || settings.excludedLessonIds!.includes(l.id)))) {
+            settings.excludedTopicIds?.includes(l.topicId) || settings.excludedLessonIds!.includes(l.id)) &&
+            !content.topics.some(t => !settings.excludedTopicIds?.includes(t.id) &&
+              !content.lessons.some(l => l.topicId === t.id)))) {
         throw bad('Choose at least one known lesson.');
       }
     }

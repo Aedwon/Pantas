@@ -587,3 +587,172 @@ No product decision remains within the resumed items 1–9. Phone visual accepta
 and live deployed behavior were not checked. Historical Play records with unknown
 renewal status need their next real RevenueCat refresh before the warning can be
 confirmed. No backfill or deployment was performed.
+
+
+## October 25 W4f audit fixes: item 18
+
+Policy read using `git show origin/main` without fetch or pull:
+`73572280cf4d9478d56e42247be04dad8ad1acd9`.
+Execution base `e5dbc20ae552455071c1956fa8e1195494109869`, branch
+`codex/w4b-server-dependency`, initially clean. Read W4f L2/L3 and C1-C10 ruling
+from cached origin/main. Explicit audit brief authorizes these corrections.
+No commit, merge, push, deployment, new dependency or shared Dart edit occurred.
+
+Item 18 restores the compatibility build's unconditional legacy content reader.
+Catalog existence alone no longer selects the authored reader. The lead resolved
+the existing lesson-exclusion parity constraint: authored relationships may identify
+explicitly excluded work without replacing the compatibility content reader.
+The implementation keeps legacy topic identities and filters authored excluded
+lesson links only when a nonempty scope exclusion requires them.
+The settings guard permits excluding every lesson when an included lessonless
+topic remains. Unknown lessons and removing all remaining lesson-bearing topics
+without a lessonless topic retain their prior validation.
+
+Test-first evidence, final regressions run against unchanged HEAD before final
+verification (the candidate source was restored and rebuilt afterward):
+```text
+compatibility roadmap keeps its legacy loader when a catalog exists
+not ok: code unavailable, The exam content catalog could not be read.
+all lessons can be excluded while a lessonless topic remains
+not ok: actual invalid-argument, expected ok
+# tests 2
+# pass 0
+# fail 2
+```
+The loader regression seeds readable legacy questions and an unreadable catalog.
+The first attempted assertion used roadmap.topicOrder, which this compatibility
+fixture leaves empty. That assertion was replaced with actual legacy question
+availability and both regressions reran RED against original HEAD.
+
+Logs: ignored `build/w4f-audit-fixes/`. Installed Node22 and Java21.
+Default Firestore8080 is occupied by another process. No foreign process was
+stopped. Complete emulator globs use a disposable local configuration preserving
+real rules/index paths, auth31999/firestore31880/storage31998/hub31440/logging31450,
+UI disabled, disposable XDG_CONFIG_HOME and NO_UPDATE_NOTIFIER=1.
+Final gate summaries follow after completion. No product decision remains.
+
+
+Actual final backend output:
+```text
+cd functions && PATH=/opt/homebrew/opt/node@22/bin:$PATH npx tsc --noEmit
+exit 0
+
+PATH=/opt/homebrew/opt/node@22/bin:/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+# tests 183
+# pass 183
+# fail 0
+Error: Could not start Firestore Emulator, port taken.
+
+Equivalent complete emulator globs, isolated configuration:
+node --test --test-concurrency=1 test/*.rules.mjs test/*.emulator.mjs
+# tests 240
+# pass 240
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 70253.364208
+Script exited successfully (code 0)
+
+server_dart/build.sh --check
+generated JS is current
+
+git diff --check
+exit 0
+```
+Both final regressions pass in the complete emulator run. Existing compatibility
+lesson-exclusion and due-review regressions also pass. Temporary emulator config
+was removed. Tracked Firebase configuration is unchanged.
+
+
+Final Flutter check and unchanged source identities:
+```text
+flutter test test/features/metrics test/features/roadmap --reporter expanded
+04:17 +314: All tests passed!
+
+SHA-256:
+05e49fd86148111454e387d4ab55b91f7486d4207ce1e04a31e831249b71dad8 functions/src/roadmap.ts
+431b966d09594bc9922719a0e13c93f535f97a10337833f7c26522f8449eef09 functions/test/study-roadmap.emulator.mjs
+
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b-server-dependency.md
+ M functions/src/roadmap.ts
+ M functions/test/study-roadmap.emulator.mjs
+```
+All edits remain uncommitted. Lead owns independent review and combined
+acceptance. No deployed backend, device or visual acceptance is claimed.
+
+
+### Lead and independent review corrections to item 18
+
+The lead found that the initial nonempty-topic-scope path still required a
+readable catalog for existing legacy topic IDs. A new real emulator regression
+with readable legacy questions, an unreadable catalog, and the real legacy alpha
+topic exclusion failed `unavailable` before correction. Authored links are now
+required only for lesson exclusions or topic IDs absent from the legacy topic
+inventory. Existing legacy topic-only scope works without a catalog.
+
+Independent read-only review then found an unsafe one-to-one mapping assumption:
+one excluded authored topic could remove an included sibling sharing the same
+legacy question topic slug. A regression seeds two authored sibling topics into
+one legacy slug and their two real legacy lesson documents. Before correction,
+it failed because included sibling questions disappeared. That full emulator
+run reported242 tests,241 pass,1 fail. This supersedes its other GREEN results.
+The corrected implementation filters individual authored question and lesson
+links. It preserves legacy topic identities and retains topics with remaining
+work, including originally lessonless topics. Direct legacy topic exclusions
+still remove their whole topic as requested. No Dart or generated input changed.
+Final verification after these two corrections follows below.
+
+
+Final amended source gate output, same Node22/Java21 and isolated demo ports:
+```text
+cd functions && PATH=/opt/homebrew/opt/node@22/bin:$PATH npx tsc --noEmit
+exit 0
+
+node --test test/*.test.mjs
+# tests 183
+# pass 183
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3953.404667
+
+node --test --test-concurrency=1 test/*.rules.mjs test/*.emulator.mjs
+# tests 242
+# pass 242
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 76653.601292
+Script exited successfully (code 0)
+
+git diff --check
+exit 0
+
+SHA-256:
+3e05469a5374d7e691e515985786e9ddd86bd1361d742a9ba0eef6d67c75d9ef functions/src/roadmap.ts
+48643ce7c26ec809f3e2b4629e56b59d12d0a26a5e3f857a786d978156896b9b functions/test/study-roadmap.emulator.mjs
+
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b-server-dependency.md
+ M functions/src/roadmap.ts
+ M functions/test/study-roadmap.emulator.mjs
+```
+The unchanged Dart metrics/roadmap314-test result and generated-bridge current
+check above remain applicable: these corrections changed TypeScript and emulator
+tests only. Independent review remains with the assigned reviewer and lead.
+No product decision remains. All edits remain uncommitted.
+
+
+### Final independent rereview
+
+The independent reviewer confirmed both late compatibility findings are resolved:
+legacy-only topic exclusions do not require an authored catalog, and authored sibling
+questions/lessons sharing a legacy topic survive another sibling’s exclusion.
+The reviewed production and test hashes match the amended evidence above.
+No remaining concrete findings. The lead also inspected the final content-filter diff.
+The cached matching remote branch SHA remains `e5dbc20ae552455071c1956fa8e1195494109869`.
+All edits remain uncommitted. Client source and visual acceptance are separate.

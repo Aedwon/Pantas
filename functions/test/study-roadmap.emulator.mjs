@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {core} from '../lib/_core.js';
+import {clearExamContentCache} from '../lib/_examContent.js';
 import {build,saveExamSettings,readStudyRoadmap,advanceStudyRoadmap,readStudyDay} from '../lib/roadmap.js';
 import {recordSession} from '../lib/ingestSession.js';
 import {readStudyInsights} from '../lib/studyInsights.js';
@@ -389,4 +390,50 @@ test('compatibility roadmap honors catalog lesson exclusions and linked question
  const {roadmap}=await build(db,uid,settings,true,NOW);
  assert.equal(roadmap.today.lessonIds.includes(lessons[0].id),false);
  assert.equal(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-0-')),false);
+});
+
+
+test('compatibility roadmap keeps its legacy loader when a catalog exists',async()=>{
+ const uid='w4f-legacy-loader';await seed(uid);clearExamContentCache();
+ const settings={examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[1,2,3,4,5,6,7],assessmentCompleted:true};
+ await db.doc('content/catalog/items/'+EXAM).set({version:'unreadable-compatibility-catalog'});
+ const {roadmap}=await build(db,uid,settings,true,NOW);
+ assert.ok(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-0-')));
+});
+
+test('all lessons can be excluded while a lessonless topic remains',async()=>{
+ const uid='w4f-lessonless-scope';const {topics,lessons}=await seed(uid);
+ const ref=db.doc('content/catalog/items/'+EXAM),catalog=JSON.parse((await ref.get()).get('payload'));
+ catalog.lessons=lessons.filter(l=>l.topic===topics[0]._id);
+ catalog.sets=catalog.sets.map(s=>s.topic===topics[1]._id?{...s,lesson:null}:s);
+ await ref.update({version:'lessonless-v1',payload:JSON.stringify(catalog)});
+ const settings={...body(uid),examDate:null,studyDays:[1],excludedTopicIds:[topics[0]._id],excludedLessonIds:catalog.lessons.map(l=>l.id)};
+ assert.equal(await code(saveExamSettings(auth(uid),settings,deps())),'ok');
+ assert.deepEqual((await db.doc('users/'+uid+'/server/settings').get()).get('excludedLessonIds'),settings.excludedLessonIds);
+});
+
+
+test('compatibility topic-only exclusions keep working without a readable catalog',async()=>{
+ const uid='w4f-legacy-topic-scope';await seed(uid);clearExamContentCache();
+ const settings={examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[1,2,3,4,5,6,7],assessmentCompleted:true,excludedTopicIds:['topic_cse_pro_alpha']};
+ await db.doc('content/catalog/items/'+EXAM).set({version:'unreadable-legacy-topic-catalog'});
+ const {roadmap}=await build(db,uid,settings,true,NOW);
+ assert.equal(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-0-')),false);
+ assert.ok(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-1-')));
+});
+
+
+test('authored sibling exclusions preserve work sharing one legacy topic slug',async()=>{
+ const uid='w4f-shared-legacy-topic';const {topics,lessons}=await seed(uid);
+ const questionRef=db.doc('content/questions/items/raw-cse-1');
+ const payload=JSON.parse((await questionRef.get()).get('payload'));
+ payload.meta.topic='alpha';await questionRef.update({payload:JSON.stringify(payload)});
+ for(const lesson of [lessons[0],lessons[6]])await db.doc('content/lessons/items/'+lesson.id).update({topic:'topic-alpha'});
+ clearExamContentCache();
+ const settings={examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[1,2,3,4,5,6,7],assessmentCompleted:true,excludedTopicIds:[topics[0]._id]};
+ const {roadmap}=await build(db,uid,settings,true,NOW);
+ assert.equal(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-0-')),false);
+ assert.ok(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-1-')));
+ assert.equal(roadmap.today.lessonIds.includes(lessons[0].id),false);
+ assert.ok(roadmap.today.lessonIds.includes(lessons[6].id));
 });
