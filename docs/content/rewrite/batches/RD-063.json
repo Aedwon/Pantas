@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-text-types-essays-editorials-articles",
+  "lesson-text-types-poetry"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "rewrites": {
+  "lesson-text-types-essays-editorials-articles": "1b568bffc28073a43f80191da1d4c439a05fd47f",
+  "lesson-text-types-poetry": "1b568bffc28073a43f80191da1d4c439a05fd47f"
+ },
+ "sha256": {
+  "lesson-text-types-essays-editorials-articles": "39ae464b692236f8e0498fabb3a1383ad3d69c90ab3513ab61de0b045b98689a",
+  "lesson-text-types-poetry": "4fbc41df21786b5fc48635b5d6bbe60f56a1433a8180369300398e3149fca00d"
+ },
+ "paths": {
+  "lesson-text-types-essays-editorials-articles": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+  "lesson-text-types-poetry": "content/lessons/reading-comprehension/text-types/poetry.md"
+ },
+ "id": "RD-063",
+ "type": "read",
+ "created": "2026-10-25T21:19:42+00:00"
+}
