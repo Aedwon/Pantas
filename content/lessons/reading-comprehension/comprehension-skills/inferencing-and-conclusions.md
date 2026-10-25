@@ -1,7 +1,7 @@
 ---
 _id: "lesson-comprehension-skills-inferencing-and-conclusions"
 title: "Inferencing and Drawing Conclusions"
-summary: "Use clues from text, arguments, and visual data to make conclusions that the evidence supports."
+summary: "Use text, argument clues, and visual data to draw conclusions with enough support."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 15
@@ -9,203 +9,241 @@ isActive: true
 ---
 ## Core Concept
 
-An **inference** is an idea you figure out from clues. The passage gives the evidence, and you connect the clues to reach a conclusion.
+An **inference** is an idea you work out from clues. To **infer** means to connect those clues. The passage does not need to state the answer directly.
 
-A direct statement tells you something clearly. An inference question asks you to reason from what the passage gives.
+A **conclusion** is the idea you reach after considering evidence. Evidence means the facts or details that support an answer.
 
-A good inference should:
+Use details from the passage and ordinary knowledge needed to understand them. Do not invent an event, motive, or cause to make an answer fit.
 
-- use details that are actually in the text;
-- not claim more than the evidence supports;
-- fit the whole passage; and
-- be better supported than the other choices.
+A good inference fits the whole passage. It should have stronger support than other possible answers.
 
-Words such as *must, always,* and *certainly* make a very strong claim. Words such as *may, likely,* and *suggests* make a weaker claim. Match the strength of your conclusion to the strength of the evidence.
+### Matching the Strength of the Evidence
 
-### Premises, Conclusions, and Assumptions
+*May*, *likely*, and *suggests* leave room for uncertainty. *Must*, *always*, and *certainly* make stronger claims. Choose the strength that the evidence supports.
 
-A **premise** is a reason or fact used to support an argument. A **conclusion** is the claim the argument wants you to accept.
+A possible event is not always a supported inference. A late assignment could have many causes. Without more information, lateness does not prove laziness.
 
-An **assumption** is an unstated idea that the argument needs. To test whether an assumption is necessary, imagine that it is false. If the argument can no longer support its conclusion, the assumption is important to the argument.
+A direct fact may be the only safe conclusion in a question about what is justified. But if a question asks for an inference, look for an idea reached by connecting details.
 
-Do not add a cause, motive, or fact just because it seems possible. Use only what the argument needs and what the evidence supports.
+### Premises and Necessary Assumptions
 
-### Reading Visual and Nonlinear Information
+A **premise** is a reason or fact used in an argument. The argument's **conclusion** is the claim those reasons are meant to support.
 
-Information does not always appear in paragraphs. It can appear in a graph, map, diagram, chart, or other visual form.
+A **necessary assumption** is an unstated idea the argument needs. It connects the given reasons to the conclusion.
 
-First read the title, labels, legend, and units. Then compare the parts that matter to the question.
+To test a proposed assumption, imagine its opposite. Keep the stated facts unchanged. If those facts can no longer support the conclusion, the assumption is needed.
 
-When a question gives both prose and visual data, use both. A conclusion is strong only if the written statement and the visual evidence support it together.
+This test concerns the reasoning. A conclusion might still turn out to be true for some other reason. Also, a helpful detail is not always necessary: the argument may still work without it.
+
+### Reading Visual Information
+
+Graphs, maps, diagrams, and charts arrange information outside ordinary paragraphs. Read the title and labels first. A **legend** explains symbols, and a **unit** tells what is being counted or measured.
+
+In a bar graph, compare bar lengths using the same scale. A scale tells how much each step or symbol represents. If each square stands for $5$ visitors, count the squares and multiply by $5$.
+
+Use written notes together with visual data. If a note gives a limit, compare the graph's values with that limit. A graph of counts alone does not explain why the counts changed.
 
 ### Pagbuo ng Hinuha sa Filipino
 
-Ang **hinuha** (inference) ay ideyang nabubuo mula sa mga pahiwatig. Hindi ito basta hula. Dapat may malinaw na batayan sa teksto.
+Ang **hinuha** (inference) ay ideyang nabubuo mula sa mga pahiwatig. Hindi ito basta hula. Dapat may batayan sa teksto.
 
-Hanapin muna ang mahahalagang detalye. Pagkatapos, itanong kung anong ideya ang pinakamatibay na sinusuportahan ng mga ito.
+Hanapin ang mahahalagang detalye. Pagkatapos, piliin ang ideyang pinakamatibay na sinusuportahan ng mga ito.
 
-Maaari ring hindi tuwirang sabihin ang pangunahing diwa. Sa ganitong tanong, pagsamahin ang mga detalye upang makita ang mensaheng inuulit o pinatitibay ng buong talata.
+Maaaring hindi tuwirang sabihin ang **pangunahing diwa** (main idea). Pagsamahin ang mga detalye upang makita ang mensahe ng buong talata. Huwag pumili ng ideyang sumasaklaw lamang sa isang detalye.
 
-Sa paghatol sa isang pahayag, ihiwalay ang tiyak na sinabi sa maaari lamang mangyari. Piliin ang pasyang may sapat na batayan.
+Ang **paghatol** (evaluation) ay pagsusuri kung may sapat na batayan ang isang pahayag. Ihiwalay ang tiyak na sinabi sa maaari lamang mangyari.
+
+Ang magandang resulta sa isang pagkakataon ay hindi patunay na palaging magiging ganoon ang resulta. Piliin ang pasyang kasya sa saklaw ng ebidensya.
 
 ## Examples
 
-### #1: Basic Inference
+### #1: Reading Behavior
 
-"Maria checked her watch several times in a few minutes, looked toward the entrance, and tapped her foot."
+“Maria checked her watch several times in a few minutes, looked toward the entrance, and tapped her foot.”
 
 What can reasonably be inferred about Maria?
 
 **Solution:**
-1. Maria keeps checking the time and the entrance.
-2. Tapping her foot suggests that she is uneasy or impatient.
-3. The best-supported inference is that **Maria is waiting and feels impatient or anxious**.
+1. Checking the time and entrance suggests that she is waiting for someone or something.
+2. Repeated checking and foot tapping suggest unease or impatience.
+3. Maria is likely waiting and feeling impatient or anxious. The passage does not establish whom she expects.
 
-### #2: Best-Supported Inference
+### #2: Choosing the Best-Supported Claim
 
-"After the manager announced that the store would close earlier each night, several workers immediately asked how their weekly hours would change."
+“After the manager announced that the store would close earlier each night, several workers immediately asked how their weekly hours would change.”
 
-Which conclusion is best supported?
-
-(A) The workers are worried about how the new schedule may affect their work hours.  
-(B) The store will soon go out of business.  
-(C) The manager plans to fire several workers.
+Which conclusion is best supported: workers are concerned about their hours, the store will close permanently, or the manager plans to dismiss workers?
 
 **Solution:**
-1. The announcement changes the store's closing time.
-2. The workers immediately ask about their weekly hours.
-3. Choice **(A)** is best supported because it follows directly from those details.
+1. The announcement changes the store's schedule.
+2. The workers' questions focus on their weekly hours.
+3. The best-supported conclusion is that workers are concerned about how the change will affect their hours.
 
 ### #3: Avoiding a Character Judgment
 
-"A student submits an assignment two days late. The passage gives no reason for the delay."
+“A student submitted an assignment two days late. The passage gives no reason for the delay.”
 
-Which conclusion is justified?
-
-**Solution:**
-1. The text clearly says the assignment was late.
-2. It gives no evidence about the student's motive or personality.
-3. The justified conclusion is only that **the assignment was submitted late**. Calling the student lazy would add an unsupported judgment.
-
-### #4: Multiple Clues
-
-"The kitchen light was still on at $3$ a.m. Textbooks covered the table beside empty coffee cups. A laptop showed an unfinished document."
-
-Which inference is best supported?
+Is the claim that the student is lazy justified by the information given?
 
 **Solution:**
-1. The late hour, textbooks, coffee cups, and unfinished document all point to ongoing work.
-2. The passage does not say which subject is being studied or why the work is urgent.
-3. The best-supported inference is that **someone has been studying or working late into the night**.
+1. The passage establishes that the assignment was late.
+2. It gives no reason and no pattern of past behavior.
+3. The claim is not justified. The student's motive or character cannot be established from this detail alone.
+
+### #4: Combining Several Clues
+
+“The kitchen light was still on at $3$ a.m. Textbooks covered the table beside empty coffee cups. A laptop showed an unfinished document.”
+
+Which inference is most strongly supported?
+
+**Solution:**
+1. The textbooks and unfinished document suggest study or writing.
+2. The late hour and coffee cups add support for work extending into the night.
+3. Someone has likely been studying or working late. The passage does not prove that the person stayed awake all night or has an exam tomorrow.
 
 ### #5: Finding a Necessary Assumption
 
-"Every employee who completes the safety course receives a clearance badge. Lino completed the safety course. Therefore, Lino should receive a clearance badge."
+“Every employee who completes the safety course receives a clearance badge. Lino completed the safety course. Therefore, Lino should receive a clearance badge.”
 
-Which unstated idea is necessary for the conclusion to follow as written?
-
-**Solution:**
-1. The first premise says completing the course is enough for an employee to receive a badge.
-2. The second premise says Lino completed the course.
-3. The argument assumes **Lino is an employee**.
-4. If Lino were not an employee, the rule in the first premise would not apply to him.
-
-### #6: Drawing a Conclusion from Visual Data
-
-A bar graph compares the number of visitors to a help desk on Monday, Tuesday, and Wednesday.
-
-<!-- ILLUSTRATION: bar graph titled "Help Desk Visitors" with Monday as the middle-height bar, Tuesday as the tallest bar, and Wednesday as the shortest bar; vertical axis labeled "Visitors" -->
-
-Which conclusion is supported by the graph?
+Which unstated idea is necessary for this reasoning?
 
 **Solution:**
-1. Compare the heights of the three bars.
-2. Tuesday has the tallest bar, while Wednesday has the shortest.
-3. The supported conclusion is that **Tuesday had the most visitors and Wednesday had the fewest**.
+1. The rule applies to employees who finish the course.
+2. Lino finished the course, but his employee status is not stated.
+3. The necessary assumption is that Lino is an employee.
+4. Imagine that Lino is not an employee. The stated rule would no longer establish his right to a badge, so the argument needs that assumption.
 
-### #7: Combining Prose and Visual Data
+### #6: Reading a Bar Chart
 
-<!-- ILLUSTRATION: bar graph titled "Help Desk Visitors" with Monday as the middle-height bar, Tuesday as the tallest bar, and Wednesday as the shortest bar; vertical axis labeled "Visitors" -->
+The chart shows visitors to a help desk during three mornings. Each square represents $5$ visitors. All bars use the same scale and begin at zero.
 
-A note says, "The office added an extra service window on the day with the highest visitor count." In the graph above, Tuesday has the highest bar.
+**Help Desk Visitors**
 
-On which day was the extra service window most likely added?
+Monday: ■■■■
+
+Tuesday: ■■■■■■
+
+Wednesday: ■■■
+
+<!-- ILLUSTRATION: horizontal bar graph titled "Help Desk Visitors"; horizontal axis "Visitors" from 0 to 30 in steps of 5; Monday bar 20, Tuesday bar 30, Wednesday bar 15; all bars start at zero -->
+
+Which day had the most visitors, and how many more visitors came that day than on Wednesday?
 
 **Solution:**
-1. The note says the extra window was added on the day with the highest count.
-2. The graph shows that Tuesday has the highest visitor count.
-3. The extra service window was most likely added on **Tuesday**.
+1. Read the labeled bars using the legend. Tuesday has $6$ squares, and Wednesday has $3$.
+2. Convert the squares to visitors.
 
-### #8: Hinuha sa Filipino
+$$6\times5=30$$
 
-"Maagang dumating si Nena sa silid. Inayos niya ang mga upuan, inilabas ang mga papel, at paulit-ulit na tiningnan ang orasan bago dumating ang iba."
+$$3\times5=15$$
+
+3. Find the difference.
+
+$$30-15=15$$
+
+4. Tuesday had the most visitors, with $15$ more than Wednesday. The chart does not explain why more people came.
+
+### #7: Connecting a Note to Visual Data
+
+The office note says, “An extra service window opened on every morning when visitors exceeded $25$.” Each square in this chart represents $5$ visitors.
+
+**Help Desk Visitors**
+
+Monday: ■■■■
+
+Tuesday: ■■■■■■
+
+Wednesday: ■■■
+
+<!-- ILLUSTRATION: horizontal bar graph titled "Help Desk Visitors"; horizontal axis "Visitors" from 0 to 30 in steps of 5; Monday bar 20, Tuesday bar 30, Wednesday bar 15; vertical reference line at 25 labeled "Extra window opens above 25" -->
+
+On which morning does the note establish that an extra window opened?
+
+**Solution:**
+1. Count each bar's squares and use the legend. Monday shows $20$ visitors, Tuesday $30$, and Wednesday $15$.
+2. The note requires more than $25$ visitors. Only Tuesday meets that condition.
+3. The note and chart together establish that an extra window opened on Tuesday. The graph alone would not show that staffing decision.
+
+### #8: Hinuha mula sa Kilos
+
+“Maagang dumating si Nena sa silid. Inayos niya ang mga upuan, inilabas ang mga papel, at paulit-ulit na tiningnan ang orasan bago dumating ang iba.”
 
 Ano ang pinakamakatuwirang hinuha?
 
 **Solution:**
-1. Maaga siyang dumating at naghanda ng silid.
-2. Paulit-ulit niyang tiningnan ang oras habang hinihintay ang iba.
-3. Pinakamatibay na hinuha na **may inihahandang gawain o pagpupulong si Nena at hinihintay niyang dumating ang ibang kalahok**.
+1. Inihanda ni Nena ang silid at mga papel.
+2. Tiningnan niya ang oras habang wala pa ang iba.
+3. Malamang na naghahanda siya para sa isang gawain o pagpupulong at naghihintay ng mga kalahok. Hindi pa tiyak ang mismong uri ng gawain.
 
 ### #9: Hindi Tuwirang Pangunahing Diwa
 
-"Maraming residente ang nagdadala na ng sariling lalagyan sa palengke. Ang ilang tindahan ay nagbibigay ng diskuwento sa hindi gumagamit ng supot. Mas kaunti na rin ang nakikitang basurang plastik sa paligid."
+“Maraming residente ang nagdadala na ng sariling lalagyan sa palengke. May mga tindahang nagbibigay ng diskuwento sa hindi gumagamit ng supot. Mas kaunti na rin ang nakikitang basurang plastik sa paligid.”
 
 Ano ang hindi tuwirang pangunahing diwa ng talata?
 
 **Solution:**
-1. Lahat ng detalye ay tungkol sa pagbawas ng paggamit ng plastik.
-2. May mga kilos mula sa mga residente at tindahan, at may nakikitang pagbabago sa basura.
-3. Ang pangunahing diwa ay **unti-unting nababawasan ang paggamit at basurang plastik dahil sa pagbabago ng gawi ng komunidad**.
+1. Ang mga detalye ay tungkol sa sariling lalagyan, pag-iwas sa supot, at mas kaunting basurang plastik.
+2. Parehong may ginagawang pagbabago ang mga residente at tindahan.
+3. Ang pangunahing diwa ay kumikilos ang komunidad upang bawasan ang paggamit at basura ng plastik. Hindi lamang diskuwento ang paksa ng buong talata.
 
-## Speed Tricks & Shortcuts
+### #10: Paghatol na May Sapat na Batayan
 
-**List the evidence first.** Then choose the conclusion that needs the fewest extra assumptions.
+“Sinubukan ng isang tanggapan ang bagong sistema ng pila noong Lunes. Mas maikli ang oras ng paghihintay kaysa noong nakaraang Lunes. Ngunit mas kaunti rin ang dumating na kliyente. Wala pang tala para sa ibang araw.”
 
-**Separate possible from supported.** Something can happen in real life without being supported by the passage.
+Makatuwiran bang sabihing napatunayang laging mas mabilis ang bagong sistema? Ipaliwanag ang pasya batay sa talata.
 
-**Check claim strength.** Strong words need strong evidence.
+**Solution:**
+1. Mas maikli ang paghihintay sa araw ng pagsubok.
+2. Mas kaunti rin ang kliyente. Maaaring nakaapekto ito sa oras ng paghihintay.
+3. Isang araw lamang ang may tala para sa bagong sistema.
+4. Hindi pa sapat ang batayan para sa salitang *lagi*. Mas maikli ang paghihintay noong pagsubok, ngunit kailangan pa ng dagdag na tala upang hatulan ang sistema sa iba't ibang araw.
 
-**For arguments, use the "what if false?" test.** If making an unstated idea false breaks the reasoning, that idea may be a necessary assumption.
+## Reading Strategies
 
-**For visual data, read labels before comparing.** Check the title, units, legend, and the exact categories named in the question.
+List the evidence before choosing an answer. Ask what each detail supports and which details must be connected.
 
-**Sa Filipino, pagsamahin ang mga pahiwatig.** Huwag pumili ng sagot na mas tiyak o mas matindi kaysa sa kayang patunayan ng talata.
+Check whether an answer adds a cause or motive that the text never gives. Then check words such as *always* and *must* against the strength of the evidence.
+
+For an assumption, state the premise and conclusion first. Imagine the proposed assumption is false and check whether the given reason still supports the claim.
+
+Read a chart's labels and scale before its bars. Use the written note only after you know what the chart actually shows.
+
+Sa Filipino, pagsamahin ang mahahalagang detalye. Sa paghatol, itanong kung sapat ang saklaw ng ebidensya para sa lawak ng pahayag.
 
 ## Traps to Watch For
 
-### #1: Thinking an Inference Can Never Repeat the Passage
+### #1: Rejecting Familiar Words Automatically
 
-> Inference is about connecting evidence, not avoiding the same words.
+> An inference can use words that also appear in the passage.
 
-An answer can use wording from the text and still be an inference if you must connect details to reach it.
+What matters is whether the answer connects evidence. New wording alone does not make an answer a sound inference.
 
-### #2: Using Specialized Outside Knowledge
+### #2: Adding Outside Facts
 
-> Do not depend on facts the passage never gives unless the question clearly expects that knowledge.
+> A possible real-life explanation is not proof from the passage.
 
-Ordinary reading knowledge is fine, but the answer should come mainly from the supplied evidence.
+Do not invent a reason for a delay or a person's behavior. Use the supplied facts to judge what is supported.
 
-### #3: Choosing the Most Moderate Answer Automatically
+### #3: Always Choosing the Weakest Claim
 
-> A weaker claim is not always better.
+> Match the claim to the evidence, even when the evidence is strong.
 
-Choose the strength that matches the evidence. Strong evidence can support a strong conclusion.
+Words such as *may* do not make an answer correct by themselves. A careful-sounding claim can still have no support.
 
-### #4: Inferring Motive or Character from One Event
+### #4: Confusing Helpful and Necessary
 
-> One action does not prove a person's motive or personality.
+> An assumption must be needed by the reasoning, not merely useful.
 
-Look for repeated behavior or direct evidence before making a judgment about character.
+A pleasant classroom might help students learn, but a course rule about badges may not depend on it. Test whether denying the idea breaks the link between the stated reason and conclusion.
 
-### #5: Treating an Assumption as a Stated Fact
+### #5: Ignoring a Graph's Scale
 
-> An assumption is an unstated idea the reasoning needs.
+> A square or bar length has meaning only with its label and scale.
 
-Keep it separate from the premises. Test it by asking what happens if that idea is false.
+Do not count squares as individual visitors when each represents several visitors. A high count also does not prove a cause for that count.
 
-### #6: Reading a Graph Without Its Labels
+### #6: Pagpapalawak ng Pasya
 
-> A tall bar means little if you ignore the category or unit.
+> Hindi sapat ang isang resulta upang patunayan ang salitang “lagi.”
 
-Read the title, labels, and units first. Then compare only the values the question asks about.
+Tingnan kung ilang pagkakataon ang saklaw ng teksto at kung may ibang posibleng dahilan. Iayon ang pasya sa kayang suportahan ng mga detalye.

@@ -1,181 +1,278 @@
 ---
 _id: "lesson-comprehension-skills-context-clues-in-passages"
 title: "Meaning through Context Clues (within Full Passages)"
-summary: "Use nearby sentences, word parts, and Filipino context clues to work out unfamiliar meanings."
+summary: "Use nearby sentences, word parts, and Filipino usage clues to work out meaning."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
-estimatedMinutes: 14
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-A **context clue** is information near an unfamiliar word that helps explain its meaning. In a full passage, the clue may come before the word, after it, or across several sentences.
+A **context clue** is information near an unfamiliar word that helps explain it. The clue may come before the word, after it, or across several sentences.
 
-To **infer** means to figure something out from clues instead of being told the answer directly.
+To **infer** means to work out an idea from clues. Read beyond the sentence with the unfamiliar word. Choose a meaning that fits all the nearby details.
 
-Four common context clues are:
+### Kinds of Clues
 
-- **Definition or explanation clue:** the passage explains the meaning.
-- **Example clue:** nearby examples show what kind of thing the word names.
-- **Contrast clue:** an opposite idea helps reveal the meaning.
-- **Cause-and-effect clue:** a cause or result helps reveal what the word must mean.
+A **definition clue** directly explains a word. An **explanation clue** describes the same idea in easier words, perhaps in the next sentence.
 
-Do not stop at the sentence with the unfamiliar word. Read nearby sentences and check whether all the clues fit the meaning you choose.
+An **example clue** gives cases of what the word names. Words such as *including* and *such as* may introduce examples.
 
-### Word Parts as Extra Clues
+A **contrast clue** gives an opposite idea. Look for *but*, *unlike*, or *however*. Check what is being contrasted before deciding on a meaning.
 
-A word can also have useful parts. A **prefix** comes before a base or root, a **root** carries the main word meaning, and a **suffix** comes after it.
+A **cause-and-effect clue** links an action or condition with its result. Words such as *because* and *therefore* may show the link. A result can help reveal the meaning of an unfamiliar cause.
 
-For example, *re-* often suggests doing something again, while *-less* can suggest "without." Word parts can give you a starting guess, but context must still support that guess.
+Clues can overlap. A description may explain a word and also show its effects. You need the supported meaning, not always a label for the clue.
 
-### Mga Pahiwatig sa Konteksto sa Filipino
+### Using Word Parts
+
+A **base** is a word to which parts can be added. A **root** carries a word's main meaning and may not stand alone. A **prefix** goes before a base or root, while a **suffix** goes after it.
+
+In *careless*, the base is *care* and *-less* means “without.” The prefix *re-* often means “again,” as in *reread*. The root *port* means “carry” in words such as *transport*.
+
+Break a word into parts you recognize. Make a rough meaning, then check it against the passage. Do not split a word just because some letters look familiar. Word parts do not always give the full present-day meaning.
+
+### Mga Pahiwatig sa Filipino
 
 Ang **kasingkahulugan** (synonym) ay salitang malapit ang kahulugan sa isa pang salita. Ang **kasalungat** (antonym) ay salitang kabaligtaran ang kahulugan.
 
-Maaaring ipaliwanag ng mga kasunod na pangungusap ang isang mahirap na salita. Maaari ring magbigay ang teksto ng paglalarawan o halimbawa.
+Gamitin ang buong talata sa pagpili ng kahulugan. Ang paglalarawan ng kilos o anyo ay maaaring magpaliwanag ng mahirap na salita.
 
-May mga pahiwatig din sa di-tuwirang kahulugan. Kapag sinabing "parang pasan niya ang buong mundo," hindi ito literal. Ipinahihiwatig nito ang mabigat na suliranin o pag-aalala.
+Ang **di-tuwirang kahulugan** (nonliteral meaning) ay mensaheng hindi tumutugma sa literal na larawan ng mga salita. Ang “parang pasan niya ang buong mundo” ay maaaring tumukoy sa mabigat na pag-aalala. Hindi totoong pasan ng tao ang mundo.
 
-Ang mga salitang *maaaring, baka,* at *marahil* ay nagpapakita ng posibilidad, hindi katiyakan.
+### Posibilidad at Oras
 
-Ang **aspekto ng pandiwa** (verb aspect) ay nagpapakita kung ang kilos ay natapos na, ginagawa pa, o gagawin pa. Ang **pang-abay** (adverb) na tulad ng *kahapon, ngayon,* at *bukas* ay nagbibigay pa ng pahiwatig sa oras.
+Ang *baka*, *maaaring*, at *marahil* ay nagpapakita ng posibilidad. Hindi pa tiyak ang pangyayari.
 
-Ang **panghalip** (pronoun) ay maaaring tumukoy sa taong o bagay na nabanggit na. Ang **panuring** (modifier) ay nagbibigay-linaw sa salitang inilalarawan nito.
+Ang **aspekto ng pandiwa** (verb aspect) ay nagpapakita ng kalagayan ng kilos. Sa *sumulat*, tapos na ang kilos. Sa *sumusulat*, nagpapatuloy ito. Sa *susulat*, hindi pa ito nagsisimula.
 
-May iba't ibang uri rin ng pangungusap. Ang **pasalaysay** (declarative) ay nagsasabi, ang **patanong** (interrogative) ay nagtatanong, ang **pautos** (imperative) ay nag-uutos o nakikiusap, at ang **padamdam** (exclamatory) ay nagpapakita ng matinding damdamin.
+Ang **pang-abay** (adverb) ay maaaring magbigay ng oras, tulad ng *kahapon*, *ngayon*, at *bukas*. Basahin ito kasama ng pandiwa. Ang “Sumulat siya kahapon” at “Susulat siya bukas” ay tumutukoy sa magkaibang kalagayan ng kilos.
 
-Mahalaga rin ang ayos at baybay ng pangungusap. Ang bantas at wastong anyo ng salita ay maaaring tumulong sa pagbasa ng kahulugan.
+### Panghalip, Panuring, at Baybay
+
+Ang **panghalip** (pronoun) ay pamalit sa ngalan. Sa “Dumating si Mila. Siya ang may dala ng susi,” si Mila ang tinutukoy ng *siya*.
+
+Maaaring maging malabo ang tinutukoy kapag maraming tao ang nabanggit. Sa “Kinausap ni Mila si Rosa bago siya umalis,” hindi tiyak kung sino ang umalis. Huwag pumili batay lamang sa pinakamalapit na pangalan.
+
+Ang **panuring** (modifier) ay naglalarawan o naglilimita sa kahulugan. Sa “Si Mila lamang ang nagdala ng payong,” si Mila lang ang nagdala. Sa “Payong lamang ang dinala ni Mila,” payong lang ang kanyang dinala.
+
+May mga salitang magkapareho ang tunog ngunit magkaiba ang baybay at kahulugan. Ang *bata* ay maaaring tumukoy sa isang musmos. Ang *bata-bata* ay maaaring tumukoy sa taong pinapaboran ng makapangyarihang tao. Basahin ang sitwasyon upang piliin ang angkop na kahulugan.
+
+Huwag ipagpalagay na magkapareho ang kahulugan dahil magkalapit ang anyo ng salita. Halimbawa, ang *pinto* ay dinaraanan. Ang *pintor* ay taong nagpipinta.
+
+### Uri ng Pangungusap
+
+Ang **pasalaysay** (declarative) ay nagsasabi: “Sarado ang pinto.” Ang **patanong** (interrogative) ay nagtatanong: “Sarado ba ang pinto?” Hindi pinatutunayan ng tanong na sarado nga ito.
+
+Ang **pautos** (imperative) ay nag-uutos o nakikiusap: “Isara mo ang pinto.” Ang **padamdam** (exclamatory) ay nagpapahayag ng matinding damdamin: “Kay lakas ng hangin!”
+
+Tingnan ang mga salita at bantas. Ang tanong, utos, at ulat ay hindi pareho ang ipinahihiwatig kahit iisa ang kanilang paksa.
 
 ## Examples
 
-### #1: Definition Clue Across Sentences
+### #1: Direct Definition
 
-"The committee's decision was met with **consternation**. Members expressed shock. Several people looked deeply worried and kept asking what would happen next."
+“The office introduced a **moratorium**, a temporary stop, on new applications. Current applications would still be reviewed.”
+
+What does the word in bold mean in the passage?
+
+**Solution:**
+1. The words after the comma directly explain the target word.
+2. It means a temporary stop, not a permanent end to all office work.
+
+### #2: Explanation Across Sentences
+
+“The committee's decision was met with **consternation**. Members expressed shock. Several looked deeply worried and kept asking what would happen next.”
 
 What does the word in bold most likely mean?
 
 **Solution:**
-1. The first sentence does not define the word.
-2. The next sentences show shock and deep worry.
-3. **Consternation** most likely means strong worry, shock, or distress.
+1. The later sentences describe shock and deep worry.
+2. Those reactions explain how members felt about the decision.
+3. The word means strong worry, shock, or distress.
 
-### #2: Example Clue Across Sentences
+### #3: Examples in Nearby Sentences
 
-"The shelf was crowded with **bric-a-brac**. A cracked vase leaned beside a rusty toy soldier. Mismatched cups and an old picture frame filled the remaining space."
-
-What does the word in bold most likely mean?
-
-**Solution:**
-1. The target word appears in the first sentence.
-2. The next sentences list small, mixed objects.
-3. **Bric-a-brac** most likely means a collection of small, mixed, often decorative objects.
-
-### #3: Contrast Clue Later in the Passage
-
-"At first, the talks seemed **amicable**. The two sides shook hands and spoke warmly. However, the next meeting became hostile, with raised voices and angry interruptions."
+“The shelf was crowded with **bric-a-brac**. A small vase leaned beside a toy soldier. Decorative cups and an old picture frame filled the remaining space.”
 
 What does the word in bold most likely mean?
 
 **Solution:**
-1. *However* signals a contrast.
-2. The later meeting is hostile and angry.
-3. The earlier mood must be the opposite, so **amicable** most likely means friendly and peaceful.
+1. The next sentences give examples of objects on the shelf.
+2. They are small, mixed objects kept for display.
+3. The word means a collection of small decorative objects.
 
-### #4: Cause-and-Effect Clue Across Sentences
+### #4: Contrast Across a Passage
 
-"Rina had a habit of **procrastination**. She kept putting her report aside for other small tasks. On the night before the deadline, most of the report was still unfinished, so she had to work until dawn."
-
-What does the word in bold most likely mean?
-
-**Solution:**
-1. The second sentence says Rina keeps putting the report aside.
-2. The result is that much of the report is unfinished near the deadline.
-3. **Procrastination** most likely means delaying work that needs to be done.
-
-### #5: Word Parts Plus Context
-
-"The school began a **reorganization** of its files. Staff members sorted the folders again and placed them in a new system."
+“At first, the talks seemed **amicable**. The two sides shook hands and spoke warmly. However, the next meeting became hostile, with raised voices and angry interruptions.”
 
 What does the word in bold most likely mean?
 
 **Solution:**
-1. The prefix *re-* can suggest doing something again.
-2. The next sentence says the staff sorted the files again in a new system.
-3. **Reorganization** most likely means arranging something again in a new way.
+1. *However* marks a change from the earlier mood.
+2. The later meeting is angry. The earlier meeting has warm speech and handshakes.
+3. The word means friendly and peaceful.
 
-### #6: Kasingkahulugan sa Konteksto
+### #5: Cause and Effect Across Sentences
 
-"Matamlay si Ben buong umaga. Wala siyang sigla at mabagal ang kanyang kilos."
+“Rina had a habit of **procrastination**. She kept putting her report aside for small tasks. On the night before the deadline, most of the report remained unfinished, so she worked until dawn.”
+
+What does the word in bold most likely mean?
+
+**Solution:**
+1. Rina repeatedly puts off the report.
+2. This leaves much of it unfinished near the deadline.
+3. The word means delaying work that needs to be done.
+
+### #6: Word Parts and Context
+
+“The school began a **reorganization** of its files. Staff sorted the folders again and placed them in a new system.”
+
+What does the word in bold most likely mean?
+
+**Solution:**
+1. *Re-* suggests doing something again. *Organize* concerns putting things in order, and *-ation* forms a noun naming a process.
+2. The next sentence confirms that staff arranged the files again.
+3. The word means the process of arranging something again in a new way.
+
+### #7: Root and Suffix
+
+“The new case is **portable**. A worker can carry it from room to room without help.”
+
+What does the word in bold mean in this passage?
+
+**Solution:**
+1. The root *port* means carry. The suffix *-able* suggests that something can be done.
+2. The next sentence confirms that the case can be carried easily.
+3. The word means easy to carry or move.
+
+### #8: Kasingkahulugan at Paglalarawan
+
+“**Matamlay** si Ben buong umaga. Wala siyang sigla at mabagal ang kanyang kilos.”
 
 Ano ang pinakamalapit na kahulugan ng salitang naka-bold?
 
 **Solution:**
 1. Sinasabi ng kasunod na pangungusap na wala siyang sigla.
 2. Ang mabagal na kilos ay dagdag na pahiwatig.
-3. Ang **matamlay** ay nangangahulugang mahina ang sigla o walang gaanong lakas.
+3. Ang salita ay nangangahulugang mahina ang sigla o walang gaanong lakas.
 
-### #7: Kasalungat at Di-Tuwirang Kahulugan
+### #9: Kasalungat na Pahiwatig
 
-"Karaniwang mahinahon si Liza, ngunit kanina ay **bugso** ang kanyang galit at mabilis siyang nagsalita. Pagkaraan ng ilang minuto, kumalma rin siya."
+“Karaniwang **mahinahon** si Liza kapag may problema. Ngunit kanina ay sumigaw siya at padabog na nagsara ng pinto.”
 
-Ano ang ipinahihiwatig ng salitang naka-bold sa talata?
-
-**Solution:**
-1. Ipinapakita ng *ngunit* na iba ang kilos niya kanina sa karaniwang mahinahon niyang asal.
-2. Mabilis ang pagsasalita at sandali lamang ang matinding galit.
-3. Ang **bugso** ay tumutukoy sa bigla at malakas na paglabas ng damdamin.
-
-### #8: Possibility and Time Clues in Filipino
-
-"Baka dumating si Mara bukas kung matapos niya ngayon ang gawain."
-
-Aling pahayag ang pinakaangkop na kahulugan ng pangungusap?
+Ano ang kahulugan ng salitang naka-bold batay sa talata?
 
 **Solution:**
-1. Ang *baka* ay nagpapakita ng posibilidad.
-2. Ang *bukas* at *ngayon* ay nagpapakita kung kailan maaaring mangyari ang mga kilos.
-3. Sinasabi ng pangungusap na **posibleng dumating si Mara bukas, depende sa pagtatapos niya ng gawain ngayon**.
+1. Ipinapakita ng *ngunit* na naiiba ang kilos niya kanina.
+2. Ang pagsigaw at padabog na kilos ay salungat sa karaniwan niyang asal.
+3. Ang salita ay nangangahulugang kalmado at hindi padalos-dalos.
 
-## Speed Tricks & Shortcuts
+### #10: Di-Tuwirang Kahulugan
 
-**Read around the word.** Check at least one nearby sentence before and after it when possible.
+“Parang **pasan niya ang buong mundo**. May sakit ang kanyang ina, kulang ang pambayad sa bahay, at siya lang ang maaaring magtrabaho.”
 
-**Look for clue signals.** Words such as *such as* and *including* can introduce examples. Words such as *however, unlike,* and *but* can signal contrast. Words such as *because, led to,* and *resulted in* can show cause and effect.
+Ano ang ipinahihiwatig ng pariralang naka-bold?
 
-**Say the nearby idea in simple words.** Then ask which meaning would fit every clue.
+**Solution:**
+1. Marami siyang mabibigat na suliranin at tungkulin.
+2. Hindi literal na bagay ang mundo na pasan niya.
+3. Ipinahihiwatig ng parirala ang matinding bigat ng kanyang mga alalahanin.
 
-**Use word parts as support, not proof.** A prefix or suffix can help, but the passage has the final say.
+### #11: Posibilidad at Aspekto
 
-**Sa Filipino, bantayan ang ugnayan ng mga salita.** Tingnan ang kasingkahulugan, kasalungat, paglalarawan, oras, posibilidad, at salitang tinutukoy ng panghalip o panuring.
+“Kahapon ay sumulat si Mara ng ulat. Ngayon ay sinusuri niya ito. Baka isumite niya ito bukas.”
+
+Aling kilos ang tapos na, at alin ang hindi pa tiyak?
+
+**Solution:**
+1. Ang *sumulat* at *kahapon* ay nagsasaad na tapos na ang pagsulat.
+2. Ang *sinusuri* at *ngayon* ay nagsasaad ng kasalukuyang kilos.
+3. Dahil sa *baka*, hindi pa tiyak ang pagsusumite bukas.
+
+### #12: Malinaw at Malabong Panghalip
+
+“Dumating si Mila dala ang susi. Siya ang nagbukas ng silid. Kinausap ni Mila si Rosa bago siya umalis.”
+
+Kanino tumutukoy ang unang “siya”? Tiyak ba ang tinutukoy ng huling “siya”?
+
+**Solution:**
+1. Si Mila lamang ang taong nabanggit bago ang unang *siya*. Siya ang nagbukas.
+2. Nabanggit na sina Mila at Rosa bago ang huling *siya*.
+3. Hindi tiyak kung sino ang umalis. Kailangan ng pangalan o dagdag na detalye upang luminaw ito.
+
+### #13: Puwesto ng Panuring
+
+“Si Mila lamang ang nagdala ng payong. Payong lamang ang dinala ni Rosa.”
+
+Ano ang magkaibang nililimitahan ng “lamang” sa dalawang pangungusap?
+
+**Solution:**
+1. Sa unang pangungusap, si Mila ang tanging taong nagdala ng payong.
+2. Sa ikalawa, payong ang tanging bagay na dinala ni Rosa.
+3. Nagbabago ang kahulugan batay sa salitang nililimitahan ng *lamang*.
+
+### #14: Baybay at Kahulugan
+
+“Bukas ang **pinto** ng silid. Sa loob, nagpipinta ang pintor ng tanawin.”
+
+Ano ang tinutukoy ng salitang naka-bold?
+
+**Solution:**
+1. Ang unang pangungusap ay tungkol sa bukas na dinaraanan sa silid.
+2. Ang *pintor* sa ikalawang pangungusap ang taong gumagawa ng larawan.
+3. Ang salitang naka-bold ay tumutukoy sa dinaraanan, hindi sa taong nagpipinta. Mahalaga ang huling titik sa pagkilala sa salita.
+
+### #15: Tanong, Utos, at Ulat
+
+“Dumating na ba ang liham?” tanong ni Ana. “Dalhin mo ito sa mesa kapag dumating,” sabi ni Leo.
+
+Pinatutunayan ba ng usapan na dumating na ang liham?
+
+**Solution:**
+1. Patanong ang unang pangungusap. Humihingi ito ng impormasyon.
+2. Pautos ang ikalawa. Sinasabi nito ang gagawin kapag dumating ang liham.
+3. Walang ulat na dumating na ito. Hindi pa iyon mapatutunayan mula sa usapan.
+
+## Reading Strategies
+
+Read around the word. A clue may come before the target, so do not look only at the next sentence.
+
+Try a short replacement meaning. Read the passage again with that meaning in place. Reject it if another detail no longer makes sense.
+
+Use word parts as extra evidence. Do not let a familiar prefix overrule a clear clue from the passage.
+
+Sa Filipino, pagsamahin ang kahulugan, aspekto, oras, at posibilidad. Suriin din kung sino ang tinutukoy ng panghalip at anong salita ang nililimitahan ng panuring.
 
 ## Traps to Watch For
 
-### #1: Checking Only the Same Sentence
+### #1: Reading Only One Sentence
 
-> The best clue may be a sentence before or after the unfamiliar word.
+> The clue may be elsewhere in the passage.
 
-Read farther when the first sentence is not enough. Passage-level questions often spread the clue across nearby sentences.
+Read nearby sentences before guessing. Examples or effects may explain what the first sentence leaves unclear.
 
-### #2: Missing a Contrast Signal
+### #2: Missing the Direction of a Contrast
 
-> A word such as *however* can reverse the direction of the clue.
+> A contrast clue points to an opposite meaning.
 
-If one part is hostile and the earlier part is contrasted with it, the unfamiliar word may describe the opposite idea.
+Check which part comes before *but* or *however*. Do not give the target word the meaning of the opposite description.
 
-### #3: Trusting a Word Part Too Much
+### #3: Trusting Word Parts Alone
 
-> A familiar prefix or suffix can help, but it does not guarantee the full meaning.
+> A possible word-part meaning still needs support from context.
 
-Some words changed meaning over time or use word parts in less obvious ways. Check the passage before choosing an answer.
+Similar letters do not always form the same root or prefix. The full passage must support your answer.
 
-### #4: Choosing a Meaning That Fits Only One Detail
+### #4: Pagbasa nang Literal Lamang
 
-> A strong answer should fit the whole nearby context.
+> Maaaring magpahayag ng damdamin ang isang larawang hindi literal.
 
-Reject a meaning if it matches one clue but conflicts with another sentence.
+Gamitin ang mga suliranin sa talata upang unawain ang “pasan ang buong mundo.” Huwag itong basahin bilang totoong pagbubuhat.
 
-### #5: Taking Nonliteral Filipino Language Literally
+### #5: Paggawang Tiyak sa Hindi Tiyak
 
-> Some phrases express an idea without using the words in their exact physical sense.
+> Hindi patunay ng pangyayari ang posibilidad o tanong.
 
-Use the situation and surrounding sentences to find the intended meaning, especially when a literal reading sounds impossible or strange.
+Ang *baka* ay hindi pangako. Ang tanong kung dumating na ang liham ay hindi ulat na dumating na ito.
