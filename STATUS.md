@@ -29,3 +29,15 @@ guard (written to catch a truncated chat rewrite) flagged the two lessons that s
 (bill of rights, duties and prohibited acts). Later pushes compare with the split versions. The
 `REWRITE` placeholder comments raise the AI-TELL sweep count by 1 per lesson until rewritten.
 New question shortfall to 20: 14 lessons, about 240 questions in all.
+
+## October 25: pilot run 1 (Aedwon pasting, two ChatGPT accounts)
+
+- Rewritten and handed in: RW-001 to RW-005 (14 lessons; commits 34ecd529 to 11614784).
+- Read and handed in: RD-002 (3 RA 6713 lessons), RD-004 (3 comprehension lessons).
+- Not done: RW-006 (earth science) and the other read batches.
+- Blocker: in some chats the ChatGPT GitHub connector refused to create the `[relay]` issue
+  ("This tool call was blocked by OpenAI's safety checks"), before GitHub received it. Same
+  workflow succeeded in other chats, so it is intermittent or payload-specific. The chats stopped
+  as instructed and did not work around it. Do not retry around the check; the lead designs a
+  path that does not carry file writes in issue bodies.
+- Next: lead reviews the 14 rewrites and 6 reads after the Claude usage reset.
