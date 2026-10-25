@@ -8,8 +8,12 @@ void main() {
     final pubspec =
         loadYaml(File('pubspec.yaml').readAsStringSync()) as YamlMap;
     final flutter = pubspec['flutter'] as YamlMap;
-    final assets = (flutter['assets'] as YamlList)
-        .map((asset) => asset as String)
+    final entries = flutter['assets'] as YamlList;
+    final assets = entries
+        .map(
+          (asset) =>
+              asset is String ? asset : (asset as YamlMap)['path'] as String,
+        )
         .toList(growable: false);
 
     expect(
@@ -22,5 +26,19 @@ void main() {
     );
     expect(assets, isNot(contains('assets/seed/v1.json')));
     expect(assets, isNot(contains('assets/seed/')));
+
+    for (final path
+        in assets.where((path) => path.startsWith('assets/seed/'))) {
+      final entry = entries.whereType<YamlMap>().singleWhere(
+            (entry) => entry['path'] == path,
+          );
+      expect(
+        entry['platforms'],
+        unorderedEquals(
+          <String>['android', 'ios', 'linux', 'macos', 'windows'],
+        ),
+        reason: '$path must remain native-only',
+      );
+    }
   });
 }

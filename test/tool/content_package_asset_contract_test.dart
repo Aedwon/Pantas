@@ -1,18 +1,23 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yaml/yaml.dart';
 
 void main() {
   test('Flutter ships only the immutable protected content package assets', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
     final gitignore = File('.gitignore').readAsStringSync();
+    final flutter = (loadYaml(pubspec) as YamlMap)['flutter'] as YamlMap;
+    final assets = (flutter['assets'] as YamlList).map(
+      (asset) => asset is String ? asset : (asset as YamlMap)['path'] as String,
+    );
 
     for (final path in <String>[
       'assets/seed/content.db',
       'assets/seed/content.manifest.json',
       'assets/seed/content.manifest.sig',
     ]) {
-      expect(pubspec, contains('- $path'));
+      expect(assets, contains(path));
       expect(gitignore, contains(path));
     }
 

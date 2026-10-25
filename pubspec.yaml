@@ -108,9 +108,13 @@ flutter:
     - assets/fonts/OFL-Geist.txt
     - assets/fonts/phosphor/LICENSE
     - content/exams/catalog.json
-    - assets/seed/content.db
-    - assets/seed/content.manifest.json
-    - assets/seed/content.manifest.sig
+    # Web fetches content from the server and never installs the native package.
+    - path: assets/seed/content.db
+      platforms: [android, ios, linux, macos, windows]
+    - path: assets/seed/content.manifest.json
+      platforms: [android, ios, linux, macos, windows]
+    - path: assets/seed/content.manifest.sig
+      platforms: [android, ios, linux, macos, windows]
   fonts:
     - family: Geist
       fonts:
