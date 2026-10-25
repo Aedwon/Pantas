@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+  "lesson-philippine-constitution-bill-of-rights",
+  "lesson-philippine-constitution-the-articles-in-outline"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "3971cfe2a7122ed4066107870c2c3902f0d1622f",
+  "lesson-philippine-constitution-bill-of-rights": "3971cfe2a7122ed4066107870c2c3902f0d1622f",
+  "lesson-philippine-constitution-the-articles-in-outline": "3971cfe2a7122ed4066107870c2c3902f0d1622f"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "da44809d4fbb7ecb3c0cd07e180d5d040c1413701333172daad9c774319d0112",
+  "lesson-philippine-constitution-bill-of-rights": "4bf95a789d5d65153d0ce3c2d28e6c54615660e529037abc5d8adc451f06a67c",
+  "lesson-philippine-constitution-the-articles-in-outline": "0fa8b9f630a8f9f77e971a67cee5641cfa4d1f0dc055444690532fabad98018e"
+ },
+ "paths": {
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "content/lessons/general-information/philippine-constitution/bill-of-rights-the-accused-and-the-trial.md",
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+  "lesson-philippine-constitution-the-articles-in-outline": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md"
+ },
+ "id": "RD-048",
+ "type": "read",
+ "created": "2026-10-25T19:32:42+00:00"
+}
