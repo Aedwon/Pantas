@@ -29,27 +29,28 @@ Check your rule against every shown step. Then test each answer choice against a
 
 An **interleaved pattern** mixes two separate patterns. Read the first, third, fifth, and later odd positions as one series. Read the second, fourth, sixth, and later even positions as another.
 
-When the feature is a count, write the counts as a number sequence. For example, pictures with $2$, $4$, and $6$ dots give the sequence $2, 4, 6$. Adding $2$ each time is an arithmetic sequence, a number sequence with the same amount added at each step.
+When the feature is a count, write the counts as a number sequence. Pictures with $2$, $4$, and $6$ dots give the sequence $2, 4, 6$. Adding the same amount each time makes an **arithmetic sequence**.
 
-You can use this count check in number-sequence questions too. The pictures do not change the number rule. Still check the given terms and choices instead of assuming every count series adds the same amount.
+You can use this count check in number-sequence questions too. The pictures do not change the number rule. Still check all the terms instead of assuming every count series adds the same amount.
 
 ## Examples
 
 ### #1: Constant Rotation
 
-A marked arrow points up, then upper-right, then right. It keeps turning by the same amount clockwise. Which way should it point next?
+An arrow points up, then upper-right, then right, then lower-right. Which direction completes the series: down, left, up, or lower-left?
 
-<!-- ILLUSTRATION: three equal frames containing arrows pointing up, upper-right, and right, followed by a blank frame -->
+<!-- ILLUSTRATION: four equal frames containing arrows pointing up, upper-right, right, and lower-right, followed by a blank; choices are arrows pointing down, left, up, and lower-left -->
 
 **Solution:**
 
-The arrow turns $45^\circ$ clockwise each time. The next arrow points lower-right.
+1. Each arrow turns $45^\circ$ clockwise from the one before it.
+2. Turn the lower-right arrow another $45^\circ$ clockwise. The next arrow points down.
 
 ### #2: Increasing Number of Sides
 
-A triangle is followed by a square, then a pentagon. The number of sides rises by the same amount each time. What figure comes next?
+A triangle is followed by a square, then a pentagon. Which figure completes the series: a circle, a triangle, a hexagon, or an octagon?
 
-<!-- ILLUSTRATION: a triangle, a square, and a pentagon in separate frames, followed by a blank frame -->
+<!-- ILLUSTRATION: a triangle, a square, and a pentagon in separate frames, followed by a blank; choices circle, triangle, hexagon, and octagon -->
 
 **Solution:**
 
@@ -58,17 +59,18 @@ A triangle is followed by a square, then a pentagon. The number of sides rises b
 
 ### #3: Alternating Fill
 
-A black circle is followed by a white circle, then a black circle. What comes next if the fill keeps alternating?
+The series shows a black circle, a white circle, a black circle, and a white circle. What figure comes next?
 
-<!-- ILLUSTRATION: a black circle, a white circle with a black outline, and a black circle, followed by a blank frame -->
+<!-- ILLUSTRATION: a black circle, a white circle with a black outline, a black circle, and a white circle with a black outline, followed by a blank frame -->
 
 **Solution:**
 
-The fill switches black, white, black. The next figure is a white circle.
+1. The shape stays a circle. Its fill switches between black and white.
+2. After the white circle comes a black circle.
 
 ### #4: Two Features and Answer Choices
 
-The available sizes, from smallest to largest, are small, medium, large, and extra large. Each figure uses the next larger size, and the fill alternates. The series shows a small black triangle, a medium white triangle, then a large black triangle. Which choice completes the series?
+The available sizes, from smallest to largest, are small, medium, large, and extra large. The series shows a small black triangle, a medium white triangle, then a large black triangle. Which choice completes the series?
 
 - A. Extra-large white triangle
 - B. Extra-large black triangle
@@ -85,42 +87,43 @@ The available sizes, from smallest to largest, are small, medium, large, and ext
 
 ### #5: Changing Position
 
-A dot moves from the top-left corner of a square to the top-right, bottom-right, then bottom-left corner. It keeps moving to the next corner clockwise. Where will it appear next?
+A dot appears at the top-left, top-right, bottom-right, then bottom-left corner of a square frame. At which corner should the dot appear next?
 
 <!-- ILLUSTRATION: five equal square frames, dots at top-left, top-right, bottom-right, bottom-left, then a blank fifth frame -->
 
 **Solution:**
 
-The dot has reached every corner in clockwise order. Its next move returns it to the top-left corner.
+1. The dot moves to the next corner clockwise at each step.
+2. After bottom-left, the next corner clockwise is top-left. The dot returns there.
 
 ### #6: Growing Turns
 
-An arrow starts pointing up. Its clockwise turns grow by $45^\circ$ each time. The shown arrows point up, upper-right, lower-right, then down-left. Which way will the next arrow point?
+The arrows in a series point up, upper-right, lower-right, then lower-left. Which direction completes the series: down, up, upper-right, or upper-left?
 
-<!-- ILLUSTRATION: arrows pointing up, upper-right, lower-right, and down-left in four equal frames, followed by a blank; label the shown clockwise turns 45 degrees, 90 degrees, and 135 degrees -->
+<!-- ILLUSTRATION: arrows pointing up, upper-right, lower-right, and lower-left in four equal frames, followed by a blank; choices arrows pointing down, up, upper-right, and upper-left; do not label turn angles -->
 
 **Solution:**
 
-1. The shown turns are $45^\circ$, $90^\circ$, and $135^\circ$. They grow by $45^\circ$.
-2. The next turn is:
+1. Compare each arrow with the next. The clockwise turns are $45^\circ$, $90^\circ$, and $135^\circ$.
+2. These turns grow by $45^\circ$. The next turn is:
 
 $$135^\circ+45^\circ=180^\circ$$
 
-3. A $180^\circ$ turn takes the down-left arrow halfway around. It will point upper-right.
+3. A $180^\circ$ turn takes the lower-left arrow halfway around. It will point upper-right.
 
 ### #7: Two Mixed Patterns
 
-A series follows these rules: the odd positions show circles with $1$ more dot each time; the even positions show squares whose fill alternates. The figures are a circle with $1$ dot, a white square, a circle with $2$ dots, a black square, a circle with $3$ dots, a white square, a circle with $4$ dots, then a blank. What belongs in the blank?
+The series shows a circle with $1$ dot, a white square, a circle with $2$ dots, and a black square. These are followed by a circle with $3$ dots, a white square, a circle with $4$ dots, and a blank. What belongs in the blank?
 
 <!-- ILLUSTRATION: eight labeled positions in reading order, 1 outlined circle with 1 dot, 2 white square, 3 outlined circle with 2 dots, 4 black square, 5 outlined circle with 3 dots, 6 white square, 7 outlined circle with 4 dots, 8 blank; keep dots clearly visible inside circles -->
 
 **Solution:**
 
-1. Read the odd positions together. Their dot counts are $1, 2, 3, 4$.
-2. Read the even positions together. Their fills are white, black, white.
-3. Position $8$ is even. The next square is black because the even-position fill keeps alternating.
+1. The shapes switch between circles and squares. Read the odd positions together: their dot counts are $1, 2, 3, 4$.
+2. Read the even positions together. They are squares with fills white, black, white.
+3. Position $8$ is even. A black square continues its fill pattern.
 
-Splitting the series keeps the dot-count rule separate from the fill rule. The blank does not need another circle just because it follows a circle.
+Splitting the series keeps the dot-count rule separate from the fill rule. The blank follows the square pattern even though a circle comes just before it.
 
 ## Traps to Watch For
 
@@ -128,13 +131,13 @@ Splitting the series keeps the dot-count rule separate from the fill rule. The b
 
 > Check every shown step before choosing an answer.
 
-A short series may fit more than one rule. Use the stated conditions and answer choices to check your answer. Do not ignore a shown figure that breaks your rule.
+A short series may fit more than one rule. Use the given figures and choices to check your answer. Do not ignore a shown figure that breaks your rule.
 
 ### #2: Tracking Only One Feature
 
 > Check size, fill, count, position, and direction separately.
 
-A choice may have the right fill but the wrong size. Combine the results only after checking each changing feature.
+A choice may have the right fill but the wrong size. Combine the results after checking each changing feature.
 
 ### #3: Assuming Every Turn Is Equal
 
@@ -146,7 +149,7 @@ Some series use equal turns. Others use growing turns, as in Example $6$. Repeat
 
 > Use size levels shown or defined in the question.
 
-Small, medium, and large alone do not name a next size. Example $4$ defines extra large and says to use the next larger size.
+Small, medium, and large alone do not name a next size. Example $4$ supplies extra large as the next available size. Check the fill too before choosing it.
 
 ### #5: Missing Two Mixed Patterns
 

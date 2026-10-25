@@ -33,15 +33,17 @@ An uneven fold may leave some paper uncovered. A punch there cuts fewer layers t
 
 ### #1: Cut on One Fold Line
 
-A square is folded vertically in half. A triangular notch is cut into the folded edge at its midpoint. The triangle has its base on that edge and its tip inside the folded paper. What opening appears when the sheet is opened?
+A square is folded vertically in half, with its left half placed on its right half. A triangular notch is cut through both layers at the midpoint of the folded edge. Its base lies on the fold, and its tip points straight right from the middle of that base.
 
-<!-- ILLUSTRATION: square folded left half onto right half; triangular notch at midpoint of vertical folded edge, with base on fold and tip pointing right; unfolded square has one diamond-shaped opening centered on fold -->
+The triangle's two sloping sides have equal length. What opening appears when the sheet is opened?
+
+<!-- ILLUSTRATION: square folded left half onto right half; isosceles triangular notch at midpoint of vertical folded edge, base on fold and tip directly right of base midpoint, with equal-length sloping sides; unfolded square has one diamond-shaped opening with four equal sides centered on fold -->
 
 **Solution:**
 
-1. The triangle touches the folded edge along its base.
-2. Opening the fold adds a left-pointing mirror copy to the right-pointing triangle.
-3. The copies meet along their bases. They form one diamond-shaped opening, not $2$ separate holes.
+1. The triangle touches the folded edge along its base. Its tip is directly across from the middle of that base.
+2. Opening the fold adds a left-pointing mirror copy. Its tip is the same distance from the fold as the right-pointing tip.
+3. The copies join along their bases. They form one diamond-shaped opening with $4$ equal sides.
 
 ### #2: Interior Hole Away from Two Fold Lines
 
@@ -57,14 +59,16 @@ A square is folded vertically in half, then horizontally in half. A small circul
 
 ### #3: Cut at Both Fold Lines
 
-A square is folded vertically in half, then horizontally in half. A small quarter-circle is cut from the corner where the two folded edges meet. Its center is that corner. What opening appears when the sheet is opened?
+A square is folded vertically in half, then horizontally in half. A small quarter-circle is cut through all layers from the corner where the two folded edges meet. Its center is that corner.
+
+What opening appears when the sheet is opened?
 
 <!-- ILLUSTRATION: square folded left onto right, then bottom onto top; remove a quarter-circle from the packet corner formed by both folded edges, with arc centered at that corner; first unfolding shows a semicircular cut on remaining fold, full unfolding shows one circular center opening -->
 
 **Solution:**
 
 1. The cut touches both folded edges. Its corner is at the center of the original square.
-2. Open the horizontal fold. The quarter-circle and its mirror copy join to make a semicircle.
+2. Open the horizontal fold. The quarter-circle and its mirror copy join to make a semicircle, or half a circle.
 3. Open the vertical fold. The semicircle joins its mirror copy to make one circular opening at the center.
 
 The cut goes through all the layers. The pieces join at the folds, so the result is one opening.
@@ -86,7 +90,9 @@ $$2^3=8$$
 
 ### #5: A Punch Through Only Some Layers
 
-A rectangular sheet is $12$ centimeters wide and $6$ centimeters tall. Its leftmost $4$-centimeter strip is folded right along a vertical line $4$ centimeters from the left edge. A small hole is punched $10$ centimeters from the original left edge and $3$ centimeters from the bottom. How many holes appear when the paper is opened, and where?
+A rectangular sheet is $12$ centimeters wide and $6$ centimeters tall. Its leftmost $4$-centimeter strip is folded right along a vertical line $4$ centimeters from the left edge.
+
+A small hole is punched $10$ centimeters from the original left edge and $3$ centimeters from the bottom. How many holes appear when the paper is opened, and where?
 
 <!-- ILLUSTRATION: rectangle 12 cm wide and 6 cm tall with vertical fold at 4 cm from left edge; arrow folds leftmost 4 cm strip right onto region from 4 cm to 8 cm; show two layers between 4 cm and 8 cm and one layer between 8 cm and 12 cm; punch at 10 cm from original left edge and 3 cm from bottom; unfolded sheet shows only that one hole -->
 
