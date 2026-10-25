@@ -15,11 +15,13 @@ Poems do not have to rhyme. They can state an idea directly. Do not assume that 
 
 ### Words, Lines, and Images
 
-A poem's line breaks can make readers pause or notice a word. Sentence order and word choice also affect meaning. Read across a line break when the sentence continues into the next line.
+A poem's line breaks can make readers pause or notice a word. A **stanza** is a group of lines set apart from other groups, often by a blank line. Read across a line break when the sentence continues into the next line.
 
-**Figurative language** describes something through a comparison or another meaning beyond the plain words. A **simile** compares unlike things using words such as “like” or “as.” Those words count only when they make a comparison.
+Sentence order and word choice also affect meaning. **Figurative language** describes something through a comparison or another meaning beyond the plain words.
 
-A **metaphor** presents one thing as another without an explicit comparison word. “Time is a thief” treats time as something that takes from us. A sentence can lack “like” and “as” without containing a metaphor.
+A **simile** compares unlike things using words such as “like” or “as.” Those words count only when they make a comparison.
+
+A **metaphor** presents one thing as another without a comparison word. “Time is a thief” treats time as something that takes from us. A sentence can lack “like” and “as” without containing a metaphor.
 
 **Personification** gives something nonhuman a human action, feeling, or purpose. “The wind begged to enter” gives wind the human act of begging.
 
@@ -29,7 +31,9 @@ A **symbol** is something that stands for a wider idea in the text. Repeated ima
 
 ### Rhyme and Other Sounds
 
-**Rhyme** repeats matching sounds, usually from the last stressed vowel onward. It depends on sound, not spelling. “Blue” and “through” rhyme despite their different spellings.
+**Rhyme** occurs when words have matching ending sounds, as in “cat” and “hat.” It depends on sound, not spelling. “Blue” and “through” rhyme despite their different spellings.
+
+For longer words, listen from the last part said with extra force through the end. That extra force is called **stress**. In “singing” and “ringing,” the first parts receive stress, and the sounds from those parts onward match.
 
 A **rhyme scheme** shows the pattern of rhyming line endings. Give the first ending the letter A. Reuse A for a matching sound, and use B for a new one.
 
@@ -41,7 +45,7 @@ A **rhyme scheme** shows the pattern of rhyming line endings. Give the first end
 
 **Consonance** repeats consonant sounds in nearby words, often within or at the ends of words. “Blank ink” repeats the ending “nk” sounds. These sound patterns can overlap.
 
-**Rhythm** is the pattern of beats or movement in a poem's language. Repeated sounds, word stress, and pauses can shape it. Some poems use a steady beat, while others vary it.
+**Rhythm** is the pattern of beats or movement in a poem's language. Repeated sounds, stress, and pauses can shape it. Some poems use a steady beat, while others vary it.
 
 ### Tone and Meaning
 
@@ -106,13 +110,13 @@ What kind of rhyme appears within Line A? How do the endings “shape” and “
 
 ### #6: Repeated Sounds
 
-Consider these phrases: “soft sea sounds,” “slow boats float,” and “blank ink.” Which sound pattern is most clearly shown by each?
+Consider these phrases: “soft sea sounds,” “slow boats float,” and “blank ink.” What pattern appears in the opening consonants of the first phrase, the vowels of the second, and the ending consonants of the third?
 
 **Solution:**
 
 1. “Soft sea sounds” repeats an opening consonant sound. It shows alliteration.
 2. “Slow boats float” repeats a vowel sound. It shows assonance.
-3. “Blank ink” repeats ending consonant sounds. It shows consonance. A phrase may show more than one sound pattern, so name the one the question asks about.
+3. “Blank ink” repeats ending consonant sounds. It shows consonance. A phrase may show more than one sound pattern, so focus on the sounds the question names.
 
 ### #7: Images and a Shift in Tone
 
@@ -134,6 +138,26 @@ A poem reads: “We must protect the river” on one line and “before its song
 
 1. The first line directly calls for protecting the river. The next line gives a reason to act soon.
 2. Read the lines together as one sentence. The break gives the call to act its own space, but it does not end the thought.
+
+### #9: An Image Used as a Symbol
+
+“Each evening I light the lamp by the gate. Though the road stays empty, I keep its flame alive. There is still a place for you here.”
+
+What does the lamp most likely symbolize in this passage?
+
+**Solution:**
+
+1. The speaker keeps the lamp lit even when no one arrives. The last line connects that action to welcoming someone back.
+2. The lamp stands for the speaker's continued hope for the person's return. The surrounding lines support this meaning beyond a lamp's plain use for light.
+
+### #10: Rhythm without Rhyme
+
+Read the line “We knock. We wait. We knock again.” How do the repeated words and short sentences affect its rhythm?
+
+**Solution:**
+
+1. “We knock” repeats, and the full stops create pauses. The line moves through short, separate beats.
+2. These beats suggest repeated action and waiting. The effect comes from repetition and pauses, even without a rhyme pattern.
 
 ## Reading Strategies
 

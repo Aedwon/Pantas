@@ -11,9 +11,9 @@ isActive: true
 
 Texts can share features. To **classify** a text means to name the type it belongs to. Ask what it mainly does and whose view it gives.
 
-An **essay** develops an idea or experience. A personal essay reflects on the writer's life. An expository essay explains a subject.
+An **essay** develops an idea or experience. In a personal essay, the writer reflects on a life event. An expository essay explains a subject.
 
-An analytical essay studies how parts of something work together. An argumentative essay supports a claim with reasons. Essays may combine these purposes.
+Some essays study how parts of something work together. These are analytical essays. An argumentative essay supports a claim with reasons, and essays may combine these purposes.
 
 An **editorial** gives a publication's view, often through its editorial board. A **column, op-ed, or commentary** gives an individual writer's view. Both can support a position with facts and reasons.
 
@@ -29,7 +29,7 @@ Some texts mix facts, explanations, and judgments. Read the whole passage to fin
 
 ### Pagkilala sa Tekstong Filipino
 
-Ang **tekstong nagbibigay-impormasyon** ay naglalahad o nagpapaliwanag ng mga detalye. Ang **tekstong nagpapahayag ng opinyon** ay nagbibigay ng pananaw at mga dahilan para rito. Maaaring gumamit ng mga totoong detalye ang dalawang uri.
+Ang **tekstong nagbibigay-impormasyon** (informational text) ay naglalahad o nagpapaliwanag ng mga detalye. Ang **tekstong nagpapahayag ng opinyon** (opinion text) ay nagbibigay ng pananaw at mga dahilan para rito. Maaaring gumamit ng mga totoong detalye ang dalawang uri.
 
 Tingnan kung kanino galing ang pahayag. Ang opinyong sinipi sa isang balita ay hindi agad opinyon ng sumulat ng balita. Basahin ang buong teksto upang malaman ang pangunahing layunin nito.
 
@@ -115,7 +115,18 @@ What is the main function of the passage?
 1. The passage combines reported facts with an explanation of what they may mean.
 2. Its main function is analysis. The label supports this reading, and the passage does not mainly argue for an action.
 
-### #8: Balita o Opinyon?
+### #8: A Strong Opinion in a News Report
+
+“The council approved the parking plan on Tuesday. ‘This unfair plan should be canceled,’ said resident Rosa Lim. The transport office said it would review complaints before the plan takes effect.”
+
+Does the quoted statement make this excerpt an opinion piece? Explain using the passage.
+
+**Solution:**
+
+1. The words “said resident Rosa Lim” show whose opinion is quoted. The call to cancel the plan belongs to Lim.
+2. The passage reports the council's action, Lim's response, and the office's reply. Its main purpose is news reporting. It does not ask readers to adopt Lim's view.
+
+### #9: Balita o Opinyon?
 
 Teksto A: “Ayon sa abiso ng munisipyo, sarado ang silid-aklatan sa Lunes dahil sa pagkukumpuni.”
 
