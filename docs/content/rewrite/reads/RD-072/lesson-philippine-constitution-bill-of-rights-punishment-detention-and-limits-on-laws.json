@@ -1,0 +1,264 @@
+{
+ "batch": "RD-072",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights-punishment-detention-and-limits-on-laws.md",
+ "lesson_sha256": "17882b3845421251b274c604c1a329e646058cd61bd5a41aed7c56da40b625ab",
+ "rewrite_commit": "c6e3f2319919a6d422853959de01a49005bad727",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws",
+  "role": "A",
+  "lesson_sha256": "17882b3845421251b274c604c1a329e646058cd61bd5a41aed7c56da40b625ab",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Republic Act No. $9346$ prohibits imposing the death penalty.",
+      "problem": "The prompt supplies no source text confirming the current statutory rule, replacement penalties, parole provision, or procedural exceptions. These cannot be source-verified in this prompt-only review; no affirmative claim of falsehood is made."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 political-belief detention protection; #2 yes, due-conviction exception; #3 excessive-fines prohibition; #4 no death penalty under RA 9346; #5 no imprisonment solely for debt; #6 double jeopardy; #7 no, filing without plea is insufficient; #8 second homicide trial barred; #9 ordinance prosecution barred; #10 ex post facto; #11 ex post facto; #12 bill of attainder; #13 establish conduct and evidence, compare detainee protections and proper process; #14 lost liberty and family income; #15 discuss habeas corpus. These agree with the solutions; statutory currency remains the separate B01 concern."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omitting Speed Tricks. The brief requires no figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Legal terms such as arraignment, acquittal, parole, and penal receive plain glosses; the surrounding explanations use short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use ordinary instruction words rather than unexplained exam-specific verbs.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Questions directly ask constitutional identification or application questions. They supply case facts without giving a formula or an answer method; solutions explain the relevant rule plainly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repetitive exam claims or test-maker openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and contains no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and contains no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and contains no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and contains no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and contains no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question tests a target word or refers to underlining or bold type.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the actual scope; sentence openings vary and none of the listed stock AI phrases occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted three-section layout. No computational formula is used in any example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Its replacement penalty depends on the penalty names used by the violated law.",
+      "problem": "The lesson teaches a distinct statutory choice between reclusion perpetua and life imprisonment, but Example 4 stops at banning death. No worked case selects either replacement from the law's penalty terminology, despite this being part of the added statutory-penalty teaching."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution is a numbered list with no unnumbered instruction before it. No key numerical computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this constitutional lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs contain at most three sentences. There are no prose bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or figure-dependent questions occur.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Involuntary servitude, degrading punishment, heinous, reclusion perpetua, life imprisonment, parole, poll tax, arraignment, acquittal, included offense, penal, ex post facto, bill of attainder, habeas corpus, and quasi-judicial body receive local meanings before examples use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The text explains how double jeopardy attaches and includes lesser offenses, how retroactive harmful penal changes operate, how legislative punishment differs from trial, and how evidence, court remedies, and CHR investigation address violations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Political detention is qualified by solely; forced service requires conviction; debt is separated from fraud; statutory and constitutional death rules are separated. Double-jeopardy attachment, dismissal, included-offense, later graver-offense, and law/ordinance conditions are described; retroactivity is limited to harmful penal change."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-bill-of-rights|B03|0": {
+    "status": "fixed",
+    "quote": "An unrelated lawful ground for detention must be examined separately.",
+    "note": "Traps to Watch For is now present; shortcuts are optional."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L25|0": {
+    "status": "fixed",
+    "quote": "A **quasi-judicial body** is an agency outside the courts that hears facts and decides certain disputes.",
+    "note": "All five requested legal terms now have local plain explanations."
+   },
+   "general-information-philippine-constitution#47": {
+    "status": "fixed",
+    "quote": "This does not excuse a separate crime.",
+    "note": "The solely-political-belief rule and its limit are applied in Example 1."
+   },
+   "general-information-philippine-constitution#48": {
+    "status": "fixed",
+    "quote": "It allows an exception when the service is punishment for a crime after due conviction.",
+    "note": "The conviction exception is explained and applied in Example 2."
+   },
+   "general-information-philippine-constitution#49": {
+    "status": "fixed",
+    "quote": "Section $19$ forbids excessive fines and cruel, degrading, or inhuman punishment.",
+    "note": "Excessive fines are taught and applied; statutory penalty replacement is also explained."
+   },
+   "general-information-philippine-constitution#50": {
+    "status": "fixed",
+    "quote": "A lawful conviction does not give officials permission to abuse a prisoner.",
+    "note": "Cruel and degrading treatment, facilities, and statutory penalties are developed."
+   },
+   "general-information-philippine-constitution#53": {
+    "status": "fixed",
+    "quote": "Conviction or acquittal under either bars another prosecution under the other for the same act.",
+    "note": "Attachment, same offense, included offenses, and law/ordinance conditions are taught."
+   },
+   "general-information-philippine-constitution#54": {
+    "status": "fixed",
+    "quote": "It may make an earlier lawful act a crime or increase punishment after an offense was committed.",
+    "note": "Meaning and two distinct harmful backward changes receive examples."
+   },
+   "general-information-philippine-constitution#55": {
+    "status": "fixed",
+    "quote": "The legislature imposes punishment itself.",
+    "note": "Meaning is explained and Example 12 applies direct legislative punishment."
+   },
+   "general-information-philippine-constitution#56": {
+    "status": "fixed",
+    "quote": "Use available evidence, such as records, witness accounts, or medical findings.",
+    "note": "Analysis now requires evidence, rule matching, responsibility, and process."
+   },
+   "general-information-philippine-constitution#57": {
+    "status": "fixed",
+    "quote": "Unlawful detention may stop a person from working or caring for family.",
+    "note": "Personal and family effects are explained and worked in Example 14."
+   },
+   "general-information-philippine-constitution#58": {
+    "status": "fixed",
+    "quote": "A person may seek a lawyer or legal aid and ask a court for the proper remedy.",
+    "note": "Legal aid, habeas corpus, and CHR functions provide protection methods."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L26|0": {
+    "status": "fixed",
+    "quote": "Check how the first case began and ended.",
+    "note": "Double jeopardy now has an operating explanation and worked applications."
+   }
+  }
+ }
+}
