@@ -1,127 +1,171 @@
 ---
 _id: "lesson-grammar-and-structure-filipino-verb-aspect-and-focus"
 title: "Verb Aspect and Focus in Filipino / Aspekto at Pokus ng Pandiwa"
-summary: "Learn how Filipino verb forms show aspect, time clues, and the relation between the verb and the sentence topic."
+summary: "Kilalanin ang aspekto ng pandiwa, gamitin ang mga pahiwatig ng oras, at tukuyin ang pokus nito."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 12
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-### Sa Filipino: Aspekto (Aspect) at Pokus (Voice/Focus) ng Pandiwa
+### Aspekto ng Pandiwa
 
-Ang **aspekto** ay nagsasabi kung ang kilos ay tapos na, nangyayari pa, gagawin pa, o katatapos lamang. Hindi ito kapareho ng English tense. Tingnan ang anyo ng pandiwa at ang kahulugan ng buong pangungusap.
+Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Ipinapakita ng **aspekto** (aspect) kung tapos na, nagpapatuloy, gagawin pa, o katatapos lamang ang kilos. Suriin ang anyo ng pandiwa at ang kahulugan ng pangungusap.
 
-Karaniwang itinuturo ang apat na anyo:
+Ang **perpektibo** (completed/perfective) ay kilos na natapos na: *Naglinis si Carlo.* Ang **imperpektibo** (ongoing/imperfective) ay kilos na nagsimula na at nagpapatuloy: *Naglilinis si Carlo.* Maaari rin itong magpakita ng paulit-ulit na gawain: *Naglilinis siya tuwing Sabado.*
 
-- **Perpektibo** (completed/perfective): tapos na ang kilos. Halimbawa: *Kumain si Liza kahapon.*
-- **Imperpektibo** (ongoing/imperfective): nagsimula na at nagpapatuloy ang kilos. Halimbawa: *Kumakain si Liza ngayon.*
-- **Kontemplatibo** (contemplated): hindi pa nangyayari ang kilos. Halimbawa: *Kakain si Liza mamaya.*
-- **Perpektibong katatapos** (recently completed): katatapos lamang ng kilos. Halimbawa: *Kakakain lang ni Liza.*
+Ang **kontemplatibo** (contemplated) ay kilos na hindi pa nasisimulan: *Maglilinis si Carlo.* Ang **perpektibong katatapos** (recently completed) ay kilos na katatapos lamang: *Kalilinis lang ni Carlo.* Hindi lahat ng natapos na kilos ay katatapos lamang.
 
-Upang tukuyin ang aspekto, hanapin muna ang pandiwa. Suriin ang **panlapi** (affix) at pag-uulit ng **pantig** (syllable). Pagkatapos, tingnan kung tapos na, nagpapatuloy, gagawin pa, o katatapos lamang ang kilos.
+### Pagbuo at Pagpili ng Anyo
 
-Hindi iisa ang hulma ng lahat ng pandiwa. Halimbawa, ang **ugat** (root) na *kain* ay nagiging *kumain, kumakain,* at *kakain*. Ibang ugat at panlapi ay maaaring magkaroon ng ibang pagbabago, kaya huwag gumawa ng iisang tuntunin para sa lahat ng pandiwa.
+Ang **ugat** (root) ang batayang salita, gaya ng *linis*. Ang **panlapi** (affix) ay idinaragdag sa ugat, gaya ng *mag-* at *nag-*. Ang **pantig** (syllable) ay bahagi ng salitang binibigkas nang isang bugso, gaya ng *li* sa *linis*.
 
-Ang **pang-abay na pamanahon** (time adverb) ay nagsasabi kung kailan nangyari ang kilos. Ang *kahapon, kanina, ngayon, mamaya,* at *bukas* ay maaaring tumulong sa pagtukoy ng oras, pero ang anyo ng pandiwa ang mahalagang palatandaan ng aspekto.
+Sa pangkat na *maglinis*, gamitin ang *nag-* para sa natapos: *naglinis*. Para sa nagpapatuloy, gamitin ang *nag-* at ulitin ang unang pantig ng ugat: *naglilinis*. Para sa gagawin pa, gamitin ang *mag-* at ulitin ang unang pantig: *maglilinis*.
 
-Maaaring ilagay ang pang-abay na pamanahon sa unahan o malapit sa pandiwa, depende sa pangungusap. Halimbawa, pareho ang pangunahing oras sa *Kahapon ay nag-aral si Mia* at *Nag-aral si Mia kahapon.*
+Iba ang pangkat na *kumain*. Ipasok ang *-um-* pagkatapos ng unang katinig ng *kain* upang mabuo ang *kumain*. Sa nagpapatuloy, ulitin ang unang pantig ng ugat at panatilihin ang *-um-*: *kumakain*.
 
-Ang **pokus** ay nagpapakita ng ugnayan ng pandiwa at ng **paksa** (topic) ng pangungusap. Hanapin ang paksa, madalas na may *ang, ang mga, si,* o *sina*. Pagkatapos, itanong kung ano ang papel ng paksa sa kilos.
+Sa gagawin pa, ulitin ang unang pantig ng *kain* ngunit huwag gamitin ang *-um-*: *kakain*. Sa katatapos na kilos, maaaring gamitin ang *ka-* at pag-uulit: *kakakain lang*. Sa *dating*, ang anyong katatapos ay *kadarating lang*.
 
-Kung ang paksa ang gumagawa ng kilos, pokus sa **tagaganap** (actor/doer). Sa *Kumain ng mangga si Ana*, si Ana ang kumain.
+Piliin muna ang kahulugang kailangan. Pagkatapos, sundin ang pangkat ng ibinigay na pandiwa. Huwag ilipat ang hulma ng *maglinis* sa *kumain*: hindi *magkakain* ang katumbas ng *kakain* sa pangkat na ito.
 
-Kung ang paksa ang bagay na tinatamaan ng kilos, pokus sa **layon** (object). Sa *Kinain ni Ana ang mangga*, ang mangga ang bagay na kinain.
+### Mga Pahiwatig ng Oras
 
-May iba pang ugnayan, tulad ng **ganapan** (location), **tagatanggap** (recipient), **kagamitan** (instrument), **sanhi** (cause), at **direksiyon** (direction). Ang paraan ay pareho: hanapin ang paksa at alamin ang papel nito sa kilos.
+Ang **pang-abay na pamanahon** (time adverb) ay nagsasabi kung kailan ang kilos. Maaaring gamitin ang *kahapon* para sa nakaraang araw, *ngayon* para sa kasalukuyan, at *bukas* para sa susunod na araw.
+
+Maaaring mauna o mahuli ang pahiwatig: *Kahapon ay nag-aral si Mia.* Maaari ring sabihin: *Nag-aral si Mia kahapon.* Pareho ang oras ng kilos.
+
+Hindi oras lamang ang batayan ng aspekto. Sa *Nagluluto si Ana nang dumating ako kahapon*, nagpapatuloy ang pagluluto noong dumating ang nagsasalita. Imperpektibo ang *nagluluto* kahit may *kahapon*.
+
+### Pokus ng Pandiwa
+
+Ang **pokus** (voice/focus) ay ugnayan ng pandiwa sa **paksa** (topic) ng pangungusap. Madalas may *ang, ang mga, si,* o *sina* ang paksa. Hanapin ito at itanong kung ano ang papel nito sa kilos.
+
+Sa pokus sa **tagaganap** (actor), ang paksa ang gumagawa: *Nagluto ng sopas si Ramon.* Sa pokus sa **layon** (object), ang paksa ang bagay na ginawan ng kilos: *Niluto ni Ramon ang sopas.*
+
+Sa pokus sa **ganapan** (location), ang paksa ang lugar na ginanapan ng kilos: *Pinagtaniman nila ng gulay ang bakuran.* Sa pokus sa **tagatanggap** (beneficiary), ang paksa ang nakikinabang: *Ipinagluto ni Ana ng sopas ang bata.*
+
+Sa pokus sa **kagamitan** (instrument), ang paksa ang ginamit: *Ipinangsulat ni Ana ang lapis.* Sa pokus sa **sanhi** (cause), ito ang dahilan ng damdamin o pangyayari: *Ikinatuwa ni Ana ang balita.*
+
+Sa pokus sa **direksiyon** (direction), ang paksa ang pinuntahan: *Pinuntahan ni Ana ang munisipyo.* Hindi sapat na makakita ng lugar. Alamin kung doon ginawa ang kilos o iyon ang pinuntahan.
 
 ## Examples
 
-### #1: Tukuyin ang Perpektibong Aspekto
+### #1: Natapos na Kilos
 
-Sa pangungusap na "Naglinis ng silid si Carlo kahapon," anong aspekto ng pandiwang **naglinis**?
-
-**Solution:**
-
-1. Ang kilos na *naglinis* ay tapos na.
-2. Ang *kahapon* ay tugma sa kilos na natapos na.
-3. Ang **naglinis** ay nasa perpektibong aspekto.
-
-### #2: Tukuyin ang Imperpektibong Aspekto
-
-Sa pangungusap na "Nagsusulat pa ng liham si Bea ngayon," anong aspekto ng pandiwang **nagsusulat**?
+Sa “Naglinis ng silid si Carlo kahapon,” anong aspekto ng salitang nasa bold: **naglinis**?
 
 **Solution:**
 
-1. Nagsimula na ang pagsusulat at nagpapatuloy pa.
-2. Ang *pa* at *ngayon* ay tumutulong na ipakita na hindi pa tapos ang kilos.
-3. Ang **nagsusulat** ay nasa imperpektibong aspekto.
+1. Ang *nag-* sa pangkat na *maglinis* ay nagpapakita ng natapos na kilos.
+2. Tugma rito ang *kahapon*. Perpektibo ang salitang nasa bold.
 
-### #3: Tukuyin ang Kontemplatibong Aspekto
+### #2: Nagpapatuloy na Kilos
 
-Sa pangungusap na "Bibiyahe kami bukas ng umaga," anong aspekto ng pandiwang **bibiyahe**?
-
-**Solution:**
-
-1. Hindi pa nangyayari ang pagbiyahe.
-2. Ang *bukas ng umaga* ay nagsasabi ng oras na darating pa.
-3. Ang **bibiyahe** ay nasa kontemplatibong aspekto.
-
-### #4: Kilalanin ang Katatapos na Kilos
-
-Sa pangungusap na "Kadarating lang ng bus nang tumawag si Lea," ano ang ipinapakita ng **kadarating**?
+Sa “**Nagsusulat** pa ng liham si Bea ngayon,” ano ang aspekto ng salitang nasa bold?
 
 **Solution:**
 
-1. Nangyari na ang pagdating.
-2. Ang anyong *kadarating* at ang salitang *lang* ay nagpapakitang katatapos lamang ng kilos.
-3. Ang **kadarating** ay isang perpektibong katatapos na anyo.
+1. Nagsimula na ang pagsusulat ngunit hindi pa tapos.
+2. Ang *nag-* at pag-uulit ng *su* ay tugma rito. Imperpektibo ang pandiwa.
 
-### #5: Tukuyin ang Pokus sa Tagaganap
+### #3: Gagawin Pa
 
-Sa pangungusap na "Nagluto ng sopas si Ramon," ano ang pokus ng pandiwa?
-
-**Solution:**
-
-1. Ang paksa ay *si Ramon*.
-2. Si Ramon ang gumagawa ng kilos na *nagluto*.
-3. Ang pandiwa ay nasa pokus sa tagaganap.
-
-### #6: Tukuyin ang Pokus sa Layon
-
-Sa pangungusap na "Niluto ni Ramon ang sopas," ano ang pokus ng pandiwa?
+Sa “**Bibiyahe** kami bukas ng umaga,” ano ang aspekto ng salitang nasa bold?
 
 **Solution:**
 
-1. Ang paksa ay *ang sopas*.
-2. Ang sopas ang bagay na niluto.
-3. Ang pandiwa ay nasa pokus sa layon.
+1. Hindi pa nagsisimula ang biyahe.
+2. Ang anyong *bibiyahe* ay tumutukoy sa gagawin pa. Kontemplatibo ito.
+
+### #4: Katatapos Lamang
+
+Sa “**Kadarating** lang ng bus nang tumawag si Lea,” ano ang aspekto ng salitang nasa bold?
+
+**Solution:**
+
+1. Nangyari na ang pagdating bago tumawag si Lea.
+2. Ang anyo ng pandiwa at *lang* ay nagsasabing katatapos lamang nito. Perpektibong katatapos ang aspekto.
+
+### #5: Magkaibang Hulma
+
+Punan ang mga patlang gamit ang anyong kontemplatibo ng *maglinis* at *kumain*: “Bukas ay ___ kami ng silid. Pagkatapos ay ___ kami.”
+
+**Solution:**
+
+1. Hindi pa nasisimulan ang mga kilos. Kailangan ang kontemplatibo.
+2. Sa *maglinis*, panatilihin ang *mag-* at ulitin ang *li*: *maglilinis*.
+3. Sa *kumain*, alisin ang *-um-* at ulitin ang *ka*: *kakain*.
+4. Ang sagot ay “Bukas ay maglilinis kami ng silid. Pagkatapos ay kakain kami.”
+
+### #6: Pumili at Maglipat ng Pahiwatig
+
+Piliin ang angkop na salita: “(Kahapon, Bukas) ay magsusumite si Liza ng ulat.” Pagkatapos, ilipat sa hulihan ang pahiwatig ng oras.
+
+**Solution:**
+
+1. Ang *magsusumite* ay kilos na gagawin pa. Piliin ang *bukas*.
+2. Kapag nasa hulihan ang pahiwatig: “Magsusumite si Liza ng ulat bukas.” Hindi nagbago ang oras ng kilos.
+
+### #7: Nakaraan Ngunit Nagpapatuloy Noon
+
+Ano ang aspekto ng salitang nasa bold sa “**Nagluluto** si Ana nang dumating ako kahapon”?
+
+**Solution:**
+
+1. Ang pagluluto ay nagpapatuloy noong dumating ang nagsasalita.
+2. Imperpektibo ang *nagluluto*. Hindi ito nagiging perpektibo dahil lamang sa *kahapon*.
+
+### #8: Tagaganap at Layon
+
+Tukuyin ang pokus sa bawat pangungusap: “Nagluto ng sopas si Ramon.” “Niluto ni Ramon ang sopas.”
+
+**Solution:**
+
+1. Sa una, paksa si Ramon. Siya ang gumawa, kaya pokus sa tagaganap.
+2. Sa ikalawa, paksa ang sopas. Ito ang niluto, kaya pokus sa layon.
+
+### #9: Ganapan at Direksiyon
+
+Tukuyin ang pokus: “Pinagtaniman nila ng gulay ang bakuran.” “Pinuntahan ni Ana ang munisipyo.”
+
+**Solution:**
+
+1. Ang bakuran ang paksa sa una. Doon ginawa ang pagtatanim, kaya pokus sa ganapan.
+2. Ang munisipyo ang paksa sa ikalawa. Ito ang pinuntahan, kaya pokus sa direksiyon.
+
+### #10: Tagatanggap, Kagamitan, at Sanhi
+
+Tukuyin ang pokus: “Ipinagluto ni Ana ng sopas ang bata.” “Ipinangsulat ni Ana ang lapis.” “Ikinatuwa ni Ana ang balita.”
+
+**Solution:**
+
+1. Ang bata ang paksa at nakikinabang sa pagluluto. Pokus sa tagatanggap ang una.
+2. Ang lapis ang paksa at ginamit sa pagsulat. Pokus sa kagamitan ang ikalawa.
+3. Ang balita ang paksa at sanhi ng tuwa. Pokus sa sanhi ang ikatlo.
 
 ## Speed Tricks & Shortcuts
 
-**Unahin ang kahulugan ng kilos.** Tanungin kung tapos na, nagpapatuloy, gagawin pa, o katatapos lamang.
+Sa aspekto, alamin muna kung tapos na, nagpapatuloy, gagawin pa, o katatapos lamang. Itugma ang kahulugan sa panlapi at pag-uulit ng pantig.
 
-**Gamitin ang salitang nagsasabi ng oras bilang pahiwatig.** Ang *kahapon, ngayon,* at *bukas* ay makatutulong, pero huwag silang gamitin nang mag-isa. Suriin din ang anyo ng pandiwa.
-
-**Sa pokus, hanapin muna ang paksa.** Pagkatapos, itanong kung tagaganap ba ito, layon, lugar, tagatanggap, kagamitan, sanhi, o direksiyon ng kilos.
+Sa pokus, hanapin muna ang paksa. Pagkatapos, tukuyin ang papel nito sa kilos. Huwag umasa sa panlapi lamang.
 
 ## Traps to Watch For
 
-### #1: Itinutumbas ang Aspekto sa English Tense
+### #1: Oras Lamang ang Batayan
 
-> Huwag basta isalin ang Filipino aspekto bilang past, present, o future tense.
+> Hindi sapat ang *kahapon*, *ngayon*, o *bukas* upang matukoy ang aspekto.
 
-May sariling paraan ang Filipino sa pagpapakita ng daloy ng kilos. Gamitin ang anyo ng pandiwa at ang kahulugan ng pangungusap.
+Maaaring nagpapatuloy ang isang kilos sa isang sandali sa nakaraan. Basahin ang buong pangungusap bago sumagot.
 
-### #2: Iisang Hulma para sa Lahat ng Pandiwa
+### #2: Iisang Hulma sa Lahat
 
-> Hindi pare-pareho ang pagbabago ng lahat ng ugat at panlapi.
+> Hindi pare-pareho ang pagbabago ng lahat ng pandiwa.
 
-Maaaring makatulong ang pag-uulit ng pantig at panlapi, pero dapat tingnan ang tunay na anyo ng pandiwa sa pangungusap.
+Gamitin ang hulma ng mismong pandiwa. Ang *maglilinis* at *kakain* ay parehong kontemplatibo kahit magkaiba ang panlapi.
 
-### #3: Oras Lamang ang Tinitingnan
+### #3: Ang Gumagawa Lagi ang Paksa
 
-> Ang salitang *kahapon, ngayon,* o *bukas* ay pahiwatig lamang.
+> Maaaring iba sa tagaganap ang paksa.
 
-Kapag tinatanong ang aspekto, suriin din ang pandiwa. Kapag tinatanong ang pokus, hanapin ang paksa at ang papel nito sa kilos.
+Sa *Niluto ni Ramon ang sopas*, si Ramon ang gumawa ngunit ang sopas ang paksa. Kaya pokus sa layon ang pandiwa.
