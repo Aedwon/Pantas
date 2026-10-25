@@ -4,7 +4,7 @@ title: "Punctuation and Capitalization Rules"
 summary: "Use commas, semicolons, apostrophes, and capital letters to make sentences clear."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 13
+estimatedMinutes: 14
 isActive: true
 ---
 ## Core Concept
@@ -13,9 +13,9 @@ isActive: true
 
 ### Commas
 
-Use commas between items in a list: "I bought apples, bananas, and oranges." The comma before *and* is the **serial comma**, also called the Oxford comma. Some writing rules require it and others do not, so follow the task's rule and keep the meaning clear.
+Use commas between items in a list: "I bought apples, bananas, and oranges." The comma before *and* is the **serial comma**, also called the Oxford comma. Some writing rules require it and others do not, so follow the task's rule.
 
-An **independent clause** is a group of words that can stand as a complete sentence. A **coordinating conjunction** joins words or groups of equal rank. These joining words are *and, but, or, so, for, nor,* and *yet*.
+An **independent clause** is a group of words that can stand as a complete sentence. A **coordinating conjunction** joins words or groups that have the same kind of job. These joining words are *and, but, or, so, for, nor,* and *yet*.
 
 When a joining word connects two independent clauses, put a comma before it. "She studied hard, and she passed." Each side could stand as a sentence.
 
@@ -65,7 +65,7 @@ A quoted complete sentence normally begins with a capital letter: She said, "The
 
 ### #1: Fixing a Comma Splice
 
-Correct the punctuation without adding or removing words: "The concert was amazing, everyone stayed until the end."
+Correct the punctuation: "The concert was amazing, everyone stayed until the end."
 
 **Solution:**
 
@@ -79,10 +79,28 @@ Add a comma where needed: "The clerk checked the form and the applicant signed i
 
 **Solution:**
 
-1. Both "The clerk checked the form" and "the applicant signed it" are complete clauses.
+1. Both "The clerk checked the form" and "the applicant signed it" can stand alone.
 2. Put a comma before *and*: "The clerk checked the form, and the applicant signed it."
 
-### #3: Opening and Extra Information
+### #3: Two Verbs with One Subject
+
+Choose the correctly punctuated sentence: (A) "The clerk checked and filed the form." (B) "The clerk checked, and filed the form."
+
+**Solution:**
+
+1. *Checked* and *filed* share the subject "the clerk." The words after *and* do not form a separate complete clause.
+2. No comma is needed. Choose (A): "The clerk checked and filed the form."
+
+### #4: An Opening Dependent Clause
+
+Add the needed punctuation: "Because the office was closed we returned the next day."
+
+**Solution:**
+
+1. "Because the office was closed" needs the rest of the sentence to complete its meaning.
+2. Put a comma after that opening clause: "Because the office was closed, we returned the next day."
+
+### #5: Opening and Extra Information
 
 Add the needed commas. The speaker has only one brother: "After the meeting my brother who lives in Cebu drove me home."
 
@@ -92,7 +110,7 @@ Add the needed commas. The speaker has only one brother: "After the meeting my b
 2. The speaker has only one brother, so "who lives in Cebu" adds extra information. Put commas on both sides.
 3. Write: "After the meeting, my brother, who lives in Cebu, drove me home."
 
-### #4: Identifying Information
+### #6: Identifying Information
 
 The speaker has several brothers. Add commas only if needed: "The brother who lives in Cebu is visiting."
 
@@ -101,7 +119,16 @@ The speaker has several brothers. Add commas only if needed: "The brother who li
 1. "Who lives in Cebu" tells which brother is meant.
 2. Keep that information attached without commas: "The brother who lives in Cebu is visiting."
 
-### #5: A List Within a List
+### #7: A Simple List
+
+Add commas to this list, using the serial comma: "Bring a pencil an eraser and a ruler."
+
+**Solution:**
+
+1. The items are a pencil, an eraser, and a ruler.
+2. Separate them with commas, including one before *and*: "Bring a pencil, an eraser, and a ruler."
+
+### #8: A List Within a List
 
 Add punctuation to separate the city-province pairs: "The delegates came from Calamba, Laguna, Vigan, Ilocos Sur, and Malolos, Bulacan."
 
@@ -110,7 +137,7 @@ Add punctuation to separate the city-province pairs: "The delegates came from Ca
 1. Each whole item contains a city and its province. The comma within each pair belongs there.
 2. Put semicolons between the pairs: "The delegates came from Calamba, Laguna; Vigan, Ilocos Sur; and Malolos, Bulacan."
 
-### #6: Checking Semicolon Halves
+### #9: Checking Semicolon Halves
 
 Which sentence uses a semicolon correctly? (A) "She wanted to travel; because she loved adventure." (B) "She loves reading; she visits the library every weekend."
 
@@ -119,7 +146,7 @@ Which sentence uses a semicolon correctly? (A) "She wanted to travel; because sh
 1. In (B), both sides can stand as complete sentences. The semicolon correctly joins them.
 2. In (A), "because she loved adventure" is dependent. It cannot serve as the second complete clause, so choose (B).
 
-### #7: Forming Possessives
+### #10: Forming Possessives
 
 Write each phrase to show ownership: (a) the book belonging to Maria; (b) the room used by several teachers; (c) the books belonging to the children.
 
@@ -129,7 +156,7 @@ Write each phrase to show ownership: (a) the book belonging to Maria; (b) the ro
 2. *Teachers* is plural and ends in *s*, so write "the teachers' room."
 3. *Children* is plural but does not end in *s*, so write "the children's books."
 
-### #8: A Name Ending in S
+### #11: A Name Ending in S
 
 Write "the bag belonging to James" using the rule that adds *'s* to singular names.
 
@@ -137,7 +164,7 @@ Write "the bag belonging to James" using the rule that adds *'s* to singular nam
 
 James is one person, so the stated rule gives "James's bag."
 
-### #9: A Contraction
+### #12: A Contraction
 
 Shorten "do not" in this sentence: "Please do not enter."
 
@@ -145,7 +172,7 @@ Shorten "do not" in this sentence: "Please do not enter."
 
 Replace the missing *o* with an apostrophe: "Please don't enter."
 
-### #10: Its or It's
+### #13: Its or It's
 
 Choose the correct form: "The company announced (its / it's) new product line."
 
@@ -154,7 +181,7 @@ Choose the correct form: "The company announced (its / it's) new product line."
 1. The sentence tells whose product line it is. It needs the possessive *its*.
 2. "It is new product line" and "it has new product line" do not fit. Write: "The company announced its new product line."
 
-### #11: Formal Titles
+### #14: Formal Titles
 
 Using the usual title-before-name rule, correct the capital letters: "We met president Reyes yesterday. Later, the President spoke."
 
@@ -163,7 +190,7 @@ Using the usual title-before-name rule, correct the capital letters: "We met pre
 1. Capitalize the title directly before the name: "President Reyes."
 2. Use lowercase for the general role: "We met President Reyes yesterday. Later, the president spoke."
 
-### #12: Quoted Sentence or Word
+### #15: Quoted Sentence or Word
 
 Correct the opening letters of the quoted text: She said, "the meeting is over." The word "Meeting" appears twice.
 
