@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+ ],
+ "topic": "general-information/peace-and-human-rights",
+ "round": 5,
+ "paths": {
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md"
+ },
+ "extra_brief": {
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "## Left open by the earlier read (RD-081)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L03 (Minor). Problem: The exam instruction assessed asks for a reasoned judgment, but its first use has no one-line explanation of that meaning.\n   > How should these claims be assessed?\n2. Rule L25 (Major). Problem: Contract is necessary to understand this protected category but is never explained. No prerequisite is identified. Give its meaning as an agreement creating legal duties before using it here.\n   > Protection from prison merely because someone cannot meet a duty under a contract."
+ },
+ "id": "RW-079",
+ "type": "rewrite",
+ "created": "2026-10-25T23:10:55+00:00"
+}

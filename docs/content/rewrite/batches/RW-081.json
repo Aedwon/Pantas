@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-tenses-and-voice"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 5,
+ "paths": {
+  "lesson-grammar-and-structure-tenses-and-voice": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md"
+ },
+ "extra_brief": {
+  "lesson-grammar-and-structure-tenses-and-voice": "## Left open by the earlier read (RD-083)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L05 (Major). Problem: Example 7 supplies the tense-selection method by naming past perfect in the question. The expected-knowledge rule prohibits supplying the grammatical form students should select. The prompt now has a unique answer, but it no longer tests choosing the tense from context.\n   > Complete the sentence using the past perfect form of *finish*: \"By the time the meeting started, Ana ___ the report.\""
+ },
+ "id": "RW-081",
+ "type": "rewrite",
+ "created": "2026-10-25T23:10:55+00:00"
+}

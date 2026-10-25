@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-accountability-and-impeachment",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws",
+  "lesson-philippine-constitution-bill-of-rights"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 7,
+ "paths": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": "content/lessons/general-information/philippine-constitution/bill-of-rights-punishment-detention-and-limits-on-laws.md",
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "## Left open by the earlier read (RD-082)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: The necessary timing word \"forthwith\" is never explained in simple English. It is repeated as the result in Example 11. Explain that it means proceeding without delay so the direct-route consequence is understandable.\n   > The Constitution provides that trial by the Senate shall proceed forthwith.",
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": "## Left open by the earlier read (RD-082)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson teaches the distinct requested-dismissal case and its insufficient-evidence and speedy-trial exceptions, but none of Examples 9-13 works through that case. Their acquittal, absent-plea, included-offense, ordinance, and later-death scenarios do not demonstrate how to decide a requested dismissal.\n   > A dismissal requested by the accused generally does not bar another case.",
+  "lesson-philippine-constitution-bill-of-rights": "## Left open by the earlier read (RD-082)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The original brief identifies a worked debt case among the retained tagged-exam cases. The rewrite has no worked debt example in its 23 examples. Its catalogue entry and trap state the rule but do not preserve the worked application. The assignment expressly forbids removing an existing case another tagged exam needs.\n   > Section $20$ bars imprisonment for debt or nonpayment of a **poll tax**, a tax charged per person.\n2. Rule L25 (Major). Problem: The privilege of the writ of habeas corpus and its suspension are needed to understand this bail statement, but the term is not explained until the later Section 15 paragraph. There is no forward reference or interim gloss here. Move the explanation earlier or clearly point to it with enough meaning to follow this statement.\n   > The right to bail remains protected even when the privilege of the writ of habeas corpus is suspended."
+ },
+ "id": "RW-080",
+ "type": "rewrite",
+ "created": "2026-10-25T23:10:55+00:00"
+}
