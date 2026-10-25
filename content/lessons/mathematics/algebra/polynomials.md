@@ -13,7 +13,7 @@ A **term** is a part of an expression separated by addition or subtraction. Keep
 
 A **coefficient** is the number multiplying the variable part. An **exponent** tells how many times a base is used as a factor. For example, $x^3=x\times x\times x$.
 
-A **polynomial** in $x$ is a finite expression built from terms such as $4x^2$, $-3x$, and $7$. Each exponent of $x$ must be a whole number: $0$, $1$, $2$, and so on. Negative or fractional exponents of $x$ are not allowed.
+A **polynomial** in $x$ is an expression with a limited number of terms such as $4x^2$, $-3x$, and $7$. Each exponent of $x$ must be a whole number: $0$, $1$, $2$, and so on. Negative or fractional exponents of $x$ are not allowed.
 
 A constant such as $7$ is a polynomial. For nonzero $x$, $x^0=1$, so a constant is often written as $7x^0$ when listing powers.
 
@@ -73,6 +73,8 @@ The integer-pair methods work when the needed integers exist. Some quadratics ca
 
 The **dividend** is what you divide. The **divisor** is what you divide by. The **quotient** is the answer before any leftover part, called the **remainder**.
 
+The **leading term** is the nonzero term with the highest power after like terms are combined. For example, the leading term of $2x^3+3x^2-5x+6$ is $2x^3$.
+
 Polynomial long division works with any nonzero polynomial divisor. Write terms from highest power to lowest, and put a $0$ coefficient in place of a missing power.
 
 1. Divide the leading term of the current expression by the leading term of the divisor.
@@ -81,17 +83,19 @@ Polynomial long division works with any nonzero polynomial divisor. Write terms 
 4. Subtract the product and bring down the next dividend term.
 5. Repeat until the remainder is $0$ or has lower degree than the divisor.
 
-The result follows this rule:
+Each subtraction removes the highest-power term still being divided. The result follows this rule:
 
 $$P(x)=D(x)Q(x)+R(x)$$
 
 Here, $P$ is the dividend, $D$ is the divisor, $Q$ is the quotient, and $R$ is the remainder. If the dividend already has lower degree than the divisor, the quotient is $0$ and the dividend is the remainder.
 
-**Synthetic division** is a shorter method for division by $x-c$. Write the dividend's coefficients in descending powers, including zeros for missing powers.
+**Synthetic division** is a shorter method for division by $x-c$. It tracks coefficients instead of writing each power of $x$. Write the dividend's coefficients from highest power to lowest, including zeros for missing powers.
 
 Bring down the first coefficient. Multiply it by $c$, then add to the next coefficient. Repeat the multiply-and-add steps until you reach the last coefficient.
 
-The last result is the remainder. The earlier results are the quotient's coefficients, in descending powers. The quotient's degree is one less than the dividend's degree, so a cubic dividend gives a quadratic quotient.
+The last result is the remainder. The earlier results are the quotient's coefficients, from highest power to lowest.
+
+When the dividend has degree at least $1$, the quotient's degree is one less than the dividend's degree. A cubic dividend gives a quadratic quotient. For a constant dividend, the quotient is $0$ and the remainder is that constant.
 
 ### Remainder and Factor Theorems
 
@@ -300,7 +304,7 @@ Use synthetic division to divide $x^3-4x^2+x+6$ by $x-3$.
 
 **Solution:**
 
-1. Use $c=3$. List the coefficients in descending powers: $1,-4,1,6$.
+1. Use $c=3$. List the coefficients from highest power to lowest: $1,-4,1,6$.
 2. Bring down $1$. Multiply by $3$ and add to the next coefficient.
 
 $$-4+3(1)=-1$$

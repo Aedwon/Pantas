@@ -63,7 +63,11 @@ $$x=\dfrac{C}{A}$$
 
 A vertical line has undefined slope because its horizontal change is $0$. A horizontal line has slope $0$ because its vertical change is $0$.
 
-Distinct nonvertical parallel lines have the same slope. Perpendicular lines meet at a right angle. For nonzero slopes, their slopes are negative reciprocals:
+Distinct nonvertical parallel lines have the same slope. Perpendicular lines meet at a right angle.
+
+The **reciprocal** of a nonzero number is $1$ divided by that number. For a nonzero fraction, swap its numerator and denominator to get its reciprocal. For example, the reciprocal of $-\dfrac{2}{5}$ is $-\dfrac{5}{2}$.
+
+For perpendicular lines with nonzero slopes, take the reciprocal of one slope and change its sign to get the other slope:
 
 $$m_2=-\dfrac{1}{m_1}$$
 
@@ -170,7 +174,7 @@ Find the equation of the line through $(3,-1)$ that is perpendicular to $2x+5y=1
 
 $$m=-\dfrac{2}{5}$$
 
-2. Take the negative reciprocal.
+2. Swap the numerator and denominator, then change the sign.
 
 $$m_2=\dfrac{5}{2}$$
 
