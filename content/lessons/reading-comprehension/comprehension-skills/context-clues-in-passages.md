@@ -1,93 +1,181 @@
 ---
 _id: "lesson-comprehension-skills-context-clues-in-passages"
 title: "Meaning through Context Clues (within Full Passages)"
-summary: "Learn how to use surrounding sentences across a whole passage, not just a single sentence, to determine an unfamiliar word's meaning."
+summary: "Use nearby sentences, word parts, and Filipino context clues to work out unfamiliar meanings."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
-estimatedMinutes: 8
+estimatedMinutes: 14
 isActive: true
 ---
 ## Core Concept
 
-You already know that a single sentence can offer a **context clue** for an unfamiliar word. In a full passage, context clues can be spread across multiple sentences, sometimes appearing before or well after the word itself. Reading comprehension exams test this broader version of the skill.
+A **context clue** is information near an unfamiliar word that helps explain its meaning. In a full passage, the clue may come before the word, after it, or across several sentences.
 
-Four common types of context clues appear across passages:
+To **infer** means to figure something out from clues instead of being told the answer directly.
 
-- **Definition/explanation clue**: the passage directly explains the word's meaning, sometimes several sentences later. ("The region experienced a severe drought. Crops withered, rivers ran dry, and farmers struggled for months without adequate rainfall.")
-- **Example clue**: the passage gives specific examples that reveal the word's meaning. ("The museum housed several *artifacts*: ancient pottery, tarnished coins, and a weathered stone tablet.")
-- **Contrast clue**: a nearby idea is the opposite of the unfamiliar word, helping you infer its meaning by elimination. ("Unlike her *gregarious* brother, who loved parties and made friends easily, she preferred quiet evenings alone.")
-- **Cause-and-effect clue**: the result described elsewhere in the passage reveals what the word likely means. ("His *negligence* led to the machine breaking down within a week, since he had skipped every scheduled maintenance check.")
+Four common context clues are:
 
-| Clue Type | How It Works | Passage Clue Example | Inferred Meaning |
-| --- | --- | --- | --- |
-| **Definition / Explanation** | Describes the meaning directly in nearby sentences | "Crops withered, rivers ran dry... months without rainfall." | *Drought* = prolonged lack of rain |
-| **Example** | Lists concrete items representing the word | "Ancient pottery, tarnished coins, and a weathered tablet." | *Artifacts* = historical objects |
-| **Contrast** | Shows an opposite behavior or quality | "Unlike her *gregarious* brother who loved parties, she preferred quiet evenings." | *Gregarious* = sociable / outgoing |
-| **Cause and effect** | Shows the result of the unfamiliar word | "His *negligence* led to the machine breaking down within a week." | *Negligence* = failure to take proper care |
+- **Definition or explanation clue:** the passage explains the meaning.
+- **Example clue:** nearby examples show what kind of thing the word names.
+- **Contrast clue:** an opposite idea helps reveal the meaning.
+- **Cause-and-effect clue:** a cause or result helps reveal what the word must mean.
 
-The key skill is not stopping at the same sentence as the unfamiliar word: scan both before and after it within the passage for supporting clues.
+Do not stop at the sentence with the unfamiliar word. Read nearby sentences and check whether all the clues fit the meaning you choose.
+
+### Word Parts as Extra Clues
+
+A word can also have useful parts. A **prefix** comes before a base or root, a **root** carries the main word meaning, and a **suffix** comes after it.
+
+For example, *re-* often suggests doing something again, while *-less* can suggest "without." Word parts can give you a starting guess, but context must still support that guess.
+
+### Mga Pahiwatig sa Konteksto sa Filipino
+
+Ang **kasingkahulugan** (synonym) ay salitang malapit ang kahulugan sa isa pang salita. Ang **kasalungat** (antonym) ay salitang kabaligtaran ang kahulugan.
+
+Maaaring ipaliwanag ng mga kasunod na pangungusap ang isang mahirap na salita. Maaari ring magbigay ang teksto ng paglalarawan o halimbawa.
+
+May mga pahiwatig din sa di-tuwirang kahulugan. Kapag sinabing "parang pasan niya ang buong mundo," hindi ito literal. Ipinahihiwatig nito ang mabigat na suliranin o pag-aalala.
+
+Ang mga salitang *maaaring, baka,* at *marahil* ay nagpapakita ng posibilidad, hindi katiyakan.
+
+Ang **aspekto ng pandiwa** (verb aspect) ay nagpapakita kung ang kilos ay natapos na, ginagawa pa, o gagawin pa. Ang **pang-abay** (adverb) na tulad ng *kahapon, ngayon,* at *bukas* ay nagbibigay pa ng pahiwatig sa oras.
+
+Ang **panghalip** (pronoun) ay maaaring tumukoy sa taong o bagay na nabanggit na. Ang **panuring** (modifier) ay nagbibigay-linaw sa salitang inilalarawan nito.
+
+May iba't ibang uri rin ng pangungusap. Ang **pasalaysay** (declarative) ay nagsasabi, ang **patanong** (interrogative) ay nagtatanong, ang **pautos** (imperative) ay nag-uutos o nakikiusap, at ang **padamdam** (exclamatory) ay nagpapakita ng matinding damdamin.
+
+Mahalaga rin ang ayos at baybay ng pangungusap. Ang bantas at wastong anyo ng salita ay maaaring tumulong sa pagbasa ng kahulugan.
 
 ## Examples
 
-### #1: A Definition Clue Spread Across Sentences
+### #1: Definition Clue Across Sentences
 
-"The committee's decision was met with *consternation*. Members expressed shock, anxiously debated the implications for hours, and several left the meeting visibly distressed." What does "consternation" likely mean?
+"The committee's decision was met with **consternation**. Members expressed shock. Several people looked deeply worried and kept asking what would happen next."
 
-**Solution:**
-1. The word itself gives no definition, but the following sentences describe shock, anxious debate, and visible distress.
-2. These reactions together suggest a state of alarmed confusion or distress.
-3. "Consternation" likely means a feeling of anxious dismay, shock, or distress.
-
-### #2: An Example Clue
-
-"The old attic was filled with *bric-a-brac*: a cracked porcelain vase, a rusty tin soldier, mismatched teacups, and a faded photograph in a broken frame." What does "bric-a-brac" likely mean?
+What does the word in bold most likely mean?
 
 **Solution:**
-1. The passage lists specific examples right after the word: a vase, a tin soldier, teacups, a photograph.
-2. These are all small, miscellaneous, somewhat old or worn objects.
-3. "Bric-a-brac" likely means a collection of miscellaneous small objects, especially old or decorative ones.
+1. The first sentence does not define the word.
+2. The next sentences show shock and deep worry.
+3. **Consternation** most likely means strong worry, shock, or distress.
 
-### #3: A Contrast Clue Found Later in the Passage
+### #2: Example Clue Across Sentences
 
-"At first, the negotiations seemed *amicable*. The two sides shook hands warmly and exchanged friendly small talk. However, by the third session, the mood had shifted entirely into hostility, with raised voices and slammed doors replacing the earlier warmth." What does "amicable" likely mean?
+"The shelf was crowded with **bric-a-brac**. A cracked vase leaned beside a rusty toy soldier. Mismatched cups and an old picture frame filled the remaining space."
 
-**Solution:**
-1. The word "however" signals a contrast between the early mood and the later mood (hostility, raised voices).
-2. Since the later mood is described as hostile and the sentence structure implies "amicable" describes the opposite early mood, "amicable" must relate to friendliness.
-3. "Amicable" likely means friendly or good-natured, especially in the context of resolving disagreements peacefully.
-
-### #4: A Cause-and-Effect Clue
-
-"Her constant *procrastination* meant that by the night before the deadline, she had only completed a rough outline, forcing her to stay awake until dawn finishing the entire report in a panic." What does "procrastination" likely mean?
+What does the word in bold most likely mean?
 
 **Solution:**
-1. The effect described (only a rough outline completed by the night before, needing to finish in a panic) suggests the cause was significant delay in doing the work earlier.
-2. "Procrastination" likely means the habit of delaying or putting off tasks that need to be done.
+1. The target word appears in the first sentence.
+2. The next sentences list small, mixed objects.
+3. **Bric-a-brac** most likely means a collection of small, mixed, often decorative objects.
 
-## Speed Tricks & Shortcuts
+### #3: Contrast Clue Later in the Passage
 
-**Read at least one sentence before and after the unfamiliar word**, not just the sentence containing it, since passage-level clues are often placed slightly before or after the word itself.
+"At first, the talks seemed **amicable**. The two sides shook hands and spoke warmly. However, the next meeting became hostile, with raised voices and angry interruptions."
 
-**Look for signal words that reveal the clue type:** "such as," "including," or a colon followed by a list often signals an example clue; "however," "unlike," or "but" often signals a contrast clue; "because," "led to," or "resulted in" often signals a cause-and-effect clue.
+What does the word in bold most likely mean?
 
-**Summarize the surrounding sentences in your own simple words first**, then ask what word would logically fit that summary: this often gets you close to the actual meaning even before checking answer choices.
+**Solution:**
+1. *However* signals a contrast.
+2. The later meeting is hostile and angry.
+3. The earlier mood must be the opposite, so **amicable** most likely means friendly and peaceful.
+
+### #4: Cause-and-Effect Clue Across Sentences
+
+"Rina had a habit of **procrastination**. She kept putting her report aside for other small tasks. On the night before the deadline, most of the report was still unfinished, so she had to work until dawn."
+
+What does the word in bold most likely mean?
+
+**Solution:**
+1. The second sentence says Rina keeps putting the report aside.
+2. The result is that much of the report is unfinished near the deadline.
+3. **Procrastination** most likely means delaying work that needs to be done.
+
+### #5: Word Parts Plus Context
+
+"The school began a **reorganization** of its files. Staff members sorted the folders again and placed them in a new system."
+
+What does the word in bold most likely mean?
+
+**Solution:**
+1. The prefix *re-* can suggest doing something again.
+2. The next sentence says the staff sorted the files again in a new system.
+3. **Reorganization** most likely means arranging something again in a new way.
+
+### #6: Kasingkahulugan sa Konteksto
+
+"Matamlay si Ben buong umaga. Wala siyang sigla at mabagal ang kanyang kilos."
+
+Ano ang pinakamalapit na kahulugan ng salitang naka-bold?
+
+**Solution:**
+1. Sinasabi ng kasunod na pangungusap na wala siyang sigla.
+2. Ang mabagal na kilos ay dagdag na pahiwatig.
+3. Ang **matamlay** ay nangangahulugang mahina ang sigla o walang gaanong lakas.
+
+### #7: Kasalungat at Di-Tuwirang Kahulugan
+
+"Karaniwang mahinahon si Liza, ngunit kanina ay **bugso** ang kanyang galit at mabilis siyang nagsalita. Pagkaraan ng ilang minuto, kumalma rin siya."
+
+Ano ang ipinahihiwatig ng salitang naka-bold sa talata?
+
+**Solution:**
+1. Ipinapakita ng *ngunit* na iba ang kilos niya kanina sa karaniwang mahinahon niyang asal.
+2. Mabilis ang pagsasalita at sandali lamang ang matinding galit.
+3. Ang **bugso** ay tumutukoy sa bigla at malakas na paglabas ng damdamin.
+
+### #8: Possibility and Time Clues in Filipino
+
+"Baka dumating si Mara bukas kung matapos niya ngayon ang gawain."
+
+Aling pahayag ang pinakaangkop na kahulugan ng pangungusap?
+
+**Solution:**
+1. Ang *baka* ay nagpapakita ng posibilidad.
+2. Ang *bukas* at *ngayon* ay nagpapakita kung kailan maaaring mangyari ang mga kilos.
+3. Sinasabi ng pangungusap na **posibleng dumating si Mara bukas, depende sa pagtatapos niya ng gawain ngayon**.
+
+## Reading Strategies
+
+**Read around the word.** Check at least one nearby sentence before and after it when possible.
+
+**Look for clue signals.** Words such as *such as* and *including* can introduce examples. Words such as *however, unlike,* and *but* can signal contrast. Words such as *because, led to,* and *resulted in* can show cause and effect.
+
+**Say the nearby idea in simple words.** Then ask which meaning would fit every clue.
+
+**Use word parts as support, not proof.** A prefix or suffix can help, but the passage has the final say.
+
+**Sa Filipino, bantayan ang ugnayan ng mga salita.** Tingnan ang kasingkahulugan, kasalungat, paglalarawan, oras, posibilidad, at salitang tinutukoy ng panghalip o panuring.
 
 ## Traps to Watch For
 
-### #1: Only Checking the Same Sentence as the Unfamiliar Word
+### #1: Checking Only the Same Sentence
 
-> Passage-level context clues can appear several sentences before or after the unfamiliar word: limiting your search to just the one sentence containing the word often misses the clue entirely.
+> The best clue may be a sentence before or after the unfamiliar word.
 
-The "consternation" example only makes sense once you read the following sentences describing shock and distress; the original sentence alone gives no definition.
+Read farther when the first sentence is not enough. Passage-level questions often spread the clue across nearby sentences.
 
-### #2: Missing a Contrast Clue Signaled by "However" or "Unlike"
+### #2: Missing a Contrast Signal
 
-> Contrast clues reveal a word's meaning by showing its opposite nearby: missing the contrast signal word can lead you to assume the wrong (opposite) meaning.
+> A word such as *however* can reverse the direction of the clue.
 
-In the "amicable" example, failing to notice "however" could lead a reader to wrongly guess that "amicable" describes the later hostile mood, rather than the earlier friendly one it actually contrasts with.
+If one part is hostile and the earlier part is contrasted with it, the unfamiliar word may describe the opposite idea.
 
-### #3: Choosing a Word Meaning That Fits Only Part of the Passage
+### #3: Trusting a Word Part Too Much
 
-> A correct inferred meaning should fit all the surrounding clues in the passage, not just one detail while ignoring others that contradict it.
+> A familiar prefix or suffix can help, but it does not guarantee the full meaning.
 
-If a proposed meaning for a word fits the sentence right next to it but contradicts a clue found elsewhere in the passage, it is likely not the best or most complete answer.
+Some words changed meaning over time or use word parts in less obvious ways. Check the passage before choosing an answer.
+
+### #4: Choosing a Meaning That Fits Only One Detail
+
+> A strong answer should fit the whole nearby context.
+
+Reject a meaning if it matches one clue but conflicts with another sentence.
+
+### #5: Taking Nonliteral Filipino Language Literally
+
+> Some phrases express an idea without using the words in their exact physical sense.
+
+Use the situation and surrounding sentences to find the intended meaning, especially when a literal reading sounds impossible or strange.
