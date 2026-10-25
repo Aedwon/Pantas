@@ -1,0 +1,236 @@
+{
+ "batch": "RD-070",
+ "lesson_id": "lesson-environment-management-environmental-problems-and-climate-change",
+ "path": "content/lessons/general-information/environment-management/environmental-problems-and-climate-change.md",
+ "lesson_sha256": "6d107bc1d3b7499a839a1909cbc2f98649337f4ad3fea7f6ee1f850a9eb3eb2e",
+ "rewrite_commit": "67a8b324f519916832224ce37a9e05df9533533f",
+ "form": {
+  "packet": "lesson-environment-management-environmental-problems-and-climate-change",
+  "role": "A",
+  "lesson_sha256": "6d107bc1d3b7499a839a1909cbc2f98649337f4ad3fea7f6ee1f850a9eb3eb2e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the cause/effect distinction, weather versus climate, greenhouse warming, economic/social/policy effects, and adaptation versus mitigation for internal factual consistency.",
+     "The original/amended climate-framework names are consistent with the amendment explanation supplied in lesson 3. Waste segregation and DENR/EMB duties agree across the supplied lessons."
+    ],
+    "note": "Prompt-only review: no external source or source ledger was supplied for independently confirming the statutory details. No definite factual error was identified.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 improper waste dumping; #2 collection undoes sorting; #3 inspect and test before attributing pollution; #4 economic; #5 social; #6 political/policy; #7 raised floor is adaptation, lower-emission lighting is mitigation; #8 risk-based adaptation, funded implementation, training, fair participation, and evaluation. Each matches its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omission of Speed Tricks. The brief requires no figures; the questions need none."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions and solutions for sentence length and vocabulary. Technical labels receive nearby plain explanations; the teaching stays focused on practical cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is explicitly defined when introduced. Other instructions, including identify and check, use ordinary meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or the other sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each question supplies its local situation and asks students to select or apply taught knowledge. No missing numerical data or unavailable passage is needed. Solutions use short explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated claims about exam frequency, format, or guaranteed answer choices appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question tests a target word or refers to a word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly. Sentence openings vary, and none of the prohibited stock phrases appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "This is General Information and uses the permitted conceptual layout. No example uses a mathematical formula, so there is no formula to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples progress from identifying dumping and evaluating waste collection (#1–2) to evidence-based pollution attribution (#3), economic/social/policy effects (#4–6), adaptation versus mitigation (#7), and integrated framework application (#8). These cover the brief’s distinct cases without changing only nouns or numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multistep solutions use numbered steps. Single-step recognition answers can stand as a sentence. No key computation needs display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this conceptual lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences, and there are no extended bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Habitat, segregation at source, materials recovery facility, climate change, greenhouse gases, ecosystem, economic/social/policy effects, adaptation, mitigation, vulnerability, assessment, capability building, evaluation, and gender mainstreaming receive meanings before their example applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Local-problem teaching connects practice, source, affected people, and evidence. Climate teaching traces harm to farms, incomes, homes, and schools. The framework section explains how assessments, training, participation, and monitoring guide local plans."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson limits single-event climate attribution, rejects blame without evidence, distinguishes temporary weather from trends, allows overlapping social/economic effects and dual-purpose projects, and requires checking actual results instead of a program name."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "general-information-environment-management#23": {
+    "status": "fixed",
+    "quote": "Look for the harmful practice, its likely source, and who or what is affected.",
+    "note": "Teaches systematic problem identification and separates causes from effects."
+   },
+   "general-information-environment-management#24": {
+    "status": "fixed",
+    "quote": "For suspected water pollution, officials can inspect possible sources and test water samples.",
+    "note": "Explains inspection and testing mechanisms and the DENR/EMB role."
+   },
+   "general-information-environment-management#25": {
+    "status": "fixed",
+    "quote": "It can also reduce water supplies or damage coasts and farms.",
+    "note": "Adds local climate effects and distinguishes climate from a single weather event."
+   },
+   "general-information-environment-management#26": {
+    "status": "fixed",
+    "quote": "Governments choose climate laws, budgets, land-use rules, and projects.",
+    "note": "Explains policy choices and works a budgeting and coordination case."
+   },
+   "general-information-environment-management#27": {
+    "status": "fixed",
+    "quote": "Drought can reduce harvests and farm earnings.",
+    "note": "Explains production and income effects and applies them in Example 4."
+   },
+   "general-information-environment-management#28": {
+    "status": "fixed",
+    "quote": "Flooding can force families to move and keep children out of school.",
+    "note": "Explains effects on homes and schooling and applies them in Example 5."
+   },
+   "general-information-environment-management#44": {
+    "status": "fixed",
+    "quote": "The framework uses such evidence to guide adaptation and ways to reduce emissions.",
+    "note": "Explains framework content and applies assessment, training, inclusion, and review in Example 8."
+   },
+   "general-information-environment-management#63": {
+    "status": "fixed",
+    "quote": "Collection should keep separated materials apart so they can be handled properly.",
+    "note": "Explains implementation and checks the failure of mixed collection in Example 2."
+   }
+  }
+ }
+}
