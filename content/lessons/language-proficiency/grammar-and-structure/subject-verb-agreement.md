@@ -13,15 +13,15 @@ The **subject** tells who or what a sentence is about. The **verb** tells what t
 
 **Number** means singular or plural. Singular names one person or thing. Plural names more than one.
 
-**Person** shows who is speaking, being addressed, or being discussed. First person uses *I* or *we*, second person uses *you*, and third person uses *he, she, it, they,* or names.
+**Person** shows who is speaking, being spoken to, or being discussed. First person uses *I* or *we*. Second person uses *you*, while third person uses *he, she, it, they,* or names.
 
 In the present, use *I am*, *you/we/they are*, and *he/she/it is*. Use *I/you/we/they have* but *he/she/it has*. Most other present-tense verbs add *-s* or *-es* with a singular third-person subject: "She works."
 
 ### Finding the Subject
 
-A **phrase** is a group of words that works together but does not form a full clause with its own subject and verb. An *of*-phrase starts with *of*: *of apples*, for example.
+A **phrase** is a group of words that works together as part of a sentence. An *of*-phrase starts with *of*: *of apples*, for example.
 
-The **head** is the main word in a subject. Ask what the verb describes, then set aside phrases that add details. In "The basket of apples is heavy," the thing called heavy is the basket, so *basket* controls *is*.
+The **head** is the main word in a subject. Ask who or what the sentence describes, then set aside phrases that add details. In "The basket of apples is heavy," the thing called heavy is the basket, so *basket* controls *is*.
 
 ### Subjects That Need Care
 
@@ -45,11 +45,11 @@ Ang **aspekto** (aspect) ay nagpapakita kung tapos na, nagaganap, o hindi pa nas
 
 Alamin muna ang kalagayan ng kilos. Gamitin ang mga salitang gaya ng *kahapon, ngayon,* at *mamaya* bilang gabay. Hindi sapat ang oras lamang: maaari ring sabihing "Kumain na siya ngayon" kung tapos na ang pagkain.
 
-Ang **pokus** (voice/focus) ay ugnayan ng anyo ng pandiwa at ng papel ng paksa sa kilos. Maaaring ang paksa ang gumagawa ng kilos o ang bagay na ginawan nito. Narito ang dalawang karaniwang anyo gamit ang *luto*.
+Ang **pokus** (voice/focus) ay ugnayan ng anyo ng pandiwa at ng papel ng paksa sa kilos. Sa pokus sa **tagaganap** (actor), ang paksa ang gumagawa ng kilos. Sa pokus sa **layon** (object), ang paksa ang bagay na ginawan ng kilos.
 
-Sa "Nagluto ang kusinero ng sopas," ang paksa ang gumagawa ng kilos. Sa "Niluto ng kusinero ang sopas," ang paksa ang bagay na niluto. Nagbago ang anyo ng pandiwa at ang minamarkahang paksa.
+Sa "Nagluto ang kusinero ng sopas," ang kusinero ang paksa at gumagawa ng kilos. Sa "Niluto ng kusinero ang sopas," ang sopas ang paksa at bagay na niluto. Nagbago ang anyo ng pandiwa at ang minamarkahang paksa.
 
-Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o pangkat ng salita. Ang **parirala** (phrase) ay pangkat ng mga salitang gumaganap bilang isang bahagi ng pangungusap. Hindi ito buong sugnay na may sarili nitong simuno at panaguri.
+Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o pangkat ng salita. Ang **parirala** (phrase) ay pangkat ng mga salitang gumaganap bilang isang bahagi ng pangungusap.
 
 Hanapin muna ang pariralang may *ang* o *si*, o ang maramihang anyo na *ang mga* o *sina*. Pagkatapos, itanong kung ano ang papel nito sa kilos. Itugma ang sagot sa anyo ng pandiwa upang matukoy ang pokus.
 
@@ -90,7 +90,16 @@ Choose the natural American-English form when the committee acts as one unit: Th
 1. The sentence treats the committee as one group.
 2. Choose singular *has*: "The committee has reached a decision."
 
-### #4: An Indefinite Pronoun
+### #4: A Group's Separate Members
+
+Complete this sentence in a British-English passage that treats the team members separately: The team *(is / are)* arguing among themselves about their individual contracts.
+
+**Solution:**
+
+1. The members are arguing with one another about separate contracts.
+2. The passage uses British English and treats them separately. Choose plural *are*.
+
+### #5: An Indefinite Pronoun
 
 Choose the correct verb: Everyone in both offices *(needs / need)* a new ID.
 
@@ -99,7 +108,7 @@ Choose the correct verb: Everyone in both offices *(needs / need)* a new ID.
 1. *Everyone* is the subject. *In both offices* adds a detail.
 2. *Everyone* takes a singular verb, so choose *needs*.
 
-### #5: An Amount or Several Things
+### #6: An Amount or Several Things
 
 Choose the correct forms: Most of the water *(has / have)* evaporated, but some of the bottles *(is / are)* full.
 
@@ -108,7 +117,7 @@ Choose the correct forms: Most of the water *(has / have)* evaporated, but some 
 1. *Most* refers to water, treated as one amount. Choose *has*.
 2. *Some* refers to several bottles. Choose *are*.
 
-### #6: Subjects Joined by *and*
+### #7: Subjects Joined by *and*
 
 Choose the correct verb: The supervisor and the clerk *(is / are)* checking the forms.
 
@@ -117,7 +126,7 @@ Choose the correct verb: The supervisor and the clerk *(is / are)* checking the 
 1. Two different people form the subject.
 2. They are joined by *and*, so choose plural *are*.
 
-### #7: One Person with Two Roles
+### #8: One Person with Two Roles
 
 The owner is also the manager. Choose the correct verb: The owner and manager *(is / are)* signing the form.
 
@@ -126,7 +135,7 @@ The owner is also the manager. Choose the correct verb: The owner and manager *(
 1. The subject names one person with two roles.
 2. Choose singular *is*.
 
-### #8: Nearer-Subject Agreement
+### #9: Nearer-Subject Agreement
 
 Choose the correct verb: Neither the manager nor the employees *(was / were)* aware of the change.
 
@@ -135,9 +144,9 @@ Choose the correct verb: Neither the manager nor the employees *(was / were)* aw
 1. The subject nearer the verb is *employees*.
 2. It is plural, so choose *were*.
 
-### #9: English at Filipino
+### #10: English at Filipino
 
-Piliin ang wastong anyo: "The child *(eats / eat)* rice." "The children *(eats / eat)* rice." Pagkatapos, gawing maramihan ang paksa ng "Kumakain ang bata ng kanin."
+Piliin ang wastong anyo sa mga pangungusap sa Ingles: "The child *(eats / eat)* rice." "The children *(eats / eat)* rice." Pagkatapos, gawing maramihan ang paksa ng "Kumakain ang bata ng kanin."
 
 **Solution:**
 
@@ -145,7 +154,7 @@ Piliin ang wastong anyo: "The child *(eats / eat)* rice." "The children *(eats /
 2. Sa Filipino, palitan ang *ang bata* ng *ang mga bata*.
 3. "Kumakain ang mga bata ng kanin." Nananatili ang *kumakain* dahil nagaganap pa rin ang kilos.
 
-### #10: Pagpili ng Aspekto
+### #11: Pagpili ng Aspekto
 
 Punan ayon sa kalagayan ng kilos: "___ si Lea kahapon at tapos na siya. ___ siya sa sandaling ito. ___ siya mamaya at hindi pa niya ito nasisimulan." Gamitin ang *kumain, kumakain,* at *kakain*.
 
@@ -155,7 +164,7 @@ Punan ayon sa kalagayan ng kilos: "___ si Lea kahapon at tapos na siya. ___ siya
 2. Nagaganap ang ikalawa, kaya *kumakain* ang piliin.
 3. Hindi pa nasisimulan ang huli, kaya *kakain* ang piliin.
 
-### #11: Pokus at *ang*
+### #12: Pokus at *ang*
 
 Tukuyin ang papel ng paksa sa bawat pangungusap: "Nagluto ang kusinero ng sopas." "Niluto ng kusinero ang sopas."
 
@@ -165,7 +174,7 @@ Tukuyin ang papel ng paksa sa bawat pangungusap: "Nagluto ang kusinero ng sopas.
 2. Sa ikalawa, *ang sopas* ang may panandang *ang*. Ito ang bagay na niluto, kaya nasa layon ang pokus ng *niluto*.
 3. Upang gawing paksa ang sopas, gamitin ang "Niluto ng kusinero ang sopas." Magkasama ang pagbabago ng pandiwa at pananda.
 
-### #12: Mga Gamit ng *ng*
+### #13: Mga Gamit ng *ng*
 
 Tukuyin ang gamit ng *ng* sa "Kumain ang bata ng mangga," "Niluto ng kusinero ang sopas," at "Malinis ang bahay ng guro."
 
@@ -175,7 +184,7 @@ Tukuyin ang gamit ng *ng* sa "Kumain ang bata ng mangga," "Niluto ng kusinero an
 2. Sa ikalawa, *ng kusinero* ang gumagawa ng kilos. Ang sopas ang paksa.
 3. Sa huli, *ng guro* ang nagpapakita kung kanino ang bahay.
 
-### #13: Mga Gamit ng *sa*
+### #14: Mga Gamit ng *sa*
 
 Tukuyin ang papel ng pariralang may *sa*: "Nagbasa si Ana sa silid." "Pumunta si Ana sa tanggapan." "Ibinigay ni Ana ang liham sa kawani."
 
@@ -219,7 +228,7 @@ Use "Everyone needs an ID." Singular *they* or *their* may still refer back to t
 
 "Either I or she am responsible" does not follow nearer-subject agreement. "Either she is responsible, or I am" makes each verb clear.
 
-### #5: Paglalapat ng Tuntuning English sa Filipino
+### #5: Paglalapat ng Tuntunin ng Ingles sa Filipino
 
 > Hindi kailangang baguhin ang pandiwa dahil lamang dumami ang paksa.
 

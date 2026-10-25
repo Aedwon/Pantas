@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-English verb forms help show **time** and **aspect**. Time tells when something happens. Aspect shows an action as ongoing, already complete before a point, or linked to now.
+English verb forms help show **tense** and **aspect**. Tense helps show when something happens. Aspect shows whether an action is ongoing, already complete before a point, or linked to now.
 
 The **base form** is the plain verb form, such as *write, eat,* or *finish*. It has no added *-s, -ed,* or *-ing*.
 
-A **past participle** is a verb form used in perfect forms and many passive forms. Regular verbs usually use *-ed*, as in *finished*. Irregular verbs have forms you must learn, such as *written, eaten,* and *broken*.
+A **past participle** is a verb form used after *has, have,* or *had* and in many passive forms. Regular verbs usually use *-ed*, as in *finished*. Irregular verbs have forms you must learn, such as *written, eaten,* and *broken*.
 
 ### Choosing Time and Aspect
 
@@ -37,9 +37,13 @@ When a sentence places an event at a finished past time, such as *yesterday*, no
 
 Past perfect is not needed for every earlier past event. Both "She finished before he arrived" and "She had finished before he arrived" are possible. *Before* already gives the order, while *had finished* stresses earlier completion.
 
-A change in verb form is correct when the time or viewpoint changes. "The report was late, but it is ready now" moves from past to present for a reason.
+A change in verb form is correct when the time changes. "The report was late, but it is ready now" moves from past to present for a reason.
 
 ### Active and Passive Voice
+
+The **subject** is the person or thing the sentence says something about. In a statement, it usually comes before the main verb or its helpers. Find the verb, then ask who or what does the action, receives it, or is being described.
+
+In "The clerk checked the forms," ask who checked them. *The clerk* is the subject. In "The forms were checked," ask what was checked: *the forms* is the subject.
 
 In **active voice**, the subject does the action: "The chef cooked the meal." In **passive voice**, the subject receives or is affected by the action: "The meal was cooked by the chef."
 
@@ -49,7 +53,7 @@ The common passive pattern is **be + past participle**. Change the form of *be* 
 
 To change active to passive, make the receiver the subject. Use the correct form of *be* and the past participle. Add *by* and the agent if needed.
 
-To change passive to active, make the agent the subject and keep the same time. "The meal was cooked by the chef" becomes "The chef cooked the meal." A verb needs an object, something acted on, to allow this usual passive change; "The child slept" has no such object.
+To change passive to active, make the agent the subject and keep the same time. "The meal was cooked by the chef" becomes "The chef cooked the meal." A verb needs an **object**, something acted on, to allow this usual passive change; "The child slept" has no such object.
 
 A **get-passive** uses *get + past participle*: "The package got delivered." It often describes something that happens to the subject. It is common in speech and informal writing; use a *be*-passive when a formal style is needed.
 
@@ -63,7 +67,7 @@ For **ability**, use *can* for present or general ability. Use *could* for gener
 
 For **permission**, *can* is common in everyday requests. *May* is more formal: "May I leave?" *Could* can make a polite request: "Could I use your pen?"
 
-For **obligation**, *must* and *have to* show a strong requirement. "You must submit the form" and "You have to submit the form" both say it is required. Use *has to* with a singular third-person subject and *had to* for a past requirement.
+For **obligation**, *must* and *have to* show a strong requirement. "You must submit the form" and "You have to submit the form" both say it is required. Use *has to* with *he, she, it,* or a singular noun, and *had to* for a past requirement.
 
 *Should* usually gives advice: "You should check your answers." *Must not* means something is forbidden. *Do not have to* means it is not required, but it may still be allowed.
 
@@ -145,7 +149,7 @@ Which sentence is passive: "The dog chased the ball," "The ball was chased by th
 
 1. The dog does the chasing in the first sentence. It is active.
 2. The ball receives the action in the second sentence. *Was chased* makes it passive.
-3. *Happy* describes a state in the last sentence. A form of *be* alone does not make it passive.
+3. *Happy* describes the dog in the last sentence. A form of *be* alone does not make it passive.
 
 ### #9: Changing Voice and Keeping Time
 
@@ -213,7 +217,7 @@ Choose the modal that presents the change as possible, without saying it is requ
 
 ## Speed Tricks & Shortcuts
 
-Build the timeline first. Decide whether the sentence describes a habit, past event, future event, ongoing action, or action completed before another point.
+Check the time first. Decide whether the sentence describes a habit, past event, future event, ongoing action, or action completed before another point.
 
 For present perfect, find the link to now. A present result, experience up to now, or continuing situation can support it. A finished past time normally calls for simple past.
 
