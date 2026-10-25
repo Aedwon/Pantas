@@ -67,22 +67,38 @@
    "note": ""
   },
   "L08": {
-   "verdict": "not_applicable",
-   "findings": [],
-   "checked": [],
-   "note": "This is an English spelling lesson with one Filipino orthography subsection, not a Filipino-language lesson written primarily in Filipino."
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "The Komisyon sa Wikang Filipino's **Ortograpiyang Pambansa** gives rules and examples for writing Filipino, including borrowed words. A borrowed word can sometimes have more than one accepted form.",
+     "problem": "The lesson teaches Filipino orthography in English, but L08 requires Filipino-language teaching prose to use simple Filipino."
+    }
+   ],
+   "checked": [
+    "Checked the Filipino orthography subsection and its worked example. Both teach the Filipino spelling topic in English rather than simple Filipino."
+   ],
+   "note": ""
   },
   "L09": {
-   "verdict": "not_applicable",
+   "verdict": "pass",
    "findings": [],
-   "checked": [],
-   "note": "No hard Filipino grammar term is introduced in Filipino teaching prose that would require a first-use English gloss."
+   "checked": [
+    "Checked the Filipino terminology used in the orthography subsection and example. The named title Ortograpiyang Pambansa is a proper title, and no hard Filipino grammar term is introduced without a gloss."
+   ],
+   "note": ""
   },
   "L10": {
-   "verdict": "not_applicable",
-   "findings": [],
-   "checked": [],
-   "note": "The lesson is not a Filipino-language lesson; the loanword example tests a named KWF spelling fact inside an English spelling lesson."
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "Which statement matches the KWF example for Spanish *cuento*?",
+     "problem": "The worked example about Filipino loanword spelling is asked and solved in English, while L10 requires Filipino-lesson examples to be in Filipino."
+    }
+   ],
+   "checked": [
+    "Checked the worked item that directly tests Filipino orthography. Its prompt, choices, and solution are in English rather than Filipino."
+   ],
+   "note": ""
   },
   "L11": {
    "verdict": "needs_source_check",
@@ -91,10 +107,12 @@
    "note": "The lesson contains Filipino orthography and KWF variant claims, so official Filipino spelling and usage require the prescribed source check."
   },
   "L12": {
-   "verdict": "not_applicable",
+   "verdict": "pass",
    "findings": [],
-   "checked": [],
-   "note": "There is no Filipino teaching-prose passage in which Taglish usage can be meaningfully evaluated under this rule."
+   "checked": [
+    "Checked the Filipino forms and surrounding teaching for Taglish. The lesson uses English prose with Filipino example words, not mixed Filipino teaching sentences that switch unnecessarily between languages."
+   ],
+   "note": ""
   },
   "L14": {
    "verdict": "not_applicable",
