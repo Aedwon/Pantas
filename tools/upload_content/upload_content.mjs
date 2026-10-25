@@ -17,7 +17,7 @@ import {createRequire} from 'node:module';
 import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
-import {checkIllustrationFiles, resolveLessonIllustrations} from './lesson_illustrations.mjs';
+import {assertResolvedLessonSize, checkIllustrationFiles, resolveLessonIllustrations} from './lesson_illustrations.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const functionsDir = resolve(here, '../../functions');
@@ -72,7 +72,7 @@ for (const file of walk(join(root, 'lessons'), '.md')) {
     if (!match) throw new Error('no frontmatter');
     const front = parse(match[1]);
     const body = resolveLessonIllustrations(match[2], relative(join(root, 'lessons'), file).split('\\').join('/'), illustrationRoot, credits);
-    if (Buffer.byteLength(body, 'utf8') > 900_000) throw new Error('resolved lesson exceeds safe Firestore document size');
+    assertResolvedLessonSize(body);
     items.push(lessonItem(front, body));
     lessonFronts.push(front);
   } catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }

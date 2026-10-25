@@ -89,6 +89,9 @@ class LessonAssetEntry {
 const figurePathRule = '<subject>/<topic>/<lesson>/NN-slug.svg or .png '
     '(lowercase letters, digits and hyphens; '
     'NN is two or more digits, 01 or more)';
+
+/// The credit of a new original SVG drawing.
+const pantasCredit = 'Pantas';
 final _figureExtension =
     RegExp(r'\.(svg|png|jpe?g|gif|webp)$', caseSensitive: false);
 final _figurePath = RegExp(
@@ -199,19 +202,34 @@ class LessonAssetMap {
       }
     }
     for (final item in found.entries) {
-      if (entries.containsKey(item.key) && !item.value.path.endsWith('.svg')) {
-        continue;
+      final path = item.value.path;
+      final isSvg = path.endsWith('.svg');
+      // An asset-map entry without a URL is not an entry.
+      final existing = prior.get(item.key);
+      final hasExisting = existing != null && existing.url.isNotEmpty;
+      if (hasExisting && !isSvg) continue;
+      final creditKey = existing?.creditKey ?? item.key;
+      // The only figure without a credit entry is a new original SVG, which
+      // docs/content/lesson-svg-authoring.md defines as made by Pantas. Any
+      // other figure with no credit is an error, never a default. The upload
+      // tool applies the same rule.
+      if (!credits.containsKey(creditKey)) {
+        if (hasExisting || !isSvg) {
+          throw FormatException(
+            'No credit for figure file $path: add "$creditKey" with a credit '
+            'to content/illustrations/sources/*.yaml',
+          );
+        }
+        credits[creditKey] = pantasCredit;
       }
-      final mime =
-          item.value.path.endsWith('.svg') ? 'image/svg+xml' : 'image/png';
-      final creditKey = prior.get(item.key)?.creditKey ?? item.key;
-      credits.putIfAbsent(creditKey, () => 'Pantas');
       entries[item.key] = LessonAssetEntry(
-        url: Uri.dataFromBytes(item.value.readAsBytesSync(), mimeType: mime)
-            .toString(),
-        alt: prior.get(item.key)?.alt ?? '',
+        url: Uri.dataFromBytes(
+          item.value.readAsBytesSync(),
+          mimeType: isSvg ? 'image/svg+xml' : 'image/png',
+        ).toString(),
+        alt: existing?.alt ?? '',
         creditKey: creditKey,
-        file: item.value.path,
+        file: path,
       );
     }
     if (entries.isEmpty && !prior.isConfigured) {
