@@ -3,6 +3,12 @@ import 'dart:io';
 
 import 'lesson_asset_map.dart';
 
+/// The most bytes a lesson may take once its figures are embedded: the lesson
+/// text with each marker replaced by its `IMAGE` marker. The upload tool
+/// rejects a lesson over this size. Here a figure that would pass it is
+/// dropped.
+const maxResolvedLessonBytes = 900000;
+
 /// Converts a lesson Markdown body into Portable Text blocks.
 ///
 /// Handles headings, paragraphs, lists, blockquotes, display and inline LaTeX,
@@ -51,6 +57,7 @@ List<Map<String, Object?>> markdownToPortableText(
   final delimiterPattern = RegExp(r'^\s*:?-+:?\s*$');
 
   var illustrationSeq = 0;
+  var resolvedBytes = utf8.encode(body).length;
   final lines = body.split('\n');
 
   var i = 0;
@@ -136,13 +143,34 @@ List<Map<String, Object?>> markdownToPortableText(
         continue;
       }
       final desc = illusMatch.group(1)!.trim();
+      final alt = entry.alt.isNotEmpty ? entry.alt : desc;
+      final resolvedMarker = '<!-- IMAGE: '
+          '${jsonEncode({
+            'asset': {'url': entry.url, 'credit': credit},
+            'alt': alt,
+          })} -->';
+      final grown = resolvedBytes +
+          utf8.encode(resolvedMarker).length -
+          utf8.encode(illusMatch.group(0)!).length;
+      if (grown > maxResolvedLessonBytes) {
+        final message = '${lesson.path}:$lineNumber: dropped image because '
+            'the lesson would pass $maxResolvedLessonBytes bytes';
+        if (onWarning != null) {
+          onWarning(message);
+        } else {
+          stderr.writeln(message);
+        }
+        i++;
+        continue;
+      }
+      resolvedBytes = grown;
       blocks.add({
         '_type': 'image',
         'asset': {
           'url': entry.url,
           'credit': credit,
         },
-        'alt': entry.alt.isNotEmpty ? entry.alt : desc,
+        'alt': alt,
       });
       i++;
       continue;

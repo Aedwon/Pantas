@@ -15,10 +15,19 @@ to markers in numeric sequence order. Sequence numbers may have gaps. Do not
 reuse a sequence for two SVGs. An SVG replaces a PNG with the same sequence.
 The marker description supplies alt text unless an existing asset map supplies it.
 Write the full teaching meaning in the description, including relationships and
-values someone needs without seeing the figure. Existing credits are preserved.
-New original drawings use `Pantas`; add third-party credits to the existing
-`content/illustrations/sources/*.yaml` manifests keyed by subject/topic/lesson#N.
-Do not use this default credit for a third-party drawing.
+values someone needs without seeing the figure.
+
+Credits. The seed and the upload stop with the file name and the credit key when a
+figure file has no credit; neither one defaults a credit. An existing asset-map entry
+with a URL and no credit is not a figure file: the upload stops on it, and the seed
+drops that image with a warning, as it did before figures were embedded. The only figure with no entry in
+`content/illustrations/sources/*.yaml` is a new original SVG: a `.svg` file in a slot
+that has no existing asset-map entry. Pantas made it, and its credit is `Pantas`.
+Every other figure needs a credit entry keyed by `subject/topic/lesson#N`: a PNG, a
+third-party drawing, or an SVG that replaces an existing entry (it keeps that entry's
+credit key, and the credit key must exist). When an original SVG replaces a
+third-party figure, delete the third-party credit entry for that slot. Add
+third-party credits to the manifests. Do not use the default for a third-party drawing.
 
 The native seed and server uploader carry local bytes as data URLs in the lesson
 content. This keeps offline figures in the same database/cache as their lessons.
@@ -27,9 +36,13 @@ authors keep writing `ILLUSTRATION`, not `IMAGE`. Do not hand-edit generated out
 Existing remote PNG URLs remain supported. The app also accepts remote `.svg`
 URLs, including query strings, and bundled asset paths. Native remote SVGs use
 the existing PNG disk cache; web SVGs use network loading and parser caching.
-Base64 increases uncompressed source size. Server upload rejects a resolved body
-larger than 900,000 bytes, before any writes. Split or optimize an oversized
-figure instead of weakening that limit. No new public asset host is required.
+Base64 increases uncompressed source size. A lesson may take at most 900,000 bytes
+once its figures are embedded (the lesson text with each marker replaced by its
+`IMAGE` marker, counted in UTF-8 bytes). The server upload rejects a lesson over that
+size, before any writes. The seed and export tools count the same way and drop the
+figure that would pass the limit, with a warning, as they did before figures were
+embedded. Split or optimize an oversized figure instead of weakening the limit. No
+new public asset host is required.
 
 ## Theme colors without CSS
 

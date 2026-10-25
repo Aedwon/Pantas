@@ -15,6 +15,11 @@ void main() {
         Directory('${root.path}/content/illustrations/math/topic/lesson')
           ..createSync(recursive: true);
     File('${dir.path}/02-old.png').writeAsBytesSync([137, 80, 78, 71]);
+    Directory('${root.path}/content/illustrations/sources').createSync();
+    File('${root.path}/content/illustrations/sources/test.yaml')
+        .writeAsStringSync(
+      'assets:\n  - key: "math/topic/lesson#2"\n    credit: Test artist\n',
+    );
     File('${dir.path}/01-new.svg')
         .writeAsStringSync('<svg xmlns="http://www.w3.org/2000/svg"/>');
     final assets = LessonAssetMap.fromJsonFile(
@@ -191,4 +196,106 @@ void main() {
       ),
     );
   });
+  void credit(String key, String credit) {
+    final sources = Directory('${root.path}/content/illustrations/sources')
+      ..createSync(recursive: true);
+    File('${sources.path}/test.yaml').writeAsStringSync(
+      'assets:\n  - key: "$key"\n    credit: $credit\n',
+    );
+  }
+
+  test('a new SVG with no credit entry is an original Pantas drawing', () {
+    figure('math/topic/lesson/01-new.svg');
+    final assets = load();
+    expect(assets.creditFor(assets.get('math/topic/lesson#1')!), 'Pantas');
+  });
+  test('a local PNG with no credit fails with its path and the key', () {
+    final png = figure('math/topic/lesson/01-old.png');
+    expect(
+      load,
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          allOf(contains(png.path), contains('math/topic/lesson#1')),
+        ),
+      ),
+    );
+  });
+  test('a local PNG with a credit in the sources keeps that credit', () {
+    figure('math/topic/lesson/01-old.png');
+    credit('math/topic/lesson#1', 'Test artist');
+    final assets = load();
+    expect(assets.creditFor(assets.get('math/topic/lesson#1')!), 'Test artist');
+  });
+  test('an SVG replacing an entry whose credit is missing fails', () {
+    final svg = figure('math/topic/lesson/01-new.svg');
+    File('${root.path}/content/illustrations/assets.json').writeAsStringSync(
+      jsonEncode({
+        'math/topic/lesson#1': {
+          'url': 'https://example.com/old.png',
+          'creditKey': 'not-in-sources',
+        },
+      }),
+    );
+    expect(
+      load,
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          allOf(contains(svg.path), contains('not-in-sources')),
+        ),
+      ),
+    );
+  });
+  String svgOfSize(int bytes) => '<svg xmlns="http://www.w3.org/2000/svg">'
+      '${'<!--${'x' * 1000}-->' * (bytes ~/ 1008)}</svg>';
+  test('figures past 900,000 resolved bytes are dropped with a warning', () {
+    figure('math/topic/lesson/01-a.svg', svgOfSize(400000));
+    figure('math/topic/lesson/02-b.svg', svgOfSize(400000));
+    final warnings = <String>[];
+    final blocks = markdownToPortableText(
+      'Before\n\n<!-- ILLUSTRATION: First -->\n\n<!-- ILLUSTRATION: Second -->'
+      '\n\nAfter',
+      lesson: identity,
+      assets: load(),
+      onWarning: warnings.add,
+    );
+    expect(blocks.where((b) => b['_type'] == 'image'), hasLength(1));
+    expect(blocks.where((b) => b['_type'] == 'block'), hasLength(2));
+    expect(warnings, hasLength(1));
+    expect(warnings.single, allOf(contains('900000'), contains('lesson.md')));
+  });
+  test('one figure over the limit is dropped and the lesson text stays', () {
+    figure('math/topic/lesson/01-a.svg', svgOfSize(700000));
+    final warnings = <String>[];
+    final blocks = markdownToPortableText(
+      'Before\n\n<!-- ILLUSTRATION: First -->',
+      lesson: identity,
+      assets: load(),
+      onWarning: warnings.add,
+    );
+    expect(blocks.where((b) => b['_type'] == 'image'), isEmpty);
+    expect(warnings, hasLength(1));
+  });
+  // The upload tool's test uses the same body and the same two sizes.
+  for (final (size, kept) in [(674916, true), (674917, false)]) {
+    test('the 900,000 byte limit matches the upload tool: $size bytes', () {
+      figure(
+        'math/topic/lesson/01-a.svg',
+        '<svg>${' ' * (size - 11)}</svg>',
+      );
+      final blocks = markdownToPortableText(
+        'Before\n\n<!-- ILLUSTRATION: First -->\n\nAfter',
+        lesson: identity,
+        assets: load(),
+        onWarning: (_) {},
+      );
+      expect(
+        blocks.where((b) => b['_type'] == 'image'),
+        kept ? hasLength(1) : isEmpty,
+      );
+    });
+  }
 }
