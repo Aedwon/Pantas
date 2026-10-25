@@ -41,6 +41,7 @@ void main() {
       '/mock-exam',
       '/wrapped/:artifactId',
       '/paywall',
+      '/pro',
       '/settings',
       '/settings/sessions',
       '/more',

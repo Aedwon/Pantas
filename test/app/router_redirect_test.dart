@@ -140,6 +140,29 @@ void main() {
     );
   });
 
+  testWidgets('/pro checkout path redirects with every query parameter',
+      (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/pro?checkout=success&ref=x&tag=one&tag=two');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ProPage), findsOneWidget);
+    final uri = router.routerDelegate.currentConfiguration.uri;
+    expect(uri.path, '/settings/pro');
+    expect(uri.queryParametersAll, {
+      'checkout': ['success'],
+      'ref': ['x'],
+      'tag': ['one', 'two'],
+    });
+  });
+
   testWidgets('/settings renders Settings home; /more redirects there',
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);

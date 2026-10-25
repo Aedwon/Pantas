@@ -3,12 +3,30 @@ import {getAuth, type Auth} from 'firebase-admin/auth';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
-import {claimsFromInputs, entitlementWrite, readEntitlementInputs} from './entitlementInputs.js';
+import {claimsFromInputs, entitlementWrite, readEntitlementInputs, type EntitlementInputs} from './entitlementInputs.js';
 import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 
 export type TrialDeps = {db: Firestore; auth: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
   allow?: (uid: string) => Promise<boolean>; now?: () => number};
+
+/** Both discovery and trial creation use the same complete purchase history. */
+function neverHadPro(inputs: EntitlementInputs): boolean {
+  const facts = inputs.record.get('facts') as {sources?: unknown[]; purchases?: unknown[]} | undefined;
+  return inputs.grants.size === 0 && inputs.passes.length === 0 && inputs.record.get('pro') !== true &&
+    Number(inputs.record.get('proUntil') ?? 0) <= 0 &&
+    (facts?.sources?.length ?? 0) === 0 && (facts?.purchases?.length ?? 0) === 0;
+}
+
+/** Read-only eligibility. The creation transaction checks again before granting. */
+export async function trialEligible(auth: Parameters<typeof assertNamedUser>[0], db: Firestore): Promise<boolean> {
+  if (!auth || auth.token.firebase?.sign_in_provider === 'anonymous') return false;
+  return db.runTransaction(async transaction => {
+    const marker = await transaction.get(db.doc(`users/${auth.uid}/server/trial`));
+    const inputs = await readEntitlementInputs(transaction, db, auth.uid);
+    return !marker.exists && neverHadPro(inputs);
+  });
+}
 
 /**
  * One 7-day trial per account, Civil Service tier. Refused for anonymous accounts, an
@@ -27,10 +45,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
     const marker = await transaction.get(trial);
     const inputs = await readEntitlementInputs(transaction, deps.db, uid);
     if (marker.exists) throw new HttpsError('failed-precondition', 'The free trial was already used.');
-    const facts = inputs.record.get('facts') as {sources?: unknown[]; purchases?: unknown[]} | undefined;
-    if (inputs.grants.size > 0 || inputs.passes.length > 0 || inputs.record.get('pro') === true ||
-        Number(inputs.record.get('proUntil') ?? 0) > 0 ||
-        (facts?.sources?.length ?? 0) > 0 || (facts?.purchases?.length ?? 0) > 0) {
+    if (!neverHadPro(inputs)) {
       throw new HttpsError('failed-precondition', 'The free trial is only for accounts that never had Pro.');
     }
     const grant: Grant = {source: 'trial', product: TRIAL_PRODUCT, tier: 'civilService',

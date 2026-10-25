@@ -32,3 +32,4 @@ export {recordLessonRead} from './studyObservations.js';
 export {advanceRoadmap,getRoadmapDay,getRoadmapWeek} from './roadmap.js';
 
 export {getStudyInsights} from './studyInsights.js';
+export { listWebPlans } from './webPlans.js';

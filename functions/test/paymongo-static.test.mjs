@@ -5,11 +5,17 @@ import * as endpoints from '../lib/index.js';
 
 const source = name => readFileSync(new URL(`../src/${name}`, import.meta.url), 'utf8');
 
-test('index exports the PayMongo checkout, webhook and trial functions', () => {
-  for (const name of ['createPaymongoCheckout', 'paymongoWebhook', 'startWebTrial']) {
+test('index exports the PayMongo checkout, webhook, trial and plan list functions', () => {
+  for (const name of ['createPaymongoCheckout', 'paymongoWebhook', 'startWebTrial', 'listWebPlans']) {
     assert.equal(typeof endpoints[name], 'function', name);
     assert.match(source('index.ts'), new RegExp(`export \\{ ${name} \\}`));
   }
+});
+
+test('the plan list enforces App Check and takes its prices from products.json only', () => {
+  assert.match(source('webPlans.ts'), /enforceAppCheck: true/);
+  assert.match(source('webPlans.ts'), /priceCentavos\(product\)/);
+  assert.doesNotMatch(source('webPlans.ts'), /webPricePhp|\b(49|149|1199|499)\b/);
 });
 
 test('callables enforce App Check; secrets come only from Functions secrets', () => {

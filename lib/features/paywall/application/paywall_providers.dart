@@ -20,6 +20,7 @@ import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/pass_offering.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
@@ -80,12 +81,25 @@ final trustedClockProvider = Provider<TrustedClock>((ref) {
   );
 });
 
+/// True when payments go through PayMongo and the server grant ledger.
+/// A provider so tests can choose, because `kIsWeb` is fixed per platform.
+final paymentsOnWebProvider = Provider<bool>((ref) => kIsWeb);
+
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
-  // Lane C replaces this unavailable-purchases gateway with server checkout.
-  if (kIsWeb) return const DisabledRevenueCatGateway();
   final config = ref.watch(revenueCatConfigProvider);
   final entitlementState = ref.watch(paymentEntitlementStateProvider);
   final clock = ref.watch(trustedClockProvider);
+  if (ref.watch(paymentsOnWebProvider)) {
+    final gateway = WebPaymentGateway(
+      callable: callFirebaseFunction,
+      readGrants: readGrantsFromFirestore,
+      refreshClaims: refreshPaymentClaimToken,
+      openUrl: openInThisTab,
+      entitlementState: entitlementState,
+    );
+    ref.onDispose(() => unawaited(gateway.clearIdentity()));
+    return gateway;
+  }
   if (!config.isEnabled) {
     return DisabledRevenueCatGateway(entitlementState, clock);
   }

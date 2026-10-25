@@ -17,6 +17,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
 
   # State management & routing
   flutter_riverpod: ^2.5.1

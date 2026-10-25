@@ -139,6 +139,8 @@ export interface RevenueCatAccessSource {
   appId: string | null;
   environment: string;
   store?: string;
+  /** Absent when the authoritative renewal status is unknown. */
+  willRenew?: boolean;
   endsAt: number;
   active: boolean;
 }

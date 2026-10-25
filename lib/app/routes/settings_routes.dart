@@ -25,6 +25,11 @@ import 'package:go_router/go_router.dart';
 List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(path: '/paywall', redirect: (_, __) => '/settings/pro'),
       GoRoute(
+        path: '/pro',
+        redirect: (_, state) =>
+            state.uri.replace(path: '/settings/pro').toString(),
+      ),
+      GoRoute(
         path: '/settings',
         builder: (_, __) => const SettingsHomePage(),
       ),
