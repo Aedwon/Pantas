@@ -89,3 +89,7 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
   `CODEX_HOME=/Users/aedwon/.codex-a codex exec -m gpt-6.1-sol ...`; unset means b. On a usage
   limit, note the reset time and switch accounts. Engineering asks before using Sol. Aedwon
   chose this setup after the October 25 terms note about limit circumvention.
+- Pilot reads complete: RD-003 (Codex reader; one L09 fix by Codex account a; 72decc37), RD-006
+  (PR #34 held after three form rejections; lead fixed L19 via Codex account c and handed in
+  locally, 92c5bd55; PR closed unmerged), RD-008 (Sonnet reader; 28370225). Leftover branches
+  `cse-inbox/RD-003` and `cse-inbox/RD-006` await Aedwon's approval to delete.
