@@ -1,0 +1,239 @@
+{
+ "batch": "RD-004",
+ "lesson_id": "lesson-comprehension-skills-noting-specific-details",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/noting-specific-details.md",
+ "lesson_sha256": "01dee5d8b25837cbd77e3a57a22e591e07feb46eb1be74cca53f728546fdc06e",
+ "rewrite_commit": "90cc1836c0ef0c154b2eb30e1d86d605ca74675d",
+ "form": {
+  "packet": "lesson-comprehension-skills-noting-specific-details",
+  "role": "A",
+  "lesson_sha256": "01dee5d8b25837cbd77e3a57a22e591e07feb46eb1be74cca53f728546fdc06e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "No historical claims remain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Answers: 2018; Elena Cruz; evening hours; April; Saturday."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required sections and cases present; no figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions are short and concrete."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No special exam verb appears.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Five stems have needed text and simple solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino item uses simple Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "No Filipino grammar term appears.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino stem and solution are Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text needs KWF source check.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No target-word prompt appears.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading section fit passes; no formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases: number, person, long/paraphrase, time, Filipino reason."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step solutions are numbered."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equation appears.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure is required or present.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Key terms are defined before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Skimming and scanning methods are explained."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Paraphrase and shortcut limits are stated."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-noting-specific-details|B08|0": {
+    "status": "fixed",
+    "quote": "opened in $2018$. It now has $24$ planting beds",
+    "note": "Both numbers in the replacement stem use inline math."
+   },
+   "lesson-comprehension-skills-noting-specific-details|B08|1": {
+    "status": "fixed",
+    "quote": "The passage says it opened in $2018$. The answer is $2018$.",
+    "note": "Both year references in the solution use inline math."
+   },
+   "lesson-comprehension-skills-noting-specific-details|B08|2": {
+    "status": "fixed",
+    "quote": "It moved to April in $2015$ and has stayed in April since then.",
+    "note": "The festival year now uses inline math."
+   },
+   "lesson-comprehension-skills-noting-specific-details|B08|3": {
+    "status": "fixed",
+    "quote": "The passage gives both an old month and a current month.",
+    "note": "The replacement solution has no bare prose year."
+   },
+   "lesson-comprehension-skills-noting-specific-details|L02|0": {
+    "status": "fixed",
+    "quote": "**Skimming** means reading quickly to see what each part of a passage is about.",
+    "note": "The skimming definition is now short and concrete."
+   },
+   "lesson-comprehension-skills-noting-specific-details|L27|0": {
+    "status": "fixed",
+    "quote": "The exact words may not match. A question can **paraphrase**, or say the same idea in different words.",
+    "note": "The rewrite now warns that wording may be paraphrased."
+   },
+   "reading-comprehension-comprehension-skills#37": {
+    "status": "fixed",
+    "quote": "The passage uses different words: \"people who worked during the day.\"",
+    "note": "Example #3 uses a full passage and paraphrased request."
+   },
+   "lesson-comprehension-skills-noting-specific-details|B01|0": {
+    "status": "fixed",
+    "quote": "The community garden opened in $2018$.",
+    "note": "The incorrect bridge-history premise was removed."
+   },
+   "lesson-comprehension-skills-noting-specific-details|L05|0": {
+    "status": "fixed",
+    "quote": "The town library first focused on adding more printed books and replacing worn shelves.",
+    "note": "Example #3 now supplies actual passage text."
+   },
+   "lesson-comprehension-skills-noting-specific-details|L18|0": {
+    "status": "fixed",
+    "quote": "It stayed open on two evenings each week so people who worked during the day could still visit.",
+    "note": "A real multi-paragraph skim-and-scan example is now worked."
+   }
+  }
+ }
+}

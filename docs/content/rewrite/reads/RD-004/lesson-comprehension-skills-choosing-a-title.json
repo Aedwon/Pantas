@@ -1,0 +1,234 @@
+{
+ "batch": "RD-004",
+ "lesson_id": "lesson-comprehension-skills-choosing-a-title",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/choosing-a-title.md",
+ "lesson_sha256": "004621f7e84e99b4284334f7e5e348fd52b99a9b7ab73a4b0503889829cc280e",
+ "rewrite_commit": "90cc1836c0ef0c154b2eb30e1d86d605ca74675d",
+ "form": {
+  "packet": "lesson-comprehension-skills-choosing-a-title",
+  "role": "A",
+  "lesson_sha256": "004621f7e84e99b4284334f7e5e348fd52b99a9b7ab73a4b0503889829cc280e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the lesson's factual content: the bee-pollination example, reusable-bottle example, renewable-energy example, and sleep example contain no specific hard-to-remember factual claim that is incorrect as written."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind-solved all worked examples: #1 title (B); #2 title (B); #3 'Solar Power for the Town' is too narrow and a renewable-energy title is better; #4 title (C); #5 pamagat (B). Each matches the lesson solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked required Reading Comprehension structure and the brief: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the brief requires no figure, and the added English and Filipino title-selection cases are present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English teaching prose for Grade 5 simplicity: definitions and strategy sentences are short and concrete, and harder ideas such as the author's stance are immediately explained in plain words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word needing a special first-use definition appears in the lesson.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Counted analogies: the only analogy-like phrasing is the 'just right' fit in Core Concept, so the lesson stays within the one-analogy limit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all five worked-example stems for enough passage-specific information and checked the solutions for simple wording; the full-passage item requires the student to infer the main point instead of giving the method away."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked exam references and trap openings: the lesson makes no repeated named-exam claim or repeated exam-motivation opener."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino passage, question, and explanation as student-facing Filipino; the sentences are short, common, and direct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "The Filipino example does not introduce a hard Filipino grammar term that would need an English gloss.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino worked example: its passage, question, answer choices, and explanatory steps are in Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present, so official KWF spelling and usage still require the source check specified by the packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino example for mixed-language teaching prose; its student-facing prose is Filipino apart from structural choice labels and the required Solution label."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks the student to interpret or identify a particular target word in the passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked for the listed stock AI phrases, repeated sentence starts, and summary wording; none of the banned phrases appears, and the revised examples no longer all open with the same wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Reading Comprehension section fit: Core Concept, Examples, a genuine shortcut section, and Traps are used appropriately; no formula appears anywhere in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the worked cases: basic option comparison, independent main-idea extraction from a full passage, too-narrow scope, argumentative stance, and Filipino title selection. The sequence moves from simple selection to fuller passage reasoning without number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked every multi-step worked solution: Examples #1 through #5 use numbered steps and do not require mathematical display computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations, so phone-width equation checking cannot apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned paragraph length and list use: prose paragraphs stay within one to three short sentences, and the only non-solution bullet list is the short four-item title checklist."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The brief says figures are not needed, and the lesson contains no illustration placeholder to evaluate.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced needed meanings before use: main idea is defined immediately, title scope is explained as too broad or too narrow, and author's stance is explained by the nearby for-or-against wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that the method is taught, not merely named: the lesson gives two questions for finding the main idea, explains how details support it, and shows how scope and stance determine the title."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limits and exceptions: the lesson explicitly says a title need not name every example and should follow the central point or strongest focus rather than mechanically covering each detail."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-choosing-a-title|L18|0": {
+    "status": "fixed",
+    "quote": "Many students bring reusable water bottles to school. This can reduce the number of single-use plastic bottles thrown away each day.",
+    "note": "Checked that Example #2 now gives an actual passage and requires the student to extract its central point before choosing a title."
+   },
+   "lesson-comprehension-skills-choosing-a-title|L05|0": {
+    "status": "fixed",
+    "quote": "(B) covers the main idea. It is the best title.",
+    "note": "Checked the rewritten solutions for the earlier abstract wording; the explanation now uses short, plain language."
+   },
+   "lesson-comprehension-skills-choosing-a-title|L27|0": {
+    "status": "fixed",
+    "quote": "A title does not need to name every example. If several details all support one central point, a title can name that central point instead.",
+    "note": "Checked the old absolute scope rule; the rewrite now states the needed limitation and follows the passage's central point."
+   },
+   "reading-comprehension-comprehension-skills#8": {
+    "status": "fixed",
+    "quote": "The main point is that these choices can reduce plastic waste.",
+    "note": "Checked that a full passage now requires independent central-point extraction and comparison against titles with different scope."
+   },
+   "lesson-comprehension-skills-choosing-a-title|L02|0": {
+    "status": "fixed",
+    "quote": "Think of the best title as a \"just right\" fit. It should be wide enough for the main idea but not so wide that it loses the passage's focus.",
+    "note": "Checked the previously long layered teaching; the replacement is shorter and uses simpler wording."
+   },
+   "lesson-comprehension-skills-choosing-a-title|L15|0": {
+    "status": "fixed",
+    "quote": "Read the passage.",
+    "note": "Checked the example openings; the rewrite now varies them instead of starting every worked question with the same phrase."
+   },
+   "lesson-comprehension-skills-choosing-a-title|L26|0": {
+    "status": "fixed",
+    "quote": "To find the main idea, ask two questions. What topic comes up through most of the passage? What is the author mainly saying about that topic?",
+    "note": "Checked that finding the main idea is now taught directly with two guiding questions before students use the method."
+   }
+  }
+ }
+}
