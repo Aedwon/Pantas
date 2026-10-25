@@ -9,21 +9,21 @@ isActive: true
 ---
 ## Core Concept
 
-Section $11$ of RA $6713$ gives penalties for violations of the Code. Section $12$ assigns enforcement duties. First check what happened and which rule applies.
+Section $11$ of RA $6713$ gives penalties for Code violations. Section $12$ assigns enforcement duties. First check what happened and which rule applies.
 
 ### General Administrative Penalties
 
-**Administrative discipline** is the process for deciding whether a public worker broke a work rule and should receive a penalty. A general Code violation may lead to a fine of up to $6$ months' salary, suspension of up to $1$ year, or removal from office. Suspension means the worker is kept from work for a set period.
+**Administrative discipline** is a process for deciding whether a public worker broke a work rule and should receive a penalty. A general Code violation may lead to a fine of up to $6$ months' salary, suspension of up to $1$ year, or removal from office. Suspension keeps the worker from work for a set period.
 
 The proper body chooses the penalty based on how serious the offense is. A maximum is a ceiling. It is not the required penalty for every violation.
 
 **Due notice and hearing** must come before the sanction. Notice tells the worker the charge to answer. A hearing gives a fair chance to answer and offer evidence.
 
-In an administrative case, the proper authority first checks the complaint and supporting facts. If a charge proceeds, the worker receives notice and may answer with records and other evidence. A formal investigation is held when required by the rules that govern the case.
+The proper authority first checks the complaint and supporting facts. If a charge proceeds, the worker receives notice and may answer with records and other evidence. A formal investigation is held when the governing rules require it.
 
-The authority must consider the evidence and explain its decision. A fair chance to answer may include written submissions under the applicable rules. It does not always require the same courtroom steps used in a criminal trial.
+The authority must consider the evidence and explain its decision. The chance to answer may include written submissions under the applicable rules. It does not always require the same courtroom steps as a criminal trial.
 
-Administrative guilt requires **substantial evidence**. This means relevant evidence that a reasonable person could accept as enough to support the finding. An unsupported accusation is not enough.
+Administrative guilt requires **substantial evidence**. This is relevant evidence that a reasonable person could accept as enough to support the finding. An unsupported accusation is not enough.
 
 ### Criminal Penalties and Separate Cases
 
@@ -31,166 +31,169 @@ A **criminal case** asks a court to decide whether someone committed a crime. **
 
 Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also order **disqualification**, which bars the person from holding public office. That added penalty is up to the court.
 
-If another law gives a heavier penalty for the violation, prosecution proceeds under that law. Do not always choose the RA $6713$ penalty just because the case also involves the Code.
+Section $7$ includes the ban on misuse of confidential or classified work information. This means protected information learned through office and not made public. A worker must not use or share it to serve private interests, give anyone an unfair advantage, or harm the public interest.
+
+Check both the information and the purpose of its use. Sending a lawfully public file does not by itself prove this offense. A confidential file sent to give a business an unfair advantage presents a different case.
+
+If another law gives a heavier penalty for the violation, prosecution proceeds under that law. Do not choose the Code's penalty without checking this condition.
 
 A Code violation proved in a proper administrative case is enough cause for removal or dismissal. No criminal case has to be filed first. The administrative body must still follow a fair process.
 
 ### Private People Who Take Part
 
-A **conspiracy** exists when people agree to commit an offense and decide to carry it out. Section $11$ also covers private people who take part with public workers as co-principals, accomplices, or accessories. They face the same **penal liabilities**, meaning criminal responsibility and penalties under this provision, and are tried together with the public workers.
+A **conspiracy** exists when people agree to commit an offense and decide to carry it out. Section $11$ covers private participants with public workers as co-principals, accomplices, or accessories. They face the same **penal liabilities**, meaning criminal responsibility and penalties under this provision, and are tried together with the public workers.
 
-A **co-principal** may directly carry out the offense. Another way is to directly force someone to do it or persuade someone in a way that directly causes the offense. A person can also be a principal by giving essential help, without which the offense could not happen.
+A **co-principal** may directly carry out the offense. Another way is to force someone to do it or directly cause it through persuasion. A person can also be a principal by giving essential help without which the offense could not happen.
 
-An **accomplice** knows the unlawful purpose and helps before or during the offense. The help supports the offense but does not make the helper a principal. For example, the help may be useful without being essential.
+An **accomplice** knows the unlawful purpose and helps before or during the offense. The help supports the offense but does not make the helper a principal. Useful but nonessential help can fit this role when the other conditions are met.
 
-An **accessory** knows that the offense has happened and takes a legally covered part afterward. The person did not already take part as a principal or accomplice. Covered acts include helping someone profit from the offense or hiding its tools or evidence to stop discovery.
+An **accessory** knows the offense has happened and takes a legally covered part afterward. The person did not already take part as a principal or accomplice. Covered acts include profiting from the offense, helping the offender profit, or hiding or destroying its evidence or tools to prevent discovery.
 
-Not every later act makes someone an accessory. Helping an offender escape has further legal conditions. Family exemptions may also matter, so do not ignore a stated relationship.
+The Revised Penal Code also covers sheltering, hiding, or helping a principal escape, but only under stated conditions. The helper must misuse public duties, or the principal must fall within the law's listed serious-offender groups. Merely helping any offender escape does not by itself meet this accessory rule.
 
-Knowing about an offense is not enough by itself. Look for an actual act of participation. A person who planned and directly carried out the offense remains a principal even if that person also helps afterward.
+Those groups include a principal guilty of treason, parricide, murder, or an attempt on the Chief Executive's life. Treason is betrayal of the country by aiding its enemy under the law. Parricide is the unlawful killing of a close family member covered by that offense.
+
+The list also covers a principal known to be habitually guilty of another crime. Habitually means repeatedly. For a private helper who holds no public duties, check these conditions before assigning escape-related accessory responsibility.
+
+The family exemption covers an accessory's spouse, parents and other ancestors, children and other descendants, and legitimate, natural, or adopted brothers and sisters. It also covers relatives by marriage within those same degrees. It concerns accessory penalties, not a relative's direct participation as a principal or accomplice.
+
+The exemption does not cover an accessory who profits from the offense or helps the offender profit. For example, hiding evidence for a covered relative and helping that relative enjoy stolen proceeds fall under different parts of the rule. The profit-related act defeats this family exemption.
+
+Knowing about an offense is not enough by itself. Look for an actual act of participation. Someone who planned and directly carried out the offense remains a principal even if that person also helps afterward.
 
 ### Misuse of Filed Statements
 
-A **SALN** is a Statement of Assets, Liabilities and Net Worth. Assets are things owned, such as property and money. Liabilities are debts, and net worth is assets minus debts.
+A **SALN** is a Statement of Assets, Liabilities and Net Worth. Assets are things owned, liabilities are debts, and net worth is assets minus debts.
 
-Section $8(D)$ restricts how filed statements may be obtained or used. It bans purposes contrary to **morals or public policy**, meaning accepted standards of right conduct or the public good protected by law. It also bans commercial use, such as selling information for marketing.
+Section $8(D)$ bans obtaining or using filed statements for purposes contrary to **morals or public policy**. These mean accepted standards of right conduct or the public good protected by law. It also bans commercial use, such as selling information for marketing.
 
-News and communications media have an exception to the commercial-use ban when they use the statements to inform the general public. Public access does not mean anyone may use the statements for any purpose.
+News and communications media have an exception to the commercial-use ban when they use statements to inform the general public. Public access does not allow every possible use.
 
-The official or employee concerned may bring an action against a person who obtains or uses a statement for a prohibited purpose. The court may assess a penalty of up to ₱$25{,}000$. If another applicable sanction is heavier, that heavier sanction applies.
+The official or employee concerned may bring an action against someone who obtains or uses a statement for a prohibited purpose. The court may assess a penalty of up to ₱$25{,}000$. If another applicable sanction is heavier, that heavier sanction applies.
 
 ### Enforcement, Referrals, and Review
 
 The **Civil Service Commission (CSC)** has primary responsibility for administering and enforcing the Code. It sends cases requiring prosecution to the proper authorities. It may also start administrative action allowed by law.
 
-A complaint involving a public worker may need investigation by the agency's disciplining authority, the CSC, or the Ombudsman, depending on their legal powers. The CSC's primary role does not mean that it alone investigates or decides every case. Sending a case to another authority does not establish guilt.
+The agency's disciplining authority, the CSC, or the Ombudsman may investigate a complaint, depending on their legal powers. The CSC does not alone decide every case. A referral does not establish guilt.
 
-Each House of Congress keeps its power to discipline its own members for disorderly behavior. The **Ombudsman** must take steps to protect citizens who report acts or failures to act that violate the Code.
+Each House of Congress keeps its power to discipline its members for disorderly behavior. The **Ombudsman** must take steps to protect citizens who report acts or failures to act that violate the Code.
 
-That protection duty does not promise every reporter a fixed benefit or immunity from every legal claim. Section $12$ states the duty. The steps needed depend on the report and the applicable rules.
+That duty does not promise every reporter a fixed benefit or immunity from every legal claim. The steps needed depend on the report and applicable rules.
 
-An **appeal** asks a higher body to review a decision. Some cases may go from an agency to the CSC, and a final CSC decision may be subject to court review under the governing rules. The available route depends on the deciding body and the kind of decision.
+An **appeal** asks a higher body to review a decision. Some agency cases may go to the CSC, and a final CSC decision may be subject to court review. The route depends on the deciding body and kind of decision.
 
-RA $6713$ does not give a single appeal path for all cases. Check the decision and applicable procedural rules for who may seek review, where to file, and the filing deadline.
+RA $6713$ gives no single appeal path for all cases. Check the governing rules for who may seek review, where to file, and the deadline.
 
 ## Examples
 
 ### #1: General Violation and Salary-Based Fine
 
-After notice and a fair chance to answer, a public employee is found liable for a general Code violation. The employee earns ₱$30{,}000$ a month. What are the fine and suspension ceilings, and may removal be imposed?
+After notice and a fair chance to answer, an employee is found liable for a general Code violation. The employee earns ₱$30{,}000$ monthly. What are the fine and suspension ceilings, and may removal be imposed?
 
 **Solution:**
 
-1. The fine ceiling equals $6$ months' salary.
+1. The fine ceiling is $6$ months' salary. Multiply the monthly salary by $6$.
 
 $$
 6 \times 30{,}000 = 180{,}000
 $$
 
 2. The fine may reach ₱$180{,}000$. Suspension may reach $1$ year.
-3. Removal is also possible based on the seriousness of the offense. The proper body must choose a lawful penalty after the required process.
-4. The maximum fine or suspension is not automatic.
+3. Removal is also possible based on the offense's seriousness and the required process. No maximum is automatic.
 
-### #2: Penalty Before a Chance to Answer
+### #2: No Chance to Answer
 
-An agency suspends an employee for a Code violation based only on a complaint. It never tells the employee the charge or allows an answer. Has it met the general sanction rule?
+An agency suspends an employee based only on a complaint. It never tells the employee the charge or allows an answer. Has it met the general sanction rule?
 
 **Solution:**
 
 1. A sanction requires due notice and hearing.
-2. The employee received neither notice of the charge nor a chance to answer.
-3. The agency has not met the required process. A complaint alone does not prove the violation.
+2. The employee had neither notice nor a chance to answer. The agency has not met the required process.
 
-### #3: Criminal Penalties Under Section $11$
+### #3: Criminal Penalties
 
-A court finds a public officer guilty of a Section $7$ violation. What maximum criminal penalties does Section $11$ provide?
+A court finds an officer guilty of a Section $7$ violation. What maximum criminal penalties does Section $11$ provide?
 
 **Solution:**
 
-1. Sections $7$, $8$, and $9$ have the stated criminal penalty rule.
-2. The court may impose up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both.
-3. It may also bar the officer from public office. That added penalty is the court's choice under the law.
+1. The court may impose up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both.
+2. It may also bar the officer from public office. That added penalty is the court's choice.
 
 ### #4: A Private Co-Principal
 
-An officer and a private consultant agree to sell confidential agency records for private gain. The officer gets the records through work. The consultant knowingly makes the agreed sale. Which role fits the consultant?
+An officer and a consultant agree to sell confidential agency records for private gain. The officer gets them through work. The consultant knowingly makes the agreed sale. Which role fits the consultant?
 
 **Solution:**
 
 1. The consultant agreed to the unlawful plan and directly carried out the sale.
-2. This is direct participation in the offense. The consultant is a co-principal.
-3. Section $11$ allows a private participant to face the same criminal responsibility and be tried with the officer.
+2. This makes the consultant a co-principal. Section $11$ allows criminal responsibility and trial with the officer.
 
 ### #5: Helpful but Nonessential Aid
 
-A businessperson knows of an officer's unlawful plan and supplies useful records before the offense. The records are not essential. The businessperson neither directly performs the offense nor causes the officer to commit it, and has not joined an agreement to carry it out. Which role fits?
+A businessperson knows an officer's unlawful purpose and supplies useful records before the offense. The records are not essential. The person neither directly performs nor causes the offense and has not joined an agreement to carry it out. Which role fits?
 
 **Solution:**
 
 1. The person knowingly helps before the offense.
-2. The help is useful but not essential. The facts do not show direct participation or another basis for principal responsibility.
-3. The role is accomplice.
+2. The help is nonessential, and no basis for principal responsibility is shown. The role is accomplice.
 
-### #6: Hiding a Tool Afterward
+### #6: Destroying a Tool Afterward
 
-A private person did not plan, assist, or carry out an officer's offense. After learning of it, the person knowingly destroys its tool to prevent discovery. The person is unrelated to the officer. Which role fits?
-
-**Solution:**
-
-1. The person knows the offense occurred and takes part only afterward.
-2. Destroying its tool to prevent discovery is a covered form of later help. No family exemption is shown.
-3. The role is accessory.
-
-### #7: Disputed Disclosure of a File
-
-An officer denies wrongdoing after sending an agency file to a business owner. Records show the file was confidential, was not public, and came to the officer through work. Messages show it was sent to give that owner an unfair advantage. Which rule and penalty path should be examined?
+An unrelated private person did not plan, assist, or carry out an officer's offense. After learning of it, the person destroys its tool to prevent discovery. Which role fits?
 
 **Solution:**
 
-1. Section $7$ bars sharing protected work information to give an unfair private advantage.
-2. The file records and messages support the facts needed for that violation. The officer must still have a fair chance to answer them.
-3. A proved Section $7$ crime can bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both. The court may also bar the officer from public office.
-4. Administrative discipline is separately possible under its own process and level of proof. The complaint alone imposes neither penalty.
+1. The person knows of the offense and takes part only afterward.
+2. Destroying its tool to prevent discovery is a covered act. No family exemption is shown, so the role is accessory.
 
-### #8: Paid Marketing From a SALN
+### #7: Disputed Disclosure
 
-A company uses an employee's filed SALN to build and sell a marketing list. It is not a news or communications organization informing the public. Is the use allowed, and what remedy does Section $11$ give the employee?
+An officer denies wrongdoing after sending a file to a business owner. Records show it was confidential, not public, and learned through work. Messages show the purpose was to give the owner an unfair advantage. Which rule and penalty path should be examined?
 
 **Solution:**
 
-1. The use is commercial and does not meet the media exception.
-2. Section $8(D)$ prohibits that use.
-3. The employee may bring an action. The court may assess up to ₱$25{,}000$, subject to the heavier-sanction rule.
+1. The records and messages support the information and purpose conditions of Section $7$'s disclosure ban.
+2. The officer must have a fair chance to answer. A complaint alone proves no violation.
+3. A proved Section $7$ crime can bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both, with possible disqualification.
+4. Administrative discipline is separately possible under its own process and level of proof.
 
-### #9: A Heavier Penalty Under Another Law
+### #8: Marketing From a SALN
+
+A company uses an employee's filed SALN to build and sell a marketing list. It is not a media organization informing the public. Is this allowed, and what remedy does Section $11$ give?
+
+**Solution:**
+
+1. This is commercial use without the media exception. Section $8(D)$ prohibits it.
+2. The employee may bring an action. The court may assess up to ₱$25{,}000$, subject to the heavier-sanction rule.
+
+### #9: A Heavier Penalty
 
 The same violation is punishable under RA $6713$ and another law. The other law gives a heavier penalty. Under which law should prosecution proceed?
 
 **Solution:**
 
-1. Section $11$ directs prosecution under the other law when its penalty is heavier.
-2. The case therefore proceeds under the other law.
+Section $11$ directs prosecution under the other law because it gives the heavier penalty.
 
 ### #10: Removal Without a Criminal Case
 
-A proper administrative case proves an officer's Code violation. No criminal case has been filed. May the officer still be removed or dismissed?
+A proper administrative case proves an officer's Code violation. No criminal case has been filed. May the officer still be removed?
 
 **Solution:**
 
-1. A Code violation proved in a proper administrative case is enough cause for removal or dismissal.
-2. The law does not require a criminal case first. Removal or dismissal is possible after the required administrative process.
+1. A violation proved in a proper administrative case is enough cause for removal or dismissal.
+2. A criminal case need not come first. The required administrative process still applies.
 
 ### #11: Routing a Complaint
 
-The CSC receives evidence of a possible Code offense that requires prosecution. What is its referral role, and does referral establish guilt?
+The CSC receives evidence of a possible Code offense requiring prosecution. What is its role, and does referral establish guilt?
 
 **Solution:**
 
-1. The CSC refers cases requiring prosecution to the proper authorities.
-2. It may also start administrative action within its legal powers.
-3. A referral is not a conviction. The body that handles the case must follow the applicable process.
+1. The CSC refers the case to the proper authorities and may start administrative action within its powers.
+2. Referral is not conviction. The receiving body must follow its required process.
 
-### #12: Protection for a Reporting Citizen
+### #12: Protection for a Reporter
 
 A citizen reports a possible Code violation and fears retaliation. Which institution does Section $12$ direct to take protective steps?
 
@@ -198,37 +201,54 @@ A citizen reports a possible Code violation and fears retaliation. Which institu
 
 The Ombudsman must take steps to protect citizens who report Code violations by public officials or employees.
 
-### #13: Checking the Route for Review
+### #13: Checking Review Rules
 
-An employee receives an agency decision and wants it reviewed. A coworker says every Code case goes straight to the same court. Is that a safe rule?
+An employee wants an agency decision reviewed. A coworker says every Code case goes straight to the same court. Is that a safe rule?
 
 **Solution:**
 
-1. The route depends on the deciding body and the kind of decision.
-2. The employee must check the applicable review rules, including the proper body and deadline.
-3. RA $6713$ does not create one route for every case.
+1. The route depends on the deciding body and kind of decision.
+2. Check the applicable review rules, proper body, and deadline. The Code does not create one route for every case.
+
+### #14: A Relative Who Helps Afterward
+
+After an offense, an offender's sister, who had no earlier role, knowingly hides its tool to prevent discovery. In another case, she helps the offender sell and enjoy the proceeds. Does the accessory family exemption cover both acts?
+
+**Solution:**
+
+1. A sister is among the covered relatives. The exemption can cover her accessory act of hiding the tool.
+2. Helping the offender profit falls under the exception to that exemption. The family relationship does not exempt that profit-related act.
+
+### #15: Escape Help Alone
+
+An unrelated private person with no public duties helps an offender hide after a Code offense. The offender is not within any listed serious-offender group and is not known to be habitually guilty of another crime. Does hiding alone establish accessory responsibility under the escape provision?
+
+**Solution:**
+
+1. The helper did not misuse public duties, and the principal meets none of the stated offender conditions.
+2. The escape provision's conditions are missing. Hiding alone does not establish accessory responsibility under that provision.
 
 ## Traps to Watch For
 
-### #1: Treating a Maximum as the Required Penalty
+### #1: Making Every Penalty Automatic
 
-> A ceiling sets the most allowed under that rule.
+> A maximum is a ceiling.
 
-The general sanction depends on the seriousness of the offense. Notice and hearing must come first. Court-ordered disqualification is also not automatic.
+The general sanction depends on the offense's seriousness. Notice and hearing must come first. Court-ordered disqualification is also not automatic.
 
-### #2: Waiting for Criminal Prosecution
+### #2: Waiting for a Criminal Case
 
-> Administrative removal does not require a criminal case first.
+> Administrative removal does not require criminal prosecution first.
 
-A proper administrative case can support removal or dismissal. It still needs evidence and a fair chance to answer.
+A proper administrative case can support removal. It still needs evidence and a fair chance to answer.
 
 ### #3: Choosing a Role From Timing Alone
 
-> Check the agreement, knowledge, act, and importance of the help.
+> Check knowledge, agreement, acts, and the importance of the help.
 
-A direct participant may be a principal. A knowing helper may be an accomplice. Later help counts as accessory participation only when the legal conditions are met.
+Earlier direct participation can make a person a principal. Later help must meet the accessory conditions. Family exemptions have a profit-related exception.
 
-### #4: Mixing the Fine Ceilings
+### #4: Mixing Fine Ceilings
 
 > Match the amount to the kind of case.
 
