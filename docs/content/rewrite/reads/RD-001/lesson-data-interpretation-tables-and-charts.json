@@ -1,0 +1,282 @@
+{
+ "packet": "lesson-data-interpretation-tables-and-charts",
+ "role": "A",
+ "lesson_sha256": "b8a10e10966ffe36c8205584347889ec2d0168475d354d6f6c603e724d59361a",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the table, chart, average, scale, and pie-chart statements for mathematical correctness; the unit-scale examples and part-of-whole relation are correct.",
+    "Checked the signed-difference caveat and pie-chart same-whole condition; no incorrect factual claim was found."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Blind-solved Example 1 from the illustrated table: Operations in Quarter 3 is 27 thousand pesos, so 27,000 pesos, matching the lesson.",
+    "Blind-solved Example 2: Administration 12+15+18+11 = 56 thousand pesos, so 56,000 pesos, matching the lesson.",
+    "Blind-solved Example 3 from the illustrated scale: Factory A is 440 and Factory B is 320, so the difference is 120 units, matching the lesson.",
+    "Blind-solved Example 4: (40,000+50,000+60,000)/3 = 50,000 pesos, matching the lesson.",
+    "Blind-solved Example 5: 35% of 200,000 pesos = 70,000 pesos, matching the lesson."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are all present.",
+    "Confirmed each figure-dependent table, bar-chart, and pie-chart example has a specific illustration placeholder at the exact example."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for Grade 5 readability. The rewrite uses short direct sentences and explains technical terms such as rows, columns, average, and chart scale in simple language."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The example prompts use everyday words such as use, what, and find; no exam-specific instruction word requiring a definition appears."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Core Concept and the remaining sections for tutor analogies; none is used, so the at-most-one limit is satisfied."
+   ],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all five example questions: the needed data are supplied through the table or chart figures rather than restated as answer-giving prose, and the solutions use short numbered steps."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked for named-exam claims and repetitive exam-motivation openers; none appear, so there is no unsupported or repetitive exam phrasing."
+   ],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a Filipino-language lesson."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No Filipino grammar term appears because the lesson is written in English."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino examples are not required."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There is no Filipino text that needs spelling or usage verification against the Komisyon sa Wikang Filipino."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There is no Filipino teaching prose, so the no-Taglish rule cannot apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question refers to a target word or asks about a word in bold."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the listed stock AI phrases, sentence-opening rhythm, and frontmatter summary; no banned stock phrase appears and the summary directly describes the lesson."
+   ],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed the required mathematics sections are present.",
+    "Examples 1 and 2 use row-column lookup and thousand-unit scaling, both explained in Core Concept before the examples.",
+    "Example 3 uses chart tick spacing and difference, both explained in Core Concept before the example.",
+    "Example 4 uses Average = sum of values/number of values, stated in Core Concept before the example.",
+    "Example 5 uses part = percent/100 × total, stated in Core Concept before the example."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct cases to worked examples: row-column lookup with unit scale, table total, unstated chart values read from tick graduations plus a difference, average across time periods, and pie-chart part of a whole.",
+    "Checked that the questions progress from direct lookup to calculations and do not merely repeat the same reading task with changed numbers."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all five multi-step solutions. Every solution uses numbered steps, and the key arithmetic computations are shown as display equations; chart or table readings remain short side results in the numbered steps."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the average, pie-part, total, difference, and unit-scale display equations; all are compact enough for a phone screen."
+   ],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Scanned Core Concept, shortcuts, traps, and solutions; prose paragraphs stay within one to three short sentences, with no excessive bullet-list use."
+   ],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all four table/chart placeholder designs used across five examples. Each placeholder is one specific drawable line with titles, labels, scales or values sufficient for an artist to reproduce the required figure.",
+    "Checked that the bar-chart and pie-chart questions depend on their figures and that the placeholders supply the exact exam-relevant visual data instead of decorative imagery."
+   ],
+   "note": ""
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that rows, columns, unit scale, chart axes and tick steps, total, difference, average, pie-chart whole, percent, and total are introduced or explained before the examples require them.",
+    "Checked that average is explicitly defined as arithmetic mean before the monthly-average example."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked table reading: the lesson explains that row and column labels name categories and that their intersection identifies the value belonging to both.",
+    "Checked chart reading, average, and pie-chart concepts: each explains what the concept means and how to apply it before the corresponding worked example."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions and limits: totals use only requested categories, ordinary differences subtract smaller from larger unless a signed change is requested, chart values follow the shown scale, and the pie formula is limited to slices of the same whole with a known total."
+   ],
+   "note": ""
+  },
+  "B09": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Reviewed the script candidate 'tick marks'; it refers to visual scale markings on a chart, not exam scores, so it does not violate the points-not-marks vocabulary rule."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-data-interpretation-tables-and-charts|B03|0": {
+   "status": "fixed",
+   "quote": "First read the title, row labels, column labels, and units. This prevents mistakes before you calculate.",
+   "note": "Checked that the rewrite now includes substantive Speed Tricks & Shortcuts and Traps to Watch For sections after Examples."
+  },
+  "lesson-data-interpretation-tables-and-charts|L18|0": {
+   "status": "fixed",
+   "quote": "Use the table. What was the Operations expense in Quarter $3$, in pesos?",
+   "note": "Checked that the rewritten example now requires an actual row-column lookup from a table and then applies the displayed thousand-peso scale."
+  },
+  "lesson-data-interpretation-tables-and-charts|L18|1": {
+   "status": "fixed",
+   "quote": "Use the bar chart. How many more units did Factory A produce than Factory B?",
+   "note": "Checked that the rewritten chart question no longer restates either plotted value; the student must decode both values from the chart scale."
+  },
+  "lesson-data-interpretation-tables-and-charts|L02|0": {
+   "status": "fixed",
+   "quote": "Tables and charts organize numbers so you can compare them quickly. Read the labels and units before doing any arithmetic.",
+   "note": "Checked that the formal candidates/quantities/evaluate sentence is gone and replaced by short, direct Grade 5 teaching prose."
+  },
+  "lesson-data-interpretation-tables-and-charts|L02|1": {
+   "status": "fixed",
+   "quote": "First read the title, row labels, column labels, and units. This prevents mistakes before you calculate.",
+   "note": "Checked that the formal tabulated-figures and unnecessary-rounding wording is gone and the shortcut is now stated in simple language."
+  },
+  "lesson-data-interpretation-tables-and-charts|L26|0": {
+   "status": "fixed",
+   "quote": "To find one value, trace across the correct row and down the correct column. The value where they meet belongs to both labels.",
+   "note": "Checked that the rewrite now explains how row and column categories combine to identify one table value, before demonstrating it in Example 1."
+  },
+  "mathematics-data-interpretation#10": {
+   "status": "fixed",
+   "quote": "Check the unit beside the table title or header. If the table says \"thousands of pesos,\" a shown value of $18$ means $18,000$ pesos.",
+   "note": "Checked that row-column lookup and unit-scale reading are both explicitly taught, then applied in the first table example."
+  },
+  "mathematics-data-interpretation#13": {
+   "status": "fixed",
+   "quote": "An **average**, or arithmetic mean, gives one value that represents a group of values. Add the values, then divide by how many values there are.",
+   "note": "Checked that the arithmetic-mean meaning and procedure now appear in Core Concept before the average-across-months example."
+  },
+  "mathematics-data-interpretation#14": {
+   "status": "fixed",
+   "quote": "A bar or point may fall between labeled ticks. Count the smaller steps to read the value instead of guessing from the bar height.",
+   "note": "Checked that graphical scale decoding is now taught and Example 3 requires reading unstated bar values from smaller tick graduations."
+  },
+  "mathematics-data-interpretation#15": {
+   "status": "fixed",
+   "quote": "A pie chart shows parts of one whole. The full circle represents $100\\%$.",
+   "note": "Checked that pie-chart part-of-whole meaning is now taught and followed by a worked slice-percentage-to-amount example."
+  },
+  "lesson-data-interpretation-tables-and-charts|B08|0": {
+   "status": "fixed",
+   "quote": "Use the table. What was the Operations expense in Quarter $3$, in pesos?",
+   "note": "Checked the edited student-facing quarter reference. Its numeral is now inside inline math, while the remaining quarter numerals occur only in the illustration specification."
+  },
+  "lesson-data-interpretation-tables-and-charts|B08|1": {
+   "status": "fixed",
+   "quote": "Use the table. Find the average monthly revenue.",
+   "note": "Checked the edited student-facing passage. The prose no longer contains bare Month 1, Month 2, or Month 3 numerals; those labels remain only in the illustration specification."
+  },
+  "lesson-data-interpretation-tables-and-charts|L17|0": {
+   "status": "fixed",
+   "quote": "$$\\text{Average}=\\dfrac{\\text{sum of values}}{\\text{number of values}}$$",
+   "note": "Checked that the arithmetic-mean relation is now introduced in Core Concept before the monthly-average worked example uses it."
+  },
+  "lesson-data-interpretation-tables-and-charts|L25|0": {
+   "status": "fixed",
+   "quote": "An **average**, or arithmetic mean, gives one value that represents a group of values.",
+   "note": "Checked that average is now defined before the student is asked to find an average in the worked example."
+  }
+ }
+}
