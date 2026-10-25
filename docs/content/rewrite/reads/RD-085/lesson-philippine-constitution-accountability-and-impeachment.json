@@ -1,0 +1,305 @@
+{
+ "batch": "RD-085",
+ "lesson_id": "lesson-philippine-constitution-accountability-and-impeachment",
+ "path": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+ "lesson_sha256": "845d4c264f0f843cb1e18abb0b3f226744ea845be7142faef576416a9843f0d2",
+ "rewrite_commit": "5208c3fba320683aebdb02a5388506f36d09c66f",
+ "form": {
+  "packet": "lesson-philippine-constitution-accountability-and-impeachment",
+  "role": "A",
+  "lesson_sha256": "845d4c264f0f843cb1e18abb0b3f226744ea845be7142faef576416a9843f0d2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the officer list, six grounds, House one-third routes, Senate two-thirds conviction, Chief Justice role, judgment limits, annual bar, and Ombudsman powers with the constitutional provisions identified in the supplied audit. Criminal-law illustrations are expressly distinguished from conclusive definitions of impeachment grounds; the high-crimes and betrayal descriptions identify their interpretive sources. No contrary fact established from the supplied material."
+    ],
+    "note": "Prompt-only assessment using the supplied source audit; source pages were not opened.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 President yes; 2 RTC judge no; 3 inefficiency is not a named ground; 4 bribery; 5 culpable constitutional violation; 6 treason; 7 graft and corruption; 8 no separate offense listing required, merits unresolved; 9 betrayal of public trust may apply; 10 filing alone no; 11 direct filing becomes articles without regular committee route; 12 Senate, two-thirds of all Senators; 13 Ombudsman may investigate and direct action; 14 Cabinet Secretary no. Each matches the corresponding solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omission of Speed Tricks; no required figure is specified or needed for these verbal cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions for short sentences and plain explanations. Necessary legal vocabulary is usually followed by a short meaning or concrete application; no long introductory filler."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "No unexplained exam-specific instruction verb is needed in the examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No friendly-tutor analogy is used in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all 14 question stems: direct constitutional or fact-pattern questions, with material facts supplied and tested rules left for recall. Solutions give the governing rule and apply the stipulated facts in short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or test-maker openers occur; examples supply the assessment context."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a target word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the actual scope. No listed stock AI phrasing occurs; explanation sentences vary their openings. Repeated section labels organize the constitutional catalogue."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples, and Traps. No mathematical formula is used in a solution. House one-third filing/vote and Senate two-thirds conviction thresholds are introduced in House Charge and Senate Trial before Examples 10-12."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped officer inclusion to 1, exclusions to 2 and retained Cabinet case 14, outside-list ground to 3, all six conduct grounds to 4-9, regular/direct routes to 10-11, conviction body and threshold to 12, and Ombudsman remedy to 13. The two exclusion cases preserve the supplied brief cases; the remaining cases use distinct reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multistep solutions use numbered lists without an unnumbered lead-in step. One-step answers remain single sentences; no computed result needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or numerical computations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. Lists are confined to the officer catalogue and/or numbered worked solutions; no excessive prose bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or figure-dependent questions appear.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Impeachment and conviction are defined before the officer list; each of six grounds is explained before its conduct example. Verified complaint, articles, forthwith, and censure are glossed locally. House and Senate roles precede procedure questions; thresholds use ordinary fractions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Public trust is explained through honest service and accountability. Each ground links a meaning to conduct. Regular and direct initiation, Senate conviction, separate criminal punishment, and Ombudsman investigation/correction explain how the institutions operate."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked deliberate breach versus honest error; wartime enemy aid; official benefit linkage; seriousness/bad faith; overlapping grounds; list membership versus proof; both initiation routes and vote denominators; Chief Justice nonvoting role; annual initiation limit; judgment versus criminal punishment; complaint versus established wrongdoing."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-accountability-and-impeachment|B03|0": {
+    "status": "fixed",
+    "quote": "Cabinet Secretaries, legislators, and trial court judges are not impeachable officers.",
+    "note": "Required traps section is now present; speed section is optional."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L18|0": {
+    "status": "fixed",
+    "quote": "Is inefficiency, by itself, one of the $6$ named grounds for impeachment?",
+    "note": "Example 3 tests an outside-list allegation; Example 1 directly tests the President."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|0": {
+    "status": "fixed",
+    "quote": "Article XI, Section $1$ says that public office is a public trust.",
+    "note": "Section 1 numeral is now inside inline math."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|1": {
+    "status": "fixed",
+    "quote": "Article XI, Section $2$ lists the officers covered:",
+    "note": "Officer-list section numeral is now inside inline math."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|2": {
+    "status": "fixed",
+    "quote": "Section $2$ names $6$ grounds.",
+    "note": "Ground-list section and count numerals are now wrapped."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|3": {
+    "status": "fixed",
+    "quote": "1. Section $2$ includes the President.",
+    "note": "The old bare-number list-check instruction is replaced by numbered steps with wrapped section numbers."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L02|0": {
+    "status": "fixed",
+    "quote": "They must do their work honestly, responsibly, and well.",
+    "note": "The dense public-trust sentence is split into plain short statements."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L19|0": {
+    "status": "fixed",
+    "quote": "1. Section $2$ includes the President.",
+    "note": "Officer-list reasoning begins inside the numbered solution."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L19|1": {
+    "status": "fixed",
+    "quote": "1. Compare it with the constitutional list.",
+    "note": "Ground-check reasoning is now a numbered first step."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L19|2": {
+    "status": "fixed",
+    "quote": "1. A Cabinet Secretary is not among the officers listed in Section $2$.",
+    "note": "Cabinet comparison starts inside the numbered solution."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L27|0": {
+    "status": "fixed",
+    "quote": "It does not prove the facts, that the charge meets legal requirements, or guilt.",
+    "note": "The text explicitly separates a possible ground from proof and decision."
+   },
+   "general-information-philippine-constitution#9": {
+    "status": "fixed",
+    "quote": "**Culpable violation of the Constitution** concerns a willful and intentional breach of the Constitution.",
+    "note": "Deliberate breach is contrasted with honest error and applied in Example 5."
+   },
+   "general-information-philippine-constitution#10": {
+    "status": "fixed",
+    "quote": "**Treason** concerns betrayal of the country in wartime.",
+    "note": "Wartime war-making or enemy aid is explained and applied to military information."
+   },
+   "general-information-philippine-constitution#11": {
+    "status": "fixed",
+    "quote": "The connection between the benefit and the official act matters.",
+    "note": "Bribery is explained through an improper benefit for official action."
+   },
+   "general-information-philippine-constitution#12": {
+    "status": "fixed",
+    "quote": "Giving a favored company an unlawful contract advantage may raise this ground.",
+    "note": "Misuse for improper benefit is explained and used in a contract case."
+   },
+   "general-information-philippine-constitution#13": {
+    "status": "fixed",
+    "quote": "Do not assume every crime qualifies because it is illegal.",
+    "note": "The scope is tied to serious wrongdoing and expressly left open to interpretation."
+   },
+   "general-information-philippine-constitution#14": {
+    "status": "fixed",
+    "quote": "Betrayal of public trust may apply to such conduct.",
+    "note": "Example 9 uses serious bad-faith favoritism without requiring a stated crime."
+   },
+   "general-information-philippine-constitution#15": {
+    "status": "fixed",
+    "quote": "Conviction requires agreement by at least $\\dfrac{2}{3}$ of all Senators.",
+    "note": "House routes, thresholds, Senate trial, conviction and judgment consequences are taught."
+   },
+   "general-information-philippine-constitution#16": {
+    "status": "fixed",
+    "quote": "It may direct officials to perform and speed up duties required by law.",
+    "note": "Ombudsman investigation and corrective powers are taught and applied to delay."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L01|0": {
+    "status": "fixed",
+    "quote": "The House and Senate must still decide the case through the proper process.",
+    "note": "The added caution separates classification from deciding legal merits."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L15|0": {
+    "status": "fixed",
+    "quote": "Is a Cabinet Secretary subject to removal by impeachment under Article XI, Section $2$?",
+    "note": "The rewritten direct question contains no capitalized NOT emphasis."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L22a|0": {
+    "status": "fixed",
+    "quote": "They must be loyal to the country and act fairly.",
+    "note": "Public-trust duties now appear in short paragraphs and sentences."
+   }
+  }
+ }
+}
