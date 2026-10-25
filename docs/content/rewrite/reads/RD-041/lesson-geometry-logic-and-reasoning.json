@@ -1,0 +1,266 @@
+{
+ "batch": "RD-041",
+ "lesson_id": "lesson-geometry-logic-and-reasoning",
+ "path": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+ "lesson_sha256": "fbc24da3e800760ea7d88d0f31837c7c97b6215661cdf33159c024eb1f6d7a1e",
+ "rewrite_commit": "adaf520b304b3b51956823a36ae7f9557ddaffbb",
+ "form": {
+  "packet": "lesson-geometry-logic-and-reasoning",
+  "role": "A",
+  "lesson_sha256": "fbc24da3e800760ea7d88d0f31837c7c97b6215661cdf33159c024eb1f6d7a1e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Law of Detachment as written (true conditional plus its true hypothesis gives the conclusion) matches standard logic, and the new text no longer says 'one true statement plus a matching fact'.",
+     "Law of Syllogism (p implies q, q implies r, so p implies r) is the standard hypothetical syllogism; the added note that r itself needs the fact p is correct.",
+     "Contrapositive is equivalent to the original, and converse and inverse are equivalent to each other: both true statements.",
+     "Counterexample rule (true hypothesis, false conclusion) and the claim that a false hypothesis does not disprove a conditional are correct."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Ex1: multiples of 6 are multiples of 3, so the conditional is true; hypothesis and conclusion named correctly.",
+     "Ex2: converse, inverse and contrapositive of 'raining implies wet ground' are built correctly.",
+     "Ex3: a sprinkler on a dry-weather day gives a wet ground with no rain, a valid counterexample.",
+     "Ex4: my own answer is C (contrapositive); B is the inverse and A is the converse; D, 'has 4 sides only if it is a square', also reads as the converse. Key matches.",
+     "Ex5: syllogism gives 'complete implies tracking number'; Rico's application is complete, so a tracking number is assigned. Matches.",
+     "Ex6: the biconditional is true in both directions, though it is close to the definition of even."
+    ],
+    "note": "All six worked answers match my own solutions.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Title names conditional statements, converses, inverses and contrapositives; each has a definition in Core Concept and appears in Examples 1, 2 and 4.",
+     "Core Concept, Examples, Speed Tricks and Traps are present; the brief lists no required figures."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The filler sentence 'Here is the most important fact in this lesson' is gone; every sentence in Core Concept defines or applies something.",
+     "Sentences are short; terms such as logically equivalent and deduction are defined in plain words right where they appear."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "'Identify' in Example 1 is an everyday verb; 'negate', 'truth value', 'logically equivalent', 'counterexample' and 'deduction' are all explained at first use."
+    ],
+    "note": "No exam-specific instruction word lacks an explanation; the optional Identify item needs no gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Searched Core Concept and Examples for comparisons: the dominoes sentence is gone and none replaced it.",
+     "'Flip and negate' is a memory aid, not an analogy."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Example stems give only the statements to work with (the number statement, the rain statement, the two application conditionals) and do not hand over the rules.",
+     "Solutions use short plain sentences; Ex4 is a four-choice question with plausible converse and inverse distractors."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson makes no reference to any exam, so there is no repeated or empty exam opener."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English mathematics lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English mathematics lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English mathematics lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English mathematics lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English mathematics lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word in bold, so the rule cannot apply.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for 'important to note', 'crucial', 'furthermore', 'not just ... but' and found none.",
+     "Summary 'How to rewrite if-then statements, test claims, and draw valid conclusions.' does not open with 'This lesson teaches'; sentence openings vary."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Law of Detachment (p implies q, p, therefore q): first stated in Core Concept 'Drawing Conclusions', used in Ex5 step 3.",
+     "Law of Syllogism: now stated in Core Concept before Ex5 step 2 uses it, fixing the brief item.",
+     "Biconditional: defined in Core Concept 'Biconditionals' before Ex6; converse, inverse and contrapositive are defined before Ex2 and Ex4."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases mapped: naming parts (Ex1), the three forms (Ex2), counterexample (Ex3), equivalent statement with converse and inverse distractors (Ex4), chain plus detachment (Ex5), biconditional (Ex6). The added biconditional and chaining teaching is worked.",
+     "Difficulty ramps from naming parts to chaining; Ex6 only restates the definition of even, so it is a weak, near-trivial case but not a missing one."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every solution is a numbered list under a 'Solution:' label; Ex2 to Ex6 have two or more numbered steps.",
+     "No numeric computation is skipped; the only display lines are the two short logic forms in Core Concept."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display lines are short logic forms such as the p-implies-q chain; none runs wide on a phone."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences in every paragraph of Core Concept, Speed Tricks and Traps: none exceeds three.",
+     "The only list is the three-item converse, inverse and contrapositive list."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Ex5 placeholder describes a statement chain with arrows and Rico's application at the start; Ex6 placeholder describes two statements joined by two-way arrows. Both are single specific lines.",
+     "Both examples are fully solvable from the text alone."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Traced hypothesis, conclusion, negate, truth value, logically equivalent, counterexample, biconditional, deduction and the symbols for implies and therefore: all explained before use.",
+     "'Only if' appears alone in Ex4 option D; 'if and only if' is explained, but 'only if' by itself is not."
+    ],
+    "note": "One needed phrase, 'only if', has no teaching.",
+    "findings": [
+     {
+      "quote": "D) A figure has $4$ sides only if it is a square.",
+      "problem": "Option D uses 'only if' as a conditional connective, but the lesson never explains that 'p only if q' means 'if p, then q'. The learner needs this to see that D is the converse and not equivalent."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Converse, inverse, contrapositive, truth value, equivalence, counterexample, biconditional, detachment and syllogism each state what they mean and how they are used.",
+     "The learning goal (rewrite conditionals, test claims, draw conclusions) is taught in Core Concept before the examples."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Detachment states the needed conditions (true conditional and true hypothesis) and the non-example (true q does not give p).",
+     "Syllogism states that the first conclusion must match the next hypothesis; counterexample states that a false hypothesis does not disprove; biconditional join works only if both directions are true."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-geometry-logic-and-reasoning|L17|0": {
+    "status": "fixed",
+    "quote": "The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals:",
+    "note": "Law of Syllogism with its p-q-r pattern is now stated in Core Concept 'Drawing Conclusions' before Example 5 uses it."
+   },
+   "lesson-geometry-logic-and-reasoning|B01|0": {
+    "status": "fixed",
+    "quote": "The **Law of Detachment** needs a true conditional and its true hypothesis:",
+    "note": "Checked the Law of Detachment text: it now requires a true conditional and its true hypothesis, with the p-implies-q display."
+   },
+   "lesson-geometry-logic-and-reasoning|B02|0": {
+    "status": "fixed",
+    "quote": "Consider a sprinkler watering the ground on a day with no rain.",
+    "note": "The counterexample now keeps the object as the ground, so the hypothesis (ground is wet) is true and the conclusion (it is raining) is false."
+   },
+   "lesson-geometry-logic-and-reasoning|L02|0": {
+    "status": "fixed",
+    "quote": "A conditional and its contrapositive always have the same **truth value**: they are true or false together.",
+    "note": "The 'most important fact' filler sentence is gone; this passage now states the fact directly."
+   },
+   "lesson-geometry-logic-and-reasoning|L04|0": {
+    "status": "fixed",
+    "quote": "For a chain, match each conclusion to the next hypothesis.",
+    "note": "The dominoes sentence is removed from Examples and Speed Tricks; the chain advice is now plain instruction."
+   },
+   "lesson-geometry-logic-and-reasoning|L27|0": {
+    "status": "fixed",
+    "quote": "If \"If $p$, then $q$\" is true and $p$ is true, you may conclude $q$.",
+    "note": "The applicability condition for detachment is now explicit: both the conditional and its hypothesis must be true."
+   },
+   "lesson-geometry-logic-and-reasoning|L03|0": {
+    "status": "not_fixed",
+    "quote": "Identify the hypothesis and conclusion:",
+    "note": "Optional item left alone: 'Identify' still has no gloss, which is acceptable because it is an everyday verb."
+   },
+   "lesson-geometry-logic-and-reasoning|L19|0": {
+    "status": "fixed",
+    "quote": "1. The hypothesis follows \"if\": a number is divisible by $6$.",
+    "note": "Checked all six solutions: each is a numbered list with no lead-in line placed before the steps."
+   }
+  }
+ }
+}
