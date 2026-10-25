@@ -1,0 +1,269 @@
+{
+ "batch": "RD-023",
+ "lesson_id": "lesson-vocabulary-spelling-rules",
+ "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+ "lesson_sha256": "57c08d50945aa94a0f91614ff34a2927b35d8ce9122c5d495287f9946e5883a0",
+ "rewrite_commit": "a79aef03a1fe51bb5fe48dea9cbfd03fb27d4fb5",
+ "form": {
+  "packet": "lesson-vocabulary-spelling-rules",
+  "role": "A",
+  "lesson_sha256": "57c08d50945aa94a0f91614ff34a2927b35d8ce9122c5d495287f9946e5883a0",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the printed standard forms conceive, managing, noticeable, truly, beginning, occurrence, and visiting, and the limits placed on the i/e rhyme. No definite error follows from the supplied material. CSC scope and the KWF kwento/kuwento attribution need external confirmation, unavailable in this prompt-only review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 B concieve is misspelled; 2 B managing; 3 B noticeable; 4 C truly; 5 A beginning; 6 A occurrence; 7 B both listed forms, following the KWF statement supplied in Core Concept. All match the solutions; the official premise of 7 remains source-dependent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The supplied brief requires no figures; all questions can be answered from words alone. No external outline was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions: short explanations replace specialist wording, and defined vocabulary is tied to concrete word examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Choose, select, find, and identify are ordinary instructions. No command with an unexplained exam-specific meaning is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Core Concept and traps: no developed analogy appears outside Core Concept, and no more than one analogy appears overall."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Which spelling is standard for the word pronounced in three syllables as *oc-cur-rence*?",
+      "problem": "The supplied syllable spelling already reveals double c, double r, and the ence ending. These are exactly the distinctions between the choices, so the stem supplies tested spelling knowledge."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Exam references do not repeat a stock opener; strategy advice directs attention to the language task."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The Komisyon sa Wikang Filipino's **Ortograpiyang Pambansa** gives rules and examples for writing Filipino, including borrowed words.",
+      "problem": "The Filipino spelling subsection teaches in English. Filipino vocabulary teaching must use simple Filipino."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino spelling subsection and example 7. No hard Filipino grammar term is introduced. Ortograpiyang Pambansa is the title of a reference and does not require a grammar-term gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Which statement matches the KWF example for Spanish *cuento*?",
+      "problem": "The Filipino spelling example has an English stem, choices, and solution. The guide requires Filipino examples for Filipino-language teaching."
+     }
+    ]
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from this prompt.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The Komisyon sa Wikang Filipino's **Ortograpiyang Pambansa** gives rules and examples for writing Filipino, including borrowed words.",
+      "problem": "The Filipino spelling subsection uses English teaching prose around Filipino terms. This Filipino lesson must teach in Filipino without mixed English explanation."
+     }
+    ]
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions ask for a standard spelling or a statement, not the meaning of a designated target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary describes its own topic. No listed stock AI phrase occurs; sentence openings vary across definitions and advice."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language Proficiency layout uses the allowed standard sections. No example uses a mathematical formula, so there is no formula requiring prior introduction in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "*Visit* becomes *visiting*, not *visitting*.",
+      "problem": "The stress-dependent non-doubling case is taught and emphasized in a trap but has no worked example. Example 5 covers only doubling, so students never work the contrasting decision."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All 7 worked solutions have a separate Solution label and two numbered reasoning steps. There are no computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations appear in this vocabulary lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. Lists organize word parts or a checking procedure without replacing the explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent tasks to review.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A final silent **e** is often dropped before a suffix that begins with a vowel.",
+      "problem": "Vowel and consonant are needed for suffix and doubling decisions but are not explained. No prerequisite is supplied or identified; spelling out consonant-vowel-consonant does not define its parts."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Silent-e dropping/keeping, common exceptions, stressed-syllable doubling, the syllable checking procedure, and limits of sound-based spelling are explained through manage, notice, true, begin, visit, and beginning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The rhyme is explicitly limited, silent e can stay or drop, visit limits automatic doubling, and the procedure warns that sound cannot predict all English spelling. Filipino advice warns against universal rules from one borrowed word."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "Do not mark one wrong uses mark as a verb meaning judge an answer. It is not a score unit; no marks-for-points or cards-for-questions usage appears."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-spelling-rules|L18|0": {
+    "status": "fixed",
+    "quote": "### #2: Dropping a Silent E\n\nWhich spelling is standard?",
+    "note": "Separate examples now solve managing, noticeable, and truly."
+   },
+   "lesson-vocabulary-spelling-rules|L02|0": {
+    "status": "fixed",
+    "quote": "**Stress** is the syllable you say more strongly.",
+    "note": "Stress is explained plainly, and the long doubling sentence is split."
+   },
+   "lesson-vocabulary-spelling-rules|L19|0": {
+    "status": "fixed",
+    "quote": "1. The standard spelling is **conceive**.",
+    "note": "The vowel-pair solution now uses numbered reasoning steps."
+   },
+   "lesson-vocabulary-spelling-rules|L25|0": {
+    "status": "fixed",
+    "quote": "Spelling has patterns, but some words must be learned one by one.",
+    "note": "Lexical is removed and replaced with a plain explanation."
+   },
+   "lesson-vocabulary-spelling-rules|L25|1": {
+    "status": "fixed",
+    "quote": "Do not use a simple consonant-vowel-consonant shape as an automatic rule.",
+    "note": "The unexplained CVC abbreviation is removed and spelled out."
+   },
+   "lesson-vocabulary-spelling-rules|L25|2": {
+    "status": "fixed",
+    "quote": "**Look at related word forms.**",
+    "note": "Morphological family is replaced with plain wording and related pairs."
+   },
+   "language-proficiency-vocabulary#77": {
+    "status": "fixed",
+    "quote": "3. Listen for the main vowel sound in each syllable.",
+    "note": "A syllable definition, division example, sound-to-spelling step, and longer-word procedure are added. The worked question still reveals its spelling."
+   },
+   "lesson-vocabulary-spelling-rules|L03|0": {
+    "status": "not_fixed",
+    "quote": "Choose the standard spelling:",
+    "note": "Choose remains unglossed. It is an ordinary instruction and requires no gloss."
+   }
+  }
+ }
+}
