@@ -1,0 +1,286 @@
+{
+ "packet": "lesson-data-interpretation-rates-ratios-and-percentages-in-context",
+ "role": "A",
+ "lesson_sha256": "697334b60428784df0616e6996b94694fce59fa9b730921dd3a26e9238bf506b",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the percentage-change sign rule only under its stated positive, nonzero original-value condition; the zero-base exception is also stated.",
+    "Checked the definitions and conditions for ratio reduction, unit rates, direct proportion, inverse proportion, and ratio allocation; no incorrect mathematical claim was found."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Blind-solved Example 1: (65-50)/50 × 100% = 30%, matching the lesson.",
+    "Blind-solved Example 2: (68,000-80,000)/80,000 × 100% = -15%, matching the lesson.",
+    "Blind-solved Example 3: 50/200 × 100% = 25%, matching the lesson.",
+    "Blind-solved Example 4: 60:40 reduces by 20 to 3:2, matching the lesson.",
+    "Blind-solved Example 5: 240/6 = 40 boxes per hour, matching the lesson.",
+    "Blind-solved Example 6: 120/4 = 30 pesos each and 30 × 10 = 300 pesos, matching the lesson.",
+    "Blind-solved Example 7: doubling workers from 6 to 12 halves 8 hours to 4 hours under the stated fixed-job equal-rate condition, matching the lesson.",
+    "Blind-solved Example 8: 2+3=5 parts, 45,000/5=9,000 per part, and 3 parts = 27,000 pesos, matching the lesson."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed the mathematics lesson contains Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; no required figure is needed for these nonvisual scenarios."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for Grade 5 readability. Technical terms such as greatest common divisor, unit rate, direct proportion, and inverse proportion are immediately explained in short, simple sentences."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson uses everyday prompts such as find and what, with no exam-specific instruction word that requires a one-line definition."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Core Concept and the rest of the lesson for analogies; no analogy is used, so the at-most-one rule is satisfied."
+   ],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all eight example stems for enough problem-specific information without supplying the tested method; each solution then uses short, direct steps and simple language."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked for claims or repeated stock openers about named exams; the lesson makes no specific exam-content claims and has no repeated exam opener."
+   ],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, not a Filipino-language lesson."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No Filipino grammar term appears because this is an English mathematics lesson."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example-language requirements do not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There is no Filipino text whose spelling or usage needs a Komisyon sa Wikang Filipino source check."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There is no Filipino teaching prose, so the Taglish restriction does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word in bold."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the listed stock AI phrases, sentence openings, and frontmatter summary; none of the banned stock phrases appears and the summary is plain and specific."
+   ],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed the required mathematics sections are present.",
+    "Example 1 and Example 2 use percent change, introduced in Core Concept as percent change = change/original × 100% with change = new - original.",
+    "Example 3 uses percentage of a total, introduced in Core Concept as Percentage = part/total × 100%.",
+    "Example 4 uses the lowest-terms ratio method, introduced in Core Concept by defining greatest common divisor and dividing both terms by it.",
+    "Example 5 uses Unit rate = total amount/number of units, stated in Core Concept before the example.",
+    "Example 6 uses the unit-rate scaling method, stated in Core Concept as finding a unit rate and multiplying by the needed number of units when the rate stays the same.",
+    "Example 7 uses inverse-proportion halving under a fixed job and equal work rate, explained in Core Concept before the example.",
+    "Example 8 uses the add-parts, divide-total, multiply-by-ratio-term method, listed in Core Concept before the example."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the worked cases to the lesson scope: percentage increase, signed percentage decrease, percentage of a total, ratio reduction, unit rate, direct-proportion scaling, inverse proportion, and ratio allocation each have a distinct worked example.",
+    "Checked that examples move from basic percentage and ratio work into rate and proportion applications without near-duplicate scenarios."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every multi-step solution. Examples 1, 2, 3, 4, 6, 7, and 8 use numbered steps, and each key arithmetic computation is shown as a display equation; Example 5 is a single calculation with one numbered step and one display equation."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every display equation; each is short enough for a phone screen, including the rewritten percent-change formulas with shortened labels."
+   ],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Scanned the lesson paragraphs and lists; prose paragraphs stay within one to three short sentences, and lists are limited to worked steps and the ratio-allocation procedure."
+   ],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No example or concept in this lesson needs a figure to understand or solve it, and there are no illustration placeholders to review."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked necessary terminology before use: ratio order, greatest common divisor, rate and unit rate, direct proportion, inverse proportion, and ratio-part allocation are all defined or explained before the examples use them.",
+    "Checked the percent-change zero-base condition and the meanings of part, total, original, and change where those symbols are used."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that each central concept explains both meaning and operation: percent change gives the reference and formula, ratio reduction explains why dividing both terms preserves the comparison, unit rate explains per-one-unit use, and direct/inverse proportion explain how related quantities change.",
+    "Checked ratio allocation: the lesson explains the meaning of splitting a total and gives the full three-step method before its example."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability conditions: percent change requires a positive nonzero original for the stated sign interpretation, percentage of a total requires a nonzero total, direct proportion requires a constant rate, inverse proportion requires a fixed total job or amount and unchanged individual rate, and ratio allocation requires division according to the stated ratio."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|B03|0": {
+   "status": "fixed",
+   "quote": "\"Per\" usually points to a rate. \"Out of\" often points to a part of a total.",
+   "note": "Checked that a substantive Speed Tricks & Shortcuts section now appears between Examples and Traps to Watch For."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L17|0": {
+   "status": "fixed",
+   "quote": "If both quantities move in the same direction by the same factor, think direct proportion. If one goes up while the other goes down for the same fixed job or amount, check for inverse proportion.",
+   "note": "Checked mathematics section fit: Speed Tricks & Shortcuts is now present and contains real shortcut guidance."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L18|0": {
+   "status": "fixed",
+   "quote": "A supply cost fell from $80,000$ pesos to $68,000$ pesos. Find the signed percentage change.",
+   "note": "Checked that the rewrite adds the distinct percent-decrease case and works it to a negative signed percentage change."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L02|0": {
+   "status": "fixed",
+   "quote": "A **ratio** such as $A:B$ compares two quantities in that order. Reversing the order changes the ratio.",
+   "note": "Checked that the earlier advanced reciprocal/interchangeable wording is gone and the ratio-order idea is now stated simply."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L02|1": {
+   "status": "fixed",
+   "quote": "Report the actual amount of change instead, unless the question gives another comparison rule.",
+   "note": "Checked that the abstract comparison-measure sentence was replaced with plain language about reporting the actual change."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L21|0": {
+   "status": "fixed",
+   "quote": "$$\\text{Percent change}=\\dfrac{\\text{change}}{\\text{original}}\\times100\\%$$",
+   "note": "Checked that the wide percentage-change display now uses short labels and fits on a phone much better."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L25|0": {
+   "status": "fixed",
+   "quote": "The **greatest common divisor** is the largest whole number that divides both terms with no remainder.",
+   "note": "Checked that greatest common divisor is now defined before the ratio-reduction method asks students to use it."
+  },
+  "mathematics-data-interpretation#5": {
+   "status": "fixed",
+   "quote": "The **greatest common divisor** is the largest whole number that divides both terms with no remainder.",
+   "note": "Checked that the lesson now explains what the common divisor means, and the worked ratio example selects $20$ as the largest common divisor."
+  },
+  "mathematics-data-interpretation#6": {
+   "status": "fixed",
+   "quote": "A **rate** compares quantities with different units, such as pesos per notebook or kilometers per hour. A **unit rate** tells the amount for $1$ unit.",
+   "note": "Checked that rate and unit-rate meaning are now taught before a per-hour worked example and direct scaling use."
+  },
+  "mathematics-data-interpretation#7": {
+   "status": "fixed",
+   "quote": "In a **direct proportion**, both related quantities change by the same factor. If one quantity doubles, the other also doubles.",
+   "note": "Checked that direct-proportion scaling is now explicitly taught and then applied to a constant-price notebook example."
+  },
+  "mathematics-data-interpretation#8": {
+   "status": "fixed",
+   "quote": "In an **inverse proportion**, one quantity goes up while the other goes down so the same total work or amount is shared.",
+   "note": "Checked that inverse proportion is now explained with its fixed-job and unchanged-worker-rate conditions before the worked example."
+  },
+  "mathematics-data-interpretation#9": {
+   "status": "fixed",
+   "quote": "A ratio can split one total into parts. For a ratio $a:b$:",
+   "note": "Checked that the lesson now teaches how a ratio divides a total, followed by the add-parts, divide-total, multiply-parts procedure."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|B01|0": {
+   "status": "fixed",
+   "quote": "When the original value is positive and nonzero, use:",
+   "note": "Checked the edited sign passage. It now limits the ordinary sign interpretation to a positive, nonzero original value."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|B08|0": {
+   "status": "fixed",
+   "quote": "An agency budget increased from $50$ million pesos in $2020$ to $65$ million pesos in $2021$. Find the percentage increase.",
+   "note": "Checked the edited example stem. The year numerals are now wrapped in inline math delimiters."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L26|0": {
+   "status": "fixed",
+   "quote": "Divide both terms by that same number. This keeps the comparison the same while using smaller numbers.",
+   "note": "Checked that the rewrite now explains why dividing both ratio terms by the same greatest common divisor preserves the comparison."
+  },
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context|L27|0": {
+   "status": "fixed",
+   "quote": "When the original value is positive and nonzero, use:",
+   "note": "Checked that the rewritten percent-change rule now states the positive, nonzero starting-value condition before giving the sign interpretation."
+  }
+ }
+}
