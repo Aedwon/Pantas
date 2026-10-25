@@ -782,3 +782,153 @@ git status --short
   preparation-telemetry catch. Final functional coverage passes. Other listed observed RED
   evidence is preserved without treating compile errors or fixture errors as behavior proof.
 - Aedwon’s phone visual acceptance and real deployed checkout behavior were not verified.
+
+
+## Second fix round, October 25, 2026
+
+Policy read with `git show origin/main:AGENTS.md`, `WORKFLOW.md`, and
+`SUBAGENTS.md`: cached origin/main `73572280cf4d9478d56e42247be04dad8ad1acd9`.
+No fetch or pull. CLIENT base `ce4f97d4d1c00e89a97286dfa6ea950a0aa9084a`.
+PAYMENTS base `22c25edf`. Only these two assigned worktrees were changed.
+No commits, staging, merges, pushes, deploys, hosting edits, or dependency additions.
+Read the cached-main L2/L3 W4f plans, amendment spec, parallel map, startup,
+routing and Actions policy, gap-f inventory, pricing, coordination handoff,
+and ST_DeleteAccount board. Read C3's plan and actual checkout implementation
+in PAYMENTS. This brief controls the bounded fixes below.
+
+### Findings and current state
+
+1. Client safeguards implemented. Every checkout return consumes the stored
+   intent, including cancellation, no grant, wrong coverage, wrong session,
+   old intent, changed exam focus, or a missing target. A new purchase, trial
+   attempt, Free switch, failed checkout, and return to the waiting page clear
+   the old intent. Before opening checkout, the gateway callback stores the
+   returned session ID and creation time. Applying requires the same resolved
+   account, explicit matching target and tier, matching `session_id` return query,
+   confirmed coverage, unchanged source exam, and age between zero and 24 hours.
+   Gateway code is byte-identical in CLIENT and PAYMENTS.
+   **End-to-end integration is unresolved:** the actual server returns only
+   `/pro?checkout=success|cancelled`, without session correlation. The ordinary
+   return page also has no target. Such returns safely leave the selected exam
+   unchanged. Asked the lead whether to add a server-generated return token tied
+   to the returned session ID. No answer received during this run. No guessed
+   PayMongo URL substitution or new server checkout contract was implemented.
+2. **Target-exam trial change not implemented.** Current `trial` explicitly
+   requires `!upgrade`. The approved plan and existing test require no trial on
+   the target-exam upgrade. The reported duplicate trial prompt cannot execute
+   through the current target-exam page. Asked whether to retain that rule or
+   enable web target-exam trials. No answer received. The existing ordinary web
+   trial now clears a stale intent before it starts. No new target-exam trial
+   behavior or carry-over result contract was invented.
+3. **Web-lineage integration requirement:** `web/pwa-staging-r1` must build with
+   path URLs and a hosting rewrite that serves the Flutter app for
+   `/pro?checkout=success|cancelled`. Test that exact browser return URL on the
+   integrated web build. This worktree does not change hosting or URL strategy.
+4. Done. Web prepaid plans omit the Play and future-charge billing warnings.
+   The board has no prepaid web deletion sentence, so no replacement was added.
+   The existing web trial sentence and native billing copy stay intact.
+5. Done in code. The account-change exit after preparation resets busy and
+   discards the original account's intent. Regression scenarios check busy is
+   false and checkout never opens when identity changes around persistence.
+   **Evidence limit:** the original-source characterization failed on checkout
+   opening, not the busy assertion itself. A separate busy-only RED was not
+   reproduced. This is not claimed as a distinct test-first reproduction.
+6. Done. `_sameAccount` explicitly rejects loading. Checkout returns await the
+   resolved current user before applying. Malformed JSON or typed fields are
+   consumed and reported without replacing the payment result with a save error.
+   Same-owner refresh and changed-owner loading cases are covered.
+7. Done in PAYMENTS. Renewal and eligibility are read and caught separately.
+   Each error is recorded. One failure preserves the other's successful value.
+
+### Observed failing tests
+
+- Pending-intent tests before the fix: `00:01 +4 -8: Some tests failed.`
+  Stale intents remained after an unconfirmed return and changed coverage/focus.
+  Missing-target, wrong-session and expired intents incorrectly switched exams.
+  Malformed JSON remained stored and replaced checkout feedback with a save error.
+  Log: `build/w4f-r2/pending-red.log`.
+- Upgrade persistence/abandonment tests before gateway/cleanup changes:
+  `00:07 +0 -2: Some tests failed.` The persisted value had no session/time and
+  remained after returning. Initial assertions inside the fake opener were
+  swallowed by gateway error handling; final assertions inspect captured state
+  outside the opener. Only the observed abandonment failure is claimed from that
+  initial run. Log: `build/w4f-r2/checkout-red.log`.
+- Account-change regression characterization against temporarily restored HEAD
+  Pro-page source: `00:11 +0 -16: Some tests failed.` Expected no checkout open,
+  actual one. The edited source was restored in a Python `finally` block.
+  The narrower edited-source race run also failed for later persistence
+  interleavings. Logs: `busy-original-red.log`, `busy-red.log` in the same directory.
+- Web deletion tests before the fix: `00:02 +2 -6: Some tests failed.` Paid plans
+  displayed Play/future-billing copy or the native dated-expiry sentence.
+  Afterward: `00:02 +10: All tests passed!`, including both native/web trial cases.
+- PAYMENTS before the fix: 10 tests, 7 pass, 3 fail. Eligibility failure lost
+  successful renewal (`undefined` instead of `true`). Renewal failure lost trial
+  eligibility (`false` instead of `true`). Two failures recorded only one error.
+  Afterward: 10 tests, 10 pass, 0 fail. Logs:
+  `/tmp/w4f-r2-plans-red.log`, `/tmp/w4f-r2-plans-green.log`.
+
+Required final checks and source/status identity are recorded below after completion.
+Phone visuals, real PayMongo checkout, deployed App Check and real web returns
+were not tested. Independent acceptance remains with the lead.
+
+### Final automated verification
+
+CLIENT code/test diff SHA-256: `82f70d892199feb789377ff16c5af6abbb084810905badc336a3b2c68facd6d9`.
+PAYMENTS functions/gateway diff SHA-256: `a5a2cac38ae0847aa2765ae306c7a81eb4d314739f8d3dfba3bf3634a2628737`.
+Digests exclude documentation. The final source remains uncommitted at its assigned base.
+
+Actual summaries:
+```text
+flutter test test/features/settings test/features/paywall test/app --reporter expanded
+00:42 +684: All tests passed!
+flutter analyze lib test tool
+No issues found! (ran in 4.9s)
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1595 files (0 changed) in 2.93 seconds.
+dart run tool/check_layering.dart
+check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+npx tsc --noEmit
+exit 0
+PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+ℹ tests 122
+ℹ pass 122
+ℹ fail 0
+ℹ tests 145
+ℹ pass 145
+ℹ fail 0
+✔  Script exited successfully (code 0)
+```
+
+All commands above exited zero. Final client logs: `build/w4f-r2/` (ignored).
+PAYMENTS execution details and full log are in its W4f-payments evidence.
+Gateway `cmp` and both worktrees' `git diff --check` exited zero.
+
+CLIENT `git status --short`:
+```text
+ M docs/superpowers/plans/new-design/evidence/W4f.md
+ M lib/features/paywall/data/web_payment_gateway.dart
+ M lib/features/settings/presentation/pages/delete_account_page.dart
+ M lib/features/settings/presentation/pages/pro_page.dart
+ M test/features/settings/presentation/w4f_error_reporting_test.dart
+ M test/features/settings/presentation/w4f_pending_exam_test.dart
+ M test/features/settings/presentation/w4f_upgrade_checkout_test.dart
+```
+
+PAYMENTS `git status --short`:
+```text
+ M docs/superpowers/plans/pwa-launch/evidence/W4f-payments.md
+ M functions/src/webPlans.ts
+ M functions/test/web-plans.test.mjs
+ M lib/features/paywall/data/web_payment_gateway.dart
+```
+
+Files outside the original W4f presentation table: shared gateway (required
+pre-redirect session persistence, mirrored in PAYMENTS), PAYMENTS plans source
+and unit tests (explicit item 7), and the two existing evidence files.
+No other worktree was read or changed. No independent review or acceptance of
+the unresolved checkout/trial contracts is claimed. Stop conditions: actual
+checkout return lacks session correlation; target-exam trial request conflicts
+with the approved no-trial upgrade and current behavior. Required user rulings
+remain pending. The exact busy-only defect has no separate observed RED.

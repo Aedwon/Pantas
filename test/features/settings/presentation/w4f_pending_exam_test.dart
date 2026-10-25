@@ -5,16 +5,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/app/routes/settings_routes.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
+
+class _Telemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
+
+const _target = ExamCatalogEntry(
+  id: 'exam_cse_pro',
+  name: 'CSE Professional',
+  shortName: 'CSE Professional',
+  priceTier: 'Civil Service',
+  group: 'Civil service',
+  comingSoon: false,
+  hasContent: true,
+  publishedSittings: [],
+);
 
 void main() {
   for (final scenario in [
@@ -25,8 +46,16 @@ void main() {
     'student coverage only',
     'focus changed',
     'owner loading',
+    'owner refresh',
+    'no target',
+    'wrong session',
+    'expired',
+    'malformed',
+    'abandoned then purchase',
   ]) {
     testWidgets('pending exam switch: $scenario', (tester) async {
+      final telemetry = _Telemetry();
+      var hasGrant = scenario != 'abandoned then purchase';
       final ownerLoading = StateProvider<bool>((ref) => false);
       final nextOwner = Completer<AuthUser?>();
       final refresh = Completer<void>();
@@ -38,17 +67,23 @@ void main() {
       );
       await prefs.setDeviceValue(
         'checkout_exam_v1:owner',
-        jsonEncode({
-          'uid': 'owner',
-          'examId': 'exam_cse_pro',
-          'count': false,
-          'tier': 'civilService',
-          'fromExamId': 'exam_upcat',
-        }),
+        scenario == 'malformed'
+            ? '{bad json'
+            : jsonEncode({
+                'uid': 'owner',
+                'examId': 'exam_cse_pro',
+                'count': false,
+                'tier': 'civilService',
+                'fromExamId': 'exam_upcat',
+                'sessionId': 'cs_original',
+                'createdAt': DateTime.now()
+                    .subtract(Duration(hours: scenario == 'expired' ? 25 : 1))
+                    .millisecondsSinceEpoch,
+              }),
       );
       final gateway = WebPaymentGateway(
         callable: (_, __) async => {'plans': <Object?>[]},
-        readGrants: (_) async => scenario == 'unconfirmed'
+        readGrants: (_) async => (scenario == 'unconfirmed' || !hasGrant)
             ? []
             : [
                 {
@@ -61,7 +96,7 @@ void main() {
                 },
               ],
         refreshClaims: (_) async {
-          if (scenario == 'owner loading') await refresh.future;
+          if (scenario.startsWith('owner ')) await refresh.future;
         },
         openUrl: (_) async => true,
       );
@@ -70,13 +105,22 @@ void main() {
       final routes = Provider(
         (ref) => GoRouter(
           initialLocation:
-              '/pro?checkout=${scenario == 'cancelled' ? 'cancelled' : 'success'}',
-          routes: settingsRoutes(ref),
+              '/pro?checkout=${scenario == 'cancelled' ? 'cancelled' : 'success'}&session_id=${scenario == 'wrong session' ? 'cs_other' : 'cs_original'}',
+          routes: [
+            GoRoute(
+              path: '/pro',
+              builder: (_, state) => ProPage(
+                targetExam: scenario == 'no target' ? null : _target,
+                checkoutReturnUri: state.uri,
+              ),
+            ),
+          ],
         ),
       );
       final container = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          telemetryProvider.overrideWithValue(telemetry),
           currentUserProvider.overrideWith(
             (ref) async => ref.watch(ownerLoading)
                 ? nextOwner.future
@@ -105,7 +149,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      if (scenario == 'owner loading') {
+      if (scenario.startsWith('owner ')) {
         container.read(ownerLoading.notifier).state = true;
         await tester.pump();
         expect(container.read(currentUserProvider).isLoading, isTrue);
@@ -125,18 +169,43 @@ void main() {
             .carryOverProgress,
         scenario == 'success' ? isFalse : isTrue,
       );
-      if (scenario == 'owner loading') {
+      if (scenario.startsWith('owner ')) {
         nextOwner.complete(
-          const AuthUser(
-            uid: 'other',
+          AuthUser(
+            uid: scenario == 'owner refresh' ? 'owner' : 'other',
             email: 'b@example.com',
             displayName: 'B',
           ),
         );
         await tester.pumpAndSettle();
       }
-      if (scenario == 'success' || scenario == 'cancelled') {
+      if (scenario == 'owner refresh') {
+        expect(await prefs.selectedExamId(), 'exam_cse_pro');
+      }
+      if (!['other account', 'owner loading'].contains(scenario)) {
         expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);
+      }
+      if (scenario == 'malformed') {
+        expect(telemetry.errors, hasLength(1));
+        expect(find.text('Could not save. Please try again.'), findsNothing);
+      }
+      if (scenario == 'abandoned then purchase') {
+        hasGrant = true;
+        router.go('/pro?checkout=success&session_id=cs_later');
+        await tester.pumpAndSettle();
+        // Force a fresh page, as a later checkout would reload the app.
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpWidget(
+          UncontrolledProviderScope(
+            container: container,
+            child: MaterialApp.router(
+              theme: appLightTheme(),
+              routerConfig: router,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(await prefs.selectedExamId(), 'exam_upcat');
       }
     });
   }

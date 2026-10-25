@@ -54,8 +54,10 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
   Widget build(BuildContext context) {
     final billing = widget.isAnonymous
         ? anonymousDeleteWarning(widget.entitlement)
-        : ref.watch(paymentsOnWebProvider) && widget.entitlement.isTrial
-            ? 'Your free trial will end if you delete now.'
+        : ref.watch(paymentsOnWebProvider)
+            ? widget.entitlement.isTrial
+                ? 'Your free trial will end if you delete now.'
+                : null
             : deleteAccountBillingLine(widget.entitlement);
     Widget consequence(Widget icon, String text) => Padding(
           padding: const EdgeInsets.all(16),

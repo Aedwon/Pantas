@@ -411,6 +411,33 @@ void main() {
     expect(find.text('Try again'), findsOneWidget);
   });
 
+  for (final plan in SettingsEntitlementPlan.values) {
+    for (final renews in [true, false]) {
+      testWidgets('web deletion omits billing warning $plan renews=$renews',
+          (tester) async {
+        await tester.pumpAppWithProviders(
+          DeleteAccountPage(
+            isAnonymous: false,
+            entitlement: SettingsEntitlementSnapshot(
+              plan: plan,
+              willRenew: renews,
+              expiresAt: DateTime.utc(2035),
+            ),
+            dpoEmail: 'dpo@example.com',
+            onDelete: () async {},
+          ),
+          overrides: [paymentsOnWebProvider.overrideWithValue(true)],
+        );
+        expect(find.textContaining('Google Play'), findsNothing);
+        expect(find.textContaining('still be charged'), findsNothing);
+        expect(
+          find.textContaining('Deleting your account ends it'),
+          findsNothing,
+        );
+      });
+    }
+  }
+
   for (final web in [true, false]) {
     testWidgets('trial deletion warning web=$web', (tester) async {
       await tester.pumpAppWithProviders(

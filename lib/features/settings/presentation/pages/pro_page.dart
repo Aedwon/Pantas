@@ -87,6 +87,7 @@ class ProPage extends ConsumerStatefulWidget {
 class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _awaitingCheckout = false;
   bool _wasCurrent = true;
+  String? _checkoutUid;
   String? _selected;
   String? _feedback;
   bool _busy = false;
@@ -104,6 +105,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     super.didChangeDependencies();
     final current = ModalRoute.of(context)?.isCurrent ?? true;
     if (current && !_wasCurrent && _awaitingCheckout) {
+      unawaited(_clearPendingExamSwitch());
       _busy = false;
       _awaitingCheckout = false;
     }
@@ -113,6 +115,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed && _awaitingCheckout && mounted) {
+      unawaited(_clearPendingExamSwitch());
       setState(() {
         _busy = false;
         _awaitingCheckout = false;
@@ -124,6 +127,30 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  Future<void> _clearPendingExamSwitch({String? uid}) async {
+    final owner = uid ?? _checkoutUid;
+    if (owner == null) return;
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      await ref
+          .read(appPreferencesRepositoryProvider)
+          .setDeviceValue('checkout_exam_v1:$owner', '');
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+    }
+  }
+
+  Future<void> _switchOnFree() async {
+    if (!ref.read(paymentsOnWebProvider)) {
+      await widget.onSwitchOnFree?.call();
+      return;
+    }
+    final user = ref.read(currentUserProvider);
+    if (user.isLoading) return;
+    await _clearPendingExamSwitch(uid: user.valueOrNull?.uid);
+    if (mounted) await widget.onSwitchOnFree?.call();
   }
 
   Future<void> _checkoutReturn() async {
@@ -145,10 +172,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final uid = user.uid;
     final operation = await gateway
         .handleCheckoutReturn(widget.checkoutReturnUri ?? Uri.base);
-    if (!mounted ||
-        uid !=
-            ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid ||
-        operation == null) {
+    if (operation == null || !await _resolvedSameAccount(uid)) {
       return;
     }
     try {
@@ -170,7 +194,20 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   bool _sameAccount(String uid) =>
       mounted &&
-      ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid == uid;
+      !ref.read(currentUserProvider).isLoading &&
+      ref.read(currentUserProvider).valueOrNull?.uid == uid;
+
+  Future<bool> _resolvedSameAccount(String uid) async {
+    if (!mounted) return false;
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      await ref.read(currentUserProvider.future);
+      return _sameAccount(uid);
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      return false;
+    }
+  }
 
   Future<bool> _prepareExamSwitch(String uid) async {
     final target = widget.targetExam;
@@ -212,22 +249,53 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   ) async {
     final prefs = ref.read(appPreferencesRepositoryProvider);
     final key = 'checkout_exam_v1:$uid';
-    if (operation.status == PaymentOperationStatus.userCancelled) {
-      await prefs.setDeviceValue(key, '');
+    if (!_sameAccount(uid)) return;
+    final raw = await prefs.deviceValue(key);
+    if (!_sameAccount(uid)) return;
+    // Consume the intent even when the return has no confirmed grant.
+    await prefs.setDeviceValue(key, '');
+    if (raw == null || raw.isEmpty || !_sameAccount(uid)) return;
+    Map<String, dynamic> pending;
+    PriceTier tier;
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map<String, dynamic> ||
+          decoded['uid'] is! String ||
+          decoded['examId'] is! String ||
+          decoded['count'] is! bool ||
+          decoded['tier'] is! String ||
+          decoded['sessionId'] is! String ||
+          (decoded['sessionId'] as String).isEmpty ||
+          decoded['createdAt'] is! int ||
+          (decoded['createdAt'] as int).abs() > 8640000000000000 ||
+          (decoded['fromExamId'] != null && decoded['fromExamId'] is! String)) {
+        throw const FormatException('Invalid checkout exam intent');
+      }
+      pending = decoded;
+      tier = PriceTier.values.byName(pending['tier'] as String);
+    } catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      return;
+    }
+    final target = widget.targetExam;
+    final uri = widget.checkoutReturnUri ?? Uri.base;
+    final created =
+        DateTime.fromMillisecondsSinceEpoch(pending['createdAt'] as int);
+    final age = DateTime.now().difference(created);
+    if (target == null ||
+        pending['uid'] != uid ||
+        pending['examId'] != target.id ||
+        tier != PriceTier.fromCatalog(target.priceTier) ||
+        pending['sessionId'] != uri.queryParameters['session_id'] ||
+        age.isNegative ||
+        age > const Duration(hours: 24)) {
       return;
     }
     final entitlement = operation.confirmedEntitlement;
+    final examId = target.id;
     if (operation.status != PaymentOperationStatus.success ||
-        entitlement == null) {
-      return;
-    }
-    final raw = await prefs.deviceValue(key);
-    if (raw == null || raw.isEmpty || !_sameAccount(uid)) return;
-    final pending = jsonDecode(raw) as Map<String, dynamic>;
-    if (pending['uid'] != uid) return;
-    final examId = pending['examId'] as String;
-    final tier = PriceTier.values.byName(pending['tier'] as String);
-    if (!entitlement.coverage(at: DateTime.now()).coversExam(examId, tier)) {
+        entitlement == null ||
+        !entitlement.coverage(at: DateTime.now()).coversExam(examId, tier)) {
       return;
     }
     final from = await prefs.selectedExamId();
@@ -307,10 +375,21 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       _busy = true;
       _feedback = null;
     });
+    if (web && uid != null) {
+      _checkoutUid = uid;
+      await _clearPendingExamSwitch(uid: uid);
+      if (!_sameAccount(uid)) {
+        if (mounted) setState(() => _busy = false);
+        return;
+      }
+    }
     if (web && widget.targetExam != null && uid != null) {
       try {
         if (!await _prepareExamSwitch(uid)) {
-          if (mounted) setState(() => _busy = false);
+          if (mounted) {
+            setState(() => _busy = false);
+            await _clearPendingExamSwitch(uid: uid);
+          }
           return;
         }
       } catch (error, stack) {
@@ -323,7 +402,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         }
         return;
       }
-      if (!_sameAccount(uid)) return;
+      if (!_sameAccount(uid)) {
+        if (mounted) setState(() => _busy = false);
+        await _clearPendingExamSwitch(uid: uid);
+        return;
+      }
     }
     PaymentOperationStatus status;
     final gateway = ref.read(revenueCatGatewayProvider);
@@ -334,6 +417,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         package.trialEligible &&
         !_trialUnavailable &&
         gateway is WebPaymentGateway) {
+      await _clearPendingExamSwitch(uid: uid);
       final result = await gateway.startTrial();
       status = result.operation.status;
       if (result.status != WebTrialStatus.failed) {
@@ -346,14 +430,47 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       }
     } else {
       final controller = ref.read(paywallControllerProvider);
-      final result = pass != null
-          ? await controller.purchasePass(pass, exam: exam)
-          : await controller.purchase(package!);
-      status = result.status;
+      if (web && uid != null && gateway is WebPaymentGateway) {
+        _checkoutUid = uid;
+        Future<void> beforeRedirect(String sessionId) async {
+          if (!_sameAccount(uid)) throw StateError('Checkout account changed');
+          if (widget.targetExam == null) return;
+          final prefs = ref.read(appPreferencesRepositoryProvider);
+          final raw = await prefs.deviceValue('checkout_exam_v1:$uid');
+          if (!_sameAccount(uid)) throw StateError('Checkout account changed');
+          final pending = jsonDecode(raw!) as Map<String, dynamic>;
+          pending['sessionId'] = sessionId;
+          pending['createdAt'] = DateTime.now().millisecondsSinceEpoch;
+          await prefs.setDeviceValue(
+            'checkout_exam_v1:$uid',
+            jsonEncode(pending),
+          );
+          if (!_sameAccount(uid)) throw StateError('Checkout account changed');
+        }
+
+        final result = pass != null
+            ? await gateway.purchasePass(
+                pass,
+                exam: exam,
+                beforeRedirect: beforeRedirect,
+              )
+            : await gateway.purchase(package!, beforeRedirect: beforeRedirect);
+        status = result.status;
+        if (status != PaymentOperationStatus.operationAlreadyInProgress) {
+          await _clearPendingExamSwitch(uid: uid);
+        }
+      } else {
+        final result = pass != null
+            ? await controller.purchasePass(pass, exam: exam)
+            : await controller.purchase(package!);
+        status = result.status;
+      }
     }
     if (!mounted) return;
-    final sameAccount =
-        uid == ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
+    final sameAccount = web
+        ? uid != null && _sameAccount(uid)
+        : uid ==
+            ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
     if (sameAccount &&
         widget.targetExam != null &&
         status == PaymentOperationStatus.success) {
@@ -606,7 +723,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 PantasButton(
                   label: 'Switch on Free',
                   variant: PantasButtonVariant.tertiary,
-                  onPressed: _busy ? null : widget.onSwitchOnFree,
+                  onPressed: _busy ? null : _switchOnFree,
                 ),
               if (!upgrade)
                 PantasButton(

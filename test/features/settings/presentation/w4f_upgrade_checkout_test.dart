@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -21,26 +22,67 @@ import 'package:pantas/features/settings/settings.dart';
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
+class _Preferences extends AppPreferencesRepository {
+  _Preferences(super.db, this.afterPrepare, this.depth);
+  final int depth;
+  final void Function() afterPrepare;
+  @override
+  Future<void> setDeviceValue(String key, String value) async {
+    await super.setDeviceValue(key, value);
+    if (value.isNotEmpty) {
+      void later(int left) {
+        if (left == 0) {
+          afterPrepare();
+        } else {
+          scheduleMicrotask(() => later(left - 1));
+        }
+      }
+
+      later(depth);
+    }
+  }
+}
+
 void main() {
-  for (final count in [false, true]) {
-    testWidgets('web upgrade keeps exam until confirmed return, count=$count',
-        (tester) async {
+  for (final (depth, accountChanges, count, finishOnFree, opens) in [
+    (2, false, false, false, true),
+    (2, false, true, false, true),
+    (2, true, false, false, true),
+    (4, true, true, false, true),
+    (2, false, false, true, true),
+    (2, false, false, false, false),
+  ]) {
+    testWidgets(
+        'web upgrade count=$count accountChanges=$accountChanges '
+        'depth=$depth free=$finishOnFree opens=$opens', (tester) async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final prefs = AppPreferencesRepository(db);
+      final loading = StateProvider<bool>((ref) => false);
+      final nextUser = Completer<AuthUser?>();
+      late ProviderContainer container;
+      final prefs = _Preferences(
+        db,
+        () {
+          if (accountChanges) container.read(loading.notifier).state = true;
+        },
+        depth,
+      );
       await prefs.setSelectedExamId('exam_upcat');
       var opened = 0;
+      Map<String, dynamic>? stored;
       final gateway = WebPaymentGateway(
-        callable: (_, __) async =>
-            {'checkoutUrl': 'https://checkout.paymongo.com/test'},
+        callable: (_, __) async => {
+          'checkoutUrl': 'https://checkout.paymongo.com/test',
+          'sessionId': 'cs_test',
+        },
         readGrants: (_) async => [],
         refreshClaims: (_) async {},
         openUrl: (_) async {
           opened++;
           expect(await prefs.selectedExamId(), 'exam_upcat');
           final raw = await prefs.deviceValue('checkout_exam_v1:owner');
-          expect((jsonDecode(raw!) as Map<String, dynamic>)['count'], count);
-          return true;
+          stored = jsonDecode(raw!) as Map<String, dynamic>;
+          return opens;
         },
       );
       await gateway.logIn('owner');
@@ -52,15 +94,18 @@ void main() {
           routes: settingsRoutes(ref),
         ),
       );
-      final container = ProviderContainer(
+      container = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          appPreferencesRepositoryProvider.overrideWithValue(prefs),
           currentUserProvider.overrideWith(
-            (ref) async => const AuthUser(
-              uid: 'owner',
-              email: 'a@example.com',
-              displayName: 'A',
-            ),
+            (ref) async => ref.watch(loading)
+                ? nextUser.future
+                : const AuthUser(
+                    uid: 'owner',
+                    email: 'a@example.com',
+                    displayName: 'A',
+                  ),
           ),
           isAnonymousProvider.overrideWith((ref) async => false),
           paymentsOnWebProvider.overrideWithValue(true),
@@ -128,6 +173,14 @@ void main() {
       await tester.pumpAndSettle();
       expect(router.state.uri.path, '/settings/exam/upgrade');
       expect(router.canPop(), isTrue);
+      if (finishOnFree) {
+        await prefs.setDeviceValue('checkout_exam_v1:owner', 'old intent');
+        await tester.tap(find.text('Switch on Free'));
+        await tester.pumpAndSettle();
+        expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);
+        expect(opened, 0);
+        return;
+      }
       await tester.tap(find.text('Upgrade for ₱149 a Month'));
       await tester.pumpAndSettle();
       expect(opened, 0);
@@ -139,8 +192,59 @@ void main() {
       for (var i = 0; i < 80; i++) {
         await tester.pump(const Duration(milliseconds: 100));
       }
+      if (accountChanges) {
+        expect(
+          tester
+              .widget<PantasButton>(
+                find.byWidgetPredicate(
+                  (w) =>
+                      w is PantasButton &&
+                      w.label == 'Upgrade for ₱149 a Month',
+                ),
+              )
+              .busy,
+          isFalse,
+        );
+        expect(opened, 0);
+        nextUser.complete(
+          const AuthUser(
+            uid: 'other',
+            email: 'b@example.com',
+            displayName: 'B',
+          ),
+        );
+        await tester.pumpAndSettle();
+        return;
+      }
       expect(opened, 1);
+      expect(stored!['count'], count);
+      expect(stored!['sessionId'], 'cs_test');
+      expect(stored!['createdAt'], isA<int>());
+      expect(
+        DateTime.now().difference(
+          DateTime.fromMillisecondsSinceEpoch(
+            stored!['createdAt'] as int,
+          ),
+        ),
+        lessThan(const Duration(minutes: 1)),
+      );
       expect(await prefs.selectedExamId(), 'exam_upcat');
+      if (!opens) {
+        expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);
+        expect(
+          tester
+              .widget<PantasButton>(
+                find.byWidgetPredicate(
+                  (w) =>
+                      w is PantasButton &&
+                      w.label == 'Upgrade for ₱149 a Month',
+                ),
+              )
+              .busy,
+          isFalse,
+        );
+        return;
+      }
       expect(
         (await container.read(settingsRepositoryProvider).readUserSettings())
             .carryOverProgress,
@@ -174,6 +278,7 @@ void main() {
             .busy,
         isFalse,
       );
+      expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);
       router.pop();
       await tester.pumpAndSettle();
       expect(router.state.uri.path, '/settings/exam/change');
