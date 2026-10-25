@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
@@ -481,10 +483,12 @@ class _FigureFrame extends StatelessWidget {
     this.reader = false,
     this.imageSemantics = true,
     this.expandable = true,
+    this.followTheme = false,
   });
   final bool reader;
   final bool imageSemantics;
   final bool expandable;
+  final bool followTheme;
   final Widget figure;
   final String label;
   final String credit;
@@ -525,11 +529,21 @@ class _FigureFrame extends StatelessWidget {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width,
                           child: ColoredBox(
-                            color: context.colors.figureBackground,
-                            child: Theme(
-                              data: buildLightTheme(),
-                              child: figure,
-                            ),
+                            color: followTheme
+                                ? context.colors.surface
+                                : context.colors.figureBackground,
+                            child: followTheme
+                                ? Semantics(
+                                    container: true,
+                                    label: label,
+                                    image: true,
+                                    excludeSemantics: true,
+                                    child: figure,
+                                  )
+                                : Theme(
+                                    data: buildLightTheme(),
+                                    child: figure,
+                                  ),
                           ),
                         ),
                       ),
@@ -566,9 +580,18 @@ class _FigureFrame extends StatelessWidget {
         reverseTransitionDuration:
             still ? Duration.zero : const Duration(milliseconds: 280),
         pageBuilder: (context, animation, secondary) => _FigureViewer(
-          figure: figure,
+          figure: followTheme
+              ? Semantics(
+                  container: true,
+                  label: label,
+                  image: true,
+                  excludeSemantics: true,
+                  child: figure,
+                )
+              : figure,
           credit: credit,
           arrival: animation,
+          followTheme: followTheme,
         ),
         transitionsBuilder: (context, animation, secondary, child) =>
             AnimatedBuilder(
@@ -618,18 +641,26 @@ class _FigureFrame extends StatelessWidget {
               child: Stack(
                 children: [
                   ColoredBox(
-                    color: reader
-                        ? context.colors.readerFigureBackground
-                        : context.colors.figureBackground,
+                    color: followTheme
+                        ? context.colors.surface
+                        : reader
+                            ? context.colors.readerFigureBackground
+                            : context.colors.figureBackground,
                     child: imageSemantics
                         ? Semantics(
                             label: label,
                             image: true,
                             excludeSemantics: true,
-                            child:
-                                Theme(data: buildLightTheme(), child: figure),
+                            child: (followTheme
+                                ? figure
+                                : Theme(
+                                    data: buildLightTheme(),
+                                    child: figure,
+                                  )),
                           )
-                        : Theme(data: buildLightTheme(), child: figure),
+                        : (followTheme
+                            ? figure
+                            : Theme(data: buildLightTheme(), child: figure)),
                   ),
                   if (expandable)
                     Positioned(
@@ -683,10 +714,12 @@ class _FigureViewer extends StatelessWidget {
     required this.figure,
     required this.credit,
     required this.arrival,
+    this.followTheme = false,
   });
   final Widget figure;
   final String credit;
   final Animation<double> arrival;
+  final bool followTheme;
   @override
   Widget build(BuildContext context) => CallbackShortcuts(
         bindings: {
@@ -726,9 +759,15 @@ class _FigureViewer extends StatelessWidget {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width,
                           child: ColoredBox(
-                            color: context.colors.readerFigureBackground,
-                            child:
-                                Theme(data: buildLightTheme(), child: figure),
+                            color: followTheme
+                                ? context.colors.surface
+                                : context.colors.readerFigureBackground,
+                            child: (followTheme
+                                ? figure
+                                : Theme(
+                                    data: buildLightTheme(),
+                                    child: figure,
+                                  )),
                           ),
                         ),
                         builder: (context, child) => Transform.scale(
@@ -783,6 +822,53 @@ class _ContentImageState extends State<_ContentImage> {
   int _retry = 0;
   @override
   Widget build(BuildContext context) {
+    if (isLessonSvg(widget.url)) {
+      return SvgPicture(
+        lessonSvgLoader(widget.url, context.colors),
+        key: ValueKey((widget.url, _retry)),
+        semanticsLabel: widget.label,
+        excludeFromSemantics: widget.label.isEmpty,
+        placeholderBuilder: (context) => _FigureFrame(
+          reader: widget.reader,
+          followTheme: true,
+          label: widget.label,
+          credit: widget.credit,
+          expandable: false,
+          imageSemantics: false,
+          figure: const SizedBox(height: 223),
+        ),
+        errorBuilder: (context, error, stackTrace) => _ImageFailure(
+          reader: widget.reader,
+          onRetry: () => setState(() => _retry++),
+        ),
+        imageBuilder: (context, child) => _FigureFrame(
+          reader: widget.reader,
+          followTheme: true,
+          label: widget.label,
+          credit: widget.credit,
+          imageSemantics: false,
+          figure: child,
+        ),
+      );
+    }
+    if (widget.url.startsWith('data:image/')) {
+      return _FigureFrame(
+        reader: widget.reader,
+        label: widget.label,
+        credit: widget.credit,
+        imageSemantics: false,
+        figure: Image.memory(
+          Uri.parse(widget.url).data!.contentAsBytes(),
+          fit: BoxFit.contain,
+          semanticLabel: widget.label,
+          excludeFromSemantics: widget.label.isEmpty,
+          errorBuilder: (context, error, stackTrace) => _ImageFailure(
+            reader: widget.reader,
+            onRetry: () => setState(() => _retry++),
+          ),
+        ),
+      );
+    }
     final image = Image.network(
       widget.url,
       key: ValueKey(_retry),
