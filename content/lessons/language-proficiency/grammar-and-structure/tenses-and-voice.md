@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-English verb forms help show **tense** and **aspect**. Tense helps show when something happens. Aspect shows whether an action is ongoing, already complete before a point, or linked to now.
+English verb forms help show **tense** and **aspect**. Tense helps show when something happens. Aspect shows whether an action is going on, is complete before a point in time, or has a link to now.
 
 The **base form** is the plain verb form, such as *write, eat,* or *finish*. It has no added *-s, -ed,* or *-ing*.
 
@@ -56,6 +56,8 @@ To change active to passive, make the receiver the subject. Use the correct form
 To change passive to active, make the agent the subject and keep the same time. "The meal was cooked by the chef" becomes "The chef cooked the meal." A verb needs an **object**, something acted on, to allow this usual passive change; "The child slept" has no such object.
 
 A **get-passive** uses *get + past participle*: "The package got delivered." It often describes something that happens to the subject. It is common in speech and informal writing; use a *be*-passive when a formal style is needed.
+
+Choose the form of *get* to match the time. "The package got delivered yesterday" uses *got* for the past. The package receives the action, and *delivered* is the past participle.
 
 Passive voice helps when the agent is unknown or less important than the affected thing. Active voice helps when the doer matters. Neither a form of *be* nor *get* alone makes a sentence passive: "She is happy" and "The package got heavy" describe states.
 
@@ -108,16 +110,16 @@ Choose the correct form: I think the office *(will close / closed)* early tomorr
 
 ### #4: An Ongoing Action
 
-Choose the form that shows an action happening now: Please wait. The clerk *(checks / is checking)* your record.
+Choose the correct form: Please wait. The clerk *(checks / is checking)* your record right now.
 
 **Solution:**
 
-1. The task asks for an ongoing action.
-2. Use *is* and *checking*: "The clerk is checking your record."
+1. *Right now* and the request to wait show that the action is going on.
+2. Use *is* and *checking*: "The clerk is checking your record right now."
 
 ### #5: Present Perfect Uses
 
-Choose the correct forms to connect each situation to now: The team *(has finished / will finish)* the work, so it is ready for inspection now. So far, Mara *(has visited / will visit)* Cebu twice. She moved here in June and still lives here, so she *(has lived / had lived)* here since June.
+Choose the correct forms: The team *(has finished / will finish)* the work, so it is ready for inspection now. So far, Mara *(has visited / will visit)* Cebu twice. She moved here in June and still lives here, so she *(has lived / had lived)* here since June.
 
 **Solution:**
 
@@ -136,12 +138,13 @@ Choose the correct forms: The printer *(stopped / has stopped)* working yesterda
 
 ### #7: Marking Earlier Completion
 
-Complete the sentence using the past perfect form of *finish*: "By the time the meeting started, Ana ___ the report."
+Choose the correct form: By the time the meeting started yesterday, Ana *(had finished / has finished / will finish)* the report. She handed out copies as the meeting began.
 
 **Solution:**
 
-1. The task requires past perfect to mark completion before a past point.
-2. Use *had* and the past participle *finished*: "By the time the meeting started, Ana had finished the report."
+1. The meeting started in the past. The report was already complete at that point, so copies were ready to hand out.
+2. Choose *had finished*: "By the time the meeting started yesterday, Ana had finished the report."
+3. *Had* and the past participle *finished* show completion before that past point.
 
 ### #8: Passive or a Description?
 
@@ -226,7 +229,7 @@ What does the word in bold express: ability, permission, obligation, or a strong
 **Solution:**
 
 1. The signed receipt gives the speaker a reason to believe Lina is back.
-2. Choose *a strong conclusion*. The speaker is deciding what is very likely true, not telling Lina what she is required to do.
+2. Choose *a strong conclusion*. The speaker is deciding what is very likely true. The sentence gives no order to Lina.
 
 ## Speed Tricks & Shortcuts
 
