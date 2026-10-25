@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-authors-purpose-tone-pov",
+  "lesson-comprehension-skills-context-clues-in-passages",
+  "lesson-comprehension-skills-inferencing-and-conclusions"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "rewrites": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "289b7015d174b773e9b9e02750a598483501b3cd",
+  "lesson-comprehension-skills-context-clues-in-passages": "2b0a077b6af8e473e90f25a081aaa87f906daae5",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "2b0a077b6af8e473e90f25a081aaa87f906daae5"
+ },
+ "sha256": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "7542e1060ac2a06fb0fff14f6c5fb09d2372edfb134c3659f6b2df63bea39e48",
+  "lesson-comprehension-skills-context-clues-in-passages": "d03a35f76d69523011ec4bd5b19b7500f98cf4de97690202a96e57933c0cfb70",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "af6f7b22406bd21579eb1cefb4c58119db49a51e1524ead81dabec8104854c93"
+ },
+ "paths": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+  "lesson-comprehension-skills-context-clues-in-passages": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md"
+ },
+ "id": "RD-061",
+ "type": "read",
+ "created": "2026-10-25T21:16:30+00:00"
+}
