@@ -81,6 +81,9 @@ class Repo:
         self.root.mkdir()
         git(base, "init", "-q", "--bare", str(self.origin))
         git(self.root, "init", "-q", "-b", "main")
+        # CI runners have no global git identity, and the hand-in commits.
+        git(self.root, "config", "user.name", "Fixture")
+        git(self.root, "config", "user.email", "fixture@example.invalid")
         git(self.root, "remote", "add", "origin", str(self.origin))
         self.write(".gitignore", "tools/content_rewrite/relay/inbox/\n")
         self.write("docs/content/lesson-style-guide.md", STYLE_GUIDE)
