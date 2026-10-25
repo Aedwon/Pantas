@@ -1,0 +1,282 @@
+{
+ "batch": "RD-075",
+ "lesson_id": "lesson-algebra-polynomials",
+ "path": "content/lessons/mathematics/algebra/polynomials.md",
+ "lesson_sha256": "7aa7dfa9c5e91224b51741427d816d4682273b37dc84011f27b20390090bd9f3",
+ "rewrite_commit": "c0a324aff9559ab6abe5c373a41673b7a900c40f",
+ "form": {
+  "packet": "lesson-algebra-polynomials",
+  "role": "A",
+  "lesson_sha256": "7aa7dfa9c5e91224b51741427d816d4682273b37dc84011f27b20390090bd9f3",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked polynomial exponent restrictions, degree convention, like-term operations, all five special-product identities, integer-pair factoring conditions, division identity and stopping rule, synthetic coefficient procedure, and both theorems by elementary algebra. The synthetic quotient-degree statement is in the x-c division context. No source-dependent exam claims occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independently obtained #1 first and fourth expressions only; #2 7x^2-8x+11; #3 2x^3-x^2+5x-12; #4 x^4-81; #5 3(x+2)^2; #6 (x-2)(x-3); #7 (3x+1)(2x-3); #8 (2x+3)(4x^2-6x+9); #9 (x-4)(x^2+4x+16); #10 quotient 2x^2-x-3 and remainder 12; #11 quotient x^2-x-2 and remainder zero; #12 -9; #13 k=3; #14 a=1, b=-7, sum=-6. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All five standard sections appear. Classification, general multiplication, monic factoring, long division, synthetic division, and cube identities requested in the brief are present. These symbolic questions do not require figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the revised definitions and all procedures. Terms are broken into short statements, with concrete expressions showing their meaning. The former abstract numerical-substitution sentence is now a simple instruction to try a value."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Simplify and Factor each have a one-line definition in Core Concept before their first example instructions. Everyday Find and Multiply require no special gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There is no tutor analogy in any section; FOIL and SOAP are procedural mnemonics."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All fourteen stems provide specific expressions, divisors, or divisibility conditions. They ask students to choose or apply the mathematical method without giving its formula; #11 explicitly requests a method as the skill being practiced. The solutions use short arithmetic and algebra instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No generic or repeated exam references appear in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about the meaning of a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly lists the topics. No stock AI phrasing is present; explanations alternate definitions, examples, conditions, and instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "#1 uses polynomial and degree definitions in Core Concept. #2 uses distribution, sign change, and like-term rules there. #3 uses distribution and x^m x^n=x^(m+n). #4 uses (a-b)(a+b)=a^2-b^2. #5 uses common-factor distribution and (a+b)^2. #6 uses x^2+bx+c=(x+r)(x+s); #7 uses the ac splitting/grouping procedure. #8-9 use the two cube identities. #10 uses the leading-term division procedure, exponent division rule, and P=DQ+R. #11 uses the synthetic multiply/add procedure. #12 uses remainder P(c). #13-14 use P(c)=0 for a factor x-c. Each is taught in Core Concept before Examples; #14 also uses the already taught monic factoring and distribution rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage includes polynomial/nonpolynomial classification #1; operations #2; general distribution #3; repeated difference of squares #4; common-factor and perfect-square factoring #5; monic/nonmonic factoring #6-7; both cube signs #8-9; long and synthetic division #10-11; direct remainder #12; unknown coefficient #13; multiple factor conditions #14. These are distinct tasks and progress from recognition to combined theorem use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution has numbered steps. Checked the sign changes in #2, both distributions in #3, all factoring transformations, each subtract/bring-down cycle in #10, each multiply/add in #11, substitutions in #12-14, and the elimination in #14. No required intermediate algebra is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Displays are split into short rows, including the division check and separate quotient/remainder statements. The longest operation line in #2 is a single polynomial expansion rather than a multi-stage derivation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs contain at most three sentences. The numbered Core Concept division procedure and example lists serve sequential teaching; no excessive prose bullets appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure or placeholder occurs; all examples ask about symbolic expressions and do not depend on a diagram.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Term, coefficient, exponent, polynomial, degree, like terms, distribution, factor, binomial, quadratic, monic quadratic, dividend, divisor, quotient, remainder, leading term, synthetic division, and P(c) are locally defined before their procedures need them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Distribution explains multiplication and reverse factoring; explicit product identities support special patterns; integer-pair selection and grouping explain quadratic factoring. Long division teaches divide/multiply/subtract/repeat and why the leading term disappears. Synthetic division teaches coefficient tracking and output interpretation; theorem statements explain the remainder/factor connection."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked whole-number polynomial exponents, nonzero base for power division, zero-polynomial degree convention, integer-pair limitations, nonzero polynomial divisor, missing-power zero placeholders, lower-degree stopping rule, x-c restriction for synthetic division and theorem shortcuts, and the warning that one matching trial value does not prove equivalence."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-algebra-polynomials|L26|0": {
+    "status": "fixed",
+    "quote": "Each subtraction removes the highest-power term still being divided.",
+    "note": "Long division now has a full procedure, a reason for the subtraction step, and worked Example #10."
+   },
+   "lesson-algebra-polynomials|L18|0": {
+    "status": "fixed",
+    "quote": "Which expressions are polynomials in $x$:",
+    "note": "Example #1 classifies positive whole powers, a denominator variable, a fractional power, and a constant."
+   },
+   "lesson-algebra-polynomials|L18|1": {
+    "status": "fixed",
+    "quote": "Multiply $(2x-3)(x^2+x+4)$.",
+    "note": "Example #3 multiplies every term of a binomial by each term of a trinomial."
+   },
+   "lesson-algebra-polynomials|L18|2": {
+    "status": "fixed",
+    "quote": "Factor $x^2-5x+6$.",
+    "note": "Example #6 works the monic integer-pair method separately from nonmonic factoring."
+   },
+   "lesson-algebra-polynomials|L25|1": {
+    "status": "fixed",
+    "quote": "Bring down the first coefficient. Multiply it by $c$, then add to the next coefficient.",
+    "note": "Synthetic division is explained before use and fully worked in Example #11."
+   },
+   "lesson-algebra-polynomials|L02|0": {
+    "status": "fixed",
+    "quote": "Each exponent of $x$ must be a whole number: $0$, $1$, $2$, and so on.",
+    "note": "The opening now separates term, coefficient, exponent, and polynomial definitions into short sentences."
+   },
+   "lesson-algebra-polynomials|L02|1": {
+    "status": "fixed",
+    "quote": "Try a simple value for $x$ to check a possible answer.",
+    "note": "The shortcut now uses plain words and explains what a failed or matching trial means."
+   },
+   "lesson-algebra-polynomials|L03|0": {
+    "status": "fixed",
+    "quote": "**Simplify** means rewrite an expression in a form with the same value that is easier to read or use.",
+    "note": "The exam verb is explained before the first simplification example."
+   },
+   "lesson-algebra-polynomials|L03|1": {
+    "status": "fixed",
+    "quote": "**Factor** means write an expression as a product.",
+    "note": "The main instruction is defined before any factoring example."
+   },
+   "lesson-algebra-polynomials|L17|0": {
+    "status": "fixed",
+    "quote": "The first pattern is a difference of squares.",
+    "note": "Core Concept displays difference-of-squares and both perfect-square formulas immediately before this sentence."
+   },
+   "lesson-algebra-polynomials|L19|0": {
+    "status": "fixed",
+    "quote": "1. Multiply every term of $A$ by $2$.",
+    "note": "The operations example now shows all three stages as numbered steps with display equations."
+   },
+   "lesson-algebra-polynomials|L19|1": {
+    "status": "fixed",
+    "quote": "1. Use the difference-of-squares pattern on the first two factors.",
+    "note": "Repeated difference of squares now has two numbered steps and both equations."
+   },
+   "lesson-algebra-polynomials|L19|2": {
+    "status": "fixed",
+    "quote": "1. The divisor is $x-2$, so the remainder is $P(2)$.",
+    "note": "The remainder example now numbers theorem selection, substitution, and the final answer."
+   },
+   "lesson-algebra-polynomials|L19|3": {
+    "status": "fixed",
+    "quote": "1. Since $x-3$ is a factor, set $P(3)=0$.",
+    "note": "The unknown-coefficient example numbers substitution, collection of constants, and solving."
+   },
+   "lesson-algebra-polynomials|L25|0": {
+    "status": "fixed",
+    "quote": "A **monic quadratic** has coefficient $1$ on its $x^2$ term.",
+    "note": "Monic is explicitly defined immediately before the factoring rule."
+   },
+   "lesson-algebra-polynomials|L26|1": {
+    "status": "fixed",
+    "quote": "These cube patterns apply when each of the two terms is a cube.",
+    "note": "Both cube identities are displayed and SOAP is mapped to the binomial sign and the second-factor signs."
+   },
+   "lesson-algebra-polynomials|L27|0": {
+    "status": "fixed",
+    "quote": "Choose $a$ and $b$ so that their cubes match those terms.",
+    "note": "The lesson states the cube-pattern condition and explains how to select the quantities before applying SOAP."
+   }
+  }
+ }
+}
