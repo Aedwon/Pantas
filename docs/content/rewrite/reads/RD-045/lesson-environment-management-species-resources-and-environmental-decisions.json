@@ -1,0 +1,254 @@
+{
+ "batch": "RD-045",
+ "lesson_id": "lesson-environment-management-species-resources-and-environmental-decisions",
+ "path": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+ "lesson_sha256": "dcf83cbc020f6fcd5be77ea791bcdf49c07eb545f5cb492f52c4d65d3fce15a7",
+ "rewrite_commit": "b40e0d2ea9a703a1fabe2b321acf1dae446944e5",
+ "form": {
+  "packet": "lesson-environment-management-species-resources-and-environmental-decisions",
+  "role": "A",
+  "lesson_sha256": "dcf83cbc020f6fcd5be77ea791bcdf49c07eb545f5cb492f52c4d65d3fce15a7",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "Only the prompt was used. No official statute text or ledger was supplied for these legal details.",
+    "findings": [
+     {
+      "quote": "RA $9147$ also supports **conservation breeding or propagation**, which means producing more animals or plants to help wild populations recover.",
+      "problem": "This detailed statutory claim cannot be confirmed against source text supplied in the packet. B01 requires confirmation of hard-to-remember facts. This is a source-confirmation gap, not a demonstrated falsehood."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1, independent answer: Take the trail around the nesting site. This agrees with the supplied solution.",
+     "Example 2, independent answer: Repair leaks and reduce avoidable use now. This agrees with the supplied solution.",
+     "Example 3, independent answer: Clearing increases erosion; sediment reduces light and covers feeding and breeding sites. This agrees with the supplied solution.",
+     "Example 4, independent answer: Critical habitat under RA 9147. This agrees with the supplied solution.",
+     "Example 5, independent answer: No; repair or protect the release habitat too. This agrees with the supplied solution.",
+     "Example 6, independent answer: Route B under the stated comparable legal and practical conditions. This agrees with the supplied solution.",
+     "Example 7, independent answer: Limit access near breeding habitat and restore native plants under the approved plan. This agrees with the supplied solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. No brief requires a figure, and no example depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read every teaching paragraph and solution. Technical ideas receive plain glosses, and sentences separate the conditions from the main rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is glossed in Core Concept before the worked evaluation cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in the teaching or worked examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Stems provide the relevant local facts without defining the tested concept or supplying the law number sought. Solutions use plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam-name openers or unsupported claims about exam frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No stem asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the content directly. Openings vary, and none of the listed stock phrases appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout includes the three required sections. No worked example uses a mathematical formula; no formula needs a Core Concept introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases cover nesting-habitat protection, water conservation, erosion mechanisms, critical habitat, breeding with habitat repair, road tradeoffs, and sanctuary management. Later cases combine legal and practical constraints."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered reasoning steps. Single-step answers use a sentence. No solution has a numerical computation needing display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations appear in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have one to three sentences. Numbered solution lists are used appropriately; teaching is not dominated by bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or existing figures to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Species, habitat, ecosystem, sediment, conservation, threatened species, critical habitat, natural/renewable resources, zoning, buffer zone, rehabilitation, evaluate, and tradeoff are introduced with plain meanings before the examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Forest removal and sediment explain causal impacts. Conservation selects actions by threat; renewable-resource recovery explains use limits. Protected-area management and road comparison explain how protection decisions work."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Actions depend on the threat, resource recovery, legal limits, and evidence. Critical habitat is distinguished from NIPAS. Road preference is explicitly limited to the supplied lawful, safe, comparable alternatives."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "general-information-environment-management#29": {
+    "status": "fixed",
+    "quote": "Among lawful, workable options, prefer one that meets the goal with less avoidable harm.",
+    "note": "Teaches evidence-based comparison and works road alternatives."
+   },
+   "general-information-environment-management#30": {
+    "status": "fixed",
+    "quote": "This soil, called **sediment**, can cloud the water, block light, and cover places where some river animals feed or breed.",
+    "note": "Explains the land-clearing-to-river causal mechanism."
+   },
+   "general-information-environment-management#31": {
+    "status": "fixed",
+    "quote": "If habitat loss is the problem, protect or restore the habitat.",
+    "note": "Matches conservation action to threat and works a nesting case."
+   },
+   "general-information-environment-management#32": {
+    "status": "fixed",
+    "quote": "Repairing leaks saves water.",
+    "note": "Adds water, soil, forests, fish, and mineral conservation."
+   },
+   "general-information-environment-management#53": {
+    "status": "fixed",
+    "quote": "It provides for **critical habitats** outside existing protected areas where threatened species are found.",
+    "note": "Adds a legal habitat tool and conservation-breeding application."
+   },
+   "general-information-environment-management#54": {
+    "status": "fixed",
+    "quote": "A species may decline even if people do not hunt it.",
+    "note": "Explains loss of food, shelter, breeding places, and habitat connections."
+   },
+   "general-information-environment-management#56": {
+    "status": "fixed",
+    "quote": "A wildlife sanctuary focuses on the conditions that wildlife needs.",
+    "note": "Teaches categories and applies access limits and rehabilitation."
+   },
+   "general-information-environment-management#64": {
+    "status": "fixed",
+    "quote": "Restoring native plants helps repair the habitat.",
+    "note": "Adds concrete species and resource protection actions in worked cases."
+   },
+   "general-information-environment-management#65": {
+    "status": "fixed",
+    "quote": "Removing plants on land can therefore affect living things in the river.",
+    "note": "Worked causal explanation links clearing, sediment, and ecosystem harm."
+   },
+   "general-information-environment-management#66": {
+    "status": "fixed",
+    "quote": "The tradeoff is added cost against added habitat damage.",
+    "note": "Explicit comparison uses legal constraints, access goals, cost, and habitat loss."
+   }
+  }
+ }
+}

@@ -1,0 +1,346 @@
+{
+ "batch": "RD-045",
+ "lesson_id": "lesson-environment-management-the-environmental-laws",
+ "path": "content/lessons/general-information/environment-management/the-environmental-laws.md",
+ "lesson_sha256": "90914b0f3281cb7477738786fc5293e29a27975e3dcc39fa85b15ff60f6a20d6",
+ "rewrite_commit": "b40e0d2ea9a703a1fabe2b321acf1dae446944e5",
+ "form": {
+  "packet": "lesson-environment-management-the-environmental-laws",
+  "role": "A",
+  "lesson_sha256": "90914b0f3281cb7477738786fc5293e29a27975e3dcc39fa85b15ff60f6a20d6",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "Only the prompt was used. No official statute text or ledger was supplied for these legal details.",
+    "findings": [
+     {
+      "quote": "RA $10174$ later amended this part of the law and uses the name **National Strategic Framework on Climate Change**.",
+      "problem": "This detailed statutory claim cannot be confirmed against source text supplied in the packet. B01 requires confirmation of hard-to-remember facts. This is a source-confirmation gap, not a demonstrated falsehood."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1, independent answer: RA 9003. This agrees with the supplied solution.",
+     "Example 2, independent answer: RA 10121. This agrees with the supplied solution.",
+     "Example 3, independent answer: DENR. This agrees with the supplied solution.",
+     "Example 4, independent answer: RA 8749. This agrees with the supplied solution.",
+     "Example 5, independent answer: RA 9275. This agrees with the supplied solution.",
+     "Example 6, independent answer: RA 9729. This agrees with the supplied solution.",
+     "Example 7, independent answer: RA 9147. This agrees with the supplied solution.",
+     "Example 8, independent answer: NIPAS, RA 7586 as amended by RA 11038. This agrees with the supplied solution.",
+     "Example 9, independent answer: No; all waste still goes to disposal. This agrees with the supplied solution.",
+     "Example 10, independent answer: A major dam is an ECP even outside an ECA. This agrees with the supplied solution.",
+     "Example 11, independent answer: No; check location-based coverage and screening too. This agrees with the supplied solution.",
+     "Example 12, independent answer: No; ECC and wastewater permits impose separate duties. This agrees with the supplied solution.",
+     "Example 13, independent answer: Water Quality Management Area and its governing board. This agrees with the supplied solution.",
+     "Example 14, independent answer: No; the exception does not override other laws. This agrees with the supplied solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. No brief requires a figure, and no example depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read every teaching paragraph and solution. Technical ideas receive plain glosses, and sentences separate the conditions from the main rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "No exam-specific instruction verb needs a gloss; the stems use ordinary matching and identification directions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in the teaching or worked examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Stems provide the relevant local facts without defining the tested concept or supplying the law number sought. Solutions use plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam-name openers or unsupported claims about exam frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The English lesson includes the Filipino term siga; its official spelling cannot be confirmed from the packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No stem asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the content directly. Openings vary, and none of the listed stock phrases appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout includes the three required sections. No worked example uses a mathematical formula; no formula needs a Core Concept introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases cover all eight statute associations and EMB/DENR, then sorting versus diversion, ECP outside ECA, location-based coverage, ECC versus discharge permit, river-basin coordination, and cross-law exceptions. Recognition progresses to conditional application."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered reasoning steps. Single-step answers use a sentence. No solution has a numerical computation needing display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations appear in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have one to three sentences. Numbered solution lists are used appropriately; teaching is not dominated by bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or existing figures to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Source segregation, diversion, composting, recycling, waste types, watershed, river basin, wastewater, effluent, standards, proponent, ECC, ECP, ECA, reclamation, aquifer, and habitat receive local explanations before examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Sorting is distinguished from diversion; discharge standards connect permits to monitoring. Framework planning, ECP/ECA coverage, wildlife versus NIPAS tools, and DENR/EMB roles explain functions beyond names."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Incineration exceptions and the expired transition are stated, with other laws still applicable. Coverage needs screening; ECP differs from ECA. Discharge limits are conditional, climate names depend on amendment, and local delegation is not automatic."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-environment-management-environmental-concepts|B03|0": {
+    "status": "fixed",
+    "quote": "A covered project must still follow its conditions and other laws.",
+    "note": "The supplied rewritten lesson has Traps to Watch For and an optional shortcut section."
+   },
+   "lesson-environment-management-environmental-concepts|L18|1": {
+    "status": "fixed",
+    "quote": "The facts show sorting but do not show diversion. All the waste still went to disposal.",
+    "note": "Adds a harder sorting-versus-diversion case and multiple project-review cases."
+   },
+   "lesson-environment-management-the-environmental-laws|B03|0": {
+    "status": "fixed",
+    "quote": "RA $10121$ renamed the existing council.",
+    "note": "The required trap section is present, with seven specific warnings."
+   },
+   "lesson-environment-management-the-environmental-laws|L18|0": {
+    "status": "fixed",
+    "quote": "The documents serve different duties. An ECC does not replace the required discharge permit.",
+    "note": "All statute families now have matching cases and conditional applications."
+   },
+   "lesson-environment-management-environmental-concepts|L02|0": {
+    "status": "fixed",
+    "quote": "An **Environmentally Critical Area (ECA)** is identified by the location's special features or risks.",
+    "note": "The original packed statement is split into separate project, location, and screening teaching."
+   },
+   "lesson-environment-management-environmental-concepts|L25|0": {
+    "status": "fixed",
+    "quote": "A **project proponent** is the person, company, or agency that wants to carry out a project.",
+    "note": "Defines the term plainly before using it in the ECC explanation."
+   },
+   "lesson-environment-management-the-environmental-laws|B01|0": {
+    "status": "fixed",
+    "quote": "The law changed the name of the existing National Disaster Coordinating Council to the **National Disaster Risk Reduction and Management Council (NDRRMC)**.",
+    "note": "Uses the rename wording supported by the supplied brief and its Section 5 citation."
+   },
+   "lesson-environment-management-the-environmental-laws|B08|0": {
+    "status": "fixed",
+    "quote": "The law is RA $9003$.",
+    "note": "Statute numbers and years throughout prose and solutions are inside inline math."
+   },
+   "lesson-environment-management-the-environmental-laws|L02|0": {
+    "status": "fixed",
+    "quote": "The law states exceptions to this particular ban.",
+    "note": "Splits the incineration discussion into short sentences and gives the exceptions."
+   },
+   "lesson-environment-management-the-environmental-laws|L19|0": {
+    "status": "fixed",
+    "quote": "1. The actions concern solid waste, source segregation, and diversion.",
+    "note": "Example 1 begins its reasoning in the numbered list without an extra lead-in."
+   },
+   "lesson-environment-management-the-environmental-laws|L19|1": {
+    "status": "fixed",
+    "quote": "RA $10121$, the Philippine Disaster Risk Reduction and Management Act of $2010$, made that change.",
+    "note": "Example 2 is now a permitted one-step answer, with no unnumbered multistep lead-in."
+   },
+   "lesson-environment-management-the-environmental-laws|L19|2": {
+    "status": "fixed",
+    "quote": "EMB is part of the Department of Environment and Natural Resources, or DENR.",
+    "note": "Example 3 is a single-step answer and removes the earlier extra instruction."
+   },
+   "lesson-environment-management-the-environmental-laws|L25|0": {
+    "status": "fixed",
+    "quote": "**Waste diversion** means keeping waste away from disposal facilities through actions such as reuse, recycling, and composting.",
+    "note": "Defines diversion and source segregation locally before examples use them."
+   },
+   "lesson-environment-management-the-environmental-laws|L26|0": {
+    "status": "fixed",
+    "quote": "As first enacted, RA $9729$ required a **Framework Strategy on Climate Change**.",
+    "note": "Distinguishes the original title from the amendment and explains planning functions."
+   },
+   "lesson-environment-management-the-environmental-laws|L27|0": {
+    "status": "fixed",
+    "quote": "It also lists traditional burning for farming, culture, health, and food preparation, as well as crematoria, where human remains are cremated.",
+    "note": "Names the requested statutory exceptions and warns that other burning laws apply."
+   },
+   "lesson-environment-management-the-environmental-laws|lead-add|0": {
+    "status": "fixed",
+    "quote": "As first enacted, RA $9729$ required a **Framework Strategy on Climate Change**.",
+    "note": "Corrects the original-law name while distinguishing the later amendment claim."
+   },
+   "general-information-environment-management#15": {
+    "status": "fixed",
+    "quote": "An **Environmentally Critical Project (ECP)** is identified by the kind and scale of project.",
+    "note": "Teaches type and scale criteria, listed project categories, and a major-dam case."
+   },
+   "general-information-environment-management#16": {
+    "status": "fixed",
+    "quote": "An **Environmentally Critical Area (ECA)** is identified by the location's special features or risks.",
+    "note": "Teaches location criteria, category examples, and screening conditions."
+   },
+   "general-information-environment-management#17": {
+    "status": "fixed",
+    "quote": "It requires environmental review of covered projects before they begin.",
+    "note": "Explains decree operation, review purposes, coverage, and ECC conditions."
+   },
+   "general-information-environment-management#35": {
+    "status": "fixed",
+    "quote": "Sorting and diversion are related but different.",
+    "note": "Defines both processes and works a sorting-without-diversion case."
+   },
+   "general-information-environment-management#38": {
+    "status": "fixed",
+    "quote": "During that transition, burning was limited to diseased tissue and infectious waste under close DENR monitoring.",
+    "note": "Adds exceptions, historical transition conditions, and non-burn treatment criteria."
+   },
+   "general-information-environment-management#40": {
+    "status": "fixed",
+    "quote": "Each management area has a governing board with government and other sector representatives.",
+    "note": "Explains designation boundaries, grouping, coordination, and action-plan review."
+   },
+   "general-information-environment-management#41": {
+    "status": "fixed",
+    "quote": "It states the allowed amount and quality of the discharge, the schedule for meeting requirements, and the required monitoring.",
+    "note": "Teaches standards, permits, information, testing, reporting, and conditional limits."
+   },
+   "general-information-environment-management#57": {
+    "status": "fixed",
+    "quote": "Under RA $9275$, DENR may gradually transfer some water-quality administration to capable local governments or management boards.",
+    "note": "Adds standards and enforcement work, regional execution, and conditional decentralization."
+   },
+   "lesson-environment-management-environmental-concepts|B08|2": {
+    "status": "fixed",
+    "quote": "Presidential Decree (PD) $1586$ established the **Philippine Environmental Impact Statement System**, or EIS System.",
+    "note": "The decree identifier is wrapped in inline math throughout the rewritten lesson."
+   },
+   "lesson-environment-management-environmental-concepts|L19|2": {
+    "status": "fixed",
+    "quote": "1. The ECC follows environmental review under the EIS System established by PD $1586$.",
+    "note": "Environmental-review reasoning begins in a numbered step with no extra lead-in."
+   },
+   "lesson-environment-management-the-environmental-laws|L22a|0": {
+    "status": "fixed",
+    "quote": "Environmental laws cover different problems and duties.",
+    "note": "Replaces the statute and agency bullet inventories with short topical paragraphs."
+   }
+  }
+ }
+}

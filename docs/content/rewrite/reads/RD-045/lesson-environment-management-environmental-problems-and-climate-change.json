@@ -1,0 +1,245 @@
+{
+ "batch": "RD-045",
+ "lesson_id": "lesson-environment-management-environmental-problems-and-climate-change",
+ "path": "content/lessons/general-information/environment-management/environmental-problems-and-climate-change.md",
+ "lesson_sha256": "6c410dea3c4e0f7262b5dcd060e4a626abccea07e2a04e3a6f94a4caae3e1d2e",
+ "rewrite_commit": "b40e0d2ea9a703a1fabe2b321acf1dae446944e5",
+ "form": {
+  "packet": "lesson-environment-management-environmental-problems-and-climate-change",
+  "role": "A",
+  "lesson_sha256": "6c410dea3c4e0f7262b5dcd060e4a626abccea07e2a04e3a6f94a4caae3e1d2e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "Only the prompt was used. No official statute text or ledger was supplied for these legal details.",
+    "findings": [
+     {
+      "quote": "RA $9729$, as amended by RA $10174$, provides for a **National Strategic Framework on Climate Change**.",
+      "problem": "This detailed statutory claim cannot be confirmed against source text supplied in the packet. B01 requires confirmation of hard-to-remember facts. This is a source-confirmation gap, not a demonstrated falsehood."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1, independent answer: Improper solid-waste disposal. This agrees with the supplied solution.",
+     "Example 2, independent answer: Collection remixes waste and undermines recovery. This agrees with the supplied solution.",
+     "Example 3, independent answer: Inspect and sample possible sources before assigning blame. This agrees with the supplied solution.",
+     "Example 4, independent answer: Economic effect. This agrees with the supplied solution.",
+     "Example 5, independent answer: Social effects. This agrees with the supplied solution.",
+     "Example 6, independent answer: Political or policy aspect. This agrees with the supplied solution.",
+     "Example 7, independent answer: Higher floor: adaptation; lower lighting emissions: mitigation. This agrees with the supplied solution.",
+     "Example 8, independent answer: Evidence-based adaptation priorities, funding, training, participation, and evaluation. This agrees with the supplied solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. No brief requires a figure, and no example depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read every teaching paragraph and solution. Technical ideas receive plain glosses, and sentences separate the conditions from the main rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is glossed in Core Concept before the worked evaluation cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in the teaching or worked examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Stems provide the relevant local facts without defining the tested concept or supplying the law number sought. Solutions use plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam-name openers or unsupported claims about exam frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches environmental information in English, not Filipino language or grammar.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No stem asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the content directly. Openings vary, and none of the listed stock phrases appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout includes the three required sections. No worked example uses a mathematical formula; no formula needs a Core Concept introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover harmful-practice identification, implementation evaluation, uncertain pollution sources, economic/social/policy effects, adaptation versus mitigation, and integrated framework application. Difficulty increases from direct identification to planning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered reasoning steps. Single-step answers use a sentence. No solution has a numerical computation needing display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations appear in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have one to three sentences. Numbered solution lists are used appropriately; teaching is not dominated by bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or existing figures to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Habitat, segregation at source, climate change, greenhouse gases, ecosystem, economic/social/policy effects, adaptation, mitigation, vulnerability, assessment, capacity, evaluation, and gender mainstreaming receive meanings before worked use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Cause and effects are separated through canal dumping. Evaluation checks implementation and harm reduction. Climate teaching explains warming, ecosystem impacts, economic/social/policy effects, and evidence-to-action framework planning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Evidence is required before attributing pollution. Weather is distinguished from climate; local flood factors and overlapping effects are noted. Adaptation and mitigation labels depend on main purpose and can overlap."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "general-information-environment-management#23": {
+    "status": "fixed",
+    "quote": "Look for the harmful practice, its likely source, and who or what is affected.",
+    "note": "Teaches a systematic source, practice, and affected-party check."
+   },
+   "general-information-environment-management#24": {
+    "status": "fixed",
+    "quote": "Government responses include rules, permits, inspections, public services, and action against violations.",
+    "note": "Response mechanisms are explained and applied in local cases."
+   },
+   "general-information-environment-management#25": {
+    "status": "fixed",
+    "quote": "Climate change can harm ecosystems by changing the conditions that plants and animals need.",
+    "note": "Teaches ecological, water, coastal, farm, and human effects."
+   },
+   "general-information-environment-management#26": {
+    "status": "fixed",
+    "quote": "Governments choose climate laws, budgets, land-use rules, and projects.",
+    "note": "Explains policy choices and government coordination with a worked case."
+   },
+   "general-information-environment-management#27": {
+    "status": "fixed",
+    "quote": "Drought can reduce a harvest and farm earnings.",
+    "note": "Connects climate effects to production, income, property, and costs."
+   },
+   "general-information-environment-management#28": {
+    "status": "fixed",
+    "quote": "Flooding can force families to move and keep children out of school.",
+    "note": "Teaches displacement, health, schooling, and recovery inequality."
+   },
+   "general-information-environment-management#44": {
+    "status": "fixed",
+    "quote": "The framework considers vulnerability, adaptation needs, and ways to reduce emissions.",
+    "note": "Contents and application are present; statutory confirmation remains separate."
+   },
+   "general-information-environment-management#63": {
+    "status": "fixed",
+    "quote": "The barangay needs collection and handling that support the sorting done by households.",
+    "note": "Works an implementation failure and teaches evidence-based effectiveness checks."
+   }
+  }
+ }
+}
