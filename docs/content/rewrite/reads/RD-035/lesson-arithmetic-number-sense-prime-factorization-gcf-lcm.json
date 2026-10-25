@@ -1,0 +1,233 @@
+{
+ "packet": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+ "role": "A",
+ "lesson_sha256": "d0bbeb15290c7a8c1f22320e561dba133dd36efea0ec22d015e880f289845b67",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked prime/composite definitions, prime factorizations, GCF/LCM definitions and methods, the same-remainder method, the two-positive-integers product formula, and all stated trap facts; the mathematical claims are correct."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Solved Example #1 independently: 360 = 2^3 × 3^2 × 5, so choice B is correct.",
+    "Solved Example #2 independently: GCF(84,126,210) = 42 bags.",
+    "Solved Example #3 independently: LCM(15,20,25) = 300 minutes = 5 hours, so 7:00 am advances to 12:00 pm.",
+    "Solved Example #4 independently: N-3 must be a multiple of LCM(6,8,10)=120; the smallest N>10 is 123."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the optional mnemonic section is absent, and no worked problem requires a figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose at the Grade 5 benchmark; the former continuous-division sentence is now split into short statements, while technical ideas are introduced in direct sentences."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson uses no exam instruction word with a special meaning that requires a one-line definition."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all four example stems: each supplies the needed quantities, intervals, start time, or remainder condition without giving away the method, and the solutions use simple procedural language."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so an official Filipino spelling check does not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word in the prompt."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "4. Numbers with the required remainder have the form $120k+3$ for integers $k$. The case $k=0$ gives $3$, which is not greater than $10$.",
+     "problem": "Example #4 introduces the general same-remainder form $120k+3$ inside the solution. Core Concept explains subtracting the remainder and using an LCM, but it never states the LCM-multiple-plus-remainder form before the example uses it."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped each distinct lesson case to a worked example: prime factorization (#1), equal groups using GCF (#2), repeating events using LCM (#3), and a same-remainder condition (#4), with difficulty increasing across the set."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all four worked solutions: each multi-step solution is numbered, and each factorization, GCF/LCM computation, conversion, and final arithmetic computation is displayed separately."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No example depends on a figure, and this number-sense lesson contains no illustration placeholder."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "To find the GCF with prime powers, factor each number. Keep only prime factors shared by every number, then use the smallest exponent for each shared prime.",
+     "problem": "The method requires students to understand an exponent, but the lesson never explains what an exponent means before using exponent language and prime-power notation."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that prime and composite numbers, prime factorization, GCF, LCM, equal-group use, repeating-event use, and same-remainder reasoning are each explained with both meaning and method."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions and limits: prime/composite definitions require integers greater than 1, GCF/LCM are defined for positive integers, the common remainder must be smaller than every divisor, the product formula is limited to two positive integers, and the continuous-division warning states when the shortcut can fail."
+   ],
+   "note": ""
+  },
+  "L16": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L01|0": {
+   "status": "fixed",
+   "quote": "Use prime factors to find GCF and LCM for equal groups, repeating events, and same-remainder problems.",
+   "note": "Checked the rewritten scope and all examples; the former monomial GCF/LCM example is gone and the lesson stays on the recorded application goal."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L17|0": {
+   "status": "fixed",
+   "quote": "To find the GCF with prime powers, factor each number. Keep only prime factors shared by every number, then use the smallest exponent for each shared prime.",
+   "note": "Checked the old variable-factor issue; no example now applies the method to algebraic variable powers, so that untaught extension has been removed."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L02|0": {
+   "status": "fixed",
+   "quote": "A common continuous-division mistake is to divide only by primes common to every row. That method can fail for $3$ or more numbers if you then multiply the remaining bottom row.",
+   "note": "Checked the formerly dense sentence; the shortcut, error, and limitation are now split into shorter teaching sentences."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L16|0": {
+   "status": "fixed",
+   "quote": "For a same-remainder problem, subtract the common remainder first. The remainder must be less than every divisor. The remaining part must be divisible by each divisor, so an LCM can describe the repeating values.",
+   "note": "Checked the section structure; the fabricated A.L.L. and P.I.G. mnemonic material and its mnemonic section are no longer present."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L19|0": {
+   "status": "fixed",
+   "quote": "1. Divide by prime factors until only primes remain.",
+   "note": "Checked Example #1 from start to finish; its solution now uses numbered steps and separate displayed computations."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L21|0": {
+   "status": "fixed",
+   "quote": "$$360=2\\times180$$",
+   "note": "Checked the factorization layout; the former long chained equality is split into narrow display equations suitable for a phone."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L25|0": {
+   "status": "fixed",
+   "quote": "A relief operations team has $84$ cans of sardines, $126$ packs of noodles, and $210$ kilos of rice. They want to pack these into the greatest possible number of identical relief bags with no items left over. How many bags can they make?",
+   "note": "Checked the former coefficient issue; the algebraic monomial example and the undefined coefficient term have been removed from the lesson."
+  },
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm|L25|1": {
+   "status": "fixed",
+   "quote": "A **composite number** is an integer greater than $1$ with more than two positive factors. For example, $12$ is composite because it has factors besides $1$ and $12$.",
+   "note": "Checked first use of composite; the lesson now defines it before later using composite in the incomplete-factorization trap."
+  }
+ }
+}
