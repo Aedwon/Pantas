@@ -1,75 +1,114 @@
 ---
 _id: "lesson-comprehension-skills-sequencing-of-events"
 title: "Sequencing of Events"
-summary: "Learn how to put events in the order they happened by using time words, verb tense, and cause and effect."
+summary: "Put events in order using time words, verb forms, and cause and effect in English and Filipino."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-**Sequencing** means putting events in the order they happened. A passage may tell a later event first and explain an earlier event afterward. Your job is to rebuild the true order.
+**Sequencing** means putting events in the order they happened. A passage may tell a later event first and explain an earlier event afterward. Rebuild the true order from the clues in the text.
 
-Three clues can help.
+The order of the sentences is the **written order**. The order in which the events happened is the **event order**. These orders can be different.
 
-**Time-signal words** show when events happen. Words such as *first*, *next*, *then*, *before*, *after*, *later*, *meanwhile*, *finally*, *previously*, and *by the time* can point to the order. A passage may not give a signal word for every event.
+### Time Words
 
-**Verb tense** can also show order. The **past perfect** uses *had* with a past participle, such as *had walked* or *had finished*. It can show that one past action was already complete before another past action.
+**Time-signal words** show when events happen. *First*, *next*, *then*, *later*, and *finally* help place events in order. *Previously* points to an earlier time.
 
-**Cause and effect** can show order too. A cause comes before the result it produces. A passage may state the result first and explain its cause later.
+In "after the rain stopped, we left," the rain stopped first. In "before we left, the rain stopped," the rain also stopped first. Read the whole phrase to connect each time word to the right action.
 
-The order of the sentences is called the **written order**. The order in which the events really happened is the **event order**. These two orders can be different.
+*Meanwhile* means that events happen at the same time. It does not tell you which of those events began first. A passage may also leave the order of some events unstated.
 
-Sa Filipino, hanapin ang mga salitang nagsasabi ng oras. Kabilang dito ang *una*, *bago*, *pagkatapos*, *matapos*, *kasunod*, at *sa huli*. Tinutulungan ka ng mga salitang ito na ayusin ang mga pangyayari.
+### Verb Forms
 
-Hanapin din ang sanhi at bunga. Ang *dahil* ay karaniwang nagpapakilala ng sanhi. Ang *kaya* at *dahil dito* ay karaniwang nagpapakilala ng bunga.
+**Verb tense** shows the time of an action. The **past perfect** uses *had* with a **past participle**, a verb form used after helping verbs such as *has*, *have*, or *had*. Here, this pattern can show an action completed before another past action.
 
-Kung magulo ang pagkakasulat, huwag basta sundin ang ayos ng mga pangungusap. Hanapin kung ano ang nangyari muna, ano ang sumunod, at ano ang nangyari sa huli.
+For many verbs, the past participle ends in *-ed*, as in *walked* and *finished*. Some have special forms: *go* becomes *gone*, *eat* becomes *eaten*, and *write* becomes *written*. In *had written*, the word *written* is the past participle.
+
+Compare "Mia left" with "Mia had left before the meeting began." The second sentence makes the order clear: Mia left first, and the meeting began later. Use the surrounding text to find the later past event.
+
+### Cause and Effect
+
+A **cause** makes something happen. An **effect** is the result it produces. A cause must begin before its effect, though it may continue while the effect happens.
+
+A passage may state the effect first and explain the cause later. Do not assume that every earlier event caused the next one. Use the link that the passage gives.
+
+### Mga Hudyat sa Filipino
+
+Sa Filipino, hanapin ang mga salitang nagsasabi ng oras. Ang *una* ay tumutukoy sa simula. Ang *kasunod* at *sa huli* ay tumutulong upang makita ang mga sumunod na pangyayari.
+
+Sa "Bago umalis si Ana, isinara niya ang bintana," nauna ang pagsara. Sa "Matapos isara ang bintana, umalis si Ana," nauna rin ang pagsara. Ang *pagkatapos* ay maaari ring magpakita ng sumunod na pangyayari.
+
+Ang *habang* ay nagpapakita ng mga pangyayaring nagaganap sa iisang panahon. Hindi nito laging sinasabi kung alin ang nagsimula muna.
+
+Ang **sanhi** (cause) ay dahilan ng pangyayari. Ang **bunga** (effect) ay resulta nito. Ang *dahil* ay karaniwang nagpapakilala ng sanhi, at ang *kaya* at *dahil dito* ay karaniwang nagpapakilala ng bunga.
 
 ## Examples
 
 ### #1: Using Time-Signal Words
 
-"First, the dough is kneaded for ten minutes. Next, it rests for an hour to rise. Finally, it is baked at high heat until golden brown." What is the correct order of the steps?
+"First, the dough is kneaded. Next, it rests until it rises. Finally, it is baked until golden brown." What is the correct order of the steps?
 
 **Solution:**
 
-1. The words *First*, *Next*, and *Finally* directly show the order.
-2. The event order is **kneading, resting and rising, baking**.
+1. *First* places kneading at the beginning. *Next* places resting and rising after kneading.
+2. *Finally* places baking last. The order is **kneading, resting and rising, baking**.
 
 ### #2: Using Past Perfect Tense
 
-"By the time the fire department arrived, the family had already evacuated the building safely." Which event happened first?
+"By the time the fire department arrived, the family had already gone outside to safety." Which event happened first?
 
 **Solution:**
 
-1. *Had already evacuated* is past perfect. It shows that the evacuation was complete before the other past event.
-2. *Arrived* gives the later past event.
-3. The family evacuated first. The fire department arrived afterward.
+1. *Had already gone* shows that the family's move outside was complete before the other past event.
+2. *Arrived* gives the later event. **The family went outside first.** The fire department arrived afterward.
 
 ### #3: Reordering Events Presented Out of Sequence
 
-A passage begins, "The bridge collapsed within minutes." It later explains, "Engineers had warned officials about structural weaknesses two years earlier, but repairs were delayed." What is the actual event order?
+"The bridge collapsed within minutes. Engineers had warned officials about weak parts of the bridge two years earlier, but repairs were delayed." What is the actual event order?
 
 **Solution:**
 
-1. The passage mentions the collapse first, but the warning happened earlier.
-2. The delayed repairs also came before the collapse.
-3. The event order is **engineers warn officials, repairs are delayed, the bridge collapses**.
+1. The passage mentions the collapse first. However, *had warned* and *earlier* place the warning before it.
+2. Repairs were delayed after the warning and before the collapse.
+3. The order is **engineers warn officials, repairs are delayed, the bridge collapses**.
 
 ### #4: Combining Several Clues
 
-"She had studied law for six years before passing the bar exam. Afterward, she spent two years as a junior associate before being promoted to partner." Put these events in the correct order: becoming partner, studying law, passing the bar exam, working as a junior associate.
+"After completing her training, Liza passed the skills test. She then worked as an assistant. Two years later, she became a team leader." Put these events in order: becoming a team leader, completing training, passing the skills test, working as an assistant.
 
 **Solution:**
 
-1. *Had studied* and *before passing* place studying law before passing the bar exam.
-2. *Afterward* places work as a junior associate after the bar exam.
-3. *Before being promoted* places becoming partner after the junior-associate work.
-4. The event order is **studying law, passing the bar exam, working as a junior associate, becoming partner**.
+1. *After completing her training* places training before the test.
+2. *Then* places assistant work after the test.
+3. *Two years later* places becoming a team leader after assistant work.
+4. The order is **completing training, passing the skills test, working as an assistant, becoming a team leader**.
 
-### #5: Mga Hudyat ng Oras, Sanhi, at Bunga
+### #5: Finding a Cause Mentioned Later
+
+"The outdoor program was canceled because strong winds damaged the stage. Organizers checked the damage before announcing the cancellation." Which event occurred immediately before the cancellation was announced?
+
+**Solution:**
+
+1. The winds damaged the stage before organizers checked it.
+2. The organizers checked the damage before announcing the cancellation.
+3. **The organizers checked the damage** immediately before the announcement.
+
+### #6: Events That Overlap
+
+"While Nena prepared the report, Omar checked the receipts. After both tasks were finished, they sent the report to their supervisor." What can be concluded about the order of these events?
+
+Here, "concluded" means decided from the information given.
+
+**Solution:**
+
+1. *While* shows that preparing the report and checking the receipts overlapped in time.
+2. The passage does not state which task began first.
+3. Both tasks were finished before **the report was sent to the supervisor**.
+
+### #7: Mga Hudyat ng Oras, Sanhi, at Bunga
 
 Basahin ang talata. Ano ang tamang pagkakasunod-sunod ng mga pangyayari?
 
@@ -77,20 +116,42 @@ Basahin ang talata. Ano ang tamang pagkakasunod-sunod ng mga pangyayari?
 
 **Solution:**
 
-1. Ipinapakita ng *Bago nito* na mas naunang bumagsak ang puno kaysa sa pagsara ng kalsada.
-2. Ipinapakita ng *dahil* ang sanhi ng pagbagsak ng puno. Ipinapakita ng *kaya* ang bunga ng pagsara ng kalsada.
-3. Ipinapakita ng *Pagkatapos* na inalis muna ang puno bago muling binuksan ang kalsada.
-4. Ang tamang ayos ay **malakas na hangin, pagbagsak ng puno, pagsara ng kalsada, pagkaantala ng bus, pag-alis ng puno, muling pagbukas ng kalsada**.
+1. Ang *dahil* ay nagpapakita na ang malakas na hangin ang sanhi ng pagbagsak ng puno.
+2. Ang *Bago nito* ay nagpapakita na bumagsak muna ang puno bago isinara ang kalsada.
+3. Ang *kaya* ay nagpapakita na ang pagkaantala ng bus ay bunga ng pagsara ng kalsada.
+4. Ang *Pagkatapos alisin ang puno* ay nagpapakita na nauna ang pag-alis ng puno sa muling pagbukas ng kalsada.
+5. Ang ayos ay **paglakas ng hangin, pagbagsak ng puno, pagsara ng kalsada, pagkaantala ng bus, pag-alis ng puno, muling pagbukas ng kalsada**. Maaaring patuloy pa rin ang hangin habang nagaganap ang ibang pangyayari.
+
+### #8: Pag-aayos ng Ulat
+
+Ayusin ang mga pangyayari ayon sa ulat.
+
+"Naipamahagi ang mga aklat noong Biyernes. Bago iyon, sinuri muna ng kawani ang mga aklat noong Huwebes. Natanggap niya ang mga kahon noong Miyerkules matapos ihanda ng paaralan ang silid noong Martes."
+
+A. Sinuri ang mga aklat.
+
+B. Inihanda ang silid.
+
+C. Naipamahagi ang mga aklat.
+
+D. Natanggap ang mga kahon.
+
+**Solution:**
+
+1. Unahin ang paghahanda ng silid noong Martes.
+2. Sumunod ang pagtanggap ng mga kahon noong Miyerkules at pagsusuri ng mga aklat noong Huwebes.
+3. Huli ang pamamahagi noong Biyernes. Ang tamang ayos ay **B, D, A, C**.
+4. Tinutugma ng *bago iyon* at *matapos* ang ayos na ipinapakita ng mga araw.
 
 ## Reading Strategies
 
-**Mark the time words.** Words such as *before*, *after*, and *finally* can give direct order clues. Connect each word to the event it describes.
+Find the time words and connect each one to its action. For *before* and *after*, say the pair of events in order before moving on.
 
-**Check for past perfect.** A form such as *had finished* can show that an action was already complete before another past action. Read the nearby sentence to see what the later action is.
+Check for forms such as *had finished* or *had gone*. Find the other past event that happened later. Do not decide the whole sequence from one verb alone.
 
-**Separate written order from event order.** A writer may start with an important result and explain the earlier events later. Rebuild the timeline instead of copying the sentence order.
+Make a short list of events in your own words. Arrange only what the passage lets you arrange. If actions overlap or their order is not given, keep that limit in your answer.
 
-**Use cause and effect when time words are missing.** If one event causes another, place the cause before the result it produces.
+Sa isang ulat, gamitin ang mga araw at hudyat ng oras nang magkasama. Suriin din ang sanhi at bunga. Basahin muli ang teksto upang matiyak na walang napagpalit na pangyayari.
 
 ## Traps to Watch For
 
@@ -98,22 +159,28 @@ Basahin ang talata. Ano ang tamang pagkakasunod-sunod ng mga pangyayari?
 
 > The first event mentioned is not always the first event that happened.
 
-A passage may begin with a result and explain the earlier events later. Check the clues before deciding the sequence.
+A passage may begin with a result and explain earlier events later. Check the time clues before deciding the sequence.
 
 ### #2: Missing Past Perfect
 
 > A past-perfect verb can point to an earlier completed action.
 
-If a sentence says one action *had finished* before another happened, place the completed action first. Do not treat both actions as happening at the same time.
+In "she had written the letter before he arrived," writing came first. The fact that *arrived* is closer to the end of the sentence is not the reason for that order.
 
 ### #3: Reversing Cause and Effect
 
-> A result cannot come before the cause that produces it.
+> A result cannot begin before the cause that produces it.
 
-A passage may mention the result before it explains the cause. Put the cause earlier in the event order.
+A passage may mention the result before its cause. Place the start of the cause earlier, even if the cause continues while the result happens.
 
-### #4: Using One Signal Word Without Checking Its Event
+### #4: Checking Only One Time Word
 
-> A time word helps only when you connect it to the right action.
+> Read the full phrase to see which event comes first.
 
-For example, *after* tells you that one event follows another. Read the full phrase so you know which event comes first.
+"After checking the form, he signed it" puts checking first. Starting the sentence with *after* does not put signing first.
+
+### #5: Forcing Overlapping Events into Separate Steps
+
+> Words such as "while" and "meanwhile" can show events happening together.
+
+Do not invent a first and second event when the passage does not give that order. A later event may happen only after both tasks end.

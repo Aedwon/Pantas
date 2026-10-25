@@ -1,10 +1,10 @@
 ---
 _id: "lesson-comprehension-skills-main-idea"
 title: "Identifying the Main Idea / Topic Sentence / Paksa ng Talata"
-summary: "Learn how to find a passage's main idea, spot topic sentences, judge scope, and organize related ideas in English and Filipino."
+summary: "Find main ideas and topic sentences, check their scope, and organize related ideas in English and Filipino."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
-estimatedMinutes: 12
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
@@ -13,19 +13,25 @@ The **main idea** is the most important point a paragraph or passage makes. The 
 
 A **topic sentence** states the main point of a paragraph. It may come at the beginning, in the middle, or at the end. Some paragraphs do not state the main idea in one sentence.
 
-When the main idea is not stated, look for the idea that connects the important details. Ask what the details, examples, comparisons, or ending all help explain.
+An **implied main idea** is a main point that the details suggest without stating it directly. Look for the idea that connects the important details. Do not add a claim that the passage does not support.
 
-A clear paragraph has **unity**, which means its sentences work together for one purpose. A sentence may give an example, explain a different side, connect ideas, or give a conclusion. It still belongs if it helps develop the main point.
+A clear paragraph has **unity**, which means its sentences work together for one purpose. A sentence may give an example, explain a different side, or give an ending. It belongs if it helps explain the main point.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "main-idea", "mainIdea": "Central idea", "details": ["Supporting detail 1", "Supporting detail 2", "Supporting detail 3"], "semanticsLabel": "A diagram with a central idea supported by several related details."} -->
+A main idea has the right **scope**, or range of ideas covered. It includes the important parts of the text. It does not cover only one detail or make a claim about a much larger subject.
 
-Ang **paksa** ay kung ano ang tinatalakay sa talata. Ang **pangunahing ideya** ay ang pinakamahalagang sinasabi tungkol sa paksa. Ang detalye ay nagbibigay ng paliwanag, halimbawa, o patunay.
+<!-- ILLUSTRATION: A box labeled "Main idea" connected to three boxes labeled "Supporting detail", showing that all three details explain the same main idea. -->
 
-Ang **balangkas** ay maikling ayos ng pangunahing ideya at mahahalagang detalye. Isulat muna ang pangunahing ideya. Sa ilalim nito, ilagay ang magkakaugnay na detalye.
+### Paksa, Balangkas, at Ugnayan ng mga Ideya
 
-Ang pag-aayos ng talata ay hindi laging ayon sa oras. Maaaring mauna ang pangunahing ideya, saka ang paliwanag, halimbawa, at pangwakas na pangungusap. Hanapin ang ugnayan ng mga ideya bago magpasya sa ayos.
+Ang **paksa** (topic) ay kung ano ang tinatalakay sa talata. Ang **pangunahing ideya** (main idea) ay ang pinakamahalagang sinasabi tungkol sa paksa. Ang detalye ay nagbibigay ng paliwanag, halimbawa, o patunay.
 
-Tumutulong ang mga salitang nag-uugnay tulad ng *halimbawa*, *bukod dito*, *ngunit*, *dahil dito*, at *kaya*. Ipinapakita nila kung ang susunod na ideya ay halimbawa, dagdag na detalye, salungat na ideya, o bunga.
+Ang **balangkas** (outline) ay maikling ayos ng pangunahing ideya at mahahalagang detalye. Isulat muna ang pangunahing ideya. Sa ilalim nito, ilagay ang mga detalyeng nagpapaliwanag dito.
+
+Hindi laging ayon sa oras ang ayos ng talata. Maaaring mauna ang pangunahing ideya, saka ang paliwanag at halimbawa. Maaari ring matapos ang talata sa bunga o pangwakas na ideya.
+
+Ang *halimbawa* ay nagpapakilala ng halimbawa. Ang *bukod dito* ay nagdaragdag ng kaugnay na ideya. Ang *ngunit* ay nagpapakita ng pagsalungat o pagkakaiba.
+
+Ang *dahil* ay nagpapakilala ng sanhi, o dahilan ng pangyayari. Ang *kaya* at *dahil dito* ay nagpapakilala ng bunga, o resulta. Gamitin ang mga ugnayang ito upang maayos ang talata at maipaliwanag kung bakit magkasunod ang mga pangungusap.
 
 ## Examples
 
@@ -44,12 +50,12 @@ Read the paragraph. What is its main idea?
 
 Read the paragraph. What main idea is suggested by the details?
 
-"The coach arrived early to set up equipment. She stayed late after games to review plays with the team. On weekends, she checked on the players' school work."
+"The coach arrived early to set up equipment. She stayed late after games to review plays with the team. On weekends, she checked on the players' schoolwork."
 
 **Solution:**
 
 1. Each detail shows the coach giving extra time and help.
-2. The details support the main idea **The coach was strongly committed to supporting her team.**
+2. Together, the details support the main idea **The coach was strongly committed to supporting her team.**
 
 ### #3: Topic Sentence at the End
 
@@ -59,10 +65,21 @@ Which sentence states the main idea of the paragraph?
 
 **Solution:**
 
-1. The first three sentences give actions done by different groups.
-2. The last sentence combines those actions into one main point. It is the topic sentence.
+1. The first three sentences describe actions by different groups.
+2. The last sentence combines those actions into one main point. The topic sentence is **The neighborhood prepared for heavy rain by working together.**
 
-### #4: A Main Idea That Is Too Narrow
+### #4: Topic Sentence in the Middle
+
+Which sentence is the topic sentence?
+
+"Some residents work during regular office hours. Offering evening services makes the local office easier for these residents to use. They can submit forms after work. They can also ask questions without taking time off."
+
+**Solution:**
+
+1. The first sentence gives a problem. The last two sentences explain how evening services help.
+2. The second sentence connects the problem and the benefits. The topic sentence is **Offering evening services makes the local office easier for these residents to use.**
+
+### #5: A Main Idea That Is Too Narrow
 
 A passage explains that a school garden gives students vegetables to study, a place to practice teamwork, and a quiet area for science activities. A student writes, "The garden helps students practice teamwork." Why is this not the best main idea?
 
@@ -71,16 +88,39 @@ A passage explains that a school garden gives students vegetables to study, a pl
 1. The statement covers only the teamwork detail.
 2. It leaves out the other important uses of the garden, so it is too narrow.
 
-### #5: A Main Idea That Is Too Broad
+### #6: A Main Idea That Is Too Broad
 
-The same passage is summarized as "School activities are useful." Why is this not the best main idea?
+A passage explains that a school garden gives students vegetables to study, a place to practice teamwork, and a quiet area for science activities. A student writes, "School activities are useful." Why is this not the best main idea?
 
 **Solution:**
 
-1. The statement talks about all school activities, not the school garden in the passage.
-2. It is too broad because it loses the passage's specific focus.
+1. The statement talks about school activities in general. The passage focuses on the school garden.
+2. It is too broad. A better main idea is **The school garden supports several kinds of student learning.**
 
-### #6: Paksa at Pangunahing Ideya
+### #7: A Main Idea Across Paragraphs
+
+Read the passage. Which statement best expresses its main idea?
+
+"The town office added an online form so residents could send requests from home. Staff still kept a service desk for people who needed help with the form or had no internet access.
+
+"At first, the office announced the online service only on its website. Some residents did not hear about it. Staff then posted notices in public places and explained both ways to submit a request."
+
+A. Online forms should replace service desks in town offices.
+
+B. Public notices are the best way to announce every town service.
+
+C. The office used different ways to help residents learn about and use its service.
+
+D. The office's main task was to teach residents how to use the internet.
+
+**Solution:**
+
+1. The first paragraph describes different ways to submit requests. It includes help for residents who cannot use the online form alone.
+2. The second paragraph describes different ways to tell residents about the service.
+3. Choice C covers both paragraphs. The main idea is **The office used different ways to help residents learn about and use its service.**
+4. The passage does not call for ending desk service, rank all ways of making announcements, or describe internet lessons.
+
+### #8: Paksa at Pangunahing Ideya
 
 Basahin ang talata. Ano ang paksa at pangunahing ideya?
 
@@ -89,27 +129,28 @@ Basahin ang talata. Ano ang paksa at pangunahing ideya?
 **Solution:**
 
 1. Ang paksa ay **pagtatanim ng gulay sa bakuran**.
-2. Ang pangunahing ideya ay **Maraming pakinabang ang pagtatanim ng gulay sa bakuran.** Sinasaklaw nito ang mahahalagang detalye.
+2. Ang pangunahing ideya ay **Maraming pakinabang ang pagtatanim ng gulay sa bakuran.** Sakop nito ang pagtitipid at pagkakaroon ng sariwang gulay.
 
-### #7: Pag-aayos ng Talata at Pagbuo ng Balangkas
+### #9: Pag-aayos ng Talata at Pagbuo ng Balangkas
 
-Ayusin ang mga pangungusap upang makabuo ng malinaw na talata. Pagkatapos, tukuyin ang pangunahing ideya at gumawa ng maikling balangkas.
+Ayusin ang mga pangungusap upang makabuo ng malinaw na talata. Tukuyin ang pangunahing ideya at gumawa ng maikling balangkas. Ipaliwanag ang ugnayan ng mga pangungusap.
 
-A. "Bukod dito, hinihikayat nila ang mga mag-aaral na gumamit muli ng papel."
+A. "Bukod sa paghihiwalay ng basura, hinihikayat din nila ang mga mag-aaral na gumamit muli ng papel."
 
 B. "Maraming paaralan ang gumagawa ng paraan upang mabawasan ang basura."
 
-C. "Dahil dito, mas kaunting papel at plastik ang itinatapon araw-araw."
+C. "Dahil sa mga paraang ito, mas kaunting papel at plastik ang itinatapon araw-araw."
 
 D. "Halimbawa, naglalagay sila ng hiwalay na basurahan para sa papel at plastik."
 
 **Solution:**
 
-1. Unahin ang B dahil ipinapakilala nito ang pangunahing ideya.
-2. Isunod ang D dahil ang *Halimbawa* ay nagbibigay ng halimbawa. Kasunod ang A dahil ang *Bukod dito* ay nagdaragdag ng isa pang paraan.
-3. Ilagay ang C sa hulihan dahil ang *Dahil dito* ay nagpapakita ng bunga. Ang tamang ayos ay **B, D, A, C**.
-4. Ang pangunahing ideya ay **Maraming paaralan ang gumagawa ng paraan upang mabawasan ang basura.**
-5. Maikling balangkas:
+1. Unahin ang B. Ipinapakilala nito ang mga paaralan at ang pangunahing ideya.
+2. Isunod ang D. Ang *Halimbawa* ay nagpapakilala ng isang paraan upang mabawasan ang basura.
+3. Kasunod ang A. Binabanggit nito ang paghihiwalay ng basura mula sa D at nagdaragdag ng muling paggamit ng papel.
+4. Ilagay ang C sa hulihan. Ang *Dahil sa mga paraang ito* ay tumutukoy sa mga paraang nabanggit at nagpapakita ng bunga.
+5. Ang tamang ayos ay **B, D, A, C**. Ang pangunahing ideya ay **Maraming paaralan ang gumagawa ng paraan upang mabawasan ang basura.**
+6. Ito ang maikling balangkas:
    - Pangunahing ideya: mga paraan ng paaralan upang mabawasan ang basura.
    - Detalye: paghihiwalay ng papel at plastik.
    - Detalye: muling paggamit ng papel.
@@ -117,13 +158,15 @@ D. "Halimbawa, naglalagay sila ng hiwalay na basurahan para sa papel at plastik.
 
 ## Reading Strategies
 
-**Separate the topic from the main idea.** Ask, "What is this about?" Then ask, "What does the passage say about it?"
+Ask, "What is this about?" to find the topic. Then ask, "What does the passage say about it?" to find the main idea.
 
-**Check the beginning, middle, and end.** A topic sentence can appear in any of these places. Position alone does not prove that a sentence is the main idea.
+Check the beginning, middle, and end for a topic sentence. Its position alone does not prove that it states the main point.
 
-**Test the scope.** A good main idea covers the important parts of the passage. It should not focus on one small detail or make a claim wider than the passage.
+For a longer passage, find the main point of each paragraph. Then choose an idea that connects those points. Keep any limits or different sides that matter to the passage.
 
-**Use connecting words when arranging a paragraph.** Words such as *for example*, *however*, *also*, and *therefore* show how one idea relates to the next. Paragraph order is about the flow of ideas, while event sequence is about what happened first, next, and last.
+Test the scope of your answer. It should cover the important details without adding a larger claim.
+
+Kapag nag-aayos ng talata, hanapin muna ang pangungusap na nagpapakilala sa paksa. Suriin ang mga salitang nag-uugnay at ang mga salitang tumutukoy sa naunang ideya. Basahin ang buong talata matapos itong ayusin.
 
 ## Traps to Watch For
 
@@ -131,28 +174,28 @@ D. "Halimbawa, naglalagay sila ng hiwalay na basurahan para sa papel at plastik.
 
 > A paragraph can have a clear main idea even when no sentence states it directly.
 
-Look for the idea that connects the important details. Do not force one sentence to be the topic sentence if the paragraph only suggests its main point.
+Look for the idea that connects the important details. Do not force one sentence to be the topic sentence when the paragraph only suggests its main point.
 
 ### #2: Choosing a Sentence Only Because It Comes First
 
 > The first sentence is not always the topic sentence.
 
-A writer may place the main point in the middle or at the end. Check what each sentence does before choosing.
+A writer may begin with a detail or problem. Check whether another sentence gives the point that the rest of the paragraph explains.
 
 ### #3: Confusing the Topic with the Main Idea
 
-> The topic names the subject, while the main idea says something important about that subject.
+> The topic names the subject, while the main idea says something about that subject.
 
-"Renewable energy" is a topic. "Renewable energy can lower the use of fossil fuels but may require new infrastructure" is a main idea.
+"The school garden" is a topic. "The school garden supports several kinds of student learning" is a main idea.
 
 ### #4: Choosing a Memorable Detail
 
-> A vivid detail can still be only one part of a larger point.
+> A striking detail can still be only one part of a larger point.
 
-Choose a statement that covers the important details together. Do not pick one example just because it is easy to remember.
+A choice about teamwork alone misses the other uses of the school garden in Example $5$. Choose a statement that covers the important details together.
 
 ### #5: Treating Paragraph Order as Event Order
 
 > A clear paragraph is not always arranged by time.
 
-A paragraph may move from a main idea to examples, contrast, and conclusion. Use the relationship between ideas, not only words about time.
+A paragraph may move from a main idea to an example and then a result. Use the links between ideas to arrange it.
