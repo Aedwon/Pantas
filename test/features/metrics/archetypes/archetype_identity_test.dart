@@ -7,16 +7,22 @@ import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 void main() {
   test('Deep Thinker requires slow overall and slower correct answers', () {
     final thinker = archetypeCatalog.singleWhere((a) => a.id == 'deep_thinker');
-    double score(double ms, double correct, double incorrect,
-            {int right = 2, int wrong = 8}) =>
+    double score(
+      double ms,
+      double correct,
+      double incorrect, {
+      int right = 2,
+      int wrong = 8,
+    }) =>
         thinker.match({
           SignalKey.perQuestionSpeed: LatencyDistribution(
-              averageMs: ms,
-              correctAverageMs: correct,
-              incorrectAverageMs: incorrect,
-              sampleCount: right + wrong,
-              correctCount: right,
-              incorrectCount: wrong),
+            averageMs: ms,
+            correctAverageMs: correct,
+            incorrectAverageMs: incorrect,
+            sampleCount: right + wrong,
+            correctCount: right,
+            incorrectCount: wrong,
+          ),
         });
     expect(score(12000, 16000, 11000), 0);
     expect(score(12001, 16000, 11000), greaterThan(0));
@@ -39,14 +45,18 @@ void main() {
       'numbers_person': 'Math Wizard',
       'generalist': 'All-Rounder',
       'scholar': 'Scholar',
-      'long_memory': 'Strong Recall'
+      'long_memory': 'Strong Recall',
     };
     for (final item in expected.entries) {
-      expect(archetypeCatalog.singleWhere((a) => a.id == item.key).label,
-          item.value);
+      expect(
+        archetypeCatalog.singleWhere((a) => a.id == item.key).label,
+        item.value,
+      );
       expect(archetypeIdentityLine(item.key), isNotEmpty);
       expect(
-          RegExp(r'[0-9]').hasMatch(archetypeIdentityLine(item.key)), isFalse);
+        RegExp('[0-9]').hasMatch(archetypeIdentityLine(item.key)),
+        isFalse,
+      );
     }
     expect(archetypeIdentityLine('pressure_tightener'), isEmpty);
   });

@@ -47,11 +47,15 @@ void main() {
           'COLLECTION_GROUP',
           'deleted:ASCENDING,updatedAt:ASCENDING',
         ].join('|'),
+      // Server mock eligibility and study history/day queries filter by exam.
+      'items|COLLECTION|examId:ASCENDING,submittedAt:DESCENDING',
+      'items|COLLECTION|examId:ASCENDING,day:DESCENDING',
+      'items|COLLECTION|examId:ASCENDING,occurredAt:DESCENDING',
       'sync_generations|COLLECTION_GROUP|status:ASCENDING,createdAt:ASCENDING',
       'sync_generations|COLLECTION_GROUP|status:ASCENDING,retiredAt:ASCENDING',
     };
 
-    expect(indexes, hasLength(12));
+    expect(indexes, hasLength(15));
     expect(indexes.map(_indexSignature), unorderedEquals(expectedSignatures));
   });
 

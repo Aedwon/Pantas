@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
@@ -68,6 +69,9 @@ void main() {
     await tester.pumpAppWithProviders(
       const StudyTabHome(),
       overrides: [
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(shortName: 'UPCAT')),
+        ),
         studyMapProvider.overrideWith((ref) async => map),
         openTopicProvider.overrideWith(FakeOpenTopic.new),
         studyTodayLessonIdsProvider.overrideWith((ref) async => const {}),
@@ -77,6 +81,33 @@ void main() {
 
     expect(find.byType(StateView), findsOneWidget);
     expect(find.text('Nothing to study yet'), findsOneWidget);
+  });
+
+  testWidgets('an empty map without selected exam offers Choose Exam',
+      (tester) async {
+    const map = StudyMap(
+      examShortName: 'UPCAT',
+      subjects: [],
+      readCount: 0,
+      totalCount: 0,
+      minutesLeftToRead: 0,
+    );
+    await tester.pumpAppWithProviders(
+      const StudyTabHome(),
+      overrides: [
+        activeExamFocusProvider
+            .overrideWith((_) async => const ActiveExamFocus.needsSelection()),
+        studyMapProvider.overrideWith((_) async => map),
+        openTopicProvider.overrideWith(FakeOpenTopic.new),
+        studyTodayLessonIdsProvider.overrideWith((_) async => const {}),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Choose Exam'), findsOneWidget);
+    expect(find.text('Nothing to study yet'), findsNothing);
+    expect(find.text('Try a Quick Quiz'), findsNothing);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('a populated map displays subjects and topics', (tester) async {

@@ -1,140 +1,185 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 
+import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
-
   setUp(() {
     db = inMemoryDatabase();
   });
-
   tearDown(() => db.close());
-
-  Future<void> pumpStep(
+  Future<void> pump(
     WidgetTester tester, {
-    VoidCallback? onPassed,
-    MediaQueryData? mediaQueryData,
-  }) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [appDatabaseProvider.overrideWithValue(db)],
-        child: MaterialApp(
-          theme: buildLightTheme(),
-          home: Builder(
-            builder: (context) => MediaQuery(
-              data: mediaQueryData ?? MediaQuery.of(context),
-              child: Scaffold(
-                body: OnboardingAgeGateStep(
-                  onAgeGatePassed: onPassed ?? () {},
-                  currentYear: 2026,
-                ),
-              ),
-            ),
+    VoidCallback? passed,
+    Brightness brightness = Brightness.light,
+    double scale = 1,
+    AppPreferencesRepository? preferences,
+    bool disableAnimations = true,
+  }) =>
+      pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            if (preferences != null)
+              appPreferencesRepositoryProvider.overrideWithValue(preferences),
+          ],
+          child: OnboardingAgeGateStep(
+            currentYear: 2026,
+            onAgeGatePassed: passed ?? () {},
           ),
         ),
-      ),
-    );
-    await tester.pumpAndSettle();
+        brightness: brightness,
+        textScale: scale,
+        viewportSize: const Size(390, 844),
+        disableAnimations: disableAnimations,
+      );
+
+  for (final brightness in Brightness.values) {
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('age input and blocked state $brightness $scale',
+          (tester) async {
+        await pump(tester, brightness: brightness, scale: scale);
+        expect(find.text('When were you born?'), findsOneWidget);
+        expect(
+          find.text('We only ask this once and never keep it.'),
+          findsOneWidget,
+        );
+        expect(
+          tester
+              .widget<PantasButton>(
+                find.widgetWithText(PantasButton, 'Continue'),
+              )
+              .onPressed,
+          isNotNull,
+        );
+        final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+        expect(wheel.values[wheel.selectedIndex], '2012');
+        wheel.onSelected(wheel.values.indexOf('2014'));
+        await tester.pump();
+        await tester.tap(find.text('Continue'));
+        await tester.pumpAndSettle();
+        expect(find.text("Pantas isn't available yet"), findsOneWidget);
+        expect(find.byType(ValueWheel), findsNothing);
+        expect(find.text('Try a Different Year'), findsOneWidget);
+        expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
+        expect(tester.takeException(), isNull);
+        await tester.tap(find.text('Try a Different Year'));
+        await tester.pumpAndSettle();
+        expect(find.byType(ValueWheel), findsOneWidget);
+      });
+    }
   }
-
-  testWidgets('renders the prompt and disabled Continue initially',
-      (tester) async {
-    await pumpStep(tester);
-
-    expect(find.text('Quick check'), findsOneWidget);
-    expect(find.text('When were you born?'), findsOneWidget);
-    final cont = tester
-        .widget<BoardButton>(find.widgetWithText(BoardButton, 'Continue'));
-    expect(cont.onPressed, isNull);
+  testWidgets('age passes at 13 and stores no birth year', (tester) async {
+    var passed = 0;
+    await pump(tester, passed: () => passed++);
+    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    wheel.onSelected(wheel.values.indexOf('2013'));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(passed, 1);
+    expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isTrue);
+    expect(
+      (await db.select(db.devicePrefs).get()).any((row) => row.value == '2013'),
+      isFalse,
+    );
   });
-
-  testWidgets('selecting a valid year persists and invokes onAgeGatePassed',
+  testWidgets('failed age save keeps the year and retries the same write',
       (tester) async {
     var passed = 0;
-    await pumpStep(tester, onPassed: () => passed++);
-
-    final picker = find.byType(CupertinoPicker);
-    expect(picker, findsOneWidget);
-    // Default selection is currentYear - 18 = 2008. Drag down to
-    // confirm a year.
-    await tester.drag(picker, const Offset(0, -32));
+    await pump(
+      tester,
+      passed: () => passed++,
+      preferences: _FailingAgePreferences(db),
+    );
+    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    wheel.onSelected(wheel.values.indexOf('2013'));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
-
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(find.textContaining('private details'), findsNothing);
+    expect(passed, 0);
+    final retained = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(retained.values[retained.selectedIndex], '2013');
+    expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
+    await tester.ensureVisible(find.text('Try Again'));
+    await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
-
-    expect(passed, equals(1));
+    expect(passed, 1);
     expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isTrue);
   });
 
-  testWidgets('under-13 year shows block state without persisting',
+  testWidgets('blocked state fades as one frame and returning pushes the frame',
       (tester) async {
-    var passed = 0;
-    await pumpStep(tester, onPassed: () => passed++);
-
-    // Scroll wheel up enough to reach a year > 2013 (under 13 in 2026).
-    final picker = find.byType(CupertinoPicker);
-    // Default index lands at 2008 (currentYear - 18). To reach 2014 we
-    // scroll down by 6 items. CupertinoPicker default item extent is 32.
-    await tester.drag(picker, const Offset(0, -32.0 * 6));
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
-    await tester.pumpAndSettle();
-
+    await pump(tester, disableAnimations: false);
+    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    wheel.onSelected(wheel.values.indexOf('2014'));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pump();
+    final fade = find
+        .ancestor(
+          of: find.text('Try a Different Year'),
+          matching: find.byType(Opacity),
+        )
+        .last;
+    expect(fade, findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(tester.widget<Opacity>(fade).opacity, closeTo(.802403, .002));
+    await tester.pump(const Duration(milliseconds: 150));
+    await tester.tap(find.text('Try a Different Year'));
+    await tester.pump();
+    final slide = find
+        .descendant(
+          of: find.byKey(const ValueKey('age-return-motion')),
+          matching: find.byType(Transform),
+        )
+        .first;
+    expect(slide, findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 190));
     expect(
-      find.text("Sorry, this app isn't available for users under 13."),
-      findsOneWidget,
+      tester.widget<Transform>(slide).transform.storage[12],
+      closeTo(2.00213, .03),
     );
-    expect(find.text('Try a different year'), findsOneWidget);
-    expect(passed, equals(0));
-    expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
+    await tester.pumpAndSettle();
   });
 
-  testWidgets('Try a different year returns to input state', (tester) async {
-    await pumpStep(tester);
-
-    final picker = find.byType(CupertinoPicker);
-    await tester.drag(picker, const Offset(0, -32.0 * 6));
-    await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Try a different year'));
-    await tester.pumpAndSettle();
-
-    expect(find.text('When were you born?'), findsOneWidget);
-    expect(
-      find.text("Sorry, this app isn't available for users under 13."),
-      findsNothing,
-    );
-  });
-
-  testWidgets('survives 200% text at 320dp on a short screen', (tester) async {
-    tester.view
-      ..physicalSize = const Size(320, 480)
-      ..devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-
-    await pumpStep(
-      tester,
-      mediaQueryData: const MediaQueryData(
-        size: Size(320, 480),
-        textScaler: TextScaler.linear(2),
-      ),
-    );
-
+  testWidgets('year selection can be changed with the keyboard',
+      (tester) async {
+    await pump(tester);
+    Focus.of(
+      tester.element(find.byType(ListWheelScrollView)),
+      createDependency: false,
+    ).requestFocus();
+    await tester.pump();
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+    await tester.pump();
+    final wheel = tester.widget<ValueWheel>(find.byType(ValueWheel));
+    expect(wheel.values[wheel.selectedIndex], '2013');
     expect(tester.takeException(), isNull);
-    expect(find.widgetWithText(BoardButton, 'Continue'), findsOneWidget);
   });
+}
+
+class _FailingAgePreferences extends AppPreferencesRepository {
+  _FailingAgePreferences(super.db);
+  bool fail = true;
+  @override
+  Future<void> setPassedAgeGate({required bool value}) async {
+    if (fail) {
+      fail = false;
+      throw StateError('private details');
+    }
+    await super.setPassedAgeGate(value: value);
+  }
 }

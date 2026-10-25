@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_text_styles.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 import 'package:pantas/core/ui/theme/pantas_type.dart';
@@ -28,7 +26,6 @@ ThemeData _buildTheme(PantasColors colors, Brightness brightness) {
     surfaceTint: Colors.transparent,
   );
   final type = PantasType.create(colors: colors);
-  final textStyles = AppTextStyles.create(type: type);
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
@@ -41,7 +38,7 @@ ThemeData _buildTheme(PantasColors colors, Brightness brightness) {
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: false,
-      titleTextStyle: textStyles.headlineMedium.copyWith(color: colors.label),
+      titleTextStyle: type.sectionHero.copyWith(color: colors.label),
       iconTheme: IconThemeData(color: colors.secondaryLabel, size: 20),
     ),
     dividerTheme: DividerThemeData(
@@ -67,20 +64,17 @@ ThemeData _buildTheme(PantasColors colors, Brightness brightness) {
       ),
     ),
     fontFamily: 'Geist',
-    extensions: [colors, type, AppColors.fromTokens(colors), textStyles],
+    extensions: [colors, type],
   );
 }
 
 extension AppThemeContext on BuildContext {
   PantasColors get colors {
     final theme = Theme.of(this);
-    return theme.extension<PantasColors>() ??
-        theme.extension<AppColors>()!.tokens;
+    return theme.extension<PantasColors>()!;
   }
 
   PantasType get type =>
       Theme.of(this).extension<PantasType>() ??
       PantasType.create(colors: colors);
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  AppTextStyles get textStyles => Theme.of(this).extension<AppTextStyles>()!;
 }

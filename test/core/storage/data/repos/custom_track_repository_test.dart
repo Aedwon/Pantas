@@ -52,6 +52,24 @@ void main() {
     );
   }
 
+  test('lesson exclusions persist beside topics without a schema change',
+      () async {
+    await repo.setExcluded(
+      examId: 'exam_upcat',
+      topicIds: {'chem'},
+      lessonIds: {'l2', 'l1'},
+    );
+    final reopened = CustomTrackRepository(db, contentDb);
+    expect(await reopened.excludedLessonIds('exam_upcat'), {'l1', 'l2'});
+    expect(await reopened.excludedTopicIds('exam_upcat'), {'chem'});
+    expect(await reopened.excludedLessonIds('other'), isEmpty);
+    expect(db.schemaVersion, 26);
+    await reopened
+        .setExcluded(examId: 'exam_upcat', topicIds: {'chem'}, lessonIds: {});
+    expect(await repo.excludedLessonIds('exam_upcat'), isEmpty);
+    expect(await repo.excludedTopicIds('exam_upcat'), {'chem'});
+  });
+
   test('creating a track stores its name and hides nothing it includes',
       () async {
     await seedCorpus();

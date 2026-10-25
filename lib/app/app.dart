@@ -4,6 +4,7 @@ import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
 import 'package:pantas/features/settings/presentation/widgets/sync_reconciliation_gate.dart';
@@ -17,6 +18,7 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(studyDeliveryLifecycleProvider);
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themePreferenceProvider).maybeWhen(
           data: (preference) => preference.themeMode,

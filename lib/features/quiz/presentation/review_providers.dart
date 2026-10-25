@@ -4,6 +4,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
 
@@ -113,3 +114,47 @@ class _ContentLookup {
     return _passages[id] = await _content.passageById(id);
   }
 }
+
+/// Current flags in this exam/track. Storage keeps flags for every exam.
+final flaggedExamReviewProvider = FutureProvider.autoDispose
+    .family<List<ReviewEntry>, ExamId>((ref, examId) async {
+  // The flag controller invalidates this existing signal after every write.
+  await ref.watch(flaggedIdsProvider.future);
+  final rows =
+      await ref.watch(questionFlagsRepositoryProvider).flagsNewestFirst();
+  if (rows.isEmpty) return const [];
+  final topics = await ref.watch(scopedTopicsProvider(examId).future);
+  final scope = {for (final topic in topics) topic.id: topic};
+  final content = ref.watch(contentRepositoryProvider);
+  final questions =
+      await content.questionsByIds(rows.map((row) => row.questionId));
+  final lookup = _ContentLookup(content);
+  final entries = <ReviewEntry>[];
+  for (final row in rows) {
+    final question = questions[row.questionId];
+    if (question == null) throw StateError('Flagged content is unavailable');
+    final topic = scope[question.topicId];
+    if (topic == null) continue;
+    final subject = await lookup.subject(topic.subjectId);
+    if (subject == null) throw StateError('Flagged subject is unavailable');
+    final passageId = question.passageId;
+    final passage = passageId == null || passageId.isEmpty
+        ? null
+        : await lookup.passage(passageId);
+    if (passageId != null && passageId.isNotEmpty && passage == null) {
+      throw StateError('Flagged passage is unavailable');
+    }
+    entries.add(
+      ReviewEntry(
+        number: entries.length + 1,
+        question: question,
+        isFlagged: true,
+        subjectName: subject.name,
+        label: question.shortLabel ?? question.stem,
+        labelIsStem: question.shortLabel == null,
+        passage: passage,
+      ),
+    );
+  }
+  return entries;
+});

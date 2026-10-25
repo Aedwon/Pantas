@@ -44,13 +44,13 @@ class ReadingDiagramFigure extends StatelessWidget {
         painter: _ReadingDiagramPainter(
           type: type,
           spec: _spec,
-          ink: colors.ink,
-          inkMuted: colors.inkMuted,
-          rule: colors.ruleFaint,
-          board: colors.board,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          mutedStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
+          ink: colors.label,
+          inkMuted: colors.secondaryLabel,
+          rule: colors.fill,
+          board: colors.accent,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          mutedStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
           ),
         ),
       ),

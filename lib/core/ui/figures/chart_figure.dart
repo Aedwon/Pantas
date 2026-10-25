@@ -188,11 +188,11 @@ class ChartFigure extends StatelessWidget {
             xLabel: xLabel,
             yLabel: yLabel,
             points: points,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
+            ink: colors.label,
+            faint: colors.fill,
             background: colors.background,
-            labelStyle: context.textStyles.bodySmall.copyWith(
-              color: colors.inkMuted,
+            labelStyle: context.type.subhead.copyWith(
+              color: colors.secondaryLabel,
             ),
           ),
         ),

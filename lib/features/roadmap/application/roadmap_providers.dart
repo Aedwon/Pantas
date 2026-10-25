@@ -1,9 +1,16 @@
+import 'dart:async';
+
+import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/features/home/application/server_today.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_inputs_reader.dart';
@@ -72,14 +79,26 @@ class RoadmapRevision extends Notifier<int> {
 
 /// Today's plan for one exam. Recomputed whenever a screen starts watching
 /// it and whenever the revision moves.
-final roadmapTodayProvider =
-    FutureProvider.autoDispose.family<RoadmapToday, ExamId>((ref, examId) {
+final roadmapTodayProvider = FutureProvider.autoDispose
+    .family<RoadmapToday, ExamId>((ref, examId) async {
   ref
     ..watch(roadmapRevisionProvider)
     ..watch(quizSessionPanelRevisionProvider)
     // An exam date or scope change must reach a plan already on screen.
     ..watch(userSettingsProvider)
-    ..watch(trackScopeProvider(examId));
+    ..watch(trackScopeProvider(examId))
+    ..watch(lessonScopeProvider(examId));
+  if (ref.watch(studyUsesServerProvider)) {
+    final remote = await ref.watch(serverStudyRoadmapProvider(examId).future);
+    final settings = await ref.watch(userSettingsProvider.future);
+    final date = settings.examDate;
+    return serverToday(
+      remote,
+      examDate:
+          date == null ? '' : '${date.storageValue}:${date.precision.name}',
+      studyDays: settings.studyDays,
+    );
+  }
   return ref.read(roadmapControllerProvider).today(examId);
 });
 
@@ -89,6 +108,10 @@ final roadmapCanAdvanceProvider =
     FutureProvider.autoDispose.family<bool, ExamId>((ref, examId) async {
   // Recomputed whenever today's plan is.
   await ref.watch(roadmapTodayProvider(examId).future);
+  if (ref.watch(studyUsesServerProvider)) {
+    return (await ref.watch(serverStudyRoadmapProvider(examId).future))
+        .canAdvance;
+  }
   return ref.read(roadmapControllerProvider).canAdvance(examId);
 });
 
@@ -97,51 +120,166 @@ final roadmapCanAdvanceProvider =
 /// the content, the assessment or recorded mocks change, and otherwise read
 /// back with what is done subtracted.
 class RoadmapController {
-  RoadmapController(this._ref);
+  RoadmapController(this._ref) {
+    _ref.onDispose(() => _alive = false);
+  }
+
+  bool _alive = true;
 
   final Ref _ref;
   final Map<ExamId, Future<RoadmapToday>> _inFlight = {};
 
-  Future<RoadmapToday> today(ExamId examId) {
+  Future<Future<bool> Function()> _capture(ExamId examId) async {
+    final db = _ref.read(appDatabaseProvider);
+    final contexts = SyncActiveContextStore(db);
+    final original = await contexts.readSnapshot();
+    final auth = await _ref.read(authStateProvider.future);
+    final preparer = _ref.read(todayQuizPreparerProvider);
+    final lifetime = preparer.accountLifetimeToken;
+    final prefs = _ref.read(appPreferencesRepositoryProvider);
+    final selected = await prefs.selectedExamId();
+    final settings = await _ref.read(userSettingsProvider.future);
+    final scope =
+        await _ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
+    final lessons = await _ref
+        .read(customTrackRepositoryProvider)
+        .excludedLessonIds(examId);
+    final contentVersion = await prefs.installedContentSeedVersion();
+    final assessment = await _ref
+        .read(assessmentRepositoryProvider)
+        .hasCompletedForExam(examId);
+    bool ownerCurrent() =>
+        _alive &&
+        identical(_ref.read(appDatabaseProvider), db) &&
+        preparer.accountLifetimeToken == lifetime &&
+        _ref.read(authStateProvider).unwrapPrevious().asData?.value == auth;
+    return () async {
+      if (!ownerCurrent()) return false;
+      final currentSettings = await _ref.read(userSettingsProvider.future);
+      final currentScope = await _ref
+          .read(customTrackRepositoryProvider)
+          .excludedTopicIds(examId);
+      final currentLessons = await _ref
+          .read(customTrackRepositoryProvider)
+          .excludedLessonIds(examId);
+      final exam = await prefs.selectedExamId();
+      final version = await prefs.installedContentSeedVersion();
+      final assessed = await _ref
+          .read(assessmentRepositoryProvider)
+          .hasCompletedForExam(examId);
+      final snapshot = await contexts.readSnapshot();
+      return ownerCurrent() &&
+          snapshot?.token == original?.token &&
+          exam == selected &&
+          (exam == null || exam == examId) &&
+          settings.examDate == currentSettings.examDate &&
+          settings.studyDays == currentSettings.studyDays &&
+          const SetEquality<String>().equals(scope, currentScope) &&
+          const SetEquality<String>().equals(lessons, currentLessons) &&
+          version == contentVersion &&
+          assessed == assessment;
+    };
+  }
+
+  Future<Future<bool> Function()> _ownedGuard(
+    ExamId examId,
+    Future<Future<bool> Function()>? original,
+  ) async {
+    final captured = await _capture(examId);
+    final page = original == null ? null : await original;
+    return () async => await captured() && (page == null || await page());
+  }
+
+  Future<RoadmapToday> today(
+    ExamId examId, {
+    Future<Future<bool> Function()>? originalGuard,
+  }) {
+    if (originalGuard != null) {
+      return _today(examId, _ownedGuard(examId, originalGuard));
+    }
     final existing = _inFlight[examId];
     if (existing != null) return existing;
-    // The cleanup must not return the removed future: whenComplete waits on
-    // a returned future, and this one is the future being completed.
-    final future = _today(examId).whenComplete(() {
+    final future = _today(examId, _ownedGuard(examId, null)).whenComplete(() {
       _inFlight.remove(examId);
     });
     _inFlight[examId] = future;
     return future;
   }
 
+  Future<void> _require(Future<bool> Function() guard) async {
+    if (!await guard()) throw StateError('Roadmap owner changed');
+  }
+
+  static final _queues = Expando<Future<void>>();
+  Future<void> _persist(
+    ExamId examId,
+    DaySnapshot snapshot,
+    List<RoadmapChange> changes,
+    Future<bool> Function() guard,
+  ) async {
+    final db = _ref.read(appDatabaseProvider);
+    final prior = _queues[db] ?? Future<void>.value();
+    final write = prior.then(
+      (_) => db.transaction(() async {
+        await _require(guard);
+        await _ref
+            .read(roadmapDayRepositoryProvider)
+            .write(examId, snapshot, _now());
+        await _ref
+            .read(roadmapChangeLogRepositoryProvider)
+            .append(examId, changes);
+        await _require(guard);
+      }),
+    );
+    _queues[db] =
+        write.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    await write;
+  }
+
   /// Whether [advance] would add anything now: today's original work is done
   /// and there is material to bring in. Builds what advance would, saves
   /// nothing. Lets a screen offer advance only when it does something.
-  Future<bool> canAdvance(ExamId examId) async {
-    final current = await today(examId);
-    return await _advanced(examId, current) != null;
+  Future<bool> canAdvance(
+    ExamId examId, {
+    Future<Future<bool> Function()>? originalGuard,
+  }) async {
+    final capture = _ownedGuard(examId, originalGuard);
+    final guard = await capture;
+    final current = await _today(examId, capture);
+    final result = await _advanced(examId, current) != null;
+    await _require(guard);
+    return result;
   }
 
   /// Adds the next study day's material once today's original work is done.
   /// With no study day left, brings in the remaining material for today.
-  Future<RoadmapToday> advance(ExamId examId) async {
-    final current = await today(examId);
+  Future<RoadmapToday> advance(
+    ExamId examId, {
+    Future<Future<bool> Function()>? originalGuard,
+  }) async {
+    final capture = _ownedGuard(examId, originalGuard);
+    final guard = await capture;
+    final current = await _today(examId, capture);
     final advanced = await _advanced(examId, current);
+    await _require(guard);
     if (advanced == null) return current;
-
-    await _ref
-        .read(roadmapDayRepositoryProvider)
-        .write(examId, advanced, _now());
-    await _ref.read(roadmapChangeLogRepositoryProvider).append(examId, [
-      RoadmapDiff.advanced(
-        before: current.snapshot,
-        after: advanced,
-        occurredAt: _now(),
-      ),
-    ]);
+    await _persist(
+      examId,
+      advanced,
+      [
+        RoadmapDiff.advanced(
+          before: current.snapshot,
+          after: advanced,
+          occurredAt: _now(),
+        ),
+      ],
+      guard,
+    );
+    await _require(guard);
     _ref.read(roadmapRevisionProvider.notifier).bump();
     final completion =
         await _ref.read(roadmapInputsReaderProvider).completion(_now());
+    await _require(guard);
     return _view(advanced, completion);
   }
 
@@ -193,7 +331,12 @@ class RoadmapController {
         : advanced;
   }
 
-  Future<RoadmapToday> _today(ExamId examId) async {
+  Future<RoadmapToday> _today(
+    ExamId examId,
+    Future<Future<bool> Function()> originalGuard,
+  ) async {
+    final guard = await originalGuard;
+    await _require(guard);
     await _ref.read(mockAnswerRecorderProvider).reconcile(examId);
 
     final reader = _ref.read(roadmapInputsReaderProvider);
@@ -205,6 +348,7 @@ class RoadmapController {
 
     final stored = await days.read(examId, day);
     if (stored != null && stored.digest == digest) {
+      await _require(guard);
       return _view(stored, completion);
     }
 
@@ -238,8 +382,8 @@ class RoadmapController {
       examDateMissing: digest.examDate.isEmpty,
       occurredAt: now,
     );
-    await days.write(examId, next, now);
-    await _ref.read(roadmapChangeLogRepositoryProvider).append(examId, changes);
+    await _persist(examId, next, changes, guard);
+    await _require(guard);
     return _view(next, completion);
   }
 

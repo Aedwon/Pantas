@@ -114,7 +114,7 @@ class GearTrainFigure extends StatelessWidget {
             firstTurnsClockwise: firstTurnsClockwise,
             layout: layout,
             teeth: teeth,
-            ink: colors.ink,
+            ink: colors.label,
           ),
           size: Size.infinite,
         ),

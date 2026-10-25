@@ -300,11 +300,11 @@ class CoordinateGraphFigure extends StatelessWidget {
             initialVelocity: initialVelocity,
             labels: labels,
             velocityVectors: velocityVectors,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
+            ink: colors.label,
+            faint: colors.fill,
             background: colors.background,
-            labelStyle: context.textStyles.bodySmall.copyWith(
-              color: colors.inkMuted,
+            labelStyle: context.type.subhead.copyWith(
+              color: colors.secondaryLabel,
             ),
           ),
         ),

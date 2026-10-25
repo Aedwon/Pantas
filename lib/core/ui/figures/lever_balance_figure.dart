@@ -50,7 +50,7 @@ class LeverBalanceFigure extends StatelessWidget {
           painter: _LeverPainter(
             loadDistance: loadDistance,
             effortDistance: effortDistance,
-            ink: colors.ink,
+            ink: colors.label,
           ),
           size: Size.infinite,
         ),

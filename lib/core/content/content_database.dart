@@ -34,7 +34,7 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 9;
+  int get schemaVersion => 10;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -84,6 +84,14 @@ class ContentDatabase extends _$ContentDatabase {
           }
           if (from < 9) {
             await _createE05Indexes();
+          }
+          if (from < 10) {
+            // Nullable: null is the honest state for an exam that states no
+            // unscored items.
+            await m.addColumn(
+              contentMockBlueprints,
+              contentMockBlueprints.unscoredItems,
+            );
           }
         },
       );

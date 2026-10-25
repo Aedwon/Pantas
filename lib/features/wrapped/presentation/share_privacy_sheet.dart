@@ -38,7 +38,7 @@ class SharePrivacySheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final styles = context.textStyles;
+    final styles = context.type;
     final colors = context.colors;
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -62,12 +62,12 @@ class SharePrivacySheet extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.public, size: 16, color: colors.inkMuted),
+              Icon(Icons.public, size: 16, color: colors.secondaryLabel),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   hostingDisclosure,
-                  style: styles.bodySmall.copyWith(color: colors.inkMuted),
+                  style: styles.subhead.copyWith(color: colors.secondaryLabel),
                 ),
               ),
             ],

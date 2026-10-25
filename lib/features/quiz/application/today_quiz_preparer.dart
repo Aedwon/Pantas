@@ -70,9 +70,11 @@ class TodayQuizPreparer {
     required TodayPlanBuilder buildPlan,
     required DateTime Function() now,
     this.maxEntries = 4,
+    String? Function()? readAccountLifetimeToken,
   })  : _readStamp = readStamp,
         _buildPlan = buildPlan,
-        _now = now {
+        _now = now,
+        _readAccountLifetimeToken = readAccountLifetimeToken {
     if (maxEntries < 1) {
       throw ArgumentError.value(maxEntries, 'maxEntries', 'must be positive');
     }
@@ -82,6 +84,9 @@ class TodayQuizPreparer {
   final TodayPlanBuilder _buildPlan;
   final DateTime Function() _now;
   final int maxEntries;
+  final String? Function()? _readAccountLifetimeToken;
+
+  String? get accountLifetimeToken => _readAccountLifetimeToken?.call();
 
   final LinkedHashMap<QuizPreparationRequest, PreparedTodaySession> _cache =
       LinkedHashMap<QuizPreparationRequest, PreparedTodaySession>();

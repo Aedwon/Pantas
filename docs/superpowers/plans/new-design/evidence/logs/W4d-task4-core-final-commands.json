@@ -1,0 +1,79 @@
+[
+  {
+    "argv": [
+      "dart",
+      "format",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "test/features/quiz/presentation/quiz_pick_check_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-0.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz/presentation/quiz_pick_check_test.dart",
+      "test/features/quiz/presentation/quiz_controller_test.dart",
+      "test/features/quiz/presentation/quiz_controller_today_launch_test.dart",
+      "test/features/quiz/domain/use_cases",
+      "test/features/quiz/data"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-1.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "test/features/quiz/presentation/quiz_pick_check_test.dart"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "test/features/quiz/presentation/quiz_pick_check_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-4.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-5.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "test/features/quiz/presentation/quiz_pick_check_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-core-final-6.txt"
+  }
+]

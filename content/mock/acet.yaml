@@ -1,0 +1,29 @@
+_id: mock_blueprint_acet
+schemaVersion: 2
+isActive: true
+exam: exam_acet
+name: ACET Practice Paper
+durationMinutes: 137
+sectionalTiming: sectional
+totalPublishedItems: 270
+sections:
+  - id: mathematics
+    name: Mathematics
+    questionCount: 60
+    suggestedMinutes: 60
+    sectionalMinutes: 60
+    topicIds: [topic_upcat_arithmetic_number_sense, topic_upcat_algebra, topic_upcat_geometry, topic_upcat_trigonometry, topic_upcat_statistics_and_probability, topic_upcat_data_interpretation]
+  - id: english
+    name: English Proficiency
+    questionCount: 75
+    suggestedMinutes: 50
+    sectionalMinutes: 50
+    topicIds: [topic_upcat_vocabulary, topic_upcat_grammar_and_structure, topic_upcat_language_application, topic_upcat_text_types, topic_upcat_comprehension_skills]
+  - id: aptitude
+    name: Aptitude and Abstract Reasoning
+    questionCount: 135
+    # Required legacy fallback; sectionalMinutes below is the owned displayed/runtime time.
+    suggestedMinutes: 1
+    # PLACEHOLDER: replace when Aedwon supplies the published aptitude time.
+    sectionalMinutes: { value: 27, placeholder: true, placeholderNote: "Development placeholder; published ACET aptitude time is unresolved." }
+    topicIds: [topic_upcat_logical_verbal_reasoning, topic_upcat_spatial_abstract_reasoning, topic_upcat_verbal_logic]

@@ -6,8 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/earth_science_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/figures/physics_energy_diagram_figure.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/pantas_type.dart';
 
 void main() {
   const cases = <_FigureCase>[
@@ -446,7 +446,7 @@ void main() {
     await tester.binding.setSurfaceSize(const Size(390, 844));
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
-    for (final palette in const [AppColors.light, AppColors.dark]) {
+    for (final palette in const [PantasColors.light, PantasColors.dark]) {
       for (final entry in cases) {
         await _pumpFigure(tester, entry.spec, palette);
         expect(
@@ -472,52 +472,52 @@ void main() {
     final comparisonImage = await _renderFigure(
       tester,
       comparison.spec,
-      AppColors.light,
+      PantasColors.light,
     );
     final dedicatedImage = await _renderFigure(
       tester,
       dedicated.spec,
-      AppColors.light,
+      PantasColors.light,
     );
 
     expect(
       comparisonImage.countNear(
-        AppColors.light.ruleFaint,
+        PantasColors.light.fill,
         const Rect.fromLTWH(276, 124, 102, 5),
       ),
       greaterThan(30),
     );
     expect(
       dedicatedImage.countNear(
-        AppColors.light.ruleFaint,
+        PantasColors.light.fill,
         const Rect.fromLTWH(38, 125, 314, 6),
       ),
       greaterThan(120),
     );
     expect(
       comparisonImage.countNear(
-        AppColors.light.ink,
+        PantasColors.light.label,
         const Rect.fromLTWH(279, 97, 16, 16),
       ),
       greaterThan(2),
     );
     expect(
       comparisonImage.countNear(
-        AppColors.light.ink,
+        PantasColors.light.label,
         const Rect.fromLTWH(358, 141, 16, 16),
       ),
       greaterThan(2),
     );
     expect(
       dedicatedImage.countNear(
-        AppColors.light.ink,
+        PantasColors.light.label,
         const Rect.fromLTWH(83, 79, 16, 16),
       ),
       greaterThan(2),
     );
     expect(
       dedicatedImage.countNear(
-        AppColors.light.ink,
+        PantasColors.light.label,
         const Rect.fromLTWH(291, 160, 16, 16),
       ),
       greaterThan(2),
@@ -530,7 +530,7 @@ void main() {
           entry.spec['illustrationKey'] ==
           'science/earth-science-astronomy/heavenly-bodies#1',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
     final a = image.width * 0.72 / 2;
     const b = 175 / 2;
     final c = _sqrt(a * a - b * b);
@@ -538,7 +538,7 @@ void main() {
 
     expect(
       image.countNear(
-        AppColors.light.ink,
+        PantasColors.light.label,
         Rect.fromCircle(center: focus, radius: 25),
       ),
       greaterThan(50),
@@ -553,7 +553,7 @@ void main() {
           entry.spec['illustrationKey'] ==
           'science/earth-science-astronomy/eclipses-and-moon-phases#1',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
     final newMoon = image.pixel(195 - 390 * 0.31, 146);
     final fullMoon = image.pixel(195 + 390 * 0.31, 146);
 
@@ -580,12 +580,12 @@ int _luminance(Color color) {
 Future<void> _pumpFigure(
   WidgetTester tester,
   Map<String, Object?> spec,
-  AppColors palette,
+  PantasColors palette,
 ) async {
   await tester.pumpWidget(
     MaterialApp(
       theme: ThemeData(
-        extensions: [palette, AppTextStyles.create()],
+        extensions: [palette, PantasType.create()],
       ),
       home: Scaffold(
         body: SizedBox(
@@ -601,13 +601,13 @@ Future<void> _pumpFigure(
 Future<_RenderedFigure> _renderFigure(
   WidgetTester tester,
   Map<String, Object?> spec,
-  AppColors palette,
+  PantasColors palette,
 ) async {
   final boundaryKey = GlobalKey();
   await tester.pumpWidget(
     MaterialApp(
       theme: ThemeData(
-        extensions: [palette, AppTextStyles.create()],
+        extensions: [palette, PantasType.create()],
       ),
       home: Align(
         alignment: Alignment.topCenter,

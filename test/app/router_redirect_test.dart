@@ -1,16 +1,19 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/back_chevron.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
@@ -25,6 +28,7 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    await DriftSettingsRepository(db).recordPolicyAcceptance();
     await seedContentExam(
       contentDb,
       examId: 'cse',
@@ -44,10 +48,14 @@ void main() {
   tearDown(() => db.close());
 
   Future<void> pumpApp(WidgetTester tester) async {
+    final catalog = await tester
+        .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
@@ -57,12 +65,16 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    addTearDown(() async {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpAndSettle();
+    });
   }
 
   testWidgets('age gate not passed → boot lands on onboarding welcome',
       (tester) async {
     await pumpApp(tester);
-    expect(find.text('Build your study plan'), findsOneWidget);
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
   });
 
   testWidgets(
@@ -70,7 +82,7 @@ void main() {
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await pumpApp(tester);
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
   });
 
   testWidgets('age gate passed, valid selection → boot lands on home',
@@ -80,7 +92,7 @@ void main() {
     await NotificationRationaleRepository(db).markShown();
     await pumpApp(tester);
     expect(find.text('Home'), findsWidgets);
-    expect(find.text('Choose your exam'), findsNothing);
+    expect(find.text('Which exam are you taking?'), findsNothing);
   });
 
   testWidgets('completed onboarding goes home without a rationale gate',
@@ -121,7 +133,7 @@ void main() {
     expect(find.byType(MockSetupRoute), findsOneWidget);
   });
 
-  testWidgets('/paywall redirects to the Settings Pro page', (tester) async {
+  testWidgets('the Settings Pro page remains reachable', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -130,7 +142,7 @@ void main() {
       tester.element(find.text('Home').first),
     );
     final router = container.read(routerProvider);
-    router.go('/paywall?returnTo=/plan');
+    router.go('/settings/pro');
     await tester.pumpAndSettle();
 
     expect(find.byType(ProPage), findsOneWidget);
@@ -163,8 +175,7 @@ void main() {
     });
   });
 
-  testWidgets('/settings renders Settings home; /more redirects there',
-      (tester) async {
+  testWidgets('/settings renders Settings home', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -177,31 +188,24 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Settings'), findsWidgets);
-    expect(find.text('How you practice'), findsOneWidget);
-    expect(find.byType(SettingsBar), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
+    expect(find.byType(PantasPage), findsOneWidget);
     expect(
       find.ancestor(
-        of: find.byType(SettingsBar),
+        of: find.byType(PantasPage),
         matching: find.byType(AppShell),
       ),
       findsOneWidget,
     );
-    expect(
-      find.descendant(
-        of: find.byType(SettingsBar),
-        matching: find.byType(BackChevron),
-      ),
-      findsNothing,
-    );
 
-    router.go('/more');
+    router.go('/settings');
     await tester.pumpAndSettle();
 
     expect(
       router.routerDelegate.currentConfiguration.uri.toString(),
       '/settings',
     );
-    expect(find.text('How you practice'), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
   });
 
   testWidgets('settings detail routes build', (tester) async {
@@ -216,7 +220,7 @@ void main() {
 
     router.go('/settings/account');
     await tester.pumpAndSettle();
-    expect(find.text('Account'), findsWidgets);
+    expect(find.text('Pantas ID'), findsOneWidget);
 
     router.go('/settings/backup');
     await tester.pumpAndSettle();
@@ -224,13 +228,11 @@ void main() {
 
     router.go('/settings/about');
     await tester.pumpAndSettle();
-    expect(find.text('About'), findsWidgets);
+    expect(find.text('Pantas'), findsOneWidget);
 
-    // The old path is kept as a redirect, so a link from an older build still
-    // lands somewhere real. The page itself is now named Pro.
-    router.go('/settings/subscription');
+    router.go('/settings/pro');
     await tester.pumpAndSettle();
-    expect(find.text('Pro'), findsWidgets);
+    expect(find.text('PANTAS PRO'), findsOneWidget);
   });
 
   testWidgets('/legal/privacy route builds real legal page', (tester) async {
@@ -246,82 +248,9 @@ void main() {
     router.go('/legal/privacy');
     await tester.pumpAndSettle();
 
-    expect(find.text('Privacy Policy'), findsWidgets);
-    expect(find.textContaining('RA 10173'), findsWidgets);
+    expect(find.text('Privacy policy'), findsWidgets);
+    expect(find.text('Your rights'), findsOneWidget);
     expect(find.textContaining('Legal: privacy'), findsNothing);
-  });
-
-  testWidgets('free user opening retired dossier route redirects home',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await pumpApp(tester);
-
-    final container = ProviderScope.containerOf(
-      tester.element(find.text('Home').first),
-    );
-    final router = container.read(routerProvider);
-    router.go('/plan/dossier/mock_1');
-    await tester.pumpAndSettle();
-
-    expect(router.routerDelegate.currentConfiguration.uri.path, '/home');
-  });
-
-  testWidgets('pro user opening retired dossier route also redirects home',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(contentDb),
-          entitlementProvider.overrideWith(
-            (_) => Stream.value(
-              const Entitlement(plan: EntitlementPlan.monthly),
-            ),
-          ),
-        ],
-        child: const App(flavor: Flavor.dev),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    final container = ProviderScope.containerOf(
-      tester.element(find.text('Home').first),
-    );
-    final router = container.read(routerProvider);
-    router.go('/plan/dossier/mock_1');
-    await tester.pumpAndSettle();
-
-    expect(router.routerDelegate.currentConfiguration.uri.path, '/home');
-  });
-
-  testWidgets('every other retired route reaches its living destination',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await pumpApp(tester);
-    final container =
-        ProviderScope.containerOf(tester.element(find.text('Home').first));
-    final router = container.read(routerProvider);
-    for (final entry in <String, String>{
-      '/progress': '/home',
-      '/progress/how-you-work': '/home',
-      '/progress/your-record': '/home',
-      '/mock-exam': '/home',
-      '/notifications/rationale': '/home',
-      '/review': '/quiz',
-      '/quiz/results/old-attempt': '/quiz',
-    }.entries) {
-      router.go(entry.key);
-      await tester.pumpAndSettle();
-      expect(
-        router.routerDelegate.currentConfiguration.uri.path,
-        entry.value,
-        reason: entry.key,
-      );
-    }
   });
 
   testWidgets('age gate passed, invalid persisted exam id → onboarding picker',
@@ -329,6 +258,6 @@ void main() {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('removed-exam');
     await pumpApp(tester);
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
   });
 }

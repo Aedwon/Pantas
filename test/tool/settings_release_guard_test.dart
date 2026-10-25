@@ -3,6 +3,13 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  test('replaced Settings placeholder is retired', () {
+    expect(
+      File('lib/features/settings/presentation/pages/not_built_yet_page.dart')
+          .existsSync(),
+      isFalse,
+    );
+  });
   test('DEBUG_SETTINGS appears only in guarded settings debug code', () {
     final offenders = <String>[];
     var foundGuardedFlag = false;
@@ -43,12 +50,20 @@ void main() {
     expect(offenders, isEmpty);
   });
 
-  test('legal text points export requests to DPO email path', () {
+  test('approved legal summary points rights requests to the DPO in About', () {
     final source = File('lib/features/legal/domain/legal_document.dart')
         .readAsStringSync();
 
-    expect(source, contains('export or correction'));
-    expect(source, contains('Data Protection Officer'));
+    expect(source, contains('see, correct or delete your data'));
+    expect(source, contains('data protection officer from About.'));
+    final about =
+        File('lib/features/settings/presentation/pages/about_page.dart')
+            .readAsStringSync();
+    expect(
+      about.replaceAll(RegExp(r'\s+'), ''),
+      contains('openDpoMail(contact.dpoEmail'),
+    );
+    expect(about, contains('SelectableText'));
     expect(source, isNot(contains('/export')));
   });
 }

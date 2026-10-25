@@ -16,7 +16,7 @@ void main() {
       ],
       environment: environment,
     );
-    expect(noArgs.exitCode, 64);
+    expect(noArgs.exitCode, 64, reason: '${noArgs.stdout}${noArgs.stderr}');
     final usage = <String>[
       'usage: dart run tools/build_content_package/',
       'build_content_package.dart',
@@ -38,7 +38,11 @@ void main() {
       ],
       environment: environment,
     );
-    expect(invalidSequence.exitCode, 64);
+    expect(
+      invalidSequence.exitCode,
+      64,
+      reason: '${invalidSequence.stdout}${invalidSequence.stderr}',
+    );
     expect(
       '${invalidSequence.stdout}${invalidSequence.stderr}',
       contains('release sequence must be a positive integer'),

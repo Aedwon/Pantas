@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/ui/components/answer_reveal.dart';
-import 'package:pantas/core/ui/components/passage_card.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum ReviewFilter { all, wrong, flagged }
@@ -151,7 +150,7 @@ class _ReviewListState extends State<ReviewList> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     final counts = FilterReviewEntries.count(widget.entries);
     final filteredEntries = FilterReviewEntries.call(widget.entries, _filter);
@@ -169,20 +168,20 @@ class _ReviewListState extends State<ReviewList> {
                 children: [
                   Text(
                     subjectName,
-                    style: styles.headlineSmall.copyWith(fontSize: 14),
+                    style: styles.emphasized.copyWith(fontSize: 14),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     '${entriesInGroup.length}',
-                    style: styles.bodySmall.copyWith(
-                      color: colors.inkMuted,
+                    style: styles.subhead.copyWith(
+                      color: colors.secondaryLabel,
                       fontFeatures: const [FontFeature.tabularFigures()],
                     ),
                   ),
                 ],
               ),
             ),
-            Container(height: AppDimensions.hairline, color: colors.rule),
+            Container(height: 0.5, color: colors.separator),
           ],
           for (var i = 0; i < entriesInGroup.length; i++) ...[
             // A passage prints once above the run of questions that share it.
@@ -193,7 +192,10 @@ class _ReviewListState extends State<ReviewList> {
                 (i == 0 ||
                     entriesInGroup[i - 1].passage?.id !=
                         entriesInGroup[i].passage!.id))
-              PassageCard(passage: entriesInGroup[i].passage!),
+              PassageCard(
+                title: entriesInGroup[i].passage!.title,
+                text: entriesInGroup[i].passage!.body,
+              ),
             ReviewRow(
               entry: entriesInGroup[i],
               isExpanded: _expandedNumbers.contains(entriesInGroup[i].number),
@@ -201,7 +203,7 @@ class _ReviewListState extends State<ReviewList> {
               onToggleExpanded: () => _toggleExpanded(entriesInGroup[i].number),
               onToggleFlag: widget.onToggleFlag,
             ),
-            Container(height: AppDimensions.hairline, color: colors.ruleFaint),
+            Container(height: 0.5, color: colors.fill),
           ],
         ],
       );
@@ -269,7 +271,7 @@ class _FilterRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     // Plain labels with rule ticks between them. No pills: a pill is a
     // filled shape, and the only filled shapes in this identity are the
@@ -279,10 +281,10 @@ class _FilterRow extends StatelessWidget {
         for (var i = 0; i < ReviewFilter.values.length; i++) ...[
           if (i > 0)
             Container(
-              width: AppDimensions.hairline,
+              width: 0.5,
               height: 12,
               margin: const EdgeInsets.symmetric(horizontal: 9),
-              color: colors.rule,
+              color: colors.separator,
             ),
           InkWell(
             excludeFromSemantics: true,
@@ -298,10 +300,10 @@ class _FilterRow extends StatelessWidget {
                 child: Center(
                   child: Text(
                     _label(ReviewFilter.values[i], counts),
-                    style: styles.bodySmall.copyWith(
+                    style: styles.subhead.copyWith(
                       color: active == ReviewFilter.values[i]
-                          ? colors.ink
-                          : colors.inkMuted,
+                          ? colors.label
+                          : colors.secondaryLabel,
                       fontWeight: active == ReviewFilter.values[i]
                           ? FontWeight.w700
                           : FontWeight.w400,
@@ -336,7 +338,7 @@ class ReviewRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -372,9 +374,9 @@ class ReviewRow extends StatelessWidget {
                             width: 28,
                             child: Text(
                               '${entry.number}',
-                              style: styles.headlineSmall.copyWith(
+                              style: styles.emphasized.copyWith(
                                 fontSize: 14,
-                                color: colors.inkMuted,
+                                color: colors.secondaryLabel,
                                 fontFeatures: const [
                                   FontFeature.tabularFigures(),
                                 ],
@@ -382,7 +384,7 @@ class ReviewRow extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: PortableTextRenderer(
+                            child: ContentRenderer(
                               text: entry.label,
                               maxLines: entry.labelIsStem ? 2 : null,
                             ),
@@ -408,7 +410,13 @@ class ReviewRow extends StatelessWidget {
                   child: SizedBox.square(
                     dimension: 48,
                     child: Center(
-                      child: PennantMark(isSet: entry.isFlagged),
+                      child: Icon(
+                        PantasIcons.flag,
+                        size: 21,
+                        color: entry.isFlagged
+                            ? colors.label
+                            : colors.secondaryLabel,
+                      ),
                     ),
                   ),
                 ),
@@ -419,9 +427,18 @@ class ReviewRow extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 12),
               child: AnswerReveal(
-                question: entry.question,
-                chosenChoiceId: entry.chosenChoiceId ?? '',
-                proIsActive: proIsActive,
+                correctLetter: entry.question.correctChoice.label,
+                explanation: entry.question.explanation,
+                pickedLetter: entry.question.choices
+                    .where((c) => c.id == entry.chosenChoiceId)
+                    .firstOrNull
+                    ?.label,
+                wrongPick: proIsActive && !entry.isCorrect
+                    ? entry.question.choices
+                        .where((c) => c.id == entry.chosenChoiceId)
+                        .firstOrNull
+                        ?.rationale
+                    : null,
               ),
             ),
         ],
@@ -438,14 +455,14 @@ class _OutcomeMark extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     if (!entry.isAnswered) {
       return SizedBox(
         width: 16,
         child: Text(
           '–',
-          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+          style: styles.subhead.copyWith(color: colors.secondaryLabel),
         ),
       );
     }
@@ -454,8 +471,8 @@ class _OutcomeMark extends StatelessWidget {
         width: 16,
         child: Text(
           '✓',
-          style: styles.bodyMedium.copyWith(
-            color: colors.board,
+          style: styles.subhead.copyWith(
+            color: colors.accent,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -465,8 +482,8 @@ class _OutcomeMark extends StatelessWidget {
       width: 16,
       child: Text(
         '✕',
-        style: styles.bodyMedium.copyWith(
-          color: colors.rust,
+        style: styles.subhead.copyWith(
+          color: colors.destructive,
           fontWeight: FontWeight.bold,
         ),
       ),

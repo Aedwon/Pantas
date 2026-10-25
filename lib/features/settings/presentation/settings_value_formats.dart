@@ -69,7 +69,7 @@ abstract final class SettingsValueFormats {
       // A failure reads as "Backing up" here and only here. Sync retries by
       // itself, so a student cannot act on the failure from a settings row,
       // and the silent-sync invariant forbids alarming them with one. The
-      // backup page below says "Couldn't back up" plainly and offers the
+      // backup page below says "Couldn’t back up" plainly and offers the
       // retry, which is where a student can actually do something about it.
       SyncActivating() ||
       SyncReconciliationRequired() ||

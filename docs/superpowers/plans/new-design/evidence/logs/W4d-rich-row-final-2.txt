@@ -1,0 +1,5 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart
+00:00 +0: default title keeps truncation and the existing tap
+00:00 +1: rich title replaces only the title while row action stays
+00:00 +2: single-line math title fits compact large text
+00:00 +3: All tests passed!

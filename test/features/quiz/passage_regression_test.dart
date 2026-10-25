@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
-import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/passage_card.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
-import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart'
+    as passage_ui;
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
 import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
-import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
-import 'package:pantas/features/quiz/presentation/quiz_results_page.dart';
+import 'package:pantas/features/quiz/presentation/quiz_question_viewer.dart';
 
+import '../../helpers/in_memory_database.dart';
 import '../../helpers/pump_app.dart';
-
-class _MockAttempts extends Mock implements AttemptsRepository {}
-
-class _MockContent extends Mock implements ContentRepository {}
 
 /// Tasks 5 and 6 of `2026-08-03-passage-pipeline.md`.
 ///
@@ -32,6 +26,18 @@ class _MockContent extends Mock implements ContentRepository {}
 /// Task 5 adds the reading surface in the question viewer and in the review,
 /// ensuring a passage renders once above its questions and scrolls naturally.
 void main() {
+  Future<void> pumpViewer(
+    WidgetTester tester,
+    QuizQuestionViewer viewer,
+  ) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await tester.pumpAppWithProviders(
+      viewer,
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+  }
+
   Question freeStanding(String id, {String topicId = 't1'}) {
     return Question(
       id: id,
@@ -220,8 +226,8 @@ void main() {
       final q = freeStanding('q1');
       await tester.pumpApp(
         QuestionCard(
-          question: q,
-          onAnswer: (_) {},
+          subject: '',
+          stem: q.stem,
         ),
       );
 
@@ -229,17 +235,15 @@ void main() {
       expect(find.text('Stem q1'), findsOneWidget);
     });
 
-    testWidgets('review renders free-standing questions without passage',
+    testWidgets(
+        'completed viewer renders free-standing questions without passage',
         (tester) async {
-      final attempts = _MockAttempts();
-      final content = _MockContent();
-
-      when(() => attempts.byId('a1')).thenAnswer(
-        (_) async => Attempt(
-          id: 'a1',
-          examId: 'e',
-          startedAt: DateTime.utc(2026, 5, 9, 12),
-          completedAt: DateTime.utc(2026, 5, 9, 12, 5),
+      await pumpViewer(
+        tester,
+        QuizQuestionViewer(
+          questions: [
+            freeStanding('q1'),
+          ],
           items: const [
             AttemptItem(
               questionId: 'q1',
@@ -249,40 +253,15 @@ void main() {
               responseMs: 1500,
             ),
           ],
+          pro: false,
+          onBack: () {},
+          onNote: (_, __, ___) async {},
+          onReport: (_) async => null,
         ),
       );
-      when(() => content.questionsByIds(any())).thenAnswer(
-        (_) async => {'q1': freeStanding('q1')},
-      );
-      // The review provider walks question -> topic -> subject and then looks
-      // for a passage. An unstubbed call on a mock returns null and the whole
-      // list comes back empty, which reads as "nothing rendered" rather than
-      // as a missing stub.
-      when(() => content.topicById(any())).thenAnswer((_) async => null);
-      when(() => content.subjectById(any())).thenAnswer((_) async => null);
-      when(() => content.passageById(any())).thenAnswer((_) async => null);
-
-      await tester.pumpAppWithProviders(
-        const QuizResultsPage(attemptId: 'a1'),
-        overrides: [
-          attemptsRepositoryProvider.overrideWithValue(attempts),
-          contentRepositoryProvider.overrideWithValue(content),
-          // Reaches a real repository through the database otherwise, and the
-          // whole entry list comes back empty rather than erroring.
-          flaggedIdsProvider.overrideWith((_) async => <String>{}),
-          assessmentCompletedProvider('e').overrideWith((_) async => true),
-          countForExamProvider('e').overrideWith((_) async => 0),
-        ],
-      );
       await tester.pumpAndSettle();
-
-      // Asserts on the row rather than the label text: the label goes through
-      // the portable text renderer and the point of this test is the passage,
-      // not the label plumbing.
-      // The review opens on misses, so the fixture answers wrongly: a set of
-      // correct answers renders an empty list and proves nothing.
-      expect(find.byType(PassageCard), findsNothing);
-      expect(find.byType(ReviewRow), findsOneWidget);
+      expect(find.byType(passage_ui.PassageCard), findsNothing);
+      expect(find.text('Stem q1'), findsOneWidget);
     });
   });
 
@@ -319,9 +298,9 @@ void main() {
       final q = passageQuestion('pq1');
       await tester.pumpApp(
         QuestionCard(
-          question: q,
-          passage: passage,
-          onAnswer: (_) {},
+          subject: '',
+          stem: q.stem,
+          passage: PassageCard(title: passage.title, text: passage.body),
         ),
       );
 
@@ -336,62 +315,42 @@ void main() {
       expect(find.byType(SliverPersistentHeader), findsNothing);
     });
 
-    testWidgets('review renders passage ONCE for a set of six questions',
+    testWidgets(
+        'completed viewer keeps one required passage while navigating its set',
         (tester) async {
-      final attempts = _MockAttempts();
-      final content = _MockContent();
-
-      final items = [
-        for (var i = 1; i <= 6; i++)
-          AttemptItem(
-            questionId: 'pq$i',
-            questionVersion: 1,
-            chosenChoiceId: 'pq$i-b',
-            correctChoiceId: 'pq$i-a',
-            responseMs: 1000,
-          ),
-      ];
-
-      when(() => attempts.byId('a_passage')).thenAnswer(
-        (_) async => Attempt(
-          id: 'a_passage',
-          examId: 'e',
-          startedAt: DateTime.utc(2026, 5, 9, 12),
-          completedAt: DateTime.utc(2026, 5, 9, 12, 10),
-          items: items,
+      await pumpViewer(
+        tester,
+        QuizQuestionViewer(
+          questions: [
+            for (var i = 1; i <= 6; i++) passageQuestion('pq$i'),
+          ],
+          items: [
+            for (var i = 1; i <= 6; i++)
+              AttemptItem(
+                questionId: 'pq$i',
+                questionVersion: 1,
+                chosenChoiceId: 'pq$i-b',
+                correctChoiceId: 'pq$i-a',
+                responseMs: 1000,
+              ),
+          ],
+          passages: const {
+            'p1': passage,
+          },
+          pro: false,
+          onBack: () {},
+          onNote: (_, __, ___) async {},
+          onReport: (_) async => null,
         ),
       );
-
-      when(() => content.questionsByIds(any())).thenAnswer(
-        (_) async => {
-          for (var i = 1; i <= 6; i++) 'pq$i': passageQuestion('pq$i'),
-        },
-      );
-      when(() => content.topicById(any())).thenAnswer((_) async => null);
-      when(() => content.subjectById(any())).thenAnswer((_) async => null);
-      when(() => content.passageById('p1')).thenAnswer(
-        (_) async => passage,
-      );
-
-      await tester.pumpAppWithProviders(
-        const QuizResultsPage(attemptId: 'a_passage'),
-        overrides: [
-          attemptsRepositoryProvider.overrideWithValue(attempts),
-          contentRepositoryProvider.overrideWithValue(content),
-          // Reaches a real repository through the database otherwise, and the
-          // whole entry list comes back empty rather than erroring.
-          flaggedIdsProvider.overrideWith((_) async => <String>{}),
-          assessmentCompletedProvider('e').overrideWith((_) async => true),
-          countForExamProvider('e').overrideWith((_) async => 0),
-        ],
-      );
       await tester.pumpAndSettle();
-
-      // Assert passage appears ONCE for all 6 questions
-      expect(find.byType(PassageCard), findsOneWidget);
+      expect(find.byType(passage_ui.PassageCard), findsOneWidget);
       expect(find.text('The Palay Harvest'), findsOneWidget);
-
-      // Assert no sticky or pinned header widget
+      await tester.tap(find.byTooltip('Next question'));
+      await tester.pumpAndSettle();
+      expect(find.text('2 of 6'), findsOneWidget);
+      expect(find.byType(passage_ui.PassageCard), findsOneWidget);
+      expect(find.text('The Palay Harvest'), findsOneWidget);
       expect(find.byType(SliverPersistentHeader), findsNothing);
     });
   });

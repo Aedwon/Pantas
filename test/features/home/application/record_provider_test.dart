@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide isNull;
@@ -6,10 +7,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -43,6 +48,50 @@ void main() {
     db.close();
   });
 
+  test('a core reset discards a previously loaded record without a quiz event',
+      () async {
+    await SyncActiveContextStore(db).clearStable();
+    await db.into(db.lessonProgressLocal).insert(
+          LessonProgressLocalCompanion.insert(
+            lessonId: 'l',
+            readAt: DateTime(2026, 10, 25),
+          ),
+        );
+    container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    final subscription = container.listen(recordProvider, (_, __) {});
+    addTearDown(subscription.close);
+    expect((await container.read(recordProvider.future)).daysActive, 1);
+    final changed = Completer<void>();
+    final boundary = container.listen(studyCoreEpochProvider, (_, next) {
+      if ((next.valueOrNull ?? 0) > 0 && !changed.isCompleted) {
+        changed.complete();
+      }
+    });
+    addTearDown(boundary.close);
+    await SyncLocalStateWiper(db).wipeAll();
+    await changed.future.timeout(const Duration(seconds: 3));
+    await container.pump();
+    expect((await container.read(recordProvider.future)).daysActive, 0);
+  });
+  test('record refreshes after a real lesson completion boundary', () async {
+    container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    final subscription = container.listen(recordProvider, (_, __) {});
+    addTearDown(subscription.close);
+    expect((await container.read(recordProvider.future)).daysActive, 0);
+    await db.into(db.lessonProgressLocal).insert(
+          LessonProgressLocalCompanion.insert(
+            lessonId: 'l',
+            readAt: DateTime(2026, 10, 25),
+          ),
+        );
+    container.read(roadmapRevisionProvider.notifier).bump();
+    await container.pump();
+    expect((await container.read(recordProvider.future)).daysActive, 1);
+  });
   test('weeks in counts from the first thing the student did', () async {
     // Account made 2026-03-01. First attempt 2026-07-12. Today 2026-08-02.
     final firstAttempt = DateTime(2026, 7, 12);

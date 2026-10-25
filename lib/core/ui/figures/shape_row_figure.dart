@@ -88,7 +88,7 @@ class ShapeRowFigure extends StatelessWidget {
       child: SizedBox(
         height: 110,
         child: CustomPaint(
-          painter: _ShapeRowPainter(shapes: shapes, ink: colors.ink),
+          painter: _ShapeRowPainter(shapes: shapes, ink: colors.label),
           size: Size.infinite,
         ),
       ),

@@ -1,0 +1,53 @@
+
+::group::❌ Quick launch keeps its original stable boundary (failed)
+Expected: true
+  Actual: <false>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/presentation/quick_launch_boundary_test.dart 117:9  main.<fn>
+::endgroup::
+::group::❌ Quick launch keeps its original account boundary (failed)
+Expected: not <Instance of 'QuizRunning'>
+  Actual: <Instance of 'QuizRunning'>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/presentation/quick_launch_boundary_test.dart 124:9  main.<fn>
+::endgroup::
+::group::❌ Quick launch keeps its original exam boundary (failed)
+Expected: not <Instance of 'QuizRunning'>
+  Actual: <Instance of 'QuizRunning'>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/presentation/quick_launch_boundary_test.dart 124:9  main.<fn>
+::endgroup::
+::group::❌ Quick launch keeps its original token boundary (failed)
+Expected: not <Instance of 'QuizRunning'>
+  Actual: <Instance of 'QuizRunning'>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/presentation/quick_launch_boundary_test.dart 124:9  main.<fn>
+::endgroup::
+::group::❌ Quick launch keeps its original wipe boundary (failed)
+Expected: not <Instance of 'QuizRunning'>
+  Actual: <Instance of 'QuizRunning'>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/presentation/quick_launch_boundary_test.dart 124:9  main.<fn>
+::endgroup::
+::group::❌ Quick launch keeps its original disposed boundary (failed)
+Bad state: Tried to use QuizController after `dispose` was called.
+
+Consider checking `mounted`.
+
+package:state_notifier/state_notifier.dart 175:9                      StateNotifier._debugIsMounted.<fn>
+package:state_notifier/state_notifier.dart 182:6                      StateNotifier._debugIsMounted
+package:state_notifier/state_notifier.dart 212:12                     StateNotifier.state=
+package:pantas/features/quiz/presentation/quiz_controller.dart 100:7  QuizController.start
+::endgroup::
+
+::error::0 tests passed, 6 failed.

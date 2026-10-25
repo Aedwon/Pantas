@@ -1,11 +1,9 @@
-import 'dart:ui' show SemanticsAction;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -45,7 +43,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the step asks for a name and offers a skip', (tester) async {
+  testWidgets('the step requires a name without Skip', (tester) async {
     await pumpStep(tester);
 
     expect(find.text('What should we call you?'), findsOneWidget);
@@ -56,7 +54,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('Done'), findsOneWidget);
-    expect(find.text('Skip'), findsOneWidget);
+    expect(find.text('Skip'), findsNothing);
   });
 
   testWidgets('the name field has a programmatic label', (tester) async {
@@ -65,44 +63,30 @@ void main() {
     expect(find.bySemanticsLabel('Name'), findsOneWidget);
   });
 
-  testWidgets('Skip is a named control with a 48dp hit region', (tester) async {
-    await pumpStep(tester);
-
-    final skip = find.bySemanticsLabel('Skip');
-    expect(skip, findsOneWidget);
-    expect(tester.getSize(skip).height, greaterThanOrEqualTo(48));
-    expect(tester.getSize(skip).width, greaterThanOrEqualTo(48));
-    expect(
-      tester.getSemantics(skip).getSemanticsData().hasAction(
-            SemanticsAction.tap,
-          ),
-      isTrue,
-    );
-  });
-
   testWidgets('Done is disabled until something is typed', (tester) async {
     await pumpStep(tester);
 
     final doneButton =
-        tester.widget<BoardButton>(find.widgetWithText(BoardButton, 'Done'));
+        tester.widget<PantasButton>(find.widgetWithText(PantasButton, 'Done'));
     expect(doneButton.onPressed, isNull);
 
     await tester.enterText(find.byType(TextField), 'Aedwon');
     await tester.pump();
 
     final enabledDoneButton =
-        tester.widget<BoardButton>(find.widgetWithText(BoardButton, 'Done'));
+        tester.widget<PantasButton>(find.widgetWithText(PantasButton, 'Done'));
     expect(enabledDoneButton.onPressed, isNotNull);
   });
 
-  testWidgets('Done stores the name and completes onboarding', (tester) async {
+  testWidgets('Done stores the name without completing onboarding',
+      (tester) async {
     var completed = false;
     await pumpStep(tester, onCompleted: () => completed = true);
 
     await tester.enterText(find.byType(TextField), 'Aedwon');
     await tester.pump();
 
-    await tester.tap(find.widgetWithText(BoardButton, 'Done'));
+    await tester.tap(find.widgetWithText(PantasButton, 'Done'));
     await tester.pumpAndSettle();
 
     final repo = DriftSettingsRepository(db);
@@ -110,23 +94,31 @@ void main() {
     expect(settings.name, 'Aedwon');
 
     final appPrefsRepo = AppPreferencesRepository(db);
-    expect(await appPrefsRepo.hasCompletedOnboarding(), isTrue);
+    expect(await appPrefsRepo.hasCompletedOnboarding(), isFalse);
     expect(completed, isTrue);
   });
 
-  testWidgets('Skip completes onboarding and stores no name', (tester) async {
-    var completed = false;
-    await pumpStep(tester, onCompleted: () => completed = true);
-
-    await tester.tap(find.text('Skip'));
+  testWidgets('name is trimmed and limits input to forty characters',
+      (tester) async {
+    await pumpStep(tester);
+    final field = tester.widget<TextField>(find.byType(TextField));
+    expect(field.maxLength, 40);
+    expect(field.textCapitalization, TextCapitalization.words);
+    await tester.enterText(find.byType(TextField), '  Aedwon  ');
+    await tester.pump();
+    await tester.tap(find.text('Done'));
     await tester.pumpAndSettle();
-
-    final repo = DriftSettingsRepository(db);
-    final settings = await repo.readUserSettings();
-    expect(settings.name, isNull);
-
-    final appPrefsRepo = AppPreferencesRepository(db);
-    expect(await appPrefsRepo.hasCompletedOnboarding(), isTrue);
-    expect(completed, isTrue);
+    expect(
+      (await DriftSettingsRepository(db).readUserSettings()).name,
+      'Aedwon',
+    );
+  });
+  testWidgets('returning to Name restores the saved name', (tester) async {
+    await DriftSettingsRepository(db).updateName('Aedwon');
+    await pumpStep(tester);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      'Aedwon',
+    );
   });
 }

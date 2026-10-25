@@ -1,0 +1,72 @@
+Original complete output is preserved in the .gz companion.
+
+00:21 +463: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_fallback_contrast_test.dart: unknown content text contrasts with its actual fill Brightness.dark
+00:21 +464: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_fallback_contrast_test.dart: unknown content text contrasts with its actual fill Brightness.dark
+00:21 +465: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:21 +466: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:22 +467: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:22 +468: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: avatar photo, name, emoji grapheme, fallback and scaling Brightness.dark
+00:22 +469: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: avatar photo, name, emoji grapheme, fallback and scaling Brightness.dark
+00:22 +470: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: avatar photo, name, emoji grapheme, fallback and scaling Brightness.dark
+00:22 +471: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group omits optional header and footer in Brightness.light
+00:22 +472: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.light
+00:22 +473: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_name_line_test.dart: the name sits directly under the header, with no gap of its own
+00:22 +474: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_name_line_test.dart: the name sits directly under the header, with no gap of its own
+00:22 +475: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.light
+00:22 +476: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.light
+00:22 +477: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.light
+00:22 +478: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: context exposes tokens and legacy adapters, dark=false
+00:22 +479: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: context exposes tokens and legacy adapters, dark=false
+00:23 +480: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: context exposes tokens and legacy adapters, dark=false
+00:23 +481: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: context exposes tokens and legacy adapters, dark=false
+00:23 +482: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: context exposes tokens and legacy adapters, dark=false
+00:23 +483: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: context exposes tokens and legacy adapters, dark=false
+00:23 +484: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: themes use paper/ink scaffold backgrounds
+00:23 +485: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: themes use paper/ink scaffold backgrounds
+00:23 +486: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_theme_test.dart: legacy-only registries expose the new token APIs
+00:23 +487: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: light scheme overrides Material-seeded colors with identity tokens
+00:23 +488: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: dark scheme overrides Material-seeded colors with identity tokens
+00:23 +489: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: dark theme sets adaptive visual density
+00:23 +490: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: app bar is flat paper with ink title
+00:23 +491: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: dividers use the separator width
+00:23 +492: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_theme_test.dart: dialogs and sheets are flat identity surfaces
+00:23 +493: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_shape_test.dart: shape tokens match README and floating board variants
+00:23 +494: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_colors_test.dart: light matches every README color token
+00:23 +495: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_colors_test.dart: dark matches every README color token
+00:23 +496: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_colors_test.dart: copy and interpolation preserve all token fields
+00:23 +497: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_colors_test.dart: light palette matches the new light tokens
+00:23 +498: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_colors_test.dart: dark palette matches the new dark tokens
+00:23 +499: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_colors_test.dart: lerp at t=1 lands exactly on the other palette
+00:23 +500: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_colors_test.dart: label clears normal-text contrast on both backgrounds
+00:23 +501: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/font_licenses_test.dart: registry yields every bundled font notice in full
+00:23 +502: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: largeTitle has the approved type metrics and tabular variant
+00:23 +503: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: pageTitle has the approved type metrics and tabular variant
+00:23 +504: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: pageTitleCompact has the approved type metrics and tabular variant
+00:23 +505: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: sectionHero has the approved type metrics and tabular variant
+00:23 +506: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: body has the approved type metrics and tabular variant
+00:23 +507: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: rowValue has the approved type metrics and tabular variant
+00:23 +508: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: emphasized has the approved type metrics and tabular variant
+00:23 +509: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: subhead has the approved type metrics and tabular variant
+00:23 +510: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: subheadStrong has the approved type metrics and tabular variant
+00:23 +511: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: footnote has the approved type metrics and tabular variant
+00:23 +512: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: sectionHeader has the approved type metrics and tabular variant
+00:23 +513: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: caption has the approved type metrics and tabular variant
+00:23 +514: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: captionSmall has the approved type metrics and tabular variant
+00:23 +515: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: captionStrong has the approved type metrics and tabular variant
+00:23 +516: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: mathSerif has the approved type metrics and tabular variant
+00:23 +517: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/pantas_type_test.dart: row value follows the palette secondary label
+00:23 +518: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/fonts_declared_test.dart: Geist bundles every required weight for offline use
+00:24 +519: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/fonts_declared_test.dart: SourceSerif4 bundles every required weight for offline use
+00:24 +520: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/fonts_declared_test.dart: Phosphor bundles every required weight for offline use
+00:24 +521: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/fonts_declared_test.dart: bundled regular icon font is unchanged from package 2.1.0
+00:24 +522: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_dimensions_test.dart: AppDimensions radii radiusButton is 14
+00:24 +523: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_dimensions_test.dart: AppDimensions radii radiusSurface is 18
+00:24 +524: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_dimensions_test.dart: AppDimensions rules hairline is 0.5
+00:24 +525: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_dimensions_test.dart: AppDimensions rules progressHeight is 3
+00:24 +526: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/app_dimensions_test.dart: AppDimensions tap targets minTapTarget remains 48 for Android controls
+00:24 +527: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/lesson_text_scale_test.dart: defaults to 1.0 without a saved preference
+00:24 +528: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/lesson_text_scale_test.dart: persists through AppPreferencesRepository and reloads
+00:24 +529: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/lesson_text_scale_test.dart: rapid updates persist the last selected value
+00:24 +530: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/lesson_text_scale_test.dart: rejects invalid scale values without saving them
+00:24 +531: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/theme/lesson_text_scale_test.dart: multiplies nonlinear phone scaling only inside the subtree
+00:25 +532: All tests passed!

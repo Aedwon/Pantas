@@ -1,0 +1,9 @@
+Computing fixes in practice_picker_screen_test.dart...
+Applying fixes...
+
+practice_picker_screen_test.dart
+  avoid_redundant_argument_values - 1 fix
+  directives_ordering - 1 fix
+  require_trailing_commas - 29 fixes
+
+31 fixes made in 1 file.

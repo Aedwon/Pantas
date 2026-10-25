@@ -66,7 +66,7 @@ class PulleySystemFigure extends StatelessWidget {
             fixed: fixed,
             movable: movable,
             comparison: comparison,
-            ink: colors.ink,
+            ink: colors.label,
           ),
           size: Size.infinite,
         ),

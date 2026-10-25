@@ -1,0 +1,7 @@
+Computing fixes in practice_mode_match_test.dart...
+Applying fixes...
+
+practice_mode_match_test.dart
+  require_trailing_commas - 21 fixes
+
+21 fixes made in 1 file.

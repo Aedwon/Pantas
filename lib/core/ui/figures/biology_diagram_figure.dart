@@ -49,14 +49,14 @@ class BiologyDiagramFigure extends StatelessWidget {
         painter: _BiologyDiagramPainter(
           type: type,
           spec: _spec,
-          ink: colors.ink,
-          inkMuted: colors.inkMuted,
-          rule: colors.ruleFaint,
-          board: colors.board,
-          boardTint: colors.boardTint,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          mutedStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
+          ink: colors.label,
+          inkMuted: colors.secondaryLabel,
+          rule: colors.fill,
+          board: colors.accent,
+          boardTint: colors.accentTint,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          mutedStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
           ),
         ),
       ),

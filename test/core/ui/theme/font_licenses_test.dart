@@ -14,7 +14,6 @@ void main() {
     final entries = await LicenseRegistry.licenses.toList();
     for (final notice in {
       'Geist': 'assets/fonts/OFL-Geist.txt',
-      'Source Serif 4': 'assets/fonts/OFL-SourceSerif4.txt',
       'Phosphor': 'assets/fonts/phosphor/LICENSE',
     }.entries) {
       final matches = entries.where(

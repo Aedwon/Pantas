@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/confirmation_dialog.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
@@ -19,14 +20,17 @@ void main() {
             builder: (context) {
               return Scaffold(
                 body: TextButton(
-                  onPressed: () => showAppConfirmationDialog(
+                  onPressed: () => showDialog<void>(
                     context: context,
-                    title: 'Delete?',
-                    body: 'This cannot be undone.',
-                    cancelLabel: 'Cancel',
-                    confirmLabel: 'Delete',
-                    onCancel: () {},
-                    onConfirm: () {},
+                    builder: (_) => CenteredDialog(
+                      title: 'Delete?',
+                      message: 'This cannot be undone.',
+                      destructive: true,
+                      secondaryLabel: 'Cancel',
+                      primaryLabel: 'Delete',
+                      onCancel: () {},
+                      onConfirm: () {},
+                    ),
                   ),
                   child: const Text('Open'),
                 ),
@@ -44,23 +48,23 @@ void main() {
         (tester) async {
       final pending = Completer<void>();
       await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme() : buildLightTheme(),
-          home: DeleteAccountPage(
-            isAnonymous: false,
-            entitlement: const SettingsEntitlementSnapshot.free(),
-            dpoEmail: 'dpo@example.test',
-            onDelete: () => pending.future,
+        ProviderScope(
+          child: MaterialApp(
+            theme: dark ? buildDarkTheme() : buildLightTheme(),
+            home: DeleteAccountPage(
+              isAnonymous: false,
+              entitlement: const SettingsEntitlementSnapshot.free(),
+              dpoEmail: 'dpo@example.test',
+              onDelete: () => pending.future,
+            ),
           ),
         ),
       );
-      _expectWhiteOnRed(tester, 'Yes, delete my account');
-      await tester.tap(find.text('Yes, delete my account'));
+      _expectWhiteOnRed(tester, 'Delete My Data');
+      await tester.tap(find.text('Delete My Data'));
       await tester.pump();
-      expect(
-        tester.widget<Text>(find.text('Deleting...')).style!.color,
-        Colors.white,
-      );
+      _expectWhiteOnRed(tester, 'Delete My Data');
+      expect(find.text('Deleting...'), findsOneWidget);
       expect(
         tester
             .widget<CircularProgressIndicator>(
@@ -77,20 +81,30 @@ void main() {
 
 void _expectWhiteOnRed(WidgetTester tester, String label) {
   final foreground = tester.widget<Text>(find.text(label)).style!.color!;
-  final backgrounds = tester
-      .widgetList<Container>(
-        find.ancestor(
-          of: find.text(label),
-          matching: find.byType(Container),
-        ),
-      )
-      .map((box) => box.decoration)
-      .whereType<BoxDecoration>();
-  final background = backgrounds
-      .firstWhere(
-        (decoration) => decoration.color == PantasColors.light.destructive,
-      )
-      .color!;
+  final buttons =
+      find.ancestor(of: find.text(label), matching: find.byType(TextButton));
+  final Color background;
+  if (buttons.evaluate().isNotEmpty) {
+    background = tester
+        .widget<TextButton>(buttons.first)
+        .style!
+        .backgroundColor!
+        .resolve({})!;
+  } else {
+    background = tester
+        .widgetList<Container>(
+          find.ancestor(
+            of: find.text(label),
+            matching: find.byType(Container),
+          ),
+        )
+        .map((box) => box.decoration)
+        .whereType<BoxDecoration>()
+        .firstWhere(
+          (decoration) => decoration.color == PantasColors.light.destructive,
+        )
+        .color!;
+  }
   expect(foreground, Colors.white);
   expect(
     (foreground.computeLuminance() + 0.05) /

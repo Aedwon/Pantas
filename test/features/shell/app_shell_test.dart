@@ -10,14 +10,13 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/paywall/paywall.dart';
-import 'package:pantas/features/quiz/presentation/quiz_tab_home.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
 
@@ -239,7 +238,7 @@ void main() {
     final tabs = [
       ('Home', '/home', HomeTab),
       ('Study', '/study', StudyTabHome),
-      ('Quiz', '/quiz', QuizTabHome),
+      ('Quiz', '/quiz', QuizTabScreen),
       ('Settings', '/settings', SettingsHomePage),
     ];
     final pages = <String, Element>{};
@@ -298,13 +297,6 @@ void main() {
         matching: find.byType(AppShell),
       ),
       findsOneWidget,
-    );
-    expect(
-      find.descendant(
-        of: find.byType(SettingsBar),
-        matching: find.bySemanticsLabel('Back'),
-      ),
-      findsNothing,
     );
   });
   testWidgets('floating bar exposes occupied space to scrolling screens',

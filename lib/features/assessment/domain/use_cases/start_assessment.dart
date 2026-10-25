@@ -2,6 +2,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
+import 'package:uuid/uuid.dart';
 
 class NoAssessmentQuestionsError extends StateError {
   NoAssessmentQuestionsError(ExamId examId)
@@ -20,6 +21,8 @@ class StartAssessment {
     }
     return AssessmentSession(
       examId: examId,
+      startedAt: DateTime.now(),
+      attemptId: const Uuid().v4(),
       questions: questions,
       answers: {for (final q in questions) q.question.id: null},
     );

@@ -1,0 +1,193 @@
+Analyzing 3 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/new_design/question_grid_sheet.dart:136:61 • require_trailing_commas
+   info • 'onReorder' is deprecated and shouldn't be used. Use the onReorderItem callback instead. The onReorderItem callback adjusts the newIndex parameter for a removed item at the oldIndex. This feature was deprecated after v3.41.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:238:21 • deprecated_member_use
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/application/quiz_providers.dart:14:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/application/quiz_providers.dart:26:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/application/quiz_providers.dart:160:66 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/application/quiz_providers.dart:171:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/application/quiz_providers.dart:178:38 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/data/repos/quiz_session_repository.dart:8:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/data/repos/quiz_session_repository.dart:9:1 • directives_ordering
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/quiz_session_repository.dart:184:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/quiz_session_repository.dart:191:72 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/quiz_session_repository.dart:194:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/quiz_session_repository.dart:206:78 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/quiz_session_repository.dart:213:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/quiz_session_repository.dart:213:62 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/quiz_session_repository.dart:224:35 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/quiz_session_repository.dart:232:38 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/data/repos/review_batch_repository.dart:9:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/data/repos/review_batch_repository.dart:11:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:19:78 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:36:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:46:7 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:58:34 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:70:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:70:45 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:94:36 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:101:7 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:119:42 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:135:11 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:146:13 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:150:13 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:150:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:169:42 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:194:33 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:197:7 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:223:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:223:24 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:227:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:235:67 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:238:74 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:240:7 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:244:31 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:250:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:254:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:271:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:271:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:273:35 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:278:55 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:284:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:287:7 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/data/repos/review_batch_repository.dart:293:27 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:298:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:302:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/data/repos/review_batch_repository.dart:310:9 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:13:41 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:30:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:36:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:79:36 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:91:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:107:29 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:113:39 • require_trailing_commas
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/models/review_batch.dart:124:38 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/models/review_batch.dart:128:43 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/models/review_batch.dart:136:31 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/models/review_batch.dart:148:43 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/models/review_batch.dart:161:51 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/models/review_batch.dart:170:50 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:176:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:184:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:210:31 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch.dart:225:7 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/domain/models/review_batch_position.dart:3:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/models/review_batch_position.dart:7:73 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/domain/quiz_session.dart:8:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/domain/use_cases/resume_session.dart:7:1 • directives_ordering
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/use_cases/resume_session.dart:34:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/use_cases/resume_session.dart:37:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/use_cases/resume_session.dart:46:23 • curly_braces_in_flow_control_structures
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/domain/use_cases/resume_session.dart:65:41 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:126:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:636:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:649:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:655:50 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:682:49 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:688:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_page.dart:698:74 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/application/review_batch_scope_test.dart:15:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/review_batch_scope_test.dart:52:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/review_batch_scope_test.dart:62:24 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/data/review_batch_repository_test.dart:20:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/data/review_batch_repository_test.dart:21:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:44:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:52:59 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:63:74 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:69:65 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:88:27 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:90:74 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:94:65 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:99:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:110:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:116:35 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:120:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:122:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:128:35 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:139:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:146:32 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:151:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:160:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:164:63 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:170:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:182:33 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:184:75 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:185:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:190:40 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:199:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:199:122 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:213:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:213:118 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:216:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:217:26 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:226:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:228:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:238:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:241:17 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:251:48 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:258:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:265:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:268:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:269:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:272:32 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:276:81 • lines_longer_than_80_chars
+warning • The value of the local variable 'first' isn't used. Try removing the variable or using it • test/features/quiz/data/review_batch_repository_test.dart:278:11 • unused_local_variable
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:285:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:286:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:291:39 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:303:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:304:25 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:309:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:316:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:317:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:319:32 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:325:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:331:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:334:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:337:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:356:27 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:357:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:369:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:370:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:385:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:391:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:404:48 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:407:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:408:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:410:32 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:423:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:426:44 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:427:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:431:32 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:444:27 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:448:26 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:457:50 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:462:25 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:469:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:479:27 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:483:26 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:489:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:492:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:494:32 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:495:25 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:501:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:513:9 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:513:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:517:5 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:521:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:542:11 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:547:11 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:557:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:558:27 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:564:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:568:40 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:574:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/data/review_batch_repository_test.dart:595:55 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/quiz_question_screen_test.dart:11:1 • directives_ordering
+   info • The import of 'package:pantas/core/storage/domain/passage.dart' is unnecessary because all of the used elements are also provided by the import of 'package:pantas/core/storage/storage.dart'. Try removing the import directive • test/features/quiz/presentation/quiz_question_screen_test.dart:11:8 • unnecessary_import
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:644:25 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:650:76 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/presentation/quiz_question_screen_test.dart:658:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_question_screen_test.dart:681:27 • require_trailing_commas
+
+189 issues found. (ran in 3.8s)

@@ -1,0 +1,12 @@
+{
+  "base": "c94868eb412be4b6320089429c688d294f8afbe4",
+  "source_sha256": {
+    "lib/features/quiz/presentation/quiz_controller.dart": "20ec8e1d2db638f36ed745ec6f8b0c3af1361a2220a0b6b035bbe961d5632d5e",
+    "test/features/quiz/presentation/quiz_pick_check_test.dart": "162784f9d74607eb209b34622af847a4ffa981f457d5cc05b70045d14b127fed"
+  },
+  "unstaged_ui_sha256": {
+    "lib/features/quiz/presentation/quiz_page.dart": "d0088c5b64ed4b7dfdb7cb70f5e1f46dd03b87bc88d98590ce45246457ec900a",
+    "lib/core/ui/components/new_design/question_grid_sheet.dart": "cd1e0f9816f49dac7c7b5a63aefa665700f8938dde31620b4016e3fe20e5d617",
+    "test/features/quiz/presentation/quiz_question_screen_test.dart": "d6c207252af157d792389903eb60f43df8232adf1acf87eb57159502a8ac1108"
+  }
+}

@@ -29,23 +29,19 @@ final legalDocumentFallbacks = <String, LegalDocument>{
     updatedAt: DateTime.utc(2026, 5, 23),
     sections: const [
       LegalSection(
-        heading: 'Your data',
-        body: 'Pantas keeps your study progress, quiz attempts, mock '
-            'exam results, preferences, and account details so the app can '
-            'save your work across devices. Regenerable content stays in '
-            'content.db and is not synced as user data.',
+        heading: 'What we collect',
+        body: 'Your answers, your plan and your settings, so Pantas can '
+            'plan your reviews. With your permission, anonymous data '
+            'about how the app is used.',
       ),
       LegalSection(
-        heading: 'Your RA 10173 rights',
-        body: 'Under RA 10173, you may request access, correction, export, '
-            'or deletion of your personal data. Send export or correction '
-            'requests to our Data Protection Officer. To delete your account '
-            'inside the app, open /settings/account.',
+        heading: 'What we never do',
+        body: "We don't sell your data. We don't show ads.",
       ),
       LegalSection(
-        heading: 'Notifications',
-        body: 'The app uses local reminders on your device. Version 1 does '
-            'not store FCM tokens or send server push notifications.',
+        heading: 'Your rights',
+        body: 'You can see, correct or delete your data at any time. '
+            'Contact our data protection officer from About.',
       ),
     ],
   ),

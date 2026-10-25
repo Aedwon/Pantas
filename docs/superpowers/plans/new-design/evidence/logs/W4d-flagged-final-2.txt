@@ -1,0 +1,7 @@
+Computing fixes in review_providers.dart...
+Applying fixes...
+
+review_providers.dart
+  require_trailing_commas - 1 fix
+
+1 fix made in 1 file.

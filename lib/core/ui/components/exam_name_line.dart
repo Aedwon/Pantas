@@ -22,7 +22,7 @@ class ExamNameLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: spaceBelow),
-      child: Text(shortName, style: context.textStyles.displaySmall),
+      child: Text(shortName, style: context.type.sectionHero),
     );
   }
 }

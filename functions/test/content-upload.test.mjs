@@ -64,11 +64,11 @@ test('planWrites skips equal versions and reports creates and updates', () => {
 
 test('upload tool dry run reads the sources, writes nothing and refuses a live target without --live', () => {
   const root = mkdtempSync(join(tmpdir(), 'content-'));
-  mkdirSync(join(root, 'lessons/s'), {recursive: true});
+  mkdirSync(join(root, 'lessons/s/t'), {recursive: true});
   mkdirSync(join(root, 'questions/s/t'), {recursive: true});
   mkdirSync(join(root, 'mock'), {recursive: true});
   writeFileSync(join(root, 'mock/e.yaml'), 'exam: exam_cse_pro\nname: P\ndurationMinutes: 60\nsections:\n  - id: s1\n    name: One\n    questionCount: 2\n    suggestedMinutes: 60\n    topicIds: [topic_cse_pro_t]\n    topicWeights: {topic_cse_pro_t: 1}\n');
-  writeFileSync(join(root, 'lessons/s/a.md'), '---\n_id: "lesson-a"\ntitle: "A"\n---\n## Hi\n');
+  writeFileSync(join(root, 'lessons/s/t/a.md'), '---\n_id: "lesson-a"\ntitle: "A"\n---\n## Hi\n');
   writeFileSync(join(root, 'questions/s/t/u.yaml'),
     'meta:\n  subject: s\n  topic: t\n  subtopic: u\n  exams: [cse-pro]\nquestions:\n  - id: q1\n    stem: x\n    choices:\n      - text: a\n        correct: true\n      - text: b\n        rationale: no\n');
   const tool = new URL('../../tools/upload_content/upload_content.mjs', import.meta.url).pathname;

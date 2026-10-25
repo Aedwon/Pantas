@@ -1,47 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
 void main() {
-  test('new dimension tokens', () {
-    expect(AppDimensions.radiusButton, 14);
-    expect(AppDimensions.radiusSurface, 18);
-    expect(AppDimensions.hairline, 0.5);
-    expect(AppDimensions.progressHeight, 3.0);
-  });
-
   test('themes use paper/ink scaffold backgrounds', () {
     expect(
       buildLightTheme().scaffoldBackgroundColor,
-      AppColors.light.background,
+      PantasColors.light.background,
     );
-    expect(buildDarkTheme().scaffoldBackgroundColor, AppColors.dark.background);
+    expect(
+      buildDarkTheme().scaffoldBackgroundColor,
+      PantasColors.dark.background,
+    );
   });
 
   test('light scheme overrides Material-seeded colors with identity tokens',
       () {
     final scheme = buildLightTheme().colorScheme;
-    const c = AppColors.light;
-    expect(scheme.primary, c.board);
-    expect(scheme.onPrimary, c.onBoard);
+    const c = PantasColors.light;
+    expect(scheme.primary, c.accent);
+    expect(scheme.onPrimary, c.surface);
     expect(scheme.surface, c.surface);
-    expect(scheme.onSurface, c.ink);
-    expect(scheme.error, c.rust);
-    expect(scheme.outline, c.rule);
+    expect(scheme.onSurface, c.label);
+    expect(scheme.error, c.destructive);
+    expect(scheme.outline, c.separator);
     expect(scheme.surfaceTint, Colors.transparent);
   });
 
   test('dark scheme overrides Material-seeded colors with identity tokens', () {
     final scheme = buildDarkTheme().colorScheme;
-    const c = AppColors.dark;
-    expect(scheme.primary, c.board);
-    expect(scheme.onPrimary, c.onBoard);
+    const c = PantasColors.dark;
+    expect(scheme.primary, c.accent);
+    expect(scheme.onPrimary, c.surface);
     expect(scheme.surface, c.surface);
-    expect(scheme.onSurface, c.ink);
-    expect(scheme.error, c.rust);
-    expect(scheme.outline, c.rule);
+    expect(scheme.onSurface, c.label);
+    expect(scheme.error, c.destructive);
+    expect(scheme.outline, c.separator);
     expect(scheme.surfaceTint, Colors.transparent);
   });
 
@@ -54,25 +49,25 @@ void main() {
 
   test('app bar is flat paper with ink title', () {
     final theme = buildLightTheme();
-    const c = AppColors.light;
+    const c = PantasColors.light;
     final appBar = theme.appBarTheme;
     expect(appBar.backgroundColor, c.background);
     expect(appBar.surfaceTintColor, Colors.transparent);
     expect(appBar.elevation, 0);
     expect(appBar.scrolledUnderElevation, 0);
     expect(appBar.centerTitle, false);
-    expect(appBar.titleTextStyle?.color, c.ink);
+    expect(appBar.titleTextStyle?.color, c.label);
   });
 
   test('dividers use the separator width', () {
     final divider = buildLightTheme().dividerTheme;
-    expect(divider.color, AppColors.light.rule);
+    expect(divider.color, PantasColors.light.separator);
     expect(divider.thickness, 0.5);
   });
 
   test('dialogs and sheets are flat identity surfaces', () {
     final theme = buildDarkTheme();
-    const c = AppColors.dark;
+    const c = PantasColors.dark;
     expect(theme.dialogTheme.backgroundColor, c.surface);
     expect(
       theme.dialogTheme.shape,

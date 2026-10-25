@@ -1,0 +1,109 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: Free viewer navigates the original paper without a notes gate
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:01 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart: ready action fades from disabled paint after the drawn delay
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <4286362796>
+  Actual: <4286362540>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart:184:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart line 184
+The test description was:
+  ready action fades from disabled paint after the drawn delay
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +9 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:01 +9 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart: ready action fades from disabled paint after the drawn delay [E]
+  Test failed. See exception logs above.
+  The test description was: ready action fades from disabled paint after the drawn delay
+
+00:01 +10 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:01 +11 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+boundary-test viewer ready: account
+00:01 +12 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:01 +13 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+boundary-test save tapped: account
+boundary-test tail entered: account
+boundary-test tail exits: account
+boundary-test save settled: account
+boundary-test repository settled: account
+boundary-test read stored row: account
+boundary-test read sync revision: account
+boundary-test metadata assertion done: account
+boundary-test unmounted viewer: account
+boundary-test disposed providers: account
+boundary-test closed student DB: account
+boundary-test closed content DB: account
+00:01 +14 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: saved note icon follows delayed pop track
+00:01 +15 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer exam transition rolls back pending note and recorder tail
+boundary-test viewer ready: exam
+boundary-test save tapped: exam
+boundary-test tail entered: exam
+boundary-test tail exits: exam
+boundary-test save settled: exam
+boundary-test repository settled: exam
+boundary-test actual coverage settled: exam
+boundary-test read stored row: exam
+boundary-test read sync revision: exam
+boundary-test metadata assertion done: exam
+boundary-test unmounted viewer: exam
+boundary-test disposed providers: exam
+boundary-test closed student DB: exam
+boundary-test closed content DB: exam
+00:01 +16 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_viewer_test.dart: canceling a draft never seeds the next editor
+00:01 +16 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer Pro transition rolls back pending note and recorder tail
+boundary-test viewer ready: Pro
+00:01 +17 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer Pro transition rolls back pending note and recorder tail
+boundary-test save tapped: Pro
+boundary-test tail entered: Pro
+boundary-test entitlement arrived: AsyncData<Entitlement>(value: Instance of 'Entitlement') / AsyncLoading<bool>(value: true)
+boundary-test tail exits: Pro
+boundary-test save settled: Pro
+boundary-test repository settled: Pro
+boundary-test actual coverage settled: Pro
+boundary-test read stored row: Pro
+boundary-test read sync revision: Pro
+boundary-test metadata assertion done: Pro
+boundary-test unmounted viewer: Pro
+boundary-test disposed providers: Pro
+boundary-test closed student DB: Pro
+boundary-test closed content DB: Pro
+00:01 +18 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer pending auth transition rolls back pending note and recorder tail
+boundary-test viewer ready: pending auth
+boundary-test save tapped: pending auth
+boundary-test tail entered: pending auth
+boundary-test tail exits: pending auth
+boundary-test save settled: pending auth
+boundary-test repository settled: pending auth
+boundary-test read stored row: pending auth
+boundary-test read sync revision: pending auth
+boundary-test metadata assertion done: pending auth
+boundary-test unmounted viewer: pending auth
+boundary-test disposed providers: pending auth
+boundary-test closed student DB: pending auth
+boundary-test closed content DB: pending auth
+00:01 +19 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual anonymous wipe during hydration cannot publish or rebind retry
+00:01 +20 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: viewer rejects a different stored core owner
+00:01 +21 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: a fresh account viewer cannot reuse another view cache
+00:01 +22 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart: ready action fades from disabled paint after the drawn delay

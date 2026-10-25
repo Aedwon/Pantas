@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/ui/components/answer_reveal.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -311,8 +311,8 @@ void main() {
     await tester.tap(find.text('Q4 Miss'));
     await tester.pumpAndSettle();
 
-    expect(find.text('the answer'), findsOneWidget);
-    expect(find.text('what you picked'), findsNothing);
+    expect(find.text('correct answer'), findsOneWidget);
+    expect(find.text('your pick'), findsNothing);
     expect(find.textContaining('Pro'), findsNothing);
   });
 
@@ -329,7 +329,7 @@ void main() {
     await tester.tap(find.text('Q4 Miss'));
     await tester.pumpAndSettle();
 
-    expect(find.text('what you picked'), findsOneWidget);
+    expect(find.text('your pick'), findsOneWidget);
   });
 
   testWidgets('the pennant is tappable and reports the question',
@@ -345,7 +345,7 @@ void main() {
       ),
     );
 
-    await tester.tap(find.byType(PennantMark).first);
+    await tester.tap(find.byIcon(PantasIcons.flag).first);
     await tester.pumpAndSettle();
     expect(toggled, equals(['q_1']));
   });

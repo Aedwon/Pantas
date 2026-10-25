@@ -13,10 +13,27 @@ class StateView extends StatelessWidget {
     this.actionLabel = 'Try Again',
     this.primaryAction = false,
     this.boardLayout = false,
+    this.bookmarkLayout = false,
     super.key,
-  }) : fullScreen = false;
+  })  : fullScreen = false,
+        onboardingBlocked = false;
+  const StateView.onboardingBlocked({
+    required this.message,
+    required this.detail,
+    required this.icon,
+    super.key,
+  })  : bookmarkLayout = false,
+        fullScreen = false,
+        onboardingBlocked = true,
+        onRetry = null,
+        error = null,
+        actionLabel = 'Try Again',
+        primaryAction = false,
+        boardLayout = false;
   const StateView.fullScreen({required this.onRetry, this.error, super.key})
-      : message = 'Something went wrong.',
+      : bookmarkLayout = false,
+        onboardingBlocked = false,
+        message = 'Something went wrong.',
         fullScreen = true,
         icon = null,
         detail = null,
@@ -30,6 +47,8 @@ class StateView extends StatelessWidget {
   final Object? error;
   final Widget? icon;
   final bool fullScreen;
+  final bool onboardingBlocked;
+  final bool bookmarkLayout;
   final String? detail;
   final String actionLabel;
   final bool primaryAction;
@@ -37,27 +56,39 @@ class StateView extends StatelessWidget {
   Widget build(BuildContext context) {
     final primary = !fullScreen && primaryAction;
     final compact = primary || boardLayout;
-    final gap = compact ? 6.0 : 14.0;
+    final gap = onboardingBlocked
+        ? 12.0
+        : bookmarkLayout
+            ? 8.0
+            : compact
+                ? 6.0
+                : 14.0;
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
         data: IconThemeData(
-          size: fullScreen
-              ? 36
-              : compact
-                  ? 40
-                  : 60,
+          size: bookmarkLayout
+              ? 34
+              : fullScreen
+                  ? 36
+                  : compact
+                      ? 40
+                      : 60,
           color: fullScreen
               ? context.colors.secondaryLabel
               : context.colors.chevron,
         ),
         child: SizedBox.square(
           key: const ValueKey('state-mark'),
-          dimension: fullScreen
-              ? 36
-              : compact
-                  ? 40
-                  : 60,
+          dimension: onboardingBlocked
+              ? 72
+              : bookmarkLayout
+                  ? 34
+                  : fullScreen
+                      ? 36
+                      : compact
+                          ? 40
+                          : 60,
           child: icon ??
               (fullScreen
                   ? Icon(PantasIcons.appError)
@@ -87,9 +118,21 @@ class StateView extends StatelessWidget {
           message,
           textAlign: TextAlign.center,
           style: context.type.sectionHero.copyWith(
-            fontSize: fullScreen ? 24 : 20,
+            fontSize: onboardingBlocked
+                ? 26
+                : bookmarkLayout
+                    ? 18
+                    : fullScreen
+                        ? 24
+                        : 20,
             height: fullScreen ? 1.25 : 1.35,
-            letterSpacing: fullScreen ? -.288 : -.2,
+            letterSpacing: onboardingBlocked
+                ? -.312
+                : bookmarkLayout
+                    ? -.216
+                    : fullScreen
+                        ? -.288
+                        : -.2,
           ),
         ),
         if (fullScreen) ...[
@@ -111,7 +154,9 @@ class StateView extends StatelessWidget {
               textAlign: TextAlign.center,
               style: context.type.subhead.copyWith(
                 color: context.colors.secondaryLabel,
-                height: 1.45,
+                fontSize: onboardingBlocked ? 17 : 15,
+                letterSpacing: onboardingBlocked ? -.204 : 0,
+                height: onboardingBlocked || bookmarkLayout ? 1.35 : 1.45,
               ),
             ),
           ],
@@ -143,6 +188,7 @@ class StateView extends StatelessWidget {
         ],
       ],
     );
+    if (onboardingBlocked) return Semantics(liveRegion: true, child: content);
     if (compact) {
       return Semantics(
         liveRegion: true,
@@ -160,6 +206,15 @@ class StateView extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      );
+    }
+    if (bookmarkLayout) {
+      return Semantics(
+        liveRegion: true,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(36, 70, 36, 0),
+          child: content,
         ),
       );
     }

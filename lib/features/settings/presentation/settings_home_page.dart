@@ -1,219 +1,137 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
-import 'package:pantas/core/notifications/notification_service.dart';
-import 'package:pantas/core/sync/providers.dart';
-import 'package:pantas/core/ui/components/exam_date_sheet.dart';
-import 'package:pantas/core/ui/components/page_scaffold.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
-import 'package:pantas/core/ui/components/settings_group.dart';
-import 'package:pantas/core/ui/components/settings_switch.dart';
-import 'package:pantas/core/ui/components/settings_value_row.dart';
-import 'package:pantas/core/ui/components/theme_control.dart';
-import 'package:pantas/features/settings/presentation/settings_value_formats.dart';
-import 'package:pantas/features/settings/presentation/sheets/name_sheet.dart';
-import 'package:pantas/features/settings/presentation/sheets/ordering_sheet.dart';
-import 'package:pantas/features/settings/presentation/sheets/reminder_sheet.dart';
+import 'package:pantas/core/ui/components/avatar.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/settings.dart';
 
-/// Settings, reached by the gear in Home's masthead. There is no Settings tab.
-///
-/// Twelve rows in five groups, all on one scroll. Sub-pages exist only where a
-/// surface has states or a list too long for a row. The four-door version and
-/// the identity-plate version were both drawn and rejected.
-class SettingsHomePage extends ConsumerStatefulWidget {
+final settingsSessionLengthProvider = FutureProvider<int>((ref) async {
+  return (await ref.watch(quizPreferencesRepositoryProvider).read())
+      .sessionLength;
+});
+
+class SettingsHomePage extends ConsumerWidget {
   const SettingsHomePage({super.key});
 
   @override
-  ConsumerState<SettingsHomePage> createState() => _SettingsHomePageState();
-}
-
-class _SettingsHomePageState extends ConsumerState<SettingsHomePage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
+    final user = ref.watch(currentUserProvider).valueOrNull;
+    final anonymous = ref.watch(isAnonymousProvider).valueOrNull ?? true;
     final theme = ref.watch(themePreferenceProvider).valueOrNull ??
         ThemePreference.system;
-    final currentUser = ref.watch(currentUserProvider).valueOrNull;
-    final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
-    final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
-    final notificationsDenied =
-        ref.watch(notificationPermissionStatusProvider).valueOrNull ==
-            NotificationPermission.denied;
-    final actions = ref.read(settingsActionsProvider);
+    final length = ref.watch(settingsSessionLengthProvider).valueOrNull ?? 10;
+    void push(String path) {
+      final router = GoRouter.maybeOf(context);
+      if (router != null) unawaited(router.push<void>(path));
+    }
 
-    return PageScaffold(
-      body: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const SettingsBar(title: 'Settings', backLabel: 'Home'),
-          SettingsGroup(
-            title: 'You',
-            isFirst: true,
-            children: [
-              SettingsValueRow(
-                title: 'Name',
-                value: SettingsValueFormats.name(settings.name),
-                onTap: () async {
-                  final next = await showNameSheet(
-                    context: context,
-                    current: settings.name,
-                  );
-                  if (!context.mounted) return;
-                  if (next != null) await actions.setName(next);
-                },
+    return PantasPage(
+      title: 'Settings',
+      bottomInset: 104,
+      children: [
+        GroupedSection(
+          children: [
+            ListRow(
+              title: settings.name?.trim().isNotEmpty ?? false
+                  ? settings.name!
+                  : 'Add your name',
+              subtitle:
+                  anonymous || user == null ? 'Not signed in' : user.email,
+              leading: Avatar(
+                name: settings.name ?? '',
+                photo: user?.photoUrl == null
+                    ? null
+                    : NetworkImage(user!.photoUrl!),
               ),
-              SettingsValueRow(
-                title: 'Exam',
-                value: ref.watch(activeExamShortNameProvider),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/exam'),
+              titleWidget: Text(
+                settings.name?.trim().isNotEmpty ?? false
+                    ? settings.name!
+                    : 'Add your name',
+                style: context.type.emphasized.copyWith(fontSize: 22),
               ),
-              SettingsValueRow(
-                title: 'Exam date',
-                value: SettingsValueFormats.examDate(settings.examDate),
-                onTap: () async {
-                  final result = await showExamDateSheet(
-                    context: context,
-                    current: settings.examDate,
-                    today: DateTime.now(),
-                  );
-                  if (!context.mounted) return;
-                  switch (result) {
-                    case ExamDateChosen(:final date):
-                      await actions.saveExamDate(date, today: DateTime.now());
-                    case ExamDateCleared():
-                      await actions.clearExamDate();
-                    case null:
-                      break;
-                  }
-                },
+              verticalPadding: 14,
+              onTap: () => push('/settings/account'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        GroupedSection(
+          children: [
+            ListRow(
+              title: 'Pantas Pro',
+              value: ref.watch(proRowValueProvider),
+              icon: PantasIcons.proSettings,
+              iconColor: const Color(0xFFD9A400),
+              onTap: () => push('/settings/pro'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        GroupedSection(
+          children: [
+            ListRow(
+              title: 'Your exam',
+              value: ref.watch(activeExamShortNameProvider),
+              icon: PantasIcons.exam,
+              divider: true,
+              onTap: () => push('/settings/exam'),
+            ),
+            ListRow(
+              title: 'Practice',
+              value: length < 0 ? 'All questions' : '$length questions',
+              icon: PantasIcons.practice,
+              iconColor: const Color(0xFF2F6FEB),
+              divider: true,
+              onTap: () => push('/settings/practice'),
+            ),
+            if (!kIsWeb)
+              ListRow(
+                title: 'Reminders',
+                value: settings.dailyReminderTime == null
+                    ? 'Off'
+                    : TimeOfDay(
+                        hour: settings.dailyReminderTime!.hour,
+                        minute: settings.dailyReminderTime!.minute,
+                      ).format(context),
+                icon: PantasIcons.reminders,
+                iconColor: const Color(0xFFE8590C),
+                divider: true,
+                onTap: () => push('/settings/reminders'),
               ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'How you practice',
-            children: [
-              SettingsValueRow(
-                title: 'How sessions are built',
-                value: settings.sessionOrdering.label,
-                showChevron: true,
-                onTap: () async {
-                  final next = await showOrderingSheet(
-                    context: context,
-                    current: settings.sessionOrdering,
-                  );
-                  if (!context.mounted) return;
-                  if (next != null) await actions.setSessionOrdering(next);
-                },
-              ),
-              SettingsValueRow(
-                title: 'Strict mock mode',
-                control: SettingsSwitch(value: settings.strictMockMode),
-                onTap: () => unawaited(
-                  actions.setStrictMockMode(enabled: !settings.strictMockMode),
-                ),
-              ),
-              SettingsValueRow(
-                title: 'Daily reminder',
-                value: notificationsDenied
-                    ? 'Notifications are off'
-                    : settings.dailyReminderTime?.storageValue ?? 'Off',
-                onTap: notificationsDenied
-                    ? () => unawaited(
-                          ref
-                              .read(notificationServiceProvider)
-                              .openAppNotificationSettings(),
-                        )
-                    : () async {
-                        final next = await showReminderSheet(
-                          context: context,
-                          current: settings.dailyReminderTime,
-                        );
-                        if (!context.mounted) return;
-                        if (next != null) await actions.saveReminderTime(next);
-                      },
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'What you see',
-            children: [
-              SettingsValueRow(
-                title: 'Remember table order',
-                control: SettingsSwitch(value: settings.retainTableOrder),
-                onTap: () => unawaited(
-                  actions.setRetainTableOrder(
-                    enabled: !settings.retainTableOrder,
-                  ),
-                ),
-              ),
-              SettingsValueRow(
-                title: 'Theme',
-                control: ThemeControl(
-                  value: theme,
-                  onChanged: (next) => unawaited(
-                    ref
-                        .read(themePreferenceControllerProvider.notifier)
-                        .setThemePreference(next),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'Your account',
-            children: [
-              SettingsValueRow(
-                title: 'Pro',
-                value: ref.watch(proRowValueProvider),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/pro'),
-              ),
-              SettingsValueRow(
-                title: 'Account',
-                value: SettingsValueFormats.account(
-                  user: currentUser,
-                  isAnonymous: isAnonymous,
-                ),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/account'),
-              ),
-              SettingsValueRow(
-                title: 'Backup',
-                value: SettingsValueFormats.backup(
-                  isAnonymous: isAnonymous,
-                  status: syncStatus,
-                ),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/backup'),
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'About',
-            children: [
-              SettingsValueRow(
-                title: 'Version, privacy, feedback',
-                showChevron: true,
-                onTap: () => _push(context, '/settings/about'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-        ],
-      ),
+            ListRow(
+              title: 'Appearance',
+              value: switch (theme) {
+                ThemePreference.light => 'Light',
+                ThemePreference.dark => 'Dark',
+                ThemePreference.system => 'Automatic'
+              },
+              leading: PantasIcons.appearance,
+              onTap: () => push('/settings/appearance'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        GroupedSection(
+          children: [
+            ListRow(
+              title: 'About',
+              leading: PantasIcons.about,
+              onTap: () => push('/settings/about'),
+            ),
+          ],
+        ),
+      ],
     );
-  }
-
-  /// Push, never go. Every destination sits outside the tab shell and relies
-  /// on a back arrow, which only appears when the stack can pop.
-  static void _push(BuildContext context, String location) {
-    final router = GoRouter.maybeOf(context);
-    if (router != null) unawaited(router.push<void>(location));
   }
 }

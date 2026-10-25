@@ -1,0 +1,387 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: pick then Check and reveal Brightness.dark scale=1.0
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue:
+    ║       0.9686, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 242.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#42995 relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#9b318(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Wrong answer")), RenderParagraph#1ccc1@Offset(144.0, 11.5), RenderFlex#c4100@Offset(186.0, 15.0), RenderPadding#6f2b4@Offset(200.0, 28.0), RenderDecoratedBox#10e8c@Offset(200.0, 28.0), RenderDecoratedBox#94139@Offset(200.0, 28.0), RenderPointerListener#f065f@Offset(200.0, 28.0), RenderSemanticsAnnotations#57249@Offset(200.0, 28.0), RenderMouseRegion#50efd@Offset(200.0, 28.0), RenderSemanticsAnnotations#59a82@Offset(200.0, 28.0), _RenderInkFeatures#70c91@Offset(200.0, 28.0), RenderPhysicalModel#0a5f2@Offset(200.0, 28.0), RenderOpacity#f5222@Offset(200.0, 28.0), RenderExcludeSemantics#9c527@Offset(200.0, 28.0), RenderSemanticsAnnotations#a9953@Offset(200.0, 28.0), RenderFlex#6b551@Offset(200.0, 168.0), RenderFlex#32765@Offset(200.0, 168.0), RenderIgnorePointer#3fd1c@Offset(200.0, 168.0), RenderExcludeSemantics#d9673@Offset(200.0, 168.0), RenderOpacity#53396@Offset(200.0, 168.0), RenderStack#d53eb@Offset(200.0, 168.0), RenderFlex#d6685@Offset(200.0, 168.0), RenderPadding#7c7ed@Offset(216.0, 188.0), _RenderSingleChildViewport#99827@Offset(216.0, 188.0), RenderIgnorePointer#aed00@Offset(216.0, 188.0), RenderSemanticsAnnotations#3eef2@Offset(216.0, 188.0), RenderPointerListener#a7892@Offset(216.0, 188.0), RenderSemanticsGestureHandler#37064@Offset(216.0, 188.0), RenderPointerListener#bce84@Offset(216.0, 188.0), _RenderScrollSemantics#a76c2@Offset(216.0, 188.0), RenderClipRect#3ceca@Offset(216.0, 188.0), RenderStack#7ae4b@Offset(216.0, 188.0), _RenderLayoutBuilder#0a9e0@Offset(216.0, 188.0), RenderFlex#7f949@Offset(216.0, 242.0), RenderPadding#ce2e4@Offset(216.0, 242.0), RenderCustomMultiChildLayoutBox#efd16@Offset(216.0, 242.0), _RenderInkFeatures#83358@Offset(216.0, 242.0), RenderPhysicalModel#beb75@Offset(216.0, 242.0), RenderExcludeSemantics#37302@Offset(216.0, 242.0), RenderStack#b1bf6@Offset(216.0, 242.0), _RenderLayoutBuilder#90af8@Offset(216.0, 242.0), RenderSemanticsAnnotations#43d23@Offset(216.0, 242.0), RenderRepaintBoundary#aeab0@Offset(216.0, 242.0), RenderIgnorePointer#bbcb5@Offset(216.0, 242.0), RenderAnimatedOpacity#c34fb@Offset(216.0, 242.0), RenderAnimatedOpacity#6c78a@Offset(216.0, 242.0), _RenderColoredBox#5fa5f@Offset(216.0, 242.0), RenderAnimatedOpacity#ad11c@Offset(216.0, 242.0), RenderIgnorePointer#45262@Offset(216.0, 242.0), RenderAnimatedOpacity#88863@Offset(216.0, 242.0), RenderRepaintBoundary#f9a9c@Offset(216.0, 242.0), RenderSemanticsAnnotations#fcea8@Offset(216.0, 242.0), RenderOffstage#4d2d9@Offset(216.0, 242.0), RenderSemanticsAnnotations#30b20@Offset(216.0, 242.0), _RenderTheater#5430b@Offset(216.0, 242.0), RenderAbsorbPointer#960ad@Offset(216.0, 242.0), RenderPointerListener#301a4@Offset(216.0, 242.0), RenderCustomPaint#5cb0a@Offset(216.0, 242.0), RenderSemanticsAnnotations#75a4e@Offset(216.0, 242.0), RenderSemanticsAnnotations#7ddf5@Offset(216.0, 242.0), RenderSemanticsAnnotations#5364a@Offset(216.0, 242.0), RenderTapRegionSurface#e3803@Offset(216.0, 242.0), RenderSemanticsAnnotations#be69e@Offset(216.0, 242.0), RenderSemanticsAnnotations#624ba@Offset(216.0, 242.0), HitTestEntry<HitTestTarget>#d6316(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#6f7d1(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:96:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Right answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue:
+    ║       0.9686, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Right answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 176.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#efada relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#d82b4(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Right answer")), RenderParagraph#050f7@Offset(144.0, 11.5), RenderFlex#b3986@Offset(186.0, 15.0), RenderPadding#1774e@Offset(200.0, 28.0), RenderDecoratedBox#29c11@Offset(200.0, 28.0), RenderDecoratedBox#eeccd@Offset(200.0, 28.0), RenderPointerListener#3dc72@Offset(200.0, 28.0), RenderSemanticsAnnotations#2b73a@Offset(200.0, 28.0), RenderMouseRegion#4eb47@Offset(200.0, 28.0), RenderSemanticsAnnotations#a7e2b@Offset(200.0, 28.0), _RenderInkFeatures#13528@Offset(200.0, 28.0), RenderPhysicalModel#664dd@Offset(200.0, 28.0), RenderOpacity#e2b1b@Offset(200.0, 28.0), RenderExcludeSemantics#683fe@Offset(200.0, 28.0), RenderSemanticsAnnotations#ad71f@Offset(200.0, 28.0), RenderFlex#6b551@Offset(200.0, 102.0), RenderFlex#32765@Offset(200.0, 102.0), RenderIgnorePointer#3fd1c@Offset(200.0, 102.0), RenderExcludeSemantics#d9673@Offset(200.0, 102.0), RenderOpacity#53396@Offset(200.0, 102.0), RenderStack#d53eb@Offset(200.0, 102.0), RenderFlex#d6685@Offset(200.0, 102.0), RenderPadding#7c7ed@Offset(216.0, 122.0), _RenderSingleChildViewport#99827@Offset(216.0, 122.0), RenderIgnorePointer#aed00@Offset(216.0, 122.0), RenderSemanticsAnnotations#3eef2@Offset(216.0, 122.0), RenderPointerListener#a7892@Offset(216.0, 122.0), RenderSemanticsGestureHandler#37064@Offset(216.0, 122.0), RenderPointerListener#bce84@Offset(216.0, 122.0), _RenderScrollSemantics#a76c2@Offset(216.0, 122.0), RenderClipRect#3ceca@Offset(216.0, 122.0), RenderStack#7ae4b@Offset(216.0, 122.0), _RenderLayoutBuilder#0a9e0@Offset(216.0, 122.0), RenderFlex#7f949@Offset(216.0, 176.0), RenderPadding#ce2e4@Offset(216.0, 176.0), RenderCustomMultiChildLayoutBox#efd16@Offset(216.0, 176.0), _RenderInkFeatures#83358@Offset(216.0, 176.0), RenderPhysicalModel#beb75@Offset(216.0, 176.0), RenderExcludeSemantics#37302@Offset(216.0, 176.0), RenderStack#b1bf6@Offset(216.0, 176.0), _RenderLayoutBuilder#90af8@Offset(216.0, 176.0), RenderSemanticsAnnotations#43d23@Offset(216.0, 176.0), RenderRepaintBoundary#aeab0@Offset(216.0, 176.0), RenderIgnorePointer#bbcb5@Offset(216.0, 176.0), RenderAnimatedOpacity#c34fb@Offset(216.0, 176.0), RenderAnimatedOpacity#6c78a@Offset(216.0, 176.0), _RenderColoredBox#5fa5f@Offset(216.0, 176.0), RenderAnimatedOpacity#ad11c@Offset(216.0, 176.0), RenderIgnorePointer#45262@Offset(216.0, 176.0), RenderAnimatedOpacity#88863@Offset(216.0, 176.0), RenderRepaintBoundary#f9a9c@Offset(216.0, 176.0), RenderSemanticsAnnotations#fcea8@Offset(216.0, 176.0), RenderOffstage#4d2d9@Offset(216.0, 176.0), RenderSemanticsAnnotations#30b20@Offset(216.0, 176.0), _RenderTheater#5430b@Offset(216.0, 176.0), RenderAbsorbPointer#960ad@Offset(216.0, 176.0), RenderPointerListener#301a4@Offset(216.0, 176.0), RenderCustomPaint#5cb0a@Offset(216.0, 176.0), RenderSemanticsAnnotations#75a4e@Offset(216.0, 176.0), RenderSemanticsAnnotations#7ddf5@Offset(216.0, 176.0), RenderSemanticsAnnotations#5364a@Offset(216.0, 176.0), RenderTapRegionSurface#e3803@Offset(216.0, 176.0), RenderSemanticsAnnotations#be69e@Offset(216.0, 176.0), RenderSemanticsAnnotations#624ba@Offset(216.0, 176.0), HitTestEntry<HitTestTarget>#dc9ab(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#78021(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:99:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:00 +1: pick then Check and reveal Brightness.dark scale=2.0
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue:
+    ║       0.9686, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(223.3, 438.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#f6a1e relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(RenderParagraph#94a44@Offset(136.8, 46.0), RenderFlex#29d27@Offset(193.3, 46.0), RenderPadding#7889e@Offset(207.3, 59.0), RenderDecoratedBox#f57bf@Offset(207.3, 59.0), RenderDecoratedBox#db519@Offset(207.3, 59.0), RenderPointerListener#88b57@Offset(207.3, 59.0), RenderSemanticsAnnotations#6fe08@Offset(207.3, 59.0), RenderMouseRegion#c1b5f@Offset(207.3, 59.0), RenderSemanticsAnnotations#a5456@Offset(207.3, 59.0), _RenderInkFeatures#44c97@Offset(207.3, 59.0), RenderPhysicalModel#5ea6c@Offset(207.3, 59.0), RenderOpacity#47c92@Offset(207.3, 59.0), RenderExcludeSemantics#13033@Offset(207.3, 59.0), RenderSemanticsAnnotations#9ef47@Offset(207.3, 59.0), RenderFlex#54c47@Offset(207.3, 364.0), RenderFlex#352c0@Offset(207.3, 364.0), RenderIgnorePointer#ab45b@Offset(207.3, 364.0), RenderExcludeSemantics#320b2@Offset(207.3, 364.0), RenderOpacity#ce3c2@Offset(207.3, 364.0), RenderStack#faaa1@Offset(207.3, 364.0), RenderFlex#13273@Offset(207.3, 364.0), RenderPadding#746e5@Offset(223.3, 384.0), _RenderSingleChildViewport#9a5a9@Offset(223.3, 384.0), RenderIgnorePointer#6b335@Offset(223.3, 384.0), RenderSemanticsAnnotations#9aec1@Offset(223.3, 384.0), RenderPointerListener#14661@Offset(223.3, 384.0), RenderSemanticsGestureHandler#2f2bc@Offset(223.3, 384.0), RenderPointerListener#b3f64@Offset(223.3, 384.0), _RenderScrollSemantics#a2320@Offset(223.3, 384.0), RenderClipRect#1c420@Offset(223.3, 384.0), RenderStack#1f007@Offset(223.3, 384.0), _RenderLayoutBuilder#cbc16@Offset(223.3, 384.0), RenderFlex#d6dbf@Offset(223.3, 438.0), RenderPadding#65763@Offset(223.3, 438.0), RenderCustomMultiChildLayoutBox#c5afc@Offset(223.3, 438.0), _RenderInkFeatures#69177@Offset(223.3, 438.0), RenderPhysicalModel#6e904@Offset(223.3, 438.0), RenderExcludeSemantics#14574@Offset(223.3, 438.0), RenderStack#287ef@Offset(223.3, 438.0), _RenderLayoutBuilder#2210a@Offset(223.3, 438.0), RenderSemanticsAnnotations#a8f37@Offset(223.3, 438.0), RenderRepaintBoundary#14422@Offset(223.3, 438.0), RenderIgnorePointer#a1d50@Offset(223.3, 438.0), RenderAnimatedOpacity#82dcf@Offset(223.3, 438.0), RenderAnimatedOpacity#49a2a@Offset(223.3, 438.0), _RenderColoredBox#5dcb1@Offset(223.3, 438.0), RenderAnimatedOpacity#72872@Offset(223.3, 438.0), RenderIgnorePointer#5334a@Offset(223.3, 438.0), RenderAnimatedOpacity#70ebe@Offset(223.3, 438.0), RenderRepaintBoundary#79c6f@Offset(223.3, 438.0), RenderSemanticsAnnotations#1dca9@Offset(223.3, 438.0), RenderOffstage#fd27b@Offset(223.3, 438.0), RenderSemanticsAnnotations#3a9e5@Offset(223.3, 438.0), _RenderTheater#74f03@Offset(223.3, 438.0), RenderAbsorbPointer#c0c9d@Offset(223.3, 438.0), RenderPointerListener#ca7d2@Offset(223.3, 438.0), RenderCustomPaint#2023a@Offset(223.3, 438.0), RenderSemanticsAnnotations#39940@Offset(223.3, 438.0), RenderSemanticsAnnotations#04f2b@Offset(223.3, 438.0), RenderSemanticsAnnotations#8d1aa@Offset(223.3, 438.0), RenderTapRegionSurface#3e8cb@Offset(223.3, 438.0), RenderSemanticsAnnotations#35590@Offset(223.3, 438.0), RenderSemanticsAnnotations#32d6f@Offset(223.3, 438.0), HitTestEntry<HitTestTarget>#c84ae(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#4e716(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:96:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Right answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue:
+    ║       0.9686, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Right answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.9608, green: 0.9608, blue: 0.9686, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(223.3, 310.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#2cea6 relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(RenderParagraph#04f7f@Offset(136.8, 46.0), RenderFlex#4d081@Offset(193.3, 46.0), RenderPadding#f0b35@Offset(207.3, 59.0), RenderDecoratedBox#b8263@Offset(207.3, 59.0), RenderDecoratedBox#d59e9@Offset(207.3, 59.0), RenderPointerListener#f2503@Offset(207.3, 59.0), RenderSemanticsAnnotations#8a545@Offset(207.3, 59.0), RenderMouseRegion#5f744@Offset(207.3, 59.0), RenderSemanticsAnnotations#e19c2@Offset(207.3, 59.0), _RenderInkFeatures#806f3@Offset(207.3, 59.0), RenderPhysicalModel#c57e3@Offset(207.3, 59.0), RenderOpacity#6af27@Offset(207.3, 59.0), RenderExcludeSemantics#06d2a@Offset(207.3, 59.0), RenderSemanticsAnnotations#18932@Offset(207.3, 59.0), RenderFlex#54c47@Offset(207.3, 236.0), RenderFlex#352c0@Offset(207.3, 236.0), RenderIgnorePointer#ab45b@Offset(207.3, 236.0), RenderExcludeSemantics#320b2@Offset(207.3, 236.0), RenderOpacity#ce3c2@Offset(207.3, 236.0), RenderStack#faaa1@Offset(207.3, 236.0), RenderFlex#13273@Offset(207.3, 236.0), RenderPadding#746e5@Offset(223.3, 256.0), _RenderSingleChildViewport#9a5a9@Offset(223.3, 256.0), RenderIgnorePointer#6b335@Offset(223.3, 256.0), RenderSemanticsAnnotations#9aec1@Offset(223.3, 256.0), RenderPointerListener#14661@Offset(223.3, 256.0), RenderSemanticsGestureHandler#2f2bc@Offset(223.3, 256.0), RenderPointerListener#b3f64@Offset(223.3, 256.0), _RenderScrollSemantics#a2320@Offset(223.3, 256.0), RenderClipRect#1c420@Offset(223.3, 256.0), RenderStack#1f007@Offset(223.3, 256.0), _RenderLayoutBuilder#cbc16@Offset(223.3, 256.0), RenderFlex#d6dbf@Offset(223.3, 310.0), RenderPadding#65763@Offset(223.3, 310.0), RenderCustomMultiChildLayoutBox#c5afc@Offset(223.3, 310.0), _RenderInkFeatures#69177@Offset(223.3, 310.0), RenderPhysicalModel#6e904@Offset(223.3, 310.0), RenderExcludeSemantics#14574@Offset(223.3, 310.0), RenderStack#287ef@Offset(223.3, 310.0), _RenderLayoutBuilder#2210a@Offset(223.3, 310.0), RenderSemanticsAnnotations#a8f37@Offset(223.3, 310.0), RenderRepaintBoundary#14422@Offset(223.3, 310.0), RenderIgnorePointer#a1d50@Offset(223.3, 310.0), RenderAnimatedOpacity#82dcf@Offset(223.3, 310.0), RenderAnimatedOpacity#49a2a@Offset(223.3, 310.0), _RenderColoredBox#5dcb1@Offset(223.3, 310.0), RenderAnimatedOpacity#72872@Offset(223.3, 310.0), RenderIgnorePointer#5334a@Offset(223.3, 310.0), RenderAnimatedOpacity#70ebe@Offset(223.3, 310.0), RenderRepaintBoundary#79c6f@Offset(223.3, 310.0), RenderSemanticsAnnotations#1dca9@Offset(223.3, 310.0), RenderOffstage#fd27b@Offset(223.3, 310.0), RenderSemanticsAnnotations#3a9e5@Offset(223.3, 310.0), _RenderTheater#74f03@Offset(223.3, 310.0), RenderAbsorbPointer#c0c9d@Offset(223.3, 310.0), RenderPointerListener#ca7d2@Offset(223.3, 310.0), RenderCustomPaint#2023a@Offset(223.3, 310.0), RenderSemanticsAnnotations#39940@Offset(223.3, 310.0), RenderSemanticsAnnotations#04f2b@Offset(223.3, 310.0), RenderSemanticsAnnotations#8d1aa@Offset(223.3, 310.0), RenderTapRegionSurface#3e8cb@Offset(223.3, 310.0), RenderSemanticsAnnotations#35590@Offset(223.3, 310.0), RenderSemanticsAnnotations#32d6f@Offset(223.3, 310.0), HitTestEntry<HitTestTarget>#54471(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#82a10(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:99:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +2: pick then Check and reveal Brightness.light scale=1.0
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 242.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#130d5 relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#70de8(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Wrong answer")), RenderParagraph#cb01f@Offset(144.0, 11.5), RenderFlex#46610@Offset(186.0, 15.0), RenderPadding#66a41@Offset(200.0, 28.0), RenderDecoratedBox#bcdd0@Offset(200.0, 28.0), RenderDecoratedBox#a5b9c@Offset(200.0, 28.0), RenderPointerListener#d0d42@Offset(200.0, 28.0), RenderSemanticsAnnotations#3be52@Offset(200.0, 28.0), RenderMouseRegion#27ac3@Offset(200.0, 28.0), RenderSemanticsAnnotations#2a7f2@Offset(200.0, 28.0), _RenderInkFeatures#363ad@Offset(200.0, 28.0), RenderPhysicalModel#55c42@Offset(200.0, 28.0), RenderOpacity#b99d0@Offset(200.0, 28.0), RenderExcludeSemantics#1916e@Offset(200.0, 28.0), RenderSemanticsAnnotations#14131@Offset(200.0, 28.0), RenderFlex#51619@Offset(200.0, 168.0), RenderFlex#bd7bc@Offset(200.0, 168.0), RenderIgnorePointer#4beb1@Offset(200.0, 168.0), RenderExcludeSemantics#68801@Offset(200.0, 168.0), RenderOpacity#6014f@Offset(200.0, 168.0), RenderStack#1e7a5@Offset(200.0, 168.0), RenderFlex#fd846@Offset(200.0, 168.0), RenderPadding#b1b56@Offset(216.0, 188.0), _RenderSingleChildViewport#b49d6@Offset(216.0, 188.0), RenderIgnorePointer#9ef63@Offset(216.0, 188.0), RenderSemanticsAnnotations#05a64@Offset(216.0, 188.0), RenderPointerListener#b94c6@Offset(216.0, 188.0), RenderSemanticsGestureHandler#4c3d5@Offset(216.0, 188.0), RenderPointerListener#f2444@Offset(216.0, 188.0), _RenderScrollSemantics#9a15b@Offset(216.0, 188.0), RenderClipRect#822f8@Offset(216.0, 188.0), RenderStack#ad824@Offset(216.0, 188.0), _RenderLayoutBuilder#e9a92@Offset(216.0, 188.0), RenderFlex#eccc7@Offset(216.0, 242.0), RenderPadding#c3de6@Offset(216.0, 242.0), RenderCustomMultiChildLayoutBox#6abd2@Offset(216.0, 242.0), _RenderInkFeatures#e65ac@Offset(216.0, 242.0), RenderPhysicalModel#f34aa@Offset(216.0, 242.0), RenderExcludeSemantics#26b30@Offset(216.0, 242.0), RenderStack#45e68@Offset(216.0, 242.0), _RenderLayoutBuilder#f38a1@Offset(216.0, 242.0), RenderSemanticsAnnotations#c753e@Offset(216.0, 242.0), RenderRepaintBoundary#8e488@Offset(216.0, 242.0), RenderIgnorePointer#84d5e@Offset(216.0, 242.0), RenderAnimatedOpacity#24617@Offset(216.0, 242.0), RenderAnimatedOpacity#50335@Offset(216.0, 242.0), _RenderColoredBox#2ee0a@Offset(216.0, 242.0), RenderAnimatedOpacity#8cee2@Offset(216.0, 242.0), RenderIgnorePointer#a2014@Offset(216.0, 242.0), RenderAnimatedOpacity#a87d9@Offset(216.0, 242.0), RenderRepaintBoundary#e7a74@Offset(216.0, 242.0), RenderSemanticsAnnotations#661c1@Offset(216.0, 242.0), RenderOffstage#fadf2@Offset(216.0, 242.0), RenderSemanticsAnnotations#12588@Offset(216.0, 242.0), _RenderTheater#d80c8@Offset(216.0, 242.0), RenderAbsorbPointer#862e4@Offset(216.0, 242.0), RenderPointerListener#2f7d6@Offset(216.0, 242.0), RenderCustomPaint#6c58c@Offset(216.0, 242.0), RenderSemanticsAnnotations#c5c7b@Offset(216.0, 242.0), RenderSemanticsAnnotations#a3fc4@Offset(216.0, 242.0), RenderSemanticsAnnotations#0fbb0@Offset(216.0, 242.0), RenderTapRegionSurface#1940b@Offset(216.0, 242.0), RenderSemanticsAnnotations#0fafb@Offset(216.0, 242.0), RenderSemanticsAnnotations#84821@Offset(216.0, 242.0), HitTestEntry<HitTestTarget>#5efe2(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#b426e(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:96:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Right answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Right answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 176.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#3d59c relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#77d82(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Right answer")), RenderParagraph#8bd4d@Offset(144.0, 11.5), RenderFlex#bc29a@Offset(186.0, 15.0), RenderPadding#91d0e@Offset(200.0, 28.0), RenderDecoratedBox#7d563@Offset(200.0, 28.0), RenderDecoratedBox#dfaea@Offset(200.0, 28.0), RenderPointerListener#9b232@Offset(200.0, 28.0), RenderSemanticsAnnotations#ac53a@Offset(200.0, 28.0), RenderMouseRegion#91e28@Offset(200.0, 28.0), RenderSemanticsAnnotations#d715f@Offset(200.0, 28.0), _RenderInkFeatures#823ea@Offset(200.0, 28.0), RenderPhysicalModel#295ef@Offset(200.0, 28.0), RenderOpacity#f3ca7@Offset(200.0, 28.0), RenderExcludeSemantics#3de96@Offset(200.0, 28.0), RenderSemanticsAnnotations#3162e@Offset(200.0, 28.0), RenderFlex#51619@Offset(200.0, 102.0), RenderFlex#bd7bc@Offset(200.0, 102.0), RenderIgnorePointer#4beb1@Offset(200.0, 102.0), RenderExcludeSemantics#68801@Offset(200.0, 102.0), RenderOpacity#6014f@Offset(200.0, 102.0), RenderStack#1e7a5@Offset(200.0, 102.0), RenderFlex#fd846@Offset(200.0, 102.0), RenderPadding#b1b56@Offset(216.0, 122.0), _RenderSingleChildViewport#b49d6@Offset(216.0, 122.0), RenderIgnorePointer#9ef63@Offset(216.0, 122.0), RenderSemanticsAnnotations#05a64@Offset(216.0, 122.0), RenderPointerListener#b94c6@Offset(216.0, 122.0), RenderSemanticsGestureHandler#4c3d5@Offset(216.0, 122.0), RenderPointerListener#f2444@Offset(216.0, 122.0), _RenderScrollSemantics#9a15b@Offset(216.0, 122.0), RenderClipRect#822f8@Offset(216.0, 122.0), RenderStack#ad824@Offset(216.0, 122.0), _RenderLayoutBuilder#e9a92@Offset(216.0, 122.0), RenderFlex#eccc7@Offset(216.0, 176.0), RenderPadding#c3de6@Offset(216.0, 176.0), RenderCustomMultiChildLayoutBox#6abd2@Offset(216.0, 176.0), _RenderInkFeatures#e65ac@Offset(216.0, 176.0), RenderPhysicalModel#f34aa@Offset(216.0, 176.0), RenderExcludeSemantics#26b30@Offset(216.0, 176.0), RenderStack#45e68@Offset(216.0, 176.0), _RenderLayoutBuilder#f38a1@Offset(216.0, 176.0), RenderSemanticsAnnotations#c753e@Offset(216.0, 176.0), RenderRepaintBoundary#8e488@Offset(216.0, 176.0), RenderIgnorePointer#84d5e@Offset(216.0, 176.0), RenderAnimatedOpacity#24617@Offset(216.0, 176.0), RenderAnimatedOpacity#50335@Offset(216.0, 176.0), _RenderColoredBox#2ee0a@Offset(216.0, 176.0), RenderAnimatedOpacity#8cee2@Offset(216.0, 176.0), RenderIgnorePointer#a2014@Offset(216.0, 176.0), RenderAnimatedOpacity#a87d9@Offset(216.0, 176.0), RenderRepaintBoundary#e7a74@Offset(216.0, 176.0), RenderSemanticsAnnotations#661c1@Offset(216.0, 176.0), RenderOffstage#fadf2@Offset(216.0, 176.0), RenderSemanticsAnnotations#12588@Offset(216.0, 176.0), _RenderTheater#d80c8@Offset(216.0, 176.0), RenderAbsorbPointer#862e4@Offset(216.0, 176.0), RenderPointerListener#2f7d6@Offset(216.0, 176.0), RenderCustomPaint#6c58c@Offset(216.0, 176.0), RenderSemanticsAnnotations#c5c7b@Offset(216.0, 176.0), RenderSemanticsAnnotations#a3fc4@Offset(216.0, 176.0), RenderSemanticsAnnotations#0fbb0@Offset(216.0, 176.0), RenderTapRegionSurface#1940b@Offset(216.0, 176.0), RenderSemanticsAnnotations#0fafb@Offset(216.0, 176.0), RenderSemanticsAnnotations#84821@Offset(216.0, 176.0), HitTestEntry<HitTestTarget>#a4c60(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#826a9(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:99:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +3: pick then Check and reveal Brightness.light scale=2.0
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(223.3, 438.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#1bb43 relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(RenderParagraph#bfb20@Offset(136.8, 46.0), RenderFlex#2da40@Offset(193.3, 46.0), RenderPadding#27cd4@Offset(207.3, 59.0), RenderDecoratedBox#90c41@Offset(207.3, 59.0), RenderDecoratedBox#69cab@Offset(207.3, 59.0), RenderPointerListener#dfa86@Offset(207.3, 59.0), RenderSemanticsAnnotations#5cad2@Offset(207.3, 59.0), RenderMouseRegion#6aa38@Offset(207.3, 59.0), RenderSemanticsAnnotations#32dfb@Offset(207.3, 59.0), _RenderInkFeatures#bab1b@Offset(207.3, 59.0), RenderPhysicalModel#5d5f0@Offset(207.3, 59.0), RenderOpacity#e1664@Offset(207.3, 59.0), RenderExcludeSemantics#76474@Offset(207.3, 59.0), RenderSemanticsAnnotations#64ebf@Offset(207.3, 59.0), RenderFlex#6ee6c@Offset(207.3, 364.0), RenderFlex#9f2e5@Offset(207.3, 364.0), RenderIgnorePointer#f77a3@Offset(207.3, 364.0), RenderExcludeSemantics#66199@Offset(207.3, 364.0), RenderOpacity#198a2@Offset(207.3, 364.0), RenderStack#3b5fa@Offset(207.3, 364.0), RenderFlex#cc933@Offset(207.3, 364.0), RenderPadding#67224@Offset(223.3, 384.0), _RenderSingleChildViewport#1e8a8@Offset(223.3, 384.0), RenderIgnorePointer#6430d@Offset(223.3, 384.0), RenderSemanticsAnnotations#6775c@Offset(223.3, 384.0), RenderPointerListener#3d11a@Offset(223.3, 384.0), RenderSemanticsGestureHandler#27605@Offset(223.3, 384.0), RenderPointerListener#9f0f3@Offset(223.3, 384.0), _RenderScrollSemantics#b3018@Offset(223.3, 384.0), RenderClipRect#a4ce3@Offset(223.3, 384.0), RenderStack#bccf9@Offset(223.3, 384.0), _RenderLayoutBuilder#ac010@Offset(223.3, 384.0), RenderFlex#50ad5@Offset(223.3, 438.0), RenderPadding#fc175@Offset(223.3, 438.0), RenderCustomMultiChildLayoutBox#a6887@Offset(223.3, 438.0), _RenderInkFeatures#7d7cb@Offset(223.3, 438.0), RenderPhysicalModel#99811@Offset(223.3, 438.0), RenderExcludeSemantics#5a3ae@Offset(223.3, 438.0), RenderStack#f5d4f@Offset(223.3, 438.0), _RenderLayoutBuilder#4a133@Offset(223.3, 438.0), RenderSemanticsAnnotations#459fd@Offset(223.3, 438.0), RenderRepaintBoundary#bcbb7@Offset(223.3, 438.0), RenderIgnorePointer#d3738@Offset(223.3, 438.0), RenderAnimatedOpacity#2c3d9@Offset(223.3, 438.0), RenderAnimatedOpacity#44201@Offset(223.3, 438.0), _RenderColoredBox#e2a9e@Offset(223.3, 438.0), RenderAnimatedOpacity#f17f1@Offset(223.3, 438.0), RenderIgnorePointer#1395e@Offset(223.3, 438.0), RenderAnimatedOpacity#46954@Offset(223.3, 438.0), RenderRepaintBoundary#f20eb@Offset(223.3, 438.0), RenderSemanticsAnnotations#0d7d1@Offset(223.3, 438.0), RenderOffstage#89f42@Offset(223.3, 438.0), RenderSemanticsAnnotations#23a60@Offset(223.3, 438.0), _RenderTheater#e8ffb@Offset(223.3, 438.0), RenderAbsorbPointer#4c1d2@Offset(223.3, 438.0), RenderPointerListener#a7f2f@Offset(223.3, 438.0), RenderCustomPaint#f1ff5@Offset(223.3, 438.0), RenderSemanticsAnnotations#8698e@Offset(223.3, 438.0), RenderSemanticsAnnotations#a0e2e@Offset(223.3, 438.0), RenderSemanticsAnnotations#101c6@Offset(223.3, 438.0), RenderTapRegionSurface#59d9f@Offset(223.3, 438.0), RenderSemanticsAnnotations#f6dd1@Offset(223.3, 438.0), RenderSemanticsAnnotations#2c87d@Offset(223.3, 438.0), HitTestEntry<HitTestTarget>#b7c45(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#48f47(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:96:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Right answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Right answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(223.3, 310.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#6afdf relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(RenderParagraph#8b567@Offset(136.8, 46.0), RenderFlex#db006@Offset(193.3, 46.0), RenderPadding#13b1a@Offset(207.3, 59.0), RenderDecoratedBox#c39e1@Offset(207.3, 59.0), RenderDecoratedBox#6c76b@Offset(207.3, 59.0), RenderPointerListener#94fb3@Offset(207.3, 59.0), RenderSemanticsAnnotations#4d085@Offset(207.3, 59.0), RenderMouseRegion#43be5@Offset(207.3, 59.0), RenderSemanticsAnnotations#c32dd@Offset(207.3, 59.0), _RenderInkFeatures#8c12a@Offset(207.3, 59.0), RenderPhysicalModel#2636a@Offset(207.3, 59.0), RenderOpacity#4926f@Offset(207.3, 59.0), RenderExcludeSemantics#63fcc@Offset(207.3, 59.0), RenderSemanticsAnnotations#c8504@Offset(207.3, 59.0), RenderFlex#6ee6c@Offset(207.3, 236.0), RenderFlex#9f2e5@Offset(207.3, 236.0), RenderIgnorePointer#f77a3@Offset(207.3, 236.0), RenderExcludeSemantics#66199@Offset(207.3, 236.0), RenderOpacity#198a2@Offset(207.3, 236.0), RenderStack#3b5fa@Offset(207.3, 236.0), RenderFlex#cc933@Offset(207.3, 236.0), RenderPadding#67224@Offset(223.3, 256.0), _RenderSingleChildViewport#1e8a8@Offset(223.3, 256.0), RenderIgnorePointer#6430d@Offset(223.3, 256.0), RenderSemanticsAnnotations#6775c@Offset(223.3, 256.0), RenderPointerListener#3d11a@Offset(223.3, 256.0), RenderSemanticsGestureHandler#27605@Offset(223.3, 256.0), RenderPointerListener#9f0f3@Offset(223.3, 256.0), _RenderScrollSemantics#b3018@Offset(223.3, 256.0), RenderClipRect#a4ce3@Offset(223.3, 256.0), RenderStack#bccf9@Offset(223.3, 256.0), _RenderLayoutBuilder#ac010@Offset(223.3, 256.0), RenderFlex#50ad5@Offset(223.3, 310.0), RenderPadding#fc175@Offset(223.3, 310.0), RenderCustomMultiChildLayoutBox#a6887@Offset(223.3, 310.0), _RenderInkFeatures#7d7cb@Offset(223.3, 310.0), RenderPhysicalModel#99811@Offset(223.3, 310.0), RenderExcludeSemantics#5a3ae@Offset(223.3, 310.0), RenderStack#f5d4f@Offset(223.3, 310.0), _RenderLayoutBuilder#4a133@Offset(223.3, 310.0), RenderSemanticsAnnotations#459fd@Offset(223.3, 310.0), RenderRepaintBoundary#bcbb7@Offset(223.3, 310.0), RenderIgnorePointer#d3738@Offset(223.3, 310.0), RenderAnimatedOpacity#2c3d9@Offset(223.3, 310.0), RenderAnimatedOpacity#44201@Offset(223.3, 310.0), _RenderColoredBox#e2a9e@Offset(223.3, 310.0), RenderAnimatedOpacity#f17f1@Offset(223.3, 310.0), RenderIgnorePointer#1395e@Offset(223.3, 310.0), RenderAnimatedOpacity#46954@Offset(223.3, 310.0), RenderRepaintBoundary#f20eb@Offset(223.3, 310.0), RenderSemanticsAnnotations#0d7d1@Offset(223.3, 310.0), RenderOffstage#89f42@Offset(223.3, 310.0), RenderSemanticsAnnotations#23a60@Offset(223.3, 310.0), _RenderTheater#e8ffb@Offset(223.3, 310.0), RenderAbsorbPointer#4c1d2@Offset(223.3, 310.0), RenderPointerListener#a7f2f@Offset(223.3, 310.0), RenderCustomPaint#f1ff5@Offset(223.3, 310.0), RenderSemanticsAnnotations#8698e@Offset(223.3, 310.0), RenderSemanticsAnnotations#a0e2e@Offset(223.3, 310.0), RenderSemanticsAnnotations#101c6@Offset(223.3, 310.0), RenderTapRegionSurface#59d9f@Offset(223.3, 310.0), RenderSemanticsAnnotations#f6dd1@Offset(223.3, 310.0), RenderSemanticsAnnotations#2c87d@Offset(223.3, 310.0), HitTestEntry<HitTestTarget>#0ce8a(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#e13cd(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:99:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +4: miss reveal respects notes access pro=false
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 242.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#f2aef relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#5d6c9(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Wrong answer")), RenderParagraph#508aa@Offset(144.0, 11.5), RenderFlex#c10b9@Offset(186.0, 15.0), RenderPadding#c1303@Offset(200.0, 28.0), RenderDecoratedBox#b632c@Offset(200.0, 28.0), RenderDecoratedBox#42c8f@Offset(200.0, 28.0), RenderPointerListener#e9499@Offset(200.0, 28.0), RenderSemanticsAnnotations#4fcf4@Offset(200.0, 28.0), RenderMouseRegion#7c7f1@Offset(200.0, 28.0), RenderSemanticsAnnotations#731f0@Offset(200.0, 28.0), _RenderInkFeatures#052dd@Offset(200.0, 28.0), RenderPhysicalModel#8450a@Offset(200.0, 28.0), RenderOpacity#1141c@Offset(200.0, 28.0), RenderExcludeSemantics#cbffe@Offset(200.0, 28.0), RenderSemanticsAnnotations#50c87@Offset(200.0, 28.0), RenderFlex#7ba1b@Offset(200.0, 168.0), RenderFlex#71396@Offset(200.0, 168.0), RenderIgnorePointer#5d38c@Offset(200.0, 168.0), RenderExcludeSemantics#89202@Offset(200.0, 168.0), RenderOpacity#3bf37@Offset(200.0, 168.0), RenderStack#f6cb5@Offset(200.0, 168.0), RenderFlex#e7980@Offset(200.0, 168.0), RenderPadding#31661@Offset(216.0, 188.0), _RenderSingleChildViewport#5f7c4@Offset(216.0, 188.0), RenderIgnorePointer#75364@Offset(216.0, 188.0), RenderSemanticsAnnotations#052b9@Offset(216.0, 188.0), RenderPointerListener#e3690@Offset(216.0, 188.0), RenderSemanticsGestureHandler#6503e@Offset(216.0, 188.0), RenderPointerListener#320cc@Offset(216.0, 188.0), _RenderScrollSemantics#2369c@Offset(216.0, 188.0), RenderClipRect#7e270@Offset(216.0, 188.0), RenderStack#9d352@Offset(216.0, 188.0), _RenderLayoutBuilder#c4542@Offset(216.0, 188.0), RenderFlex#8f8ca@Offset(216.0, 242.0), RenderPadding#b64cf@Offset(216.0, 242.0), RenderCustomMultiChildLayoutBox#5df04@Offset(216.0, 242.0), _RenderInkFeatures#47139@Offset(216.0, 242.0), RenderPhysicalModel#9f98a@Offset(216.0, 242.0), RenderExcludeSemantics#51b74@Offset(216.0, 242.0), RenderStack#5fba5@Offset(216.0, 242.0), _RenderLayoutBuilder#6310d@Offset(216.0, 242.0), RenderSemanticsAnnotations#dd4b6@Offset(216.0, 242.0), RenderRepaintBoundary#75edf@Offset(216.0, 242.0), RenderIgnorePointer#48484@Offset(216.0, 242.0), RenderAnimatedOpacity#438a2@Offset(216.0, 242.0), RenderAnimatedOpacity#7b814@Offset(216.0, 242.0), _RenderColoredBox#e5858@Offset(216.0, 242.0), RenderAnimatedOpacity#81503@Offset(216.0, 242.0), RenderIgnorePointer#f5796@Offset(216.0, 242.0), RenderAnimatedOpacity#4164e@Offset(216.0, 242.0), RenderRepaintBoundary#13fa1@Offset(216.0, 242.0), RenderSemanticsAnnotations#df2df@Offset(216.0, 242.0), RenderOffstage#ad5c1@Offset(216.0, 242.0), RenderSemanticsAnnotations#65382@Offset(216.0, 242.0), _RenderTheater#0cbb7@Offset(216.0, 242.0), RenderAbsorbPointer#4e429@Offset(216.0, 242.0), RenderPointerListener#de011@Offset(216.0, 242.0), RenderCustomPaint#65ac6@Offset(216.0, 242.0), RenderSemanticsAnnotations#4ac58@Offset(216.0, 242.0), RenderSemanticsAnnotations#ce58d@Offset(216.0, 242.0), RenderSemanticsAnnotations#e0a76@Offset(216.0, 242.0), RenderTapRegionSurface#5fcc7@Offset(216.0, 242.0), RenderSemanticsAnnotations#6bfa1@Offset(216.0, 242.0), RenderSemanticsAnnotations#01544@Offset(216.0, 242.0), HitTestEntry<HitTestTarget>#b5859(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#51848(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:114:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +5: miss reveal respects notes access pro=true
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 242.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#8b988 relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#16dd9(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Wrong answer")), RenderParagraph#de5f6@Offset(144.0, 11.5), RenderFlex#cd34b@Offset(186.0, 15.0), RenderPadding#109b7@Offset(200.0, 28.0), RenderDecoratedBox#96aea@Offset(200.0, 28.0), RenderDecoratedBox#e635b@Offset(200.0, 28.0), RenderPointerListener#cb0cd@Offset(200.0, 28.0), RenderSemanticsAnnotations#5c198@Offset(200.0, 28.0), RenderMouseRegion#f2408@Offset(200.0, 28.0), RenderSemanticsAnnotations#14eb0@Offset(200.0, 28.0), _RenderInkFeatures#32c27@Offset(200.0, 28.0), RenderPhysicalModel#a8e7e@Offset(200.0, 28.0), RenderOpacity#961ea@Offset(200.0, 28.0), RenderExcludeSemantics#466c6@Offset(200.0, 28.0), RenderSemanticsAnnotations#74d57@Offset(200.0, 28.0), RenderFlex#957bc@Offset(200.0, 168.0), RenderFlex#47583@Offset(200.0, 168.0), RenderIgnorePointer#aa47f@Offset(200.0, 168.0), RenderExcludeSemantics#7e4be@Offset(200.0, 168.0), RenderOpacity#71f3d@Offset(200.0, 168.0), RenderStack#829fd@Offset(200.0, 168.0), RenderFlex#ad92f@Offset(200.0, 168.0), RenderPadding#0ee4c@Offset(216.0, 188.0), _RenderSingleChildViewport#c99aa@Offset(216.0, 188.0), RenderIgnorePointer#9fcdb@Offset(216.0, 188.0), RenderSemanticsAnnotations#c5814@Offset(216.0, 188.0), RenderPointerListener#b0e99@Offset(216.0, 188.0), RenderSemanticsGestureHandler#9fda7@Offset(216.0, 188.0), RenderPointerListener#8c7a2@Offset(216.0, 188.0), _RenderScrollSemantics#8e533@Offset(216.0, 188.0), RenderClipRect#c84d6@Offset(216.0, 188.0), RenderStack#eccda@Offset(216.0, 188.0), _RenderLayoutBuilder#f512d@Offset(216.0, 188.0), RenderFlex#81a12@Offset(216.0, 242.0), RenderPadding#33a98@Offset(216.0, 242.0), RenderCustomMultiChildLayoutBox#e6ef5@Offset(216.0, 242.0), _RenderInkFeatures#6a4e5@Offset(216.0, 242.0), RenderPhysicalModel#c2f12@Offset(216.0, 242.0), RenderExcludeSemantics#196a9@Offset(216.0, 242.0), RenderStack#552cd@Offset(216.0, 242.0), _RenderLayoutBuilder#8f7e7@Offset(216.0, 242.0), RenderSemanticsAnnotations#2b1cc@Offset(216.0, 242.0), RenderRepaintBoundary#1ab60@Offset(216.0, 242.0), RenderIgnorePointer#ce950@Offset(216.0, 242.0), RenderAnimatedOpacity#db6c5@Offset(216.0, 242.0), RenderAnimatedOpacity#7c3aa@Offset(216.0, 242.0), _RenderColoredBox#05a32@Offset(216.0, 242.0), RenderAnimatedOpacity#d2fc6@Offset(216.0, 242.0), RenderIgnorePointer#684bb@Offset(216.0, 242.0), RenderAnimatedOpacity#d0059@Offset(216.0, 242.0), RenderRepaintBoundary#b4290@Offset(216.0, 242.0), RenderSemanticsAnnotations#8981d@Offset(216.0, 242.0), RenderOffstage#140e8@Offset(216.0, 242.0), RenderSemanticsAnnotations#e00b6@Offset(216.0, 242.0), _RenderTheater#f0735@Offset(216.0, 242.0), RenderAbsorbPointer#b697c@Offset(216.0, 242.0), RenderPointerListener#35543@Offset(216.0, 242.0), RenderCustomPaint#f7f6f@Offset(216.0, 242.0), RenderSemanticsAnnotations#3c1a7@Offset(216.0, 242.0), RenderSemanticsAnnotations#3a3b6@Offset(216.0, 242.0), RenderSemanticsAnnotations#4f8a0@Offset(216.0, 242.0), RenderTapRegionSurface#5ab45@Offset(216.0, 242.0), RenderSemanticsAnnotations#df562@Offset(216.0, 242.0), RenderSemanticsAnnotations#1d345@Offset(216.0, 242.0), HitTestEntry<HitTestTarget>#9d5a6(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#499ab(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:114:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +6: grid revisits are read-only and return to the live question
+
+Warning: A call to tap() with finder "Found 1 widget with text "Right answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 17.0
+    ║     weight: 400
+    ║     letterSpacing: -0.2
+    ║     height: 1.4x
+    ║     "Right answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(216.0, 176.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#75547 relayoutBoundary=up23
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#a1e2b(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 17.0, weight: 400, letterSpacing: -0.2, height: 1.4x, "Right answer")), RenderParagraph#b83d7@Offset(144.0, 11.5), RenderFlex#7b06c@Offset(186.0, 15.0), RenderPadding#9ffe9@Offset(200.0, 28.0), RenderDecoratedBox#a64cf@Offset(200.0, 28.0), RenderDecoratedBox#09815@Offset(200.0, 28.0), RenderPointerListener#2d71e@Offset(200.0, 28.0), RenderSemanticsAnnotations#477f9@Offset(200.0, 28.0), RenderMouseRegion#58545@Offset(200.0, 28.0), RenderSemanticsAnnotations#5af5d@Offset(200.0, 28.0), _RenderInkFeatures#d6cf2@Offset(200.0, 28.0), RenderPhysicalModel#759cb@Offset(200.0, 28.0), RenderOpacity#6af09@Offset(200.0, 28.0), RenderExcludeSemantics#138ad@Offset(200.0, 28.0), RenderSemanticsAnnotations#c61c4@Offset(200.0, 28.0), RenderFlex#33cab@Offset(200.0, 102.0), RenderFlex#53587@Offset(200.0, 102.0), RenderIgnorePointer#145cd@Offset(200.0, 102.0), RenderExcludeSemantics#70684@Offset(200.0, 102.0), RenderOpacity#95bf1@Offset(200.0, 102.0), RenderStack#1072a@Offset(200.0, 102.0), RenderFlex#5ec7c@Offset(200.0, 102.0), RenderPadding#8a846@Offset(216.0, 122.0), _RenderSingleChildViewport#72ea0@Offset(216.0, 122.0), RenderIgnorePointer#bd532@Offset(216.0, 122.0), RenderSemanticsAnnotations#0f353@Offset(216.0, 122.0), RenderPointerListener#c8add@Offset(216.0, 122.0), RenderSemanticsGestureHandler#a5625@Offset(216.0, 122.0), RenderPointerListener#b6ffa@Offset(216.0, 122.0), _RenderScrollSemantics#23994@Offset(216.0, 122.0), RenderClipRect#c1317@Offset(216.0, 122.0), RenderStack#25f63@Offset(216.0, 122.0), _RenderLayoutBuilder#dbbf4@Offset(216.0, 122.0), RenderFlex#94d13@Offset(216.0, 176.0), RenderPadding#d3c81@Offset(216.0, 176.0), RenderCustomMultiChildLayoutBox#c487b@Offset(216.0, 176.0), _RenderInkFeatures#7694f@Offset(216.0, 176.0), RenderPhysicalModel#7d9df@Offset(216.0, 176.0), RenderExcludeSemantics#a29c2@Offset(216.0, 176.0), RenderStack#64048@Offset(216.0, 176.0), _RenderLayoutBuilder#9d828@Offset(216.0, 176.0), RenderSemanticsAnnotations#f7594@Offset(216.0, 176.0), RenderRepaintBoundary#c292b@Offset(216.0, 176.0), RenderIgnorePointer#a1a00@Offset(216.0, 176.0), RenderAnimatedOpacity#fb6ff@Offset(216.0, 176.0), RenderAnimatedOpacity#03042@Offset(216.0, 176.0), _RenderColoredBox#d78a4@Offset(216.0, 176.0), RenderAnimatedOpacity#080ef@Offset(216.0, 176.0), RenderIgnorePointer#744a8@Offset(216.0, 176.0), RenderAnimatedOpacity#982ab@Offset(216.0, 176.0), RenderRepaintBoundary#42417@Offset(216.0, 176.0), RenderSemanticsAnnotations#fd3bc@Offset(216.0, 176.0), RenderOffstage#92067@Offset(216.0, 176.0), RenderSemanticsAnnotations#b5c0b@Offset(216.0, 176.0), _RenderTheater#672e4@Offset(216.0, 176.0), RenderAbsorbPointer#8ff82@Offset(216.0, 176.0), RenderPointerListener#92e83@Offset(216.0, 176.0), RenderCustomPaint#938d2@Offset(216.0, 176.0), RenderSemanticsAnnotations#fbb20@Offset(216.0, 176.0), RenderSemanticsAnnotations#41fa2@Offset(216.0, 176.0), RenderSemanticsAnnotations#4504c@Offset(216.0, 176.0), RenderTapRegionSurface#b7c50@Offset(216.0, 176.0), RenderSemanticsAnnotations#ba5e3@Offset(216.0, 176.0), RenderSemanticsAnnotations#2ad0f@Offset(216.0, 176.0), HitTestEntry<HitTestTarget>#119a7(_ReusableRenderView#82f12), HitTestEntry<HitTestTarget>#60716(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:124:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +7: leave asks once for X and system back
+00:01 +8: flag Undo keeps the question and writes no answer
+00:01 +9: (tearDownAll)
+00:01 +9: All tests passed!

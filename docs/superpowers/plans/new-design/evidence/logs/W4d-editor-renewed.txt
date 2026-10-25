@@ -1,0 +1,10 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_note_editor_test.dart
+00:00 +0: add note requires a reason and saves selected real value
+00:00 +1: own words require text and trim only the saved note
+00:00 +2: edit supports explicit removal and retry preserves the draft
+00:00 +3: pending save cannot submit twice or cancel
+00:00 +4: unchanged note cannot update and returning to it disables Update
+00:00 +5: selected reason dot follows the approved pop timing
+00:00 +6: ready action fades from disabled paint after the drawn delay
+00:00 +7: existing reason keeps the drawn frame and full Remove target
+00:00 +8: All tests passed!

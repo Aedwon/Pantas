@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/inline_math_text.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/math_support.dart';
+import 'package:pantas/core/ui/components/math_text.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -40,7 +41,7 @@ class _Android200RegressionScaler extends TextScaler {
 }
 
 Widget _lessonParagraph(String text, {String style = 'normal'}) {
-  return PortableTextRenderer(
+  return ContentRenderer(
     blocks: [
       {
         '_type': 'block',
@@ -163,7 +164,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               r'Use $A = P(1 + r)^t$ to find the amount after interest.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -180,7 +181,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const PortableTextRenderer(
+            const ContentRenderer(
               blocks: [
                 {'_type': 'latex', 'body': _compoundInterestLatex},
               ],
@@ -198,7 +199,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               r'Compare $\frac{1}{2}x^2 + \frac{3}{4}y^3 = z^4$ carefully.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -215,7 +216,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const PortableTextRenderer(
+            const ContentRenderer(
               blocks: [
                 {
                   '_type': 'latex',
@@ -233,13 +234,13 @@ void main() {
 
   group('math screen-reader semantics', () {
     testWidgets(
-      'InlineMathText includes inline math in the surrounding sentence',
+      'MathText includes inline math in the surrounding sentence',
       (tester) async {
         final semantics = tester.ensureSemantics();
         await pumpAccessibilitySurface(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               r'Use $1.02^4 \approx 1.0824$ to calculate the result.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -265,13 +266,13 @@ void main() {
     );
 
     testWidgets(
-      'PortableTextRenderer includes marked inline math in its sentence',
+      'ContentRenderer includes marked inline math in its sentence',
       (tester) async {
         final semantics = tester.ensureSemantics();
         await pumpAccessibilitySurface(
           tester,
           _readerSurface(
-            const PortableTextRenderer(
+            const ContentRenderer(
               blocks: [
                 {
                   '_type': 'block',
@@ -317,14 +318,14 @@ void main() {
       },
     );
 
-    testWidgets('plain InlineMathText keeps sensible sentence semantics',
+    testWidgets('plain MathText keeps sensible sentence semantics',
         (tester) async {
       final semantics = tester.ensureSemantics();
       try {
         await pumpAccessibilitySurface(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               'Read this sentence normally.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -348,7 +349,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const InlineMathText(
+          const MathText(
             text,
             style: TextStyle(fontSize: 14, height: 1.5),
           ),
@@ -367,7 +368,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const InlineMathText(
+          const MathText(
             r'Use $A = P(1 + r)^t$ to find the amount after interest.',
             style: TextStyle(fontSize: 14, height: 1.5),
           ),
@@ -391,7 +392,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const PortableTextRenderer(
+          const ContentRenderer(
             blocks: [
               {'_type': 'latex', 'body': _compoundInterestLatex},
             ],
@@ -416,7 +417,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const PortableTextRenderer(
+          const ContentRenderer(
             blocks: [
               {
                 '_type': 'latex',

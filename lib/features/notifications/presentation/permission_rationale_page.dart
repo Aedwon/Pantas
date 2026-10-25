@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 
@@ -31,7 +31,7 @@ class _PermissionRationalePageState
 
   @override
   Widget build(BuildContext context) {
-    final styles = context.textStyles;
+    final styles = context.type;
     final colors = context.colors;
     return Scaffold(
       body: SafeArea(
@@ -51,26 +51,26 @@ class _PermissionRationalePageState
                         children: [
                           Text(
                             "I'll be your coach.",
-                            style: styles.displaySmall,
+                            style: styles.sectionHero,
                           ),
                           const SizedBox(height: 16),
                           Text(
                             'Get one daily study reminder and a streak-save '
                             'warning when you still have work left today.',
-                            style: styles.bodyLarge
-                                .copyWith(color: colors.inkMuted),
+                            style: styles.body
+                                .copyWith(color: colors.secondaryLabel),
                           ),
                           const SizedBox(height: 32),
-                          BoardButton(
+                          PantasButton(
                             label: 'Sounds good',
                             onPressed: _isSaving
                                 ? null
                                 : () => _continue(requestPermission: true),
                           ),
                           const SizedBox(height: 8),
-                          BoardButton(
+                          PantasButton(
                             label: 'Not right now',
-                            secondary: true,
+                            variant: PantasButtonVariant.tertiary,
                             onPressed: _isSaving
                                 ? null
                                 : () => _continue(requestPermission: false),

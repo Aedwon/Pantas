@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/figures/question_figure.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_review_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/data/server_mock_api.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
-class MockReviewPage extends ConsumerWidget {
+class MockReviewPage extends ConsumerStatefulWidget {
   const MockReviewPage({
     required this.attemptId,
     required this.proIsActive,
@@ -17,75 +31,439 @@ class MockReviewPage extends ConsumerWidget {
   final bool proIsActive;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final reviewAsync = ref.watch(mockReviewProvider(attemptId));
-    final markedAsync = ref.watch(mockMarkedQuestionIdsProvider(attemptId));
-    final handledAsync = ref.watch(mockOfferHandledProvider(attemptId));
+  ConsumerState<MockReviewPage> createState() => _MockReviewPageState();
+}
+
+class _MockReviewPageState extends ConsumerState<MockReviewPage> {
+  ReviewFilter _filter = ReviewFilter.wrong;
+  int? _viewerIndex;
+  bool _noteOpen = false;
+
+  int _flagEpoch = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    String? actor(AsyncValue<AuthState>? state) => switch (state?.valueOrNull) {
+          SignedInAuthState(:final user) => user.uid,
+          AnonymousAuthState(:final uid) => uid,
+          _ => null,
+        };
+    ref.listenManual(authStateProvider, (previous, next) {
+      if (actor(previous) != actor(next)) _flagEpoch++;
+    });
+  }
+
+  bool _flagContextCurrent(int epoch, String? uid, String? Function() actor) =>
+      mounted && _flagEpoch == epoch && actor() == uid;
+
+  @override
+  Widget build(BuildContext context) {
+    final reviewAsync = ref.watch(mockReviewProvider(widget.attemptId));
+    final markedAsync =
+        ref.watch(mockMarkedQuestionIdsProvider(widget.attemptId));
+    final handledAsync = ref.watch(mockOfferHandledProvider(widget.attemptId));
+    final savedFlags = ref.watch(mockSavedFlagIdsProvider);
+    final savedAnswers = widget.proIsActive
+        ? ref.watch(mockReviewAnswersProvider(widget.attemptId))
+        : const AsyncData<Map<String, MockAnswer>>({});
+    final shown = reviewAsync.valueOrNull;
+    final filtered =
+        shown == null ? null : FilterReviewEntries.call(shown, _filter);
+    final index = _viewerIndex;
+    final viewed = index != null &&
+            filtered != null &&
+            index >= 0 &&
+            index < filtered.length
+        ? filtered[index]
+        : null;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All questions'),
+        title: Text(_viewerIndex == null ? 'Results' : 'All questions'),
+        actions: [
+          if (viewed != null && savedFlags.hasValue)
+            IconButton(
+              tooltip: savedFlags.requireValue.contains(viewed.question.id)
+                  ? 'Unflag question'
+                  : 'Flag question',
+              icon: Icon(
+                PantasIcons.flag,
+                size: 21,
+                color: savedFlags.requireValue.contains(viewed.question.id)
+                    ? context.colors.accent
+                    : context.colors.secondaryLabel,
+              ),
+              onPressed: () => _toggleFlag(viewed.question.id),
+            ),
+        ],
+        leading: _viewerIndex == null
+            ? null
+            : IconButton(
+                icon: Icon(PantasIcons.back),
+                tooltip: 'Back to questions',
+                onPressed: () => setState(() {
+                  _viewerIndex = null;
+                  _noteOpen = false;
+                }),
+              ),
       ),
       body: reviewAsync.when(
+        skipLoadingOnRefresh: false,
+        skipLoadingOnReload: false,
         data: (entries) {
-          final markedIds = markedAsync.valueOrNull ?? const {};
-          final offerHandled = handledAsync.valueOrNull ?? true;
-          final showOffer = !offerHandled && markedIds.isNotEmpty;
-
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ReviewList(
-              entries: entries,
-              proIsActive: proIsActive,
-              grouped: true,
-              onToggleFlag: (questionId) async {
-                final repo = ref.read(questionFlagsRepositoryProvider);
-                final currentlyFlagged = await repo.isFlagged(questionId);
-                if (currentlyFlagged) {
-                  await repo.unflag(questionId);
-                } else {
-                  await repo.flag(questionId);
-                }
-                ref.invalidate(mockReviewProvider(attemptId));
-              },
-              header: showOffer
-                  ? _FlagOffer(
-                      count: markedIds.length,
-                      onKeep: () async {
-                        final flagRepo =
-                            ref.read(questionFlagsRepositoryProvider);
-                        for (final qId in markedIds) {
-                          await flagRepo.flag(qId);
-                        }
-                        final prefsRepo =
-                            ref.read(appPreferencesRepositoryProvider);
-                        await prefsRepo.setDeviceValue(
-                          'mock_flag_offer_handled_$attemptId',
-                          'true',
-                        );
-                        ref
-                          ..invalidate(mockOfferHandledProvider(attemptId))
-                          ..invalidate(mockReviewProvider(attemptId));
-                      },
-                      onDismiss: () async {
-                        final prefsRepo =
-                            ref.read(appPreferencesRepositoryProvider);
-                        await prefsRepo.setDeviceValue(
-                          'mock_flag_offer_handled_$attemptId',
-                          'true',
-                        );
-                        ref.invalidate(mockOfferHandledProvider(attemptId));
-                      },
-                    )
+          final filtered = FilterReviewEntries.call(entries, _filter);
+          final viewerIndex = _viewerIndex;
+          if (viewerIndex != null &&
+              viewerIndex >= 0 &&
+              viewerIndex < filtered.length) {
+            return _QuestionViewer(
+              entries: filtered,
+              index: viewerIndex,
+              proIsActive: widget.proIsActive,
+              noteOpen: _noteOpen && savedAnswers.hasValue,
+              savedAnswer:
+                  savedAnswers.valueOrNull?[filtered[viewerIndex].question.id],
+              onNote: widget.proIsActive && savedAnswers.hasValue
+                  ? () => setState(() => _noteOpen = !_noteOpen)
                   : null,
-            ),
+              onPrevious: viewerIndex > 0
+                  ? () => setState(() {
+                        _viewerIndex = viewerIndex - 1;
+                        _noteOpen = false;
+                      })
+                  : null,
+              onNext: viewerIndex + 1 < filtered.length
+                  ? () => setState(() {
+                        _viewerIndex = viewerIndex + 1;
+                        _noteOpen = false;
+                      })
+                  : null,
+              onBlankReason: (reason, note) => _saveBlankReason(
+                filtered[viewerIndex],
+                reason,
+                note,
+              ),
+              onMissReason: (reason, note) => _saveMissReason(
+                filtered[viewerIndex],
+                reason,
+                note,
+              ),
+            );
+          }
+
+          final markedIds = markedAsync.valueOrNull ?? const <String>{};
+          final offerHandled = handledAsync.valueOrNull ?? true;
+          return _ReviewListBody(
+            entries: entries,
+            filter: _filter,
+            proIsActive: widget.proIsActive,
+            showFlagOffer: _filter == ReviewFilter.flagged &&
+                !offerHandled &&
+                markedIds.isNotEmpty,
+            markedCount: markedIds.length,
+            onFilter: (filter) => setState(() {
+              _filter = filter;
+              _viewerIndex = null;
+              _noteOpen = false;
+            }),
+            onOpen: (entry) {
+              final shown = FilterReviewEntries.call(entries, _filter);
+              setState(() {
+                _viewerIndex = shown.indexOf(entry);
+                _noteOpen = false;
+              });
+            },
+            onFinishNotes: () {
+              final misses =
+                  FilterReviewEntries.call(entries, ReviewFilter.wrong);
+              if (misses.isEmpty) return;
+              setState(() {
+                _filter = ReviewFilter.wrong;
+                _viewerIndex = 0;
+                _noteOpen = true;
+              });
+            },
+            onKeepFlags: () => _handleFlagOffer(markedIds, keep: true),
+            onDismissFlags: () => _handleFlagOffer(markedIds, keep: false),
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, st) => Center(child: Text('Error: $err')),
+        error: (err, st) => errorFor(
+          'mock review',
+          () {
+            if (ref.read(mockUsesServerProvider)) {
+              ref.invalidate(serverMockResultProvider(widget.attemptId));
+            }
+            ref.invalidate(mockReviewProvider(widget.attemptId));
+          },
+          error: err,
+        ),
       ),
     );
   }
+
+  Future<void> _handleFlagOffer(
+    Set<String> markedIds, {
+    required bool keep,
+  }) async {
+    final epoch = _flagEpoch;
+    final actor = ref.read(serverMockActorProvider);
+    final uid = actor();
+    final ids = Set<String>.of(markedIds);
+    if (keep) {
+      final flagRepo = ref.read(questionFlagsRepositoryProvider);
+      for (final questionId in ids) {
+        if (!_flagContextCurrent(epoch, uid, actor)) return;
+        await flagRepo.flag(questionId);
+      }
+    }
+    if (!_flagContextCurrent(epoch, uid, actor)) return;
+    final prefsRepo = ref.read(appPreferencesRepositoryProvider);
+    await prefsRepo.setDeviceValue(
+      'mock_flag_offer_handled_${widget.attemptId}',
+      'true',
+    );
+    if (!mounted) return;
+    ref
+      ..invalidate(mockOfferHandledProvider(widget.attemptId))
+      ..invalidate(mockSavedFlagIdsProvider);
+  }
+
+  Future<void> _toggleFlag(String questionId) async {
+    final epoch = _flagEpoch;
+    final actor = ref.read(serverMockActorProvider);
+    final uid = actor();
+    final repo = ref.read(questionFlagsRepositoryProvider);
+    final flagged = await repo.isFlagged(questionId);
+    if (!_flagContextCurrent(epoch, uid, actor)) return;
+    if (flagged) {
+      await repo.unflag(questionId);
+    } else {
+      await repo.flag(questionId);
+    }
+    if (mounted) ref.invalidate(mockSavedFlagIdsProvider);
+  }
+
+  Future<void> _saveBlankReason(
+    ReviewEntry entry,
+    BlankReason reason,
+    String? note,
+  ) async {
+    if (ref.read(mockUsesServerProvider)) {
+      final uid = ref.read(serverMockIdentityProvider);
+      if (uid == null || ref.read(serverMockActorProvider)() != uid) {
+        throw const ServerMockException(code: 'cancelled');
+      }
+      await ref.read(serverMockApiProvider).saveReview(
+            mockId: widget.attemptId,
+            questionId: entry.question.id,
+            blankReason: reason.name,
+            reasonNote: note,
+          );
+      if (!mounted || ref.read(serverMockActorProvider)() != uid) return;
+      ref.invalidate(serverMockResultProvider(widget.attemptId));
+    } else {
+      await ref.read(mockAttemptRepoProvider).saveReviewReason(
+            attemptId: widget.attemptId,
+            questionId: entry.question.id,
+            savedAt: DateTime.now().toUtc(),
+            blankReason: reason,
+            reasonNote: note,
+          );
+    }
+    if (mounted) {
+      ref.invalidate(mockReviewAnswersProvider(widget.attemptId));
+      setState(() => _noteOpen = false);
+    }
+  }
+
+  Future<void> _saveMissReason(
+    ReviewEntry entry,
+    MissReason reason,
+    String? note,
+  ) async {
+    if (ref.read(mockUsesServerProvider)) {
+      final uid = ref.read(serverMockIdentityProvider);
+      if (uid == null || ref.read(serverMockActorProvider)() != uid) {
+        throw const ServerMockException(code: 'cancelled');
+      }
+      await ref.read(serverMockApiProvider).saveReview(
+            mockId: widget.attemptId,
+            questionId: entry.question.id,
+            missReason: reason.name,
+            reasonNote: note,
+          );
+      if (!mounted || ref.read(serverMockActorProvider)() != uid) return;
+      ref.invalidate(serverMockResultProvider(widget.attemptId));
+    } else {
+      await ref.read(mockAttemptRepoProvider).saveReviewReason(
+            attemptId: widget.attemptId,
+            questionId: entry.question.id,
+            savedAt: DateTime.now().toUtc(),
+            missReason: reason,
+            reasonNote: note,
+          );
+    }
+    if (mounted) {
+      ref.invalidate(mockReviewAnswersProvider(widget.attemptId));
+      setState(() => _noteOpen = false);
+    }
+  }
+}
+
+class _ReviewListBody extends StatelessWidget {
+  const _ReviewListBody({
+    required this.entries,
+    required this.filter,
+    required this.proIsActive,
+    required this.showFlagOffer,
+    required this.markedCount,
+    required this.onFilter,
+    required this.onOpen,
+    required this.onFinishNotes,
+    required this.onKeepFlags,
+    required this.onDismissFlags,
+  });
+
+  final List<ReviewEntry> entries;
+  final ReviewFilter filter;
+  final bool proIsActive;
+  final bool showFlagOffer;
+  final int markedCount;
+  final ValueChanged<ReviewFilter> onFilter;
+  final ValueChanged<ReviewEntry> onOpen;
+  final VoidCallback onFinishNotes;
+  final VoidCallback onKeepFlags;
+  final VoidCallback onDismissFlags;
+
+  @override
+  Widget build(BuildContext context) {
+    final filtered = FilterReviewEntries.call(entries, filter);
+    final counts = FilterReviewEntries.count(entries);
+    final groups = <String, List<ReviewEntry>>{};
+    String groupLabel(List<ReviewEntry> group) {
+      if (filter != ReviewFilter.all) return '${group.length}';
+      final correct = group.where((entry) => entry.isCorrect).length;
+      return '$correct of ${group.length}';
+    }
+
+    for (final entry in filtered) {
+      groups.putIfAbsent(entry.subjectName, () => []).add(entry);
+    }
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text('All questions', style: context.type.sectionHero),
+          const SizedBox(height: 22),
+          _MockFilterRow(active: filter, counts: counts, onChanged: onFilter),
+          if (proIsActive && filter == ReviewFilter.wrong) ...[
+            const SizedBox(height: 16),
+            _NotesPrompt(onPressed: onFinishNotes),
+          ],
+          if (showFlagOffer) ...[
+            const SizedBox(height: 16),
+            _FlagOffer(
+              count: markedCount,
+              onKeep: onKeepFlags,
+              onDismiss: onDismissFlags,
+            ),
+          ],
+          const SizedBox(height: 14),
+          for (final group in groups.entries) ...[
+            _PartHeader(
+              name: group.key,
+              label: groupLabel(group.value),
+            ),
+            for (final entry in group.value)
+              _MockReviewRow(entry: entry, onTap: () => onOpen(entry)),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _MockFilterRow extends StatelessWidget {
+  const _MockFilterRow({
+    required this.active,
+    required this.counts,
+    required this.onChanged,
+  });
+
+  final ReviewFilter active;
+  final ReviewCounts counts;
+  final ValueChanged<ReviewFilter> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    String label(ReviewFilter filter) => switch (filter) {
+          ReviewFilter.all => 'All ${counts.all}',
+          ReviewFilter.wrong => 'Wrong ${counts.wrong}',
+          ReviewFilter.flagged => 'Flagged ${counts.flagged}',
+        };
+    return Container(
+      padding: const EdgeInsets.all(2),
+      decoration: BoxDecoration(
+        color: context.colors.fill,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          for (final filter in ReviewFilter.values)
+            Expanded(
+              child: InkWell(
+                onTap: () => onChanged(filter),
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  height: 32,
+                  alignment: Alignment.center,
+                  decoration: active == filter
+                      ? BoxDecoration(
+                          color: context.colors.surface,
+                          borderRadius: BorderRadius.circular(8),
+                        )
+                      : null,
+                  child: Text(
+                    label(filter),
+                    style: context.type.subhead
+                        .copyWith(fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NotesPrompt extends StatelessWidget {
+  const _NotesPrompt({required this.onPressed});
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: context.colors.surface,
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'Tell Pantas why you got each one wrong. The better your notes, '
+              'the more every review helps.',
+            ),
+            const SizedBox(height: 12),
+            PantasButton(label: 'Finish the Notes', onPressed: onPressed),
+          ],
+        ),
+      );
 }
 
 class _FlagOffer extends StatelessWidget {
@@ -94,47 +472,246 @@ class _FlagOffer extends StatelessWidget {
     required this.onKeep,
     required this.onDismiss,
   });
-
   final int count;
   final VoidCallback onKeep;
   final VoidCallback onDismiss;
 
   @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: context.colors.surface,
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'You flagged $count questions while the clock was running. '
+              'Do you want to save them?',
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: PantasButton(
+                    label: 'No Thanks',
+                    onPressed: onDismiss,
+                    variant: PantasButtonVariant.tertiary,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: PantasButton(
+                    label: 'Save All $count',
+                    onPressed: onKeep,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+}
 
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        border: Border.all(color: colors.rule),
-        borderRadius: BorderRadius.circular(4),
+class _PartHeader extends StatelessWidget {
+  const _PartHeader({required this.name, required this.label});
+  final String name;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 7),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                name.toUpperCase(),
+                style: context.type.subhead.copyWith(
+                  color: context.colors.secondaryLabel,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Text(
+              label,
+              style: context.type.subhead
+                  .copyWith(color: context.colors.secondaryLabel),
+            ),
+          ],
+        ),
+      );
+}
+
+class _MockReviewRow extends StatelessWidget {
+  const _MockReviewRow({required this.entry, required this.onTap});
+  final ReviewEntry entry;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final outcomeColor =
+        entry.isCorrect ? context.colors.accent : context.colors.destructive;
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 11),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: context.colors.fill,
+              width: 0.5,
+            ),
+          ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 32,
+              child: Text(
+                '${entry.number}',
+                style: context.type.subhead
+                    .copyWith(color: outcomeColor, fontWeight: FontWeight.w700),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ContentRenderer(
+                    text: entry.label,
+                    maxLines: entry.labelIsStem ? 2 : null,
+                  ),
+                  if (!entry.isAnswered) ...[
+                    const SizedBox(height: 3),
+                    Text(
+                      'Left blank',
+                      style: context.type.subhead
+                          .copyWith(color: context.colors.secondaryLabel),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class _QuestionViewer extends StatelessWidget {
+  const _QuestionViewer({
+    required this.entries,
+    required this.index,
+    required this.proIsActive,
+    required this.noteOpen,
+    required this.onPrevious,
+    required this.onNext,
+    required this.onNote,
+    required this.onBlankReason,
+    required this.onMissReason,
+    this.savedAnswer,
+  });
+
+  final MockAnswer? savedAnswer;
+  final List<ReviewEntry> entries;
+  final int index;
+  final bool proIsActive;
+  final bool noteOpen;
+  final VoidCallback? onPrevious;
+  final VoidCallback? onNext;
+  final VoidCallback? onNote;
+  final Future<void> Function(BlankReason reason, String? note) onBlankReason;
+  final Future<void> Function(MissReason reason, String? note) onMissReason;
+
+  @override
+  Widget build(BuildContext context) {
+    final entry = entries[index];
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'You marked $count to come back to while the clock was '
-            'running. Keep them to practice?',
-            style: styles.bodyMedium,
+          QuestionCard(
+            subject: entry.subjectName,
+            stem: entry.question.stem,
+            passage: entry.passage == null
+                ? null
+                : PassageCard(
+                    title: entry.passage!.title,
+                    text: entry.passage!.body,
+                  ),
+            figure: entry.question.figureSpecJson == null
+                ? null
+                : QuestionFigure(specJson: entry.question.figureSpecJson),
+            choices: [
+              for (final choice in entry.question.choices)
+                ChoiceRow(
+                  letter: choice.label,
+                  text: choice.text,
+                  state: choice.isCorrect
+                      ? ChoiceRowState.right
+                      : choice.id == entry.chosenChoiceId
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed,
+                ),
+            ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 16),
+          AnswerReveal(
+            correctLetter: entry.question.correctChoice.label,
+            explanation: entry.question.explanation,
+            pickedLetter: entry.question.choices
+                .where((c) => c.id == entry.chosenChoiceId)
+                .firstOrNull
+                ?.label,
+            wrongPick: proIsActive && !entry.isCorrect
+                ? entry.question.choices
+                    .where((c) => c.id == entry.chosenChoiceId)
+                    .firstOrNull
+                    ?.rationale
+                : null,
+          ),
+          if (noteOpen && proIsActive && !entry.isCorrect) ...[
+            const SizedBox(height: 16),
+            _ReasonPanel(
+              key: ValueKey(entry.question.id),
+              savedAnswer: savedAnswer,
+              isBlank: !entry.isAnswered,
+              onBlankReason: onBlankReason,
+              onMissReason: onMissReason,
+            ),
+          ],
+          const SizedBox(height: 24),
           Row(
             children: [
+              IconButton(
+                onPressed: onPrevious,
+                icon: Icon(PantasIcons.back),
+                tooltip: 'Previous question',
+              ),
               Expanded(
-                child: BoardButton(
-                  label: 'Flag all $count',
-                  onPressed: onKeep,
-                  secondary: true,
+                child: Text(
+                  '${index + 1} of ${entries.length}',
+                  textAlign: TextAlign.center,
+                  style: context.type.subhead
+                      .copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: BoardButton(
-                  label: 'No thanks',
-                  onPressed: onDismiss,
-                  secondary: true,
-                ),
+              if (proIsActive)
+                IconButton(
+                  onPressed: onNote,
+                  icon: Icon(PantasIcons.addNote),
+                  tooltip: 'Add note',
+                )
+              else
+                const SizedBox(width: 48),
+              IconButton(
+                onPressed: onNext,
+                icon: Icon(PantasIcons.next),
+                tooltip: 'Next question',
               ),
             ],
           ),
@@ -142,4 +719,183 @@ class _FlagOffer extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ReasonPanel extends StatefulWidget {
+  const _ReasonPanel({
+    required this.isBlank,
+    required this.onBlankReason,
+    required this.onMissReason,
+    super.key,
+    this.savedAnswer,
+  });
+  final bool isBlank;
+  final MockAnswer? savedAnswer;
+  final Future<void> Function(BlankReason reason, String? note) onBlankReason;
+  final Future<void> Function(MissReason reason, String? note) onMissReason;
+
+  @override
+  State<_ReasonPanel> createState() => _ReasonPanelState();
+}
+
+class _ReasonPanelState extends State<_ReasonPanel> {
+  late final TextEditingController _controller;
+  late bool _typing;
+  bool _saving = false;
+  Future<void> Function()? _retry;
+
+  Future<void> _save(Future<void> Function() operation) async {
+    if (_saving) return;
+    setState(() {
+      _saving = true;
+      _retry = null;
+    });
+    try {
+      await operation();
+    } on Object {
+      if (mounted) setState(() => _retry = operation);
+    } finally {
+      if (mounted) setState(() => _saving = false);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        TextEditingController(text: widget.savedAnswer?.reasonNote ?? '');
+    _typing = widget.savedAnswer?.blankReason == BlankReason.other ||
+        widget.savedAnswer?.missReason == MissReason.other;
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final title =
+        widget.isBlank ? 'Why did you leave it blank?' : 'Why did you miss it?';
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: context.colors.surface,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            title,
+            style: context.type.subhead.copyWith(fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 10),
+          if (widget.isBlank) ...[
+            _ReasonChoice(
+              label: 'I ran out of time',
+              selected:
+                  widget.savedAnswer?.blankReason == BlankReason.ranOutOfTime,
+              onTap: () => _save(
+                () => widget.onBlankReason(BlankReason.ranOutOfTime, null),
+              ),
+            ),
+            _ReasonChoice(
+              label: 'I skipped it to come back later',
+              selected: widget.savedAnswer?.blankReason ==
+                  BlankReason.skippedToReturn,
+              onTap: () => _save(
+                () => widget.onBlankReason(BlankReason.skippedToReturn, null),
+              ),
+            ),
+            _ReasonChoice(
+              label: "I didn't know it",
+              selected:
+                  widget.savedAnswer?.blankReason == BlankReason.didNotKnow,
+              onTap: () => _save(
+                () => widget.onBlankReason(BlankReason.didNotKnow, null),
+              ),
+            ),
+          ] else ...[
+            _ReasonChoice(
+              label: 'I misread it',
+              selected: widget.savedAnswer?.missReason == MissReason.misread,
+              onTap: () =>
+                  _save(() => widget.onMissReason(MissReason.misread, null)),
+            ),
+            _ReasonChoice(
+              label: 'I knew it, I just slipped',
+              selected: widget.savedAnswer?.missReason == MissReason.slipped,
+              onTap: () =>
+                  _save(() => widget.onMissReason(MissReason.slipped, null)),
+            ),
+            _ReasonChoice(
+              label: "I didn't know it",
+              selected: widget.savedAnswer?.missReason == MissReason.unknown,
+              onTap: () =>
+                  _save(() => widget.onMissReason(MissReason.unknown, null)),
+            ),
+          ],
+          _ReasonChoice(
+            label: 'Type my own',
+            selected: _typing,
+            onTap: () => setState(() => _typing = true),
+          ),
+          if (_retry != null) saveFailureLine(() => _save(_retry!)),
+          if (_typing) ...[
+            const SizedBox(height: 8),
+            TextField(controller: _controller, maxLines: 3),
+            const SizedBox(height: 8),
+            PantasButton(
+              label: 'Save Note',
+              onPressed: () {
+                final note = _controller.text.trim();
+                if (note.isEmpty) return;
+                if (widget.isBlank) {
+                  _save(() => widget.onBlankReason(BlankReason.other, note));
+                } else {
+                  _save(() => widget.onMissReason(MissReason.other, note));
+                }
+              },
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _ReasonChoice extends StatelessWidget {
+  const _ReasonChoice({
+    required this.label,
+    required this.onTap,
+    this.selected = false,
+  });
+  final String label;
+  final VoidCallback onTap;
+  final bool selected;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+        selected: selected,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              children: [
+                Icon(
+                  selected
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_unchecked,
+                  size: 22,
+                ),
+                const SizedBox(width: 12),
+                Expanded(child: Text(label)),
+              ],
+            ),
+          ),
+        ),
+      );
 }

@@ -24,14 +24,14 @@ void main() {
     });
   });
 
-  group('the four calls', () {
+  group('the three calls', () {
     test('fires once as the clock crosses a threshold', () {
       expect(
         callThresholdCrossed(
-          before: const Duration(minutes: 20, seconds: 1),
-          after: const Duration(minutes: 20),
+          before: const Duration(minutes: 10, seconds: 1),
+          after: const Duration(minutes: 10),
         ),
-        20,
+        10,
       );
     });
 
@@ -45,8 +45,8 @@ void main() {
       );
     });
 
-    test('all four thresholds fire', () {
-      for (final minutes in [20, 10, 5, 1]) {
+    test('all three thresholds fire', () {
+      for (final minutes in [10, 5, 1]) {
         expect(
           callThresholdCrossed(
             before: Duration(minutes: minutes, seconds: 1),

@@ -178,7 +178,7 @@ void main() {
     final style = PantasType.create().mathSerif;
     expect(style.fontSize, 17);
     expect(style.fontWeight, FontWeight.w400);
-    expect(style.fontFamily, 'SourceSerif4');
+    expect(style.fontFamily, 'packages/flutter_math_fork/KaTeX_Main');
     expect(style.letterSpacing, closeTo(0, 0.000001));
     expect(
       style.tabular.fontFeatures,

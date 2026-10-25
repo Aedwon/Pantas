@@ -1,0 +1,48 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: custom Start retains the boundary before pending preference writes
+00:00 +1: picker and length states at Brightness.dark scale=1.0
+00:01 +2: picker and length states at Brightness.dark scale=2.0
+00:01 +3: picker and length states at Brightness.light scale=1.0
+00:01 +4: picker and length states at Brightness.light scale=2.0
+00:01 +5: singleton Questions overrides, Reset and wheel change
+00:01 +6: selected Questions tab preserves the manual count and base wheel
+00:01 +7: saved picks discard removed and questionless lesson ids
+00:01 +8: many lessons scroll and too-short times cannot be selected
+00:01 +9: Total time caption and singleton adjustments stay bounded
+00:01 +10: rapid selections and overrides survive leaving and reopening
+00:01 +11: Start forwards actual override and keeps picker below run route
+00:02 +12: Start failure retains picks without opening a run route
+00:02 +13: Total time redistributes counts and keeps its selected budget
+00:02 +14: large request displays actual pool caps and derived hours
+00:02 +15: counts stay at real capacity when the base requests more
+00:02 +16: measured pace replaces the starting estimate on the picker
+00:02 +17: failed Start retry retries the launch
+00:02 +18: picker header uses drawn navigation and heading positions
+00:02 +19: length summary and adjustment labels match drawn metrics
+00:02 +20: empty picker keeps drawn helper and dimmed solid Start
+00:02 +21: picker caption carries the drawn downward caret
+00:02 +22: nonpositive pace 0 uses the approved estimate in the time wheel
+00:02 +23: nonpositive pace -50000 uses the approved estimate in the time wheel
+00:02 +24: positive sub-minute estimate stays bounded without a clamp
+00:02 +25: pending picker announces loading before delayed shapes appear
+00:02 +26: load failure uses shared state and retries every picker input
+00:02 +27: save failure retains picks and shared retry saves them
+00:02 +28: empty picker keeps its helper with a positive sub-minute pace
+00:02 +29: time budget stays selected with a positive fast pace
+00:02 +30: mode switches match six lessons and settle at the same count
+00:02 +31: mode switches match capped aggregate counts
+00:02 +32: repeated mode toggles keep the original capped conversion target
+00:02 +33: explicit wheel change starts a new conversion target
+00:02 +34: manual allocation starts a new conversion target
+00:03 +35: Reset starts a new conversion target from the even time split
+00:03 +36: changed selected pool starts a new conversion target
+00:03 +37: changed effective pace starts a new conversion target
+00:03 +38: changed selection starts a new conversion target
+00:03 +39: matching clears manual overrides on explicit mode change
+00:03 +40: normal picker motion steps bar at 200ms then fades Clear
+00:03 +41: picker uses the drawn thirteen-point filled check
+00:03 +42: pace refresh keeps the picker visible and updates its estimate
+00:03 +43: motion hold never delays saving picks or survives leaving
+00:03 +44: (tearDownAll)
+00:03 +44: All tests passed!

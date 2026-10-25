@@ -51,7 +51,7 @@ class SpringScaleFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     final described = springs.length == 1
         ? 'A spring hanging from a beam with a weight on the end.'
         : '${springs.length} springs hanging from the same beam, each with a '
@@ -64,8 +64,8 @@ class SpringScaleFigure extends StatelessWidget {
         child: CustomPaint(
           painter: _SpringPainter(
             springs: springs,
-            ink: colors.ink,
-            labelStyle: styles.bodySmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            labelStyle: styles.subhead.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),

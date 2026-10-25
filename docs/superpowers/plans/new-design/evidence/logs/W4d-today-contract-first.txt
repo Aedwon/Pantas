@@ -1,0 +1,14 @@
+
+test/features/quiz/application/today_question_launch_test.dart:37:11: Error: Undefined name 'AccountPrefsCompanion'.
+          AccountPrefsCompanion.insert(key: 'quiz_session_length', value: '5'));
+          ^^^^^^^^^^^^^^^^^^^^^
+::group::❌ loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart (failed)
+Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart":
+Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: test/features/quiz/application/today_question_launch_test.dart:37:11: Error: Undefined name 'AccountPrefsCompanion'.
+          AccountPrefsCompanion.insert(key: 'quiz_session_length', value: '5'));
+          ^^^^^^^^^^^^^^^^^^^^^
+.
+
+::endgroup::
+
+::error::0 tests passed, 1 failed.

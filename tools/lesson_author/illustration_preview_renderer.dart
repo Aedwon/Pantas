@@ -21,11 +21,11 @@ Future<void> ensureReviewPreviewFontsLoaded(Directory repositoryRoot) {
 }
 
 Future<void> _loadReviewPreviewFonts(Directory repositoryRoot) async {
-  final loader = FontLoader('SourceSans3');
+  final loader = FontLoader('Geist');
   for (final fileName in const <String>[
-    'SourceSans3-Regular.ttf',
-    'SourceSans3-SemiBold.ttf',
-    'SourceSans3-Bold.ttf',
+    'Geist-Regular.ttf',
+    'Geist-SemiBold.ttf',
+    'Geist-Bold.ttf',
   ]) {
     final file = File(p.join(repositoryRoot.path, 'assets', 'fonts', fileName));
     if (!file.existsSync()) {

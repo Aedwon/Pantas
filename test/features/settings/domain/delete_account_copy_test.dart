@@ -14,7 +14,7 @@ void main() {
       const SettingsEntitlementSnapshot(plan: SettingsEntitlementPlan.monthly),
     );
 
-    expect(copy, contains("you'll still be charged"));
+    expect(copy, contains('you’ll still be charged'));
     expect(copy, contains('Google Play'));
   });
 

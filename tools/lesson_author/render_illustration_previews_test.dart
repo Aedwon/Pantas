@@ -40,14 +40,14 @@ void main() {
     final narrowText = TextPainter(
       text: const TextSpan(
         text: 'iiii',
-        style: TextStyle(fontFamily: 'SourceSans3', fontSize: 12),
+        style: TextStyle(fontFamily: 'Geist', fontSize: 12),
       ),
       textDirection: TextDirection.ltr,
     )..layout();
     final wideText = TextPainter(
       text: const TextSpan(
         text: 'WWWW',
-        style: TextStyle(fontFamily: 'SourceSans3', fontSize: 12),
+        style: TextStyle(fontFamily: 'Geist', fontSize: 12),
       ),
       textDirection: TextDirection.ltr,
     )..layout();

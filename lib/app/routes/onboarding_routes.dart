@@ -1,9 +1,9 @@
 // ignore_for_file: directives_ordering
 
-import 'package:pantas/features/assessment/assessment.dart';
-import 'package:pantas/features/onboarding/onboarding.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/features/assessment/assessment.dart';
+import 'package:pantas/features/onboarding/onboarding.dart';
 
 List<RouteBase> onboardingRoutes(Ref ref) => [
       GoRoute(
@@ -20,7 +20,6 @@ List<RouteBase> onboardingRoutes(Ref ref) => [
           name: state.uri.queryParameters['name'] ?? '',
         ),
       ),
-      GoRoute(path: '/notifications/rationale', redirect: (_, __) => '/home'),
       GoRoute(
         path: '/assessment/:examId',
         builder: (_, state) =>

@@ -28,8 +28,31 @@ class UserMetricsArchetypeRepository {
 
   final AppDatabase _db;
 
-  Future<void> upsert(UserMetricsArchetypeCacheEntry entry) {
-    return _db.into(_db.userMetricsArchetypesLocal).insertOnConflictUpdate(
+  static final _writes = Expando<Future<void>>();
+
+  Future<void> upsert(
+    UserMetricsArchetypeCacheEntry entry, {
+    Future<bool> Function()? canPersist,
+  }) async {
+    if (canPersist == null) {
+      await _write(entry);
+      return;
+    }
+    final prior = _writes[_db] ?? Future<void>.value();
+    final write = prior.then(
+      (_) => _db.transaction(() async {
+        if (!await canPersist()) throw StateError('Profile owner changed');
+        await _write(entry);
+        if (!await canPersist()) throw StateError('Profile owner changed');
+      }),
+    );
+    _writes[_db] =
+        write.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    await write;
+  }
+
+  Future<void> _write(UserMetricsArchetypeCacheEntry entry) async {
+    await _db.into(_db.userMetricsArchetypesLocal).insertOnConflictUpdate(
           UserMetricsArchetypesLocalCompanion.insert(
             userId: entry.userId,
             examId: entry.examId,

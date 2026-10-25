@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_shape.dart';
 
@@ -74,8 +73,8 @@ class AppNavBar extends StatelessWidget {
             maxLines: 1,
           );
           final width = measureTabLabel(painter) + _labelHorizontalAllowance;
-          return width < AppDimensions.minTapTarget
-              ? AppDimensions.minTapTarget
+          return width < kMinInteractiveDimension
+              ? kMinInteractiveDimension
               : width;
         }(),
     ];
@@ -109,15 +108,15 @@ class AppNavBar extends StatelessWidget {
       return fit([for (final width in requiredWidths) width + extraPerItem]);
     }
 
-    final minimumTotal = AppDimensions.minTapTarget * _tabs.length;
+    final minimumTotal = kMinInteractiveDimension * _tabs.length;
     if (minimumTotal >= availableWidth) {
       return fit(List<double>.filled(_tabs.length, equalWidth));
     }
 
     final extraNeeds = [
       for (final width in requiredWidths)
-        width > AppDimensions.minTapTarget
-            ? width - AppDimensions.minTapTarget
+        width > kMinInteractiveDimension
+            ? width - kMinInteractiveDimension
             : 0.0,
     ];
     final totalExtraNeed = extraNeeds.fold<double>(
@@ -128,7 +127,7 @@ class AppNavBar extends StatelessWidget {
 
     return fit([
       for (final need in extraNeeds)
-        AppDimensions.minTapTarget +
+        kMinInteractiveDimension +
             (totalExtraNeed == 0
                 ? distributableWidth / _tabs.length
                 : distributableWidth * need / totalExtraNeed),

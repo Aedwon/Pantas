@@ -374,13 +374,13 @@ class EarthScienceDiagramFigure extends StatelessWidget {
         painter: _EarthSciencePainter(
           type: type,
           spec: spec,
-          ink: colors.ink,
-          muted: colors.inkMuted,
-          faint: colors.ruleFaint,
+          ink: colors.label,
+          muted: colors.secondaryLabel,
+          faint: colors.fill,
           background: colors.background,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          smallStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          smallStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
             fontSize: 11,
           ),
         ),

@@ -33,8 +33,14 @@ void main() {
     (
       'deep_thinker',
       {
-        SignalKey.perQuestionSpeed:
-            const LatencyDistribution(averageMs: 20000, correctAverageMs: 19000, incorrectAverageMs: 21000, sampleCount: 10, correctCount: 8, incorrectCount: 2),
+        SignalKey.perQuestionSpeed: const LatencyDistribution(
+          averageMs: 20000,
+          correctAverageMs: 19000,
+          incorrectAverageMs: 21000,
+          sampleCount: 10,
+          correctCount: 8,
+          incorrectCount: 2,
+        ),
       },
       'You take your sweet time, and it shows.'
     ),
@@ -182,5 +188,4 @@ void main() {
       }
     });
   }
-
 }

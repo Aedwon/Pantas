@@ -33,6 +33,24 @@ void main() {
         onChangeSetup: action ?? () {},
       );
 
+  testWidgets('web card states the approved 30-day Free interval',
+      (tester) async {
+    await expectSurvivesTextScale(
+      tester,
+      const MockCard(
+        model: MockCardModel(
+          state: MockCardState.neverTaken,
+          name: 'CSE Professional simulation',
+          freeIntervalDays: 30,
+        ),
+      ),
+      viewportSize: const Size(390, 844),
+      disableAnimations: true,
+    );
+    expect(find.textContaining('one mock every 30 days'), findsOneWidget);
+    expect(find.textContaining('14 days'), findsNothing);
+  });
+
   for (final brightness in Brightness.values) {
     for (final state in MockCardState.values) {
       testWidgets('$brightness $state matches copy and survives 200%',

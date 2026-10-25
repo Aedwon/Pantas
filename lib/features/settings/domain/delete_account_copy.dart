@@ -37,7 +37,7 @@ String? deleteAccountBillingLine(SettingsEntitlementSnapshot entitlement) {
     return 'Your Pro access ends on $date. Deleting your account ends it '
         'sooner.';
   }
-  return "If you pay for Pro, you'll still be charged. Cancel your "
+  return 'If you pay for Pro, you’ll still be charged. Cancel your '
       'subscription in Google Play first so the billing stops.';
 }
 

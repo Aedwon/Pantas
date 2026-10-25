@@ -9,7 +9,6 @@ import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:pantas/core/storage/data/repos/question_flags_repository.dart';
-import 'package:pantas/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
@@ -118,10 +117,6 @@ final lessonBookmarksRepositoryProvider = Provider<LessonBookmarksRepository>(
   (ref) => LessonBookmarksRepository(ref.watch(appDatabaseProvider)),
 );
 
-final quizNudgeRepositoryProvider = Provider<QuizNudgeRepository>(
-  (ref) => QuizNudgeRepository(ref.watch(appDatabaseProvider)),
-);
-
 final isLessonReadProvider =
     FutureProvider.family<bool, LessonId>((ref, lessonId) async {
   return ref.watch(lessonProgressRepositoryProvider).isRead(lessonId);
@@ -134,10 +129,6 @@ final readCountForTopicProvider =
 
 final anyLessonReadProvider = FutureProvider<bool>((ref) async {
   return ref.watch(lessonProgressRepositoryProvider).hasAnyRead();
-});
-
-final quizNudgeDismissedProvider = FutureProvider<bool>((ref) async {
-  return ref.watch(quizNudgeRepositoryProvider).hasDismissed();
 });
 
 final assessmentRepositoryProvider = Provider<AssessmentRepository>(

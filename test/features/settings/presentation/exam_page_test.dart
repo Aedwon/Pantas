@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/routes/settings_routes.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
-import 'package:pantas/core/ui/components/settings_group.dart';
-import 'package:pantas/core/ui/components/settings_switch.dart';
-import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
-import 'package:pantas/features/settings/presentation/pages/change_exam_page.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -44,6 +46,21 @@ void main() {
       activeExamFocusProvider.overrideWith(
         (ref) async => ActiveExamFocus.selected(exam),
       ),
+      examPickerCatalogProvider.overrideWith(
+        (ref) => Stream.value([
+          for (final exam in [upcat, dost])
+            ExamCatalogEntry(
+              id: exam.id,
+              name: exam.name,
+              shortName: exam.shortName,
+              priceTier: 'Student',
+              group: 'College entrance',
+              comingSoon: false,
+              publishedSittings: const [],
+              hasContent: true,
+            ),
+        ]),
+      ),
       examListProvider.overrideWith(
         (ref) async => [upcat, dost],
       ),
@@ -64,7 +81,134 @@ void main() {
     ];
   }
 
-  testWidgets('the heading is the exam name and there are three rows',
+  testWidgets('Count Them saves the choice before leaving the transfer screen',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        settingsCarryOverRoute(),
+        GoRoute(path: '/settings/exam', builder: (_, __) => const ExamPage()),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(carryOverProgress: false),
+        carryableCountProvider.overrideWith((ref, id) async => 3),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(ExamPage)));
+    final repository = container.read(settingsRepositoryProvider);
+    await repository.updateCarryOverProgress(enabled: false);
+    await tester.tap(find.text('Exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Count Them'));
+    await tester.tap(find.text('Count Them'));
+    await tester.pumpAndSettle();
+    expect((await repository.readUserSettings()).carryOverProgress, isTrue);
+    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+  });
+
+  testWidgets('Start My Numbers Fresh never claims work carried over',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        settingsCarryOverRoute(),
+        GoRoute(path: '/settings/exam', builder: (_, __) => const ExamPage()),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(carryOverProgress: false),
+        carryableCountProvider.overrideWith((ref, id) async => 3),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(ExamPage)));
+    final repository = container.read(settingsRepositoryProvider);
+    await repository.updateCarryOverProgress(enabled: false);
+    await tester.tap(find.text('Exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Start My Numbers Fresh'));
+    await tester.tap(find.text('Start My Numbers Fresh'));
+    await tester.pumpAndSettle();
+    expect((await repository.readUserSettings()).carryOverProgress, isFalse);
+    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+    expect(
+      find.textContaining('Everything you’ve done came with you'),
+      findsNothing,
+    );
+  });
+
+  testWidgets(
+      'a switch with no overlap does not claim carried work or an unset date',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        settingsCarryOverRoute(),
+        GoRoute(path: '/settings/exam', builder: (_, __) => const ExamPage()),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(),
+        carryableCountProvider.overrideWith((ref, id) async => 0),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('exam-confirmation-arrival')),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'Kept from UPCAT. Change it if DOST falls on a different day.',
+      ),
+      findsNothing,
+    );
+    expect(
+      find.textContaining('Everything you’ve done came with you'),
+      findsNothing,
+    );
+    expect(find.text('Count Them'), findsNothing);
+    await tester.tap(find.text('Done'));
+    await tester.pumpAndSettle();
+    expect(find.text('Study days'), findsOneWidget);
+    expect(find.text('You’re now studying for DOST'), findsNothing);
+  });
+
+  testWidgets('the exam page has the active exam and four setting rows',
       (tester) async {
     await tester.pumpAppWithProviders(
       const ExamPage(),
@@ -73,13 +217,20 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+      tester
+          .widget<ListRow>(
+            find.byWidgetPredicate(
+              (w) => w is ListRow && w.title == 'Exam',
+              skipOffstage: false,
+            ),
+          )
+          .value,
       'UPCAT',
     );
-    expect(find.byType(SettingsValueRow), findsNWidgets(3));
-    expect(find.text('Change exam'), findsOneWidget);
+    expect(find.byType(ListRow), findsNWidgets(4));
+    expect(find.text('Exam'), findsOneWidget);
     expect(find.text('Carry over progress'), findsOneWidget);
-    expect(find.text("What's included"), findsOneWidget);
+    expect(find.text('What’s included'), findsOneWidget);
   });
 
   testWidgets('carry over is a switch, on by default', (tester) async {
@@ -89,11 +240,57 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byType(SettingsSwitch), findsOneWidget);
+    expect(find.byType(PantasSwitch), findsOneWidget);
     expect(
-      tester.widget<SettingsSwitch>(find.byType(SettingsSwitch)).value,
+      tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
       isTrue,
     );
+  });
+
+  testWidgets("What's included says All subjects when nothing is left out",
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: createOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('All subjects'), findsOneWidget);
+    expect(find.text('Some topics left out'), findsNothing);
+  });
+
+  testWidgets("What's included says Some topics left out for a topic",
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: [
+        ...createOverrides(),
+        trackScopeProvider.overrideWith(
+          (ref, examId) async => {'topic_algebra'},
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Some topics left out'), findsOneWidget);
+    expect(find.text('All subjects'), findsNothing);
+  });
+
+  testWidgets("What's included says Some topics left out for a lesson",
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: [
+        ...createOverrides(),
+        lessonScopeProvider.overrideWith(
+          (ref, examId) async => {'lesson_fractions'},
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Some topics left out'), findsOneWidget);
+    expect(find.text('All subjects'), findsNothing);
   });
 
   testWidgets('the lede states the rule that surprises people', (tester) async {
@@ -130,6 +327,7 @@ void main() {
     final router = GoRouter(
       initialLocation: '/settings/exam',
       routes: [
+        settingsCarryOverRoute(),
         GoRoute(
           path: '/settings/exam',
           builder: (_, __) => const ExamPage(),
@@ -154,7 +352,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Change exam'));
+    await tester.tap(find.text('Exam'));
     await tester.pumpAndSettle();
     expect(find.byType(ChangeExamPage), findsOneWidget);
 
@@ -162,10 +360,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
 
     await tester.pump(const Duration(seconds: 1));
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
   });
 
   testWidgets(
@@ -174,6 +372,7 @@ void main() {
     final router = GoRouter(
       initialLocation: '/settings/exam',
       routes: [
+        settingsCarryOverRoute(),
         GoRoute(
           path: '/settings/exam',
           builder: (_, __) => const ExamPage(),
@@ -205,19 +404,19 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Change exam'));
+    await tester.tap(find.text('Exam'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('DOST'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.byType(ChangeExamPage), findsOneWidget);
-    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(find.text('You’re not starting from zero'), findsNothing);
 
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
   });
 
   testWidgets(
@@ -230,6 +429,7 @@ void main() {
     final router = GoRouter(
       initialLocation: '/settings/exam',
       routes: [
+        settingsCarryOverRoute(),
         GoRoute(
           path: '/settings/exam',
           builder: (_, __) => const ExamPage(),
@@ -253,6 +453,21 @@ void main() {
       router,
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        examPickerCatalogProvider.overrideWith(
+          (ref) => Stream.value([
+            for (final exam in [upcat, dost])
+              ExamCatalogEntry(
+                id: exam.id,
+                name: exam.name,
+                shortName: exam.shortName,
+                priceTier: 'Student',
+                group: 'College entrance',
+                comingSoon: false,
+                publishedSittings: const [],
+                hasContent: true,
+              ),
+          ]),
+        ),
         examListProvider.overrideWith((ref) async => [upcat, dost]),
         userSettingsProvider.overrideWith(
           (ref) async => const UserSettings(
@@ -277,11 +492,18 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+      tester
+          .widget<ListRow>(
+            find.byWidgetPredicate(
+              (w) => w is ListRow && w.title == 'Exam',
+              skipOffstage: false,
+            ),
+          )
+          .value,
       'UPCAT',
     );
 
-    await tester.tap(find.text('Change exam'));
+    await tester.tap(find.text('Exam'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('DOST'));
     await tester.pump();
@@ -294,11 +516,18 @@ void main() {
 
       if (changeExamMounted) {
         expect(
-          tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+          tester
+              .widget<ListRow>(
+                find.byWidgetPredicate(
+                  (w) => w is ListRow && w.title == 'Exam',
+                  skipOffstage: false,
+                ),
+              )
+              .value,
           'UPCAT',
           reason: 'active exam changed while Change exam was still mounted',
         );
-        expect(find.text("You're not starting from zero"), findsNothing);
+        expect(find.text('You’re not starting from zero'), findsNothing);
         continue;
       }
 
@@ -308,10 +537,17 @@ void main() {
       // frame must still render the old focus rather than resurrecting the
       // outgoing route or changing underneath it.
       expect(
-        tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+        tester
+            .widget<ListRow>(
+              find.byWidgetPredicate(
+                (w) => w is ListRow && w.title == 'Exam',
+                skipOffstage: false,
+              ),
+            )
+            .value,
         'UPCAT',
       );
-      expect(find.text("You're not starting from zero"), findsNothing);
+      expect(find.text('You’re not starting from zero'), findsNothing);
       break;
     }
 
@@ -322,10 +558,17 @@ void main() {
 
     expect(find.byType(ChangeExamPage), findsNothing);
     expect(
-      tester.widget<SettingsGroup>(find.byType(SettingsGroup)).title,
+      tester
+          .widget<ListRow>(
+            find.byWidgetPredicate(
+              (w) => w is ListRow && w.title == 'Exam',
+              skipOffstage: false,
+            ),
+          )
+          .value,
       'DOST',
     );
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
   });
 
   testWidgets(
@@ -335,6 +578,7 @@ void main() {
     final router = GoRouter(
       initialLocation: '/settings/exam',
       routes: [
+        settingsCarryOverRoute(),
         GoRoute(
           path: '/settings/exam',
           builder: (context, _) => Scaffold(
@@ -373,7 +617,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(find.text('You’re not starting from zero'), findsNothing);
     expect(changeResult, isNotNull);
   });
 

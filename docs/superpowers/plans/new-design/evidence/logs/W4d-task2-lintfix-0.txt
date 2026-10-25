@@ -1,0 +1,7 @@
+Computing fixes in quiz...
+Applying fixes...
+
+presentation/quiz_tab_screen.dart
+  require_trailing_commas - 45 fixes
+
+45 fixes made in 1 file.

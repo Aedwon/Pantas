@@ -72,7 +72,7 @@ class CubeNetFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     return Semantics(
       label: 'A flat pattern of ${cells.length} squares joined edge to edge'
           '${showFolded ? ', beside a folded cube' : ''}.',
@@ -83,8 +83,8 @@ class CubeNetFigure extends StatelessWidget {
             cells: cells,
             labels: labels,
             showFolded: showFolded,
-            ink: colors.ink,
-            labelStyle: styles.bodySmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            labelStyle: styles.subhead.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),

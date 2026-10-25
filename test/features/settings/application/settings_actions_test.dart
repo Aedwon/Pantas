@@ -3,11 +3,45 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  test('plan settings capture the owner before persistence and publish after',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final events = <String>[];
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studySettingsCaptureProvider
+            .overrideWithValue(({String? examId}) async {
+          events.add('captured');
+          expect(
+            (await DriftSettingsRepository(db).readUserSettings()).examDate,
+            isNull,
+          );
+          return StudySettingsPublication(() async {
+            events.add('publish');
+            expect(
+              (await DriftSettingsRepository(db).readUserSettings()).examDate,
+              ExamDate.onDay(DateTime(2026, 11, 15)),
+            );
+          });
+        }),
+      ],
+    );
+    addTearDown(container.dispose);
+    await container.read(settingsActionsProvider).saveExamDate(
+          ExamDate.onDay(DateTime(2026, 11, 15)),
+          today: DateTime(2026, 10, 25),
+        );
+    expect(events, ['captured', 'publish']);
+  });
+
   test('changing study days refreshes settings before rescheduling', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -68,7 +102,7 @@ void main() {
     expect(rebalanceGateway.dates, [DateTime(2026, 9, 14)]);
   });
 
-  test('saving today exam date rejects without writing', () async {
+  test('saving yesterday exam date rejects without writing', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final container = ProviderContainer(
@@ -78,7 +112,7 @@ void main() {
 
     await expectLater(
       container.read(settingsActionsProvider).saveExamDate(
-            ExamDate.onDay(DateTime(2026, 5, 22)),
+            ExamDate.onDay(DateTime(2026, 5, 21)),
             today: DateTime(2026, 5, 22),
           ),
       throwsA(isA<InvalidExamDateException>()),

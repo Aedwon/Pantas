@@ -1,0 +1,142 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: test/core/ui/components/disabled_action_label_test.dart:33:11: Error: No named parameter with the name 'disabledForeground'.
+            disabledForeground: colors.disabledActionLabel)), colors.disabledActionLabel);
+            ^^^^^^^^^^^^^^^^^^
+  lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+    const PantasButton({
+          ^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:36:9: Error: No named parameter with the name 'disabledForeground'.
+          disabledForeground: colors.disabledActionLabel)), colors.onAccent);
+          ^^^^^^^^^^^^^^^^^^
+  lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+    const PantasButton({
+          ^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:38:9: Error: No named parameter with the name 'disabledForeground'.
+          disabledForeground: colors.disabledActionLabel)), colors.onAccent);
+          ^^^^^^^^^^^^^^^^^^
+  lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+    const PantasButton({
+          ^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:40:9: Error: No named parameter with the name 'disabledForeground'.
+          disabledForeground: colors.disabledActionLabel)), colors.onAccent);
+          ^^^^^^^^^^^^^^^^^^
+  lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+    const PantasButton({
+          ^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:12:18: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(light.disabledActionLabel, const Color(0xFFB8B8BD));
+                   ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:13:17: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(dark.disabledActionLabel, const Color(0xFF5A5A5E));
+                  ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:14:29: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(light.copyWith().disabledActionLabel, light.disabledActionLabel);
+                              ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:14:56: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(light.copyWith().disabledActionLabel, light.disabledActionLabel);
+                                                         ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:15:36: Error: No named parameter with the name 'disabledActionLabel'.
+      final changed = light.copyWith(disabledActionLabel: Colors.orange);
+                                     ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:18:33: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(light.lerp(dark, .5).disabledActionLabel,
+                                  ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:20:33: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(light.lerp(null, .5).disabledActionLabel, light.disabledActionLabel);
+                                  ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:20:60: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+      expect(light.lerp(null, .5).disabledActionLabel, light.disabledActionLabel);
+                                                             ^^^^^^^^^^^^^^^^^^^
+  test/core/ui/components/disabled_action_label_test.dart:33:68: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+   - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+            disabledForeground: colors.disabledActionLabel)), colors.disabledActionLabel);
+                                                                     ^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart
+test/core/ui/components/disabled_action_label_test.dart:33:11: Error: No named parameter with the name 'disabledForeground'.
+          disabledForeground: colors.disabledActionLabel)), colors.disabledActionLabel);
+          ^^^^^^^^^^^^^^^^^^
+lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+  const PantasButton({
+        ^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:36:9: Error: No named parameter with the name 'disabledForeground'.
+        disabledForeground: colors.disabledActionLabel)), colors.onAccent);
+        ^^^^^^^^^^^^^^^^^^
+lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+  const PantasButton({
+        ^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:38:9: Error: No named parameter with the name 'disabledForeground'.
+        disabledForeground: colors.disabledActionLabel)), colors.onAccent);
+        ^^^^^^^^^^^^^^^^^^
+lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+  const PantasButton({
+        ^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:40:9: Error: No named parameter with the name 'disabledForeground'.
+        disabledForeground: colors.disabledActionLabel)), colors.onAccent);
+        ^^^^^^^^^^^^^^^^^^
+lib/core/ui/components/pantas_button.dart:9:9: Context: Found this candidate, but the arguments don't match.
+  const PantasButton({
+        ^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:12:18: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(light.disabledActionLabel, const Color(0xFFB8B8BD));
+                 ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:13:17: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(dark.disabledActionLabel, const Color(0xFF5A5A5E));
+                ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:14:29: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(light.copyWith().disabledActionLabel, light.disabledActionLabel);
+                            ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:14:56: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(light.copyWith().disabledActionLabel, light.disabledActionLabel);
+                                                       ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:15:36: Error: No named parameter with the name 'disabledActionLabel'.
+    final changed = light.copyWith(disabledActionLabel: Colors.orange);
+                                   ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:18:33: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(light.lerp(dark, .5).disabledActionLabel,
+                                ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:20:33: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(light.lerp(null, .5).disabledActionLabel, light.disabledActionLabel);
+                                ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:20:60: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+    expect(light.lerp(null, .5).disabledActionLabel, light.disabledActionLabel);
+                                                           ^^^^^^^^^^^^^^^^^^^
+test/core/ui/components/disabled_action_label_test.dart:33:68: Error: The getter 'disabledActionLabel' isn't defined for the type 'PantasColors'.
+ - 'PantasColors' is from 'package:pantas/core/ui/theme/pantas_colors.dart' ('lib/core/ui/theme/pantas_colors.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'disabledActionLabel'.
+          disabledForeground: colors.disabledActionLabel)), colors.disabledActionLabel);
+                                                                   ^^^^^^^^^^^^^^^^^^^

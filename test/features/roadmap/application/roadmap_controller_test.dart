@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
@@ -12,8 +14,11 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/roadmap/application/roadmap_inputs_reader.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
@@ -41,6 +46,31 @@ class _SpyContent extends ContentRepository {
   Future<Map<TopicId, List<Lesson>>> lessonsByTopics(List<TopicId> topicIds) {
     fullLessons++;
     return super.lessonsByTopics(topicIds);
+  }
+}
+
+class _DelayedInputsReader extends RoadmapInputsReader {
+  _DelayedInputsReader(super.ref);
+  Completer<void>? entered;
+  Completer<void>? release;
+  @override
+  Future<RoadmapInputs> inputs(
+    ExamId examId,
+    DateTime today, {
+    DateTime? anchoredReviewOnlyFrom,
+    bool treatTodayAsStudyDay = false,
+  }) async {
+    final barrier = release;
+    if (barrier != null) {
+      if (!entered!.isCompleted) entered!.complete();
+      await barrier.future;
+    }
+    return super.inputs(
+      examId,
+      today,
+      anchoredReviewOnlyFrom: anchoredReviewOnlyFrom,
+      treatTodayAsStudyDay: treatTodayAsStudyDay,
+    );
   }
 }
 
@@ -120,6 +150,7 @@ void main() {
         contentDatabaseProvider.overrideWithValue(contentDb),
         contentRepositoryProvider.overrideWithValue(content),
         nowProvider.overrideWithValue(() => now),
+        roadmapInputsReaderProvider.overrideWith(_DelayedInputsReader.new),
         userSettingsProvider.overrideWith((ref) async => settings()),
         roadmapBuilderProvider.overrideWithValue((RoadmapInputs inputs) {
           builds++;
@@ -145,6 +176,146 @@ void main() {
           change.cause,
       ];
 
+  test('lesson exclusion rebuilds a stored plan and removes linked questions',
+      () async {
+    await controller().today('e1');
+    final before =
+        await container.read(roadmapInputsReaderProvider).digest('e1');
+    await container
+        .read(customTrackRepositoryProvider)
+        .setExcluded(examId: 'e1', topicIds: {}, lessonIds: {'t1_l0'});
+    await controller().today('e1');
+    final after =
+        await container.read(roadmapInputsReaderProvider).digest('e1');
+    expect(after, isNot(before));
+    expect(builtInputs.last.lessons.any((l) => l.id == 't1_l0'), isFalse);
+    expect(
+      builtInputs.last.questions.any((q) => q.lessonId == 't1_l0'),
+      isFalse,
+    );
+    expect(builtInputs.last.lessons.any((l) => l.id == 't1_l1'), isTrue);
+  });
+
+  test('pending Today does not restore data after same-identity wipe',
+      () async {
+    await SyncActiveContextStore(db).clearStable();
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().today('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await SyncLocalStateWiper(db).wipeAll();
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('pending advance does not restore data after same-identity wipe',
+      () async {
+    await SyncActiveContextStore(db).clearStable();
+    final first = await controller().today('e1');
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().advance('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await SyncLocalStateWiper(db).wipeAll();
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('original page guard cancels pending Today after page disposal',
+      () async {
+    var alive = true;
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller()
+        .today('e1', originalGuard: Future.value(() async => alive));
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    alive = false;
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('selected exam changes cancel pending Today persistence', () async {
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().today('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await container
+        .read(appPreferencesRepositoryProvider)
+        .setSelectedExamId('e2');
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('shaping scope change cancels a pending derived day', () async {
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().today('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await container
+        .read(customTrackRepositoryProvider)
+        .setExcluded(examId: 'e1', topicIds: {'t2'});
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('exam date change cancels pending advance instead of overwriting it',
+      () async {
+    final first = await controller().today('e1');
+    for (final l in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(l);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().advance('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    examDay = DateTime(2026, 12, 14);
+    container.invalidate(userSettingsProvider);
+    reader.release!.complete();
+    await cancelled;
+    expect(
+      (await container.read(roadmapDayRepositoryProvider).read('e1', now))
+          ?.digest
+          .examDate,
+      '2026-12-07:day',
+    );
+    expect(await causes(), isNot(contains(RoadmapChangeCause.advanced)));
+  });
   test('the first read builds and stores the day and logs it', () async {
     final today = await controller().today('e1');
 

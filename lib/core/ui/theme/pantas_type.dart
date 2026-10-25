@@ -136,7 +136,7 @@ class PantasType extends ThemeExtension<PantasType> {
           color: colors.secondaryLabel,
         ),
         mathSerif: TextStyle(
-          fontFamily: 'SourceSerif4',
+          fontFamily: 'packages/flutter_math_fork/KaTeX_Main',
           fontSize: 17,
           fontWeight: FontWeight.w400,
           letterSpacing: 0,

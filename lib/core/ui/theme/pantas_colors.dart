@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
 
 @immutable
-class PantasColors extends AppColors {
+class PantasColors extends ThemeExtension<PantasColors> {
   const PantasColors({
     required this.background,
     required this.surface,
     required this.label,
     required this.secondaryLabel,
     required this.tertiaryLabel,
+    required this.disabledActionLabel,
     required this.separator,
     required this.fill,
     required this.onFillLabel,
@@ -48,13 +48,12 @@ class PantasColors extends AppColors {
     required this.segmentedShadow,
   });
 
-  @override
   final Color background;
-  @override
   final Color surface;
   final Color label;
   final Color secondaryLabel;
   final Color tertiaryLabel;
+  final Color disabledActionLabel;
   final Color separator;
   final Color fill;
   // ST_TopicOpen Today, lead ruling October 12: secondary text on fill.
@@ -123,6 +122,7 @@ class PantasColors extends AppColors {
     label: Color(0xFF1D1D1F),
     secondaryLabel: Color(0xFF6E6E73),
     tertiaryLabel: Color(0xFFAEAEB2),
+    disabledActionLabel: Color(0xFFB8B8BD),
     separator: Color(0xFFE3E3E8),
     fill: Color(0xFFEDEDF0),
     onFillLabel: Color(0xFF636366),
@@ -168,6 +168,7 @@ class PantasColors extends AppColors {
     label: Color(0xFFF5F5F7),
     secondaryLabel: Color(0xFF98989D),
     tertiaryLabel: Color(0xFF5A5A5E),
+    disabledActionLabel: Color(0xFF5A5A5E),
     separator: Color(0xFF38383A),
     fill: Color(0xFF2C2C2E),
     onFillLabel: Color(0xFF98989D),
@@ -222,43 +223,13 @@ class PantasColors extends AppColors {
   Object get type => PantasColors;
 
   @override
-  PantasColors get tokens => this;
-
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get ink => label;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get inkMuted => secondaryLabel;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get rule => separator;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get ruleFaint => fill;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get board => accent;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get boardTint => accentTint;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get onBoard => surface;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get rust => destructive;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get amber => pro;
-
-  @override
   PantasColors copyWith({
     Color? background,
     Color? surface,
     Color? label,
     Color? secondaryLabel,
     Color? tertiaryLabel,
+    Color? disabledActionLabel,
     Color? separator,
     Color? fill,
     Color? onFillLabel,
@@ -296,34 +267,26 @@ class PantasColors extends AppColors {
     Color? switchThumb,
     Color? switchThumbShadow,
     Color? segmentedShadow,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? ink,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? inkMuted,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? rule,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? ruleFaint,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? board,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? boardTint,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? onBoard,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? rust,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? amber,
   }) =>
       PantasColors(
         background: background ?? this.background,
-        surface: surface ?? onBoard ?? this.surface,
-        label: label ?? ink ?? this.label,
-        secondaryLabel: secondaryLabel ?? inkMuted ?? this.secondaryLabel,
+        surface: surface ?? this.surface,
+        label: label ?? this.label,
+        secondaryLabel: secondaryLabel ?? this.secondaryLabel,
         tertiaryLabel: tertiaryLabel ?? this.tertiaryLabel,
-        separator: separator ?? rule ?? this.separator,
-        fill: fill ?? ruleFaint ?? this.fill,
+        disabledActionLabel: disabledActionLabel ?? this.disabledActionLabel,
+        separator: separator ?? this.separator,
+        fill: fill ?? this.fill,
         onFillLabel: onFillLabel ?? this.onFillLabel,
         skeleton: skeleton ?? this.skeleton,
         chevron: chevron ?? this.chevron,
-        accent: accent ?? board ?? this.accent,
+        accent: accent ?? this.accent,
         accentFill: accentFill ?? this.accentFill,
-        accentTint: accentTint ?? boardTint ?? this.accentTint,
-        destructive: destructive ?? rust ?? this.destructive,
+        accentTint: accentTint ?? this.accentTint,
+        destructive: destructive ?? this.destructive,
         wrongTint: wrongTint ?? this.wrongTint,
         wrongText: wrongText ?? this.wrongText,
-        pro: pro ?? amber ?? this.pro,
+        pro: pro ?? this.pro,
         liquidStart: liquidStart ?? this.liquidStart,
         liquidEnd: liquidEnd ?? this.liquidEnd,
         controlOutline: controlOutline ?? this.controlOutline,
@@ -362,6 +325,8 @@ class PantasColors extends AppColors {
       label: Color.lerp(label, other.label, t)!,
       secondaryLabel: Color.lerp(secondaryLabel, other.secondaryLabel, t)!,
       tertiaryLabel: Color.lerp(tertiaryLabel, other.tertiaryLabel, t)!,
+      disabledActionLabel:
+          Color.lerp(disabledActionLabel, other.disabledActionLabel, t)!,
       separator: Color.lerp(separator, other.separator, t)!,
       fill: Color.lerp(fill, other.fill, t)!,
       onFillLabel: Color.lerp(onFillLabel, other.onFillLabel, t)!,
