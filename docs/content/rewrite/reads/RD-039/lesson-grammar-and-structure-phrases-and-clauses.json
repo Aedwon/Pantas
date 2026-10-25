@@ -1,0 +1,275 @@
+{
+ "batch": "RD-039",
+ "lesson_id": "lesson-grammar-and-structure-phrases-and-clauses",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md",
+ "lesson_sha256": "20237bdbed0e64f01a3884aac7b064ab1f3519b00a235c8b2dbcbac35fbf7dd3",
+ "rewrite_commit": "5145876efae4abf8181a96c4b87b111ca4f5525c",
+ "form": {
+  "packet": "lesson-grammar-and-structure-phrases-and-clauses",
+  "role": "A",
+  "lesson_sha256": "20237bdbed0e64f01a3884aac7b064ab1f3519b00a235c8b2dbcbac35fbf7dd3",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Read each claim: a clause pairs a verb with a stated or understood subject; 'under the old bridge' is a phrase; 'Sit down' has understood 'you'; finite verbs show tense; because gives a reason and although a contrast; comma after an opening dependent clause. All match standard school grammar."
+    ],
+    "note": "No wrong or unconfirmed fact found.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved from the questions alone. #1: (a) phrase, (b) independent clause. #2: (a) dependent, (b) independent. #3: 'because the store was closed'. #4: add a main clause to fix the fragment. #5: not a complete sentence, an infinitive phrase or nonfinite clause. #6: yes, understood 'you'. #7: 'after we ate lunch' is the dependent clause. All match the lesson."
+    ],
+    "note": "All seven worked answers are correct.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts and Traps to Watch For are present with exact titles. The optional Mnemonics section is absent, which is allowed. No figure is needed."
+    ],
+    "note": "Required sections are present.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Core Concept and solutions as a Grade 5 student. The subject, verb, clause and phrase are defined in short sentences. The longest sentences, such as 'More advanced grammar may call it a nonfinite clause because someone is understood to do the action.', stay under 25 words."
+    ],
+    "note": "Predicative relationship and the other advanced wording are gone.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The exam verb 'Classify' first appears in #1 and is explained in the same item: 'Classify means put each item in the right group.' 'Identify' and 'explain' are everyday words."
+    ],
+    "note": "The only exam-specific verb is explained on first use.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned Core Concept and the rest of the lesson for comparisons or stories. There is no analogy."
+    ],
+    "note": "No analogy appears.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Compared stems with solutions. Each stem gives the groups of words to judge and names the task. #3 asks for a connector that shows the reason without naming 'because'. Solutions use plain words such as 'no subject with a verb' and 'a surprising result'."
+    ],
+    "note": "Stems are determinate and the solutions are in simple language.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for any mention of an exam or test-makers. The lesson has none, so no repeated opener is possible."
+    ],
+    "note": "No exam mentions to repeat.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is an English lesson with no Filipino teaching prose, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no Filipino grammar terms, so no English gloss is needed.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "All examples are in English because the lesson teaches English grammar.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino text to check against the Komisyon sa Wikang Filipino.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino teaching prose in which Taglish could appear.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word shown in bold, so the rule cannot apply.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "fail",
+    "checked": [
+     "Read the summary: 'Tell phrases from clauses, find complete thoughts, and join clauses with the right connector.' It is plain and does not start with 'This lesson teaches you'. Searched for stock phrases such as 'crucial' and 'delve' and found none. Read the openings of the Core Concept paragraphs."
+    ],
+    "note": "Only a minor opener repetition.",
+    "findings": [
+     {
+      "quote": "A **verb** tells an action or state, such as *slept* or *is*.",
+      "problem": "Three sentences in a row begin with 'A' plus a bold term (A subject, A verb, A clause). The guide says not to start three sentences in a row the same way."
+     }
+    ]
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson has no formulas. Section fit for Language Proficiency: Core Concept, Examples, Speed Tricks & Shortcuts and Traps to Watch For, which the guide allows."
+    ],
+    "note": "No formula to trace, and the section layout follows the guide.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped cases to examples: phrase versus clause (#1), contrast clause (#2), reason clause (#3), fragment repair (#4), nonfinite group (#5), understood subject (#6), connector with phrase versus clause (#7). The relative clause case has no example."
+    ],
+    "note": "One taught case lacks a worked example.",
+    "findings": [
+     {
+      "quote": "Here, \"who helped us\" describes the worker.",
+      "problem": "Relative clauses (who, which, that) are taught in Core Concept, but no worked example makes the student identify a relative clause or a dependent clause in a full sentence."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed every solution. Each multi-step solution (#1, #2, #3, #4, #5, #6, #7) is a numbered list. There are no display computations in a grammar lesson."
+    ],
+    "note": "Numbered steps are used wherever there are two or more steps.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences in every paragraph. Core Concept paragraphs and the nonfinite paragraphs have one to three sentences, each under about 25 words. The lesson has no bullet lists."
+    ],
+    "note": "Paragraph length is within the rule here.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure or placeholder is needed or present in this grammar lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Traced the terms. Subject, verb, clause, phrase, independent, dependent, finite and nonfinite verb are all explained before use. Infinitive and main clause are not explained."
+    ],
+    "note": "Most terms are taught; infinitive is not.",
+    "findings": [
+     {
+      "quote": "Basic school books often call \"to finish the project\" an infinitive phrase.",
+      "problem": "The term 'infinitive phrase' is used as a label students may meet in questions, but 'infinitive' is never explained, and 'main clause' in the finite verb definition is also left undefined."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that each concept says how it works. Clause and phrase have a test (subject plus verb, complete thought), connectors have a meaning check, and the nonfinite boundary has a method: find the verb that carries tense."
+    ],
+    "note": "Concepts and the way to apply them are explained.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked conditions. Commands may leave out the subject, comma placement depends on clause order, nonfinite groups cannot stand alone, and fragments may be fine in dialogue and stories (Trap #4)."
+    ],
+    "note": "Limits and exceptions are stated.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-phrases-and-clauses|L02|0": {
+    "status": "fixed",
+    "quote": "A **clause** joins a verb with a subject, which may be stated or left understood.",
+    "note": "The advanced definition is replaced by short definitions of subject, verb and clause in simple words."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L02|1": {
+    "status": "fixed",
+    "quote": "In basic school grammar, \"under the old bridge\" is a phrase.",
+    "note": "The long caveat sentence is gone. The phrase definition now uses a short example instead."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L05|0": {
+    "status": "fixed",
+    "quote": "In (a), there is no subject with a verb.",
+    "note": "Example 1 now says there is no subject with a verb. Finite predication is no longer used."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L05|1": {
+    "status": "fixed",
+    "quote": "In (a), *although* tells us to expect a surprising result.",
+    "note": "The solution now uses 'a surprising result' instead of concessive relation and ordinary standard prose."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L19|1": {
+    "status": "fixed",
+    "quote": "2. Add an independent clause: \"Although the teacher explained the lesson twice, some students were still confused.\"",
+    "note": "Example 4 now has two numbered steps: name the fragment, then add the main clause."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L22a|0": {
+    "status": "fixed",
+    "quote": "A **nonfinite verb** does not show tense by itself.",
+    "note": "The 30-word nonfinite sentence is split into short sentences across a paragraph of three or fewer."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L25|0": {
+    "status": "fixed",
+    "quote": "A **clause** joins a verb with a subject, which may be stated or left understood.",
+    "note": "Subject, verb, clause and finite verb are now defined in student-friendly words before the distinction is used."
+   },
+   "language-proficiency-grammar-and-structure#23": {
+    "status": "fixed",
+    "quote": "To check this boundary, look for the verb that carries the sentence's tense.",
+    "note": "The nonfinite boundary now has a method and Example 5 applies it with a reasoned answer."
+   },
+   "language-proficiency-grammar-and-structure#24": {
+    "status": "fixed",
+    "quote": "Use **because** to give a reason.",
+    "note": "The Choosing a Connector section gives a method (ask what happened, then why) and Example 3 applies it."
+   },
+   "language-proficiency-grammar-and-structure#25": {
+    "status": "fixed",
+    "quote": "Use **although** to show a result that may seem surprising.",
+    "note": "Although is explained as a surprise-result connector and applied in Examples 2 and 4."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L03|0": {
+    "status": "fixed",
+    "quote": "\"Classify\" means put each item in the right group.",
+    "note": "The exam verb Classify is explained in one line in Example 1."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L18|0": {
+    "status": "fixed",
+    "quote": "In \"Ana hopes to finish the project,\" can \"to finish the project\" stand alone as a complete formal sentence? Explain its role.",
+    "note": "Example 5 is a worked nonfinite-boundary example, which covers the missing case."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L19|0": {
+    "status": "fixed",
+    "quote": "1. Going home is the result.",
+    "note": "Example 3 now uses numbered steps."
+   }
+  }
+ }
+}

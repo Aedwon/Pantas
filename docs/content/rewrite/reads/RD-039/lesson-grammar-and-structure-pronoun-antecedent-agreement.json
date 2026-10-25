@@ -1,0 +1,293 @@
+{
+ "batch": "RD-039",
+ "lesson_id": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+ "lesson_sha256": "1d04f4b1133c6e6cd99445603a4b60aa54c5bfecde983c2ba0a86e35bb90a0e7",
+ "rewrite_commit": "5145876efae4abf8181a96c4b87b111ca4f5525c",
+ "form": {
+  "packet": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+  "role": "A",
+  "lesson_sha256": "1d04f4b1133c6e6cd99445603a4b60aa54c5bfecde983c2ba0a86e35bb90a0e7",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked English claims: singular they is accepted usage; everyone takes a singular verb; collective noun as a unit takes it/its. Checked Filipino sets: ang forms ako, ikaw, siya, kami, tayo, kayo, sila; ng forms ko, mo, niya, namin, natin, ninyo, nila; sa forms akin, iyo, kaniya, amin, atin, inyo, kanila; tayo includes the listener and kami does not."
+    ],
+    "note": "Facts match standard references.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved from the questions alone. #1 their, #2 its, #3 their, #4 repeat the name Anna, #5 drop the pronoun, #6 Siya ang tatawag, #7 nila, #8 sa kaniya, #9 Siya. All match the lesson's answers."
+    ],
+    "note": "All nine answers are correct.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Usage Notes (an allowed title for Language Proficiency) and Traps to Watch For are present. No figure is needed."
+    ],
+    "note": "Required sections are present.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English and Filipino prose as a Grade 5 reader. The inherently grammatical wording is gone, and the ang, ng, sa forms are explained with short sentences and examples."
+    ],
+    "note": "Prose is simple enough.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The stems use everyday verbs such as choose, make clear, remove, palitan and piliin, with no exam-specific verb.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned for analogies in all sections. None appears."
+    ],
+    "note": "The lesson contains no analogy.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [
+     "Checked the nine stems against the expected-knowledge rule. #1 to #4 and #6 to #9 give only the sentence and the task. #5 gives away the fix. Solutions use simple words."
+    ],
+    "note": "One stem gives the method.",
+    "findings": [
+     {
+      "quote": "Remove the unclear pronoun without changing the main meaning:",
+      "problem": "The stem tells the student to remove the pronoun, which supplies the method that the item tests. The student should choose between rewriting, naming people and removing the pronoun."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for exam mentions. There are none, so no repeated opener."
+    ],
+    "note": "The lesson has no exam mentions.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino section as a Grade 5 reader. Sentences are short and common words are used, with one idea per sentence."
+    ],
+    "note": "The Filipino prose is simple.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "The first use of the Filipino term appears in the heading with its gloss: 'Panghalip Panao (Personal Pronoun)'. Later uses have no gloss."
+    ],
+    "note": "Gloss appears once, on first use.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked examples #6 to #9. Their questions, answers and solutions are in Filipino."
+    ],
+    "note": "Filipino examples are in Filipino.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [
+     "The lesson contains Filipino text (ang, ng, sa pronoun forms, kaniya, kanila). I cannot check the spelling against the Komisyon sa Wikang Filipino from here."
+    ],
+    "note": "Spelling needs a check against the Ortograpiyang Pambansa.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino prose for English words. Words such as opisina, kawani and ulat are common terms. No Taglish found."
+    ],
+    "note": "No Taglish found in the prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word shown in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary 'Choose clear English pronouns and use Filipino personal pronoun forms for their sentence roles.' is plain. Searched for stock phrases and found none. Read paragraph openings; no three consecutive sentences open the same way."
+    ],
+    "note": "No stock phrasing and the openings vary.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "No formulas in this lesson. Layout uses Core Concept, Examples, Usage Notes and Traps, as the Language Proficiency fit allows."
+    ],
+    "note": "There is no formula to trace.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped cases: singular they (#1), group as one unit (#2), joined by and (#3), unclear reference (#4), or/nor (#5), ang (#6), ng actor (#7), sa (#8), siya gender (#9). Tayo versus kami and the possessive ng have no example."
+    ],
+    "note": "Two taught Filipino cases lack examples.",
+    "findings": [
+     {
+      "quote": "Kasama ang kausap sa *tayo, natin,* at *atin*. Hindi kasama ang kausap sa *kami, namin,* at *amin*.",
+      "problem": "The tayo and kami distinction is taught but no worked example makes the student choose between them. The possessive use of ng (ko, mo) is also taught in Core Concept but no example applies it."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed each solution. Multi-step solutions #1, #4, #5, #6, #7, #8 and #9 are numbered. #2 and #3 are single-step answers in one sentence, which the guide allows."
+    ],
+    "note": "Numbered lists are used where steps exist.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted the sentences in every paragraph. All are one to three short sentences, including the or/nor paragraph. No bullet lists."
+    ],
+    "note": "Paragraphs are within the rule.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure or placeholder is needed for this grammar lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced terms. Pronoun, antecedent, singular they, collective noun, panghalip panao and the ang, ng and sa forms are each explained before use, with examples."
+    ],
+    "note": "Needed terms are explained before use.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [
+     "Checked each concept for how it works. English agreement and the ang, ng and sa roles are explained in Core Concept. The Example #7 reason is misleading."
+    ],
+    "note": "Core Concept is sound; one solution misexplains.",
+    "findings": [
+     {
+      "quote": "Kailangan ang anyong ng para sa higit sa isang tao.",
+      "problem": "The solution ties the ng form to having more than one person. The ng form is chosen by the pronoun's role (here, the doer of the action), and ng pronouns such as niya also refer to one person."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked conditions. Singular they limits, group nouns as unit versus members, and following a stated rule in the task are covered. The Filipino roles depend on the sentence, and siya does not change with gender."
+    ],
+    "note": "Limits are stated.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Kailangan ang anyong ng para sa higit sa isang tao.",
+    "concern": "This sentence reads as if the ng form is needed because more than one person is involved. The ng form (nila) is chosen because the pronoun is the doer; ng pronouns also refer to one person."
+   }
+  ],
+  "brief_items": {
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L18|0": {
+    "status": "fixed",
+    "quote": "Remove the unclear pronoun without changing the main meaning: \"Neither the players nor the coach brought his or their required equipment.\"",
+    "note": "Example 5 is a worked or/nor mixed-number example."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L26|0": {
+    "status": "fixed",
+    "quote": "Kabilang sa anyong ng ang *ko, mo, niya, namin, natin, ninyo,* at *nila*.",
+    "note": "Each form set is now explained by its role. Example 7 has a misleading reason, covered under L26."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L02|0": {
+    "status": "fixed",
+    "quote": "*His or her* is also possible in some sentences.",
+    "note": "The inherently grammatical wording is replaced with short sentences."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L02|1": {
+    "status": "fixed",
+    "quote": "Ang anyong **ang** ay pamalit sa taong itinatampok sa pangungusap.",
+    "note": "The grouped by syntactic form wording is replaced by simple Filipino with examples."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L09|0": {
+    "status": "fixed",
+    "quote": "Ang **panghalip panao** ay salitang pamalit sa ngalan ng tao.",
+    "note": "The heading above this sentence gives the gloss 'Personal Pronoun' on first use."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L22a|0": {
+    "status": "fixed",
+    "quote": "A pronoun can then leave the meaning unclear.",
+    "note": "The or/nor paragraph is now three short sentences."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L25|0": {
+    "status": "fixed",
+    "quote": "Ang anyong **sa** ay ginagamit kapag sinasabi kung para kanino o kanino ibinigay ang isang bagay.",
+    "note": "The ang, ng and sa roles are explained before the forms are listed."
+   },
+   "language-proficiency-grammar-and-structure#32": {
+    "status": "fixed",
+    "quote": "Sa \"Si Ana ang nagsulat,\" maaaring ipalit ang \"Siya ang nagsulat.\"",
+    "note": "The ang forms have a rule and a worked example (#6)."
+   },
+   "language-proficiency-grammar-and-structure#33": {
+    "status": "fixed",
+    "quote": "Ang anyong **ng** ay maaaring magsabi kung sino ang may-ari.",
+    "note": "The ng forms have a role rule and Example 7, though that solution's reason is imprecise."
+   },
+   "language-proficiency-grammar-and-structure#34": {
+    "status": "fixed",
+    "quote": "\"Para kay Ana\" ay nagiging \"para sa kaniya.\"",
+    "note": "The sa forms have a role rule and Example 8."
+   },
+   "language-proficiency-grammar-and-structure#35": {
+    "status": "fixed",
+    "quote": "Walang pagkakaiba ang *siya* para sa babae at lalaki.",
+    "note": "The siya gender point is stated, used in Example 9, and repeated in Trap 4."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|0": {
+    "status": "not_fixed",
+    "quote": "The company is an organization acting as one unit, so *its* is correct.",
+    "note": "Optional item. The Example 2 solution is still one sentence, which is allowed for a one-step answer."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|1": {
+    "status": "not_fixed",
+    "quote": "Liza and Carlo are two people joined by *and*, so use *their*.",
+    "note": "Optional item. The Example 3 solution is still one sentence, which is allowed for a one-step answer."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|2": {
+    "status": "fixed",
+    "quote": "2. Repeat the intended name: \"When Mrs. Santos spoke to Anna, Anna seemed upset.\"",
+    "note": "Example 4 now uses a numbered list."
+   }
+  }
+ }
+}
