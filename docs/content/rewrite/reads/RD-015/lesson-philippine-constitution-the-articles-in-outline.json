@@ -1,0 +1,392 @@
+{
+ "batch": "RD-015",
+ "lesson_id": "lesson-philippine-constitution-the-articles-in-outline",
+ "path": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+ "lesson_sha256": "f2e5e08c3bc0731c2ad2733128e54fba804421dad09c2786f07b5de74f7c9941",
+ "rewrite_commit": "22ababb58c6eda3837a3f0db715670e6fc1b78b6",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-articles-in-outline",
+  "role": "A",
+  "lesson_sha256": "f2e5e08c3bc0731c2ad2733128e54fba804421dad09c2786f07b5de74f7c9941",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that the rewrite states a Preamble plus 18 Articles and maps Articles I through XVIII to the listed constitutional topics.",
+     "Checked Article IX structure: IX-A Common Provisions, IX-B Civil Service Commission, IX-C Commission on Elections, and IX-D Commission on Audit.",
+     "Checked the Preamble purpose statement and the Article II sovereignty example for consistency with the constitutional outline presented in the packet."
+    ],
+    "note": "The constitutional outline and article-location facts are internally consistent with the packet.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1: Articles I through XVIII give 18 Articles, excluding the Preamble.",
+     "Example 2: public officer accountability and impeachment map to Article XI.",
+     "Example 3: the Civil Service Commission maps to Article IX-B.",
+     "Example 4: sovereignty residing in the people and government authority coming from them maps to Article II."
+    ],
+    "note": "All four worked examples produce the stated answer from the question alone.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Found Core Concept, Examples, and Traps to Watch For; Speed Tricks & Shortcuts is optional for General Information.",
+     "The outline, article hierarchy, and worked examples do not depend on a missing figure."
+    ],
+    "note": "The required General Information sections are present, and no figure is required for this lesson.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "Most prose is short, but one explanatory sentence still uses unexplained legal vocabulary above the Grade 5 target.",
+    "findings": [
+     {
+      "quote": "It defines the territory over which the Philippines has sovereignty or jurisdiction.",
+      "problem": "The words “sovereignty” and “jurisdiction” are formal legal terms and are not restated in simple Grade 5 language."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson uses no exam instruction word with a special exam-specific meaning that needs a definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned Core Concept and the rest of the lesson and found no tutor analogy."
+    ],
+    "note": "No analogy is used, so the lesson stays within the one-analogy limit.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The article-count question supplies the Constitution and exclusion of the Preamble, while requiring recall of the article range.",
+     "The accountability, CSC-location, and state-principle questions ask the learner to select the correct constitutional location from the taught outline.",
+     "Each solution explains the location in short numbered steps."
+    ],
+    "note": "The worked questions give the needed facts without supplying the answer method, and the solutions use simple steps.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the single sentence beginning “For exam questions” and found no repeated exam opener or unsupported format claim."
+    ],
+    "note": "The lesson has only one generic exam mention, so there is no repetitive exam-motivation phrasing.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word, so the bold-target-word prompt rule does not apply.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched the lesson text for the prohibited stock phrases and found none.",
+     "Read consecutive teaching sentences and found varied openings rather than three identical starts.",
+     "The summary begins directly with “Use the Constitution's article outline” instead of the banned stock summary opening."
+    ],
+    "note": "The rewrite avoids the listed stock AI phrases, varies sentence openings, and uses a plain summary.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson uses Core Concept, Examples, and Traps to Watch For, which are the required General Information sections.",
+     "No mathematical formula is introduced or used in a worked example."
+    ],
+    "note": "The General Information section fit is followed, and the lesson uses no formula that would require prior introduction.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1 covers counting the Articles separately from the Preamble.",
+     "Examples 2 and 4 cover topic-to-Article lookup for accountability and a State principle.",
+     "Example 3 covers the distinct Article IX sub-part lookup for the CSC.",
+     "The optional title-versus-substance case remains a teaching note and trap, consistent with the brief's ruling that a separate example adds little."
+    ],
+    "note": "The worked examples cover the required location cases and the counting case without near-duplicate reasoning.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1 through 4 each place all solution instructions and conclusions inside numbered list steps.",
+     "No multi-step solution contains an unnumbered lead-in instruction before step 1."
+    ],
+    "note": "Every multi-step worked solution is fully numbered and no required key computation is left as unnumbered prose.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equation, so there is no phone-width display equation to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Core Concept and trap paragraphs; none exceeds three sentences.",
+     "The main bullet list is the lesson's required Article-by-Article outline rather than decorative bulleting."
+    ],
+    "note": "Paragraphs stay within one to three short sentences, and the long bullet list is necessary for the Article outline.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders, and no worked question depends on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Preamble is explained before the learner must distinguish it from the Articles.",
+     "Article IX and its IX-A through IX-D sub-parts are listed before the CSC-location example.",
+     "The lesson explains that an Article title is a location guide before asking learners to use the outline."
+    ],
+    "note": "The terms needed to use the outline method are introduced before use; the lesson does not require substantive article rules.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The rewrite explains that the outline locates a topic and that a title does not supply every rule, power, qualification, or procedure.",
+     "It then gives the two-step method: locate the Article, then recall or read the exact rule inside it."
+    ],
+    "note": "The lesson explains how the outline lookup method works and what an Article title can and cannot tell the learner.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "It states that a title is only a location guide, not the full substantive rule.",
+     "It states that the Preamble is not one of the 18 Articles.",
+     "It states that Article IX-B is a sub-part of Article IX, not a separate Article."
+    ],
+    "note": "The rewrite states the key limits of the lookup method and the main counting and sub-part exceptions.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-the-articles-in-outline|B03|0": {
+    "status": "fixed",
+    "quote": "> Knowing an Article title does not mean you know every rule inside that Article.",
+    "note": "The rewrite now includes Traps to Watch For with the required title-versus-substance warning."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|0": {
+    "status": "fixed",
+    "quote": "The $1987$ Constitution of the Republic of the Philippines has a Preamble and $18$ Articles.",
+    "note": "Both numeric values in this rewritten sentence are now wrapped in inline math."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|1": {
+    "status": "fixed",
+    "quote": "Which Article contains the constitutional rules on public officer accountability and impeachment?",
+    "note": "The rewritten accountability stem removes the unnecessary plain-text 1987 reference, so the cited notation problem is gone."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|2": {
+    "status": "fixed",
+    "quote": "How many Articles are in the $1987$ Constitution, excluding the Preamble?",
+    "note": "The remaining 1987 reference in the counting stem is now wrapped in inline math."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|3": {
+    "status": "fixed",
+    "quote": "3. Roman numeral XVIII equals $18$.",
+    "note": "The numeric value 18 in the rewritten Roman-numeral step is now inside inline math."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|4": {
+    "status": "fixed",
+    "quote": "4. Therefore, the Constitution contains $18$ Articles.",
+    "note": "The total number of Articles is now wrapped in inline math in the rewritten solution."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|5": {
+    "status": "fixed",
+    "quote": "Which main Article and sub-part cover the Civil Service Commission?",
+    "note": "The rewritten CSC-location stem removes the unnecessary plain-text 1987 reference, so the cited notation issue is gone."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L01|0": {
+    "status": "fixed",
+    "quote": "An article title is only a location guide. It tells you where to look, but it does not give every rule, power, qualification, or procedure inside that article.",
+    "note": "This directly teaches the required distinction between locating an Article and knowing its substantive constitutional rules."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L02|0": {
+    "status": "fixed",
+    "quote": "The **Preamble** explains why the Filipino people adopted the Constitution and the kind of country they seek to build.",
+    "note": "The rewrite replaces the earlier formal wording about aspirations, ordaining, and promulgating with simpler language."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L02|1": {
+    "status": "fixed",
+    "quote": "For exam questions, use the outline in two steps. First, locate the Article. Then recall or read the exact rule inside it.",
+    "note": "The earlier convoluted scope sentence is replaced by short, direct teaching about how to use the outline."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L19|0": {
+    "status": "fixed",
+    "quote": "1. Article IX covers the Constitutional Commissions.",
+    "note": "The accountability solution now begins directly with a numbered step instead of an unnumbered instruction."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L19|1": {
+    "status": "fixed",
+    "quote": "1. The Constitution begins with a Preamble.",
+    "note": "The counting solution now begins directly with a numbered step instead of an unnumbered recall instruction."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L19|2": {
+    "status": "fixed",
+    "quote": "1. Article IX covers the Constitutional Commissions.",
+    "note": "The CSC-location solution now begins directly with a numbered step instead of an unnumbered lead-in instruction."
+   },
+   "general-information-philippine-constitution#63": {
+    "status": "fixed",
+    "quote": "- **Article I: National Territory.** It defines the territory over which the Philippines has sovereignty or jurisdiction.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#64": {
+    "status": "fixed",
+    "quote": "- **Article II: Declaration of Principles and State Policies.** It states basic rules and goals of the State. For example, the Philippines is a democratic and republican State, and government authority comes from the people.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#65": {
+    "status": "fixed",
+    "quote": "- **Article III: Bill of Rights.** It protects rights such as due process, equal protection, privacy, speech, religion, travel, and other liberties.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#66": {
+    "status": "fixed",
+    "quote": "- **Article IV: Citizenship.** It states who are citizens of the Philippines and explains natural-born citizenship.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#67": {
+    "status": "fixed",
+    "quote": "- **Article V: Suffrage.** It states the basic constitutional rules on who may vote.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#68": {
+    "status": "fixed",
+    "quote": "- **Article VI: The Legislative Department.** It places legislative power in Congress, made up of the Senate and the House of Representatives.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#69": {
+    "status": "fixed",
+    "quote": "- **Article VII: The Executive Department.** It places executive power in the President and contains rules on the President and Vice-President.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#70": {
+    "status": "fixed",
+    "quote": "- **Article VIII: The Judicial Department.** It places judicial power in the courts and states the role of the Supreme Court and lower courts.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#71": {
+    "status": "fixed",
+    "quote": "- **Article X: Local Government.** It contains constitutional rules on provinces, cities, municipalities, barangays, and local autonomy.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#72": {
+    "status": "fixed",
+    "quote": "- **Article XII: National Economy and Patrimony.** It covers the national economy, natural resources, and rules tied to national patrimony.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#73": {
+    "status": "fixed",
+    "quote": "- **Article XIII: Social Justice and Human Rights.** It covers social justice, labor, agrarian and urban reform, health, women, people's organizations, and human rights.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#74": {
+    "status": "fixed",
+    "quote": "- **Article XIV: Education, Science and Technology, Arts, Culture and Sports.** It sets major State duties and policies in these fields.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#75": {
+    "status": "fixed",
+    "quote": "- **Article XV: The Family.** It recognizes the Filipino family as the foundation of the nation and gives constitutional protection to family life.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#76": {
+    "status": "fixed",
+    "quote": "- **Article XVI: General Provisions.** It contains rules on matters such as the national flag, the armed forces, and other general constitutional subjects.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#77": {
+    "status": "fixed",
+    "quote": "- **Article XVII: Amendments or Revisions.** It explains how changes to the Constitution may be proposed and ratified.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#78": {
+    "status": "fixed",
+    "quote": "- **Article XVIII: Transitory Provisions.** It contains temporary rules used in the change from the old constitutional system to the $1987$ Constitution.",
+    "note": "The rewrite now gives the Article's location and a short description of the topic it contains, while preserving the title-versus-substance limit."
+   },
+   "general-information-philippine-constitution#81": {
+    "status": "fixed",
+    "quote": "The **Preamble** explains why the Filipino people adopted the Constitution and the kind of country they seek to build.",
+    "note": "The rewrite now explains the Preamble's purpose and follows it with the broad aims and values it expresses."
+   },
+   "general-information-philippine-constitution#83": {
+    "status": "fixed",
+    "quote": "A statement says that sovereignty resides in the people and all government authority comes from them. Which Article should you review?",
+    "note": "The rewrite adds a worked application of a State principle and correctly maps that principle to Article II."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L18|0": {
+    "status": "not_fixed",
+    "quote": "Use the title to find the topic. For a question about a power, qualification, exception, or procedure, you still need the actual constitutional provision.",
+    "note": "The title-versus-substance distinction is now taught clearly, but it still is not covered by its own worked example; this optional item remains."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L18|1": {
+    "status": "fixed",
+    "quote": "How many Articles are in the $1987$ Constitution, excluding the Preamble?",
+    "note": "This basic counting question is now the first worked example, before the harder topic-to-Article lookup examples."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L26|0": {
+    "status": "fixed",
+    "quote": "An article title is only a location guide. It tells you where to look, but it does not give every rule, power, qualification, or procedure inside that article.",
+    "note": "This explains the missing concept: an Article title locates material but does not itself teach the substantive rule."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L27|0": {
+    "status": "fixed",
+    "quote": "Use the title to find the topic. For a question about a power, qualification, exception, or procedure, you still need the actual constitutional provision.",
+    "note": "The rewrite now states the lookup method's limitation and tells the learner when the actual constitutional provision is still needed."
+   }
+  }
+ }
+}
