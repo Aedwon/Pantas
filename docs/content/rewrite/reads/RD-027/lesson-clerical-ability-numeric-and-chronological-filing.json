@@ -1,0 +1,265 @@
+{
+ "packet": "lesson-clerical-ability-numeric-and-chronological-filing",
+ "role": "A",
+ "lesson_sha256": "5a0d3f6be68406b2f75a15f48afdeccfeeb54b4a090e12490e437a1c62487832",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked claims about ascending numeric order, chronological order, fixed-format dates, code separators, character-string comparison, and terminal-digit filing. Variable filing behavior is stated conditionally."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Solved all seven examples from the questions alone: #1 0389, 0395, 0401, 0452; #2 Nov 5 2023, Jan 20 2024, Mar 15 2024, Feb 10 2025; #3 12.008; #4 12.1; #5 A-10; #6 AB-5-7; #7 98-10-03. Each matches the solution."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The Reasoning lesson uses the required reduced layout: Core Concept, Examples, then Traps to Watch For. The brief says Figures: None, and no example depends on a figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the numeric, chronological, reference-code, and terminal-digit teaching for Grade 5 readability. The earlier abstract wording is replaced by short sentences and technical terms are explained in plain language."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked instruction words in the lesson. 'Arrange' is an everyday word under the guide, while the technical filing methods are taught as concepts before students apply them."
+   ],
+   "note": ""
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "No analogy is used anywhere in Core Concept or the rest of the lesson."
+   ],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1-#7. Each stem asks for an ordering or first item and supplies the local rule only when the code convention is system-dependent; none states the answer or worked method."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson makes no unsupported claim about a specific exam and does not repeat stock exam-motivation openers."
+   ],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is written in English, not Filipino."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is not a Filipino-language grammar or vocabulary lesson."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino-language examples or quiz items."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text requiring an official spelling check."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is in English, so Taglish teaching prose does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No prompt asks the learner to identify or interpret a target word."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked for the listed stock AI phrases, repeated sentence openings, and generic summary wording. None appears, and the summary plainly names the filing methods covered."
+   ],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The Reasoning layout is Core Concept, Examples, and Traps to Watch For, with no Speed Tricks section. Examples use comparisons and stated filing procedures rather than a reusable formula first introduced inside an example."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught cases to examples: ascending numeric order (#1), chronological ordering (#2), decimal values (#3), dotted integer subcodes (#4), character-string ordering (#5), hyphen-separated numeric parts (#6), and terminal-digit filing (#7). Reverse chronological order is the same date comparison run in the opposite requested direction and is stated after #2."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1-#7. Every multi-action solution uses numbered steps; Example #1 shows the key inequality in display math, and Example #3 shows each decimal normalization as display math before the comparison."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the ascending-order inequality and the three decimal-equality display lines. Each is short enough to fit a phone screen."
+   ],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "All prose paragraphs are one to three short sentences, and the lesson does not use bullet lists."
+   ],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There are no illustration placeholders, and the brief says no figures are required."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "First identify the filing key and the direction the task asks you to use.",
+     "problem": "The technical term 'filing key' is required to follow the opening instruction, but this lesson never defines it and no prerequisite lesson is provided for explanation reuse."
+    }
+   ],
+   "checked": [
+    "Checked technical terms before first use. Integer subcode, character string, and terminal-digit are defined locally, but 'filing key' is used in the opening without a local definition or supplied prerequisite."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson explains what numeric and chronological filing mean and how each works, then explains decimal versus segmented code treatment, character-string comparison, hyphen-part comparison, and terminal-digit comparison."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability conditions: chronological direction must be stated, YYYY-MM-DD does not set storage direction, separators may have different meanings, string and integer-subcode rules are conditional, and terminal-digit filing is limited to tasks that state or show it."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-clerical-ability-numeric-and-chronological-filing|L05|0": {
+   "status": "fixed",
+   "quote": "A filing rule says each part of $12.05$, $12.1$, and $12.008$ is a separate integer subcode. Which code comes first?",
+   "note": "Example #4 is now an exam-style question; the method and answer are moved into a numbered solution."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|B08|0": {
+   "status": "fixed",
+   "quote": "Arrange March $15$, $2024$; January $20$, $2024$; November $5$, $2023$; and February $10$, $2025$ from oldest to newest.",
+   "note": "All date numbers in the example question are now wrapped in inline math delimiters."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|B08|1": {
+   "status": "fixed",
+   "quote": "A filing rule says each part of $12.05$, $12.1$, and $12.008$ is a separate integer subcode. Which code comes first?",
+   "note": "The rewritten code examples use inline math instead of code spans, and numeric subcodes in prose are also written in math."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L02|0": {
+   "status": "fixed",
+   "quote": "Because each part stays in the same place, complete dates in this format can be compared from left to right by year, then month, then day.",
+   "note": "The date-format explanation is split into plain sentences and removes the unexplained word 'lexicographic.'"
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L02|1": {
+   "status": "fixed",
+   "quote": "A period or hyphen inside a code may be a separator instead of a math sign. The task may tell you to treat a code as a decimal number, as separate number parts, or as a character string.",
+   "note": "The abstract identifier sentence is replaced by concrete wording about periods, hyphens, decimals, number parts, and strings."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L19|0": {
+   "status": "fixed",
+   "quote": "1. Write the decimals with the same number of decimal places.",
+   "note": "Example #3 now uses numbered steps, with the decimal rewrites shown as separate display equations before the comparison."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L25|0": {
+   "status": "fixed",
+   "quote": "Because each part stays in the same place, complete dates in this format can be compared from left to right by year, then month, then day.",
+   "note": "The rewrite removes 'lexicographic order' and directly explains the left-to-right year, month, then day comparison."
+  },
+  "reasoning-clerical-ability#21": {
+   "status": "fixed",
+   "quote": "The fixed format **YYYY-MM-DD** puts the year first, the month second, and the day last.",
+   "note": "The ISO-style date format now identifies each component and explains the ordering used for complete dates."
+  },
+  "reasoning-clerical-ability#24": {
+   "status": "fixed",
+   "quote": "If the rule says to compare strings from left to right, compare one character at a time under the order stated by the task.",
+   "note": "The lesson now gives a local character-string comparison procedure and applies it in Example #5."
+  },
+  "reasoning-clerical-ability#25": {
+   "status": "fixed",
+   "quote": "If the system says each part is compared separately, compare the first part, then the second, and so on.",
+   "note": "The rewrite now explains how hyphen-separated parts are compared and applies that rule in Example #6."
+  },
+  "reasoning-clerical-ability#26": {
+   "status": "fixed",
+   "quote": "A **terminal-digit** rule starts with the rightmost group of a file number. If those groups match, compare the next group to the left.",
+   "note": "The method is now explained locally and then applied step by step in Example #7."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L03|0": {
+   "status": "not_fixed",
+   "quote": "Arrange $0452$, $0389$, $0401$, and $0395$ from smallest to largest.",
+   "note": "The optional item remains unchanged: 'Arrange' is still used without a gloss, though the guide treats this everyday word as not needing one."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L17|0": {
+   "status": "fixed",
+   "quote": "Use terminal-digit filing only when the task states or shows that method. Do not apply it to an ordinary ascending-number question.",
+   "note": "The optional layout issue is fixed: the lesson now goes from Core Concept directly to Examples, with no Speed Tricks section."
+  },
+  "lesson-clerical-ability-numeric-and-chronological-filing|L18|0": {
+   "status": "not_fixed",
+   "quote": "If the task asks for reverse chronological order, use the same dates in the opposite direction.",
+   "note": "Reverse chronological order is still only stated after Example #2 and does not receive its own worked example; this optional item remains unfixed."
+  }
+ }
+}
