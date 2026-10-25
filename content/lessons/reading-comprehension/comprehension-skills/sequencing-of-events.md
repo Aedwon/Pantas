@@ -21,8 +21,6 @@ Three clues can help.
 
 The order of the sentences is called the **written order**. The order in which the events really happened is the **event order**. These two orders can be different.
 
-### Pagkakasunod-sunod sa Filipino
-
 Sa Filipino, hanapin ang mga salitang nagsasabi ng oras. Kabilang dito ang *una*, *bago*, *pagkatapos*, *matapos*, *kasunod*, at *sa huli*. Tinutulungan ka ng mga salitang ito na ayusin ang mga pangyayari.
 
 Hanapin din ang sanhi at bunga. Ang *dahil* ay karaniwang nagpapakilala ng sanhi. Ang *kaya* at *dahil dito* ay karaniwang nagpapakilala ng bunga.
