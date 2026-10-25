@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+ ],
+ "topic": "general-information/peace-and-human-rights",
+ "rewrites": {
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "51c013a3c86587c2dc6c070e21c9b79557bfd8e9"
+ },
+ "sha256": {
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "2bfea87342ca7df96912484a5d22c318079862fb2f56a45a7260a0f64b49312c"
+ },
+ "paths": {
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md"
+ },
+ "id": "RD-084",
+ "type": "read",
+ "created": "2026-10-25T23:12:04+00:00"
+}
