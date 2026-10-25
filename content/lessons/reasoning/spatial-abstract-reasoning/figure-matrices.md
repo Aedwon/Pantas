@@ -1,101 +1,101 @@
 ---
 _id: "lesson-spatial-abstract-reasoning-figure-matrices"
 title: "Figure Matrices (Completing a 2x2 or 3x3 Grid of Shapes)"
-summary: "Learn how to find the pattern across rows and columns of a figure matrix and determine the missing shape."
+summary: "Learn how to follow row, column, and feature-combination rules to complete a missing cell in a figure matrix."
 subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
-estimatedMinutes: 10
+estimatedMinutes: 11
 isActive: true
 ---
 ## Core Concept
 
-A **figure matrix** arranges shapes in a grid (commonly $2 \times 2$ or $3 \times 3$), where the figures follow a consistent pattern moving across each row and/or down each column. One cell (usually the bottom-right) is left blank, and you must determine which figure correctly completes the pattern.
+A **figure matrix** is a grid of figures with one missing cell. The figures follow a rule across rows, down columns, or both.
 
-Two directions to check for a pattern:
+Check the grid in this order:
 
-- **Row pattern**: does each figure change in a consistent way as you move left to right across a row (similar to a figure series)?
-- **Column pattern**: does each figure change in a consistent way as you move top to bottom down a column?
+- **Rows**: look from left to right.
+- **Columns**: look from top to bottom.
+- **Features**: track shape, size, shading, rotation, dots, and internal lines one at a time.
+- **Combination**: in some grids, a later cell puts together features from earlier cells.
 
 <!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "triangle", "rotation": 0, "dots": 1}, {"form": "triangle", "rotation": 0, "dots": 2}, {"form": "triangle", "rotation": 0, "dots": 3}, {"form": "triangle", "rotation": 90, "dots": 1}, {"form": "triangle", "rotation": 90, "dots": 2}, {"form": "triangle", "rotation": 90, "dots": 3}, {"form": "triangle", "rotation": 180, "dots": 1}, {"form": "triangle", "rotation": 180, "dots": 2}, "blank"], "semanticsLabel": "A 3 by 3 grid of shapes where dots increase across rows and shapes rotate down columns, with the bottom-right cell left blank."} -->
 
-Some matrices follow a single pattern that applies consistently in one direction (only across rows, or only down columns). Others combine two patterns at once: one rule governing rows, and a different rule governing columns simultaneously, similar to combining features in a figure series.
+A row rule and a column rule can control different features at the same time. For example, size may change down a column while shading changes across a row.
 
-A useful additional check for $3 \times 3$ matrices: sometimes the third figure in a row (or column) is some combination of the first two (like the union or overlap of their features), rather than following a simple step-by-step progression.
+A **combination rule** means the missing cell is built from features already shown in other cells. Use this only when a completed row or column shows the same way of combining features.
 
 ## Examples
 
-### #1: A Simple Row Pattern
+### #1: A Visible Rotation Rule
 
-A $2 \times 2$ matrix's top row shows a triangle, then a triangle rotated $90°$. The bottom row shows a square, then (blank). What should the blank cell show?
+A $2 \times 2$ matrix has an up-pointing triangle with a dot near its top point, followed by the same triangle turned $90^\circ$ clockwise. The dot turns with the triangle. The bottom-left cell has a square with a dot in its top-left corner. What should the blank bottom-right cell show?
 
-<!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 2, "cells": [{"form": "triangle", "rotation": 0}, {"form": "triangle", "rotation": 90}, {"form": "square", "rotation": 0}, "blank"], "semanticsLabel": "A 2 by 2 grid with a triangle then the same triangle rotated 90 degrees in the top row, and a square and an empty cell in the bottom row."} -->
-
+<!-- ILLUSTRATION: a 2 by 2 grid, top-left an upward triangle with a dot near the top point, top-right the same triangle turned 90 degrees clockwise with the dot near the right point, bottom-left a square with a dot in the top-left corner, bottom-right blank -->
 
 **Solution:**
-1. Identify the row pattern: moving left to right, each shape rotates $90°$.
-2. Apply the same row pattern to the bottom row: starting with a square, rotating it $90°$ gives a square that looks the same as an unrotated square (since a square has rotational symmetry every $90°$), but if the square has some distinguishing mark (like a dot in one corner), that mark would move to the next corner.
-3. The blank cell should show a square rotated $90°$ from the first bottom-row square (with any distinguishing mark shifted accordingly).
 
-### #2: A Combined Row-and-Column Pattern
+1. Read the completed top row. The whole marked figure turns $90^\circ$ clockwise.
+2. Apply the same turn to the marked square. The square outline looks the same, but its dot moves from the top-left corner to the top-right corner.
+3. The blank should show a square with a dot in the top-right corner.
 
-A $3 \times 3$ matrix's rows show an increasing number of dots inside a circle: row 1 has circles with $1$, $2$, $3$ dots; row 2 has circles with $2$, $3$, $4$ dots; row 3 has circles with $3$, $4$, and (blank). How many dots should the blank cell have?
+### #2: Increasing Dot Counts
+
+A $3 \times 3$ matrix shows circles with dot counts. Row $1$ has $1$, $2$, and $3$ dots. Row $2$ has $2$, $3$, and $4$ dots. Row $3$ has $3$, $4$, and a blank. How many dots should the blank cell have?
 
 <!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "circle", "dots": 1}, {"form": "circle", "dots": 2}, {"form": "circle", "dots": 3}, {"form": "circle", "dots": 2}, {"form": "circle", "dots": 3}, {"form": "circle", "dots": 4}, {"form": "circle", "dots": 3}, {"form": "circle", "dots": 4}, "blank"], "semanticsLabel": "A 3 by 3 grid of circles with increasing dot counts and a blank bottom-right cell."} -->
 
-
 **Solution:**
-1. Identify the row pattern: within each row, the dot count increases by $1$ moving left to right ($1 \to 2 \to 3$, then $2 \to 3 \to 4$).
-2. Confirm this same increase applies to row 3: $3 \to 4 \to \, ?$, continuing the "+1" pattern.
-3. The blank cell should show a circle with $5$ dots.
 
-### #3: A Matrix Testing Both Directions Separately
+1. Across each row, the dot count goes up by $1$.
+2. Row $3$ follows $3 \to 4 \to ?$.
+3. The blank should show a circle with $5$ dots.
 
-A $3 \times 3$ matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. Given the blank is in the bottom-right cell, what size and shading should it have?
+### #3: Different Rules in Rows and Columns
+
+A $3 \times 3$ matrix uses squares. Moving down a column, size changes from small to medium to large. Moving across a row, shading follows black, white, black. The bottom-right cell is blank. What size and shading should it have?
 
 <!-- FIGURE: {"kind": "figure-matrix", "rows": 3, "cols": 3, "cells": [{"form": "square", "size": "small", "fill": "black"}, {"form": "square", "size": "small", "fill": "white"}, {"form": "square", "size": "small", "fill": "black"}, {"form": "square", "size": "medium", "fill": "black"}, {"form": "square", "size": "medium", "fill": "white"}, {"form": "square", "size": "medium", "fill": "black"}, {"form": "square", "size": "large", "fill": "black"}, {"form": "square", "size": "large", "fill": "white"}, "blank"], "semanticsLabel": "A 3 by 3 grid where shapes grow larger down columns and alternate black and white across rows, with the bottom-right cell left blank."} -->
 
-
 **Solution:**
-1. Check the column pattern for size: since the blank is in the bottom row, and size grows small → medium → large moving down each column, the blank's size should be large.
-2. Check the row pattern for shading: since the blank is in the right-most position of its row, and shading alternates black → white → black moving across, the blank's shading should be black (continuing the alternation from the pattern established in that row).
-3. The blank cell should show a large, black shape.
 
-### #4: Using the "Combination" Rule
+1. Check the column rule. The blank is in the bottom row, so its size must be large.
+2. Check the row rule. The bottom row must follow black, white, black.
+3. The blank should show a large black square.
 
-A $3 \times 3$ matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both a horizontal and a vertical line (a plus-sign pattern) in the third cell. If the same combination rule applies to another row showing a square with a diagonal line (top-left to bottom-right) and a square with the other diagonal line (top-right to bottom-left), what should the third cell in that row show?
+### #4: Combining Features
+
+A $3 \times 3$ matrix has a completed row of circles. The first circle has a horizontal line. The second has a vertical line. The third has both lines. Another row has a square with one diagonal line, then a square with the other diagonal line, then a blank. What should the blank show?
 
 <!-- FIGURE: {"kind": "figure-matrix", "rows": 2, "cols": 3, "cells": [{"form": "circle", "line": 90}, {"form": "circle", "line": 0}, {"form": "circle", "lines": [90, 0]}, {"form": "square", "line": 45}, {"form": "square", "line": 135}, "blank"], "semanticsLabel": "Two matrix rows showing a combination rule: the third circle combines horizontal and vertical lines, and the third square is left blank."} -->
 
-
 **Solution:**
-1. Identify the combination rule from the completed first row: the third cell combines both features from the first two cells (horizontal line + vertical line = both lines together).
-2. Apply the same combination logic to the second row: the third cell should combine both diagonal lines from the first two cells.
-3. The third cell should show a square with both diagonal lines drawn (forming an X pattern).
 
-## Speed Tricks & Shortcuts
-
-**Check rows first, then columns, then consider combination patterns if neither alone fully explains the grid.** Most matrices use one of these three approaches, so working through them in order is an efficient default strategy.
-
-**For $3 \times 3$ matrices specifically, always check whether the third item in a row or column is a combination of the first two**, since this pattern type appears frequently and is easy to miss if you're only looking for simple step-by-step progressions.
-
-**Track each visual feature (shape, size, shading, rotation, dot count) separately across the grid**, exactly like in figure series questions, since a matrix can combine multiple independently-changing features.
+1. Read the completed circle row. The third cell keeps both lines from the first two cells.
+2. Apply the same rule to the square row. Keep both diagonal lines.
+3. The blank should show a square with both diagonals, forming an X.
 
 ## Traps to Watch For
 
-### #1: Checking Only Rows or Only Columns, Not Both
+### #1: Checking Only One Direction
 
-> Many matrices require checking both the row pattern and the column pattern together: solving only one direction may give an incomplete or wrong answer, especially when different features follow different directional rules.
+> A row can show one rule while a column shows another.
 
-Example 3 shows how size follows the column direction while shading follows the row direction: solving only one direction misses half the required answer.
+Check both directions before choosing the missing figure. One direction may tell you the size while the other tells you the shading or another feature.
 
-### #2: Missing a "Combination" Pattern in a 3x3 Matrix
+### #2: Guessing a Combination Rule Too Early
 
-> The third figure in a row or column is sometimes the overlap or combination of the first two, rather than a simple next-step continuation.
+> Use a combination rule only when a completed row or column shows how the features combine.
 
-Assuming the third cell should follow a simple incrementing pattern (like a figure series) when it is actually meant to combine features from the first two cells leads to a plausible but incorrect prediction.
+Do not join features just because two cells look related. First find a completed part of the grid that proves the same rule.
 
-### #3: Assuming All Rows Share the Exact Same Individual Figures
+### #3: Expecting the Same Exact Figures in Every Row
 
-> Different rows or columns can apply the same transformation rule to different starting shapes: do not expect literally identical figures across rows, only a consistent pattern of change.
+> The starting figures can differ while the change stays the same.
 
-In Example 1, the top row and bottom row start with completely different shapes (triangle vs. square), but the same rotation rule ($90°$ rotation) applies to both: recognizing the rule, not memorizing specific shapes, is the key skill.
+A triangle and a marked square can both follow a $90^\circ$ clockwise turn. Focus on what changes, not only on the shape name.
+
+### #4: Missing One Feature
+
+> Track shape, size, shading, rotation, dots, and internal lines separately.
+
+A choice can match the shape but fail the shading rule. Check every feature that changes before you answer.
