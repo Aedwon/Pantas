@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+  "lesson-grammar-and-structure-punctuation-and-capitalization",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "rewrites": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "c904eadaa7f8ef7e7982f9dfdb34ccc7556797df",
+  "lesson-grammar-and-structure-punctuation-and-capitalization": "c904eadaa7f8ef7e7982f9dfdb34ccc7556797df",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "c904eadaa7f8ef7e7982f9dfdb34ccc7556797df"
+ },
+ "sha256": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "baf40356ec0e4978086e2a3e1d3d5a918eb28ecb46a389d18c45186df371ee0a",
+  "lesson-grammar-and-structure-punctuation-and-capitalization": "e77851db33220b0ee746e67d3560526fbc05197e289faac84dae31f5d10bfc1b",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "93e332e07ff5cc98c71b631b76b32001a697a8fa54bfcc70badaef6b3d3aa319"
+ },
+ "paths": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+  "lesson-grammar-and-structure-punctuation-and-capitalization": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md"
+ },
+ "id": "RD-051",
+ "type": "read",
+ "created": "2026-10-25T19:39:50+00:00"
+}
