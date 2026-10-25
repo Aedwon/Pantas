@@ -21,7 +21,7 @@ Section $4$ gives eight norms of conduct. These are standards for public officia
 3. **Justness and sincerity:** Be fair and truthful. Do not unfairly discriminate, respect the rights of others, and do not use office to give improper favors to relatives.
 4. **Political neutrality:** Give fair service no matter which political party a person supports or prefers.
 5. **Responsiveness to the public:** Give prompt, polite, and enough service. Explain policies and procedures clearly, keep information open when the law and public interest allow it, hold public consultations or hearings when appropriate, accept suggestions, simplify procedures, and avoid red tape.
-6. **Nationalism and patriotism:** Be loyal to the Republic and the Filipino people. Support locally produced goods, resources, and technology, build pride in the country, and help defend Philippine sovereignty from foreign intrusion.
+6. **Nationalism and patriotism:** Be loyal to the Republic and the Filipino people. Support local goods, resources, and technology, and take pride in the country. **Sovereignty** means the Philippines has the right to control its own affairs, and officials should help protect that right from outside control.
 7. **Commitment to democracy:** Follow democratic values and uphold the Constitution. **Public accountability** means officials must answer to the people for how they use public power and resources. Loyalty to the country must come before loyalty to a person or political party.
 8. **Simple living:** Officials, employees, and their families should live modestly in a way that fits their position and income. They should not make extravagant displays of wealth.
 
