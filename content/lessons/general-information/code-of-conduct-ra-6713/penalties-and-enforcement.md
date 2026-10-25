@@ -36,15 +36,17 @@ A violation proven in a proper administrative proceeding can be enough for remov
 
 ### Private Persons Who Join a Violation
 
-Section $11$ also covers private persons who join a conspiracy with a public official or employee as co-principals, accomplices, or accessories. They can face the same **penal liabilities**, meaning the same criminal responsibility and penalties under this rule, and they are tried jointly with the public official or employee.
+A **conspiracy** means two or more people agree to commit an offense together and decide to carry it out. Section $11$ can also apply when a private person joins an RA $6713$ violation with a public official or employee.
+
+The private person's role depends on what the person did. The law may treat the person as a co-principal, accomplice, or accessory. The private person can face the same **penal liabilities**, meaning criminal responsibility and penalties under this rule, and can be tried with the public official or employee.
 
 These role names come from criminal law:
 
-- A **principal** takes a direct part, directly causes another to commit the act, or gives cooperation without which the offense could not have been completed.
-- An **accomplice** knowingly helps in carrying out the offense through an act done before or at the same time, without being a principal.
-- An **accessory** knows the offense was committed and then takes part afterward in a way covered by criminal law, such as helping profit from it or hiding evidence in a covered case.
+- A **co-principal** directly takes part in the offense, makes another person commit it, or gives help without which it could not be completed.
+- An **accomplice** knows about the offense and helps before or while it is being carried out, but the help does not make the person a co-principal.
+- An **accessory** knows the offense was committed and helps afterward in a way covered by criminal law, such as helping profit from it or hiding evidence in a covered case.
 
-The facts must support the legal role. A person is not an accomplice or accessory only because they know the official.
+The facts must support the role. Knowing about the offense alone is not enough.
 
 ### Misuse of Filed Statements
 
@@ -82,15 +84,16 @@ A public official is proven to have committed a violation of Section $7$. What m
 2. The penalty may be imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both.
 3. The court may also disqualify the person from holding public office.
 
-### #3: Liability of a Private Accomplice
+### #3: Identifying a Private Accomplice
 
-A private businessperson knows about an RA $6713$ violation and intentionally helps carry it out at the same time as the public officer, but the help is not the direct act that makes the businessperson a principal. The facts establish that the person is an accomplice. Can the private person be penalized under Section $11$?
+A private businessperson knows that a public officer plans an RA $6713$ violation. Before the violation, the businessperson knowingly supplies records that help carry it out. The public officer could still complete the violation without those records. Which role best fits the private person, and can Section $11$ apply?
 
 **Solution:**
 
-1. Section $11$ covers private persons who join the conspiracy as principals, accomplices, or accessories.
-2. The facts already establish the person's role as an accomplice.
-3. The private person can face the same penal liabilities under this rule and can be tried jointly with the public officer.
+1. The private person knowingly helped before the offense was carried out.
+2. The help was useful, but the offense could still be completed without it. The private person also did not directly carry out the offense.
+3. These facts fit the role of an **accomplice**.
+4. Section $11$ can apply the same penal liabilities under this rule and allow joint trial with the public officer.
 
 ### #4: Commercial Use of a Filed SALN
 
