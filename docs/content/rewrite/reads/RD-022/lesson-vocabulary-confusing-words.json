@@ -1,0 +1,274 @@
+{
+ "batch": "RD-022",
+ "lesson_id": "lesson-vocabulary-confusing-words",
+ "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+ "lesson_sha256": "8a73b81ed5ef11b7f4dde007a8652305c156b7861c8a25399b7f94d5beedee92",
+ "rewrite_commit": "f5d1f602c5bc44b076d523007b1618d7a8dd5bd1",
+ "form": {
+  "packet": "lesson-vocabulary-confusing-words",
+  "role": "A",
+  "lesson_sha256": "8a73b81ed5ef11b7f4dde007a8652305c156b7861c8a25399b7f94d5beedee92",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the stated vocabulary meanings and grammatical distinctions against their sentence uses. No contradictory fact is apparent from the supplied prompt. External sources were not supplied; official Filipino checking remains open under L11."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 A affect; #2 B its; #3 B nang; #4 B ng; #5 B ng; #6 B Sina; #7 A Sila; #8 B effected major changes. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and numbered Traps are present. The brief requests no figures; each question is verbal."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions. Short sentences replace the dense technical wording identified in the brief; ordinary meaning explanations support the labels."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb requiring a special definition appears.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No friendly-tutor analogy occurs. Figurative sentences are the subject being taught, not extra tutor analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each example supplies a full sentence, an explicit question or completion blank, and choices. Solutions explain the sentence cue. No question omits necessary problem-specific information."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked introductions and traps: there are no repeated exam openers or unsupported claims about a particular exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Look at the whole Filipino construction, especially objects, possession, quantity, time, manner, and repeated action.",
+      "problem": "The ng/nang shortcut and traps #3 and #4 still teach Filipino grammar in English. Filipino Core Concept and solutions do not fix these remaining passages."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first uses of Filipino grammar/device labels: their English equivalents are supplied next to the labels where needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino worked items have Filipino sentences, choices, prompts, and explanation steps. English items address English vocabulary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from this prompt.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino prose uses Filipino wording. English label glosses and the common formatting word bold are permitted uses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Target vocabulary is bold. English word-meaning prompts use word in bold; Filipino prompts use the corresponding Filipino wording. Phrase targets are identified as phrases in bold. Whole-sentence classification is not a target-word prompt."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary describes the actual topic. No listed stock AI phrase appears. Sentence openings vary outside functional definition lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language Proficiency section fit is followed. No worked example uses a mathematical formula; no formula needs tracing to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Common affect #1, possessive its #2, manner nang #3, quantity ng #4, time ng #5, sina #6, sila #7, and verb effect #8 cover the required rewrite cases. Rare noun affect, positive it-has, and separate repeated-action items are optional under the brief."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked example has a separate Solution block and two numbered steps showing the cue and answer. No calculation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have at most three short sentences. Definition lists group related concepts; solutions use numbered steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder exists or is needed for these verbal questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "After *will*, the blank needs the base form of a verb.",
+      "problem": "Base form is a decision cue without an explanation. Verb and noun are also relied on without simple meanings or an identified prerequisite."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions explain meanings and how the concepts work. Worked solutions connect concrete sentence details to the chosen meaning or device."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the cautions about context and exceptions. The text limits shortcuts instead of presenting signal words or common patterns as universal rules."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-confusing-words|L08|0": {
+    "status": "not_fixed",
+    "quote": "**For ng and nang, check the whole phrase.**",
+    "note": "Core Concept is Filipino, but the shortcut and Filipino grammar traps still use English teaching."
+   },
+   "lesson-vocabulary-confusing-words|L18|2": {
+    "status": "fixed",
+    "quote": "Bumili si Liza ng tatlong kilo ______ bigas.",
+    "note": "Positive ng decisions now appear for quantity in #4 and time in #5, as requested by the triage instruction."
+   },
+   "lesson-vocabulary-confusing-words|L18|4": {
+    "status": "fixed",
+    "quote": "Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid.",
+    "note": "Example #7 selects Sila as the pronoun replacing the two names."
+   },
+   "lesson-vocabulary-confusing-words|L19|0": {
+    "status": "fixed",
+    "quote": "1. After *will*, the blank needs the base form of a verb.",
+    "note": "All eight solutions now contain two numbered steps."
+   },
+   "lesson-vocabulary-confusing-words|L02|0": {
+    "status": "fixed",
+    "quote": "Sa pormal na pagsulat, gamitin ang **sina** kapag kasunod nito ang mga pangalan.",
+    "note": "The dense coordinated-set passage is replaced with short Filipino instructions."
+   },
+   "lesson-vocabulary-confusing-words|L25|0": {
+    "status": "fixed",
+    "quote": "Ginagamit ang **ng** bago ang bagay na tinutukoy ng kilos: *kumain ng mangga*.",
+    "note": "The non-topic noun phrase label is replaced with a plain action/object cue."
+   },
+   "lesson-vocabulary-confusing-words|L25|1": {
+    "status": "fixed",
+    "quote": "Ginagamit ang **nang** kapag inilalarawan kung paano ginawa ang kilos: *tumakbo nang mabilis*.",
+    "note": "The manner cue is now explained through how an action is done."
+   },
+   "language-proficiency-vocabulary#8": {
+    "status": "fixed",
+    "quote": "Ginagamit ang **ng** sa dami o sukat: *tatlong kilo ng bigas*.",
+    "note": "Quantity now has a concrete phrase and a positive worked decision; time is also worked."
+   },
+   "language-proficiency-vocabulary#14": {
+    "status": "not_fixed",
+    "quote": "**Sila** replaces names, while **sina** comes before several personal names in standard Filipino.",
+    "note": "Filipino instruction is present in Core Concept and solutions, but the shortcut and traps still teach Filipino in English."
+   },
+   "lesson-vocabulary-confusing-words|L14|0": {
+    "status": "fixed",
+    "quote": "Which sentence uses the word in bold as a verb correctly?",
+    "note": "Example #8 now uses the required word-in-bold wording."
+   },
+   "lesson-vocabulary-confusing-words|L18|0": {
+    "status": "not_fixed",
+    "quote": "In psychology, **affect** can also be a noun for an observable expression of emotion.",
+    "note": "The psychology exception remains without a worked noun-affect example. This was optional."
+   },
+   "lesson-vocabulary-confusing-words|L18|1": {
+    "status": "not_fixed",
+    "quote": "The university updated ______ guidelines regarding artificial intelligence.",
+    "note": "The only worked its/it's item still tests possession; no positive it-has case is worked."
+   },
+   "lesson-vocabulary-confusing-words|L18|3": {
+    "status": "fixed",
+    "quote": "Ginagamit ang **nang** sa kilos na inuulit: *takbo nang takbo*.",
+    "note": "A plain rule and repeated-action illustration supply the short teaching the optional brief permits."
+   }
+  }
+ }
+}
