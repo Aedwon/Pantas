@@ -10,6 +10,7 @@ isActive: true
 
 ## Core Concept
 
+
 Republic Act No. $6713$ is the **Code of Conduct and Ethical Standards for Public Officials and Employees**. It was approved on February $20$, $1989$ and took effect on March $25$, $1989$.
 
 Section $4$ gives eight norms of conduct. These are standards for public officials and employees while they carry out official duties.
