@@ -9,53 +9,57 @@ isActive: true
 ---
 ## Core Concept
 
-A **sequence** is an ordered list of terms. A **series** is a sum of terms from a sequence.
+A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence.
 
 ### Common Sequence Types
 
-An **arithmetic sequence** has the same difference between consecutive terms. This value is the **common difference** $d$.
+An **arithmetic sequence** has the same difference between neighboring terms. This value is the **common difference** $d$. Subtract a term from the term after it to find $d$.
 
-A **geometric sequence** has the same ratio between consecutive nonzero terms. This value is the **common ratio** $r$.
+A **geometric sequence** is made by multiplying each term by the same number. This number is the **common ratio** $r$. Divide a term by the nonzero term before it to find $r$.
 
-In a **Fibonacci-type sequence**, each term after the first two is the sum of the two terms before it. For three consecutive terms $x,y,z$:
+In a **Fibonacci-type sequence**, each term after the first two is the sum of the two terms before it. For three neighboring terms $x,y,z$, where $z$ follows the first two:
 
 $$z=x+y$$
 
 A common Fibonacci sequence begins $1,1,2,3,5,8,\dots$. Another standard convention begins $0,1,1,2,3,5,\dots$.
 
-The **reciprocal** of a nonzero number $x$ is $\dfrac{1}{x}$. In a **harmonic sequence**, the reciprocals of the nonzero terms form an arithmetic sequence.
+The **reciprocal** of a nonzero number $x$ is $\dfrac{1}{x}$. For a fraction with nonzero numerator and denominator, switch them to take its reciprocal. For example, the reciprocal of $\dfrac{2}{3}$ is $\dfrac{3}{2}$.
+
+In a **harmonic sequence**, the reciprocals of the terms form an arithmetic sequence. Find the pattern in those reciprocals, then take the reciprocal again to return to the original sequence. All terms of a harmonic sequence must be nonzero.
 
 ### Finding a Number Pattern
 
-Not every number pattern is arithmetic, geometric, Fibonacci-type, or harmonic. Before choosing a formula, look at how each term changes.
+Not every number pattern belongs to one of these four types. Before choosing a formula, look at how each term changes.
 
 Try these checks:
 
 - Subtract neighboring terms. A constant difference means the pattern is arithmetic.
 - Divide neighboring nonzero terms. A constant ratio means the pattern is geometric.
-- If neither works, check whether the operations alternate.
+- If neither works, check whether operations alternate, such as adding and then multiplying.
 - Check whether the differences form their own simple pattern.
-- Check whether terms repeat in pairs or groups.
+- Check separate patterns in the odd and even positions, or in repeating groups.
 
-A pattern rule should fit every shown step. If it works for only part of the list, keep looking.
+A pattern rule should fit every shown step. A short list can fit more than one rule. Use the rule stated in the question, or look for a simple rule that fits the whole list and the answer choices.
 
 ### The Formulas You Need
 
-Here $a_1$ is the first term, $n$ is the number of terms, $d$ is the common difference, and $r$ is the common ratio.
+The symbol $a_1$ means the first term. The symbol $a_n$ means the term in position $n$. When finding a sum, $n$ is the number of terms being added.
 
-For an arithmetic sequence:
+The symbol $S_n$ means the sum of the first $n$ terms. The letters $d$ and $r$ mean the common difference and common ratio.
+
+In an arithmetic sequence, moving from the first term to position $n$ takes $n-1$ equal steps. This gives:
 
 $$a_n=a_1+(n-1)d$$
 
-For an arithmetic series:
+For an arithmetic series, the average of the first and last terms is also the average of all the terms. Multiply this average by the number of terms:
 
 $$S_n=\dfrac{n}{2}(a_1+a_n)$$
 
-Since $a_n=a_1+(n-1)d$, the same sum can also be written as:
+Using the arithmetic-term formula gives another form of the same sum:
 
 $$S_n=\dfrac{n}{2}\left[2a_1+(n-1)d\right]$$
 
-For a geometric sequence:
+In a geometric sequence, reaching position $n$ takes $n-1$ multiplications by $r$:
 
 $$a_n=a_1r^{n-1}$$
 
@@ -63,41 +67,73 @@ For a finite geometric series with $r\ne1$:
 
 $$S_n=\dfrac{a_1(1-r^n)}{1-r}$$
 
+To see why this works, multiply the sum by $r$. Subtract this new sum from the original sum. The middle terms cancel, leaving $(1-r)S_n=a_1(1-r^n)$.
+
 If $r=1$, every term equals $a_1$. Then:
 
 $$S_n=na_1$$
 
-An infinite geometric series **converges** when its sum gets closer and closer to one finite number as more terms are added. The symbol $|r|$ means the absolute value of $r$, which is its distance from $0$.
+An infinite series keeps adding terms without stopping. It **converges** if the running total gets closer and closer to one finite number. For example, $1+\dfrac{1}{2}+\dfrac{1}{4}+\dots$ has running totals $1,\dfrac{3}{2},\dfrac{7}{4},\dots$, which approach $2$.
 
-An infinite geometric series converges only when $|r|<1$. Then:
+The symbol $S_\infty$ means that finite sum of an infinite series. The symbol $|r|$ means the absolute value of $r$, which is its distance from $0$.
+
+For an infinite geometric series with a nonzero first term, a finite sum exists only when $|r|<1$. The terms then shrink toward $0$, and the running total approaches:
 
 $$S_\infty=\dfrac{a_1}{1-r}$$
 
-If $|r|\ge1$, the series **diverges**. This means it does not settle to a finite sum.
+If $|r|\ge1$ and the first term is nonzero, the series **diverges**. This means its running total does not approach a finite sum. If every term is $0$, the sum is simply $0$.
 
 ## Examples
 
 ### #1: Discovering a Number Pattern
 
-What number comes next in $2,5,10,17,26,\dots$?
+The differences between successive terms increase by $2$. What number comes next in $2,5,10,17,26,\dots$?
 
 **Solution:**
 
 1. Find the differences between neighboring terms.
 
-$$5-2=3,\quad10-5=5,\quad17-10=7$$
+$$5-2=3,\quad10-5=5$$
 
-$$26-17=9$$
+$$17-10=7,\quad26-17=9$$
 
-2. The differences are $3,5,7,9$, which increase by $2$. The next difference is $11$.
+2. The differences are $3,5,7,9$. The next difference is $11$.
 
 $$26+11=37$$
 
 The next number is $37$.
 
-### #2: Finding a Far Term in an Arithmetic Sequence
+### #2: Alternating Operations
 
-What is the $25^{\text{th}}$ term of $4,7,10,13,\dots$?
+A sequence alternates between adding $3$ and multiplying by $2$, starting with addition. What number comes next in $4,7,14,17,34,\dots$?
+
+**Solution:**
+
+1. Check the changes in order.
+
+$$4+3=7,\quad7\times2=14$$
+
+$$14+3=17,\quad17\times2=34$$
+
+2. The next operation is adding $3$.
+
+$$34+3=37$$
+
+### #3: Two Patterns in One List
+
+The odd-position terms follow one arithmetic pattern. The even-position terms follow another. What number comes next in $2,20,5,18,8,16,\dots$?
+
+**Solution:**
+
+1. Read the odd-position terms: $2,5,8$. They increase by $3$.
+2. Read the even-position terms: $20,18,16$. They decrease by $2$.
+3. The next term is in an odd position.
+
+$$8+3=11$$
+
+### #4: Finding a Far Term in an Arithmetic Sequence
+
+What is the $25^{\text{th}}$ term of the arithmetic sequence $4,7,10,13,\dots$?
 
 **Solution:**
 
@@ -106,9 +142,9 @@ What is the $25^{\text{th}}$ term of $4,7,10,13,\dots$?
 
 $$a_{25}=4+(25-1)(3)=76$$
 
-### #3: Arithmetic Series in a Word Problem
+### #5: Arithmetic Series in a Word Problem
 
-A theater has $20$ seats in the first row, $24$ in the second, and $28$ in the third. If there are $15$ rows and the pattern continues, what is the total number of seats?
+A theater has $20$ seats in the first row, $24$ in the second, and $28$ in the third. Each row has $4$ more seats than the row before it. If there are $15$ rows, what is the total number of seats?
 
 **Solution:**
 
@@ -117,15 +153,15 @@ A theater has $20$ seats in the first row, $24$ in the second, and $28$ in the t
 
 $$S_{15}=\dfrac{15}{2}\left[2(20)+(15-1)(4)\right]$$
 
-3. Simplify.
+3. Work out the value inside the brackets, then multiply.
 
 $$S_{15}=\dfrac{15}{2}(96)=720$$
 
 The theater has $720$ seats.
 
-### #4: Geometric Sequence with Alternating Signs
+### #6: Geometric Sequence with Alternating Signs
 
-Find the $8^{\text{th}}$ term of $3,-6,12,-24,\dots$.
+Find the $8^{\text{th}}$ term of the geometric sequence $3,-6,12,-24,\dots$.
 
 **Solution:**
 
@@ -134,7 +170,7 @@ Find the $8^{\text{th}}$ term of $3,-6,12,-24,\dots$.
 
 $$a_8=3(-2)^7=-384$$
 
-### #5: Finite Geometric Series
+### #7: Finite Geometric Series
 
 Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\dots$.
 
@@ -145,30 +181,30 @@ Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\dots$.
 
 $$S_6=\dfrac{3(1-2^6)}{1-2}$$
 
-3. Simplify.
+3. Calculate the power, then divide.
 
-$$S_6=3(63)=189$$
+$$S_6=\dfrac{3(-63)}{-1}=189$$
 
 The sum is $189$.
 
-### #6: Evaluating an Infinite Geometric Series
+### #8: Evaluating an Infinite Geometric Series
 
 "Evaluate" means find the final number answer.
 
-Evaluate $18+6+2+\dfrac{2}{3}+\dots$.
+Evaluate the infinite geometric series $18+6+2+\dfrac{2}{3}+\dots$.
 
 **Solution:**
 
 1. The common ratio is $r=\dfrac{1}{3}$. Since $|r|<1$, the series converges.
 2. Use the infinite geometric-series formula.
 
-$$S=\dfrac{18}{1-\dfrac{1}{3}}$$
+$$S_\infty=\dfrac{18}{1-\frac{1}{3}}$$
 
-3. Simplify.
+3. Subtract in the denominator, then divide.
 
-$$S=18\times\dfrac{3}{2}=27$$
+$$S_\infty=18\times\dfrac{3}{2}=27$$
 
-### #7: Finding a Term in a Harmonic Sequence
+### #9: Finding a Term in a Harmonic Sequence
 
 Find the $6^{\text{th}}$ term of the harmonic sequence $\dfrac{1}{2},\dfrac{1}{5},\dfrac{1}{8},\dots$.
 
@@ -183,51 +219,52 @@ $$a_6=2+(6-1)(3)=17$$
 
 $$\dfrac{1}{17}$$
 
-### #8: Fibonacci-Type Sequence with Variables
+### #10: Fibonacci-Type Sequence with Variables
 
-If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence, $x=2a+1$, and $y=3a-2$, what is $z$ in terms of $a$?
+If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence in that order, $x=2a+1$, and $y=3a-2$, what is $z$ in terms of $a$?
 
 **Solution:**
 
-1. For three consecutive terms, $z=x+y$.
-2. Substitute the given expressions.
+1. For these three consecutive terms, $z=x+y$.
+2. Replace $x$ and $y$ with the given expressions and add matching terms.
 
 $$z=(2a+1)+(3a-2)=5a-1$$
 
-### #9: Finite Geometric Series with $r=1$
+### #11: Finite Geometric Series with $r=1$
 
 A geometric series has $8$ terms, and every term is $5$. What is the sum?
 
 **Solution:**
 
-1. Since every term is the same, $r=1$. Use $S_n=na_1$.
+1. Since every term is the same nonzero number, $r=1$.
+2. Multiply the number of terms by the value of each term.
 
 $$S_8=8(5)=40$$
 
-2. The sum is $40$.
-
-### #10: An Infinite Geometric Series That Diverges
+### #12: An Infinite Geometric Series That Diverges
 
 Does the infinite geometric series $3+6+12+24+\dots$ have a finite sum?
 
 **Solution:**
 
 1. The common ratio is $r=2$.
-2. Since $|r|\ge1$, the series diverges.
+2. The first term is nonzero and $|r|\ge1$, so the series diverges.
 
 It does not have a finite sum.
 
 ## Speed Tricks & Shortcuts
 
-**Number of Terms in an Arithmetic Sequence.** If the first term, last term, and nonzero common difference are known, and the last term belongs to the sequence:
+**Number of Terms in an Arithmetic Sequence.** If the first term, last term, and nonzero common difference are known, count the equal steps between the endpoints. Then add $1$ to include the first term.
 
 $$n=\dfrac{\text{Last}-\text{First}}{d}+1$$
+
+Use this only when the last term belongs to the sequence. The result must be a positive whole number.
 
 **Middle-Term Average.** For a finite arithmetic sequence with an odd number of terms, the middle term equals the average of all the terms. The sum is the middle term times the number of terms.
 
 For $5,10,15,20,25$, the middle term is $15$ and there are $5$ terms, so the sum is $75$.
 
-**Pattern Check.** If a sequence is not arithmetic or geometric, write the differences between terms first. A simple pattern in those differences can reveal the next term quickly.
+**Pattern Check.** If a sequence is not arithmetic or geometric, write the differences between terms first. If those do not help, check alternating operations and separate odd-position and even-position terms.
 
 ## Traps to Watch For
 
@@ -235,19 +272,19 @@ For $5,10,15,20,25$, the middle term is $15$ and there are $5$ terms, so the sum
 
 > A term and a sum are different quantities.
 
-Use $a_n$ for one term. Use $S_n$ for the sum of terms.
+Use $a_n$ for one term. Use $S_n$ for the sum of the first $n$ terms. Adding terms when the question asks for one term gives a different answer.
 
 ### #2: Forgetting the Reciprocal in a Harmonic Sequence
 
 > A harmonic sequence becomes arithmetic only after you take reciprocals.
 
-Solve the arithmetic pattern using the reciprocals. Then take the reciprocal again to return to the harmonic sequence.
+Solve the arithmetic pattern using the reciprocals. Then take the reciprocal again to return to the harmonic sequence. In the worked example, stopping at $17$ would give the wrong answer instead of $\dfrac{1}{17}$.
 
 ### #3: Using the Infinite Sum Formula When the Series Diverges
 
-> The infinite geometric-series formula works only when $|r|<1$.
+> Check $|r|<1$ before using the infinite geometric-series sum formula.
 
-If $|r|\ge1$, the series diverges and has no finite sum. Do not use $S_\infty=\dfrac{a_1}{1-r}$ in that case.
+For a nonzero first term, $|r|\ge1$ means the series has no finite sum. Using $S_\infty=\dfrac{a_1}{1-r}$ anyway can give a number that is not a valid sum.
 
 ### #4: Forcing the Wrong Pattern
 

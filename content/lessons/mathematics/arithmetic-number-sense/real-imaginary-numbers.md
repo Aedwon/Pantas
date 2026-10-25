@@ -29,9 +29,11 @@ No real number squares to $-1$. The **imaginary unit** $i$ is defined by:
 
 $$i^2=-1$$
 
-It is also written as $i=\sqrt{-1}$ when square roots are extended to complex numbers.
+It is also written as $i=\sqrt{-1}$ when square roots are extended to complex numbers. For a positive real number $k$, write $\sqrt{-k}=i\sqrt{k}$.
 
-A **complex number** has the form $a+bi$, where $a$ and $b$ are real numbers. The number $a$ is the **real part**, and $b$ is the **imaginary part**. If $b=0$, the number is real. If $a=0$ and $b\ne0$, it is purely imaginary.
+A **complex number** has the form $a+bi$, where $a$ and $b$ are real numbers. The number $a$ is the **real part**, and $b$ is the **imaginary part**.
+
+If $b=0$, the number is real. If $a=0$ and $b\ne0$, it is purely imaginary.
 
 ### Powers of $i$
 
@@ -49,19 +51,21 @@ Then the same pattern starts again. For a large positive exponent, divide the ex
 
 ### Multiplying Complex Numbers
 
-To multiply complex numbers, multiply each term as you would with two binomials. Then replace every $i^2$ with $-1$ and combine the real terms and the $i$ terms.
+Multiply each term in the first complex number by each term in the second. Then replace $i^2$ with $-1$. Add the real terms together and the $i$ terms together.
 
-For example, the general product begins as:
+For letters $a,b,c,d$ that stand for real numbers, this gives:
 
 $$(a+bi)(c+di)=ac+adi+bci+bdi^2$$
 
-After using $i^2=-1$, collect the real and imaginary parts.
+After using $i^2=-1$, the product is:
+
+$$(ac-bd)+(ad+bc)i$$
 
 ### Conjugates and Division
 
 The **conjugate** of $a+bi$ is $a-bi$. The real part stays the same, while the sign of the $i$ term changes.
 
-A complex number times its conjugate becomes real:
+When a complex number is multiplied by its conjugate, the $i$ terms cancel. Using $i^2=-1$ gives a real product:
 
 $$(a+bi)(a-bi)=a^2+b^2$$
 
@@ -69,15 +73,17 @@ To divide by a nonzero complex number $c+di$, multiply the numerator and denomin
 
 $$\dfrac{a+bi}{c+di}\times\dfrac{c-di}{c-di}$$
 
-The denominator becomes $c^2+d^2$, which is real. The divisor must not be $0$.
+The second fraction equals $1$, so the value does not change. The denominator becomes $c^2+d^2$, which is real. Finish by dividing each term in the numerator by that real denominator.
+
+The divisor must not be $0$.
 
 ## Mnemonics & Memory Aids
 
 > Powers of $i$: $i,-1,-i,1$, then repeat.
 
-Under the convention used in this lesson, remember the nesting:
+Under the convention used in this lesson, each set below is contained in the next:
 
-> Natural $\subset$ Whole $\subset$ Integer $\subset$ Rational $\subset$ Real.
+> Natural, Whole, Integer, Rational, Real.
 
 Irrational numbers are also real, but they are not rational.
 
@@ -130,17 +136,17 @@ What is $(3-4i)(2+5i)$?
 
 **Solution:**
 
-1. Multiply each term.
+1. Multiply each term in the first number by each term in the second.
 
 $$(3-4i)(2+5i)=6+15i-8i-20i^2$$
 
-2. Replace $i^2$ with $-1$ and combine like terms.
+2. Replace $i^2$ with $-1$ and add matching terms.
 
 $$6+15i-8i-20(-1)=26+7i$$
 
 ### #4: Dividing Complex Numbers
 
-"Express" means write an equivalent answer in the form asked for.
+"Express" means write an equal answer in the form asked for.
 
 Express $\dfrac{2+3i}{1-i}$ in standard form $a+bi$.
 
@@ -150,15 +156,17 @@ Express $\dfrac{2+3i}{1-i}$ in standard form $a+bi$.
 
 $$\dfrac{2+3i}{1-i}\times\dfrac{1+i}{1+i}$$
 
-2. Multiply the numerator.
+2. Multiply the numerator and use $i^2=-1$.
 
-$$(2+3i)(1+i)=2+5i+3i^2=-1+5i$$
+$$(2+3i)(1+i)=2+5i+3i^2$$
+
+$$2+5i+3(-1)=-1+5i$$
 
 3. Multiply the denominator.
 
 $$(1-i)(1+i)=1-i^2=2$$
 
-4. Write the quotient in the form $a+bi$.
+4. Divide both terms in the numerator by $2$.
 
 $$\dfrac{-1+5i}{2}=-\dfrac{1}{2}+\dfrac{5}{2}i$$
 
@@ -166,7 +174,7 @@ $$\dfrac{-1+5i}{2}=-\dfrac{1}{2}+\dfrac{5}{2}i$$
 
 - **Large powers of $i$.** Divide the exponent by $4$. Use only the remainder to find the answer in the repeating cycle.
 - **Write a conjugate quickly.** Keep the real part and change only the sign of the $i$ term. For example, the conjugate of $3+4i$ is $3-4i$.
-- **Check standard form.** A final complex-number answer should be written as a real part plus an $i$ part, such as $a+bi$.
+- **Check standard form.** Write the final complex-number answer as a real part plus an $i$ part, such as $a+bi$.
 
 ## Traps to Watch For
 
@@ -174,11 +182,13 @@ $$\dfrac{-1+5i}{2}=-\dfrac{1}{2}+\dfrac{5}{2}i$$
 
 > Rewrite negative square roots using $i$ before multiplying them.
 
-For nonnegative real numbers $a$ and $b$, the rule $\sqrt{a}\sqrt{b}=\sqrt{ab}$ works. When negative numbers appear, rewrite them with $i$ first.
+For nonnegative real numbers $a$ and $b$, the rule $\sqrt{a}\sqrt{b}=\sqrt{ab}$ works. If both numbers under the square roots are negative, using that rule can give the wrong sign.
 
 For example:
 
 $$\sqrt{-4}\sqrt{-9}=(2i)(3i)=6i^2=-6$$
+
+Multiplying the numbers under the roots first would give $\sqrt{36}=6$. That is the wrong answer here.
 
 ### #2: Natural Number Convention
 
