@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-clerical-ability-numeric-and-chronological-filing"
+ ],
+ "topic": "reasoning/clerical-ability",
+ "rewrites": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "196c4e7e908eb71ac348046e11a35d0310b8322a"
+ },
+ "sha256": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "2fe68b7f47cc14ede5a5e3f06a213108db1e2070a59fbe59ad479e3b99d12b53"
+ },
+ "paths": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
+ },
+ "id": "RD-064",
+ "type": "read",
+ "created": "2026-10-25T21:20:39+00:00"
+}
