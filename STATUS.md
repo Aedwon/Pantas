@@ -78,3 +78,9 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
   sandbox cannot commit in this worktree, so the lead runs the hand-in for Codex batches.
 - RD-007 duplicated RD-006 (same lessons, same rewrite commit) and was removed unused.
   RD-008 reads RW-006.
+- Oct 25: RD-003 (connector refused the first file commit) runs on Codex 6.1 Sol; RD-008
+  (connector refused branch creation; same earth science lesson as before) runs on a Claude
+  Sonnet reader, since Codex wrote RW-006. Empty branch `cse-inbox/RD-003` left by the chat;
+  delete with Aedwon's approval. Aedwon now has three Codex accounts (a, b, c) for delegation;
+  how to select each account is not yet recorded. The lead's Claude usage is near its limit, so
+  the lead keeps involvement minimal.
