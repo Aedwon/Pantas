@@ -1,89 +1,176 @@
 ---
 _id: "lesson-text-types-poetry"
 title: "Poetry"
-summary: "Learn how form, sound, imagery, figurative language, tone, and context contribute to a poem's meaning."
+summary: "Read a poem's comparisons, images, sounds, and tone using evidence from its lines."
 subject: "subject-reading-comprehension"
 topic: "topic-text-types"
-estimatedMinutes: 10
+estimatedMinutes: 13
 isActive: true
 ---
 ## Core Concept
 
-**Poetry** is a broad literary form that can use lineation, rhythm, sound, imagery, figurative language, syntax, and concentrated diction in many different ways. Poems can be narrative, dramatic, lyrical, argumentative, humorous, documentary, or highly experimental.
+**Poetry** uses carefully chosen words, sounds, and lines to share ideas or experiences. A poem may tell a story, express a feeling, present a speaker's words, or argue a point. It can also be funny, report real events, or try unusual forms.
 
-Not every poem is densely figurative, and a poem can state an idea directly. Do not begin with the assumption that poetry "rarely says what it means" or that every image hides a symbol.
+Poems do not have to rhyme. They can state an idea directly. Do not assume that every line has a hidden meaning.
 
-### Figurative Language
+### Words, Lines, and Images
 
-- **Simile:** an explicit comparison between unlike things, often using *like, as,* or *than*. The presence of *like/as* alone is not enough; there must actually be a comparison.
-- **Metaphor:** presents or understands one thing in terms of another without an explicit comparison marker.
-- **Personification:** attributes characteristically human qualities, actions, intentions, or speech to something nonhuman.
-- **Imagery:** language that evokes sensory or perceptual experience. Imagery can be literal, figurative, symbolic, or several at once.
+A poem's line breaks can make readers pause or notice a word. Sentence order and word choice also affect meaning. Read across a line break when the sentence continues into the next line.
 
-### Rhyme and Sound
+**Figurative language** describes something through a comparison or another meaning beyond the plain words. A **simile** compares unlike things using words such as “like” or “as.” Those words count only when they make a comparison.
 
-A **rhyme scheme** labels recurring end-rhyme patterns with letters such as ABAB. Rhyme depends on sound, not spelling. Poems may also use internal rhyme, slant/near rhyme, alliteration, assonance, consonance, or no regular rhyme at all.
+A **metaphor** presents one thing as another without an explicit comparison word. “Time is a thief” treats time as something that takes from us. A sentence can lack “like” and “as” without containing a metaphor.
+
+**Personification** gives something nonhuman a human action, feeling, or purpose. “The wind begged to enter” gives wind the human act of begging.
+
+**Imagery** uses words that bring a sense experience to mind. It may describe sight, sound, smell, taste, or touch. An image can describe a real scene without standing for a deeper idea.
+
+A **symbol** is something that stands for a wider idea in the text. Repeated images and nearby lines can support that meaning. A gray sky does not always stand for sadness.
+
+### Rhyme and Other Sounds
+
+**Rhyme** repeats matching sounds, usually from the last stressed vowel onward. It depends on sound, not spelling. “Blue” and “through” rhyme despite their different spellings.
+
+A **rhyme scheme** shows the pattern of rhyming line endings. Give the first ending the letter A. Reuse A for a matching sound, and use B for a new one.
+
+**Internal rhyme** occurs within a line, as in “The light shone bright.” **Slant rhyme**, or near rhyme, uses sounds that are close but do not fully match, such as “shape” and “keep.”
+
+**Alliteration** repeats consonant sounds at the start of nearby words. “Soft sea sounds” repeats the opening sound of “s.” Listen to sounds, since letters alone may mislead you.
+
+**Assonance** repeats vowel sounds in nearby words. “Slow boats float” repeats the long “o” sound. The words do not need to rhyme.
+
+**Consonance** repeats consonant sounds in nearby words, often within or at the ends of words. “Blank ink” repeats the ending “nk” sounds. These sound patterns can overlap.
+
+**Rhythm** is the pattern of beats or movement in a poem's language. Repeated sounds, word stress, and pauses can shape it. Some poems use a steady beat, while others vary it.
 
 ### Tone and Meaning
 
-**Tone** is the stance or attitude conveyed by the poem's language. Interpretation should be supported by the whole poem: diction, imagery, syntax, form, speaker, context, and patterns of contrast or repetition.
+**Tone** is the attitude heard in the poem's words, such as hope, anger, or amusement. The **speaker** is the voice speaking in the poem. Do not assume that the speaker is the poet.
 
-An image is not automatically symbolic. A gray sky can be literal weather, contribute to mood, function symbolically, or do more than one of these depending on the poem.
+To **interpret** a poem means to explain its meaning using details from the text. Read the whole passage, including shifts in feeling or thought. Support an answer with several details when possible.
 
 ## Examples
 
-### #1: Metaphor
+### #1: A Metaphor
 
-"Time is a thief that steals our youth."
+“Time is a thief that steals our youth.”
 
-The line presents time as a thief without an explicit comparison marker: **metaphor**.
+What comparison is used, and what does it suggest about time?
 
-### #2: Simile
+**Solution:**
 
-"The old man's hands were as rough as tree bark."
+1. The line presents time as a thief without using a comparison word. This is a metaphor.
+2. A thief takes things away. The line suggests that growing older takes youth away from us.
 
-The phrase makes an explicit comparison between hands and bark using *as*: **simile**.
+### #2: A Simile and a Literal Use
 
-By contrast, "He works as a teacher" contains *as* but makes no figurative comparison.
+Passage A: “The old man's hands were as rough as tree bark.” Passage B: “He works as a teacher.”
 
-### #3: Rhyme Scheme
+Which passage contains a simile?
 
-"bay / glow / away / blow" produces an **ABAB** end-rhyme pattern because *bay/away* rhyme and *glow/blow* rhyme.
+**Solution:**
 
-### #4: Tone and Interpretation
+1. Passage A compares the feel of hands with tree bark. It contains a simile.
+2. Passage B names a job. Its use of “as” does not compare unlike things.
 
-A poem includes "gray skies pressing low," "empty streets," and "a single light flickering, unanswered."
+### #3: Personification
 
-These details can support a somber or lonely tone, but a careful interpretation should remain proportionate to the rest of the poem. The images do not prove by themselves that the poem is symbolically "about loneliness" if other lines point elsewhere.
+“The empty house waited for our footsteps.”
 
-## Speed Tricks & Shortcuts
+Which device gives the house a human quality?
 
-**Identify the actual comparison.** *Like/as/than* often mark similes, but only when unlike things are being explicitly compared.
+**Solution:**
 
-**Label rhyme by sound.** Say the line endings aloud if necessary; identical spelling is not required, and similar spelling does not guarantee rhyme.
+1. Waiting for someone is presented as an act the house can perform.
+2. Giving the house this human action is personification. It makes the house seem ready for people to return.
 
-**Separate description from symbolism.** First establish what the poem literally presents, then ask whether patterns in the poem support a figurative or symbolic function.
+### #4: A Rhyme Scheme
 
-**Support tone with several features.** Avoid deciding the poem's attitude from one isolated word.
+The line endings of a stanza are “bay,” “glow,” “away,” and “blow,” in that order. What is the rhyme scheme?
+
+**Solution:**
+
+1. “Bay” and “away” share an ending sound. Label both A.
+2. “Glow” and “blow” share a different ending sound. Label both B. The pattern is ABAB.
+
+### #5: Internal and Near Rhyme
+
+Line A: “At night, the light fell on the gate.” Line B ends with “shape,” and the next line ends with “keep.”
+
+What kind of rhyme appears within Line A? How do the endings “shape” and “keep” differ from a full rhyme?
+
+**Solution:**
+
+1. “Night” and “light” rhyme within Line A. This is internal rhyme.
+2. “Shape” and “keep” share an ending consonant sound but have different vowel sounds. They form a near rhyme, not a full rhyme.
+
+### #6: Repeated Sounds
+
+Consider these phrases: “soft sea sounds,” “slow boats float,” and “blank ink.” Which sound pattern is most clearly shown by each?
+
+**Solution:**
+
+1. “Soft sea sounds” repeats an opening consonant sound. It shows alliteration.
+2. “Slow boats float” repeats a vowel sound. It shows assonance.
+3. “Blank ink” repeats ending consonant sounds. It shows consonance. A phrase may show more than one sound pattern, so name the one the question asks about.
+
+### #7: Images and a Shift in Tone
+
+“Gray skies press low above the street. No footsteps pass my door. Then your laugh rises from the gate, and I hurry down the stairs.”
+
+How does the tone change in this passage?
+
+**Solution:**
+
+1. The gray skies and empty street support a lonely or gloomy opening.
+2. The laugh and the speaker's quick movement suggest pleasure or excitement. The tone becomes more hopeful or cheerful.
+3. The opening images do not make the whole passage hopeless. The later lines change the reading.
+
+### #8: A Direct Statement and a Line Break
+
+A poem reads: “We must protect the river” on one line and “before its song is gone” on the next. What does the line break separate, and what is the speaker asking people to do?
+
+**Solution:**
+
+1. The first line directly calls for protecting the river. The next line gives a reason to act soon.
+2. Read the lines together as one sentence. The break gives the call to act its own space, but it does not end the thought.
+
+## Reading Strategies
+
+First read for the plain scene or claim. Then check comparisons, images, and repeated sounds. A device matters because of what it adds to the passage.
+
+Read line endings aloud in your mind when checking rhyme. For tone, look at word choice, actions, and any change near the end. A sound pattern alone does not prove a particular feeling.
+
+Separate what the speaker says from what you know about the poet. Use only the passage and any context the question supplies.
 
 ## Traps to Watch For
 
-### #1: "Like or As Means Simile"
+### #1: Calling Every Use of Like or As a Simile
 
-> Those words have many literal grammatical uses. A simile requires an explicit comparison.
+> A simile must compare unlike things.
 
-### #2: "No Like or As Means Metaphor"
+“As a teacher” names a role. It does not create a figurative comparison.
 
-> A sentence without those words may contain no comparison at all.
+### #2: Finding a Metaphor in Every Plain Sentence
 
-### #3: Treating Every Image as Symbolic
+> Missing comparison words do not prove that a metaphor exists.
 
-> Imagery can simply render a scene or sensation. Symbolic interpretation needs evidence from the poem's patterns and context.
+“The rain stopped” can simply report an event. Look for one thing being presented as another.
 
-### #4: Assuming Poetry Is Inherently Indirect
+### #3: Making Every Image a Symbol
 
-> Poems can state claims directly as well as imply, suggest, dramatize, or complicate them.
+> A deeper meaning needs support from the poem.
 
-### #5: Reading Rhyme from Spelling Alone
+A gray sky may describe the weather. Check nearby lines and repeated details before giving it a wider meaning.
 
-> Rhyme is primarily a sound relationship. English spelling can obscure pronunciation.
+### #4: Assuming Poems Cannot Speak Directly
+
+> A poem may state its message plainly.
+
+Do not reject a clear statement just because the passage is poetry. Read what the words actually say.
+
+### #5: Reading Sounds from Spelling Alone
+
+> Similar letters do not always produce similar sounds.
+
+Listen for repeated sounds in rhyme and other sound devices. Different spellings can still rhyme.
