@@ -1,0 +1,311 @@
+{
+ "batch": "RD-009",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md",
+ "lesson_sha256": "fa74d93cc4fd63345b0b142c13a7df2ef3bd25c54937697604634e35c4aad5e6",
+ "rewrite_commit": "1c1e54593a47da975170f77d620ae909e538a152",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
+  "role": "A",
+  "lesson_sha256": "fa74d93cc4fd63345b0b142c13a7df2ef3bd25c54937697604634e35c4aad5e6",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked internal consistency of office-linked financial interest, outside-role statutory permission, distinct one-year rules, and separate gift exceptions against the supplied brief. No supplied source text establishes a factual contradiction."
+    ],
+    "note": "The prompt supplies no official statute or implementing-rule excerpts. In particular the humanitarian-donation condition cannot be independently confirmed here; this pass is limited to prompt-only consistency.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 prohibition applies; #2 consultancy prohibited; #3 express law permits the exact arrangement; #4 conflict bars the practice; #5 outside-role continuation and former-office practice restriction both apply for one year; #6 required official referral not automatically banned; #7 confidential disclosure prohibited; #8 solicitation prohibited; #9 unsolicited nominal-gift exception potentially applies subject to circumstances; #10 family-celebration exception; #11 fails that specific nominal-donation exception; #12 separate exceptions do not automatically share conditions under the supplied teaching; #13 government-to-government exception; #14 nominal foreign courtesy gift may be kept; #15 fellowship and medical treatment listed; #16 all listed foreign travel conditions met. These match the solutions. #5 does not specify statutory permission; its answer is a general restriction, not a categorical finding that no exception can apply."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, optional Speed Tricks, and Traps are present. No brief requests a figure, and none of the questions depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The rule also covers accepting work as an officer, employee, consultant, counsel, broker, agent, trustee, or nominee in such an enterprise.",
+      "problem": "This list leaves counsel, broker, trustee and nominee unexplained. Other passages retain humanitarian, altruistic, solicitation and separation as unexplained legal vocabulary. Splitting sentences has not made the teaching consistently readable at Grade 5."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a special tested meaning is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used in the explanation of interests, outside work, information, or gifts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The exam item asks whether the separate \"no regular, pending, or expected transaction\" condition from the nominal-donation exception must also be added automatically.",
+      "problem": "Example #12 describes what an exam item asks instead of presenting an authentic concrete classification case. Several solutions retain legal phrasing such as pecuniary gain, implementing rules, and post-service rules instead of returning to simple language."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Exam references are limited to the gift-classification task and do not repeat a stock exam opener. The traps explain which facts control the answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or its formatting.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary identifies conflicts, outside work, information, and gifts. The listed stock AI phrases are absent and paragraphs do not use three identical consecutive sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout includes all required sections plus an optional genuine condition-checking shortcut. There are no formulas in the examples; Core Concept supplies the one-year limits before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The outside-enterprise prohibition and this recommendation prohibition continue for $1$ year after resignation, retirement, or separation from public office.",
+      "problem": "Example #5 applies only outside enterprise and former-office practice. No worked example applies the separate continued recommendation prohibition. Example #12 also asks an abstract rule-comparison question rather than testing the requested private-organization donor-with-office-transactions case."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the sixteen solutions starts with step 1 and keeps all reasoning numbered. No calculation is used, so no key computation is missing from display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or computations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs stay within three sentences. One list groups the eight distinct gift exceptions and a short numbered checklist applies them; there are no repeated long lists elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A donation from a private organization may fall within the exception when it is considered and accepted as humanitarian or altruistic in purpose and mission.",
+      "problem": "Humanitarian and altruistic determine whether the exception applies, but neither is explained in simple words. Several named outside roles, including trustee and nominee, are also undefined. No supplied prerequisite teaches these terms."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Do not add the separate \"no office transaction\" condition from the nominal-donation exception unless the facts of the item require that different exception.",
+      "problem": "The humanitarian exception is named and distinguished from another exception, but its own meaning is not taught. Neither this paragraph nor example #12 explains what makes a donation humanitarian or altruistic, so students cannot classify a concrete donation by that criterion."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Outside employment states express statutory permission. Private practice requires legal permission plus no conflict and has a distinct former-office one-year limit. Recommendation continuation is expressly one year. Gift teaching distinguishes unsolicited/no favor, family/no financial benefit, nominal donor/no transactions, separate humanitarian purpose, government entities, nominal foreign courtesy, foreign study/treatment, and foreign travel location/interests/head permission."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "All three flagged uses of mark occur in mark of courtesy, meaning a sign of courtesy. None describes a score. No cards or score marks occur."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L18|0": {
+    "status": "fixed",
+    "quote": "The donor has a pending transaction.",
+    "note": "Gift examples now classify unsolicited gifts, family gifts, transaction-connected donations, and foreign-government benefits."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L02|1": {
+    "status": "not_fixed",
+    "quote": "The rule also covers accepting work as an officer, employee, consultant, counsel, broker, agent, trustee, or nominee in such an enterprise.",
+    "note": "The roles are listed and regulated is explained, but several roles remain uncommon unexplained terms. The passage still does not meet the simple teaching requirement."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L05|1": {
+    "status": "not_fixed",
+    "quote": "Therefore, both proposed activities are restricted, but under different post-service rules.",
+    "note": "The former abstract solution phrase is replaced, but post-service rules remains an abstract legal label. The solution still needs a plain final statement of what cannot be done."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L25|1": {
+    "status": "fixed",
+    "quote": "which means money or another financial benefit.",
+    "note": "Pecuniary gain or benefit receives an immediate plain meaning."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L26|1": {
+    "status": "fixed",
+    "quote": "The connection to the official's own office is what matters.",
+    "note": "The text names every covered role and explains how the office oversees or licenses the enterprise. Role meanings remain a separate term-teaching problem."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L27|1": {
+    "status": "fixed",
+    "quote": "The outside-enterprise prohibition and this recommendation prohibition continue for $1$ year after resignation, retirement, or separation from public office.",
+    "note": "Both continued prohibitions are now explicit and distinguished from private professional practice."
+   },
+   "general-information-code-of-conduct-ra-6713#11": {
+    "status": "fixed",
+    "quote": "Here, the facts state that a law expressly allows it.",
+    "note": "All specified roles are named. Example #3 applies the express-law exception to an exact arrangement."
+   },
+   "general-information-code-of-conduct-ra-6713#19": {
+    "status": "fixed",
+    "quote": "No favor is expected in return.",
+    "note": "Nominal, unsolicited, and no anticipated or exchanged favor are taught and applied in example #9."
+   },
+   "general-information-code-of-conduct-ra-6713#20": {
+    "status": "fixed",
+    "quote": "The gift is tied to a family celebration.",
+    "note": "Example #10 checks relative, celebration and absence of financial expectation together."
+   },
+   "general-information-code-of-conduct-ra-6713#21": {
+    "status": "fixed",
+    "quote": "That exception requires the donor to have no regular, pending, or expected transaction with the office.",
+    "note": "The nominal-donation paragraph includes no expected financial benefit; example #11 tests the transaction condition."
+   },
+   "general-information-code-of-conduct-ra-6713#22": {
+    "status": "not_fixed",
+    "quote": "Do not add the separate \"no office transaction\" condition from the nominal-donation exception unless the facts of the item require that different exception.",
+    "note": "The text distinguishes exceptions, but supplies no concrete organizational donor with office dealings and does not explain how humanitarian purpose is assessed."
+   },
+   "general-information-code-of-conduct-ra-6713#23": {
+    "status": "fixed",
+    "quote": "Government-to-government donations are listed as an exception.",
+    "note": "A direct foreign-agency to Philippine-agency donation is classified in example #13."
+   },
+   "general-information-code-of-conduct-ra-6713#24": {
+    "status": "fixed",
+    "quote": "It is received as a souvenir or mark of courtesy.",
+    "note": "Example #14 checks the foreign government, nominal value and courtesy purpose before allowing acceptance and keeping."
+   },
+   "general-information-code-of-conduct-ra-6713#25": {
+    "status": "fixed",
+    "quote": "They also include foreign-government medical treatment.",
+    "note": "The paragraph and example #15 include scholarships, fellowships and medical treatment from foreign governments."
+   },
+   "general-information-code-of-conduct-ra-6713#26": {
+    "status": "fixed",
+    "quote": "The head of the official's agency has given permission.",
+    "note": "Example #16 applies all three conditions: wholly overseas travel, Philippine interests and proper head permission."
+   },
+   "general-information-code-of-conduct-ra-6713#27": {
+    "status": "fixed",
+    "quote": "The donor has a pending transaction.",
+    "note": "Example #11 tests evidence against a claimed exception; examples #8 to #16 supply several worked classifications."
+   },
+   "general-information-code-of-conduct-ra-6713#28": {
+    "status": "fixed",
+    "quote": "The outside-enterprise prohibition continues for $1$ year after separation.",
+    "note": "Continuation is explicitly taught for both outside enterprise and recommendations; example #5 applies the outside-enterprise rule."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|1": {
+    "status": "fixed",
+    "quote": "1. The outside-enterprise prohibition continues for $1$ year after separation.",
+    "note": "The relevant post-service solution now puts every step in its numbered list."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L26|0": {
+    "status": "fixed",
+    "quote": "Match every condition stated for that exception.",
+    "note": "A decision checklist and worked gift classifications explain how to choose among the exceptions."
+   }
+  }
+ }
+}

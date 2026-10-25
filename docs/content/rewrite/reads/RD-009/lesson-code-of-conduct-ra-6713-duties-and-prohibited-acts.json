@@ -1,0 +1,283 @@
+{
+ "batch": "RD-009",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+ "lesson_sha256": "0685eac0f3b74d2e47e85ee32be5122a04035d435574e1571f2adb6140d7c396",
+ "rewrite_commit": "1c1e54593a47da975170f77d620ae909e538a152",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "role": "A",
+  "lesson_sha256": "0685eac0f3b74d2e47e85ee32be5122a04035d435574e1571f2adb6140d7c396",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the 15-working-day response period, 45-working-day annual report, conditional three-signature rule, and separate Code/SALN coverage against the supplied brief. No contradictory fact is established by the supplied material."
+    ],
+    "note": "No official source text or source ledger was supplied. This is a prompt-only consistency judgment; independent legal accuracy remains unverified.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers from the stems: #1 15 working days from receipt; #2 refer to B and tell the sender; #3 court delay can count and the regulation requiring four signatures controls; #4 an authorized substitute may sign; #5 both late filing and withholding breach the stated duties; #6 protected private information may be withheld; #7 prohibited financial interest; #8 prohibited consultancy absent statutory permission; #9 prohibited disclosure; #10 official-function referral is not automatically banned; #11 decline the transaction-connected expensive gift. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omission of Speed Tricks. Neither the brief nor any question requires a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The rules cover government officials and employees who are elective or appointive, permanent or temporary, and career or non-career.",
+      "problem": "The coverage sentence stacks unexplained public-service categories. Elective, appointive, and career/non-career are not Grade 5 explanations. The later public-access and private-practice passages also retain dense legal wording."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a special tested meaning is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Counted no analogies in Core Concept or any later section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A public officer refers a qualified person to a private enterprise that has a pending transaction with the officer's agency.",
+      "problem": "The question is determinate, but solution #10 uses phrases such as implementing rules and official functions without a simple restatement. Solution #6 similarly relies on clearly unwarranted invasion of personal privacy. The required simple solution voice is not maintained."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The single explicit exam-item comment in the signature trap motivates attention to a qualifier. No repeated exam opener occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or its formatting.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names duties and access plainly. No listed stock AI phrase appears; prose openings vary across the duty and prohibition sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted Core Concept, Examples, Traps layout. No example uses a mathematical formula; the 15-day, 45-day, and signature limits are stated in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Personal transactions.** Public officials and employees must promptly attend to people who seek the services of their offices.",
+      "problem": "Examples now cover referrals, signature exceptions, reports, privacy, financial interests, outside work, information misuse, recommendations, and gifts. However, there is no worked case applying the separately taught personal-transaction duty or the two conditions for private professional practice. These are distinct scenarios, not changes of nouns or numbers."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven solutions put every step in numbered lists. No computation requires a display equation and no unnumbered solution lead-in remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or computations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three sentences. One six-item list groups the separate prohibited acts; duties are split into short paragraphs, so lists are used sparingly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "They also cover military and police personnel. Coverage does not depend on whether the person receives pay.",
+      "problem": "The preceding coverage categories elective, appointive, and career/non-career are never explained. The SALN expansion also names assets and liabilities without explaining them. No prerequisite is supplied to supply those meanings."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Duty teaching explains what a reply must contain, how wrong-office requests are handled, how agencies assess time, how substitute signing works, and how privacy limits access. Prohibition bullets describe the office connection and forbidden conduct, not labels alone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Failure to act promptly can be a ground for administrative disciplinary action. This does not mean a penalty is automatic.",
+      "problem": "The brief asks for applicable defenses and disciplinary process. This passage says only that proper process applies. It gives no defense or explanation of how circumstances affect a failure-to-respond charge. The nonroutine acknowledgement is taught, but not connected to that assessment."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L18|1": {
+    "status": "not_fixed",
+    "quote": "The information is confidential and came from public office.",
+    "note": "The former recall-only set now includes prohibited acts, report access, privacy, referral and signature exceptions. Personal-transaction and private-practice applications remain missing."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|B03|0": {
+    "status": "fixed",
+    "quote": "The usual $3$-signature limit has conditions and exceptions.",
+    "note": "Traps to Watch For is present. Speed Tricks is optional for this subject."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|B08|0": {
+    "status": "fixed",
+    "quote": "Sections $5$ and $7$ of RA $6713$ cover two sides of public service.",
+    "note": "Checked prose quantities, section references, periods and signature counts. They use inline math; frontmatter and list numbering are structural."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L02|0": {
+    "status": "not_fixed",
+    "quote": "This means the government may bring a service case about the act.",
+    "note": "The named consequence gets a restatement, but service case and Civil Service law remain unexplained. The restatement still does not tell a beginner what happens."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L05|0": {
+    "status": "fixed",
+    "quote": "The office must act within $15$ working days from receipt.",
+    "note": "The old statutory-deadline solution wording is replaced by a plain action and time limit."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L25|0": {
+    "status": "fixed",
+    "quote": "This means the government may bring a service case about the act.",
+    "note": "The term now has an immediate meaning and the next sentence explains that a penalty is decided through a case."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L27|0": {
+    "status": "fixed",
+    "quote": "If no deadline is given, the agency must set what counts as reasonable time.",
+    "note": "Agency criteria, legal deadlines, different signature rules, and authorized substitute signers are all taught."
+   },
+   "general-information-code-of-conduct-ra-6713#2": {
+    "status": "not_fixed",
+    "quote": "The alleged violation is handled through the proper administrative process.",
+    "note": "It says a penalty is not automatic, but does not develop the process or applicable defenses requested by this item."
+   },
+   "general-information-code-of-conduct-ra-6713#6": {
+    "status": "fixed",
+    "quote": "It may consider the difficulty of the matter, whether the requirements are complete, resources lost for reasons beyond the office's control, legal orders that stop action, delay caused by the party concerned, and events beyond anyone's control.",
+    "note": "The text explains who sets reasonable time and lists the circumstances used in that assessment."
+   },
+   "general-information-code-of-conduct-ra-6713#8": {
+    "status": "fixed",
+    "quote": "Leaving a person waiting without proper reason can violate this duty.",
+    "note": "Personal service is explicitly connected to prompt attention and unjustified waiting."
+   },
+   "general-information-code-of-conduct-ra-6713#9": {
+    "status": "fixed",
+    "quote": "An office may lawfully withhold information when disclosure would harm national security, put a person's life or safety in danger, reveal protected or privileged information, expose draft decisions, invade personal privacy without proper reason, harm certain law-enforcement work, or cause other harm covered by law or settled policy.",
+    "note": "Specific access restrictions are named, and the privacy example applies one of them."
+   },
+   "general-information-code-of-conduct-ra-6713#33": {
+    "status": "not_fixed",
+    "quote": "Coverage does not depend on whether the person receives pay.",
+    "note": "Coverage is distinguished from SALN exemptions, but unpaid coverage alone does not explain the volunteer category or define the listed public-service categories."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|0": {
+    "status": "fixed",
+    "quote": "1. The rule covers letters and similar communications from the public.",
+    "note": "The first solution begins directly with a numbered step. No unnumbered instructional lead-in remains."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|2": {
+    "status": "fixed",
+    "quote": "1. With no fixed legal deadline, the agency's reasonable-time rules apply.",
+    "note": "The third solution also keeps all reasoning inside its numbered list."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L22a|0": {
+    "status": "fixed",
+    "quote": "**Letters and requests.** A public official or employee must act on letters, telegrams, and similar communications from the public within $15$ working days from receipt.",
+    "note": "Duty teaching now uses short paragraphs. Only the separate prohibited acts use a substantial bullet list."
+   }
+  }
+ }
+}
