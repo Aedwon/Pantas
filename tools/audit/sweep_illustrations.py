@@ -12,7 +12,7 @@ ALWAYS = {
 }
 CUES = re.compile(
     r"\b(figure|diagram|graph|triangle|rectangle|circle|angle|gear|pulley|lever|"
-    r"circuit|wave|vector|rotat\w*|fold\w*|shaded?|plot|number line|bar chart|pie chart)\b",
+    r"circuit|wave|vector|rotat\w*|fold(?:s|ed|ing)?|shaded?|plot|number line|bar chart|pie chart)\b",
     re.I)
 
 VISUAL_MARKER = re.compile(r"<!--\s*(?:FIGURE|ILLUSTRATION):", re.I)
