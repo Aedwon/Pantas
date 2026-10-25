@@ -85,7 +85,7 @@ A fair coin is tossed and a fair die is rolled. Find the probability of getting 
 
 $$P=\dfrac12\times\dfrac16=\dfrac1{12}$$
 
-### #4: Dependent Events Without Replacement
+### #4: Dependent Events (No Replacement)
 
 A bag holds $5$ red and $3$ blue marbles. Two marbles are drawn one after another **without replacement**. Find the probability that both are red.
 
