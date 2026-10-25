@@ -112,7 +112,7 @@ D) Onomatopoeia
 
 ### #6: Simile
 
-"The calm lake shone like a mirror under the moon." Which figure of speech is used most clearly?
+"The calm lake shone like a mirror under the moon." Which device is used most clearly?
 
 A) Simile  
 B) Hyperbole  
@@ -140,7 +140,7 @@ D) Oxymoron
 
 ### #8: Onomatopoeia
 
-"The firecracker went **bang** beside the gate." Which figure of speech is shown by the word in bold?
+"The firecracker went **bang** beside the gate." Which device is shown by the word in bold?
 
 A) Onomatopoeia  
 B) Simile  
@@ -154,7 +154,7 @@ D) Oxymoron
 
 ### #9: Oxymoron
 
-"The crowd waited in deafening silence." Which figure of speech is used most clearly?
+"The crowd waited in deafening silence." Which device is used most clearly?
 
 A) Personification  
 B) Hyperbole  
