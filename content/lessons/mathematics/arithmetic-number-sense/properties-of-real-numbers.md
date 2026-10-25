@@ -64,7 +64,6 @@ A **term** is a number, a variable, or a product of numbers and variables that i
 
 To combine like terms, add or subtract their coefficients and keep the variable part unchanged.
 
-$$ax+bx=(a+b)x$$
 
 For example, $8x-3x=5x$. The terms $8x$ and $3y$ are not like terms because their variable parts are different.
 
