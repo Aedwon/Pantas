@@ -1,0 +1,254 @@
+{
+ "batch": "RD-065",
+ "lesson_id": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+ "path": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md",
+ "lesson_sha256": "5d300b67f8d07ade420c60ad23b6e72cfaf77de00f9b816f22486c7fbea4ca85",
+ "rewrite_commit": "0c2f781f5bfb47344d2ba9d8e0b6a1191bf9e173",
+ "form": {
+  "packet": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+  "role": "A",
+  "lesson_sha256": "5d300b67f8d07ade420c60ad23b6e72cfaf77de00f9b816f22486c7fbea4ca85",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the four connective definitions against their truth conditions: negation reverses T/F; conjunction requires both true; inclusive disjunction requires at least one true; material implication is false only for T then F.",
+     "Checked the final grouping comparison independently: with P=F, Q=T, R=T, (P and Q) or R is T and P and (Q or R) is F. No historical or exam-format claims need external confirmation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved example 1: TT gives T, TF gives F, FT gives F, FF gives F. All four lesson results match.",
+     "Solved example 2 from P=F: not P is T. The answer matches.",
+     "Solved example 3 from P=F and Q=T: P or Q is T. The answer matches.",
+     "Solved example 4 from P=F and Q=F: P implies Q is T. The answer matches.",
+     "Solved example 5 from P=T, Q=F, R=T: P and Q is F, then F or T is T. Both displayed steps and final answer match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. The optional shortcut section contains usable truth-value shortcuts.",
+     "All four taught connectives and a combined expression are covered. The brief requires no figures, and these symbolic verbal problems need none."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read every explanation and solution for simple language. Technical names are paired with familiar words and truth conditions.",
+     "The conditional-promise explanation now uses three short sentences. The solutions state one small inference at a time."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is defined in Core Concept before any example uses it. Build is explained beside the first question. No other exam-specific instruction verb needs a gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Only the conditional-as-promise analogy appears, in Core Concept. The former order-of-operations comparison is absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [
+     "Examples 2 through 5 supply all proposition truth values needed to solve them and do not supply the tested connective rules. Their solutions use plain language."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Build the complete truth table for $P \\land Q$. Here, \"build\" means list every possible pair of truth values and find the result for each pair.",
+      "problem": "The question includes the method being tested: listing every possible truth-value pair and finding each result. The required instruction-word gloss should explain the task without supplying the truth-table construction method. This method belongs in Core Concept or the solution."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No exam names or claims appear, so there are no repeated exam openers or unsupported exam-motivation statements."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches logic in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches logic in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches logic in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches logic in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson teaches logic in English and contains no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to underlining or bold text.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for the listed stock phrases; none appear. Sentence openings vary across definitions, examples, shortcuts, and traps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The reasoning layout includes Core Concept, Examples, and Traps; the extra Speed Tricks section teaches actual early-stop rules for and/or and the single false conditional case.",
+     "Example 1 uses P and Q, whose both-true rule is introduced in Core Concept. Example 2 uses not P, introduced there as a truth-value flip. Example 3 uses P or Q, introduced there as inclusive or. Example 4 uses P implies Q, introduced there with its sole false case. Example 5 combines and/or; both rules and the parentheses-first method appear in Core Concept before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the distinct cases to examples: exhaustive two-proposition conjunction construction (#1), negation (#2), mixed-value disjunction (#3), a conditional with a false if-part (#4), and a parenthesized compound statement (#5).",
+     "The new negation example fills the required brief gap. The sequence moves from individual connective rules to a compound evaluation; no examples merely repeat changed values."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1 numbers its listing and evaluation steps and displays all four conjunction computations. Example 5 numbers its two operations and displays each result. Examples 2 through 4 are direct single-rule evaluations with short inline results; no intermediate inference is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "All six display equations are short single binary truth-value computations, such as T and F equals F. They fit a phone screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "All prose paragraphs contain at most three sentences. Solutions use numbered lists for the two multistep tasks; there are no lengthy bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Proposition, truth value, truth table, T/F, and connective are explained before the examples. P/Q/R are introduced as proposition letters. Each connective symbol is defined next to its familiar word before use.",
+     "Parentheses are explained as the first part to evaluate before the combined-expression example. No units or prerequisite-only meanings are needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how a truth table assigns a full-statement value to every possible input case, then demonstrates all four pairs for conjunction.",
+     "Negation, conjunction, inclusive disjunction, and material implication each have operational truth conditions, not merely names. The combined example shows how to substitute an inner result before evaluating the outer connective."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Inclusive or explicitly includes both-true inputs and excludes only both-false inputs. Conjunction explicitly fails if either input is false.",
+     "The conditional includes the easily missed false-if-part case, regardless of Q. Shortcut applicability is limited to the statements joined by that connective, with inner parentheses evaluated first."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L18|0": {
+    "status": "fixed",
+    "quote": "If $P$ is false, what is the truth value of $\\neg P$?",
+    "note": "Example 2 now works a negation and correctly changes false to true."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L02|0": {
+    "status": "fixed",
+    "quote": "The promise is broken only when $P$ happens but $Q$ does not. If $P$ is false, the conditional is true whether $Q$ is true or false.",
+    "note": "The long conditional explanation has been split into short sentences with explicit truth conditions."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L03|1": {
+    "status": "fixed",
+    "quote": "**Evaluate** means find the final truth value.",
+    "note": "The required one-line definition appears before the examples and first use as an instruction."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L03|0": {
+    "status": "fixed",
+    "quote": "Here, \"build\" means list every possible pair of truth values and find the result for each pair.",
+    "note": "Build now has an explicit gloss. Its placement also supplies tested method knowledge, reported under L05."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L04|0": {
+    "status": "fixed",
+    "quote": "For a combined expression, work inside parentheses first.",
+    "note": "The order-of-operations analogy is gone. Only the promise analogy in Core Concept remains."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L13|0": {
+    "status": "fixed",
+    "quote": "**and** (conjunction, symbol $\\land$) is true only when both statements are true.",
+    "note": "Ordinary connective names are lowercase in the teaching. No all-caps connective table remains."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L17|0": {
+    "status": "fixed",
+    "quote": "For and, one false value is enough to make the result false. For or, one true value is enough to make the result true.",
+    "note": "The retained shortcut section meets the approved exception by teaching actual early-stop rules."
+   },
+   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L19|0": {
+    "status": "fixed",
+    "quote": "2. Replace $P \\land Q$ with its truth value. Then evaluate the or statement:",
+    "note": "The multistep combined evaluation now displays both key computations. The remaining inline answers are direct one-step evaluations."
+   }
+  }
+ }
+}
