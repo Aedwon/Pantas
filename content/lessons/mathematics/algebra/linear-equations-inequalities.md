@@ -93,6 +93,8 @@ $$x=\dfrac{11}{7}$$
 
 Solve $-2(x-4)>3x+13$, then describe its graph on a number line.
 
+<!-- ILLUSTRATION: number line with an open circle at $-1$ and shading to the left, labeled $x<-1$ -->
+
 **Solution:**
 
 1. Expand the left side.
