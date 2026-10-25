@@ -25,7 +25,7 @@ To turn a fraction into a decimal, divide the numerator by the denominator. Some
 
 A **terminating decimal** ends after a fixed number of decimal places. To turn it into a fraction, write its digits without the decimal point over the matching place value.
 
-Use $10$ for $1$ decimal place, $100$ for $2$, or $1000$ for $3$. For more places, continue adding zeros to the denominator. This direct method applies to terminating decimals, not to decimals that repeat forever.
+Use $10$ for $1$ decimal place, $100$ for $2$, or $1000$ for $3$. For more places, continue adding zeros to the denominator. This method applies to terminating decimals, not to decimals that repeat forever.
 
 "Simplify" means write an equal fraction whose numerator and denominator share no factor greater than $1$. Divide both by the same nonzero common factor until no further reduction is possible.
 
@@ -53,9 +53,9 @@ Finding the base by division needs a nonzero rate. Finding the rate needs a nonz
 
 Look for the amount after "of." In "$30\%$ of $200$," the base is $200$. In "what percent of $80$ is $20$," the base is $80$ and the part is $20$.
 
-For a discount, the discount amount equals the rate times the price before that discount. Subtract the discount amount to find the new price. A later discount uses that new price as its base.
+For a discount, multiply the rate by the price before that discount. Subtract the discount amount to find the new price. A later discount uses that new price as its base.
 
-For the total discount rate, divide the total price drop by the original price. A convenient starting price of $100$ can help when only percentage discounts are given.
+For the total discount rate, divide the total price drop by the original price. A starting price of $100$ can help when only percentage discounts are given. It stands for the full original price, not an actual price stated in the problem.
 
 "$120\%$ of" means take $1.20$ times the base. "$120\%$ more than" means add that increase to the base, giving $2.20$ times the base.
 
@@ -77,7 +77,7 @@ The denominators $b$ and $d$ must not be $0$. Multiplying by a fraction of a who
 
 The **reciprocal** of a nonzero fraction is found by swapping its numerator and denominator. A fraction times its reciprocal equals $1$.
 
-To divide by a fraction, multiply by its reciprocal. This works because multiplying both numbers in the division by that reciprocal makes the divisor $1$.
+To divide by a fraction, multiply by its reciprocal. Multiplying both numbers in the division by that reciprocal makes the divisor $1$ and keeps the answer unchanged.
 
 $$\dfrac{a}{b}\div\dfrac{c}{d}=\dfrac{a}{b}\times\dfrac{d}{c}$$
 
@@ -87,9 +87,11 @@ Here, $b$ and $d$ must not be $0$. The divisor must also be nonzero, so $c$ must
 
 To multiply decimals, first multiply as if the numbers were whole numbers. Count the total decimal places in both factors. Put that many decimal places in the product, adding zeros on the left if needed.
 
-To divide by a nonzero decimal, move its decimal point right until it becomes a whole number. Move the dividend's decimal point the same number of places, then divide. The **dividend** is the number being divided, and the **divisor** is the number you divide by.
+The **dividend** is the number being divided. The **divisor** is the number you divide by. The **quotient** is the division answer.
 
-Moving both points the same distance multiplies both numbers by the same power of $10$. This keeps the quotient, or division answer, unchanged. Division by $0$ is undefined.
+To divide by a nonzero decimal, move its decimal point right until it becomes a whole number. Move the dividend's decimal point the same number of places, then divide.
+
+Moving both points the same distance multiplies both numbers by the same power of $10$. This keeps the quotient unchanged. Division by $0$ is undefined.
 
 ## Examples
 
@@ -279,7 +281,7 @@ A store applies a $20\%$ discount on a jacket. It then applies an additional $25
 
 **Solution:**
 
-1. Use $100$ as a convenient original price. Find the first discount.
+1. Use $100$ to stand for the original price. Find the first discount.
 
 $$0.20\times100=20$$
 
@@ -300,6 +302,26 @@ $$80-20=60$$
 $$100-60=40$$
 
 $$\dfrac{40}{100}\times100\%=40\%$$
+
+### #12: Percent Of and Percent More Than
+
+An office processed $200$ forms last week. This week's target is $120\%$ of last week's total. Next week's target is $120\%$ more than last week's total. How many forms are in each target?
+
+**Solution:**
+
+1. Both targets use last week's $200$ forms as the base. For this week, multiply the base by $1.20$.
+
+$$1.20\times200=240$$
+
+2. For next week, find the increase of $120\%$ of the base.
+
+$$1.20\times200=240$$
+
+3. Add that increase to the base.
+
+$$200+240=440$$
+
+4. This week's target is $240$ forms. Next week's target is $440$ forms.
 
 ## Speed Tricks & Shortcuts
 
@@ -351,7 +373,7 @@ Dividing by $100$ moves the decimal point $2$ places left. Moving it only $1$ pl
 
 > "$120\%$ of" and "$120\%$ more than" give different amounts.
 
-For a salary that is $120\%$ of an earlier salary, multiply by $1.20$. For a salary that is $120\%$ more, multiply by $2.20$.
+For a salary that is $120\%$ of an earlier salary, multiply by $1.20$. For a salary that is $120\%$ more, multiply by $2.20$. Multiplying by $1.20$ in the second case leaves out the earlier salary.
 
 ### #5: Adding Denominators
 

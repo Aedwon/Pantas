@@ -39,6 +39,8 @@ Try these checks:
 - Check whether the differences form their own simple pattern.
 - Check separate patterns in the odd and even positions, or in repeating groups.
 
+Odd positions are $1,3,5,\dots$. Even positions are $2,4,6,\dots$. Read every other term to check these two groups.
+
 A pattern rule should fit every shown step. A short list can fit more than one rule. Use the rule stated in the question, or look for a simple rule that fits the whole list and the answer choices.
 
 ### The Formulas You Need
@@ -87,7 +89,7 @@ If $|r|\ge1$ and the first term is nonzero, the series **diverges**. This means 
 
 ### #1: Discovering a Number Pattern
 
-The differences between successive terms increase by $2$. What number comes next in $2,5,10,17,26,\dots$?
+What number most reasonably completes the sequence $2,5,10,17,26,\dots$?
 
 **Solution:**
 
@@ -97,37 +99,45 @@ $$5-2=3,\quad10-5=5$$
 
 $$17-10=7,\quad26-17=9$$
 
-2. The differences are $3,5,7,9$. The next difference is $11$.
+2. The differences are $3,5,7,9$. Each difference is $2$ more than the last, so the next difference is $11$.
 
 $$26+11=37$$
 
-The next number is $37$.
+3. The next number is $37$.
 
 ### #2: Alternating Operations
 
-A sequence alternates between adding $3$ and multiplying by $2$, starting with addition. What number comes next in $4,7,14,17,34,\dots$?
+What number most reasonably completes the sequence $4,7,14,17,34,\dots$?
 
 **Solution:**
 
-1. Check the changes in order.
+1. The differences are $3,7,3,17$. They are not constant, but adding $3$ works on every other step.
 
-$$4+3=7,\quad7\times2=14$$
+$$4+3=7,\quad14+3=17$$
 
-$$14+3=17,\quad17\times2=34$$
+2. Check the steps between those additions. Both multiply by $2$.
 
-2. The next operation is adding $3$.
+$$7\times2=14,\quad17\times2=34$$
+
+3. The rule alternates between adding $3$ and multiplying by $2$. The next operation is adding $3$.
 
 $$34+3=37$$
 
 ### #3: Two Patterns in One List
 
-The odd-position terms follow one arithmetic pattern. The even-position terms follow another. What number comes next in $2,20,5,18,8,16,\dots$?
+What number most reasonably completes the sequence $2,20,5,18,8,16,\dots$?
 
 **Solution:**
 
-1. Read the odd-position terms: $2,5,8$. They increase by $3$.
-2. Read the even-position terms: $20,18,16$. They decrease by $2$.
-3. The next term is in an odd position.
+1. Neighboring terms do not have a constant difference or ratio. Check every other term, starting at the first position.
+
+$$5-2=3,\quad8-5=3$$
+
+2. Check the terms in the even positions.
+
+$$18-20=-2,\quad16-18=-2$$
+
+3. The odd-position terms increase by $3$. The even-position terms decrease by $2$. The next term is in an odd position.
 
 $$8+3=11$$
 
@@ -157,7 +167,7 @@ $$S_{15}=\dfrac{15}{2}\left[2(20)+(15-1)(4)\right]$$
 
 $$S_{15}=\dfrac{15}{2}(96)=720$$
 
-The theater has $720$ seats.
+4. The theater has $720$ seats.
 
 ### #6: Geometric Sequence with Alternating Signs
 
@@ -185,7 +195,7 @@ $$S_6=\dfrac{3(1-2^6)}{1-2}$$
 
 $$S_6=\dfrac{3(-63)}{-1}=189$$
 
-The sum is $189$.
+4. The sum is $189$.
 
 ### #8: Evaluating an Infinite Geometric Series
 
@@ -215,7 +225,7 @@ Find the $6^{\text{th}}$ term of the harmonic sequence $\dfrac{1}{2},\dfrac{1}{5
 
 $$a_6=2+(6-1)(3)=17$$
 
-3. Take the reciprocal to return to the harmonic sequence.
+3. Take the reciprocal to return to the harmonic sequence. Its $6^{\text{th}}$ term is:
 
 $$\dfrac{1}{17}$$
 
@@ -248,23 +258,27 @@ Does the infinite geometric series $3+6+12+24+\dots$ have a finite sum?
 **Solution:**
 
 1. The common ratio is $r=2$.
-2. The first term is nonzero and $|r|\ge1$, so the series diverges.
-
-It does not have a finite sum.
+2. The first term is nonzero and $|r|\ge1$, so the series diverges. It does not have a finite sum.
 
 ## Speed Tricks & Shortcuts
 
-**Number of Terms in an Arithmetic Sequence.** If the first term, last term, and nonzero common difference are known, count the equal steps between the endpoints. Then add $1$ to include the first term.
+### Number of Terms in an Arithmetic Sequence
+
+If the first term, last term, and nonzero common difference are known, count the equal steps between the endpoints. Then add $1$ to include the first term.
 
 $$n=\dfrac{\text{Last}-\text{First}}{d}+1$$
 
 Use this only when the last term belongs to the sequence. The result must be a positive whole number.
 
-**Middle-Term Average.** For a finite arithmetic sequence with an odd number of terms, the middle term equals the average of all the terms. The sum is the middle term times the number of terms.
+### Middle-Term Average
+
+For a finite arithmetic sequence with an odd number of terms, the middle term equals the average of all the terms. The sum is the middle term times the number of terms.
 
 For $5,10,15,20,25$, the middle term is $15$ and there are $5$ terms, so the sum is $75$.
 
-**Pattern Check.** If a sequence is not arithmetic or geometric, write the differences between terms first. If those do not help, check alternating operations and separate odd-position and even-position terms.
+### Pattern Check
+
+If a sequence is not arithmetic or geometric, write the differences between terms first. If those do not help, check alternating operations and separate odd-position and even-position terms.
 
 ## Traps to Watch For
 
