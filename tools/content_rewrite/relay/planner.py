@@ -16,12 +16,14 @@ ids (one per line, # comments allowed) in <state>/selection.txt before running p
 Python 3.9 standard library only.
 """
 import sys
+import threading
 from pathlib import Path
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import briefs as briefs_mod  # noqa: E402
+import grouping  # noqa: E402
 import item_types  # noqa: E402
 import readfindings  # noqa: E402
 import rw_lib  # noqa: E402
@@ -32,23 +34,81 @@ def next_id(data, prefix):
     return "%s-%03d" % (prefix, max(numbers, default=0) + 1)
 
 
+# Shared by all contexts and App instances in the threaded page server.
+_PLAN_LOCK = threading.Lock()
+
+
+def _read_proposals(ctx):
+    """Plan each accepted lesson once, against the content the prompt will read."""
+    data = ctx.load_batches()
+    rewrites = ctx.accepted_all("rewrite")
+    planned = {}
+    seen = set()
+    reads = [b for b in data["batches"].values() if b["type"] == "read"]
+    for batch in data["batches"].values():
+        if batch["type"] == "rewrite":
+            for lesson in batch["lessons"]:
+                if lesson not in seen:
+                    planned.setdefault(batch["topic"], []).append(lesson)
+                    seen.add(lesson)
+    briefs = briefs_mod.load_all(ctx)
+    proposals = []
+    for topic, lessons in planned.items():
+        waiting, hashes = [], {}
+        stale = False
+        for lesson in lessons:
+            if lesson not in rewrites:
+                continue
+            path = briefs[lesson]["path"]
+            text = ctx.git.show("%s:%s" % (ctx.base_ref, path))
+            if text is None:
+                raise rw_lib.RewriteError("lesson %s is missing" % lesson)
+            hashes[lesson] = rw_lib.sha256_text(text)
+            previous = [b for b in reads if lesson in b["lessons"]]
+            if any(b.get("rewrites", {}).get(lesson) == rewrites[lesson]["commit"]
+                   and b.get("sha256", {}).get(lesson) == hashes[lesson] for b in previous):
+                continue
+            waiting.append(lesson)
+            stale = stale or bool(previous)
+        complete = all(lesson in rewrites for lesson in lessons)
+        size = item_types.get("read").batch_size
+        # A stale prompt needs a replacement even while other rewrites are pending.
+        sizes = (grouping.split_sizes(len(waiting), size) if complete or stale else
+                 [size] * (len(waiting) // size))
+        for group in grouping.chunk(waiting, sizes):
+            proposals.append({
+                "lessons": group, "topic": topic,
+                "rewrites": {i: rewrites[i]["commit"] for i in group},
+                "sha256": {i: hashes[i] for i in group},
+                "paths": {i: briefs[i]["path"] for i in group},
+            })
+    return proposals
+
+
 def plan(ctx, kinds=None):
-    """Add the batches each type proposes. Returns the new batch ids."""
-    added = []
-    for name, item_type in sorted(item_types.REGISTRY.items()):
-        if kinds and name not in kinds:
-            continue
-        for proposal in item_type.plan(ctx):
-            data = ctx.load_batches()
-            batch_id = next_id(data, item_type.prefix)
-            data["batches"][batch_id] = dict(proposal, id=batch_id, type=name, created=rw_lib.now())
-            data["order"].append(batch_id)
-            ctx.save_batches(data)
-            added.append(batch_id)
-    return added
+    """Serialize proposal generation and saving, including coverage and id checks."""
+    with _PLAN_LOCK:
+        added = []
+        for name, item_type in sorted(item_types.REGISTRY.items()):
+            if kinds and name not in kinds:
+                continue
+            proposals = _read_proposals(ctx) if name == "read" else item_type.plan(ctx)
+            for proposal in proposals:
+                data = ctx.load_batches()
+                batch_id = next_id(data, item_type.prefix)
+                data["batches"][batch_id] = dict(proposal, id=batch_id, type=name, created=rw_lib.now())
+                data["order"].append(batch_id)
+                ctx.save_batches(data)
+                added.append(batch_id)
+        return added
 
 
 def requeue(ctx, lesson_ids):
+    with _PLAN_LOCK:
+        return _requeue(ctx, lesson_ids)
+
+
+def _requeue(ctx, lesson_ids):
     """A new rewrite batch for lessons that already have one, for example after a read found problems.
 
     The batch carries, for each lesson, what the lesson's latest read left open: failed rule findings, accuracy

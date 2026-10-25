@@ -119,10 +119,21 @@ def remote_commits(git):
 
 
 def replacement(ctx, batch):
-    if batch["type"] != "rewrite" or not batch["lessons"]:
+    if batch["type"] not in ("rewrite", "read") or not batch["lessons"]:
         return None
-    order = ctx.load_batches()["order"]
+    data = ctx.load_batches()
+    order = data["order"]
     newer = set(order[order.index(batch["id"]) + 1:])
+    if batch["type"] == "read":
+        covering = {}
+        for batch_id in order[order.index(batch["id"]) + 1:]:
+            candidate = data["batches"][batch_id]
+            if candidate["type"] == "read":
+                for lesson in candidate["lessons"]:
+                    covering[lesson] = batch_id
+        if all(lesson in covering for lesson in batch["lessons"]):
+            return ", ".join(sorted({covering[lesson] for lesson in batch["lessons"]}, key=order.index))
+        return None
     records = [ctx.accepted("rewrite", key) for key in batch["lessons"]]
     if all(record and record.get("batch") in newer for record in records):
         return ", ".join(sorted({record["batch"] for record in records}, key=order.index))
@@ -146,6 +157,7 @@ def batch_view(ctx, batch, runs, copied, events, prs=None, remote=None):
     remote_commit = (remote or {}).get(batch["id"])
     if replaced:
         state, label = "replaced", "Replaced by " + replaced
+        view["done"] = True
     elif remote_commit:
         view["commits"] = [rw_lib.short(remote_commit)]
         outcome = check_outcome(ctx.git, runs, remote_commit)
