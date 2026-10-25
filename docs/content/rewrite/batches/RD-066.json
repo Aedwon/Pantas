@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-figure-series",
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "rewrites": {
+  "lesson-spatial-abstract-reasoning-figure-series": "74f5a56ab0a67710035bff9285e265539ad69265",
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": "74f5a56ab0a67710035bff9285e265539ad69265"
+ },
+ "sha256": {
+  "lesson-spatial-abstract-reasoning-figure-series": "f168c4c7623eff16140a21f60417ffac131a103b9c398e5260652ec2e0a5c342",
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": "a9351c7436c760e3c4a27f3b8a10cd4497161845a4c0ce04cbe3e03debde8ed4"
+ },
+ "paths": {
+  "lesson-spatial-abstract-reasoning-figure-series": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md",
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md"
+ },
+ "id": "RD-066",
+ "type": "read",
+ "created": "2026-10-25T21:22:49+00:00"
+}
