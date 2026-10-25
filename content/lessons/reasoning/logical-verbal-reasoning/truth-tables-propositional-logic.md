@@ -14,6 +14,8 @@ isActive: true
 
 A **truth table** lists all possible truth values for the propositions in a logical statement. It shows the truth value of the full statement for each case. We use $T$ for true and $F$ for false.
 
+To make a truth table, first list every possible set of truth values. For $P$ and $Q$, the pairs are $(T,T)$, $(T,F)$, $(F,T)$, and $(F,F)$. Then find the full statement's truth value for each pair.
+
 A **connective** joins statements or changes a statement's truth value. The following symbols show which rule to use.
 
 **not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is true, $\neg P$ is false. If $P$ is false, $\neg P$ is true.
@@ -32,7 +34,7 @@ Think of a conditional as a promise: if $P$ happens, then $Q$ happens. The promi
 
 ### #1: Building an And Truth Table
 
-Build the complete truth table for $P \land Q$. Here, "build" means list every possible pair of truth values and find the result for each pair.
+Build the complete truth table for $P \land Q$.
 
 **Solution:**
 
