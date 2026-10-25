@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson_meta.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -15,7 +16,12 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 
 final whatsIncludedDataProvider = FutureProvider.family<
-    ({Exam exam, List<ScopeSubject> subjects, Set<TopicId> excluded}),
+    ({
+      Exam exam,
+      List<ScopeSubject> subjects,
+      Set<TopicId> excluded,
+      Set<LessonId> excludedLessons
+    }),
     ExamId>((ref, examId) async {
   final content = ref.watch(contentRepositoryProvider);
   final excluded = await ref.watch(trackScopeProvider(examId).future);
@@ -31,7 +37,12 @@ final whatsIncludedDataProvider = FutureProvider.family<
       groups[subject.name] = await content.topicsBySubject(subject.id);
     }
   }
+  final topics = [for (final group in groups.values) ...group];
+  final lessons =
+      await content.lessonMetaByTopics([for (final t in topics) t.id]);
+  final excludedLessons = await ref.watch(lessonScopeProvider(examId).future);
   return (
+    excludedLessons: excludedLessons,
     exam: exam,
     excluded: excluded,
     subjects: [
@@ -40,7 +51,14 @@ final whatsIncludedDataProvider = FutureProvider.family<
           title: group.key,
           topics: [
             for (final topic in group.value)
-              ScopeTopic(id: topic.id, title: topic.name),
+              ScopeTopic(
+                id: topic.id,
+                title: topic.name,
+                lessons: [
+                  for (final l in lessons[topic.id] ?? const <LessonMeta>[])
+                    ScopeLesson(id: l.id, title: l.title),
+                ],
+              ),
           ],
         ),
     ]
@@ -59,7 +77,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
   late Set<String> _pending;
   Future<void> _save(
     String examId,
-    Set<String> all,
+    List<ScopeSubject> subjects,
     Set<String> selected,
   ) async {
     if (_saving) return;
@@ -72,13 +90,28 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       final publish =
           await ref.read(studySettingsCaptureProvider)(examId: examId);
       await publish.apply(
-        () => ref
-            .read(customTrackRepositoryProvider)
-            .setExcluded(examId: examId, topicIds: all.difference(selected)),
+        () => ref.read(customTrackRepositoryProvider).setExcluded(
+          examId: examId,
+          topicIds: {
+            for (final subject in subjects)
+              for (final topic in subject.topics)
+                if (topic.lessons.isEmpty
+                    ? !selected.contains(topic.id)
+                    : !topic.lessons.any((l) => selected.contains(l.id)))
+                  topic.id,
+          },
+          lessonIds: {
+            for (final subject in subjects)
+              for (final topic in subject.topics)
+                for (final lesson in topic.lessons)
+                  if (!selected.contains(lesson.id)) lesson.id,
+          },
+        ),
       );
       if (!mounted) return;
       ref
         ..invalidate(trackScopeProvider(examId))
+        ..invalidate(lessonScopeProvider(examId))
         ..invalidate(scopedTopicsProvider(examId))
         ..invalidate(scopedSubjectsProvider(examId))
         ..invalidate(whatsIncludedDataProvider(examId));
@@ -111,9 +144,16 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
               error: error,
             ),
             data: (scope) {
-              final all = {
+              final selected = {
                 for (final subject in scope.subjects)
-                  for (final topic in subject.topics) topic.id,
+                  for (final topic in subject.topics)
+                    if (!scope.excluded.contains(topic.id))
+                      if (topic.lessons.isEmpty)
+                        topic.id
+                      else
+                        for (final lesson in topic.lessons)
+                          if (!scope.excludedLessons.contains(lesson.id))
+                            lesson.id,
               };
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -128,11 +168,11 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                     ignoring: _saving,
                     child: ScopePicker(
                       subjects: scope.subjects,
-                      selectedIds: all.difference(scope.excluded),
+                      selectedIds: selected,
                       minimumSelectionMessage:
                           'At least one topic stays ticked.',
                       onChanged: (selected) =>
-                          unawaited(_save(examId!, all, selected)),
+                          unawaited(_save(examId!, scope.subjects, selected)),
                     ),
                   ),
                   Text(
@@ -142,7 +182,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                     style: context.type.footnote,
                   ),
                   if (_failed)
-                    saveFailureLine(() => _save(examId!, all, _pending)),
+                    saveFailureLine(
+                      () => _save(examId!, scope.subjects, _pending),
+                    ),
                 ],
               );
             },

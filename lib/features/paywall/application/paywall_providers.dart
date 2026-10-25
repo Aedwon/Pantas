@@ -142,9 +142,17 @@ final entitlementProvider = StreamProvider<Entitlement>((ref) {
       .startWith(cached);
 });
 
+// The target-exam upgrade needs the full catalog, before changing focus.
+// An account change must refresh account-specific trial eligibility.
+final unfilteredPaywallOfferingProvider =
+    FutureProvider<PaywallOfferingResult>((ref) async {
+  await ref.watch(authStateProvider.future);
+  return ref.watch(revenueCatGatewayProvider).currentOffering();
+});
+
 final paywallOfferingProvider =
     FutureProvider<PaywallOfferingResult>((ref) async {
-  final offering = await ref.watch(revenueCatGatewayProvider).currentOffering();
+  final offering = await ref.watch(unfilteredPaywallOfferingProvider.future);
   if (offering.passPackages.isEmpty) return offering;
   final focus = await ref.watch(activeExamFocusProvider.future);
   final catalog =

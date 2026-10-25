@@ -42,6 +42,14 @@ class _BackupPageState extends ConsumerState<BackupPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (ref.watch(paymentsOnWebProvider)) {
+      return PantasPage(
+        title: 'Backup',
+        backLabel: 'Account',
+        onBack: () => Navigator.of(context).maybePop(),
+        children: const [Text('Your progress is saved to your account.')],
+      );
+    }
     final status = ref.watch(syncStatusProvider).valueOrNull;
     final anonymous = ref.watch(isAnonymousProvider).valueOrNull ?? true;
     final pro =

@@ -26,7 +26,7 @@ class ExamPage extends ConsumerStatefulWidget {
 }
 
 class _ExamPageState extends ConsumerState<ExamPage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   bool _dateOpen = false;
   String? _changedExam;
   String? _previousExam;
@@ -37,8 +37,13 @@ class _ExamPageState extends ConsumerState<ExamPage>
     vsync: this,
     duration: const Duration(milliseconds: 300),
   );
+  late final _confirmation = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 700),
+  );
   @override
   void dispose() {
+    _confirmation.dispose();
     _shake.dispose();
     super.dispose();
   }
@@ -80,6 +85,11 @@ class _ExamPageState extends ConsumerState<ExamPage>
         _changedExam = result.examShortName;
         _previousExam = previous;
       });
+      if (MediaQuery.disableAnimationsOf(context)) {
+        _confirmation.value = 1;
+      } else {
+        unawaited(_confirmation.forward(from: 0));
+      }
     }
   }
 
@@ -115,43 +125,91 @@ class _ExamPageState extends ConsumerState<ExamPage>
     }
 
     if (_changedExam != null) {
-      return PantasPage(
-        title: "You're now studying for $_changedExam",
-        children: [
-          Text(
-            "Everything you've done came with you, and your plan is rebuilt "
-            'for $_changedExam.',
-            style: context.type.body,
-          ),
-          const SizedBox(height: 24),
-          GroupedSection(
-            footer: 'Kept from $_previousExam. Change it if $_changedExam '
-                'falls on a different day.',
-            children: [
-              ListRow(
-                title: 'Exam Date',
-                value: date == null
-                    ? 'Not set'
-                    : DateFormat(date.day == null ? 'MMMM y' : 'MMM d, y')
-                        .format(current),
-                variant: ListRowVariant.value,
+      return AnimatedBuilder(
+        animation: _confirmation,
+        builder: (context, _) {
+          final rise = PantasCurves.riseIn
+              .transform((_confirmation.value * 700 / 450).clamp(0, 1));
+          final pop = ((_confirmation.value * 700 - 200) / 500).clamp(0.0, 1.0);
+          return Transform.translate(
+            key: const ValueKey('exam-confirmation-arrival'),
+            offset: Offset(0, 14 * (1 - rise)),
+            child: Opacity(
+              opacity: rise,
+              child: PantasPage(
+                title: '',
+                children: [
+                  const SizedBox(height: 80),
+                  Center(
+                    child: Opacity(
+                      opacity: pop,
+                      child: Transform.scale(
+                        scale: .4 + .6 * PantasCurves.popC.transform(pop),
+                        child: Container(
+                          width: 64,
+                          height: 64,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: context.colors.accentFill,
+                          ),
+                          child: Icon(
+                            Icons.check,
+                            color: context.colors.onAccent,
+                            size: 32,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 28),
+                  Text(
+                    "You're now studying for "
+                    '$_changedExam',
+                    textAlign: TextAlign.center,
+                    style: context.type.pageTitle,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    "Everything you've done came with you, "
+                    'and your plan is rebuilt '
+                    'for $_changedExam.',
+                    style: context.type.body,
+                  ),
+                  const SizedBox(height: 24),
+                  GroupedSection(
+                    footer:
+                        'Kept from $_previousExam. Change it if $_changedExam '
+                        'falls on a different day.',
+                    children: [
+                      ListRow(
+                        title: 'Exam Date',
+                        value: date == null
+                            ? 'Not set'
+                            : DateFormat(
+                                date.day == null ? 'MMMM y' : 'MMM d, y',
+                              ).format(current),
+                        variant: ListRowVariant.value,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  PantasButton(
+                    label: 'Change Exam Date',
+                    onPressed: () => setState(() {
+                      _changedExam = null;
+                      _dateOpen = true;
+                    }),
+                  ),
+                  PantasButton(
+                    label: 'Done',
+                    variant: PantasButtonVariant.tertiary,
+                    onPressed: () => setState(() => _changedExam = null),
+                  ),
+                ],
               ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          PantasButton(
-            label: 'Change Exam Date',
-            onPressed: () => setState(() {
-              _changedExam = null;
-              _dateOpen = true;
-            }),
-          ),
-          PantasButton(
-            label: 'Done',
-            variant: PantasButtonVariant.tertiary,
-            onPressed: () => setState(() => _changedExam = null),
-          ),
-        ],
+            ),
+          );
+        },
       );
     }
     return PantasPage(

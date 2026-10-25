@@ -49,7 +49,8 @@ void main() {
     await tester.pump();
     grants.complete(<Map<String, dynamic>>[]);
     await tester.pumpAndSettle();
-    expect(reads, 2);
+    // Login, checkout return, and grant history each read the ledger.
+    expect(reads, 3);
     expect(
       find.text("We found a purchase, but Pro couldn't be confirmed yet. "
           'Try again in a moment.'),

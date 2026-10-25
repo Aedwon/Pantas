@@ -127,7 +127,7 @@ void main() {
     await pumpPage(tester);
 
     final picker = tester.widget<ScopePicker>(find.byType(ScopePicker));
-    expect(picker.selectedIds, {'top_1', 'top_2'});
+    expect(picker.selectedIds, {'les_1', 'top_2'});
   });
 
   testWidgets('unticking a topic writes an exclusion', (tester) async {

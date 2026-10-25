@@ -56,6 +56,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             : digits;
     final pro =
         ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
+    final web = ref.watch(paymentsOnWebProvider);
     final sync = ref.watch(syncStatusProvider).valueOrNull;
     final backup = switch (sync) {
       SyncUpToDate() || SyncOk() => 'Saved',
@@ -191,31 +192,33 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             textAlign: TextAlign.center,
           ),
         ] else ...[
-          GroupedSection(
-            header: 'Backup',
-            footer: pro
-                ? "Pantas backs up on its own whenever you're online."
-                : "Your progress stays on this phone only. With Pro, it's "
-                    'backed up and syncs across your devices.',
-            children: [
-              ListRow(
-                title: 'Backup',
-                value: pro ? backup : 'This phone only',
-                variant: ListRowVariant.value,
-                divider: true,
-              ),
-              if (pro)
+          if (!web) ...[
+            GroupedSection(
+              header: 'Backup',
+              footer: pro
+                  ? "Pantas backs up on its own whenever you're online."
+                  : "Your progress stays on this phone only. With Pro, it's "
+                      'backed up and syncs across your devices.',
+              children: [
                 ListRow(
-                  title: 'Details',
-                  onTap: () => push('/settings/backup'),
-                )
-              else
-                ListRow(
-                  title: 'Back Up with Pro',
-                  onTap: () => push('/settings/pro'),
+                  title: 'Backup',
+                  value: pro ? backup : 'This phone only',
+                  variant: ListRowVariant.value,
+                  divider: true,
                 ),
-            ],
-          ),
+                if (pro)
+                  ListRow(
+                    title: 'Details',
+                    onTap: () => push('/settings/backup'),
+                  )
+                else
+                  ListRow(
+                    title: 'Back Up with Pro',
+                    onTap: () => push('/settings/pro'),
+                  ),
+              ],
+            ),
+          ],
           const SizedBox(height: 24),
           GroupedSection(
             children: [
@@ -282,9 +285,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       context: context,
       builder: (context) => CenteredDialog(
         title: 'Sign out?',
-        message: 'Your study progress on this device will be cleared. Only '
-            'progress already synced through Pantas Pro may be '
-            'available after you sign in again.',
+        message: 'Your progress is saved to your account. '
+            'It comes back when you sign in again.',
         primaryLabel: 'Sign Out',
         secondaryLabel: 'Cancel',
         onConfirm: () => Navigator.of(context).pop(true),

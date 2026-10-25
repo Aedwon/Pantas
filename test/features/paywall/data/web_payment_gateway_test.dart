@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -115,6 +117,105 @@ ExamCatalogEntry _exam({bool dates = true}) => ExamCatalogEntry(
 
 void main() {
   setUpAll(() => registerFallbackValue(Uri()));
+
+  test(
+      'grant history preserves expired and revoked real end dates '
+      'without granting access', () async {
+    final gateway = WebPaymentGateway(
+      callable: (_, __) async => null,
+      readGrants: (_) async => [
+        _grant('pantas_cs_monthly', ends: DateTime.utc(2026)),
+        _grant(
+          'pantas_pass_cse_pro',
+          ends: DateTime.utc(2027),
+          state: 'revoked',
+        ),
+        _trial(ends: DateTime.utc(2026, 2)),
+        {'product': 'pantas_cs_weekly', 'endsAt': 'unknown', 'state': 'active'},
+        {'product': 'made_up', 'endsAt': 1, 'state': 'active'},
+      ],
+      refreshClaims: (_) async {},
+      openUrl: (_) async => true,
+      now: () => _now,
+    );
+    expect(await gateway.grantHistory(), isEmpty);
+    await gateway.logIn('history-owner');
+    final history = await gateway.grantHistory();
+    expect(
+        history
+            .map((row) => (row.productId, row.endsAt, row.state, row.isTrial)),
+        [
+          ('pantas_pass_cse_pro', DateTime.utc(2027), 'revoked', false),
+          ('web_trial', DateTime.utc(2026, 2), 'active', true),
+          ('pantas_cs_monthly', DateTime.utc(2026), 'active', false),
+        ]);
+    expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+    await gateway.clearIdentity();
+    expect(await gateway.grantHistory(), isEmpty);
+  });
+
+  test('a history read cannot cross an account change', () async {
+    final pending = Completer<List<Map<String, dynamic>>>();
+    var delayed = false;
+    final gateway = WebPaymentGateway(
+      callable: (_, __) async => null,
+      readGrants: (_) => delayed ? pending.future : Future.value([]),
+      refreshClaims: (_) async {},
+      openUrl: (_) async => true,
+    );
+    await gateway.logIn('first');
+    delayed = true;
+    final history = gateway.grantHistory();
+    await gateway.clearIdentity();
+    pending.complete([_grant('pantas_cs_monthly', ends: DateTime.utc(2027))]);
+    expect(await history, isEmpty);
+  });
+
+  test('Play renewal warning trusts exact server flag and clears with identity',
+      () async {
+    Object? flag = true;
+    final gateway = WebPaymentGateway(
+      callable: (_, __) async =>
+          {'plans': <Object?>[], 'googlePlayPlanRenews': flag},
+      readGrants: (_) async => [],
+      refreshClaims: (_) async {},
+      openUrl: (_) async => true,
+    );
+    await gateway.logIn('renewal-owner');
+    await gateway.currentOffering();
+    expect(gateway.googlePlayPlanRenews, isTrue);
+    for (final value in <Object?>[false, null, 'true', 1]) {
+      flag = value;
+      await gateway.currentOffering();
+      expect(gateway.googlePlayPlanRenews, isFalse);
+    }
+    flag = true;
+    await gateway.currentOffering();
+    await gateway.clearIdentity();
+    expect(gateway.googlePlayPlanRenews, isFalse);
+  });
+
+  test('an offering reply cannot cross logout and same-account login',
+      () async {
+    final pending = Completer<Object?>();
+    final gateway = WebPaymentGateway(
+      callable: (_, __) => pending.future,
+      readGrants: (_) async => [],
+      refreshClaims: (_) async {},
+      openUrl: (_) async => true,
+    );
+    await gateway.logIn('same-owner');
+    final offering = gateway.currentOffering();
+    await gateway.clearIdentity();
+    await gateway.logIn('same-owner');
+    pending.complete({
+      'plans': <Object?>[],
+      'googlePlayPlanRenews': true,
+      'trialEligible': true,
+    });
+    expect((await offering).status, PaywallOfferingStatus.configurationFailure);
+    expect(gateway.googlePlayPlanRenews, isFalse);
+  });
 
   group('checkout', () {
     late _MockCallable callable;
@@ -515,6 +616,26 @@ void main() {
         ],
       );
       expect(offering.unrecognizedProductIds, isEmpty);
+    });
+
+    test('server eligibility enables only the Monthly web trial', () async {
+      reply({'plans': allFive, 'trialEligible': true});
+      final offering = await gateway.currentOffering();
+      expect(
+        offering.recognizedPackages
+            .where((p) => p.trialEligible)
+            .map((p) => p.sku),
+        [PaywallSku.monthly],
+      );
+      for (final value in <Object?>[false, null, 'true', 1]) {
+        reply({'plans': allFive, 'trialEligible': value});
+        expect(
+          (await gateway.currentOffering())
+              .recognizedPackages
+              .any((p) => p.trialEligible),
+          isFalse,
+        );
+      }
     });
 
     test('an empty list is no current offering', () async {

@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
+import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
@@ -48,14 +49,31 @@ Uri googlePlaySubscriptionManagementUri(Entitlement entitlement) {
   });
 }
 
+final webGrantHistoryProvider =
+    FutureProvider.autoDispose<List<WebGrantHistory>>((ref) async {
+  if (!ref.watch(paymentsOnWebProvider)) return [];
+  final user = await ref.watch(currentUserProvider.future);
+  final gateway = ref.watch(revenueCatGatewayProvider);
+  if (user == null || gateway is! WebPaymentGateway) return [];
+  return gateway.grantHistory();
+});
+
 class ProPage extends ConsumerStatefulWidget {
   const ProPage({
     this.subscriptionLauncher = launchGooglePlaySubscriptionManagement,
     this.checkoutReturnUri,
+    this.targetExam,
+    this.previousExamName,
+    this.onSwitchOnFree,
+    this.onBeforeUpgrade,
     super.key,
   });
   final SubscriptionManagementLauncher subscriptionLauncher;
   final Uri? checkoutReturnUri;
+  final ExamCatalogEntry? targetExam;
+  final String? previousExamName;
+  final Future<void> Function()? onSwitchOnFree;
+  final Future<void> Function()? onBeforeUpgrade;
   @override
   ConsumerState<ProPage> createState() => _ProPageState();
 }
@@ -121,6 +139,9 @@ class _ProPageState extends ConsumerState<ProPage> {
     });
     final result = await ref.read(paywallControllerProvider).restore();
     if (!mounted) return;
+    ref
+      ..invalidate(webGrantHistoryProvider)
+      ..invalidate(unfilteredPaywallOfferingProvider);
     setState(() {
       _busy = false;
       if (uid == ref.read(currentUserProvider).valueOrNull?.uid) {
@@ -143,6 +164,20 @@ class _ProPageState extends ConsumerState<ProPage> {
       _busy = true;
       _feedback = null;
     });
+    if (web && widget.onBeforeUpgrade != null) {
+      try {
+        await widget.onBeforeUpgrade!();
+      } catch (_) {
+        if (mounted) {
+          setState(() {
+            _busy = false;
+            _feedback = 'Could not save. Please try again.';
+          });
+        }
+        return;
+      }
+      if (!mounted) return;
+    }
     PaymentOperationStatus status;
     final gateway = ref.read(revenueCatGatewayProvider);
     if (web &&
@@ -154,6 +189,10 @@ class _ProPageState extends ConsumerState<ProPage> {
         gateway is WebPaymentGateway) {
       final result = await gateway.startTrial();
       status = result.operation.status;
+      if (result.status != WebTrialStatus.failed) {
+        ref.invalidate(unfilteredPaywallOfferingProvider);
+        if (mounted) setState(() => _trialUnavailable = true);
+      }
       if (result.status == WebTrialStatus.notAvailable && mounted) {
         setState(() => _trialUnavailable = true);
         status = PaymentOperationStatus.userCancelled;
@@ -167,6 +206,12 @@ class _ProPageState extends ConsumerState<ProPage> {
     }
     if (!mounted) return;
     final sameAccount = uid == ref.read(currentUserProvider).valueOrNull?.uid;
+    if (sameAccount &&
+        widget.targetExam != null &&
+        status == PaymentOperationStatus.success) {
+      Navigator.of(context).pop(true);
+      return;
+    }
     setState(() {
       // C3 returns this status after opening PayMongo in this tab.
       _busy = sameAccount &&
@@ -198,17 +243,35 @@ class _ProPageState extends ConsumerState<ProPage> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(currentUserProvider, (previous, next) {
+      if (previous?.valueOrNull?.uid != next.valueOrNull?.uid) {
+        setState(() {
+          _trialUnavailable = false;
+          _selected = null;
+          _feedback = null;
+          _busy = false;
+        });
+      }
+    });
     final entitlement =
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
-    final covered = ref.watch(proForActiveExamProvider).valueOrNull;
+    final upgrade = widget.targetExam != null;
+    final covered =
+        upgrade ? false : ref.watch(proForActiveExamProvider).valueOrNull;
     final web = ref.watch(paymentsOnWebProvider);
-    final anonymous = ref.watch(isAnonymousProvider).valueOrNull ?? true;
-    final exam = ref.watch(activeProCatalogEntryProvider).valueOrNull;
-    final offering = ref.watch(paywallOfferingProvider);
+    final anonymous =
+        ref.watch(isAnonymousProvider).unwrapPrevious().valueOrNull ?? true;
+    final exam = widget.targetExam ??
+        ref.watch(activeProCatalogEntryProvider).valueOrNull;
+    final offering = (upgrade
+            ? ref.watch(unfilteredPaywallOfferingProvider)
+            : ref.watch(paywallOfferingProvider))
+        .unwrapPrevious();
     final paused = entitlement.state == EntitlementState.paused;
     final packages = (offering.valueOrNull?.recognizedPackages
             .where(
               (p) =>
+                  (!upgrade || p.sku == PaywallSku.monthly) &&
                   exam != null &&
                   productForId(p.productId)?.tier ==
                       PriceTier.fromCatalog(exam.priceTier),
@@ -229,7 +292,8 @@ class _ProPageState extends ConsumerState<ProPage> {
             : null);
     final selectedPassCandidate =
         passes.where((p) => p.productId == _selected).firstOrNull;
-    final trial = selectedPackage?.sku == PaywallSku.monthly &&
+    final trial = !upgrade &&
+        selectedPackage?.sku == PaywallSku.monthly &&
         selectedPackage!.trialEligible &&
         !_trialUnavailable &&
         !entitlement.proIsActive &&
@@ -261,15 +325,44 @@ class _ProPageState extends ConsumerState<ProPage> {
                 .map((p) => p.endsAt)
                 .reduce((a, b) => a.isAfter(b) ? a : b)
             : entitlement.expiresAt ?? fallbackPlanEnd;
-    final ended = entitlement.endsAt;
-    final lapsed = !entitlement.proIsActive &&
-        ended != null &&
-        ended.isBefore(DateTime.now());
+    final past = web
+        ? ref
+            .watch(webGrantHistoryProvider)
+            .unwrapPrevious()
+            .valueOrNull
+            ?.where(
+              (row) =>
+                  row.endsAt.isBefore(DateTime.now()) &&
+                  (row.isTrial ||
+                      (productForId(row.productId)?.kind ==
+                              ProductKind.subscription &&
+                          exam != null &&
+                          tierCovers(
+                            productForId(row.productId)!.tier,
+                            PriceTier.fromCatalog(exam.priceTier),
+                          )) ||
+                      productForId(row.productId)?.examId == exam?.id),
+            )
+            .firstOrNull
+        : null;
+    final passEnded =
+        past != null && productForId(past.productId)?.kind == ProductKind.pass;
+    final ended = web ? past?.endsAt : entitlement.endsAt;
+    final gateway = web ? ref.watch(revenueCatGatewayProvider) : null;
+    final playRenews = web &&
+        gateway is WebPaymentGateway &&
+        offering.unwrapPrevious().hasValue &&
+        gateway.googlePlayPlanRenews;
+
+    final lapsed =
+        covered == false && ended != null && ended.isBefore(DateTime.now());
     final now = DateTime.now().toUtc().add(const Duration(hours: 8));
     final today = DateTime.utc(now.year, now.month, now.day);
     final sitting = exam?.publishedSittings
         .where((s) => !s.firstDay.isBefore(today) && s.sourceUrl.isNotEmpty)
         .firstOrNull;
+    final daysUntilSitting = sitting?.lastDay.difference(today).inDays;
+    final dayUnit = daysUntilSitting == 1 ? 'day' : 'days';
     final sittingEnd =
         sitting == null ? null : DateFormat.yMMMd().format(sitting.lastDay);
     final selectedPass = sitting == null ? null : selectedPassCandidate;
@@ -303,13 +396,16 @@ class _ProPageState extends ConsumerState<ProPage> {
                   PantasButton(
                     label: selectedPass != null
                         ? 'Buy Season Pass'
-                        : trial && !lapsed
-                            ? 'Try 7 Days Free'
-                            : lapsed
-                                ? 'Get Pro Again'
-                                : 'Subscribe for '
-                                    '${selectedPackage!.priceString} '
-                                    'a ${_period(selectedPackage.sku)}',
+                        : upgrade
+                            ? 'Upgrade for '
+                                '${selectedPackage!.priceString} a Month'
+                            : trial && !lapsed
+                                ? 'Try 7 Days Free'
+                                : lapsed
+                                    ? 'Get Pro Again'
+                                    : 'Subscribe for '
+                                        '${selectedPackage!.priceString} '
+                                        'a ${_period(selectedPackage.sku)}',
                     busy: _busy,
                     onPressed: _busy
                         ? null
@@ -340,12 +436,26 @@ class _ProPageState extends ConsumerState<ProPage> {
                   ),
                 ],
               ],
-              PantasButton(
-                label: 'Restore purchases',
-                variant: PantasButtonVariant.tertiary,
-                busy: _busy,
-                onPressed: _busy ? null : _restore,
-              ),
+              if (playRenews)
+                Text(
+                  'Your Google Play plan keeps renewing. '
+                  'Cancel it in Google Play if you no longer need it.',
+                  textAlign: TextAlign.center,
+                  style: context.type.footnote,
+                ),
+              if (upgrade)
+                PantasButton(
+                  label: 'Switch on Free',
+                  variant: PantasButtonVariant.tertiary,
+                  onPressed: _busy ? null : widget.onSwitchOnFree,
+                ),
+              if (!upgrade)
+                PantasButton(
+                  label: 'Restore purchases',
+                  variant: PantasButtonVariant.tertiary,
+                  busy: _busy,
+                  onPressed: _busy ? null : _restore,
+                ),
               if (_feedback != null)
                 Text(
                   _feedback!,
@@ -356,19 +466,58 @@ class _ProPageState extends ConsumerState<ProPage> {
           ),
         ),
       ),
-      backLabel: 'Settings',
+      backLabel: upgrade ? 'Exam' : 'Settings',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
-        Text('PANTAS PRO', style: context.type.sectionHeader),
+        if (!upgrade) Text('PANTAS PRO', style: context.type.sectionHeader),
         const SizedBox(height: 12),
-        Text(
-          owned
-              ? "You're on Pro."
-              : lapsed
-                  ? 'Your Pro plan ended'
-                  : "See exactly what's losing you points.",
-          style: context.type.pageTitle,
-        ),
+        if (!upgrade)
+          Text(
+            owned
+                ? "You're on Pro."
+                : lapsed
+                    ? passEnded
+                        ? 'Your Season Pass ended'
+                        : 'Your Pro plan ended'
+                    : "See exactly what's losing you points.",
+            style: context.type.pageTitle,
+          ),
+        if (upgrade)
+          Container(
+            padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+            decoration: BoxDecoration(
+              color: context.colors.surface,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  PantasIcons.pro,
+                  size: 36,
+                  color: context.colors.warningText,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  '${exam!.shortName} has its own price tier',
+                  style: context.type.pageTitle
+                      .copyWith(fontSize: 28, height: 1.2),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  'Your Pro covers '
+                  "${widget.previousExamName ?? 'student exams'} "
+                  'and other student exams only. '
+                  'Pro for ${exam.shortName} covers those too if you upgrade.',
+                  style: context.type.body.copyWith(
+                    fontSize: 16,
+                    color: context.colors.secondaryLabel,
+                    height: 1.45,
+                  ),
+                ),
+              ],
+            ),
+          ),
         if (owned) ...[
           const SizedBox(height: 8),
           Text(
@@ -382,33 +531,42 @@ class _ProPageState extends ConsumerState<ProPage> {
             style: context.type.body,
           ),
         const SizedBox(height: 24),
-        for (final feature in [
-          (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
-          (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
-          (PantasIcons.studyHabits, 'The figures behind your study habits'),
-          (PantasIcons.proBackup, "Progress that's always backed up"),
-          (PantasIcons.topicResults, 'Results by topic and lesson'),
-        ])
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(feature.$1, color: context.colors.accent, size: 21),
-                const SizedBox(width: 12),
-                Expanded(child: Text(feature.$2, style: context.type.subhead)),
-              ],
+        if (!upgrade)
+          for (final feature in [
+            (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
+            (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
+            (PantasIcons.studyHabits, 'The figures behind your study habits'),
+            (PantasIcons.proBackup, "Progress that's always backed up"),
+            (PantasIcons.topicResults, 'Results by topic and lesson'),
+          ])
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(feature.$1, color: context.colors.accent, size: 21),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(feature.$2, style: context.type.subhead),
+                  ),
+                ],
+              ),
             ),
-          ),
         const SizedBox(height: 24),
         if (paused) const ProPausedLine(),
-        if ((entitlement.proIsActive || paused) &&
+        if (!upgrade &&
+            (entitlement.proIsActive || paused) &&
             (entitlement.passes.isEmpty ||
                 entitlement.plan != EntitlementPlan.free ||
                 entitlement.isUnknownPlan ||
                 entitlement.promotions.isNotEmpty))
           GroupedSection(
             header: 'Your plan',
+            footer: web && entitlement.isTrial && planDate != null
+                ? 'Your free trial ends on '
+                    '${DateFormat.yMMMd().format(planDate)}. '
+                    'You won’t be charged.'
+                : null,
             children: [
               ListRow(
                 title: 'Plan',
@@ -513,15 +671,38 @@ class _ProPageState extends ConsumerState<ProPage> {
                         monthly: packages
                             .where((p) => p.sku == PaywallSku.monthly)
                             .firstOrNull,
-                        showTrial: !lapsed &&
+                        showTrial: !upgrade &&
+                            !lapsed &&
                             !entitlement.proIsActive &&
                             !(web && anonymous),
                       ),
                     ),
                   ),
+                if (upgrade)
+                  for (final pass in passes)
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 3),
+                        child: _choiceCard(
+                          context,
+                          label: 'Season Pass',
+                          price: pass.priceString,
+                          periodText: 'one time',
+                          detail: sitting == null
+                              ? 'Once the next date is out'
+                              : 'Until $sittingEnd',
+                          selected: selectedPass == pass,
+                          choose: sitting == null
+                              ? null
+                              : () =>
+                                  setState(() => _selected = pass.productId),
+                        ),
+                      ),
+                    ),
               ],
             ),
-          for (final pass in passes) ...[
+          for (final pass
+              in upgrade ? const <PaywallPassPackage>[] : passes) ...[
             const SizedBox(height: 22),
             Semantics(
               button: true,
@@ -563,7 +744,10 @@ class _ProPageState extends ConsumerState<ProPage> {
                             Text(
                               sitting == null
                                   ? 'Once the next date is out'
-                                  : 'Until $sittingEnd',
+                                  : daysUntilSitting! <= 7
+                                      ? 'Ends in $daysUntilSitting '
+                                          '$dayUnit'
+                                      : 'Until $sittingEnd',
                               style: context.type.footnote,
                             ),
                           ],
@@ -608,7 +792,8 @@ class _ProPageState extends ConsumerState<ProPage> {
             PantasButton(
               label: 'Try Again',
               variant: PantasButtonVariant.secondary,
-              onPressed: () => ref.invalidate(paywallOfferingProvider),
+              onPressed: () =>
+                  ref.invalidate(unfilteredPaywallOfferingProvider),
             ),
         ],
         if (!web &&
@@ -652,6 +837,33 @@ class _ProPageState extends ConsumerState<ProPage> {
         : package.sku == PaywallSku.yearly && savings != null && savings > 0
             ? 'SAVE $savings%'
             : null;
+    return _choiceCard(
+      context,
+      label: label,
+      price: package.priceString,
+      periodText: 'a ${_period(package.sku).toLowerCase()}',
+      detail: package.sku == PaywallSku.yearly
+          ? '$monthlyEquivalent a month'
+          : null,
+      badge: badge,
+      trialBadge: package.sku == PaywallSku.monthly,
+      selected: selected,
+      choose: choose,
+    );
+  }
+
+  Widget _choiceCard(
+    BuildContext context, {
+    required String label,
+    required String price,
+    required String periodText,
+    required bool selected,
+    required VoidCallback? choose,
+    String? detail,
+    String? badge,
+    bool trialBadge = false,
+  }) {
+    final borderInset = selected ? 2.0 : .5;
     return Semantics(
       button: true,
       selected: selected,
@@ -664,13 +876,14 @@ class _ProPageState extends ConsumerState<ProPage> {
             Container(
               width: double.infinity,
               padding: EdgeInsets.fromLTRB(
-                10,
-                MediaQuery.textScalerOf(context).scale(11) > 16.5 &&
-                        badge != null
-                    ? 48
-                    : 18,
-                10,
-                14,
+                10 - borderInset,
+                (MediaQuery.textScalerOf(context).scale(11) > 16.5 &&
+                            badge != null
+                        ? 48
+                        : 18) -
+                    borderInset,
+                10 - borderInset,
+                14 - borderInset,
               ),
               decoration: BoxDecoration(
                 color: selected
@@ -698,18 +911,18 @@ class _ProPageState extends ConsumerState<ProPage> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    package.priceString,
+                    price,
                     style: context.type.emphasized
                         .copyWith(fontSize: 22, fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    'a ${_period(package.sku).toLowerCase()}',
+                    periodText,
                     style: context.type.caption,
                   ),
-                  if (package.sku == PaywallSku.yearly) ...[
+                  if (detail != null) ...[
                     const SizedBox(height: 4),
                     Text(
-                      '$monthlyEquivalent a month',
+                      detail,
                       style: context.type.caption.copyWith(
                         fontWeight: FontWeight.w600,
                         color: context.colors.accent,
@@ -732,7 +945,7 @@ class _ProPageState extends ConsumerState<ProPage> {
                       vertical: 2,
                     ),
                     decoration: BoxDecoration(
-                      color: package.sku == PaywallSku.monthly
+                      color: trialBadge
                           ? context.colors.accentFill
                           : context.colors.label,
                       borderRadius: BorderRadius.circular(99),
@@ -743,7 +956,7 @@ class _ProPageState extends ConsumerState<ProPage> {
                       style: context.type.caption.copyWith(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
-                        color: package.sku == PaywallSku.monthly
+                        color: trialBadge
                             ? context.colors.onAccent
                             : context.colors.background,
                       ),

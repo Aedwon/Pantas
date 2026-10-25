@@ -77,8 +77,7 @@ void main() {
     expect(find.textContaining('merge'), findsNothing);
   });
 
-  testWidgets('sign-out dialog does not promise universal restore',
-      (tester) async {
+  testWidgets('sign-out dialog explains account restore', (tester) async {
     await _pumpAccount(
       tester,
       repository: SequencedAuthRepository(const []),
@@ -94,7 +93,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.textContaining('Only progress already synced through Pantas Pro'),
+      find.text(
+        'Your progress is saved to your account. '
+        'It comes back when you sign in again.',
+      ),
       findsOneWidget,
     );
     expect(find.textContaining('restore it'), findsNothing);

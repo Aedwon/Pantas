@@ -5,6 +5,24 @@ import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  testWidgets('transfer follows the board transform and fade after saving',
+      (tester) async {
+    await tester.pumpApp(
+      CarryOverScreen(exam: 'CSE', previous: 'UPCAT', onCounted: () {}),
+    );
+    await tester.ensureVisible(find.text('Count Them'));
+    await tester.tap(find.text('Count Them'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    final transform = tester
+        .widget<Transform>(find.byKey(const ValueKey('transfer-vessels')));
+    expect(transform.transform.storage[13], closeTo(118, .01));
+    final fade =
+        tester.widget<Opacity>(find.byKey(const ValueKey('transfer-prompt')));
+    expect(fade.opacity, 0);
+    await tester.pump(const Duration(milliseconds: 2800));
+    expect(find.text('You pick up where you are'), findsOneWidget);
+  });
   testWidgets(
       'issue 26: carry over opens once as a screen and stays '
       'closed after returning', (tester) async {

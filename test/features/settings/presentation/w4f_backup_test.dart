@@ -18,6 +18,22 @@ class _Runtime extends FakeSyncEngine {
 }
 
 void main() {
+  testWidgets('web hides manual backup and unavailable status details',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const BackupPage(),
+      overrides: [
+        paymentsOnWebProvider.overrideWithValue(true),
+        syncStatusProvider
+            .overrideWith((ref) => Stream.value(const SyncUpToDate())),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Back Up Now'), findsNothing);
+    expect(find.text('Saved'), findsNothing);
+    expect(find.text('Last backed up'), findsNothing);
+    expect(find.text('Waiting to back up'), findsNothing);
+  });
   testWidgets('Back Up Now calls the current runtime and blocks duplicate taps',
       (tester) async {
     final runtime = _Runtime();

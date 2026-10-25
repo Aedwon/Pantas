@@ -86,12 +86,17 @@ void _expectWhiteOnRed(WidgetTester tester, String label) {
         .resolve({})!;
   } else {
     background = tester
-        .widgetList<Container>(find.ancestor(
-            of: find.text(label), matching: find.byType(Container)))
+        .widgetList<Container>(
+          find.ancestor(
+            of: find.text(label),
+            matching: find.byType(Container),
+          ),
+        )
         .map((box) => box.decoration)
         .whereType<BoxDecoration>()
         .firstWhere(
-            (decoration) => decoration.color == PantasColors.light.destructive)
+          (decoration) => decoration.color == PantasColors.light.destructive,
+        )
         .color!;
   }
   expect(foreground, Colors.white);

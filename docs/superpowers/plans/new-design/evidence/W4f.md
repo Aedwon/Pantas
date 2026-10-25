@@ -180,3 +180,307 @@ flutter test --no-pub test/core/ui/components/destructive_contrast_test.dart tes
 A further deletion regression checks the actual cached onboarding progress, not just a route stub. It exposed the retained age flag reopening Terms instead of Welcome. Success now clears onboarding completion and the age flag, invalidates their cached progress and user settings, then enters onboarding. This changes no authentication, cloud-deletion or account-wipe policy.
 
 The full-suite diagnostic runs interrupted for the expected new regression, obsolete checks or corrected source inputs are not complete full-suite evidence. Only the completed final invocation below is the full-suite result.
+
+
+## Run 2 preflight stop, October 25
+
+Policy read using `git show origin/main:<file>` without fetch or pull:
+`AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`, policy revision
+`0176ea1e4f8a35f00cbe9f4f491cc2dcc665bd0e`.
+
+All assigned worktrees were clean at preflight and matched the brief:
+- CLIENT `web/new-design-w4f-r2`, e5900dfb17a1a357fb2233fc21d1deaaef8d2581.
+- PAYMENTS SERVER `web/paymongo-r1`, b0946994073bd136121d0274e93f7386d544fd03.
+- STUDY SERVER `codex/w4b-server-dependency`, 52419d645c18b200c6c6593016f90a47ee87585c.
+
+Schema sequencing ambiguity found before implementation:
+- CLIENT `lib/core/storage/data/app_database.dart:77`: `schemaVersion => 25`.
+- Cached `origin/integration/new-design-r1` at
+  0a21e5b9ed2fc4bc75abd2fc6d7b6b2e2528afc7 also declares 25.
+- Cached `origin/web/pwa-staging-r1` at
+  80ddb7c52f1b9728d7c07945f480d2ed0c3d5950 declares 26 and has
+  `if (from < 26) { await m.createTable(cachedContent); }`.
+- Current `W4-client-coordination.md`, Integration collisions, explicitly says
+  schema 26 arrived on staging with its migration. The older W0 plan says 25.
+
+No schema bump or migration was written. Reserving 26 again for lesson
+exclusions would collide with the existing staging migration. Assigning 27
+without reconciling the missing 26 migration would decide integration sequencing
+outside this implementation brief. Stop pending the lead's migration-number and
+sequencing ruling. No server branch was merged into the client.
+
+Items 1–9: not implemented in this run. No new tests were written or run, so
+there is no failing-first or final-gate claim. No dependencies, deployment,
+commits, pushes, or generated-file changes. Only this evidence note changed.
+All October 25 product choices in the brief remain accepted; the open issue is
+technical migration sequencing, not a request to repeat those product decisions.
+
+
+## Run 2 implementation, October 25
+
+This section supersedes the earlier open-contract and migration-stop notes for
+items 1–9 in the resumed lead brief. Initial dirty changes in all three assigned
+trees were read and preserved. Nothing was committed, merged, pushed, fetched,
+deployed, or added as a dependency.
+
+Actual cached client origin/main verified during this run:
+`d28f0f623221dbd67d8be54a0c659cabd01a85ce`. AGENTS.md, WORKFLOW.md and
+SUBAGENTS.md were read with git show. Their contents are identical to the earlier
+0176ea1 policy snapshot (`git diff` of all three policy files is empty). The
+client remains based at e5900dfb17a1a357fb2233fc21d1deaaef8d2581. The brief's
+October 25 rulings control the remaining behavior. The L2/L3 W4f plans,
+amendment spec, pricing, C1-C10 ruling, coordination handoff and relevant board
+HTML/timeline output were read from cached origin/main. No live deployed
+callable or phone visual acceptance is claimed.
+
+Items:
+
+1. Sign-out uses the exact account-saved copy. The account-boundary wipe stays.
+2. Pass offers change Until to Ends in within seven days, with singular 1 day.
+3. Confirmed schemaVersion 25. No schema change was needed. Excluded lesson IDs
+   use sorted JSON under `settings.excluded_lessons.<examId>` in existing
+   accountPrefs. Topic and lesson updates share a transaction. The existing
+   account wipe clears the key. No migration or database generation was needed.
+   The Included picker now supplies lesson metadata, persists partial topics and
+   guards the final selection. Native plans remove lessons, linked questions and
+   due reviews. Their digest and in-flight owner guards include lesson scope.
+   The existing settings sender sends both excludedTopicIds and excludedLessonIds.
+   Study server validates both and filters both roadmap paths. The shared digest
+   and its test are identical in client and study trees.
+4. Web hides the native Backup group, manual backup and unavailable status,
+   timestamps, device details and queue counts. A direct Backup destination shows
+   only the account-saved statement. Native measured backup behavior stays.
+5. The target-exam upgrade screen uses the full offering before changing focus.
+   It has Monthly and Season Pass side by side, no trial, and Switch on Free.
+   Native cancellation does not save the target. Web saves the target before its
+   existing checkout redirect so the return opens the chosen exam. The exact
+   approved Play renewal warning uses a server-confirmed flag. RevenueCat ingestion
+   now retains explicit verified renewal status, and listWebPlans exposes it.
+   Old records without renewal status stay unknown until the next existing
+   RevenueCat refresh/webhook. No replacement or cancellation is inferred.
+6. listWebPlans trialEligible and startWebTrial share the same history predicate.
+   Anonymous accounts are ineligible. The gateway accepts only literal true and
+   marks Monthly only. Offering reads refresh across auth changes and suppress
+   previous account values while loading. Starting a trial invalidates eligibility.
+   Active web trials use the approved no-charge sentence with their real end date.
+7. The gateway reads known expired and revoked grant rows without granting access.
+   It sorts real end dates and guards UID plus identity revision. Pro uses that
+   history for ended pass/plan states, removes previous-account dates while a new
+   owner loads, and retains the native source.
+8. ST_ExamSwitchCount timing is normalized to the depicted tap at 700ms: prompt
+   fade 0–300ms, vessel transform 50–500ms, pipe 550–850ms and 2350–2650ms,
+   liquid 750–2350ms, check 2650–2950ms, final copy 2950–3300ms. It holds through
+   the board's final hold, then returns at 5400ms. That resolves the prior no-exit
+   finding without adding a control. Reduced motion shows the final state.
+   L_ChangeExam2's actual completion starts the 450ms arrival and delayed 500ms
+   check pop. No timed rebuild progress or invented work stage was added.
+9. Restore and delete retain whole-operation loading, actual deletion order,
+   existing billing warning and existing security operations on both platforms.
+
+Independent review found five important issues: renewal data unavailable on web,
+passes filtered to the old exam, eligibility cached across auth changes, native
+selection saved before canceled payment, and retained history during owner reload.
+All were corrected with focused regressions. The reviewer made no edits and ran
+no Flutter commands. No second independent review is claimed. Root inspected both
+server diffs and actual check logs.
+
+Observed RED evidence:
+
+- Repository API absent, then native stored-plan digest unchanged after lesson edit.
+- Included picker had no lesson expander against the old implementation.
+- Web backup still exposed manual action and Saved status.
+- Gateway lacked grantHistory; eligibility test expected Monthly but received [].
+- Server listing eligibility expected true but received false.
+- Study same-day plan and compatibility linked-question tests retained excluded work.
+- Upgrade screen lacked target API; its layout regression found vertically separated cards.
+- Native cancellation regression observed the early save; delayed history regression
+  retained the old end date; provider regression lacked a full owner-bound offering.
+- Renewal ingestion expected true but got undefined; listing had no renewal field;
+  gateway had no renewal getter. The active web trial had no approved end sentence.
+- Motion test had no vessel transform; confirmation had no arrival animation.
+
+The inherited sign-out/countdown changes and server validation patch existed at
+entry. Their original failing-first executions are unavailable in this resumed
+session. No new original-RED claim is made for those inherited changes.
+
+Combined diagnostic runs exposed stale assertions and a native test dependency.
+The native Pro page no longer constructs a web gateway. The checkout-return test
+accounts for login, checkout and history ledger reads. The Included test expects
+lesson leaf IDs. The old silent-sync Backup test waited for a continuous spinner
+and banned the approved measured count. It now uses bounded pumping and asserts
+the real count. Contrast-test formatting was needed for clean analysis. Interrupted
+runs are diagnostic only and are not full-suite pass evidence.
+
+Rulings and remaining acceptance:
+
+- Storage follows the lead's no-schema preference. schemaVersion remains 25.
+- The transfer exits after its board's final hold. Animation starts only after
+  saving; it never represents a measured server-work duration.
+- Existing renewal records without the newly retained field cannot produce the
+  warning until a real RevenueCat refresh. No backfill or deployment was run.
+- No product decision remains within items 1–9. Aedwon still owns phone visual
+  acceptance, including dark and large text. Live staging, checkout and deployed
+  App Check remain outside this local run. Parked reminders remain outside scope.
+
+Final command output and source identity follow after verification completes.
+
+
+### Final client output
+
+```text
+flutter test --reporter expanded
+08:58 +4921: All tests passed!
+
+flutter analyze lib test tool
+Analyzing 3 items...
+No issues found! (ran in 10.2s)
+
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1591 files (0 changed) in 1.87 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+```
+
+Full logs and a per-file production/test source manifest are retained locally in
+ignored `build/w4f-run2`. The manifest includes modified and untracked source and
+tests, including the new lesson-picker regression. Manifest SHA-256:
+`f7880c9b8424420daf5ab6e9f34ead7470732c1129a109feb2ba8e59c0b0573d`.
+No application source changed during the passing full suite.
+
+The cached origin/main advanced externally to
+40b35bc4c6640aeec9234b3ed72cc37f8c510b1f during this run. A final comparison of
+AGENTS.md, WORKFLOW.md and SUBAGENTS.md against the read d28f snapshot is empty.
+No fetch, pull or main integration was performed by this task.
+
+### Server output
+
+```text
+PAYMENTS, functions
+npm_config_cache=/tmp/w4f-npm-cache npx tsc --noEmit
+exit 0
+PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+Plain: 119 pass, 0 fail
+Emulator: 145 pass, 0 fail
+Script exited successfully (code 0)
+
+STUDY, functions
+npx tsc --noEmit
+exit 0
+PATH=/opt/homebrew/opt/node@22/bin:/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+# tests 183
+# pass 183
+# fail 0
+# tests 238
+# pass 238
+# fail 0
+Script exited successfully (code 0)
+
+STUDY
+server_dart/build.sh --check
+generated JS is current
+```
+
+Both full server runs used isolated emulator ports. Payments additionally used
+execution-only serialized emulator tests because an existing global-ledger sweep
+races parallel tests. Its temporary runner/config files were restored byte for
+byte. The earlier parallel failure remains in diagnostic logs. No skipped test
+or altered assertion was used to obtain final server totals. The compiled study
+bridge was regenerated after the shared digest changed, then checked again after
+constructor formatting. It remains uncommitted, as do all other changes.
+
+### Final status snapshots
+
+All changes remain uncommitted. No server branch was merged into the client.
+
+### CLIENT status
+
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4f.md
+ M lib/app/routes/settings_routes.dart
+ M lib/core/storage/data/repos/custom_track_repository.dart
+ M lib/core/storage/track_scope.dart
+ M lib/features/home/application/study_delivery.dart
+ M lib/features/paywall/application/paywall_providers.dart
+ M lib/features/paywall/data/web_payment_gateway.dart
+ M lib/features/roadmap/application/roadmap_inputs_reader.dart
+ M lib/features/roadmap/application/roadmap_providers.dart
+ M lib/features/roadmap/domain/day_snapshot.dart
+ M lib/features/settings/presentation/carry_over_prompt.dart
+ M lib/features/settings/presentation/pages/account_page.dart
+ M lib/features/settings/presentation/pages/backup_page.dart
+ M lib/features/settings/presentation/pages/exam_page.dart
+ M lib/features/settings/presentation/pages/pro_page.dart
+ M lib/features/settings/presentation/pages/whats_included_page.dart
+ M test/core/storage/data/repos/custom_track_repository_test.dart
+ M test/core/sync/silent_sync_test.dart
+ M test/core/ui/components/destructive_contrast_test.dart
+ M test/features/home/application/study_remote_providers_test.dart
+ M test/features/paywall/application/paywall_providers_test.dart
+ M test/features/paywall/data/web_payment_gateway_test.dart
+ M test/features/roadmap/application/roadmap_controller_test.dart
+ M test/features/roadmap/domain/day_snapshot_test.dart
+ M test/features/settings/presentation/account_page_test.dart
+ M test/features/settings/presentation/carry_over_screen_test.dart
+ M test/features/settings/presentation/exam_page_test.dart
+ M test/features/settings/presentation/w4f_backup_test.dart
+ M test/features/settings/presentation/w4f_checkout_return_test.dart
+ M test/features/settings/presentation/w4f_pro_states_test.dart
+ M test/features/settings/presentation/whats_included_page_test.dart
+?? test/features/settings/presentation/w4f_lesson_scope_test.dart
+```
+
+### PAYMENTS status
+
+```text
+git status --short
+ M functions/src/revenuecatPolicy.ts
+ M functions/src/revenuecatSubscriber.ts
+ M functions/src/webPlans.ts
+ M functions/src/webTrial.ts
+ M functions/test/revenuecat-subscriber.test.mjs
+ M functions/test/web-plans.emulator.mjs
+ M functions/test/web-plans.test.mjs
+ M functions/test/web-trial.emulator.mjs
+ M lib/features/paywall/data/web_payment_gateway.dart
+ M test/features/paywall/data/web_payment_gateway_test.dart
+?? docs/superpowers/plans/pwa-launch/evidence/
+```
+
+### STUDY status
+
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b-server-dependency.md
+ M functions/src/generated/pantas_core.js
+ M functions/src/roadmap.ts
+ M functions/test/study-roadmap.emulator.mjs
+ M lib/features/roadmap/domain/day_snapshot.dart
+ M test/features/roadmap/domain/day_snapshot_test.dart
+```
+
+### Lead final cross-tree verification
+
+```text
+flutter test test/features/metrics test/features/roadmap --reporter expanded
+03:43 +314: All tests passed!
+```
+
+The client full suite passed 4921 tests. Its final analysis, format, layering
+and attribution checks are clean. Payments passed 119 plain and 145 emulator
+tests. Study passed 183 plain and 238 emulator tests. Both TypeScript checks
+passed. The study bridge check reports `generated JS is current`.
+
+The two web_payment_gateway.dart files are byte-identical. The changed shared
+Dart digest and its test are byte-identical across client and study. All three
+branch heads are unchanged from the assigned baselines. Everything remains
+uncommitted. The tracked regenerated study bridge is also uncommitted.
+
+No product decision remains within the resumed items 1–9. Phone visual acceptance
+and live deployed behavior were not checked. Historical Play records with unknown
+renewal status need their next real RevenueCat refresh before the warning can be
+confirmed. No backfill or deployment was performed.

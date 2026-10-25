@@ -187,6 +187,17 @@ class ChangeExamPage extends ConsumerWidget {
         onPicked: (examId) async {
           final publish =
               await ref.read(studySettingsCaptureProvider)(examId: examId);
+          var targetSaved = false;
+          Future<void> saveTarget() async {
+            if (targetSaved) return;
+            await publish.apply(
+              () => ref
+                  .read(appPreferencesRepositoryProvider)
+                  .setSelectedExamId(examId),
+            );
+            targetSaved = true;
+          }
+
           final focus = await ref.read(activeExamFocusProvider.future);
           final catalog = ref.read(examPickerCatalogProvider).valueOrNull;
           final from =
@@ -216,16 +227,22 @@ class ChangeExamPage extends ConsumerWidget {
               if (confirmed != true) return;
             }
             if (outcome.kind == SwitchKind.upgradeOffer) {
-              throw StateError(
-                'Target-exam upgrade presentation is not available.',
+              if (!context.mounted) return;
+              final proceed = await Navigator.of(context).push<bool>(
+                MaterialPageRoute(
+                  builder: (upgradeContext) => ProPage(
+                    targetExam: to,
+                    previousExamName: from.shortName,
+                    onSwitchOnFree: () async =>
+                        Navigator.of(upgradeContext).pop(true),
+                    onBeforeUpgrade: saveTarget,
+                  ),
+                ),
               );
+              if (proceed != true || !context.mounted) return;
             }
           }
-          await publish.apply(
-            () => ref
-                .read(appPreferencesRepositoryProvider)
-                .setSelectedExamId(examId),
-          );
+          await saveTarget();
           final count = await ref.read(carryableCountProvider(examId).future);
           final exams = await ref.read(examListProvider.future);
           if (!context.mounted) return;

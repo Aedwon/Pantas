@@ -93,6 +93,21 @@ class _Held {
   final bool isTrial;
 }
 
+/// A known ledger entry, including access that has ended or was revoked.
+class WebGrantHistory {
+  const WebGrantHistory({
+    required this.productId,
+    required this.endsAt,
+    required this.state,
+    required this.isTrial,
+  });
+
+  final String productId;
+  final DateTime endsAt;
+  final String state;
+  final bool isTrial;
+}
+
 /// Calls a Cloud Function by name. Throws `FirebaseFunctionsException`.
 typedef WebCallable = Future<Object?> Function(
   String name,
@@ -148,6 +163,11 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   final PaymentEntitlementState _state;
   final DateTime Function() _now;
   String? _uid;
+  int _identityRevision = 0;
+  bool _googlePlayPlanRenews = false;
+
+  /// True only after an owner-bound server reply confirms Play renewal.
+  bool get googlePlayPlanRenews => _googlePlayPlanRenews;
 
   @override
   Entitlement? get cachedEntitlement => _state.current;
@@ -164,6 +184,10 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   @override
   Future<void> logIn(String uid) async {
     await initialize();
+    if (_uid != uid) {
+      _identityRevision++;
+      _googlePlayPlanRenews = false;
+    }
     if ((_uid ?? await _state.readOwner()) != uid) await _state.clear();
     _uid = uid;
     await _state.writeOwner(uid);
@@ -177,26 +201,74 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   @override
   Future<void> clearIdentity() async {
     _uid = null;
+    _identityRevision++;
+    _googlePlayPlanRenews = false;
     await _state.clear();
   }
 
   @override
   Future<void> logOut() => clearIdentity();
 
+  /// Reads real end dates without turning past access into current coverage.
+  Future<List<WebGrantHistory>> grantHistory() async {
+    final uid = _uid;
+    if (uid == null) return const [];
+    final revision = _identityRevision;
+    final rows = await _readGrants(uid);
+    if (_uid != uid || _identityRevision != revision) return const [];
+    final history = <WebGrantHistory>[];
+    for (final row in rows) {
+      final productId = row['product'];
+      final end = row['endsAt'];
+      final state = row['state'];
+      if (productId is! String ||
+          end is! int ||
+          (state != 'active' && state != 'revoked')) {
+        continue;
+      }
+      final isTrial = productId == _webTrialProduct &&
+          row['source'] == 'trial' &&
+          row['tier'] == 'civilService';
+      if (!isTrial && productForId(productId) == null) continue;
+      history.add(
+        WebGrantHistory(
+          productId: productId,
+          endsAt: DateTime.fromMillisecondsSinceEpoch(end, isUtc: true),
+          state: state! as String,
+          isTrial: isTrial,
+        ),
+      );
+    }
+    history.sort((a, b) => b.endsAt.compareTo(a.endsAt));
+    return List.unmodifiable(history);
+  }
+
   /// The plans the server sells on the web. The server owns the prices: it
   /// lists them from the same file checkout charges, and the price string and
   /// amount here are shown as received, as the store's are on mobile.
   @override
   Future<PaywallOfferingResult> currentOffering() async {
+    final uid = _uid;
+    final revision = _identityRevision;
     try {
       final reply = await _callable(_plansCallable, {});
+      if (_uid != uid || _identityRevision != revision) {
+        return const PaywallOfferingResult(
+          status: PaywallOfferingStatus.configurationFailure,
+        );
+      }
+      _googlePlayPlanRenews =
+          uid != null && reply is Map && reply['googlePlayPlanRenews'] == true;
       final rows = reply is Map ? reply['plans'] : null;
       if (rows is! List<Object?>) {
         return const PaywallOfferingResult(
           status: PaywallOfferingStatus.unknownFailure,
         );
       }
-      return _offeringFromPlans(rows);
+      return _offeringFromPlans(
+        rows,
+        trialEligible: reply is Map && reply['trialEligible'] == true,
+      );
     } catch (error) {
       return PaywallOfferingResult(
         status: _offeringStatusForOperation(_statusForError(error)),
@@ -412,7 +484,10 @@ Future<List<Map<String, dynamic>>> readGrantsFromFirestore(String uid) async {
 Future<bool> openInThisTab(Uri uri) =>
     launchUrl(uri, webOnlyWindowName: '_self');
 
-PaywallOfferingResult _offeringFromPlans(List<Object?> rows) {
+PaywallOfferingResult _offeringFromPlans(
+  List<Object?> rows, {
+  required bool trialEligible,
+}) {
   if (rows.isEmpty) return const PaywallOfferingResult.noCurrentOffering();
   final recognized = <PaywallPackage>[];
   final passes = <PaywallPassPackage>[];
@@ -446,6 +521,7 @@ PaywallOfferingResult _offeringFromPlans(List<Object?> rows) {
       recognized.add(
         PaywallPackage(
           sku: product.period!,
+          trialEligible: trialEligible && product.period == PaywallSku.monthly,
           productId: productId,
           priceString: price,
           priceAmount: cents / 100,

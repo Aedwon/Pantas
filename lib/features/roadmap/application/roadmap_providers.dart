@@ -86,7 +86,8 @@ final roadmapTodayProvider = FutureProvider.autoDispose
     ..watch(quizSessionPanelRevisionProvider)
     // An exam date or scope change must reach a plan already on screen.
     ..watch(userSettingsProvider)
-    ..watch(trackScopeProvider(examId));
+    ..watch(trackScopeProvider(examId))
+    ..watch(lessonScopeProvider(examId));
   if (ref.watch(studyUsesServerProvider)) {
     final remote = await ref.watch(serverStudyRoadmapProvider(examId).future);
     final settings = await ref.watch(userSettingsProvider.future);
@@ -140,6 +141,9 @@ class RoadmapController {
     final settings = await _ref.read(userSettingsProvider.future);
     final scope =
         await _ref.read(customTrackRepositoryProvider).excludedTopicIds(examId);
+    final lessons = await _ref
+        .read(customTrackRepositoryProvider)
+        .excludedLessonIds(examId);
     final contentVersion = await prefs.installedContentSeedVersion();
     final assessment = await _ref
         .read(assessmentRepositoryProvider)
@@ -155,6 +159,9 @@ class RoadmapController {
       final currentScope = await _ref
           .read(customTrackRepositoryProvider)
           .excludedTopicIds(examId);
+      final currentLessons = await _ref
+          .read(customTrackRepositoryProvider)
+          .excludedLessonIds(examId);
       final exam = await prefs.selectedExamId();
       final version = await prefs.installedContentSeedVersion();
       final assessed = await _ref
@@ -168,6 +175,7 @@ class RoadmapController {
           settings.examDate == currentSettings.examDate &&
           settings.studyDays == currentSettings.studyDays &&
           const SetEquality<String>().equals(scope, currentScope) &&
+          const SetEquality<String>().equals(lessons, currentLessons) &&
           version == contentVersion &&
           assessed == assessment;
     };

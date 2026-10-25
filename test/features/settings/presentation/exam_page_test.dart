@@ -114,7 +114,7 @@ void main() {
     await tester.tap(find.text('Count Them'));
     await tester.pumpAndSettle();
     expect((await repository.readUserSettings()).carryOverProgress, isTrue);
-    expect(find.text('You pick up where you are'), findsOneWidget);
+    expect(find.text("You're now studying for DOST"), findsOneWidget);
   });
 
   testWidgets('a switch with no overlap confirms the kept date and study days',
@@ -144,6 +144,10 @@ void main() {
     await tester.tap(find.text('DOST'));
     await tester.pumpAndSettle();
     expect(find.text("You're now studying for DOST"), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('exam-confirmation-arrival')),
+      findsOneWidget,
+    );
     expect(
       find.text(
         'Kept from UPCAT. Change it if DOST falls on a different day.',

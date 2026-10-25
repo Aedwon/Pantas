@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,8 +8,11 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
+import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
+import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 
@@ -27,27 +32,70 @@ const _pass = PaywallPassPackage(
   priceAmount: 499,
 );
 
+class _CancelGateway extends SettingsGateway {
+  _CancelGateway({required super.initial});
+  @override
+  Future<PaymentOperationResult> purchase(PaywallPackage package) async =>
+      const PaymentOperationResult.failure(
+        status: PaymentOperationStatus.userCancelled,
+      );
+}
+
 Future<void> _pump(
   WidgetTester tester, {
   bool web = false,
   bool dated = true,
   bool eligible = false,
+  bool upgrade = false,
+  bool playRenews = false,
+  Future<void> Function()? beforeUpgrade,
+  int daysUntil = 5,
+  List<WebGrantHistory> history = const [],
+  Future<List<WebGrantHistory>> Function(Ref ref)? historyRead,
   Entitlement entitlement = const Entitlement.free(),
   PendingPurchase? pending,
 }) async {
   final now = DateTime.now().toUtc().add(const Duration(hours: 8));
   final day =
-      DateTime.utc(now.year, now.month, now.day).add(const Duration(days: 5));
+      DateTime.utc(now.year, now.month, now.day).add(Duration(days: daysUntil));
   tester.view.physicalSize = const Size(390, 844);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
+  final webGateway = WebPaymentGateway(
+    callable: (_, __) async =>
+        {'plans': <Object?>[], 'googlePlayPlanRenews': playRenews},
+    readGrants: (_) async => [],
+    refreshClaims: (_) async {},
+    openUrl: (_) async => true,
+  );
+  if (web) {
+    await webGateway.logIn('owner');
+    await webGateway.currentOffering();
+  }
   await tester.pumpAppWithProviders(
-    const ProPage(),
+    ProPage(
+      targetExam: upgrade
+          ? const ExamCatalogEntry(
+              id: 'exam_cse_pro',
+              name: 'CSE Professional',
+              shortName: 'CSE Professional',
+              priceTier: 'Civil Service',
+              group: 'Civil service',
+              comingSoon: false,
+              hasContent: true,
+              publishedSittings: [],
+            )
+          : null,
+      previousExamName: 'UPCAT',
+      onSwitchOnFree: () async {},
+      onBeforeUpgrade: beforeUpgrade,
+    ),
     overrides: [
       contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
-      revenueCatGatewayProvider
-          .overrideWithValue(SettingsGateway(initial: entitlement)),
+      revenueCatGatewayProvider.overrideWithValue(
+        web ? webGateway : _CancelGateway(initial: entitlement),
+      ),
       currentUserProvider.overrideWith(
         (ref) async => const AuthUser(
           uid: 'owner',
@@ -57,6 +105,9 @@ Future<void> _pump(
       ),
       isAnonymousProvider.overrideWith((ref) async => false),
       paymentsOnWebProvider.overrideWithValue(web),
+      webGrantHistoryProvider.overrideWith(
+        (ref) => historyRead?.call(ref) ?? Future.value(history),
+      ),
       entitlementProvider.overrideWith((ref) => Stream.value(entitlement)),
       proForActiveExamProvider
           .overrideWith((ref) async => entitlement.proIsActive),
@@ -81,19 +132,21 @@ Future<void> _pump(
               : [],
         ),
       ),
-      paywallOfferingProvider.overrideWith(
+      (upgrade ? unfilteredPaywallOfferingProvider : paywallOfferingProvider)
+          .overrideWith(
         (ref) async => PaywallOfferingResult(
           status: PaywallOfferingStatus.available,
           recognizedPackages: [
-            eligible
-                ? const PaywallPackage(
-                    sku: PaywallSku.monthly,
-                    productId: 'pantas_cs_monthly',
-                    priceString: '₱149',
-                    priceAmount: 149,
-                    trialEligible: true,
-                  )
-                : _monthly,
+            if (eligible)
+              const PaywallPackage(
+                sku: PaywallSku.monthly,
+                productId: 'pantas_cs_monthly',
+                priceString: '₱149',
+                priceAmount: 149,
+                trialEligible: true,
+              )
+            else
+              _monthly,
           ],
           passPackages: [_pass],
         ),
@@ -104,14 +157,141 @@ Future<void> _pump(
 }
 
 void main() {
+  testWidgets(
+      'active web trial uses the approved no-charge wording with its real end',
+      (tester) async {
+    await _pump(
+      tester,
+      web: true,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.monthly,
+        productId: 'pantas_cs_monthly',
+        isTrial: true,
+        willRenew: false,
+        expiresAt: DateTime.utc(2030),
+      ),
+    );
+    expect(
+      find.text('Your free trial ends on Jan 1, 2030. You won’t be charged.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets(
+      'native upgrade cancellation does not save the target before purchase',
+      (tester) async {
+    var saved = false;
+    await _pump(tester, upgrade: true, beforeUpgrade: () async => saved = true);
+    await tester.tap(find.text('Upgrade for ₱149 a Month'));
+    await tester.pumpAndSettle();
+    expect(saved, isFalse);
+  });
+  testWidgets('web hides old history while the new owner history loads',
+      (tester) async {
+    final nextOwner = StateProvider<bool>((ref) => false);
+    final pending = Completer<List<WebGrantHistory>>();
+    await _pump(
+      tester,
+      web: true,
+      historyRead: (ref) => ref.watch(nextOwner)
+          ? pending.future
+          : Future.value([
+              WebGrantHistory(
+                productId: 'pantas_pass_cse_pro',
+                endsAt: DateTime.utc(2026),
+                state: 'active',
+                isTrial: false,
+              ),
+            ]),
+    );
+    expect(find.text('It ended on Jan 1, 2026.'), findsOneWidget);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(ProPage)));
+    container.read(nextOwner.notifier).state = true;
+    await tester.pump();
+    expect(find.text('It ended on Jan 1, 2026.'), findsNothing);
+    pending.complete([]);
+    await tester.pumpAndSettle();
+  });
+  testWidgets(
+      'target exam upgrade offers its plans and a Free switch without trial',
+      (tester) async {
+    await _pump(tester, web: true, upgrade: true, eligible: true);
+    expect(
+      find.text('CSE Professional has its own price tier'),
+      findsOneWidget,
+    );
+    expect(find.text('Switch on Free'), findsOneWidget);
+    expect(find.text('Upgrade for ₱149 a Month'), findsOneWidget);
+    expect(find.text('Try 7 Days Free'), findsNothing);
+    expect(
+      tester.getTopLeft(find.text('Monthly')).dy,
+      tester.getTopLeft(find.text('Season Pass')).dy,
+    );
+  });
+  testWidgets('web shows real expired pass history without granting access',
+      (tester) async {
+    await _pump(
+      tester,
+      web: true,
+      history: [
+        WebGrantHistory(
+          productId: 'pantas_pass_cse_pro',
+          endsAt: DateTime.utc(2026),
+          state: 'active',
+          isTrial: false,
+        ),
+      ],
+    );
+    expect(find.text('Your Season Pass ended'), findsOneWidget);
+    expect(find.text('It ended on Jan 1, 2026.'), findsOneWidget);
+    expect(find.text('Buy Season Pass'), findsNothing);
+  });
+  testWidgets('web warns that an existing Play subscription keeps renewing',
+      (tester) async {
+    await _pump(
+      tester,
+      web: true,
+      playRenews: true,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.monthly,
+        productId: 'pantas_pro_monthly',
+        tier: PriceTier.student,
+        expiresAt: DateTime.now().add(const Duration(days: 30)),
+      ),
+    );
+    expect(
+      find.text(
+        'Your Google Play plan keeps renewing. '
+        'Cancel it in Google Play if you no longer need it.',
+      ),
+      findsOneWidget,
+    );
+  });
+  for (final days in [1, 7, 8]) {
+    testWidgets('pass countdown threshold at $days days', (tester) async {
+      await _pump(tester, daysUntil: days);
+      if (days <= 7) {
+        expect(
+          find.text('Ends in $days ${days == 1 ? 'day' : 'days'}'),
+          findsOneWidget,
+        );
+      }
+      if (days == 8) expect(find.textContaining('Until '), findsOneWidget);
+    });
+  }
+
   testWidgets('Pro uses the five feature glyphs drawn on the approved board',
       (tester) async {
     await _pump(tester);
-    for (final code in [0xe634, 0xe34c, 0xe156, 0xe1ae, 0xeadc]) {
-      expect(
-        find.byIcon(IconData(code, fontFamily: 'Phosphor')),
-        findsOneWidget,
-      );
+    for (final icon in [
+      PantasIcons.unlimitedMocks,
+      PantasIcons.answerNotes,
+      PantasIcons.studyHabits,
+      PantasIcons.proBackup,
+      PantasIcons.topicResults,
+    ]) {
+      expect(find.byIcon(icon), findsOneWidget);
     }
   });
   testWidgets('eligible Monthly badge sits above the card', (tester) async {

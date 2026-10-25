@@ -18,8 +18,10 @@ final class RoadmapDigest {
     required this.contentRevision,
     required this.assessmentCompleted,
     required this.recordedMockCount,
+    List<String> excludedLessonIds = const [],
     this.studyDays = StudyDays.all,
-  }) : scopeTopicIds = List.unmodifiable([...scopeTopicIds]..sort());
+  })  : scopeTopicIds = List.unmodifiable([...scopeTopicIds]..sort()),
+        excludedLessonIds = List.unmodifiable([...excludedLessonIds]..sort());
 
   factory RoadmapDigest.parse(String encoded) {
     final json = jsonDecode(encoded) as Map<String, Object?>;
@@ -27,6 +29,8 @@ final class RoadmapDigest {
       examId: json['examId']! as String,
       examDate: json['examDate']! as String,
       scopeTopicIds: (json['scope']! as List).cast<String>(),
+      excludedLessonIds:
+          (json['excludedLessons'] as List?)?.cast<String>() ?? const [],
       contentRevision: json['content']! as String,
       assessmentCompleted: json['assessed']! as bool,
       recordedMockCount: json['mocks']! as int,
@@ -40,6 +44,7 @@ final class RoadmapDigest {
   /// the student has no exam date.
   final String examDate;
   final List<TopicId> scopeTopicIds;
+  final List<String> excludedLessonIds;
   final String contentRevision;
   final bool assessmentCompleted;
   final int recordedMockCount;
@@ -49,6 +54,7 @@ final class RoadmapDigest {
         'examId': examId,
         'examDate': examDate,
         'scope': scopeTopicIds,
+        'excludedLessons': excludedLessonIds,
         'content': contentRevision,
         'assessed': assessmentCompleted,
         'mocks': recordedMockCount,
@@ -62,8 +68,10 @@ final class RoadmapDigest {
         if (examId == next.examId && examDate != next.examDate)
           RoadmapChangeCause.examDateChanged,
         if (examId == next.examId &&
-            !const ListEquality<TopicId>()
-                .equals(scopeTopicIds, next.scopeTopicIds))
+            (!const ListEquality<TopicId>()
+                    .equals(scopeTopicIds, next.scopeTopicIds) ||
+                !const ListEquality<String>()
+                    .equals(excludedLessonIds, next.excludedLessonIds)))
           RoadmapChangeCause.scopeChanged,
         if (contentRevision != next.contentRevision)
           RoadmapChangeCause.contentChanged,
