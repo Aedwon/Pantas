@@ -1,0 +1,275 @@
+{
+ "batch": "RD-004",
+ "lesson_id": "lesson-comprehension-skills-fact-vs-opinion",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+ "lesson_sha256": "a0b2823b306d91f48fc328368cebe49e676cfe01f47e044239429737c5657317",
+ "rewrite_commit": "90cc1836c0ef0c154b2eb30e1d86d605ca74675d",
+ "form": {
+  "packet": "lesson-comprehension-skills-fact-vs-opinion",
+  "role": "A",
+  "lesson_sha256": "a0b2823b306d91f48fc328368cebe49e676cfe01f47e044239429737c5657317",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Only definitions and self-contained scenarios remain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved: fact/opinion; fact; mixed; projection; false fact; published-forecast fact."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required sections and six distinct cases are present; no figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "All claim types now have short, plain definitions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Classify each statement as a factual claim or an opinion.",
+      "problem": "“Classify” is an exam instruction word, but its meaning is not explained on first use."
+     }
+    ]
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All six examples state the task and give needed information."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino teaching text appears.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino example appears.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino text appears.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino prose appears.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No target-word prompt appears.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading section fit passes; no formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases cover fact/opinion, no evidence, mixed, projection, false fact, and fact about forecast."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step solutions are numbered."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equation appears.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure is required or present.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Factual claim, opinion, projection, and assumption are defined before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each claim type explains what it means and how to identify it."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Limits cover false facts, weak evidence, signal words, and future forecasts."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-fact-vs-opinion|L18|0": {
+    "status": "fixed",
+    "quote": "The record shows that the claim is false.",
+    "note": "Example #5 now classifies a false factual claim."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B02|0": {
+    "status": "fixed",
+    "quote": "missing evidence does not change the claim type.",
+    "note": "Evidence and claim type are now kept separate."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|0": {
+    "status": "fixed",
+    "quote": "projection of $10$ million people by $2030$",
+    "note": "Both numerals now use inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|1": {
+    "status": "fixed",
+    "quote": "population will reach $10$ million by $2030$",
+    "note": "Both projection numerals use inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|2": {
+    "status": "fixed",
+    "quote": "A population of $10$ million would be terrible.",
+    "note": "The opinion numeral now uses inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|3": {
+    "status": "fixed",
+    "quote": "The school library closes in the afternoon.",
+    "note": "The old bare-number island example was removed."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|4": {
+    "status": "fixed",
+    "quote": "The new hall cost two billion pesos to build",
+    "note": "The quantity is now written in words."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|5": {
+    "status": "fixed",
+    "quote": "projected to reach $10$ million by $2030$",
+    "note": "Both numeric values now use inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L02|0": {
+    "status": "fixed",
+    "quote": "A **factual claim** is a statement you can check as true or false",
+    "note": "The factual-claim definition is now plain and direct."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L02|1": {
+    "status": "fixed",
+    "quote": "A **projection or forecast** says what may happen in the future",
+    "note": "The projection definition removes the abstract wording."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L05|0": {
+    "status": "fixed",
+    "quote": "Classify each statement as a factual claim or an opinion.",
+    "note": "Example #1 now gives an explicit classification task."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L25|0": {
+    "status": "fixed",
+    "quote": "An **assumption** is something an estimate treats as true while making the forecast.",
+    "note": "Assumption is now defined before examples use it."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|B08|6": {
+    "status": "fixed",
+    "quote": "published a projection of $10$ million people by $2030$",
+    "note": "The optional year numeral now uses inline math."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L01|0": {
+    "status": "fixed",
+    "quote": "Keep claim type separate from evidence.",
+    "note": "The rewrite now separates claim type from evidence."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L18|1": {
+    "status": "fixed",
+    "quote": "an agency published a forecast in June.",
+    "note": "Example #6 now covers a fact about a projection."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L19|1": {
+    "status": "fixed",
+    "quote": "The statement compares something that can be counted and measured.",
+    "note": "Example #2 now uses numbered solution steps."
+   },
+   "lesson-comprehension-skills-fact-vs-opinion|L19|2": {
+    "status": "fixed",
+    "quote": "\"Cost two billion pesos to build\" is a factual claim",
+    "note": "Example #3 now uses numbered solution steps."
+   }
+  }
+ }
+}
