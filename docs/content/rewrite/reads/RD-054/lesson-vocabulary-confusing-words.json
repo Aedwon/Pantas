@@ -1,0 +1,268 @@
+{
+ "batch": "RD-054",
+ "lesson_id": "lesson-vocabulary-confusing-words",
+ "path": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+ "lesson_sha256": "40f04f6661d3407bc69fa4d91d972f06c47e28178e5ee1d072b7a27627df91fc",
+ "rewrite_commit": "5f97dda24f75af4c60f9b990fd48b282036052d9",
+ "form": {
+  "packet": "lesson-vocabulary-confusing-words",
+  "role": "A",
+  "lesson_sha256": "40f04f6661d3407bc69fa4d91d972f06c47e28178e5ee1d072b7a27627df91fc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the influence/result distinction, effect meaning bring about, psychological affect, ownership versus contractions, and the stated ng/nang and sila/sina uses. No factual contradiction is apparent from the supplied material; official Filipino usage remains reserved to L11."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independently obtained #1 A affect; #2 B effect; #3 B its; #4 D It is/it has; #5 B nang; #6 A ng/ng; #7 B ng; #8 B ng; #9 D Nang/nang; #10 B Sina; #11 A Sila; #12 B effected; #13 A affect. Each agrees with its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All four word pairs in the title are taught. None of the questions needs a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "English definitions use concrete words: action, result, influence, plain form, and outward signs of emotion. The earlier dense formal-variety language is absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Only ordinary directions such as choose, find, and identify appear; no unexplained specialized exam command.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy is used anywhere in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all thirteen stems: sentence completion, pair selection, and correct usage ask students to supply the tested distinction. Solutions explain the relevant sentence clue in short English or Filipino steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-opening formulas appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Ng/nang and sila/sina explanations, shortcuts, and traps use short Filipino sentences. The explanations identify the thing acted on, relationship, amount, time, manner, and replacement of names."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Panghalip receives the English gloss pronoun on its first definition; the other Filipino decision cues use ordinary words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino examples #5 through #11 have Filipino stems and solutions. English examples test English word usage, as appropriate for this mixed-language lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF checking cannot be completed from the supplied prompt.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino passages contain Filipino teaching prose. The sole pronoun gloss is the required grammar gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Example #12 asks about the word in bold and bolds each candidate target. Other examples ask students to fill blanks rather than refer to an unformatted target word."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the word-choice task directly. No listed stock phrases appear, and sentence openings vary across the English and Filipino teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The language layout retains the required core, examples, and traps with a permitted shortcut section. No worked example uses a mathematical formula, so there is no formula to trace."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped influence to #1, result to #2, possession to #3, both contraction expansions to #4, manner to #5, object/relationship ng to #6, quantity to #7, time to #8, when/repetition nang to #9, sina to #10, sila to #11, verb effect to #12, and noun affect to #13. Basic ordinary uses precede the rare English exceptions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the thirteen solutions has two numbered steps. Every decision cue is shown; none requires numerical computation or a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core paragraphs and traps contain at most three short sentences. Examples use numbered solutions rather than long explanatory paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Verb and noun are defined before affect/effect practice; base form is explained before will is used as a cue. Its/it is/it has are expanded. Filipino sections replace unexplained noun-phrase and adverbial jargon with concrete questions and define panghalip."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each word pair has both a meaning and a usable decision process: sentence job, full contraction expansion, the role of the Filipino phrase, or whether names follow."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson states the rare effect verb and affect noun exceptions, both expansions of it's, several ng/nang functions beyond what/how, and the formal-writing condition for sina."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-confusing-words|L08|0": {
+    "status": "fixed",
+    "quote": "Sa Filipino, magkaiba ang gamit ng **ng** at **nang**. Tingnan ang buong pangungusap bago pumili.",
+    "note": "The Filipino grammar teaching is now written in simple Filipino."
+   },
+   "lesson-vocabulary-confusing-words|L18|2": {
+    "status": "fixed",
+    "quote": "Parehong **ng** ang kailangan. Sagot: **A**.",
+    "note": "Examples 6, 7, and 8 positively select ng for objects, relationships, quantities, and time."
+   },
+   "lesson-vocabulary-confusing-words|L18|4": {
+    "status": "fixed",
+    "quote": "Gamitin ang panghalip na **sila**. Sagot: **A**.",
+    "note": "Example 11 now requires sila as a replacement for named people."
+   },
+   "lesson-vocabulary-confusing-words|L19|0": {
+    "status": "fixed",
+    "quote": "1. After *will*, use the base form of a verb.",
+    "note": "All thirteen solutions now use numbered decision steps."
+   },
+   "lesson-vocabulary-confusing-words|L02|0": {
+    "status": "fixed",
+    "quote": "Sa pormal na pagsulat, gamitin ang *sina* bago ang mga pangalan.",
+    "note": "The difficult English discussion of formal varieties is replaced with direct Filipino instructions."
+   },
+   "lesson-vocabulary-confusing-words|L25|0": {
+    "status": "fixed",
+    "quote": "Mangga ang kinain.",
+    "note": "The object cue is explained using the thing eaten, without non-topic noun phrase jargon."
+   },
+   "lesson-vocabulary-confusing-words|L25|1": {
+    "status": "fixed",
+    "quote": "Inilalarawan ng *mabilis* ang pagtakbo.",
+    "note": "The manner cue now explains what mabilis tells about the action."
+   },
+   "language-proficiency-vocabulary#8": {
+    "status": "fixed",
+    "quote": "Bumili si Liza ng tatlong kilo ______ bigas.",
+    "note": "A quantity item and a separate time-expression item now require ng."
+   },
+   "language-proficiency-vocabulary#14": {
+    "status": "fixed",
+    "quote": "Gamitin ang **nang** kapag sinasabi kung paano ginawa ang kilos: \"Tumakbo nang mabilis.\"",
+    "note": "Filipino grammar has Filipino explanations and worked solutions; English grammar keeps English instruction."
+   },
+   "lesson-vocabulary-confusing-words|L14|0": {
+    "status": "fixed",
+    "quote": "Which sentence uses the word in bold correctly?",
+    "note": "The usage-selection prompt now uses the required bold-word wording."
+   },
+   "lesson-vocabulary-confusing-words|L18|0": {
+    "status": "fixed",
+    "quote": "In psychology, the noun **affect** has this meaning. Answer: **A**.",
+    "note": "Example 13 explicitly works the less common noun affect use."
+   },
+   "lesson-vocabulary-confusing-words|L18|1": {
+    "status": "fixed",
+    "quote": "The second means *it has*: \"It has been a difficult week.\"",
+    "note": "Example 4 positively works it has as well as it is."
+   },
+   "lesson-vocabulary-confusing-words|L18|3": {
+    "status": "fixed",
+    "quote": "Inuulit ang kilos sa *tawag nang tawag*.",
+    "note": "Example 9 now solves both the when meaning and repeated-action construction."
+   }
+  }
+ }
+}

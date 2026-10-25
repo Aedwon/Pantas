@@ -1,0 +1,298 @@
+{
+ "batch": "RD-054",
+ "lesson_id": "lesson-vocabulary-root-words-prefixes-suffixes",
+ "path": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+ "lesson_sha256": "3b666886b1b0e5c6e677306d79cf868ed0bfd30a8818a48e230124dd706838fc",
+ "rewrite_commit": "5f97dda24f75af4c60f9b990fd48b282036052d9",
+ "form": {
+  "packet": "lesson-vocabulary-root-words-prefixes-suffixes",
+  "role": "A",
+  "lesson_sha256": "3b666886b1b0e5c6e677306d79cf868ed0bfd30a8818a48e230124dd706838fc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked root/base/stem distinctions, prefix and suffix position, the listed English element meanings, suffix word jobs, and the Filipino examples. No clear factual error is established from the prompt. Filipino affix classifications require the separate official-source check recorded in L11."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "My independent answers are #1 B false/imitation; #2 A sikap; #3 A kabataan; #4 B quality noun; #5 B un- plus happy; #6 B indirect wordy expression; #7 A wishing harm/wishing good; #8 D laguhan under the taught school classification; #9 B adjective helpful and adverb quickly. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The core definitions, English word elements, suffix teaching, Filipino affixes, worked examples, shortcuts, and traps are present. No supplied brief requires a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Root, base, stem, and affix are defined in short sentences with unhappy and helpfulness. Dense lexical, phonological, and mechanically productive wording has been removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Only ordinary directions such as choose, find, and identify appear; no unexplained specialized exam command.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no analogies to count in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The circumlocution stem no longer supplies its Latin meanings. Other stems ask for a meaning, grammatical contribution, root, or valid split without supplying the answer. Numbered solutions use ordinary English or Filipino explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson makes no unsupported claims about particular exams and uses no repeated exam introductions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino affix section teaches in Filipino with short sentences. It explains the place of each affix and uses sentences to show what sumulat and sinulat do."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "First definitions gloss salitang-ugat, panlapi, unlapi, gitlapi, hulapi, kabilaan, and laguhan in English. Later occurrences use Filipino terms alone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 2, 3, and 8 use Filipino questions, choices, and explanations for Filipino roots and affixes; English word-part examples remain in English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF checking cannot be completed from the supplied prompt.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino teaching uses Filipino sentences with the required first-use English grammar glosses. No unnecessary English wording is inserted into those explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "English target prompts use word in bold or words in bold and bold their targets. Filipino examples 2 and 8 use salitang nakadiin and bold pinagsumikapan, providing the Filipino equivalent without inserting English into the stem."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary plainly names word parts and sentence clues. Prose has varied openings and none of the banned stock expressions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "This language lesson uses Core Concept, Examples, a shortcut section, and Traps to Watch For. No mathematical formulas occur in any worked solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped prefix meaning to #1, root to #2, kabilaan to #3, noun suffix to #4, false parsing to #5, context plus elements to #6, contrasting elements to #7, laguhan to #8, and adjective/adverb suffix jobs to #9. The stated ending exception remains unworked."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "These patterns have limits. *Friendly* ends in *-ly*, but it describes a person or thing, so it is an adjective.",
+      "problem": "The lesson teaches the misleading -ly adjective ending as a distinct limitation, but no worked example asks the student to apply it. Example 9 uses only the regular adverb quickly. The -less meaning is also taught without a worked application."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All nine worked solutions use two numbered steps. The steps show how the word part or sentence job supports the answer; no computational display is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs have one to three short sentences. The single English-element bullet list gives six compact entries; remaining explanations use paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Root, base, affix, stem, prefix, suffix, and infer are defined before use in the tasks. Noun, adjective, adverb, and verb are defined before the suffix teaching. Filipino terms get local definitions and examples; morphology and phonological are removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "English suffixes are explained through meaning and word job. Filipino -um- and -in- receive sentence-level action/focus explanations, ka-...-an gives the meaning of kabataan, and laguhan is tied to effort in pinagsumikapan. Valid parsing is explained using unhappy versus uncle."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Warnings limit letter-based splitting, say older elements can be bound parts, explain that word parts are partial clues, show friendly as an -ly adjective exception, and state that Filipino affixes do not have one use in every word."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-root-words-prefixes-suffixes|L18|1": {
+    "status": "fixed",
+    "quote": "Which word analysis is valid?",
+    "note": "Example 5 makes students reject misleading splits and select un- plus happy."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L26|0": {
+    "status": "fixed",
+    "quote": "Dito, tapos na ang pagsulat.",
+    "note": "The Filipino section now explains completed action, the actor, and the focus on the letter in sample sentences."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L26|1": {
+    "status": "fixed",
+    "quote": "Tumutukoy ang salita sa mga bata o sa panahon ng pagiging bata.",
+    "note": "The listed affix forms now have sentence uses and meanings, including the two senses of kabataan."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|B10|0": {
+    "status": "fixed",
+    "quote": "Hanapin ang ugat na nagpapaliwanag sa kahulugan ng buong salita.",
+    "note": "The banned algorithm wording is removed; no reserved student-text word remains."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L02|0": {
+    "status": "fixed",
+    "quote": "A **root** carries a word's main meaning.",
+    "note": "The technical definitions are replaced by plain definitions and short examples."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L02|1": {
+    "status": "fixed",
+    "quote": "Do not force a split in a word such as *benign* just because it begins with *ben*.",
+    "note": "The benign warning now uses direct language without specialist parsing jargon."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L05|0": {
+    "status": "fixed",
+    "quote": "The official's reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?",
+    "note": "The stem no longer gives the Latin element meanings or the answer definition."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L05|1": {
+    "status": "fixed",
+    "quote": "Ang **sikap** ang ugat.",
+    "note": "The root solution uses simple Filipino instead of lexical-base and substring terminology."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L14|1": {
+    "status": "fixed",
+    "quote": "Tukuyin ang salitang-ugat ng salitang nakadiin: **pinagsumikapan**.",
+    "note": "The Filipino stem refers to the emphasized word and the target is bold."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L19|0": {
+    "status": "fixed",
+    "quote": "1. *Pseudo-* means false or imitation.",
+    "note": "The prefix solution now uses numbered explanation steps."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L19|1": {
+    "status": "fixed",
+    "quote": "1. Hanapin ang bahaging nagdadala ng pangunahing kahulugan.",
+    "note": "The Filipino root solution is now divided into numbered steps."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L22a|0": {
+    "status": "fixed",
+    "quote": "Learn the full word when the rest of the split does not help.",
+    "note": "The formerly long benign paragraph is now three short sentences."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L25|0": {
+    "status": "fixed",
+    "quote": "Then check whether the parts explain the whole word.",
+    "note": "The reliability test uses plain meaning checks; morphology and etymology are no longer required terms."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L25|1": {
+    "status": "fixed",
+    "quote": "Hindi iisa ang gamit ng isang panlapi sa lahat ng salita.",
+    "note": "The warning is now explained plainly without the unexplained term phonological."
+   },
+   "language-proficiency-vocabulary#64": {
+    "status": "fixed",
+    "quote": "The suffix **-ness** makes a noun naming a state or quality.",
+    "note": "The new suffix section explains -ful, -less, -ness, and -ly meanings or word jobs; examples 4 and 9 apply them."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L03|0": {
+    "status": "not_fixed",
+    "quote": "Tukuyin ang salitang-ugat ng salitang nakadiin: **pinagsumikapan**.",
+    "note": "Tukuyin remains unglossed. This optional change was not made; it is an ordinary identify instruction."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L14|0": {
+    "status": "fixed",
+    "quote": "What does the prefix add to the meaning of the word in bold, **pseudoscientific**?",
+    "note": "The tested word is now bold and the prompt uses the required phrase."
+   },
+   "lesson-vocabulary-root-words-prefixes-suffixes|L18|0": {
+    "status": "fixed",
+    "quote": "Anong uri ng panlapi ang makikita sa salitang nakadiin: **pinagsumikapan**?",
+    "note": "Example 8 now directly asks students to recognize laguhan."
+   }
+  }
+ }
+}

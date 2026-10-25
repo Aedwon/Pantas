@@ -1,0 +1,241 @@
+{
+ "batch": "RD-054",
+ "lesson_id": "lesson-vocabulary-spelling-rules",
+ "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+ "lesson_sha256": "a428fa683288a7f68f19c67fe0cd7d8ff86e969c8fb2a386764b26946d2ee7ca",
+ "rewrite_commit": "5f97dda24f75af4c60f9b990fd48b282036052d9",
+ "form": {
+  "packet": "lesson-vocabulary-spelling-rules",
+  "role": "A",
+  "lesson_sha256": "a428fa683288a7f68f19c67fe0cd7d8ff86e969c8fb2a386764b26946d2ee7ca",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked conceive, managing, noticeable, truly, beginning, visiting, occurrence, fixing, and playing spellings and the stated doubling limits. The rhyme is explicitly limited. The specific KWF kwento/kuwento attribution cannot be confirmed from the prompt and is reserved for official checking in L11."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 B concieve is misspelled; #2 B managing; #3 B noticeable; #4 C truly; #5 A beginning; #6 C visiting; #7 A occurrence; #8 B under the supplied KWF claim; #9 D fixing/playing. These agree with every worked key. The official basis for #8 remains a source-check dependency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. Silent-e changes, doubling, syllable checking, rhyme exceptions, and Filipino borrowed spellings are covered; no required illustration is indicated."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The opening replaces lexical with learning words one by one. Vowel, consonant, syllable, stress, suffix, and base are explained in short sentences. Longer-word checking is split into manageable instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Only ordinary directions such as choose, find, and identify appear; no unexplained specialized exam command.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used in the core or later sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All nine stems ask for spelling judgments or completion using supplied words and sentences. They do not state a spelling rule in the question. Solutions return to plain explanations of the spelling choice."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about a particular exam or repeated test-maker openings are present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Borrowed-word teaching, the Filipino shortcut, Example 8, and the final trap use short Filipino sentences and common wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "No hard Filipino grammar term requires a first-use English gloss in this spelling discussion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Example 8 tests the Filipino borrowing claim with a Filipino stem, choices, and solution; English examples test English spellings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF checking cannot be completed from the supplied prompt.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino passages remain in Filipino. Cuento is explicitly the Spanish source word rather than an English insertion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Spelling stems ask students to select a spelling from choices. None refers to an emphasized target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes patterns, exceptions, and syllables. The text avoids stock AI phrases and varies sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The language structure uses the standard core/examples/traps and a real spelling shortcut section. There are no mathematical formulas in the examples to introduce earlier."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped vowel-order judgment to #1, silent-e dropping to #2, sound-preserving e to #3, exceptional e loss to #4, final stress/doubling to #5, lack of final stress to #6, longer-word sound and base checks to #7, accepted Filipino variants to #8, and excluded final consonants to #9. The progression reaches an authentic long-word item and distinct exception cases without numerical duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution has two numbered steps. Each gives the relevant spelling basis and final answer. No spelling solution requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs have one to three short sentences. The five-step longer-word procedure is a numbered method, and worked solutions are numbered separately."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Vowel and consonant letters, syllable, stress, suffix, and base are defined locally before the relevant rules. CVC and morphological family are removed. Notice and its soft c provide the sound reference used in noticeable."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson shows how suffixes change final e, why stress affects doubling, how sound and spelling differ, and how a known base helps check weak vowels in longer words. The Filipino section explains why a familiar variant alone cannot decide correctness."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The rhyme is limited by named exceptions; silent-e dropping is qualified by retained-e and irregular forms; doubling excludes w/x/y and requires final stress in longer words. Sound-only checking is explicitly limited by weak vowels and known standard spellings."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-spelling-rules|L18|0": {
+    "status": "fixed",
+    "quote": "Drop the final *e* to form **managing**. Answer: **B**.",
+    "note": "Examples 2 and 3 separately work silent-e dropping and keeping, while example 4 retains the truly exception."
+   },
+   "lesson-vocabulary-spelling-rules|L02|0": {
+    "status": "fixed",
+    "quote": "In a longer word, the last syllable must also be stressed for this pattern.",
+    "note": "Doubling conditions are split into short sentences and stress and syllable are defined earlier."
+   },
+   "lesson-vocabulary-spelling-rules|L19|0": {
+    "status": "fixed",
+    "quote": "1. The standard spelling is **conceive**, with *ei* after *c*.",
+    "note": "The vowel-order solution now has numbered steps, as do all other examples."
+   },
+   "lesson-vocabulary-spelling-rules|L25|0": {
+    "status": "fixed",
+    "quote": "Spelling has patterns, but some words must be learned one by one.",
+    "note": "The unexplained lexical wording is replaced by a plain explanation."
+   },
+   "lesson-vocabulary-spelling-rules|L25|1": {
+    "status": "fixed",
+    "quote": "This applies when the word ends in one vowel letter followed by one consonant letter: *run* becomes *running*.",
+    "note": "CVC is removed and the actual letter condition is spelled out after vowel and consonant definitions."
+   },
+   "lesson-vocabulary-spelling-rules|L25|2": {
+    "status": "fixed",
+    "quote": "Compare related forms such as *begin/beginning* and *refer/referred*.",
+    "note": "The shortcut now names related forms directly without unexplained morphological-family terminology."
+   },
+   "language-proficiency-vocabulary#77": {
+    "status": "fixed",
+    "quote": "For *beginning*, listen to *be-gin-ning*.",
+    "note": "A five-step syllable and word-part method, sound-letter examples, and the worked occurrence item add the requested longer-word teaching."
+   },
+   "lesson-vocabulary-spelling-rules|L03|0": {
+    "status": "not_fixed",
+    "quote": "Choose the standard spelling.",
+    "note": "Choose remains unglossed. The optional change is absent and this everyday command needs no definition."
+   }
+  }
+ }
+}
