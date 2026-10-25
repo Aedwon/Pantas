@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 4,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "## Left open by the earlier read (RD-034)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: Long, abstract legal sentence (opposed to or affected by faithful public service). It is not Grade 5 English and needs a plain restatement.\n   > The business interest or the person's rights or duties in it may be opposed to or affected by faithful public service.\n2. Rule L02 (Major). Problem: Uses formal wording (designated committees, within their authority) and the next two sentences continue the legal style, so the whole opinion paragraph is above Grade 5.\n   > The designated committees of Congress may issue written opinions explaining the law within their authority.\n3. Rule L15 (Minor). Problem: This is the 'not just X but Y' construction that the style guide lists as stock AI phrasing. State what a SALN includes without the contrast.\n   > A SALN is not just a list of land and houses.\n\n### Accuracy concerns\n\n1. The word elder may not be in the source definition of inso. Confirm the exact wording of the kinship definitions.\n   > - **Inso:** the wife of an elder brother or male cousin.\n2. The Act does not define honorary capacity as unpaid service, and the next sentence says not every unpaid role is honorary. Source or drop this gloss.\n   > An honorary role is service as an honor, without pay."
+ },
+ "id": "RW-039",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "round": 2,
+ "paths": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+ },
+ "extra_brief": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "## Left open by the earlier read (RD-028)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L03 (Minor). Problem: Evaluate first appears here before its required first-use explanation in the following paragraph. The gloss exists but comes after the first use.\n   > Then evaluate the connective outside the parentheses.\n2. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: The key evaluations in multistep examples #1 and #5 are all inline. L19 asks for key computations as display equations. This is a minor formatting finding; no reasoning step is skipped.\n   > Evaluate each pair: $T \\land T=T$, $T \\land F=F$, $F \\land T=F$, and $F \\land F=F$.\n3. Rule L25 (Major). Problem: The symbols T and F are first used without an explicit statement that they stand for true and false. No prerequisite explanation is supplied. These symbols are needed to read the table evaluations.\n   > List all four possible pairs of truth values: $(T,T)$, $(T,F)$, $(F,T)$, and $(F,F)$.\n\n### Brief items not fixed\n\n1. Item `lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L03|1`: If $P$ is true, $Q$ is false, and $R$ is true, evaluate \"$(P \\land Q) \\lor R$.\"\n   Reader's note: The gloss is present but follows an earlier use of evaluate in Core Concept. The first-use requirement is still unmet.\n2. Item `lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L03|0`: The exam verb \"Build\" is used in the first worked question without the required one-line explanation of what the verb asks the student to do. Reason: \"Build the table\" is plain enough without a gloss.\n   Reader's note: Build remains unglossed. This optional item was left alone, as permitted by the brief.\n3. Item `lesson-logical-verbal-reasoning-truth-tables-propositional-logic|L19|0`: The solution uses a numbered step, but the key computation stays inline. Rule L19 requires key computations in worked solutions to be shown as display equations. Reason: Short inline evaluation is clear; display equations add little.\n   Reader's note: The combined expression still has inline key evaluations and no display equations. The optional formatting change was not made."
+ },
+ "id": "RW-060",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

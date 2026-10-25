@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-text-types-essays-editorials-articles",
+  "lesson-text-types-poetry"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "round": 2,
+ "paths": {
+  "lesson-text-types-essays-editorials-articles": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+  "lesson-text-types-poetry": "content/lessons/reading-comprehension/text-types/poetry.md"
+ },
+ "extra_brief": {
+  "lesson-text-types-essays-editorials-articles": "## Left open by the earlier read (RD-042)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L15 (Minor). Problem: Five consecutive sentences begin with 'An' or 'A' plus a kind of essay (essay, personal essay, expository essay, analytical essay, argumentative essay), against the rule on varied openings.\n   > An analytical essay studies how parts of something work together. An argumentative essay supports a claim with reasons.\n2. Rule L18 (Major). Problem: The lesson teaches, in Core Concept, Reading Strategies and Trap 2, that a news report can quote an opinion without adopting it. No example has a report that quotes a strong opinion, so this distinct and commonly tested case is never worked.\n   > A report can include someone's strong opinion without making that opinion the reporter's own view.",
+  "lesson-text-types-poetry": "## Left open by the earlier read (RD-042)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: The rhyme definition uses 'stressed vowel', a technical idea beyond Grade 5 reading, in the first sentence a learner reads about rhyme.\n   > **Rhyme** repeats matching sounds, usually from the last stressed vowel onward.\n2. Rule L18 (Major). Problem: Symbol is taught as a core idea, and Trap 3 warns against over-reading it, yet no worked example asks the learner to decide whether an image is a symbol and what it stands for.\n   > A **symbol** is something that stands for a wider idea in the text.\n3. Rule L25 (Major). Problem: 'Word stress' is used here and 'stressed vowel' in the rhyme definition, but stress is never explained, so learners cannot use either idea.\n   > Repeated sounds, word stress, and pauses can shape it.\n4. Rule L25 (Major). Problem: The Example 4 stem uses 'stanza' without defining it in Core Concept.\n   > The line endings of a stanza are “bay,” “glow,” “away,” and “blow,” in that order."
+ },
+ "id": "RW-058",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

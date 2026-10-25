@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-divisibility-rules",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 3,
+ "paths": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md"
+ },
+ "extra_brief": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "## Left open by the earlier read (RD-024)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson teaches the distinct last-digit tests for $5$ and $10$, but the Examples section still gives no worked example for either case, so the identified coverage gap remains.\n   > A number is divisible by $5$ when its last digit is $0$ or $5$.\n\n### Brief items not fixed\n\n1. Item `lesson-arithmetic-number-sense-divisibility-rules|L18|0`: The lesson teaches last-digit divisibility tests, but the Examples section gives no worked scenario for divisibility by $5$ or $10$; coverage of this distinct exam-relevant case is therefore incomplete. Reason: The rules for 5 and 10 are trivial last-digit checks and an example would add little.\n   Reader's note: The lesson still teaches the $5$ and $10$ last-digit tests without a worked Examples-section case for that distinct scenario.",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "## Left open by the earlier read (RD-024)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L27 (Major). Problem: The place-value method is stated generally but its direct form applies to terminating decimals; the lesson does not state that limitation before presenting the rule.\n   > To turn a decimal into a fraction, use the decimal's place value as the denominator. A decimal ending in tenths uses $10$, hundredths uses $100$, and thousandths uses $1000$.\n2. Rule L27 (Major). Problem: The decimal-division procedure never states that the divisor must be nonzero, even though division by $0$ is undefined and the lesson states analogous limits for fractions.\n   > To divide by a decimal, move the decimal point in the divisor until the divisor is a whole number. Move the decimal point in the dividend the same number of places, then divide.",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "## Left open by the earlier read (RD-035)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L17 (Major). Problem: Example #4 introduces the general same-remainder form $120k+3$ inside the solution. Core Concept explains subtracting the remainder and using an LCM, but it never states the LCM-multiple-plus-remainder form before the example uses it.\n   > 4. Numbers with the required remainder have the form $120k+3$ for integers $k$. The case $k=0$ gives $3$, which is not greater than $10$.\n2. Rule L25 (Major). Problem: The method requires students to understand an exponent, but the lesson never explains what an exponent means before using exponent language and prime-power notation.\n   > To find the GCF with prime powers, factor each number. Keep only prime factors shared by every number, then use the smallest exponent for each shared prime."
+ },
+ "id": "RW-053",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-environment-management-environmental-problems-and-climate-change",
+  "lesson-environment-management-species-resources-and-environmental-decisions",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "round": 3,
+ "paths": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "content/lessons/general-information/environment-management/environmental-problems-and-climate-change.md",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "extra_brief": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "## Left open by the earlier read (RD-010)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: This long, jargon-heavy list is not very simple Grade 5 English. Terms such as vulnerability assessments, capability building, and gender mainstreaming are presented without plain-language support.\n   > Its main parts include national priorities, impact and vulnerability assessments, policy, international commitments, research and data, capability building, public information, monitoring and evaluation, and gender mainstreaming.\n2. Rule L25 (Major). Problem: The framework teaching uses 'climate vulnerability' as a needed basis without explaining what vulnerability means before students must understand the policy framework.\n   > The framework is based on climate vulnerability, adaptation needs, and mitigation potential.\n3. Rule L25 (Major). Problem: Several necessary framework terms, especially capability building and gender mainstreaming, are named without explaining their meanings before the framework application example.\n   > Its main parts include national priorities, impact and vulnerability assessments, policy, international commitments, research and data, capability building, public information, monitoring and evaluation, and gender mainstreaming.",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "## Left open by the earlier read (RD-012)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: The second sentence uses legal and abstract words such as “designated” and “exploitation” without simpler wording. That sentence is above the required Grade 5 teaching-prose level.\n   > A critical habitat is chosen using scientific data, including the presence of threatened species and pressures on their survival. Once designated, it must be protected from exploitation or destruction that can harm the threatened species that depend on it.",
+  "lesson-environment-management-the-environmental-laws": "## Left open by the earlier read (RD-012)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: This teaching sentence packs many technical location labels, including “critical slopes,” “prime agricultural lands,” and “aquifer recharge areas,” into one long sentence. It is not very simple Grade 5 prose.\n   > An ECA is based on the **location**. Proclamation $2146$ includes areas such as national parks and wildlife sanctuaries, habitat of endangered or threatened Philippine wildlife, hazard-prone areas, critical slopes, prime agricultural lands, aquifer recharge areas, and certain water bodies, mangroves, and coral reefs.\n2. Rule L25 (Major). Problem: The technical term “effluent” is needed to understand how the discharge limits work, but the lesson never gives it a plain meaning before using “effluent standards.”\n   > There is no single discharge number for every facility. DENR sets effluent standards, and the permit applies the relevant limits and conditions to the discharge."
+ },
+ "id": "RW-040",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

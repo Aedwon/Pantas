@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-main-idea",
+  "lesson-comprehension-skills-sequencing-of-events"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "round": 2,
+ "paths": {
+  "lesson-comprehension-skills-main-idea": "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
+  "lesson-comprehension-skills-sequencing-of-events": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
+ },
+ "extra_brief": {
+  "lesson-comprehension-skills-main-idea": "## Left open by the earlier read (RD-038)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B02 (Blocker). Problem: This worked example cannot be solved from its question alone because it does not include the passage it refers to, so the stated reason that the summary is too broad depends on information supplied only in the previous example.\n   > The same passage is summarized as \"School activities are useful.\" Why is this not the best main idea?\n2. Rule L02 (Major). Problem: The word \"infrastructure\" is uncommon for the required Grade 5 teaching voice and is not explained, making this trap explanation harder than the lesson standard allows.\n   > \"Renewable energy can lower the use of fossil fuels but may require new infrastructure\" is a main idea.\n3. Rule L05 (Major). Problem: This question omits the school-garden passage needed to judge the summary's scope, so the example does not supply all problem-specific information within its own exam-style stem.\n   > The same passage is summarized as \"School activities are useful.\" Why is this not the best main idea?\n\n### Brief items not fixed\n\n1. Item `lesson-comprehension-skills-main-idea|L18|1`: The only implied-main-idea example is a very short three-sentence passage with one clear pattern. There is no harder worked case using multiple paragraphs or competing emphasis, so the examples do not ramp through the important implied-main-idea variation to target-exam difficulty. Reason: A harder multi-paragraph implied case would help, but the lesson is short and one clean case is defensible.\n   Reader's note: Checked the implied-main-idea coverage: it still uses one short three-sentence passage, with no harder multi-paragraph or competing-emphasis case.",
+  "lesson-comprehension-skills-sequencing-of-events": "## Left open by the earlier read (RD-038)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Past participle is needed to recognize and use the stated tense pattern but is not explained. Two regular-verb examples do not define that form or identify it in other verbs. No prerequisite teaching or later explanation is supplied.\n   > The **past perfect** uses *had* with a past participle, such as *had walked* or *had finished*."
+ },
+ "id": "RW-057",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

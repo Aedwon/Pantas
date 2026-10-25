@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification",
+  "lesson-language-application-paragraph-organization"
+ ],
+ "topic": "language-proficiency/language-application",
+ "round": 3,
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md",
+  "lesson-language-application-paragraph-organization": "content/lessons/language-proficiency/language-application/paragraph-organization.md"
+ },
+ "extra_brief": {
+  "lesson-language-application-error-identification": "## Left open by the earlier read (RD-019)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B02 (Blocker). Problem: The stem names two women, so 'she' can still mean Liza after the rewrite. The solution says the reference is now clear, but a clear repair repeats the name or restructures the sentence, for example 'When Ana spoke to Liza, Ana was worried'.\n   > Write **\"Ana was worried when she spoke to Liza.\"**\n2. Rule L09 (Minor). Problem: The terms payak, tambalan, hugnayan, and sugnay na makapag-iisa/di-makapag-iisa are hard grammar terms with no short English gloss (simple, compound, complex, independent, dependent) on first use.\n   > Ang payak na pangungusap ay may isang sugnay na makapag-iisa.\n3. Rule L18 (Major). Problem: The original lesson worked a neither...nor compound-subject agreement case (brief L03 quote). The rewrite removed it and teaches only each-of and an interrupting phrase, so a case another tagged exam needs is gone.\n   > **Subject-verb agreement** means matching the subject and main verb.\n4. Rule L22a (Minor). Problem: This paragraph lists four sentence types in four sentences, over the limit of three.\n   > A simple sentence has one independent clause.\n5. Rule L22a (Minor). Problem: This paragraph has four sentences, over the limit of three.\n   > Maaaring magpahayag ang pandiwa ng kilos, pangyayari, o karanasan.\n\n### Accuracy concerns\n\n1. The pronoun 'she' can still refer to Liza, so the stated fix may not remove the ambiguity that the example claims to repair.\n   > Write **\"Ana was worried when she spoke to Liza.\"**\n2. The original has no stated link between the two clauses, so the repair adds a cause the stem does not give.\n   > One repair for both is **\"The office closed early because the storm became stronger.\"**",
+  "lesson-language-application-paragraph-organization": "## Left open by the earlier read (RD-019)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L14 (Major). Problem: The question targets the word sanggunian but shows it in italics, not bold, and the prompt does not say it is in bold.\n   > Ano ang ibig sabihin ng *sanggunian* sa talata?"
+ },
+ "id": "RW-048",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

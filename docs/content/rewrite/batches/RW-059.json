@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-clerical-ability-numeric-and-chronological-filing"
+ ],
+ "topic": "reasoning/clerical-ability",
+ "round": 2,
+ "paths": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
+ },
+ "extra_brief": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "## Left open by the earlier read (RD-027)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: The technical term 'filing key' is required to follow the opening instruction, but this lesson never defines it and no prerequisite lesson is provided for explanation reuse.\n   > First identify the filing key and the direction the task asks you to use.\n\n### Brief items not fixed\n\n1. Item `lesson-clerical-ability-numeric-and-chronological-filing|L03|0`: The exam verb \"Arrange\" is used as an instruction before the lesson gives the required one-line explanation of what that verb asks the student to do. Reason: \"Arrange\" is a common word and needs no gloss.\n   Reader's note: The optional item remains unchanged: 'Arrange' is still used without a gloss, though the guide treats this everyday word as not needing one.\n2. Item `lesson-clerical-ability-numeric-and-chronological-filing|L18|0`: Reverse chronological order is a distinct direction within the learning goal, but it is only mentioned after the oldest-to-newest example instead of receiving its own worked example as required for each distinct variation. Reason: Reverse order is a one-line flip of Example 2; a separate example adds little.\n   Reader's note: Reverse chronological order is still only stated after Example #2 and does not receive its own worked example; this optional item remains unfixed."
+ },
+ "id": "RW-059",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}

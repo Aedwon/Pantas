@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-real-imaginary-numbers",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 2,
+ "paths": {
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "extra_brief": {
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "## Left open by the earlier read (RD-025)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: The teaching uses the advanced word “binomials” without explaining it. That breaks the very-simple Grade 5 prose requirement even though the rest of the multiplication method is plain.\n   > To multiply complex numbers, multiply each term as you would with two binomials. Then replace every $i^2$ with $-1$ and combine the real terms and the $i$ terms.\n2. Rule L22a (Minor). Problem: This paragraph has four sentences. The formatting rule limits lesson paragraphs to one to three short sentences.\n   > A **complex number** has the form $a+bi$, where $a$ and $b$ are real numbers. The number $a$ is the **real part**, and $b$ is the **imaginary part**. If $b=0$, the number is real. If $a=0$ and $b\\ne0$, it is purely imaginary.\n3. Rule L25 (Major). Problem: The method depends on the unexplained term “binomials.” A student needs that meaning before this sentence can serve as the promised multiplication teaching.\n   > To multiply complex numbers, multiply each term as you would with two binomials. Then replace every $i^2$ with $-1$ and combine the real terms and the $i$ terms.",
+  "lesson-arithmetic-number-sense-sequences-and-series": "## Left open by the earlier read (RD-025)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L03 (Minor). Problem: Simplify is used as an exam-specific mathematical instruction without the required one-line meaning on its first use in Example 3. The Evaluate gloss does not explain Simplify.\n   > 3. Simplify.\n2. Rule L25 (Major). Problem: The formulas need the meanings of a_n, S_n and S_infinity. Core Concept defines a_1, n, d and r but never defines these output symbols before students must use them. The later trap identifies a_n and S_n without a forward reference at first use.\n   > $$a_n=a_1+(n-1)d$$"
+ },
+ "id": "RW-054",
+ "type": "rewrite",
+ "created": "2026-10-25T19:10:47+00:00"
+}
