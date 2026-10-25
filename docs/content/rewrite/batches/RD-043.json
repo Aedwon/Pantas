@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "783d6623d931dffc49b09c41669a29d5fcbf5e3b",
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "783d6623d931dffc49b09c41669a29d5fcbf5e3b",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "783d6623d931dffc49b09c41669a29d5fcbf5e3b"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "76e5cbffce30b76877edd8d67323804c1bef72d0c65201b35f23a3d1e61b009a",
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "b8d710fe54414a2859082cec012ce0f05b4396bef7b56baec49020f2f69663db",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "ac4fa11dddf32f70852c3429c9a470345c4d231dab03e43bccaaa873f79bd91b"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md"
+ },
+ "id": "RD-043",
+ "type": "read",
+ "created": "2026-10-25T19:15:18+00:00"
+}
