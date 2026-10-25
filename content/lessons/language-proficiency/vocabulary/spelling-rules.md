@@ -1,69 +1,79 @@
 ---
 _id: "lesson-vocabulary-spelling-rules"
 title: "Spelling Rules"
-summary: "Learn useful English and Filipino spelling patterns, common exceptions, and a step-by-step way to check longer words."
+summary: "Check English and Filipino spellings with useful patterns, common exceptions, and syllable clues."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
-estimatedMinutes: 12
+estimatedMinutes: 13
 isActive: true
 ---
 ## Core Concept
 
-Spelling has patterns, but some words must be learned one by one. A pattern can help you check a word, but it cannot replace the standard spelling of that word.
+Spelling has patterns, but some words must be learned one by one. Use a pattern to check a word. Do not let it overrule a standard spelling you know.
 
-The current public Civil Service Examination scope lists **spelling** under clerical ability. It does not give a guaranteed list of words, so learn useful patterns and common standard forms.
+### Letters and Sounds
 
-### The "I Before E" Mnemonic Is Limited
+The letters **a, e, i, o, u** are the main **vowel** letters in English. They often stand for sounds made with an open mouth and no blocked airflow. Sometimes *y* also acts as a vowel, as in *my*.
 
-The old rhyme "i before e except after c" can help with some words such as *believe, receive,* and *conceive*. It does not work for every English word.
+The other letters are **consonant** letters. Their sounds usually involve blocking or narrowing the airflow with the lips, tongue, or teeth, as in *p*, *t*, and *s*.
 
-Standard words such as *weird, seize, science,* and *height* do not fit the simple rhyme. Use the rhyme as a memory aid, not as a rule for every word.
+A **syllable** is a beat in a word with one main vowel sound. **Stress** is the extra force used to say one syllable. *Begin* has stress on its last syllable, while *visit* has stress on its first.
+
+Letters and sounds do not always match one for one. In *chief*, *ie* represents one vowel sound. In *manage*, the final *e* has no sound of its own.
+
+### The Limited I Before E Rhyme
+
+The rhyme "i before e except after c" helps with words such as *believe*, *receive*, and *conceive*. It does not work for every English word.
+
+*Weird*, *seize*, *science*, and *height* do not fit the simple rhyme. Learn these spellings as whole words.
 
 ### Adding Suffixes
 
-A **suffix** is a word part added at the end of a base. Spelling can change when a suffix is added.
+A **suffix** is a word part added at the end of a base. The base is the word or part to which the suffix is added.
 
-A final silent **e** is often dropped before a suffix that begins with a vowel. For example, *manage* becomes *managing*, and *hope* becomes *hoping*.
+A final silent *e* is often dropped before a suffix that begins with a vowel. *Manage* becomes *managing*, and *hope* becomes *hoping*.
 
-Sometimes the **e** stays because it helps keep the expected sound or spelling. For example, *notice* becomes *noticeable*.
+Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*, which keeps the soft sound heard in *notice*.
 
-Some common words do not follow the simple pattern. For example, *true* becomes *truly*, and *argue* becomes *argument*.
+Some common forms must be learned separately. *True* becomes *truly*, even though *-ly* begins with a consonant. *Argue* becomes *argument*, with no final *e* from the base.
 
 ### Doubling a Final Consonant
 
-A **syllable** is a beat or part of a word that has one main vowel sound. **Stress** is the syllable you say more strongly.
+In many one-syllable words, double the last consonant before *-ing* or *-ed*. This applies when the word ends in one vowel letter followed by one consonant letter: *run* becomes *running*.
 
-In many short words, a final consonant doubles before a suffix such as *-ing* when the word ends in one vowel followed by one consonant. For example, *run* becomes *running*.
+Do not double final *w*, *x*, or *y* by this rule. For example, *fix* becomes *fixing*, and *play* becomes *playing*.
 
-The same idea can appear in longer words when the last syllable is stressed. *Begin* has stress on its last syllable, so *begin* becomes *beginning*.
+In a longer word, the last syllable must also be stressed for this pattern. *Begin* becomes *beginning*, and *refer* becomes *referred*.
 
-Do not use a simple consonant-vowel-consonant shape as an automatic rule. *Visit* becomes *visiting*, not *visitting*.
+*Visit* has stress on its first syllable. Its final *t* does not double in *visiting*. The final letter pattern alone is not enough.
 
 ### Checking Longer Words by Syllable
 
-For a long word, do not guess from its full shape at once. Work through it in parts.
+Say the word slowly and listen for its beats. Check the letters for each part, then check the ending and any doubled letters.
 
-1. Say the word slowly.
-2. Break it into syllables.
-3. Listen for the main vowel sound in each syllable.
-4. Match the sounds to the spelling you know.
-5. Check common suffix, doubling, and exception patterns.
+For *beginning*, listen to *be-gin-ning*. The first vowel may sound weak, so sound alone does not prove its spelling. The known base *begin* supplies the letters.
 
-For *beginning*, you can hear *be-gin-ning*. The strong middle part helps explain why the final *n* of *begin* doubles before *-ing*.
+The stressed final syllable of *begin* explains the doubled *n* before *-ing*. In the finished word, the ending *-ing* keeps its spelling even though the spoken beats divide the word differently.
 
-Sound is a clue, not a perfect spelling guide. English has many words whose spelling cannot be predicted from sound alone.
+Use this process for unfamiliar long words:
 
-### Filipino Orthography and Loanwords
+1. Say the word and listen for each syllable.
+2. Find a base or word part you know.
+3. Match sounds to known letter patterns.
+4. Check stress, suffix changes, and doubled letters.
+5. Learn any part that sound or a rule cannot predict.
 
-The Komisyon sa Wikang Filipino's **Ortograpiyang Pambansa** gives rules and examples for writing Filipino, including borrowed words. A borrowed word can sometimes have more than one accepted form.
+### Baybay ng mga Hiram na Salita
 
-For example, the KWF reference gives **kwento / kuwento** as Filipino adaptations of Spanish *cuento*. Do not reject *kwento* only because another form, *kuwento*, also exists.
+Ang **Ortograpiyang Pambansa** ng Komisyon sa Wikang Filipino ay gabay sa pagsulat ng Filipino. Kasama rito ang mga salitang hiniram sa ibang wika.
 
-When an item asks about official Filipino spelling, use the accepted standard form. Do not invent a blanket rule from texting habits or from one borrowed word.
+Maaaring may higit sa isang tinatanggap na baybay. Inililista ng gabay ang **kwento** at **kuwento** bilang mga anyo mula sa Espanyol na *cuento*.
+
+Huwag ituring na mali ang isang anyo dahil lamang mas pamilyar ang isa. Sundin ang tinatanggap na baybay, hindi ang pinaikling anyo sa mensahe sa telepono.
 
 ## Examples
 
-### #1: Vowel-Pair Spelling
+### #1: Vowel Order
 
 Which word is misspelled?
 
@@ -74,8 +84,8 @@ D) seize
 
 **Solution:**
 
-1. The standard spelling is **conceive**.
-2. Choice **B**, *concieve*, switches the vowel order. The answer is **B**.
+1. The standard spelling is **conceive**, with *ei* after *c*.
+2. Choice **B** reverses those vowels. Answer: **B**.
 
 ### #2: Dropping a Silent E
 
@@ -88,8 +98,8 @@ D) managging
 
 **Solution:**
 
-1. *Manage* ends in a silent *e*.
-2. Before *-ing*, the final *e* is dropped, so the standard spelling is **managing**. The answer is **B**.
+1. *Manage* ends in a silent *e*, and *-ing* starts with a vowel.
+2. Drop the final *e* to form **managing**. Answer: **B**.
 
 ### #3: Keeping a Silent E
 
@@ -102,8 +112,8 @@ D) notiseable
 
 **Solution:**
 
-1. The base word is *notice*.
-2. In **noticeable**, the final *e* stays before *-able*. The answer is **B**.
+1. The base is *notice*, and the suffix is *-able*.
+2. Keep the *e* after *c* to preserve its soft sound. The spelling is **noticeable**. Answer: **B**.
 
 ### #4: A Common Exception
 
@@ -116,12 +126,12 @@ D) truley
 
 **Solution:**
 
-1. The word comes from *true*.
-2. Its standard form is **truly**, not *truely*. The answer is **C**.
+1. The base is *true*, but the final *e* does not stay before *-ly* in this word.
+2. The standard spelling is **truly**. Answer: **C**.
 
-### #5: Doubling a Final Consonant
+### #5: A Stressed Final Syllable
 
-Choose the standard spelling:
+Choose the standard spelling.
 
 A) beginning  
 B) begining  
@@ -130,12 +140,26 @@ D) begininning
 
 **Solution:**
 
-1. The last syllable of *begin* is stressed.
-2. The final *n* doubles before *-ing*, giving **beginning**. The answer is **A**.
+1. The last syllable of *begin* is stressed. The word ends in one vowel letter followed by one consonant letter.
+2. Double the final *n* before *-ing*: **beginning**. Answer: **A**.
 
-### #6: Using Syllables to Check a Longer Word
+### #6: An Unstressed Final Syllable
 
-Which spelling is standard for the word pronounced in three syllables as *oc-cur-rence*?
+Choose the standard spelling.
+
+A) visitting  
+B) visiteing  
+C) visiting  
+D) vissiting
+
+**Solution:**
+
+1. *Visit* has stress on its first syllable, not its last.
+2. Add *-ing* without doubling the final *t*. The spelling is **visiting**. Answer: **C**.
+
+### #7: A Long Word in Context
+
+Choose the correctly spelled word to complete the sentence: "Flooding is a frequent ______ in the area."
 
 A) occurrence  
 B) occurrance  
@@ -144,67 +168,81 @@ D) ocurrence
 
 **Solution:**
 
-1. Break the word into parts: *oc-cur-rence*.
-2. The standard spelling keeps double *c*, double *r*, and ends in *-ence*. The answer is **A**.
+1. The word has spoken parts that sound like *uh-kur-uns*. The middle part is stressed. The known base *occur* supplies the double *c*.
+2. The standard noun is **occurrence**, with double *r* and the ending *-ence*. The weak final vowel does not tell you whether to write *a* or *e*, so learn this ending. Answer: **A**.
 
-### #7: Filipino Loanword Variation
+### #8: Dalawang Tinatanggap na Baybay
 
-Which statement matches the KWF example for Spanish *cuento*?
+Aling pahayag ang tumutugma sa halimbawa ng KWF para sa Espanyol na *cuento*?
 
-A) Only *kuwento* is accepted.  
-B) Both *kwento* and *kuwento* are listed adaptations.  
-C) Filipino must keep the Spanish spelling *cuento*.  
-D) Every *w* in a borrowed word must have *u* before it.
+A) Kuwento lamang ang tinatanggap na baybay.  
+B) Parehong nakalista ang kwento at kuwento.  
+C) Cuento lamang ang maaaring gamitin sa Filipino.  
+D) Laging kailangang may u bago ang w sa hiram na salita.
 
 **Solution:**
 
-1. The KWF example lists **kwento / kuwento**.
-2. Both forms are given as adaptations, so the answer is **B**.
+1. Inililista ng gabay ang **kwento** at **kuwento**.
+2. Parehong ibinigay ang mga anyong ito. Sagot: **B**.
+
+### #9: Limits of Doubling
+
+Choose the pair in which both words are spelled correctly.
+
+A) fixxing; playing  
+B) fixing; playying  
+C) fixxing; playying  
+D) fixing; playing
+
+**Solution:**
+
+1. Final *x* and *y* do not double under this suffix rule.
+2. The standard forms are **fixing** and **playing**. Answer: **D**.
 
 ## Speed Tricks & Shortcuts
 
-**Use patterns to check a spelling, not to overrule a word you know is standard.** A mnemonic is a helper, not a law.
+Use patterns to check a spelling. For an exception, recall the whole word instead of forcing the pattern.
 
-**Look at related word forms.** Pairs such as *begin/beginning* and *refer/referred* can help you notice where doubling happens.
+Compare related forms such as *begin/beginning* and *refer/referred*. Say the base aloud to locate its stress before deciding whether to double the last letter.
 
-**Break long words into syllables.** Say each part, listen for the main sounds, then check the spelling pattern.
+Break a long word into spoken parts. Use a known base to check letters that are hard to hear, then check the ending separately.
 
-**For Filipino, use KWF-standard forms when the item asks about official spelling.** Do not rely on texting forms or on one rule guessed from a few examples.
+Sa Filipino, gamitin ang tinatanggap na baybay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.
 
 ## Traps to Watch For
 
-### #1: Treating "I Before E" as a Law
+### #1: Treating the Rhyme as a Law
 
-> Many standard English words do not follow the simple rhyme.
+> The i before e rhyme does not cover every word.
 
-Use it only as a memory aid for words where it actually helps.
+*Seize* is standard even though it does not fit the rhyme. A choice may be correct because it is a known exception.
 
-### #2: Using One Silent-E Rule for Every Word
+### #2: Dropping Every Final E
 
-> A final *e* may be dropped, kept, or changed as part of a common exception.
+> A silent e may stay when a suffix is added.
 
-Compare *managing, noticeable, truly,* and *argument*. Learn the pattern together with common exceptions.
+Compare *managing* with *noticeable*. In *noticeable*, the *e* helps keep the soft sound of *c*.
 
-### #3: Doubling Every Consonant-Vowel-Consonant Ending
+### #3: Keeping E Before Every Consonant
 
-> Word length and stress matter.
+> Some words lose final e before a suffix starting with a consonant.
 
-Compare *begin → beginning* with *visit → visiting*. The visible letter shape alone is not enough.
+Learn **truly** and **argument** as common exceptions. A simple keep-the-e shortcut would produce wrong spellings here.
 
-### #4: Trusting Sound Alone
+### #4: Doubling from Letter Shape Alone
 
-> English spelling does not always match pronunciation one sound at a time.
+> Check stress in longer words before doubling the last consonant.
 
-Syllables can help you check a long word, but standard spelling still decides the answer.
+*Beginning* doubles *n* because the last syllable of *begin* is stressed. *Visiting* keeps one *t* because the last syllable of *visit* is not stressed.
 
-### #5: Rejecting KWF-Accepted Variants
+### #5: Trusting Sound Alone
 
-> KWF lists both **kwento** and **kuwento** in its example.
+> A sound may have more than one possible spelling.
 
-Do not mark one wrong only because a classroom shortcut prefers the other.
+The weak ending of *occurrence* does not clearly reveal *-ence*. Use sound to divide the word, then recall its standard letters.
 
-### #6: Inventing an Exam Word List
+### #6: Pagtanggi sa Tinatanggap na Anyo
 
-> An exam scope can say that spelling is tested without revealing the exact words that will appear.
+> Parehong nakalista sa halimbawa ng KWF ang kwento at kuwento.
 
-Prepare with standard forms, useful patterns, and careful checking.
+Huwag piliing mali ang isa dahil lamang ang isa ang nakasanayan. Tingnan ang pamantayang hinihingi ng tanong.
