@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-vocabulary-confusing-words",
+  "lesson-vocabulary-root-words-prefixes-suffixes",
+  "lesson-vocabulary-spelling-rules"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-confusing-words": "5f97dda24f75af4c60f9b990fd48b282036052d9",
+  "lesson-vocabulary-root-words-prefixes-suffixes": "5f97dda24f75af4c60f9b990fd48b282036052d9",
+  "lesson-vocabulary-spelling-rules": "5f97dda24f75af4c60f9b990fd48b282036052d9"
+ },
+ "sha256": {
+  "lesson-vocabulary-confusing-words": "40f04f6661d3407bc69fa4d91d972f06c47e28178e5ee1d072b7a27627df91fc",
+  "lesson-vocabulary-root-words-prefixes-suffixes": "3b666886b1b0e5c6e677306d79cf868ed0bfd30a8818a48e230124dd706838fc",
+  "lesson-vocabulary-spelling-rules": "a428fa683288a7f68f19c67fe0cd7d8ff86e969c8fb2a386764b26946d2ee7ca"
+ },
+ "paths": {
+  "lesson-vocabulary-confusing-words": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+  "lesson-vocabulary-root-words-prefixes-suffixes": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md"
+ },
+ "id": "RD-054",
+ "type": "read",
+ "created": "2026-10-25T19:56:55+00:00"
+}
