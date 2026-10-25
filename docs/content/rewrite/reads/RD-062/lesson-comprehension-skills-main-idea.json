@@ -1,0 +1,248 @@
+{
+ "batch": "RD-062",
+ "lesson_id": "lesson-comprehension-skills-main-idea",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
+ "lesson_sha256": "7dbf0a26cec052efa34d4bf7acb84cae141463094391e198519a46fbf216d613",
+ "rewrite_commit": "671f47bbad12dcc6b4f81c195a9043a330f2bfe0",
+ "form": {
+  "packet": "lesson-comprehension-skills-main-idea",
+  "role": "A",
+  "lesson_sha256": "7dbf0a26cec052efa34d4bf7acb84cae141463094391e198519a46fbf216d613",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the distinctions among topic, main idea, supporting detail, unity, and scope against their use throughout the supplied passages. No specialized historical, scientific, or exam-format claims are made. Filipino usage requires the separate L11 source check."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1, the center offers several services for families; 2, the coach gives extra support to her team; 3, the final sentence about preparing together for rain; 4, the second sentence about evening services; 5, teamwork omits the garden’s other uses; 6, school activities is broader than the garden; 7, C; 8, topic is backyard vegetable growing and main idea is its many benefits; 9, B-D-A-C, with waste reduction as the main idea, sorting and paper reuse as details, and less waste as the result. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. The brief’s end-position topic sentence and Filipino outlining, relationship, and paragraph-arrangement cases appear. No question depends on a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read definitions of unity and scope, all English worked solutions, strategies, and traps. Terms receive plain meanings and sentences remain short; the former list of abstract paragraph functions is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No command with an unexplained exam-specific meaning occurs; read, identify, arrange, and explain are everyday instructions here.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used; the box diagram represents the actual relation of main idea to details."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All nine examples ask explicit questions or give explicit tasks. Each supplies its passage or garden description. Students must select the main point or arrangement themselves; solutions explain the reasoning in simple language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or test-maker openers occur. Strategies explain how to answer passage questions directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino subsection explains paksa, pangunahing ideya, balangkas, and connectors in short Filipino sentences. Examples 8 and 9 and the Filipino strategy use the same accessible language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Paksa, pangunahing ideya, and balangkas receive topic, main idea, and outline glosses at their first Filipino definitions. No hard Filipino grammar label is left unexplained."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The passages, tasks, and solution content in Filipino examples 8 and 9 are in Filipino. English examples belong to the English teaching strand; the shared Solution label follows the required example format."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from the supplied packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino explanations use Filipino prose. English appears only in first-definition glosses and the shared required Solution label."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a designated target word; the questions concern whole passages and sentence order.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the skills directly. Definitions, questions, strategies, and trap explanations vary their openings and contain none of the listed stock phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Comprehension uses the allowed Reading Strategies heading with Core Concept, Examples, and Traps. No example uses a mathematical formula, so there is no formula to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped stated, implied, end-position, middle-position, narrow-scope, broad-scope, and multi-paragraph main ideas to examples 1–7. Examples 8–9 add Filipino main-point recognition, full paragraph arrangement, outline production, and connector reasoning. The progression reaches a two-paragraph choice question and a multi-part Filipino task."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every solution uses numbered steps. Examples 1–8 identify relevant evidence and then the answer; example 9 gives each ordering link and an outline. No calculation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this reading lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. The single outline list in example 9 is needed to demonstrate the requested outline; other teaching avoids bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The single one-line placeholder specifies one main-idea box linked to three supporting-detail boxes with labels. Definitions and worked passages remain understandable without the drawing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Main idea, topic, supporting detail, topic sentence, implied main idea, unity, and scope are defined before examples. Filipino paksa, pangunahing ideya, balangkas, and causal/additive/contrast links are introduced before tasks use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains finding a shared point from details, testing answer scope, organizing a main idea and details into an outline, and using connector references to arrange sentences. Example 9 demonstrates each link rather than only naming the connectors."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "States that topic sentences can occupy different positions or be absent. Scope must include important details without adding claims. Paragraph arrangement can follow logical links instead of time; the longer-passage strategy preserves relevant limits and different sides."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-main-idea|L18|0": {
+    "status": "fixed",
+    "quote": "The neighborhood prepared for heavy rain by working together.",
+    "note": "Examples 3 and 4 work topic sentences at the end and in the middle."
+   },
+   "lesson-comprehension-skills-main-idea|L19|0": {
+    "status": "fixed",
+    "quote": "1. The first sentence gives one point that covers the whole paragraph.",
+    "note": "All worked solutions now use numbered reasoning steps."
+   },
+   "lesson-comprehension-skills-main-idea|B08|0": {
+    "status": "fixed",
+    "quote": "A choice about teamwork alone misses the other uses of the school garden in Example $5$.",
+    "note": "The prose reference now wraps its numeral in inline math."
+   },
+   "lesson-comprehension-skills-main-idea|L02|0": {
+    "status": "fixed",
+    "quote": "A sentence may give an example, explain a different side, or give an ending.",
+    "note": "The dense list of abstract paragraph functions has been replaced with plain wording."
+   },
+   "lesson-comprehension-skills-main-idea|L05|0": {
+    "status": "fixed",
+    "quote": "Read the paragraph. What is its main idea?",
+    "note": "Example 1 now has an explicit main-idea question before its solution."
+   },
+   "lesson-comprehension-skills-main-idea|L05|1": {
+    "status": "fixed",
+    "quote": "Read the paragraph. What main idea is suggested by the details?",
+    "note": "Example 2 now asks students to find the implied main idea."
+   },
+   "reading-comprehension-comprehension-skills#73": {
+    "status": "fixed",
+    "quote": "Tukuyin ang pangunahing ideya at gumawa ng maikling balangkas.",
+    "note": "Example 9 produces a Filipino outline and explains example, addition, reference, and result links."
+   },
+   "reading-comprehension-comprehension-skills#77": {
+    "status": "fixed",
+    "quote": "Ang tamang ayos ay **B, D, A, C**.",
+    "note": "Example 9 arranges a complete scrambled paragraph using Filipino cohesive links; the concept and final trap distinguish logical arrangement from chronology."
+   },
+   "lesson-comprehension-skills-main-idea|L18|1": {
+    "status": "fixed",
+    "quote": "Read the passage. Which statement best expresses its main idea?",
+    "note": "Example 7 adds an implied main idea across two paragraphs with competing narrow or unsupported choices."
+   }
+  }
+ }
+}
