@@ -1,0 +1,287 @@
+{
+ "packet": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+ "role": "A",
+ "lesson_sha256": "a9f53e373f887a20fb16302f6654ef5d3a06e49cc234861c9dd9b37f366c6a6a",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the conversion rules, percent-base equations, fraction operations, decimal multiplication/division procedures, percent switcheroo, and listed common fraction equivalents; the mathematical statements are correct in their stated contexts."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Blind-solved Examples #1-#4: $1/8$; $0.35$ and $7/20$; $0.375$ and $37.5\\%$; $1.00$.",
+    "Blind-solved Examples #5-#8: $27$; $40\\%$; $5/4$; $1/2$ cup.",
+    "Blind-solved Examples #9-#11: $0.84$; $8$; $40\\%$ equivalent discount. All match the lesson."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the full mathematics section structure and the brief. Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, and no figures are required."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the Core Concept, shortcuts, and traps. Definitions are broken into short sentences, difficult terms such as reciprocal are defined, and the procedures use simple language."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all eleven example stems. Each supplies the values and units needed to solve without giving the tested method, while the solutions use simpler instructional language."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling rules do not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question refers to a target word or asks about a word in the prompt."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Traced formulas and procedures used by examples to Core Concept first: decimal/fraction/percent conversions; $p\\%=p/100$; Part = Rate × Base and Rate = Part/Base; unlike-denominator addition/subtraction; fraction multiplication and reciprocal division; decimal multiplication and division."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught cases to worked examples: decimal-to-fraction, percent-to-decimal/fraction, fraction-to-decimal/percent, mixed forms, percent base, fraction division to percent, unlike denominators, fraction multiplication, decimal multiplication, decimal division, and successive percentages."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1 through #11. Every multi-step solution is numbered, and the key conversions, equations, products, quotients, and successive-discount calculations are displayed."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There are no illustration placeholders, and the brief explicitly lists no required figures for this lesson."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked vocabulary and symbols before use: numerator and denominator are identified by position; percentage, base, part, simplify, and reciprocal are defined before the relevant worked methods."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the conversion and operation concepts for meaning plus method: decimal-to-fraction place value, percent-base reasoning, common denominators, fraction multiplication/division, and decimal multiplication/division are all developed before examples."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "To turn a decimal into a fraction, use the decimal's place value as the denominator. A decimal ending in tenths uses $10$, hundredths uses $100$, and thousandths uses $1000$.",
+     "problem": "The place-value method is stated generally but its direct form applies to terminating decimals; the lesson does not state that limitation before presenting the rule."
+    },
+    {
+     "quote": "To divide by a decimal, move the decimal point in the divisor until the divisor is a whole number. Move the decimal point in the dividend the same number of places, then divide.",
+     "problem": "The decimal-division procedure never states that the divisor must be nonzero, even though division by $0$ is undefined and the lesson states analogous limits for fractions."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L01|0": {
+   "status": "fixed",
+   "quote": "The **base** is the whole or reference amount that a percentage is taken from. The **part** is the amount that the percentage gives.",
+   "note": "Core Concept now defines the percentage base and later tells the reader how to identify it, addressing the recorded goal gap."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L17|1": {
+   "status": "fixed",
+   "quote": "$$\\text{Part}=\\text{Rate}\\times\\text{Base}$$",
+   "note": "The percent amount-rate-base relationship is now introduced in Core Concept before Example #5 uses the equation."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L18|0": {
+   "status": "fixed",
+   "quote": "Express $35\\%$ as a decimal and as a fraction in simplest form.",
+   "note": "Worked Examples #1 through #3 now explicitly cover decimal-to-fraction, percent-to-decimal/fraction, and fraction-to-decimal/percent conversions."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L26|1": {
+   "status": "fixed",
+   "quote": "The **base** is the whole or reference amount that a percentage is taken from. The **part** is the amount that the percentage gives.",
+   "note": "The lesson now explains what the base means before the percentage-base example requires that reasoning."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|0": {
+   "status": "fixed",
+   "quote": "A **decimal** uses place value based on powers of $10$. A **percentage** means \"per hundred\" or \"out of $100$.\"",
+   "note": "The former bare 100 is now wrapped as inline math in the percentage definition."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|1": {
+   "status": "fixed",
+   "quote": "> **D** to **P**: multiply by $100$, so the decimal point moves $2$ places right.",
+   "note": "The number of decimal places is now written as inline math, fixing the reported notation issue."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|2": {
+   "status": "fixed",
+   "quote": "> **P** to **D**: divide by $100$, so the decimal point moves $2$ places left.",
+   "note": "The number of decimal places is now written as inline math, fixing the reported notation issue."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|3": {
+   "status": "fixed",
+   "quote": "The percent sign ($\\%$) can remind you that percent means \"per $100$.\"",
+   "note": "The number in the memory aid is now wrapped in inline math as required."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L03|0": {
+   "status": "fixed",
+   "quote": "\"Evaluate\" means find the final number answer.",
+   "note": "Evaluate is now explained in one line immediately before its first use in the worked example."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L17|0": {
+   "status": "fixed",
+   "quote": "To turn a decimal into a fraction, use the decimal's place value as the denominator. A decimal ending in tenths uses $10$, hundredths uses $100$, and thousandths uses $1000$.",
+   "note": "The decimal-to-fraction place-value method is now taught in Core Concept before Example #1 applies it."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L17|2": {
+   "status": "fixed",
+   "quote": "The **reciprocal** of a nonzero fraction is found by swapping its numerator and denominator. To divide by a fraction, multiply by the reciprocal of the divisor.",
+   "note": "Fraction division by multiplying by the reciprocal is now taught in Core Concept before the complex-fraction example uses it."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L25|0": {
+   "status": "fixed",
+   "quote": "In a fraction, the **numerator** is the top number. The **denominator** is the bottom number, and it cannot be $0$.",
+   "note": "Numerator and denominator are now identified by their positions before any conversion procedure uses the terms."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L26|0": {
+   "status": "fixed",
+   "quote": "To turn a decimal into a fraction, use the decimal's place value as the denominator. A decimal ending in tenths uses $10$, hundredths uses $100$, and thousandths uses $1000$.",
+   "note": "The general decimal-to-fraction method is now developed in Core Concept instead of first appearing inside Example #1."
+  },
+  "mathematics-arithmetic-number-sense#23": {
+   "status": "fixed",
+   "quote": "1. The last digit is in the thousandths place. Write the decimal over $1000$.",
+   "note": "Decimal-to-fraction conversion and simplification now have explicit Core Concept teaching and a full worked example."
+  },
+  "mathematics-arithmetic-number-sense#25": {
+   "status": "fixed",
+   "quote": "$$\\text{Part}=\\text{Rate}\\times\\text{Base}$$",
+   "note": "Percent amount and base are now defined, related by formula, and applied in the Percentage Base worked example."
+  },
+  "mathematics-arithmetic-number-sense#26": {
+   "status": "fixed",
+   "quote": "To divide by a fraction, multiply by the reciprocal of the divisor.",
+   "note": "The lesson now teaches reciprocal division directly and applies it in the complex-fraction-to-percent example."
+  },
+  "mathematics-arithmetic-number-sense#29": {
+   "status": "fixed",
+   "quote": "Fractions need a common denominator before you add or subtract them. Rewrite the fractions with the same denominator, then add or subtract the numerators.",
+   "note": "Unlike-denominator addition and subtraction are now taught in Core Concept and practiced in Example #7."
+  },
+  "mathematics-arithmetic-number-sense#30": {
+   "status": "fixed",
+   "quote": "Multiply the numerators together and the denominators together.",
+   "note": "Fraction multiplication is now taught in Core Concept and applied in the recipe example."
+  },
+  "mathematics-arithmetic-number-sense#31": {
+   "status": "fixed",
+   "quote": "To divide by a decimal, move the decimal point in the divisor until the divisor is a whole number. Move the decimal point in the dividend the same number of places, then divide.",
+   "note": "Decimal multiplication and division procedures are now taught in Core Concept and each has its own worked example."
+  },
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages|L19|0": {
+   "status": "fixed",
+   "quote": "$$x=\\dfrac{72}{0.40}=180$$",
+   "note": "The percentage-base calculation is now a display equation, and the successive-percentage solution also displays each key calculation."
+  }
+ }
+}
