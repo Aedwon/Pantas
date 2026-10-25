@@ -12,6 +12,7 @@ void main() {
     String examId = 'exam_upcat',
     String examDate = '2026-12-07:day',
     List<String> scope = const ['t_alg', 't_geo'],
+    List<String> excludedLessons = const [],
     String content = 'rev2',
     bool assessed = true,
     int mocks = 0,
@@ -20,10 +21,20 @@ void main() {
         examId: examId,
         examDate: examDate,
         scopeTopicIds: scope,
+        excludedLessonIds: excludedLessons,
         contentRevision: content,
         assessmentCompleted: assessed,
         recordedMockCount: mocks,
       );
+
+  test('lesson exclusions survive digest round trip and change scope', () {
+    final before = digest();
+    final after = digest(excludedLessons: ['lesson-b', 'lesson-a']);
+    expect(RoadmapDigest.parse(after.encode()), after);
+    expect(after.excludedLessonIds, ['lesson-a', 'lesson-b']);
+    expect(before.causesTo(after), [RoadmapChangeCause.scopeChanged]);
+    expect(RoadmapDigest.parse(before.encode()).excludedLessonIds, isEmpty);
+  });
 
   DaySnapshot snapshot({
     DateTime? day,

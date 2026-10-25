@@ -2,7 +2,8 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
-import {saveExamSettings,readStudyRoadmap,advanceStudyRoadmap,readStudyDay} from '../lib/roadmap.js';
+import {core} from '../lib/_core.js';
+import {build,saveExamSettings,readStudyRoadmap,advanceStudyRoadmap,readStudyDay} from '../lib/roadmap.js';
 import {recordSession} from '../lib/ingestSession.js';
 import {readStudyInsights} from '../lib/studyInsights.js';
 import {emptyTotals,toDoc} from '../lib/_answerTotals.js';
@@ -346,4 +347,46 @@ test('week strip past study days without stored plans are missed while rest days
  assert.equal(view.weekDays.find(d=>d.day==='2026-10-23').state,'missed');
  assert.equal(view.weekDays.find(d=>d.day==='2026-10-18').state,'rest');
  assert.equal((await readStudyDay(auth(uid),{...body(uid),date:'2026-10-23'},deps())).kind,'unknown');
+});
+
+
+test('lesson exclusions persist normalized IDs and reshape an existing roadmap without hiding sibling lessons',async()=>{
+ const uid='w4f-lesson-scope';const {lessons}=await seed(uid);await trial(uid);
+ const first=await readStudyRoadmap(auth(uid),body(uid),deps());
+ const removed=first.today.lessonIds[0];assert.ok(removed);
+ const [review]=JSON.parse(core().scheduleReviews(JSON.stringify({now:NOW-DAY,reviews:[{questionId:'cse-0-0',questionVersion:1,correct:false,previous:null}]})));
+ await db.doc('users/'+uid+'/server/reviews/items/cse-0-0').set({questionId:'cse-0-0',due:Date.parse(review.due),stateJson:JSON.stringify(review)});
+ const settings={...body(uid),examDate:{precision:'day',day:'2026-11-15'},studyDays:[1,2,3,4,5,6,7],assessmentCompleted:true,excludedTopicIds:[],excludedLessonIds:[removed,removed]};
+ await saveExamSettings(auth(uid),settings,deps());
+ assert.deepEqual((await db.doc('users/'+uid+'/server/settings').get()).get('excludedLessonIds'),[removed]);
+ const view=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.equal(view.today.lessonIds.includes(removed),false);
+ assert.ok(view.today.lessonIds.some(id=>lessons.some(l=>l.id===id && l.id!==removed)));
+ assert.equal(view.today.newQuestionIds.some(id=>id.startsWith('cse-0-')),false,'questions linked to the excluded lesson stay out');
+ assert.equal(view.today.reviewQuestionIds.includes('cse-0-0'),false);
+ const {roadmap}=await build(db,uid,settings,true,NOW);
+ assert.equal(roadmap.today.reviewQuestionIds.includes('cse-0-0'),false);
+ for(const date of ['2026-10-25','2026-10-26']) {
+  const future=await readStudyDay(auth(uid),{...body(uid),date},deps());
+  assert.equal(future.plan.lessonIds.includes(removed),false);
+ }
+});
+test('lesson exclusion validation rejects malformed, unknown, all-lessons and mismatched-owner requests',async()=>{
+ const uid='w4f-invalid-lessons';const {lessons,topics}=await seed(uid);
+ const settings={...body(uid),examDate:null,studyDays:[1],excludedTopicIds:[]};
+ for(const excludedLessonIds of ['bad',[4],[''],['x'.repeat(129)],Array(1001).fill('a'),['missing'],lessons.map(l=>l.id)]) {
+  assert.equal(await code(saveExamSettings(auth(uid),{...settings,excludedLessonIds},deps())),'invalid-argument');
+ }
+ assert.equal(await code(saveExamSettings(auth(uid),{...settings,excludedTopicIds:[topics[0]._id],excludedLessonIds:lessons.slice(6).map(l=>l.id)},deps())),'invalid-argument');
+ assert.equal(await code(saveExamSettings(auth(uid),{...settings,expectedUid:'other',excludedLessonIds:[lessons[0].id]},deps())),'failed-precondition');
+ const {expectedUid,...withoutOwner}=settings;
+ assert.equal(await code(saveExamSettings(auth(uid),{...withoutOwner,excludedLessonIds:[]},deps())),'invalid-argument');
+});
+
+test('compatibility roadmap honors catalog lesson exclusions and linked questions',async()=>{
+ const uid='w4f-legacy-lessons';const {lessons}=await seed(uid);
+ const settings={examId:EXAM,examDate:{precision:'day',day:'2026-11-15'},studyDays:[1,2,3,4,5,6,7],assessmentCompleted:true,excludedLessonIds:[lessons[0].id]};
+ const {roadmap}=await build(db,uid,settings,true,NOW);
+ assert.equal(roadmap.today.lessonIds.includes(lessons[0].id),false);
+ assert.equal(roadmap.today.newQuestionIds.some(id=>id.startsWith('cse-0-')),false);
 });

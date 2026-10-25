@@ -443,3 +443,147 @@ git status --short
  M server_dart/insights_codec.dart
  M test/features/metrics/archetypes/archetype_identity_test.dart
 ```
+
+## October 25 W4f run 2: lesson scope contract
+
+User-authorized W4f brief item 3 supersedes the earlier lesson exclusion blocker.
+Candidate HEAD: 52419d645c18b200c6c6593016f90a47ee87585c, uncommitted changes.
+Preserved initial dirty roadmap.ts and emulator tests. Policy read from cached
+origin/main d5f94fc27d28e539c968d69efc94ac004318b01c; controlling W4f L2/L3,
+C1-C10 ruling and W4 client coordination read from client origin/main
+0176ea1e4f8a35f00cbe9f4f491cc2dcc665bd0e. No fetch, commit, merge, push,
+deployment or dependency addition.
+
+setExamSettings accepts, normalizes, bounds and owner-checks excludedLessonIds
+beside excludedTopicIds. Unknown lessons and combined topic/lesson exclusions
+that remove every lesson are rejected. Both compatibility build and transactional
+roadmap use authored catalog lesson links, remove excluded lessons and their
+linked questions, and filter due reviews against the resulting question scope.
+Legacy pre-catalog content retains its existing reader. Shared RoadmapDigest
+now parses and encodes excludedLessons, sorted with an empty default for old
+snapshots, and reports scopeChanged. This prevents stale same-day plans after a
+lesson selection changes. Shared day_snapshot.dart and its test were copied
+identically to the client. No database schema change here.
+
+Failing-first emulator output (build already included the supplied dirty patch):
+```text
+lesson exclusions persist normalized IDs and reshape an existing roadmap
+not ok: expected false, actual true (same-day excluded lesson remained)
+compatibility roadmap honors catalog lesson exclusions and linked questions
+not ok: expected false, actual true (linked questions remained)
+# tests 3
+# pass 1
+# fail 2
+```
+The existing validation test passed on the supplied implementation. Its original
+failing-first run was unavailable; no new red claim is made for that behavior.
+After fixes focused emulator output was 3 pass, 0 fail. The final full emulator
+run additionally checks real scheduled due reviews stay excluded in both paths.
+
+Actual final checks, Node 22 and Java 21:
+```text
+cd functions && npx tsc --noEmit
+exit 0
+PATH=/opt/homebrew/opt/node@22/bin:/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+# tests 183
+# pass 183
+# fail 0
+# tests 238
+# pass 238
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+Script exited successfully (code 0)
+server_dart/build.sh --check
+generated JS is current
+git diff --check
+exit 0
+```
+Exact npm test used a temporary isolated emulator configuration, restored in a
+finally block. Ports auth9192/firestore8182/storage9292/hub4492/logging4592;
+UI disabled. No other process was stopped. Logs retained in ignored
+build/w4f-run2. Flutter metrics/roadmap verification is serialized by the lead
+and remains pending here. Independent review and combined acceptance remain
+with the lead. No open server product decision.
+
+The compiled bridge is tracked in this branch and changed after its shared
+Dart input changed. Its regenerated working copy is required for --check and
+runtime parity. Nothing was committed; the lead must preserve the explicit
+instruction not to commit generated files when preparing integration.
+
+Final source identity SHA-256:
+```text
+74d49f62b6686abf4e5e6c5504c24e77f49020aacbf049063d25c0d559b345eb functions/src/roadmap.ts
+4dc29995c942d204b6893f834c7916c56092bfae27ccce1676881f1e55ae65a2 functions/test/study-roadmap.emulator.mjs
+6c0282e4238a9460bb2e02cd7c4dacc7754cdb37f4446097d5551cbfa58a8b3b lib/features/roadmap/domain/day_snapshot.dart
+53afc5517f4a0f1e6a1029d22bdc74bfbe60cb22a1630447bb3b6dcaf22a6d91 functions/src/generated/pantas_core.js
+```
+
+### Final candidate recheck after constructor lint cleanup
+
+The lead copied the lint-clean shared digest and its test into this tree and
+rebuilt the tracked bridge. Required constructor arguments now precede optional
+arguments. No behavior changed. Both shared Dart files match the client.
+
+Policy-ref correction from the lead: actual cached CLIENT origin/main is
+`d28f0f623221dbd67d8be54a0c659cabd01a85ce`; the AGENTS, WORKFLOW and
+SUBAGENTS policy contents are identical to the previously cited 0176 revision,
+confirmed by the lead's git diff. The earlier ref citation is retained as history.
+Read-only independent review found no additional important server lesson issues.
+
+Fresh actual final-candidate checks, Node22 and Java21, same isolated emulator
+configuration restored after exact npm test:
+```text
+cd functions && npx tsc --noEmit
+exit 0
+PATH=/opt/homebrew/opt/node@22/bin:/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+# tests 183
+# pass 183
+# fail 0
+# tests 238
+# pass 238
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 75590.4375
+Script exited successfully (code 0)
+server_dart/build.sh --check (lead-run, /tmp/w4f-study-recheck.log)
+generated JS is current
+git diff --check
+exit 0
+```
+Final hashes supersede the earlier source identity where different:
+```text
+74d49f62b6686abf4e5e6c5504c24e77f49020aacbf049063d25c0d559b345eb functions/src/roadmap.ts
+4dc29995c942d204b6893f834c7916c56092bfae27ccce1676881f1e55ae65a2 functions/test/study-roadmap.emulator.mjs
+d7f99a5f560bbe12d64c3233c31d2975cc320881e0d30e86f69c440d00774e1a lib/features/roadmap/domain/day_snapshot.dart
+79c2e169e9b4dbcf7c3f93e7957bcd3679613f7892f961d4a189b35b16265a2c test/features/roadmap/domain/day_snapshot_test.dart
+ed05b1add1a8b5614746a7e7b52ee70e446bd60fa5549eb377b7d5dbdb5a6b69 functions/src/generated/pantas_core.js
+```
+No Dart edits during this recheck. Full log is in ignored
+build/w4f-run2/w4f-study-final-npm.log. Flutter metrics/roadmap remains assigned
+to the lead. All changes remain uncommitted.
+
+### Lead final cross-tree verification
+
+```text
+flutter test test/features/metrics test/features/roadmap --reporter expanded
+03:43 +314: All tests passed!
+```
+
+The client full suite passed 4921 tests. Its final analysis, format, layering
+and attribution checks are clean. Payments passed 119 plain and 145 emulator
+tests. Study passed 183 plain and 238 emulator tests. Both TypeScript checks
+passed. The study bridge check reports `generated JS is current`.
+
+The two web_payment_gateway.dart files are byte-identical. The changed shared
+Dart digest and its test are byte-identical across client and study. All three
+branch heads are unchanged from the assigned baselines. Everything remains
+uncommitted. The tracked regenerated study bridge is also uncommitted.
+
+No product decision remains within the resumed items 1–9. Phone visual acceptance
+and live deployed behavior were not checked. Historical Play records with unknown
+renewal status need their next real RevenueCat refresh before the warning can be
+confirmed. No backfill or deployment was performed.

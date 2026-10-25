@@ -23,6 +23,7 @@ export type ExamSettings = {
   studyDays: number[];
   assessmentCompleted?: boolean;
   excludedTopicIds?: string[];
+  excludedLessonIds?: string[];
 };
 
 type Auth = {uid: string; token: object} | undefined;
@@ -69,7 +70,10 @@ export function checkSettings(data: unknown): ExamSettings {
   const excluded = body?.excludedTopicIds;
   if (excluded !== undefined && (!Array.isArray(excluded) || excluded.length > 1000 ||
       excluded.some(id => typeof id !== 'string' || !id || id.length > 128))) throw bad('Bad excluded topics.');
-  return {examId, examDate, ...(excluded === undefined ? {} : {excludedTopicIds: [...new Set(excluded as string[])].sort()}), studyDays: [...new Set(days)].sort((a, b) => a - b),
+  const excludedLessons = body?.excludedLessonIds;
+  if (excludedLessons !== undefined && (!Array.isArray(excludedLessons) || excludedLessons.length > 1000 ||
+      excludedLessons.some(id => typeof id !== 'string' || !id || id.length > 128))) throw bad('Bad excluded lessons.');
+  return {examId, examDate, ...(excludedLessons === undefined ? {} : {excludedLessonIds: [...new Set(excludedLessons as string[])].sort()}), ...(excluded === undefined ? {} : {excludedTopicIds: [...new Set(excluded as string[])].sort()}), studyDays: [...new Set(days)].sort((a, b) => a - b),
     ...(assessed === undefined ? {} : {assessmentCompleted: assessed})};
 }
 
@@ -82,7 +86,14 @@ const examKey = (settings: ExamSettings) => `${settings.examId}|${JSON.stringify
  */
 export async function build(db: Firestore, uid: string, settings: ExamSettings, pro: boolean, now: number,
   view?: (topicOf: Map<string, string>) => Promise<AnswerView>) {
-  const content = await loadExamContent(db, settings.examId, now);
+  const catalog = await db.doc('content/catalog/items/' + settings.examId).get();
+  const allContent = catalog.exists ? await loadStudyContent(db, settings.examId)
+    : await loadExamContent(db, settings.examId, now);
+  const content = {...allContent,
+    topics: allContent.topics.filter(t => !settings.excludedTopicIds?.includes(t.id)),
+    lessons: allContent.lessons.filter(l => !settings.excludedTopicIds?.includes(l.topicId) && !settings.excludedLessonIds?.includes(l.id)),
+    questions: allContent.questions.filter(q => !settings.excludedTopicIds?.includes(q.topicId) &&
+      (!('lessonId' in q) || q.lessonId === null || !settings.excludedLessonIds?.includes(q.lessonId as string)))};
   const topicOf = new Map(content.questions.map(question => [question.id, question.topicId]));
   // One read of the running totals. `view` lets a test supply the old full scan to compare against.
   const answers = await (view ? view(topicOf) : loadTotals(db, uid).then(totals => viewOf(totals, topicOf)));
@@ -98,11 +109,11 @@ export async function build(db: Firestore, uid: string, settings: ExamSettings, 
     today: phDay(now),
     examId: settings.examId,
     examDate: settings.examDate,
-    topics: content.topics.map((topic, authoredIndex) => ({id: topic.id, authoredIndex, name: topic.name})),
+    topics: content.topics.filter(t => !settings.excludedTopicIds?.includes(t.id)).map((topic, authoredIndex) => ({id: topic.id, authoredIndex, name: topic.name})),
     // Left out so the engine uses the app's own list of prerequisites.
     prerequisites: null,
-    lessons: content.lessons.map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: null})),
-    questions: content.questions.map(q => ({id: q.id, topicId: q.topicId, lessonId: null, passageId: q.passageId})),
+    lessons: content.lessons.filter(l => !settings.excludedTopicIds?.includes(l.topicId) && !settings.excludedLessonIds?.includes(l.id)).map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: null})),
+    questions: content.questions.filter(q => !settings.excludedTopicIds?.includes(q.topicId)).map(q => ({id: q.id, topicId: q.topicId, lessonId: 'lessonId' in q ? q.lessonId : null, passageId: q.passageId})),
     seenQuestionIds: answers.seenQuestionIds,
     dueReviews: await dueReviewInputs(db, uid, now, new Set(content.questions.map(q => q.id))),
     scores: answers.scores,
@@ -142,17 +153,22 @@ export async function computeRoadmap(db: Firestore, uid: string, pro: boolean, n
 export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapDeps): Promise<{stored: true}> {
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
   const requestBody = studyObject(data);
-  assertStudyOwner(auth.uid, requestBody, requestBody.expectedUid !== undefined || requestBody.excludedTopicIds !== undefined);
+  assertStudyOwner(auth.uid, requestBody, requestBody.expectedUid !== undefined || requestBody.excludedTopicIds !== undefined || requestBody.excludedLessonIds !== undefined);
   const settings = checkSettings(data);
   const now = (deps.now ?? Date.now)();
   if (!await (deps.allow ?? allowDefault)(auth.uid, 'saveExamSettings')) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
   await deps.db.runTransaction(async tx=>{
-    if (settings.excludedTopicIds !== undefined) {
+    if (settings.excludedTopicIds !== undefined || settings.excludedLessonIds !== undefined) {
       const content = await loadStudyContent(deps.db, settings.examId,tx);
-      if (settings.excludedTopicIds.some(id => !content.topics.some(t => t.id === id)) ||
-          content.topics.every(t => settings.excludedTopicIds!.includes(t.id))) throw bad('Choose at least one known topic.');
+      if (settings.excludedTopicIds?.some(id => !content.topics.some(t => t.id === id)) ||
+          content.topics.every(t => (settings.excludedTopicIds ?? []).includes(t.id))) throw bad('Choose at least one known topic.');
+      if (settings.excludedLessonIds?.some(id => !content.lessons.some(l => l.id === id)) ||
+          (settings.excludedLessonIds?.length && content.lessons.every(l =>
+            settings.excludedTopicIds?.includes(l.topicId) || settings.excludedLessonIds!.includes(l.id)))) {
+        throw bad('Choose at least one known lesson.');
+      }
     }
     tx.set(settingsRef(deps.db, auth.uid),{...settings, updatedAt: now});
   });
@@ -245,10 +261,11 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     tx.get(studyHistory(db, uid).where('examId', '==', examId).where('occurredAt', '>=', dayStart(phDay(now))).where('occurredAt', '<', dayStart(phDay(now)) + DAY_MS)),
   ]);
   const excluded = new Set(config.excludedTopicIds ?? []);
+  const excludedLessons = new Set(config.excludedLessonIds ?? []);
   const includedTopics = new Set(allContent.topics.filter(t => !excluded.has(t.id)).map(t => t.id));
   const content = {...allContent,topics:allContent.topics.filter(t => includedTopics.has(t.id)),
-    lessons:allContent.lessons.filter(l => includedTopics.has(l.topicId)),
-    questions:allContent.questions.filter(q => includedTopics.has(q.topicId))};
+    lessons:allContent.lessons.filter(l => includedTopics.has(l.topicId) && !excludedLessons.has(l.id)),
+    questions:allContent.questions.filter(q => includedTopics.has(q.topicId) && (q.lessonId === null || !excludedLessons.has(q.lessonId)))};
   const totals = await totalsIn(tx, db, uid, totalDoc), topicOf = new Map(content.questions.map(q => [q.id, q.topicId]));
   const answerView = viewOf(totals, topicOf), today = phDay(now);
   const sameDay = previousDays.docs.find(d => d.get('day') === today);
@@ -275,7 +292,7 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     assessmentCompleted: config.assessmentCompleted ?? answerView.anyAnswers,
     contentRevision: content.revision, anchoredReviewOnlyFrom: sameDate ? prior?.reviewOnlyFrom ?? null : null,
   };
-  const digest = JSON.stringify({examId, examDate: examDateKey(config), scope: content.topics.map(t => t.id).sort(),
+  const digest = JSON.stringify({examId, examDate: examDateKey(config), scope: content.topics.map(t => t.id).sort(), excludedLessons: [...excludedLessons].sort(),
     content: content.revision, assessed: inputs.assessmentCompleted, mocks: relevantMocks.length,
     studyDays: config.studyDays.join(',')});
   const readIds = reads.docs.map(d => String(d.get('lessonId')));
