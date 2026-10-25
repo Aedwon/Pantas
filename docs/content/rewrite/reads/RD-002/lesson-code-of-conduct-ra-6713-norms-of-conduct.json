@@ -1,0 +1,286 @@
+{
+ "batch": "RD-002",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/norms-of-conduct.md",
+ "lesson_sha256": "a12a9a9fd566124909924477e286137e1f6da0b667b10fe0ebb24492e0891056",
+ "rewrite_commit": "b0a6543c48bad9031053426c877a2ed3818a1253",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-norms-of-conduct",
+  "role": "A",
+  "lesson_sha256": "a12a9a9fd566124909924477e286137e1f6da0b667b10fe0ebb24492e0891056",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the statute facts supplied by the packet: RA 6713 title and dates, eight Section 4 norms, the official-duty scope, and the Section 6 reward system; the rewrite is consistent with those facts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved all ten worked examples independently: 8 norms; public interest; professionalism; justness and sincerity; political neutrality; responsiveness; nationalism and patriotism; commitment to democracy; simple living; and Section 6 incentives and rewards. Each matches the stated solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Confirmed Core Concept, Examples, and Traps to Watch For are present. General Information makes Speed Tricks optional, and the packet lists no required figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Support locally produced goods, resources, and technology, build pride in the country, and help defend Philippine sovereignty from foreign intrusion.",
+      "problem": "This teaching sentence is still dense for the Grade 5 voice and relies on uncommon terms such as sovereignty and foreign intrusion without plain wording."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each example stem for direct exam-style questioning and sufficient facts. The rewrite asks the count and behavior-to-norm questions directly, and every solution uses short explanatory steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears because this is not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English, so Filipino example and quiz language requirements do not apply.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino teaching text requiring a Komisyon sa Wikang Filipino spelling check.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English, so the Filipino no-Taglish rule cannot apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt refers to a target word or asks about a word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson follows the General Information fit with Core Concept, Examples, and Traps to Watch For. It introduces no calculation formula that would need earlier placement."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the examples to the lesson cases: count of eight norms, each of the eight norms in behavior scenarios, and the Section 6 reward system. The set moves from recall to applied cases without number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all ten worked solutions: every multi-step solution is presented as a numbered list with no skipped reasoning step."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations, so phone-width display-equation review cannot apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no illustration placeholders, and the packet identifies no required figure for this lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "help defend Philippine sovereignty from foreign intrusion.",
+      "problem": "Sovereignty is necessary to understand this part of the nationalism norm, but the lesson never gives a plain meaning before students need the term."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the meaning and operation of all eight norms plus the incentive system. Each norm is paired with concrete conduct, and the reward system explains who reviews performance and the kinds of recognition available."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked applicability limits: Section 4 is tied to official duties, responsiveness is qualified by law/public interest and appropriateness, and automatic promotion is limited by legal promotion conditions."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|B03|0": {
+    "status": "fixed",
+    "quote": "> Do not say that Section $4$ makes all eight norms a blanket rule for every moment of private life.",
+    "note": "The rewrite now includes a populated Traps to Watch For section, which is the required General Information addition."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L02|0": {
+    "status": "fixed",
+    "quote": "Do public work with skill, care, and dedication. Officials should also avoid making public service look like a source of special favors.",
+    "note": "The original statutory sentence was replaced with short plain-language teaching. A separate L02 finding remains elsewhere."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|B01|0": {
+    "status": "fixed",
+    "quote": "These are standards for public officials and employees while they carry out official duties.",
+    "note": "The rewrite now states the Section 4 official-duty setting instead of saying all eight norms apply at all times."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|B08|0": {
+    "status": "fixed",
+    "quote": "Republic Act No. $6713$ is the **Code of Conduct and Ethical Standards for Public Officials and Employees**. It was approved on February $20$, $1989$ and took effect on March $25$, $1989$.",
+    "note": "The statute number and all date numerals in the cited passage are now wrapped in inline math."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L05|0": {
+    "status": "fixed",
+    "quote": "How many norms of conduct are listed in Section $4$ of RA $6713$?",
+    "note": "The count is now asked directly as an exam-style question without the old review-question meta framing."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L25|0": {
+    "status": "fixed",
+    "quote": "**Public accountability** means officials must answer to the people for how they use public power and resources.",
+    "note": "The previously unexplained public-accountability term now has a plain definition before the related example."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L27|0": {
+    "status": "fixed",
+    "quote": "Section $4$ gives eight norms of conduct. These are standards for public officials and employees while they carry out official duties.",
+    "note": "The governing applicability condition is now taught explicitly as conduct while carrying out official duties."
+   },
+   "general-information-code-of-conduct-ra-6713#34": {
+    "status": "fixed",
+    "quote": "It was approved on February $20$, $1989$ and took effect on March $25$, $1989$.",
+    "note": "The approval and effectivity dates are taught directly as orientation facts, without inventing a date calculation."
+   },
+   "general-information-code-of-conduct-ra-6713#41": {
+    "status": "fixed",
+    "quote": "The key facts are unfair discrimination and the applicant's rights.",
+    "note": "Example 4 now requires matching an improper denial of lawful service to the norm protecting fair treatment and rights."
+   },
+   "general-information-code-of-conduct-ra-6713#44": {
+    "status": "fixed",
+    "quote": "Responsiveness also covers prompt and adequate service, openness of information when allowed, consultation when appropriate, suggestions, simpler procedures, and avoiding red tape.",
+    "note": "The rewrite now teaches transparency, consultation, suggestions, procedure simplification, and red-tape avoidance."
+   },
+   "general-information-code-of-conduct-ra-6713#45": {
+    "status": "fixed",
+    "quote": "Support locally produced goods, resources, and technology, build pride in the country, and help defend Philippine sovereignty from foreign intrusion.",
+    "note": "The nationalism norm now includes local production, national pride, and sovereignty clauses, although the wording has an L02/L25 issue."
+   },
+   "general-information-code-of-conduct-ra-6713#46": {
+    "status": "fixed",
+    "quote": "Be loyal to the Republic and the Filipino people. Support locally produced goods, resources, and technology, build pride in the country, and help defend Philippine sovereignty from foreign intrusion.",
+    "note": "The rewrite now connects loyalty to the Republic and Filipino people with the local-resource and sovereignty duties requested."
+   },
+   "general-information-code-of-conduct-ra-6713#53": {
+    "status": "fixed",
+    "quote": "The norms do not all describe the same kind of conduct. On an exam, focus on the action in the situation and match it to the norm that most directly covers that action.",
+    "note": "I checked Examples 2 through 9: each of the eight norms now has an applied behavior-classification case, including competing cues."
+   },
+   "general-information-code-of-conduct-ra-6713#54": {
+    "status": "fixed",
+    "quote": "Section $6$ creates an annual system of incentives and rewards for outstanding public officials and employees.",
+    "note": "The rewrite now teaches the Section 6 incentive system and adds a worked example asking which part of the law provides it."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L07|0": {
+    "status": "fixed",
+    "quote": "On an exam, focus on the action in the situation and match it to the norm that most directly covers that action.",
+    "note": "The rewrite now includes an exam-facing reason and a useful matching strategy instead of only labeling a review question."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L15|0": {
+    "status": "fixed",
+    "quote": "Give fair service no matter which political party a person supports or prefers.",
+    "note": "The norm entries now begin with varied plain-language actions instead of repeatedly opening with statutory wording."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L19|0": {
+    "status": "fixed",
+    "quote": "1. Section $4$ lists the norms from Commitment to public interest through Simple living.",
+    "note": "Example 1 now starts its solution directly with the numbered list and has no unnumbered reasoning lead-in."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L19|1": {
+    "status": "fixed",
+    "quote": "1. The main issue is choosing the public good over a personal relationship.",
+    "note": "Example 2 now puts the first reasoning step inside the numbered solution list."
+   },
+   "lesson-code-of-conduct-ra-6713-norms-of-conduct|L19|2": {
+    "status": "fixed",
+    "quote": "1. The employee is making public service look like a source of special favors.",
+    "note": "Example 3 now puts its first reasoning step inside the numbered solution list."
+   }
+  }
+ }
+}

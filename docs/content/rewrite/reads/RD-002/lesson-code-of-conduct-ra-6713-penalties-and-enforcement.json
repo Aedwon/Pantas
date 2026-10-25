@@ -1,0 +1,356 @@
+{
+ "batch": "RD-002",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+ "lesson_sha256": "6bb3931f8a6293f45bffa046ea968a8b0bdeba4ebe583999b718392ddf4fcd19",
+ "rewrite_commit": "b0a6543c48bad9031053426c877a2ed3818a1253",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+  "role": "A",
+  "lesson_sha256": "6bb3931f8a6293f45bffa046ea968a8b0bdeba4ebe583999b718392ddf4fcd19",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 2 facts against the packet."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved all worked examples in lesson 2; answers match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 2 required sections and figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11$ also covers private persons who join a conspiracy with a public official or employee as co-principals, accomplices, or accessories.",
+      "problem": "The first-use sentence stacks several hard legal terms before plain meanings are available."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word appears.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 2 stems, givens, and solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino text needs KWF checking.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is not Filipino teaching prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt refers to a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 2 subject section fit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped lesson 2 cases to worked examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all lesson 2 multi-step solutions are fully numbered."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equation appears in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No placeholder or required figure appears.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $11$ also covers private persons who join a conspiracy with a public official or employee as co-principals, accomplices, or accessories.",
+      "problem": "The role bullets are explained later, but conspiracy itself never gets a plain meaning."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 2 concept explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 2 conditions and exceptions."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B03|0": {
+    "status": "fixed",
+    "quote": "> First identify which rule was violated.",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L18|0": {
+    "status": "fixed",
+    "quote": "A public employee is found liable for a general violation of RA",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L18|2": {
+    "status": "fixed",
+    "quote": "The same act violates RA $6713$ and another law. The other law",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|1": {
+    "status": "fixed",
+    "quote": "A violation of Section $7$, $8$, or $9$ may be punished by",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|2": {
+    "status": "fixed",
+    "quote": "The court may assess a penalty of up to ₱$25{,}000$.",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|6": {
+    "status": "fixed",
+    "quote": "2. The penalty may be imprisonment of up to $5$ years, a fine of up",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|7": {
+    "status": "fixed",
+    "quote": "3. The court may also disqualify the person from holding public",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L02|0": {
+    "status": "fixed",
+    "quote": "They can face the same **penal liabilities**, meaning the same",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L25|0": {
+    "status": "fixed",
+    "quote": "An **accomplice** knowingly helps in carrying out the offense through",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L27|0": {
+    "status": "fixed",
+    "quote": "Section $8(D)$ bans obtaining or using a filed statement for a",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#58": {
+    "status": "fixed",
+    "quote": "Due notice means the person is told the charge or alleged violation.",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#63": {
+    "status": "fixed",
+    "quote": "A **principal** takes a direct part, directly causes another to",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#64": {
+    "status": "not_fixed",
+    "quote": "The facts establish that the person is an accomplice.",
+    "note": "The example still gives the accomplice status instead of testing it."
+   },
+   "general-information-code-of-conduct-ra-6713#65": {
+    "status": "fixed",
+    "quote": "An **accessory** knows the offense was committed and then takes part",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#68": {
+    "status": "fixed",
+    "quote": "A company obtains a public employee's filed SALN and uses the",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#72": {
+    "status": "fixed",
+    "quote": "Is this use prohibited under Section $8(D)$, and what Section $11$",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#73": {
+    "status": "fixed",
+    "quote": "RA $6713$ does not set one general appeal route for every case. The",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#74": {
+    "status": "fixed",
+    "quote": "Section $12$ gives the **Civil Service Commission (CSC)** primary",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "general-information-code-of-conduct-ra-6713#75": {
+    "status": "fixed",
+    "quote": "The Ombudsman must also take steps to protect citizens who report",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|0": {
+    "status": "fixed",
+    "quote": "Section $11$ of RA $6713$ gives penalties for violations of the Code.",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|3": {
+    "status": "fixed",
+    "quote": "A public official is proven to have committed a violation of Section",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|4": {
+    "status": "fixed",
+    "quote": "1. Section $7$ is one of the three sections covered by the special",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|5": {
+    "status": "fixed",
+    "quote": "1. Section $11$ covers private persons who join the conspiracy as",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|8": {
+    "status": "fixed",
+    "quote": "A public officer is found liable for an RA $6713$ violation in a",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|9": {
+    "status": "fixed",
+    "quote": "1. Administrative liability is separate from criminal prosecution",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|10": {
+    "status": "fixed",
+    "quote": "The CSC receives an RA $6713$ case that may require criminal",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|11": {
+    "status": "fixed",
+    "quote": "1. The CSC has primary responsibility for administering and enforcing",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|B08|12": {
+    "status": "fixed",
+    "quote": "Which institution does Section $12$ direct to take steps to protect",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L18|1": {
+    "status": "fixed",
+    "quote": "A company obtains a public employee's filed SALN and uses the",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L19|0": {
+    "status": "fixed",
+    "quote": "1. This is the general penalty rule, not the special criminal rule",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L19|1": {
+    "status": "fixed",
+    "quote": "1. Section $7$ is one of the three sections covered by the special",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L19|2": {
+    "status": "fixed",
+    "quote": "1. Section $11$ covers private persons who join the conspiracy as",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   },
+   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement|L25|1": {
+    "status": "fixed",
+    "quote": "A **proper administrative proceeding** is a case handled through the",
+    "note": "Checked the rewrite; the quoted text fixes this item."
+   }
+  }
+ }
+}

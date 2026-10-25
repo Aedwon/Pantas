@@ -1,0 +1,463 @@
+{
+ "batch": "RD-002",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+ "lesson_sha256": "5898388dd12a058e2ccced9ea23b8c762892887a13c8d49ceaab1335f2893b90",
+ "rewrite_commit": "b0a6543c48bad9031053426c877a2ed3818a1253",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+  "role": "A",
+  "lesson_sha256": "5898388dd12a058e2ccced9ea23b8c762892887a13c8d49ceaab1335f2893b90",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 facts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved lesson 3 examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 structure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A **conflict of interest** exists when an official or employee is a board member, officer, substantial stockholder, owner, or person with a substantial business interest, and that private interest may oppose or be affected by faithful performance of official duty.",
+      "problem": "This long formal definition is not simple Grade 5 teaching prose."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction term appears.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 example wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino text needs checking.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino teaching prose applies.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No target-word prompt appears.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 section fit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 case coverage."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked every multi-step solution in lesson 3 uses numbered steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 equation width."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure placeholder applies.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The SALN filing rule does not cover people who serve only in an honorary capacity, laborers, or casual or temporary workers.",
+      "problem": "Honorary capacity controls an exemption but is never explained."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lesson 3 rule limits."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B03|0": {
+    "status": "fixed",
+    "quote": "> Match the person's position",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|0": {
+    "status": "fixed",
+    "quote": "A city government employee is",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|1": {
+    "status": "fixed",
+    "quote": "1. The annual SALN is due on or",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|3": {
+    "status": "fixed",
+    "quote": "Which child is included in the",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B02|0": {
+    "status": "fixed",
+    "quote": "3. The employee must file by",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|2": {
+    "status": "fixed",
+    "quote": "1. **Assumption of office:**",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|3": {
+    "status": "fixed",
+    "quote": "2. **Annual filing:** File on",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|4": {
+    "status": "fixed",
+    "quote": "3. **Separation from service:**",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|6": {
+    "status": "fixed",
+    "quote": "They become available for",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|7": {
+    "status": "fixed",
+    "quote": "A statement remains available",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|8": {
+    "status": "fixed",
+    "quote": "When a conflict of interest",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|9": {
+    "status": "fixed",
+    "quote": "A newly appointed government",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|12": {
+    "status": "fixed",
+    "quote": "1. A covered employee must file",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|13": {
+    "status": "fixed",
+    "quote": "2. Counting $30$ days after",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|15": {
+    "status": "fixed",
+    "quote": "2. The official must resign",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|16": {
+    "status": "fixed",
+    "quote": "3. The official must divest the",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|17": {
+    "status": "fixed",
+    "quote": "A newly appointed bureau",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|18": {
+    "status": "fixed",
+    "quote": "A journalist requests a copy of",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|20": {
+    "status": "fixed",
+    "quote": "1. A filed statement becomes",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|21": {
+    "status": "fixed",
+    "quote": "3. An $8$-year-old statement is",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|22": {
+    "status": "fixed",
+    "quote": "4. The statement may therefore",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B10|0": {
+    "status": "fixed",
+    "quote": "A statement remains available",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B10|1": {
+    "status": "fixed",
+    "quote": "1. A filed statement becomes",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L02|0": {
+    "status": "fixed",
+    "quote": "Officials and employees must",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L02|1": {
+    "status": "fixed",
+    "quote": "For a person already in",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L05|1": {
+    "status": "fixed",
+    "quote": "4. The statement may therefore",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L25|0": {
+    "status": "fixed",
+    "quote": "RA $6713$ uses relatives within",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L25|2": {
+    "status": "fixed",
+    "quote": "**Divestment** means completely",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L26|0": {
+    "status": "fixed",
+    "quote": "A SALN lists property and other",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L26|1": {
+    "status": "fixed",
+    "quote": "**Divestment** means completely",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L27|0": {
+    "status": "fixed",
+    "quote": "The SALN filing rule does not",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L27|1": {
+    "status": "fixed",
+    "quote": "The transfer must be real and",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#81": {
+    "status": "fixed",
+    "quote": "For a side relationship, count",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#102": {
+    "status": "fixed",
+    "quote": "A **conflict of interest**",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#103": {
+    "status": "fixed",
+    "quote": "The transfer must be real and",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#104": {
+    "status": "fixed",
+    "quote": "The SALN filing rule does not",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#105": {
+    "status": "fixed",
+    "quote": "Section $8(D)$ bans obtaining",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#106": {
+    "status": "fixed",
+    "quote": "To find net worth, subtract",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "general-information-code-of-conduct-ra-6713#107": {
+    "status": "fixed",
+    "quote": "If a filing fails one of those",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|0": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|1": {
+    "status": "fixed",
+    "quote": "RA $6713$ uses relatives within",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|5": {
+    "status": "fixed",
+    "quote": "RA $6713$ assigns filing",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|10": {
+    "status": "fixed",
+    "quote": "A city government employee is",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|11": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|14": {
+    "status": "fixed",
+    "quote": "A public employee has already",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|19": {
+    "status": "fixed",
+    "quote": "1. Section $8(D)$ bans",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L05|0": {
+    "status": "fixed",
+    "quote": "**Divestment** means completely",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|2": {
+    "status": "fixed",
+    "quote": "2. A final filing is also due",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|4": {
+    "status": "not_fixed",
+    "quote": "A statement remains available",
+    "note": "Still no worked example for this exception."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|5": {
+    "status": "fixed",
+    "quote": "A public employee has already",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L19|0": {
+    "status": "fixed",
+    "quote": "1. A covered employee must file",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L19|1": {
+    "status": "fixed",
+    "quote": "1. The annual SALN is due on or",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L19|2": {
+    "status": "fixed",
+    "quote": "1. A city employee is a local",
+    "note": "Checked rewrite; this item is fixed."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L25|1": {
+    "status": "not_fixed",
+    "quote": "These include a **Statement of",
+    "note": "The disclosure term remains unexplained."
+   }
+  }
+ }
+}
