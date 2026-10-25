@@ -1,39 +1,45 @@
 ---
 _id: "lesson-grammar-and-structure-sentence-structure"
 title: "Sentence Structure (Simple, Compound, Complex, Compound-Complex)"
-summary: "Learn how to classify sentences by the number and type of clauses they contain."
+summary: "Learn how clauses combine to form simple, compound, complex, and compound-complex sentences in English and Filipino."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 9
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-English sentences fall into four structural types, based on how many independent and dependent clauses they contain.
+A **clause** is a group of words with a subject and a verb. The subject tells who or what the clause is about. The verb tells what the subject does or is.
 
-A **simple sentence** has exactly one independent clause and no dependent clause. "The dog barked." It can still have a compound subject or verb ("The dog and the cat barked and ran"), but it remains simple as long as there is only one clause overall.
+An **independent clause** gives a complete thought and can stand as a sentence. "The dog barked" is an independent clause.
 
-A **compound sentence** has two or more independent clauses, joined by a coordinating conjunction (*and*, *but*, *or*, *so*, *for*, *nor*, *yet*) or a semicolon. "The dog barked, *and* the cat ran." Each half could stand alone as its own complete sentence.
+A **dependent clause** has a subject and a verb, but it does not give a complete thought by itself. "Because the dog barked" makes the reader wait for the rest of the idea.
 
-A **complex sentence** has one independent clause plus at least one dependent clause. "*Because the dog barked*, the cat ran." The dependent clause ("Because the dog barked") cannot stand alone; it depends on the independent clause ("the cat ran") to form a complete thought.
+A **simple sentence** has one independent clause and no dependent clause. "The dog barked." A simple sentence can still have a compound subject or verb, as in "The dog and the cat barked and ran."
 
-A **compound-complex sentence** combines both structures: it has two or more independent clauses and at least one dependent clause. "*Because the dog barked*, the cat ran, and it hid under the bed." Here, "Because the dog barked" is dependent, while "the cat ran" and "it hid under the bed" are two independent clauses joined by "and."
+A **compound sentence** has at least two independent clauses and no dependent clause. The clauses may be joined by a coordinating conjunction such as *and, but, or, so, for, nor,* or *yet*, or by a semicolon. "The dog barked, and the cat ran."
 
-| Sentence Type | Clause Structure | Example |
-| --- | --- | --- |
-| **Simple** | 1 independent clause | The dog barked. |
-| **Compound** | 2+ independent clauses | The dog barked, and the cat ran. |
-| **Complex** | 1 independent + 1+ dependent clauses | Because the dog barked, the cat ran. |
-| **Compound-complex** | 2+ independent + 1+ dependent clauses | Because the dog barked, the cat ran, and it hid under the bed. |
+A **complex sentence** has one independent clause and at least one dependent clause. "Because the dog barked, the cat ran."
+
+A **compound-complex sentence** has at least two independent clauses and at least one dependent clause. "Because the dog barked, the cat ran, and it hid under the bed."
+
+"Classify" means name the sentence type.
 
 ### Sa Filipino: Uri ng Pangungusap Ayon sa Kayarian
 
-Filipino uses the same four structures, with these names:
+Ang **sugnay** (clause) ay pangkat ng mga salitang may **simuno** (subject) at **panaguri** (predicate). Ang sugnay na makapag-iisa ay buo ang diwa. Ang sugnay na di-makapag-iisa ay kailangan ng isa pang sugnay upang mabuo ang diwa.
 
-- **Payak** (simple): one complete thought. "Umuwi ang bata."
-- **Tambalan** (compound): two independent thoughts joined by a coordinating conjunction like *at*, *ngunit*, *o*, *saka*. "Umuwi ang bata ngunit naiwan ang bag niya."
-- **Hugnayan** (complex): one independent clause plus a dependent one, joined by a subordinating conjunction like *kung*, *dahil*, *kapag*, *upang*, *sapagkat*. "Umuwi ang bata dahil umuulan na."
-- **Langkapan** (compound-complex): two or more independent clauses plus at least one dependent clause. "Umuwi ang bata at natulog agad dahil pagod na siya."
+Ang **payak** (simple) ay may isang sugnay na makapag-iisa. Halimbawa: "Umuwi ang bata."
+
+Ang **tambalan** (compound) ay may dalawa o higit pang sugnay na makapag-iisa. Pagsamahin ang magkapantay na diwa gamit ang **pangatnig na magkatimbang** (coordinating conjunction) na gaya ng *at, ngunit,* o *o*. Halimbawa: "Umuwi ang bata, ngunit naiwan ang bag niya."
+
+Ang **hugnayan** (complex) ay may isang sugnay na makapag-iisa at isang sugnay na di-makapag-iisa. Kapag dahilan ang ikalawang diwa, maaaring gamitin ang *dahil* o *sapagkat*. Halimbawa: "Umuwi ang bata dahil umuulan na."
+
+Ang **langkapan** (compound-complex) ay may dalawa o higit pang sugnay na makapag-iisa at may sugnay ding di-makapag-iisa. Una, hanapin ang dalawang buo at makapag-iisang diwa. Pagkatapos, tingnan kung may isa pang sugnay na umaasa sa isa sa mga iyon.
+
+Halimbawa: "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat." Makapag-iisa ang "Nag-aral si Liza" at "naghanda si Ben para sa ulat." Hindi makapag-iisa ang "dahil may pagsusulit siya."
+
+Sa pagsasalaysay, piliin din ang panandang tugma sa ayos ng pangyayari. Gamitin ang *una* sa simula, *pagkatapos* o *saka* sa kasunod, at *sa huli* sa pangwakas na pangyayari.
 
 ## Examples
 
@@ -42,60 +48,85 @@ Filipino uses the same four structures, with these names:
 Classify this sentence: "The teacher and her students prepared and rehearsed the play."
 
 **Solution:**
-1. Despite having a compound subject ("teacher and students") and a compound verb ("prepared and rehearsed"), there is only one clause overall (one complete thought, no dependent clause attached).
-2. This is a simple sentence, since compound subjects/verbs alone do not create additional clauses.
+
+1. "The teacher and her students" is one compound subject.
+2. "Prepared and rehearsed" is one compound verb in the same clause.
+3. There is only one independent clause and no dependent clause, so this is a simple sentence.
 
 ### #2: Identifying a Compound Sentence
 
 Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
 
 **Solution:**
-1. "She wanted to travel abroad" and "she could not afford the airfare" are both independent clauses (each could stand alone as its own sentence).
-2. They are joined by the coordinating conjunction "but."
-3. This is a compound sentence.
+
+1. "She wanted to travel abroad" can stand alone.
+2. "She could not afford the airfare" can also stand alone.
+3. The two independent clauses are joined by *but*, so this is a compound sentence.
 
 ### #3: Identifying a Complex Sentence
 
 Classify this sentence: "Although the storm was severe, the town suffered minimal damage."
 
 **Solution:**
-1. "Although the storm was severe" is a dependent clause (cannot stand alone; the word "although" leaves it incomplete).
-2. "The town suffered minimal damage" is an independent clause (can stand alone).
-3. One dependent clause plus one independent clause: this is a complex sentence.
+
+1. "Although the storm was severe" has a subject and verb, but *although* makes the thought incomplete by itself.
+2. "The town suffered minimal damage" can stand alone.
+3. One dependent clause plus one independent clause makes a complex sentence.
 
 ### #4: Identifying a Compound-Complex Sentence
 
 Classify this sentence: "When the bell rang, the students grabbed their bags, and they rushed out the door."
 
 **Solution:**
+
 1. "When the bell rang" is a dependent clause.
-2. "The students grabbed their bags" and "they rushed out the door" are two separate independent clauses, joined by "and."
-3. One dependent clause plus two independent clauses: this is a compound-complex sentence.
+2. "The students grabbed their bags" is an independent clause.
+3. "They rushed out the door" is another independent clause.
+4. The sentence has both kinds of clauses, so it is compound-complex.
+
+### #5: Pagkilala sa Langkapan
+
+Tukuyin ang kayarian ng pangungusap: "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat."
+
+**Solution:**
+
+1. Makapag-iisa ang "Nag-aral si Liza."
+2. Makapag-iisa rin ang "naghanda si Ben para sa ulat."
+3. Hindi makapag-iisa ang "dahil may pagsusulit siya."
+4. May dalawang sugnay na makapag-iisa at isang di-makapag-iisa, kaya langkapan ang pangungusap.
 
 ## Speed Tricks & Shortcuts
 
-**Count the independent clauses first, then check for any dependent clause.** One independent clause with no dependent clause is simple; two or more independent clauses with no dependent clause is compound; add any dependent clause to either of those, and it becomes complex (with one independent clause) or compound-complex (with two or more).
+**Count the independent clauses first.** One independent clause with no dependent clause is simple. Two or more independent clauses with no dependent clause make a compound sentence.
 
-**Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly: their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.
+**Then check for a dependent clause.** One independent clause plus a dependent clause is complex. Two or more independent clauses plus a dependent clause make a compound-complex sentence.
 
-**Do not be fooled by compound subjects or verbs.** A sentence with "A and B" as the subject, or "did X and Y" as the verb, is still simple as long as there is only one overall clause: compound elements within a single clause do not create a compound sentence.
+**Use subordinating words as clues, not as automatic answers.** Words such as *although, because, since, when, if,* and *while* can introduce a dependent clause. Check that the word is actually joining a clause with its own subject and verb.
+
+**Do not be fooled by compound subjects or verbs.** "A and B" as one subject, or "did X and Y" as one verb group, can still stay inside one clause.
 
 ## Traps to Watch For
 
 ### #1: Mistaking a Compound Subject or Verb for a Compound Sentence
 
-> A compound subject or compound verb within one clause does not make a sentence compound: a compound sentence needs two or more full independent clauses.
+> A compound subject or verb does not create a second independent clause.
 
-"The dog and cat played" has a compound subject but is still a simple sentence, since there is only one clause (one subject-verb unit) overall, not two separate complete thoughts joined together.
+"The dog and cat played" has one clause. The words *dog and cat* share the same verb, so the sentence is simple.
 
-### #2: Confusing Complex with Compound
+### #2: Treating Every Subordinating Word as a Clause Marker
 
-> Compound sentences join two independent clauses (both can stand alone). Complex sentences join an independent clause with a dependent clause (only one can stand alone).
+> A clue word counts only when it actually introduces a dependent clause.
 
-Look for a subordinating word like "although," "because," or "since": its presence signals a dependent clause, making the sentence complex (or compound-complex), not simply compound.
+In "She has lived here since Monday," *since Monday* has no subject and verb. Do not call it a dependent clause just because the word *since* appears.
 
-### #3: Missing One Clause Type in a Compound-Complex Sentence
+### #3: Confusing Complex with Compound
 
-> A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses. Missing any one of these makes it a different sentence type instead.
+> A compound sentence has independent clauses only, while a complex sentence also has a dependent clause.
 
-A sentence with a dependent clause and only one independent clause is complex, not compound-complex; carefully count both the independent clauses and check for a dependent clause before finalizing your classification.
+Check whether each clause can stand alone. If one clause depends on another, the sentence is not simply compound.
+
+### #4: Missing One Clause Type in a Compound-Complex Sentence
+
+> A compound-complex sentence needs at least two independent clauses and at least one dependent clause.
+
+If there is only one independent clause, the sentence is complex. Count both clause types before you decide.
