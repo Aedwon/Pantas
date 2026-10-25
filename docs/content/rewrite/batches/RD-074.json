@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-vocabulary-root-words-prefixes-suffixes",
+  "lesson-vocabulary-synonyms-and-antonyms"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-root-words-prefixes-suffixes": "421d0bd40cafda6dcc910f5b327db3969980e677",
+  "lesson-vocabulary-synonyms-and-antonyms": "421d0bd40cafda6dcc910f5b327db3969980e677"
+ },
+ "sha256": {
+  "lesson-vocabulary-root-words-prefixes-suffixes": "f5ecd6bcf799ddc37db517dc1f7bc43b3e6f781c730985a04f99a76a05941a6b",
+  "lesson-vocabulary-synonyms-and-antonyms": "def83960e575ad2e22266fe85899b8eeffe33ffcbd5abc55227970a943f1cfc8"
+ },
+ "paths": {
+  "lesson-vocabulary-root-words-prefixes-suffixes": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+  "lesson-vocabulary-synonyms-and-antonyms": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md"
+ },
+ "id": "RD-074",
+ "type": "read",
+ "created": "2026-10-25T22:24:42+00:00"
+}
