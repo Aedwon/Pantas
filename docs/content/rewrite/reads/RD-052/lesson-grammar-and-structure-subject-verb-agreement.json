@@ -1,0 +1,299 @@
+{
+ "batch": "RD-052",
+ "lesson_id": "lesson-grammar-and-structure-subject-verb-agreement",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md",
+ "lesson_sha256": "f2f280d93971978bc6a82edbc06e2f395a186a1d5ac233e8b31e11c9714f71dd",
+ "rewrite_commit": "ad831879c02634959b4ebd32e4c0d9666c323f64",
+ "form": {
+  "packet": "lesson-grammar-and-structure-subject-verb-agreement",
+  "role": "A",
+  "lesson_sha256": "f2f280d93971978bc6a82edbc06e2f395a186a1d5ac233e8b31e11c9714f71dd",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked present be/have forms and third-person -s; singular everyone; amount versus countable agreement; one-person and two-person and subjects; nearer-subject agreement. All stated example forms fit these rules. Filipino kain/luto forms and ang/ng/sa roles are internally consistent with the supplied sentences."
+    ],
+    "note": "No outside sources were consulted under the assignment. Filipino official usage is left for L11 source review.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 am, has; #2 is; #3 has; #4 needs; #5 has, are; #6 are; #7 is; #8 were.",
+     "#9 eats, eat; Kumakain ang mga bata ng kanin. #10 kumain, kumakain, kakain.",
+     "#11 kusinero is actor-topic in Nagluto; sopas is affected-topic in Niluto. #12 ng marks eaten object, actor, then owner. #13 sa marks location, destination, then recipient. These answers agree with the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The brief requires no figures; all questions can be solved from their text."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Number and person are unpacked with common pronouns. The opening uses dog/dogs instead of finite verb terminology. Finding the subject is explained through what is long or heavy; solutions use short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Commands are everyday choose, fill, and identify instructions; no unexplained specialized exam instruction word occurs.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "#1–#8 provide the full sentence and competing forms; #3 specifies American usage and #7 supplies the one-person fact needed for a unique answer. #9–#13 supply comparison sentences or action-status givens. Solutions use plain reasoning without recast or clumsy construction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam openers or unsupported claims about particular exams occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino subsection teaches aspect, focus, and markers in Filipino. Filipino solutions explain action status and noun roles in short sentences; English grammar has its own English section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Siya ang gumagawa ng pagluluto, kaya nasa tagaganap ang pokus ng *nagluto*.",
+      "problem": "The hard Filipino focus labels tagaganap and layon first appear in example #11 without English glosses. Earlier explanation of actor and affected thing gives their meaning but does not supply the required first-use glosses for these labels."
+     }
+    ]
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino aspect, focus, ng, and sa examples #10–#13 have Filipino stems and explanations. #9 intentionally includes English sentences to test the required comparison between English agreement and Filipino forms, with Filipino instructions and reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino forms and usage occur throughout the second part. An official KWF source check is unavailable in this prompt-only review.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Aspekto, pokus, pananda, and parirala are explained in Filipino with English first-use glosses. English words in the comparison example are quoted material being analyzed, not continuing English teaching prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt asks about a singled-out target word; italicized alternatives are selectable verb or connector forms.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the actual skills. No listed stock phrase occurs, and explanatory sentence openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The language lesson retains the allowed core, examples, shortcuts, and traps sections. No mathematical formulas occur; the subject and number/person rules precede all English examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Plural agreement can stress the separate members, especially in British English.",
+      "problem": "The lesson teaches collective nouns treated as separate members, but the only worked collective-noun task (#3) tests an American-English group acting as one. The distinct member-based plural case still has no worked example."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each multi-step worked solution uses a numbered list. No numerical computation calls for a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences. Numbered solutions are separated into steps, and no excessive bullet lists occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration or placeholder occurs; sentence analysis does not depend on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Subject and verb are defined before agreement. Singular/plural and person precede form rules; phrase and head precede intervening-phrase analysis. Filipino pandiwa, paksa, aspekto, pokus, pananda, and parirala are explained before their application. Actor and affected-object meanings are given before the focus solution uses them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "English number and person are demonstrated with be, have, and third-person verbs; subject-head finding has a concrete question method. Filipino aspect uses action status, focus uses the ang-marked topic and its role, and ng/sa use whole-sentence meaning. Examples #9–#13 apply those methods."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson qualifies collective agreement by meaning and English variety, and and-subject agreement by whether there are separate entities. It qualifies variable indefinite pronouns by reference and mixed or/nor by nearer subject. Filipino aspect cautions against using time words alone or copying kain patterns to every verb; markers are given multiple roles."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-subject-verb-agreement|L18|0": {
+    "status": "fixed",
+    "quote": "*Everyone* takes a singular verb, so choose *needs*.",
+    "note": "Example #4 now works through everyone and the intervening offices phrase."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L18|1": {
+    "status": "fixed",
+    "quote": "They are joined by *and*, so choose plural *are*.",
+    "note": "Example #6 now reasons through two different people joined by and."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L02|0": {
+    "status": "fixed",
+    "quote": "**Subject-verb agreement** means choosing the verb form that fits the subject: \"The dog barks\" but \"The dogs bark.\"",
+    "note": "The opening avoids finite verb and distinct agreement forms. It starts with a concrete contrast."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L05|0": {
+    "status": "fixed",
+    "quote": "If the result is hard to read, change the wording.",
+    "note": "The difficult wording about recasting a clumsy construction is gone. The instruction is plain."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L09|0": {
+    "status": "fixed",
+    "quote": "Ang **aspekto** (aspect) ay nagpapakita kung tapos na, nagaganap, o hindi pa nasisimulan ang kilos.",
+    "note": "Aspekto now receives its English gloss at the first definition."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L22a|0": {
+    "status": "fixed",
+    "quote": "Check the meaning and the variety of English in the passage.",
+    "note": "The collective-noun teaching is split into paragraphs of two and three sentences."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L25|0": {
+    "status": "fixed",
+    "quote": "**Number** means singular or plural.",
+    "note": "Number and person are now explained before the agreement forms. Finite verb is removed."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L26|0": {
+    "status": "fixed",
+    "quote": "*I* takes *am*.",
+    "note": "Person agreement is both taught in Core Concept and applied in example #1."
+   },
+   "language-proficiency-grammar-and-structure#71": {
+    "status": "fixed",
+    "quote": "Sa Filipino, palitan ang *ang bata* ng *ang mga bata*.",
+    "note": "Example #9 changes English eats to eat but keeps Filipino kumakain when the topic becomes plural."
+   },
+   "language-proficiency-grammar-and-structure#72": {
+    "status": "fixed",
+    "quote": "Tapos na ang unang kilos, kaya *kumain* ang piliin.",
+    "note": "Action status guides the method, and example #10 applies all three taught aspect forms."
+   },
+   "language-proficiency-grammar-and-structure#73": {
+    "status": "fixed",
+    "quote": "Itugma ang sagot sa anyo ng pandiwa upang matukoy ang pokus.",
+    "note": "Core Concept teaches topic-role identification, and example #11 reasons through actor and affected-topic forms."
+   },
+   "language-proficiency-grammar-and-structure#124": {
+    "status": "fixed",
+    "quote": "*He* takes *has* in the present.",
+    "note": "The pronoun method in Core Concept is applied to am and has in example #1."
+   },
+   "language-proficiency-grammar-and-structure#125": {
+    "status": "fixed",
+    "quote": "Sa una, *ang kusinero* ang may panandang *ang*.",
+    "note": "The method locates the ang-marked topic; example #11 determines its role in both verb forms."
+   },
+   "language-proficiency-grammar-and-structure#126": {
+    "status": "fixed",
+    "quote": "Sa ikalawa, *ng kusinero* ang gumagawa ng kilos. Ang sopas ang paksa.",
+    "note": "Example #12 applies the whole-sentence method to object, actor, and owner uses of ng."
+   },
+   "language-proficiency-grammar-and-structure#127": {
+    "status": "fixed",
+    "quote": "Kanino ibinigay ang liham? *Sa kawani* ang tagatanggap.",
+    "note": "Example #13 applies where, destination, and recipient questions to three sa phrases."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L19|0": {
+    "status": "fixed",
+    "quote": "Ask what is long. It is the list.",
+    "note": "The intervening-phrase solution now uses a numbered list of reasoning steps."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L19|1": {
+    "status": "fixed",
+    "quote": "The sentence treats the committee as one group.",
+    "note": "The collective-noun solution now has numbered steps for meaning and form choice."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L19|2": {
+    "status": "fixed",
+    "quote": "The subject nearer the verb is *employees*.",
+    "note": "The nearer-subject solution now uses numbered steps. The old case remains covered as example #8."
+   }
+  }
+ }
+}
