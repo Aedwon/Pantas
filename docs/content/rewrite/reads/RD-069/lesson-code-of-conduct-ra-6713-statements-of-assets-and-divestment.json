@@ -1,0 +1,469 @@
+{
+ "batch": "RD-069",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md",
+ "lesson_sha256": "c1a81a99e55e3487244779da2d4b6c91796ab1ac2fbdd036402411315e27def9",
+ "rewrite_commit": "10368825a34a31e367ec7f68e6098ca53c933a4e",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+  "role": "A",
+  "lesson_sha256": "c1a81a99e55e3487244779da2d4b6c91796ab1ac2fbdd036402411315e27def9",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared filing periods, family boundaries, excluded categories, divestment recipients, and public-use restrictions with the statutory details supplied in the brief; no contradiction found.",
+     "Checked internal consistency of the six filing categories, kinship step counts, review process, and conflict definition. No external source was supplied for independent verification."
+    ],
+    "note": "Judged only from the supplied packet; this is not external legal source verification.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 July 1; #2 April 30 and October 15; #3 national Ombudsman; #4 respective Senate and House secretaries; #5 Supreme Court Clerk and Court Administrator.",
+     "#6 Office of the President for national executive official and colonel, regional Deputy Ombudsman for major; #7 regional Deputy Ombudsman and CSC; #8 filer, spouse, resident unmarried 17-year-old; #9 PHP 550,000; #10 yes, four parent-child steps.",
+     "#11 conflict exists, resign within 30 days and divest within 60 days after assumption; #12 spouse transfer fails; #13 August 10; #14 neither specified requirement applies.",
+     "#15 copying after 10 working days and still within 10 years; #16 cannot destroy while needed; #17 marketing sale prohibited, informing-public news use excepted; #18 notice and correction, with protection for honest reliance on applicable approved opinion. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omission of Speed Tricks. No question depends on an absent figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions: legal terms such as statutory, honorary service, substantial stockholder, and good faith receive plain explanations; sentences mostly carry one idea."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special tested meaning appears in the questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all 18 stems: dates, family ages and residence, roles and ranks, financial totals, conflict facts, recipients, record age, uses, and opinion approval facts supply the needed case information. Rules remain for the learner to select; solutions use the previously explained terms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-themed opening lines appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language teaching lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language teaching lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language teaching lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language teaching lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Bilas, inso, and balae are Filipino kinship terms; official spelling and usage cannot be verified from this packet.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to underlining.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the scope directly; no listed stock phrases occur; paragraph and sentence openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted three-section structure. Net worth = assets minus liabilities is introduced under What the Declarations Contain before Example 9. Examples 1 and 2 use basic subtraction to count remaining calendar days after the Core Concept counting instruction; no new subject formula is introduced."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples: initial and annual/separation dates (#1–2), all statutory office groups (#3–7), spouse/child boundaries (#8), net worth (#9), cousin degree (#10), conflict and both deadlines (#11), recipient restriction (#12), later conflict (#13), excluded category (#14), copying and public-access period (#15), investigation exception (#16), prohibited commercial use/media exception (#17), and correction/opinion protection (#18). Cases progress from direct rules to combined decisions without merely changing numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All 18 solutions place the reasoning in numbered steps. Calendar subtraction and net-worth subtraction are displayed. No needed step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Calendar subtraction displays and the net-worth formula/calculation are short enough for a phone screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have one to three sentences. Lists are confined to named kinship relations, filing categories, and numbered solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Assets, debts/liabilities, net worth, valuation labels, business interest, shareholdings, and financial connection are explained before examples. Honorary service and service credit are defined; kinship terms and degree counting precede #10. Conflict, substantial stockholder, divestment, and good faith are explained before their worked cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "SALN contents and net-worth subtraction are taught; business disclosures identify ownership and financial links. Degree counting is demonstrated with parent, sibling, and cousin. Conflict requires a private stake plus a link to duty; divestment requires an actual complete transfer. Review and written-opinion protection explain their operation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked honorary/laborer/casual/temporary exclusions and appointment-label caution; all child conditions and spouse filing options; calendar versus working days; special filing destinations; investigation exception and use limits; prohibited divestment recipients, retained control, later-conflict timing, and good-faith opinion limits."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B03|0": {
+    "status": "fixed",
+    "quote": "Only the copying period here is stated in working days.",
+    "note": "The required traps section now contains six warnings and explanations."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|0": {
+    "status": "fixed",
+    "quote": "The filing destination is the **national office of the Ombudsman**.",
+    "note": "Examples 3 through 7 apply the statutory office categories."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|1": {
+    "status": "fixed",
+    "quote": "The annual filing is due on or before **April $30$**.",
+    "note": "Example 2 now applies the annual filing deadline."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|3": {
+    "status": "fixed",
+    "quote": "Include the spouse.",
+    "note": "Example 8 tests both age and household boundaries as well as spouse coverage."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B02|0": {
+    "status": "fixed",
+    "quote": "The deadline is **July $1$**.",
+    "note": "Example 1 now gives the calendar date after counting the full period."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|2": {
+    "status": "fixed",
+    "quote": "File within $30$ days after assuming office.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|3": {
+    "status": "fixed",
+    "quote": "Annual filings are due on or before April $30$ every year after that.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|4": {
+    "status": "fixed",
+    "quote": "File again within $30$ days after leaving government service.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|6": {
+    "status": "fixed",
+    "quote": "Copies become available after $10$ working days from filing.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|7": {
+    "status": "fixed",
+    "quote": "Statements stay available to the public for $10$ years after receipt.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|8": {
+    "status": "fixed",
+    "quote": "divest the relevant interests within $60$ days.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|9": {
+    "status": "fixed",
+    "quote": "A covered employee assumes office on June $1$.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|12": {
+    "status": "fixed",
+    "quote": "The period is $30$ days after assumption of office.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|13": {
+    "status": "fixed",
+    "quote": "The deadline is **July $1$**.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|15": {
+    "status": "fixed",
+    "quote": "The director must leave the private business position within $30$ days",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|16": {
+    "status": "fixed",
+    "quote": "give up the relevant shares within $60$ days after assumption of office.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|17": {
+    "status": "fixed",
+    "quote": "give up the relevant shares within $60$ days after assumption of office.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|18": {
+    "status": "fixed",
+    "quote": "A journalist requests a SALN received $8$ years ago.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|20": {
+    "status": "fixed",
+    "quote": "Copies become available after $10$ working days from filing.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|21": {
+    "status": "fixed",
+    "quote": "An $8$-year-old statement is within that period.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|22": {
+    "status": "fixed",
+    "quote": "Statements stay available for $10$ years after receipt.",
+    "note": "The rewritten date or quantity is inside inline math; the former unwrapped wording is gone."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B10|0": {
+    "status": "fixed",
+    "quote": "Statements stay available to the public for $10$ years after receipt.",
+    "note": "The banned recordkeeping label has been removed throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B10|1": {
+    "status": "fixed",
+    "quote": "The statement remains available under this rule.",
+    "note": "The copying solution no longer uses the banned term."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L02|0": {
+    "status": "fixed",
+    "quote": "The Civil Service Commission (CSC) sets the form, how to report, and how often to report.",
+    "note": "The long relatives-reporting rule is split into plain sentences."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L02|1": {
+    "status": "fixed",
+    "quote": "If the person is already in government when the conflict starts, the periods run from the day it starts.",
+    "note": "The uncommon verb reckon is replaced with a direct timing explanation."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L05|1": {
+    "status": "fixed",
+    "quote": "Statements stay available for $10$ years after receipt.",
+    "note": "The public-availability-window phrase is replaced with plain wording."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L25|0": {
+    "status": "fixed",
+    "quote": "Count one degree for each parent-child step.",
+    "note": "Blood relationship, marriage relationship, degree counting, and all three named in-law terms are explained."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L25|2": {
+    "status": "fixed",
+    "quote": "A **conflict of interest** requires a private business role or stake and a possible clash with official duty.",
+    "note": "Conflict, shareholdings, and divestment receive meanings before the worked cases."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L26|0": {
+    "status": "fixed",
+    "quote": "**Assets** are things a person owns, such as land, a home, savings, and investments.",
+    "note": "The declarations now explain property, debts, net worth, valuation, and business links."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L26|1": {
+    "status": "fixed",
+    "quote": "**Divestment** means freely, completely, and actually giving up title or interest in property.",
+    "note": "Divestment is defined and a complete sale or transfer is described."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L27|0": {
+    "status": "fixed",
+    "quote": "Section $8(A)$ excludes people serving in an **honorary capacity**, laborers, and casual or temporary workers from its filing requirement.",
+    "note": "Statutory exclusions and the caution about temporary appointment labels are present."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L27|1": {
+    "status": "fixed",
+    "quote": "The recipient cannot be the official's spouse or a relative covered by the law.",
+    "note": "The recipient restriction is linked to the previously explained fourth-degree coverage."
+   },
+   "general-information-code-of-conduct-ra-6713#81": {
+    "status": "fixed",
+    "quote": "A first cousin is in the fourth degree.",
+    "note": "Degree counting and bilas, inso, and balae meanings are now taught."
+   },
+   "general-information-code-of-conduct-ra-6713#102": {
+    "status": "fixed",
+    "quote": "A private role alone does not show the full conflict.",
+    "note": "The private role or substantial interest and official-duty link are both taught."
+   },
+   "general-information-code-of-conduct-ra-6713#103": {
+    "status": "fixed",
+    "quote": "A transfer that leaves the official in control is not true divestment.",
+    "note": "Actual transfer, recipient restrictions, and exempt worker categories are now stated."
+   },
+   "general-information-code-of-conduct-ra-6713#104": {
+    "status": "fixed",
+    "quote": "Unpaid work alone does not establish this exemption.",
+    "note": "Honorary service requires no pay and no service credit; other exclusions and appointment caution are taught."
+   },
+   "general-information-code-of-conduct-ra-6713#105": {
+    "status": "fixed",
+    "quote": "Commercial use is also banned, except use by news and communications media to inform the general public.",
+    "note": "Both contrary-to-morals/public-policy uses and the commercial-use restriction are explained."
+   },
+   "general-information-code-of-conduct-ra-6713#106": {
+    "status": "fixed",
+    "quote": "**Net worth** is total assets minus total liabilities.",
+    "note": "Property valuation entries, other assets, debts, business links, and net-worth calculation are taught."
+   },
+   "general-information-code-of-conduct-ra-6713#107": {
+    "status": "fixed",
+    "quote": "If it fails a required check, the filer must be told and directed to correct it.",
+    "note": "Review, correction, majority approval, good-faith reliance, and departmental approval are described."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|0": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|1": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|5": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|10": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|11": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|14": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|B08|19": {
+    "status": "fixed",
+    "quote": "Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath.",
+    "note": "Statute and section identifiers are now wrapped in inline math throughout."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L05|0": {
+    "status": "fixed",
+    "quote": "**Shareholdings** are shares owned in a company.",
+    "note": "Shareholdings and divestment are explained before solutions use the concepts."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|2": {
+    "status": "fixed",
+    "quote": "The separation deadline is **October $15$**.",
+    "note": "Example 2 applies the separation period and states the final calendar date."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|4": {
+    "status": "fixed",
+    "quote": "This statement is still needed. It must not be destroyed under that rule.",
+    "note": "Example 16 applies the ongoing-investigation exception after ten years."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L18|5": {
+    "status": "fixed",
+    "quote": "The periods run from **August $10$**, the day the conflict began.",
+    "note": "Example 13 applies the clock for a conflict arising during service."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L19|0": {
+    "status": "fixed",
+    "quote": "The period is $30$ days after assumption of office.",
+    "note": "The corresponding rewritten solution starts directly with numbered steps."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L19|1": {
+    "status": "fixed",
+    "quote": "The director has a listed private role and is a substantial stockholder.",
+    "note": "The corresponding rewritten solution starts directly with numbered steps."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L19|2": {
+    "status": "fixed",
+    "quote": "Copies become available after $10$ working days from filing.",
+    "note": "The corresponding rewritten solution starts directly with numbered steps."
+   },
+   "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment|L25|1": {
+    "status": "fixed",
+    "quote": "A **financial connection** is a financial link to a business, such as paid work as its consultant or adviser.",
+    "note": "Both business interests and financial connections now receive plain meanings."
+   }
+  }
+ }
+}
