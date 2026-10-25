@@ -139,6 +139,18 @@ class ReadPrompt(unittest.TestCase):
         self.assertIn("L02", form["rules"])
         self.assertEqual(form["lesson_sha256"], rw_lib.sha256_text(F.rewritten(lid.replace("lesson-algebra-", ""))))
 
+    def test_l18_example_coverage_guidance_in_both_modes(self):
+        batch, _ = self.accept_and_plan()
+        paragraph = (
+            "Judge L18 by the cases the target exam actually tests. A missing case is a finding only when it is "
+            "a distinct exam-relevant scenario the lesson teaches or the brief asks for, not every possible "
+            "variation, and not a case another lesson teaches. Changing only numbers or nouns is not a new case."
+        )
+        for mode in ("relay", "pr"):
+            with self.subTest(mode=mode):
+                text = item_types.get("read").prompt(self.ctx, batch, mode)
+                self.assertIn(paragraph, text)
+
     def test_relay_steps_save_json_forms(self):
         batch, text = self.accept_and_plan()
         bodies = [json.loads(b) for b in re.findall(r"```json\n(\{\"relay_version.*?)\n```", text, re.S)]

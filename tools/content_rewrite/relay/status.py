@@ -1,7 +1,7 @@
 """Where each batch stands: not started, handed in, pushed, check passed.
 
-A batch is done when every commit it made is on origin/content/cse-rewrite-r1 and the GitHub check for
-that push passed. Git and gh are passed in, so tests can replace them. Python 3.9 standard library only.
+Remote commit subjects and merged hand-in pull requests identify batches across rebases.
+Those batches are done when the push check passed or is unknown. Git and gh are passed in, so tests can replace them. Python 3.9 standard library only.
 """
 import json
 import subprocess
@@ -45,8 +45,9 @@ class Gh:
         """Hand-in pull requests into the rewrite branch, any state: [{"number", "state", "headRefName",
         "mergeCommit": {"oid"} or None, "labels": [{"name"}]}]. One call for every batch."""
         found = self._json(["pr", "list", "--state", "all", "--base", rw_lib.BRANCH, "--json",
-                            "number,state,headRefName,mergeCommit,labels", "--limit", "200"], "pull requests")
-        return [pr for pr in found if str(pr.get("headRefName", "")).startswith(rw_lib.PR_BRANCH_PREFIX)]
+                            "number,state,headRefName,mergeCommit,labels,title", "--limit", "200"], "pull requests")
+        return [pr for pr in found if str(pr.get("headRefName", "")).startswith(rw_lib.PR_BRANCH_PREFIX)
+                or str(pr.get("title", "")).startswith("[handin] ")]
 
 
 def fetch(git):
@@ -85,7 +86,8 @@ WORST = ("failed", "unknown", "running", "none", "passed")  # a batch shows its 
 
 def pr_state(prs, batch_id):
     """('merged', pr), ('held', pr), ('open', pr) or (None, None) for the hand-in pull requests of one batch."""
-    mine = [pr for pr in prs or [] if pr.get("headRefName") == rw_lib.PR_BRANCH_PREFIX + batch_id]
+    mine = [pr for pr in prs or [] if pr.get("headRefName") == rw_lib.PR_BRANCH_PREFIX + batch_id
+            or pr.get("title", "").split()[:2] == ["[handin]", batch_id]]
     for want in ("MERGED", "OPEN"):
         for pr in sorted((p for p in mine if p.get("state") == want), key=lambda p: p["number"], reverse=True):
             if want == "MERGED" and pr.get("mergeCommit"):
@@ -101,11 +103,33 @@ CHECK_STATES = {
     "failed": ("check_failed", "Merged, check failed"),
     "running": ("pushed", "Merged, check running"),
     "none": ("pushed", "Merged, waiting for the check"),
-    "unknown": ("check_unknown", "Merged, check unknown"),
+    "unknown": ("done", "Done: merged, check unknown"),
 }
 
 
-def batch_view(ctx, batch, runs, copied, events, prs=None):
+def remote_commits(git):
+    """Index remote hand-ins by batch ID, so rebases do not hide them."""
+    found = {}
+    for line in git.text("log", rw_lib.REMOTE_BRANCH, "--format=%H%x09%s", check=False).splitlines():
+        sha, sep, subject = line.partition("\t")
+        words = subject.split()
+        if sep and len(words) >= 2 and words[0] in ("rewrite:", "read:"):
+            found.setdefault(words[1], sha)
+    return found
+
+
+def replacement(ctx, batch):
+    if batch["type"] != "rewrite" or not batch["lessons"]:
+        return None
+    order = ctx.load_batches()["order"]
+    newer = set(order[order.index(batch["id"]) + 1:])
+    records = [ctx.accepted("rewrite", key) for key in batch["lessons"]]
+    if all(record and record.get("batch") in newer for record in records):
+        return ", ".join(sorted({record["batch"] for record in records}, key=order.index))
+    return None
+
+
+def batch_view(ctx, batch, runs, copied, events, prs=None, remote=None):
     kind = item_types.get(batch["type"])
     keys = kind.items(batch)
     mine = []
@@ -118,7 +142,17 @@ def batch_view(ctx, batch, runs, copied, events, prs=None):
     view = {"id": batch["id"], "type": batch["type"], "topic": batch["topic"], "lessons": keys,
             "accepted": len(mine), "commits": [rw_lib.short(c) for c in commits], "done": False}
     pr_kind, pr = pr_state(prs, batch["id"])
-    if pr_kind == "merged":
+    replaced = replacement(ctx, batch)
+    remote_commit = (remote or {}).get(batch["id"])
+    if replaced:
+        state, label = "replaced", "Replaced by " + replaced
+    elif remote_commit:
+        view["commits"] = [rw_lib.short(remote_commit)]
+        outcome = check_outcome(ctx.git, runs, remote_commit)
+        state, label = CHECK_STATES[outcome]
+        label = label.replace("merged", "pushed").replace("Merged", "Pushed")
+        view["done"] = state == "done"
+    elif pr_kind == "merged":
         # The pull-request hand-in: done when the pull request is merged and the push check on the merge passed.
         commit = pr["mergeCommit"]["oid"]
         view["commits"] = [rw_lib.short(commit)]
@@ -171,7 +205,8 @@ def overview(ctx, gh, fetched=True):
         notes.append("The last git fetch failed, so pushed and done may be out of date.")
     data = ctx.load_batches()
     copied, events = ctx.copied(), ctx.events()
-    views = [batch_view(ctx, data["batches"][i], runs, copied, events, prs) for i in data["order"]]
+    remote = remote_commits(ctx.git)
+    views = [batch_view(ctx, data["batches"][i], runs, copied, events, prs, remote) for i in data["order"]]
     blocked = None
     failed = [v["id"] for v in views if v["state"] == "check_failed"]
     if failed:

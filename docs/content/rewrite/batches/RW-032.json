@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-clerical-ability-alphabetic-filing-rules",
+  "lesson-clerical-ability-numeric-and-chronological-filing"
+ ],
+ "topic": "reasoning/clerical-ability",
+ "round": 1,
+ "paths": {
+  "lesson-clerical-ability-alphabetic-filing-rules": "content/lessons/reasoning/clerical-ability/alphabetic-filing-rules.md",
+  "lesson-clerical-ability-numeric-and-chronological-filing": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
+ },
+ "id": "RW-032",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

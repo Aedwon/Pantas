@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "round": 2,
+ "paths": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md"
+ },
+ "extra_brief": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "## Left open by the earlier read (RD-005)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson teaches spelling, word-group, and wraparound letter patterns as distinct cases, but the Examples section has only an alphabet-position letter example and gives no worked example for any of these non-position cases.\n   > Do not force letter positions when the pattern clearly uses spelling, word groups, or a cycle that wraps from $Z$ back to $A$. Use the rule that matches the evidence in the question."
+ },
+ "id": "RW-010",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:06+00:00"
+}

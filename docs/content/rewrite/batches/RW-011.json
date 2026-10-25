@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 1,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md"
+ },
+ "id": "RW-011",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

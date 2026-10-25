@@ -121,7 +121,7 @@ function notices(messages, bad) {
 
 function render(data) {
   document.getElementById("progress").replaceChildren(
-    el("strong", {}, String(data.counts.done)), " of " + data.counts.total + " batches done (merged, check passed)");
+    el("strong", {}, String(data.counts.done)), " of " + data.counts.total + " batches done (pushed, check passed or unknown)");
   const messages = data.notes.slice();
   if (data.blocked) messages.unshift(data.blocked);
   for (const held of data.held || []) {
@@ -149,7 +149,7 @@ function render(data) {
       el("span", {class: "id"}, batch.id),
       el("span", {class: "what"}, batch.topic, el("small", {}, batch.lessons.join(", "))),
       el("span", {class: "badge " + batch.state}, batch.label));
-    if (!batch.done) row.append(copyButton(batch, false, "Copy prompt again"));
+    if (!batch.done && batch.state !== "replaced") row.append(copyButton(batch, false, "Copy prompt again"));
     return row;
   }));
 }

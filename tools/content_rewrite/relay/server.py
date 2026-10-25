@@ -7,8 +7,8 @@ Binds to this Mac only. Every request must name this server as its Host, so a we
 own domain at 127.0.0.1 is refused. Every POST also needs the X-Rewrite header and, when the browser
 sends one, this page's own Origin, so no other site can post here. These are the rules of the Level 4
 paste page. The page shows the next batch with a Copy prompt button and each batch's state. Nothing is
-pasted back: a chat hands in by pull request, and a batch is done when its pull request is merged into
-the rewrite branch and the push check on the merge passed.
+pasted back: a chat hands in by pull request, and a batch is done when its hand-in is on
+the rewrite branch and the push check passed or is unknown.
 Python 3.9 standard library only.
 """
 import json

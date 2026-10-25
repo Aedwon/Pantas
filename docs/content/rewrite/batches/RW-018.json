@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-phrases-and-clauses",
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+  "lesson-grammar-and-structure-punctuation-and-capitalization",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 1,
+ "paths": {
+  "lesson-grammar-and-structure-phrases-and-clauses": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md",
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+  "lesson-grammar-and-structure-punctuation-and-capitalization": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md"
+ },
+ "id": "RW-018",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

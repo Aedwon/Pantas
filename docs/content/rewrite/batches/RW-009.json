@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 3,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "## Left open by the earlier read (RD-006)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The worked applications distinguish only an accomplice. Co-principal and accessory are separately taught legal roles, but neither receives a worked fact pattern, so distinct exam-relevant role cases remain uncovered.\n   > These facts fit the role of an **accomplice**.",
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "## Left open by the earlier read (RD-006)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: Only the local filing-office category gets a worked case; the other distinct filing destinations taught in Core Concept do not.\n   > A city government employee is required to file a SALN."
+ },
+ "id": "RW-009",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:06+00:00"
+}

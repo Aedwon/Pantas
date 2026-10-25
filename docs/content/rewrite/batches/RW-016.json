@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-bill-of-rights",
+  "lesson-philippine-constitution-the-articles-in-outline",
+  "lesson-philippine-constitution-the-civil-service-commission"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 1,
+ "paths": {
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+  "lesson-philippine-constitution-the-articles-in-outline": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+  "lesson-philippine-constitution-the-civil-service-commission": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+ },
+ "id": "RW-016",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

@@ -1,0 +1,13 @@
+{
+ "lessons": [
+  "lesson-verbal-logic-assumptions-and-conclusions"
+ ],
+ "topic": "reasoning/verbal-logic",
+ "round": 1,
+ "paths": {
+  "lesson-verbal-logic-assumptions-and-conclusions": "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md"
+ },
+ "id": "RW-036",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

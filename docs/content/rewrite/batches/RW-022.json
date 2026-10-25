@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-algebra-algebraic-expressions",
+  "lesson-algebra-exponents-and-logarithms",
+  "lesson-algebra-linear-equations-inequalities"
+ ],
+ "topic": "mathematics/algebra",
+ "round": 1,
+ "paths": {
+  "lesson-algebra-algebraic-expressions": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+  "lesson-algebra-exponents-and-logarithms": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "lesson-algebra-linear-equations-inequalities": "content/lessons/mathematics/algebra/linear-equations-inequalities.md"
+ },
+ "id": "RW-022",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

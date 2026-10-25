@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-algebra-polynomials",
+  "lesson-algebra-types-of-functions",
+  "lesson-algebra-word-problems"
+ ],
+ "topic": "mathematics/algebra",
+ "round": 1,
+ "paths": {
+  "lesson-algebra-polynomials": "content/lessons/mathematics/algebra/polynomials.md",
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md",
+  "lesson-algebra-word-problems": "content/lessons/mathematics/algebra/word-problems.md"
+ },
+ "id": "RW-023",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

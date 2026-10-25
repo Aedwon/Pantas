@@ -1,0 +1,13 @@
+{
+ "lessons": [
+  "lesson-biology-ecology"
+ ],
+ "topic": "science/biology",
+ "round": 1,
+ "paths": {
+  "lesson-biology-ecology": "content/lessons/science/biology/ecology.md"
+ },
+ "id": "RW-037",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

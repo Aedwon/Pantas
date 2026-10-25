@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-peace-and-human-rights-human-rights-fundamentals",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+ ],
+ "topic": "general-information/peace-and-human-rights",
+ "round": 1,
+ "paths": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md"
+ },
+ "id": "RW-014",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

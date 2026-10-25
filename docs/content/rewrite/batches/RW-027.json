@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-geometry-logic-and-reasoning",
+  "lesson-geometry-measurement"
+ ],
+ "topic": "mathematics/geometry",
+ "round": 1,
+ "paths": {
+  "lesson-geometry-logic-and-reasoning": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+  "lesson-geometry-measurement": "content/lessons/mathematics/geometry/measurement.md"
+ },
+ "id": "RW-027",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-vocabulary-confusing-words",
+  "lesson-vocabulary-context-clues",
+  "lesson-vocabulary-idioms-and-figures-of-speech"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 1,
+ "paths": {
+  "lesson-vocabulary-confusing-words": "content/lessons/language-proficiency/vocabulary/confusing-words.md",
+  "lesson-vocabulary-context-clues": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md"
+ },
+ "id": "RW-020",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-environment-management-species-resources-and-environmental-decisions",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "round": 1,
+ "paths": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "id": "RW-013",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

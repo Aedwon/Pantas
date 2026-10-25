@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-text-types-essays-editorials-articles",
+  "lesson-text-types-poetry",
+  "lesson-text-types-visual-media"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "round": 1,
+ "paths": {
+  "lesson-text-types-essays-editorials-articles": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+  "lesson-text-types-poetry": "content/lessons/reading-comprehension/text-types/poetry.md",
+  "lesson-text-types-visual-media": "content/lessons/reading-comprehension/text-types/visual-media.md"
+ },
+ "id": "RW-031",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "round": 1,
+ "paths": {
+  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": "content/lessons/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.md",
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md"
+ },
+ "id": "RW-035",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

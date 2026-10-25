@@ -1,0 +1,15 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-main-idea",
+  "lesson-comprehension-skills-sequencing-of-events"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "round": 1,
+ "paths": {
+  "lesson-comprehension-skills-main-idea": "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
+  "lesson-comprehension-skills-sequencing-of-events": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
+ },
+ "id": "RW-030",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

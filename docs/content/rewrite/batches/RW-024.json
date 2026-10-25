@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-business-math",
+  "lesson-arithmetic-number-sense-divisibility-rules",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 1,
+ "paths": {
+  "lesson-arithmetic-number-sense-business-math": "content/lessons/mathematics/arithmetic-number-sense/business-math.md",
+  "lesson-arithmetic-number-sense-divisibility-rules": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md"
+ },
+ "id": "RW-024",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

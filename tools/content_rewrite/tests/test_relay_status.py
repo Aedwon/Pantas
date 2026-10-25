@@ -30,9 +30,12 @@ class FakeGit:
         self.descends = descends or {}   # {(ancestor, descendant)}
         self.fetch_ok = fetch_ok
         self.calls = []
+        self.log = ""
 
     def text(self, *args, check=True):
         self.calls.append(args)
+        if args[0] == "log":
+            return self.log
         assert args[:3] == ("branch", "-r", "--contains"), args
         return ("  origin/other\n  %s\n" % rw_lib.REMOTE_BRANCH) if args[3] in self.on_remote else "  origin/other\n"
 
@@ -83,6 +86,34 @@ class Base(unittest.TestCase):
 
 
 class States(Base):
+    def test_newer_accepted_batch_replaces_all_lessons(self):
+        data = self.ctx.load_batches()
+        data["order"].append("RW-007")
+        data["batches"]["RW-007"] = dict(data["batches"]["RW-001"], id="RW-007")
+        self.ctx.save_batches(data)
+        self.ctx.event(batch="RW-001", result="accepted")
+        self.accept("rewrite", "l1", "RW-007", SHA_B)
+        self.assertEqual(self.state(self.overview(), "RW-001")["state"], "in_progress")
+        self.accept("rewrite", "l2", "RW-007", SHA_B)
+        item = self.state(self.overview(), "RW-001")
+        self.assertEqual((item["state"], item["label"]), ("replaced", "Replaced by RW-007"))
+        page = (Path(status.__file__).parent / "page.html").read_text()
+        self.assertIn('!batch.done && batch.state !== "replaced"', page)
+
+    def test_remote_subject_survives_rebase_for_rewrite_and_read(self):
+        for kind, batch_id, lesson in (("rewrite", "RW-002", "l3"), ("read", "RD-001", "l1")):
+            self.accept(kind, lesson, batch_id, SHA_A)
+            self.git.log = SHA_B + "\t" + kind + ": " + batch_id + " accepted\n"
+            for conclusion, expected in (("success", "done"), ("skipped", "done"),
+                                         ("failure", "check_failed"), (None, "pushed")):
+                item = self.state(self.overview(FakeGh([run(SHA_B, conclusion)])), batch_id)
+                self.assertEqual(item["state"], expected)
+                self.assertEqual(item["commits"], [SHA_B[:8]])
+            item = self.state(self.overview(FakeGh(error="offline")), batch_id)
+            self.assertTrue(item["done"])
+            self.git.log = SHA_B + "\t" + kind + ": " + batch_id + "0 accepted\n"
+            self.assertEqual(self.state(self.overview(), batch_id)["state"], "handed_in")
+
     def test_not_started_then_copied_then_in_progress(self):
         view = self.overview()
         self.assertEqual(self.state(view, "RW-001")["state"], "not_started")

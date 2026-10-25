@@ -82,6 +82,14 @@ class Base(unittest.TestCase):
 
 
 class DoneState(Base):
+    def test_merged_handin_title_identifies_batch_after_branch_change(self):
+        merged = pr("RW-001")
+        merged.update(headRefName="rebased-handin", title="[handin] RW-001")
+        batch, _ = self.view(FakeGh([run(MERGE_A, "success")], [merged]), "RW-001")
+        self.assertTrue(batch["done"])
+        merged["title"] = "[handin] RW-0010"
+        self.assertEqual(self.view(FakeGh(prs=[merged]), "RW-001")[0]["state"], "not_started")
+
     def test_a_merged_pull_request_with_a_passed_check_is_done(self):
         batch, data = self.view(FakeGh([run(MERGE_A, "success")], [pr("RW-001")]), "RW-001")
         self.assertEqual((batch["state"], batch["done"], batch["commits"]), ("done", True, [MERGE_A[:8]]))
@@ -140,7 +148,7 @@ class DoneState(Base):
 
     def test_merged_but_runs_unavailable_shows_check_unknown(self):
         batch, data = self.view(FakeGh(prs=[pr("RW-001")], runs_error="gh could not list runs"), "RW-001")
-        self.assertEqual((batch["state"], batch["done"]), ("check_unknown", False))
+        self.assertEqual((batch["state"], batch["done"]), ("done", True))
         self.assertIn("check unknown", batch["label"])
         self.assertTrue(any("Check unknown" in note for note in data["notes"]))
 

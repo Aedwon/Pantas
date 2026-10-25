@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+  "lesson-grammar-and-structure-modifiers",
+  "lesson-grammar-and-structure-parallelism",
+  "lesson-grammar-and-structure-parts-of-speech"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 1,
+ "paths": {
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": "content/lessons/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.md",
+  "lesson-grammar-and-structure-modifiers": "content/lessons/language-proficiency/grammar-and-structure/modifiers.md",
+  "lesson-grammar-and-structure-parallelism": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+  "lesson-grammar-and-structure-parts-of-speech": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md"
+ },
+ "id": "RW-017",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

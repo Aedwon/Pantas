@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-order-of-operations",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 1,
+ "paths": {
+  "lesson-arithmetic-number-sense-order-of-operations": "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md"
+ },
+ "id": "RW-025",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

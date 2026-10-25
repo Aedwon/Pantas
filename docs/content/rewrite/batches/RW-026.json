@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-ratio-and-proportion",
+  "lesson-arithmetic-number-sense-real-imaginary-numbers",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 1,
+ "paths": {
+  "lesson-arithmetic-number-sense-ratio-and-proportion": "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "id": "RW-026",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

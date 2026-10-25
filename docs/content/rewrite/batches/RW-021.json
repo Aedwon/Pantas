@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-vocabulary-root-words-prefixes-suffixes",
+  "lesson-vocabulary-spelling-rules",
+  "lesson-vocabulary-synonyms-and-antonyms"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 1,
+ "paths": {
+  "lesson-vocabulary-root-words-prefixes-suffixes": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+  "lesson-vocabulary-synonyms-and-antonyms": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md"
+ },
+ "id": "RW-021",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

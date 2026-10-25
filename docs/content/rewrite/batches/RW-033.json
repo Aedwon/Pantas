@@ -1,0 +1,13 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "round": 1,
+ "paths": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+ },
+ "id": "RW-033",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

@@ -1,0 +1,17 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-figure-grouping",
+  "lesson-spatial-abstract-reasoning-figure-matrices",
+  "lesson-spatial-abstract-reasoning-figure-series"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "round": 1,
+ "paths": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+  "lesson-spatial-abstract-reasoning-figure-series": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md"
+ },
+ "id": "RW-034",
+ "type": "rewrite",
+ "created": "2026-10-25T14:44:07+00:00"
+}

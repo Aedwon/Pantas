@@ -356,6 +356,10 @@ def read_prompt(ctx, batch, mode="relay"):
         "result is the hand-in." % (len(batch["lessons"]), HOW[mode][1]))
     add_standards(ctx, parts)
     parts.add((rw_lib.RELAY_DIR / "l4" / "judging.md").read_text(encoding="utf-8"), authored=False)
+    parts.add(
+        "Judge L18 by the cases the target exam actually tests. A missing case is a finding only when it is "
+        "a distinct exam-relevant scenario the lesson teaches or the brief asks for, not every possible "
+        "variation, and not a case another lesson teaches. Changing only numbers or nouns is not a new case.")
     for lesson_id, brief, text in _lesson_blocks(ctx, parts, batch, briefs, mode):
         pkt = readpacket.packet(lesson_id, text, brief["path"])
         record = ctx.accepted("rewrite", lesson_id) or {}
