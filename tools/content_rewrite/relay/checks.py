@@ -20,8 +20,9 @@ import l4lib  # noqa: E402  (vendored)
 import mechanical  # noqa: E402  (vendored)
 
 AUDIT_DIR = rw_lib.RELAY_DIR.parents[1] / "audit"
-# A new finding in these classes rejects the lesson. AI-TELL is a count the lead watches, not a gate.
-BLOCKING_SWEEPS = ("STRUCT", "DEVICE", "FORMULA", "ILLUS")
+# A new finding in these classes rejects the lesson. AI-TELL and FORMULA are counts the lead and reader watch, not gates:
+# FORMULA is a rough heuristic that flagged correct examples defining their own letters.
+BLOCKING_SWEEPS = ("STRUCT", "DEVICE", "ILLUS")
 SWEEP_MODULES = ("sweep_structure", "sweep_devices", "sweep_illustrations", "sweep_formulas", "sweep_ai_tells")
 MIN_LENGTH_SHARE = 0.6
 COVER_TOKENS = 3

@@ -246,7 +246,7 @@ What the check enforces:
 - The lesson is not much shorter than the current one (under 60% is rejected).
 - No new definite style findings: em dashes, `\\frac` at the top level, tables, links, code blocks, a missing
   `**Solution:**` label, a wrong heading form, a changed frontmatter shape.
-- No new structure, formula, device, or figure-marker findings. A marker must sit on a single line.
+- No new structure, device, or figure-marker findings. A marker must sit on a single line.
 - Changes that match no brief item are not rejected. They are listed for the reader and the lead.
 """
 
