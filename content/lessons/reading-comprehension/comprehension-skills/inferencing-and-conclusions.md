@@ -125,7 +125,9 @@ Which conclusion is supported by the graph?
 
 ### #7: Combining Prose and Visual Data
 
-A note says, "The office added an extra service window on the day with the highest visitor count." In the graph from the previous example, Tuesday has the highest bar.
+<!-- ILLUSTRATION: bar graph titled "Help Desk Visitors" with Monday as the middle-height bar, Tuesday as the tallest bar, and Wednesday as the shortest bar; vertical axis labeled "Visitors" -->
+
+A note says, "The office added an extra service window on the day with the highest visitor count." In the graph above, Tuesday has the highest bar.
 
 On which day was the extra service window most likely added?
 
@@ -156,7 +158,7 @@ Ano ang hindi tuwirang pangunahing diwa ng talata?
 2. May mga kilos mula sa mga residente at tindahan, at may nakikitang pagbabago sa basura.
 3. Ang pangunahing diwa ay **unti-unting nababawasan ang paggamit at basurang plastik dahil sa pagbabago ng gawi ng komunidad**.
 
-## Reading Strategies
+## Speed Tricks & Shortcuts
 
 **List the evidence first.** Then choose the conclusion that needs the fewest extra assumptions.
 
