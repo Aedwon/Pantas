@@ -1,0 +1,247 @@
+{
+ "batch": "RD-076",
+ "lesson_id": "lesson-arithmetic-number-sense-sequences-and-series",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
+ "lesson_sha256": "9df0ddeaa29e757900b07ff0405ac615256aeb8b348347aeccc911e0ab284cc2",
+ "rewrite_commit": "547c268eabedfbc14b46bd89afd4e44a8a462e22",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-sequences-and-series",
+  "role": "A",
+  "lesson_sha256": "9df0ddeaa29e757900b07ff0405ac615256aeb8b348347aeccc911e0ab284cc2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked arithmetic and geometric term/sum identities by substitution and cancellation. The convergence condition correctly excludes nonzero-first-term ratios of magnitude at least 1 and separately allows the zero series. Both listed Fibonacci starting conventions, harmonic reciprocal characterization, and odd/even positions are correct mathematical statements."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 37 from successive odd differences; #2 37 from +3 then ×2; #3 11 from interleaved +3 and -2; #4 76; #5 720 seats; #6 -384; #7 189; #8 27; #9 1/17; #10 5a-1; #11 40; #12 no finite sum. All agree with the lesson. Also checked the running totals approaching 2 and the middle-term example sum 75."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required mathematics sections are present. Arithmetic, geometric, Fibonacci-type and harmonic cases remain; finite geometric sums and general pattern discovery are added. The brief specifies no figures, and no stem needs one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions, pattern checklist, formula explanations, and solutions. Technical names have nearby plain meanings; instructions use short sentences. No unnecessary advanced prose found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is explained immediately before the first evaluate stem in Example 8. Find and completes are ordinary instructions requiring no gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There is no analogy; the theater is an applied question setting."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve stems give the terms, sequence type or pattern-discovery task, and requested position or sum. The theater provides its row rule and row count. Pattern stems use most reasonably to acknowledge nonunique finite-list rules. Solutions use simple instructions and the stems do not give the formulas being tested."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported exam-content claims or repetitive exam references occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly names patterns, terms, and sums. No stock AI phrases appear. Sentence openings vary across definitions, checks, formulas, and conditions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept provides neighbor subtraction and ratio tests plus difference/alternation/interleaving checks (#1-3); a_n=a_1+(n-1)d (#4 and #9 reciprocal arithmetic); S_n=n[2a_1+(n-1)d]/2 (#5); a_n=a_1 r^(n-1) (#6); finite geometric S_n=a_1(1-r^n)/(1-r) (#7); infinite S=a_1/(1-r) and |r|<1 (#8); reciprocal conversion (#9); z=x+y (#10); S_n=na_1 for r=1 (#11); divergence for nonzero first term and |r|>=1 (#12). All methods precede their example use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Distinct worked cases include changing differences, alternating operations, interleaved patterns, far arithmetic term, arithmetic sum in context, negative geometric ratio, finite geometric sum, convergent infinite sum, harmonic term, symbolic Fibonacci recurrence, r=1 finite sum, and divergent infinite sum. Basic pattern checks lead into formula applications; final examples separately contrast boundary conditions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Inspected every solution: multi-step work is numbered; term substitutions, sum substitutions, powers, reciprocal results, and pattern computations are displayed. Example 12 needs only a ratio and condition check, not a numerical sum. No omitted step prevents following any result."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "All displays are compact single-line formulas or short pairs of differences. The longest arithmetic-sum substitution remains a single narrow expression with small integers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs stay within three sentences. The five-item pattern checklist is a purposeful, limited bullet list; worked solutions use numbered lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Sequence, term, series, common difference/ratio, reciprocal, and harmonic are defined before use. Odd/even positions are listed before interleaving examples. a_1, a_n, n, S_n, S_infinity, absolute value, convergence, and divergence receive meanings before the corresponding applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Arithmetic steps and averages explain term/sum formulas; geometric repeated multiplication explains its term formula and cancellation explains its finite sum. Running totals illustrate convergence. Harmonic conversion explains returning by another reciprocal; the pattern checklist is demonstrated by three distinct discovery examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Ratio discovery requires a nonzero previous term; harmonic terms must be nonzero. Finite geometric sums separate r=1. Infinite sums state the nonzero-first-term restriction and all-zero exception. Pattern ambiguity is acknowledged, and counting terms requires nonzero difference, a last term in the sequence, and a positive integer result. Middle-term shortcut requires an odd finite arithmetic list."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|0": {
+    "status": "fixed",
+    "quote": "Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\\dots$.",
+    "note": "Example 7 now substitutes into and computes the finite geometric-series formula."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L03|1": {
+    "status": "fixed",
+    "quote": "\"Evaluate\" means find the final number answer.",
+    "note": "The gloss is directly before the first evaluate question."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L25|0": {
+    "status": "fixed",
+    "quote": "The **reciprocal** of a nonzero number $x$ is $\\dfrac{1}{x}$.",
+    "note": "The definition precedes harmonic sequences and includes a fraction example."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L25|1": {
+    "status": "fixed",
+    "quote": "It **converges** if the running total gets closer and closer to one finite number.",
+    "note": "Convergence is explained before the infinite geometric sum condition."
+   },
+   "mathematics-arithmetic-number-sense#80": {
+    "status": "fixed",
+    "quote": "Check separate patterns in the odd and even positions, or in repeating groups.",
+    "note": "The checklist and Examples 1 through 3 develop differences, alternating operations, and interleaved patterns."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L03|0": {
+    "status": "not_fixed",
+    "quote": "Find the $8^{\\text{th}}$ term of the geometric sequence $3,-6,12,-24,\\dots$.",
+    "note": "Find remains unglossed. The brief correctly calls it an everyday verb, so no change is needed."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L17|0": {
+    "status": "fixed",
+    "quote": "$$z=x+y$$",
+    "note": "The symbolic Fibonacci-type recurrence now appears in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|1": {
+    "status": "fixed",
+    "quote": "A geometric series has $8$ terms, and every term is $5$. What is the sum?",
+    "note": "Example 11 explicitly recognizes r=1 and computes the finite sum as 40."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|2": {
+    "status": "fixed",
+    "quote": "Does the infinite geometric series $3+6+12+24+\\dots$ have a finite sum?",
+    "note": "Example 12 recognizes ratio 2 and concludes that there is no finite sum."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L26|0": {
+    "status": "fixed",
+    "quote": "For example, $1+\\dfrac{1}{2}+\\dfrac{1}{4}+\\dots$ has running totals $1,\\dfrac{3}{2},\\dfrac{7}{4},\\dots$, which approach $2$.",
+    "note": "Running totals now illustrate how infinitely many terms approach a finite sum."
+   }
+  }
+ }
+}

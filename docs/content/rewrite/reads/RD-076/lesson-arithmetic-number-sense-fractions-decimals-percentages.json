@@ -1,0 +1,297 @@
+{
+ "batch": "RD-076",
+ "lesson_id": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+ "lesson_sha256": "252b918bd888d73301d3c7ec8ab182d758c64a58de98676c71abdcb8dae13cb9",
+ "rewrite_commit": "547c268eabedfbc14b46bd89afd4e44a8a462e22",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+  "role": "A",
+  "lesson_sha256": "252b918bd888d73301d3c7ec8ab182d758c64a58de98676c71abdcb8dae13cb9",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked conversion identities, common-denominator operations, reciprocal division, decimal scaling, and percent-base relationships by arithmetic. Successive discounts use the remaining price; 120% of and 120% more use factors 1.20 and 2.20. No external historical or exam-format facts are asserted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independently obtained #1 1/8; #2 0.35 and 7/20; #3 0.375 and 37.5%; #4 1; #5 5/4; #6 1/2 cup; #7 0.84; #8 8; #9 27 (base 180); #10 40%; #11 40%; #12 240 and 440 forms. All agree. Shortcut checks: 16% of 25 = 4; 15% of 80 = 12; listed common fraction equivalents are correct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All six requested CSE facets and the conversion/base fixes appear. No question depends on a figure and the brief requires none."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the explanations of conversions, percentage bases, fraction operations, and decimal operations. Sentences use direct instructions and define the specialized names; no filler or unnecessarily difficult teaching prose found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Simplify is explained before its method; Express is glossed before Example 1; Evaluate is glossed before Example 4. Find needs no gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy occurs; the recipe and office are problem settings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all twelve stems: each provides the quantities and relationships needed, asks for an arithmetic result, and does not supply the tested formula. Recipe, discount, and office problems supply units and clear bases. Solutions use short instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-name openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary plainly names conversions and bases. No listed stock phrases occur; explanation openings alternate definitions, conditions, and instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept teaches decimal digits over place value and common-factor reduction (#1); percent divided by 100 and p/100 (#2); numerator divided by denominator then times 100 (#3); conversions and addition/subtraction (#4); common denominators (#5); ac/bd (#6); counting factor decimal places (#7); equal scaling of dividend and divisor (#8); Part=Rate×Base and Base=Part/Rate (#9); Rate=Part/Base and reciprocal division (#10); discount subtraction and total drop/original price (#11); 1.20 times versus base plus increase (#12). No example introduces a new formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover decimal-to-fraction simplification, percent-to-decimal/fraction, fraction-to-decimal/percent, mixed forms, unlike denominators, fraction multiplication, decimal multiplication/division, unknown base, fractional rate using division, successive discounts, and percent of versus more than. They progress from direct conversions to applied base decisions without mere number substitutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each multi-step worked solution uses numbered steps. Place-value conversion, reductions, common-denominator arithmetic, decimal placement, base solving, reciprocal multiplication, discount prices, and both office targets have display computations. No solving step is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Reviewed every display: each contains a short conversion, product, quotient, or sum; the longest common-denominator and total-discount lines remain compact."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three short sentences. The only substantial bullet list is the five useful fraction equivalents."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Numerator and denominator are identified as top and bottom; decimal places, percent symbol, base/part/rate, reciprocal, dividend/divisor/quotient are explained before use. Unknown x and P are locally named. Approximation is explained beside its equivalence list."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Place value explains decimal-to-fraction denominators; equal-size parts explain common denominators; reciprocal division is justified by making the divisor 1; decimal scaling explains unchanged quotients. Base identification and changed discount bases are taught before application, not merely named."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson excludes zero denominators and divisors, limits digit-over-place-value conversion to terminating decimals, states nonzero base/rate conditions, and distinguishes successive discount bases and percent more from percent of. Rounding is distinguished from exact equality."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L01|0": {
+    "status": "fixed",
+    "quote": "The **base** is the whole or reference amount from which a percentage is taken.",
+    "note": "Core Concept now identifies the reference whole and teaches how to select it."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L17|1": {
+    "status": "fixed",
+    "quote": "$$\\text{Part}=\\text{Rate}\\times\\text{Base}$$",
+    "note": "The percent-amount relationship appears before the unknown-base example."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L18|0": {
+    "status": "fixed",
+    "quote": "Express $35\\%$ as a decimal and as a fraction in simplest form.",
+    "note": "Examples 2 and 3 now work the previously missing conversion directions."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L26|1": {
+    "status": "fixed",
+    "quote": "Look for the amount after \"of.\"",
+    "note": "The general explanation gives base-selection cues before the examples."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|0": {
+    "status": "fixed",
+    "quote": "A **percentage** means \"per hundred\" or \"out of $100$.\"",
+    "note": "The numeral in the definition is now inside inline math."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|1": {
+    "status": "fixed",
+    "quote": "To turn a decimal into a percentage, multiply by $100$ and attach the percent sign.",
+    "note": "The old rightward-point sentence is removed; the replacement wraps its numeral."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|2": {
+    "status": "fixed",
+    "quote": "Dividing by $100$ moves the decimal point $2$ places left.",
+    "note": "Both numerals in the surviving leftward-point explanation are wrapped."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|B08|3": {
+    "status": "fixed",
+    "quote": "The symbol $\\%$ means percent.",
+    "note": "The old per-100 reminder is removed and replaced by this symbol explanation."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L03|0": {
+    "status": "fixed",
+    "quote": "\"Evaluate\" means find the final number answer.",
+    "note": "The required meaning is supplied immediately before the first evaluation question."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L17|0": {
+    "status": "fixed",
+    "quote": "Use $10$ for $1$ decimal place, $100$ for $2$, or $1000$ for $3$.",
+    "note": "The decimal place-value method is now taught in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L17|2": {
+    "status": "fixed",
+    "quote": "To divide by a fraction, multiply by its reciprocal.",
+    "note": "The division method and its formula precede Example 10."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L25|0": {
+    "status": "fixed",
+    "quote": "Its **numerator** is the top number.",
+    "note": "The top and bottom fraction terms are defined before students need them."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L26|0": {
+    "status": "fixed",
+    "quote": "To turn it into a fraction, write its digits without the decimal point over the matching place value.",
+    "note": "The general decimal-to-fraction explanation precedes the worked application."
+   },
+   "mathematics-arithmetic-number-sense#23": {
+    "status": "fixed",
+    "quote": "Express $0.125$ as a fraction in its simplest form.",
+    "note": "Place-value conversion and common-factor simplification are taught and worked."
+   },
+   "mathematics-arithmetic-number-sense#25": {
+    "status": "fixed",
+    "quote": "The **base** is the whole or reference amount from which a percentage is taken.",
+    "note": "Part, rate, and base are defined with equations and applied in Examples 9 through 12."
+   },
+   "mathematics-arithmetic-number-sense#26": {
+    "status": "fixed",
+    "quote": "To divide by a fraction, multiply by its reciprocal.",
+    "note": "Reciprocals and nonzero restrictions are explained, justified, and applied in Example 10."
+   },
+   "mathematics-arithmetic-number-sense#29": {
+    "status": "fixed",
+    "quote": "Fractions must have a common denominator before you add or subtract them.",
+    "note": "Common-denominator addition and subtraction are explained and worked in Example 5."
+   },
+   "mathematics-arithmetic-number-sense#30": {
+    "status": "fixed",
+    "quote": "Multiply the numerators together and the denominators together.",
+    "note": "Fraction multiplication is taught with its formula and applied in the recipe example."
+   },
+   "mathematics-arithmetic-number-sense#31": {
+    "status": "fixed",
+    "quote": "To multiply decimals, first multiply as if the numbers were whole numbers.",
+    "note": "Decimal multiplication and division procedures are taught and separately worked."
+   },
+   "lesson-arithmetic-number-sense-fractions-decimals-percentages|L19|0": {
+    "status": "fixed",
+    "quote": "$$80-20=60$$",
+    "note": "The successive-discount solution now displays each discount, price, and total-drop calculation."
+   }
+  }
+ }
+}
