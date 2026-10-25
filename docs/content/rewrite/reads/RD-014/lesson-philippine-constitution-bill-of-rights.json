@@ -1,0 +1,293 @@
+{
+ "batch": "RD-014",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+ "lesson_sha256": "4b3d09c785e615c84e25ae2d6cdf00c27d6cd3f6602025e2da5ea283d4c68c74",
+ "rewrite_commit": "22ababb58c6eda3837a3f0db715670e6fc1b78b6",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights",
+  "role": "A",
+  "lesson_sha256": "4b3d09c785e615c84e25ae2d6cdf00c27d6cd3f6602025e2da5ea283d4c68c74",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the section count and the stated Article III protections and conditions: Section 1 due process and equal protection, Sections 2 and 3 warrant/privacy rules and exclusion, Sections 4 to 8 liberties, and the Section 9 to 22 catalogue against the constitutional provisions described in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Both provisions fall within Sections $12$ to $22$.",
+      "problem": "Example 6 does not have a unique worked answer. Sections $17$ and $21$ also both fall within the lesson's named broad part, Sections $9$ to $22$, and many other ranges would contain both provisions."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the lesson with every brief facet: due process, equal protection, warrant requirements, exclusionary rule, privacy exceptions, Section 4 freedoms, religion clauses, abode and travel conditions, public-concern information, and lawful association are present; the brief requires no figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Section $22$:** Ex post facto laws and bills of attainder are prohibited.",
+      "problem": "The lesson uses difficult legal terms such as \"ex post facto\" and \"bills of attainder\" without a simple explanation. Similar unexplained legal wording appears in the Section 9 to 22 catalogue, so the teaching prose is not consistently at the Grade 5 reading standard."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in the lesson.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Which broad part of Article III contains the right against compelled self-incrimination and the protection against double jeopardy?",
+      "problem": "The phrase \"broad part\" does not define the expected range, so the stem does not support one clear exam-style answer. The lesson itself names Sections $9$ to $22$ as a broad part, while the solution chooses Sections $12$ to $22$."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson is written in English and does not teach Filipino language content.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson is written in English and does not teach Filipino language content.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson is written in English and does not teach Filipino language content.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson is written in English and does not teach Filipino language content.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson is written in English and does not teach Filipino language content.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to a word by formatting.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the General Information section fit: the lesson uses Core Concept, Examples, and Traps to Watch For and has no calculation formula that would need prior introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the worked examples to the catalogue goal and the brief's explicit allowance that a catalogue lesson need not exemplify every section. The set covers section count, due process, equal protection, warrant requirements, travel, and locating later protections without near-duplicate number changes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all six worked solutions. Every multi-step solution begins immediately with numbered steps and has no unnumbered solution instruction before the list; there are no computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The brief requires no figures and the lesson contains no illustration placeholders.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Section $22$:** Ex post facto laws and bills of attainder are prohibited.",
+      "problem": "The lesson requires students to understand this protection but never explains the necessary terms \"ex post facto law\" or \"bill of attainder\" before using them."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Section $22$:** Ex post facto laws and bills of attainder are prohibited.",
+      "problem": "This protection is only named. The lesson does not explain what either prohibited kind of law means or how a student would recognize one, so the concept is not taught beyond its label."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Section $13$:** Before conviction, bail is protected subject to the exception stated in the Constitution. Excessive bail is not allowed.",
+      "problem": "The lesson tells students that a constitutional bail exception exists but does not state the condition for that exception. Students therefore cannot tell when the bail rule does or does not apply."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Both provisions fall within Sections $12$ to $22$.",
+    "concern": "The question asks for a broad part, but the lesson's own broad heading is Sections $9$ to $22$. Sections $12$ to $22$ is only one of several ranges that contain Sections $17$ and $21$, so the stated answer is not uniquely supported."
+   }
+  ],
+  "brief_items": {
+   "lesson-philippine-constitution-bill-of-rights|B08|0": {
+    "status": "fixed",
+    "quote": "Article III of the $1987$ Constitution is the **Bill of Rights**. It has exactly **$22$ sections** that protect people from unlawful government action.",
+    "note": "Checked prose numbers throughout the rewritten lesson. The year, section count, section numbers, and section ranges are now wrapped in inline math."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L05|0": {
+    "status": "fixed",
+    "quote": "How many sections make up Article III of the $1987$ Constitution?",
+    "note": "Checked the two cited meta-framed examples. The section-count item is now asked directly, and the due-process item is also a direct constitutional scenario rather than a student-review prompt."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L19|0": {
+    "status": "fixed",
+    "quote": "1. Article III is the Bill of Rights.",
+    "note": "Checked all worked solutions for the former unnumbered lead-in pattern. The rewrite now starts each multi-step solution directly with numbered steps."
+   },
+   "general-information-philippine-constitution#18": {
+    "status": "fixed",
+    "quote": "In procedure questions, check for notice and a real chance to be heard.",
+    "note": "Checked the due-process analysis gap. The rewrite gives a notice-and-hearing check and Example 2 applies it to a property deprivation."
+   },
+   "general-information-philippine-constitution#19": {
+    "status": "fixed",
+    "quote": "A law may group people when the grouping is reasonable: it rests on real differences, fits the law's purpose, is not limited only to present conditions, and treats everyone in the same group alike.",
+    "note": "Checked the equal-protection analysis gap. The rewrite states the classification conditions and Example 3 applies the real-difference and purpose connection."
+   },
+   "general-information-philippine-constitution#20": {
+    "status": "fixed",
+    "quote": "For a search warrant or warrant of arrest, check that there is probable cause, a judge determines it personally after an oath or affirmation, and the warrant clearly describes the place to be searched and the persons or things to be seized.",
+    "note": "Checked the search-and-seizure gap. The rewrite states the warrant requirements, adds the exclusionary rule, and Example 4 applies particular description."
+   },
+   "general-information-philippine-constitution#21": {
+    "status": "fixed",
+    "quote": "The Constitution allows an exception upon lawful court order, or when public safety or order requires it as provided by law.",
+    "note": "Checked the privacy exceptions. The rewrite now states the lawful-court-order exception and the public-safety-or-order exception provided by law."
+   },
+   "general-information-philippine-constitution#22": {
+    "status": "not_fixed",
+    "quote": "The Constitution protects freedom of speech, expression, and the press.",
+    "note": "Speech and expression are still only listed as protected freedoms. The rewrite gives no meaning, condition, or application method that makes this facet more than a thin catalogue entry."
+   },
+   "general-information-philippine-constitution#23": {
+    "status": "not_fixed",
+    "quote": "The Constitution protects freedom of speech, expression, and the press.",
+    "note": "Press freedom is still only named as protected. The rewrite gives no explanation or application method for recognizing a press-freedom issue."
+   },
+   "general-information-philippine-constitution#24": {
+    "status": "not_fixed",
+    "quote": "It also protects peaceful assembly and petitioning the government to correct a grievance.",
+    "note": "Peaceful assembly is still only named as a protected activity. The rewrite does not explain how the protection works or provide an application case."
+   },
+   "general-information-philippine-constitution#25": {
+    "status": "not_fixed",
+    "quote": "It also protects peaceful assembly and petitioning the government to correct a grievance.",
+    "note": "The sentence gives a short meaning for petitioning, but the facet remains thin because there is no condition or application method for recognizing a petition-for-redress issue."
+   },
+   "general-information-philippine-constitution#26": {
+    "status": "fixed",
+    "quote": "The government may not establish a religion or prohibit its free exercise. Religious profession and worship are protected without discrimination or preference, and no religious test may be required to exercise civil or political rights.",
+    "note": "Checked both missing clauses. The rewrite now includes the non-establishment rule and the ban on a religious test for civil or political rights."
+   },
+   "general-information-philippine-constitution#27": {
+    "status": "fixed",
+    "quote": "It may be impaired only upon lawful court order and within limits set by law.",
+    "note": "Checked the liberty-of-abode conditions. The rewrite now states the lawful-court-order condition and distinguishes it from the separate travel rule."
+   },
+   "general-information-philippine-constitution#28": {
+    "status": "fixed",
+    "quote": "It may be impaired only for national security, public safety, or public health, as provided by law.",
+    "note": "Checked the right-to-travel conditions. The rewrite now states the three constitutional grounds and Example 5 applies the public-health ground."
+   },
+   "general-information-philippine-constitution#29": {
+    "status": "fixed",
+    "quote": "Citizens may access official records and papers about official acts, transactions, decisions, and government research used for policy, subject to limits provided by law.",
+    "note": "Checked citizen access and lawful limits. The rewrite now identifies who receives access, the kinds of public records covered, and that legal limits can apply."
+   },
+   "general-information-philippine-constitution#30": {
+    "status": "fixed",
+    "quote": "People in the public or private sector may form unions, associations, or societies. The purpose must not be contrary to law.",
+    "note": "Checked the lawful-association facet. The rewrite now says what association covers, who may exercise it, and the lawful-purpose condition."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L18|0": {
+    "status": "fixed",
+    "quote": "A search warrant names the house to be searched but does not identify the things to be seized. Which constitutional requirement is missing?",
+    "note": "The optional coverage item was edited. The rewrite expands the worked set beyond count and broad location to due process, equal protection, warrant requirements, and travel, which is enough under the brief's stated catalogue allowance."
+   }
+  }
+ }
+}
