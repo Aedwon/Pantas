@@ -84,3 +84,8 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
   delete with Aedwon's approval. Aedwon now has three Codex accounts (a, b, c) for delegation;
   how to select each account is not yet recorded. The lead's Claude usage is near its limit, so
   the lead keeps involvement minimal.
+- Codex accounts (Aedwon, Oct 25): `~/.codex` is account b (default), `~/.codex-a` and
+  `~/.codex-c` are a and c; all support `gpt-6.1-sol`. Select with
+  `CODEX_HOME=/Users/aedwon/.codex-a codex exec -m gpt-6.1-sol ...`; unset means b. On a usage
+  limit, note the reset time and switch accounts. Engineering asks before using Sol. Aedwon
+  chose this setup after the October 25 terms note about limit circumvention.
