@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-authors-purpose-tone-pov",
+  "lesson-comprehension-skills-context-clues-in-passages",
+  "lesson-comprehension-skills-sequencing-of-events"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "rewrites": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "ef2611fecfd1440d6021e8f5ea7cf863464d2b4f",
+  "lesson-comprehension-skills-context-clues-in-passages": "ef2611fecfd1440d6021e8f5ea7cf863464d2b4f",
+  "lesson-comprehension-skills-sequencing-of-events": "ef2611fecfd1440d6021e8f5ea7cf863464d2b4f"
+ },
+ "sha256": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "c619046fc40e97ee01176c3df21f9a138f7f6ce74d28e176c8ef08eb23de886f",
+  "lesson-comprehension-skills-context-clues-in-passages": "4835e1c0dbadfc1ade3d864b31ee015412e1239841073825c8d7a6d056005c2d",
+  "lesson-comprehension-skills-sequencing-of-events": "8e82770084fdd50565a323391afec28143fe1d14026a3d0c81af66cd21e1d657"
+ },
+ "paths": {
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+  "lesson-comprehension-skills-context-clues-in-passages": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+  "lesson-comprehension-skills-sequencing-of-events": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
+ },
+ "id": "RD-077",
+ "type": "read",
+ "created": "2026-10-25T22:29:18+00:00"
+}
