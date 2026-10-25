@@ -1,90 +1,165 @@
 ---
 _id: "lesson-clerical-ability-alphabetic-filing-rules"
 title: "Alphabetic Filing Rules"
-summary: "Learn how to follow a stated alphabetic indexing convention and sort names accurately without inventing universal filing rules."
+summary: "Learn how to build and compare filing keys for personal names by following the rule stated or shown in the question."
 subject: "subject-reasoning"
 topic: "topic-clerical-ability"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-The current public CSE clerical-ability scope includes **filing**, but it does not publish one universal indexing manual for every filing item. Real organizations also use different filing systems. Therefore, the first rule is:
+Alphabetic filing puts records in letter order. The question may state the filing rule or show it through examples. Use the rule given for that task.
 
-> **Follow the filing/indexing convention stated or demonstrated in the question.**
+A **filing key** is the set of name parts used to sort a record. One common personal-name rule is surname first, then given name, then middle name or initial. Do not assume this rule unless the task states or shows it.
 
-A common personal-name convention is to index by surname first, then given name, then middle name or initial:
+The main name parts are:
 
-- *Juan Antonio Santos* → **Santos, Juan Antonio**
+- **given name**: the person's first personal name
+- **middle name or initial**: the name or letter between the given name and surname
+- **surname**: the family name
 
-When two records have identical primary filing units, use the next filing unit specified by the system, such as given name, middle name, date, location, or another identifier.
+Under a surname → given name → middle name rule, *Juan Antonio Santos* becomes **Santos, Juan Antonio**.
 
-### Surname prefixes and particles
+Compare one filing unit at a time. If the surnames are different, stop there. If the surnames match, compare given names. If those also match, compare middle names or initials.
 
-Names containing particles such as *De, de, Del, De la, van, von,* or *San* should be filed according to the governing filing rule and the person's established surname. Some filing manuals treat a surname prefix as an inseparable part of the surname for alphabetizing, effectively ignoring spaces for sorting purposes. That does **not** mean the surname should be respelled in the record.
+### Inferring a rule from examples
 
-For example, under a rule that alphabetizes **De la Cruz** as one surname unit, you may compare its letters as if the spaces were absent, but you should still display the name as **De la Cruz**, not rewrite it as *Delacruz* unless that is the person's actual surname spelling.
+Sometimes the task shows sample names and their filed forms instead of giving the rule in words. Look for the same pattern in every sample. Then use that pattern on the new name.
+
+For example, if *Ana Cruz* becomes **Cruz, Ana** and *Ben Lim* becomes **Lim, Ben**, the shown rule puts the surname first. Check more than one sample before deciding the rule.
+
+### Surnames with extra words
+
+Some surnames include words such as *De, Del, de la, van, von,* or *San*. Treat the surname the way the task tells you.
+
+A rule may say to treat *De la Cruz* as one surname and ignore spaces only while comparing letters. In that case, keep the written surname as *De la Cruz*. Do not change it to *Delacruz*.
 
 ### Suffixes and titles
 
-Suffixes such as *Jr., Sr., II,* and *III* can be used as later filing units when necessary to distinguish otherwise identical names. Exact treatment depends on the filing system being used.
+A **suffix** comes after a person's name, such as *Jr., Sr., II,* or *III*. If the filing rule uses the suffix as a later filing unit, compare it only after the earlier name units match.
+
+A **title** comes before a name, such as *Mr., Ms.,* or *Dr.* A filing system may tell you to ignore titles, or it may use them as a later filing unit. Follow the rule stated in the task.
 
 ## Examples
 
 ### #1: Basic Personal-Name Indexing
 
-Using the convention surname → given name → middle name, how should "Juan Antonio Santos" be indexed?
+Using the rule surname → given name → middle name, how should "Juan Antonio Santos" be indexed?
 
 **Solution:**
 
-1. Surname: Santos.
-2. Given name: Juan.
-3. Middle name: Antonio.
-4. Index: **Santos, Juan Antonio**.
+1. The surname is *Santos*.
+2. The given name is *Juan*.
+3. The middle name is *Antonio*.
+4. The filing form is **Santos, Juan Antonio**.
 
-### #2: Surname with a Prefix
+### #2: Same Surname, Different Given Names
 
-Suppose the instructions say surname particles are treated as part of the surname and spaces are ignored **for alphabetic comparison**. Which comes first: "Maria De la Cruz" or "Clara Delgado"?
+Using surname → given name → middle name, which comes first: "Ben Garcia" or "Anna Garcia"?
+
+**Solution:**
+
+1. Both records have the surname *Garcia*, so the first filing unit is tied.
+2. Compare the given names *Anna* and *Ben*.
+3. **Garcia, Anna** comes before **Garcia, Ben**.
+
+### #3: Same Surname and Given Name
+
+Using surname → given name → middle name, which comes first: "Maria Luisa Santos" or "Maria Elena Santos"?
+
+**Solution:**
+
+1. Both records have the surname *Santos*.
+2. Both have the given name *Maria*.
+3. Compare the middle names *Elena* and *Luisa*.
+4. **Santos, Maria Elena** comes before **Santos, Maria Luisa**.
+
+### #4: Infer the Filing Rule
+
+The task shows these examples: "Ana Cruz" → **Cruz, Ana** and "Ben Lim" → **Lim, Ben**. How should "Carlo Reyes" be filed under the same rule?
+
+**Solution:**
+
+1. In both examples, the surname is moved to the first filing unit.
+2. Apply the same pattern to *Carlo Reyes*.
+3. The result is **Reyes, Carlo**.
+
+### #5: Surname with Extra Words
+
+Suppose the instructions say *De la Cruz* is one surname and spaces are ignored only for alphabetic comparison. Which comes first: "Maria De la Cruz" or "Clara Delgado"?
 
 **Solution:**
 
 1. Compare the surnames *De la Cruz* and *Delgado* under the stated rule.
-2. Ignoring spaces for comparison gives the letter sequences **DELACRUZ** and **DELGADO**.
-3. At the fourth letter, **A** comes before **G**.
+2. Ignoring spaces for comparison gives *delacruz* and *delgado*.
+3. The first three letters match. The next letters are *a* and *g*.
 4. **De la Cruz, Maria** comes first.
 
-The spelling remains *De la Cruz*; the comparison rule does not rename the person.
+The spelling stays *De la Cruz*. The sorting rule does not rename the person.
 
-### #3: Identical Names
+### #6: Suffix as a Later Filing Unit
 
-Two records are both filed under "Robert Smith." One system specifies **city as the next filing unit**. The cities are Boston and Chicago. Which comes first?
+A filing rule says to compare surname, then given name, then suffix. Which comes first: "Paolo Reyes Sr." or "Paolo Reyes Jr."?
 
 **Solution:**
 
-Under the stated city tie-break rule, **Boston** comes before **Chicago**. Without such an instruction or established filing convention, location is not automatically the universal tie-breaker.
+1. Both records have the surname *Reyes*.
+2. Both have the given name *Paolo*.
+3. Compare the suffixes *Jr.* and *Sr.*.
+4. **Reyes, Paolo Jr.** comes first.
 
-## Speed Tricks & Shortcuts
+### #7: Ignore Titles When Told
 
-**Read the filing rule before sorting.** Do not import a rule from a different filing system.
+A filing rule says titles are not part of the filing key. Which comes first: "Dr. Ben Cruz" or "Ms. Ana Cruz"?
 
-**Compare one indexing unit at a time.** Only move to the next unit when the earlier units are identical.
+**Solution:**
 
-**For particles and spaces, distinguish sorting treatment from spelling.** A system may ignore spaces for alphabetization without changing the recorded surname.
+1. Ignore *Dr.* and *Ms.* because the rule says titles are not filing units.
+2. Both records have the surname *Cruz*.
+3. Compare the given names *Ana* and *Ben*.
+4. **Cruz, Ana** comes first.
+
+### #8: Use a Stated Tie-Breaker
+
+Two records are both filed under "Robert Smith." The system says **city is the next filing unit**. The cities are Boston and Chicago. Which comes first?
+
+**Solution:**
+
+1. The name units are identical, so move to the stated next unit, city.
+2. Compare *Boston* and *Chicago* alphabetically.
+3. **Boston** comes first.
+
+Without that rule, do not assume that city is the next filing unit.
 
 ## Traps to Watch For
 
-### #1: Treating One Filing Manual as Universal
+### #1: Assuming One Rule Always Applies
 
-> Alphabetic indexing conventions vary by organization and record system. Follow the rule supplied by the task.
+> Use the filing rule stated or shown in the task.
 
-### #2: Rewriting a Surname to Match the Sort Key
+A different system may build the filing key in another way. Using a rule from another question can place a record in the wrong position.
 
-> Ignoring spaces or punctuation during comparison does not automatically authorize changing the person's actual name spelling.
+### #2: Stopping After the Surname
 
-### #3: Assuming Location Is Always the Tie-Breaker
+> If the first filing unit matches, move to the next stated unit.
 
-> Use location only if the stated filing system makes it the next indexing unit.
+Two people can share a surname. If you stop there, you may reverse records that should be ordered by given name or middle name.
 
-### #4: Sorting by the First Visible Word Instead of the Filing Unit
+### #3: Rewriting a Surname to Match the Sort Key
 
-> When a system indexes personal names by surname, identify the surname first, then compare the resulting units in order.
+> A sorting rule can change how letters are compared without changing the person's written name.
+
+If spaces are ignored for sorting, the wrong move is to remove those spaces from the actual surname in the record.
+
+### #4: Using a Suffix or Title Too Early
+
+> Compare a suffix or title only where the stated filing rule places it.
+
+If surname and given name come first, jumping straight to *Jr.* or *Dr.* can give the wrong order.
+
+### #5: Assuming Location Is Always the Tie-Breaker
+
+> Use location only when the filing system says it is the next unit.
+
+A city can break a tie in one system and be unused in another. Do not add a location rule that the task never gave.
