@@ -1,0 +1,260 @@
+{
+  "packet": "lesson-logical-verbal-reasoning-word-analogies",
+  "role": "A",
+  "lesson_sha256": "a885ec414e2f5745cdfc48b91b6f6776c727c1a74a1a76d5f6564decb66c87d7",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+    "B01": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the vocabulary relationships used in the teaching and examples; the stated part-whole, function, category, near-synonym, antonym, degree, user-tool, and role-work relations are factually sound."
+      ],
+      "note": ""
+    },
+    "B02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Solved #1 independently: cut, choice B.",
+        "Solved #2 independently: movie, choice B.",
+        "Solved #3 independently: tree, choice B.",
+        "Solved #4 independently: book, choice B.",
+        "Solved #5 independently: flour, choice A.",
+        "Solved #6 independently: old, choice A.",
+        "Solved #7 independently: hot, choice B.",
+        "Solved #8 independently: hammer, choice A.",
+        "Solved #9 independently: reject, choice B.",
+        "Solved #10 independently: horse and leaf, choice A; the other choices fail at least one relationship."
+      ],
+      "note": ""
+    },
+    "B03": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the Reasoning structure and figure needs: Core Concept, Examples, a genuine shortcut section, and Traps are present, and these verbal analogy items do not require figures."
+      ],
+      "note": ""
+    },
+    "L02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Read the lesson for Grade 5 simplicity; relationship types are named with short definitions and concrete word pairs, and the earlier abstract language about mathematical or metaphysical uniqueness is gone."
+      ],
+      "note": ""
+    },
+    "L03": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson uses everyday task words and does not introduce an exam-specific instruction word needing a one-line definition."
+    },
+    "L04": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked for friendly-tutor analogies used as teaching metaphors; none appear beyond the subject matter of word analogies itself."
+      ],
+      "note": ""
+    },
+    "L05": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked all ten example stems and solutions; the stems use concise analogy-question wording with enough information, and each solution states the relationship in simple language."
+      ],
+      "note": ""
+    },
+    "L07": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked for specific-exam mentions and repeated exam-motivation phrasing; none appear, so there is no unsupported or repetitive exam claim."
+      ],
+      "note": ""
+    },
+    "L08": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is an English-language Reasoning lesson, so the Filipino teaching-prose rule does not apply."
+    },
+    "L09": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson does not teach Filipino grammar and contains no Filipino grammar term that needs an English gloss."
+    },
+    "L10": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson is not a Filipino-language lesson, so Filipino example and quiz language requirements do not apply."
+    },
+    "L11": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "There is no Filipino teaching text in this lesson requiring an official spelling or usage source check."
+    },
+    "L12": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "Because the teaching prose is English, the no-Taglish rule for Filipino-language lessons does not apply."
+    },
+    "L14": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No item asks the student to identify a target word or refers to a word as bold or underlined."
+    },
+    "L15": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the listed stock AI phrases, sentence-opening variety, and the summary; none of the banned phrasing appears and the summary is plain and specific."
+      ],
+      "note": ""
+    },
+    "L17": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked Reasoning subject fit: the Speed Tricks section contains real relationship, direction, choice-elimination, and double-analogy shortcuts, and no formula is introduced in an example."
+      ],
+      "note": ""
+    },
+    "L18": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Mapped the taught relationship cases to examples: function #1, role/work #2, category #3, part-whole #4, cause/product #5, near-synonym #6, degree #7, user/tool #8, antonym #9, and double analogy #10."
+      ],
+      "note": ""
+    },
+    "L19": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked solution structure: examples #1 through #9 are one-step answers that may stay in prose, while the multi-part double analogy in #10 is shown as three numbered steps."
+      ],
+      "note": ""
+    },
+    "L21": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson contains no display equations, so there is no display-math width to judge on a phone screen."
+    },
+    "L22a": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked paragraphs and lists; teaching paragraphs stay within one to three short sentences, and the relationship list is the only substantial bullet list."
+      ],
+      "note": ""
+    },
+    "L23": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson has no illustration placeholders, and verbal word-analogy questions do not need a figure to be understood."
+    },
+    "L25": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked necessary relationship terms before use; part-whole, cause/product, function, category, near-synonym, antonym, degree, user-tool, and role-work are each explained with a concrete pair."
+      ],
+      "note": ""
+    },
+    "L26": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked that the relationship families explain how to recognize and transfer them; each type includes a plain meaning, and the method tells students to turn the first pair into a sentence and test choices."
+      ],
+      "note": ""
+    },
+    "L27": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked applicability limits: direction is explicitly required, vague relationships are rejected, close calls use a more exact sentence, and double analogies require both pairs to work."
+      ],
+      "note": ""
+    }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+    "lesson-logical-verbal-reasoning-word-analogies|B02|0": {
+      "status": "fixed",
+      "quote": "(A) horse, leaf (B) horse, forest (C) cow, leaf (D) goat, root",
+      "note": "The rewritten double analogy now has one defensible answer: only horse and leaf satisfy both relationships in the required directions."
+    },
+    "lesson-logical-verbal-reasoning-word-analogies|L02|0": {
+      "status": "fixed",
+      "quote": "Two words can be related in more than one true way. Use the answer choices to find the clearest relationship that works in the same direction.",
+      "note": "The abstract wording about mathematical uniqueness and metaphysical exactness was replaced with short, concrete language."
+    },
+    "lesson-logical-verbal-reasoning-word-analogies|L05|0": {
+      "status": "fixed",
+      "quote": "An author writes a book. In the same way, a director directs a movie. The answer is **B**.",
+      "note": "The role-and-product solution now uses direct verbs and simple wording instead of the abstract phrase central creative role."
+    },
+    "reasoning-logical-verbal-reasoning#36": {
+      "status": "fixed",
+      "quote": "A petal is part of a flower. Keep the direction from the part to the whole.",
+      "note": "Part-to-whole now has a clear meaning, an explicit direction rule, and a worked wheel-to-bicycle/page-to-book application."
+    },
+    "reasoning-logical-verbal-reasoning#37": {
+      "status": "fixed",
+      "quote": "Fire can produce ash. Ask what the first word makes, causes, or leaves.",
+      "note": "Cause or product now has a local recognition procedure and a worked fire-to-ash versus grain-to-flour application."
+    },
+    "reasoning-logical-verbal-reasoning#40": {
+      "status": "fixed",
+      "quote": "The words have close meanings, though they may not mean exactly the same thing.",
+      "note": "Near-synonym is now explained in plain language and followed by a worked silent-to-quiet and ancient-to-old example."
+    },
+    "reasoning-logical-verbal-reasoning#41": {
+      "status": "fixed",
+      "quote": "The words show opposite ideas.",
+      "note": "Antonym or contrast now has a direct meaning statement and a worked expand-to-contract and accept-to-reject application."
+    },
+    "reasoning-logical-verbal-reasoning#42": {
+      "status": "fixed",
+      "quote": "The second word shows a stronger degree of the same idea.",
+      "note": "Degree is now explained as a change in strength and is applied in the worked cool-to-cold and warm-to-hot example."
+    },
+    "reasoning-logical-verbal-reasoning#43": {
+      "status": "fixed",
+      "quote": "The first word names a person who commonly uses the second thing.",
+      "note": "User and tool now has a local recognition rule and a worked painter-to-brush and carpenter-to-hammer application."
+    },
+    "lesson-logical-verbal-reasoning-word-analogies|L17|0": {
+      "status": "fixed",
+      "quote": "**Keep the direction.** \"Part of\" and \"contains\" point in opposite directions. \"Uses\" and \"is used by\" do too.",
+      "note": "The Speed Tricks section contains genuine solving shortcuts, so retaining it fits the current Reasoning section rule."
+    },
+    "lesson-logical-verbal-reasoning-word-analogies|L18|0": {
+      "status": "fixed",
+      "quote": "Fire is to ash as grinding grain is to ______.",
+      "note": "Cause or product now has its own worked example, so that distinct relationship family is covered in the Examples section."
+    },
+    "lesson-logical-verbal-reasoning-word-analogies|L19|0": {
+      "status": "fixed",
+      "quote": "\"A pen is used to write\" matches \"scissors are used to cut.\" The answer is **B**.",
+      "note": "This is a one-step solution, which the lesson guide allows to remain one sentence instead of a numbered step list."
+    },
+    "lesson-logical-verbal-reasoning-word-analogies|L26|0": {
+      "status": "fixed",
+      "quote": "Fire can produce ash. Ask what the first word makes, causes, or leaves.",
+      "note": "The cause-or-product relationship now explains both what it means and how a student can recognize the relation."
+    }
+  }
+}
