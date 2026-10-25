@@ -1,119 +1,132 @@
 ---
 _id: "lesson-spatial-abstract-reasoning-paper-folding-and-cutting"
 title: "Paper Folding and Cutting Rules"
-summary: "Learn how to unfold cuts by reflecting them across fold lines and how folds affect the number, shape, and position of openings."
+summary: "Unfold cuts with mirror copies and track the number, shape, and position of the openings."
 subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-**Paper folding and cutting** questions show paper folded at least once, then cut or punched. To predict the open sheet, undo the folds in reverse order and reflect each cut across the fold line.
+**Paper folding and cutting** questions show folded paper with a cut or punch. Predict the open sheet by undoing the folds in reverse order. Open the last fold first.
 
-To **reflect** a cut, make a mirror copy on the other side of the fold line. Every point in the copy must be the same distance from the fold line as the matching point in the original cut. The copy also faces the opposite way, just as it would in a mirror.
+To **reflect** a cut means to make a mirror copy across a fold line. Put the copy on the opposite side, at the same distance from the line. A cut close to the fold stays close to it after reflection.
 
-Start with the last fold you made. Open that fold and place the reflected copy. Then open the earlier fold and reflect every cut that is now present.
+A reflection also flips the cut's direction. Across a vertical fold, a right-pointing cut becomes a left-pointing copy. Across a horizontal fold, an upward-pointing cut becomes a downward-pointing copy.
 
-A fold can double the number of layers. After $n$ simple half-folds, the folded packet can contain up to $2^n$ layers. However, **$2^n$ is not always the number of separate holes after unfolding**.
+Keep the existing cut when you add its copy. After opening the last fold, open the earlier fold and reflect every cut on the part that unfolds. Repeat until the sheet is flat.
 
-The final result depends on:
+A **layer** is one thickness of paper. A complete half-fold can double the layers. After $n$ half-folds, where $n$ is the number of folds, the packet can have up to $2^n$ layers at a spot.
 
-- whether each fold doubles the layers at the cut;
-- whether the cut passes through all layers;
-- whether the cut lies away from every fold line;
-- whether reflected copies overlap or join on a fold line;
-- whether the cut is an interior hole or a notch on an edge.
+This does not always mean $2^n$ separate holes. Check whether the punch reaches every layer at that spot. Also check whether the cut touches a fold or an outside edge.
 
-For a small interior punch that passes through all $2^n$ layers and stays away from the fold lines, $2^n$ separate copies is a useful special case. If a cut lies **on a fold line**, reflected copies can meet and form a single connected opening.
+An **interior hole** lies fully inside the paper. A **notch** is a cut that opens onto an edge. A notch on a folded edge can join its mirror copy to make one opening when the sheet opens.
 
-Track both the number and the position of the openings. $2$ choices can show the same count but place the openings differently.
+For a small interior punch through all $2^n$ layers, away from every fold, the open sheet has $2^n$ separate holes. This shortcut needs complete half-folds and separate copies. Cuts that touch folds can join instead.
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "notch", "at": "corner", "showUnfolded": true, "semanticsLabel": "A square folded twice with a cut, then unfolded by reflecting the cut across the horizontal and vertical fold lines."} -->
+An uneven fold may leave some paper uncovered. A punch there cuts fewer layers than a punch in the overlap. Reflect cuts only where folded paper was actually cut.
+
+<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; show an interior punch away from both folded edges and arrows opening the horizontal fold first, then the vertical fold, ending with four mirror-position holes -->
 
 ## Examples
 
 ### #1: Cut on One Fold Line
 
-A square is folded vertically in half. A triangular notch is cut **into the folded edge** at the midpoint. What happens when the paper is opened?
+A square is folded vertically in half. A triangular notch is cut into the folded edge at its midpoint. The triangle has its base on that edge and its tip inside the folded paper. What opening appears when the sheet is opened?
+
+<!-- ILLUSTRATION: square folded left half onto right half; triangular notch at midpoint of vertical folded edge, with base on fold and tip pointing right; unfolded square has one diamond-shaped opening centered on fold -->
 
 **Solution:**
 
-1. The cut is on the fold line itself.
-2. Opening the paper makes a mirror copy across that line.
-3. Both halves meet at the fold, so they form **a single symmetric connected opening**, not $2$ separated holes.
-
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical"], "cut": "notch", "at": "on-fold", "showUnfolded": true, "semanticsLabel": "A square folded vertically with a notch cut on the fold, then opened to show a single symmetric connected opening centered on the fold line."} -->
+1. The triangle touches the folded edge along its base.
+2. Opening the fold adds a left-pointing mirror copy to the right-pointing triangle.
+3. The copies meet along their bases. They form one diamond-shaped opening, not $2$ separate holes.
 
 ### #2: Interior Hole Away from Two Fold Lines
 
-A square is folded vertically in half, then horizontally in half. A small circular hole is punched through all $4$ layers at a point **away from both folded edges**. How many separate holes appear after unfolding?
+A square is folded vertically in half, then horizontally in half. A small circular hole is punched through all $4$ layers, away from both folds and all outside edges. How many separate holes appear after unfolding?
+
+<!-- ILLUSTRATION: square folded left onto right, then bottom onto top; small circular punch inside packet away from every edge; opening horizontal fold gives two holes, opening vertical fold gives four holes in mirror positions -->
 
 **Solution:**
 
-1. The $2$ complete half-folds give $4$ layers at the punch.
-2. The punch is not on either fold line, so its mirror copies stay separate.
-3. Undoing the horizontal fold gives $2$ holes.
-4. Undoing the vertical fold reflects both holes again, giving **$4$ separate holes** in symmetric positions.
+1. Open the horizontal fold first. The punch gets a mirror copy on the other side of that fold, giving $2$ holes.
+2. Open the vertical fold. Both holes get mirror copies, giving $4$ holes.
+3. None touches a fold or another hole. The result is $4$ separate holes.
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "interior", "showUnfolded": true, "semanticsLabel": "A square folded twice with an interior hole away from both folds, then opened to show four symmetrically placed holes."} -->
+### #3: Cut at Both Fold Lines
 
-### #3: Hole at the Intersection of Fold Lines
+A square is folded vertically in half, then horizontally in half. A small quarter-circle is cut from the corner where the two folded edges meet. Its center is that corner. What opening appears when the sheet is opened?
 
-Using the same $2$-fold setup, suppose a punch is made **exactly at the corner formed by both folded edges**, where the $2$ fold lines meet in the original sheet. What happens when the paper is unfolded?
+<!-- ILLUSTRATION: square folded left onto right, then bottom onto top; remove a quarter-circle from the packet corner formed by both folded edges, with arc centered at that corner; first unfolding shows a semicircular cut on remaining fold, full unfolding shows one circular center opening -->
 
 **Solution:**
 
-1. The punch sits on both fold lines.
-2. Reflecting it across either fold line puts the copy on the same center spot instead of making a separate hole.
-3. After both folds are opened, the reflected cuts join at the center.
+1. The cut touches both folded edges. Its corner is at the center of the original square.
+2. Open the horizontal fold. The quarter-circle and its mirror copy join to make a semicircle.
+3. Open the vertical fold. The semicircle joins its mirror copy to make one circular opening at the center.
 
-The result is **a single symmetric center opening**. Its exact outline depends on the cut's shape and how it crosses the folded edges.
-
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "fold-corner", "showUnfolded": true, "semanticsLabel": "A square folded twice with a cut at the intersection of both fold lines, then opened to show one symmetric opening centered at the intersection."} -->
+The cut goes through all the layers. The pieces join at the folds, so the result is one opening.
 
 ### #4: Three Folds, Interior Punch
 
-A rectangular sheet is folded in half $3$ times so the punched location contains all $8$ layers. A small circular punch is made through the interior of the folded packet, away from all fold lines. How many separate holes appear?
+A rectangular sheet is folded in half $3$ times: left onto right, bottom onto top, then left onto right again. A small circular punch passes through all $8$ layers, away from every fold and outside edge. How many separate holes appear?
+
+<!-- ILLUSTRATION: rectangle folded left onto right, bottom onto top, then left onto right; small circular interior punch through all eight layers away from all edges; unfold in reverse order to show eight holes in mirror positions, without implying equal spacing -->
 
 **Solution:**
 
-The punch passes through all $8$ layers and stays away from the fold lines, so the special-case count applies:
+1. The punch reaches all the layers made by the $3$ complete half-folds.
+2. Each opening step doubles the separate copies. The count is:
 
 $$2^3=8$$
 
-The unfolded sheet has **$8$ separate symmetric holes**.
+3. The open sheet has $8$ separate holes. Their positions mirror the folds, but the gaps between holes need not all be equal.
 
-<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal", "vertical"], "cut": "hole", "at": "interior", "sheet": "rectangle", "showUnfolded": true, "semanticsLabel": "A rectangle folded three times with one cut through all eight layers, then opened to show eight symmetrically placed holes."} -->
+### #5: A Punch Through Only Some Layers
+
+A rectangular sheet is $12$ centimeters wide and $6$ centimeters tall. Its leftmost $4$-centimeter strip is folded right along a vertical line $4$ centimeters from the left edge. A small hole is punched $10$ centimeters from the original left edge and $3$ centimeters from the bottom. How many holes appear when the paper is opened, and where?
+
+<!-- ILLUSTRATION: rectangle 12 cm wide and 6 cm tall with vertical fold at 4 cm from left edge; arrow folds leftmost 4 cm strip right onto region from 4 cm to 8 cm; show two layers between 4 cm and 8 cm and one layer between 8 cm and 12 cm; punch at 10 cm from original left edge and 3 cm from bottom; unfolded sheet shows only that one hole -->
+
+**Solution:**
+
+1. The folded strip covers the region from $4$ to $8$ centimeters from the original left edge.
+2. The punch is at $10$ centimeters. It lies outside that overlap, so it cuts just one layer.
+3. Opening the folded strip adds no copy of the hole. That strip was not punched.
+4. The open sheet has one hole, still $10$ centimeters from the left edge and $3$ centimeters from the bottom.
+
+There was a fold, but the punch did not pass through the folded part. Count the layers at the punch itself.
 
 ## Traps to Watch For
 
-### #1: Assuming Every Fold Creates One More Hole
+### #1: Adding One Hole for Each Fold
 
-> A complete half-fold can double the layers at the cut, so hole count does not rise by exactly $1$ per fold.
+> A complete half-fold can double the layers at the cut.
 
-A wrong choice may add only a single hole for each fold. Count the layers at the cut, then check whether the copies stay separate.
+Adding one hole per fold gives the wrong count for a punch through all doubled layers. Check the layers and whether the copies stay separate.
 
-### #2: Assuming $2^n$ Always Means $2^n$ Separate Holes
+### #2: Always Using the Power-of-Two Count
 
-> The $2^n$ count works only when the cut passes through all doubled layers and stays away from fold lines.
+> Use $2^n$ only when the cut reaches all doubled layers and the copies stay separate.
 
-A cut on a fold line can make reflected copies overlap or join. Check the cut position before using the shortcut.
+Cuts on folds may join. A punch outside an overlap may cut only one layer. Neither case follows the separate-hole shortcut.
 
-### #3: Treating a Fold-Line Notch Like an Interior Punch
+### #3: Counting Joined Pieces as Separate Holes
 
-> A notch cut into a folded edge can open into a single connected symmetric shape.
+> Cuts that share a folded edge can join when the sheet opens.
 
-It is easy to count each reflected half as a separate notch. Follow the shared fold edge and see whether the reflected pieces meet.
+A triangular notch on a fold makes one opening in Example $1$. Count the connected opening after unfolding, not each half of it.
 
-### #4: Ignoring Which Layers the Cut Actually Crosses
+### #4: Ignoring Which Layers Were Cut
 
-> A cut near an uneven packet boundary may pass through only some layers.
+> Count the layers at the punch, not the thickest part of the packet.
 
-The total number of folds does not tell you how many layers are cut at every spot. Count only the layers that the cut actually reaches.
+An uneven packet can have different layer counts in different places. Example $5$ has a folded region, but the punch misses it.
 
-### #5: Getting the Count Right but the Placement Wrong
+### #5: Getting the Count Right but the Position Wrong
 
-> Each unfolding step mirrors the cut across a specific fold line.
+> Place each mirror copy at the same distance across the fold.
 
-$2$ choices may show the same number of openings but put them in different places. Undo the folds in reverse order and track each position.
+Two choices may show the same hole count in different places. Open the folds in reverse order and check each hole's distance and direction from the fold.
