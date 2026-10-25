@@ -1,77 +1,236 @@
 ---
 _id: "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
 title: "SALN Filing, Public Access, and Divestment"
-summary: "Learn the rules and deadlines for Statement of Assets, Liabilities and Net Worth (SALN) filing and divestment under RA 6713."
+summary: "Learn who files a SALN, what it contains, where and when it is filed, how public access works, and when divestment is required."
 subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
-estimatedMinutes: 10
+estimatedMinutes: 15
 isActive: true
 ---
+
 ## Core Concept
 
-Section 8 of RA 6713 requires covered public officials and employees to file a sworn Statement of Assets, Liabilities and Net Worth (SALN) and a Disclosure of Business Interests and Financial Connections.
+Section $8$ of RA $6713$ requires covered public officials and employees to file sworn financial declarations. These include a **Statement of Assets, Liabilities and Net Worth (SALN)** and a Disclosure of Business Interests and Financial Connections.
 
-### Coverage and Disclosures
+A SALN lists property and other assets, liabilities or debts, and financial or business interests. **Net worth** is what remains when total liabilities are subtracted from total assets.
 
-- **Family financial disclosures:** The required declarations include the official or employee, their spouse, and unmarried children under eighteen years of age living in their household.
-- **Relatives in government:** Public officials and employees must identify and disclose, to the best of their knowledge and information, relatives in government in the form, manner, and frequency prescribed by the Civil Service Commission. Under RA 6713, "relatives" means persons within the fourth civil degree of consanguinity or affinity, including bilas, inso, and balae.
+### Who Is Covered
+
+The SALN filing rule does not cover people who serve only in an honorary capacity, laborers, or casual or temporary workers. A worker is not exempt just because an appointment has a special label. The worker must actually fall within a statutory excluded category.
+
+The declarations cover the official or employee, their spouse, and unmarried children under $18$ years old who live in the household. If both spouses are public officials or employees, they may file jointly or separately.
+
+### What the Financial Declarations Contain
+
+The required documents include:
+
+- real property, improvements, acquisition cost, assessed value, and current fair market value,
+- personal property and acquisition cost,
+- other assets such as investments, cash, stocks, and bonds,
+- liabilities or debts, and
+- business interests and financial connections.
+
+To find net worth, subtract total liabilities from total assets.
+
+### Relatives in Government
+
+Officials and employees must identify relatives in government as required by the Civil Service Commission. RA $6713$ uses relatives within the fourth civil degree of **consanguinity**, meaning blood relationship, or **affinity**, meaning relationship through marriage.
+
+Each generation counts as one civil degree. In a direct line, a parent is in the first degree, a grandparent in the second, and a great-grandparent in the third. For a side relationship, count up to the common ancestor and then down. A first cousin is in the fourth degree.
+
+The law also names these in-law relations:
+
+- **bilas:** the spouse of one's brother-in-law or sister-in-law,
+- **inso:** the wife of an elder brother or male cousin, and
+- **balae:** a parent of one's son-in-law or daughter-in-law.
 
 ### Key Deadlines for SALN Filing
 
-1. **Assumption of office:** Within $30$ days after assumption of office.
-2. **Annual filing:** On or before April 30 of every year thereafter.
-3. **Separation from service:** Within $30$ days after separation from the service.
+1. **Assumption of office:** File within $30$ days after assuming office.
+2. **Annual filing:** File on or before April $30$ every year after that.
+3. **Separation from service:** File within $30$ days after leaving government service.
 
 ### Where SALN and Financial Disclosures Are Filed
 
-RA 6713 assigns filing offices by category:
+RA $6713$ assigns filing offices by category:
 
-- **National office of the Ombudsman:** Constitutional and national elective officials, subject to the specific filing rules below for members of Congress and justices.
-- **Secretary of the Senate or House of Representatives:** Senators and members of the House, respectively.
-- **Clerk of Court of the Supreme Court / Court Administrator:** Justices file with the Clerk of Court of the Supreme Court; judges file with the Court Administrator.
-- **Office of the President:** All national executive officials, and officers of the armed forces from the rank of colonel or naval captain.
-- **Deputy Ombudsman in the respective region:** Regional and local officials and employees, and armed-forces officers below the rank of colonel or naval captain.
-- **Civil Service Commission:** All other public officials and employees covered by the statutory filing rule.
+- **National office of the Ombudsman:** Constitutional and national elective officials, subject to the specific filing offices below for legislators and justices.
+- **Secretary of the Senate or House of Representatives:** Senators and members of the House file with the secretary of their chamber.
+- **Clerk of Court of the Supreme Court or Court Administrator:** Justices file with the Clerk of Court of the Supreme Court. Judges file with the Court Administrator.
+- **Office of the President:** National executive officials and armed-forces officers from the rank of colonel or naval captain.
+- **Deputy Ombudsman in the proper region:** Regional and local officials and employees, and armed-forces officers below colonel or naval captain.
+- **Civil Service Commission:** Other covered public officials and employees under the statutory filing rule.
 
-### Public Access and Divestment
+### Public Access and Prohibited Uses
 
-- **Inspection and copying:** Filed statements must be available for inspection at reasonable hours. They become available for copying or reproduction after $10$ working days from filing.
-- **Retention:** Statements remain available to the public for $10$ years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.
-- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within $30$ days and/or divest the relevant shareholdings or interests within $60$ days. For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose.
+Filed statements must be open for inspection at reasonable hours. They become available for copying or reproduction after $10$ working days from filing.
+
+A statement remains available to the public for $10$ years after it is received. After that, it may be destroyed unless it is needed in an ongoing investigation.
+
+Public access does not allow every use. Section $8(D)$ bans obtaining or using a filed statement for a purpose contrary to morals or public policy. It also bans commercial use, except use by news and communications media to inform the general public.
+
+### Conflict of Interest and Divestment
+
+A **conflict of interest** exists when an official or employee is a board member, officer, substantial stockholder, owner, or person with a substantial business interest, and that private interest may oppose or be affected by faithful performance of official duty. A **substantial stockholder** owns enough shares, directly or indirectly, to elect a corporation director.
+
+**Divestment** means completely giving up title or interest in property. The transfer must be real and complete, and it must be to someone other than the official's spouse or relatives within the fourth civil degree.
+
+When a conflict of interest arises, the official or employee must resign from the private business position within $30$ days and/or divest the relevant shareholdings or interests within $60$ days. For a person already in government service when the conflict begins, the periods are counted from the day the conflict began.
+
+The divestment requirement does not apply to people serving only in an honorary capacity, laborers, or casual or temporary workers.
+
+### Review and Correction of Statements
+
+Section $10$ requires review procedures for filed statements. The proper reviewing body checks whether a statement was filed on time, is complete, and is in the proper form.
+
+If a filing fails one of those checks, the filer is informed and directed to correct it. For members of Congress, the designated committees may also issue written opinions interpreting the law within their authority, subject to the required approval of their House.
+
+A person who receives such an opinion, or another person in the same factual situation, is protected from sanctions under RA $6713$ when they act in good faith according to that opinion. Other offices perform similar review and opinion duties through their proper heads and approval process.
 
 ## Examples
 
-### #1: SALN Filing Deadline on Assumption of Office
+### #1: Initial SALN Deadline
 
-A newly appointed government employee starts working on June 1. By what deadline must the employee file their initial Statement of Assets, Liabilities and Net Worth (SALN)?
-
-**Solution:**
-Identify the SALN deadline for assumption of office under Section 8 of RA 6713.
-
-1. Under RA 6713, a covered official or employee must file after assumption of office.
-2. The deadline is within $30$ days after assumption of office.
-3. Therefore, the employee must file the initial SALN within $30$ days after assuming office.
-
-### #2: Divestment Deadlines for Private Interests
-
-A newly appointed bureau director has a conflict of interest because they own shares in a private firm affected by their new official duties and also serve on its board. What are the legal deadlines for resigning the private position and divesting the relevant interest?
+A newly appointed government employee starts work on June $1$. By what date must the employee file the initial SALN?
 
 **Solution:**
-Apply the divestment timeframes in RA 6713.
 
-1. The official must avoid conflicts of interest.
+1. A covered employee must file within $30$ days after assuming office.
+2. Counting $30$ days after June $1$ gives July $1$.
+3. The employee must file by **July $1$**.
+
+### #2: Annual and Separation Deadlines
+
+A covered employee remains in service during the year and later separates from service on September $15$. What two filing deadlines apply?
+
+**Solution:**
+
+1. The annual SALN is due on or before April $30$.
+2. A final filing is also due within $30$ days after separation from service.
+3. Counting $30$ days after September $15$ gives October $15$.
+4. The deadlines are **April $30$** for the annual filing and **October $15$** for the separation filing.
+
+### #3: Choosing the Filing Office
+
+A city government employee is required to file a SALN. Which office receives the filing under RA $6713$?
+
+**Solution:**
+
+1. A city employee is a local government employee.
+2. Regional and local officials and employees file with the Deputy Ombudsman in their respective region.
+3. The answer is **the Deputy Ombudsman in the proper region**.
+
+### #4: Family Coverage
+
+A covered public employee is married and has two children living at home. One child is unmarried and age $17$. The other is unmarried and age $19$. Which child is included in the family financial declarations under Section $8$?
+
+**Solution:**
+
+1. The rule includes unmarried children under $18$ years old who live in the household.
+2. The $17$-year-old meets the age and household conditions.
+3. The $19$-year-old is not under $18$.
+4. The included child is **the unmarried $17$-year-old living in the household**.
+
+### #5: Net Worth From SALN Amounts
+
+A covered employee reports total assets of ₱$800{,}000$ and total liabilities of ₱$250{,}000$. What is the employee's net worth?
+
+**Solution:**
+
+1. Net worth is total assets minus total liabilities.
+2. Subtract the liabilities from the assets.
+
+$$
+800{,}000 - 250{,}000 = 550{,}000
+$$
+
+3. The net worth is **₱$550{,}000$**.
+
+### #6: Fourth-Degree Relative
+
+A public employee has a first cousin who works in another government office. Is a first cousin within the fourth civil degree for the relatives-in-government rule?
+
+**Solution:**
+
+1. Count from the employee to the parent, then to the shared grandparent, then down to the aunt or uncle, and then to the cousin.
+2. That path has $4$ degrees.
+3. A first cousin is within the **fourth civil degree**.
+
+### #7: Conflict of Interest and Divestment
+
+A newly appointed bureau director owns enough shares to elect a director of a private company affected by the bureau's official decisions. The director also sits on the company's board. What deadlines apply after the conflict of interest arises?
+
+**Solution:**
+
+1. The private role and substantial shareholding can conflict with faithful official duties.
 2. The official must resign from the private business position within $30$ days.
-3. The official must divest the relevant shareholdings or interests within $60$ days.
-4. Therefore, the deadlines are $30$ days for resignation and $60$ days for divestment.
+3. The official must divest the relevant shareholdings or interest within $60$ days.
+4. A transfer to the official's spouse or a relative within the fourth civil degree would not count as true divestment.
 
-### #3: Public Inspection, Copying, and Retention
+### #8: Already in Government When the Conflict Begins
 
-A journalist requests a copy of a local official's SALN filed $8$ years ago. When does a filed statement become available for copying, and how long does it remain available to the public?
+A public employee has already been in government for several years when a new business interest creates a conflict on August $10$. When do the divestment periods begin?
 
 **Solution:**
-Review the accessibility and retention rules under Section 8.
 
-1. Filed statements must be available for inspection at reasonable hours.
-2. They become available for copying or reproduction after $10$ working days from filing.
-3. They remain available to the public for $10$ years after receipt, and an $8$-year-old statement is still within that period.
-4. Therefore, the statement may be copied after the $10$-working-day period and remains within the $10$-year public-availability window.
+1. The conflict did not exist when the employee first entered government.
+2. For an already-serving employee, the time periods are counted from the date the conflict arose.
+3. The periods begin on **August $10$**.
+
+### #9: Public Copying and How Long a Statement Stays Available
+
+A journalist requests a copy of a local official's SALN that was filed $8$ years ago. When can a filed statement be copied, and is this statement still available to the public?
+
+**Solution:**
+
+1. A filed statement becomes available for copying or reproduction after $10$ working days from filing.
+2. It stays available to the public for $10$ years after receipt.
+3. An $8$-year-old statement is still within the $10$-year period.
+4. The statement may therefore be copied under the access rule and is still available to the public.
+
+### #10: Commercial Use of SALN Data
+
+A marketing company obtains a filed SALN and sells the financial information in a commercial customer list. It is not using the information as news for the general public. Is that use allowed?
+
+**Solution:**
+
+1. Section $8(D)$ bans commercial use of a filed statement.
+2. The stated exception is for news and communications media informing the general public.
+3. This marketing use does not fit that exception.
+4. The use is **prohibited**.
+
+### #11: Correcting an Incomplete Statement
+
+A reviewing body finds that a filed statement is incomplete. What should happen under the review and compliance procedure?
+
+**Solution:**
+
+1. The reviewing body checks whether the statement is timely, complete, and in proper form.
+2. If it is incomplete, the filer must be informed.
+3. The filer is then directed to take the needed corrective action.
+
+## Traps to Watch For
+
+### #1: Not Every Government Worker Uses the Same Filing Office
+
+> Match the person's position to the filing-office category.
+
+A local employee, a senator, a judge, and a national executive official can have different filing offices even though all may be covered by the same SALN law.
+
+### #2: Public Access Does Not Mean Any Use Is Allowed
+
+> A statement can be open to the public and still have limits on how it may be used.
+
+Section $8(D)$ bans uses contrary to morals or public policy and most commercial uses. The news-media exception is for informing the general public.
+
+### #3: A Paper Transfer Is Not Enough for Divestment
+
+> Divestment must fully and actually give up the title or interest.
+
+A transfer to a spouse or a relative within the fourth civil degree does not satisfy the statutory definition of divestment.
+
+### #4: Check the Excluded Categories
+
+> Do not assume every person working for government has the same SALN and divestment duties.
+
+Honorary officials, laborers, and casual or temporary workers are excluded from the SALN filing rule and from the divestment requirement discussed here.
