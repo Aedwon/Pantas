@@ -1,0 +1,293 @@
+{
+ "batch": "RD-068",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md",
+ "lesson_sha256": "b2eaaaced6649e214863cc7e6f28f5935f4dac11bab41523b063a92962bfe1fc",
+ "rewrite_commit": "f8f56ad215a65733066e601b477da4d8037f12a1",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
+  "role": "A",
+  "lesson_sha256": "b2eaaaced6649e214863cc7e6f28f5935f4dac11bab41523b063a92962bfe1fc",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Brief confirms the one-year continuation, separate practice limit, named outside-business roles, and financial meaning of pecuniary benefit. Detailed nominal-value criteria, named relationship meanings, and donation exceptions have no primary-source extracts supplied."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Inso refers to the wife of an elder brother or male cousin.",
+      "problem": "This precise relationship definition is a hard-to-remember factual addition without source evidence in the prompt. Its accuracy cannot be confirmed from the permitted material; the family-gift classification now depends on it. Request a primary-source check before acceptance."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 yes; #2 not allowed; #3 express-law exception; #4 no conflicting matter; #5 neither job nor former-office matter within six months; #6 not automatically, assigned-duty exception; #7 ban continues at four months; #8 prohibited; #9 refusal does not cure solicitation; #10 unsolicited nominal gift; #11 favor defeats exception; #12 family-celebration exception; #13 first donation only; #14 renewal alone does not defeat separate organization exception; #15 personal reward is not humanitarian aid; #16 government-to-government exception; #17 yes nominal courtesy gift; #18 all three types listed; #19 conditions met; #20 no permission, no travel exception; #21 balae expressly included. These match each supplied solution; external source verification remains under B01."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omitting Speed Tricks. No required figures are identified in the brief."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Covered jobs are individually glossed, regulated and licensed are explained, pecuniary benefit has a money gloss, and gift tests are short sentences. Complex legal categories are separated rather than stacked."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No instruction verb here has an exam-specific meaning needing a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Cases provide office links, dates since leaving, legal permission facts, donor type, purpose, benefit destination, location, and travel permission. Solutions return to simple English and do not use the former abstract solution lead-in."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam mentions or unsupported claims about exam frequency or choices appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The English lesson includes Filipino relationship words bilas, inso, and balae; official spelling and usage need source confirmation.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the actual content. No listed stock AI phrase appears; sentence openings vary across explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "All required General Information sections appear; Speed Tricks gives a genuine donor-and-condition sorting method. No mathematical formulas occur in any example; all legal tests appear in Core Concept first."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1–9 cover stake, barred and permitted outside work, conflicting practice, both post-service limits, required and post-retirement recommendations, disclosure, and solicitation. #10–15 distinguish nominal gifts, favors, family, individual donations, genuine relief, and disguised reward. #16–21 cover government donations, courtesy, study/treatment, travel approval and its absence, and named relatives. No noun-only duplicates replace needed cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step worked solution uses numbered steps. One-step solutions use a single sentence; no reasoning step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in the gift-rule lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three sentences. Core teaching uses short paragraphs rather than long bullet runs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Financial interests, regulated businesses, all named roles, conflict, separation, protected information, solicitation, nominal gifts, pecuniary benefit, civil degrees, named relatives, humanitarian purpose, altruism, and fellowship are defined before the examples need them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching shows how office connections trigger bans and how express law changes the outside-work result. Gift classification uses giver, purpose, expected return, transaction links, and each exception’s distinct conditions; paired examples demonstrate those tests."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Conditions distinguish authority from no-conflict practice, one-year business and recommendation bans from former-office matters, public information from protected disclosure, unsolicited nominal gifts from favor exchanges, family and individual donation tests, organization acceptance, and foreign travel location/interests/permission."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L18|0": {
+    "status": "fixed",
+    "quote": "That fails the no-favor condition.",
+    "note": "Gift classifications now cover giver, favor expectations, transaction links, and foreign benefits in worked cases."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L02|1": {
+    "status": "fixed",
+    "quote": "A **consultant** gives expert advice.",
+    "note": "Dense outside-employment text is split, and each specified role is named and explained."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L05|1": {
+    "status": "fixed",
+    "quote": "The outside-business ban continues for $1$ year.",
+    "note": "Post-service solutions plainly state the activity and period instead of using the abstract lead-in."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L25|1": {
+    "status": "fixed",
+    "quote": "meaning money or another financial benefit.",
+    "note": "Pecuniary gain or benefit now has an immediate plain-language gloss."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L26|1": {
+    "status": "fixed",
+    "quote": "**Licenses** means it issues the permission the business needs to operate.",
+    "note": "Office regulation, supervision, licensing, and every covered role receive explanations."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L27|1": {
+    "status": "fixed",
+    "quote": "The outside-business and recommendation bans continue for $1$ year after resignation, retirement, or other departure from office.",
+    "note": "Both continuing bans are distinguished from practice on former-office matters."
+   },
+   "general-information-code-of-conduct-ra-6713#11": {
+    "status": "fixed",
+    "quote": "A supervisor's verbal approval alone does not meet that exception.",
+    "note": "Named roles and office links are taught; Example 3 applies express permission in law."
+   },
+   "general-information-code-of-conduct-ra-6713#19": {
+    "status": "fixed",
+    "quote": "These facts fit the unsolicited nominal-gift exception.",
+    "note": "Example 10 checks lack of solicitation, insignificant value, and no expected or rewarded favor."
+   },
+   "general-information-code-of-conduct-ra-6713#20": {
+    "status": "fixed",
+    "quote": "No financial benefit is expected.",
+    "note": "Family celebration and no money benefit are taught and applied to a parent gift."
+   },
+   "general-information-code-of-conduct-ra-6713#21": {
+    "status": "fixed",
+    "quote": "The second has a pending transaction.",
+    "note": "Example 13 contrasts otherwise similar donors with and without the office-transaction condition."
+   },
+   "general-information-code-of-conduct-ra-6713#22": {
+    "status": "fixed",
+    "quote": "The renewal alone does not defeat it.",
+    "note": "Organization-donation conditions are taught, then contrasted with a personal reward disguised as relief."
+   },
+   "general-information-code-of-conduct-ra-6713#23": {
+    "status": "fixed",
+    "quote": "The donation passes between government entities.",
+    "note": "Example 16 applies a real intergovernmental recipient distinction."
+   },
+   "general-information-code-of-conduct-ra-6713#24": {
+    "status": "fixed",
+    "quote": "It is received as a courtesy.",
+    "note": "Example 17 checks foreign-government source, nominal value, and courtesy purpose."
+   },
+   "general-information-code-of-conduct-ra-6713#25": {
+    "status": "fixed",
+    "quote": "It also lists medical treatment.",
+    "note": "Example 18 explicitly covers scholarship, fellowship, and medical treatment as separate listed types."
+   },
+   "general-information-code-of-conduct-ra-6713#26": {
+    "status": "fixed",
+    "quote": "Acceptance fits Philippine interests, and the proper head gives permission.",
+    "note": "Examples 19 and 20 test overseas location, national interests, and required permission."
+   },
+   "general-information-code-of-conduct-ra-6713#27": {
+    "status": "fixed",
+    "quote": "The giver expects special treatment in return.",
+    "note": "The low-value priority gift and disguised personal reward provide conflict classification cases."
+   },
+   "general-information-code-of-conduct-ra-6713#28": {
+    "status": "fixed",
+    "quote": "The recommendation ban continues for $1$ year after leaving office.",
+    "note": "Examples 5 and 7 apply outside-business and recommendation continuation after separation."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|1": {
+    "status": "fixed",
+    "quote": "The outside-business ban continues for $1$ year.",
+    "note": "Example 5 starts directly with numbered reasoning and no unnumbered lead-in."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L26|0": {
+    "status": "fixed",
+    "quote": "Ask who gave the benefit, why it was given, and whether a favor or financial gain is expected.",
+    "note": "The exception-selection method and contrasting worked cases explain how the separate tests operate."
+   }
+  }
+ }
+}
