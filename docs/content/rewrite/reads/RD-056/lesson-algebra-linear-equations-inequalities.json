@@ -1,0 +1,262 @@
+{
+ "batch": "RD-056",
+ "lesson_id": "lesson-algebra-linear-equations-inequalities",
+ "path": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+ "lesson_sha256": "2f39e0dca259d37f22186fa22e6f5cf272cc51d7aa79c54ea787982781a499c4",
+ "rewrite_commit": "91f6bbeaa0851ffb914e50fe42d300782a8e08d7",
+ "form": {
+  "packet": "lesson-algebra-linear-equations-inequalities",
+  "role": "A",
+  "lesson_sha256": "2f39e0dca259d37f22186fa22e6f5cf272cc51d7aa79c54ea787982781a499c4",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Verified equality-preserving operations, inequality reversal, endpoint conventions, slope formulas, vertical and horizontal slopes, perpendicular conditions, and boundary inclusion by elementary algebra. No specific exam claims occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: x=11/7; #2: x<-1, open left; #3: x>=2, closed right; #4: line through (0,-3),(1,-1),(2,1); #5: 5x-2y=17; #6: undefined and zero slopes, perpendicular; #7: x+y<3. All agree with the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required mathematics sections are present. Number-line examples #2-3 and coordinate examples #4 and #7 each have a specific figure placeholder. No two-variable system example remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions, instructions, shortcuts, and traps for short sentences and explained mathematical vocabulary. The prose uses direct instructions without filler."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first uses of instruction words against the definitions in Core Concept; everyday find and choose need no gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears anywhere in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each stem for sufficient quantities and relations without giving the method being tested; solutions explain the operations in plain English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No named-exam claim or repeated exam opener appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No vocabulary question asks students to identify a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for stock phrases and three repeated sentence openings; none found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept supplies equal-side operations for #1; negative sign reversal and endpoint rules for #2-3; y=mx+b for #4; m=-A/B, m2=-1/m1 and y-y1=m(x-x1) for #5; vertical x=C/A and horizontal slope zero for #6; two-point slope, slope-intercept form, and test-point boundary method for #7."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage includes fraction equations (#1), strict and inclusive number-line graphs (#2-3), slope-intercept plotting (#4), perpendicular equation construction (#5), vertical/horizontal edge cases (#6), and recovery of a shaded-region inequality (#7). The endpoint examples differ in inclusion and direction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multistep examples use numbered instructions and display their principal algebraic computations; no necessary operation is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The displayed expressions are short algebraic lines with no wide derivations or arrays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked teaching paragraphs and solution prose: each paragraph has at most three short sentences; no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The four one-line placeholders specify endpoints and shading (#2-3), points and slope steps (#4), and a dashed boundary plus shaded origin side (#7). Stems provide enough data to solve without seeing the drawings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "For nonzero slopes, their slopes are negative reciprocals:",
+      "problem": "Reciprocal is needed to understand and apply the perpendicular-slope instruction, but it is never defined. The formula gives the operation without explaining the term, and no prerequisite teaching is supplied."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Balance explains why clearing fractions works; endpoint inclusion and shading explain number lines; slope is change in y per unit x; axis crossings explain intercepts; boundary substitution and testing explain shaded regions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Nonzero multipliers and denominators, reversal only for negative multiplication/division, different x-values for slope, B nonzero in standard-form slope, nonzero slopes for reciprocal rule, and a test point off the boundary are all stated."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-algebra-linear-equations-inequalities|L18|0": {
+    "status": "fixed",
+    "quote": "Place an open circle at $-1$ because it is excluded. Shade left for smaller values.",
+    "note": "Examples #2 and #3 work both endpoint styles and both directions."
+   },
+   "lesson-algebra-linear-equations-inequalities|L18|2": {
+    "status": "fixed",
+    "quote": "This line is vertical, so its slope is undefined.",
+    "note": "Example #6 works vertical and horizontal slopes and their perpendicular relation."
+   },
+   "lesson-algebra-linear-equations-inequalities|L01|0": {
+    "status": "fixed",
+    "quote": "Find the slope of $3x=12$ and the slope of $2y=6$.",
+    "note": "The out-of-goal calculator system has been removed from the example set."
+   },
+   "lesson-algebra-linear-equations-inequalities|L17|0": {
+    "status": "fixed",
+    "quote": "$$m=-\\dfrac{A}{B}$$",
+    "note": "The standard-form slope formula now appears in Core Concept."
+   },
+   "lesson-algebra-linear-equations-inequalities|L17|1": {
+    "status": "fixed",
+    "quote": "$$m_2=-\\dfrac{1}{m_1}$$",
+    "note": "Core Concept now supplies the perpendicular-slope formula and nonzero condition."
+   },
+   "lesson-algebra-linear-equations-inequalities|L17|2": {
+    "status": "fixed",
+    "quote": "$$y-y_1=m(x-x_1)$$",
+    "note": "Point-slope form now appears before any worked example."
+   },
+   "lesson-algebra-linear-equations-inequalities|L19|0": {
+    "status": "fixed",
+    "quote": "Divide the first equation by $3$.",
+    "note": "The unnumbered calculator solution is removed; replacement examples use numbered steps."
+   },
+   "lesson-algebra-linear-equations-inequalities|L26|0": {
+    "status": "fixed",
+    "quote": "Use an **open circle** for $<$ or $>$ because the endpoint is not included.",
+    "note": "Core Concept explains both endpoint styles and both shading directions."
+   },
+   "lesson-algebra-linear-equations-inequalities|L26|1": {
+    "status": "fixed",
+    "quote": "For equal fractions, multiplying both sides by the denominators clears the fractions.",
+    "note": "Balance and nonzero denominator conditions now explain cross-multiplication."
+   },
+   "lesson-algebra-linear-equations-inequalities|L03|0": {
+    "status": "fixed",
+    "quote": "**Solve** means find all values that make a statement true.",
+    "note": "Solve has a definition before its first worked use."
+   },
+   "lesson-algebra-linear-equations-inequalities|L03|1": {
+    "status": "not_fixed",
+    "quote": "Find the equation of the line through $(3,-1)$ that is perpendicular to $2x+5y=10$.",
+    "note": "Find remains undefined, which is permitted because it is an everyday word."
+   },
+   "lesson-algebra-linear-equations-inequalities|L18|1": {
+    "status": "fixed",
+    "quote": "Plot $(0,-3)$. For each step of $1$ to the right, move $2$ up to reach $(1,-1)$, then $(2,1)$.",
+    "note": "Example #4 now constructs a graph using slope and intercept."
+   }
+  }
+ }
+}
