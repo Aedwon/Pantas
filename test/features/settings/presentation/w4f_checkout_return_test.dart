@@ -34,7 +34,8 @@ void main() {
       await gateway.logIn('owner');
       final routes = Provider(
         (ref) => GoRouter(
-          initialLocation: '/pro?checkout=$outcome&token=a%2Bb&token=c',
+          initialLocation:
+              '/pro?checkout=$outcome&ref=ref_test&token=a%2Bb&token=c',
           routes: settingsRoutes(ref),
         ),
       );
@@ -74,7 +75,7 @@ void main() {
       expect(find.byType(ProPage), findsOneWidget);
       expect(
         router.routeInformationProvider.value.uri.toString(),
-        '/settings/pro?checkout=$outcome&token=a%2Bb&token=c',
+        '/settings/pro?checkout=$outcome&ref=ref_test&token=a%2Bb&token=c',
       );
       expect(refreshes, outcome == 'success' ? 1 : 0);
       expect(

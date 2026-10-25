@@ -932,3 +932,151 @@ the unresolved checkout/trial contracts is claimed. Stop conditions: actual
 checkout return lacks session correlation; target-exam trial request conflicts
 with the approved no-trial upgrade and current behavior. Required user rulings
 remain pending. The exact busy-only defect has no separate observed RED.
+
+
+## W4f third fix round, October 25, 2026
+
+Policy read with `git show origin/main:<file>`: AGENTS.md, WORKFLOW.md,
+SUBAGENTS.md, revision `73572280cf4d9478d56e42247be04dad8ad1acd9`.
+CLIENT base `b866082572c4ae12737680b04fc6d5e5b1d5a1a4`.
+PAYMENTS base `3ae9c61ef2a2a9ec837d8c82219739249326386e`.
+Both assigned worktrees were clean at preflight. No fetch, pull, staging,
+commit, push, deployment, dependency addition, or other worktree access.
+The lead brief resolves the two prior-round contract questions. Exact rulings:
+
+1. Session-bound return: createPaymongoCheckout (PAYMENTS paymongoCheckout.ts) already generates a
+   referenceNumber before creating the session. Put it in both return URLs as `&ref=<referenceNumber>`
+   (`/pro?checkout=success&ref=...`, `/pro?checkout=cancelled&ref=...`) and return it to the client as
+   `reference` alongside checkoutUrl and sessionId. The webhook and grant logic stay unchanged. The client
+   stores the reference in the pending switch and applies the switch only when the return's `ref` matches
+   (plus the existing account, expiry and coverage checks). A return without a matching ref clears nothing
+   but applies nothing. Emulator/unit tests first on the server; client tests for match, mismatch, missing.
+   Keep the /pro redirect preserving every query parameter.
+2. No trial on the upgrade (target-exam) path: the approved rule says the upgrade screen offers no trial.
+   Hide the trial on the target-exam path, remove the trial-with-target code path, and make sure no
+   pending switch is written for trials. The plain Pro page keeps the trial per trialEligible.
+
+### Implementation and failing-first evidence
+
+1. Done. Checkout generates one reference and uses it in both return URLs,
+   the PayMongo referenceNumber, and the callable response. The gateway supplies
+   session ID and reference to the callback before opening checkout. Pending
+   switches retain both. Only a nonempty matching return ref consumes the switch.
+   Missing/mismatched refs leave the pending value and selected exam unchanged,
+   including cancellation. Matching returns still require resolved same-account
+   identity, valid stored target/tier, unchanged source exam, age 0–24 hours,
+   successful confirmed entitlement and matching coverage. Ordinary /pro returns
+   recover the target from the stored exam ID and actual catalog. Unknown targets
+   do not apply. The redirect retains every query parameter, including duplicate
+   parameters. The return tests use the actual ref-only contract for success;
+   mismatch/missing cases also supply the old session_id to prove it cannot bypass
+   the new reference check. No webhook or grant logic changed.
+2. Done. Upgrade already hid the trial. Its handler now explicitly excludes
+   target-exam trials. Pending-switch preparation lives only in the paid checkout
+   branch. An eligible target-exam package opens paid checkout without trial copy
+   or a trial call. Plain Pro still honors trialEligible. Its trial regression
+   records every nonempty pending-switch write and observes none.
+
+Observed RED, before reference implementation:
+- Server unit: 1 test, 0 pass, 1 fail. Expected the generated reference; actual
+  response.reference was undefined. `/tmp/w4f-r3-server-red.log`.
+- Server emulator focused checkout: 1 test, 0 pass, 1 fail. Response lacked
+  reference. `/tmp/w4f-r3-emulator-red.log`.
+- Client pending returns: `00:01 +8 -7: Some tests failed.` Missing/mismatched
+  references consumed the pending value. Matching reference returns did not apply
+  the switch. Ordinary /pro did not recover the target. Malformed data was cleared
+  without a matching reference. `build/w4f-r3/pending-red.log`.
+- Client upgrade persistence: three scenarios failed because the stored reference
+  was null. `build/w4f-r3/client-red.log`. That invocation also had an undefined
+  test-provider import. The import error is not counted as behavioral RED; the
+  later pending-red invocation compiled and observed the failures above.
+- Trial assertions were already green before the handler cleanup. No failing
+  trial reproduction is claimed. The pre-cleanup focused run passed 34 tests.
+  `build/w4f-r3/trial-before-cleanup.log`.
+
+### Final verification
+
+```text
+CLIENT
+flutter test test/features/settings test/features/paywall test/app --reporter expanded
+00:32 +687: All tests passed!
+flutter analyze lib test tool
+No issues found! (ran in 3.2s)
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1595 files (0 changed) in 3.13 seconds.
+dart run tool/check_layering.dart
+check_layering: OK
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+PAYMENTS (from functions)
+npx tsc --noEmit
+exit 0, no output
+PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+ℹ tests 123
+ℹ pass 123
+ℹ fail 0
+ℹ tests 145
+ℹ pass 145
+ℹ fail 0
+✔  Script exited successfully (code 0)
+```
+
+The npm runner used isolated Auth 59099, Firestore 58080, Storage 59199,
+hub 54400, logging 54500, websocket 59152, and disabled UI. Its emulator
+Node runner used --test-concurrency=1 for existing shared global ledger sweeps.
+TMPDIR=/tmp/w4f-r3-emulator, XDG_CONFIG_HOME=/tmp/w4f-r3-firebase-config,
+NO_UPDATE_NOTIFIER=1. The exact firebase.json and functions/package.json
+bytes were saved and restored in finally. No persistent execution config changes.
+Full npm log: /tmp/w4f-r3-payments-npmtest.log. TypeScript log:
+/tmp/w4f-r3-tsc.log. Client logs: build/w4f-r3/. Initial analyzer found five
+style/import issues; corrected before the clean result. Final source tests reran
+after the corrections. Gateway byte comparison and both diff whitespace checks
+exited zero.
+
+Source identity (SHA-256 by file, including the untracked unit test):
+```text
+4825924a8dc398cbcddb1864ebfe921593560e2dd6231364acf51a2851fcf0c2  lib/features/paywall/data/web_payment_gateway.dart
+0b4c7c7236fdd2b13a4974b48373176cbbaae29643186c31c07f91796dc7a362  lib/features/settings/presentation/pages/pro_page.dart
+b0882dcb149f2d911dd0cf0d677dc2f1244f295bd5338e48ef6b17af5746b8b7  test/features/settings/presentation/w4f_checkout_return_test.dart
+e81e9a5fdfd5aab9a9d388076a09a988313249a29942c0ebb6d74d8bd5ce1a8c  test/features/settings/presentation/w4f_pending_exam_test.dart
+8ec5a764d709a3e765ec8ba3ecfd355785cf6e294db05c2a3628e7d0d8698b44  test/features/settings/presentation/w4f_pro_states_test.dart
+a33deedf24de72b93c888578ce7dfa7f1bf963818488a2d2058d7663ab26c266  test/features/settings/presentation/w4f_upgrade_checkout_test.dart
+fbc1a3805476d9f9e44d06aeeee39342e8aac9c0f4183ac87fa8db29792a0d15  functions/src/paymongoCheckout.ts
+7ea310be1ed8a58f340f375f77cf551537a6e3031e0fbd0f8fc6b18299d23a2d  functions/test/paymongo-checkout.test.mjs
+2b1aa5dd8a1869c388071110757b9e1e4ce08f5ce421bfe1f9113322ee2f735d  functions/test/web-trial.emulator.mjs
+4825924a8dc398cbcddb1864ebfe921593560e2dd6231364acf51a2851fcf0c2  lib/features/paywall/data/web_payment_gateway.dart
+```
+
+Files outside the W4f presentation table are the shared gateway in both trees
+and PAYMENTS checkout source/unit/emulator tests. The lead brief explicitly
+requires them. No other payment behavior or native purchase contract changed.
+Independent read-only source review found no functional issues. It made no edits
+and reused the recorded suite output. Final evidence review is recorded below.
+Live PayMongo checkout, deployed App Check/hosting return URLs, phone visuals,
+integration and deployment were not verified or performed. These two bounded
+items are implemented and locally tested. Overall W4f acceptance remains with
+the lead. All unrelated prior-round open items remain unchanged.
+
+CLIENT git status --short:
+```text
+ M docs/superpowers/plans/new-design/evidence/W4f.md
+ M lib/features/paywall/data/web_payment_gateway.dart
+ M lib/features/settings/presentation/pages/pro_page.dart
+ M test/features/settings/presentation/w4f_checkout_return_test.dart
+ M test/features/settings/presentation/w4f_pending_exam_test.dart
+ M test/features/settings/presentation/w4f_pro_states_test.dart
+ M test/features/settings/presentation/w4f_upgrade_checkout_test.dart
+```
+PAYMENTS git status --short:
+```text
+ M docs/superpowers/plans/pwa-launch/evidence/W4f-payments.md
+ M functions/src/paymongoCheckout.ts
+ M functions/test/web-trial.emulator.mjs
+ M lib/features/paywall/data/web_payment_gateway.dart
+?? functions/test/paymongo-checkout.test.mjs
+```
+
+Final independent evidence review: no findings. Reviewer checked both addenda,
+final logs, source manifests and whitespace checks. Every listed SHA-256 matched.
+No review edits or repeated suites. Local implementation and verification complete;
+no live checkout, visual acceptance, integration or publication claimed.

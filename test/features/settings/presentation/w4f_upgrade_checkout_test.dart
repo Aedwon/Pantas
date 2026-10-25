@@ -69,11 +69,16 @@ void main() {
       );
       await prefs.setSelectedExamId('exam_upcat');
       var opened = 0;
+      final callNames = <String>[];
       Map<String, dynamic>? stored;
       final gateway = WebPaymentGateway(
-        callable: (_, __) async => {
-          'checkoutUrl': 'https://checkout.paymongo.com/test',
-          'sessionId': 'cs_test',
+        callable: (name, __) async {
+          callNames.add(name);
+          return {
+            'checkoutUrl': 'https://checkout.paymongo.com/test',
+            'sessionId': 'cs_test',
+            'reference': 'ref_test',
+          };
         },
         readGrants: (_) async => [],
         refreshClaims: (_) async {},
@@ -148,6 +153,7 @@ void main() {
                   productId: 'pantas_cs_monthly',
                   priceString: '₱149',
                   priceAmount: 149,
+                  trialEligible: true,
                 ),
               ],
             ),
@@ -173,6 +179,9 @@ void main() {
       await tester.pumpAndSettle();
       expect(router.state.uri.path, '/settings/exam/upgrade');
       expect(router.canPop(), isTrue);
+      expect(find.text('Try 7 Days Free'), findsNothing);
+      expect(find.text('7 DAYS FREE'), findsNothing);
+      expect(find.text('No payment needed.'), findsNothing);
       if (finishOnFree) {
         await prefs.setDeviceValue('checkout_exam_v1:owner', 'old intent');
         await tester.tap(find.text('Switch on Free'));
@@ -217,8 +226,10 @@ void main() {
         return;
       }
       expect(opened, 1);
+      expect(callNames, ['createPaymongoCheckout']);
       expect(stored!['count'], count);
       expect(stored!['sessionId'], 'cs_test');
+      expect(stored!['reference'], 'ref_test');
       expect(stored!['createdAt'], isA<int>());
       expect(
         DateTime.now().difference(

@@ -252,15 +252,25 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (!_sameAccount(uid)) return;
     final raw = await prefs.deviceValue(key);
     if (!_sameAccount(uid)) return;
-    // Consume the intent even when the return has no confirmed grant.
-    await prefs.setDeviceValue(key, '');
     if (raw == null || raw.isEmpty || !_sameAccount(uid)) return;
     Map<String, dynamic> pending;
     PriceTier tier;
     try {
       final decoded = jsonDecode(raw);
-      if (decoded is! Map<String, dynamic> ||
-          decoded['uid'] is! String ||
+      if (decoded is! Map<String, dynamic>) {
+        throw const FormatException('Invalid checkout exam intent');
+      }
+      final reference =
+          (widget.checkoutReturnUri ?? Uri.base).queryParameters['ref'];
+      if (reference == null ||
+          reference.isEmpty ||
+          decoded['reference'] != reference) {
+        return;
+      }
+      // Only this checkout may consume its pending switch.
+      await prefs.setDeviceValue(key, '');
+      if (!_sameAccount(uid)) return;
+      if (decoded['uid'] is! String ||
           decoded['examId'] is! String ||
           decoded['count'] is! bool ||
           decoded['tier'] is! String ||
@@ -277,8 +287,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
       return;
     }
-    final target = widget.targetExam;
-    final uri = widget.checkoutReturnUri ?? Uri.base;
+    final target = widget.targetExam ??
+        (await ref.read(examCatalogRepositoryProvider).watchAll().first)
+            .where((entry) => entry.id == pending['examId'])
+            .firstOrNull;
+    if (!_sameAccount(uid)) return;
     final created =
         DateTime.fromMillisecondsSinceEpoch(pending['createdAt'] as int);
     final age = DateTime.now().difference(created);
@@ -286,7 +299,6 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         pending['uid'] != uid ||
         pending['examId'] != target.id ||
         tier != PriceTier.fromCatalog(target.priceTier) ||
-        pending['sessionId'] != uri.queryParameters['session_id'] ||
         age.isNegative ||
         age > const Duration(hours: 24)) {
       return;
@@ -383,34 +395,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         return;
       }
     }
-    if (web && widget.targetExam != null && uid != null) {
-      try {
-        if (!await _prepareExamSwitch(uid)) {
-          if (mounted) {
-            setState(() => _busy = false);
-            await _clearPendingExamSwitch(uid: uid);
-          }
-          return;
-        }
-      } catch (error, stack) {
-        unawaited(telemetry.recordError(error, stack));
-        if (mounted) {
-          setState(() {
-            _busy = false;
-            _feedback = 'Could not save. Please try again.';
-          });
-        }
-        return;
-      }
-      if (!_sameAccount(uid)) {
-        if (mounted) setState(() => _busy = false);
-        await _clearPendingExamSwitch(uid: uid);
-        return;
-      }
-    }
     PaymentOperationStatus status;
     final gateway = ref.read(revenueCatGatewayProvider);
     if (web &&
+        widget.targetExam == null &&
         allowTrial &&
         package != null &&
         package.sku == PaywallSku.monthly &&
@@ -429,10 +417,35 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         status = PaymentOperationStatus.userCancelled;
       }
     } else {
+      if (web && widget.targetExam != null && uid != null) {
+        try {
+          if (!await _prepareExamSwitch(uid)) {
+            if (mounted) {
+              setState(() => _busy = false);
+              await _clearPendingExamSwitch(uid: uid);
+            }
+            return;
+          }
+        } catch (error, stack) {
+          unawaited(telemetry.recordError(error, stack));
+          if (mounted) {
+            setState(() {
+              _busy = false;
+              _feedback = 'Could not save. Please try again.';
+            });
+          }
+          return;
+        }
+        if (!_sameAccount(uid)) {
+          if (mounted) setState(() => _busy = false);
+          await _clearPendingExamSwitch(uid: uid);
+          return;
+        }
+      }
       final controller = ref.read(paywallControllerProvider);
       if (web && uid != null && gateway is WebPaymentGateway) {
         _checkoutUid = uid;
-        Future<void> beforeRedirect(String sessionId) async {
+        Future<void> beforeRedirect(String sessionId, String reference) async {
           if (!_sameAccount(uid)) throw StateError('Checkout account changed');
           if (widget.targetExam == null) return;
           final prefs = ref.read(appPreferencesRepositoryProvider);
@@ -440,6 +453,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           if (!_sameAccount(uid)) throw StateError('Checkout account changed');
           final pending = jsonDecode(raw!) as Map<String, dynamic>;
           pending['sessionId'] = sessionId;
+          pending['reference'] = reference;
           pending['createdAt'] = DateTime.now().millisecondsSinceEpoch;
           await prefs.setDeviceValue(
             'checkout_exam_v1:$uid',

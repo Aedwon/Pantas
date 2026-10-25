@@ -9,6 +9,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
@@ -17,6 +18,12 @@ import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
+
+class _Catalog extends ExamCatalogRepository {
+  _Catalog(super.db);
+  @override
+  Stream<List<ExamCatalogEntry>> watchAll() => Stream.value([_target]);
+}
 
 class _Telemetry extends DisabledTelemetry {
   final errors = <Object>[];
@@ -48,7 +55,9 @@ void main() {
     'owner loading',
     'owner refresh',
     'no target',
-    'wrong session',
+    'wrong reference',
+    'missing reference',
+    'cancelled wrong reference',
     'expired',
     'malformed',
     'abandoned then purchase',
@@ -76,6 +85,7 @@ void main() {
                 'tier': 'civilService',
                 'fromExamId': 'exam_upcat',
                 'sessionId': 'cs_original',
+                'reference': 'ref_original',
                 'createdAt': DateTime.now()
                     .subtract(Duration(hours: scenario == 'expired' ? 25 : 1))
                     .millisecondsSinceEpoch,
@@ -105,7 +115,7 @@ void main() {
       final routes = Provider(
         (ref) => GoRouter(
           initialLocation:
-              '/pro?checkout=${scenario == 'cancelled' ? 'cancelled' : 'success'}&session_id=${scenario == 'wrong session' ? 'cs_other' : 'cs_original'}',
+              '/pro?checkout=${scenario.startsWith('cancelled') ? 'cancelled' : 'success'}${scenario.contains('reference') ? '&session_id=cs_original' : ''}${scenario == 'missing reference' ? '' : '&ref=${scenario.contains('wrong reference') ? 'ref_other' : 'ref_original'}'}',
           routes: [
             GoRoute(
               path: '/pro',
@@ -120,6 +130,9 @@ void main() {
       final container = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          examCatalogRepositoryProvider.overrideWithValue(
+            _Catalog(openTestContentDatabase()),
+          ),
           telemetryProvider.overrideWithValue(telemetry),
           currentUserProvider.overrideWith(
             (ref) async => ref.watch(ownerLoading)
@@ -158,7 +171,7 @@ void main() {
       }
       expect(
         await prefs.selectedExamId(),
-        scenario == 'success'
+        ['success', 'no target'].contains(scenario)
             ? 'exam_cse_pro'
             : scenario == 'focus changed'
                 ? 'exam_dost'
@@ -167,7 +180,7 @@ void main() {
       expect(
         (await container.read(settingsRepositoryProvider).readUserSettings())
             .carryOverProgress,
-        scenario == 'success' ? isFalse : isTrue,
+        ['success', 'no target'].contains(scenario) ? isFalse : isTrue,
       );
       if (scenario.startsWith('owner ')) {
         nextOwner.complete(
@@ -182,7 +195,11 @@ void main() {
       if (scenario == 'owner refresh') {
         expect(await prefs.selectedExamId(), 'exam_cse_pro');
       }
-      if (!['other account', 'owner loading'].contains(scenario)) {
+      if (scenario.contains('wrong reference') ||
+          scenario == 'missing reference' ||
+          scenario == 'malformed') {
+        expect(await prefs.deviceValue('checkout_exam_v1:owner'), isNotEmpty);
+      } else if (!['other account', 'owner loading'].contains(scenario)) {
         expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);
       }
       if (scenario == 'malformed') {
@@ -191,7 +208,7 @@ void main() {
       }
       if (scenario == 'abandoned then purchase') {
         hasGrant = true;
-        router.go('/pro?checkout=success&session_id=cs_later');
+        router.go('/pro?checkout=success&ref=ref_later');
         await tester.pumpAndSettle();
         // Force a fresh page, as a later checkout would reload the app.
         await tester.pumpWidget(const SizedBox());

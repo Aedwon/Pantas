@@ -7,6 +7,7 @@ import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -51,6 +52,8 @@ Future<void> _pump(
   bool playRenews = false,
   bool identityLoading = false,
   VoidCallback? checkoutSeen,
+  VoidCallback? trialSeen,
+  AppPreferencesRepository? preferences,
   int daysUntil = 5,
   List<WebGrantHistory> history = const [],
   Future<List<WebGrantHistory>> Function(Ref ref)? historyRead,
@@ -67,6 +70,7 @@ Future<void> _pump(
   final webGateway = WebPaymentGateway(
     callable: (name, __) async {
       if (name == 'createPaymongoCheckout') checkoutSeen?.call();
+      if (name == 'startWebTrial') trialSeen?.call();
       return {'plans': <Object?>[], 'googlePlayPlanRenews': playRenews};
     },
     readGrants: (_) async => [],
@@ -103,6 +107,8 @@ Future<void> _pump(
       onSwitchOnFree: () async {},
     ),
     overrides: [
+      if (preferences != null)
+        appPreferencesRepositoryProvider.overrideWithValue(preferences),
       contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
       revenueCatGatewayProvider.overrideWithValue(
         web ? webGateway : _CancelGateway(initial: entitlement),
@@ -169,7 +175,37 @@ Future<void> _pump(
   await tester.pumpAndSettle();
 }
 
+class _TrialPreferences extends AppPreferencesRepository {
+  _TrialPreferences(super.db);
+  final nonemptyWrites = <String>[];
+  @override
+  Future<void> setDeviceValue(String key, String value) async {
+    if (key.startsWith('checkout_exam_v1:') && value.isNotEmpty) {
+      nonemptyWrites.add(value);
+    }
+    await super.setDeviceValue(key, value);
+  }
+}
+
 void main() {
+  testWidgets('plain Pro trial writes no pending exam switch', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final preferences = _TrialPreferences(db);
+    var trials = 0;
+    await _pump(
+      tester,
+      web: true,
+      eligible: true,
+      preferences: preferences,
+      trialSeen: () => trials++,
+    );
+    await tester.tap(find.text('Try 7 Days Free'));
+    await tester.pumpAndSettle();
+    expect(trials, 1);
+    expect(preferences.nonemptyWrites, isEmpty);
+    expect(await preferences.deviceValue('checkout_exam_v1:owner'), isEmpty);
+  });
   testWidgets('web upgrade waits while account identity is loading',
       (tester) async {
     var checkouts = 0;
