@@ -1,0 +1,280 @@
+{
+  "packet": "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+  "role": "A",
+  "lesson_sha256": "05dbeac333788ad7fcc4da52197fbbc5f61519c0c781d65d76af8b8e4a1d48a2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+    "B01": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the stated sequence rules and worked pattern facts; arithmetic, geometric, interleaved, alternating, recurrence, Fibonacci, and alphabet-position descriptions are correct."
+      ],
+      "note": ""
+    },
+    "B02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Solved #1 independently: 24.",
+        "Solved #2 independently: 162.",
+        "Solved #3 independently: 17.",
+        "Solved #4 independently: P.",
+        "Solved #5 independently: 8.",
+        "Solved #6 independently: 256.",
+        "Solved #7 independently: 13.",
+        "Solved #8 independently: 38."
+      ],
+      "note": ""
+    },
+    "B03": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the Reasoning section structure and figure needs: Core Concept, Examples, genuine shortcuts, and Traps are present, and the guide explicitly says number sequences need no figure."
+      ],
+      "note": ""
+    },
+    "L02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Read the teaching prose for Grade 5 simplicity; technical pattern names are followed by short plain explanations, and the former abstract sentence about a finite list and unique continuation is gone."
+      ],
+      "note": ""
+    },
+    "L03": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The example command uses the everyday word 'Find'; no exam-specific instruction word needing a definition appears."
+    },
+    "L04": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked for teaching analogies in Core Concept and elsewhere; none are used."
+      ],
+      "note": ""
+    },
+    "L05": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked all eight example stems and solutions; each gives the complete sequence to inspect, asks for the intended next term or letter, and solves it in simple language."
+      ],
+      "note": ""
+    },
+    "L07": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked for specific-exam claims or repeated exam-motivation wording; the lesson contains neither."
+      ],
+      "note": ""
+    },
+    "L08": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is an English-language Reasoning lesson, so the Filipino teaching-prose rule does not apply."
+    },
+    "L09": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson contains no Filipino grammar terminology that would need a first-use English gloss."
+    },
+    "L10": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is not a Filipino-language lesson, so Filipino example and quiz language requirements do not apply."
+    },
+    "L11": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson contains no Filipino text whose spelling or usage requires a KWF source check."
+    },
+    "L12": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson is written in English, so the no-Taglish rule for Filipino teaching prose does not apply."
+    },
+    "L14": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No question refers to a target word or asks about a word shown in bold or underlined."
+    },
+    "L15": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the banned stock phrases, sentence-opening variety, and summary wording; no listed AI phrasing appears and the summary plainly names the sequence types."
+      ],
+      "note": ""
+    },
+    "L17": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked Reasoning subject fit and prior teaching: the shortcut section contains real sequence-solving shortcuts, and arithmetic, geometric, interleaved, recurrence, Fibonacci, alternating operations, and alphabet positions are introduced before examples use them."
+      ],
+      "note": ""
+    },
+    "L18": {
+      "verdict": "fail",
+      "findings": [
+        {
+          "quote": "Do not force letter positions when the pattern clearly uses spelling, word groups, or a cycle that wraps from $Z$ back to $A$. Use the rule that matches the evidence in the question.",
+          "problem": "The lesson teaches spelling, word-group, and wraparound letter patterns as distinct cases, but the Examples section has only an alphabet-position letter example and gives no worked example for any of these non-position cases."
+        }
+      ],
+      "checked": [
+        "Mapped arithmetic #1, geometric #2, changing differences #3, alphabet positions #4, interleaving #5, earlier-term recurrence #6, Fibonacci #7, and alternating operations #8; the separately taught non-position letter cases remain uncovered."
+      ],
+      "note": ""
+    },
+    "L19": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked every multi-step solution: all eight examples use numbered steps where more than one step is needed, and each key final computation is shown as a short display equation; brief side results stay inline."
+      ],
+      "note": ""
+    },
+    "L21": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked every display equation for phone width: 19+5=24, 54×3=162, 12+5=17, 11+5=16, 6+2=8, 8×32=256, 5+8=13, and 36+2=38 are all short."
+      ],
+      "note": ""
+    },
+    "L22a": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked prose paragraph length and list use; paragraphs remain one to three short sentences, with bullets limited to the compact list of common pattern types."
+      ],
+      "note": ""
+    },
+    "L23": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson has no illustration placeholders, and the Reasoning guide states that number sequences need none."
+    },
+    "L25": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked necessary terms before use: sequence, arithmetic, geometric and ratio, changing differences, interleaving, alternating operations, recurrence, Fibonacci, and alphabet positions are all explained before examples rely on them."
+      ],
+      "note": ""
+    },
+    "L26": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked how each concept works: every pattern family states the operation or relationship to test, recurrence explains using earlier terms, and Fibonacci states the sum-of-two-previous-terms rule."
+      ],
+      "note": ""
+    },
+    "L27": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked conditions and limitations: constant change defines arithmetic, constant multiplier defines geometric, interleaving depends on odd/even positions, alternating operations repeat, and letter-position conversion is explicitly limited when another pattern fits better."
+      ],
+      "note": ""
+    }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L18|0": {
+      "status": "fixed",
+      "quote": "Find the intended next term: $2,9,4,12,6,15,\\ldots$",
+      "note": "Interleaved, earlier-term recurrence, Fibonacci, and alternating-operations cases now each have their own worked example."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|B08|0": {
+      "status": "fixed",
+      "quote": "The next term is $24$.",
+      "note": "The answer 24 is now inside inline math instead of appearing as bold prose outside math delimiters."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|B08|1": {
+      "status": "fixed",
+      "quote": "The next term is $17$.",
+      "note": "The answer 17 is now wrapped in inline math, fixing the original math-notation issue."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|B08|2": {
+      "status": "fixed",
+      "quote": "The letter at position $16$ is **P**.",
+      "note": "The number 16 is now wrapped in inline math while the answer letter remains bold for emphasis."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L02|0": {
+      "status": "fixed",
+      "quote": "A short list can fit more than one possible rule. In an exam question, look for a simple rule that fits every shown term and the answer choices.",
+      "note": "The former abstract sentence about a finite list and unique continuation was replaced with short, simple language."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L19|0": {
+      "status": "fixed",
+      "quote": "1. Each term increases by $5$.",
+      "note": "Example #1 now uses numbered steps and shows the key final computation as a display equation."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L19|2": {
+      "status": "fixed",
+      "quote": "1. The increases are $+1,+2,+3,+4$.",
+      "note": "Example #3 now uses numbered steps and gives the final 12 plus 5 computation on its own display line."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L26|0": {
+      "status": "fixed",
+      "quote": "The **Fibonacci pattern** is a common recurrence. In $1,1,2,3,5,\\ldots$, each new term is the sum of the two terms before it.",
+      "note": "Fibonacci is no longer just named; the lesson now states exactly how each new term is built from the previous two."
+    },
+    "reasoning-logical-verbal-reasoning#4": {
+      "status": "fixed",
+      "quote": "Split the sequence into two smaller lists before testing them.",
+      "note": "Interleaved odd/even sequences now have a local procedure and a worked example that separates the two position-based subsequences."
+    },
+    "reasoning-logical-verbal-reasoning#5": {
+      "status": "fixed",
+      "quote": "The operations repeat: multiply by $2$, then add $2$.",
+      "note": "Alternating operations now have a repeat-pattern procedure and a worked example that chooses the next operation from the cycle."
+    },
+    "reasoning-logical-verbal-reasoning#6": {
+      "status": "fixed",
+      "quote": "Starting with the third term, each term is the product of the two terms before it.",
+      "note": "Earlier-term recurrence now has a worked non-Fibonacci example that explains which earlier terms are combined and how."
+    },
+    "reasoning-logical-verbal-reasoning#7": {
+      "status": "fixed",
+      "quote": "Each term after the first two is the sum of the two terms before it.",
+      "note": "Fibonacci now has both its local rule and a worked example that applies the rule to find the next term."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L17|0": {
+      "status": "fixed",
+      "quote": "**Check the easy rules first.** Try a constant difference, then a constant multiplier. If neither works, test changing differences, odd and even positions, alternating operations, or a recurrence.",
+      "note": "The Speed Tricks section now contains genuine sequence-solving shortcuts, so keeping it fits the current Reasoning subject rule."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L19|1": {
+      "status": "fixed",
+      "quote": "1. Each term is multiplied by $3$, so the ratio is $3$.",
+      "note": "Example #2 now uses a numbered step list and keeps the key multiplication on a separate display line."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L19|3": {
+      "status": "fixed",
+      "quote": "$$11+5=16$$",
+      "note": "Example #4 now shows its key final numerical computation as display math; the short position list and differences may remain inline."
+    },
+    "lesson-logical-verbal-reasoning-number-and-letter-sequences|L25|0": {
+      "status": "fixed",
+      "quote": "That multiplier is called the **ratio**.",
+      "note": "The lesson now defines ratio immediately after explaining the geometric pattern and before any example uses the term."
+    }
+  }
+}
