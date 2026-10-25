@@ -1,10 +1,14 @@
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {allowAtMost} from './_limits.js';
-import {addSession, backfill, fromDoc, prune, toDoc, totalsRef} from './_answerTotals.js';
+import {addSession, prune, toDoc, totalsIn, totalsRef} from './_answerTotals.js';
 import {checkAnswers, checkDuration, checkTime} from './_answers.js';
 import {hasLiveProClaim} from './_pro.js';
 import {computeRoadmap} from './roadmap.js';
+import {prepareReviewAnswers} from './serverReviews.js';
+import {assertStudyOwner} from './studyObservations.js';
+import {loadExamContent} from './_examContent.js';
+import {examCatalog} from './revenuecatPasses.js';
 
 export {MAX_ANSWERS} from './_answers.js';
 
@@ -23,27 +27,57 @@ export async function recordSession(auth: Auth, data: unknown, deps: IngestDeps)
   if (!auth) throw new HttpsError('unauthenticated', 'Sign in is required.');
   const now = (deps.now ?? Date.now)();
   const body = data as Record<string, unknown> | null;
-  const sessionId = body?.sessionId;
+  if (!body || typeof body !== 'object' || Array.isArray(body)) throw new HttpsError('invalid-argument', 'Send an object.');
+  const attributed = body.examId !== undefined || body.origin !== undefined;
+  assertStudyOwner(auth.uid, body, attributed);
+  const origins = ['today_topic', 'today_interleaved', 'new_questions', 'drill', 'flagged', 'retake', 'inline', 'assessment'];
+  if (attributed && (typeof body.examId !== 'string' || !examCatalog.some(e => e.id === body.examId) ||
+      typeof body.origin !== 'string' || !origins.includes(body.origin))) {
+    throw new HttpsError('invalid-argument', 'Send a known exam and session origin.');
+  }
+  const sessionId = body.sessionId;
   if (typeof sessionId !== 'string' || !SESSION_ID.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
-  const answers = checkAnswers(body?.answers, now);
+  const answers = checkAnswers(body?.answers, now, attributed);
   const startedAt = checkTime(body?.startedAt, now, 'startedAt');
   const finishedAt = checkTime(body?.finishedAt, now, 'finishedAt');
   if (finishedAt < startedAt) throw new HttpsError('invalid-argument', 'finishedAt is before startedAt.');
-  const durationMs = checkDuration(body?.durationMs);
+  // A saved quiz can remain paused across days. Preserve its actual wall
+  // interval, while retaining the one-day legacy/active-duration bound.
+  const wallMs = finishedAt - startedAt;
+  const durationMs = checkDuration(body?.durationMs, attributed ? Math.max(86_400_000, wallMs) : 86_400_000);
+  if (durationMs > 86_400_000 && durationMs !== wallMs) throw new HttpsError('invalid-argument', 'Bad wall duration.');
   if (!await allowAtMost(auth.uid, 'ingestSession', deps.dailySessions ?? DAILY_SESSIONS, 86_400_000)) {
     throw new HttpsError('resource-exhausted', 'Daily session limit reached. Try again tomorrow.');
   }
   const ref = deps.db.doc(`users/${auth.uid}/server/answers/items/${sessionId}`);
   const stored = await deps.db.runTransaction(async (transaction) => {
-    if ((await transaction.get(ref)).exists) return false;
+    const previous = await transaction.get(ref);
+    if (previous.exists) {
+      if (attributed && (previous.get('examId') !== body.examId || previous.get('origin') !== body.origin ||
+          previous.get('startedAt') !== startedAt || previous.get('finishedAt') !== finishedAt ||
+          previous.get('durationMs') !== durationMs || JSON.stringify(checkAnswers(previous.get('answers'), now, attributed)) !== JSON.stringify(answers))) {
+        throw new HttpsError('failed-precondition', 'This session was already recorded with different observations.');
+      }
+      return false;
+    }
+    if (attributed) {
+      const content = await loadExamContent(deps.db, body.examId as string, now);
+      const ids = new Set(content.questions.map(q => q.id));
+      if (answers.some(a => !ids.has(a.questionId))) throw new HttpsError('invalid-argument', 'Question is outside this exam.');
+    }
     // The running totals change in this same transaction, so a replay (above) never counts twice.
-    // An account from before the totals existed is built from its stored sessions first.
+    // An account from before the totals existed, or from before version 2, is built from its stored sessions first.
     const snapshot = await transaction.get(totalsRef(deps.db, auth.uid));
-    const totals = snapshot.exists ? fromDoc(snapshot.data()) : await backfill(transaction, deps.db, auth.uid);
-    addSession(totals, answers);
+    const totals = await totalsIn(transaction, deps.db, auth.uid, snapshot);
+    // Ordinary and mock answers use the same scheduler state.
+    const applyReviews = await prepareReviewAnswers(transaction, deps.db, auth.uid, answers, finishedAt, true);
+    // An attributed session reports its actual start and finish; a legacy batch uses each answer's own time.
+    addSession(totals, answers, attributed ? {startedAt, finishedAt} : undefined);
     prune(totals);
     transaction.set(totalsRef(deps.db, auth.uid), toDoc(totals));
-    transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now});
+    transaction.create(ref, {sessionId, startedAt, finishedAt, durationMs, answerCount: answers.length, answers, receivedAt: now,
+      ...(attributed ? {examId: body.examId, origin: body.origin} : {})});
+    applyReviews();
     return true;
   });
   if (stored) {

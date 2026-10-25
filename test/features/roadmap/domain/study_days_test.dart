@@ -102,8 +102,8 @@ void main() {
     }
   });
 
-  test('week preview does not allot Sunday lessons to the previous week', () {
-    // One Monday-only lesson remaining on Sunday belongs in the next week.
+  test('week preview groups Monday lessons under the current Sunday', () {
+    // A Monday-only lesson remaining on Sunday belongs to this Sunday week.
     final previews = WeekPreviews.build(
       today: DateTime(2026, 10, 3),
       reviewOnlyFrom: DateTime(2026, 10, 7),
@@ -113,7 +113,7 @@ void main() {
       studyDays: StudyDays(const [1]),
     );
     expect(previews, [
-      WeekPreview(weekStart: DateTime(2026, 10, 5), topicIds: const ['t']),
+      WeekPreview(weekStart: DateTime(2026, 10, 4), topicIds: const ['t']),
     ]);
     expect(
       WeekPreviews.build(
@@ -155,13 +155,13 @@ void main() {
       studyDays: StudyDays(const [1]),
     );
     expect(previews, [
-      WeekPreview(weekStart: DateTime(2026, 10, 5), topicIds: const ['a', 'b']),
+      WeekPreview(weekStart: DateTime(2026, 10, 4), topicIds: const ['a', 'b']),
       WeekPreview(
-        weekStart: DateTime(2026, 10, 12),
+        weekStart: DateTime(2026, 10, 11),
         topicIds: const ['c', 'd'],
       ),
       WeekPreview(
-        weekStart: DateTime(2026, 10, 19),
+        weekStart: DateTime(2026, 10, 18),
         topicIds: const ['e', 'f'],
       ),
     ]);

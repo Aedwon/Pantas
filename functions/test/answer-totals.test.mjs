@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {MAX_DAYS, MAX_DAY_PAIRS, MAX_ID_BYTES, MAX_QUESTIONS, addSession, emptyTotals, fromDoc, prune, toDoc, viewOf} from '../lib/_answerTotals.js';
+import {MAX_DAYS, MAX_DAY_PAIRS, MAX_ID_BYTES, MAX_QUESTIONS, addSession, completedOn, emptyTotals, firstCompletedBefore, fromDoc, needsBackfill, prune, toDoc, viewOf} from '../lib/_answerTotals.js';
 import {phDay} from '../lib/_phDate.js';
 
 /** The full scan `build()` used before running totals existed, copied here as the reference. */
@@ -108,10 +108,10 @@ test('the day window keeps the most recent days and reports what it dropped', ()
 
 test('the question table is capped, and the stored document stays under 1 MiB in the worst case', () => {
   const T = Date.parse('2026-11-01T00:00:00+08:00');
-  // Two hostile shapes: the most rows (short ids) and the longest ids (fewest rows).
-  for (const idLength of [24, 128]) {
+  // Hostile shapes: short ids, longest ids, and legacy ids that expand when JSON escapes them.
+  for (const idLength of [24, 128, 'control']) {
     const totals = emptyTotals();
-    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength, 'x');
+    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength === 'control' ? 128 : idLength, idLength === 'control' ? '\u0001' : 'x');
     for (let n = 0; n < 40; n += 1) addSession(totals, Array.from({length: 300}, (_, i) => ans(id(n * 300 + i), T + n * 86_400_000)));
     assert.ok(totals.questions.size <= MAX_QUESTIONS);
     assert.ok(totals.idBytes <= MAX_ID_BYTES);
@@ -142,4 +142,120 @@ test('a realistic heavy history is a small fraction of the limit', () => {
   const bytes = Object.values(doc).reduce((sum, value) => sum + (typeof value === 'string' ? Buffer.byteLength(value) : 16), 0);
   console.log(`400 days at 100 answers a day over 3200 questions: ${bytes} bytes`);
   assert.ok(bytes < 700_000);
+});
+
+// ---- AnswerTotals v2: actual first completion and the 14-day completion mask ----
+const MIDNIGHT = Date.parse('2026-11-10T00:00:00+08:00');
+const bare = (questionId, correct = true) => ({questionId, chosen: 'a', correct});
+const crossing = {startedAt: MIDNIGHT - 10 * 60_000, finishedAt: MIDNIGHT + 10 * 60_000};
+
+test('v2: a session with no per-answer times counts on its start day and completes on its finish day', () => {
+  const totals = emptyTotals();
+  addSession(totals, [bare('a0'), bare('a1')], crossing);
+  assert.deepEqual([...totals.days.keys()], ['2026-11-09']);
+  assert.equal(totals.days.get('2026-11-09').size, 2);
+  assert.equal(totals.questions.get('a0').firstCompletedAt, crossing.finishedAt);
+  assert.deepEqual([...completedOn(totals, '2026-11-10').ids].sort(), ['a0', 'a1']);
+  assert.equal(completedOn(totals, '2026-11-09').ids.size, 0);
+  assert.equal(completedOn(totals, '2026-11-09').covered, true);
+});
+
+test('v2: a legacy batch keeps its real answer times for both the day count and completion', () => {
+  const totals = emptyTotals();
+  addSession(totals, [ans('a0', MIDNIGHT - 1000), ans('a1', MIDNIGHT + 1000)]);
+  assert.deepEqual([...totals.days.keys()].sort(), ['2026-11-09', '2026-11-10']);
+  assert.deepEqual([...completedOn(totals, '2026-11-09').ids], ['a0']);
+  assert.deepEqual([...completedOn(totals, '2026-11-10').ids], ['a1']);
+  assert.equal(totals.questions.get('a0').firstCompletedAt, MIDNIGHT - 1000);
+});
+
+test('v2: a late or replayed older session never moves first completion forward or rewinds the anchor', () => {
+  const totals = emptyTotals();
+  addSession(totals, [bare('a0')], {startedAt: T0 + 5 * 86_400_000, finishedAt: T0 + 5 * 86_400_000 + 1000});
+  const newer = totals.questions.get('a0').firstCompletedAt;
+  addSession(totals, [bare('a0'), bare('a1')], {startedAt: T0 + 2 * 86_400_000, finishedAt: T0 + 2 * 86_400_000 + 1000});
+  assert.equal(totals.anchorDay, phDay(newer));
+  assert.equal(totals.questions.get('a0').firstCompletedAt, T0 + 2 * 86_400_000 + 1000);
+  assert.deepEqual([...completedOn(totals, phDay(T0 + 2 * 86_400_000)).ids].sort(), ['a0', 'a1']);
+  assert.deepEqual([...completedOn(totals, phDay(newer)).ids], ['a0']);
+  assert.equal(totals.questions.get('a0').answered, 2);
+});
+
+test('v2: the mask keeps 14 days; older days are reported as not covered, never as empty', () => {
+  const totals = emptyTotals();
+  const at = n => T0 + n * 86_400_000 + 1000;
+  addSession(totals, [bare('a0')], {startedAt: at(0), finishedAt: at(0)});
+  addSession(totals, [bare('a1')], {startedAt: at(13), finishedAt: at(13)});
+  assert.deepEqual([...completedOn(totals, phDay(at(0))).ids], ['a0']);
+  addSession(totals, [bare('a2')], {startedAt: at(14), finishedAt: at(14)});
+  assert.equal(completedOn(totals, phDay(at(0))).covered, false);
+  assert.deepEqual([...completedOn(totals, phDay(at(1))).ids], []);
+  assert.deepEqual([...completedOn(totals, phDay(at(13))).ids], ['a1']);
+  assert.equal(completedOn(totals, phDay(at(30))).covered, true);   // after the anchor: nothing happened yet
+  assert.equal(completedOn(totals, phDay(at(30))).ids.size, 0);
+  addSession(totals, [bare('a0')], {startedAt: at(40), finishedAt: at(40)});
+  assert.equal(completedOn(totals, phDay(at(14))).covered, false);
+  assert.equal(totals.questions.get('a0').firstCompletedAt, at(0), 'pruned mask days keep the actual first completion');
+});
+
+test('v2: seen-by-end-of-day uses actual first completion, including a session received later', () => {
+  const totals = emptyTotals();
+  addSession(totals, [bare('a0')], {startedAt: T0 + 3 * 86_400_000, finishedAt: T0 + 3 * 86_400_000 + 5});
+  addSession(totals, [bare('a1')], {startedAt: T0, finishedAt: T0 + 5});
+  const endOfDay0 = T0 + 86_400_000;
+  assert.deepEqual([...firstCompletedBefore(totals, endOfDay0)], ['a1']);
+  assert.deepEqual([...firstCompletedBefore(totals, T0 + 4 * 86_400_000)].sort(), ['a0', 'a1']);
+});
+
+test('v2: the stored document round-trips, and a v1 document is recognized for backfill', () => {
+  const totals = emptyTotals();
+  addSession(totals, [bare('a0'), bare('b0', false)], crossing);
+  const doc = toDoc(totals);
+  assert.equal(doc.version, 2);
+  assert.equal(needsBackfill(doc), false);
+  const back = fromDoc(doc);
+  assert.deepEqual([...back.questions], [...totals.questions]);
+  assert.equal(back.anchorDay, totals.anchorDay);
+  assert.equal(needsBackfill({...doc, version: 1}), true);
+  assert.equal(needsBackfill(undefined), true);
+});
+
+test('v2: the stored document stays under 1 MiB at the real worst case, mask and first completion included', () => {
+  const T = Date.parse('2026-11-01T00:00:00+08:00');
+  for (const idLength of [24, 128, 'control']) {
+    const totals = emptyTotals();
+    const id = n => `${String(n).padStart(6, '0')}-`.padEnd(idLength === 'control' ? 128 : idLength, idLength === 'control' ? '\u0001' : 'x');
+    for (let n = 0; n < 40; n += 1) {
+      addSession(totals, Array.from({length: 300}, (_, i) => bare(id(n * 300 + i))),
+        {startedAt: T + n * 86_400_000, finishedAt: T + n * 86_400_000 + 1000});
+    }
+    // Every retained row completed on all 14 retained days, with the widest counts.
+    for (const row of totals.questions.values()) { row.mask = 0x3fff; row.answered = 999_999; row.correct = 999_999; }
+    const indexes = [...totals.questions.values()].map(row => row.index).reverse();
+    for (let day = 0; day < MAX_DAYS; day += 1) {
+      const map = new Map();
+      for (const index of indexes) { if (map.size >= MAX_DAY_PAIRS / MAX_DAYS) break; map.set(index, 99_999); }
+      totals.days.set(phDay(T + day * 86_400_000), map);
+    }
+    prune(totals);
+    const doc = toDoc(totals);
+    assert.equal(fromDoc(doc).idBytes,totals.idBytes,'reloaded totals retain the escaped byte budget');
+    // Firestore counts a string as its UTF-8 bytes plus one, a field name as its bytes plus one, and a
+    // number as 8; 1 KiB of margin covers the document name and overhead.
+    const bytes = Object.entries(doc).reduce((sum, [name, value]) =>
+      sum + Buffer.byteLength(name) + 1 + (typeof value === 'string' ? Buffer.byteLength(value) + 1 : 8), 0) + 1024;
+    console.log(`v2 worst case, ${totals.questions.size} rows of ${idLength}-byte ids: ${bytes} bytes`);
+    assert.ok(bytes < 1_048_576 - 100_000, `worst case is ${bytes} bytes`);
+  }
+});
+
+// Validation must reject hostile ids before either legacy or attributed ingest stores them.
+test('ingest answer validation rejects control characters and non-content ids', async () => {
+  const {checkAnswers} = await import('../lib/_answers.js');
+  for (const attributed of [false, true]) {
+    for (const questionId of ['q\u0001', 'q\n', 'q\u007f', 'q/foreign', 'q:internal']) {
+      assert.throws(() => checkAnswers([ans(questionId, T0)], T0, attributed), {code: 'invalid-argument'});
+    }
+    assert.equal(checkAnswers([ans('q.Valid_1-2', T0)], T0, attributed)[0].questionId, 'q.Valid_1-2');
+  }
 });

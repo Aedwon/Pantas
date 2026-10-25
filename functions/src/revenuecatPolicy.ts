@@ -143,10 +143,10 @@ export interface RevenueCatAccessSource {
   active: boolean;
 }
 
-export function claimsForRevenueCatAnswer(sources: RevenueCatAccessSource[], options: {
+export function coverageForRevenueCatAnswer(sources: RevenueCatAccessSource[], options: {
   appId: string; firebaseProjectId: string; sandboxTester: boolean; at: number;
   passes?: readonly LedgerPass[]; grants?: readonly LedgerGrant[];
-}): {pro: boolean; proUntil: number} {
+}) {
   const subscriptions: CoveragePeriod[] = [];
   const promotions: CoveragePeriod[] = [];
   for (const source of sources) {
@@ -161,6 +161,13 @@ export function claimsForRevenueCatAnswer(sources: RevenueCatAccessSource[], opt
   }
   const coverage = coverageAt({at: options.at, subscriptions, promotions, passes: options.passes,
     grants: options.grants});
-  const latest = coverage.endsAt ?? 0;
+  return coverage;
+}
+
+export function claimsForRevenueCatAnswer(
+  sources: RevenueCatAccessSource[],
+  options: Parameters<typeof coverageForRevenueCatAnswer>[1],
+): {pro: boolean; proUntil: number} {
+  const latest = coverageForRevenueCatAnswer(sources, options).endsAt ?? 0;
   return {pro: latest > 0, proUntil: latest > 0 ? latest + 86_400_000 : 0};
 }

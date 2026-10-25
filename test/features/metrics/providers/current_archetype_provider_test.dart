@@ -12,7 +12,7 @@ import 'package:pantas/features/metrics/providers/current_archetype_provider.dar
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 
 void main() {
-  for (final removedId in ['weekday_warrior', 'self_aware']) {
+  for (final removedId in ['weekday_warrior', 'self_aware', 'pressure_tightener']) {
     test('cached $removedId falls through to fresh resolve', () async {
       final db = AppDatabase(NativeDatabase.memory());
       addTearDown(db.close);
@@ -106,10 +106,10 @@ void main() {
       ).future,
     );
 
-    expect(result?.label, 'Game-Day Player');
+    expect(result?.label, 'Levelheaded');
     expect(
       result?.synthesizedCopy,
-      'Your mock accuracy runs 10 pts above practice.',
+      "Exam-day pressure doesn't shake you.",
     );
     expect(await db.select(db.userMetricsArchetypesLocal).get(), hasLength(1));
   });

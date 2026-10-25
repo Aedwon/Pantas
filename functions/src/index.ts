@@ -25,3 +25,10 @@ export { controlMock } from './mock.js';
 export { ingestSession } from './ingestSession.js';
 export { setExamSettings } from './roadmap.js';
 export { getRoadmap } from './roadmap.js';
+export {getMockAvailability, getMockResults, getMockHistory, updateMockReview} from './mockReader.js';
+
+export {recordLessonRead} from './studyObservations.js';
+
+export {advanceRoadmap,getRoadmapDay,getRoadmapWeek} from './roadmap.js';
+
+export {getStudyInsights} from './studyInsights.js';

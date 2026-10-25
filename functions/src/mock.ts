@@ -6,7 +6,8 @@ import {allowAtMost} from './_limits.js';
 import {checkAnswers, checkDuration, type Answer} from './_answers.js';
 import {core} from './_core.js';
 import {loadExamContent} from './_examContent.js';
-import {hasLiveProClaim} from './_pro.js';
+import {mockCoverage} from './mockAccess.js';
+import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
 import {examCatalog} from './revenuecatPasses.js';
 
 export {MAX_ANSWERS} from './_answers.js';
@@ -28,7 +29,7 @@ const allowControl = (uid: string, key: string) => allowAtMost(uid, key, 600, 60
 
 const paperSize = (paper: Paper) => paper.sections.reduce((total, section) => total + section.questions.length, 0);
 const scoreOf = (answers: Answer[], paper: Paper): Score => ({
-  correct: answers.filter(answer => answer.correct).length,
+  correct: answers.filter(answer => answer.chosen !== null && answer.correct).length,
   answered: answers.filter(answer => answer.chosen !== null).length,
   total: paperSize(paper),
 });
@@ -60,7 +61,7 @@ function view(mockId: string, row: FirebaseFirestore.DocumentData, now: number):
  * ran out, so the Free allowance counts from then, not from the student's next visit. Does nothing
  * for a non-strict mock (the app ends it) or one with time left.
  */
-async function endIfTimedOut(db: Firestore, uid: string, mockId: string, now: number):
+export async function endIfTimedOut(db: Firestore, uid: string, mockId: string, now: number):
   Promise<{mockId: string; endedBy: EndedBy; submittedAt: number; score: Score} | null> {
   return db.runTransaction(async (transaction) => {
     const ref = mocks(db, uid).doc(mockId);
@@ -70,6 +71,7 @@ async function endIfTimedOut(db: Firestore, uid: string, mockId: string, now: nu
     const submittedAt = Number(row.startedAt) + Number(row.limitMs);
     const answers = (row.answers ?? []) as Answer[];
     const score = scoreOf(answers, row.paper);
+    await recordMockAnswers(transaction, db, uid, mockId, {...row, submittedAt, durationMs: Number(row.limitMs)}, now);
     transaction.update(ref, {status: 'submitted', submittedAt, endedBy: 'time-out', durationMs: Number(row.limitMs),
       answerCount: answers.length, score});
     return {mockId, endedBy: 'time-out' as const, submittedAt, score};
@@ -81,7 +83,7 @@ async function findOpen(db: Firestore, uid: string) {
   return open.docs[0];
 }
 
-async function assemblePaper(db: Firestore, uid: string, examId: string, now: number, seed: number):
+export async function assemblePaper(db: Firestore, uid: string, examId: string, now: number, seed: number):
   Promise<{paper: Paper; limitMs: number}> {
   const blueprint = await db.doc(`content/mocks/items/${examId}`).get();
   if (!blueprint.exists) throw new HttpsError('failed-precondition', 'This exam has no mock yet.');
@@ -94,9 +96,9 @@ async function assemblePaper(db: Firestore, uid: string, examId: string, now: nu
     setOf.set(question.id, question.setId);
     if (question.passageId) ((passageSetsByTopic[question.topicId] ??= {})[question.passageId] ??= []).push(question.id);
   }
-  // Questions on the student's last submitted paper are avoided when the bank has enough others.
-  const last = await mocks(db, uid).orderBy('submittedAt', 'desc').limit(1).get();
-  const recent = ((last.docs[0]?.get('paper') as Paper | undefined)?.sections ?? []).flatMap(s => s.questions.map(q => q.id));
+  // Avoid both of the student's last two submitted papers when the bank has enough others.
+  const last = await mocks(db, uid).where('examId', '==', examId).where('submittedAt', '>', 0).orderBy('submittedAt', 'desc').limit(2).get();
+  const recent = last.docs.flatMap(doc => ((doc.get('paper') as Paper | undefined)?.sections ?? []).flatMap(s => s.questions.map(q => q.id)));
   let sampled: {expectedQuestionCount: number; sections: {sectionId: string; name: string; questionIds: string[]}[]};
   try {
     sampled = JSON.parse(core().sampleMock(JSON.stringify({
@@ -134,9 +136,10 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
   }
   const open = await findOpen(deps.db, uid);
   if (open) {
-    if (!await endIfTimedOut(deps.db, uid, open.id, now)) return {...view(open.id, open.data(), now), resumed: true};
+    await endIfTimedOut(deps.db, uid, open.id, now);
+    const fresh = await open.ref.get();
+    if (fresh.get('status') === 'started') return {...view(fresh.id, fresh.data()!, now), resumed: true};
   }
-  const unlimited = hasLiveProClaim(auth?.token, now);
   const ref = mocks(deps.db, uid).doc();
   const seed = (deps.seed ?? (() => randomInt(0, 2 ** 32)))();
   const {paper, limitMs} = await assemblePaper(deps.db, uid, examId, now, seed);
@@ -144,7 +147,8 @@ export async function beginMock(auth: Auth, data: unknown, deps: MockDeps): Prom
     // Another start may have created the mock while this paper was assembled; that one wins.
     const raced = await transaction.get(mocks(deps.db, uid).where('status', '==', 'started').limit(1));
     if (raced.docs[0]) return {...view(raced.docs[0].id, raced.docs[0].data(), now), resumed: true};
-    if (!unlimited) {
+    const access = await mockCoverage(transaction, deps.db, uid, now);
+    if (!access.coversExam(examId)) {
       const recent = await transaction.get(mocks(deps.db, uid).where('submittedAt', '>', now - FREE_MOCK_WINDOW_MS));
       if (recent.docs.some((doc) => doc.get('status') === 'submitted')) {
         throw new HttpsError('failed-precondition', 'Free accounts can take one mock every 30 days.');
@@ -169,7 +173,13 @@ export async function readMock(auth: Auth, _data: unknown, deps: MockDeps):
   if (!open) return {open: false};
   const ended = await endIfTimedOut(deps.db, uid, open.id, now);
   if (ended) return {open: false, ended};
-  return {open: true, ...view(open.id, open.data(), now)};
+  // Another request may have finalized after the open query but before this transaction.
+  const fresh = await open.ref.get();
+  const row = fresh.data();
+  if (!row) return {open: false};
+  if (row.status === 'submitted') return {open: false, ended: {mockId: fresh.id,
+    endedBy: row.endedBy as EndedBy, submittedAt: Number(row.submittedAt), score: row.score as Score}};
+  return {open: true, ...view(fresh.id, row, now)};
 }
 
 /**
@@ -200,7 +210,10 @@ export async function changeMock(auth: Auth, data: unknown, deps: MockDeps): Pro
     if (row.status !== 'started') throw new HttpsError('failed-precondition', 'This mock is already finished.');
     if (action !== 'save' && row.strict === true) throw new HttpsError('failed-precondition', 'Strict mode does not allow this.');
     let update: Record<string, unknown> = {};
-    if (action === 'save') update = {answers};
+    if (action === 'save') {
+      checkPaperAnswers(answers!, row.paper);
+      update = {answers};
+    }
     else if (action === 'pause') { if (typeof row.pausedAt !== 'number') update = {pausedAt: now}; }
     else if (action === 'resume') {
       if (typeof row.pausedAt === 'number') update = {pausedAt: null, pausedMs: Number(row.pausedMs ?? 0) + Math.max(0, now - row.pausedAt)};
@@ -234,8 +247,13 @@ export async function recordMock(auth: Auth, data: unknown, deps: MockDeps): Pro
     const snapshot = await transaction.get(ref);
     if (!snapshot.exists) throw new HttpsError('not-found', 'Mock not found.');
     const status = String(snapshot.get('status'));
-    if (status !== 'started') return {mockId, status};
+    if (status !== 'started') {
+      if (status === 'submitted') await recordMockAnswers(transaction, deps.db, uid, mockId, snapshot.data()!, now);
+      return {mockId, status};
+    }
+    checkPaperAnswers(answers, snapshot.get('paper'));
     if (early && snapshot.get('strict') !== true) throw new HttpsError('invalid-argument', 'Only a strict mock ends early.');
+    await recordMockAnswers(transaction, deps.db, uid, mockId, {...snapshot.data(), submittedAt: now, durationMs, answers}, now);
     transaction.update(ref, {status: 'submitted', submittedAt: now, endedBy: early ? 'strict-exit' : 'student', durationMs,
       answers, answerCount: answers.length, score: scoreOf(answers, snapshot.get('paper'))});
     return {mockId, status: 'submitted'};

@@ -2,20 +2,29 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test, {before, after} from 'node:test';
 import {initializeTestEnvironment, assertFails} from '@firebase/rules-unit-testing';
-import {collection, doc, getDoc, getDocs, setDoc} from 'firebase/firestore';
+import {collection, deleteDoc, doc, getDoc, getDocs, setDoc} from 'firebase/firestore';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 let env;
 const paths = ['content/lessons/items/l1', 'content/questions/items/q1', 'content/catalog/items/index', 'content/catalog/items/exam_upcat', 'contentPro/q1',
   'users/sp-user/server/mocks/items/m1', 'users/sp-user/server/answers/items/s1',
-  'content/mocks/items/exam_cse_pro', 'users/sp-user/server/roadmap', 'users/sp-user/server/settings', 'users/sp-user/server/answerTotals'];
+  'content/mocks/items/exam_cse_pro', 'users/sp-user/server/roadmap', 'users/sp-user/server/settings', 'users/sp-user/server/answerTotals',
+  'users/sp-user/server/roadmapDays/items/d1', 'users/sp-user/server/roadmapHistory/items/h1', 'users/sp-user/server/roadmapAdvances/items/a1',
+  'users/sp-user/server/lessonReads/items/l1', 'users/sp-user/server/studyRevision', 'users/sp-user/server/studyInsights', 'users/sp-user/server/reviews/items/q1'];
 before(async () => {
   env = await initializeTestEnvironment({projectId: 'demo-pantas-test', firestore: {rules: readFileSync(new URL('../../firestore.rules', import.meta.url), 'utf8')}});
   await env.withSecurityRulesDisabled(async context => {
     for (const p of paths) await setDoc(doc(context.firestore(), p), {version: 'v'});
   });
 });
-after(async () => env.cleanup());
+// The suites share one emulator. These placeholder documents (for example a catalog index with no
+// payload) must not outlive this suite, or the next suite's content loader reads them.
+after(async () => {
+  await env.withSecurityRulesDisabled(async context => {
+    for (const p of paths) await deleteDoc(doc(context.firestore(), p));
+  });
+  await env.cleanup();
+});
 
 test('no client, including a current Pro owner, reads or writes content or the server records', async () => {
   const contexts = [

@@ -18,7 +18,7 @@ export const MAX_IDS_PER_CALL = 20;
  * student's content budget.
  */
 export const DAILY_CATALOG_IDS = 200;
-const ID_PATTERN = /^[A-Za-z0-9_.-]{1,160}$/;
+export const ID_PATTERN = /^[A-Za-z0-9_.-]{1,160}$/;
 
 type Entry = {status: 'ok'; version: string; data: Record<string, unknown>}
   | {status: 'unchanged'; version: string} | {status: 'missing'};

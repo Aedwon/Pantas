@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
@@ -19,10 +20,12 @@ void main() {
     List<RoadmapReview> due = const [],
     DateTime? anchor,
     Set<String> seen = const {},
+    StudyDays studyDays = StudyDays.all,
   }) =>
       RoadmapInputs(
         today: today ?? sept30,
         examId: 'exam_upcat',
+        studyDays: studyDays,
         examDate: examDateMissing ? null : (examDate ?? dec7),
         topics: const [RoadmapTopic(id: 't', authoredIndex: 0, name: 'T')],
         prerequisites: const {},
@@ -51,6 +54,51 @@ void main() {
         anchoredReviewOnlyFrom: anchor,
       );
 
+  test('exam-day warm-up uses at most ten actual easiest ordered due reviews',
+      () {
+    final due = [
+      for (var i = 0; i < 25; i++)
+        RoadmapReview(
+          id: 'q${i.toString().padLeft(3, '0')}',
+          due: sept30,
+          retrievability: .1 + i * .01,
+        ),
+    ];
+    final result =
+        BuildRoadmap.call(inputs(examDate: ExamDate.onDay(sept30), due: due));
+    expect(
+      result.today.reviewQuestionIds,
+      [for (var i = 24; i >= 15; i--) 'q${i.toString().padLeft(3, '0')}'],
+    );
+    expect(result.today.lessonIds, isEmpty);
+    expect(result.today.newQuestionIds, isEmpty);
+  });
+  test('exam-day optional warm-up also exists on a scheduled rest weekday', () {
+    final result = BuildRoadmap.call(
+      inputs(
+        examDate: ExamDate.onDay(sept30),
+        studyDays: StudyDays(const [DateTime.monday]),
+        due: [RoadmapReview(id: 'q000', due: sept30, retrievability: .9)],
+      ),
+    );
+    expect(result.today.reviewQuestionIds, ['q000']);
+    expect(result.today.isRestDay, isTrue);
+  });
+  test('exam-day warm-up never pads sparse or absent membership', () {
+    for (final count in [0, 3]) {
+      final due = [
+        for (var i = 0; i < count; i++)
+          RoadmapReview(
+            id: 'q${i.toString().padLeft(3, '0')}',
+            due: sept30,
+            retrievability: .9,
+          ),
+      ];
+      final result =
+          BuildRoadmap.call(inputs(examDate: ExamDate.onDay(sept30), due: due));
+      expect(result.today.reviewQuestionIds, hasLength(count));
+    }
+  });
   test('the worked example gives two lessons and fifteen new questions', () {
     final roadmap = BuildRoadmap.call(inputs());
 
