@@ -1,0 +1,282 @@
+{
+ "packet": "lesson-algebra-algebraic-expressions",
+ "role": "A",
+ "lesson_sha256": "9537a54e48779e79a28af028c25e4871d7af9b53c9b432aa512d10585ce565e4",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "It has no equality sign unless the problem gives a relationship between two quantities.",
+     "problem": "An algebraic expression does not become an expression with an equality sign. Once an equality sign relates two quantities, the statement is an equation, so this exception is false."
+    }
+   ],
+   "checked": [
+    "Checked the definitions and algebra facts in Core Concept and Traps; the expression definition contains one factual error."
+   ],
+   "note": "One factual definition error remains in Core Concept."
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 gives $3k-4$.",
+    "Example #2 gives $\\dfrac{3}{5}n$.",
+    "Example #3 gives $\\dfrac{p}{h}$.",
+    "Example #4 simplifies to $6a-2b$.",
+    "Example #5 evaluates to $25$.",
+    "Example #6 gives the largest integer as $\\dfrac{S+6}{3}$."
+   ],
+   "note": "All six worked answers match independent solutions."
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; Mnemonics is optional and no required figure case is identified."
+   ],
+   "note": "Required lesson structure and content are present."
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for sentence length and vocabulary; definitions are short and the algebra terms are explained in plain sentences."
+   ],
+   "note": "The prose stays concise and readable for the stated level."
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Translation is explained before Example #1, Simplify and Evaluate are defined in Core Concept, and Express is defined before its first prompt use."
+   ],
+   "note": "All exam-specific instruction words used here are explained first."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "No analogy is used anywhere in the lesson."
+   ],
+   "note": "The lesson stays within the one-analogy maximum."
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all six example stems for needed givens and all solutions for simple wording; none of the stems supplies a tested formula or method."
+   ],
+   "note": "Examples are self-contained without giving away tested knowledge."
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "There are no specific exam-content claims or repetitive exam-motivation openers in the rewritten lesson."
+   ],
+   "note": "The lesson avoids unsupported or repetitive exam mentions."
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word by formatting."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Searched the lesson wording for the listed stock AI phrases and read sentence openings and the summary for repetition."
+   ],
+   "note": "No listed stock phrasing appears, and the summary and sentence rhythm are varied."
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #4 uses distribution after Core Concept gives $c(a+b)=ca+cb$ and $c(a-b)=ca-cb$.",
+    "Example #6 uses $x,x+2,x+4$ after Core Concept introduces the consecutive-even-integer model.",
+    "The translation and evaluation examples use rules already explained in Core Concept."
+   ],
+   "note": "Every formula or explicit model used in examples is introduced first."
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught cases to examples: basic verbal translation, of, per, simplification, evaluation with exponents, and consecutive even integers all have worked coverage."
+   ],
+   "note": "The examples cover the distinct taught scenarios without near-duplicates."
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Each multi-step example uses numbered steps, and every key computation or final algebraic result is shown as a display equation."
+   ],
+   "note": "No worked solution skips a required numbered step or key display."
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every display equation; each is short enough for a phone-width lesson layout."
+   ],
+   "note": "All displayed equations are compact."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Scanned all prose paragraphs; each contains no more than three short sentences, and the lesson does not rely on bullet lists."
+   ],
+   "note": "Paragraph length and list use follow the formatting rule."
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No figure is required for these algebra examples, and the lesson contains no illustration placeholder."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "**Like terms** have the same variable part with the same exponents. For example, $3x$ and $-5x$ are like terms, but $3x$ and $3x^2$ are not.",
+     "problem": "The lesson uses the term \"exponents\" and the notation $x^2$ to distinguish like terms before explaining what an exponent means. No prerequisite lesson is supplied in the packet."
+    }
+   ],
+   "checked": [
+    "Checked terms and symbols before first need; exponent notation is used to distinguish like terms and later in evaluation without an explanation or identified prerequisite."
+   ],
+   "note": "Exponent terminology is needed before it is taught."
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Translation, simplification, evaluation, like terms, distribution, rates, and consecutive-even-integer setup are each explained with meaning and a working rule or example."
+   ],
+   "note": "The lesson explains how its main concepts work rather than only naming them."
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions on of, per, equality language, rate division by zero, substitution checking, and negative-sign traps; applicable limitations are stated."
+   ],
+   "note": "Relevant shortcuts and rules include their needed conditions and exceptions."
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [
+  {
+   "quote": "It has no equality sign unless the problem gives a relationship between two quantities.",
+   "concern": "This suggests an algebraic expression may contain an equality sign in some cases, but a statement relating quantities with an equality sign is an equation, not an expression."
+  }
+ ],
+ "brief_items": {
+  "lesson-algebra-algebraic-expressions|L18|0": {
+   "status": "fixed",
+   "quote": "Express \"$\\dfrac{3}{5}$ of a number $n$\" as an algebraic expression.",
+   "note": "The rewrite now works the “of” case in Example #2 and the distinct “per” case in Example #3."
+  },
+  "lesson-algebra-algebraic-expressions|B01|1": {
+   "status": "fixed",
+   "quote": "The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.",
+   "note": "The worked case remains, but the unsupported UPCAT-specific scope claim has been removed."
+  },
+  "lesson-algebra-algebraic-expressions|B01|2": {
+   "status": "fixed",
+   "quote": "Simplify before substituting large values when the expression allows it.",
+   "note": "The advice is now general and no longer claims that DOST-SEI uses a specific style of expression."
+  },
+  "lesson-algebra-algebraic-expressions|B01|3": {
+   "status": "fixed",
+   "quote": "If two or more choices match, test another value and check the wording again.",
+   "note": "The shortcut now tells students to detect collisions and use another value when choices tie."
+  },
+  "lesson-algebra-algebraic-expressions|L03|0": {
+   "status": "fixed",
+   "quote": "**Express** means write the answer in the form the question asks for.",
+   "note": "Express is defined in one line in Core Concept before any worked prompt uses it."
+  },
+  "lesson-algebra-algebraic-expressions|L22a|0": {
+   "status": "fixed",
+   "quote": "Simplify before substituting large values when the expression allows it. Fewer terms usually mean fewer arithmetic steps and fewer chances to make a sign error.",
+   "note": "The edited shortcut paragraph now has two short sentences, within the one-to-three-sentence limit."
+  },
+  "lesson-algebra-algebraic-expressions|L22a|1": {
+   "status": "fixed",
+   "quote": "In a multiple-choice translation question, testing a simple value can help check the choices. Use the same value in the words and in each choice.",
+   "note": "The former five-sentence passage is split into short paragraphs, each within the paragraph limit."
+  },
+  "lesson-algebra-algebraic-expressions|L25|1": {
+   "status": "fixed",
+   "quote": "Simplify before substituting large values when the expression allows it.",
+   "note": "The unexplained factoring advice was removed; the shortcut now uses only simplification already taught."
+  },
+  "lesson-algebra-algebraic-expressions|L27|1": {
+   "status": "fixed",
+   "quote": "One test value is not proof because two different expressions can give the same result for that value.",
+   "note": "The rewrite states the collision limitation and tells students to use another value when needed."
+  },
+  "lesson-algebra-algebraic-expressions|B01|0": {
+   "status": "fixed",
+   "quote": "The word **of** often means multiplication when it gives a part of a quantity.",
+   "note": "The rewrite no longer uses an absolute “is means equals” keyword rule and later states the equality condition explicitly."
+  },
+  "lesson-algebra-algebraic-expressions|L17|0": {
+   "status": "fixed",
+   "quote": "The **distributive property** lets a factor outside parentheses multiply every term inside:",
+   "note": "Core Concept now introduces the distributive property before the simplification example uses it."
+  },
+  "lesson-algebra-algebraic-expressions|L17|1": {
+   "status": "fixed",
+   "quote": "Consecutive even integers differ by $2$. If the first is $x$, the next two can be written as $x+2$ and $x+4$.",
+   "note": "Core Concept now establishes the consecutive-even-integer model before Example #6 uses it."
+  },
+  "lesson-algebra-algebraic-expressions|L19|0": {
+   "status": "fixed",
+   "quote": "3. Write the expression.",
+   "note": "Example #1 now uses numbered solution steps and places the final expression on its own display line."
+  },
+  "lesson-algebra-algebraic-expressions|L25|0": {
+   "status": "fixed",
+   "quote": "Consecutive even integers differ by $2$. If the first is $x$, the next two can be written as $x+2$ and $x+4$.",
+   "note": "The needed meaning and spacing of consecutive even integers are explained before the worked example."
+  }
+ }
+}
