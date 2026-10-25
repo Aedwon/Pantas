@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-real-imaginary-numbers",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "588558a528c3988e12bd78e8135d86b621440eba",
+  "lesson-arithmetic-number-sense-sequences-and-series": "588558a528c3988e12bd78e8135d86b621440eba"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "69521625b64bde1ea160969ddb4b01f9008a3c9de1cce8f21d8be3beaa8d2f21",
+  "lesson-arithmetic-number-sense-sequences-and-series": "2e5dd06c0472742e0529a221fcbac49d289b241ad26a3b7d51a1e7ccb6c83c92"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "id": "RD-059",
+ "type": "read",
+ "created": "2026-10-25T21:10:54+00:00"
+}
