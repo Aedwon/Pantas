@@ -14,7 +14,7 @@ Plan: `docs/superpowers/plans/pwa-launch/E4-E7-cse-content-rewrite.md` on main (
 | P0.5 terms check | done | main `docs/superpowers/decisions/2026-10-25-cse-rewrite-p0-notes.md` |
 | P0.6 new lessons and splits | not started | |
 | P0.7 illustration worklist | done | 7 markers in the corpus, 3 in CSE lessons; README count stale |
-| P0.8 SVG in the app | waiting | style pick by Aedwon pending; app code waits for engineering coordination |
+| P0.8 SVG in the app | waiting | style D approved Oct 25 (`docs/content/rewrite/figure-style/`); app code waits for engineering coordination |
 | P0.9 source ledger | not started | |
 
 Notes: B08 brief rows on lines the fixer changed may already be fixed; the writer checks the

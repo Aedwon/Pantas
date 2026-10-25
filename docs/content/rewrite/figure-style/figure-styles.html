@@ -1,0 +1,358 @@
+<title>Lesson Figure Styles</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<style>
+/* Layout: dark review table, four option columns, each holding a phone-width lesson preview on paper. */
+:root {
+  --page:#14161a; --panel:#1d2026; --line:#2c3038; --ink:#e9e6df; --muted:#a3a7ae; --accent:#f2b84b;
+  --paper:#FAF8F3; --paper-ink:#1f2328; --paper-muted:#5b616b;
+  --night:#15171A; --night-ink:#e8e6e1; --night-muted:#a0a5ad;
+  --display:"Fraunces", Georgia, serif; --body:"Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+body { background:var(--page); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.5; }
+.wrap { max-width:1500px; margin:0 auto; padding-block:28px 48px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); display:grid; gap:24px; }
+.top { display:grid; gap:10px; max-width:70ch; }
+.top h1 { font-family:var(--display); font-weight:600; font-size:clamp(28px,4vw,40px); line-height:1.1; margin:0; text-wrap:balance; }
+.top p { margin:0; color:var(--muted); }
+.bar { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.bar button { font:600 14px var(--body); color:var(--ink); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:8px 16px; cursor:pointer; }
+.bar button[aria-pressed="true"] { background:var(--accent); color:#1b1b1b; border-color:var(--accent); }
+.bar button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(330px, 1fr)); gap:20px; align-items:start; }
+.opt { min-width:0; display:grid; gap:12px; }
+.opt header { display:flex; gap:12px; align-items:flex-start; }
+.tag { flex:none; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; font:700 18px var(--body); background:var(--accent); color:#1b1b1b; }
+.opt h2 { margin:0; font:700 18px var(--body); }
+.opt header p { margin:2px 0 0; color:var(--muted); font-size:14px; }
+.phone { max-width:390px; width:100%; border-radius:28px; border:1px solid var(--line); overflow:hidden; background:var(--paper); color:var(--paper-ink); }
+.phone[data-paper="0"] { background:var(--night); color:var(--night-ink); }
+.lesson { padding:22px 16px 28px; display:grid; gap:10px; }
+.lesson h3 { margin:0; font:700 20px/1.25 var(--body); }
+.lesson p { margin:0; font-size:16px; }
+.lesson .eyebrow { font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--paper-muted); margin-top:8px; }
+.phone[data-paper="0"] .eyebrow { color:var(--night-muted); }
+.lesson figure { margin:4px 0 6px; }
+.lesson figure svg { display:block; width:100%; height:auto; }
+.notes { display:grid; gap:6px; max-width:80ch; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:16px; }
+.notes strong { color:var(--ink); }
+</style>
+<div class="wrap">
+  <div class="top">
+    <h1>Lesson figure styles</h1>
+    <p>Four styles for the CSE lesson figures, each drawn as SVG for the same two figures. Each preview is a phone-width lesson screen. Pick one style, or say what to mix.</p>
+  </div>
+  <div class="bar" role="group" aria-label="Preview theme">
+    <button id="th-paper" type="button" aria-pressed="true">Light lesson</button>
+    <button id="th-night" type="button" aria-pressed="false">Dark lesson</button>
+  </div>
+  <div class="grid"><section class="opt" id="opt-A">
+  <header><span class="tag">A</span><div><h2>Clean textbook</h2><p>Precise and labeled, with a restrained palette and thin lines. Reads like a good reviewer book.</p></div></header>
+  <div class="phone" data-paper="1">
+    <div class="lesson">
+      <p class="eyebrow">Earth Science · Weather and Climate</p>
+      <h3>How the southwest monsoon forms</h3>
+      <p>In summer, land heats up faster than the sea. Warm air over the land rises, so the air pressure there drops.</p>
+      <figure><svg role="img" aria-label="fig1-A" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+
+<defs><linearGradient id="f1A-fl" gradientUnits="userSpaceOnUse" x1="490" y1="372" x2="90" y2="330"><stop offset="0" stop-color="#C2573A"/><stop offset="0.4" stop-color="#C2573A"/><stop offset="0.75" stop-color="#2F6C9A"/><stop offset="1" stop-color="#2F6C9A"/></linearGradient></defs>
+<rect width="800" height="560" rx="28" fill="#F4F7FA" stroke="#C5CFD9" stroke-width="1.5"/>
+<path d="M0 398 Q50 386 100 398 T200 398 T300 398 T400 398 L400 560 L28 560 A28 28 0 0 1 0 532 Z" fill="#CFE2EF" stroke="#5B8DB0" stroke-width="1.5"/>
+<path d="M30 428 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#5B8DB0" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M30 532 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#5B8DB0" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M372 560 L372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 532 A28 28 0 0 1 772 560 Z" fill="#E6DFC8" stroke="#9A8F6A" stroke-width="1.5"/>
+<circle cx="752" cy="112" r="22" fill="#F6C453" stroke="#C99A1E" stroke-width="1.5"/>
+<line x1="782.0" y1="112.0" x2="792.0" y2="112.0" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="773.2" y1="133.2" x2="780.3" y2="140.3" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="752.0" y1="142.0" x2="752.0" y2="152.0" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="730.8" y1="133.2" x2="723.7" y2="140.3" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="722.0" y1="112.0" x2="712.0" y2="112.0" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="730.8" y1="90.8" x2="723.7" y2="83.7" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="752.0" y1="82.0" x2="752.0" y2="72.0" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="773.2" y1="90.8" x2="780.3" y2="83.7" stroke="#C99A1E" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="#FFFFFF" stroke="#7C8B99" stroke-width="1.5"/>
+<line x1="580" y1="252" x2="572" y2="280" stroke="#2F6C9A" stroke-width="3" stroke-linecap="round"/>
+<line x1="616" y1="262" x2="608" y2="290" stroke="#2F6C9A" stroke-width="3" stroke-linecap="round"/>
+<line x1="652" y1="252" x2="644" y2="280" stroke="#2F6C9A" stroke-width="3" stroke-linecap="round"/>
+<line x1="598" y1="305" x2="590" y2="333" stroke="#2F6C9A" stroke-width="3" stroke-linecap="round"/>
+<line x1="634" y1="315" x2="626" y2="343" stroke="#2F6C9A" stroke-width="3" stroke-linecap="round"/>
+<line x1="668" y1="305" x2="660" y2="333" stroke="#2F6C9A" stroke-width="3" stroke-linecap="round"/>
+<path d="M490 372 L490 152 Q490 118 456 118 L136 118 Q90 118 90 164 L90 326" fill="none" stroke="url(#f1A-fl)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="76,324 104,324 90,356" fill="#2F6C9A"/>
+<line x1="130" y1="372" x2="424" y2="372" stroke="#2F6C9A" stroke-width="5" stroke-linecap="round"/>
+<polygon points="420,358 420,386 448,372" fill="#2F6C9A"/>
+<circle cx="46" cy="50" r="26" fill="#FFFFFF" stroke="#34495E" stroke-width="1.5"/>
+<text x="46" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#34495E">H</text>
+<circle cx="500" cy="50" r="26" fill="#FFFFFF" stroke="#34495E" stroke-width="1.5"/>
+<text x="500" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#34495E">L</text>
+<text x="84" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#1F2A33">High pressure</text>
+<text x="538" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#1F2A33">Low pressure</text>
+<text x="280" y="258" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#2F6C9A">Moist wind from</text>
+<text x="280" y="296" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#2F6C9A">the southwest</text>
+<text x="710" y="310" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#2F6C9A">Rain</text>
+<text x="200" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#1F4E6E">Sea (cooler)</text>
+<text x="610" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#5E5330">Land (warmer)</text>
+</svg></figure>
+      <p class="eyebrow">Reasoning · Syllogisms</p>
+      <h3>Draw it as circles</h3>
+      <p>Put the bigger group outside and the smaller group inside. If the thing sits inside the small circle, it is inside the big one too.</p>
+      <figure><svg role="img" aria-label="fig2-A" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 830" width="800" height="830">
+
+<rect width="800" height="830" rx="28" fill="#FBFAF6" stroke="#CFCABB" stroke-width="1.5"/>
+<circle cx="400" cy="330" r="270" fill="#E6EFF7" stroke="#4F76A0" stroke-width="2"/>
+<circle cx="400" cy="380" r="170" fill="#D3E7DA" stroke="#3A7A57" stroke-width="2"/>
+<circle cx="400" cy="410" r="14" fill="none" stroke="#B3422F" stroke-width="1.5"/><circle cx="400" cy="410" r="6" fill="#B3422F"/>
+<text x="400" y="150" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#2C4F76">Warm-blooded</text>
+<text x="400" y="318" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#24593C">Mammals</text>
+<text x="400" y="474" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#8E2F20">Whale</text>
+<line x1="60" y1="640" x2="740" y2="640" stroke="#CFCABB" stroke-width="1.5"/>
+<text x="400" y="692" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#33414C">All mammals are warm-blooded.</text>
+<text x="400" y="742" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#33414C">A whale is a mammal.</text>
+<text x="400" y="792" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#1F2A33">So a whale is warm-blooded.</text>
+</svg></figure>
+    </div>
+  </div>
+</section><section class="opt" id="opt-B">
+  <header><span class="tag">B</span><div><h2>Friendly illustrated</h2><p>Rounded shapes, warm colors, small friendly details such as a smiling sun and cloud.</p></div></header>
+  <div class="phone" data-paper="1">
+    <div class="lesson">
+      <p class="eyebrow">Earth Science · Weather and Climate</p>
+      <h3>How the southwest monsoon forms</h3>
+      <p>In summer, land heats up faster than the sea. Warm air over the land rises, so the air pressure there drops.</p>
+      <figure><svg role="img" aria-label="fig1-B" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+
+<defs><linearGradient id="f1B-fl" gradientUnits="userSpaceOnUse" x1="490" y1="372" x2="90" y2="330"><stop offset="0" stop-color="#F2724B"/><stop offset="0.4" stop-color="#F2724B"/><stop offset="0.75" stop-color="#3E9BD9"/><stop offset="1" stop-color="#3E9BD9"/></linearGradient></defs>
+<rect width="800" height="560" rx="28" fill="#FFEFD2"/>
+<path d="M0 398 Q50 386 100 398 T200 398 T300 398 T400 398 L400 560 L28 560 A28 28 0 0 1 0 532 Z" fill="#6CC3D5"/>
+<path d="M30 428 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+<path d="M30 532 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+<path d="M372 560 L372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 532 A28 28 0 0 1 772 560 Z" fill="#9BCB7E"/>
+<path d="M560 560 Q620 520 700 560 Z" fill="#86BA68"/>
+<path d="M420 560 Q470 530 520 560 Z" fill="#86BA68"/>
+<path d="M752 398 Q760 370 756 340" fill="none" stroke="#8B5E3C" stroke-width="9" stroke-linecap="round"/>
+<path d="M756 340 Q735 322 716 336" fill="none" stroke="#4E9F4A" stroke-width="9" stroke-linecap="round"/>
+<path d="M756 340 Q776 320 796 334" fill="none" stroke="#4E9F4A" stroke-width="9" stroke-linecap="round"/>
+<path d="M756 340 Q744 318 726 316" fill="none" stroke="#4E9F4A" stroke-width="9" stroke-linecap="round"/>
+<path d="M756 340 Q770 318 788 316" fill="none" stroke="#4E9F4A" stroke-width="9" stroke-linecap="round"/>
+<circle cx="752" cy="112" r="30" fill="#FFC93C"/>
+<line x1="792.0" y1="112.0" x2="802.0" y2="112.0" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="780.3" y1="140.3" x2="787.4" y2="147.4" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="752.0" y1="152.0" x2="752.0" y2="162.0" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="723.7" y1="140.3" x2="716.6" y2="147.4" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="712.0" y1="112.0" x2="702.0" y2="112.0" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="723.7" y1="83.7" x2="716.6" y2="76.6" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="752.0" y1="72.0" x2="752.0" y2="62.0" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<line x1="780.3" y1="83.7" x2="787.4" y2="76.6" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"/>
+<circle cx="743" cy="108" r="3.5" fill="#6B3E1E"/><circle cx="761" cy="108" r="3.5" fill="#6B3E1E"/>
+<path d="M742 119 Q752 128 762 119" fill="none" stroke="#6B3E1E" stroke-width="3" stroke-linecap="round"/>
+<path d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="#FFFFFF" stroke="#E7D9C0" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="600" cy="204" r="3.5" fill="#6B3E1E"/><circle cx="636" cy="204" r="3.5" fill="#6B3E1E"/>
+<path d="M609 212 Q618 220 627 212" fill="none" stroke="#6B3E1E" stroke-width="3" stroke-linecap="round"/>
+<circle cx="588" cy="214" r="6" fill="#FFB5A0"/><circle cx="648" cy="214" r="6" fill="#FFB5A0"/>
+<path d="M580 252 C590 266 590 278 580 278 C570 278 570 266 580 252 Z" fill="#4AA3DF"/>
+<path d="M616 262 C626 276 626 288 616 288 C606 288 606 276 616 262 Z" fill="#4AA3DF"/>
+<path d="M652 252 C662 266 662 278 652 278 C642 278 642 266 652 252 Z" fill="#4AA3DF"/>
+<path d="M598 305 C608 319 608 331 598 331 C588 331 588 319 598 305 Z" fill="#4AA3DF"/>
+<path d="M634 315 C644 329 644 341 634 341 C624 341 624 329 634 315 Z" fill="#4AA3DF"/>
+<path d="M668 305 C678 319 678 331 668 331 C658 331 658 319 668 305 Z" fill="#4AA3DF"/>
+<path d="M490 372 L490 152 Q490 118 456 118 L136 118 Q90 118 90 164 L90 326" fill="none" stroke="url(#f1B-fl)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="64,322 116,322 90,364" fill="#3E9BD9" stroke="#3E9BD9" stroke-width="6" stroke-linejoin="round"/>
+<line x1="130" y1="372" x2="410" y2="372" stroke="#3E9BD9" stroke-width="16" stroke-linecap="round"/>
+<polygon points="408,352 408,392 450,372" fill="#3E9BD9" stroke="#3E9BD9" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="46" cy="50" r="27" fill="#3E9BD9"/>
+<text x="46" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">H</text>
+<circle cx="500" cy="50" r="27" fill="#F2724B"/>
+<text x="500" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">L</text>
+<text x="84" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#5A3A2A">High pressure</text>
+<text x="538" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#5A3A2A">Low pressure</text>
+<text x="280" y="258" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#1F6FA8">Moist wind from</text>
+<text x="280" y="296" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#1F6FA8">the southwest</text>
+<text x="710" y="310" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#1F6FA8">Rain</text>
+<text x="200" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#0F4C5C">Sea (cooler)</text>
+<text x="610" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#2D5A27">Land (warmer)</text>
+</svg></figure>
+      <p class="eyebrow">Reasoning · Syllogisms</p>
+      <h3>Draw it as circles</h3>
+      <p>Put the bigger group outside and the smaller group inside. If the thing sits inside the small circle, it is inside the big one too.</p>
+      <figure><svg role="img" aria-label="fig2-B" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 830" width="800" height="830">
+
+<rect width="800" height="830" rx="28" fill="#FFF1DA"/>
+<circle cx="60" cy="70" r="14" fill="#FFC93C"/><circle cx="60" cy="70" r="5" fill="#FFF1DA"/>
+<circle cx="740" cy="90" r="14" fill="#F2724B"/><circle cx="740" cy="90" r="5" fill="#FFF1DA"/>
+<circle cx="70" cy="560" r="14" fill="#6CC3D5"/><circle cx="70" cy="560" r="5" fill="#FFF1DA"/>
+<circle cx="735" cy="545" r="14" fill="#FFC93C"/><circle cx="735" cy="545" r="5" fill="#FFF1DA"/>
+<circle cx="400" cy="330" r="270" fill="#FFD9B0" stroke="#EE9A5C" stroke-width="6" stroke-dasharray="2 14" stroke-linecap="round"/>
+<circle cx="400" cy="380" r="170" fill="#FFB4A2" stroke="#F2724B" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="400" cy="410" r="24" fill="none" stroke="#FFFFFF" stroke-width="5"/><circle cx="400" cy="410" r="16" fill="#6B3E1E"/>
+<circle cx="395" cy="407" r="2.5" fill="#FFFFFF"/><circle cx="405" cy="407" r="2.5" fill="#FFFFFF"/><path d="M394 414 Q400 420 406 414" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+<text x="400" y="150" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#8A4A1C">Warm-blooded</text>
+<text x="400" y="318" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#8C2E1B">Mammals</text>
+<text x="400" y="486" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#6B3E1E">Whale</text>
+<rect x="40" y="636" width="720" height="170" rx="26" fill="#FFFFFF" fill-opacity="0.7"/>
+<text x="400" y="692" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#5A3A2A">All mammals are warm-blooded.</text>
+<text x="400" y="742" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#5A3A2A">A whale is a mammal.</text>
+<text x="400" y="792" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#8C2E1B">So a whale is warm-blooded.</text>
+</svg></figure>
+    </div>
+  </div>
+</section><section class="opt" id="opt-C">
+  <header><span class="tag">C</span><div><h2>Bold infographic</h2><p>Strong color blocks, large heavy labels, high contrast. Easy to read at a glance.</p></div></header>
+  <div class="phone" data-paper="1">
+    <div class="lesson">
+      <p class="eyebrow">Earth Science · Weather and Climate</p>
+      <h3>How the southwest monsoon forms</h3>
+      <p>In summer, land heats up faster than the sea. Warm air over the land rises, so the air pressure there drops.</p>
+      <figure><svg role="img" aria-label="fig1-C" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+
+<defs><linearGradient id="f1C-fl" gradientUnits="userSpaceOnUse" x1="490" y1="372" x2="90" y2="330"><stop offset="0" stop-color="#FF5A3C"/><stop offset="0.4" stop-color="#FF5A3C"/><stop offset="0.75" stop-color="#5CE1FF"/><stop offset="1" stop-color="#5CE1FF"/></linearGradient></defs>
+<rect width="800" height="560" rx="28" fill="#0D1B2A"/>
+<rect x="14" y="14" width="772" height="384" rx="16" fill="#1B2F4B"/>
+<path d="M0 398 Q50 386 100 398 T200 398 T300 398 T400 398 L400 560 L28 560 A28 28 0 0 1 0 532 Z" fill="#0096E6"/>
+<path d="M372 560 L372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 532 A28 28 0 0 1 772 560 Z" fill="#F7A61C"/>
+<circle cx="752" cy="116" r="26" fill="#FFD23F"/>
+<polygon points="788.0,116.0 785.2,130.0 801.0,125.9" fill="#FFD23F"/>
+<polygon points="777.5,141.5 765.5,149.4 779.6,157.7" fill="#FFD23F"/>
+<polygon points="752.0,152.0 738.0,149.2 742.1,165.0" fill="#FFD23F"/>
+<polygon points="726.5,141.5 718.6,129.5 710.3,143.6" fill="#FFD23F"/>
+<polygon points="716.0,116.0 718.8,102.0 703.0,106.1" fill="#FFD23F"/>
+<polygon points="726.5,90.5 738.5,82.6 724.4,74.3" fill="#FFD23F"/>
+<polygon points="752.0,80.0 766.0,82.8 761.9,67.0" fill="#FFD23F"/>
+<polygon points="777.5,90.5 785.4,102.5 793.7,88.4" fill="#FFD23F"/>
+<path d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="#E8EEF5"/>
+<line x1="580" y1="252" x2="572" y2="282" stroke="#5CE1FF" stroke-width="7" stroke-linecap="round"/>
+<line x1="616" y1="262" x2="608" y2="292" stroke="#5CE1FF" stroke-width="7" stroke-linecap="round"/>
+<line x1="652" y1="252" x2="644" y2="282" stroke="#5CE1FF" stroke-width="7" stroke-linecap="round"/>
+<line x1="598" y1="305" x2="590" y2="335" stroke="#5CE1FF" stroke-width="7" stroke-linecap="round"/>
+<line x1="634" y1="315" x2="626" y2="345" stroke="#5CE1FF" stroke-width="7" stroke-linecap="round"/>
+<line x1="668" y1="305" x2="660" y2="335" stroke="#5CE1FF" stroke-width="7" stroke-linecap="round"/>
+<path d="M490 372 L490 152 Q490 118 456 118 L136 118 Q90 118 90 164 L90 326" fill="none" stroke="url(#f1C-fl)" stroke-width="22" stroke-linecap="butt" stroke-linejoin="round"/>
+<polygon points="56,322 124,322 90,372" fill="#5CE1FF"/>
+<line x1="130" y1="372" x2="410" y2="372" stroke="#5CE1FF" stroke-width="22"/>
+<polygon points="408,342 408,402 462,372" fill="#5CE1FF"/>
+<circle cx="48" cy="52" r="30" fill="#5CE1FF"/>
+<text x="48" y="64" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="800" fill="#0D1B2A">H</text>
+<circle cx="500" cy="52" r="30" fill="#FF5A3C"/>
+<text x="500" y="64" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="800" fill="#FFFFFF">L</text>
+<text x="90" y="64" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#FFFFFF">High pressure</text>
+<text x="542" y="64" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#FFFFFF">Low pressure</text>
+<text x="280" y="256" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#5CE1FF">Moist wind from</text>
+<text x="280" y="296" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#5CE1FF">the southwest</text>
+<text x="706" y="312" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#5CE1FF">Rain</text>
+<text x="200" y="496" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#FFFFFF">Sea (cooler)</text>
+<text x="610" y="496" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="34" font-weight="800" fill="#0D1B2A">Land (warmer)</text>
+</svg></figure>
+      <p class="eyebrow">Reasoning · Syllogisms</p>
+      <h3>Draw it as circles</h3>
+      <p>Put the bigger group outside and the smaller group inside. If the thing sits inside the small circle, it is inside the big one too.</p>
+      <figure><svg role="img" aria-label="fig2-C" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 830" width="800" height="830">
+
+<rect width="800" height="830" rx="28" fill="#0D1B2A"/>
+<circle cx="400" cy="330" r="270" fill="#FFB703"/>
+<circle cx="400" cy="380" r="170" fill="#E63946"/>
+<circle cx="400" cy="410" r="20" fill="#FFFFFF"/><circle cx="400" cy="410" r="9" fill="#0D1B2A"/>
+<text x="400" y="152" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="800" fill="#0D1B2A">Warm-blooded</text>
+<text x="400" y="322" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF">Mammals</text>
+<text x="400" y="486" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF">Whale</text>
+<rect x="40" y="650" width="720" height="46" rx="12" fill="#1B2F4B"/>
+<text x="400" y="684" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">All mammals are warm-blooded.</text>
+<rect x="40" y="704" width="720" height="46" rx="12" fill="#1B2F4B"/>
+<text x="400" y="738" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">A whale is a mammal.</text>
+<rect x="40" y="758" width="720" height="46" rx="12" fill="#FFB703"/>
+<text x="400" y="792" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="800" fill="#0D1B2A">So a whale is warm-blooded.</text>
+</svg></figure>
+    </div>
+  </div>
+</section><section class="opt" id="opt-D">
+  <header><span class="tag">D</span><div><h2>Modern flat with depth</h2><p>Flat shapes with soft gradients for depth, in a cool palette.</p></div></header>
+  <div class="phone" data-paper="1">
+    <div class="lesson">
+      <p class="eyebrow">Earth Science · Weather and Climate</p>
+      <h3>How the southwest monsoon forms</h3>
+      <p>In summer, land heats up faster than the sea. Warm air over the land rises, so the air pressure there drops.</p>
+      <figure><svg role="img" aria-label="fig1-D" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+
+<defs>
+<linearGradient id="f1D-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#2C6A98"/></linearGradient>
+<linearGradient id="f1D-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="f1D-land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<radialGradient id="f1D-sun" cx="0.4" cy="0.4" r="0.7"><stop offset="0" stop-color="#FFF3B0"/><stop offset="1" stop-color="#FFA726"/></radialGradient>
+<radialGradient id="f1D-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFC857" stop-opacity="0.55"/><stop offset="1" stop-color="#FFC857" stop-opacity="0"/></radialGradient>
+<linearGradient id="f1D-cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+<linearGradient id="f1D-fl" gradientUnits="userSpaceOnUse" x1="490" y1="372" x2="90" y2="330"><stop offset="0" stop-color="#FF7A45"/><stop offset="0.4" stop-color="#FFB347"/><stop offset="0.75" stop-color="#7DDCFF"/><stop offset="1" stop-color="#5CC8FF"/></linearGradient>
+<linearGradient id="f1D-wd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5CC8FF"/><stop offset="1" stop-color="#B8F0FF"/></linearGradient>
+</defs>
+<rect width="800" height="560" rx="28" fill="url(#f1D-sky)"/>
+<circle cx="752" cy="112" r="64" fill="url(#f1D-glow)"/><circle cx="752" cy="112" r="26" fill="url(#f1D-sun)"/>
+<path d="M0 398 Q50 386 100 398 T200 398 T300 398 T400 398 L400 560 L28 560 A28 28 0 0 1 0 532 Z" fill="url(#f1D-sea)"/>
+<path d="M30 428 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#8FD3FF" stroke-opacity="0.5" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M30 532 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#8FD3FF" stroke-opacity="0.5" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M372 560 L372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 532 A28 28 0 0 1 772 560 Z" fill="url(#f1D-land)"/>
+<path d="M372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 412 Q700 420 600 414 Q520 408 430 414 Q380 420 372 446 Z" fill="#7BD3B5" fill-opacity="0.35"/>
+<path d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="url(#f1D-cl)"/>
+<line x1="580" y1="252" x2="572" y2="280" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="616" y1="262" x2="608" y2="290" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="652" y1="252" x2="644" y2="280" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="598" y1="305" x2="590" y2="333" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="634" y1="315" x2="626" y2="343" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="668" y1="305" x2="660" y2="333" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<path d="M490 372 L490 152 Q490 118 456 118 L136 118 Q90 118 90 164 L90 326" fill="none" stroke="url(#f1D-fl)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="64,322 116,322 90,364" fill="#5CC8FF"/>
+<line x1="130" y1="372" x2="410" y2="372" stroke="url(#f1D-wd)" stroke-width="12" stroke-linecap="round"/>
+<polygon points="408,352 408,392 450,372" fill="#B8F0FF"/>
+<circle cx="46" cy="50" r="26" fill="#5CC8FF"/>
+<text x="46" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#0E2747">H</text>
+<circle cx="500" cy="50" r="26" fill="#FF7A45"/>
+<text x="500" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#0E2747">L</text>
+<text x="84" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#F2F7FB">High pressure</text>
+<text x="538" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#F2F7FB">Low pressure</text>
+<text x="280" y="258" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#B8F0FF">Moist wind from</text>
+<text x="280" y="296" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#B8F0FF">the southwest</text>
+<text x="710" y="310" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#B8F0FF">Rain</text>
+<text x="200" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">Sea (cooler)</text>
+<text x="610" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">Land (warmer)</text>
+</svg></figure>
+      <p class="eyebrow">Reasoning · Syllogisms</p>
+      <h3>Draw it as circles</h3>
+      <p>Put the bigger group outside and the smaller group inside. If the thing sits inside the small circle, it is inside the big one too.</p>
+      <figure><svg role="img" aria-label="fig2-D" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 830" width="800" height="830">
+
+<defs>
+<linearGradient id="f2D-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="f2D-o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="f2D-i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="f2D-d" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFD27A"/></radialGradient>
+<radialGradient id="f2D-g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="830" rx="28" fill="url(#f2D-bg)"/>
+<circle cx="400" cy="330" r="270" fill="url(#f2D-o)"/>
+<circle cx="400" cy="380" r="170" fill="url(#f2D-i)"/>
+<path d="M290 320 A130 130 0 0 1 400 252" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="5" stroke-linecap="round"/>
+<circle cx="400" cy="410" r="40" fill="url(#f2D-g)"/><circle cx="400" cy="410" r="11" fill="url(#f2D-d)"/>
+<text x="400" y="150" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Warm-blooded</text>
+<text x="400" y="318" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Mammals</text>
+<text x="400" y="478" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Whale</text>
+<line x1="60" y1="640" x2="740" y2="640" stroke="#6FD0FF" stroke-opacity="0.4" stroke-width="2"/>
+<text x="400" y="692" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#D6E6F5">All mammals are warm-blooded.</text>
+<text x="400" y="742" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#D6E6F5">A whale is a mammal.</text>
+<text x="400" y="792" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">So a whale is warm-blooded.</text>
+</svg></figure>
+    </div>
+  </div>
+</section></div>
+  <div class="notes">
+    <p><strong>What this preview cannot show exactly.</strong> Your browser draws these SVGs here. The app will draw them with its own SVG library, which supports everything used in these samples, but small differences in text spacing are possible. The lesson text around the figures is placeholder styling, not the approved app screens.</p>
+    <p><strong>These are style samples.</strong> Each figure carries its own background panel so it reads on light and dark lessons. Content details, such as an arrow showing warm air rising over the land, get fixed when the real figures are drawn.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var paper=document.getElementById('th-paper'), night=document.getElementById('th-night');
+  function set(isPaper){
+    document.querySelectorAll('.phone').forEach(function(p){ p.setAttribute('data-paper', isPaper?'1':'0'); });
+    paper.setAttribute('aria-pressed', String(isPaper)); night.setAttribute('aria-pressed', String(!isPaper));
+  }
+  paper.addEventListener('click', function(){ set(true); });
+  night.addEventListener('click', function(){ set(false); });
+})();
+</script>

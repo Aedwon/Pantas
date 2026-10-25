@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 830" width="800" height="830">
+<!-- Own rounded deep-blue gradient panel; reads the same on #FAF8F3 and #15171A. Style D: modern flat with depth. -->
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="d" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFD27A"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="830" rx="28" fill="url(#bg)"/>
+<circle cx="400" cy="330" r="270" fill="url(#o)"/>
+<circle cx="400" cy="380" r="170" fill="url(#i)"/>
+<path d="M290 320 A130 130 0 0 1 400 252" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="5" stroke-linecap="round"/>
+<circle cx="400" cy="410" r="40" fill="url(#g)"/><circle cx="400" cy="410" r="11" fill="url(#d)"/>
+<text x="400" y="150" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Warm-blooded</text>
+<text x="400" y="318" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Mammals</text>
+<text x="400" y="478" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Whale</text>
+<line x1="60" y1="640" x2="740" y2="640" stroke="#6FD0FF" stroke-opacity="0.4" stroke-width="2"/>
+<text x="400" y="692" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#D6E6F5">All mammals are warm-blooded.</text>
+<text x="400" y="742" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="400" fill="#D6E6F5">A whale is a mammal.</text>
+<text x="400" y="792" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">So a whale is warm-blooded.</text>
+</svg>

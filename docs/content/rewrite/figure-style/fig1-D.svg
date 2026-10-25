@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+<!-- Own rounded deep-blue gradient panel; reads the same on #FAF8F3 and #15171A. Style D: modern flat with depth. -->
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#2C6A98"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<radialGradient id="sun" cx="0.4" cy="0.4" r="0.7"><stop offset="0" stop-color="#FFF3B0"/><stop offset="1" stop-color="#FFA726"/></radialGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFC857" stop-opacity="0.55"/><stop offset="1" stop-color="#FFC857" stop-opacity="0"/></radialGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+<linearGradient id="fl" gradientUnits="userSpaceOnUse" x1="490" y1="372" x2="90" y2="330"><stop offset="0" stop-color="#FF7A45"/><stop offset="0.4" stop-color="#FFB347"/><stop offset="0.75" stop-color="#7DDCFF"/><stop offset="1" stop-color="#5CC8FF"/></linearGradient>
+<linearGradient id="wd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5CC8FF"/><stop offset="1" stop-color="#B8F0FF"/></linearGradient>
+</defs>
+<rect width="800" height="560" rx="28" fill="url(#sky)"/>
+<circle cx="752" cy="112" r="64" fill="url(#glow)"/><circle cx="752" cy="112" r="26" fill="url(#sun)"/>
+<path d="M0 398 Q50 386 100 398 T200 398 T300 398 T400 398 L400 560 L28 560 A28 28 0 0 1 0 532 Z" fill="url(#sea)"/>
+<path d="M30 428 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#8FD3FF" stroke-opacity="0.5" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M30 532 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0 q15 -10 30 0 t30 0" fill="none" stroke="#8FD3FF" stroke-opacity="0.5" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M372 560 L372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 532 A28 28 0 0 1 772 560 Z" fill="url(#land)"/>
+<path d="M372 430 Q380 400 430 398 Q520 392 600 398 Q700 404 800 396 L800 412 Q700 420 600 414 Q520 408 430 414 Q380 420 372 446 Z" fill="#7BD3B5" fill-opacity="0.35"/>
+<path d="M568 230 C538 230 538 190 572 190 C572 160 610 148 628 172 C650 158 690 172 684 204 C705 206 705 230 684 230 Z" fill="url(#cl)"/>
+<line x1="580" y1="252" x2="572" y2="280" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="616" y1="262" x2="608" y2="290" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="652" y1="252" x2="644" y2="280" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="598" y1="305" x2="590" y2="333" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="634" y1="315" x2="626" y2="343" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<line x1="668" y1="305" x2="660" y2="333" stroke="#9ADFFF" stroke-width="4" stroke-linecap="round"/>
+<path d="M490 372 L490 152 Q490 118 456 118 L136 118 Q90 118 90 164 L90 326" fill="none" stroke="url(#fl)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="64,322 116,322 90,364" fill="#5CC8FF"/>
+<line x1="130" y1="372" x2="410" y2="372" stroke="url(#wd)" stroke-width="12" stroke-linecap="round"/>
+<polygon points="408,352 408,392 450,372" fill="#B8F0FF"/>
+<circle cx="46" cy="50" r="26" fill="#5CC8FF"/>
+<text x="46" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#0E2747">H</text>
+<circle cx="500" cy="50" r="26" fill="#FF7A45"/>
+<text x="500" y="61" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#0E2747">L</text>
+<text x="84" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#F2F7FB">High pressure</text>
+<text x="538" y="61" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#F2F7FB">Low pressure</text>
+<text x="280" y="258" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#B8F0FF">Moist wind from</text>
+<text x="280" y="296" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#B8F0FF">the southwest</text>
+<text x="710" y="310" text-anchor="start" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#B8F0FF">Rain</text>
+<text x="200" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">Sea (cooler)</text>
+<text x="610" y="495" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">Land (warmer)</text>
+</svg>
