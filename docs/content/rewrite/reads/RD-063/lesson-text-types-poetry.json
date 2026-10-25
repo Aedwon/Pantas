@@ -1,0 +1,225 @@
+{
+ "batch": "RD-063",
+ "lesson_id": "lesson-text-types-poetry",
+ "path": "content/lessons/reading-comprehension/text-types/poetry.md",
+ "lesson_sha256": "4fbc41df21786b5fc48635b5d6bbe60f56a1433a8180369300398e3149fca00d",
+ "rewrite_commit": "1b568bffc28073a43f80191da1d4c439a05fd47f",
+ "form": {
+  "packet": "lesson-text-types-poetry",
+  "role": "A",
+  "lesson_sha256": "4fbc41df21786b5fc48635b5d6bbe60f56a1433a8180369300398e3149fca00d",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked definitions of simile, metaphor, personification, imagery, symbol, rhyme, stress, sound repetition, rhythm, tone, and speaker. The illustrative sound pairs match their stated sounds, including shape/keep as near rhyme and blank/ink as consonance. No external historical or numerical claims appear. Independent source verification is unavailable under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 metaphor, time takes youth; 2 A alone is a simile; 3 personification; 4 ABAB; 5 night/light internal rhyme and shape/keep near rhyme; 6 alliteration, assonance, consonance respectively; 7 lonely/gloomy to happy/hopeful; 8 the break separates the call to protect the river from the reason for urgency, while the speaker asks for protection; 9 the lamp represents welcome and continuing hope for return; 10 repetition and full stops produce short recurring beats and pauses. All agree with the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. The brief-required sound devices and personification are both explained and applied. No example requires a visual figure; the relevant line break is expressly described. No separate outline was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read definitions, strategies, traps, and all worked solutions for simplicity. Technical terms receive short explanations and familiar quoted illustrations. The opening uses words, sounds, and lines instead of lineation, syntax, and concentrated diction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Interpret is explained on first use as explaining meaning with textual details. The example commands otherwise use ordinary question language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears. Figurative quotations are the subject being taught, not extra tutor analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All ten examples include direct interpretation or identification questions. Each supplies the quoted language or line endings needed to answer. Example 6 directs attention to sound positions without giving the device names or definitions. Worked explanations remain simple."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about exam frequency, answer choices, or format occur, and no exam opener is repeated."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English poetry lesson with no Filipino teaching prose.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar terms occur, so no English grammar-term gloss is needed.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson does not teach Filipino reading or contain a Filipino application.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino text occurs in the supplied lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino prose in which Taglish could occur.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions identify devices and interpret passages, not designated vocabulary target words.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes comparisons, images, sounds, and tone plainly. No listed stock AI phrase appears. Sentence openings vary across definitions, strategies, and traps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The Reading Comprehension layout correctly uses Reading Strategies. None of the examples uses a mathematical formula. The rhyme-scheme letter procedure is taught in Core Concept before Example 4 applies it."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage: 1 metaphor and meaning; 2 simile versus literal as; 3 personification; 4 rhyme scheme; 5 internal and slant rhyme; 6 alliteration, assonance, consonance; 7 imagery and tone shift; 8 direct message and continued sentence across a line break; 9 contextual symbolism; 10 rhythm without rhyme. These address the distinct taught reading tasks without merely changing nouns or numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every example has its own standalone Solution label followed by numbered steps. The solutions identify the relevant words or sounds and connect them to the answer; there are no omitted computations or necessary mathematical displays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur, so equation width cannot apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Reading Strategies, and trap explanations use paragraphs of one to three short sentences. Examples use the required numbered solutions. No excessive bullet lists occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figures or placeholders occur; the sound and meaning questions are fully supplied in words.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Stanza, figurative language, simile, metaphor, personification, imagery, symbol, rhyme, stress, rhyme scheme, internal/slant rhyme, alliteration, assonance, consonance, rhythm, tone, and speaker receive local meanings before the worked tasks require them. Removed advanced opening terms are not used later without explanation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each device is explained through its mechanism and a short illustration: comparison markers, human qualities, sense experience, wider contextual meaning, matching or repeated sounds. Rhythm connects stress and pauses to beats; tone and interpretation connect word choices to supported meaning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limits: poems need not rhyme or hide meanings; like/as must actually compare; lacking comparison words does not itself prove metaphor; symbols require context; rhyme follows sound and stress rather than spelling; sound patterns overlap; speaker need not equal poet; tone requires textual evidence and may shift."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-text-types-poetry|L05|0": {
+    "status": "fixed",
+    "quote": "What comparison is used, and what does it suggest about time?",
+    "note": "All ten examples now ask explicit exam-style questions about supplied poetic language."
+   },
+   "lesson-text-types-poetry|L18|0": {
+    "status": "fixed",
+    "quote": "What kind of rhyme appears within Line A? How do the endings “shape” and “keep” differ from a full rhyme?",
+    "note": "Examples 3, 5, and 6 apply personification, internal and near rhyme, alliteration, assonance, and consonance."
+   },
+   "lesson-text-types-poetry|L19|0": {
+    "status": "fixed",
+    "quote": "1. The line presents time as a thief without using a comparison word. This is a metaphor.",
+    "note": "Every worked example includes the standalone Solution label and numbered reasoning steps."
+   },
+   "lesson-text-types-poetry|L26|0": {
+    "status": "fixed",
+    "quote": "**Assonance** repeats vowel sounds in nearby words.",
+    "note": "All five formerly unnamed sound concepts now have definitions and concrete illustrations in Core Concept."
+   },
+   "lesson-text-types-poetry|L02|0": {
+    "status": "fixed",
+    "quote": "**Poetry** uses carefully chosen words, sounds, and lines to share ideas or experiences.",
+    "note": "The opening now uses simple familiar words and separates the possible purposes into short sentences."
+   },
+   "lesson-text-types-poetry|L25|0": {
+    "status": "fixed",
+    "quote": "Sentence order and word choice also affect meaning.",
+    "note": "Lineation, syntax, and diction are removed. Their relevant ideas are expressed as line breaks, sentence order, and word choice."
+   }
+  }
+ }
+}
