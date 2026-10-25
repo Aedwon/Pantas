@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "round": 3,
+ "paths": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+ },
+ "extra_brief": {
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "## Left open by the earlier read (RD-065)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L05 (Major). Problem: The question includes the method being tested: listing every possible truth-value pair and finding each result. The required instruction-word gloss should explain the task without supplying the truth-table construction method. This method belongs in Core Concept or the solution.\n   > Build the complete truth table for $P \\land Q$. Here, \"build\" means list every possible pair of truth values and find the result for each pair."
+ },
+ "id": "RW-073",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

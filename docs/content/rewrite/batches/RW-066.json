@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-peace-and-human-rights-human-rights-fundamentals",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+ ],
+ "topic": "general-information/peace-and-human-rights",
+ "round": 3,
+ "paths": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md"
+ },
+ "extra_brief": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "## Left open by the earlier read (RD-046)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: The emergency teaching stacks several legal abstractions in one sentence. Terms such as proclamation, provisions, and inadmissible elsewhere are not consistently translated into Grade 5 language.\n   > Its Article $4$ permits temporary suspension of some duties only during an officially proclaimed emergency threatening the life of the nation.\n2. Rule L18 (Major). Problem: The lesson expands to all 22 sections but has no worked application of privacy of communications, bail, double jeopardy, or ex post facto punishment. These are distinct protections taught here, not number-only variations of the worked cases.\n   > Section $3$ protects private messages.\n3. Rule L25 (Major). Problem: Inadmissible is needed to understand the search answer but is never explained as evidence the court cannot use. No prerequisite teaching is supplied. Habeas corpus and probable cause, in contrast, are explicitly explained.\n   > Evidence obtained through the unconstitutional search is inadmissible under Section $3$.\n4. Rule L27 (Major). Problem: The rule refers to legal conditions but never teaches them. The learner cannot tell when jeopardy attaches or when a prior dismissal supports this protection. No prerequisite explanation is identified.\n   > Section $21$ protects against **double jeopardy**, or being put at risk of punishment again for the same offense after the legal conditions for that protection are met.",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "## Left open by the earlier read (RD-046)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: This central explanation keeps dense legal wording such as excessive, incidental, and concrete and direct military advantage. Incidental is glossed, but the comparison itself is not restated in Grade 5 language. Several treaty-list items use similarly formal teaching prose.\n   > **Proportionality** bars an attack expected to cause incidental civilian harm excessive compared with its expected concrete and direct military advantage."
+ },
+ "id": "RW-066",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

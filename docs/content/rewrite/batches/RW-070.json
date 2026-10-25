@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-algebra-linear-equations-inequalities",
+  "lesson-algebra-polynomials"
+ ],
+ "topic": "mathematics/algebra",
+ "round": 4,
+ "paths": {
+  "lesson-algebra-linear-equations-inequalities": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+  "lesson-algebra-polynomials": "content/lessons/mathematics/algebra/polynomials.md"
+ },
+ "extra_brief": {
+  "lesson-algebra-linear-equations-inequalities": "## Left open by the earlier read (RD-056)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Reciprocal is needed to understand and apply the perpendicular-slope instruction, but it is never defined. The formula gives the operation without explaining the term, and no prerequisite teaching is supplied.\n   > For nonzero slopes, their slopes are negative reciprocals:\n\n### Brief items not fixed\n\n1. Item `lesson-algebra-linear-equations-inequalities|L03|1`: The exam verb \"Find\" is used in a worked-example prompt without a one-line explanation on its first use as an exam instruction. Reason: Find is plain English and needs no exam-verb definition.\n   Reader's note: Find remains undefined, which is permitted because it is an everyday word.",
+  "lesson-algebra-polynomials": "## Left open by the earlier read (RD-056)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The degree claim needs a positive-degree dividend condition. A nonzero constant divided by x-c has quotient zero, whose degree the lesson says is undefined. The stated rule therefore does not cover all polynomial dividends correctly.\n   > The quotient's degree is one less than the dividend's degree, so a cubic dividend gives a quadratic quotient.\n2. Rule L25 (Major). Problem: Leading term is necessary to follow the division procedure but is never defined. Descending order is instructed, but the text never says that the leading term is the nonzero term with the highest power; no prerequisite is supplied.\n   > Divide the leading term of the current expression by the leading term of the divisor.\n3. Rule L27 (Major). Problem: The synthetic quotient-degree rule omits its positive-degree dividend condition. Constant dividends are explicitly allowed polynomials, but produce zero quotient, not a quotient with a degree one lower.\n   > The quotient's degree is one less than the dividend's degree, so a cubic dividend gives a quadratic quotient.\n\n### Accuracy concerns\n\n1. The degree claim needs a positive-degree dividend condition. A nonzero constant divided by x-c has quotient zero, whose degree the lesson says is undefined. The stated rule therefore does not cover all polynomial dividends correctly.\n   > The quotient's degree is one less than the dividend's degree, so a cubic dividend gives a quadratic quotient."
+ },
+ "id": "RW-070",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 5,
+ "paths": {
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "extra_brief": {
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "## Left open by the earlier read (RD-058)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: Core Concept and Trap #4 teach the distinct percent-of versus percent-more scenario, but no worked example asks students to distinguish and calculate these amounts. The Examples section therefore omits an exam-relevant case within this lesson.\n   > \"$120\\%$ of\" means take $1.20$ times the base. \"$120\\%$ more than\" means add that increase to the base, giving $2.20$ times the base.",
+  "lesson-arithmetic-number-sense-sequences-and-series": "## Left open by the earlier read (RD-059)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L05 (Major). Problem: The general-pattern examples supply the reasoning students should discover. Example #2 states the exact operations; #1 supplies the changing-difference rule, and #3 supplies the odd/even split and arithmetic structure. These stems test following a given recipe instead of selecting the pattern method required by the new discovery facet.\n   > A sequence alternates between adding $3$ and multiplying by $2$, starting with addition.\n\n### Brief items not fixed\n\n1. Item `lesson-arithmetic-number-sense-sequences-and-series|L03|0`: The exam verb \"Find\" is used in a question without a one-line explanation of what the verb asks the student to do. Reason: \"Find\" is an everyday verb; a gloss is unnecessary.\n   Reader's note: Find remains unglossed. This optional item is correctly left alone because Find is an everyday verb."
+ },
+ "id": "RW-071",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

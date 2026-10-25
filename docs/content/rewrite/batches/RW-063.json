@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 6,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": "## Left open by the earlier read (RD-043)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L27 (Major). Problem: The substitute-signer rule gives no required written authorization. The Section 5(c) alternative for someone other than the next-in-rank official or officer in charge requires authorization in writing; an unspecified office authorization is not the full condition.\n   > Another person may sign when properly authorized under the office's rules.\n\n### Accuracy concerns\n\n1. Section 5(c) requires authorization in writing for the alternative authorized person. This wording leaves the form of authorization unspecified and can be read as allowing oral authorization.\n   > Another person may sign when properly authorized under the office's rules.",
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "## Left open by the earlier read (RD-043)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Example 7 first introduces the substantive confidential-information prohibition in its solution. Core Concept only names Sections 7, 8, and 9 as penalty categories. No supplied prerequisite or later-section reference teaches this offense before the learner must identify it.\n   > Section $7$ bars sharing protected work information to give an unfair private advantage.\n2. Rule L27 (Major). Problem: The lesson tells students that escape assistance and family exemptions have conditions but never states those conditions or which relationships and acts qualify. These are limitations of the accessory rule taught here. No prerequisite or later explanation supplies them.\n   > Helping an offender escape has further legal conditions. Family exemptions may also matter, so do not ignore a stated relationship.",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "## Left open by the earlier read (RD-043)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L27 (Major). Problem: The family-gift exception depends on who legally counts as a relative, but the text replaces the additional covered relationships with the vague phrase \"specifically included family relationships.\" It neither lists them nor provides a prerequisite or later explanation, leaving that exception boundary incomplete.\n   > Relatives include those within the fourth civil degree by blood or marriage and the specifically included family relationships under the Code."
+ },
+ "id": "RW-063",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 5,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "## Left open by the earlier read (RD-044)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: Minor: the key calendar computations in examples #1 and #2 remain inline. L19 requires key computations in display equations. All solution steps are numbered and no reasoning step is skipped.\n   > June $2$ through June $30$ gives $29$ days. July $1$ is day $30$.\n2. Rule L25 (Major). Problem: Honorary capacity is necessary to apply the filing and divestment exclusions, but this only repeats that it is a legal category. It never explains what honorary service means or how to recognize it. No prerequisite is supplied.\n   > Honorary capacity is a service category named in the law. Do not decide that a role is honorary only because it is unpaid."
+ },
+ "id": "RW-064",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

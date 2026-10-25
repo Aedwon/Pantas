@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-subject-verb-agreement",
+  "lesson-grammar-and-structure-tenses-and-voice"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 3,
+ "paths": {
+  "lesson-grammar-and-structure-subject-verb-agreement": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md",
+  "lesson-grammar-and-structure-tenses-and-voice": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md"
+ },
+ "extra_brief": {
+  "lesson-grammar-and-structure-subject-verb-agreement": "## Left open by the earlier read (RD-052)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L09 (Minor). Problem: The hard Filipino focus labels tagaganap and layon first appear in example #11 without English glosses. Earlier explanation of actor and affected thing gives their meaning but does not supply the required first-use glosses for these labels.\n   > Siya ang gumagawa ng pagluluto, kaya nasa tagaganap ang pokus ng *nagluto*.\n2. Rule L18 (Major). Problem: The lesson teaches collective nouns treated as separate members, but the only worked collective-noun task (#3) tests an American-English group acting as one. The distinct member-based plural case still has no worked example.\n   > Plural agreement can stress the separate members, especially in British English.",
+  "lesson-grammar-and-structure-tenses-and-voice": "## Left open by the earlier read (RD-052)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Subject is needed to apply the active/passive method but is never defined in this lesson. No prerequisite is identified or supplied. Demonstrating a chef sentence does not explain how to locate the subject in a new sentence.\n   > In **active voice**, the subject does the action: \"The chef cooked the meal.\""
+ },
+ "id": "RW-068",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

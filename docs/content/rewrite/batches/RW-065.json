@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-environment-management-environmental-problems-and-climate-change",
+  "lesson-environment-management-species-resources-and-environmental-decisions",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "round": 4,
+ "paths": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "content/lessons/general-information/environment-management/environmental-problems-and-climate-change.md",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "extra_brief": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "## Left open by the earlier read (RD-045)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This detailed statutory claim cannot be confirmed against source text supplied in the packet. B01 requires confirmation of hard-to-remember facts. This is a source-confirmation gap, not a demonstrated falsehood.\n   > RA $9729$, as amended by RA $10174$, provides for a **National Strategic Framework on Climate Change**.",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "## Left open by the earlier read (RD-045)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This detailed statutory claim cannot be confirmed against source text supplied in the packet. B01 requires confirmation of hard-to-remember facts. This is a source-confirmation gap, not a demonstrated falsehood.\n   > RA $9147$ also supports **conservation breeding or propagation**, which means producing more animals or plants to help wild populations recover.",
+  "lesson-environment-management-the-environmental-laws": "## Left open by the earlier read (RD-045)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This detailed statutory claim cannot be confirmed against source text supplied in the packet. B01 requires confirmation of hard-to-remember facts. This is a source-confirmation gap, not a demonstrated falsehood.\n   > RA $10174$ later amended this part of the law and uses the name **National Strategic Framework on Climate Change**."
+ },
+ "id": "RW-065",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}

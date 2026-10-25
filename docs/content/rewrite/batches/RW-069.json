@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-vocabulary-root-words-prefixes-suffixes",
+  "lesson-vocabulary-synonyms-and-antonyms"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 4,
+ "paths": {
+  "lesson-vocabulary-root-words-prefixes-suffixes": "content/lessons/language-proficiency/vocabulary/root-words-prefixes-suffixes.md",
+  "lesson-vocabulary-synonyms-and-antonyms": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md"
+ },
+ "extra_brief": {
+  "lesson-vocabulary-root-words-prefixes-suffixes": "## Left open by the earlier read (RD-054)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson teaches the misleading -ly adjective ending as a distinct limitation, but no worked example asks the student to apply it. Example 9 uses only the regular adverb quickly. The -less meaning is also taught without a worked application.\n   > These patterns have limits. *Friendly* ends in *-ly*, but it describes a person or thing, so it is an adjective.\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-root-words-prefixes-suffixes|L03|0`: The exam command \"Tukuyin\" appears without the required one-line explanation of what the student must do. Reason: Tukuyin in a Filipino stem is plain exam Filipino; a gloss is minor.\n   Reader's note: Tukuyin remains unglossed. This optional change was not made; it is an ordinary identify instruction.",
+  "lesson-vocabulary-synonyms-and-antonyms": "## Left open by the earlier read (RD-055)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L10 (Major). Problem: The Filipino prompts, choices, and reasoning are in Filipino, but both Filipino examples retain the English label **Solution:**. The examples are not fully in Filipino as required.\n   > Alin ang kasalungat ng salitang nakadiin na **maralita**?\n2. Rule L14 (Major). Problem: The target hot is bold, but the prompt does not say the word in bold. Example 11 likewise bolds alive without that required reference. Filipino prompts use the equivalent salitang nakadiin correctly.\n   > The soup is not **hot**. Which statement must be true based on this sentence alone?\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-synonyms-and-antonyms|L03|0`: The lesson uses the exam command \"Choose\" without giving the required one-line explanation when that exam verb first appears. Reason: Choose is a plain instruction word, not an exam verb needing a gloss.\n   Reader's note: Choose remains without a gloss. The brief identifies this as an ordinary direction.\n2. Item `lesson-vocabulary-synonyms-and-antonyms|L03|1`: The later exam command \"Select\" also appears without a one-line explanation of what the student is being asked to do. Reason: Select is a plain instruction word, not an exam verb needing a gloss.\n   Reader's note: Select remains without a gloss. The brief identifies this as an ordinary direction."
+ },
+ "id": "RW-069",
+ "type": "rewrite",
+ "created": "2026-10-25T22:08:40+00:00"
+}
