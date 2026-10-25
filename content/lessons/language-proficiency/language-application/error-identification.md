@@ -9,191 +9,181 @@ isActive: true
 ---
 ## Core Concept
 
-The public Civil Service Examination scope includes **error recognition** and **sentence structure** under verbal ability. The test may ask about these skills in different ways. Learn how to find and fix the error instead of expecting one fixed item pattern.
+**Error recognition** means finding what is wrong in a sentence. Sentence correction means fixing it while keeping the intended meaning. Read the directions before deciding how many changes to make.
 
-Use this checklist:
+### What to Check
 
-1. **Subject-verb agreement**: find the subject and the main verb. A singular subject usually takes a singular verb, while a plural subject usually takes a plural verb.
-2. **Pronoun reference**: make sure a pronoun clearly points to the right noun. That noun is called its **antecedent**.
-3. **Verb timeline**: check when actions happen and how they relate in time.
-4. **Modifiers**: make sure a describing word or phrase is placed near what it describes.
-5. **Parallelism**: items joined or compared in the same pattern should use matching forms.
-6. **Clause boundaries and punctuation**: check whether complete thoughts and incomplete thoughts are joined correctly.
-7. **Word form and usage**: choose the form and meaning that fit the sentence.
-8. **Modal verbs**: words such as *can, may, must,* and *might* add meanings such as ability, permission, duty, or possibility.
+**Subject-verb agreement** means matching the subject and main verb. In the present tense, use *she works* but *they work*. A phrase such as *along with her friends* does not change the subject's number.
 
-A **phrase** is a group of words that does not contain both a subject and its own main verb. A **clause** has a subject and a verb. An **independent clause** can stand as a full sentence. A **dependent clause** cannot stand alone.
+A **pronoun** takes the place of a noun. Its **antecedent** is the noun it refers to. Make the reference clear, and match the intended number: *the workers brought their tools*.
 
-A simple sentence has one independent clause. A compound sentence has two or more independent clauses. A complex sentence has an independent clause and at least one dependent clause. A compound-complex sentence has at least two independent clauses and at least one dependent clause.
+Singular *they, them,* and *their* can refer to one person whose gender is unknown or does not need to be stated. Do not treat *each applicant should bring their ID* as an error for that reason alone.
 
-For time, the simple past often tells about a finished past action. The past perfect uses *had* plus the past participle to show that one past action happened before another past action. Use the form that makes the order of events clear.
+A **modifier** describes another word. Put it near what it describes. An opening phrase about a person should be followed by that person as the subject.
 
-Tense places an action in time. **Aspect** shows how the action is viewed, such as ongoing (*was working*) or completed before another past point (*had worked*). Use the form that makes the timeline clear.
+**Parallel structure** uses matching forms for items doing the same job. Use *planning, writing, and speaking*, not *planning, writing, and to speak*. Comparisons also need matching parts: *Reading is easier than writing*.
 
-A modal is followed by the base form of a verb: *can go, may leave, must finish*. *Can* often shows ability, *may* can show permission, *must* shows strong duty, and *might* can show possibility. Do not add *to* after most modals.
+For **word form**, ask what job the word does. A noun names something, an adjective describes a noun, and an adverb often describes a verb. Thus, *a clear explanation* needs an adjective, while *explain clearly* needs an adverb.
 
-Do not change a sentence just because it sounds formal or unfamiliar. First find a clear grammar or meaning problem.
+### Time and Verb Forms
+
+**Tense** places an action in time. The simple past describes a finished past action: *She finished yesterday*. It can also report events in order: *She entered, sat down, and opened her notebook*.
+
+**Aspect** shows whether we view an action as ongoing or already complete at a given point. The past progressive uses *was* or *were* plus an *-ing* form: *She was reading when I called*. The reading was in progress when the call happened.
+
+The past perfect uses *had* plus a **past participle**. This is the verb form used after *have, has,* or *had*. Regular verbs often end in *-ed*, as in *finished*; irregular forms include *written* from *write* and *gone* from *go*.
+
+Use the past perfect to make an earlier past action clear: *She had finished before the meeting began*. Do not use it for every past action. Simple past can be enough when words such as *before* or *after* already make the order clear.
+
+**Modal verbs** add meanings such as ability, permission, duty, or possibility. *Can* can show ability, *may* can give permission, *must* can state a requirement, and *might* can show possibility. These modals take a base verb: *can swim, may leave, must finish, might rain*.
+
+### Phrases, Clauses, and Punctuation
+
+A **phrase** is a word group without its own subject-and-verb pair, such as *after the meeting*. A **clause** has a subject and a verb. An **independent clause** can stand alone; a **dependent clause** cannot: *because the meeting ended* leaves the thought unfinished.
+
+A simple sentence has one independent clause. A compound sentence has at least two independent clauses. A complex sentence has one independent clause and at least one dependent clause. A compound-complex sentence has at least two independent clauses and at least one dependent clause.
+
+Join independent clauses with a period, a semicolon, or a comma plus a joining word such as *and, but,* or *so*. A comma alone creates a **comma splice**. Joining them with no suitable punctuation or joining word creates a **run-on**.
+
+A dependent clause can join a complete thought: *We left because the office closed*. When the dependent clause comes first, usually add a comma: *Because the office closed, we left*. Begin a new sentence with a capital letter.
 
 ### Word Meaning Clues
 
-Some errors come from choosing the wrong word. **Synonyms** have similar meanings, while **antonyms** have opposite meanings. **Homonyms** share the same sound, spelling, or both but have different meanings.
+**Synonyms** have similar meanings. **Antonyms** have opposite meanings. Words that share a sound or spelling can still mean different things, so check the sentence rather than the sound alone.
 
-Word parts can also help. A **prefix** comes before a base word, a **suffix** comes after it, and the **root** carries the main meaning. For example, *un-* in *unclear* adds the idea "not."
+A **prefix** comes before a base word, as *un-* does in *unclear*. A **suffix** comes after it, as *-less* does in *careless*. A **root** carries a word's main meaning; *help* in *helpful* supplies the main idea, while *-ful* means having that quality.
 
-### Filipino: Wastong Gamit at Kayarian ng Pangungusap
+### Filipino: Wastong Gamit at Kayarian
 
-Sa Filipino, suriin din ang ugnayan ng mga salita sa pangungusap. Tingnan kung tama ang anyo ng pandiwa, pang-abay, panghalip, at pang-ugnay ayon sa ibig sabihin.
+Suriin ang **pandiwa** (verb), **pang-abay** (adverb), **panghalip** (pronoun), at **pang-ugnay** (connector). Dapat malinaw ang tinutukoy ng panghalip. Dapat ding akma ang pang-ugnay sa relasyon ng mga ideya.
 
-Ang **pang-abay** (adverb) ay salitang nagbibigay-turing sa pandiwa, pang-uri, o kapwa pang-abay. Ang *kahapon* ay nagsasaad ng panahon. Ang *dito* ay nagsasaad ng lugar.
+Ang **pang-uri** (adjective) ay naglalarawan ng pangngalan. Ang pang-abay ay nagbibigay-turing sa pandiwa, pang-uri, o kapwa pang-abay. Ang *kahapon* ay nagsasaad ng panahon; ang *dito* ay nagsasaad ng lugar.
 
-Maaaring ipakita ang posibilidad sa mga salitang tulad ng *maaari, baka,* at *marahil*. Piliin ang salitang akma sa katiyakan ng pahayag.
+Ang *baka, marahil,* at *maaari* ay nagpapakita ng posibilidad. Hindi nito sinasabing tiyak na mangyayari ang isang bagay.
 
-Ang pandiwa ay maaari ring magpakita kung kailan naganap ang kilos. Halimbawa, *kumain* ay kilos na naganap na, *kumakain* ay kilos na nagaganap, at *kakain* ay kilos na magaganap pa.
+Maaaring magpahayag ang pandiwa ng kilos, pangyayari, o karanasan. Kilos ang *sumulat si Lea*. Pangyayari ang *lumindol kagabi*. Karanasan ang *natuwa si Lea sa balita*.
 
-Ang payak na pangungusap ay may isang buong diwa. Ang tambalang pangungusap ay may dalawa o higit pang buong diwa na pinag-uugnay. Ang hugnayang pangungusap ay may isang buong diwa at isang di-buong diwa na umaasa rito.
+Piliin ang anyong akma sa panahon. Naganap na ang *sumulat*, nagaganap ang *sumusulat*, at magaganap pa ang *susulat*. Gayundin, tapos na ang *lumindol* at *natuwa*, ngunit magaganap pa ang *lilindol* at *matutuwa*.
+
+Ang **sugnay** (clause) ay may paksa at panaguri. Ang sugnay na makapag-iisa ay may buong diwa. Ang sugnay na di-makapag-iisa, gaya ng *dahil umulan*, ay nangangailangan ng karugtong.
+
+Ang payak na pangungusap ay may isang sugnay na makapag-iisa. Ang tambalan ay may dalawa o higit pang sugnay na makapag-iisa. Ang hugnayan ay may isang sugnay na makapag-iisa at isa o higit pang sugnay na di-makapag-iisa.
 
 ## Examples
 
 ### #1: Subject-Verb Agreement
 
-Find the error and choose the best correction: "Each of the students have submitted their assignment on time."
+Correct the error: "Each of the students have submitted their assignment on time."
 
 **Solution:**
 
-1. The subject is *each*, which is singular.
-2. The main verb must match the singular subject.
-3. Change *have* to **has**: "Each of the students **has** submitted their assignment on time."
-
-Singular *their* can refer to one person when the person's gender is unknown or does not need to be stated.
+1. The subject *each* is singular. *Of the students* does not change it.
+2. Change *have* to **has**: "Each of the students has submitted their assignment on time."
+3. Singular *their* can stay. It refers to each student without stating gender.
 
 ### #2: Interrupting Phrase
 
-Choose the better form: "The committee members, along with their supervisor, *(was / were)* pleased."
+Choose the correct form: "The committee members, along with their supervisor, (was / were) pleased."
 
 **Solution:**
 
-1. The subject is *committee members*, which is plural.
-2. The phrase *along with their supervisor* does not change the subject.
+1. The subject is the plural *committee members*.
+2. *Along with their supervisor* adds information but does not change the subject.
 3. Use **were**.
 
-### #3: Pronoun Reference and Number
+### #3: Clear Pronoun Reference and Number
 
-Which sentence is clearest?
-
-(A) "When Ana spoke to Liza, she was worried."
-(B) "Ana was worried when she spoke to Liza."
+Ana was worried, but Liza was calm. Rewrite "When Ana spoke to Liza, she was worried" to make the reference clear. Then correct "The clerks placed his files on the desk" if the files belong to all the clerks.
 
 **Solution:**
 
-1. In (A), *she* could mean Ana or Liza.
-2. In (B), **Ana** is clearly the worried person.
-3. Choose **(B)**.
+1. *She* could refer to either woman. Write **"Ana was worried when she spoke to Liza."**
+2. *Clerks* refers to more than one person. Write **"The clerks placed their files on the desk."**
 
-A singular noun can also use *they, them,* or *their* when the gender is unknown or not important: "Each applicant should bring their ID."
+### #4: Simple Past and Earlier Past
 
-### #4: Past and Past Perfect
-
-Choose the best form: "By the time the meeting began, Carlo ______ the report."
-
-(A) finishes
-(B) had finished
-(C) will finish
-(D) is finishing
+Choose the forms that fit: "Yesterday, Carlo (finished / finishes) the report. By the time the meeting began, he (had sent / sends) it to the team."
 
 **Solution:**
 
-1. The meeting began in the past.
-2. Finishing the report happened before that past event.
-3. Use **had finished** to show the earlier past action.
+1. *Yesterday* places the completed action in the past. Use **finished**.
+2. Sending happened before the meeting began. **Had sent** makes that earlier past action clear.
+3. *Sent* is the past participle of *send*.
 
-### #5: Parallel Structure
+### #5: Ongoing Past Action
 
-Which sentence is correct?
-
-(A) "The job requires planning, writing, and to speak clearly."
-(B) "The job requires planning, writing, and speaking clearly."
+Choose the best form: "At the moment the alarm rang, Mina (was checking / had checked) the files. She stopped halfway through her check and left."
 
 **Solution:**
 
-1. The three actions are joined in one list.
-2. They should use the same form.
-3. **Planning, writing, and speaking** match, so choose **(B)**.
+1. Mina had not completed the check. She stopped halfway through it.
+2. Use **was checking** for the action in progress when the alarm rang.
 
-### #6: Clause Boundary
+### #6: Parallel Lists and Comparisons
 
-Which sentence is correct?
-
-(A) "The office closed early, the storm became stronger."
-(B) "The office closed early because the storm became stronger."
-(C) "The office closed early the storm became stronger."
+Correct both sentences: "The job requires planning, writing, and to speak clearly." "She prefers reading to watch television."
 
 **Solution:**
 
-1. "The office closed early" is a complete thought.
-2. "The storm became stronger" is also a complete thought.
-3. In (A), a comma alone wrongly joins two complete thoughts. In (C), there is no joining word or punctuation.
-4. **Because** correctly shows the reason in **(B)**.
+1. Match the list forms: **"The job requires planning, writing, and speaking clearly."**
+2. Match the activities being compared: **"She prefers reading to watching television."**
 
-Two independent clauses can also be joined by a semicolon or by a comma plus a joining word such as *and, but,* or *so*. A new sentence begins with a capital letter and ends with suitable punctuation.
+### #7: Clause Boundaries
 
-### #7: Word Form and Usage
+Correct these sentences: "The office closed early, the storm became stronger." "The office closed early the storm became stronger."
 
-Choose the correct word: "The supervisor gave a ______ explanation of the new rule."
+**Solution:**
 
-(A) clarity
-(B) clearly
-(C) clear
-(D) clarify
+1. Each sentence contains two independent clauses. The first has a comma splice; the second has a run-on.
+2. One repair for both is **"The office closed early because the storm became stronger."** This shows the reason.
+3. To keep two independent clauses, write **"The storm became stronger, so the office closed early."** A period or semicolon could also separate the clauses.
+
+### #8: Word Form
+
+Choose the correct word: "The supervisor gave a (clarity / clearly / clear / clarify) explanation."
 
 **Solution:**
 
 1. The blank describes the noun *explanation*.
-2. A describing word is needed.
-3. **Clear** is the adjective, so choose **(C)**.
+2. Use the adjective **clear**.
 
-### #8: Modal Meaning and Form
+### #9: Modal Meanings
 
-Choose the best answer: "Employees ______ wear their ID badges while inside the secure area."
-
-(A) must
-(B) can to
-(C) might to
-(D) must to
+Complete each sentence with the modal that fits the stated meaning: "Rosa (can / must) swim well" describes ability. "You (may / must) leave now" gives permission. "Under the rule, staff (must / might) wear IDs" states a requirement. "It (might / must) rain" states only a possibility.
 
 **Solution:**
 
-1. The sentence states a duty or requirement.
-2. **Must** shows obligation.
-3. A modal is followed by the base verb, so **must wear** is correct.
+1. Use **can swim** for ability and **may leave** for permission.
+2. Use **must wear** for the requirement and **might rain** for possibility.
+3. Every modal here takes the base verb. Forms such as *must to wear* are incorrect.
 
-### #9: Phrase, Clause, and Sentence Type
+### #10: Sentence Type
 
 Which sentence is complex?
 
-(A) "The guard opened the gate."
-(B) "The guard opened the gate, and the visitors entered."
-(C) "When the guard opened the gate, the visitors entered."
-(D) "After the long wait."
+(A) The guard opened the gate.
+(B) The guard opened the gate, and the visitors entered.
+(C) When the guard opened the gate, the visitors entered.
+(D) After the long wait.
 
 **Solution:**
 
-1. A complex sentence has one independent clause and at least one dependent clause.
-2. "When the guard opened the gate" cannot stand alone, but "the visitors entered" can.
-3. Choose **(C)**.
+1. In (C), *when the guard opened the gate* is a dependent clause.
+2. *The visitors entered* is an independent clause. Choose **(C)**.
+3. (A) is simple, (B) is compound, and (D) is only a phrase.
 
-### #10: Dangling Modifier
+### #11: Dangling Modifier
 
-Which correction is best for this sentence: "Rushing to catch the bus, the umbrella was left behind by Maria."
+Choose a clear correction: "Rushing to catch the bus, the umbrella was left behind by Maria."
 
 **Solution:**
 
-1. The opening phrase describes the person who was rushing.
-2. The next subject should therefore be Maria, not *the umbrella*.
-3. Rewrite it as: "Rushing to catch the bus, **Maria left the umbrella behind**."
+1. Maria was rushing. The umbrella was not.
+2. Put Maria after the opening phrase: **"Rushing to catch the bus, Maria left the umbrella behind."**
 
-### #11: Word Meaning and Word Parts
+### #12: Synonym and Word Parts
 
-Choose the word closest in meaning to the word in bold, **unclear**, in this sentence: "The instruction was unclear, so the applicants asked for help."
+Choose the word closest in meaning to the word in bold: "The instruction was **unclear**, so the applicants asked for help."
 
 (A) confusing
 (B) certain
@@ -202,108 +192,137 @@ Choose the word closest in meaning to the word in bold, **unclear**, in this sen
 
 **Solution:**
 
-1. The prefix *un-* adds the meaning "not."
-2. *Unclear* means "not clear."
-3. **Confusing** is the closest choice.
+1. *Un-* adds "not" to *clear*.
+2. **Confusing**, choice **(A)**, is closest in meaning to *unclear* here.
 
-### #12: Wastong Gamit
+### #13: Opposite Meaning
+
+Choose the word opposite in meaning to the word in bold: "The clerk gave a **brief** reply."
+
+(A) short
+(B) lengthy
+(C) polite
+(D) spoken
+
+**Solution:**
+
+1. *Brief* means short here.
+2. **Lengthy**, choice **(B)**, means long and gives the opposite meaning.
+
+### #14: Same Sound, Different Meaning
+
+Choose the correct word: "Please place (their / there / they're) folders on the desk."
+
+**Solution:**
+
+1. The blank shows who owns the folders.
+2. Use **their**. *There* refers to a place; *they're* means *they are*.
+
+A word can also keep its spelling but change meaning. In *a river bank* and *a bank that lends money*, **bank** names different things. The nearby words tell you which meaning fits.
+
+### #15: Kilos at Panahon
 
 Piliin ang wastong pangungusap.
 
-(A) "Bukas ay pumunta ako sa opisina."
-(B) "Bukas ay pupunta ako sa opisina."
-(C) "Bukas ay pumunta ako kahapon."
-(D) "Bukas ay pumupunta ako kahapon."
+(A) Bukas ay pumunta ako sa opisina.
+(B) Bukas ay pupunta ako sa opisina.
+(C) Bukas ay pumunta ako kahapon.
+(D) Bukas ay pumupunta ako kahapon.
 
 **Solution:**
 
 1. Ang *bukas* ay tumutukoy sa panahong darating.
-2. Kailangan ang pandiwang nagsasaad ng kilos na magaganap pa.
-3. Tama ang **"Bukas ay pupunta ako sa opisina."**
+2. Ang **pupunta** ay kilos na magaganap pa. Piliin ang **(B)**.
 
-### #13: Pang-abay at Posibilidad
+### #16: Pangyayari at Karanasan
 
-Piliin ang salitang babagay: "______ umulan mamaya, kaya magdala ka ng payong."
+Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / Matutuwa) si Nena nang malaman niyang ligtas ang pamilya niya."
+
+**Solution:**
+
+1. Naganap na ang pangyayari kagabi. Gamitin ang **lumindol**.
+2. Naranasan na ni Nena ang tuwa nang malaman niya ang balita. Gamitin ang **natuwa**.
+3. Ang *lilindol* at *matutuwa* ay tumutukoy sa hindi pa nagaganap.
+
+### #17: Posibilidad, Panahon, at Lugar
+
+Punan ang patlang: "______ umulan mamaya rito, kaya magdala ka ng payong."
 
 (A) Kahapon
 (B) Baka
 (C) Dito
-(D) Tiyak
+(D) Tiyak na
 
 **Solution:**
 
-1. Ang pangungusap ay nagsasaad ng posibilidad.
-2. Ang **baka** ay angkop sa isang bagay na maaaring mangyari.
-3. Piliin ang **(B)**.
+1. Ang pahayag ay tungkol sa posibleng pag-ulan. Hindi ito tiyak.
+2. Piliin ang **baka**, sagot **(B)**.
+3. Ang *mamaya* ay nagsasaad ng panahon. Ang *rito* ay nagsasaad ng lugar.
 
-### #14: Uri ng Pangungusap
+### #18: Kayarian ng Pangungusap
 
 Alin ang tambalang pangungusap?
 
-(A) "Nag-aral si Mara."
-(B) "Nag-aral si Mara at natulog ang kapatid niya."
-(C) "Dahil nag-aral si Mara."
-(D) "Sa tahimik na silid."
+(A) Nag-aral si Mara.
+(B) Nag-aral si Mara at natulog ang kapatid niya.
+(C) Dahil nag-aral si Mara, naunawaan niya ang aralin.
+(D) Sa tahimik na silid.
 
 **Solution:**
 
-1. Ang tambalang pangungusap ay may dalawang buong diwa.
-2. "Nag-aral si Mara" at "natulog ang kapatid niya" ay parehong buong diwa.
-3. Piliin ang **(B)**.
+1. May dalawang sugnay na makapag-iisa sa **(B)**: *Nag-aral si Mara* at *natulog ang kapatid niya*.
+2. Payak ang (A). Hugnayan ang (C), dahil may sugnay itong nagsisimula sa *dahil*.
+3. Parirala lamang ang (D). Piliin ang **(B)**.
 
-### #15: Magkasingkahulugan
+### #19: Magkasingkahulugan
 
-Punan ang patlang: "______ ang mga empleyado sa magandang balita."
+Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang mga empleyado sa magandang balita"?
 
-(A) Maligaya
-(B) Malungkot
-(C) Galit
-(D) Pagod
+(A) masaya
+(B) malungkot
+(C) galit
+(D) pagod
 
 **Solution:**
 
-1. Ipinapakita ng *magandang balita* ang positibong damdamin.
-2. Ang **maligaya** ay kasingkahulugan ng *masaya* at akma sa pangungusap.
-3. Piliin ang **(A)**.
+Ang **masaya**, sagot **(A)**, ay kasingkahulugan ng *maligaya*.
 
 ## Speed Tricks & Shortcuts
 
-**Check the sentence frame first.** Find the subject, main verb, and clause breaks before looking at smaller details.
+Find the subject, main verb, and clause breaks first. Then check pronouns, time clues, word forms, and meaning.
 
-**Track time words.** Words such as *before, after, by the time, yesterday,* and *already* can show which action happened first.
+Read lists and comparisons in pairs. Matching parts make a broken pattern easier to see.
 
-**Match forms in a list.** When joined items do the same job, matching forms are usually the clearest choice.
-
-**Check the whole sentence.** A word can fit grammar but still give the wrong meaning.
+For Filipino sentences, match the verb form to the time and intended meaning. Check what each pronoun refers to.
 
 ## Traps to Watch For
 
 ### #1: Assuming Exactly One Error
 
-> A sentence can have no error, one error, or more than one unless the directions say otherwise.
+> Follow the directions about how many errors to find.
 
-Read the directions first. Do not stop after finding one possible issue if the task asks for a fully corrected sentence.
+A task may ask for one faulty part or a fully corrected sentence. Do not stop too soon when the whole sentence needs repair.
 
-### #2: Rejecting Singular *They*
+### #2: Rejecting Singular They
 
-> Singular *they* can be standard when one person's gender is unknown or not important.
+> A singular antecedent does not always make *their* wrong.
 
-Do not change *they* to *he* or *she* only because the antecedent is singular.
+*Each applicant should bring their ID* can be correct. Check meaning before changing the pronoun.
 
-### #3: Using Past Perfect for Every Past Action
+### #3: Using Past Perfect Everywhere
 
-> Use past perfect when you need to show that one past action happened before another past action.
+> An action being in the past does not by itself require *had*.
 
-If the order is already clear and there is no earlier-past relation to show, simple past may be enough.
+Use simple past for finished past events. Use past perfect when an earlier past action needs to be made clear.
 
-### #4: Joining Complete Thoughts with Only a Comma
+### #4: Using Only a Comma
 
-> A comma alone does not usually join two independent clauses.
+> A comma alone cannot normally join two independent clauses.
 
-Use a semicolon, or use a comma with a suitable joining word such as *and, but,* or *so*.
+Add a suitable joining word or use a period or semicolon. Keep the intended link between the ideas.
 
 ### #5: Editing by Sound Alone
 
-> A sentence that sounds unusual is not automatically wrong.
+> Unfamiliar wording is not proof of an error.
 
-Name the grammar or meaning problem before you change the sentence.
+Name the grammar or meaning problem before changing the sentence.

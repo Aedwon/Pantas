@@ -4,44 +4,66 @@ title: "Sentence Completion / Fill-in-the-Blanks"
 summary: "Use meaning, grammar, word combinations, and sentence clues to choose the best completion."
 subject: "subject-language-proficiency"
 topic: "topic-language-application"
-estimatedMinutes: 12
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-The public CSE verbal scope includes **sentence completion**. A good answer must fit both the sentence's meaning and its grammar.
+In **sentence completion**, you choose words for a blank. A good answer must fit both the meaning and the grammar. Read the whole sentence before looking at the choices.
 
-Use these clues:
+### Meaning Clues
 
-**Meaning.** Read the whole sentence. Words such as *although, because, therefore, however,* and *for example* can show contrast, cause, result, or an example.
+*Although, despite,* and *however* show contrast. *Because* introduces a reason. *Therefore* introduces a result, while *for example* introduces a case that explains a broader idea.
 
-**Word form.** Ask what kind of word belongs in the blank. A noun names a person, place, thing, or idea. An adjective describes a noun. An adverb often describes a verb or adjective.
+Do not choose from a signal word alone. Read the ideas on both sides of it. They must make sense together.
 
-**Subject and verb.** Make sure the verb matches the subject and fits the time of the sentence. If an action happened before another past action, the past perfect may be needed.
+For two or more blanks, solve the blank with the clearest clue first. Then check every blank as part of the full sentence.
 
-**Words that follow other words.** Some verbs need a certain form after them. For example, *want to go* uses *to* plus the base verb, while *enjoy reading* uses an *-ing* form.
+### Grammar Clues
 
-**Articles and prepositions.** *A* and *an* usually introduce one non-specific countable noun. *The* points to a specific noun already known in the context. Prepositions such as *in, on, at, to,* and *for* must fit the phrase and meaning.
+**Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun.
 
-**Parallel structure.** Items joined in one list or comparison should use matching forms: *reading, writing, and speaking*.
+An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*. The blank's job helps you choose the form.
 
-**Natural word combinations.** Some words are commonly used together, such as *strong evidence, make a decision,* and *interested in*. These are called **collocations**. A choice can be grammatical but still sound wrong because the word combination is not natural.
+**Subject-verb agreement** means matching the subject and verb. In the simple present, use *the clerk works* but *the clerks work*. With *be*, use *she is* and *they are*; in the past, use *she was* and *they were*.
 
-For two or more blanks, solve the blank with the strongest clue first. Then reread the whole sentence with all answers filled in.
+Check time too. Simple past describes a finished past action: *She sent it yesterday*. Past progressive uses *was* or *were* plus an *-ing* form for an ongoing past action: *She was writing when I called*.
+
+Past perfect uses *had* plus a **past participle** to make an earlier past action clear. A past participle is the form used after *have, has,* or *had*. Regular examples end in *-ed*, as in *had finished*; irregular examples include *had written* and *had gone*.
+
+In *She had left when I arrived*, leaving happened before the arrival. Do not add *had* to every past verb. If you only report a finished event, simple past may be enough.
+
+Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Use *enjoy reading*, with an *-ing* form. Learn these patterns with the first verb.
+
+### Articles, Prepositions, and Lists
+
+A **countable noun** names something you can count as separate items, such as one form or several forms. Use *a* or *an* for one such item when it is not already identified. Use *a* before a consonant sound, as in *a university*, and *an* before a vowel sound, as in *an hour*.
+
+Use **the** when the context identifies which person or thing is meant. For example: *I received a form. The form was blank.* The second mention points to the form already introduced.
+
+**Prepositions**, such as *in, on, at, to,* and *for*, show links between words. Some are part of a fixed phrase: *interested in* or *responsible for*. Check both the phrase and the intended meaning.
+
+**Parallel structure** uses matching forms for items doing the same job. A list can use *reading, writing, and speaking*. A comparison can use *She prefers reading to watching television*.
+
+### Natural Word Combinations
+
+**Collocations** are words commonly used together, such as *strong evidence* and *make a decision*. Grammar alone may not decide between choices. The usual word combination also matters.
+
+An **idiom** is an expression whose whole meaning may differ from the meanings of its parts. *Keep an eye on* means watch or look after. Read it as a whole expression.
 
 ### Filipino: Pagkumpleto ng Pangungusap
 
-Sa Filipino, basahin muna ang buong pangungusap. Piliin ang salitang tama sa kahulugan, wastong anyo, at likas na gamit.
+Basahin muna ang buong pangungusap. Piliin ang salitang akma sa kahulugan, wastong anyo, at likas na gamit. Halimbawa, ang *kahapon* ay nangangailangan ng kilos na akma sa panahong lumipas.
 
-Tingnan ang panahong ipinahihiwatig ng pangungusap. Tingnan din kung ang pang-ugnay ay nagpapakita ng dahilan, bunga, pagsalungat, o dagdag na ideya.
+Ang **pang-ugnay** (connector) ay nagdurugtong ng mga salita o ideya. Ang *dahil* ay maaaring magpakita ng dahilan; ang *kaya* ay nagpapakita ng bunga. Ang *ngunit* ay nagpapakita ng pagsalungat.
 
-May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking tulong* at *matinding ulan* sa tamang konteksto.
+May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking tulong* at *matinding ulan*. Dapat ding akma ang buong parirala sa sinasabi ng pangungusap.
 
 ## Examples
 
 ### #1: Contrast
 
-"Although the weather forecast predicted heavy rain, the outdoor event was surprisingly ______."
+Choose the best completion: "Although the forecast predicted heavy rain, the outdoor event was surprisingly ______."
 
 (A) postponed
 (B) successful
@@ -50,13 +72,12 @@ May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking t
 
 **Solution:**
 
-1. *Although* shows that the second idea should contrast with the bad forecast.
-2. **Successful** gives that contrast.
-3. Choose **(B)**.
+1. *Although* links the bad forecast to an unexpected outcome.
+2. **Successful**, choice **(B)**, gives that contrast.
 
-### #2: Cause
+### #2: Cause and Result
 
-"Because the bridge was severely damaged, engineers deemed it ______ for public use."
+Choose the best completion: "Because the bridge was severely damaged, engineers deemed it ______ for public use."
 
 (A) suitable
 (B) essential
@@ -65,13 +86,12 @@ May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking t
 
 **Solution:**
 
-1. The phrase *because the bridge was severely damaged* gives the reason.
-2. Severe damage makes the bridge unsafe for public use.
-3. Choose **(C)**.
+1. The damage gives the reason for the engineers' judgment.
+2. **Unsafe**, choice **(C)**, fits that reason.
 
 ### #3: Two Blanks
 
-"Despite her ______ preparation, she felt ______ before the presentation."
+Choose the best pair: "Despite her ______ preparation, she felt ______ before the presentation."
 
 (A) thorough, relaxed
 (B) thorough, nervous
@@ -80,14 +100,13 @@ May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking t
 
 **Solution:**
 
-1. *Despite* signals an unexpected contrast.
-2. **Thorough** preparation would usually make a person feel ready.
-3. Feeling **nervous** despite that preparation creates the needed contrast.
-4. Choose **(B)**.
+1. *Despite* calls for an unexpected contrast.
+2. Thorough preparation suggests readiness. Feeling nervous goes against that idea.
+3. Choose **thorough, nervous**, answer **(B)**.
 
-### #4: Verb Form
+### #4: Main Verb and Word Form
 
-"The committee ______ the proposal after months of careful review."
+Choose the best completion: "Yesterday, the committee ______ the proposal after months of review."
 
 (A) approve
 (B) approving
@@ -96,16 +115,56 @@ May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking t
 
 **Solution:**
 
-1. The sentence needs a main verb after the subject *committee*.
-2. The context describes a completed action.
-3. **Approved** fits both the grammar and the meaning.
-4. Choose **(C)**.
+1. The sentence needs a main verb after *the committee*.
+2. *Yesterday* places the completed decision in the past.
+3. Use **approved**, choice **(C)**.
 
-A nearby time phrase does not always force one tense. Use the whole sentence and the timeline.
+### #5: Agreement
 
-### #5: Collocation
+Choose the best completion: "Every morning, the clerks ______ the request log."
 
-"The panel found ______ evidence that the records had been changed."
+(A) checks
+(B) check
+(C) checking
+(D) is checking
+
+**Solution:**
+
+1. The subject *clerks* is plural. *Every morning* describes a routine.
+2. Use the simple-present form **check**, choice **(B)**.
+
+### #6: Earlier Past and Ongoing Past
+
+Choose the best forms: "By the time the desk opened, I ______ the form. When the clerk called my name, I ______ the instructions and stopped halfway through."
+
+For the first blank: (finished / had finished / finish / am finishing).
+
+For the second blank: (had read / was reading / will read / read tomorrow).
+
+**Solution:**
+
+1. Finishing happened before the desk opened. **Had finished** makes that order clear.
+2. The reading was still in progress when the clerk called. Use **was reading**.
+3. The completed earlier action and the ongoing action need different forms.
+
+### #7: Form After a Verb
+
+Choose the correct pair: "Mina wants ______ early, but she enjoys ______ with her coworkers."
+
+(A) leaving, to talk
+(B) to leave, talking
+(C) leave, talking
+(D) to leave, talk
+
+**Solution:**
+
+1. *Wants* takes *to* plus the base verb here: **to leave**.
+2. *Enjoys* takes an *-ing* form: **talking**.
+3. Choose **(B)**.
+
+### #8: Collocation
+
+Choose the best completion: "The panel found ______ evidence that the records had been changed."
 
 (A) strong
 (B) heavy
@@ -115,12 +174,11 @@ A nearby time phrase does not always force one tense. Use the whole sentence and
 **Solution:**
 
 1. The blank describes *evidence*.
-2. **Strong evidence** is a natural English word combination.
-3. Choose **(A)**.
+2. **Strong evidence** is the usual combination for convincing support. Choose **(A)**.
 
-### #6: Preposition
+### #9: Preposition
 
-"The applicant is interested ______ the training program."
+Choose the best completion: "The applicant is interested ______ the training program."
 
 (A) at
 (B) in
@@ -129,28 +187,26 @@ A nearby time phrase does not always force one tense. Use the whole sentence and
 
 **Solution:**
 
-1. English normally uses **interested in** before a thing or activity.
-2. The other prepositions do not fit this expression.
-3. Choose **(B)**.
+The expression is **interested in**, so choose **(B)**.
 
-### #7: Article
+### #10: Articles and Context
 
-"She submitted ______ application that the office had requested."
+Choose the correct pair: "A courier brought an envelope to my desk. I opened ______ envelope and found ______ unsigned form inside."
 
-(A) a
-(B) an
-(C) the
-(D) no article
+(A) an, a
+(B) the, an
+(C) a, the
+(D) the, a
 
 **Solution:**
 
-1. The sentence refers to a specific application already identified by "that the office had requested."
-2. Use **the** for that specific noun.
-3. Choose **(C)**.
+1. The first blank points to the envelope already introduced. Use **the**.
+2. The form is newly introduced. *Unsigned* begins with a vowel sound, so use **an**.
+3. Choose **(B)**: *the envelope* and *an unsigned form*.
 
-### #8: Parallel Structure
+### #11: Parallel Structure
 
-"The position requires answering calls, preparing reports, and ______ records."
+Choose the best completion: "The position requires answering calls, preparing reports, and ______ records."
 
 (A) file
 (B) filing
@@ -159,14 +215,39 @@ A nearby time phrase does not always force one tense. Use the whole sentence and
 
 **Solution:**
 
-1. The list begins with *answering* and *preparing*.
-2. The third item should match that *-ing* form.
-3. **Filing** makes the list parallel.
-4. Choose **(B)**.
+1. *Answering* and *preparing* use the *-ing* form.
+2. **Filing**, choice **(B)**, matches that list.
 
-### #9: Kahulugan at Panahon
+### #12: Giving an Example
 
-"Kahapon, ______ ni Lino ang kanyang aplikasyon sa tanggapan."
+Choose the best completion: "Some office supplies can be reused. ______, a folder in good condition can hold a new set of papers."
+
+(A) For example
+(B) In contrast
+(C) Nevertheless
+(D) Instead
+
+**Solution:**
+
+1. The second sentence gives a case of reusing an office supply.
+2. **For example**, choice **(A)**, introduces that case.
+
+### #13: Idiom
+
+Choose the best completion: "Please keep an ______ on the reception desk while I help the visitor."
+
+(A) ear
+(B) eye
+(C) arm
+(D) elbow
+
+**Solution:**
+
+The idiom **keep an eye on** means watch or look after. Choose **(B)**.
+
+### #14: Kahulugan at Panahon
+
+Piliin ang wastong sagot: "Kahapon, ______ ni Lino ang kanyang aplikasyon sa tanggapan."
 
 (A) ipapasa
 (B) ipinasa
@@ -175,14 +256,12 @@ A nearby time phrase does not always force one tense. Use the whole sentence and
 
 **Solution:**
 
-1. Ang *kahapon* ay nagsasaad ng panahong lumipas na.
-2. Kailangan ang anyong nagsasaad ng kilos na naganap na.
-3. Tama ang **ipinasa**.
-4. Piliin ang **(B)**.
+1. Ang *kahapon* ay tumutukoy sa panahong lumipas na.
+2. Ang **ipinasa** ay nagsasaad ng kilos na naganap na. Piliin ang **(B)**.
 
-### #10: Ugnayan ng Ideya
+### #15: Ugnayan ng Ideya
 
-"Malakas ang ulan, ______ ipinagpaliban ang programa."
+Piliin ang angkop na salita: "Malakas ang ulan, ______ ipinagpaliban ang programa."
 
 (A) ngunit
 (B) kaya
@@ -191,14 +270,12 @@ A nearby time phrase does not always force one tense. Use the whole sentence and
 
 **Solution:**
 
-1. Ang unang bahagi ay nagbibigay ng dahilan.
-2. Ang ikalawang bahagi ay nagbibigay ng bunga.
-3. Ang **kaya** ang angkop na pang-ugnay.
-4. Piliin ang **(B)**.
+1. Ang ulan ang dahilan. Ang pagpapaliban ng programa ang bunga.
+2. Ang **kaya** ay angkop sa ugnayang ito. Piliin ang **(B)**.
 
-### #11: Likas na Kombinasyon
+### #16: Likas na Gamit
 
-"Malaking ______ ang ibinigay ng guro sa paghahanda ng mga mag-aaral."
+Piliin ang angkop na salita: "Malaking ______ ang ibinigay ng guro sa paghahanda ng mga mag-aaral."
 
 (A) tulong
 (B) ulan
@@ -207,42 +284,47 @@ A nearby time phrase does not always force one tense. Use the whole sentence and
 
 **Solution:**
 
-1. Kailangan ng salitang babagay sa *malaking* at sa kilos ng guro.
-2. Ang **malaking tulong** ay angkop sa kahulugan at likas na gamit.
-3. Piliin ang **(A)**.
+1. Ang pangungusap ay tungkol sa pag-alalay ng guro sa paghahanda.
+2. Ang **malaking tulong** ay likas at akma sa kahulugan. Piliin ang **(A)**.
 
 ## Speed Tricks & Shortcuts
 
-**Predict before reading the choices.** Decide what kind of word and meaning the blank needs.
+Predict the meaning and word form before reading the choices. This keeps an attractive but unsuitable word from deciding your answer.
 
-**Use signal words as clues.** *Although* shows contrast. *Because* gives a reason. *Therefore* often gives a result.
+Use the strongest clue first. A verb pattern, known article reference, or clear time link can quickly narrow the choices.
 
-**Check nearby word partners.** A familiar collocation or preposition can decide between choices with similar meanings.
+For several blanks, check the whole pair or group. Every answer must fit the same sentence.
 
-**Reread the complete sentence.** Make sure the grammar, meaning, and tone work together.
+Reread the completed sentence. Check meaning, grammar, and natural word use together.
 
 ## Traps to Watch For
 
 ### #1: Choosing by Meaning Alone
 
-> A word can match the idea but have the wrong form.
+> A word can express the right idea but have the wrong form.
 
-Check what kind of word the sentence needs before choosing.
+A noun such as *approval* cannot replace the main verb *approved*. Check the job of the blank.
 
 ### #2: Choosing by Grammar Alone
 
-> A choice can be grammatical but still give the wrong meaning.
+> A grammatical sentence can still miss the intended meaning.
 
-Read the whole sentence, not only the words beside the blank.
+Read signal words and the ideas they connect. A contrast must make sense in the full sentence.
 
 ### #3: Treating One Time Word as a Complete Rule
 
-> Tense depends on the full timeline, not one nearby phrase alone.
+> Use the whole timeline to choose the verb form.
 
-Use all time clues in the sentence.
+A finished past action, an ongoing past action, and an earlier past action are different. Check how the events relate.
 
-### #4: Solving One Blank in Isolation
+### #4: Solving Only One Blank
 
-> In a multi-blank item, all chosen words must work together.
+> Every chosen word must work with the others.
 
-After filling every blank, reread the entire sentence.
+One good word does not make the whole pair correct. Reread with all blanks filled.
+
+### #5: Choosing Articles by Letters
+
+> Choose *a* or *an* by sound, not spelling alone.
+
+Use *a university* but *an hour*. Also check whether the context calls for *the* instead.
