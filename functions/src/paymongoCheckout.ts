@@ -28,7 +28,7 @@ export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: strin
   allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
 
 export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0], data: unknown,
-  deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string}> {
+  deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string; reference: string}> {
   const uid = assertNamedUser(auth);
   const requested = (data as {product?: unknown} | null)?.product;
   const product = typeof requested === 'string' ? webProduct(requested) : undefined;
@@ -46,11 +46,12 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       return grant.product === product.id && grant.state === 'active' && grant.endsAt > now;
     })) throw new HttpsError('already-exists', 'This pass is already active.');
   }
+  const referenceNumber = randomUUID();
   const session = await deps.client.createCheckoutSession({uid, product: product.id,
     name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
-    successUrl: `${deps.origin}/pro?checkout=success`, cancelUrl: `${deps.origin}/pro?checkout=cancelled`,
-    paymentMethodTypes: deps.methods, referenceNumber: randomUUID()});
-  return {checkoutUrl: session.checkoutUrl, sessionId: session.id};
+    successUrl: `${deps.origin}/pro?checkout=success&ref=${referenceNumber}`, cancelUrl: `${deps.origin}/pro?checkout=cancelled&ref=${referenceNumber}`,
+    paymentMethodTypes: deps.methods, referenceNumber});
+  return {checkoutUrl: session.checkoutUrl, sessionId: session.id, reference: referenceNumber};
 }
 
 export const createPaymongoCheckout = onCall(

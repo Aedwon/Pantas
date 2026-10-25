@@ -390,7 +390,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   @override
   Future<PaymentOperationResult> purchase(
     PaywallPackage package, {
-    Future<void> Function(String sessionId)? beforeRedirect,
+    Future<void> Function(String sessionId, String reference)? beforeRedirect,
   }) =>
       _checkout(package.productId, beforeRedirect: beforeRedirect);
 
@@ -398,7 +398,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   Future<PaymentOperationResult> purchasePass(
     PaywallPassPackage package, {
     required ExamCatalogEntry exam,
-    Future<void> Function(String sessionId)? beforeRedirect,
+    Future<void> Function(String sessionId, String reference)? beforeRedirect,
   }) {
     if (!passAllowedForExam(package.productId, exam, at: _now())) {
       return Future.value(
@@ -413,7 +413,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   /// Asks the server for a PayMongo checkout and sends this tab to it.
   Future<PaymentOperationResult> _checkout(
     String productId, {
-    Future<void> Function(String sessionId)? beforeRedirect,
+    Future<void> Function(String sessionId, String reference)? beforeRedirect,
   }) async {
     final uid = _uid;
     final revision = _identityRevision;
@@ -428,6 +428,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
         );
       }
       final sessionId = reply is Map ? reply['sessionId'] : null;
+      final reference = reply is Map ? reply['reference'] : null;
       final url = reply is Map ? reply['checkoutUrl'] : null;
       final uri = url is String ? Uri.tryParse(url) : null;
       if (uri == null || uri.scheme != 'https' || uri.host.isEmpty) {
@@ -436,12 +437,15 @@ class WebPaymentGateway implements RevenueCatPassGateway {
         );
       }
       if (beforeRedirect != null) {
-        if (sessionId is! String || sessionId.isEmpty) {
+        if (sessionId is! String ||
+            sessionId.isEmpty ||
+            reference is! String ||
+            reference.isEmpty) {
           return const PaymentOperationResult.failure(
             status: PaymentOperationStatus.unknownFailure,
           );
         }
-        await beforeRedirect(sessionId);
+        await beforeRedirect(sessionId, reference);
         if (_uid != uid || _identityRevision != revision) {
           return const PaymentOperationResult.failure(
             status: PaymentOperationStatus.configurationFailure,

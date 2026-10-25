@@ -82,7 +82,9 @@ const checkoutDeps = (c, extra = {}) => ({client: c, db, origin: 'https://pantas
 test('checkout creates a session with uid and product metadata inputs and the web price', async () => {
   const calls = [];
   const out = await createCheckout(named('co-ok'), {product: 'pantas_cs_monthly'}, checkoutDeps(client(calls)));
-  assert.deepEqual(out, {checkoutUrl: 'https://checkout.paymongo.com/abc', sessionId: 'cs_new'});
+  assert.deepEqual(out, {checkoutUrl: 'https://checkout.paymongo.com/abc', sessionId: 'cs_new', reference: calls[0].referenceNumber});
+  assert.equal(calls[0].successUrl, `https://pantas.study/pro?checkout=success&ref=${out.reference}`);
+  assert.equal(calls[0].cancelUrl, `https://pantas.study/pro?checkout=cancelled&ref=${out.reference}`);
   assert.equal(calls[0].uid, 'co-ok');
   assert.equal(calls[0].product, 'pantas_cs_monthly');
   assert.equal(calls[0].amountCentavos, 14900);
