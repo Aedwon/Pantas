@@ -1,0 +1,318 @@
+{
+ "batch": "RD-084",
+ "lesson_id": "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+ "path": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+ "lesson_sha256": "2bfea87342ca7df96912484a5d22c318079862fb2f56a45a7260a0f64b49312c",
+ "rewrite_commit": "51c013a3c86587c2dc6c070e21c9b79557bfd8e9",
+ "form": {
+  "packet": "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+  "role": "A",
+  "lesson_sha256": "2bfea87342ca7df96912484a5d22c318079862fb2f56a45a7260a0f64b49312c",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the legal claims with the instruments identified in the supplied source audit: common Articles 2 and 3 support the interstate/organized-group distinction, occupation without resistance, and protection of people out of the fight.",
+     "Checked ICCPR Article 4 conditions as stated: threat to national life, official proclamation, strict necessity, compatibility with other international duties, prohibited discrimination grounds, notice through the Secretary-General, and notice of termination. The listed non-derogable protections correspond to Articles 6, 7, 8 paragraphs 1 and 2, 11, 15, 16, and 18.",
+     "Checked that non-derogability is distinguished from ordinary treaty limits, and that the battlefield right-to-life explanation preserves HRL while using IHL targeting rules.",
+     "Checked the stated distinction, military-objective, proportionality, precautions, inherently indiscriminate weapons, unnecessary suffering, surrender, custody, and wounded-care rules for consistency with the IHL provisions identified in the audit.",
+     "Checked that Third Geneva Convention Article 127 is identified for dissemination in peace and war, and that grave-breach legislation is a separate duty. Community negotiation is expressly practical advice, not a treaty procedure."
+    ],
+    "note": "This is a prompt-only review. The audit identifies primary instruments, but their external text was not independently retrieved.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers to Examples 1–4: 1 B; 2 IAC for interstate force and NIAC for organized, prolonged intense internal fighting; 3 no, occupation can trigger IAC law without resistance; 4 no NIAC is established, and HRL still applies.",
+     "Independent answers to Examples 5–9: 5 prohibited direct attack on civilians; 6 no protection from attack during direct participation; 7 neither may be attacked, with humane treatment and needed care required; 8 renewed firing ends the earlier surrender protection; 9 false, both regimes prohibit the proposed torture.",
+     "Independent answers to Examples 10–15: 10 military gain cannot legalize poison gas; 11 indiscriminate-weapons and unnecessary-suffering bans respectively; 12 no military objective; 13 proportionality bars the attack; 14 use the feasible safer time; 15 cancel or stop the attack despite the warning.",
+     "Independent answers to Examples 16–20: 16 both claims are wrong, HRL continues and IHL helps assess battlefield killing; 17 no derogation on the stated facts; 18 torture cannot be authorized; 19 none of the three proposals can be authorized; 20 none of the proposals can be authorized under Article 4.",
+     "Independent answers to Examples 21–23: 21 shorten and limit the measure to strict need, end religion-only discrimination, give immediate treaty-duty/reasons notice and termination notice; 22 the teaching and legislation meet preparation duties; 23 hear needs, discuss lawful shared-use options, and agree on a schedule and review. All answers agree with the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. The optional General Information Speed Tricks & Shortcuts section is also present. No supplied brief requires a figure, and none of the questions depends on an unseen image."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions for sentence length and unexplained legal language. Jurisdiction, derogation, non-derogable rights, contract, servitude, retroactive punishment, conscience, hors de combat, and attack-rule terms receive plain explanations. The added contract paragraph supports the later protected-right example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The first instruction-word use of Assess is immediately preceded by a one-line meaning. Other prompts use ordinary choose/compare/classify-style questions without unexplained specialized exam instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or the other sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1 supplies four complete comparison choices. Examples 2–23 provide the facts needed for their legal or practical decisions, without requiring an unseen passage or figure. Example 13 supplies the qualitative excessive-harm finding needed to identify the applicable rule; it does not supply the rule name. Solutions explain decisions in plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported claim about CSE frequency, official question format, or guaranteed choices appears. There are no repeated exam-promotion openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, with no Filipino teaching or Filipino-language items.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, with no Filipino teaching or Filipino-language items.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, with no Filipino teaching or Filipino-language items.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, with no Filipino teaching or Filipino-language items.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, with no Filipino teaching or Filipino-language items.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to identify or interpret a selected target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the comparison directly. No listed stock AI phrases appear, and paragraph and solution openings vary across the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout retains Core Concept, Examples, and Traps to Watch For. Its optional shortcuts section gives an actual decision sequence. No worked example uses a mathematical formula; Article 4 and Article 127 are legal citations, not formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–4 progress from regime comparison to IAC/NIAC classification, occupation, and a riot below the NIAC threshold. Examples 5–9 distinguish civilians, direct participation, surrender/wounds, renewed fighting, and custody with concurrent HRL.",
+     "Examples 10–16 distinguish a specific weapons ban, general weapons limits, military-objective status, proportionality, feasible precautions, cancellation after new information, and competing battlefield right-to-life claims.",
+     "Examples 17–21 cover invalid emergency invocation, torture, other non-derogable rights, belief/personhood/consent, and necessity/discrimination/notice defects. Examples 22–23 cover peacetime implementation and competing community needs. These are distinct decisions requested in the brief, not changes of names or numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered steps directly after Solution. Example 3 has a complete one-step sentence. There are no computations needing display equations and no unnumbered solution lead-ins."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or numerical computations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Visible teaching paragraphs contain one to three sentences. The six-item rights list and the four answer choices serve clear purposes; the remaining teaching uses paragraphs and numbered worked solutions. The hidden audit is metadata, not a student teaching paragraph."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder is present. The verbal legal cases are complete without a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "HRL, IHL, jurisdiction, IAC, NIAC, organization, and intensity are explained before the classification examples. ICCPR is first signposted as the later rules and then fully named before its treaty conditions are needed.",
+     "Derogation and non-derogable rights have local meanings. Contract is defined before the debt-protection list; servitude, retroactive punishment, and conscience are glossed at first teaching use.",
+     "Hors de combat, means/methods, indiscriminate weapons, unnecessary suffering, distinction, military objective, proportionality, incidental harm, precautions, and grave breaches are explained before worked application. No prerequisite lesson is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "HRL and IHL have purposes, scopes, and bound parties, with classification tests and examples. Complementarity is explained through continuing HRL duties, battlefield targeting, and joint custody protection.",
+     "Article 4 teaching explains how temporary suspension works, lists protected rights, and separates suspension from ordinary limits. Weapons and attack concepts explain the decision each rule requires. Peacetime teaching and legislation have named compliance actions; peaceful agreement has a concrete process."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "IAC does not require a declaration, occupation can apply without resistance, and NIAC requires both intensity and organization. Ordinary unrest is not automatically armed conflict.",
+     "Civilian protection has a direct-participation exception; out-of-fight protection requires no hostile act or escape attempt. Military objectives require both stated conditions. Proportionality is distinct from direct civilian targeting; feasible precautions and cancellation remain required despite warnings.",
+     "Emergency teaching includes proclamation, national-life threat, strict necessity, duration, other international duties, discrimination grounds, immediate and ending notices, and non-derogable rights. It also distinguishes ordinary limits on religious practice from suspension of belief protection."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "All flagged ICCPR and NIAC uses are real acronyms, as are HRL, IHL, IAC, and UN. Defined legal terms are bold at their explanatory introductions. There is no all-capitals emphasis or excessive italics."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|B03|0": {
+    "status": "fixed",
+    "quote": "> IHL and HRL can apply to the same event.",
+    "note": "The required traps section is present with six warnings and explanations. The optional shortcuts section is present too."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L18|0": {
+    "status": "fixed",
+    "quote": "Both bodies of law protect this detainee.",
+    "note": "Examples 5 and 7 apply protection of people not fighting. Example 9 explicitly applies both legal bodies in custody."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L02|0": {
+    "status": "fixed",
+    "quote": "Article $4$ sets rules for temporarily setting aside some treaty duties. The legal term is **derogation**.",
+    "note": "Derogation now has a plain meaning, and the later bold non-derogable definition explains which protections cannot be suspended."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L05|0": {
+    "status": "fixed",
+    "quote": "- B. HRL applies in peace and war, while IHL governs armed conflict and binds its parties.",
+    "note": "The comparison question now supplies four candidate statements, with one correct comparison."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L19|0": {
+    "status": "fixed",
+    "quote": "1. HRL applies in peace and during armed conflict. Its main duties fall on states.",
+    "note": "The first solution begins with numbered teaching steps. All other multi-step solutions use the same format without stray lead-ins."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L25|0": {
+    "status": "fixed",
+    "quote": "Article $4$ sets rules for temporarily setting aside some treaty duties. The legal term is **derogation**.",
+    "note": "Derogation now has a plain meaning, and the later bold non-derogable definition explains which protections cannot be suspended."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L25|1": {
+    "status": "fixed",
+    "quote": "their **jurisdiction**, their territory or authority or control.",
+    "note": "The first use explains jurisdiction through territory, authority, and control before later applications."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L26|0": {
+    "status": "fixed",
+    "quote": "In armed conflict, IHL supplies rules made for fighting. HRL continues to protect people against unlawful government action.",
+    "note": "Complementarity now has an explanation and is applied to custody and battlefield right-to-life claims."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L27|0": {
+    "status": "fixed",
+    "quote": "The emergency must threaten the life of the nation. The government must officially announce it.",
+    "note": "The emergency section supplies proclamation, necessity, duration, discrimination, notice, and protected-right conditions."
+   },
+   "general-information-peace-and-human-rights#23": {
+    "status": "fixed",
+    "quote": "During battlefield fighting, specific IHL rules help decide whether a killing violates that protection.",
+    "note": "Example 16 resolves both competing claims about the right to life and battlefield attacks, while preserving concurrent HRL."
+   },
+   "general-information-peace-and-human-rights#26": {
+    "status": "fixed",
+    "quote": "It must name the affected treaty duties and give its reasons.",
+    "note": "The emergency section teaches national threat, announcement, strict need, duration, nondiscrimination, other duties, and both notices."
+   },
+   "general-information-peace-and-human-rights#27": {
+    "status": "fixed",
+    "quote": "**Non-derogable rights** have treaty protection that cannot be suspended under Article $4$.",
+    "note": "The ICCPR is named and its protected rights are listed specifically, with examples 18 through 20 applying them."
+   },
+   "general-information-peace-and-human-rights#29": {
+    "status": "fixed",
+    "quote": "Article $127$ of the Third Geneva Convention requires teaching its rules in peace and war, including military instruction.",
+    "note": "A named treaty article and specific instruction duties accompany grave-breach legislation and Example 22."
+   },
+   "general-information-peace-and-human-rights#33": {
+    "status": "fixed",
+    "quote": "Distinction bars directly attacking protected civilians.",
+    "note": "Example 5 applies the protection to a proposed attack meant to pressure the enemy. The core explains distinction."
+   },
+   "general-information-peace-and-human-rights#34": {
+    "status": "fixed",
+    "quote": "Neither may be attacked. Both need humane treatment, and the wounded person must receive needed care.",
+    "note": "Example 7 applies surrender and wound protections. Examples 8 and 9 address renewed hostile acts and detainee treatment."
+   },
+   "general-information-peace-and-human-rights#35": {
+    "status": "fixed",
+    "quote": "Military gain does not override the ban. The proposed use is prohibited.",
+    "note": "Example 10 decides poison-gas legality; Example 11 separately applies general weapons restrictions."
+   },
+   "general-information-peace-and-human-rights#36": {
+    "status": "fixed",
+    "quote": "The planner should use it and keep checking the situation.",
+    "note": "Examples 12 through 15 apply target distinction, proportionality, precautions, and cancellation independently."
+   },
+   "general-information-peace-and-human-rights#44": {
+    "status": "fixed",
+    "quote": "The other case has intense fighting and an organized armed group. It fits the NIAC conditions.",
+    "note": "The core supplies classification criteria. Examples 2 through 4 apply interstate force, organized intense fighting, occupation, and riot limits."
+   },
+   "general-information-peace-and-human-rights#45": {
+    "status": "fixed",
+    "quote": "The torture ban is non-derogable. The measure is forbidden.",
+    "note": "Examples 17 through 21 apply ICCPR Article 4 to qualification, protected rights, and defective measures, using the taught conditions."
+   },
+   "general-information-peace-and-human-rights#46": {
+    "status": "fixed",
+    "quote": "Discuss lawful options, such as different evenings or separate rooms if available.",
+    "note": "The core gives practical negotiation steps. Example 23 applies them to competing community needs without claiming an official treaty procedure."
+   }
+  }
+ }
+}
