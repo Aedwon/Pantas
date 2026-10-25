@@ -1,7 +1,7 @@
 ---
 _id: "lesson-comprehension-skills-authors-purpose-tone-pov"
 title: "Identifying Author's Purpose, Tone, and Point of View"
-summary: "Use evidence to identify a writer's purpose, tone, viewpoint, and narrative point of view."
+summary: "Use evidence to identify purpose, tone, narrative perspective, and fairness in an argument."
 subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 15
@@ -11,218 +11,247 @@ isActive: true
 
 ### Author's Purpose
 
-An **author's purpose** is what the writer is trying to do. A writer may persuade, inform, entertain, explain, describe, instruct, criticize, reflect, or combine several purposes.
+An **author's purpose** is what the writer is trying to do. A writer may inform, persuade, entertain, explain, describe, instruct, criticize, or reflect on an experience.
 
-Ask what most of the passage is doing. If a passage has more than one purpose, choose the purpose that shapes most of the details.
+A passage can serve several purposes. Choose the main purpose by asking what most details help the writer do. A final request alone does not make a mostly factual report mainly persuasive.
 
 ### Tone
 
-**Tone** is the writer's attitude toward the subject or audience. You find it from the words and details the writer chooses.
+**Tone** is the writer's attitude toward the subject or reader. Use several clues from the whole passage.
 
-Some reading terms can help name the evidence:
+**Diction** means word choice. **Imagery** uses words to help you picture, hear, or feel something. **Syntax** means how words and sentence parts are arranged.
 
-- **Diction** means word choice.
-- **Imagery** means words that help you picture, hear, or feel something.
-- **Syntax** means how words and parts of a sentence are arranged.
-- **Emphasis** means what the writer gives extra attention to.
-- **Context** means the surrounding words, sentences, and ideas.
+**Emphasis** is the attention given to an idea. **Context** is the surrounding text and situation. These clues help explain whether a writer sounds hopeful, worried, doubtful, angry, or calm.
 
-Do not judge tone from one word alone. A passage can sound calm overall even if one sentence is angry or excited.
+### Narrative Point of View
 
-### Point of View
+**Point of view** in a story tells who presents events and whose thoughts we can know.
 
-In a story, **point of view** tells who presents the events and whose thoughts the reader can know.
+- **First person:** a narrator uses *I* or *we* to tell events from inside the story.
+- **Second person:** *you* is the person experiencing or doing things.
+- **Third person limited:** the narrator uses names or words such as *he* and *she*, and directly shares one character's thoughts.
+- **Third person omniscient:** the narrator can share several characters' thoughts or knowledge beyond any one character.
+- **Third person objective:** the narrator reports visible actions and speech without directly sharing thoughts.
 
-- **First person:** the narrator uses *I* or *we* and tells events from inside the story.
-- **Second person:** the text addresses *you* as the person acting or experiencing something.
-- **Third person limited:** the narrator uses names, *he*, *she*, or *they* and mainly gives the thoughts of one character.
-- **Third person omniscient:** the narrator can give the thoughts of more than one character or facts no one character knows.
-- **Third person objective:** the narrator reports actions and speech but does not enter a character's thoughts.
-
-Pronouns are clues, but they are not enough by themselves. Ask who is telling the story and what that narrator can know.
+Check the narrator's own words. A character saying “I” in dialogue does not make the narration first person. Classify the passage you have, since a short extract may not show everything a narrator knows.
 
 ### Argument Viewpoint and Bias
 
-A writer's **viewpoint** is the position the writer takes about an issue. This is different from narrative point of view. A passage can use third person while still arguing strongly for one side.
+A writer's **viewpoint** is the position taken on an issue. It differs from the voice telling a story. To **infer** a viewpoint means to work it out from clues rather than a direct statement.
 
-To find a viewpoint, collect the writer's claims, reasons, examples, and repeated judgments. Then ask what position those details support.
+Collect the writer's claims, reasons, examples, and repeated judgments. Ask which position they support across the passage.
 
-**Bias** is a slant that can make a presentation less fair. It can appear when a writer selects only helpful evidence, frames one side with loaded words, or leaves out important evidence from the other side.
+**Bias** is an unfair slant in how a subject is presented. A writer may select only helpful evidence, frame a group unfairly, or leave out important facts.
 
-A viewpoint is not automatically biased. A fair argument can take a clear position and still present evidence accurately.
+**Loaded words** push readers toward a strong feeling before they weigh the evidence. Calling people “lazy complainers” attacks them without showing whether their concern is sound.
 
-### Paragraph Relationships and Development
+Having a viewpoint does not prove bias. Check whether evidence is accurate and relevant concerns are treated fairly. A short passage need not cover every detail, so name the unfair treatment you can actually show.
 
-Passages are easier to follow when you see how their parts connect. Words such as *this, these, such,* and pronouns can point back to an earlier idea. This link is called **referential cohesion**.
+### Paragraph Links and Patterns
 
-Paragraphs can also have different jobs. One may state a problem, another may explain causes, and another may give a solution.
+**Referential cohesion** means linking ideas through words that point to something else. In “Residents missed work to file forms. This burden upset them,” *this burden* refers to missing work, and *them* refers to residents.
 
-Common patterns of development include:
+Find what a pointing word refers to by checking meaning and whether it names one thing or several. The nearest noun is not always the right match.
 
-- **Cause and effect:** one event leads to another.
-- **Compare and contrast:** the writer shows similarities and differences.
-- **Problem and solution:** the writer presents an issue and then a response.
-- **Sequence:** ideas or events are arranged in order.
-- **Examples:** a main idea is supported by specific cases.
+Each paragraph has a job. It may introduce a claim, give evidence, explain a cause, answer an objection, or propose a response.
 
-The pattern helps reveal purpose and emphasis. A problem-and-solution passage may mainly explain, but it may also persuade if it pushes one solution as best.
+A **cause-and-effect** pattern explains why something happens. **Compare and contrast** shows likenesses and differences. **Problem and solution** presents a difficulty and a response.
 
-### Sentence Cues That Change Meaning
+**Sequence** puts steps or events in order. **Examples** support a general idea with specific cases. A passage can combine patterns, so choose the one that organizes the whole text.
 
-Grammar can also show a writer's meaning or level of certainty.
+### Sentence Cues and Meaning
 
-- **Active voice** names the doer, as in "The committee approved the plan." **Passive voice** may shift attention to the action or receiver, as in "The plan was approved."
-- **Reported speech** tells what someone said without quoting the exact words.
-- **Subject-verb agreement** helps show which subject an action belongs to.
-- **Parallelism** uses matching forms for ideas that have the same role, as in "to plan, to test, and to revise."
-- **Modals** such as *may, might, should,* and *must* show possibility, advice, or strength.
-- A **modifier** describes or limits another word. Its placement can change what a sentence seems to mean.
-- A **conditional** sentence shows a condition and a result, often with *if*.
+A complete sentence usually has a **subject**, who or what it is about, and a verb that tells an action or state. “The clerk checked the form” is complete. “Because the clerk checked the form” needs a main statement to finish the thought.
 
-These sentence cues do not decide purpose or tone by themselves. Use them with the whole passage.
+In **active voice**, the subject does the action: “The clerk checked the form.” In **passive voice**, the subject receives it: “The form was checked by the clerk.” Passive voice can leave out the doer, so do not invent one.
+
+**Reported speech** gives someone's message without quoting the exact words. “Ana said that the office was closed” reports Ana's claim. It does not by itself prove that the office was closed.
+
+**Subject-verb agreement** means that the subject and verb forms match. In the simple present, write “The clerk checks” but “The clerks check.” In “The list of names is ready,” the subject is *list*, not *names*.
+
+**Parallelism** uses matching forms for equal ideas: “checking forms, answering calls, and filing reports.” Matching forms show that the listed actions have the same role.
+
+**Modals** are helping verbs that show meanings such as possibility or duty. *May* and *might* can show possibility. *Should* can give advice, while *must* can express a requirement.
+
+A **modifier** describes or limits a word. Placement matters: “Only Ana checked the form” limits who checked it. “Ana checked only the form” limits what she checked.
+
+A **conditional** gives a condition and a result: “If the form is complete, the clerk will accept it.” This does not say that the form is complete. Use these sentence clues with the whole passage when judging purpose or viewpoint.
 
 ## Examples
 
-### #1: Main Purpose
+### #1: Direct Persuasion
 
-"Vote yes on Proposition $12$ to protect our local parks for future generations."
+“Vote yes on Proposition $12$ to protect our local parks for future generations.”
 
-What is the author's main purpose in this sentence?
-
-**Solution:**
-1. The sentence tells the reader to take a specific action: vote yes.
-2. It gives a reason for that action, protecting local parks.
-3. The main purpose is **to persuade**.
-
-### #2: Mixed Purpose
-
-"A city report explains how household waste reaches the river, then asks residents to reduce single-use plastics and join monthly cleanups."
-
-Which purpose is dominant in the passage?
+What is the author's main purpose?
 
 **Solution:**
-1. The report gives information about how waste reaches the river.
-2. It also asks readers to change their behavior.
-3. Because the passage moves from explanation to a call for action, **persuasion** is the dominant purpose, with information as a supporting purpose.
+1. The writer asks readers to vote a certain way.
+2. Protecting parks is the reason given for that action.
+3. The main purpose is to persuade.
 
-### #3: Tone from Several Clues
+### #2: Weighing Mixed Purposes
 
-"The proposal is ambitious and could improve access to public services. Yet its cost estimates are incomplete, and the timetable seems far too hopeful. The plan deserves study, but not blind approval."
+“Water enters the town through a treatment plant. Filters remove small particles before the water reaches storage tanks. Pipes then carry it to homes. The town website has a written description of this route. Residents may visit the plant during its open house.”
 
-Which word best describes the writer's tone?
-
-**Solution:**
-1. The writer sees possible value in the proposal.
-2. The writer also questions its cost and timetable.
-3. The best description is **cautious and skeptical**, not fully negative or fully supportive.
-
-### #4: First-Person Point of View
-
-"I feared that I had made the wrong choice, but I hoped my friends would understand."
-
-Which point of view is used?
+Which purpose is dominant: explaining a process or persuading residents to visit?
 
 **Solution:**
-1. The narrator uses *I* and directly tells personal thoughts.
-2. The narrator is the person experiencing the situation.
-3. The passage uses **first-person point of view**.
+1. Most sentences explain the route and treatment of water.
+2. The invitation is a small part of the passage.
+3. The main purpose is to explain a process. The invitation is a second purpose.
 
-### #5: Second-Person Point of View
+### #3: Weighing Tone Clues
 
-"You enter the room, place your form on the desk, and wait for your name to be called."
+“The proposal could improve access to public services. Yet its cost estimates are incomplete, and its timetable seems far too hopeful. It deserves study, but not blind approval.”
 
-Which point of view is used?
-
-**Solution:**
-1. The passage addresses *you* as the person doing the actions.
-2. The reader is placed inside the event.
-3. The passage uses **second-person point of view**.
-
-### #6: Third-Person Omniscient
-
-"Sarah smiled, though her hands trembled. Across the room, Marco wondered what she was hiding. Neither knew that the letter on the desk would change both of their plans."
-
-Which point of view is used?
+Which phrase best describes the writer's tone?
 
 **Solution:**
-1. The narrator tells Marco's thought.
-2. The narrator also gives information that neither character knows.
-3. The passage uses **third-person omniscient point of view**.
+1. The writer recognizes a possible benefit.
+2. The writer also questions the cost and timing.
+3. The tone is cautious and skeptical, meaning doubtful. It is neither excited approval nor total rejection.
 
-### #7: Limited versus Objective
+### #4: First Person
 
-"Nico wondered why the room was so quiet. He decided to wait before speaking."
+“I feared that I had made the wrong choice, but I hoped my friends would understand.”
 
-What detail makes this passage third-person limited instead of third-person objective?
-
-**Solution:**
-1. The passage directly tells what Nico wonders and decides.
-2. That gives access to one character's mind.
-3. The passage is **third-person limited**. If it reported only visible actions and speech, it could be third-person objective.
-
-### #8: Viewpoint and Fairness
-
-"Supporters say the new schedule gives workers more flexibility. Critics say it may make child-care planning harder. The writer argues that the plan should be tested for three months before a final decision."
-
-Which statement best describes the writer's viewpoint?
+Which narrative point of view is used?
 
 **Solution:**
-1. The passage gives a reason from supporters and a concern from critics.
-2. The writer then recommends a short trial instead of immediate full approval or rejection.
-3. The viewpoint is **cautious support for testing the plan**, and the passage shows both sides before giving that position.
+1. The narrator uses *I* to tell personal fears and hopes.
+2. The narrator takes part in the event.
+3. The passage uses first person.
 
-### #9: Paragraph Pattern and Purpose
+### #5: Second Person
 
-A passage first describes long lines at a public office. The next paragraph explains that many forms are still processed by hand. The last paragraph proposes an online appointment system.
+“You enter the room, place your form on the desk, and wait for your name to be called.”
 
-Which pattern of development best describes the passage?
+Which narrative point of view is used?
 
 **Solution:**
-1. The first paragraph presents a problem.
-2. The middle paragraph explains part of the cause.
-3. The last paragraph gives a response to the problem.
-4. The main pattern is **problem and solution**, with cause-and-effect support.
+1. The narration makes *you* the person doing the actions.
+2. The passage uses second person.
 
-## Speed Tricks & Shortcuts
+### #6: Omniscient Narration
 
-**For purpose, name the passage's main action.** Is it explaining, arguing, instructing, describing, or telling a story?
+“Sarah hoped no one would notice her trembling hands. Across the room, Marco wondered why she was silent. Neither knew that the letter would change both their plans.”
 
-**For tone, collect several clues.** Check word choice, images, sentence style, and repeated judgments before choosing a tone word.
+Which narrative point of view is used?
 
-**For point of view, ask two questions.** Who tells the story? Whose thoughts can the narrator enter?
+**Solution:**
+1. The narrator shares Sarah's hope and Marco's thought.
+2. The narrator also knows something neither character knows.
+3. The passage uses third person omniscient.
 
-**For an argument, separate position from fairness.** First identify what the writer believes. Then check whether important evidence or another side is unfairly selected, framed, or left out.
+### #7: Limited Narration
 
-**For long passages, label each paragraph's job.** This makes the overall pattern and purpose easier to see.
+“Nico wondered why the room was quiet. He decided to wait. Across the room, Bea closed a folder.”
+
+Which narrative point of view is shown in this passage?
+
+**Solution:**
+1. The narrator directly shares Nico's thoughts.
+2. Bea's action is reported, but her thoughts are not.
+3. The passage shows third person limited.
+
+### #8: Objective Narration
+
+“Nico tapped the desk. Bea closed a folder. ‘Are we ready?’ she asked. Nico nodded.”
+
+Which narrative point of view is shown?
+
+**Solution:**
+1. The narrator reports actions and speech.
+2. No thoughts or feelings are directly stated.
+3. The passage shows third person objective.
+
+### #9: Comparing Positions Fairly
+
+“Supporters of the new schedule say it gives workers more freedom. Critics say changing hours makes child-care planning harder. A trial could show whether the benefit outweighs that problem. The office should test the schedule before adopting it.”
+
+How does the writer's viewpoint differ from full support or rejection?
+
+**Solution:**
+1. The writer gives both a benefit and a concern.
+2. The recommendation is a trial before a final decision.
+3. The writer supports testing the plan. The passage treats both positions fairly instead of dismissing either one.
+
+### #10: Diagnosing Bias
+
+“Residents who oppose the new schedule are lazy complainers. The office surveyed only workers who had requested flexible hours, then described their support as the view of all workers. Its announcement left out the survey's written complaints about child-care problems.”
+
+What evidence shows bias in this presentation?
+
+**Solution:**
+1. “Lazy complainers” uses an insult to frame opponents unfairly.
+2. The survey selects one interested group but speaks for all workers.
+3. The announcement leaves out a known concern. Loaded framing, unfair selection, and omission all support the bias judgment.
+
+### #11: Paragraph Jobs and References
+
+“Residents lose work time waiting to file forms. This burden is greatest for those paid by the day.
+
+“Many forms are copied by hand, which slows service.
+
+“An appointment system could reduce waiting. Unlike adding more chairs, it would change when residents arrive.”
+
+What does “this burden” refer to, and what pattern organizes the passage?
+
+**Solution:**
+1. “This burden” refers to losing work time while waiting.
+2. The paragraphs present a problem, explain a cause, and offer a response.
+3. Problem and solution is the main pattern. Cause and effect explains the delay, while comparison helps defend the proposed response.
+
+### #12: Reading Sentence Cues Together
+
+“The list of approved requests is ready. Ana said that the director might sign it today. If the director signs it, staff will begin checking names, preparing notices, and sending replies. Only Ana has seen the list. The notices have not been sent.”
+
+Does the passage establish that everyone has been notified?
+
+**Solution:**
+1. *List* is singular, so “is ready” describes one list. *It* refers to that list.
+2. Ana's reported statement uses *might*. Signing is possible, not certain.
+3. The *if* sentence makes later work depend on signing. The matching *-ing* forms list those later tasks.
+4. “Only Ana” limits who has seen the list. The passive sentence says the notices have not been sent, without naming a sender.
+5. The passage does not establish notification. It directly says the notices remain unsent.
+
+## Reading Strategies
+
+For purpose, name what most details help the writer do. For tone, gather several words and judgments before choosing a label.
+
+For narrative point of view, check the narrator's words and access to thoughts. For an argument, state the position first, then check the fairness of its evidence.
+
+Label each paragraph's job. Follow pronouns and pointing words back to the ideas they mean. Check words such as *may*, *only*, and *if* before making a strong claim.
 
 ## Traps to Watch For
 
-### #1: Treating Three Purposes as the Only Choices
+### #1: Using Only Three Purpose Labels
 
-> Persuade, inform, and entertain are useful categories, but writers can have other purposes.
+> Persuade, inform, and entertain do not cover every possible purpose.
 
-A passage may mainly explain, instruct, criticize, or reflect. Choose the purpose that best fits what the text actually does.
+A passage may mainly instruct, describe, criticize, or reflect. Choose the label that fits its main work.
 
-### #2: Confusing Tone with Purpose
+### #2: Mixing Up Tone and Purpose
 
-> Purpose is what the writer is trying to do. Tone is the attitude the writing shows.
+> Purpose is the writer's goal. Tone is the attitude shown.
 
-A passage can inform while sounding worried, hopeful, critical, or calm. Do not use a purpose word as a tone word.
+A factual report can sound worried or hopeful. “To inform” names a purpose, not a tone.
 
-### #3: Assuming First Person Is the Real Author
+### #3: Treating the Narrator as the Author
 
-> A first-person narrator is the voice telling the story, not always the real writer.
+> A story's narrator may be an invented character.
 
-In fiction, the narrator can be a character with beliefs that differ from the author's beliefs.
+The narrator's beliefs do not automatically belong to the real writer. First-person words inside dialogue also do not decide the narration's point of view.
 
-### #4: Calling Any Third-Person Passage Limited
+### #4: Classifying by Pronouns Alone
 
-> Third-person pronouns do not prove that a passage is limited.
+> Third-person pronouns do not show whose thoughts are available.
 
-Look for direct access to one character's thoughts. If the narrator reports only actions and speech, the passage may be objective.
+Look for direct access to minds. Visible actions alone do not prove what a character thinks.
 
-### #5: Calling Every Strong Viewpoint Biased
+### #5: Calling Every Position Biased
 
-> Taking a side is not the same as distorting the evidence.
+> A clear opinion can still use evidence fairly.
 
-Look for unfair selection, loaded framing, or important omissions. A clear position can still be supported fairly.
+Name the unfair selection, framing, or omission. Do not call a passage biased only because it favors one position.
