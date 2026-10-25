@@ -215,6 +215,7 @@
  },
  "illustrations": [
   {
+   "status": "missing",
    "position_quote": "In a food web, grass is eaten by rabbits and grasshoppers. Frogs eat grasshoppers. Hawks eat both rabbits and frogs.",
    "description": "A simple food web with arrows from grass to rabbits and grasshoppers, grasshoppers to frogs, and rabbits and frogs to hawks.",
    "why": "Seeing the branches makes the alternate food path clear and helps explain why a grasshopper decline affects frogs more directly than hawks.",
