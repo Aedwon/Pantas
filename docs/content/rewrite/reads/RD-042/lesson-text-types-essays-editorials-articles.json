@@ -1,0 +1,284 @@
+{
+ "batch": "RD-042",
+ "lesson_id": "lesson-text-types-essays-editorials-articles",
+ "path": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+ "lesson_sha256": "1b2db374155adb6eaa2db7672dc518130e23cd27af2b7831f55d68fe8734e95e",
+ "rewrite_commit": "89b4a8fcd3a40e1e1a1486fb8960f5626567d760",
+ "form": {
+  "packet": "lesson-text-types-essays-editorials-articles",
+  "role": "A",
+  "lesson_sha256": "1b2db374155adb6eaa2db7672dc518130e23cd27af2b7831f55d68fe8734e95e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Editorial as a publication's view, often through an editorial board; column, op-ed and commentary as an individual's view: standard journalism usage.",
+     "News report, attribution, byline and the caution that a byline alone does not prove opinion are accurate; the Filipino informational and opinion text labels are standard."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Ex1 news report (attributed announcement); Ex2 editorial (label plus Editorial Board signature); Ex3 individual opinion piece (Opinion label, named writer, first-person); Ex4 personal essay (reflects on a memory).",
+     "Ex5 A expository, B analytical, C argumentative; Ex6 A reports an estimate, B uses it for an argument; Ex7 analysis; Ex8 Teksto A informational, Teksto B opinion. All match my own reading."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Title names essays, editorials, opinion pieces and news articles; Core Concept defines each, and Examples 1 to 5 apply them.",
+     "The brief lists no required figures."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The opening now reads 'Texts can share features. To classify a text means to name the type it belongs to.' and avoids authorship and stance.",
+     "The objectivity sentence is replaced by two short sentences about reporters choosing facts and quotes."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "'Classify' is explained in one line in the first paragraph; no other exam instruction word (identify, infer, interpret) is used without meaning."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for comparisons used as teaching analogies: none in Core Concept or Examples."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Every example now has a question stem: 'Which text type best fits this excerpt?', 'Whose position does the passage present?', 'What is the main purpose of this passage?', and so on.",
+     "Stems supply the passage and label; solutions use short plain sentences."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson does not refer to an exam, so there are no repeated exam openers."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section 'Pagkilala sa Tekstong Filipino' uses short sentences and common words, one idea per sentence.",
+     "Ex8 solution is in the same simple Filipino."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section names text types, not grammar terms, so no hard grammar term lacks a gloss; the English text types above explain the same ideas."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section and Ex8 are in Filipino: both passages, the question and the solution."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text appears in the Filipino section and Example 8; spelling cannot be checked here.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino prose uses 'teksto', 'opinyon', 'impormasyon', 'pahayag', 'layunin' and 'balita'; no English word stands in for a common Filipino term."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word in bold, so the rule cannot apply.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "fail",
+    "checked": [
+     "Searched for stock AI phrasing ('crucial', 'delve', 'furthermore', 'not just ... but'): none.",
+     "Summary 'Compare reports, essays, and opinion writing by their main purpose, writer, and supporting details.' is plainly varied."
+    ],
+    "note": "Minor: parallel sentence openings in the essay definitions.",
+    "findings": [
+     {
+      "quote": "An analytical essay studies how parts of something work together. An argumentative essay supports a claim with reasons.",
+      "problem": "Five consecutive sentences begin with 'An' or 'A' plus a kind of essay (essay, personal essay, expository essay, analytical essay, argumentative essay), against the rule on varied openings."
+     }
+    ]
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson contains no formulas or symbols; the Reading Comprehension layout (Core Concept, Examples, Reading Strategies, Traps) is followed."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped cases: attributed news (Ex1), editorial (Ex2), individual opinion with byline (Ex3), personal essay (Ex4), three essay kinds (Ex5), facts in an argument (Ex6), mixed analysis (Ex7), Filipino pair (Ex8)."
+    ],
+    "note": "One taught case, the quoted opinion inside a news report, has no worked example.",
+    "findings": [
+     {
+      "quote": "A report can include someone's strong opinion without making that opinion the reporter's own view.",
+      "problem": "The lesson teaches, in Core Concept, Reading Strategies and Trap 2, that a news report can quote an opinion without adopting it. No example has a report that quotes a strong opinion, so this distinct and commonly tested case is never worked."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eight solutions use the 'Solution:' label and a numbered list; there are no calculations.",
+     "Ex5 has three numbered steps, one per passage."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences in every Core Concept, Filipino section, Reading Strategies and Traps paragraph: none exceeds three, including the former four-sentence news paragraph, now split into short paragraphs.",
+     "No bullet lists, tables or links."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no placeholders and no figure is needed for text passages.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Byline and attribution are now defined with examples before the cues are used; classify, editorial, column, op-ed, expository, analytical and argumentative are each explained.",
+     "'Editorial board' is only implied but is clear from Ex2."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each text type states what it does and how to spot it; 'Analysis' is taught through the Ex7 solution (facts plus explanation, no call to act), a borderline but acceptable explanation.",
+     "The Filipino section teaches informational versus opinion text so the learning goal is covered."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Conditions are stated: a byline alone does not prove opinion, attribution does not prove truth, choose 'editorial' only when evidence supports it, a quoted opinion is not the writer's own."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-text-types-essays-editorials-articles|L05|0": {
+    "status": "fixed",
+    "quote": "Which text type best fits this excerpt?",
+    "note": "Each of the eight examples now has an exam-style question after the passage; Example 1 is the former bridge excerpt turned into a question."
+   },
+   "lesson-text-types-essays-editorials-articles|L18|1": {
+    "status": "fixed",
+    "quote": "A passage labeled “Analysis” reports that a town added a bus route.",
+    "note": "Example 7 handles a blended passage with a label, and Examples 2 and 3 use label and byline evidence."
+   },
+   "lesson-text-types-essays-editorials-articles|L19|0": {
+    "status": "fixed",
+    "quote": "1. The passage reports an announcement and names its source.",
+    "note": "Every example now has a 'Solution:' label and numbered steps in place of the unnumbered prose answer."
+   },
+   "lesson-text-types-essays-editorials-articles|B08|0": {
+    "status": "fixed",
+    "quote": "Officials estimate that the policy will raise $2$ million pesos each year.",
+    "note": "The peso amount appears in Example 6 with the number wrapped in math delimiters."
+   },
+   "lesson-text-types-essays-editorials-articles|L02|0": {
+    "status": "fixed",
+    "quote": "To **classify** a text means to name the type it belongs to.",
+    "note": "The abstract purpose, authorship and stance sentence is replaced with a short definition."
+   },
+   "lesson-text-types-essays-editorials-articles|L02|1": {
+    "status": "fixed",
+    "quote": "Reporters still choose which facts and quotes to include.",
+    "note": "The long objectivity sentence is split into two short, plain sentences."
+   },
+   "lesson-text-types-essays-editorials-articles|L22a|0": {
+    "status": "fixed",
+    "quote": "A **news report** mainly tells readers what happened or what is known about an issue.",
+    "note": "The news paragraph is now three sentences, with the extra ideas moved to a separate paragraph."
+   },
+   "lesson-text-types-essays-editorials-articles|L25|0": {
+    "status": "fixed",
+    "quote": "A **byline** is the line naming a text's writer.",
+    "note": "Byline is now defined before any cue uses it."
+   },
+   "lesson-text-types-essays-editorials-articles|L25|1": {
+    "status": "fixed",
+    "quote": "**Attribution** tells who said something or supplied information.",
+    "note": "Attribution is now defined with an example sentence."
+   },
+   "reading-comprehension-text-types#14": {
+    "status": "fixed",
+    "quote": "Ang **tekstong nagbibigay-impormasyon** ay naglalahad o nagpapaliwanag ng mga detalye.",
+    "note": "A Filipino section and Example 8 (Balita o Opinyon?) now teach informational versus opinion text in Filipino."
+   },
+   "lesson-text-types-essays-editorials-articles|L03|0": {
+    "status": "fixed",
+    "quote": "To **classify** a text means to name the type it belongs to.",
+    "note": "Optional item: 'classify' now has a one-line explanation on first use."
+   },
+   "lesson-text-types-essays-editorials-articles|L18|0": {
+    "status": "fixed",
+    "quote": "Passage A explains how a library lends books.",
+    "note": "Optional item: Example 5 now works expository, analytical and argumentative essays, besides the personal essay in Example 4."
+   }
+  }
+ }
+}

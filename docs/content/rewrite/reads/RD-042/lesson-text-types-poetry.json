@@ -1,0 +1,254 @@
+{
+ "batch": "RD-042",
+ "lesson_id": "lesson-text-types-poetry",
+ "path": "content/lessons/reading-comprehension/text-types/poetry.md",
+ "lesson_sha256": "5f2d53997fa5f16c29fbe0859b3d9d2ec1e56eb3b6f53c0709dab9ee48efcd2a",
+ "rewrite_commit": "9d83e4efc2db41c5acc1e4041c15f9a7c16bfe75",
+ "form": {
+  "packet": "lesson-text-types-poetry",
+  "role": "A",
+  "lesson_sha256": "5f2d53997fa5f16c29fbe0859b3d9d2ec1e56eb3b6f53c0709dab9ee48efcd2a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Simile, metaphor, personification, imagery and symbol definitions are standard; 'Time is a thief' is a metaphor and 'The empty house waited' is personification.",
+     "Rhyme depends on sound; 'light' and 'bright' rhyme inside a line; 'shape' and 'keep' share an ending consonant, a valid near rhyme; alliteration, assonance and consonance examples match their definitions."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Ex1 metaphor; Ex2 simile in A only; Ex3 personification; Ex4 endings bay, glow, away, blow give ABAB; Ex5 'night' and 'light' internal rhyme, 'shape' and 'keep' near rhyme.",
+     "Ex6 soft sea sounds is alliteration, slow boats float is assonance (long o), blank ink is consonance (nk); Ex7 tone moves from gloomy to hopeful; Ex8 the line break splits the call to act from the reason. All match."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Figurative language, imagery, symbol, rhyme, rhythm, tone and speaker are all defined, and each has at least a trap or example.",
+     "The brief lists no required figures."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [
+     "Other Core Concept sentences are short and use common words; the former lineation, syntax and diction opening is gone."
+    ],
+    "note": "One dense sentence in an otherwise simple lesson.",
+    "findings": [
+     {
+      "quote": "**Rhyme** repeats matching sounds, usually from the last stressed vowel onward.",
+      "problem": "The rhyme definition uses 'stressed vowel', a technical idea beyond Grade 5 reading, in the first sentence a learner reads about rhyme."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "'Interpret' is explained in one line in Tone and Meaning; 'identify' and 'find' are not used as exam commands."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for analogies: none; the thief and house lines are examples of devices, not teaching analogies."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eight examples have an exam-style question after the quoted line, such as 'What comparison is used, and what does it suggest about time?' and 'Which passage contains a simile?'.",
+     "Solutions use simple language."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson does not mention exams, so there is no repeated exam opener."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word in bold, so the rule cannot apply.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for stock AI phrases: none.",
+     "Summary 'Read a poem's comparisons, images, sounds, and tone using evidence from its lines.' is varied; definition openings follow the term but sentences after them vary."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "No formulas or symbols are used; the Reading Comprehension layout with Reading Strategies is followed."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped cases: metaphor (Ex1), simile versus literal 'as' (Ex2), personification (Ex3), rhyme scheme (Ex4), internal and near rhyme (Ex5), alliteration, assonance and consonance (Ex6), imagery with tone (Ex7), direct statement and line break (Ex8).",
+     "Speaker versus poet and rhythm are also taught without an example, but symbol is the main exam-relevant gap."
+    ],
+    "note": "Symbol is taught but never worked.",
+    "findings": [
+     {
+      "quote": "A **symbol** is something that stands for a wider idea in the text.",
+      "problem": "Symbol is taught as a core idea, and Trap 3 warns against over-reading it, yet no worked example asks the learner to decide whether an image is a symbol and what it stands for."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eight solutions use a 'Solution:' label and numbered steps; Ex4 and Ex5 each have two steps.",
+     "There are no calculations, so no display equations are expected."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences in every paragraph of Core Concept, Reading Strategies and Traps: none exceeds three.",
+     "No bullet lists, tables or links."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no placeholders and the poem lines are supplied as text.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Traced figurative language, simile, metaphor, personification, imagery, symbol, rhyme scheme, internal and slant rhyme, alliteration, assonance, consonance, rhythm, tone, speaker and interpret: all defined.",
+     "The earlier undefined terms lineation, syntax and diction are gone, but stress and stanza take their place."
+    ],
+    "note": "Stress and stanza are used without teaching.",
+    "findings": [
+     {
+      "quote": "Repeated sounds, word stress, and pauses can shape it.",
+      "problem": "'Word stress' is used here and 'stressed vowel' in the rhyme definition, but stress is never explained, so learners cannot use either idea."
+     },
+     {
+      "quote": "The line endings of a stanza are “bay,” “glow,” “away,” and “blow,” in that order.",
+      "problem": "The Example 4 stem uses 'stanza' without defining it in Core Concept."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Internal rhyme, slant rhyme, alliteration, assonance and consonance now each have a definition plus a short example phrase, fixing the named-only problem.",
+     "Rhythm, tone, speaker, rhyme scheme (with the A, B lettering steps) and interpret say what they mean and how to use them."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "'Like' and 'as' count only when they make a comparison; a missing 'like' does not prove a metaphor; an image is not always a symbol; the speaker is not always the poet; a sound pattern alone does not prove a feeling."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-text-types-poetry|L05|0": {
+    "status": "fixed",
+    "quote": "What comparison is used, and what does it suggest about time?",
+    "note": "The quoted line now has an exam-style question, and all eight examples follow the same pattern."
+   },
+   "lesson-text-types-poetry|L18|0": {
+    "status": "fixed",
+    "quote": "Consider these phrases: “soft sea sounds,” “slow boats float,” and “blank ink.”",
+    "note": "Examples 3, 5 and 6 now work personification, internal and near rhyme, alliteration, assonance and consonance."
+   },
+   "lesson-text-types-poetry|L19|0": {
+    "status": "fixed",
+    "quote": "1. The line presents time as a thief without using a comparison word. This is a metaphor.",
+    "note": "Every example now has a 'Solution:' label and numbered steps."
+   },
+   "lesson-text-types-poetry|L26|0": {
+    "status": "fixed",
+    "quote": "**Alliteration** repeats consonant sounds at the start of nearby words.",
+    "note": "Internal rhyme, slant rhyme, alliteration, assonance and consonance are each defined with an example."
+   },
+   "lesson-text-types-poetry|L02|0": {
+    "status": "fixed",
+    "quote": "**Poetry** uses carefully chosen words, sounds, and lines to share ideas or experiences.",
+    "note": "The lineation, syntax and concentrated diction sentence is replaced by a plain opening."
+   },
+   "lesson-text-types-poetry|L25|0": {
+    "status": "fixed",
+    "quote": "A poem's line breaks can make readers pause or notice a word.",
+    "note": "Lineation, syntax and diction are gone; line breaks are explained in plain words before use."
+   }
+  }
+ }
+}
