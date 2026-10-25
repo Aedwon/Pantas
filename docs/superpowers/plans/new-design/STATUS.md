@@ -55,6 +55,7 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | B7c | Deferred libraries for later screens | Claude | pending; order route edits with W4e/W4f |
 | B7b | Phone layout at every width | Claude | pending; visible wide-screen framing requires acceptance |
 | B8 | Size cuts and measurements | Claude | pending; CSE scope and server content supersede bundled-content assumptions |
+| B9 | SVG lesson illustrations in the app | Claude, separate branch; integrated by the lock holder | approved Oct 25 (E4-E7 plan P0.8): SVG display in the lesson renderer (`portable_text_renderer.dart`, today PNG only via CachedNetworkImage) with theme-aware colors; lesson import and content upload carry `.svg`; render check rejecting unsupported SVG features; Android, iOS and web verified. About half a day to a day. Start when the lesson reader is not being changed by an active W4 lane (W4e reader work done; check before starting). Needed before E7 in-app review. Animations deferred to after launch |
 | C1 | Entitlement design ruling | Claude | recorded; C1-C10-ruling plus later decisions control |
 | C2 | Checkout callable | Claude | built/reviewed on paymongo caf2142e; live/test PayMongo calls unverified |
 | C3 | Web purchase gateway | Claude | pending handoff; required before A6 Pro-page wiring |
@@ -68,11 +69,11 @@ roadmap or Pro computations, inspect and reconcile the handed-off server contrac
 | C10 | Server roadmap and Pro insights | Claude; Codex bounded mock due-feed dependency | original roadmap/settings/totals preserved;0c17bfb0 supplies actual mock due reviews and current input-session cache checks. W4b integration preserves this feed; broader insights/signals and ordinary seeding coordination remain pending |
 | E1 | CSE scope reset | Claude | reported done;71 lessons; evidence/E1-cse-scope.* |
 | E1b | Copy-prompt page | Claude | reported done on audit branch439603ca |
-| E2 | CSE lesson Level4 audit | ChatGPT + Aedwon | running paste workflow; not an engineering prerequisite |
-| E3 | CSE question Level5 audit | ChatGPT + Aedwon | authorized in parallel; prompts pending per resume point |
-| E4 | Lesson rewrite | ChatGPT | after findings per subject; deterministic gates then Aedwon QA |
+| E2 | CSE lesson Level4 audit | ChatGPT + Aedwon | done Oct 25: 78 lessons, triaged; audit branch `level4/paste/results/` |
+| E3 | CSE question Level5 audit | ChatGPT + Aedwon | moved after the lesson rewrite (Oct 25); now plan `pwa-launch/E4-E7-cse-content-rewrite.md` P4 |
+| E4 | Lesson rewrite | ChatGPT web chat via relay + Claude | plan `pwa-launch/E4-E7-cse-content-rewrite.md` approved Oct 25; preparation done on `content/cse-rewrite-r1`; pilot after the engineering run frees the ChatGPT accounts |
 | E5 | Question rewrite and verification | ChatGPT | after findings; tag corrections and malformed ratio/proportion YAML included |
-| E6 | Illustration data and QA sheet | Claude + mechanical implementor | after findings; Aedwon final QA |
+| E6 | Lesson figures (SVG, style D) and question figure data | Claude Sonnet + Codex | per the E4-E7 plan P3; app display is row B9 |
 | E7 | Content QA and build/upload | Aedwon + Claude | pending; server content replaces bundled web corpus |
 | L1 | Web Firestore/Storage rules review | Claude | pending after W6 snapshot and final server handoff |
 | L2 | Web App Check enforcement | Claude | pending |
