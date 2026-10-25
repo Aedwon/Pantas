@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification",
+  "lesson-language-application-paragraph-organization"
+ ],
+ "topic": "language-proficiency/language-application",
+ "rewrites": {
+  "lesson-language-application-error-identification": "182639f4de4deca7ea3c676211c98f56a0c1722e",
+  "lesson-language-application-paragraph-organization": "182639f4de4deca7ea3c676211c98f56a0c1722e"
+ },
+ "sha256": {
+  "lesson-language-application-error-identification": "5cca2d4234083b21b99753d8de7e022031e80f6ffe35df0a88c531ec4e613641",
+  "lesson-language-application-paragraph-organization": "791aaf7d20cd22b4928b9a5e73256e1fe18e9330d46c61e9c5957513afff07ed"
+ },
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md",
+  "lesson-language-application-paragraph-organization": "content/lessons/language-proficiency/language-application/paragraph-organization.md"
+ },
+ "id": "RD-053",
+ "type": "read",
+ "created": "2026-10-25T19:45:17+00:00"
+}
