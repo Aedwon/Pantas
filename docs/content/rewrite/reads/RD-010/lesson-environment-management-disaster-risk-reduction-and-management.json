@@ -1,0 +1,261 @@
+{
+ "batch": "RD-010",
+ "lesson_id": "lesson-environment-management-disaster-risk-reduction-and-management",
+ "path": "content/lessons/general-information/environment-management/disaster-risk-reduction-and-management.md",
+ "lesson_sha256": "06e573c28fbf768ba46aa8fcd73889f09b5651b8ca7f240c3d1b699dbd9cf3e4",
+ "rewrite_commit": "90572e20202de04b8d2c53599bb6d5a17bf6fa15",
+ "form": {
+  "packet": "lesson-environment-management-disaster-risk-reduction-and-management",
+  "role": "A",
+  "lesson_sha256": "06e573c28fbf768ba46aa8fcd73889f09b5651b8ca7f240c3d1b699dbd9cf3e4",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the RA 10121 framing, the four DRRM areas, their timing and purposes, and the examples against the official-facet descriptions supplied in the brief; no contradiction or suspicious factual claim appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind-solved all five examples: #1 prevention and mitigation; #2 preparedness; #3 response; #4 rehabilitation and recovery; #5 a multi-area DRRM approach broader than post-disaster response. All match the lesson solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Confirmed the required General Information structure is present: Core Concept, Examples, and Traps to Watch For. The brief requires no figures, and all four DRRM domains plus the broader-than-response case are present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the teaching prose for short sentences, common words, and filler. The domain explanations use simple cause-and-purpose language and keep paragraphs brief."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a special exam meaning appears in the lesson.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Core Concept and the rest of the lesson; no analogy is used, so the one-analogy limit is respected."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all five stems for enough scenario facts without giving away definitions, and checked each solution for simple language. Each stem asks the student to classify or describe the action from the supplied facts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the limited exam references. The single phrase 'In an exam question' supports the classification strategy and is not a repeated stock opener."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is written in English, not as a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is written in English, so Filipino grammar-term glossing does not apply.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is written in English and contains no Filipino examples or quiz items.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino text requiring a Komisyon sa Wikang Filipino source check.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is written in English, so the Filipino no-Taglish rule does not apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt refers to a target word as bold or underlined.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked for the listed stock AI phrases, repetitive sentence openings, and formulaic summary wording; none appears. The summary plainly states the four-area focus."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked General Information section fit: Core Concept, Examples, and Traps to Watch For are used, with no unnecessary shortcut section. No formulas appear in examples or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the distinct requested cases to worked examples: prevention/mitigation #1, preparedness #2, response #3, rehabilitation/recovery #4, and DRRM broader than response #5. They progress from single-domain classification to a combined-program case without near-duplicate reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked every worked solution. Each multi-step solution uses a numbered list and no computation is involved, so no display equation is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked paragraph length and list use. Teaching paragraphs stay within one to three short sentences, and numbered lists are confined to worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The brief requires no figure, and no illustration placeholder appears in the lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the terms needed to classify actions. DRRM and each of the four areas are defined before the examples, with examples clarifying risk reduction, readiness, urgent response, and longer-term recovery."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all four DRRM concepts for meaning and operation. Each area states its purpose, timing, and concrete actions, and the lesson explains how the four areas connect."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked applicability and boundaries: prevention does not guarantee hazards disappear; response is immediate while recovery is longer-term; and a program can support multiple areas, so questions use the action's main purpose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "Checked capitalized text and emphasis. DRRM is a legitimate acronym, while key concept names are bolded on definition and no ALL-CAPS emphasis is used."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-environment-management-environmental-concepts|L26|0": {
+    "status": "fixed",
+    "quote": "**Disaster prevention and mitigation** means avoiding disaster risk when possible and reducing the harmful effects of hazards.",
+    "note": "The rewrite now defines each DRRM area and follows the definitions with purpose, timing, actions, and classification examples."
+   },
+   "general-information-environment-management#18": {
+    "status": "fixed",
+    "quote": "**Disaster prevention and mitigation** means avoiding disaster risk when possible and reducing the harmful effects of hazards.",
+    "note": "Prevention and mitigation now has a definition, concrete actions, a limitation, and a worked action-classification case."
+   },
+   "general-information-environment-management#19": {
+    "status": "fixed",
+    "quote": "**Disaster preparedness** means getting people and systems ready before an emergency.",
+    "note": "Preparedness is now defined as readiness before an emergency, with drills and planning taught and tested in a worked scenario."
+   },
+   "general-information-environment-management#20": {
+    "status": "fixed",
+    "quote": "**Disaster response** means actions taken during or immediately after a disaster to protect life and meet urgent needs.",
+    "note": "Response is now defined by timing and urgent purpose, with rescue and emergency aid classified in a worked example."
+   },
+   "general-information-environment-management#21": {
+    "status": "fixed",
+    "quote": "**Disaster rehabilitation and recovery** means restoring and improving the lives, livelihoods, facilities, and services of affected communities after the immediate emergency.",
+    "note": "Rehabilitation and recovery now has a definition, safer-rebuilding purpose, concrete actions, and a worked classification scenario."
+   },
+   "general-information-environment-management#22": {
+    "status": "fixed",
+    "quote": "DRRM is not only about helping people after a disaster. It also includes actions that reduce risk before a disaster happens.",
+    "note": "The rewrite directly contrasts broad DRRM with post-disaster help and later tests a program spanning before, during, and after a disaster."
+   },
+   "general-information-environment-management#47": {
+    "status": "fixed",
+    "quote": "A city strengthens building rules so new public buildings can better withstand earthquakes. Which DRRM area is best shown?",
+    "note": "A worked case now requires classifying a risk-reducing building action as prevention and mitigation."
+   },
+   "general-information-environment-management#48": {
+    "status": "fixed",
+    "quote": "A school holds an earthquake drill and teaches students where to evacuate. Which DRRM area is best shown?",
+    "note": "A worked case now requires classifying a drill and evacuation practice as disaster preparedness."
+   },
+   "general-information-environment-management#49": {
+    "status": "fixed",
+    "quote": "After a typhoon, rescue teams move stranded families to an evacuation center and provide emergency food and water. Which DRRM area is best shown?",
+    "note": "A worked case now requires classifying rescue and emergency relief as disaster response."
+   },
+   "general-information-environment-management#50": {
+    "status": "fixed",
+    "quote": "A damaged health center is rebuilt after a disaster using safer construction standards. Which DRRM area is best shown?",
+    "note": "A worked case now requires classifying safer rebuilding after the emergency as rehabilitation and recovery."
+   },
+   "lesson-environment-management-environmental-concepts|B08|1": {
+    "status": "fixed",
+    "quote": "Republic Act $10121$ supports a broad approach to **disaster risk reduction and management (DRRM)**.",
+    "note": "The statute number is now wrapped in inline math in the rewritten lesson."
+   },
+   "lesson-environment-management-environmental-concepts|L01|0": {
+    "status": "fixed",
+    "quote": "summary: \"Learn how the four DRRM areas guide actions before, during, and after disasters.\"",
+    "note": "The rewrite is now a dedicated DRRM lesson whose displayed scope directly matches the DRRM teaching; no separate audit learning-goal record was supplied."
+   }
+  }
+ }
+}
