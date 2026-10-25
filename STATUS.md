@@ -64,5 +64,5 @@ hand-in still works for manual use (`/api/prompt?id=<batch>&mode=relay`).
 Committed dd8365cf (319 tests pass). Live test PR #30 (`cse-inbox/RW-007`, one of three lessons):
 the `CSE hand-in` check rejected it in 14 seconds, naming the two missing lessons; PR closed
 unmerged. The merge path is untested until the first real batch. Branch `cse-inbox/RW-007`
-still exists with the test commit; it must be deleted (Aedwon's approval) before the real RW-007.
+was deleted with Aedwon's approval.
 Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major problems.
