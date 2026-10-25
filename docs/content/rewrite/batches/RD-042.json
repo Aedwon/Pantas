@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-text-types-essays-editorials-articles",
+  "lesson-text-types-poetry",
+  "lesson-text-types-visual-media"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "rewrites": {
+  "lesson-text-types-essays-editorials-articles": "89b4a8fcd3a40e1e1a1486fb8960f5626567d760",
+  "lesson-text-types-poetry": "9d83e4efc2db41c5acc1e4041c15f9a7c16bfe75",
+  "lesson-text-types-visual-media": "89b4a8fcd3a40e1e1a1486fb8960f5626567d760"
+ },
+ "sha256": {
+  "lesson-text-types-essays-editorials-articles": "1b2db374155adb6eaa2db7672dc518130e23cd27af2b7831f55d68fe8734e95e",
+  "lesson-text-types-poetry": "5f2d53997fa5f16c29fbe0859b3d9d2ec1e56eb3b6f53c0709dab9ee48efcd2a",
+  "lesson-text-types-visual-media": "c7f1b56cbc7d185b6035a620c935b03a39e41c91570f9860df54a40fce41c92d"
+ },
+ "paths": {
+  "lesson-text-types-essays-editorials-articles": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+  "lesson-text-types-poetry": "content/lessons/reading-comprehension/text-types/poetry.md",
+  "lesson-text-types-visual-media": "content/lessons/reading-comprehension/text-types/visual-media.md"
+ },
+ "id": "RD-042",
+ "type": "read",
+ "created": "2026-10-25T18:47:42+00:00"
+}
