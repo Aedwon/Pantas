@@ -1,169 +1,204 @@
 ---
 _id: "lesson-algebra-algebraic-expressions"
 title: "Algebraic Expressions (Translation, Simplification, Evaluation)"
-summary: "Learn how to turn English sentences into math, solve for values, and make long math phrases shorter."
+summary: "Translate words into algebra, simplify expressions, and evaluate them with given values."
 subject: "subject-mathematics"
 topic: "topic-algebra"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-In algebra, we use letters to stand for numbers we do not know yet. These letters are called **variables**. Think of a variable as a small box holding a secret number.
+In algebra, a letter can stand for a number we do not know yet. The letter is called a **variable**.
 
-This lesson is about three main skills you need for college entrance exams.
+An **algebraic expression** is a math phrase made of numbers, variables, and operations. It has no equality sign unless the problem gives a relationship between two quantities.
 
-1. **Translation**. This means changing English words into math symbols. You must do this to set up word problems.
+This lesson uses three skills: translation, simplification, and evaluation.
 
-2. **Simplification**. This means making a long, messy math phrase as short as possible. You do this by grouping the parts that look the same.
+**Translation** means changing words into math symbols. Read the relationship first, then write the operations in the order the words describe.
 
-3. **Evaluation**. This means opening the secret box, putting a real number inside, and finding the final answer.
+**Simplify** means rewrite an expression in a shorter equivalent form. **Evaluate** means find the final number answer after values are given.
 
-## Mnemonics & Memory Aids
+**Express** means write the answer in the form the question asks for.
 
-> **"Less than" means "Swap the plan."**
+### Translating Common Phrases
 
-If you see the word "than" or "from", you must write the parts in reverse order. For example, "$5$ less than $x$" becomes $x - 5$. It is not $5 - x$.
+A **sum** means addition. A **difference** means subtraction. A **product** means multiplication, and a **quotient** means division.
 
-> **is means equals. Of means multiply. Per means divide.**
+The phrase "less than" reverses the written order. For example, "$5$ less than $x$" means $x-5$.
 
-These are the most common translation keywords. When a problem asks for "$50\%$ of $y$", you multiply them. When a car goes "$60$ kilometers per hour", you divide distance by time.
+The word **of** often means multiplication when it gives a part of a quantity. For example, "$\dfrac{3}{5}$ of $n$" means $\dfrac{3}{5}n$.
 
-> **GEMDAS: Grouping, Exponents, Multiply or Divide, Add or Subtract.**
+The word **per** often describes a rate. A rate such as "items per hour" means items divided by hours, as long as the number of hours is not $0$.
 
-Always follow this order when you evaluate an expression. Do everything inside parentheses first. Then do small upper numbers (exponents). Then multiply and divide from left to right. Finally, add and subtract from left to right.
+The word "is" can connect two equal quantities, as in "$x$ is $7$". But a phrase such as "$5$ is less than $x$" uses the comparison $5<x$, not an equality sign.
+
+### Simplifying Expressions
+
+**Like terms** have the same variable part with the same exponents. For example, $3x$ and $-5x$ are like terms, but $3x$ and $3x^2$ are not.
+
+Combine like terms by adding or subtracting their number parts.
+
+The **distributive property** lets a factor outside parentheses multiply every term inside:
+
+$$c(a+b)=ca+cb$$
+
+and
+
+$$c(a-b)=ca-cb.$$
+
+Consecutive even integers differ by $2$. If the first is $x$, the next two can be written as $x+2$ and $x+4$.
+
+### Evaluating Expressions
+
+To evaluate, replace each variable with its given value. Put parentheses around a negative value before using an exponent.
+
+Follow the usual order of operations: grouping symbols, exponents, multiplication or division from left to right, then addition or subtraction from left to right.
 
 ## Examples
 
 ### #1: Basic Translation
 
-Translate the following phrase into an algebraic expression: "Four less than three times a number $k$."
+Translate the phrase "four less than three times a number $k$" into an algebraic expression.
 
 **Solution:**
 
-1. Look at the phrase "three times a number $k$." This means we multiply $3$ and $k$.
-2. Write this part as $3k$.
-3. Look at the phrase "Four less than." Remember our trick: the word "than" means we swap the order.
-4. We must subtract $4$ at the very end.
-5. The final answer is $3k - 4$.
+1. "Three times a number $k$" means $3k$.
+2. "Four less than" tells us to subtract $4$ from that amount.
+3. Write the expression.
 
-### #2: Simplifying Expressions
+$$3k-4$$
 
-Simplify the algebraic expression: $4(2a - 3b) - 2(a - 5b)$.
+### #2: Translating "Of"
 
-**Solution:**
-
-1. First, distribute the outside numbers. This means multiply the number outside the parentheses by everything inside.
-2. For the first group, multiply $4$ by $2a$ and $4$ by $-3b$.
-
-$$8a - 12b$$
-
-
-3. For the second group, multiply $-2$ by $a$ and $-2$ by $-5b$. Watch out for the two negative signs! A negative times a negative is a positive.
-
-$$-2a + 10b$$
-
-
-4. Put it all together in one long line.
-
-$$8a - 12b - 2a + 10b$$
-
-
-5. Combine the **like terms**. Group the $a$ parts together and the $b$ parts together.
-
-$$(8a - 2a) + (-12b + 10b)$$
-
-
-6. The final simplified answer is $6a - 2b$.
-
-### #3: Evaluating with Exponents
-
-If $x = -2$ and $y = 3$, evaluate the expression $x^3 - 4xy + y^2$.
+Express "$\dfrac{3}{5}$ of a number $n$" as an algebraic expression.
 
 **Solution:**
 
-1. Replace every $x$ with $(-2)$ and every $y$ with $(3)$. Always use parentheses when plugging in numbers!
+1. The word "of" tells us to multiply $\dfrac{3}{5}$ by $n$.
+2. Write the product.
 
-$$(-2)^3 - 4(-2)(3) + (3)^2$$
+$$\dfrac{3}{5}n$$
 
+### #3: Translating "Per"
 
-2. Follow GEMDAS. Do the exponents first. $(-2)^3$ means $(-2)$ times $(-2)$ times $(-2)$, which is $-8$. The square of $3$ is $9$.
+A machine makes $p$ parts in $h$ hours, where $h\ne0$. Express the number of parts made per hour.
 
-$$-8 - 4(-2)(3) + 9$$
+**Solution:**
 
+1. "Parts per hour" means parts divided by hours.
+2. Divide $p$ by $h$.
 
-3. Next, do the multiplication in the middle. Multiply $-4$ by $-2$ to get $8$. Then multiply $8$ by $3$ to get $24$.
+$$\dfrac{p}{h}$$
 
-$$-8 + 24 + 9$$
+### #4: Simplifying Expressions
 
+Simplify $4(2a-3b)-2(a-5b)$.
 
-4. Finally, add the numbers from left to right. Add $-8$ and $24$ to get $16$.
+**Solution:**
 
-$$16 + 9$$
+1. Distribute $4$ through the first group.
 
+$$8a-12b$$
 
-5. The final answer is $25$.
+2. Distribute $-2$ through the second group.
 
-### #4: The UPCAT Word Problem Setup
+$$-2a+10b$$
+
+3. Put the terms together.
+
+$$8a-12b-2a+10b$$
+
+4. Combine the like terms.
+
+$$(8a-2a)+(-12b+10b)$$
+
+5. Simplify.
+
+$$6a-2b$$
+
+### #5: Evaluating with Exponents
+
+If $x=-2$ and $y=3$, evaluate $x^3-4xy+y^2$.
+
+**Solution:**
+
+1. Replace $x$ with $(-2)$ and $y$ with $(3)$.
+
+$$(-2)^3-4(-2)(3)+(3)^2$$
+
+2. Evaluate the exponents.
+
+$$-8-4(-2)(3)+9$$
+
+3. Multiply the middle term.
+
+$$-8+24+9$$
+
+4. Add from left to right.
+
+$$16+9=25$$
+
+### #6: Consecutive Even Integers
 
 The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.
 
 **Solution:**
 
 1. Let the smallest even integer be $x$.
-2. Even numbers jump by $2$. So, the next even number is $x + 2$. The largest is $x + 4$.
-3. The problem says their sum is $S$. Add them all together and make it equal to $S$.
+2. The next even integer is $x+2$. The largest is $x+4$.
+3. Add the three integers and set their sum equal to $S$.
 
-$$x + (x + 2) + (x + 4) = S$$
+$$x+(x+2)+(x+4)=S$$
 
+4. Combine like terms.
 
-4. Simplify the left side by combining the $x$ parts and the regular numbers.
+$$3x+6=S$$
 
-$$3x + 6 = S$$
+5. Subtract $6$ from both sides.
 
+$$3x=S-6$$
 
-5. We need to find the largest integer, which is $x + 4$. First, let us solve for $x$. Subtract $6$ from both sides.
+6. Divide both sides by $3$.
 
-$$3x = S - 6$$
+$$x=\dfrac{S-6}{3}$$
 
+7. Add $4$ to get the largest integer.
 
-6. Divide everything by $3$.
+$$\text{Largest}=\dfrac{S-6}{3}+4$$
 
-$$x = \dfrac{S - 6}{3}$$
+8. Write $4$ as $\dfrac{12}{3}$.
 
+$$\text{Largest}=\dfrac{S-6}{3}+\dfrac{12}{3}$$
 
-7. Now, add $4$ to find the largest integer.
+9. Combine the numerators.
 
-$$\text{Largest} = \dfrac{S - 6}{3} + 4$$
-
-
-8. To add these, change $4$ into a fraction with a bottom number of $3$. The number $4$ is the same as $\dfrac{12}{3}$.
-
-$$\text{Largest} = \dfrac{S - 6}{3} + \dfrac{12}{3}$$
-
-
-9. Combine the tops. $-6$ plus $12$ is positive $6$.
-
-$$\text{Largest} = \dfrac{S + 6}{3}$$
-
-
+$$\text{Largest}=\dfrac{S+6}{3}$$
 
 ## Speed Tricks & Shortcuts
 
-Always look to simplify *before* you plug in numbers. Exams like the DOST-SEI will give you scary expressions with big numbers to plug in. Do not plug them in right away. If you factor or simplify the letters first, the math becomes very easy.
+Simplify before substituting large values when the expression allows it. Fewer terms usually mean fewer arithmetic steps and fewer chances to make a sign error.
 
-If a multiple-choice question asks you to translate a word problem into letters, plug in a real number! Make up a simple number, like $x = 2$. Solve the word problem in your head using the number $2$. Then, put $x = 2$ into the letters in choices A, B, C, and D. The choice that gives your matching answer is correct.
+In a multiple-choice translation question, testing a simple value can help check the choices. Use the same value in the words and in each choice.
+
+One test value is not proof because two different expressions can give the same result for that value. If two or more choices match, test another value and check the wording again.
 
 ## Traps to Watch For
 
-### #1: "$5$ less than $x$" is $x - 5$. But "$5$ is less than $x$" is $5 < x$.
+### #1: "Less Than" vs. "Is Less Than"
 
-The word "is" makes a huge difference. Without "is", you write a subtraction problem. With "is", you write an inequality symbol.
+> "$5$ less than $x$" and "$5$ is less than $x$" mean different things.
 
-### #2: $-3^2$ is $-9$. But $(-3)^2$ is $9$.
+The first phrase gives $x-5$. The second gives the inequality $5<x$.
 
-Exponents only apply to what they directly touch. If there are no parentheses, the exponent only squares the $3$, not the negative sign. Always use parentheses when you plug negative numbers into an expression.
+### #2: Negative Signs and Exponents
 
-### #3: When subtracting a group, you must flip every sign inside the group.
+> $-3^2$ and $(-3)^2$ are not the same.
 
-If you have $10 - (x - 4)$, the minus sign hits the $x$ and it hits the $-4$. A negative times a negative is a positive. The correct result is $10 - x + 4$, which simplifies to $14 - x$. Many students forget to flip the second sign.
+Without parentheses, the exponent applies only to $3$, so $-3^2=-9$. With parentheses, $(-3)^2=9$.
+
+### #3: Subtracting a Group
+
+> A minus sign before parentheses changes every sign inside the group.
+
+For example, $10-(x-4)=10-x+4=14-x$. Forgetting to change the second sign gives the wrong expression.
