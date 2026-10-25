@@ -1,0 +1,273 @@
+{
+ "batch": "RD-080",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+ "lesson_sha256": "2f198651b61cf53ff40e0329b1fc937e2fddba46766b9c4c9cae260780f61cb1",
+ "rewrite_commit": "1ed1e93f5cdcf9082311affc5b59b7ebc1492579",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "role": "A",
+  "lesson_sha256": "2f198651b61cf53ff40e0329b1fc937e2fddba46766b9c4c9cae260780f61cb1",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the stated legal rules with the official-source descriptions in the supplied audit and the brief: no contradiction identified. The underlying statutes were not supplied, so independent source confirmation is unavailable under this prompt-only review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers by example: 1 reply with action within 15 working days; 2 dated substantive reply and fair hearing matter; 3 refer and notify; 4 no, attend promptly; 5 obey court order and four-signature regulation; 6 oral permission insufficient; 7 late and inspection refusal improper; 8 privacy can protect details; 9 SALN exemption does not allow gifts; 10 financial-interest ban; 11 consultant job prohibited; 12 neither reason alone suffices; 13 prohibited disclosure for unfair advantage; 14 assigned-duty referral exception; 15 reject gift for favor; 16 outside-work ban still applies at six months; 17 recommendation ban still applies at four months; 18 former-office matter barred, all legal work not barred. These match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, numbered Examples, and Traps to Watch For are present. General Information permits omission of Speed Tricks; no required figure is identified in the brief."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching and solutions for unexplained dense legal prose. Legal labels are followed by short plain explanations; sentences generally carry one idea."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb needs a definition here.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each stem for needed donor, office, timing, authority, and purpose facts as applicable. Solutions explain the governing condition in ordinary words without the old abstract solution lead-ins."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam claims or stock exam introductions occur in the student prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar is taught in this lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino text appears in this lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino teaching prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question tests a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the actual scope; teaching uses varied openings and contains none of the prohibited stock phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information layout is followed. No worked example uses a mathematical formula; all numerical periods are legal conditions taught in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples 1-4 to response, complex complaint, referral, and counter duties; 5-6 to timing and substitute signatures; 7-9 to annual reporting, privacy, and volunteer coverage; 10-15 to interest, licensed work, private practice, confidential information, required referral, and gifts for favors; 16-18 distinguish three post-service activities. Recall progresses to condition-based cases. Detailed gift exceptions belong to the second supplied lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution uses numbered steps from its first action onward. No computation requires a display equation and no intervening reasoning step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [
+     "Checked paragraph lengths and list use throughout; solutions use numbered lists and teaching has no long bullet runs."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A request needs a review of old files. Within $15$ working days, the office explains the review underway and why more time is needed. The citizen later claims there was no response because the review remains unfinished. What evidence matters?",
+      "problem": "This example question is a single four-sentence paragraph. The formatting rule limits paragraphs to one to three short sentences. Split the paragraph or combine its facts clearly."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage, appointment types, SALN components, implementing rules, working days, reasonable time, privileged information, disciplinary action, financial interests, business roles, private practice, pending dealings, and protected information receive local meanings before application. No prerequisite is assumed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching explains how reply differs from completion, how reasonable periods are set, why lawful record limits apply, what disciplinary process does, and how office links trigger private-interest bans. Volunteer coverage is separated from SALN filing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked statutory deadlines, agency timing rules and delay factors, practicable signatures and written substitutes, lawful access restrictions, fair disciplinary process, express legal permission, practice conflict, required referral exceptions, and distinct one-year continuations. Gift details are explicitly left conditional rather than universally permitted."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L18|1": {
+    "status": "fixed",
+    "quote": "Sharing it gives an unfair private advantage. The Code prohibits the act.",
+    "note": "The expanded examples now apply distinct duties, bans, and exceptions rather than only recalling periods."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|B03|0": {
+    "status": "fixed",
+    "quote": "A complex matter still needs a timely reply.",
+    "note": "Traps to Watch For is present with six formatted warnings and explanations."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|B08|0": {
+    "status": "fixed",
+    "quote": "Section $5$ of RA $6713$ states duties of public officials and employees.",
+    "note": "Student-body quantities and section numbers use inline math. Frontmatter titles and audit metadata are not math prose."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L02|0": {
+    "status": "fixed",
+    "quote": "This is a process to decide whether a worker broke a work rule and should receive a penalty.",
+    "note": "The former dense disciplinary phrase now has a plain explanation."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L05|0": {
+    "status": "fixed",
+    "quote": "The office must reply within $15$ working days after receiving the request.",
+    "note": "The deadline solution now uses short direct language."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L25|0": {
+    "status": "fixed",
+    "quote": "This is a process to decide whether a worker broke a work rule and should receive a penalty.",
+    "note": "Administrative disciplinary action is defined immediately."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L27|0": {
+    "status": "fixed",
+    "quote": "When none exists, the agency head must issue rules setting a reasonable period.",
+    "note": "Timing criteria, external delays, signatory qualifications, and substitute authority are taught."
+   },
+   "general-information-code-of-conduct-ra-6713#2": {
+    "status": "fixed",
+    "quote": "The worker must receive notice of the charge and a fair chance to answer and present evidence.",
+    "note": "The lesson explains fair process and dated reply, referral, and delay evidence."
+   },
+   "general-information-code-of-conduct-ra-6713#6": {
+    "status": "fixed",
+    "quote": "The rules must consider the kind of work and how simple or complex it is.",
+    "note": "Reasonable time includes complexity, complete papers, valid deadlines, and external events."
+   },
+   "general-information-code-of-conduct-ra-6713#8": {
+    "status": "fixed",
+    "quote": "Workers must also attend promptly to people seeking services in person.",
+    "note": "Counter service is taught and applied in example four."
+   },
+   "general-information-code-of-conduct-ra-6713#9": {
+    "status": "fixed",
+    "quote": "Some investigation records may be withheld if release would harm enforcement or deny a fair trial.",
+    "note": "Concrete privacy, safety, privilege, draft, investigation, and financial restrictions are explained."
+   },
+   "general-information-code-of-conduct-ra-6713#33": {
+    "status": "fixed",
+    "quote": "This filing exemption does not remove the Code's duties and bans.",
+    "note": "Coverage includes unpaid designated volunteers and distinguishes SALN exemptions from conduct coverage."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|0": {
+    "status": "fixed",
+    "quote": "1. The office must reply within $15$ working days after receiving the request.",
+    "note": "The first solution starts directly with a numbered step."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|2": {
+    "status": "fixed",
+    "quote": "1. Agency A should refer the request to Agency B.",
+    "note": "All rewritten solutions keep their instructional steps numbered."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L22a|0": {
+    "status": "fixed",
+    "quote": "The rules must consider the kind of work and how simple or complex it is.",
+    "note": "The long teaching bullet runs have been replaced with short paragraphs; a separate example-paragraph issue remains."
+   }
+  }
+ }
+}
