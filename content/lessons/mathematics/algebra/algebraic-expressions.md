@@ -9,15 +9,13 @@ isActive: true
 ---
 ## Core Concept
 
-In algebra, a letter can stand for a number we do not know yet. The letter is called a **variable**.
+In algebra, a letter can stand for a number. The letter is called a **variable**.
 
-An **algebraic expression** is a math phrase made of numbers, variables, and operations. It has no equality sign unless the problem gives a relationship between two quantities.
-
-This lesson uses three skills: translation, simplification, and evaluation.
+An **algebraic expression** is a math phrase made of numbers, variables, and operations. It has no equality sign. An **equation** states that two expressions are equal, as in $x+2=7$.
 
 **Translation** means changing words into math symbols. Read the relationship first, then write the operations in the order the words describe.
 
-**Simplify** means rewrite an expression in a shorter equivalent form. **Evaluate** means find the final number answer after values are given.
+**Simplify** means rewrite an expression in a shorter form with the same value. **Evaluate** means find the final number answer after values are given.
 
 **Express** means write the answer in the form the question asks for.
 
@@ -29,31 +27,35 @@ The phrase "less than" reverses the written order. For example, "$5$ less than $
 
 The word **of** often means multiplication when it gives a part of a quantity. For example, "$\dfrac{3}{5}$ of $n$" means $\dfrac{3}{5}n$.
 
-The word **per** often describes a rate. A rate such as "items per hour" means items divided by hours, as long as the number of hours is not $0$.
+The word **per** often describes a rate. A rate such as "items per hour" means items divided by hours. The number of hours must not be $0$.
 
-The word "is" can connect two equal quantities, as in "$x$ is $7$". But a phrase such as "$5$ is less than $x$" uses the comparison $5<x$, not an equality sign.
+The word "is" can connect equal quantities, as in "$x$ is $7$." But "$5$ is less than $x$" uses the comparison $5<x$.
 
 ### Simplifying Expressions
 
+A **term** is a part of an expression separated by addition or subtraction. Keep its sign with it. In $3x-5$, the terms are $3x$ and $-5$.
+
+An **exponent** tells how many times a number or variable is used as a factor. For example, $x^2=x\times x$ and $x^3=x\times x\times x$.
+
 **Like terms** have the same variable part with the same exponents. For example, $3x$ and $-5x$ are like terms, but $3x$ and $3x^2$ are not.
 
-Combine like terms by adding or subtracting their number parts.
+Combine like terms by adding or subtracting their number parts. For example, $3x-5x=-2x$.
 
-The **distributive property** lets a factor outside parentheses multiply every term inside:
+The **distributive property** lets a number or expression outside parentheses multiply every term inside:
 
 $$c(a+b)=ca+cb$$
 
-and
+$$c(a-b)=ca-cb$$
 
-$$c(a-b)=ca-cb.$$
+An **integer** is a number with no fractional part, such as $-2$, $0$, or $3$. Consecutive even integers are neighboring multiples of $2$, so they differ by $2$. If the first is $x$, the next two are $x+2$ and $x+4$.
 
-Consecutive even integers differ by $2$. If the first is $x$, the next two can be written as $x+2$ and $x+4$.
+To find an unknown in an equation, keep the sides equal. Add or subtract the same amount on both sides, or divide both sides by the same nonzero number.
 
 ### Evaluating Expressions
 
 To evaluate, replace each variable with its given value. Put parentheses around a negative value before using an exponent.
 
-Follow the usual order of operations: grouping symbols, exponents, multiplication or division from left to right, then addition or subtraction from left to right.
+Follow this order: grouping symbols, exponents, multiplication or division from left to right, then addition or subtraction from left to right.
 
 ## Examples
 
@@ -64,8 +66,7 @@ Translate the phrase "four less than three times a number $k$" into an algebraic
 **Solution:**
 
 1. "Three times a number $k$" means $3k$.
-2. "Four less than" tells us to subtract $4$ from that amount.
-3. Write the expression.
+2. Subtract $4$ from that amount.
 
 $$3k-4$$
 
@@ -75,19 +76,17 @@ Express "$\dfrac{3}{5}$ of a number $n$" as an algebraic expression.
 
 **Solution:**
 
-1. The word "of" tells us to multiply $\dfrac{3}{5}$ by $n$.
-2. Write the product.
+The word "of" tells us to multiply:
 
 $$\dfrac{3}{5}n$$
 
 ### #3: Translating "Per"
 
-A machine makes $p$ parts in $h$ hours, where $h\ne0$. Express the number of parts made per hour.
+A machine makes $p$ parts in $h$ hours, where $h>0$. Express the average number of parts made per hour.
 
 **Solution:**
 
-1. "Parts per hour" means parts divided by hours.
-2. Divide $p$ by $h$.
+Divide the number of parts by the number of hours:
 
 $$\dfrac{p}{h}$$
 
@@ -97,23 +96,15 @@ Simplify $4(2a-3b)-2(a-5b)$.
 
 **Solution:**
 
-1. Distribute $4$ through the first group.
-
-$$8a-12b$$
-
-2. Distribute $-2$ through the second group.
-
-$$-2a+10b$$
-
-3. Put the terms together.
+1. Distribute $4$ through the first group and $-2$ through the second.
 
 $$8a-12b-2a+10b$$
 
-4. Combine the like terms.
+2. Group like terms.
 
 $$(8a-2a)+(-12b+10b)$$
 
-5. Simplify.
+3. Combine their number parts.
 
 $$6a-2b$$
 
@@ -123,11 +114,11 @@ If $x=-2$ and $y=3$, evaluate $x^3-4xy+y^2$.
 
 **Solution:**
 
-1. Replace $x$ with $(-2)$ and $y$ with $(3)$.
+1. Replace each variable with its value.
 
 $$(-2)^3-4(-2)(3)+(3)^2$$
 
-2. Evaluate the exponents.
+2. Work out the powers.
 
 $$-8-4(-2)(3)+9$$
 
@@ -145,43 +136,40 @@ The sum of three consecutive even integers is $S$. Express the largest integer i
 
 **Solution:**
 
-1. Let the smallest even integer be $x$.
-2. The next even integer is $x+2$. The largest is $x+4$.
-3. Add the three integers and set their sum equal to $S$.
+1. Let the smallest integer be $x$. The next two are $x+2$ and $x+4$.
+2. Set their sum equal to $S$.
 
 $$x+(x+2)+(x+4)=S$$
 
-4. Combine like terms.
+3. Combine like terms.
 
 $$3x+6=S$$
 
-5. Subtract $6$ from both sides.
+4. Subtract $6$ from both sides.
 
 $$3x=S-6$$
 
-6. Divide both sides by $3$.
+5. Divide both sides by $3$.
 
 $$x=\dfrac{S-6}{3}$$
 
-7. Add $4$ to get the largest integer.
+6. Add $4$ to find the largest integer.
 
 $$\text{Largest}=\dfrac{S-6}{3}+4$$
 
-8. Write $4$ as $\dfrac{12}{3}$.
+7. Write $4$ with denominator $3$, then add.
 
-$$\text{Largest}=\dfrac{S-6}{3}+\dfrac{12}{3}$$
-
-9. Combine the numerators.
+$$\text{Largest}=\dfrac{S-6+12}{3}$$
 
 $$\text{Largest}=\dfrac{S+6}{3}$$
 
 ## Speed Tricks & Shortcuts
 
-Simplify before substituting large values when the expression allows it. Fewer terms usually mean fewer arithmetic steps and fewer chances to make a sign error.
+Simplify before substituting large values when you can. Fewer terms can mean fewer arithmetic steps.
 
-In a multiple-choice translation question, testing a simple value can help check the choices. Use the same value in the words and in each choice.
+In a multiple-choice translation question, test a simple value in the words and in each choice. A different result rules out a choice.
 
-One test value is not proof because two different expressions can give the same result for that value. If two or more choices match, test another value and check the wording again.
+A matching result does not prove a choice is correct. For $x=2$, both $x+2$ and $2x$ give $4$. Try another value if choices tie, then confirm the answer from the wording.
 
 ## Traps to Watch For
 
@@ -189,7 +177,7 @@ One test value is not proof because two different expressions can give the same 
 
 > "$5$ less than $x$" and "$5$ is less than $x$" mean different things.
 
-The first phrase gives $x-5$. The second gives the inequality $5<x$.
+The first phrase gives $x-5$. The second gives the inequality $5<x$, which says that $5$ is smaller than $x$.
 
 ### #2: Negative Signs and Exponents
 
@@ -201,4 +189,4 @@ Without parentheses, the exponent applies only to $3$, so $-3^2=-9$. With parent
 
 > A minus sign before parentheses changes every sign inside the group.
 
-For example, $10-(x-4)=10-x+4=14-x$. Forgetting to change the second sign gives the wrong expression.
+For example, $10-(x-4)=10-x+4=14-x$. Leaving the second sign unchanged gives the wrong expression.
