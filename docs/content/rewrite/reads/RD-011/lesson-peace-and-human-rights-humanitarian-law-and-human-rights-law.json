@@ -1,0 +1,323 @@
+{
+ "batch": "RD-011",
+ "lesson_id": "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+ "path": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+ "lesson_sha256": "0872ac28d2b4f021576d201b492163a53adb75742574ff1e6af212b3e7f4b82a",
+ "rewrite_commit": "fb981d25bf820882889e3daac602fcd75bafcf85",
+ "form": {
+  "packet": "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+  "role": "A",
+  "lesson_sha256": "0872ac28d2b4f021576d201b492163a53adb75742574ff1e6af212b3e7f4b82a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Such a person must not be attacked and must be treated humanely.",
+      "problem": "The preceding definition makes surrender, detention, or disabling wounds sufficient for protection from attack without the continuing conditions that the person abstain from hostile acts and not attempt escape. The categorical rule is overbroad if those conditions cease to hold. No source is supplied in this prompt to resolve the omission."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Own answers from stems: #1 B; #2 IAC for states, NIAC for sufficiently intense fighting with an organized group; #3 no NIAC; #4 prohibited intentional civilian attack; #5 no attack on the surrendered fighter, humane treatment; #6 proportionality; #7 incorrect, concurrent HRL/IHL; #8 incorrect, proclamation and qualifying emergency required and some rights cannot be suspended; #9 consistent peacetime duties; #10 hear both groups, identify needs, agree lawful steps and follow up. These match the supplied solutions for the stated facts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. No figure is requested or necessary for these verbal legal scenarios."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "IHL forbids weapons that are indiscriminate or are of a nature to cause superfluous injury or unnecessary suffering.",
+      "problem": "The weapons rule uses indiscriminate and superfluous injury without plain explanations. The long list of non-derogable rights also uses servitude, retroactive criminal punishment, and recognition as a person before the law without explaining them. This teaching prose exceeds the required simple-English level."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use everyday instructions such as choose and identify, with no specialized exam instruction verb.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1 now supplies four candidate statements; the other nine questions are complete open-response cases. Scenario facts needed for conflict classification, attack decisions, derogation, and peaceful resolution are supplied without a missing passage or figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Exam references do not repeat a stock opener or make unsupported claims about exam frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language or grammar.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language or grammar.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language or grammar.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language or grammar.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language or grammar.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly; no listed stock AI phrase or three identical consecutive sentence openings appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information layout includes Core Concept, Examples, optional Speed Tricks & Shortcuts, and Traps to Watch For. No example uses a mathematical formula, so there is no formula to trace."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "### #6: Means and Methods of Warfare\n\nAn attack is planned against a military objective near homes.",
+      "problem": "Despite this heading, Example 6 tests only proportionality. There is no worked weapon-legality case or precautions decision, although the brief explicitly asks for means-of-warfare legality and methods applications. The emergency example also never applies a named non-derogable right to a concrete attempted suspension."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution starts directly with numbered steps; no unnumbered solution instruction remains, and no computation needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or numerical computations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs remain within one to three sentences; the four-option list belongs to a question, and numbered solutions do not create excessive teaching bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "These include the right to life, the ban on torture, the bans on slavery and servitude, the rule against imprisonment only for failure to fulfill a contract, the rule against retroactive criminal punishment, recognition as a person before the law, and freedom of thought, conscience, and religion.",
+      "problem": "Servitude, retroactive criminal punishment, and recognition as a person before the law are necessary to understand the list but receive no explanation, prerequisite reference, or later teaching. The weapons paragraph also leaves indiscriminate and superfluous injury unexplained."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "HRL is explained through timing and state duties; IHL through conflict classification, protected people, and attack rules.",
+     "Complementarity is explained through concurrent application and the more-specific IHL rule informing HRL on the same issue. Derogation and non-derogability receive operational meanings, not only labels.",
+     "Distinction, proportionality, and precautions describe what each test does; the peace-resolution section gives a sequence of actions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A person who is **hors de combat** is out of the fight.",
+      "problem": "The no-attack rule lacks the continuing conditions that the person abstain from hostile acts and not attempt escape. The Article 4 notice discussion also omits notification of the date when the derogation ends. These are relevant conditions of rules the lesson chooses to teach."
+     }
+    ]
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "CHR, UDHR, HRL, IHL, IAC, NIAC, and ICCPR where present are real acronyms, not emphasis; first definitions use bold and there is no excessive italic emphasis."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Such a person must not be attacked and must be treated humanely.",
+    "concern": "The categorical no-attack statement omits the conditions of abstaining from hostile acts and not attempting escape that qualify hors-de-combat protection. The wording could be applied to someone who resumes hostile acts."
+   }
+  ],
+  "brief_items": {
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|B03|0": {
+    "status": "fixed",
+    "quote": "HRL can continue during armed conflict. IHL also applies and supplies special rules for the conflict setting.",
+    "note": "Required traps and optional shortcuts now follow Examples."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L18|0": {
+    "status": "fixed",
+    "quote": "Civilians who are not taking part in hostilities may not be made the object of attack.",
+    "note": "Examples 4 and 5 test protected people; Example 7 directly tests concurrent HRL and IHL."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L02|0": {
+    "status": "fixed",
+    "quote": "To **derogate** means to temporarily suspend part of a treaty obligation under that emergency rule.",
+    "note": "The formerly unexplained emergency vocabulary now receives direct plain-language meanings."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L05|0": {
+    "status": "fixed",
+    "quote": "- A. HRL applies only in peacetime, while IHL binds only states.",
+    "note": "The comparison question now includes four explicit choices."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L19|0": {
+    "status": "fixed",
+    "quote": "1. HRL applies in peace and during armed conflict and mainly places duties on states.",
+    "note": "All worked solutions now begin directly with numbered steps."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L25|0": {
+    "status": "fixed",
+    "quote": "This means they cannot be suspended through Article $4$, even during a qualifying emergency.",
+    "note": "Derogate and non-derogable are now defined where introduced."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L25|1": {
+    "status": "fixed",
+    "quote": "meaning people within the state's territory or under its authority or control.",
+    "note": "Jurisdiction now has a short territory/authority/control gloss."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L26|0": {
+    "status": "fixed",
+    "quote": "During armed conflict, HRL can continue to apply at the same time as IHL.",
+    "note": "The relationship is explained through simultaneous application and a more-specific IHL rule."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L27|0": {
+    "status": "fixed",
+    "quote": "A state may use Article $4$ only when a public emergency threatens the life of the nation and the emergency is officially proclaimed.",
+    "note": "The lesson adds proclamation, national threat, strict necessity, and specific non-derogable rights, fixing the original vague emergency qualification."
+   },
+   "general-information-peace-and-human-rights#23": {
+    "status": "not_fixed",
+    "quote": "When both bodies of law cover the same issue, the more specific IHL rule for armed conflict can help determine how the human-rights rule applies in that setting.",
+    "note": "The text gives the more-specific-rule relationship but does not work through a concrete competing-rule legal case."
+   },
+   "general-information-peace-and-human-rights#26": {
+    "status": "not_fixed",
+    "quote": "It must state what obligations it has suspended and why.",
+    "note": "Qualification, proclamation, strict necessity, nondiscrimination, and international notice are now stated. The notice teaching still omits notice of termination."
+   },
+   "general-information-peace-and-human-rights#27": {
+    "status": "fixed",
+    "quote": "Some ICCPR rights are **non-derogable**.",
+    "note": "The ICCPR and Article 4 are identified, and specific protected rights are listed."
+   },
+   "general-information-peace-and-human-rights#29": {
+    "status": "fixed",
+    "quote": "States that are party to the Geneva Conventions must spread knowledge of IHL, train people who may need to apply it, and make laws needed to carry out important IHL duties.",
+    "note": "Geneva Conventions are identified, with dissemination, training, implementing laws, and a peacetime example."
+   },
+   "general-information-peace-and-human-rights#33": {
+    "status": "fixed",
+    "quote": "The proposed intentional attack on the civilians is prohibited.",
+    "note": "Example 4 applies distinction to a proposed intentional civilian attack."
+   },
+   "general-information-peace-and-human-rights#34": {
+    "status": "fixed",
+    "quote": "The opposing force must not attack the surrendered fighter and must treat him humanely.",
+    "note": "Example 5 applies protection and humane treatment to a clearly surrendered fighter. The general rule still needs the continuing conditions flagged separately."
+   },
+   "general-information-peace-and-human-rights#35": {
+    "status": "not_fixed",
+    "quote": "Parties do not have an unlimited choice of weapons or tactics.",
+    "note": "Weapons limits are stated, but no weapon is evaluated and no weapon-legality decision is worked."
+   },
+   "general-information-peace-and-human-rights#36": {
+    "status": "fixed",
+    "quote": "Because the expected civilian harm would be excessive, the attack as planned is prohibited by proportionality.",
+    "note": "Distinction, proportionality, and feasible precautions are explained, with a worked proportionality decision."
+   },
+   "general-information-peace-and-human-rights#44": {
+    "status": "fixed",
+    "quote": "The first situation is an IAC, while the second can be a NIAC if the intensity and organization requirements are met.",
+    "note": "Examples 2 and 3 classify interstate conflict, possible NIAC, and sub-threshold violence from stated facts."
+   },
+   "general-information-peace-and-human-rights#45": {
+    "status": "not_fixed",
+    "quote": "Some ICCPR rights cannot be suspended through Article $4$ at all.",
+    "note": "Example 8 rejects an ordinary protest without proclamation, but never applies a named non-derogable right to a specific suspension."
+   },
+   "general-information-peace-and-human-rights#46": {
+    "status": "fixed",
+    "quote": "Look for the needs behind each position and find lawful common ground.",
+    "note": "The lesson now teaches a peaceful dispute-resolution sequence and applies it to two community groups."
+   }
+  }
+ }
+}
