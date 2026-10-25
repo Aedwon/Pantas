@@ -95,4 +95,100 @@ void main() {
       throwsFormatException,
     );
   });
+  const identity = LessonIdentity(
+    path: 'content/lessons/math/topic/lesson.md',
+    subject: 'math',
+    topic: 'topic',
+    lesson: 'lesson',
+  );
+  File figure(String relative, [String content = '<svg/>']) =>
+      File('${root.path}/content/illustrations/$relative')
+        ..createSync(recursive: true)
+        ..writeAsStringSync(content);
+  LessonAssetMap load() => LessonAssetMap.fromJsonFile(
+        File('${root.path}/content/illustrations/assets.json'),
+      );
+  for (final name in [
+    'math/topic/lesson/1-short-number.svg',
+    'math/topic/lesson/01-Upper-Case.svg',
+    'math/topic/lesson/01-upper-extension.SVG',
+    'math/topic/lesson/01-photo.jpg',
+    'math/topic/lesson/01_underscore.svg',
+    'math/topic/lesson/00-zero.svg',
+    'math/topic/01-too-shallow.svg',
+    'math/topic/lesson/extra/01-too-deep.svg',
+  ]) {
+    test('misnamed figure file fails with its path and the rule: $name', () {
+      figure('math/topic/lesson/01-good.svg');
+      final bad = figure(name);
+      expect(
+        load,
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            allOf(contains(bad.path), contains('NN-slug')),
+          ),
+        ),
+      );
+    });
+  }
+  test('a figure file no marker uses fails with its path', () {
+    figure('math/topic/lesson/01-a.svg');
+    final unused = figure('math/topic/lesson/02-b.svg');
+    expect(
+      () => markdownToPortableText(
+        '<!-- ILLUSTRATION: Only one -->',
+        lesson: identity,
+        assets: load(),
+      ),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          allOf(contains(unused.path), contains('no ILLUSTRATION marker')),
+        ),
+      ),
+    );
+  });
+  test('figure files fail when the lesson has no markers at all', () {
+    final unused = figure('math/topic/lesson/01-a.svg');
+    expect(
+      () => markdownToPortableText(
+        'No figures here.',
+        lesson: identity,
+        assets: load(),
+      ),
+      throwsA(
+        isA<FormatException>()
+            .having((e) => e.message, 'message', contains(unused.path)),
+      ),
+    );
+  });
+  test('figures of a lesson that no longer exists fail with their path', () {
+    final orphan = figure('math/topic/renamed-lesson/01-a.svg');
+    figure('math/topic/lesson/01-b.svg');
+    expect(
+      () => load().assertNoOrphanFigures([identity]),
+      throwsA(
+        isA<FormatException>()
+            .having((e) => e.message, 'message', contains(orphan.path)),
+      ),
+    );
+    File(orphan.path).parent.deleteSync(recursive: true);
+    load().assertNoOrphanFigures([identity]);
+  });
+  test('a symbolic link in place of a figure file fails with its path', () {
+    final target = figure('math/topic/lesson/01-real.svg');
+    final link =
+        Link('${root.path}/content/illustrations/math/topic/lesson/02-link.svg')
+          ..createSync(target.path);
+    expect(
+      load,
+      throwsA(
+        isA<FormatException>()
+            .having((e) => e.message, 'message', contains(link.path)),
+      ),
+    );
+  });
 }

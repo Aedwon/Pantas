@@ -274,6 +274,14 @@ List<Map<String, Object?>> markdownToPortableText(
   }
 
   flushAll();
+  // A figure file that no marker consumed would otherwise be dropped silently.
+  final unused = assets.localFiguresFor(lesson).skip(illustrationSeq);
+  if (unused.isNotEmpty) {
+    throw FormatException(
+      'Figure file has no ILLUSTRATION marker to use it in ${lesson.path}: '
+      '${unused.join(', ')}',
+    );
+  }
   return blocks;
 }
 
