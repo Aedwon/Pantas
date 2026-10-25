@@ -149,6 +149,8 @@ $$f(x)=x+1,\qquad x\ne1$$
 3. The original denominator is $0$ at $x=1$, so that input stays outside the domain.
 4. The simpler line would have value $2$ there, so the graph has a hole at $(1,2)$.
 
+<!-- ILLUSTRATION: coordinate graph of y=(x^2-1)/(x-1), showing the line y=x+1 with an open circle at (1,2) -->
+
 ### #6: Absolute-Value Equation
 
 Solve $|2x-5|=7$.
@@ -175,6 +177,8 @@ Describe the graph of $f(x)=-2|x-3|+1$ from the basic graph $y=|x|$.
 2. Since $|a|=2>1$, the V is narrower than $y=|x|$.
 3. Since $a=-2<0$, the graph reflects across the $x$-axis and opens downward.
 4. The vertex is $(3,1)$.
+
+<!-- ILLUSTRATION: coordinate graph of y=-2|x-3|+1 with vertex (3,1), opening downward, alongside y=|x| for comparison -->
 
 ### #8: Exponential Growth and Decay
 
