@@ -19,8 +19,6 @@ A clear paragraph has **unity**, which means its sentences work together for one
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "main-idea", "mainIdea": "Central idea", "details": ["Supporting detail 1", "Supporting detail 2", "Supporting detail 3"], "semanticsLabel": "A diagram with a central idea supported by several related details."} -->
 
-### Paksa, Pangunahing Ideya, at Ayos ng Talata
-
 Ang **paksa** ay kung ano ang tinatalakay sa talata. Ang **pangunahing ideya** ay ang pinakamahalagang sinasabi tungkol sa paksa. Ang detalye ay nagbibigay ng paliwanag, halimbawa, o patunay.
 
 Ang **balangkas** ay maikling ayos ng pangunahing ideya at mahahalagang detalye. Isulat muna ang pangunahing ideya. Sa ilalim nito, ilagay ang magkakaugnay na detalye.
