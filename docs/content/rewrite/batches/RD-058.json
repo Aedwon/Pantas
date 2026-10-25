@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-divisibility-rules",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "7fb0952dc82de794782ad6c0be6af11afde7ec9c",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "7fb0952dc82de794782ad6c0be6af11afde7ec9c",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "7fb0952dc82de794782ad6c0be6af11afde7ec9c"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "3344ef6f9b809a4db34b1d76a851d95a83dfa0593ac2b0bc3af51268fdc74564",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "e530be55e7e1b3fa7ccad740077712b86dbb2eaaa98ac90f90223d5e61b8a11b",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "26df77085319977e2cf536f2d4b2f4532bd9285398de44294a9f5c3a93dd5a3a"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md"
+ },
+ "id": "RD-058",
+ "type": "read",
+ "created": "2026-10-25T20:06:22+00:00"
+}
