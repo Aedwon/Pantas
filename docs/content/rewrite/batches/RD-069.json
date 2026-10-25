@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "10368825a34a31e367ec7f68e6098ca53c933a4e"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "c1a81a99e55e3487244779da2d4b6c91796ab1ac2fbdd036402411315e27def9"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": "content/lessons/general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md"
+ },
+ "id": "RD-069",
+ "type": "read",
+ "created": "2026-10-25T22:12:56+00:00"
+}
