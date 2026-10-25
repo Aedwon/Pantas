@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-algebra-polynomials",
+  "lesson-algebra-types-of-functions",
+  "lesson-algebra-word-problems"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-polynomials": "35fe474fe20ea628e7865a55755006991429a21f",
+  "lesson-algebra-types-of-functions": "3cf1002f264051fe375c60d21d4f1f3823791586",
+  "lesson-algebra-word-problems": "35fe474fe20ea628e7865a55755006991429a21f"
+ },
+ "sha256": {
+  "lesson-algebra-polynomials": "7104b744fd7782dc0a419ee7eb049f5608890c6cdcddfa6db0274412d8eddc1f",
+  "lesson-algebra-types-of-functions": "694d6318cb01f564525a9784bd6bb74fc532545324491820020da71166807edb",
+  "lesson-algebra-word-problems": "5194be014685f72f49b7a537efb3bf628fcd0eb3dc6b1db1047d53aa3c6a863e"
+ },
+ "paths": {
+  "lesson-algebra-polynomials": "content/lessons/mathematics/algebra/polynomials.md",
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md",
+  "lesson-algebra-word-problems": "content/lessons/mathematics/algebra/word-problems.md"
+ },
+ "id": "RD-036",
+ "type": "read",
+ "created": "2026-10-25T16:06:57+00:00"
+}

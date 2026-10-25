@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-order-of-operations",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-order-of-operations": "a3f532081769c2c5ef77edbea87c3826c3962eb9",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "a3f532081769c2c5ef77edbea87c3826c3962eb9",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "a3f532081769c2c5ef77edbea87c3826c3962eb9"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-order-of-operations": "e5d4dc89d446042c2e2be74aec2010faa220610dcbb82c36c25dd843afbaf633",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "d0bbeb15290c7a8c1f22320e561dba133dd36efea0ec22d015e880f289845b67",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "7ecb60aba07ab65066369706c86a22ca51406eb996e216c7df46fbc998a577cd"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-order-of-operations": "content/lessons/mathematics/arithmetic-number-sense/order-of-operations.md",
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": "content/lessons/mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md"
+ },
+ "id": "RD-035",
+ "type": "read",
+ "created": "2026-10-25T16:05:37+00:00"
+}
