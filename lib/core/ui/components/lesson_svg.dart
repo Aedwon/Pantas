@@ -50,9 +50,20 @@ class LessonSvgColors extends ColorMapper {
 final _dataUrlBytes = <String, Uint8List>{};
 const _dataUrlBytesLimit = 16;
 
-Uint8List _decodedDataUrl(String url) {
-  final cached = _dataUrlBytes.remove(url);
-  final bytes = cached ?? Uri.parse(url).data!.contentAsBytes();
+/// The bytes a `data:` URL carries, or null when the URL is malformed.
+///
+/// Content can arrive with a damaged figure URL. Callers show their existing
+/// failure state for null instead of throwing while a widget builds.
+Uint8List? lessonDataUrlBytes(String url) {
+  var bytes = _dataUrlBytes.remove(url);
+  if (bytes == null) {
+    try {
+      bytes = Uri.tryParse(url)?.data?.contentAsBytes();
+    } on FormatException {
+      return null;
+    }
+    if (bytes == null) return null;
+  }
   _dataUrlBytes[url] = bytes;
   if (_dataUrlBytes.length > _dataUrlBytesLimit) {
     _dataUrlBytes.remove(_dataUrlBytes.keys.first);
@@ -63,10 +74,12 @@ Uint8List _decodedDataUrl(String url) {
 BytesLoader lessonSvgLoader(String url, PantasColors colors) {
   final theme = SvgTheme(currentColor: colors.label);
   final mapper = LessonSvgColors(colors);
-  final uri = Uri.parse(url);
-  if (uri.scheme == 'data') {
+  final uri = Uri.tryParse(url);
+  if (uri == null || uri.scheme == 'data') {
+    // Malformed input gets empty bytes: the SVG parser rejects them and the
+    // picture shows its error state. Callers normally check the URL first.
     return SvgBytesLoader(
-      _decodedDataUrl(url),
+      lessonDataUrlBytes(url) ?? Uint8List(0),
       theme: theme,
       colorMapper: mapper,
     );

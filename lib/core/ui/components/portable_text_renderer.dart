@@ -454,6 +454,9 @@ class _ImageBlockRenderer extends StatelessWidget {
   }
 
   Widget _image(BuildContext context, String url) {
+    if (url.startsWith('data:') && lessonDataUrlBytes(url) == null) {
+      return const _UnknownBlockPlaceholder(blockType: 'image');
+    }
     return ClipRRect(
       borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
       child: isLessonSvg(url)
@@ -468,7 +471,7 @@ class _ImageBlockRenderer extends StatelessWidget {
             )
           : url.startsWith('data:image/')
               ? Image.memory(
-                  Uri.parse(url).data!.contentAsBytes(),
+                  lessonDataUrlBytes(url)!,
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) =>
                       const _UnknownBlockPlaceholder(blockType: 'image'),

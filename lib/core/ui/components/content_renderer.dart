@@ -822,6 +822,13 @@ class _ContentImageState extends State<_ContentImage> {
   int _retry = 0;
   @override
   Widget build(BuildContext context) {
+    if (widget.url.startsWith('data:') &&
+        lessonDataUrlBytes(widget.url) == null) {
+      return _ImageFailure(
+        reader: widget.reader,
+        onRetry: () => setState(() => _retry++),
+      );
+    }
     if (isLessonSvg(widget.url)) {
       return SvgPicture(
         lessonSvgLoader(widget.url, context.colors),
@@ -858,7 +865,7 @@ class _ContentImageState extends State<_ContentImage> {
         credit: widget.credit,
         imageSemantics: false,
         figure: Image.memory(
-          Uri.parse(widget.url).data!.contentAsBytes(),
+          lessonDataUrlBytes(widget.url)!,
           fit: BoxFit.contain,
           semanticLabel: widget.label,
           excludeFromSemantics: widget.label.isEmpty,
