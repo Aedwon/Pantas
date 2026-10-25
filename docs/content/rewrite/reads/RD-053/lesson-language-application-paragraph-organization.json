@@ -1,0 +1,265 @@
+{
+ "batch": "RD-053",
+ "lesson_id": "lesson-language-application-paragraph-organization",
+ "path": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+ "lesson_sha256": "791aaf7d20cd22b4928b9a5e73256e1fe18e9330d46c61e9c5957513afff07ed",
+ "rewrite_commit": "182639f4de4deca7ea3c676211c98f56a0c1722e",
+ "form": {
+  "packet": "lesson-language-application-paragraph-organization",
+  "role": "A",
+  "lesson_sha256": "791aaf7d20cd22b4928b9a5e73256e1fe18e9330d46c61e9c5957513afff07ed",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the definitions of reference, contrast, result, chronology, cause/effect, main idea, and supported inference. The text qualifies opening-sentence and cause-first tendencies. Example passages are supplied scenarios, not claims about actual offices or history. No unsupported exam-format assertion is made; Filipino official usage remains subject to L11."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 C-B-A-D; #2 C-A-B; #3 however signals contrast between many supporters and some disagreement; #4 C-B-D-A; #5 B-C-A; #6 B-A; #7 A-B; #8 B; #9 Monday; #10 likely submitting an application; #11 keep paper forms because some lack internet and some need help; #12 B-C-D-A; #13 B-A, Hindi natuloy ang palaro dahil malakas ang ulan buong umaga; #14 library topic, references as information materials, library support for study as main idea, outline with books, research references, and quiet reading. Solutions match these answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. Required time order, both cause/effect orders, comprehension, and Filipino applications are included. No required figure is listed or needed by a question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Reference words are explained through this problem rather than abstract terminology. Definitions of chronology, main idea, detail, and inference use short explanations. The shortcut and trap prose remains direct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Coherent receives an immediate plain definition in #1. Infer is defined in Core Concept before #10. Arrange and read are everyday instructions; there is no unexplained Evaluate."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used. Concrete form and paragraph examples are direct applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked #1–7 and #12–13 for complete sentence sets and explicit ordering tasks. #8–11 and #14 supply their passages. #3 asks about an actually bold transition. Solutions use direct reference and meaning checks with simple wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported exam-specific format claim or repeated exam opener appears. The examples motivate the ordering skills through tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section explains reference, sequence, cause/effect, topic, and outlining in short Filipino sentences. Worked solutions #12–14 use direct explanations of the links."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Sanhi, bunga, paksa, and balangkas receive short English glosses at first definition, with no repeated glosses later. The rest of the Filipino wording uses ordinary terms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #12–14 have Filipino stems, sentence sets or passage, and solutions. English tasks #1–11 are part of the separate English teaching. The common Solution heading follows the template."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino prose and examples are present. KWF spelling and usage require a source check outside this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino teaching and solutions stay in Filipino apart from required first-use English glosses. No Taglish explanation replaces the Filipino prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "However in #3 is bold and the task says word in bold. Sanggunian in #14 is bold and the Filipino task says salitang nakadiin, the corresponding Filipino wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the skills directly. No listed stock phrase appears; teaching openings vary between definitions, directions, and qualifications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "This Language Proficiency lesson retains the standard core, examples, shortcuts, and traps. There are no mathematical formulas in any example, so no formula is introduced outside Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Distinct coverage: reference chain #1, general-to-example #2, contrast #3, procedure #4, chronological narrative #5, cause-first #6, effect-first #7, explanation main idea #8, notice detail #9, story inference #10, opinion and reasons #11, Filipino reference/sequence #12, Filipino causal construction #13, and Filipino topic/key meaning/explanation/outline #14. The later examples combine skills; the former repeated chain is replaced by different cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All fourteen multistep solutions use numbered steps. #14 presents its resulting outline after the numbered explanation. No reasoning step is skipped and no computation needs display math."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in the paragraph lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. The final four-bullet outline is the actual requested output, and bullet lists are otherwise absent. Numbered solution steps separate the reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder or figure-dependent question occurs.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Opening sentence, reference words, transitions, chronology, cause/effect, main idea, detail, inference, and coherent are explained before their tasks. Filipino sanhi, bunga, paksa, and balangkas are explained before #12–14; no missing prerequisite is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson teaches how to trace references, connect a general idea with its example, order dependent steps, follow time clues, distinguish causal links, choose a covering main idea, and infer from textual clues. The Filipino example builds an outline from the library passage rather than merely naming the skill."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that pronouns can open with known context, transitions do not force a sentence number, cause need not come first, chronological ordering depends on events, and inference requires textual support. Main ideas cannot add claims; Filipino explanations and outlines must stay within the passage."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-language-application-paragraph-organization|L18|0": {
+    "status": "fixed",
+    "quote": "Arrange the steps in the best order.",
+    "note": "Examples #4 and #5 separately work a procedure and a chronological account."
+   },
+   "lesson-language-application-paragraph-organization|L18|1": {
+    "status": "fixed",
+    "quote": "Cause does not always come first.",
+    "note": "Examples #6 and #7 work cause-first and effect-first arrangements."
+   },
+   "lesson-language-application-paragraph-organization|L02|0": {
+    "status": "fixed",
+    "quote": "If a sentence says *this problem*, ask what problem it means.",
+    "note": "The dense reference explanation is replaced with a short concrete check."
+   },
+   "lesson-language-application-paragraph-organization|L05|0": {
+    "status": "fixed",
+    "quote": "Many staff members agreed, but some did not.",
+    "note": "The contrast solution removes discourse and other abstract wording."
+   },
+   "lesson-language-application-paragraph-organization|L14|0": {
+    "status": "fixed",
+    "quote": "What does the word in bold tell you?",
+    "note": "The however question now uses bold and the required prompt wording."
+   },
+   "lesson-language-application-paragraph-organization|L19|0": {
+    "status": "fixed",
+    "quote": "1. (C) names the groups, river, and resources without needing an earlier sentence.",
+    "note": "The chain solution and other multistep solutions use numbered steps."
+   },
+   "language-proficiency-language-application#11": {
+    "status": "fixed",
+    "quote": "Arrange the sentences in time order.",
+    "note": "English worked examples cover both required procedure order and narrative time order."
+   },
+   "language-proficiency-language-application#44": {
+    "status": "fixed",
+    "quote": "What can be inferred about Nina's purpose?",
+    "note": "Examples #8–11 cover main idea, detail, inference, and reasons across an explanation, notice, story, and opinion."
+   },
+   "language-proficiency-language-application#51": {
+    "status": "fixed",
+    "quote": "Ang ayos ay **B → C → D → A**.",
+    "note": "Example #12 uses Filipino sequence and reference links to arrange letter-writing events."
+   },
+   "language-proficiency-language-application#52": {
+    "status": "fixed",
+    "quote": "Hindi natuloy ang palaro dahil malakas ang ulan buong umaga.",
+    "note": "Example #13 orders cause and effect and constructs the sentence with dahil."
+   },
+   "language-proficiency-language-application#54": {
+    "status": "fixed",
+    "quote": "Sa paggawa ng **balangkas** (outline), ilagay ang pangunahing ideya at ang mga detalyeng sumusuporta rito.",
+    "note": "Example #14 identifies topic and keyword meaning, explains the passage, and gives a supporting outline."
+   },
+   "lesson-language-application-paragraph-organization|L18|2": {
+    "status": "fixed",
+    "quote": "This larger copy presents the same information in an easier-to-read form.",
+    "note": "The second example now uses a separate general-to-specific set and the third teaches contrast."
+   }
+  }
+ }
+}

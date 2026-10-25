@@ -1,0 +1,345 @@
+{
+ "batch": "RD-053",
+ "lesson_id": "lesson-language-application-error-identification",
+ "path": "content/lessons/language-proficiency/language-application/error-identification.md",
+ "lesson_sha256": "5cca2d4234083b21b99753d8de7e022031e80f6ffe35df0a88c531ec4e613641",
+ "rewrite_commit": "182639f4de4deca7ea3c676211c98f56a0c1722e",
+ "form": {
+  "packet": "lesson-language-application-error-identification",
+  "role": "A",
+  "lesson_sha256": "5cca2d4234083b21b99753d8de7e022031e80f6ffe35df0a88c531ec4e613641",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked agreement with each, interrupting phrases, and nearer-subject agreement; singular their is permitted. Checked past progressive, past perfect, modal base forms, clause joining, sentence classifications, word classes, and lexical relations against the stated examples. No specific exam-format claim remains. Filipino official usage still needs the separate L11 source check; no external sources were supplied or consulted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 has, keeping their; #2 were; #3 were; #4 repeat Ana and change his to their; #5 finished, had sent; #6 was checking; #7 speaking clearly, watching television; #8 period and capital The, or semicolon; #9 clear; #10 can, may, must, might; #11 simple, compound, complex, compound-complex; #12 Maria left the umbrella behind; #13 A confusing; #14 B lengthy; #15 their; #16 B; #17 lumindol, natuwa; #18 B baka; #19 B; #20 A masaya. These match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All specified repair categories and the requested English and Filipino additions have teaching or examples. No question depends on a missing figure; the brief requests none."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English explanations of agreement, reference, modifiers, word form, time, modals, and clauses. Technical words receive short definitions and concrete sentences. The long public-scope paragraph is removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is removed. Classify is explained immediately as naming the sentence type. Correct, choose, rewrite, and complete are ordinary task words here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There is no tutor analogy in or outside Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all twenty stems for a task and needed context. #4 supplies the intended referent and ownership; #6 supplies the unfinished check; #8 specifies no causal link; #10 supplies intended modal meanings so the choice is determinate. Solutions explain the selected form in short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or test-maker openers occur. Tasks directly practice sentence checks without unsupported exam-format promises."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino core section, examples #16–20, and Filipino shortcut. The teaching uses short statements and familiar examples such as bukas, kahapon, and dito."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "First hard terms have English glosses: pandiwa, pang-abay, panghalip, pang-ugnay, pang-uri, pangngalan, sugnay, paksa, panaguri, clause types, and parirala. Later uses do not repeat the glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino tasks, choices, and explanatory steps in #16–20 use Filipino. English examples #1–15 belong to the separate English portion. The shared Solution label follows the required template."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from the supplied packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino prose uses Filipino wording. English in parentheses supplies the required first-use technical glosses. No English conversational phrases replace Filipino teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "The vocabulary targets unclear, brief, and Maligaya are bold. English prompts say word in bold; the Filipino prompt uses salitang nakadiin, its natural equivalent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes sentence checks plainly. No listed stock AI phrase occurs. Definitions, instructions, and explanations vary their openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language Proficiency uses the standard Core Concept, Examples, shortcut, and trap layout. There are no mathematical formulas used by the examples; the formula-first restriction has no instances to trace."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped cases: agreement #1–3; reference and number #4; completed, earlier, and ongoing past #5–6; coordinated and compared forms #7; comma splice and run-on #8; word form #9; four modal meanings #10; four sentence types #11; modifier #12; synonyms, antonyms, and confusing words #13–15; Filipino time, event/experience, possibility, structure, and synonyms #16–20. Examples progress from individual agreement checks to mixed structural and language applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1–19 show numbered reasoning steps. #20 has one direct answer, so a numbered sequence is unnecessary. No calculations require display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [
+     "Other teaching paragraphs stay within the sentence limit; lists are mainly numbered solution steps."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Complete each sentence with the modal that fits the stated meaning: \"Rosa (can / must) swim well\" describes ability. \"You (may / must) leave now\" gives permission. \"Under the rule, staff (must / might) wear IDs\" states a requirement. \"It (might / must) rain\" states only a possibility.",
+      "problem": "The modal question is one four-sentence paragraph. L22a limits paragraphs to one to three short sentences. Split the four contexts into separate paragraphs."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions to inspect.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Pronoun and antecedent, modifier, parallel structure, noun/adjective/adverb, tense/aspect, participle, modal, phrase, independent/dependent clause, and sentence types are explained locally before their tasks. Filipino grammar glosses are followed by descriptions or concrete uses; parirala is explained at its first use in #19. No prerequisite evidence is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson shows how to locate agreement subjects, repeat unclear names, match list forms, select word classes, read past timelines, choose modal forms, and connect complete clauses. Filipino examples apply time, possibility, clause count, and synonym meaning. Definitions are paired with operations or examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked nearer-subject condition, unchanged subject under along with, singular-their allowance, earlier-past versus simple-past limits, modal base-verb rule, independent/dependent joining conditions, initial dependent-clause comma guidance, and sentence-type clause counts. These qualify the methods rather than presenting unconditional shortcuts."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-language-application-error-identification|L18|0": {
+    "status": "fixed",
+    "quote": "Repeat the intended name",
+    "note": "Example #4 resolves the unclear referent and repairs plural ownership."
+   },
+   "lesson-language-application-error-identification|L18|1": {
+    "status": "fixed",
+    "quote": "Choose the forms that fit",
+    "note": "Examples #5 and #6 work completed, earlier, and ongoing past forms."
+   },
+   "lesson-language-application-error-identification|L18|2": {
+    "status": "fixed",
+    "quote": "Match the activities being compared",
+    "note": "Example #7 repairs both a coordinated list and a comparison."
+   },
+   "lesson-language-application-error-identification|L18|3": {
+    "status": "fixed",
+    "quote": "A period repairs both",
+    "note": "Example #8 repairs a comma splice and a run-on with valid boundaries."
+   },
+   "lesson-language-application-error-identification|L18|4": {
+    "status": "fixed",
+    "quote": "The blank describes the noun",
+    "note": "Example #9 selects the adjective by its job in the sentence."
+   },
+   "lesson-language-application-error-identification|L02|0": {
+    "status": "fixed",
+    "quote": "Read the directions before deciding how many changes to make.",
+    "note": "The abstract exam-scope paragraph is removed and the opening is plain."
+   },
+   "lesson-language-application-error-identification|L03|0": {
+    "status": "fixed",
+    "quote": "Which form is correct?",
+    "note": "The neither/nor task uses a direct question and no unexplained Evaluate."
+   },
+   "lesson-language-application-error-identification|L05|0": {
+    "status": "fixed",
+    "quote": "Choose a clear correction",
+    "note": "The dangling-modifier sentence now has an explicit correction task."
+   },
+   "lesson-language-application-error-identification|L25|0": {
+    "status": "fixed",
+    "quote": "matching the subject and main verb",
+    "note": "The checklist uses main verb and removes finite verb."
+   },
+   "lesson-language-application-error-identification|L25|2": {
+    "status": "fixed",
+    "quote": "**Aspect** shows whether an action is ongoing or already complete at a given point.",
+    "note": "Aspect now has a definition and a worked progressive application."
+   },
+   "language-proficiency-language-application#3": {
+    "status": "fixed",
+    "quote": "Use the past perfect to make an earlier past action clear",
+    "note": "Earlier past and simple past are explained and contrasted in #5."
+   },
+   "language-proficiency-language-application#4": {
+    "status": "fixed",
+    "quote": "Comparisons also need matching parts",
+    "note": "Both coordination and comparison are taught and repaired in #7."
+   },
+   "language-proficiency-language-application#22": {
+    "status": "fixed",
+    "quote": "The past progressive uses *was* or *were* plus an *-ing* form",
+    "note": "Definitions and examples cover completed, earlier, and ongoing past."
+   },
+   "language-proficiency-language-application#23": {
+    "status": "fixed",
+    "quote": "**Modal verbs** add meanings such as ability, permission, duty, or possibility.",
+    "note": "Four modal meanings and base-verb constructions are taught and applied."
+   },
+   "language-proficiency-language-application#28": {
+    "status": "fixed",
+    "quote": "A **phrase** is a word group without its own subject-and-verb pair",
+    "note": "Phrase and clause distinctions and four sentence types have local teaching and #11 applications."
+   },
+   "language-proficiency-language-application#55": {
+    "status": "fixed",
+    "quote": "Ang *baka, marahil,* at *maaari* ay nagpapakita ng posibilidad.",
+    "note": "Filipino possibility, time/place clues, and action/event/experience forms are taught and applied in #16–18."
+   },
+   "language-proficiency-language-application#56": {
+    "status": "fixed",
+    "quote": "Ang **masaya**, sagot **(A)**, ay kasingkahulugan ng *maligaya*.",
+    "note": "Example #20 applies Filipino synonym meaning in a sentence."
+   },
+   "lesson-language-application-error-identification|L19|0": {
+    "status": "fixed",
+    "quote": "1. The subject is the plural",
+    "note": "The formerly prose solutions now use numbered reasoning steps."
+   },
+   "lesson-language-application-error-identification|L25|1": {
+    "status": "fixed",
+    "quote": "Its **antecedent** is the noun it refers to.",
+    "note": "Antecedent has a short local explanation before reference checking."
+   },
+   "lesson-language-application-error-identification|L25|3": {
+    "status": "fixed",
+    "quote": "An **independent clause** can stand alone",
+    "note": "Both independent and dependent clauses are explained locally."
+   },
+   "lesson-language-application-error-identification|L26|0": {
+    "status": "fixed",
+    "quote": "The reading was in progress when the call happened.",
+    "note": "Time and aspect are explained with contrasts and then applied."
+   },
+   "lesson-language-application-error-identification|L26|1": {
+    "status": "fixed",
+    "quote": "**Parallel structure** uses matching forms for items doing the same job.",
+    "note": "Matching list and comparison forms are explained and repaired."
+   },
+   "lesson-language-application-error-identification|L26|2": {
+    "status": "fixed",
+    "quote": "Join independent clauses with a period, a semicolon, or a comma plus a joining word",
+    "note": "Clause joining choices are taught and used in the punctuation example."
+   },
+   "lesson-language-application-error-identification|L26|3": {
+    "status": "fixed",
+    "quote": "For **word form**, ask what job the word does.",
+    "note": "Noun, adjective, and adverb jobs guide the word-form choice."
+   },
+   "lesson-language-application-error-identification|L27|0": {
+    "status": "fixed",
+    "quote": "Simple past can be enough when words such as *before* or *after* already make the order clear.",
+    "note": "The lesson limits past perfect and explains when simple past suffices."
+   },
+   "lesson-language-application-error-identification|L27|1": {
+    "status": "fixed",
+    "quote": "items doing the same job",
+    "note": "The condition for matching forms covers lists and comparisons."
+   },
+   "lesson-language-application-error-identification|L27|2": {
+    "status": "fixed",
+    "quote": "When the dependent clause comes first, usually add a comma",
+    "note": "Independent-clause joins and dependent-clause placement receive conditions."
+   }
+  }
+ }
+}
