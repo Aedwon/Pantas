@@ -100,7 +100,7 @@ $$P(R_2\mid R_1)=\dfrac47$$
 
 3. Multiply the two probabilities.
 
-$$P(R_1\text{ and }R_2)=\dfrac58\times\dfrac47=\dfrac5{14}$$
+$$P(R_1\cap R_2)=\dfrac58\times\dfrac47=\dfrac5{14}$$
 
 ### #5: Sampling With Replacement
 
@@ -109,15 +109,15 @@ A bag holds $5$ red and $3$ blue marbles. One marble is drawn, returned to the b
 **Solution:**
 1. The chance of red on the first draw is:
 
-$$P(R_1)=\dfrac58$$
+$$\dfrac58$$
 
 2. The first marble is returned. The bag again has $5$ red marbles out of $8$ total.
 
-$$P(R_2)=\dfrac58$$
+$$\dfrac58$$
 
 3. Multiply the two probabilities.
 
-$$P(R_1\text{ and }R_2)=\dfrac58\times\dfrac58=\dfrac{25}{64}$$
+$$\dfrac58\times\dfrac58=\dfrac{25}{64}$$
 
 ### #6: Mutually Exclusive and Overlapping "Or"
 
