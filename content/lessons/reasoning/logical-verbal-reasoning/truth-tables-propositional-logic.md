@@ -1,95 +1,134 @@
 ---
 _id: "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
 title: "Truth Tables and Propositional Logic"
-summary: "Learn how to build and read truth tables for logical connectives like AND, OR, NOT, and IF...THEN."
+summary: "Build and read truth tables for negation, conjunction, disjunction, conditionals, and combined logical statements."
 subject: "subject-reasoning"
 topic: "topic-logical-verbal-reasoning"
 estimatedMinutes: 11
 isActive: true
 ---
+
 ## Core Concept
 
-**Propositional logic** studies how simple true/false statements (called **propositions**) combine using logical connectives. A **truth table** lists every possible combination of true (T) and false (F) values for the statements involved, showing the resulting truth value of the combined statement in each case.
+**Propositional logic** studies statements that are either true or false. A **proposition** is a statement with one truth value, true or false.
 
-**not** (negation, symbol $\neg$): flips a statement's truth value. If $P$ is true, $\neg P$ is false, and vice versa.
+A **truth table** lists all possible truth values for the propositions in a logical statement. It shows the truth value of the full statement for each case.
 
-**and** (conjunction, symbol $\land$): "$P \land Q$" is true only when both $P$ and $Q$ are true. It is false in every other case.
+**not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is true, $\neg P$ is false. If $P$ is false, $\neg P$ is true.
 
-**or** (disjunction, symbol $\lor$): "$P \lor Q$" is true when at least one of $P$ or $Q$ is true (including when both are true). It is false only when both are false.
+**and** (conjunction, symbol $\land$) is true only when both statements are true. So $P \land Q$ is false if either statement is false.
 
-**if...then** (conditional, symbol $\rightarrow$): "$P \rightarrow Q$" (read "if $P$ then $Q$") is false only in the one case where $P$ is true but $Q$ is false. In every other case (including when $P$ is false), the conditional is considered true.
+**or** (disjunction, symbol $\lor$) is true when at least one statement is true. This includes the case where both statements are true. It is false only when both statements are false.
 
-| $P$ | $Q$ | NOT ($\neg P$) | AND ($P \land Q$) | OR ($P \lor Q$) | IF...THEN ($P \rightarrow Q$) |
-| --- | --- | --- | --- | --- | --- |
-| T | T | F | T | T | T |
-| T | F | F | F | T | F |
-| F | T | T | F | T | T |
-| F | F | T | F | F | T |
+**if...then** (conditional, symbol $\rightarrow$) is written as $P \rightarrow Q$ and read as "if $P$, then $Q$." It is false only when $P$ is true and $Q$ is false.
 
-The conditional's truth table often surprises students: "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is. This reflects the idea that a conditional promise is only broken when the condition happens ($P$ is true) but the promised result does not ($Q$ is false); if the condition never happens, the promise cannot be broken.
+Think of a conditional as a promise: if $P$ happens, then $Q$ happens. The promise is broken only when $P$ happens but $Q$ does not. If $P$ is false, the conditional is true no matter whether $Q$ is true or false.
+
+For a combined expression, work inside parentheses first. Then evaluate the connective outside the parentheses.
+
+**Evaluate** means find the final truth value.
 
 ## Examples
 
 ### #1: Building an AND Truth Table
 
-Build the complete truth table for "$P \land Q$."
+Build the complete truth table for $P \land Q$.
 
 **Solution:**
-1. List all four possible combinations of $P$ and $Q$: (T,T), (T,F), (F,T), (F,F).
-2. Apply the rule: And is true only when both are true.
-3. (T,T) → true. (T,F) → false. (F,T) → false. (F,F) → false.
+1. List all four possible pairs of truth values.
 
-### #2: Evaluating an OR Statement
+$$
+(T,T),\ (T,F),\ (F,T),\ (F,F)
+$$
 
-If $P$ is false and $Q$ is true, what is the truth value of "$P \lor Q$"?
+2. Use the rule for and. The result is true only when both values are true.
+3. Evaluate each pair.
+
+$$
+T \land T = T
+$$
+
+$$
+T \land F = F
+$$
+
+$$
+F \land T = F
+$$
+
+$$
+F \land F = F
+$$
+
+These four results give the complete truth table for $P \land Q$.
+
+### #2: Evaluating a Negation
+
+If $P$ is false, what is the truth value of $\neg P$?
 
 **Solution:**
-1. Or is true when at least one of the two statements is true.
-2. Here, $Q$ is true (even though $P$ is false).
-3. "$P \lor Q$" is true.
 
-### #3: Evaluating a Conditional Statement
+Negation flips the truth value. Since $P$ is false, $\neg P$ is true.
 
-If $P$ is false and $Q$ is false, what is the truth value of "$P \rightarrow Q$"?
+### #3: Evaluating an OR Statement
 
-**Solution:**
-1. The conditional "$P \rightarrow Q$" is false only in the specific case where $P$ is true and $Q$ is false.
-2. Here, $P$ is false, so this specific "broken promise" case does not apply.
-3. "$P \rightarrow Q$" is true (since $P$ is false, the conditional is automatically considered true, regardless of $Q$'s value).
-
-### #4: Combining Connectives
-
-If $P$ is true, $Q$ is false, and $R$ is true, evaluate "$(P \land Q) \lor R$."
+If $P$ is false and $Q$ is true, what is the truth value of $P \lor Q$?
 
 **Solution:**
-1. First evaluate the inner expression, "$P \land Q$": $P$ is true, $Q$ is false, so and requires both true. This is false.
-2. Now evaluate the full expression: "$(P \land Q) \lor R$" becomes "false $\lor$ R," and $R$ is true.
-3. Or is true when at least one side is true, so the full expression is true.
+
+Or is true when at least one statement is true. Since $Q$ is true, $P \lor Q$ is true.
+
+### #4: Evaluating a Conditional Statement
+
+If $P$ is false and $Q$ is false, what is the truth value of $P \rightarrow Q$?
+
+**Solution:**
+
+A conditional is false only when $P$ is true and $Q$ is false. Here, $P$ is false, so $P \rightarrow Q$ is true.
+
+### #5: Combining Connectives
+
+If $P$ is true, $Q$ is false, and $R$ is true, evaluate $(P \land Q) \lor R$.
+
+**Solution:**
+1. Evaluate the expression inside the parentheses first.
+
+$$
+T \land F = F
+$$
+
+2. Replace $P \land Q$ with its truth value, then evaluate the or statement.
+
+$$
+F \lor T = T
+$$
+
+The full expression is true.
 
 ## Speed Tricks & Shortcuts
 
-**Memorize each connective with one key phrase**: And needs "both true" to be true; or needs "at least one true" to be true; the conditional is "only false when the if-part is true but the then-part is false."
+For and, one false value is enough to make the result false. For or, one true value is enough to make the result true.
 
-**For the conditional specifically, remember: "false leading anywhere is automatically true."** If the "if" part ($P$) is false, the whole conditional statement is true, no matter what the "then" part says.
+For a conditional, remember the one false case: a true if-part followed by a false then-part. Every other pair gives a true conditional.
 
-**For combined expressions, always solve the innermost parentheses first**, exactly like order of operations in math, then work outward to the final connective.
+For combined expressions, solve inside parentheses first. Then work outward until you reach the final truth value.
 
 ## Traps to Watch For
 
-### #1: Assuming the Conditional Behaves Like Everyday "Because" Statements
+### #1: Treating a Conditional Like Everyday Speech
 
-> "$P \rightarrow Q$" is only false in one specific case: $P$ true and $Q$ false. In every other combination, including when $P$ is false, the conditional is considered true.
+> $P \rightarrow Q$ is false only when $P$ is true and $Q$ is false.
 
-Everyday intuition might suggest that "if $P$ is false, we can't say anything about the conditional," but formal propositional logic always assigns a definite truth value (true, in this case) to a conditional whose "if" part is false.
+Formal logic always gives a conditional a truth value. If $P$ is false, the conditional is true, so choosing false just because the condition did not happen is an error.
 
-### #2: Confusing AND and OR's True Cases
+### #2: Mixing Up AND and OR
 
-> And requires both statements to be true. Or requires only at least one to be true.
+> And needs both statements to be true. Or needs at least one statement to be true.
 
-Mixing these up is one of the most common truth-table errors; anchor them by remembering and is the stricter connective (harder to satisfy), while or is more lenient (easier to satisfy).
+A question may tempt you to use the and rule for an or statement, or the or rule for an and statement. That can turn a true result into a false one, or a false result into a true one.
 
-### #3: Evaluating Combined Expressions in the Wrong Order
+### #3: Ignoring Parentheses
 
-> Just like arithmetic order of operations, evaluate the innermost parentheses first, then work outward to the connective joining the larger expression.
+> Evaluate the expression inside parentheses before combining it with the rest.
 
-Evaluating "$(P \land Q) \lor R$" by mistakenly combining $Q$ and $R$ first (ignoring the parentheses grouping $P$ and $Q$ together) produces an incorrect final truth value.
+Changing the grouping can change the answer. For $P=F$, $Q=T$, and $R=T$, $(P \land Q) \lor R$ is true, but $P \land (Q \lor R)$ is false.
