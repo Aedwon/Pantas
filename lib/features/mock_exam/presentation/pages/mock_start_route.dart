@@ -564,7 +564,14 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       unawaited(ref.read(telemetryProvider).recordError(e, stackTrace));
       if (mounted) {
         setState(() {
-          _retryError = () => _handleSubmit(reason);
+          _retryError = () {
+            ref.invalidate(
+              mockScoringQuestionsProvider(
+                _sessionSnapshot(_controller!).attemptId,
+              ),
+            );
+            _handleSubmit(reason);
+          };
           _submitting = false;
         });
       }
