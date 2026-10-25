@@ -93,3 +93,18 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
   (PR #34 held after three form rejections; lead fixed L19 via Codex account c and handed in
   locally, 92c5bd55; PR closed unmerged), RD-008 (Sonnet reader; 28370225). Leftover branches
   `cse-inbox/RD-003` and `cse-inbox/RD-006` await Aedwon's approval to delete.
+
+## October 25: pilot report
+
+- 15 lessons rewritten and read (14 via web chat, 1 via Codex; RA 6713 lessons rewritten twice).
+- Brief items in latest reads: 278 fixed, 9 not fixed (all in the 3 language application lessons).
+- New findings in latest reads: Blocker 2, Major 20, Minor 7. 17 of the 20 Majors and both
+  Blockers are in the 3 language application lessons; L18 (example coverage) is 12 of 20 Majors.
+  Single Majors (L18) in penalties and enforcement, statements of assets, number and letter
+  sequences.
+- Hand-in rejections were mostly form-format slips; 2 batches held, both recovered by the lead.
+- ChatGPT GitHub connector refusals: at least 4 named (earth science lesson 3 times), plus
+  unnamed relay refusals in run 1. Codex and Sonnet fallbacks worked.
+- Time: rewrites 15:34 to 18:31, reads 15:56 to 19:03 (two accounts, part-time pasting).
+- Length: the 15 lessons went from 9,965 to 20,996 words (about 1,400 per lesson, within the
+  1,700 ceiling).
