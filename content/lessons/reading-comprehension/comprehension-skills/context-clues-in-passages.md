@@ -136,7 +136,7 @@ Aling pahayag ang pinakaangkop na kahulugan ng pangungusap?
 2. Ang *bukas* at *ngayon* ay nagpapakita kung kailan maaaring mangyari ang mga kilos.
 3. Sinasabi ng pangungusap na **posibleng dumating si Mara bukas, depende sa pagtatapos niya ng gawain ngayon**.
 
-## Reading Strategies
+## Speed Tricks & Shortcuts
 
 **Read around the word.** Check at least one nearby sentence before and after it when possible.
 
