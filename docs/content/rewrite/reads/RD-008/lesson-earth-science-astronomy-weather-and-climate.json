@@ -1,0 +1,352 @@
+{
+ "batch": "RD-008",
+ "lesson_id": "lesson-earth-science-astronomy-weather-and-climate",
+ "path": "content/lessons/science/earth-science-astronomy/weather-and-climate.md",
+ "lesson_sha256": "47c6b658e873ffc0e9c8692ef8788f3fafd97e2c4f04fc31e4becaaf51d6b2a6",
+ "rewrite_commit": "7b5be7f996131a1432a6d43de2f4dc56a141c1f2",
+ "form": {
+  "packet": "lesson-earth-science-astronomy-weather-and-climate",
+  "role": "A",
+  "lesson_sha256": "47c6b658e873ffc0e9c8692ef8788f3fafd97e2c4f04fc31e4becaaf51d6b2a6",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked layer heights (troposphere 6-20 km, stratosphere to 50 km, ozone 15-35 km, mesosphere 50-85 km, thermosphere from 85 km) against standard references.",
+     "Checked PAGASA cyclone bands (118-184 typhoon, 185+ super typhoon), Habagat start late May to early June and end October, Amihan late year to March or April, peak typhoon months July to October, counterclockwise spin in the Northern Hemisphere."
+    ],
+    "note": "Facts match what I know; the 39 km/h lower bound for tropical depression is listed under accuracy concerns for a source check.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Ex1: (a) weather, (b) climate. Matches.",
+     "Ex2: above weather plus ozone plus rising temperature = stratosphere. Matches.",
+     "Ex3: sea breeze by day, land breeze at night. Matches.",
+     "Ex4: cold land, high pressure, outflow, Amihan. Matches.",
+     "Ex5: southwesterly warm moist, western rain = Habagat. Matches.",
+     "Ex6: Amihan is not dry everywhere; eastern side wet. Matches.",
+     "Ex7: ITCZ, convergence and rising air give rain without typhoon. Matches.",
+     "Ex8: cyclone weakens over land from lost warm-water supply. Matches.",
+     "Ex9: 130 km/h is in 118-184, so typhoon; southwesterly flow is Habagat. Matches.",
+     "Ex10: storm surge, evacuate without waiting for rain. Matches.",
+     "Ex11: infrared. Matches.",
+     "Ex12: thermal expansion plus ice melt raise sea; floods, costs, relocation. Matches.",
+     "Ex13: drain clearing is adaptation, solar is mitigation. Matches."
+    ],
+    "note": "All thirteen worked answers solved from the question alone and agree with the lesson.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Monsoon mechanism: seasonal land-ocean heating, pressure difference, wind reversal, in the Philippine Monsoons section.",
+     "Tropical cyclone formation: warm water, low-pressure center, convection, condensation heat, rotation, plus limits.",
+     "Sea and land breezes, ITCZ with condensation, hydrometeorological hazards and protection, climate-change effects and responses all present.",
+     "Figure needs: the brief lists none; an atmosphere-layers figure and four illustration placeholders are present."
+    ],
+    "note": "All required content named in the brief is now taught.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Core Concept as a Grade 5 student: jargon from the brief ('kinetic temperatures', 'climatological onset', 'ablate') is gone.",
+     "Terms such as convection, convergence, condensation, maximum sustained winds and hydrometeorological hazards are defined where first used.",
+     "Sentences are mostly under 20 words."
+    ],
+    "note": "A few phrases are denser (shortwave versus longer-wave energy) but do not block understanding.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "First exam verb is 'Classify' in Example #1, and it is explained in one line right before the question.",
+     "'Explain' and 'Choose' are everyday words and need no gloss."
+    ],
+    "note": "The brief's L03 item is fixed.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned Core Concept and the rest for analogies; none used."
+    ],
+    "note": "Zero analogies, within the limit of one.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Example stems use scenario wording (PAGASA bulletin, barangay, coastal town) and give only problem-specific facts such as 130 km/h.",
+     "Solutions use simple language and short steps.",
+     "Example #7 describes the ITCZ in the stem as a clue; the tested part is why it rains, so this is acceptable."
+    ],
+    "note": "Stems do not hand over the cyclone bands or monsoon mechanism that students must know.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for exam mentions: the lesson names PAGASA as a source only and has no repeated exam openers."
+    ],
+    "note": "No repeated or empty exam mentions.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English science lesson, so the Filipino-language rules do not apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English science lesson, so the Filipino-language rules do not apply.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English science lesson, so the Filipino-language rules do not apply.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English science lesson, so the Filipino-language rules do not apply.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no Filipino teaching text; Habagat, Amihan and barangay are proper or local terms only.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for stock phrases (important to note, delve, crucial, vital role, furthermore, moreover, not just ... but): none found.",
+     "Read paragraph openings; no run of three the same way.",
+     "Summary names the contents plainly and does not open with 'This lesson teaches'."
+    ],
+    "note": "No stock AI phrasing found.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Section fit: Core Concept, Examples, Speed Tricks & Shortcuts, Traps; allowed for earth science.",
+     "No formulas appear in any example. The only numeric rules, the cyclone bands used in Example #9 and the infrared idea in Example #11, are in Core Concept first."
+    ],
+    "note": "No formula is introduced in an example.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped cases: weather vs climate, layer identification, sea/land breeze, monsoon mechanism, Habagat, Amihan misconception, ITCZ rain, cyclone weakening, typhoon vs Habagat, storm surge, greenhouse effect, sea-level chain, mitigation vs adaptation.",
+     "Order ramps from definition recall to multi-step reasoning; no near-duplicates."
+    ],
+    "note": "Coverage is broad. Only the layer example (one of five layers), and no drought example, are thin but not clear gaps.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all thirteen solutions: each has two or more steps and each is a numbered list.",
+     "No computations need display equations; Example #9 compares one number inline."
+    ],
+    "note": "Brief L19 fixed: Examples 2 to 5 now use numbered steps.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned paragraphs: none exceed three sentences.",
+     "One bullet list, the five cyclone categories."
+    ],
+    "note": "Paragraph length and list use are within the limits.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Read four ILLUSTRATION lines (breezes, monsoon maps, cyclone, plus the atmosphere FIGURE entry): each is specific enough to draw.",
+     "Core Concept text describes each situation in words, so it teaches without the image."
+    ],
+    "note": "Placeholders are specific and not load-bearing.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced needed terms: ozone, radiation, troposphere, tropopause, convection, condensation, convergence, maximum sustained winds, gusts, evaporation, mitigation, adaptation are defined before use.",
+     "Stratosphere temperature rise needed by Example #2 is stated in Core Concept. 'Ablate' is replaced by 'burn up'."
+    ],
+    "note": "Both L25 brief items are fixed. 'Northern Hemisphere' and 'shortwave' are not defined but the teaching does not depend on them.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Monsoon: land-ocean heating gives pressure change and wind reversal.",
+     "Cyclone: warm water, rising moist air, condensation heat, spin, and limits.",
+     "Greenhouse effect and warming-to-effects chains are explained, not only named."
+    ],
+    "note": "Both brief L26 items are fixed.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Found limits: monsoon dates are guides, breezes are local and can be hidden by larger winds, layer heights vary, typhoon category says nothing about rain, warming does not mean wetter everywhere, one event proves no trend."
+    ],
+    "note": "Applicability and limits are stated.",
+    "findings": []
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "Flagged lines are ITCZ, a real acronym, and PAGASA and km, so not caps emphasis.",
+     "Bold is used for key terms on first definition; no italics overuse."
+    ],
+    "note": "Script candidates are all acronyms, which are allowed.",
+    "findings": []
+   }
+  },
+  "illustrations": [
+   {
+    "kind": "concept",
+    "method": "code",
+    "priority": "medium",
+    "status": "missing",
+    "position_quote": "More greenhouse gases slow energy loss to space, so the surface and lower air warm.",
+    "description": "Earth with sunlight arrows in labeled Shortwave and surface arrows out labeled Infrared; some infrared absorbed by gas layer and sent back down toward the surface.",
+    "why": "Shows the main process of the greenhouse effect, which text alone makes hard to picture."
+   }
+  ],
+  "accuracy_concerns": [
+   {
+    "quote": "Tropical depression: $39$ to $61$ km/h.",
+    "concern": "PAGASA states tropical depression as up to 61 km/h; the lower bound of 39 km/h should be checked against the PAGASA source."
+   }
+  ],
+  "brief_items": {
+   "lesson-earth-science-astronomy-weather-and-climate|B03|0": {
+    "status": "fixed",
+    "quote": "Seasonal differences in land and ocean heating help cause this change.",
+    "note": "Monsoon section now explains land-ocean heating, pressure difference and the winter-summer reversal."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|B03|1": {
+    "status": "fixed",
+    "quote": "Condensation releases heat, which helps keep air warm and rising.",
+    "note": "Cyclone formation from warm water, low pressure, convection, condensation heat and rotation is taught."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|B03|2": {
+    "status": "fixed",
+    "quote": "Warming seawater expands and takes up more space.",
+    "note": "Core Concept now has cause chains, social effects, government choices, mitigation and adaptation."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|B03|3": {
+    "status": "fixed",
+    "quote": "Land heats and cools faster than the sea.",
+    "note": "Sea and land breezes, ITCZ, and hazards with protection each have their own subsections."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L18|0": {
+    "status": "fixed",
+    "quote": "A PAGASA bulletin reports maximum sustained winds of $130$ km/h near a cyclone's center.",
+    "note": "Example #9 applies the typhoon band and separates it from Habagat."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L19|0": {
+    "status": "fixed",
+    "quote": "1. Nearly all ordinary weather occurs in the troposphere. The balloon has risen above it.",
+    "note": "Example #2 and all other solutions now use numbered steps with clue-by-clue reasoning."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L26|0": {
+    "status": "fixed",
+    "quote": "Seasonal differences in land and ocean heating help cause this change.",
+    "note": "Explains heating, pressure difference and the resulting wind reversal for both monsoons."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L26|1": {
+    "status": "fixed",
+    "quote": "Moist air rises through convection, and surface air moves toward the lower-pressure center.",
+    "note": "Formation and sustaining of the cyclone is explained, with the role of warm water and condensation."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L02|0": {
+    "status": "fixed",
+    "quote": "Its gas particles move very fast, so its measured temperature is high.",
+    "note": "'Kinetic temperatures' is gone and the explanation now uses plain words."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L02|1": {
+    "status": "fixed",
+    "quote": "Its usual start is from late May to early June, and it commonly ends in October.",
+    "note": "The dense onset and termination sentence is split into short plain sentences."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L03|0": {
+    "status": "fixed",
+    "quote": "\"Classify\" means put something in the correct group.",
+    "note": "The exam verb is explained in one line before its first use in Example #1."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L25|0": {
+    "status": "fixed",
+    "quote": "Temperature generally rises with height in the stratosphere.",
+    "note": "Core Concept now states the stratosphere temperature rise that Example #2 needs."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L25|1": {
+    "status": "fixed",
+    "quote": "Most meteors burn up here as they pass through the air.",
+    "note": "'Ablate' is replaced with plain 'burn up'."
+   },
+   "science-earth-science-astronomy#75": {
+    "status": "fixed",
+    "quote": "Melting glaciers and ice sheets on land add water to the sea.",
+    "note": "Gives causal chains for sea level, rainfall, drought and heat."
+   },
+   "science-earth-science-astronomy#76": {
+    "status": "fixed",
+    "quote": "Floods can damage crops and roads, reducing farm income and delaying food deliveries.",
+    "note": "Teaches economic, social and political effects with a worked Example #12."
+   },
+   "science-earth-science-astronomy#77": {
+    "status": "fixed",
+    "quote": "For a local flood problem, a government can improve waste collection and clear blocked drains.",
+    "note": "A local problem with matching government actions is taught and applied in Example #13."
+   },
+   "science-earth-science-astronomy#78": {
+    "status": "fixed",
+    "quote": "Choose a response by asking what causes the problem and who faces the harm.",
+    "note": "Mitigation versus adaptation reasoning and decision checks are taught."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L18|1": {
+    "status": "fixed",
+    "quote": "During winter, a large Asian land area becomes colder than nearby seas.",
+    "note": "Example #4 applies the heating and pressure mechanism to Amihan."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L18|2": {
+    "status": "fixed",
+    "quote": "A coastal town plans for rising sea level.",
+    "note": "Example #12 and #13 apply climate effects and responses; breezes and ITCZ also have examples."
+   },
+   "lesson-earth-science-astronomy-weather-and-climate|L26|2": {
+    "status": "fixed",
+    "quote": "Warmer air can hold more water vapor, which can supply heavier rain when storms form.",
+    "note": "Effects are now explained with causes rather than only listed."
+   }
+  }
+ }
+}
