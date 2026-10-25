@@ -13,6 +13,10 @@ A **conditional statement** is an if-then sentence: "If $p$, then $q$." The lett
 
 The **hypothesis** ($p$) is the "if" part. The **conclusion** ($q$) is the "then" part. A conditional rules out a true hypothesis with a false conclusion.
 
+The words **only if** also form a conditional. "$p$ only if $q$" means "If $p$, then $q$." The part after "only if" is the conclusion, even when the sentence does not use "then."
+
+For example, "A figure is a square only if it has $4$ sides" means "If a figure is a square, then it has $4$ sides." It does not say that every figure with $4$ sides is a square.
+
 To **negate** a statement means to say that it is not true. From one conditional, you can build three new statements:
 
 - **Converse**: swap the parts. "If $q$, then $p$."
@@ -110,6 +114,7 @@ D) A figure has $4$ sides only if it is a square.
 1. Swap the hypothesis and conclusion, then negate both.
 2. The contrapositive is "If a figure does not have $4$ sides, then it is not a square."
 3. The answer is C. It has the same truth value as the original in every case.
+4. Choice D means "If a figure has $4$ sides, then it is a square." This is the converse, just like choice A.
 
 ### #5: Chaining Statements and Using a Fact
 
