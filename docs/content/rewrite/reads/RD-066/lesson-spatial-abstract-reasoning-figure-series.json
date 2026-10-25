@@ -1,0 +1,281 @@
+{
+ "batch": "RD-066",
+ "lesson_id": "lesson-spatial-abstract-reasoning-figure-series",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-series.md",
+ "lesson_sha256": "f168c4c7623eff16140a21f60417ffac131a103b9c398e5260652ec2e0a5c342",
+ "rewrite_commit": "74f5a56ab0a67710035bff9285e265539ad69265",
+ "form": {
+  "packet": "lesson-spatial-abstract-reasoning-figure-series",
+  "role": "A",
+  "lesson_sha256": "f168c4c7623eff16140a21f60417ffac131a103b9c398e5260652ec2e0a5c342",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked full turn 360 degrees, quarter-turn 90 degrees, clockwise corner order, polygon side counts, and constant-difference arithmetic sequence definition. These are directly verifiable elementary facts. The unsupported prevalence claim is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: lower-right after another 45-degree clockwise turn. #2: hexagon with 6 sides. #3: white circle. #4: A, extra-large white triangle. #5: top-left. #6: upper-right after a 180-degree turn. #7: black square at even position 8. Each agrees with its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. Every figure-based example #1–#7 has its own specific illustration placeholder, including the answer choices in #4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all explanations and solutions for plain language. Fill, alternate, clockwise, interleaved pattern, and arithmetic sequence receive short explanations. The earlier candidate-rule jargon is removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a gloss is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears; the clock reference defines clockwise directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A series follows these rules: the odd positions show circles with $1$ more dot each time; the even positions show squares whose fill alternates.",
+      "problem": "The stem supplies the interleaved rules that the student should discover. Similarly, examples #1–#6 state the constant turn, count increment, alternation, size rule, corner rule, or growing-turn rule. These examples practice executing supplied rules instead of selecting the pattern from the figures."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam references or claims about a named exam occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is entirely in English and does not teach Filipino.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is entirely in English and does not teach Filipino.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is entirely in English and does not teach Filipino.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is entirely in English and does not teach Filipino.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is entirely in English and does not teach Filipino.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or its meaning.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked summary, paragraph openings, and traps. No listed stock AI phrase occurs; sentence openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Uses the reduced reasoning layout without Mnemonics or Speed Tricks. No mathematical formula is required by the examples: count increments and rotation changes are direct arithmetic. Core Concept introduces growing turns, clockwise direction, full and quarter turns, alternation, and count sequences before examples use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Distinct cases map to #1 equal turns, #2 side count, #3 fill alternation, #4 size plus fill and choices, #5 corner position, #6 growing turns, #7 interleaved dot counts and fill. Basic single-feature examples precede combined rules; symmetry is no longer an unworked promised feature."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The arrow turns $45^\\circ$ clockwise each time. The next arrow points lower-right.",
+      "problem": "Example #1 has two reasoning steps, determining the turn and applying it, but presents them as prose instead of numbered steps. No reasoning step is missing, so this is a minor formatting finding."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The sole display, 135 degrees plus 45 degrees equals 180 degrees, is short enough for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The available sizes, from smallest to largest, are small, medium, large, and extra large. Each figure uses the next larger size, and the fill alternates. The series shows a small black triangle, a medium white triangle, then a large black triangle. Which choice completes the series?",
+      "problem": "Example #4 question is a four-sentence paragraph. The formatting rule limits paragraphs to one to three short sentences."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the core dot-position placeholder and all seven example placeholders. Each gives shapes, order, direction or fill, and blank location in one line. #4 specifies all four size levels and choices; #7 specifies all eight positions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Figure series, fill, alternate, clockwise, turn amounts, interleaved positions, and arithmetic sequence are explained before use. Odd and even positions are concretely identified as first/third/fifth and second/fourth/sixth."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core teaching explains tracking each feature, testing all shown steps and choices, separating alternating positions, and converting dot pictures to counts. Examples show how the rules produce next figures; symmetry and unspecified part relationships were removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checks every shown step instead of asserting a unique rule for all short sequences. Explicit size levels limit #4; changing-turn trap limits constant rotation; count paragraph warns against assuming constant additions; interleaving separates unrelated rules."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-spatial-abstract-reasoning-figure-series|L05|1": {
+    "status": "fixed",
+    "quote": "The available sizes, from smallest to largest, are small, medium, large, and extra large.",
+    "note": "A defined size scale, explicit question, and four choices make the requested continuation determinate."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L18|0": {
+    "status": "fixed",
+    "quote": "Its next move returns it to the top-left corner.",
+    "note": "Example #5 now works the changing-position case through a full corner cycle."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L18|3": {
+    "status": "fixed",
+    "quote": "Its clockwise turns grow by $45^\\circ$ each time.",
+    "note": "Examples #6 and #7 cover growing turns and interleaved patterns respectively."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L18|4": {
+    "status": "fixed",
+    "quote": "Choice A fits both rules. Choice B misses the fill, while choices C and D miss the size.",
+    "note": "Example #4 supplies actual candidates and checks both changing features against them."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|B01|0": {
+    "status": "fixed",
+    "quote": "A turn can stay the same size or grow from step to step.",
+    "note": "The unsupported claim that particular structures are common has been removed."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|B08|0": {
+    "status": "fixed",
+    "quote": "The next shape has $6$ sides. It is a hexagon.",
+    "note": "The numeral for the hexagon side count is now inside inline math."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L02|0": {
+    "status": "fixed",
+    "quote": "Check your rule against every shown step.",
+    "note": "The difficult candidate-rule sentence is replaced with plain language."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L05|0": {
+    "status": "fixed",
+    "quote": "What comes next if the fill keeps alternating?",
+    "note": "Example #3 now explicitly asks the student for the next figure."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L25|0": {
+    "status": "fixed",
+    "quote": "An **interleaved pattern** mixes two separate patterns.",
+    "note": "The term is defined before the lesson explains odd and even positions."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L26|0": {
+    "status": "fixed",
+    "quote": "position inside a frame.",
+    "note": "The unsupported symmetry and part-relationship feature list has been removed."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L26|1": {
+    "status": "fixed",
+    "quote": "Read the first, third, fifth, and later odd positions as one series.",
+    "note": "Separate subsequences are explained locally and worked in Example #7."
+   },
+   "reasoning-spatial-abstract-reasoning#72": {
+    "status": "fixed",
+    "quote": "You can use this count check in number-sequence questions too.",
+    "note": "Count pictures are explicitly transferred to arithmetic number sequences. No claim is made about CSE figural acceptance, exact difficulty, or full numerical-family coverage."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L17|0": {
+    "status": "fixed",
+    "quote": "Splitting the series keeps the dot-count rule separate from the fill rule.",
+    "note": "The general strategy section is gone; the lesson now follows the reduced reasoning layout."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L18|1": {
+    "status": "fixed",
+    "quote": "Read the odd positions together. Their dot counts are $1, 2, 3, 4$.",
+    "note": "Example #7 now includes and works a dot-count progression."
+   },
+   "lesson-spatial-abstract-reasoning-figure-series|L18|2": {
+    "status": "fixed",
+    "quote": "position inside a frame.",
+    "note": "Symmetry and part relationships are no longer listed as coverage promises."
+   }
+  }
+ }
+}

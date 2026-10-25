@@ -1,0 +1,256 @@
+{
+ "batch": "RD-066",
+ "lesson_id": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md",
+ "lesson_sha256": "a9351c7436c760e3c4a27f3b8a10cd4497161845a4c0ce04cbe3e03debde8ed4",
+ "rewrite_commit": "74f5a56ab0a67710035bff9285e265539ad69265",
+ "form": {
+  "packet": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+  "role": "A",
+  "lesson_sha256": "a9351c7436c760e3c4a27f3b8a10cd4497161845a4c0ce04cbe3e03debde8ed4",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The copies meet along their bases. They form one diamond-shaped opening, not $2$ separate holes.",
+      "problem": "The stem specifies a triangle with its base on the fold but does not place its tip opposite the midpoint of the base. Reflecting a general triangle makes a kite, which need not be a diamond or rhombus. The stated answer requires an isosceles triangle or a more precise figure."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Independently solved #1: two reflected triangles joined at their base, a kite in general; a diamond requires an unstated symmetric triangle. #2: 4 separate holes. #3: one circular center opening. #4: 8 separate holes. #5: one hole at original coordinates (10 cm, 3 cm). Answers #2–#5 agree."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The copies meet along their bases. They form one diamond-shaped opening, not $2$ separate holes.",
+      "problem": "The stem specifies a triangle with its base on the fold but does not place its tip opposite the midpoint of the base. Reflecting a general triangle makes a kite, which need not be a diamond or rhombus. The stated answer requires an isosceles triangle or a more precise figure."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required Core Concept, Examples, and Traps sections are present. All five figure-dependent examples have their own fold, cut, and unfolded-result placeholders; a separate core placeholder shows reverse unfolding."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read reflection, layers, hole-count limits, and every solution. Difficult coincide wording is gone; mirror copy, opposite side, same distance, and joined cuts use simple explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a specialized meaning needs a gloss here.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Mirror copy is the single natural analogy and appears in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The triangle has its base on that edge and its tip inside the folded paper.",
+      "problem": "Example #1 lacks the tip-to-base alignment needed for its claimed diamond shape. The base and an arbitrary interior tip determine a general kite after reflection, so the necessary shape information is not supplied."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No exam prevalence claims or repeated exam-based openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This English reasoning lesson contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This English reasoning lesson contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This English reasoning lesson contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This English reasoning lesson contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This English reasoning lesson contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No vocabulary target word is referenced by a question.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and teaching paragraphs for stock phrases and repeated openings. None of the banned phrases occurs and openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The reduced Core Concept → Examples → Traps layout is followed. Core Concept defines n as fold count, introduces up to 2^n layers and 2^n separate holes under stated conditions. Example #4 substitutes n=3 to get 2^3=8; other examples use direct reflection and layer counting."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked cases include #1 a notch on one fold, #2 an interior punch through two half-folds, #3 a cut at both folds, #4 three half-folds, and #5 a punch outside an uneven overlap. These cover the brief cases and progress to tracking partial overlap and coordinates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of examples #1–#5 has a numbered solution tracing all needed steps. Example #4 displays its key computation 2^3=8; the remaining solutions use short side counts or geometric reflection without a multi-operation calculation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The only display equation is 2^3=8 and fits a narrow screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A rectangular sheet is $12$ centimeters wide and $6$ centimeters tall. Its leftmost $4$-centimeter strip is folded right along a vertical line $4$ centimeters from the left edge. A small hole is punched $10$ centimeters from the original left edge and $3$ centimeters from the bottom. How many holes appear when the paper is opened, and where?",
+      "problem": "Example #5 has four sentences in a single paragraph. The rule allows one to three short sentences per paragraph."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All six placeholders specify fold directions, punch or notch location, and resulting openings. #4 explicitly avoids equal spacing and #5 gives dimensions, overlap bounds, and punch coordinates. The #1 triangle geometry problem is recorded under B01/B02/L05; its artist instructions are otherwise drawable."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Reflect is defined as an opposite-side copy at equal distance, with orientation examples, before the unfolding procedure. Layer, n, interior hole, notch, and the shortcut conditions are introduced before examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Explains reflection position and orientation, retaining old cuts while adding copies, reversing fold order, layer doubling, joining cuts, and uneven overlap. The examples apply these operations step by step."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The 2^n rule is limited to complete half-folds, all local layers punched, and separate interior copies away from folds. Edge joining and uneven uncovered paper are explicitly excluded and worked in #1/#3/#5."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "The copies meet along their bases. They form one diamond-shaped opening, not $2$ separate holes.",
+    "concern": "The stem specifies a triangle with its base on the fold but does not place its tip opposite the midpoint of the base. Reflecting a general triangle makes a kite, which need not be a diamond or rhombus. The stated answer requires an isosceles triangle or a more precise figure."
+   }
+  ],
+  "brief_items": {
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L02|0": {
+    "status": "fixed",
+    "quote": "The pieces join at the folds, so the result is one opening.",
+    "note": "The uncommon coincide language is replaced with simple joined-piece wording."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L19|0": {
+    "status": "fixed",
+    "quote": "Open the vertical fold. The semicircle joins its mirror copy to make one circular opening at the center.",
+    "note": "Example #3 now has three numbered steps and explicitly states one center opening."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L25|0": {
+    "status": "fixed",
+    "quote": "Put the copy on the opposite side, at the same distance from the line.",
+    "note": "Reflection now specifies opposite-side placement and equal distance before use."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L26|0": {
+    "status": "fixed",
+    "quote": "Across a vertical fold, a right-pointing cut becomes a left-pointing copy.",
+    "note": "Position and orientation changes are both explained before the reverse-unfolding method."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|B01|0": {
+    "status": "fixed",
+    "quote": "Their positions mirror the folds, but the gaps between holes need not all be equal.",
+    "note": "Both text and figure instructions remove the unsupported equal-spacing requirement."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L17|0": {
+    "status": "fixed",
+    "quote": "Repeat until the sheet is flat.",
+    "note": "The method is now in Core Concept and the reduced reasoning layout is followed."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L18|0": {
+    "status": "fixed",
+    "quote": "It lies outside that overlap, so it cuts just one layer.",
+    "note": "Example #5 now works the distinct local-layer case with explicit dimensions and punch position."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L19|1": {
+    "status": "fixed",
+    "quote": "Each opening step doubles the separate copies. The count is:",
+    "note": "Example #4 now numbers its reasoning and displays the power-of-two calculation."
+   }
+  }
+ }
+}
