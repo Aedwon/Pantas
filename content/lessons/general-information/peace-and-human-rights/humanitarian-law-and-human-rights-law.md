@@ -1,7 +1,7 @@
 ---
 _id: "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
 title: "Humanitarian Law vs Human Rights Law"
-summary: "Compare Human Rights Law and International Humanitarian Law, including when they apply, who they bind, and how they protect people during conflict."
+summary: "Compare when human rights law and humanitarian law apply, how they work together, and how their rules protect people."
 subject: "subject-general-information"
 topic: "topic-peace-and-human-rights"
 estimatedMinutes: 15
@@ -9,215 +9,286 @@ isActive: true
 ---
 ## Core Concept
 
-**Human Rights Law (HRL)** and **International Humanitarian Law (IHL)** are different bodies of law. They can work together during armed conflict.
+### Human Rights Law
 
-### When Human Rights Law Applies
+**Human Rights Law (HRL)** protects people's life, freedom, and dignity. It applies in peace and during armed conflict. It mainly places duties on governments toward people within their **jurisdiction**, meaning their territory or authority or control.
 
-Human Rights Law applies in peace and during armed conflict. It mainly places duties on states toward people within their **jurisdiction**, meaning people within the state's territory or under its authority or control.
+A war does not turn off human rights. Some treaty duties allow temporary suspension during a qualifying emergency. Other duties cannot be suspended that way.
 
-Human rights do not simply disappear during war or an emergency. Some obligations may have special limits, but those limits must follow strict legal rules.
+### International Humanitarian Law
 
-### When International Humanitarian Law Applies
+**International Humanitarian Law (IHL)** limits harm during armed conflict. It protects people who are not fighting or have stopped fighting. It also limits weapons and the ways parties fight.
 
-International Humanitarian Law applies when there is an **armed conflict**. It binds every party to that conflict, including state armed forces and organized non-state armed groups.
+IHL binds every party to an armed conflict. This includes government forces and organized non-state armed groups. A party cannot ignore IHL because it believes its cause is just or its opponent broke the rules.
 
-There are two broad types of armed conflict. An **international armed conflict (IAC)** exists when one state uses armed force against another state. A **non-international armed conflict (NIAC)** can exist between state forces and an organized armed group, or between organized armed groups, when the fighting is intense enough and the groups are organized enough.
+An **international armed conflict (IAC)** exists when states use armed force against each other. It does not require a formal declaration of war. Occupation can also trigger IHL even without armed resistance.
 
-Riots, short disturbances, and isolated acts of violence do not automatically become a NIAC. The facts must meet the required level of intensity and organization.
+A **non-international armed conflict (NIAC)** involves sufficiently intense fighting between government forces and organized armed groups, or between such groups. Both the intensity of the violence and the organization of the groups matter.
 
-IHL has some duties that must be carried out before any war starts. States that are party to the Geneva Conventions must spread knowledge of IHL, train people who may need to apply it, and make laws needed to carry out important IHL duties.
+Signs of organization include a command structure and the ability to plan operations. The scale, duration, and frequency of clashes help show intensity. No single number of clashes settles every case.
 
-### How HRL and IHL Work Together
+A riot, brief disturbance, or isolated violent act does not automatically meet these conditions. Classification follows the facts, not just the label used by officials.
 
-During armed conflict, HRL can continue to apply at the same time as IHL. IHL gives special rules for armed conflict, while HRL continues to protect people from unlawful state action.
+### How the Laws Work Together
 
-When both bodies of law cover the same issue, the more specific IHL rule for armed conflict can help determine how the human-rights rule applies in that setting. Do not choose between HRL and IHL as if one must always cancel the other.
+The two bodies of law are **complementary**, meaning they help protect people together. During armed conflict, IHL gives rules made for fighting. HRL continues to protect people against unlawful government action.
 
-### Emergency Limits Under Human Rights Law
+The right to life forbids **arbitrary killing**, or taking life without a lawful basis. In battlefield hostilities, IHL's specific targeting rules help decide whether a killing is arbitrary. This does not mean IHL cancels every human-rights rule.
 
-The **International Covenant on Civil and Political Rights (ICCPR)** has a special emergency rule in Article $4$. To **derogate** means to temporarily suspend part of a treaty obligation under that emergency rule.
+An attack on an opposing fighter during an IAC is not automatically unlawful merely because it takes life. The target's status and all applicable IHL rules matter. A detainee cannot be treated as an active battlefield target just because war continues nearby.
 
-A state may use Article $4$ only when a public emergency threatens the life of the nation and the emergency is officially proclaimed. Any temporary measure must be only what the emergency strictly requires.
+### Emergency Suspension Under the ICCPR
 
-The measures must also follow the state's other international-law duties. They may not discriminate solely because of race, color, sex, language, religion, or social origin.
+The **International Covenant on Civil and Political Rights (ICCPR)** is a human-rights treaty. Its Article $4$ sets rules for emergency suspension of some treaty duties. **Derogation** means a temporary departure from a treaty duty under this rule.
 
-A state using Article $4$ must inform the other ICCPR states through the United Nations Secretary-General. It must state what obligations it has suspended and why.
+First, there must be a public emergency threatening the life of the nation. The government must officially proclaim it. An ordinary protest does not, by itself, meet this test.
 
-Some ICCPR rights are **non-derogable**. This means they cannot be suspended through Article $4$, even during a qualifying emergency. These include the right to life, the ban on torture, the bans on slavery and servitude, the rule against imprisonment only for failure to fulfill a contract, the rule against retroactive criminal punishment, recognition as a person before the law, and freedom of thought, conscience, and religion.
+Each measure must be strictly required by the emergency. Its scope and duration must stay within that need. The state must also follow its other duties under international law.
 
-Non-derogable does not always mean a right has no lawful limits inside its own rule. It means the state cannot suspend that treaty obligation by using Article $4$.
+Measures must not discriminate solely because of race, color, sex, language, religion, or social origin. The state must immediately tell other ICCPR states, through the United Nations Secretary-General, which provisions it has suspended and why. It must send a further notice of the date the suspension ends.
 
-### Who IHL Protects
+**Non-derogable rights** are rights whose treaty protection cannot be suspended through Article $4$. The ICCPR lists these protections:
 
-IHL protects civilians and other people who are not taking part in fighting. It also protects people who are no longer taking part.
+- The right to life and the ban on torture or cruel, inhuman, or degrading treatment. Medical or scientific experiments also require free consent.
+- The bans on slavery and **servitude**, a condition in which someone is forced to live and work under another person's control.
+- Protection from prison merely because someone cannot fulfill a contract.
+- Protection from **retroactive criminal punishment**, such as punishment for an act that was not a crime when done, or a later increase in its penalty.
+- Recognition as a person before the law. Government must recognize each human being as someone who can hold legal rights.
+- Freedom of thought, conscience, and religion. **Conscience** means a person's beliefs about right and wrong.
 
-A person who is **hors de combat** is out of the fight. This includes a person who has clearly surrendered, a person who is detained, or a person who cannot fight because of wounds or sickness. Such a person must not be attacked and must be treated humanely.
+Non-derogable does not always mean unlimited. A right may have limits within its own rule. For example, the ICCPR permits certain necessary, lawful limits on the outward practice of religion, but not suspension of freedom of belief through Article $4$.
 
-### Means and Methods of Warfare
+The right to life still bars arbitrary killing during an emergency. The torture ban allows no emergency exception. Article $4$ also does not let a state suspend IHL.
 
-The **means of warfare** are the weapons used in fighting. The **methods of warfare** are the ways attacks and military operations are carried out.
+### People Protected from Attack
 
-Parties do not have an unlimited choice of weapons or tactics. IHL forbids weapons that are indiscriminate or are of a nature to cause superfluous injury or unnecessary suffering.
+**Civilians** are people who are not members of the armed forces or other fighting forces covered by the relevant IHL rules. Civilians must not be directly attacked. A civilian loses protection from direct attack for such time as the person directly takes part in hostilities.
 
-Three rules are especially useful in attack questions. **Distinction** means attacks must be directed at military objectives, not civilians or civilian objects. **Proportionality** forbids an attack when the expected incidental civilian harm would be excessive compared with the concrete and direct military advantage expected. **Precautions** require feasible steps to reduce civilian harm, such as checking the target and choosing a safer way to attack when possible.
+A person **hors de combat** is out of the fight. The person may be in the opponent's power, clearly surrendering, or unable to defend himself or herself because of wounds or illness.
 
-### Peaceful Conflict Resolution
+Protection from attack requires that the person refrain from hostile acts and not attempt escape. Someone who resumes fighting cannot rely on an earlier surrender. Even then, any force must follow the rules that apply to the situation.
 
-IHL limits harm after armed conflict exists. It does not replace efforts to prevent or peacefully resolve disputes.
+People in custody must be treated humanely. They must not be tortured or killed as punishment without trial. Wounded and sick people must receive needed care without unfair discrimination.
 
-For a conflict-resolution question, first identify the issue and hear each side. Then separate fixed positions from the needs behind them, look for lawful common ground, agree on practical steps, and check whether the agreement is being followed.
+### Weapons and Attack Methods
+
+The **means of warfare** are weapons. The **methods of warfare** are the ways operations are carried out. Neither choice is unlimited.
+
+IHL bars weapons that are **indiscriminate by nature**. These cannot be aimed at a specific military target, or their effects cannot be limited as IHL requires. They cannot reliably separate military targets from protected civilians.
+
+Weapons of a nature to cause **superfluous injury or unnecessary suffering** are also prohibited. This means harm beyond what is justified by a lawful military purpose. The rule protects fighters too, not only civilians.
+
+Specific treaties can ban particular weapons. The Geneva Gas Protocol prohibits the use in war of poison gas. A claimed military benefit does not cancel that prohibition.
+
+**Distinction** requires attacks to be directed at military targets, not civilians or civilian objects. A **military objective** is an object that effectively helps military action and whose destruction, capture, or neutralization offers a definite military advantage in the circumstances.
+
+**Proportionality** bars an attack expected to cause incidental civilian harm excessive compared with its expected concrete and direct military advantage. Incidental harm means harm to civilians that is not the attack's aim. A lawful military target does not remove this separate test.
+
+**Precautions** are feasible steps to avoid or reduce civilian harm. Feasible means practical in the circumstances. Steps include checking the target, choosing safer weapons or timing, and giving effective warning when circumstances permit.
+
+An attack must be canceled or suspended if it becomes clear that the target is not lawful or the expected civilian harm would be excessive. A warning does not make an otherwise unlawful attack lawful.
+
+### Duties Before War and Work for Peace
+
+Some IHL duties apply in peacetime. For example, Article $127$ of the Third Geneva Convention requires teaching its rules in peace and war, including military instruction. Commanders responsible for prisoners of war need special instruction.
+
+States must also adopt laws needed to punish grave breaches of the Geneva Conventions. A **grave breach** is a serious treaty violation, such as torture of a protected prisoner. Training and implementing laws help turn treaty promises into action.
+
+IHL limits harm once armed conflict exists. Peaceful conflict resolution seeks to settle disputes and prevent further violence. Neither requires people to give up basic rights to reach agreement.
+
+Start by identifying the issue and hearing each side. Separate each side's demand from the need behind it. Find lawful common ground, agree on clear steps, and check whether people follow them.
 
 ## Examples
 
-### #1: Choosing the Correct HRL and IHL Statement
+### #1: Comparing the Two Bodies of Law
 
-Which statement correctly compares Human Rights Law and International Humanitarian Law?
+Which statement correctly compares HRL and IHL?
 
-- A. HRL applies only in peacetime, while IHL binds only states.
-- B. HRL applies in peace and war and mainly places duties on states, while IHL applies in armed conflict and binds all parties to that conflict.
-- C. IHL applies at all times, while HRL applies only during armed conflict.
-- D. Both HRL and IHL bind only state governments.
-
-**Solution:**
-
-1. HRL applies in peace and during armed conflict and mainly places duties on states.
-2. IHL applies in armed conflict and binds every party to the conflict, including organized non-state armed groups.
-3. Choice B states both rules correctly.
-
-### #2: Classifying the Conflict
-
-State A uses its armed forces against State B. In another situation, government forces fight an organized armed group in sustained and intense clashes. Which classification fits each situation?
+- A. HRL applies only in peace, and IHL binds only governments.
+- B. HRL applies in peace and war, while IHL governs armed conflict and binds its parties.
+- C. IHL governs all public protests, while HRL governs only wars.
+- D. Both bodies of law cease to apply during national emergencies.
 
 **Solution:**
 
-1. Armed force between State A and State B is an international armed conflict.
-2. Sustained, intense fighting between government forces and a sufficiently organized armed group can be a non-international armed conflict.
-3. The first situation is an IAC, while the second can be a NIAC if the intensity and organization requirements are met.
+1. HRL applies in peace and during armed conflict. Its main duties fall on states.
+2. IHL governs armed conflict and binds all parties, including organized armed groups.
+3. Choice B correctly states the difference.
 
-### #3: Violence Below the NIAC Threshold
+### #2: Classifying Fighting
 
-A small group causes one short riot and then disperses. There is no organized armed command and no continuing intense fighting. Must the situation be classified as a NIAC?
+State A's armed forces attack State B's forces. Elsewhere, government troops fight a group with an organized command in prolonged, intense clashes. What classification fits each case?
 
 **Solution:**
 
-1. A NIAC requires enough organization and enough intensity of fighting.
-2. The facts show neither an organized armed group nor sustained intense hostilities.
-3. The situation does not meet the stated NIAC requirements.
+1. Armed force between states creates an IAC.
+2. The other case has intense fighting and an organized armed group. Those facts support classification as a NIAC.
+3. A formal declaration of war is not needed for the first case.
+
+### #3: A Brief Riot
+
+A small crowd causes a brief riot and disperses. There is no armed organization or continuing intense fighting. Does this establish a NIAC?
+
+**Solution:**
+
+1. NIAC classification needs enough intensity and organization.
+2. Neither requirement is established here. The riot does not establish a NIAC, although HRL still governs the state's response.
 
 ### #4: Protecting Civilians
 
-During an armed conflict, a commander proposes intentionally attacking a group of civilians who are not taking part in the fighting in order to pressure the opposing side. Does IHL allow this?
+A commander proposes attacking civilians who are not taking part in hostilities to pressure the enemy. May the attack proceed?
 
 **Solution:**
 
-1. IHL requires parties to distinguish civilians from lawful military targets.
-2. Civilians who are not taking part in hostilities may not be made the object of attack.
-3. The proposed intentional attack on the civilians is prohibited.
+1. Distinction bars directly attacking protected civilians.
+2. Pressure on the enemy does not turn civilians into military targets. The attack is prohibited.
 
-### #5: A Person Who Has Surrendered
+### #5: Surrender and Wounds
 
-A fighter clearly drops his weapon and surrenders. May the opposing force continue to attack him because he fought earlier?
-
-**Solution:**
-
-1. A person who clearly surrenders is hors de combat, meaning out of the fight.
-2. IHL protects people who are no longer taking part in hostilities.
-3. The opposing force must not attack the surrendered fighter and must treat him humanely.
-
-### #6: Means and Methods of Warfare
-
-An attack is planned against a military objective near homes. The expected civilian harm would be excessive compared with the concrete and direct military advantage expected. Which IHL rule blocks the attack as planned?
+An enemy fighter drops his weapon and clearly surrenders. He makes no hostile act and does not try to escape. Nearby, a wounded enemy cannot defend herself and also makes no hostile act or escape attempt. May either be attacked because of earlier fighting?
 
 **Solution:**
 
-1. Distinction asks whether the target is a military objective.
-2. Proportionality compares expected incidental civilian harm with the concrete and direct military advantage expected.
-3. Because the expected civilian harm would be excessive, the attack as planned is prohibited by proportionality.
+1. The surrendered fighter is out of the fight under the stated conditions.
+2. The wounded fighter is also unable to defend herself and meets the stated conditions.
+3. Neither may be attacked. Both must be treated humanely, and the wounded person must receive needed care.
 
-### #7: Both Bodies of Law During War
+### #6: Resuming Hostile Acts
 
-A state claims that once an armed conflict begins, Human Rights Law stops and only IHL remains. Is that correct?
-
-**Solution:**
-
-1. IHL applies because an armed conflict exists.
-2. HRL can also continue to apply during armed conflict.
-3. The claim is incorrect because both bodies of law can apply at the same time, with IHL giving specific rules for armed conflict.
-
-### #8: Emergency Derogation
-
-A government announces that an ordinary public protest allows it to suspend any ICCPR right without a formal emergency proclamation. Is that correct under Article $4$?
+A fighter surrenders, then picks up a weapon and starts firing again. Does the earlier surrender still protect him from attack?
 
 **Solution:**
 
-1. Article $4$ requires a public emergency that threatens the life of the nation and is officially proclaimed.
-2. Temporary measures must be strictly required by the emergency and must follow the other Article $4$ limits.
-3. Some ICCPR rights cannot be suspended through Article $4$ at all.
-4. The government's claim is incorrect.
+1. Protection as a person out of the fight requires refraining from hostile acts.
+2. Firing again breaks that condition. The earlier surrender does not protect the renewed attack, although applicable limits on force remain.
 
-### #9: IHL Duties Before Armed Conflict
+### #7: A Prohibited Weapon
 
-A state is at peace but trains its armed forces on the Geneva Conventions and adopts laws needed to carry out IHL duties. Is this inconsistent with the rule that IHL governs armed conflict?
+During war, an officer proposes using poison gas against enemy forces. He argues that the attack would achieve a clear military advantage. Does that reason make the weapon lawful?
 
 **Solution:**
 
-1. IHL governs conduct during armed conflict.
-2. Some IHL duties must be prepared in peacetime, including teaching, training, and adopting needed laws.
-3. The state's peacetime preparation is consistent with IHL.
+1. The Geneva Gas Protocol prohibits the use of poison gas in war.
+2. Military advantage does not override the weapons ban. The proposed use is prohibited.
 
-### #10: Choosing a Peaceful Response
+### #8: Excessive Civilian Harm
 
-Two community groups disagree over the use of a shared public space. Which approach best supports peaceful conflict resolution before the dispute becomes more serious?
+An ammunition depot is a military objective. An attack is expected to cause civilian harm excessive compared with its concrete and direct military advantage. Which rule bars the attack as planned?
 
 **Solution:**
 
-1. Identify the exact issue and hear both groups before choosing a solution.
-2. Look for the needs behind each position and find lawful common ground.
-3. Agree on practical steps and later check whether both sides are following them.
-4. This approach supports a peaceful and rights-respecting resolution.
+1. The depot's military use answers the target question under distinction.
+2. Proportionality is a separate requirement. The expected excessive civilian harm makes the planned attack unlawful.
+
+### #9: A Safer Attack Plan
+
+A verified military objective can be attacked at either of two times. Waiting until nearby civilian workers leave is feasible and gives the same military advantage with less civilian danger. What should the planner do?
+
+**Solution:**
+
+1. Precautions require feasible steps to avoid or reduce civilian harm.
+2. On these facts, the safer time is practical and preserves the military advantage. The planner should use it and keep checking the situation.
+
+### #10: HRL and Battlefield Targeting
+
+During an IAC, an adviser argues that the right to life prohibits every attack on an opposing active combatant. Another says war removes the right to life entirely. How should the legal issue be assessed?
+
+**Solution:**
+
+1. HRL still protects the right to life, so war does not remove it.
+2. For battlefield hostilities, IHL's specific targeting rules help determine whether taking life is arbitrary.
+3. An attack on an active opposing combatant is not automatically prohibited. It must still meet all applicable IHL rules, including weapons limits and civilian protection.
+4. Neither adviser's blanket claim is correct.
+
+### #11: An Invalid Emergency Claim
+
+A government cites an ordinary protest as reason to suspend ICCPR duties. It has not officially proclaimed an emergency threatening the life of the nation. Is Article $4$ available on these facts?
+
+**Solution:**
+
+1. Article $4$ requires a qualifying national emergency and an official proclamation.
+2. Those conditions are not met. The protest alone does not justify derogation.
+
+### #12: Torture During a Qualifying Emergency
+
+A state officially proclaims an emergency that threatens the life of the nation. It then announces a temporary suspension of the torture ban to question detainees. Is that measure permitted under ICCPR Article $4$?
+
+**Solution:**
+
+1. Meeting the emergency threshold does not permit suspension of every right.
+2. The torture ban is non-derogable under Article $4$. The proposed suspension is forbidden.
+
+### #13: Limits and Notice
+
+During a qualifying emergency, a state suspends an ICCPR duty that may be derogated from. Its measure lasts longer than strictly needed, targets people solely by religion, and is never reported internationally. What must be corrected?
+
+**Solution:**
+
+1. The measure must be limited to what the emergency strictly requires, including its duration.
+2. Discrimination solely by religion violates Article $4$.
+3. The state must immediately notify other ICCPR states through the UN Secretary-General of the provisions affected and reasons. It must also notify them of the date the derogation ends.
+
+### #14: IHL Preparation in Peace
+
+A state is at peace. It teaches soldiers the Third Geneva Convention and adopts laws to punish grave breaches. Is this inconsistent with IHL's role in armed conflict?
+
+**Solution:**
+
+1. Some IHL duties require action before conflict begins.
+2. Teaching treaty rules and preparing laws help meet those duties. These actions are consistent with IHL.
+
+### #15: Resolving Competing Community Needs
+
+One group wants a shared hall for evening study. Another wants it for evening meetings. Both reject giving up all evening access. What process could support a peaceful agreement?
+
+**Solution:**
+
+1. Hear both groups and clarify their needs, including time, quiet, and space.
+2. Discuss lawful options, such as different evenings or separate rooms if available.
+3. Agree on a clear schedule and a way to review problems later. This addresses both groups' needs without threats or violence.
 
 ## Speed Tricks & Shortcuts
 
-Ask one question first: **Is there an armed conflict?** If no armed conflict exists, the special IHL rules for hostilities do not apply, although some IHL preparation duties still exist in peacetime.
+First ask whether the facts establish armed conflict. Force between states points to an IAC. For a NIAC, check both intensity and organization.
 
-If armed conflict exists, do not switch HRL off. IHL applies to the conflict, and HRL can apply at the same time.
+Then ask which issue needs a rule: a weapon, an attack plan, treatment in custody, or emergency suspension. Each question has its own conditions. Do not assume one lawful step makes the whole action lawful.
 
-For emergency questions, look for the Article $4$ conditions. A government cannot suspend ICCPR duties merely by saying that there is an emergency.
+For attacks, check the target, expected civilian harm, and feasible precautions separately. For ICCPR emergencies, check the emergency threshold before testing each measure and any non-derogable right.
 
 ## Traps to Watch For
 
-### #1: Human Rights Law Does Not Stop During War
+### #1: War Does Not End HRL
 
-> Do not assume that war turns off all human-rights duties.
+> IHL and HRL can apply to the same event.
 
-HRL can continue during armed conflict. IHL also applies and supplies special rules for the conflict setting.
+Use IHL's specific rules where relevant to battlefield conduct. Do not treat that as permission to ignore all human-rights duties.
 
-### #2: IHL Is Not Only About States
+### #2: Labels Do Not Establish Armed Conflict
 
-> A non-state armed group can still be bound by IHL.
+> Calling unrest a war does not settle its legal classification.
 
-IHL binds every party to an armed conflict. That can include state armed forces and organized non-state armed groups.
+For a NIAC, the facts must show sufficient intensity and organization. An isolated riot does not automatically meet those requirements.
 
-### #3: Not Every Violent Event Is an Armed Conflict
+### #3: Surrender Has Continuing Conditions
 
-> A riot or isolated violent act does not automatically trigger IHL.
+> A person who resumes hostile acts cannot rely on an earlier surrender.
 
-For a NIAC, the violence must be intense enough and the armed group must be organized enough. Classification depends on the facts.
+Protection from attack as hors de combat requires no hostile acts and no escape attempt. People in custody still have protections against torture and unlawful punishment.
 
-### #4: An Emergency Does Not Suspend Every Right
+### #4: A Military Target Is Only One Check
 
-> Do not treat Article $4$ as permission to cancel the ICCPR.
+> A lawful target does not make every weapon or attack plan lawful.
 
-The emergency must meet strict conditions, any temporary suspension must be necessary and limited, and listed non-derogable rights cannot be suspended through Article $4$.
+Weapons bans, proportionality, and precautions still apply. A warning cannot cure an otherwise prohibited attack.
 
-### #5: Civilian Harm Is Not Judged by One Rule Alone
+### #5: Proclamation Is Not Enough
 
-> Check distinction, proportionality, and precautions separately.
+> A real emergency does not permit suspension of the torture ban.
 
-A military objective may be a lawful target, but an attack can still be prohibited if expected civilian harm is excessive. Feasible precautions must also be taken to reduce civilian harm.
+Every derogation measure must meet Article $4$. Necessity, nondiscrimination, other international duties, and notices matter too.
 
-### #6: Peacetime Does Not Mean Zero IHL Duties
+### #6: Peacetime Still Requires Preparation
 
-> Some IHL duties must be prepared before a conflict starts.
+> States must prepare to follow IHL before war starts.
 
-States may need to adopt implementing laws and teach or train people on IHL in peacetime so the rules can be applied during armed conflict.
+Treaty teaching, military training, and laws for grave breaches are concrete compliance actions. They do not turn ordinary peacetime events into armed conflicts.
