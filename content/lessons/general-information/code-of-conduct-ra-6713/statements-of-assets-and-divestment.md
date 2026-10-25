@@ -20,25 +20,27 @@ $$
 \text{Net worth} = \text{assets} - \text{liabilities}
 $$
 
-For real property, such as land and buildings, report its improvements, acquisition cost, assessed value, and current fair market value. **Acquisition cost** is what was paid to acquire it. **Assessed value** is the value used for property tax, while **fair market value** is its value in an open-market sale.
+For real property, such as land and buildings, report its improvements, acquisition cost, assessed value, and current fair market value. Improvements include buildings added to land.
 
-The declarations also list personal property and its acquisition cost. Other assets include cash, investments, stocks, and bonds. List liabilities as well, so the statement shows what is owned and what is owed.
+**Acquisition cost** is what was paid to acquire the property. **Assessed value** is the value used for property tax. **Fair market value** is its value in an open-market sale.
+
+The declarations also list personal property and its acquisition cost. Other assets include cash, investments, stocks, and bonds. List debts as well, so the statement shows what is owned and what is owed.
 
 A **business interest** is an ownership stake or other interest in a private business. **Shareholdings** are shares owned in a company. A **financial connection** is a financial link to a business, such as paid work as its consultant or adviser.
 
-Report all required business interests and financial connections. A SALN is not just a list of land and houses. It also reports other assets, debts, and the required business information.
+Report all required business interests and financial connections. The declarations cover property, other assets, debts, and business links.
 
 ### Who Is Covered
 
-Section $8(A)$ excludes people serving in an **honorary capacity**, laborers, and casual or temporary workers from its filing requirement. An honorary role is service as an honor, without pay. Do not assume every unpaid role is honorary.
+Section $8(A)$ excludes people serving in an **honorary capacity**, laborers, and casual or temporary workers from its filing requirement. Honorary capacity is a service category named in the law. Do not decide that a role is honorary only because it is unpaid.
 
-The law also defines public officials broadly to include permanent and temporary appointees. A temporary appointment label alone does not settle whether someone is an excluded temporary worker. Check the worker's actual category and the applicable rules.
+The law also includes permanent and temporary appointees in its broad definition of public officials. A temporary appointment label alone does not settle whether someone is an excluded temporary worker. Check the worker's actual category and the rules that apply.
 
 The declarations include the filer, the spouse, and unmarried children under $18$ who live in the household. For a child, all three conditions matter: unmarried, under $18$, and living in the household. Spouses who are both public officials or employees may file jointly or separately.
 
 ### Relatives in Government
 
-Officials and employees must report relatives in government to the best of their knowledge and information. The CSC sets the form, how to report, and how often to report.
+Officials and employees must report relatives in government to the best of their knowledge and information. The Civil Service Commission (CSC) sets the form, how to report, and how often to report.
 
 RA $6713$ covers relatives within the fourth civil degree of **consanguinity**, or blood relationship, and **affinity**, or relationship through marriage. Count one degree for each parent-child step. For relatives on a side branch, go up to the shared ancestor and then down.
 
@@ -46,7 +48,7 @@ A parent is in the first degree, a grandparent in the second, and a great-grandp
 
 For affinity, use the same degree for a spouse's blood relative. A spouse's parent is a first-degree relative by affinity. The law also expressly includes these relations:
 
-- **Bilas:** the spouse of one's brother-in-law or sister-in-law.
+- **Bilas:** one's brother-in-law's wife or sister-in-law's husband.
 - **Inso:** the wife of an elder brother or male cousin.
 - **Balae:** a parent of one's son-in-law or daughter-in-law.
 
@@ -56,52 +58,58 @@ File within $30$ days after assuming office. Annual filings are due on or before
 
 For a period stated as days after an event, begin counting on the next day. Only the copying rule below says working days. Do not change every deadline into working days.
 
-Covered filers must also give the Ombudsman the required authority to obtain government records of their finances. This authority is due within $30$ days after assumption of office. It allows access to records from agencies such as the Bureau of Internal Revenue.
+Covered filers must also give the Ombudsman authority to obtain government records of their finances. This authority is due within $30$ days after assumption of office. It allows access to records from agencies such as the Bureau of Internal Revenue.
 
 ### Filing Offices Under RA $6713$
 
-Match the person's position to the statutory filing category. These are the offices named in the law:
+Match the person's position to the statutory filing category. **Statutory** means stated in the law. These are the offices named in RA $6713$:
 
 - **National office of the Ombudsman:** constitutional and national elective officials, with the specific destinations below for legislators and justices.
 - **Secretary of the Senate or House of Representatives:** members of the respective chamber.
 - **Clerk of Court of the Supreme Court:** justices. **Court Administrator:** judges.
 - **Office of the President:** national executive officials and armed-forces officers of colonel or naval captain rank and above.
 - **Deputy Ombudsman in the proper region:** regional and local officials and employees, and armed-forces officers below colonel or naval captain.
-- **Civil Service Commission (CSC):** other covered public officials and employees in the law's remaining category.
+- **CSC:** other covered public officials and employees in the law's remaining category.
 
-These are statutory destinations. Follow the applicable filing instructions when actually submitting a statement.
+These are statutory destinations. Follow the filing instructions that apply when actually submitting a statement.
 
 ### Public Access and Use Limits
 
-Filed statements are open for inspection at reasonable hours. Copies become available after $10$ working days from filing. A reasonable fee may cover copying, mailing, and certification.
+Filed statements are open for inspection at reasonable hours. Copies become available after $10$ working days from filing. A reasonable fee covers copying, mailing, and certification.
 
 Statements stay available to the public for $10$ years after receipt. After that, they may be destroyed unless needed in an ongoing investigation. Destruction is allowed, not required.
 
-Section $8(D)$ bans obtaining or using statements for purposes contrary to morals or public policy. Commercial use is also banned, except use by news and communications media to inform the general public. Access to a statement is not permission to sell its data for marketing.
+Section $8(D)$ bans obtaining or using statements for purposes contrary to morals or public policy. This means purposes that go against accepted standards of right conduct or the public good.
+
+Commercial use is also banned, except use by news and communications media to inform the general public. Access to a statement does not allow someone to sell its data for marketing.
 
 ### Conflict of Interest and Divestment
 
-A **conflict of interest** requires a private business role or stake and a possible clash with official duty. The law names a board member, officer, substantial stockholder, business owner, or person with a substantial business interest. The business interest or the person's rights or duties in it may be opposed to or affected by faithful public service.
+A **conflict of interest** requires a private business role or stake and a possible clash with official duty. The law names a board member, officer, substantial stockholder, business owner, or person with a substantial business interest.
 
-A **substantial stockholder** owns enough shares, directly or indirectly, to elect a company director. A private role alone does not show the full conflict. Check how public duty may affect that business or the person's role in it.
+Check how honest performance of the government job may affect the business or the person's role in it. A conflict can exist if public duty may work against that private interest. It can also exist if public duty may otherwise affect the business interest or the person's rights or duties in it.
 
-**Divestment** means voluntarily, completely, and actually giving up title or interest in property. A real sale or other complete transfer may do this. The recipient cannot be the official's spouse or a relative covered by the law.
+A **substantial stockholder** owns enough shares, directly or indirectly, to elect a company director. A private role alone does not show the full conflict. There must also be the link to official duty described above.
+
+**Divestment** means freely, completely, and actually giving up title or interest in property. A real sale or other complete transfer may do this. The recipient cannot be the official's spouse or a relative covered by the law.
 
 When a conflict exists on entering office, resign from the private business position within $30$ days after assumption of office and/or divest the relevant interests within $60$ days. The needed action depends on whether the conflict involves a position, an ownership interest, or both. The same rule applies to a partner in a partnership.
 
-If the person is already in government when the conflict starts, the periods run from the day it starts under the rules carrying out the law. Resigning from a board does not by itself give up shares. A transfer that leaves the official in control is not true divestment.
+If the person is already in government when the conflict starts, the periods run from the day it starts. This rule comes from the rules that carry out the law. Resigning from a board does not by itself give up shares.
 
-The divestment requirement excludes those serving in an honorary capacity, laborers, and casual or temporary workers.
+A transfer that leaves the official in control is not true divestment. The divestment requirement excludes those serving in an honorary capacity, laborers, and casual or temporary workers.
 
 ### Review, Correction, and Written Opinions
 
-Section $10$ provides for review of statements for timely filing, completeness, and proper form. If a statement fails a required check, the filer must be informed and directed to correct it.
+Section $10$ calls for a review of statements. The review checks whether each statement was filed on time, is complete, and uses the proper form. If it fails a required check, the filer must be told and directed to correct it.
 
-The designated committees of Congress may issue written opinions explaining the law within their authority. Each opinion needs approval by a majority vote of the House concerned. A person who acts in good faith according to an approved opinion after it is issued is protected from sanctions under RA $6713$.
+The committees assigned by the Senate and House may give written opinions about what the law means. They may do this only for matters they are allowed to handle. Each opinion needs approval by a majority vote of the Senate or House concerned.
 
-That protection also covers another person in a similar factual situation who acts in good faith according to the opinion. It is not permission to hide facts or ignore a different situation.
+**Good faith** means acting honestly. A person who follows an approved opinion in good faith after it is issued is protected from penalties under RA $6713$. The protection covers the person who received the opinion and another person whose facts are similar.
 
-Heads of other offices perform the related review and opinion duties for their offices. Approval comes from the Secretary of Justice for the Executive Department and the Chief Justice for the Judicial Department.
+The opinion must apply to what the person actually did. It does not allow someone to hide facts or ignore a different situation.
+
+Heads of other offices carry out these review and opinion duties for their own offices. In the Executive Department, the Secretary of Justice must approve. In the Judicial Department, the Chief Justice must approve.
 
 ## Examples
 
@@ -255,7 +263,7 @@ A journalist requests a SALN received $8$ years ago. When does a statement becom
 
 1. Copies become available after $10$ working days from filing.
 2. Statements stay available for $10$ years after receipt. An $8$-year-old statement is within that period.
-3. The statement remains available under this rule. A reasonable copying, mailing, or certification fee may apply.
+3. The statement remains available under this rule. A reasonable fee covers copying, mailing, and certification.
 
 ### #16: A Statement Still Needed as Evidence
 
@@ -278,13 +286,13 @@ A marketing company sells SALN information in a customer list. A news organizati
 
 ### #18: Correction and Good-Faith Reliance
 
-A reviewing body finds an incomplete statement. Separately, a House committee issues a written interpretation approved by the required majority. A member in the factual situation covered follows that opinion in good faith after it is issued. What rules apply?
+A reviewing body finds an incomplete statement. Separately, a House committee issues a written interpretation approved by a majority vote of the House. A member in the factual situation covered follows that opinion in good faith after it is issued. What rules apply?
 
 **Solution:**
 
-1. The filer of the incomplete statement must be informed and directed to correct it.
-2. The approved written opinion has a separate effect. A covered person who acts in good faith according to it after issuance is protected from sanctions under RA $6713$.
-3. A person in a different factual situation cannot assume the same protection.
+1. The filer of the incomplete statement must be told and directed to correct it.
+2. The approved written opinion has a separate effect. A covered person who follows it honestly after it is issued is protected from penalties under RA $6713$.
+3. A person whose facts are different cannot assume the same protection.
 
 ## Traps to Watch For
 
