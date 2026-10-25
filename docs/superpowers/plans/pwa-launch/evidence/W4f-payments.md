@@ -195,3 +195,56 @@ The lead inspected the final plans fallback and both injected-read regression ca
 Independent read-only review found no issue in the final fallback. Original HEAD and cached
 matching remote branch SHA remain `8e5fac5d17ac0eb99a6ddbd5f919ce0035c8cc2e`.
 Gateway source remains byte-identical to CLIENT. All changes remain uncommitted.
+
+
+## W4f second fix round, October 25, 2026
+
+Policy: cached origin/main `73572280cf4d9478d56e42247be04dad8ad1acd9`, read with
+`git show` in CLIENT. PAYMENTS base `22c25edf`. No fetch/pull, commit, staging,
+push, deployment, hosting change, or dependency addition.
+
+Item 7: separate renewal and trial eligibility catches. Each failure records its
+own error and preserves the other read's successful value. RED: 10 tests,
+7 pass, 3 fail. Actual mismatches: renewal `undefined` versus `true`, trial
+eligibility `false` versus `true`, error count `1` versus `2`. GREEN: 10 pass,
+0 fail. Logs `/tmp/w4f-r2-plans-{red,green}.log`.
+
+The shared web gateway now permits a callback before opening checkout, so CLIENT
+can save the returned session ID before navigation. Gateway identity is checked
+across creation and the callback. Both assigned gateway copies are byte-identical.
+Actual server returns contain no session correlation. CLIENT refuses an exam
+switch without matching session ID and explicit target. A proposed return-token
+contract remains a question to the lead. No checkout-server contract was invented.
+
+Verification, actual output:
+```text
+npx tsc --noEmit: exit 0
+PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+ℹ tests 122
+ℹ pass 122
+ℹ fail 0
+ℹ tests 145
+ℹ pass 145
+ℹ fail 0
+✔  Script exited successfully (code 0)
+```
+
+For this literal npm test, temporary execution settings used Auth 49099,
+Firestore 48080, Storage 49199, hub 44400, logging 44500, websocket 49152,
+and disabled UI. The emulator Node runner used `--test-concurrency=1` because
+existing global ledger sweeps share data. TMPDIR was
+`/tmp/w4f-r2-payments-emulator`; XDG_CONFIG_HOME was
+`/tmp/w4f-r2-firebase-config`; NO_UPDATE_NOTIFIER=1. Original Firebase and npm
+configuration bytes were restored in `finally`. No assertions or production
+behavior were changed for execution. Default Node v26.10.0 and OpenJDK 21.
+Full log `/tmp/w4f-r2-payments-npmtest.log`. No live payment or deployment tested.
+
+Final functions/gateway diff SHA-256: `a5a2cac38ae0847aa2765ae306c7a81eb4d314739f8d3dfba3bf3634a2628737`.
+Gateway byte comparison and `git diff --check`: exit 0.
+Final `git status --short`:
+```text
+ M docs/superpowers/plans/pwa-launch/evidence/W4f-payments.md
+ M functions/src/webPlans.ts
+ M functions/test/web-plans.test.mjs
+ M lib/features/paywall/data/web_payment_gateway.dart
+```

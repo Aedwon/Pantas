@@ -65,7 +65,7 @@ test('index exports listWebPlans', () => {
 });
 
 for (const failingRead of ['eligibility', 'renewal']) {
-  test(`plans remain available without trial or renewal warning when ${failingRead} fails`, async t => {
+  test(`plans preserve the other successful read when ${failingRead} fails`, async t => {
     const failure = new Error(`${failingRead} unavailable`);
     const recorded = [];
     t.mock.method(console, 'error', (...args) => recorded.push(args));
@@ -76,9 +76,25 @@ for (const failingRead of ['eligibility', 'renewal']) {
       [failingRead]: async () => {throw failure;},
     }));
     assert.deepEqual(out.plans, expectedPlans);
-    assert.equal(out.trialEligible, false);
-    assert.equal(Object.hasOwn(out, 'googlePlayPlanRenews'), false);
+    assert.equal(out.trialEligible, failingRead !== 'eligibility');
+    assert.equal(out.googlePlayPlanRenews, failingRead === 'renewal' ? undefined : true);
     assert.equal(recorded.length, 1);
     assert.equal(recorded[0][1].error, failure);
   });
 }
+
+
+test('each failed plan read is recorded separately', async t => {
+  const recorded = [];
+  t.mock.method(console, 'error', (...args) => recorded.push(args));
+  const renewalError = new Error('renewal unavailable');
+  const eligibilityError = new Error('eligibility unavailable');
+  const out = await listPlans(named('u1'), deps({
+    renewal: async () => {throw renewalError;},
+    eligibility: async () => {throw eligibilityError;},
+  }));
+  assert.equal(out.trialEligible, false);
+  assert.equal(out.googlePlayPlanRenews, undefined);
+  assert.equal(recorded.length, 2);
+  assert.deepEqual(recorded.map(row => row[1].error), [renewalError, eligibilityError]);
+});

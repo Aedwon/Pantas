@@ -42,14 +42,19 @@ export async function listPlans(auth: Parameters<typeof assertNamedUser>[0], dep
     plans.push({product: product.id, priceCentavos: cents, priceString: formatPesos(cents),
       prepaid: product.prepaid, examId: product.kind === 'pass' ? product.examId : null});
   }
+  let renews: boolean | undefined;
+  let eligible = false;
   try {
-    const renews = await (deps.renewal ?? ((uid, at) => googlePlayRenews(deps.db ?? getFirestore(), uid, at)))(auth.uid, now);
-    const eligible = await (deps.eligibility ?? (caller => trialEligible(caller, deps.db ?? getFirestore())))(auth);
-    return {plans, googlePlayPlanRenews: renews, trialEligible: eligible};
+    renews = await (deps.renewal ?? ((uid, at) => googlePlayRenews(deps.db ?? getFirestore(), uid, at)))(auth.uid, now);
   } catch (error) {
-    console.error('Web plan eligibility or renewal read failed', {uid: auth.uid, error});
-    return {plans, trialEligible: false};
+    console.error('Web plan renewal read failed', {uid: auth.uid, error});
   }
+  try {
+    eligible = await (deps.eligibility ?? (caller => trialEligible(caller, deps.db ?? getFirestore())))(auth);
+  } catch (error) {
+    console.error('Web plan eligibility read failed', {uid: auth.uid, error});
+  }
+  return {plans, trialEligible: eligible, ...(renews === undefined ? {} : {googlePlayPlanRenews: renews})};
 }
 
 /** Only explicit, current production Play renewal facts justify the warning. */
