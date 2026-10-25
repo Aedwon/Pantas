@@ -1,0 +1,368 @@
+{
+ "batch": "RD-048",
+ "lesson_id": "lesson-philippine-constitution-the-articles-in-outline",
+ "path": "content/lessons/general-information/philippine-constitution/the-articles-in-outline.md",
+ "lesson_sha256": "0fa8b9f630a8f9f77e971a67cee5641cfa4d1f0dc055444690532fabad98018e",
+ "rewrite_commit": "3971cfe2a7122ed4066107870c2c3902f0d1622f",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-articles-in-outline",
+  "role": "A",
+  "lesson_sha256": "0fa8b9f630a8f9f77e971a67cee5641cfa4d1f0dc055444690532fabad98018e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Preamble plus 18 Articles, I–XVIII title/topic matches, IX A–D commission assignments, civilian supremacy, parent-based citizenship, voting age 18, three departments, CHR investigative scope, amendment/plebiscite and transitory-law descriptions. No specific examination-content claim is made. This is a prompt-only check; no external source was opened."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 18; #2 Article XI; #3 Article IX, Part B; #4 common good; #5 civilian supremacy; #6 no, the title does not provide qualifications; #7 XVII then XVIII. All seven match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All 18 Articles and the Preamble are present, including IX subdivisions. Examples, Traps and an optional real sequence shortcut are included. No figure is required for verbal topic location."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Preamble aims are explained with fair treatment, community good, heritage and lawful public power. Article headings retain official terminology but unfamiliar ideas have short plain explanations; the original convoluted exam disclaimer is removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a special tested meaning is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Seven stems directly test article count, topic location, subpart location, common-good interpretation, civilian supremacy, title limits and similar change topics. The title-limit scenario supplies the known title, not the requested conclusion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-based introductions appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary states the topic directly; no listed stock AI phrases occur; sentence openings vary within explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information layout includes Core Concept, Examples, and Traps to Watch For. No example uses a formula, so no formula needs tracing to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked cases progress from count and article/subpart lookup to interpreting an aim, applying a principle, recognizing title limits and distinguishing XVII/XVIII. These are distinct operations, not repeated noun substitutions; no example for every catalogue heading is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered steps. Single-sentence answers stand alone; no computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or numerical calculations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs contain one to three sentences; no extended bullet catalogue replaces teaching paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustrations or placeholders, and these verbal cases need none.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Article, Preamble, common good, patrimony, rule of law, sovereignty, suffrage, department powers, local autonomy, impeachment, amendment/revision and plebiscite receive local meanings. Roman XVIII is explained in the counting solution; no computation depends on untaught notation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The outline explains how titles locate topics and why actual provisions are still needed. It interprets Preamble aims, applies civilian supremacy, and gives substantive introductory explanations across the article catalogue."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Repeated limits explain that titles and broad aims cannot supply exact powers, qualifications, exceptions or procedures. IX-B is within IX; Preamble is outside the count; autonomy remains within the Constitution; natural-born citizenship flags an exception rather than presenting an absolute rule. Full eligibility rules are outside this outline lesson."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-the-articles-in-outline|B03|0": {
+    "status": "fixed",
+    "quote": "The Preamble gives broad aims. Article I concerns National Territory.",
+    "note": "The required trap section is present, with count and title-limit warnings."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|0": {
+    "status": "fixed",
+    "quote": "The $1987$ Constitution has a Preamble and $18$ Articles.",
+    "note": "The introductory year and article count now use inline math."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|1": {
+    "status": "fixed",
+    "quote": "Which Article contains rules on accountability of public officers and impeachment?",
+    "note": "The revised accountability question drops the unwrapped year."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|2": {
+    "status": "fixed",
+    "quote": "How many Articles are in the $1987$ Constitution, excluding the Preamble?",
+    "note": "The counting stem now wraps the year in inline math."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|3": {
+    "status": "fixed",
+    "quote": "2. XVIII is the Roman numeral for $18$.",
+    "note": "The Roman-numeral conversion wraps the Arabic number."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|4": {
+    "status": "fixed",
+    "quote": "3. The answer is $18$ Articles. The Preamble is not included.",
+    "note": "The final article count uses inline math delimiters."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|B08|5": {
+    "status": "fixed",
+    "quote": "Which main Article and sub-part cover the Civil Service Commission?",
+    "note": "The revised commission stem removes the unwrapped year."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L01|0": {
+    "status": "fixed",
+    "quote": "A title tells where to look. It does not tell every rule, power, requirement, or exception inside the article.",
+    "note": "The title-versus-substance distinction is explicitly taught."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L02|0": {
+    "status": "fixed",
+    "quote": "It explains why the Filipino people adopted the Constitution and the kind of country they seek.",
+    "note": "The Preamble explanation replaces the difficult original wording."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L02|1": {
+    "status": "fixed",
+    "quote": "Its title helps you find a topic.",
+    "note": "The original convoluted exam disclaimer is replaced by plain location teaching."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L19|0": {
+    "status": "fixed",
+    "quote": "Article XI, Accountability of Public Officers, contains these rules.",
+    "note": "The accountability solution is now a complete one-step answer."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L19|1": {
+    "status": "fixed",
+    "quote": "1. The Articles run from I through XVIII.",
+    "note": "The count solution starts directly with a numbered step."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L19|2": {
+    "status": "fixed",
+    "quote": "1. Article IX covers the Constitutional Commissions.",
+    "note": "The commission solution starts directly with a numbered step."
+   },
+   "general-information-philippine-constitution#63": {
+    "status": "fixed",
+    "quote": "It includes waters around, between, and connecting the islands as internal waters.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#64": {
+    "status": "fixed",
+    "quote": "Article II also says civilian authority is always supreme over the military.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#65": {
+    "status": "fixed",
+    "quote": "For example, taking property without fair legal steps raises due process, not simply a question about where Article III is found.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#66": {
+    "status": "fixed",
+    "quote": "A person whose father or mother is a Philippine citizen is included.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#67": {
+    "status": "fixed",
+    "quote": "It bars literacy, property, or other added substantive requirements for voting.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#68": {
+    "status": "fixed",
+    "quote": "Some lawmaking power is reserved to the people through the Constitution's rules on initiative and referendum, ways for people to propose or vote on laws directly.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#69": {
+    "status": "fixed",
+    "quote": "Executive power is placed in the President.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#70": {
+    "status": "fixed",
+    "quote": "It also includes checking grave abuse of discretion, a serious misuse of power, by any government branch or body.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#71": {
+    "status": "fixed",
+    "quote": "It does not mean they are separate countries or free from the Constitution.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#72": {
+    "status": "fixed",
+    "quote": "It states that natural resources belong to the State, with rules on their use and protection.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#73": {
+    "status": "fixed",
+    "quote": "It also creates the Commission on Human Rights, whose powers include investigating human rights violations involving civil and political rights.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#74": {
+    "status": "fixed",
+    "quote": "The State must protect and promote the right to quality education at all levels and take steps to make education accessible.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#75": {
+    "status": "fixed",
+    "quote": "The State must protect and strengthen it.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#76": {
+    "status": "fixed",
+    "quote": "The flag is red, white, and blue, with a sun and three stars.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#77": {
+    "status": "fixed",
+    "quote": "This article gives ways to propose changes and requires approval by the people in a **plebiscite**, a vote on a specific public question.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#78": {
+    "status": "fixed",
+    "quote": "For example, existing laws remain effective if they do not conflict with the Constitution, until they are changed or repealed.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#81": {
+    "status": "fixed",
+    "quote": "The **common good** means the good of the community, not only the advantage of one person or group.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "general-information-philippine-constitution#83": {
+    "status": "fixed",
+    "quote": "For example, a claim that the military stands above civilian government conflicts with the civilian-supremacy principle.",
+    "note": "The article location now has substantive introductory teaching; exact provisions remain necessary for detailed applications."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L18|0": {
+    "status": "fixed",
+    "quote": "It does not list the qualifications for President.",
+    "note": "Example 6 now works the distinct title-versus-substance case."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L18|1": {
+    "status": "fixed",
+    "quote": "How many Articles are in the $1987$ Constitution, excluding the Preamble?",
+    "note": "The basic count example now comes before accountability lookup."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L26|0": {
+    "status": "fixed",
+    "quote": "For a question about what the government may do, read or recall the exact rule too.",
+    "note": "The lookup limitation is explained and practiced in Example 6."
+   },
+   "lesson-philippine-constitution-the-articles-in-outline|L27|0": {
+    "status": "fixed",
+    "quote": "They do not by themselves answer every question about a power or a legal procedure.",
+    "note": "The limits of broad aims and topic titles are now explicit."
+   }
+  }
+ }
+}

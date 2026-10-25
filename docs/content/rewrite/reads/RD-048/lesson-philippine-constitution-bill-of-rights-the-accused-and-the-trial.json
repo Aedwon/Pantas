@@ -1,0 +1,249 @@
+{
+ "batch": "RD-048",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights-the-accused-and-the-trial.md",
+ "lesson_sha256": "da44809d4fbb7ecb3c0cd07e180d5d040c1413701333172daad9c774319d0112",
+ "rewrite_commit": "3971cfe2a7122ed4066107870c2c3902f0d1622f",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+  "role": "A",
+  "lesson_sha256": "da44809d4fbb7ecb3c0cd07e180d5d040c1413701333172daad9c774319d0112",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Article III Sections 14–17: trial safeguards, the three trial-in-absence conditions, invasion/rebellion plus public safety, broader speedy disposition, and compelled testimonial self-incrimination match those constitutional provisions.",
+     "Delay is assessed through circumstances, assertion of the right, and prejudice; physical evidence is distinguished from compelled statements. External source access was excluded by this assignment; this is a prompt-only accuracy review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 presumption of innocence; #2 notice of accusation and hearing personally/through counsel; #3 public and impartial trial; #4 speedy trial; #5 confrontation and compulsory process; #6 yes, all three conditions hold; #7 no, required grounds are absent; #8 speedy disposition; #9 protection against compelled self-incrimination. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All brief facets 38–46 are present, plus trial after arraignment in absence. Core Concept, Examples, and Traps are present. None of the nine verbal cases requires a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Accused, counsel, arraignment, compulsory process, habeas corpus, quasi-judicial body, administrative body, and testimonial evidence receive short plain explanations. Dense legal vocabulary is unpacked in separate sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction word with a special tested meaning is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Nine direct legal-scenario questions supply needed facts: unjustified closure, bias, unexplained harmful delay, notice and absence, absence of invasion/rebellion, agency delay, and a forced written admission. None supplies the tested safeguard as a definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-based introductions appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary states the topic directly; no listed stock AI phrases occur; sentence openings vary within explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information layout includes Core Concept, Examples, and Traps to Watch For. No example uses a formula, so no formula needs tracing to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples separately cover innocence, notice/hearing, impartial/public trial, speedy trial, confrontation/process, trial in absence, suspension grounds, administrative delay, and compelled testimony. Combined paired safeguards remain distinguishable; no mere noun/number duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered steps. Single-sentence answers stand alone; no computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or numerical calculations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs contain one to three sentences; no extended bullet catalogue replaces teaching paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustrations or placeholders, and these verbal cases need none.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Local definitions explain accused, counsel, accusation, speedy/impartial/public, compulsory process, arraignment, habeas corpus, invasion/rebellion, speedy disposition, agency types, and testimonial evidence before the examples need them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching explains why a charge is not proof, how defense participation and questioning work, how court orders obtain evidence, how detention review works, and how forced statements differ from physical evidence."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked notification, prior arraignment and unjustified absence; invasion/rebellion plus public safety; delay circumstances rather than fixed days; public-trial lawful limits; and testimonial scope of self-incrimination. No shortcut is stated as unconditional."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-bill-of-rights|L02|0": {
+    "status": "fixed",
+    "quote": "A **quasi-judicial body** is a government body outside the courts that hears facts and decides certain disputes.",
+    "note": "Difficult terms now have short explanations; the dense original list is replaced by teaching paragraphs."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L27|0": {
+    "status": "fixed",
+    "quote": "Section $15$ allows suspension of the privilege of this writ only during invasion or rebellion when public safety requires it.",
+    "note": "Both required constitutional grounds and the public-safety condition are stated."
+   },
+   "general-information-philippine-constitution#38": {
+    "status": "fixed",
+    "quote": "A charge is a claim that a crime was committed.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#39": {
+    "status": "fixed",
+    "quote": "This protects the chance to answer the charge and present a defense.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#40": {
+    "status": "fixed",
+    "quote": "This means knowing the crime charged and the acts claimed to make up that crime.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#41": {
+    "status": "fixed",
+    "quote": "Do not decide from the number of days alone.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#42": {
+    "status": "fixed",
+    "quote": "This lets the defense question people who testify against the accused and test what they say.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#43": {
+    "status": "fixed",
+    "quote": "It helps the defense obtain needed proof even when a witness will not attend willingly.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#44": {
+    "status": "fixed",
+    "quote": "Section $15$ allows suspension of the privilege of this writ only during invasion or rebellion when public safety requires it.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#45": {
+    "status": "fixed",
+    "quote": "Speedy trial concerns a criminal trial. Speedy disposition is broader and also reaches cases before these other bodies.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   },
+   "general-information-philippine-constitution#46": {
+    "status": "fixed",
+    "quote": "Look for both force and a statement that could be used against the person giving it.",
+    "note": "The facet now has an explanation, a way to identify it in a case, and a corresponding worked example."
+   }
+  }
+ }
+}
