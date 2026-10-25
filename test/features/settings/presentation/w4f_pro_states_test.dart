@@ -9,6 +9,7 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
@@ -337,7 +338,10 @@ void main() {
     testWidgets('upgrade pass countdown at $days days', (tester) async {
       await _pump(tester, upgrade: true, daysUntil: days);
       expect(find.text('Ends in 0 days'), findsNothing);
-      if (days > 0 && days <= 7) {
+      if (days == 0) {
+        expect(find.text('Ends today'), findsOneWidget);
+        expect(find.textContaining('Until '), findsNothing);
+      } else if (days > 0 && days <= 7) {
         expect(
           find.text('Ends in $days ${days == 1 ? 'day' : 'days'}'),
           findsOneWidget,
@@ -347,10 +351,30 @@ void main() {
       }
     });
   }
-  for (final days in [1, 7, 8]) {
+  testWidgets('a payment problem uses the warning red text style',
+      (tester) async {
+    await _pump(
+      tester,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.monthly,
+        productId: 'pantas_pro_monthly',
+        tier: PriceTier.student,
+        expiresAt: DateTime.now().add(const Duration(days: 30)),
+        state: EntitlementState.billingIssue,
+      ),
+    );
+    final line = find.text('There is a problem with your payment.');
+    expect(line, findsOneWidget);
+    expect(
+      tester.widget<Text>(line).style?.color,
+      tester.element(line).colors.destructive,
+    );
+  });
+  for (final days in [0, 1, 7, 8]) {
     testWidgets('pass countdown threshold at $days days', (tester) async {
       await _pump(tester, daysUntil: days);
-      if (days <= 7) {
+      if (days == 0) expect(find.text('Ends today'), findsOneWidget);
+      if (days >= 1 && days <= 7) {
         expect(
           find.text('Ends in $days ${days == 1 ? 'day' : 'days'}'),
           findsOneWidget,

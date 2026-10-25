@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -105,6 +106,15 @@ class _ExamPageState extends ConsumerState<ExamPage>
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final actions = ref.read(settingsActionsProvider);
+    final examId = ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id;
+    final excludedTopics = examId == null
+        ? null
+        : ref.watch(trackScopeProvider(examId)).valueOrNull;
+    final excludedLessons = examId == null
+        ? null
+        : ref.watch(lessonScopeProvider(examId)).valueOrNull;
+    final leftOut = (excludedTopics?.isNotEmpty ?? false) ||
+        (excludedLessons?.isNotEmpty ?? false);
     final date = settings.examDate;
     final now = DateUtils.dateOnly(DateTime.now());
     final mode = _mode ??
@@ -499,7 +509,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
           children: [
             ListRow(
               title: 'What’s included',
-              value: 'All subjects',
+              value: leftOut ? 'Some topics left out' : 'All subjects',
               onTap: () => push('/settings/exam/included'),
             ),
           ],

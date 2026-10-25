@@ -519,9 +519,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         sitting == null ? null : DateFormat.yMMMd().format(sitting.lastDay);
     final passDetail = sitting == null
         ? 'Once the next date is out'
-        : daysUntilSitting! > 0 && daysUntilSitting <= 7
-            ? 'Ends in $daysUntilSitting $dayUnit'
-            : 'Until $sittingEnd';
+        : daysUntilSitting == 0
+            ? 'Ends today'
+            : daysUntilSitting! > 0 && daysUntilSitting <= 7
+                ? 'Ends in $daysUntilSitting $dayUnit'
+                : 'Until $sittingEnd';
     final selectedPass = sitting == null ? null : selectedPassCandidate;
     final pending = web ? null : ref.watch(pendingPurchaseProvider).valueOrNull;
     final user = ref.watch(currentUserProvider).unwrapPrevious().valueOrNull;
@@ -747,7 +749,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   variant: ListRowVariant.value,
                 ),
               if (entitlement.state == EntitlementState.billingIssue)
-                const Text('There is a problem with your payment.'),
+                Text(
+                  'There is a problem with your payment.',
+                  style: context.type.footnote
+                      .copyWith(color: context.colors.destructive),
+                ),
             ],
           ),
         for (final pass in entitlement.passes.entries) ...[

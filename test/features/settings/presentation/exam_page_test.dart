@@ -7,6 +7,7 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
@@ -244,6 +245,52 @@ void main() {
       tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
       isTrue,
     );
+  });
+
+  testWidgets("What's included says All subjects when nothing is left out",
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: createOverrides(),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('All subjects'), findsOneWidget);
+    expect(find.text('Some topics left out'), findsNothing);
+  });
+
+  testWidgets("What's included says Some topics left out for a topic",
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: [
+        ...createOverrides(),
+        trackScopeProvider.overrideWith(
+          (ref, examId) async => {'topic_algebra'},
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Some topics left out'), findsOneWidget);
+    expect(find.text('All subjects'), findsNothing);
+  });
+
+  testWidgets("What's included says Some topics left out for a lesson",
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const ExamPage(),
+      overrides: [
+        ...createOverrides(),
+        lessonScopeProvider.overrideWith(
+          (ref, examId) async => {'lesson_fractions'},
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Some topics left out'), findsOneWidget);
+    expect(find.text('All subjects'), findsNothing);
   });
 
   testWidgets('the lede states the rule that surprises people', (tester) async {
