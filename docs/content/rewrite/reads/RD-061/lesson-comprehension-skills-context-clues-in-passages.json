@@ -1,0 +1,299 @@
+{
+ "batch": "RD-061",
+ "lesson_id": "lesson-comprehension-skills-context-clues-in-passages",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+ "lesson_sha256": "d03a35f76d69523011ec4bd5b19b7500f98cf4de97690202a96e57933c0cfb70",
+ "rewrite_commit": "2b0a077b6af8e473e90f25a081aaa87f906daae5",
+ "form": {
+  "packet": "lesson-comprehension-skills-context-clues-in-passages",
+  "role": "A",
+  "lesson_sha256": "d03a35f76d69523011ec4bd5b19b7500f98cf4de97690202a96e57933c0cfb70",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "May mga salitang magkapareho ang tunog ngunit magkaiba ang baybay at kahulugan.",
+      "problem": "The following pair bata and bata-bata does not exemplify words with the same sound: the second repeats the word and has more syllables. The general statement is true, but its supplied illustration teaches the wrong sound relationship."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Independent answers: #1 temporary stop; #2 shock and worry; #3 small decorative objects; #4 friendly; #5 delaying work; #6 arranging anew; #7 easy to carry; #8 low energy; #9 calm; #10 heavy worries; #11 writing completed, submission uncertain; #12 first siya is Mila, last ambiguous; #13 separately, lamang limits Mila then the umbrella, but the combined claims conflict; #14 doorway; #15 arrival not established. Other answers match."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Si Mila lamang ang nagdala ng payong. Payong lamang ang dinala ni Rosa.",
+      "problem": "Example 13 is internally inconsistent as a shared passage: the first sentence excludes other umbrella bringers, while the second says Rosa brought an umbrella. The solution presents both claims without addressing the contradiction."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required main sections and all brief additions are present: passage-spanning clues, word parts, Filipino vocabulary and usage. No required figure is indicated by any example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Clue types are split into short paragraphs; base, root, prefix and suffix are defined in simple words; the contrast solution uses concrete warm versus angry behavior. Filipino teaching is considered separately under L08."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Infer is explained on its first use as working out an idea from clues. No unexplained elimination instruction remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All fifteen examples ask direct reading questions and provide the relevant surrounding sentences. English and Filipino solutions use concrete evidence; the contradictory passage is separately flagged under B02."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-opening phrases occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino sections explain vocabulary, possibility, aspect, pronouns, modifiers, and sentence types in short Filipino sentences with familiar examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Kasingkahulugan, kasalungat, di-tuwirang kahulugan, aspekto ng pandiwa, pang-abay, panghalip, panuring, pasalaysay, patanong, pautos, and padamdam each receive an English gloss on first definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino skill examples #8–15 have Filipino passages, questions, and reasoning. English examples #1–7 teach the English portion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino teaching and examples require official spelling and usage review; no official source is available within this prompt-only assignment.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino explanations use Filipino prose; parenthetical English grammar glosses are permitted. Naka-bold uses the common formatting term."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Kanino tumutukoy ang unang “siya”? Tiyak ba ang tinutukoy ng huling “siya”?",
+      "problem": "Example 12 tests occurrences of siya without bolding them or referring to bold wording. Example 13 likewise targets lamang without bolding it. The vocabulary examples do use bold correctly."
+     }
+    ]
+   },
+   "L15": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang **aspekto ng pandiwa** (verb aspect) ay nagpapakita ng kalagayan ng kilos. Sa *sumulat*, tapos na ang kilos. Sa *sumusulat*, nagpapatuloy ito. Sa *susulat*, hindi pa ito nagsisimula.",
+      "problem": "Three successive teaching sentences begin with Sa. This breaks the explicit rule against three repeated sentence openings."
+     }
+    ]
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Strategies is permitted for Reading Comprehension. No formula appears in any worked solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Distinct cases: direct definition #1; multi-sentence explanation #2; distributed examples #3; contrast #4; distributed cause/result #5; prefix/base/suffix #6 and root/suffix #7; Filipino synonym #8, antonym #9, nonliteral #10, aspect/possibility #11, pronoun ambiguity #12, modifier placement #13, spelling #14, question versus command versus report #15."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All fifteen examples have Solution labels and numbered steps that expose the reasoning. No numerical computations require display notation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang **aspekto ng pandiwa** (verb aspect) ay nagpapakita ng kalagayan ng kilos. Sa *sumulat*, tapos na ang kilos. Sa *sumusulat*, nagpapatuloy ito. Sa *susulat*, hindi pa ito nagsisimula.",
+      "problem": "This paragraph contains four sentences. The bata/bata-bata paragraph also has four sentences; the limit is three."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Infer and five clue types are explained before examples. Word-part terms, Filipino vocabulary terms, aspect, time, pronouns, modifiers, and sentence categories all receive local definitions; new suffix meanings in solutions are explained where introduced."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each clue type explains its evidence relationship; word-part analysis includes construction and context checking; Filipino usage sections show how wording changes interpretation with paired sentences. The faulty same-sound example is flagged under B01."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Explains overlapping clues, checking contrast direction, clues before or after a target, limits of apparent word parts, possibility versus certainty, pronoun ambiguity, modifier scope, and questions or commands not proving events."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "However marks a change uses marks as a verb meaning indicates, not as a score. No scoring marks or study cards appear."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Ang *bata-bata* ay maaaring tumukoy sa taong pinapaboran ng makapangyarihang tao.",
+    "concern": "The meaning may be intended, but bata and bata-bata do not sound the same as the preceding explanation asserts."
+   },
+   {
+    "quote": "Si Mila lamang ang nagdala ng payong. Payong lamang ang dinala ni Rosa.",
+    "concern": "Both Mila and Rosa brought an umbrella in this shared passage, contradicting the claim that only Mila brought one."
+   }
+  ],
+  "brief_items": {
+   "lesson-comprehension-skills-context-clues-in-passages|L18|0": {
+    "status": "fixed",
+    "quote": "A small vase leaned beside a toy soldier.",
+    "note": "Example clues now occur in sentences after the target word."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L18|1": {
+    "status": "fixed",
+    "quote": "She kept putting her report aside for small tasks.",
+    "note": "The behavior and deadline result span sentences after procrastination."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L02|0": {
+    "status": "fixed",
+    "quote": "Look for *but*, *unlike*, or *however*.",
+    "note": "Each clue category now has short separate teaching sentences."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L05|0": {
+    "status": "fixed",
+    "quote": "The later meeting is angry. The earlier meeting has warm speech and handshakes.",
+    "note": "Contrast reasoning now uses short concrete sentences."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|0": {
+    "status": "fixed",
+    "quote": "**consternation**",
+    "note": "The target is bold and its question says the word in bold."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|1": {
+    "status": "fixed",
+    "quote": "**bric-a-brac**",
+    "note": "The target is bold and its question says the word in bold."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|2": {
+    "status": "fixed",
+    "quote": "**amicable**",
+    "note": "The target is bold and its question says the word in bold."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|3": {
+    "status": "fixed",
+    "quote": "**procrastination**",
+    "note": "The target is bold and its question says the word in bold."
+   },
+   "reading-comprehension-comprehension-skills#50": {
+    "status": "fixed",
+    "quote": "Break a word into parts you recognize.",
+    "note": "Roots, bases, prefixes and suffixes are explained and applied to reorganization and portable."
+   },
+   "reading-comprehension-comprehension-skills#68": {
+    "status": "fixed",
+    "quote": "Ang **kasingkahulugan** (synonym) ay salitang malapit ang kahulugan sa isa pang salita.",
+    "note": "Filipino synonyms, opposites, descriptions and nonliteral interpretation are taught and worked."
+   },
+   "reading-comprehension-comprehension-skills#74": {
+    "status": "fixed",
+    "quote": "Ang **aspekto ng pandiwa** (verb aspect) ay nagpapakita ng kalagayan ng kilos.",
+    "note": "Possibility, aspect, time, pronouns, modifiers, spelling distinctions and sentence types are added; separate findings identify faulty examples."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L25|0": {
+    "status": "fixed",
+    "quote": "To **infer** means to work out an idea from clues.",
+    "note": "Infer is glossed before use; the unexplained elimination phrase is removed."
+   }
+  }
+ }
+}

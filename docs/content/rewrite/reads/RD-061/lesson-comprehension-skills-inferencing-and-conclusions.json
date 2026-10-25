@@ -1,0 +1,250 @@
+{
+ "batch": "RD-061",
+ "lesson_id": "lesson-comprehension-skills-inferencing-and-conclusions",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
+ "lesson_sha256": "af6f7b22406bd21579eb1cefb4c58119db49a51e1524ead81dabec8104854c93",
+ "rewrite_commit": "2b0a077b6af8e473e90f25a081aaa87f906daae5",
+ "form": {
+  "packet": "lesson-comprehension-skills-inferencing-and-conclusions",
+  "role": "A",
+  "lesson_sha256": "af6f7b22406bd21579eb1cefb4c58119db49a51e1524ead81dabec8104854c93",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked evidence strength, premise/conclusion roles, necessary-assumption denial test, chart scale and limits on causal inference. These are consistent with the demonstrations; passages are hypothetical rather than external factual reports."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 likely waiting uneasily; #2 concerned about hours; #3 laziness not justified; #4 likely late study/work; #5 Lino is an employee; #6 Tuesday, 15 more than Wednesday (30 versus 15); #7 Tuesday exceeds 25; #8 Nena is preparing and awaiting participants; #9 community reducing plastic use/waste; #10 always faster is not established by one lower-attendance trial. These match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps are present. Both visual-dependent examples include their own drawable placeholders and text square charts. Assumptions and Filipino inference additions appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Inference is defined with clues in three short sentences; evidence, premise, assumption, legend, unit, and scale receive plain explanations. No old abstract finance language remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Infer is defined at the opening; Filipino paghatol is explained as checking whether a statement has enough support before its application."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All ten examples contain explicit questions, supplied passages or charts, and simple worked solutions. The bar-chart legend is necessary problem-specific data; assumption terminology is taught in Core Concept instead of supplied as the answer in its question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-opening phrases occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section and examples #8–10 use short Filipino explanations of clues, the whole-paragraph message, and evidence limits."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Hinuha, pangunahing diwa, and paghatol receive English glosses at first definition. No further hard Filipino grammar term requires a gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #8–10 teach the Filipino portion using Filipino passages, prompts, and solutions. English examples serve the separate English teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino spelling and usage appear in teaching and examples and require checking against the official source outside this prompt-only review.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino prose uses Filipino wording; parenthetical inference, main idea and evaluation are allowed first-use glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question tests a target word in this lesson.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the skills directly; no listed stock phrases occur and teaching openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Strategies matches subject fit. Example 6 uses count times visitors per square, introduced in Core Concept by counting squares and multiplying by 5. Its difference calculation is ordinary subtraction of two chart counts, not a new specialized formula. Example 7 uses the same scale conversion and a supplied threshold."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage: behavioral inference #1; strongest supported claim #2; unsupported character judgment #3; combined clues #4; necessary assumption and denial test #5; chart comparison #6; prose threshold plus chart #7; Filipino action inference #8, unstated main idea #9, justified evaluation #10. No noun-only duplicate substitutes for a distinct case."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "1. Count each bar's squares and use the legend. Monday shows $20$ visitors, Tuesday $30$, and Wednesday $15$.",
+      "problem": "Example 7 gives all three scale conversions inline without displayed key computations. The steps are understandable, so this is a minor formatting failure rather than missing reasoning."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The displayed computations 6 times 5 equals 30, 3 times 5 equals 15, and 30 minus 15 equals 15 are all narrow single-operation lines."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs have one to three short sentences. Chart rows are short separate labels, and numbered lists are confined to worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Both one-line placeholders specify title, axes, zero origin, step size, all three labeled values; the second adds the threshold line. Each is independently drawable. The text square chart supplies usable data before rendering."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Inference, evidence, premise, argument conclusion, necessary assumption, legend, unit, scale, hinuha, main idea and evaluation are explained before examples need them. Trading volume has been removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching shows how to connect evidence, compare claim strength, negate an assumption while holding premises fixed, translate squares through scale, combine a note with values, and form Filipino whole-passage judgments."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Explicit limits cover possible versus supported claims, direct facts versus requested inferences, useful versus necessary assumptions, reasoning validity versus accidental truth, counts versus causes, single-result generalization, and chart notes versus graph-only conclusions."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-inferencing-and-conclusions|L02|0": {
+    "status": "fixed",
+    "quote": "An **inference** is an idea you work out from clues.",
+    "note": "The abstract opening is replaced by plain short definitions."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L05|0": {
+    "status": "fixed",
+    "quote": "What can reasonably be inferred about Maria?",
+    "note": "All examples now supply an explicit exam-style question."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L19|0": {
+    "status": "fixed",
+    "quote": "1. The announcement changes the store's schedule.",
+    "note": "All examples have Solution labels and numbered reasoning; the separate conversion display issue does not restore the original prose-only problem."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|B08|0": {
+    "status": "fixed",
+    "quote": "After the manager announced that the store would close earlier each night",
+    "note": "The stock-price passage and its bare percentage were removed."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|B08|1": {
+    "status": "fixed",
+    "quote": "The kitchen light was still on at $3$ a.m.",
+    "note": "The clock numeral is now wrapped in inline math."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L25|0": {
+    "status": "fixed",
+    "quote": "several workers immediately asked how their weekly hours would change.",
+    "note": "The finance example and unexplained trading volume were replaced with an ordinary work-schedule passage."
+   },
+   "reading-comprehension-comprehension-skills#45": {
+    "status": "fixed",
+    "quote": "To test a proposed assumption, imagine its opposite.",
+    "note": "Premises, conclusion, unstated necessity and the denial test are taught and applied to the badge argument."
+   },
+   "reading-comprehension-comprehension-skills#59": {
+    "status": "fixed",
+    "quote": "Tuesday: ■■■■■■",
+    "note": "Two actual text charts and detailed figure placeholders support scale reading, comparison, and a prose threshold conclusion."
+   }
+  }
+ }
+}
