@@ -1,47 +1,53 @@
 ---
 _id: "lesson-vocabulary-confusing-words"
 title: "Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina)"
-summary: "Learn how grammar and context distinguish commonly confused English and Filipino words."
+summary: "Learn how grammar and context help you choose between commonly confused English and Filipino words."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-Some words are easy to confuse because they sound alike, look alike, or occur in similar grammatical positions. Not all confusing pairs are **homophones**: *its/it's* are pronounced alike, for example, while *affect/effect* normally are not.
-
-The current public Civil Service Examination scope includes **word meaning** and, for the clerical component, **spelling**. It does not publish a list of "most tested" word pairs, so use the pairs below as useful practice examples rather than guaranteed item content.
+Some words are easy to mix up because they look or sound similar. The best choice depends on the word's job and meaning in the sentence.
 
 ### Affect vs. Effect
 
-In the most common uses:
+In their most common uses:
 
-- **affect** is a **verb** meaning "to influence": "Drought can affect crop yield."
-- **effect** is a **noun** meaning "a result": "The drought had a serious effect."
+- **affect** is a **verb** that means "to influence": "Drought can affect crop yield."
+- **effect** is a **noun** that means "a result": "The drought had a serious effect."
 
-There are important exceptions. **Effect** can be a verb meaning "to bring about" ("The reform effected major changes"), and **affect** can be a noun in psychology meaning an observable expression of emotion. For ordinary editing questions, identify the word's actual grammatical role and meaning rather than treating the mnemonic as an absolute rule.
+These are useful first rules, but they have exceptions. **Effect** can also be a verb meaning "to bring about," as in "The reform effected major changes." In psychology, **affect** can also be a noun for an observable expression of emotion.
 
 ### Its vs. It's
 
-- **its** is the possessive determiner/pronoun form associated with *it*: "The company changed its policy."
-- **it's** is a contraction of **it is** or **it has**: "It's clear" / "It's been approved."
+- **its** shows that something belongs to or is connected with *it*: "The company changed its policy."
+- **it's** is a short form of **it is** or **it has**: "It's clear." "It's been approved."
+
+Try replacing *it's* with *it is* or *it has*. If neither one fits, **its** may be the word you need.
 
 ### Ng vs. Nang
 
-The distinction between Filipino **ng** and **nang** cannot be reduced to one English translation. Useful school-grammar cues include:
+Sa Filipino, magkaiba ang gamit ng **ng** at **nang**. Tingnan ang buong pangungusap bago pumili.
 
-- **ng** commonly marks a non-topic noun phrase, possession/relationship, quantities, and certain time expressions: *kumain ng mangga*, *bahay ng guro*, *alas singko ng hapon*.
-- **nang** commonly introduces an adverbial manner expression, can mean "when" in clauses such as *nang dumating siya*, and appears in repeated-action constructions such as *takbo nang takbo*.
+- Ginagamit ang **ng** bago ang bagay na tinutukoy ng kilos: *kumain ng mangga*.
+- Ginagamit din ang **ng** sa pagmamay-ari o ugnayan: *bahay ng guro*.
+- Ginagamit ang **ng** sa dami o sukat: *tatlong kilo ng bigas*.
+- Makikita rin ang **ng** sa ilang pahayag ng oras: *alas singko ng hapon*.
+- Ginagamit ang **nang** kapag inilalarawan kung paano ginawa ang kilos: *tumakbo nang mabilis*.
+- Maaari ring gamitin ang **nang** na ang ibig sabihin ay "noong": *nang dumating siya*.
+- Ginagamit ang **nang** sa kilos na inuulit: *takbo nang takbo*.
 
-Use the whole Filipino construction, not only the question words *ano?* versus *paano?*, because both forms have several functions.
+Huwag umasa sa *ano?* at *paano?* lamang. Mas ligtas na tingnan kung paano ginagamit ang salita sa buong pangungusap.
 
 ### Sila vs. Sina
 
-- **sila** is a plural personal pronoun: "Umalis sila."
-- **sina** is a plural personal-name marker in standard Filipino: "Sina Maria, Jose, at Juan ay dumating."
+Ang **sila** ay panghalip (pronoun) para sa dalawa o higit pang tao: "Umalis sila."
 
-In formal edited Filipino, use **sina** when directly marking a coordinated set of personal names. Colloquial and regional speech can show other constructions, so do not describe everyday speakers as "ungrammatical" merely because they differ from the formal target variety.
+Ang **sina** ay ginagamit bago ang dalawa o higit pang pangalan ng tao: "Sina Maria, Jose, at Juan ay dumating."
+
+Sa pormal na pagsulat, gamitin ang **sina** kapag kasunod nito ang mga pangalan. Gamitin ang **sila** kapag ang salita mismo ang pumapalit sa mga pangalan.
 
 ## Examples
 
@@ -56,7 +62,8 @@ D) effects
 
 **Solution:**
 
-After modal *will*, the sentence needs a base-form verb meaning "influence." **Affect** is the ordinary choice: "will severely affect."
+1. After *will*, the blank needs the base form of a verb.
+2. The sentence means "influence the crop yield," so **affect** is correct. Answer: **A**.
 
 ### #2: Its vs. It's
 
@@ -69,9 +76,10 @@ D) their
 
 **Solution:**
 
-The blank expresses possession. **Its** is correct. Substituting *it is* or *it has* does not make sense here.
+1. The blank shows that the guidelines belong to the university.
+2. *It is guidelines* and *it has guidelines* do not fit, so **its** is correct. Answer: **B**.
 
-### #3: Nang vs. Ng
+### #3: Nang for Manner
 
 Tumakbo ______ mabilis ang aso nang makita niya ang pusa.
 
@@ -82,9 +90,38 @@ D) may
 
 **Solution:**
 
-*Mabilis* describes the manner of running, so **nang mabilis** is the standard construction. Answer: **B**.
+1. Inilalarawan ng *mabilis* kung paano tumakbo ang aso.
+2. Ginagamit ang **nang** sa ganitong paglalarawan ng kilos. Sagot: **B**.
 
-### #4: Sila vs. Sina
+### #4: Ng for Quantity
+
+Bumili si Liza ng tatlong kilo ______ bigas.
+
+A) nang  
+B) ng  
+C) na  
+D) may
+
+**Solution:**
+
+1. Ang *tatlong kilo* ay nagsasabi ng dami o sukat.
+2. Ginagamit ang **ng** sa *tatlong kilo ng bigas*. Sagot: **B**.
+
+### #5: Ng in a Time Expression
+
+Nagsimula ang programa nang alas tres ______ hapon.
+
+A) nang  
+B) ng  
+C) na  
+D) may
+
+**Solution:**
+
+1. Ang pariralang *alas tres ng hapon* ay isang pahayag ng oras.
+2. Ginagamit ang **ng** sa pariralang ito. Sagot: **B**.
+
+### #6: Sina Before Names
 
 ______ Maria, Jose, at Juan ay naghanda para sa pagsusulit.
 
@@ -95,11 +132,26 @@ D) Ang
 
 **Solution:**
 
-The blank directly marks several personal names as the topic. Standard Filipino uses **sina**. Answer: **B**.
+1. Ang patlang ay sinusundan ng ilang pangalan ng tao.
+2. Ginagamit ang **sina** bago ang mga pangalang ito. Sagot: **B**.
 
-### #5: Less Common Affect/Effect Use
+### #7: Sila as a Pronoun
 
-Which sentence uses **effect** as a verb correctly?
+Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid.
+
+A) Sila  
+B) Sina  
+C) Kina  
+D) Ang
+
+**Solution:**
+
+1. Ang patlang ay pumapalit sa mga pangalang *Ana at Lito*.
+2. Ginagamit ang **sila** bilang panghalip para sa kanila. Sagot: **A**.
+
+### #8: Less Common Affect/Effect Use
+
+The word **effect** can sometimes be a verb. Which sentence uses the word in bold as a verb correctly?
 
 A) The rain will effect our plans.  
 B) The new law effected major changes in procedure.  
@@ -108,30 +160,39 @@ D) The medicine had no affect.
 
 **Solution:**
 
-In (B), **effected** means "brought about." This is a less common but standard verbal use of *effect*.
+1. A verb form of **effect** can mean "to bring about."
+2. In choice **B**, *effected major changes* means "brought about major changes." Answer: **B**.
 
 ## Speed Tricks & Shortcuts
 
-**Use the common affect/effect mnemonic as a first guess, then verify the grammar and meaning.** Usually *affect = verb* and *effect = noun*, but exceptions exist.
+**Start with the common affect/effect rule.** Usually *affect* is a verb and *effect* is a noun. Then check the sentence because exceptions exist.
 
-**Expand *it's*.** If *it is* or *it has* works, choose *it's*. Otherwise possession is normally *its*.
+**Expand *it's*.** Replace it with *it is* or *it has*. If neither fits, check whether the sentence needs possessive **its**.
 
-**For ng/nang, inspect the Filipino construction.** Manner and repeated actions often point to *nang*; noun marking and possession often point to *ng*.
+**For ng and nang, check the whole phrase.** Manner and repeated actions often use *nang*. Objects, possession, quantities, and some time expressions often use *ng*.
 
 ## Traps to Watch For
 
-### #1: Treating Affect/Effect as an Exceptionless Rule
+### #1: Treating Affect/Effect as an Absolute Rule
 
-> *Affect* is usually a verb and *effect* usually a noun, but both words have established less-common uses in the other category.
+> *Affect* is usually a verb and *effect* is usually a noun, but there are standard exceptions.
+
+Check the word's job and meaning in the sentence before choosing.
 
 ### #2: Writing *its'*
 
-> Standard English has **its** for possession and **it's** for *it is/it has*. *Its'* is not a standard possessive form.
+> Standard English uses **its** for possession and **it's** for *it is* or *it has*.
+
+Do not add an apostrophe after *its*. The form *its'* is not the standard possessive form.
 
 ### #3: Reducing Ng/Nang to One Question Word
 
-> *Ano?* versus *paano?* can be a helpful clue in simple cases, but it does not cover all uses of *ng* and *nang*.
+> *Ano?* and *paano?* can help in simple cases, but they do not cover every use of *ng* and *nang*.
+
+Look at the whole Filipino construction, especially objects, possession, quantity, time, manner, and repeated action.
 
 ### #4: Confusing Sila and Sina
 
-> *Sila* stands as a pronoun; *sina* marks multiple personal names in standard Filipino.
+> **Sila** replaces names, while **sina** comes before several personal names in standard Filipino.
+
+Ask whether the blank stands for the people or comes directly before their names.
