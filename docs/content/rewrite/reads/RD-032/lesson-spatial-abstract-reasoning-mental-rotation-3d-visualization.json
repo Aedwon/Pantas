@@ -1,0 +1,231 @@
+{
+  "packet": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+  "role": "A",
+  "lesson_sha256": "3ebbcc1830845cba6c7ed54992a0dd47b405a0e3b5dd0806cb1b79ed5e61066a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+    "B01": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the spatial claims in Core Concept and all shadow/cube-net statements: rotations preserve shape and adjacency, mirrors reverse handedness, the stated cross net folds with the extra square opposite the center, the listed six-square pattern overlaps on folding, and the two ideal parallel-light cylinder projections are geometrically correct."
+      ],
+      "note": ""
+    },
+    "B02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Solved every worked example from its question before comparing: #1 Candidate A is the rotation; #2 the extra square becomes the top opposite the center; #3 the pattern is not a cube net because two faces overlap; #4 the top projection is a circle with the cylinder's diameter; #5 the side projection is a rectangle with cylinder height by diameter."
+      ],
+      "note": ""
+    },
+    "B03": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the required Reasoning structure and figure needs: Core Concept, Examples, and Traps to Watch For are present, and every figure-dependent mental-rotation, cube-net, and shadow example includes a specific illustration or figure placeholder."
+      ],
+      "note": ""
+    },
+    "L02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Read all teaching prose for Grade 5 readability. The rewrite replaces the dense invariants sentence with short explanations, defines handedness with left and right hands, and defines parallel rays and projection in simple words before using them."
+      ],
+      "note": ""
+    },
+    "L03": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in the lesson."
+    },
+    "L04": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The lesson uses one hand/mirror analogy in Core Concept and no second analogy."
+      ],
+      "note": ""
+    },
+    "L05": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked all five example stems and solutions. Each stem supplies the object, net, light direction, or receiving surface needed to solve that case without giving the tested method, and each solution returns to short, direct language."
+      ],
+      "note": ""
+    },
+    "L07": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "There are no repeated named-exam claims or repeated exam-motivation openers; the only generic mention is \"Some shadow questions use\"."
+      ],
+      "note": ""
+    },
+    "L08": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is an English reasoning lesson, not a Filipino-language lesson."
+    },
+    "L09": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No Filipino grammar term appears because this is an English reasoning lesson."
+    },
+    "L10": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "There are no Filipino-language examples or quiz items in this English reasoning lesson."
+    },
+    "L11": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson contains no Filipino text requiring an official spelling or usage check."
+    },
+    "L12": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "Taglish rules do not apply because the teaching prose is entirely English."
+    },
+    "L14": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No question asks the student to identify or interpret a target word in the wording."
+    },
+    "L15": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the listed stock phrases, sentence openings, and summary. None of the banned stock phrases appears, openings vary, and the summary plainly describes the lesson."
+      ],
+      "note": ""
+    },
+    "L17": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The Reasoning layout is Core Concept → Examples → Traps to Watch For with no Speed Tricks or Mnemonics section. The example solutions use no formula introduced for the first time in an example; the only numeric fold angle, $90^\\circ$, is taught in Core Concept."
+      ],
+      "note": ""
+    },
+    "L18": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Mapped the distinct taught cases to worked examples: paired-view mental rotation (#1), opposite faces in a familiar cross net (#2), invalid net overlap (#3), parallel-light cylinder projection from above (#4), and from the side (#5). The examples are distinct rather than number-only repeats."
+      ],
+      "note": ""
+    },
+    "L19": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked solution structure: #1 uses three numbered reasoning steps and #2 uses two numbered fold steps; #3, #4, and #5 each give a single-step result and therefore do not require numbered lists."
+      ],
+      "note": ""
+    },
+    "L21": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No display equation appears anywhere in this lesson."
+    },
+    "L22a": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Paragraphs stay within one to three short sentences, and lists are limited to the rotation and folding procedures plus numbered solution steps."
+      ],
+      "note": ""
+    },
+    "L23": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked every placeholder: the three-arm rotation comparison identifies the original and both candidates; both cube-net figures specify cells and labels or semantics; and both cylinder-shadow figures specify light direction and shadow shape. The load-bearing rotation example includes enough description to encode the intended same-versus-mirror comparison."
+      ],
+      "note": ""
+    },
+    "L25": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Traced needed meanings before use: mental rotation is explained on first use, handedness is defined with left/right hands, cube net is defined before the fold method, and parallel rays and projection are defined before the shadow examples."
+      ],
+      "note": ""
+    },
+    "L26": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked that each central concept includes a method, not just a name: mental rotation gives a four-step part-tracking test plus the around-corner check; cube nets give a four-step fold-tracking method; projections explain how ray direction creates the flat shape."
+      ],
+      "note": ""
+    },
+    "L27": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked applicability limits: mirror flips are excluded from rotation, the flat-spacing shortcut is explicitly rejected for cube nets, and the simple shadow projection rule is limited to parallel light or a distant-source model with a point-source exception explained."
+      ],
+      "note": ""
+    },
+    "B09": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The only use of \"Marks\" refers to painted markings on a solid, not exam scores; the lesson does not call questions cards."
+      ],
+      "note": ""
+    }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L18|0": {
+      "status": "fixed",
+      "quote": "An original solid has $3$ unequal arms meeting at a joint: a long arm, a medium arm, and a short arm. Candidate A and Candidate B show $2$ possible turned views. Which candidate can show the same solid after rotation?",
+      "note": "Checked that Example #1 now gives the missing paired-view mental-rotation comparison and works it through to Candidate A."
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L26|0": {
+      "status": "fixed",
+      "quote": "To compare $2$ views, track a few clear parts together:",
+      "note": "Checked the new four-step comparison method and the worked rotation example; the lesson now teaches how to trace a concrete pair of views."
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L02|0": {
+      "status": "fixed",
+      "quote": "**Mental rotation** asks whether $2$ views can show the same solid object after you turn it without flipping it. A turn keeps the same parts touching and keeps the same shape and distances.",
+      "note": "Checked that the dense invariants sentence is replaced by shorter, simpler wording and that the hard chirality wording is gone."
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L25|0": {
+      "status": "fixed",
+      "quote": "**Handedness** means the object's left-hand or right-hand arrangement. Your left and right hands are mirror forms. You can turn your left hand, but turning alone does not make it become your right hand.",
+      "note": "Checked that handedness now has a simple meaning before it is used as a rotation test."
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L01|0": {
+      "status": "fixed",
+      "quote": "Candidate A keeps the same order of the arms around the joint. Turning the whole object can make that view.",
+      "note": "Checked the optional concern: the lesson now develops rotation comparison in Core Concept and demonstrates it in a worked paired-view example."
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L17|0": {
+      "status": "fixed",
+      "quote": "Marks painted on a solid do not change its outline. A hole changes the shadow only when light can pass through it in the shown direction.",
+      "note": "Checked the section sequence around this passage: Core Concept goes directly to Examples, and the old Speed Tricks & Shortcuts section is gone."
+    },
+    "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization|L19|0": {
+      "status": "fixed",
+      "quote": "1. Fold the $4$ neighbors upward to make the side faces.",
+      "note": "Checked the cross-net worked solution: its two folding actions are now presented as numbered steps."
+    }
+  }
+}
