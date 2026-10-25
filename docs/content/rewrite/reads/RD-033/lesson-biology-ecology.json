@@ -1,0 +1,324 @@
+{
+ "packet": "lesson-biology-ecology",
+ "role": "A",
+ "lesson_sha256": "0939303468c3d1e576b26d1bb4495727c1b2cb610bf6538fd0991a7ebbae1b0f",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the ecology definitions, trophic-transfer caveat, population and carrying-capacity teaching, carbon/nitrogen/phosphorus/water cycle descriptions, symbiosis effects, biodiversity impacts, invasive-species definition, and conservation claims; none conflicts with the lesson's stated science."
+   ],
+   "note": "No factual contradiction or clearly wrong ecology claim was found in the supplied lesson."
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example 1 blind solve: grass → grasshopper → frog → hawk, with producer, primary, secondary, and tertiary consumer roles.",
+    "Example 2 blind solve: fewer grasshoppers directly reduce frog food; hawks are less directly affected because rabbits remain another food path.",
+    "Example 3 blind solve: 10,000 kJ × 0.10 = 1,000 kJ, then 1,000 kJ × 0.10 = 100 kJ.",
+    "Example 4 blind solve: (a) parasitism, (b) mutualism, (c) commensalism under the stated evidence.",
+    "Example 5 blind solve: photosynthesis, decomposition, evaporation, condensation, and precipitation are the named processes.",
+    "Example 6 blind solve: most plants cannot use atmospheric N2 directly; nitrogen fixation first changes it to ammonia, with nitrification later producing nitrite/nitrate.",
+    "Example 7 blind solve: the drought lowers available resources and therefore lowers carrying capacity.",
+    "Example 8 blind solve: restore native wetland habitat and reduce polluted runoff; monitoring then checks recovery."
+   ],
+   "note": "All eight worked solutions match an independent solve from their question text."
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the brief lists no required figures, and the added CSE topics for population dynamics, biodiversity, human impacts, and conservation are present."
+   ],
+   "note": "All required lesson sections and brief-required teaching are present."
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for sentence length and vocabulary; the rewritten biome passage is simple, and technical ecology terms are introduced with short explanations instead of unexplained dense prose."
+   ],
+   "note": "The teaching prose is generally short and readable while retaining necessary science terms."
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The first use of the exam-specific verb \"Classify\" is immediately preceded by: \"Classify\" means put each example into the correct group. Arrange, identify, estimate, name, and choose are used as ordinary instructions."
+   ],
+   "note": "The only exam-specific instruction word needing a gloss is explained on first use."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "No analogy is used in Core Concept or elsewhere in the lesson."
+   ],
+   "note": "The lesson stays within the at-most-one-analogy rule."
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all eight example stems for needed givens and all solutions for simple language; each stem supplies its scenario without handing over a tested method, and the nitrogen-fixation solution now uses plain wording."
+   ],
+   "note": "Worked questions are self-contained and their solutions use simple language."
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson makes no repetitive or unsupported named-exam claims or repeated exam-motivation openers."
+   ],
+   "note": "There are no exam mentions that create a repetition or motivation problem."
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English-language science lesson, so the Filipino-language rule does not apply."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English-language science lesson, so the Filipino-language rule does not apply."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English-language science lesson, so the Filipino-language rule does not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English-language science lesson, so the Filipino-language rule does not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English-language science lesson, so the Filipino-language rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word by referring to formatting such as bold or underlining."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the listed stock AI phrases, sentence openings, and frontmatter summary; none of the banned stock phrases appears, and the summary begins plainly with the lesson content."
+   ],
+   "note": "The prose avoids the listed AI stock phrases and the summary is plainly varied."
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The quantitative rule used in Example 3 is introduced in Core Concept before the example: use the stated 10% approximation by multiplying by 0.10 for each trophic step. The symbiosis sign pairs used in Example 4 are also introduced in Core Concept."
+   ],
+   "note": "No worked example introduces a new formula or symbolic rule before Core Concept teaches it."
+  },
+  "L18": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "The **phosphorus cycle** moves phosphorus mainly through rocks, soil, water, and living things.",
+     "problem": "The lesson teaches phosphorus cycling as a distinct matter-cycle case, but no worked example asks the student to interpret phosphorus movement. The brief's matter-cycle coverage problem is therefore not fully fixed."
+    }
+   ],
+   "checked": [],
+   "note": "Food-chain, branching food-web, energy, symbiosis, carbon/water, nitrogen, population, and environmental-response cases are worked; phosphorus remains unworked."
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Examples 1, 2, and 4 through 8 use numbered solution steps for multi-step reasoning; Example 3 also uses numbered steps and puts both energy computations in display equations."
+   ],
+   "note": "The multi-step solutions show their reasoning as numbered steps, with calculations displayed where needed."
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked both display equations, $$10{,}000(0.10)=1{,}000\\text{ kJ}$$ and $$1{,}000(0.10)=100\\text{ kJ}$$; both are short enough for a phone screen."
+   ],
+   "note": "Both display equations are narrow and phone-friendly."
+  },
+  "L22a": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "The **nitrogen cycle** moves nitrogen through air, soil, water, and living things. **Nitrogen fixation** changes atmospheric $N_2$ into ammonia, which is often present as ammonium $NH_4^+$ in water or soil. Some bacteria then carry out **nitrification**, which changes ammonium into nitrite and nitrate. Plants take up usable nitrogen compounds, while **denitrification** returns nitrogen gases to the air.",
+     "problem": "This Core Concept paragraph has four sentences, exceeding the rule that paragraphs contain one to three short sentences."
+    },
+    {
+     "quote": "The **phosphorus cycle** moves phosphorus mainly through rocks, soil, water, and living things. Weathering releases phosphate from rocks. Plants take it up from soil or water, animals get it by feeding, and waste and decay return it. Runoff can carry phosphate into bodies of water, where some may later become part of sediment.",
+     "problem": "This Core Concept paragraph has four sentences, exceeding the rule that paragraphs contain one to three short sentences."
+    },
+    {
+     "quote": "The **water cycle** moves water through air, land, bodies of water, groundwater, and living things. **Evaporation** changes liquid water into water vapor. **Condensation** changes water vapor into tiny liquid drops, which can form clouds. **Precipitation** returns water to the surface as rain or other forms of falling water.",
+     "problem": "This Core Concept paragraph has four sentences, exceeding the rule that paragraphs contain one to three short sentences."
+    }
+   ],
+   "checked": [],
+   "note": "Three Core Concept paragraphs exceed the allowed one-to-three-sentence paragraph length."
+  },
+  "L23": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The energy-pyramid figure specification names the diagram type and all four labeled levels with values, and the surrounding prose independently explains trophic levels and why energy decreases."
+   ],
+   "note": "The existing figure specification is concrete, useful, and not required for the prose to make sense."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "Photosynthesis takes in $CO_2$.",
+     "problem": "The symbol $CO_2$ is used without first stating that it means carbon dioxide, even though symbols must be explained before their meaning is needed."
+    },
+    {
+     "quote": "**Nitrogen fixation** changes atmospheric $N_2$ into ammonia, which is often present as ammonium $NH_4^+$ in water or soil.",
+     "problem": "The symbol $N_2$ is used without first stating that it means nitrogen gas. The sentence explains ammonium $NH_4^+$ but not the earlier $N_2$ symbol."
+    }
+   ],
+   "checked": [],
+   "note": "The earlier kJ and prokaryote gaps are fixed, but two chemical symbols still appear without an explicit meaning."
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked food-web effects, carrying capacity, carbon/nitrogen/phosphorus/water cycling, symbiosis, biodiversity, invasive species, and conservation; each concept is given both a meaning and at least the mechanism needed for this lesson. Water now explains evaporation, condensation, precipitation, runoff, and transpiration; phosphorus now explains weathering, uptake, feeding, decay, and runoff."
+   ],
+   "note": "The lesson explains how its major ecology concepts work instead of only naming them."
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability limits for the 10% trophic approximation, changing carrying capacity, evidence-dependent symbiosis labels, the phosphorus cycle's lack of a major atmospheric gas reservoir, and cause-matched conservation actions."
+   ],
+   "note": "Relevant limits and conditions are stated where the lesson presents rules or shortcuts."
+  }
+ },
+ "illustrations": [
+  {
+   "position_quote": "In a food web, grass is eaten by rabbits and grasshoppers. Frogs eat grasshoppers. Hawks eat both rabbits and frogs.",
+   "description": "A simple food web with arrows from grass to rabbits and grasshoppers, grasshoppers to frogs, and rabbits and frogs to hawks.",
+   "why": "Seeing the branches makes the alternate food path clear and helps explain why a grasshopper decline affects frogs more directly than hawks.",
+   "priority": "medium",
+   "method": "code",
+   "kind": "concept"
+  }
+ ],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-biology-ecology|L18|0": {
+   "status": "fixed",
+   "quote": "In a food web, grass is eaten by rabbits and grasshoppers. Frogs eat grasshoppers. Hawks eat both rabbits and frogs. If the grasshopper population drops sharply, what direct effect is most likely on frogs, and why might hawks be affected less strongly?",
+   "note": "The rewrite adds a branching food-web example and asks for the consequence of changing one member, including the hawk's alternate rabbit food path."
+  },
+  "lesson-biology-ecology|L18|1": {
+   "status": "not_fixed",
+   "quote": "The **phosphorus cycle** moves phosphorus mainly through rocks, soil, water, and living things.",
+   "note": "Carbon and water now have a worked interpretation, but phosphorus is still taught without a worked phosphorus-cycle case, so the original multi-cycle coverage gap remains partly open."
+  },
+  "lesson-biology-ecology|L26|0": {
+   "status": "fixed",
+   "quote": "The **water cycle** moves water through air, land, bodies of water, groundwater, and living things. **Evaporation** changes liquid water into water vapor. **Condensation** changes water vapor into tiny liquid drops, which can form clouds. **Precipitation** returns water to the surface as rain or other forms of falling water.",
+   "note": "The rewrite now explains the main water-cycle processes instead of only naming reservoirs, and the next paragraph also explains runoff and transpiration."
+  },
+  "lesson-biology-ecology|L26|1": {
+   "status": "fixed",
+   "quote": "The **phosphorus cycle** moves phosphorus mainly through rocks, soil, water, and living things. Weathering releases phosphate from rocks. Plants take it up from soil or water, animals get it by feeding, and waste and decay return it. Runoff can carry phosphate into bodies of water, where some may later become part of sediment.",
+   "note": "The rewrite now explains phosphorus movement through weathering, plant uptake, feeding, waste and decay, runoff, and sediment."
+  },
+  "lesson-biology-ecology|B08|0": {
+   "status": "fixed",
+   "quote": "The familiar **$10\\%$ rule** is a classroom estimate, not a rule that every ecosystem follows exactly.",
+   "note": "The prose percentage is now inside inline math as required."
+  },
+  "lesson-biology-ecology|B08|1": {
+   "status": "fixed",
+   "quote": "This is an estimate based on the problem's $10\\%$ assumption. It is not a law that every ecosystem follows exactly.",
+   "note": "The solution now writes the percentage inside inline math."
+  },
+  "lesson-biology-ecology|B08|2": {
+   "status": "fixed",
+   "quote": "For trophic-energy calculations, use $10\\%$ only when the problem gives that approximation or tells you to assume it.",
+   "note": "The shortcut now writes the percentage inside inline math."
+  },
+  "lesson-biology-ecology|B08|3": {
+   "status": "fixed",
+   "quote": "> Trophic transfer efficiency varies; $10\\%$ is a useful estimate for simple problems.",
+   "note": "The trap warning now writes the percentage inside inline math."
+  },
+  "lesson-biology-ecology|L02|0": {
+   "status": "fixed",
+   "quote": "A **biome** is a large region with a usual climate and common kinds of plants. It contains many ecosystems and the animals, fungi, and tiny living things found there.",
+   "note": "The biome explanation is now split into short sentences and replaces the earlier dense wording with simpler language."
+  },
+  "lesson-biology-ecology|L03|2": {
+   "status": "fixed",
+   "quote": "\"Classify\" means put each example into the correct group.",
+   "note": "The rewrite adds a one-line meaning immediately before the first use of \"Classify.\""
+  },
+  "lesson-biology-ecology|L05|0": {
+   "status": "fixed",
+   "quote": "Most plants cannot take $N_2$ from the air and use it directly.",
+   "note": "The worked solution now states the idea in plain language and avoids the earlier \"strong triple bond\" and \"chemically unavailable\" wording."
+  },
+  "lesson-biology-ecology|L25|0": {
+   "status": "fixed",
+   "quote": "A **kilojoule (kJ)** is a unit of energy.",
+   "note": "The unit abbreviation is now defined before the worked energy-transfer example uses kJ."
+  },
+  "lesson-biology-ecology|L25|1": {
+   "status": "fixed",
+   "quote": "Nitrogen-fixing bacteria change $N_2$ into ammonia.",
+   "note": "The rewrite uses \"bacteria\" in the worked explanation instead of the unexplained term \"prokaryotes.\""
+  },
+  "science-biology#28": {
+   "status": "fixed",
+   "quote": "Population size can change when organisms are born, die, enter an area, or leave it. Food, water, space, disease, predators, and other conditions can also limit growth.",
+   "note": "The lesson now teaches population change, limiting conditions, carrying capacity, competition, predators, and other community interactions."
+  },
+  "science-biology#29": {
+   "status": "fixed",
+   "quote": "Losing a species can change feeding relationships, competition, and other links in a community. The effect depends on the role of that species and on the rest of the food web.",
+   "note": "The rewrite now teaches biodiversity loss and its possible consequences for community relationships."
+  },
+  "science-biology#30": {
+   "status": "fixed",
+   "quote": "Human activities can change ecosystems. Common causes include habitat loss, pollution, taking organisms faster than their populations can recover, and changes in climate. An **invasive species** is an introduced species that spreads and causes harm in its new area.",
+   "note": "The lesson now covers several major human impacts on ecosystems and defines invasive species."
+  },
+  "science-biology#31": {
+   "status": "fixed",
+   "quote": "**Conservation** protects species, habitats, and natural resources so they can keep supporting life. Actions may include protecting or restoring habitat, reducing pollution, controlling invasive species, limiting harvest so populations can replace what is taken, and monitoring populations.",
+   "note": "The rewrite now teaches species and resource conservation actions and connects environmental management to the cause of damage."
+  },
+  "lesson-biology-ecology|L03|0": {
+   "status": "not_fixed",
+   "quote": "Arrange grass, grasshopper, frog, and hawk into a simple food chain and identify their trophic roles in that chain.",
+   "note": "The optional item was left without glosses for \"Arrange\" and \"identify\"; the brief itself says these are everyday words, so leaving them alone is allowed."
+  },
+  "lesson-biology-ecology|L03|1": {
+   "status": "not_fixed",
+   "quote": "Under that stated assumption, estimate the energy transferred to primary and then secondary consumers.",
+   "note": "The optional item was left without a separate gloss for \"estimate\"; the brief says it is plain in context, so leaving it alone is allowed."
+  }
+ }
+}
