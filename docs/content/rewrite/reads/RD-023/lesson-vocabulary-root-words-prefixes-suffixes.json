@@ -72,22 +72,47 @@
    "note": ""
   },
   "L08": {
-   "verdict": "not_applicable",
-   "findings": [],
-   "checked": [],
-   "note": "This is a mixed vocabulary lesson, not a Filipino-language lesson; its isolated Filipino worked item is handled separately by the applicable item checks."
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "Filipino affixes can change both meaning and grammar. The same affix can work differently in different words, so use the sentence as a guide.",
+     "problem": "This section teaches Filipino affix meaning and grammar in English, but L08 requires Filipino-language teaching prose to be written in simple Filipino."
+    }
+   ],
+   "checked": [
+    "Checked the Filipino-affix teaching and Filipino worked item. The worked item is in Filipino, but the main Filipino-affix teaching section is written in English."
+   ],
+   "note": ""
   },
   "L09": {
-   "verdict": "not_applicable",
-   "findings": [],
-   "checked": [],
-   "note": "No hard Filipino grammar term is introduced as teaching prose that requires a first-use English gloss."
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "- **Kabilaan:** affixes appear on both sides of the base, as in *kabataan* from *bata*.",
+     "problem": "Kabilaan is introduced as a Filipino affix-pattern term without a short English gloss on first use."
+    },
+    {
+     "quote": "- **Laguhan:** a word uses a prefix, an infix, and a suffix around the base.",
+     "problem": "Laguhan is introduced as a Filipino affix-pattern term without a short English gloss on first use."
+    }
+   ],
+   "checked": [
+    "Checked first uses of the Filipino affix-position terms. Unlapi, gitlapi, and hulapi are paired with English labels, but kabilaan and laguhan are not."
+   ],
+   "note": ""
   },
   "L10": {
-   "verdict": "not_applicable",
-   "findings": [],
-   "checked": [],
-   "note": "The lesson is not a Filipino-language lesson as a whole; the one Filipino worked example is already written fully in Filipino."
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "Which word most clearly shows affixes placed on both sides of its base?",
+     "problem": "This worked example tests a Filipino affix pattern but its prompt and choices are in English, while L10 requires Filipino-lesson examples to be in Filipino."
+    }
+   ],
+   "checked": [
+    "Checked all worked examples for language. Example 2 is fully Filipino, but the kabilaan example and the other worked examples remain in English."
+   ],
+   "note": ""
   },
   "L11": {
    "verdict": "needs_source_check",
@@ -96,10 +121,12 @@
    "note": "The lesson contains Filipino forms and affix examples, so official Filipino spelling and usage require the prescribed external source check."
   },
   "L12": {
-   "verdict": "not_applicable",
+   "verdict": "pass",
    "findings": [],
-   "checked": [],
-   "note": "The lesson is not Filipino-language teaching prose as a whole; its Filipino worked item does not mix English teaching prose into the answer."
+   "checked": [
+    "Checked the Filipino worked prompt and solution for mixed-language teaching prose. The Filipino sentences stay in Filipino; “naka-bold” is the common formatting label used in the prompt."
+   ],
+   "note": ""
   },
   "L14": {
    "verdict": "pass",
