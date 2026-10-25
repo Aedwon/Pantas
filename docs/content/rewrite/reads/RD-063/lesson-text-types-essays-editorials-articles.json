@@ -1,0 +1,263 @@
+{
+ "batch": "RD-063",
+ "lesson_id": "lesson-text-types-essays-editorials-articles",
+ "path": "content/lessons/reading-comprehension/text-types/essays-editorials-articles.md",
+ "lesson_sha256": "39ae464b692236f8e0498fabb3a1383ad3d69c90ab3513ab61de0b045b98689a",
+ "rewrite_commit": "1b568bffc28073a43f80191da1d4c439a05fd47f",
+ "form": {
+  "packet": "lesson-text-types-essays-editorials-articles",
+  "role": "A",
+  "lesson_sha256": "39ae464b692236f8e0498fabb3a1383ad3d69c90ab3513ab61de0b045b98689a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the distinctions among publication editorials, individual opinion, reporting, and essay purposes. Attribution identifies a source without guaranteeing truth; bylines can occur in news. No historical or numerical factual claim requires outside confirmation in these invented excerpts. Source verification is limited to the supplied prompt."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 news report; 2 the publication; 3 individual opinion; 4 reflection on a personal memory; 5 A expository, B analytical, C argumentative; 6 A reports an estimate, B argues against the policy; 7 analysis explaining route changes; 8 no, the opinion belongs to the quoted resident; 9 A informs about closure, B recommends an alternative reading space. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. All brief-required additions appear, including Filipino interpretation and mixed reporting/analysis. No question requires a figure. No outline beyond the supplied brief was available."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the opening, reporting explanation, attribution and byline definitions, strategies, and solutions. Short sentences explain the specialist reading terms with familiar examples; the former dense objectivity explanation is replaced by two simple sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Classify receives its meaning at first use: naming the type a text belongs to. Other commands ask for a main purpose or an explanation in ordinary language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears. The sample passages are practice material, not analogies used to teach a concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the nine examples now asks a specific question. Excerpts, labels, signatures, or passage descriptions provide the material needed to answer. Labels are legitimate evidence when distinguishing publication and individual views. Solutions explain the reasoning in plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam mentions or unsupported claims about an exam format or its frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino subsection uses short explanations of information, opinion, sources, and main purpose. The Filipino worked solution uses common words and two clear steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first uses in the Filipino subsection and Example 9. No hard Filipino grammar terms appear. Tekstong nagbibigay-impormasyon and tekstong nagpapahayag ng opinyon receive English glosses on first use only."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino application, Example 9, supplies both passages and its question and solution in Filipino. The English examples belong to the English portion of this mixed reading lesson; there is no quiz."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson includes Filipino teaching and an example. Official KWF verification is outside this prompt-only review.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino prose uses Filipino sentences. Parenthetical informational text and opinion text are first-definition glosses, not mixed-language teaching sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt asks students to identify or interpret a designated target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary plainly names the comparison task. Checked paragraph openings and traps for stock phrases and repeated three-sentence openings; none appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Reading Strategies is the permitted Reading Comprehension adaptation. No example uses a mathematical formula, so there is no formula that needs introduction in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage map: 1 sourced reporting; 2 publication view and label/signature; 3 individual opinion with byline; 4 personal reflection; 5 expository, analytical, and argumentative essays; 6 factual evidence used in opinion; 7 blended reporting/explanation; 8 attributed opinion within news; 9 Filipino information versus opinion. Cases progress from direct classification to competing cues and language transfer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All nine examples have a standalone Solution label and numbered reasoning steps. Each solution connects textual evidence to its answer; no computational display is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to assess for screen width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked prose paragraphs in Core Concept, the Filipino subsection, strategies, and traps: each contains at most three short sentences. Numbered solutions are the required solution lists; no excessive bullets appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no figures or illustration placeholders to assess; these verbal passages do not require them.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Classify is defined immediately. Essay types, editorial, individual opinion, and news report are explained before the examples. Attribution and byline receive definitions and concrete limits before students use them as cues. Filipino information and opinion terms are introduced locally."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how purpose, source ownership, labels, and writer identity work together. Essay purposes are distinguished, and examples show why evidence can serve either reporting or argument. The Filipino subsection applies the same distinction directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the explicit limits: text types can overlap; attribution does not establish truth; a byline alone does not prove opinion; quoted opinions need not be the reporter's view; facts can support argument. Strategies require reading the whole passage rather than relying on one strong word."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-text-types-essays-editorials-articles|L05|0": {
+    "status": "fixed",
+    "quote": "Which text type best fits this excerpt?",
+    "note": "All nine examples now contain questions asking students to classify or interpret the supplied text."
+   },
+   "lesson-text-types-essays-editorials-articles|L18|1": {
+    "status": "fixed",
+    "quote": "Its main function is analysis. The label supports this reading, and the passage does not mainly argue for an action.",
+    "note": "Example 7 handles blended reporting and explanation; Examples 2 and 3 use labels and writer information."
+   },
+   "lesson-text-types-essays-editorials-articles|L19|0": {
+    "status": "fixed",
+    "quote": "1. The passage reports an announcement and names its source.",
+    "note": "Every example now has a Solution label and numbered reasoning steps."
+   },
+   "lesson-text-types-essays-editorials-articles|B08|0": {
+    "status": "fixed",
+    "quote": "Officials estimate that the policy will raise $2$ million pesos each year.",
+    "note": "Both occurrences of the monetary numeral are now enclosed in inline math."
+   },
+   "lesson-text-types-essays-editorials-articles|L02|0": {
+    "status": "fixed",
+    "quote": "Ask what it mainly does and whose view it gives.",
+    "note": "The opening replaces the cluster of abstract criteria with two simple reading questions."
+   },
+   "lesson-text-types-essays-editorials-articles|L02|1": {
+    "status": "fixed",
+    "quote": "Reporters still choose which facts and quotes to include.",
+    "note": "The reporting explanation is split into short sentences with familiar words."
+   },
+   "lesson-text-types-essays-editorials-articles|L22a|0": {
+    "status": "fixed",
+    "quote": "The writer's main task is to report, not to urge readers to take the writer's side.",
+    "note": "The news definition has three sentences; the reporting-choice explanation is a separate two-sentence paragraph."
+   },
+   "lesson-text-types-essays-editorials-articles|L25|0": {
+    "status": "fixed",
+    "quote": "A **byline** is the line naming a text's writer.",
+    "note": "The cue is defined before the examples and its limitation is also explained."
+   },
+   "lesson-text-types-essays-editorials-articles|L25|1": {
+    "status": "fixed",
+    "quote": "**Attribution** tells who said something or supplied information.",
+    "note": "The term receives a direct definition and an example naming the mayor as the source."
+   },
+   "reading-comprehension-text-types#14": {
+    "status": "fixed",
+    "quote": "Ano ang pangunahing pagkakaiba ng layunin ng dalawang teksto?",
+    "note": "A Filipino teaching subsection and Example 9 demonstrate information-versus-opinion interpretation in Filipino."
+   },
+   "lesson-text-types-essays-editorials-articles|L03|0": {
+    "status": "fixed",
+    "quote": "To **classify** a text means to name the type it belongs to.",
+    "note": "The first use now explains exactly what classify asks the reader to do."
+   },
+   "lesson-text-types-essays-editorials-articles|L18|0": {
+    "status": "fixed",
+    "quote": "Passage A explains a process. It is expository.",
+    "note": "Example 5 now applies expository, analytical, and argumentative categories alongside the personal essay example."
+   }
+  }
+ }
+}
