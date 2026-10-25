@@ -1,0 +1,268 @@
+{
+ "batch": "RD-047",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights-punishment-detention-and-limits-on-laws.md",
+ "lesson_sha256": "05eaee4026e920cad4f73136638eb60f90b26c57ff69f72173a19c79c8f72ab2",
+ "rewrite_commit": "9572a4a34ba1e3e6d9cf4a15e1e4ff009d114e77",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws",
+  "role": "A",
+  "lesson_sha256": "05eaee4026e920cad4f73136638eb60f90b26c57ff69f72173a19c79c8f72ab2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Sections 18-22 prohibitions and exceptions, RA 9346 death-penalty replacement distinction and parole rule, double-jeopardy attachment/termination and law-ordinance rule, harmful retroactive penal changes, legislative punishment without trial, habeas corpus purpose and CHR investigation/legal-aid roles against independently recalled rules. The graver-offense and dismissal exceptions are qualified rather than absolute. No external source verification was performed under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 political-belief-only detention protection; #2 conviction punishment exception; #3 excessive fines; #4 RA 9346 prohibits death; #5 no jail for debt itself; #6 double jeopardy bars retrial; #7 no attachment from filing alone; #8 same-act law/ordinance bar; #9 ex post facto increased penalty; #10 ex post facto criminalization; #11 bill of attainder; #12 establish evidence and compare conduct with prisoner protections; #13 lost liberty and family income; #14 discuss habeas corpus with counsel. All agree with the stated solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omitting Speed Tricks. The brief requires no figures; none of the questions depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [
+     "Most legal terms are glossed in short sentences, but the double-jeopardy discussion introduces a dense sentence about included offenses without unpacking its meaning. This exceeds the stated simple teaching standard."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It also covers an attempt, a frustrated form of the offense, or an offense that necessarily includes or is included in the first charge.",
+      "problem": "The sentence stacks several technical offense relationships. The explanation of frustrated offense that follows does not explain necessarily included offenses. A Grade 5 reader cannot readily apply this part of the rule."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a gloss is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Read Core Concept and the examples: no analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Examples supply the relevant detention reason, conviction status, law timing, first-case procedural facts and requested remedy. Open-ended analysis items use stated evidence and ask for justified conclusions. Solutions avoid finding a violation from an accusation alone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported claim about CSE or PUPCET frequency, format, or answer choices appears; there are no repeated exam-motivation openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning of a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for listed stock phrases and repeated openings. The summary names the topics, and sentence openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted Core Concept, Examples, Traps layout. No example uses a mathematical formula; section numbers and legal vote thresholds are not computational formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1-#5 cover political detention, forced-service exception, fines, current death law and debt. #6-#8 distinguish completed first case, no plea, and the law/ordinance same-act rule. #9-#11 cover harsher retroactive punishment, new criminalization and legislative punishment. #12-#14 separately apply evidence analysis, family effects and a protection remedy. These are distinct scenarios with increasing application demands."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Inspected every solution in Examples: multistep answers use numbered lists throughout; no computations require display equations. The single-sentence answers, where present, are one-step identifications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs have one to three sentences. The lesson uses short paragraphs; lists are limited to officer categories or solution steps where needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Checked local definitions for involuntary servitude, degrading punishment, heinous, parole, poll tax, double jeopardy, arraignment, acquittal, frustrated offense, ex post facto, penal, bill of attainder, analyze, habeas corpus and quasi-judicial. The included-offense condition remains undefined."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It also covers an attempt, a frustrated form of the offense, or an offense that necessarily includes or is included in the first charge.",
+      "problem": "The learner needs the meaning of an offense necessarily including another to use this rule. No explanation, concrete illustration, prerequisite reference, or later signpost supplies it. Defining frustrated offense does not explain this separate relationship."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Political detention and forced service are connected to their prohibited conduct and exception. Punishment and debt limits are explained. Double jeopardy is explained through attachment and case termination; retroactive penal change and legislative punishment receive meanings and applications. Rights analysis connects evidence, effects and available institutional functions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked political-belief-only condition, due-conviction service exception, constitutional death text versus RA 9346, unpaid debt versus fraud, jeopardy prerequisites and exceptions, law/ordinance same-act distinction, harmful penal retroactivity, identified target plus legislative punishment, and limits on CHR versus court powers."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-bill-of-rights|B03|0": {
+    "status": "fixed",
+    "quote": "Double jeopardy has conditions.",
+    "note": "Traps to Watch For now follows Examples; Speed Tricks is optional."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L25|0": {
+    "status": "fixed",
+    "quote": "A **bill of attainder** is a law that punishes a named or clearly identified person or group without a judicial trial.",
+    "note": "All five originally listed missing terms now have local glosses; a different new terminology gap is flagged separately."
+   },
+   "general-information-philippine-constitution#47": {
+    "status": "fixed",
+    "quote": "A person cannot be jailed just for supporting an unpopular political idea.",
+    "note": "Political-belief-only detention and its separate-crime limit are taught and applied."
+   },
+   "general-information-philippine-constitution#48": {
+    "status": "fixed",
+    "quote": "It allows an exception when the service is punishment for a crime after due conviction.",
+    "note": "Forced service is defined and the conviction exception is applied."
+   },
+   "general-information-philippine-constitution#49": {
+    "status": "fixed",
+    "quote": "Republic Act No. $9346$ prohibits imposing the death penalty.",
+    "note": "Excessive fines, other prisoner protections and current replacement penalty rules are now included."
+   },
+   "general-information-philippine-constitution#50": {
+    "status": "fixed",
+    "quote": "A lawful conviction does not give officials permission to abuse a prisoner.",
+    "note": "Cruel and degrading punishment, subhuman facilities and current statutory penalty rules are covered."
+   },
+   "general-information-philippine-constitution#53": {
+    "status": "fixed",
+    "quote": "A conviction or acquittal under either one bars another prosecution under the other for that same act.",
+    "note": "General same-offense prerequisites and the special national-law/local-ordinance condition are taught with examples."
+   },
+   "general-information-philippine-constitution#54": {
+    "status": "fixed",
+    "quote": "It may make an earlier lawful act a crime or increase the punishment after an offense was committed.",
+    "note": "Meaning and two different harmful backward penal applications are supplied."
+   },
+   "general-information-philippine-constitution#55": {
+    "status": "fixed",
+    "quote": "The legislature imposes punishment itself instead of leaving guilt and punishment to a court.",
+    "note": "Meaning and legislative group punishment application are supplied."
+   },
+   "general-information-philippine-constitution#56": {
+    "status": "fixed",
+    "quote": "Use available evidence, such as records, witness accounts, or medical findings.",
+    "note": "The analysis method requires facts, rights, conditions and evidence; Example #12 applies it."
+   },
+   "general-information-philippine-constitution#57": {
+    "status": "fixed",
+    "quote": "Unlawful detention may stop a person from working or caring for family.",
+    "note": "Social effects are explained and Example #13 connects liberty loss to family income."
+   },
+   "general-information-philippine-constitution#58": {
+    "status": "fixed",
+    "quote": "A person may seek a lawyer or legal aid and ask a court for the proper remedy.",
+    "note": "Counsel, court remedy, habeas corpus and CHR powers are described; Example #14 applies remedy selection."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L26|0": {
+    "status": "fixed",
+    "quote": "Filing a complaint alone does not meet these conditions.",
+    "note": "Double jeopardy now has meaning, attachment conditions, termination conditions and worked applications."
+   }
+  }
+ }
+}

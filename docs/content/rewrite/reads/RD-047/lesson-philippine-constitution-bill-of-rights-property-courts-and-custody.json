@@ -1,0 +1,233 @@
+{
+ "batch": "RD-047",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights-property-courts-and-custody.md",
+ "lesson_sha256": "484dfa99f7868f908a40fd3972130460dfd39ab6c0330e44c66e6183a3553d69",
+ "rewrite_commit": "9572a4a34ba1e3e6d9cf4a15e1e4ff009d114e77",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody",
+  "role": "A",
+  "lesson_sha256": "484dfa99f7868f908a40fd3972130460dfd39ab6c0330e44c66e6183a3553d69",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Article III Sections 9-13 and 17 protections: public-use compensation, contract obligations subject to valid regulation, poverty-based access and assistance, silence and independent counsel, written counseled waiver, coercion and exclusion, preconviction bail with both exception conditions, recognizance, excessive bail and suspension safeguard. These match the constitutional rules recalled independently. External source verification was unavailable under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 just compensation; #2 nonimpairment of contracts with regulation limits; #3 access despite poverty; #4 yes, quasi-judicial access; #5 adequate legal assistance despite poverty; #6 silence; #7 provide competent independent counsel; #8 no, counsel must be present; #9 no, coerced confession cannot be used; #10 no bail as of right with both exception conditions; #11 penalty alone is insufficient; #12 recognizance. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omitting Speed Tricks. The brief requires no figures; none of the questions depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Technical terms including impair, quasi-judicial, custodial investigation, waiver, counsel, recognizance and the writ are given direct explanations. Short paragraphs separate the several rights, and solutions use simple descriptions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a gloss is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Read Core Concept and the examples: no analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Property use, later contractual law, poverty denials, investigation settings, waiver circumstances and bail conditions are supplied in their respective stems. Questions ask students to select and apply protections; they do not print the tested rules in the stems."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported claim about CSE or PUPCET frequency, format, or answer choices appears; there are no repeated exam-motivation openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning of a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for listed stock phrases and repeated openings. The summary names the topics, and sentence openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted Core Concept, Examples, Traps layout. No example uses a mathematical formula; section numbers and legal vote thresholds are not computational formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1-#5 cover taking, contracts, courts, quasi-judicial access and legal help separately. #6-#9 cover silence, provided counsel, defective written waiver and coercion. #10-#12 contrast both bail conditions, absence of strong evidence and recognizance. The progression moves from direct recognition to conditional applications; no numeric or noun-only duplicates occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Inspected every solution in Examples: multistep answers use numbered lists throughout; no computations require display equations. The single-sentence answers, where present, are one-step identifications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs have one to three sentences. The lesson uses short paragraphs; lists are limited to officer categories or solution steps where needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Just compensation, impair, quasi-judicial, custodial investigation, competent/independent counsel, waiver, self-incrimination, confession/admission, bail, sureties, recognizance and habeas corpus are explained locally. Reclusion perpetua is identified as the named severe penalty needed for the bail rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The text explains taking versus ordinary regulation, contract duty versus public-welfare regulation, access versus legal help, suspect choice and safeguards, exclusion of invalid statements, and release security versus guilt. Each is then applied in the relevant examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked public-use taking limitation, valid-contract/public-welfare limits, poverty as the prohibited reason, custodial setting, writing plus counsel for waiver, exclusion under Sections 12/17, before-conviction bail scope, penalty plus strong evidence, statutory recognizance, no excessive bail, and writ-suspension safeguard."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "general-information-philippine-constitution#31": {
+    "status": "fixed",
+    "quote": "A public purpose does not make the property free.",
+    "note": "Just compensation is explained and applied to a public-road taking."
+   },
+   "general-information-philippine-constitution#32": {
+    "status": "fixed",
+    "quote": "Still, contract rights are subject to valid government regulation for public welfare.",
+    "note": "Contract duties and the public-welfare limitation are taught with an application."
+   },
+   "general-information-philippine-constitution#33": {
+    "status": "fixed",
+    "quote": "A **quasi-judicial body** is a government body outside the courts that hears facts and decides certain disputes.",
+    "note": "Both court and quasi-judicial access receive separate poverty-denial examples."
+   },
+   "general-information-philippine-constitution#34": {
+    "status": "fixed",
+    "quote": "Allowing a person to file a case does not by itself settle whether needed legal help has been provided.",
+    "note": "Adequate assistance is distinguished from access and tested separately."
+   },
+   "general-information-philippine-constitution#35": {
+    "status": "fixed",
+    "quote": "These custodial rights may be waived only in writing and in the presence of counsel.",
+    "note": "Information, silence, waiver requirements, coercion prohibitions and statement exclusion are all taught."
+   },
+   "general-information-philippine-constitution#36": {
+    "status": "fixed",
+    "quote": "If the person cannot afford a lawyer, one must be provided.",
+    "note": "Competent independent counsel is defined; information, provided counsel and counseled waiver safeguards are explained."
+   },
+   "general-information-philippine-constitution#37": {
+    "status": "fixed",
+    "quote": "Section $13$ protects bail before conviction, subject to its stated exception.",
+    "note": "Both exception conditions, recognizance, excessive bail and suspension protection are supplied."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L01|0": {
+    "status": "fixed",
+    "quote": "Each has conditions, so a short description alone cannot decide every real case.",
+    "note": "The optional caution about the catalogue limits is explicit."
+   }
+  }
+ }
+}
