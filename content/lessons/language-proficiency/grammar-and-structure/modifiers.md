@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-modifiers"
 title: "Modifiers (Identifying Misplaced and Dangling Modifiers)"
-summary: "Learn how modifier placement affects meaning and how to repair genuinely ambiguous or dangling constructions."
+summary: "Learn how modifier placement changes meaning and how to repair misplaced and dangling modifiers."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 9
@@ -9,86 +9,99 @@ isActive: true
 ---
 ## Core Concept
 
-A **modifier** is a word, phrase, or clause that supplies information about another element in a sentence. Clear writing places a modifier where readers can identify its intended target without confusion. "Keep the modifier close to what it modifies" is a useful editing heuristic, not a rule that every modifier must be physically adjacent to its target.
+A **modifier** is a word, phrase, or clause that adds information about another part of a sentence. Put it where the reader can tell what it describes.
 
-A **misplaced modifier** is positioned so that the sentence invites an unintended or ambiguous attachment.
+A **misplaced modifier** is in a position that can point to the wrong word or idea. Moving it can make the meaning clear.
 
-"She almost drove her kids to school every day" can mean that the driving nearly happened but did not. "She drove her kids to school almost every day" means that the driving happened on most days. The position of *almost* changes its scope.
+The **scope** of a modifier is the part of the sentence that it affects. Small words such as *only* and *almost* can change meaning when their position changes.
 
-A **dangling modifier** lacks an appropriate grammatical or logical target in the main clause.
+"She almost drove her kids to school every day" can mean the driving nearly happened but did not. "She drove her kids to school almost every day" means she drove them on most days.
 
-"*Walking down the street*, the trees looked beautiful" conventionally implies that the grammatical subject *the trees* is doing the walking, which conflicts with the intended meaning. A clear repair supplies the intended walker: "Walking down the street, **I thought the trees looked beautiful**."
+A **dangling modifier** does not have the right person or thing to describe in the main part of the sentence.
 
-| Issue | Example | Problem |
-| --- | --- | --- |
-| Misplaced / ambiguous attachment | The waiter served the pasta to the customer *covered in cheese*. | The phrase can appear to modify *customer* instead of *pasta*. |
-| Dangling modifier | *Walking down the street*, the trees looked beautiful. | No suitable main-clause subject is supplied for the walking. |
+In "Walking down the street, the trees looked beautiful," the sentence makes *the trees* seem to be walking. A clear repair names the walker: "Walking down the street, **I thought the trees looked beautiful**."
+
+Keep a modifier close enough to make its meaning clear. It does not always have to sit directly beside the word it describes.
 
 ## Examples
 
 ### #1: Fixing Ambiguous Attachment
 
-"The waiter served the pasta to the customer covered in cheese."
+Which revision clearly means that the pasta, not the customer, was covered in cheese?
+
+Original: "The waiter served the pasta to the customer covered in cheese."
 
 **Solution:**
 
-If the intended meaning is that the pasta had cheese, place the phrase where that reading is unambiguous: "The waiter served the customer **the pasta covered in cheese**."
+1. The phrase *covered in cheese* can seem to describe *the customer*.
+2. Move the phrase next to *pasta*: "The waiter served the customer **the pasta covered in cheese**."
 
 ### #2: Fixing a Dangling Modifier
 
-"After finishing the marathon, a warm bath felt amazing."
+Revise the sentence so that the person who finished the marathon is clearly named: "After finishing the marathon, a warm bath felt amazing."
 
 **Solution:**
 
-The understood finisher should also be represented as the appropriate subject of the main clause. For example:
+1. The opening phrase needs a person who finished the marathon.
+2. Name that person in the main part of the sentence: "After finishing the marathon, **she enjoyed a warm bath**."
 
-- "After finishing the marathon, **she enjoyed a warm bath**."
-- "After **she finished the marathon**, a warm bath felt amazing."
-
-The second version is not dangling because the subordinate clause explicitly names its own subject *she*.
+Another clear form is: "After **she finished the marathon**, a warm bath felt amazing."
 
 ### #3: Choosing the Clear Construction
+
+Which sentence clearly shows that the tourists were driving through the mountains?
 
 (A) "Driving through the mountains, the scenery amazed the tourists."  
 (B) "Driving through the mountains, the tourists were amazed by the scenery."
 
 **Solution:**
 
-(B) supplies *the tourists* as the logical drivers. In (A), the introductory participial phrase appears to attach to *the scenery*.
+1. In (A), the opening phrase seems to describe *the scenery*.
+2. In (B), *the tourists* comes right after the opening phrase and can logically do the driving.
+3. The correct answer is (B).
 
 ### #4: Scope of *Only*
+
+How does the meaning change between these sentences?
 
 (A) "Only she gave him the answer."  
 (B) "She gave only him the answer."
 
 **Solution:**
 
-In (A), *only* limits *she*; in (B), it limits *him*. Modifier placement controls the intended scope.
+1. In (A), *only* limits *she*. The sentence says she was the only person who gave him the answer.
+2. In (B), *only* limits *him*. The sentence says he was the only person who received the answer from her.
 
 ## Speed Tricks & Shortcuts
 
-**Ask what the modifier is intended to describe.** Then verify that the grammar and placement support that reading.
+**Ask what the modifier describes.** Then check whether its position supports that meaning.
 
-**For introductory participial phrases, identify the understood subject.** In standard edited prose, it normally should match the subject of the main clause unless the construction supplies its own subject.
+**For an opening phrase, find who is doing the action.** That person or thing should usually be named right after the phrase unless the phrase already names its own subject.
 
-**Treat focus modifiers carefully.** *Only, just, almost,* and *even* can change meaning depending on their scope.
+**Check small focus words carefully.** *Only, just, almost,* and *even* can affect different parts of a sentence depending on where they are placed.
 
 ## Traps to Watch For
 
-### #1: Treating Nearest-Noun Attachment as a Mechanical Rule
+### #1: Using the Nearest Noun as a Mechanical Rule
 
-> Proximity strongly affects interpretation, but syntax and meaning also determine attachment.
+> A nearby noun is a useful clue, but grammar and meaning also matter.
 
-The goal is clear, intended reference, not blindly placing every modifier next to the nearest noun.
+The goal is to make the intended meaning clear. Do not move every modifier beside the nearest noun without checking the sentence.
 
-### #2: Calling Every Introductory Phrase Dangling
+### #2: Calling Every Opening Phrase Dangling
 
-> A phrase dangles when its understood subject is missing or mismatched, not merely because it comes before a comma.
+> An opening phrase dangles only when the person or thing it describes is missing or mismatched.
+
+A comma after an opening phrase does not make the phrase wrong by itself.
 
 ### #3: Ignoring Scope with Small Modifiers
 
-> *Only, almost, even,* and *just* can change which part of the proposition is limited or emphasized.
+> *Only, almost, even,* and *just* can change which part of the sentence is limited or emphasized.
 
-### #4: "Fixing" a Sentence into a Different Meaning
+Read the sentence again after moving one of these words. The meaning may change.
 
-> Before moving a modifier, identify what the writer intends. A grammatically smooth rewrite can still be wrong if it changes the intended scope.
+### #4: Repairing the Grammar but Changing the Meaning
+
+> A smooth sentence can still be wrong if it says something different.
+
+Before moving a modifier, decide what the writer means. Keep that meaning in the revision.
