@@ -20,3 +20,12 @@ Plan: `docs/superpowers/plans/pwa-launch/E4-E7-cse-content-rewrite.md` on main (
 Notes: B08 brief rows on lines the fixer changed may already be fixed; the writer checks the
 line and the reader confirms. Two stray chat citation markers removed from the visual media
 lesson (bd03b0b1).
+
+## October 25: splits applied (fdcbdba3)
+
+12 lessons added: 8 split parts and 4 new stubs; 41 questions moved with ids unchanged (3,215 ids
+before and after); importer exit 0. The push check on fdcbdba3 failed as expected: the length
+guard (written to catch a truncated chat rewrite) flagged the two lessons that shrank by design
+(bill of rights, duties and prohibited acts). Later pushes compare with the split versions. The
+`REWRITE` placeholder comments raise the AI-TELL sweep count by 1 per lesson until rewritten.
+New question shortfall to 20: 14 lessons, about 240 questions in all.
