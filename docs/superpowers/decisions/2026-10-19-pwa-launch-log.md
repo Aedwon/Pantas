@@ -1770,3 +1770,19 @@ Aedwon's exact reply:
 
 Decision: split as proposed in `docs/content/rewrite/plans/split-proposals.md` on
 `content/cse-rewrite-r1`, with the lead decisions recorded there.
+
+## October 25: CSE rewrite pilot started
+
+Aedwon's exact comment:
+
+> hi there, you're currently 89% usage used 1hr 31 min before reset
+>
+> the engineering path is done, the 2 chatgpt accounts are available
+>
+> do you think we should proceed?
+
+Lead answer: proceed with the pilot, keeping Claude usage low until the reset (the chats do the
+work; the lead reviews after the reset). Relay runners `aedwon-m4-chatgpt-relay` and `-2` online.
+Pilot: 15 lessons in 6 rewrite batches (RW-001 to RW-006), one topic each: data interpretation,
+language application, RA 6713, comprehension skills, logical-verbal reasoning, earth science.
+Spatial reasoning and the new or split lessons are left for the full run.
