@@ -138,19 +138,11 @@ $$4(2x-3y)=8x-12y$$
 
 $$-2(x+5y)=-2x-10y$$
 
-2. Combine the like $x$-terms by subtracting their coefficients.
+2. Combine like terms. The $x$-terms have the same variable part, so subtract their coefficients. Do the same for the $y$-terms.
 
-$$8x-2x=6x$$
+$$8x-12y-2x-10y=6x-22y$$
 
-3. Combine the like $y$-terms.
-
-$$-12y-10y=-22y$$
-
-4. Write the simplified expression.
-
-$$6x-22y$$
-
-5. The answer is A.
+3. The answer is A.
 
 ### #5: Reverse Distribution
 
