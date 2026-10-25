@@ -1786,3 +1786,16 @@ work; the lead reviews after the reset). Relay runners `aedwon-m4-chatgpt-relay`
 Pilot: 15 lessons in 6 rewrite batches (RW-001 to RW-006), one topic each: data interpretation,
 language application, RA 6713, comprehension skills, logical-verbal reasoning, earth science.
 Spatial reasoning and the new or split lessons are left for the full run.
+
+## October 25: CSE rewrite pilot accepted, full run approved
+
+Pilot report on `content/cse-rewrite-r1` STATUS.md (15 lessons; 278 of 287 brief items fixed;
+new findings concentrated in the 3 language application lessons; at least 4 connector refusals,
+handled by Codex and Sonnet). Lead recommended the full run with four adjustments: rewrite the 3
+language application lessons and the 3 single-Major lessons again; readers judge L18 by the cases
+the exam actually tests, as the triage did; connector-refused batches go straight to Codex
+(accounts a, b, c) with no chat retry; fix stale page labels. Aedwon's exact reply:
+
+> go with your adjustments
+
+Not yet approved: deleting branches `cse-inbox/RD-003` and `cse-inbox/RD-006`.
