@@ -118,13 +118,13 @@ Which word best describes the writer's tone?
 
 ### #4: First-Person Point of View
 
-"I folded the letter and slipped it into my pocket. I wanted to tell Ana the truth, but I was not ready."
+"I feared that I had made the wrong choice, but I hoped my friends would understand."
 
 Which point of view is used?
 
 **Solution:**
-1. The narrator uses *I* and tells personal actions and thoughts.
-2. The narrator is part of the events.
+1. The narrator uses *I* and directly tells personal thoughts.
+2. The narrator is the person experiencing the situation.
 3. The passage uses **first-person point of view**.
 
 ### #5: Second-Person Point of View
@@ -151,12 +151,12 @@ Which point of view is used?
 
 ### #7: Limited versus Objective
 
-"He could not understand why she was upset. She looked away and folded her arms."
+"Nico wondered why the room was so quiet. He decided to wait before speaking."
 
 What detail makes this passage third-person limited instead of third-person objective?
 
 **Solution:**
-1. The first sentence directly tells what *he* understands.
+1. The passage directly tells what Nico wonders and decides.
 2. That gives access to one character's mind.
 3. The passage is **third-person limited**. If it reported only visible actions and speech, it could be third-person objective.
 
@@ -183,7 +183,7 @@ Which pattern of development best describes the passage?
 3. The last paragraph gives a response to the problem.
 4. The main pattern is **problem and solution**, with cause-and-effect support.
 
-## Reading Strategies
+## Speed Tricks & Shortcuts
 
 **For purpose, name the passage's main action.** Is it explaining, arguing, instructing, describing, or telling a story?
 
