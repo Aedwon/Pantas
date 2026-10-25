@@ -1,0 +1,260 @@
+{
+ "batch": "RD-050",
+ "lesson_id": "lesson-grammar-and-structure-phrases-and-clauses",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md",
+ "lesson_sha256": "10496011f0919600200d8e8c916375f066c613ee6549f0f56456563eec2a15f2",
+ "rewrite_commit": "f9d10a7158108e85fa22371158b3db83388b71ba",
+ "form": {
+  "packet": "lesson-grammar-and-structure-phrases-and-clauses",
+  "role": "A",
+  "lesson_sha256": "10496011f0919600200d8e8c916375f066c613ee6549f0f56456563eec2a15f2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked independent/dependent and relative-clause explanations, understood command subjects, because/although relations, and finite/nonfinite examples. No incorrect supplied analysis found. No external source lookup was authorized."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 phrase/independent clause; 2 dependent/independent; 3 We went home instead because the store was closed; 4 Although the teacher explained the lesson twice, some students were still confused is a valid repair; 5 cannot stand alone, infinitive phrase/nonfinite clause; 6 yes, understood you; 7 after we ate lunch; 8 who checked my form describes clerk; 9 Ana is walking down the street; 10 Although is better in the supplied contrast. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, ten Examples, shortcuts, and traps cover the required clause distinction and all three added facets. No figure is necessary for these verbal sentence tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The core starts with the cat slept and explains subject and verb plainly. Nonfinite terminology is divided into short definitions with examples, replacing predicative relationship and finite predication jargon."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "No unexplained exam-specific instruction appears; identify, find, and choose are everyday directions. Classify is explained where used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each question supplies the necessary sentence groups and tells the student what to classify, join, identify, or repair. The open-ended repair accepts a valid main clause. Solutions explain the relation in simple words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-themed opening phrases occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino teaching text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The tasks ask about complete groups and clauses, not a designated target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No listed stock AI phrase occurs; sentence openings vary and the summary names the actual scope."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps match the language layout. There are no numerical formulas used in the examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage includes phrase/main clause, concessive dependency, causal combination, fragment repair, infinitive boundary, command subject, phrase versus after-clause, relative clause, -ing boundary, and reason-versus-contrast choice. These are distinct cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the ten solutions uses numbered reasoning steps. Fragment diagnosis and repair are separate steps; the reason-joining example shows both clause orders. No computation is involved."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Read all Core Concept and trap paragraphs: each has one to three short sentences. Nonfinite definitions are split into small paragraphs without dense lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent tasks.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Subject and verb precede clause; independent and dependent precede their applications; relative clause, connector, finite verb, nonfinite verb, infinitive, and base form are explained locally. The early nonfinite mention explicitly points to the later boundary section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how to find subject and verb, test completeness, choose a connector by meaning, and distinguish tense-carrying verbs from infinitives and -ing forms. Worked examples apply each method."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Conditions include understood you in commands, dependency despite a subject and verb, system-dependent nonfinite labels, because-clause comma placement, and intentional fragments outside formal completion tasks."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-phrases-and-clauses|L02|0": {
+    "status": "fixed",
+    "quote": "A **clause** joins a verb with a subject.",
+    "note": "The core definition uses plain words and explains the understood command subject immediately."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L02|1": {
+    "status": "fixed",
+    "quote": "For basic school questions, start by looking for a subject and a verb.",
+    "note": "The abstract caveat is replaced with short steps and a named later section for the boundary."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L05|0": {
+    "status": "fixed",
+    "quote": "In (a), there is no subject paired with a verb.",
+    "note": "Example 1 now explains the phrase without finite predication jargon."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L05|1": {
+    "status": "fixed",
+    "quote": "That result is missing, so the clause is dependent.",
+    "note": "The concessive example explains the missing result in simple language."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L19|1": {
+    "status": "fixed",
+    "quote": "2. Add a main clause that gives that result: “Although the teacher explained the lesson twice, some students were still confused.”",
+    "note": "Example 4 now separates the fragment diagnosis and repair into numbered steps."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L22a|0": {
+    "status": "fixed",
+    "quote": "A **nonfinite verb** does not show tense by itself. Examples include *to finish* and *walking*.",
+    "note": "The long nonfinite sentence is replaced with short definitions and separate explanations."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L25|0": {
+    "status": "fixed",
+    "quote": "The **subject** tells who or what a clause is about.",
+    "note": "Subject and verb are taught before clause, and finite/nonfinite receive local definitions."
+   },
+   "language-proficiency-grammar-and-structure#23": {
+    "status": "fixed",
+    "quote": "Basic school grammar calls it an infinitive phrase. A system that uses nonfinite clauses may call it a nonfinite clause with Ana as the understood doer.",
+    "note": "The tense check and system-selection procedure are taught and applied to the infinitive group, with an additional -ing example."
+   },
+   "language-proficiency-grammar-and-structure#24": {
+    "status": "fixed",
+    "quote": "Put *because* before the reason: “We went home instead because the store was closed.”",
+    "note": "Example 3 distinguishes result from reason and places because before the reason in both clause orders."
+   },
+   "language-proficiency-grammar-and-structure#25": {
+    "status": "fixed",
+    "quote": "In (a), *although* tells us to expect something that happened despite her tiredness.",
+    "note": "Core explains the unexpected-result relation; Example 2 uses it to classify the dependent clause, and Example 10 selects although."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L03|0": {
+    "status": "fixed",
+    "quote": "“Classify” means put each item in the right group.",
+    "note": "The optional instruction gloss is supplied at the first use of classify."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L18|0": {
+    "status": "fixed",
+    "quote": "Give its label in basic school grammar and in a system that uses nonfinite clauses.",
+    "note": "Example 5 now explicitly tests the nonfinite boundary and the differing system labels."
+   },
+   "lesson-grammar-and-structure-phrases-and-clauses|L19|0": {
+    "status": "fixed",
+    "quote": "1. Going home is the result. The closed store is the reason.",
+    "note": "Example 3 now uses numbered steps to choose because and show two valid orders."
+   }
+  }
+ }
+}
