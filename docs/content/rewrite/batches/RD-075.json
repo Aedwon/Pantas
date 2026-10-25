@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-algebra-linear-equations-inequalities",
+  "lesson-algebra-polynomials"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-linear-equations-inequalities": "c0a324aff9559ab6abe5c373a41673b7a900c40f",
+  "lesson-algebra-polynomials": "c0a324aff9559ab6abe5c373a41673b7a900c40f"
+ },
+ "sha256": {
+  "lesson-algebra-linear-equations-inequalities": "9fa5477c55d689e329f351d37b2650a46501d188b5fd341b9f6528bc37b299ad",
+  "lesson-algebra-polynomials": "7aa7dfa9c5e91224b51741427d816d4682273b37dc84011f27b20390090bd9f3"
+ },
+ "paths": {
+  "lesson-algebra-linear-equations-inequalities": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+  "lesson-algebra-polynomials": "content/lessons/mathematics/algebra/polynomials.md"
+ },
+ "id": "RD-075",
+ "type": "read",
+ "created": "2026-10-25T22:26:05+00:00"
+}
