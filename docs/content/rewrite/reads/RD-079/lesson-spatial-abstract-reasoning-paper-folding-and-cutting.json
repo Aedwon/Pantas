@@ -1,0 +1,237 @@
+{
+ "batch": "RD-079",
+ "lesson_id": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.md",
+ "lesson_sha256": "831120d216729e3e37c569cc42bfc90fbe47cb0447760d3b5fdcde1b867f00f8",
+ "rewrite_commit": "b410f05a21b89444974b5eb56f189050eb830b80",
+ "form": {
+  "packet": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+  "role": "A",
+  "lesson_sha256": "831120d216729e3e37c569cc42bfc90fbe47cb0447760d3b5fdcde1b867f00f8",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked equal-distance mirror reflection, vertical/horizontal direction flips, maximum doubling per complete half-fold, joined openings on folds, and the uneven-fold coverage from 4 to 8 centimeters. These basic geometric claims follow from the stated constructions; no exam prevalence claim is made."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 one rhombus/diamond with four equal sides; #2 four separate circular holes; #3 one circular center opening; #4 eight separate holes, not necessarily equally spaced; #5 one hole at 10 centimeters from the original left edge and 3 centimeters from the bottom. These agree with all solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The three required reasoning sections are present. All five fold-dependent examples have individual construction-specific placeholders, plus a reverse-unfolding concept figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the full prose: reflect, layer, interior hole, and notch are explained with short sentences. The former coincide wording is gone; the central cut is explained as joining pieces."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word requiring a definition appears.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There is no extended tutor analogy. Mirror copy is the geometric explanation in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The stems give fold directions, cut positions, shape conditions and reached layers. Example 1 supplies equal sloping sides, making the diamond answer justified; example 3 centers the quarter-circle at the folded corner; example 5 gives complete dimensions and punch coordinates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported exam-specific claims or repetitive exam openings appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly describes unfolding and openings. Sentence openings vary and the prohibited stock phrases do not occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The reduced reasoning layout is followed. Core Concept introduces up to 2^n layers and the conditional 2^n separate-hole rule before example 4 evaluates 2^3=8. No other general formula is introduced in examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Five distinct cases are worked: one-fold edge notch and shape; two-fold separated interior copies; a cut joining at both folds; three-fold interior counting; and an uneven fold where the punch reaches only one layer. The final case adds a genuinely different layer-location condition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All five examples number their multi-step solutions. Example 4 displays the key 2^3=8 computation. The remaining examples trace copies or coverage explicitly without skipped steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The sole display, 2^3=8, is short enough for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "All paragraphs stay within three short sentences; reasoning uses numbered solutions instead of unnecessary bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Each of six placeholders states fold directions, cut location and expected unfolded positions or shape. Example 1 specifies the triangle geometry; example 3 centers the arc; example 5 marks the overlap and punch precisely."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Reflect is defined with opposite side and equal distance before use. Direction flips, layer, n, interior hole and notch are also explained in Core Concept. Semicircle is glossed as half a circle on first use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept explains where mirror copies go, how their direction flips, keeping existing cuts, and reversing the fold order. Worked examples show separate copies, joined pieces, and the unpunched folded region."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The count shortcut explicitly requires complete half-folds, all layers reached and separate copies away from folds. The lesson distinguishes edge notches, joined cuts and uneven coverage and checks the actual layers at the punch."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L02|0": {
+    "status": "fixed",
+    "quote": "The pieces join at the folds, so the result is one opening.",
+    "note": "The difficult coincide wording is replaced by a clear account of joined pieces."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L19|0": {
+    "status": "fixed",
+    "quote": "3. Open the vertical fold. The semicircle joins its mirror copy to make one circular opening at the center.",
+    "note": "Example 3 now numbers all three steps and states the single center opening."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L25|0": {
+    "status": "fixed",
+    "quote": "Put the copy on the opposite side, at the same distance from the line.",
+    "note": "Reflection is defined geometrically before the examples need it."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L26|0": {
+    "status": "fixed",
+    "quote": "Across a vertical fold, a right-pointing cut becomes a left-pointing copy.",
+    "note": "Position and orientation changes under reflection are explicitly taught."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|B01|0": {
+    "status": "fixed",
+    "quote": "Their positions mirror the folds, but the gaps between holes need not all be equal.",
+    "note": "Both the solution and illustration avoid claiming equally spaced holes."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L17|0": {
+    "status": "fixed",
+    "quote": "Open the last fold first.",
+    "note": "The Speed Tricks section is gone; the lesson uses the reduced reasoning layout."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L18|0": {
+    "status": "fixed",
+    "quote": "The punch is at $10$ centimeters. It lies outside that overlap, so it cuts just one layer.",
+    "note": "Example 5 works the distinct partial-layer coverage case with a precise punch location."
+   },
+   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L19|1": {
+    "status": "fixed",
+    "quote": "2. Each opening step doubles the separate copies. The count is:",
+    "note": "Example 4 now gives numbered reasoning steps around its displayed computation."
+   }
+  }
+ }
+}
