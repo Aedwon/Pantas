@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/build_info.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -18,13 +19,13 @@ class AboutPage extends ConsumerWidget {
     super.key,
     this.debugEnabled = DebugSettingsPage.enabled,
     this.version = '0.1.0',
-    this.buildNumber = '1',
+    this.buildNumber,
     this.opener,
     this.sharedLinksRow,
   });
   final bool debugEnabled;
   final String version;
-  final String buildNumber;
+  final String? buildNumber;
   final LinkOpener? opener;
 
   /// W4g supplies its account-bound SharedLinksRow here.
@@ -50,7 +51,7 @@ class AboutPage extends ConsumerWidget {
               Text('Pantas', style: context.type.pageTitle),
               const SizedBox(height: 8),
               Text(
-                'Version $version (build $buildNumber)',
+                'Version $version (build ${buildNumber ?? kBuildNumber})',
                 style: context.type.footnote,
               ),
             ],

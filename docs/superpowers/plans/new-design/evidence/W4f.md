@@ -484,3 +484,301 @@ No product decision remains within the resumed items 1–9. Phone visual accepta
 and live deployed behavior were not checked. Historical Play records with unknown
 renewal status need their next real RevenueCat refresh before the warning can be
 confirmed. No backfill or deployment was performed.
+
+
+## October 25 audit-fix candidate
+
+This section supersedes older candidate statuses above for the current assignment.
+Policy was read from local `origin/main` with `git show`: `73572280cf4d9478d56e42247be04dad8ad1acd9`.
+CLIENT `web/new-design-w4f-r2` started clean at `78ee40770c5cd25b7ad5c15df75c451166d76d6c`.
+PAYMENTS started clean at `8e5fac5d17ac0eb99a6ddbd5f919ce0035c8cc2e`.
+STUDY started clean at `e5dbc20ae552455071c1956fa8e1195494109869`.
+All three cached matching remote branch refs equal those heads. No fetch or pull was run.
+The current lead brief supplies the audit rulings and authorizes the settled corrections.
+L2/L3 W4f, the amendment spec, parallel/dependency map, startup policy, relevant decision rows,
+and board sources were read from cached origin/main because the assigned client lacks those plan files.
+No terminal relay tool is exposed in this session. Commands ran in the assigned Mac worktrees.
+No commit, push, merge, dependency addition, deployment, or schema change was made.
+
+### Per-item result
+
+1. Done. `/pro` redirects to `/settings/pro` through the router. Replacing the URI path preserves
+   its raw full query, including repeated keys and encoded values. Both success and cancellation
+   are exercised through `settingsRoutes`; success invokes the actual checkout-return ledger read.
+   The server return URL stays unchanged.
+2. Done. Expired pass history uses “It ended after your exam on {date}.” Subscription expiry keeps
+   its own existing wording. Both stale wrong-text assertions were amended.
+3. Done. Every owned pass section has “A one-time purchase. It ends after the exam and never renews.”
+4. Done. The eligible web pretrial action says “No payment needed.” The active web trial keeps its
+   approved real end-date sentence. W4f student-facing contractions use curly apostrophes. Matching
+   assertions changed with the text. The backup-state domain strings also supply student text and
+   received the same punctuation correction.
+5. Done. The confirmation claims carried work only after Count Them with measured overlap.
+   Start My Numbers Fresh and zero overlap omit that claim. An unset exam date has no kept-date footer.
+6. Done. Web upgrade asks the carry-over choice before checkout. It writes an account-keyed device
+   marker, containing the source exam, target exam, tier, and choice. It changes neither selected exam
+   nor carry-over setting before redirect. A confirmed success return applies the marker only when
+   the same account still has the source exam and the confirmed live coverage includes the target.
+   The local setting changes and marker removal share a database transaction. Cancellation clears
+   that account’s marker. Unconfirmed returns, another account, insufficient Student coverage, and
+   changed exam focus do not apply it. Abandoning checkout leaves the selected exam unchanged.
+   The existing immutable study-settings publication runs after applying the choice.
+7. Done. All listed catches report their error and stack through telemetryProvider.recordError.
+   Captured telemetry sinks survive asynchronous route departure. Sign-in/sign-out use the connection
+   line only for network errors. Other errors use the shared board generic error state with retry.
+8. Not implemented. The exam value still says All subjects. The board sources draw only All subjects
+   (ST_Exam and ST_ExamDate), with no approved partial-scope label. No replacement wording was invented.
+9. Done. A web trial deletion warning omits the Google Play cancellation sentence. Native wording stays.
+10. Evidence-only note recorded: native Free sign-out copy promises retained work, but the current
+    native account-boundary wipe can remove local work before backup covers Free. Native is excluded
+    from launch. No data-retention policy change was made here.
+11. Done for the final 7 days. Upgrade and ordinary pass cards share the real-date countdown, including
+    singular day. On exam day they use the existing Until date wording, never Ends in 0 days.
+    No exam-day-specific pass board wording was found; that remains an explicit product copy gap.
+12. Done. The target-exam upgrade has a real named route and opens with context.push. Popping returns
+    to Change exam. The marker and source selection remain intact when leaving the upgrade.
+13. Done. The root trial value says 1 day left, with plural wording for other counts.
+14. Done. Redirected checkout busy state clears when the route becomes current again or the app resumes.
+    The regression exercises both route return and visibility/lifecycle return. Pending native operations
+    retain their existing duplicate-operation guard.
+15. Evidence-only note recorded: native `/settings/reminders` lands with parked Task 1. The web row stays hidden.
+16. Done in PAYMENTS. Failed eligibility or renewal reads retain plans, suppress trial eligibility,
+    omit the renewal flag, and record the failure. Separate failing-first cases cover both reads.
+17. Evidence-only note recorded in PAYMENTS: `8e5fac5d` already includes renewal ingestion and
+    googlePlayPlanRenews. History is unchanged.
+18. Done in STUDY. Catalog existence no longer switches the legacy loader. Authored relationships
+    only identify excluded work when scope exclusions require them. A lessonless included topic
+    permits all lessons to be excluded, matching the client’s at-least-one-topic rule.
+19. Partially done within the existing configuration. About reads the configured BUILD_NUMBER through
+    kBuildNumber and preserves explicit overrides. A BUILD_NUMBER=42 test demonstrates it. There is
+    no existing runtime semantic-version source; the existing 0.1.0 default remains a known limit.
+
+Additional audit requests: no dedicated billing-problem style or Gift state is drawn among the
+available ST_Pro boards. S0-35 explicitly calls those undrawn states. No new visual treatment or
+Gift label was invented under the brief’s “if a board draws it” condition. The billing-problem line
+therefore retains its existing presentation, pending a board or explicit lead style ruling.
+
+### Failing-first and diagnostic evidence
+
+- Return router: both PayMongo success and cancelled cases failed because Pro was not reached;
+  after the redirect, 3 checkout-return tests passed. `/tmp/w4f-router-red.log`, `-green.log`.
+- Ended pass: correct text assertion failed, then passed (`/tmp/w4f-ended-red.log`, `-green.log`).
+- Owned pass: footer absent failed, then passed (`/tmp/w4f-footer-red.log`, `-green.log`).
+- Pretrial: No payment needed absent failed, then passed (`/tmp/w4f-trial-red.log`, `-green.log`).
+- Confirmation: Fresh and zero-overlap cases failed, then all 12 exam tests passed
+  (`/tmp/w4f-confirm-red.log`, `-green.log`).
+- Pending return: success did not apply and cancellation did not clear the marker, 2 failed/2 passed;
+  then all 4 passed. Later insufficient-coverage/source-focus guard cases verify existing guards.
+  `/tmp/w4f-pending-red.log`, `-green.log`.
+- Upgrade-route test was written before the route change. Its initial entitlement fixture lacked
+  an expiry, so its first failure did not prove the intended upgrade behavior. After correcting
+  that fixture and inspecting router state, the final test verifies the real route, choice-before-
+  checkout, both choices, and abandonment. No claim that the first route-12 failure was valid RED.
+  The new preparation catch was already present when its telemetry test was added; it passed first.
+- Busy restoration: both lifecycle and route-return cases expected false but found true, then both
+  passed. `/tmp/w4f-busy-red.log`, `-green.log`. Earlier lifecycle transition/pump-timeout diagnostics
+  were corrected in the test; they are not failing-first behavior evidence.
+- Countdown: upgrade day-1 and day-7 labels failed, then all 0/1/7/8 cases passed
+  (`/tmp/w4f-countdown-red.log`, `-green.log`).
+- Telemetry/web deletion: initial focused checks showed 11 failures; carry-over’s offscreen tap was
+  corrected and its real missing-telemetry RED rerun separately. Remaining Pro user lookup, launcher,
+  and exam-save telemetry cases each failed with no recorded error. Preparation telemetry passed
+  first because the newly added preparation catch already recorded it.
+  `/tmp/w4f-settings-errors-red.log`, `/tmp/w4f-carry-error-red.log`,
+  `/tmp/w4f-pro-exam-errors-red.log`. Combined focused run passed 60 tests before the punctuation sweep.
+- About configured build/singular day: 2 failed first; 48 focused tests passed with BUILD_NUMBER=42.
+  `/tmp/w4f-about-trial-red.log`, `/tmp/w4f-about-trial-green.log`.
+- Curly punctuation: the student-text assertion failed first (`/tmp/w4f-curly-red.log`). The family
+  run then exposed two stale assertions: backup domain copy and the complete route inventory.
+  Both were corrected; final focused checks passed 7/7 (`/tmp/w4f-latest-focused.log`).
+- Consumer conversion required ProviderScope in direct deletion mounts, including the existing contrast
+  test. Those test fixtures were corrected. Production deletion behavior and contrast tokens stay unchanged.
+
+Independent read-only review found no behavior blocker in the checkout flow or backend fallback.
+A separate reviewer inspected telemetry/web deletion/build-label changes and found no issue.
+The remaining straight apostrophes were reported and corrected. Final visual acceptance remains
+Aedwon’s; no app screenshot capture, live checkout, staging deployment, or device acceptance is claimed.
+
+Final gate output and current status follow below after the full run completes.
+
+
+### Late review corrections before final verification
+
+The first combined full client run was interrupted without a pass claim after review exposed an
+account-loading gap. Its diagnostic log is `build/w4f-audit/flutter-test-interrupted.log`.
+The final full suite was restarted after the corrections below.
+
+A pending return while currentUserProvider reloaded retained the old owner through valueOrNull.
+The regression failed with expected exam_upcat, actual exam_cse_pro while identity was loading.
+Identity-sensitive reads now unwrap previous values. A second regression demonstrated that a web
+upgrade could call checkout while its current UID was still null; the purchase action now returns
+before starting. Both cases were observed failing before their corrections. Logs:
+`/tmp/w4f-owner-loading-red.log`, `/tmp/w4f-loading-offer-red.log`.
+The first null-UID test asserted busy alone and passed; it was strengthened to observe actual
+checkout calls before its valid RED. Corrected focused output:
+```text
+00:05 +25: All tests passed!
+00:05 +39: All tests passed!
+```
+The active paid native warning’s apostrophe was normalized too. Its words and billing meaning
+remain unchanged; the native trial warning is unchanged. That domain assertion failed first and
+its remaining presentation assertion was updated. `/tmp/w4f-native-curly-red.log`.
+
+STUDY review found two compatibility edge cases. Legacy topic-only exclusions must work without
+reading an unreadable catalog. Also, authored topic relationships may be many-to-one with legacy
+slugs; excluding one authored topic must retain included sibling questions and lessons. Both
+regressions failed before correction. The final server totals are 183 plain and 242 emulator
+passes; the study evidence records the amended source hashes. The original unconditional legacy
+loader remains the source of compatibility content. Authored links only filter scoped work.
+
+No application source changes are planned during the restarted full client run. Current source
+identity is retained in `build/w4f-audit/source-manifest.json`; copied focused diagnostic logs are
+in the same ignored directory. The final section below records its hash and full gate summaries.
+
+
+Final independent rereview confirmed both identity-loading findings are resolved. No remaining
+concrete checkout guard blocker was reported. Study’s final independent rereview also confirmed
+legacy-only scope and authored sibling filtering, with source hashes matching its amended evidence.
+The lead inspected final payments and study diffs and their actual check logs/summaries.
+
+The exact approved pretrial selection supplied in the lead brief was “\"No payment needed.\" (Rec.)”.
+No product copy was chosen by the implementor for the undrawn partial-scope or exam-day state.
+
+
+### Final audit gate output and status
+
+Flutter 3.44.6 stable, Dart 3.12.2. Flutter framework revision
+`ee80f08bbf97172ec030b8751ceab557177a34a6`. Full environment is retained in
+`build/w4f-audit/flutter-environment.json`. No application source/test file changed
+between the final manifest and the passing full suite. Source/test manifest SHA-256:
+`0d5ee771ee868c6cfe784fa46b342c572b2b1702c3b0d88e727ef838938e897e` (35 changed/untracked source/test files).
+
+```text
+flutter test --reporter expanded
+09:45 +4960: All tests passed!
+exit 0
+
+flutter analyze lib test tool
+No issues found! (ran in 26.3s)
+exit 0
+
+dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1595 files (0 changed) in 6.35 seconds.
+exit 0
+
+dart run tool/check_layering.dart
+Running build hooks...Running build hooks...check_layering: OK
+exit 0
+
+dart run tool/check_no_ai_attribution.dart
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+exit 0
+```
+
+PAYMENTS actual final summaries (full literal npm wrapper used isolated ports,
+isolated temporary storage, and execution-only serial emulator tests):
+```text
+npx tsc --noEmit
+exit 0
+PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+ℹ tests 121
+ℹ pass 121
+ℹ fail 0
+ℹ tests 145
+ℹ pass 145
+ℹ fail 0
+✔ Script exited successfully (code 0)
+```
+STUDY actual final summaries (plain runner and full isolated emulator globs;
+default npm wrapper’s Firestore8080 collision is recorded in its evidence):
+```text
+npx tsc --noEmit
+exit 0
+Plain: # tests 183 / # pass 183 / # fail 0
+Emulator: # tests 242 / # pass 242 / # fail 0
+Script exited successfully (code 0)
+flutter test test/features/metrics test/features/roadmap --reporter expanded
+04:17 +314: All tests passed!
+server_dart/build.sh --check
+generated JS is current
+```
+
+Gateway files remain byte-identical. All three HEADs and their cached matching
+remote refs equal their assigned baselines. Every diff check exited 0.
+No changes were committed, staged, pushed, merged, deployed, or discarded.
+No new dependency was added. Logs and status snapshots are in ignored
+`build/w4f-audit/`; backend detailed logs remain at their evidence paths.
+
+CLIENT final status:
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4f.md
+ M lib/app/routes/settings_routes.dart
+ M lib/features/settings/application/settings_providers.dart
+ M lib/features/settings/domain/backup_status.dart
+ M lib/features/settings/domain/delete_account_copy.dart
+ M lib/features/settings/presentation/carry_over_prompt.dart
+ M lib/features/settings/presentation/pages/about_page.dart
+ M lib/features/settings/presentation/pages/account_page.dart
+ M lib/features/settings/presentation/pages/backup_page.dart
+ M lib/features/settings/presentation/pages/delete_account_page.dart
+ M lib/features/settings/presentation/pages/exam_page.dart
+ M lib/features/settings/presentation/pages/name_page.dart
+ M lib/features/settings/presentation/pages/pro_page.dart
+ M lib/features/settings/presentation/pages/session_building_page.dart
+ M lib/features/settings/presentation/pages/whats_included_page.dart
+ M lib/features/settings/presentation/settings_value_formats.dart
+ M test/app/router_paths_preserved_test.dart
+ M test/core/sync/silent_sync_test.dart
+ M test/core/ui/components/destructive_contrast_test.dart
+ M test/features/settings/domain/backup_status_test.dart
+ M test/features/settings/domain/delete_account_copy_test.dart
+ M test/features/settings/presentation/about_page_test.dart
+ M test/features/settings/presentation/account_page_test.dart
+ M test/features/settings/presentation/carry_over_screen_test.dart
+ M test/features/settings/presentation/delete_account_page_test.dart
+ M test/features/settings/presentation/exam_page_test.dart
+ M test/features/settings/presentation/pro_page_payments_test.dart
+ M test/features/settings/presentation/settings_detail_pages_test.dart
+ M test/features/settings/presentation/w4f_checkout_return_test.dart
+ M test/features/settings/presentation/w4f_exam_test.dart
+ M test/features/settings/presentation/w4f_pro_states_test.dart
+ M test/features/settings/presentation/whats_included_page_test.dart
+?? test/features/settings/application/w4f_trial_label_test.dart
+?? test/features/settings/presentation/w4f_error_reporting_test.dart
+?? test/features/settings/presentation/w4f_pending_exam_test.dart
+?? test/features/settings/presentation/w4f_upgrade_checkout_test.dart
+```
+
+PAYMENTS final status:
+```text
+git status --short
+ M docs/superpowers/plans/pwa-launch/evidence/W4f-payments.md
+ M functions/src/webPlans.ts
+ M functions/test/web-plans.test.mjs
+```
+
+STUDY final status:
+```text
+git status --short
+ M docs/superpowers/plans/new-design/evidence/W4b-server-dependency.md
+ M functions/src/roadmap.ts
+ M functions/test/study-roadmap.emulator.mjs
+```
+
+### Remaining product decisions and limits
+
+- Item 8: approve a partial-scope value for Your exam. Current board text is only All subjects.
+  The current value remains incorrect when exclusions exist; this is an unresolved finding.
+- Item 11: approve exam-day-specific pass wording if desired. The existing drawn Until date
+  is used on day zero. No Ends in 0 days is printed.
+- Extra billing-problem request: supply a board or explicit style ruling. Its existing line is
+  retained because no specific board treatment was found.
+- The conditional Gift request has no drawn Gift board. It remains unchanged. S0-35’s undrawn
+  row suggestion is recorded above; no new board state was created.
+- Item 19: semantic version remains the existing 0.1.0 default. The build number is configured.
+- Native Free sign-out copy/backup coverage and native Reminders remain launch exclusions.
+- Valid initial RED was not established for route 12’s first fixture or the newly added
+  preparation-telemetry catch. Final functional coverage passes. Other listed observed RED
+  evidence is preserved without treating compile errors or fixture errors as behavior proof.
+- Aedwon’s phone visual acceptance and real deployed checkout behavior were not verified.

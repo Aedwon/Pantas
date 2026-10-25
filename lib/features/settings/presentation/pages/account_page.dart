@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
+import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
@@ -15,6 +18,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -32,6 +36,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   String? _copiedUid;
   Timer? _timer;
   bool _signingIn = false;
+  bool _genericFailure = false;
+  bool _failedSignOut = false;
   @override
   void dispose() {
     _timer?.cancel();
@@ -40,6 +46,18 @@ class _AccountPageState extends ConsumerState<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_genericFailure) {
+      return StateView.fullScreen(
+        onRetry: () {
+          setState(() => _genericFailure = false);
+          if (_failedSignOut) {
+            unawaited(_confirmSignOut());
+          } else {
+            unawaited(_signIn());
+          }
+        },
+      );
+    }
     final user = ref.watch(currentUserProvider).valueOrNull;
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
@@ -65,7 +83,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       SyncError() ||
       SyncFailedSince() ||
       SyncPartialFailure() =>
-        "Couldn't back up",
+        'Couldn’t back up',
       _ => 'Not backed up'
     };
     void push(String path) {
@@ -129,7 +147,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           footer: user == null
               ? 'You get your own Pantas ID when you sign in.'
               : digits == null
-                  ? "It shows up the next time you're online."
+                  ? 'It shows up the next time you’re online.'
                   : 'Tap to copy. This is safe to share publicly.',
           children: [
             ListRow(
@@ -153,11 +171,13 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                   ? null
                   : () async {
                       final uid = user!.uid;
+                      final telemetry = ref.read(telemetryProvider);
                       try {
                         await Clipboard.setData(
                           ClipboardData(text: digits),
                         );
-                      } catch (_) {
+                      } catch (error, stack) {
+                        await telemetry.recordError(error, stack);
                         return;
                       }
                       if (!mounted ||
@@ -196,8 +216,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             GroupedSection(
               header: 'Backup',
               footer: pro
-                  ? "Pantas backs up on its own whenever you're online."
-                  : "Your progress stays on this phone only. With Pro, it's "
+                  ? 'Pantas backs up on its own whenever you’re online.'
+                  : 'Your progress stays on this phone only. With Pro, it’s '
                       'backed up and syncs across your devices.',
               children: [
                 ListRow(
@@ -257,7 +277,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     setState(() {
       _signingIn = true;
       _errorMessage = null;
+      _genericFailure = false;
+      _failedSignOut = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       final result = await ref.read(authRepositoryProvider).signInWithGoogle();
       if (!mounted) return;
@@ -268,12 +291,20 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             'network_error',
           }.contains(result.reason)
               ? 'You need a connection to sign in.'
-              : 'Could not sign in. Please try again.',
+              : null,
         );
+        if (_errorMessage == null) {
+          setState(() => _genericFailure = true);
+        }
       }
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted) {
-        setState(() => _errorMessage = 'You need a connection to sign in.');
+        setState(() {
+          _genericFailure = !_isNetworkError(error);
+          _errorMessage =
+              _genericFailure ? null : 'You need a connection to sign in.';
+        });
       }
     } finally {
       if (mounted) setState(() => _signingIn = false);
@@ -294,12 +325,30 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       ),
     );
     if (confirmed != true || !mounted) return;
+    final telemetry = ref.read(telemetryProvider);
     try {
       await ref.read(authRepositoryProvider).signOut();
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted) {
-        setState(() => _errorMessage = 'You need a connection to sign out.');
+        setState(() {
+          _failedSignOut = true;
+          _genericFailure = !_isNetworkError(error);
+          _errorMessage =
+              _genericFailure ? null : 'You need a connection to sign out.';
+        });
       }
     }
   }
+}
+
+bool _isNetworkError(Object error) {
+  final code = switch (error) {
+    AuthGatewayException(:final code) => code,
+    PlatformException(:final code) => code,
+    AppException(:final code) => code,
+    _ => null,
+  };
+  return error is NetworkException ||
+      const {'network-request-failed', 'network_error'}.contains(code);
 }

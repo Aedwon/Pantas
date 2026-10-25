@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -12,6 +16,7 @@ import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
@@ -21,6 +26,9 @@ import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
+import 'package:pantas/features/settings/application/carry_over_providers.dart';
+import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const _googlePlaySubscriptionsPath = '/store/account/subscriptions';
@@ -65,7 +73,6 @@ class ProPage extends ConsumerStatefulWidget {
     this.targetExam,
     this.previousExamName,
     this.onSwitchOnFree,
-    this.onBeforeUpgrade,
     super.key,
   });
   final SubscriptionManagementLauncher subscriptionLauncher;
@@ -73,12 +80,13 @@ class ProPage extends ConsumerStatefulWidget {
   final ExamCatalogEntry? targetExam;
   final String? previousExamName;
   final Future<void> Function()? onSwitchOnFree;
-  final Future<void> Function()? onBeforeUpgrade;
   @override
   ConsumerState<ProPage> createState() => _ProPageState();
 }
 
-class _ProPageState extends ConsumerState<ProPage> {
+class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
+  bool _awaitingCheckout = false;
+  bool _wasCurrent = true;
   String? _selected;
   String? _feedback;
   bool _busy = false;
@@ -86,16 +94,49 @@ class _ProPageState extends ConsumerState<ProPage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     unawaited(ref.read(reviewPromptControllerProvider).recordPaywallSeen());
     Future<void>.microtask(_checkoutReturn);
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final current = ModalRoute.of(context)?.isCurrent ?? true;
+    if (current && !_wasCurrent && _awaitingCheckout) {
+      _busy = false;
+      _awaitingCheckout = false;
+    }
+    _wasCurrent = current;
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed && _awaitingCheckout && mounted) {
+      setState(() {
+        _busy = false;
+        _awaitingCheckout = false;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
   Future<void> _checkoutReturn() async {
+    final telemetry = ref.read(telemetryProvider);
     if (!ref.read(paymentsOnWebProvider)) return;
     final gateway = ref.read(revenueCatGatewayProvider);
     if (gateway is! WebPaymentGateway) return;
-    final user =
-        await ref.read(currentUserProvider.future).onError((_, __) => null);
+    final user = await ref
+        .read(currentUserProvider.future)
+        .onError<Object>((error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      return null;
+    });
     if (!mounted ||
         user == null ||
         !identical(gateway, ref.read(revenueCatGatewayProvider))) {
@@ -105,11 +146,110 @@ class _ProPageState extends ConsumerState<ProPage> {
     final operation = await gateway
         .handleCheckoutReturn(widget.checkoutReturnUri ?? Uri.base);
     if (!mounted ||
-        uid != ref.read(currentUserProvider).valueOrNull?.uid ||
+        uid !=
+            ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid ||
         operation == null) {
       return;
     }
-    setState(() => _feedback = _message(operation.status));
+    try {
+      await _completeExamSwitch(uid, operation);
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) {
+        setState(() => _feedback = 'Could not save. Please try again.');
+      }
+      return;
+    }
+    if (mounted) {
+      setState(() {
+        _busy = false;
+        _feedback = _message(operation.status);
+      });
+    }
+  }
+
+  bool _sameAccount(String uid) =>
+      mounted &&
+      ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid == uid;
+
+  Future<bool> _prepareExamSwitch(String uid) async {
+    final target = widget.targetExam;
+    if (target == null) return true;
+    final count = await ref.read(carryableCountProvider(target.id).future);
+    if (!_sameAccount(uid)) return false;
+    bool? choice =
+        (await ref.read(settingsRepositoryProvider).readUserSettings())
+            .carryOverProgress;
+    if (!mounted || !_sameAccount(uid)) return false;
+    if (count > 0) {
+      choice = await showCarryOverPrompt(
+        context: context,
+        examShortName: target.shortName,
+        carryableCount: count,
+        previousExam: widget.previousExamName,
+      );
+      if (choice == null || !_sameAccount(uid)) return false;
+    }
+    final prefs = ref.read(appPreferencesRepositoryProvider);
+    final fromExamId = await prefs.selectedExamId();
+    if (!_sameAccount(uid)) return false;
+    await prefs.setDeviceValue(
+      'checkout_exam_v1:$uid',
+      jsonEncode({
+        'uid': uid,
+        'examId': target.id,
+        'count': choice,
+        'tier': PriceTier.fromCatalog(target.priceTier).name,
+        'fromExamId': fromExamId,
+      }),
+    );
+    return _sameAccount(uid);
+  }
+
+  Future<void> _completeExamSwitch(
+    String uid,
+    PaymentOperationResult operation,
+  ) async {
+    final prefs = ref.read(appPreferencesRepositoryProvider);
+    final key = 'checkout_exam_v1:$uid';
+    if (operation.status == PaymentOperationStatus.userCancelled) {
+      await prefs.setDeviceValue(key, '');
+      return;
+    }
+    final entitlement = operation.confirmedEntitlement;
+    if (operation.status != PaymentOperationStatus.success ||
+        entitlement == null) {
+      return;
+    }
+    final raw = await prefs.deviceValue(key);
+    if (raw == null || raw.isEmpty || !_sameAccount(uid)) return;
+    final pending = jsonDecode(raw) as Map<String, dynamic>;
+    if (pending['uid'] != uid) return;
+    final examId = pending['examId'] as String;
+    final tier = PriceTier.values.byName(pending['tier'] as String);
+    if (!entitlement.coverage(at: DateTime.now()).coversExam(examId, tier)) {
+      return;
+    }
+    final from = await prefs.selectedExamId();
+    if (!_sameAccount(uid) || from != pending['fromExamId']) return;
+    final publish =
+        await ref.read(studySettingsCaptureProvider)(examId: examId);
+    if (!_sameAccount(uid)) return;
+    final db = ref.read(appDatabaseProvider);
+    final settings = ref.read(settingsRepositoryProvider);
+    await publish.apply(
+      () => db.transaction(() async {
+        await settings.updateCarryOverProgress(
+          enabled: pending['count'] as bool,
+        );
+        await prefs.setSelectedExamId(examId);
+        await prefs.setDeviceValue(key, '');
+      }),
+    );
+    if (!_sameAccount(uid)) return;
+    ref
+      ..invalidate(activeExamFocusProvider)
+      ..invalidate(userSettingsProvider);
   }
 
   String? _message(PaymentOperationStatus status, {bool restore = false}) =>
@@ -123,16 +263,16 @@ class _ProPageState extends ConsumerState<ProPage> {
         PaymentOperationStatus.networkFailure =>
           'No internet connection. Please try again.',
         PaymentOperationStatus.entitlementNotActive =>
-          "We found a purchase, but Pro couldn't be confirmed yet. "
+          'We found a purchase, but Pro couldn’t be confirmed yet. '
               'Try again in a moment.',
         PaymentOperationStatus.storeFailure => ref.read(paymentsOnWebProvider)
-            ? "We couldn't confirm your subscription. Try again."
-            : "Google Play couldn't complete this purchase. Try again.",
-        _ => "We couldn't confirm your subscription. Try again.",
+            ? 'We couldn’t confirm your subscription. Try again.'
+            : 'Google Play couldn’t complete this purchase. Try again.',
+        _ => 'We couldn’t confirm your subscription. Try again.',
       };
   Future<void> _restore() async {
     if (_busy) return;
-    final uid = ref.read(currentUserProvider).valueOrNull?.uid;
+    final uid = ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
     setState(() {
       _busy = true;
       _feedback = null;
@@ -144,7 +284,8 @@ class _ProPageState extends ConsumerState<ProPage> {
       ..invalidate(unfilteredPaywallOfferingProvider);
     setState(() {
       _busy = false;
-      if (uid == ref.read(currentUserProvider).valueOrNull?.uid) {
+      if (uid ==
+          ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid) {
         _feedback = _message(result.status, restore: true);
       }
     });
@@ -157,17 +298,23 @@ class _ProPageState extends ConsumerState<ProPage> {
     required bool allowTrial,
   }) async {
     if (_busy || (package == null && pass == null)) return;
+    final telemetry = ref.read(telemetryProvider);
     final web = ref.read(paymentsOnWebProvider);
     if (web && (ref.read(isAnonymousProvider).valueOrNull ?? true)) return;
-    final uid = ref.read(currentUserProvider).valueOrNull?.uid;
+    final uid = ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
+    if (web && uid == null) return;
     setState(() {
       _busy = true;
       _feedback = null;
     });
-    if (web && widget.onBeforeUpgrade != null) {
+    if (web && widget.targetExam != null && uid != null) {
       try {
-        await widget.onBeforeUpgrade!();
-      } catch (_) {
+        if (!await _prepareExamSwitch(uid)) {
+          if (mounted) setState(() => _busy = false);
+          return;
+        }
+      } catch (error, stack) {
+        unawaited(telemetry.recordError(error, stack));
         if (mounted) {
           setState(() {
             _busy = false;
@@ -176,7 +323,7 @@ class _ProPageState extends ConsumerState<ProPage> {
         }
         return;
       }
-      if (!mounted) return;
+      if (!_sameAccount(uid)) return;
     }
     PaymentOperationStatus status;
     final gateway = ref.read(revenueCatGatewayProvider);
@@ -205,7 +352,8 @@ class _ProPageState extends ConsumerState<ProPage> {
       status = result.status;
     }
     if (!mounted) return;
-    final sameAccount = uid == ref.read(currentUserProvider).valueOrNull?.uid;
+    final sameAccount =
+        uid == ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
     if (sameAccount &&
         widget.targetExam != null &&
         status == PaymentOperationStatus.success) {
@@ -214,14 +362,16 @@ class _ProPageState extends ConsumerState<ProPage> {
     }
     setState(() {
       // C3 returns this status after opening PayMongo in this tab.
-      _busy = sameAccount &&
+      _awaitingCheckout = sameAccount &&
           web &&
           status == PaymentOperationStatus.operationAlreadyInProgress;
+      _busy = _awaitingCheckout;
       if (sameAccount) _feedback = _message(status);
     });
   }
 
   Future<void> _manage(Entitlement entitlement) async {
+    final telemetry = ref.read(telemetryProvider);
     if (_busy) return;
     setState(() => _busy = true);
     var opened = false;
@@ -229,12 +379,14 @@ class _ProPageState extends ConsumerState<ProPage> {
       opened = await widget.subscriptionLauncher(
         googlePlaySubscriptionManagementUri(entitlement),
       );
-    } catch (_) {/* Show the approved failure line. */}
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+    }
     if (mounted) {
       setState(() {
         _busy = false;
         if (!opened) {
-          _feedback = "We couldn't open Google Play. You can manage your "
+          _feedback = 'We couldn’t open Google Play. You can manage your '
               'subscription in the Google Play app.';
         }
       });
@@ -365,9 +517,14 @@ class _ProPageState extends ConsumerState<ProPage> {
     final dayUnit = daysUntilSitting == 1 ? 'day' : 'days';
     final sittingEnd =
         sitting == null ? null : DateFormat.yMMMd().format(sitting.lastDay);
+    final passDetail = sitting == null
+        ? 'Once the next date is out'
+        : daysUntilSitting! > 0 && daysUntilSitting <= 7
+            ? 'Ends in $daysUntilSitting $dayUnit'
+            : 'Until $sittingEnd';
     final selectedPass = sitting == null ? null : selectedPassCandidate;
     final pending = web ? null : ref.watch(pendingPurchaseProvider).valueOrNull;
-    final user = ref.watch(currentUserProvider).valueOrNull;
+    final user = ref.watch(currentUserProvider).unwrapPrevious().valueOrNull;
     final waiting = pending != null && pending.uid == user?.uid;
     final pendingPackage =
         packages.where((p) => p.productId == pending?.productId).firstOrNull;
@@ -428,7 +585,7 @@ class _ProPageState extends ConsumerState<ProPage> {
                   const SizedBox(height: 8),
                   Text(
                     web
-                        ? "You won't be charged"
+                        ? 'No payment needed.'
                         : 'Then ${selectedPackage.priceString} a month. '
                             'Cancel any time in Google Play.',
                     textAlign: TextAlign.center,
@@ -474,12 +631,12 @@ class _ProPageState extends ConsumerState<ProPage> {
         if (!upgrade)
           Text(
             owned
-                ? "You're on Pro."
+                ? 'You’re on Pro.'
                 : lapsed
                     ? passEnded
                         ? 'Your Season Pass ended'
                         : 'Your Pro plan ended'
-                    : "See exactly what's losing you points.",
+                    : 'See exactly what’s losing you points.',
             style: context.type.pageTitle,
           ),
         if (upgrade)
@@ -521,13 +678,16 @@ class _ProPageState extends ConsumerState<ProPage> {
         if (owned) ...[
           const SizedBox(height: 8),
           Text(
-            "Thanks for backing Pantas. Here's everything that's yours.",
+            'Thanks for backing Pantas. Here’s everything that’s yours.',
             style: context.type.body,
           ),
         ],
         if (lapsed)
           Text(
-            'It ended on ${DateFormat.yMMMd().format(ended)}.',
+            passEnded
+                ? 'It ended after your exam on '
+                    '${DateFormat.yMMMd().format(ended)}.'
+                : 'It ended on ${DateFormat.yMMMd().format(ended)}.',
             style: context.type.body,
           ),
         const SizedBox(height: 24),
@@ -536,7 +696,7 @@ class _ProPageState extends ConsumerState<ProPage> {
             (PantasIcons.unlimitedMocks, 'Unlimited mock exams'),
             (PantasIcons.answerNotes, 'Notes on why your answer was wrong'),
             (PantasIcons.studyHabits, 'The figures behind your study habits'),
-            (PantasIcons.proBackup, "Progress that's always backed up"),
+            (PantasIcons.proBackup, 'Progress that’s always backed up'),
             (PantasIcons.topicResults, 'Results by topic and lesson'),
           ])
             Padding(
@@ -593,6 +753,8 @@ class _ProPageState extends ConsumerState<ProPage> {
         for (final pass in entitlement.passes.entries) ...[
           GroupedSection(
             header: 'Your plan',
+            footer:
+                'A one-time purchase. It ends after the exam and never renews.',
             children: [
               const ListRow(
                 title: 'Plan',
@@ -688,9 +850,7 @@ class _ProPageState extends ConsumerState<ProPage> {
                           label: 'Season Pass',
                           price: pass.priceString,
                           periodText: 'one time',
-                          detail: sitting == null
-                              ? 'Once the next date is out'
-                              : 'Until $sittingEnd',
+                          detail: passDetail,
                           selected: selectedPass == pass,
                           choose: sitting == null
                               ? null
@@ -742,12 +902,7 @@ class _ProPageState extends ConsumerState<ProPage> {
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              sitting == null
-                                  ? 'Once the next date is out'
-                                  : daysUntilSitting! <= 7
-                                      ? 'Ends in $daysUntilSitting '
-                                          '$dayUnit'
-                                      : 'Until $sittingEnd',
+                              passDetail,
                               style: context.type.footnote,
                             ),
                           ],

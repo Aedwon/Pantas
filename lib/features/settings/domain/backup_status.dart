@@ -29,7 +29,7 @@ class BackupViewState {
   }) {
     if (isAnonymous) {
       return const BackupViewState(
-        headline: "Your progress isn't backed up",
+        headline: 'Your progress isn’t backed up',
         subtitle: 'Sign in to save your progress across devices.',
         actionLabel: 'Sign in with Google',
         details: BackupDiagnostics(
@@ -42,7 +42,7 @@ class BackupViewState {
 
     return switch (syncStatus) {
       SyncOff() => const BackupViewState(
-          headline: "Your progress isn't backed up",
+          headline: 'Your progress isn’t backed up',
           subtitle: 'Backup is available with Pro.',
           details: BackupDiagnostics(
             lastSyncIso: 'Never',
@@ -73,7 +73,7 @@ class BackupViewState {
       SyncPartialFailure() ||
       SyncFailedSince() =>
         const BackupViewState(
-          headline: "Couldn't back up",
+          headline: 'Couldn’t back up',
           subtitle: 'Tap to try again.',
           actionLabel: 'Try again',
           details: BackupDiagnostics(

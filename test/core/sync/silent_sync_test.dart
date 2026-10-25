@@ -32,7 +32,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.textContaining("Couldn't back up"), findsNothing);
+      expect(find.textContaining('Couldn’t back up'), findsNothing);
       expect(find.textContaining('pending'), findsNothing);
       expect(find.textContaining('items left'), findsNothing);
     });

@@ -57,7 +57,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Exact day'), findsOneWidget);
     expect(find.text('Month only'), findsOneWidget);
-    expect(find.text("I don't know"), findsOneWidget);
+    expect(find.text('I don’t know'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

@@ -65,7 +65,7 @@ void main() {
     );
     await pumpProPage(tester, gateway: gateway);
 
-    expect(find.text("See exactly what's losing you points."), findsOneWidget);
+    expect(find.text('See exactly what’s losing you points.'), findsOneWidget);
     await tester.ensureVisible(find.text('Restore purchases'));
     await tester.tap(find.text('Restore purchases'));
     await tester.pumpAndSettle();
@@ -166,7 +166,7 @@ void main() {
 
     expect(
       find.text(
-        "We couldn't open Google Play. You can manage your "
+        'We couldn’t open Google Play. You can manage your '
         'subscription in the Google Play app.',
       ),
       findsOneWidget,

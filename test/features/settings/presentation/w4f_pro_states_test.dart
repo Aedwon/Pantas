@@ -48,7 +48,8 @@ Future<void> _pump(
   bool eligible = false,
   bool upgrade = false,
   bool playRenews = false,
-  Future<void> Function()? beforeUpgrade,
+  bool identityLoading = false,
+  VoidCallback? checkoutSeen,
   int daysUntil = 5,
   List<WebGrantHistory> history = const [],
   Future<List<WebGrantHistory>> Function(Ref ref)? historyRead,
@@ -63,8 +64,10 @@ Future<void> _pump(
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
   final webGateway = WebPaymentGateway(
-    callable: (_, __) async =>
-        {'plans': <Object?>[], 'googlePlayPlanRenews': playRenews},
+    callable: (name, __) async {
+      if (name == 'createPaymongoCheckout') checkoutSeen?.call();
+      return {'plans': <Object?>[], 'googlePlayPlanRenews': playRenews};
+    },
     readGrants: (_) async => [],
     refreshClaims: (_) async {},
     openUrl: (_) async => true,
@@ -76,7 +79,7 @@ Future<void> _pump(
   await tester.pumpAppWithProviders(
     ProPage(
       targetExam: upgrade
-          ? const ExamCatalogEntry(
+          ? ExamCatalogEntry(
               id: 'exam_cse_pro',
               name: 'CSE Professional',
               shortName: 'CSE Professional',
@@ -84,12 +87,19 @@ Future<void> _pump(
               group: 'Civil service',
               comingSoon: false,
               hasContent: true,
-              publishedSittings: [],
+              publishedSittings: dated
+                  ? [
+                      PublishedExamSitting(
+                        firstDay: day,
+                        lastDay: day,
+                        sourceUrl: 'https://csc.gov.ph',
+                      ),
+                    ]
+                  : [],
             )
           : null,
       previousExamName: 'UPCAT',
       onSwitchOnFree: () async {},
-      onBeforeUpgrade: beforeUpgrade,
     ),
     overrides: [
       contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
@@ -97,11 +107,13 @@ Future<void> _pump(
         web ? webGateway : _CancelGateway(initial: entitlement),
       ),
       currentUserProvider.overrideWith(
-        (ref) async => const AuthUser(
-          uid: 'owner',
-          email: 'owner@example.com',
-          displayName: 'Owner',
-        ),
+        (ref) async => identityLoading
+            ? Completer<AuthUser?>().future
+            : const AuthUser(
+                uid: 'owner',
+                email: 'owner@example.com',
+                displayName: 'Owner',
+              ),
       ),
       isAnonymousProvider.overrideWith((ref) async => false),
       paymentsOnWebProvider.overrideWithValue(web),
@@ -157,6 +169,50 @@ Future<void> _pump(
 }
 
 void main() {
+  testWidgets('web upgrade waits while account identity is loading',
+      (tester) async {
+    var checkouts = 0;
+    await _pump(
+      tester,
+      web: true,
+      upgrade: true,
+      identityLoading: true,
+      checkoutSeen: () => checkouts++,
+    );
+    await tester.tap(find.text('Upgrade for ₱149 a Month'));
+    await tester.pump();
+    expect(checkouts, 0);
+    expect(
+      tester
+          .widget<PantasButton>(
+            find.byWidgetPredicate(
+              (w) => w is PantasButton && w.label == 'Upgrade for ₱149 a Month',
+            ),
+          )
+          .busy,
+      isFalse,
+    );
+  });
+
+  testWidgets('Pro uses curly apostrophes in student text', (tester) async {
+    await _pump(tester, web: true, eligible: true);
+    for (final text in tester.widgetList<Text>(find.byType(Text))) {
+      expect(
+        RegExp("[A-Za-z]'[A-Za-z]").hasMatch(text.data ?? ''),
+        isFalse,
+        reason: text.data,
+      );
+    }
+  });
+
+  testWidgets('web trial offer says no payment needed before starting',
+      (tester) async {
+    await _pump(tester, web: true, eligible: true);
+    expect(find.text('Try 7 Days Free'), findsOneWidget);
+    expect(find.text('No payment needed.'), findsOneWidget);
+    expect(find.text("You won't be charged"), findsNothing);
+  });
+
   testWidgets(
       'active web trial uses the approved no-charge wording with its real end',
       (tester) async {
@@ -180,11 +236,14 @@ void main() {
   testWidgets(
       'native upgrade cancellation does not save the target before purchase',
       (tester) async {
-    var saved = false;
-    await _pump(tester, upgrade: true, beforeUpgrade: () async => saved = true);
+    await _pump(tester, upgrade: true);
     await tester.tap(find.text('Upgrade for ₱149 a Month'));
     await tester.pumpAndSettle();
-    expect(saved, isFalse);
+    expect(
+      find.text('CSE Professional has its own price tier'),
+      findsOneWidget,
+    );
+    expect(find.text('Upgrade for ₱149 a Month'), findsOneWidget);
   });
   testWidgets('web hides old history while the new owner history loads',
       (tester) async {
@@ -204,12 +263,15 @@ void main() {
               ),
             ]),
     );
-    expect(find.text('It ended on Jan 1, 2026.'), findsOneWidget);
+    expect(
+      find.text('It ended after your exam on Jan 1, 2026.'),
+      findsOneWidget,
+    );
     final container =
         ProviderScope.containerOf(tester.element(find.byType(ProPage)));
     container.read(nextOwner.notifier).state = true;
     await tester.pump();
-    expect(find.text('It ended on Jan 1, 2026.'), findsNothing);
+    expect(find.text('It ended after your exam on Jan 1, 2026.'), findsNothing);
     pending.complete([]);
     await tester.pumpAndSettle();
   });
@@ -244,7 +306,10 @@ void main() {
       ],
     );
     expect(find.text('Your Season Pass ended'), findsOneWidget);
-    expect(find.text('It ended on Jan 1, 2026.'), findsOneWidget);
+    expect(
+      find.text('It ended after your exam on Jan 1, 2026.'),
+      findsOneWidget,
+    );
     expect(find.text('Buy Season Pass'), findsNothing);
   });
   testWidgets('web warns that an existing Play subscription keeps renewing',
@@ -268,6 +333,20 @@ void main() {
       findsOneWidget,
     );
   });
+  for (final days in [0, 1, 7, 8]) {
+    testWidgets('upgrade pass countdown at $days days', (tester) async {
+      await _pump(tester, upgrade: true, daysUntil: days);
+      expect(find.text('Ends in 0 days'), findsNothing);
+      if (days > 0 && days <= 7) {
+        expect(
+          find.text('Ends in $days ${days == 1 ? 'day' : 'days'}'),
+          findsOneWidget,
+        );
+      } else {
+        expect(find.textContaining('Until '), findsOneWidget);
+      }
+    });
+  }
   for (final days in [1, 7, 8]) {
     testWidgets('pass countdown threshold at $days days', (tester) async {
       await _pump(tester, daysUntil: days);
@@ -321,6 +400,12 @@ void main() {
     expect(find.text('Mar 1, 2027'), findsOneWidget);
     expect(find.text('Aug 8, 2027'), findsOneWidget);
     expect(find.text('Season Pass'), findsNWidgets(2));
+    expect(
+      find.text(
+        'A one-time purchase. It ends after the exam and never renews.',
+      ),
+      findsNWidgets(2),
+    );
     expect(find.text('Renews'), findsNothing);
   });
   testWidgets(

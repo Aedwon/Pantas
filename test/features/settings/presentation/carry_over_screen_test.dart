@@ -7,7 +7,7 @@ import '../../../helpers/pump_app.dart';
 void main() {
   testWidgets('transfer follows the board transform and fade after saving',
       (tester) async {
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       CarryOverScreen(exam: 'CSE', previous: 'UPCAT', onCounted: () {}),
     );
     await tester.ensureVisible(find.text('Count Them'));
@@ -27,7 +27,7 @@ void main() {
       'issue 26: carry over opens once as a screen and stays '
       'closed after returning', (tester) async {
     bool? result;
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       Builder(
         builder: (context) => TextButton(
           onPressed: () async {
@@ -50,8 +50,8 @@ void main() {
     await tester.tap(find.text('Start My Numbers Fresh'));
     await tester.pumpAndSettle();
     expect(result, isFalse);
-    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(find.text('You’re not starting from zero'), findsNothing);
     await tester.pump(const Duration(seconds: 2));
-    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(find.text('You’re not starting from zero'), findsNothing);
   });
 }

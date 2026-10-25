@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/motion/pantas_curves.dart';
@@ -38,7 +40,7 @@ Future<bool?> showCarryOverPrompt({
   return result ?? selected;
 }
 
-class CarryOverScreen extends StatefulWidget {
+class CarryOverScreen extends ConsumerStatefulWidget {
   const CarryOverScreen({
     required this.exam,
     required this.onCounted,
@@ -51,10 +53,10 @@ class CarryOverScreen extends StatefulWidget {
   final String exam;
   final String? previous;
   @override
-  State<CarryOverScreen> createState() => _TransferScreenState();
+  ConsumerState<CarryOverScreen> createState() => _TransferScreenState();
 }
 
-class _TransferScreenState extends State<CarryOverScreen>
+class _TransferScreenState extends ConsumerState<CarryOverScreen>
     with SingleTickerProviderStateMixin {
   late final _controller = AnimationController(
     vsync: this,
@@ -71,6 +73,7 @@ class _TransferScreenState extends State<CarryOverScreen>
       _failed = false;
       _lastDecision = count;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await widget.onDecision?.call(count: count);
       if (!mounted) return;
@@ -88,7 +91,8 @@ class _TransferScreenState extends State<CarryOverScreen>
       if (mounted && Navigator.of(context).canPop()) {
         Navigator.of(context).pop(true);
       }
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
@@ -299,7 +303,7 @@ class _TransferScreenState extends State<CarryOverScreen>
                           Column(
                             children: [
                               Text(
-                                "You're not starting from zero",
+                                'You’re not starting from zero',
                                 textAlign: TextAlign.center,
                                 style: context.type.pageTitle,
                               ),

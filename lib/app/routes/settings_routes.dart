@@ -37,6 +37,11 @@ import 'package:go_router/go_router.dart';
 List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(path: '/paywall', redirect: (_, __) => '/settings/pro'),
       GoRoute(
+        path: '/pro',
+        redirect: (_, state) =>
+            state.uri.replace(path: '/settings/pro').toString(),
+      ),
+      GoRoute(
         path: '/settings',
         builder: (_, __) => const SettingsHomePage(),
       ),
@@ -63,6 +68,24 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(
         path: '/settings/exam/change',
         builder: (_, __) => const ChangeExamPage(),
+      ),
+      GoRoute(
+        path: '/settings/exam/upgrade',
+        builder: (context, state) => Consumer(
+          builder: (context, ref, _) {
+            final target = ref
+                .watch(examPickerCatalogProvider)
+                .valueOrNull
+                ?.where((e) => e.id == state.uri.queryParameters['target'])
+                .firstOrNull;
+            if (target == null) return const ChangeExamPage();
+            return ProPage(
+              targetExam: target,
+              previousExamName: state.uri.queryParameters['from'],
+              onSwitchOnFree: () async => context.pop(true),
+            );
+          },
+        ),
       ),
       settingsCarryOverRoute(),
       GoRoute(
@@ -214,7 +237,7 @@ class ChangeExamPage extends ConsumerWidget {
                 builder: (dialogContext) => CenteredDialog(
                   title: 'Your pass stays with ${from.shortName}',
                   inlineActions: true,
-                  message: "On ${to.shortName} you'll be on Free. "
+                  message: 'On ${to.shortName} you’ll be on Free. '
                       'Switch back any time before '
                       '${DateFormat.yMMMd().format(ends.toLocal())} '
                       'and your pass is still there.',
@@ -228,16 +251,14 @@ class ChangeExamPage extends ConsumerWidget {
             }
             if (outcome.kind == SwitchKind.upgradeOffer) {
               if (!context.mounted) return;
-              final proceed = await Navigator.of(context).push<bool>(
-                MaterialPageRoute(
-                  builder: (upgradeContext) => ProPage(
-                    targetExam: to,
-                    previousExamName: from.shortName,
-                    onSwitchOnFree: () async =>
-                        Navigator.of(upgradeContext).pop(true),
-                    onBeforeUpgrade: saveTarget,
-                  ),
-                ),
+              final proceed = await context.push<bool>(
+                Uri(
+                  path: '/settings/exam/upgrade',
+                  queryParameters: {
+                    'target': to.id,
+                    'from': from.shortName,
+                  },
+                ).toString(),
               );
               if (proceed != true || !context.mounted) return;
             }

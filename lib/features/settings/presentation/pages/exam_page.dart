@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/study_days.dart';
@@ -30,6 +31,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
   bool _dateOpen = false;
   String? _changedExam;
   String? _previousExam;
+  bool _carried = false;
   int? _mode;
   String? _error;
   int? _lastDay;
@@ -49,10 +51,12 @@ class _ExamPageState extends ConsumerState<ExamPage>
   }
 
   Future<void> _save(Future<void> Function() action) async {
+    final telemetry = ref.read(telemetryProvider);
     try {
       await action();
       if (mounted) setState(() => _error = null);
-    } catch (_) {
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _error = 'Could not save. Please try again.');
     }
   }
@@ -69,21 +73,24 @@ class _ExamPageState extends ConsumerState<ExamPage>
       ..invalidate(activeExamFocusProvider);
     await ref.read(activeExamFocusProvider.future);
     if (!mounted) return;
+    var carried = false;
     if (result.carryableCount > 0) {
-      await showCarryOverPrompt(
-        context: context,
-        examShortName: result.examShortName,
-        carryableCount: result.carryableCount,
-        previousExam: previous,
-        onDecision: ({required bool count}) => ref
-            .read(settingsActionsProvider)
-            .setCarryOverProgress(enabled: count),
-      );
+      carried = (await showCarryOverPrompt(
+            context: context,
+            examShortName: result.examShortName,
+            carryableCount: result.carryableCount,
+            previousExam: previous,
+            onDecision: ({required bool count}) => ref
+                .read(settingsActionsProvider)
+                .setCarryOverProgress(enabled: count),
+          )) ??
+          false;
     }
     if (mounted) {
       setState(() {
         _changedExam = result.examShortName;
         _previousExam = previous;
+        _carried = carried;
       });
       if (MediaQuery.disableAnimationsOf(context)) {
         _confirmation.value = 1;
@@ -163,23 +170,26 @@ class _ExamPageState extends ConsumerState<ExamPage>
                   ),
                   const SizedBox(height: 28),
                   Text(
-                    "You're now studying for "
+                    'You’re now studying for '
                     '$_changedExam',
                     textAlign: TextAlign.center,
                     style: context.type.pageTitle,
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    "Everything you've done came with you, "
-                    'and your plan is rebuilt '
-                    'for $_changedExam.',
+                    _carried
+                        ? 'Everything you’ve done came with you, and your '
+                            'plan is rebuilt for $_changedExam.'
+                        : 'Your plan is rebuilt for $_changedExam.',
                     style: context.type.body,
                   ),
                   const SizedBox(height: 24),
                   GroupedSection(
-                    footer:
-                        'Kept from $_previousExam. Change it if $_changedExam '
-                        'falls on a different day.',
+                    footer: date == null
+                        ? null
+                        : 'Kept from $_previousExam. '
+                            'Change it if $_changedExam '
+                            'falls on a different day.',
                     children: [
                       ListRow(
                         title: 'Exam Date',
@@ -218,7 +228,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
       onBack: () => Navigator.of(context).maybePop(),
       children: [
         Text(
-          "What you're preparing for, when it is, and which days you study.",
+          'What you’re preparing for, when it is, and which days you study.',
           style:
               context.type.body.copyWith(color: context.colors.secondaryLabel),
         ),
@@ -226,7 +236,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
         GroupedSection(
           footer: past
               ? 'This date has passed. Pick your next exam date, or choose '
-                  "I don't know."
+                  'I don’t know.'
               : mode == 2
                   ? 'Your plan keeps a steady pace until you add a date.'
                   : mode == 1
@@ -265,7 +275,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     labels: const [
                       'Exact day',
                       'Month only',
-                      "I don't know",
+                      'I don’t know',
                     ],
                     selected: mode,
                     onChanged: (index) {
@@ -488,7 +498,7 @@ class _ExamPageState extends ConsumerState<ExamPage>
           footer: 'Topics you leave out drop out of your plan.',
           children: [
             ListRow(
-              title: "What's included",
+              title: 'What’s included',
               value: 'All subjects',
               onTap: () => push('/settings/exam/included'),
             ),

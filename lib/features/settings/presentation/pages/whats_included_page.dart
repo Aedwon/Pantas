@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -86,6 +87,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
       _failed = false;
       _pending = selected;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       final publish =
           await ref.read(studySettingsCaptureProvider)(examId: examId);
@@ -115,7 +117,8 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
         ..invalidate(scopedTopicsProvider(examId))
         ..invalidate(scopedSubjectsProvider(examId))
         ..invalidate(whatsIncludedDataProvider(examId));
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
@@ -129,7 +132,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     final data =
         examId == null ? null : ref.watch(whatsIncludedDataProvider(examId));
     return PantasPage(
-      title: "What's included",
+      title: 'What’s included',
       backLabel: 'Your exam',
       onBack: () => Navigator.of(context).maybePop(),
       children: [
@@ -176,9 +179,9 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
                     ),
                   ),
                   Text(
-                    "Untick what you don't need. "
+                    'Untick what you don’t need. '
                     'It gets removed from your plan, '
-                    "and your answers on it won't be deleted.",
+                    'and your answers on it won’t be deleted.',
                     style: context.type.footnote,
                   ),
                   if (_failed)

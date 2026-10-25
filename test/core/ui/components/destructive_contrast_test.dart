@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/confirmation_dialog.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -44,13 +45,15 @@ void main() {
         (tester) async {
       final pending = Completer<void>();
       await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme() : buildLightTheme(),
-          home: DeleteAccountPage(
-            isAnonymous: false,
-            entitlement: const SettingsEntitlementSnapshot.free(),
-            dpoEmail: 'dpo@example.test',
-            onDelete: () => pending.future,
+        ProviderScope(
+          child: MaterialApp(
+            theme: dark ? buildDarkTheme() : buildLightTheme(),
+            home: DeleteAccountPage(
+              isAnonymous: false,
+              entitlement: const SettingsEntitlementSnapshot.free(),
+              dpoEmail: 'dpo@example.test',
+              onDelete: () => pending.future,
+            ),
           ),
         ),
       );

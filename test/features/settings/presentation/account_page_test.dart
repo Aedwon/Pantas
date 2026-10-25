@@ -39,7 +39,7 @@ void main() {
     expect(find.text('Add your name'), findsNWidgets(2));
     expect(
       find.text(
-        "Your progress stays on this phone only. With Pro, it's "
+        'Your progress stays on this phone only. With Pro, it’s '
         'backed up and syncs across your devices.',
       ),
       findsOneWidget,

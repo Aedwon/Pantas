@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/build_info.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
@@ -8,6 +9,19 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  testWidgets('About uses the configured build number', (tester) async {
+    await tester.pumpAppWithProviders(const AboutPage());
+    await tester.pumpAndSettle();
+    expect(find.text('Version 0.1.0 (build $kBuildNumber)'), findsOneWidget);
+  });
+
+  testWidgets('About preserves explicit build number overrides',
+      (tester) async {
+    await tester.pumpAppWithProviders(const AboutPage(buildNumber: 'custom'));
+    await tester.pumpAndSettle();
+    expect(find.text('Version 0.1.0 (build custom)'), findsOneWidget);
+  });
+
   testWidgets('about carries legal, analytics, the DPO and feedback',
       (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);

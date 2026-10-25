@@ -93,7 +93,7 @@ void main() {
 
   testWidgets('delete account page renders billing warning and destructive CTA',
       (tester) async {
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       DeleteAccountPage(
         isAnonymous: false,
         entitlement: const SettingsEntitlementSnapshot(
@@ -105,7 +105,7 @@ void main() {
     );
 
     expect(find.text('Delete your account?'), findsOneWidget);
-    expect(find.textContaining("you'll still be charged"), findsOneWidget);
+    expect(find.textContaining('you’ll still be charged'), findsOneWidget);
     expect(find.text('Delete My Data'), findsOneWidget);
   });
 

@@ -34,7 +34,7 @@ class SessionBuildingPage extends ConsumerWidget {
         const SizedBox(height: 24),
         GroupedSection(
           header: 'Session length',
-          footer: "How many questions in one quiz session. It doesn't change "
+          footer: 'How many questions in one quiz session. It doesn’t change '
               'how much is due for the whole day.',
           children: [
             Padding(

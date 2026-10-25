@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 typedef DeleteAccountCallback = Future<void> Function();
 
-class DeleteAccountPage extends StatefulWidget {
+class DeleteAccountPage extends ConsumerStatefulWidget {
   const DeleteAccountPage({
     required this.isAnonymous,
     required this.entitlement,
@@ -21,10 +24,10 @@ class DeleteAccountPage extends StatefulWidget {
   final String dpoEmail;
   final DeleteAccountCallback onDelete;
   @override
-  State<DeleteAccountPage> createState() => _DeleteAccountPageState();
+  ConsumerState<DeleteAccountPage> createState() => _DeleteAccountPageState();
 }
 
-class _DeleteAccountPageState extends State<DeleteAccountPage> {
+class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
   bool _isDeleting = false;
   bool _isDeleted = false;
   bool _failed = false;
@@ -35,10 +38,12 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
       _isDeleting = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await widget.onDelete();
       if (mounted) setState(() => _isDeleted = true);
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _isDeleting = false);
@@ -49,7 +54,9 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
   Widget build(BuildContext context) {
     final billing = widget.isAnonymous
         ? anonymousDeleteWarning(widget.entitlement)
-        : deleteAccountBillingLine(widget.entitlement);
+        : ref.watch(paymentsOnWebProvider) && widget.entitlement.isTrial
+            ? 'Your free trial will end if you delete now.'
+            : deleteAccountBillingLine(widget.entitlement);
     Widget consequence(Widget icon, String text) => Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -109,7 +116,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
           widget.isAnonymous
               ? 'Your progress on this device will be permanently deleted. '
                   'Sign in first if you want to keep it.'
-              : "This can't be undone.",
+              : 'This can’t be undone.',
           style: context.type.body
               .copyWith(color: context.colors.secondaryLabel, fontSize: 16),
         ),

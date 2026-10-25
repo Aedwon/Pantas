@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -28,10 +29,12 @@ class _NamePageState extends ConsumerState<NamePage> {
       _saving = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await ref.read(settingsActionsProvider).setName(_controller.text);
       if (mounted) Navigator.of(context).pop();
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);

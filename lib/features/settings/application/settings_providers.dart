@@ -209,7 +209,8 @@ final proRowValueProvider = Provider<String>((ref) {
   if (entitlement == null || !entitlement.proIsActive) return 'Free';
   if (entitlement.isTrial && entitlement.endsAt != null) {
     final days = entitlement.endsAt!.difference(DateTime.now()).inHours / 24;
-    return 'Trial, ${days.ceil().clamp(0, 7)} days left';
+    final remaining = days.ceil().clamp(0, 7);
+    return 'Trial, $remaining ${remaining == 1 ? 'day' : 'days'} left';
   }
   return switch (entitlement.plan) {
     EntitlementPlan.weekly => 'Weekly',

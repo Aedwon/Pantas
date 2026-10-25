@@ -115,8 +115,8 @@ void main() {
 
     expect(
       find.text(
-        "Untick what you don't need. It gets removed from your plan, "
-        "and your answers on it won't be deleted.",
+        'Untick what you don’t need. It gets removed from your plan, '
+        'and your answers on it won’t be deleted.',
       ),
       findsOneWidget,
     );

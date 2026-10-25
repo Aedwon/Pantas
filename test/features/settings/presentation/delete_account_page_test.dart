@@ -95,7 +95,7 @@ void main() {
 
   testWidgets('delete confirmation shows the approved consequences and choices',
       (tester) async {
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       DeleteAccountPage(
         isAnonymous: false,
         entitlement: const SettingsEntitlementSnapshot.free(),
@@ -115,7 +115,7 @@ void main() {
       (tester) async {
     final completer = Completer<void>();
 
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       DeleteAccountPage(
         isAnonymous: false,
         entitlement: const SettingsEntitlementSnapshot.free(),
@@ -135,7 +135,7 @@ void main() {
   });
 
   testWidgets('delete failure shows retry and DPO fallback', (tester) async {
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       DeleteAccountPage(
         isAnonymous: false,
         entitlement: const SettingsEntitlementSnapshot.free(),
@@ -159,7 +159,7 @@ void main() {
   });
 
   testWidgets('delete success becomes a live status', (tester) async {
-    await tester.pumpApp(
+    await tester.pumpAppWithProviders(
       DeleteAccountPage(
         isAnonymous: false,
         entitlement: const SettingsEntitlementSnapshot.free(),

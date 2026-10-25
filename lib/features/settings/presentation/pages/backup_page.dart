@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
@@ -29,9 +30,11 @@ class _BackupPageState extends ConsumerState<BackupPage> {
       _busy = true;
       _failed = false;
     });
+    final telemetry = ref.read(telemetryProvider);
     try {
       await runtime.forceFlush();
-    } catch (_) {
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
       if (mounted && uid == ref.read(currentUserProvider).valueOrNull?.uid) {
         setState(() => _failed = true);
       }
@@ -66,7 +69,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
         : offline
             ? 'Offline'
             : failed
-                ? "Couldn't back up"
+                ? 'Couldn’t back up'
                 : switch (status) {
                     SyncUpToDate() || SyncOk() => 'Saved',
                     _ => 'Not backed up',
@@ -99,10 +102,10 @@ class _BackupPageState extends ConsumerState<BackupPage> {
           footer: busy
               ? 'This takes a moment. You can keep using Pantas.'
               : offline
-                  ? "It backs up when you're back online."
+                  ? 'It backs up when you’re back online.'
                   : failed
                       ? 'Your progress is safe on this phone.'
-                      : "Pantas backs up on its own whenever you're online.",
+                      : 'Pantas backs up on its own whenever you’re online.',
           children: [
             ListRow(
               title: 'Backup',

@@ -114,10 +114,52 @@ void main() {
     await tester.tap(find.text('Count Them'));
     await tester.pumpAndSettle();
     expect((await repository.readUserSettings()).carryOverProgress, isTrue);
-    expect(find.text("You're now studying for DOST"), findsOneWidget);
+    expect(find.text('You’re now studying for DOST'), findsOneWidget);
   });
 
-  testWidgets('a switch with no overlap confirms the kept date and study days',
+  testWidgets('Start My Numbers Fresh never claims work carried over',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        settingsCarryOverRoute(),
+        GoRoute(path: '/settings/exam', builder: (_, __) => const ExamPage()),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(carryOverProgress: false),
+        carryableCountProvider.overrideWith((ref, id) async => 3),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(ExamPage)));
+    final repository = container.read(settingsRepositoryProvider);
+    await repository.updateCarryOverProgress(enabled: false);
+    await tester.tap(find.text('Exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Start My Numbers Fresh'));
+    await tester.tap(find.text('Start My Numbers Fresh'));
+    await tester.pumpAndSettle();
+    expect((await repository.readUserSettings()).carryOverProgress, isFalse);
+    expect(find.text('You’re now studying for DOST'), findsOneWidget);
+    expect(
+      find.textContaining('Everything you’ve done came with you'),
+      findsNothing,
+    );
+  });
+
+  testWidgets(
+      'a switch with no overlap does not claim carried work or an unset date',
       (tester) async {
     final router = GoRouter(
       initialLocation: '/settings/exam',
@@ -143,7 +185,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('DOST'));
     await tester.pumpAndSettle();
-    expect(find.text("You're now studying for DOST"), findsOneWidget);
+    expect(find.text('You’re now studying for DOST'), findsOneWidget);
     expect(
       find.byKey(const ValueKey('exam-confirmation-arrival')),
       findsOneWidget,
@@ -152,13 +194,17 @@ void main() {
       find.text(
         'Kept from UPCAT. Change it if DOST falls on a different day.',
       ),
-      findsOneWidget,
+      findsNothing,
+    );
+    expect(
+      find.textContaining('Everything you’ve done came with you'),
+      findsNothing,
     );
     expect(find.text('Count Them'), findsNothing);
     await tester.tap(find.text('Done'));
     await tester.pumpAndSettle();
     expect(find.text('Study days'), findsOneWidget);
-    expect(find.text("You're now studying for DOST"), findsNothing);
+    expect(find.text('You’re now studying for DOST'), findsNothing);
   });
 
   testWidgets('the exam page has the active exam and four setting rows',
@@ -183,7 +229,7 @@ void main() {
     expect(find.byType(ListRow), findsNWidgets(4));
     expect(find.text('Exam'), findsOneWidget);
     expect(find.text('Carry over progress'), findsOneWidget);
-    expect(find.text("What's included"), findsOneWidget);
+    expect(find.text('What’s included'), findsOneWidget);
   });
 
   testWidgets('carry over is a switch, on by default', (tester) async {
@@ -267,10 +313,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
 
     await tester.pump(const Duration(seconds: 1));
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
   });
 
   testWidgets(
@@ -318,12 +364,12 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.byType(ChangeExamPage), findsOneWidget);
-    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(find.text('You’re not starting from zero'), findsNothing);
 
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
   });
 
   testWidgets(
@@ -434,7 +480,7 @@ void main() {
           'UPCAT',
           reason: 'active exam changed while Change exam was still mounted',
         );
-        expect(find.text("You're not starting from zero"), findsNothing);
+        expect(find.text('You’re not starting from zero'), findsNothing);
         continue;
       }
 
@@ -454,7 +500,7 @@ void main() {
             .value,
         'UPCAT',
       );
-      expect(find.text("You're not starting from zero"), findsNothing);
+      expect(find.text('You’re not starting from zero'), findsNothing);
       break;
     }
 
@@ -475,7 +521,7 @@ void main() {
           .value,
       'DOST',
     );
-    expect(find.text("You're not starting from zero"), findsOneWidget);
+    expect(find.text('You’re not starting from zero'), findsOneWidget);
   });
 
   testWidgets(
@@ -524,7 +570,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(ChangeExamPage), findsNothing);
-    expect(find.text("You're not starting from zero"), findsNothing);
+    expect(find.text('You’re not starting from zero'), findsNothing);
     expect(changeResult, isNotNull);
   });
 
