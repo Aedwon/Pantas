@@ -1731,3 +1731,17 @@ Decision: launch ships static SVG only. After launch: an in-app player for a sup
 standard SVG animation (move, rotate, scale, fade, draw a line), with a check script that rejects
 unsupported tags; check for a ready-made package first. During the rewrite, figure briefs mark
 animation candidates so they can be upgraded later.
+
+## October 25: rewrite plan approved at balanced complexity
+
+Aedwon's exact comment:
+
+> approved, go for balanced. right now engineering is still not finished, but can you work on things you can work on?
+>
+> please don't forget to delegate tasks to Sonnet 5.5 or Haiku 5.5 as needed
+
+Plan `pwa-launch/E4-E7-cse-content-rewrite.md` (revision 2) approved at balanced complexity. The
+lead starts P0 preparation that needs no ChatGPT, delegating to Sonnet 5.5 and Haiku 5.5. Branch
+`content/cse-rewrite-r1` created from `content/question-qa-r2` at 765c5dc0 (base unchanged) and
+pushed; worktree `Pantas-wt-cse-rewrite-r1`. App code for SVG display waits until it can be
+coordinated with the engineering run.

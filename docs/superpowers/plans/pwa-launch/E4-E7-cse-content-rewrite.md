@@ -1,6 +1,6 @@
 # CSE content rewrite, figures, question check and build (PWA plan E4 to E7)
 
-Date: October 25, 2026. Status: revision 2, draft for Aedwon's approval (relay hand-in and SVG
+Date: October 25, 2026. Status: revision 2, approved by Aedwon at balanced complexity on October 25 (relay hand-in and SVG
 illustrations added the same day). Amends Lane E of
 `docs/superpowers/plans/2026-10-19-pwa-launch.md` (tasks E3 to E7). Every decision it relies on
 is in `docs/superpowers/decisions/2026-10-19-pwa-launch-log.md`, October 25 entries.
