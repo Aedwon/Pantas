@@ -1,0 +1,278 @@
+{
+ "packet": "lesson-verbal-logic-assumptions-and-conclusions",
+ "role": "A",
+ "lesson_sha256": "08816a9578313cf397ae65960400040c1dd8f0f99c9c5ee9d98a374c157fffad",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the lesson's logic claims: the negations of all, some, none, and conjunctions are correct; the meanings of some, none, may, and must are correct; the cause, motive, and bias cautions make no unsupported factual claim."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Solved all 11 worked examples independently. #1: B is necessary because without any road-level crossers using the overpass, the stated conflict-reduction mechanism fails. #2: no, electronic verification is not necessary. #3: Maria must be full-time. #4: no, some certified inspectors does not imply some uncertified inspectors. #5: Joel is not permanent. #6: C. #7: B. #8: B. #9: B. #10: A. #11: B. Each matches the lesson's answer."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the required Reasoning structure and figure needs. The lesson has Core Concept, Examples, a Speed Tricks & Shortcuts section containing real shortcuts, and Traps to Watch For. The brief requires no figure, and these verbal-logic cases do not depend on one."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read all teaching prose for Grade 5 readability. Logic terms such as premise, conclusion, assumption, negate, deductive, and bias are defined in short plain sentences, and the earlier abstract phrases called out in the brief are gone."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the first instructional use of negate: the lesson immediately explains, 'To negate a statement means to make it false.' Other prompts use everyday words such as choose and ask what must be true."
+   ],
+   "note": ""
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Core Concept for analogies; none are used, so the lesson stays within the one-analogy limit."
+   ],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all 11 example stems for complete task wording and needed givens. Each example now asks a clear question or supplies a direct task, including Example 3's 'Which conclusion must be true?', and the solutions use short plain explanations."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked for repetitive or unsupported exam mentions. The lesson does not repeat named-exam claims or stock exam-motivation openers."
+   ],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is written in English and does not teach Filipino-language content."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino grammar terms that would need an English gloss."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson, so Filipino example-language rules do not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There is no Filipino text whose spelling or usage needs a Komisyon sa Wikang Filipino source check."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The teaching prose is English, so the Filipino no-Taglish rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to an underlined or bold word."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the summary, sentence openings, and listed stock AI phrases. The summary is plain, the prose varies its openings, and none of the banned stock phrases or constructions appears."
+   ],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Reasoning section fit. No formula is used. The optional Speed Tricks & Shortcuts section contains genuine procedures: find the assumption gap, negate exact statement strength, track conclusion strength words, and stay close to evidence in best-supported questions."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the worked coverage to the lesson goal and brief: necessary assumption (#1), helpful but unnecessary assumption (#2), deductive all-case (#3), some overreach (#4), none exclusion (#5), may possibility (#6), best-supported evidence with unsupported cause (#7), unsupported motive (#8), quantified all-negation (#9), compound negation (#10), and bias recognition (#11). These are distinct cases rather than number-only duplicates."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every worked solution for step structure. Examples 1, 3, 5, and 7 use numbered lists for their multi-step reasoning. The remaining solutions are short one-step verbal answers or explanations and do not skip a required intermediate step."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no display equations, so there is no phone-width display equation to check."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked paragraph length and list use. Teaching and solution paragraphs stay within one to three short sentences, and bullets or numbered lists are used only for compact rule sets and solution steps."
+   ],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson has no illustration placeholders, and the brief says no figure is required for these verbal-logic cases."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Traced necessary terms before use. Argument, premise, conclusion, assumption, and negate are defined in Core Concept before examples need them; deductive is explained at first use; all, some, none, may, must, and bias are explained before their worked cases."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that each central concept has meaning and procedure: necessary assumptions use the negation test; deductive conclusions preserve stated facts and strength words; none and may get inference meanings; best-supported conclusions get a four-step evidence method; unsupported cause and motive are explained; bias gets criteria and an application."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions and limits on the lesson's rules. Necessary assumptions need not prove the conclusion alone; negation is tested against the stated reasoning; some does not mean some-but-not-all; may is possibility, not certainty; cause and motive need evidence; and a conclusion alone does not prove bias."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-verbal-logic-assumptions-and-conclusions|B02|0": {
+   "status": "fixed",
+   "quote": "(B) At least some pedestrians who would otherwise cross at road level will use the proposed overpass.",
+   "note": "I negated the rebuilt choice and checked the stated mechanism. With no such pedestrians using the overpass, moving crossings above the road cannot reduce conflicts in the stated way, so the choice is necessary."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L18|0": {
+   "status": "fixed",
+   "quote": "Which conclusion is best supported?",
+   "note": "Example 7 now gives a worked best-supported conclusion task and ranks the choices by direct evidence versus added cause or motive claims."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L26|0": {
+   "status": "fixed",
+   "quote": "Remove choices that add a new cause, motive, or broad claim.",
+   "note": "The rewrite now gives a four-step method for judging best-supported conclusions, including staying close to the facts and preferring the less expansive supported claim."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L02|0": {
+   "status": "fixed",
+   "quote": "Test the actual reasoning in the argument. Do not ask whether you can imagine some other reason for the same conclusion.",
+   "note": "The former 'diagnostic heuristic' sentence is replaced by two short, concrete sentences using common words."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L02|1": {
+   "status": "fixed",
+   "quote": "A question may instead ask for the conclusion **best supported** by the evidence. That answer does not need to be certain.",
+   "note": "The abstract contrast using 'evidential support' and 'formal necessity' is replaced with plain wording about certainty and matching the evidence."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L05|0": {
+   "status": "fixed",
+   "quote": "Which conclusion must be true?",
+   "note": "Example 3 now includes the missing exam-style task after the premises, so the student knows exactly what conclusion to draw."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L25|0": {
+   "status": "fixed",
+   "quote": "An **assumption** is an unstated statement that the reasoning needs.",
+   "note": "The definition now uses the ordinary word 'statement' instead of the previously undefined logic term 'proposition'."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L25|1": {
+   "status": "fixed",
+   "quote": "A **premise** is a statement given as a reason or fact.",
+   "note": "Premise is defined in the opening Core Concept paragraph before the later deductive rule uses the plural 'premises'."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L26|1": {
+   "status": "fixed",
+   "quote": "- **None** means zero members. If no $X$ is $Y$, any known $X$ is not $Y$.\n- **May** means something is possible. It does not mean it will happen.",
+   "note": "The rewrite now explains both missing strength words, including none-class exclusion and may as possibility rather than certainty."
+  },
+  "reasoning-verbal-logic#7": {
+   "status": "fixed",
+   "quote": "If two choices seem possible, choose the one that claims less while still matching the facts.",
+   "note": "The lesson adds an evidence-ranking procedure and then applies it in Example 7 to select the least overreaching supported conclusion."
+  },
+  "reasoning-verbal-logic#9": {
+   "status": "fixed",
+   "quote": "Two events happening together or one after another does not by itself show that one caused the other.",
+   "note": "The rewrite gives a direct cause-attribution rule and applies it in Example 7 by rejecting the choice that says the schedule change caused the increase."
+  },
+  "reasoning-verbal-logic#10": {
+   "status": "fixed",
+   "quote": "An action also does not prove a person's motive unless the passage gives evidence for that motive.",
+   "note": "The rewrite states the motive rule and applies it in Examples 7 and 8 by rejecting motives not supplied by the passage."
+  },
+  "reasoning-verbal-logic#14": {
+   "status": "fixed",
+   "quote": "**None** means zero members. If no $X$ is $Y$, any known $X$ is not $Y$.",
+   "note": "The none-class exclusion meaning is taught explicitly and then applied in Example 5 to conclude that Joel is not a permanent employee."
+  },
+  "reasoning-verbal-logic#15": {
+   "status": "fixed",
+   "quote": "**May** means something is possible. It does not mean it will happen.",
+   "note": "The possibility strength of may is explained directly and applied in Example 6, which distinguishes possible closure from certain closure."
+  },
+  "reasoning-verbal-logic#17": {
+   "status": "fixed",
+   "quote": "- \"All applicants qualify\" becomes \"At least one applicant does not qualify.\"\n- \"Some applicants qualify\" becomes \"No applicants qualify.\"\n- \"No applicants qualify\" becomes \"At least one applicant qualifies.\"\n- \"A and B are true\" becomes \"At least one of A or B is false.\"",
+   "note": "The rewrite now gives a systematic set of quantified and compound negations, then reinforces all-negation in Example 9 and conjunction negation in Example 10."
+  },
+  "reasoning-verbal-logic#19": {
+   "status": "fixed",
+   "quote": "**Bias** means favoring one side in a way that can shape how evidence is presented. Look for loaded praise or blame, one-sided evidence, or a claim treated as obvious without support.",
+   "note": "The lesson now gives concrete bias criteria and applies them in Example 11 to loaded blame and one-sided evidence."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L17|0": {
+   "status": "fixed",
+   "quote": "**For assumptions, find the gap first.** Ask what must be true for the stated reason to support the conclusion. Then negate that choice and see whether the reason still works.",
+   "note": "The Speed Tricks section is retained only with real shortcuts, including a concise gap-first assumption method, exact-strength negation, strength-word checks, and evidence restraint."
+  },
+  "lesson-verbal-logic-assumptions-and-conclusions|L19|0": {
+   "status": "not_fixed",
+   "quote": "No. **Some** only tells us that at least one inspector is a certified auditor. It is still possible that every inspector is a certified auditor.",
+   "note": "Example 3 is now numbered, but short verbal solutions such as Example 4 still use prose rather than numbered steps. This optional item was not fully changed."
+  }
+ }
+}
