@@ -19,7 +19,7 @@ An **opening sentence** often names the topic or situation. It should make sense
 
 **Transitions** show links between ideas. *However* shows contrast; *therefore* shows a result. *For example* introduces a case that helps explain an idea, while *in addition* adds a point.
 
-A transition does not give an exact position by itself. Read the meaning of the sentences it connects. A pronoun can also begin a real paragraph if the reader already knows who or what it means.
+A transition does not give an exact position by itself. Read the meaning of the sentences it connects. A pronoun can also begin a paragraph if the reader already knows who or what it means.
 
 **Chronology** is time order. Dates and words such as *before* and *after* show when events happen. In a procedure, check which step must be done before the next one can work.
 
@@ -49,7 +49,7 @@ Sa pagpapaliwanag, sabihin ang ideya sa sariling salita. Huwag magdagdag ng impo
 
 ### #1: Building a Reference Chain
 
-Arrange the sentences into a coherent paragraph. *Coherent* means the ideas connect clearly.
+Arrange the sentences into a coherent paragraph. **Coherent** means the ideas connect clearly.
 
 (A) This competition led to conflicts between the groups.
 (B) As the settlements grew, competition for these resources increased.
@@ -86,7 +86,7 @@ Read: "Many staff members supported the new policy. **However**, not everyone ag
 **Solution:**
 
 1. **However** shows contrast.
-2. The second sentence limits the first idea: support was common, but it was not shared by everyone.
+2. Many staff members agreed, but some did not. The second sentence makes that difference clear.
 3. The word shows the link between the ideas. It does not set a fixed sentence number.
 
 ### #4: Ordering a Procedure
@@ -111,13 +111,13 @@ Arrange the sentences in time order.
 
 (A) By noon, the missing parcel had reached its owner.
 (B) At opening time that morning, the clerk found an unclaimed parcel.
-(C) An hour after finding it, she called the name written on its label.
+(C) An hour after finding it, she called its owner using the number on its label.
 
 **Solution:**
 
 1. Finding the parcel in (B) comes first.
 2. The call in (C) happens an hour after that discovery.
-3. Delivery to the owner in (A) completes the account.
+3. The parcel reaching its owner in (A) completes the account.
 4. The order is **B → C → A**.
 
 ### #6: Cause Before Effect
@@ -160,7 +160,7 @@ What is the main idea?
 **Solution:**
 
 1. The details describe benefits of digital forms.
-2. **(B)** covers those benefits without adding an unsupported claim.
+2. **(B)** covers those benefits without adding a claim the text does not support.
 
 ### #9: Important Detail in a Notice
 
@@ -228,9 +228,9 @@ Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*
 
 ### #14: Paksa, Salitang Susi, at Balangkas
 
-Basahin: "Mahalaga ang silid-aklatan sa pag-aaral. Dito maaaring manghiram ng aklat ang mga mag-aaral. Maaari rin silang magsaliksik gamit ang mga sanggunian. May tahimik ding lugar para sa pagbabasa."
+Basahin: "Mahalaga ang silid-aklatan sa pag-aaral. Dito maaaring manghiram ng aklat ang mga mag-aaral. Maaari rin silang magsaliksik gamit ang mga **sanggunian**. May tahimik ding lugar para sa pagbabasa."
 
-Ano ang paksa? Ano ang ibig sabihin ng *sanggunian* sa talata? Ipaliwanag ang pangunahing ideya at gumawa ng maikling balangkas.
+Ano ang paksa? Ano ang ibig sabihin ng salitang nakadiin sa talata? Ipaliwanag ang pangunahing ideya at gumawa ng maikling balangkas.
 
 **Solution:**
 
@@ -266,7 +266,7 @@ In a scrambled set with no outside context, an unexplained pronoun is a clue to 
 
 > A transition shows a link, not an exact position.
 
-*Pagkatapos* tells you that something follows another event. Check the actual events to decide which comes next.
+*Afterward* tells you that something follows another event. Check the actual events to decide which comes next.
 
 ### #3: Forcing a General Opening
 
@@ -284,4 +284,4 @@ Words such as *the reason for this* can introduce a later explanation. Follow th
 
 > An inference needs clues from the text.
 
-Do not add motives, outcomes, or facts just because they are possible. Use only what the passage supports.
+Do not add reasons, results, or facts just because they are possible. Use only what the passage supports.
