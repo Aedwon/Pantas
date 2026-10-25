@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSE rewrite batches</title>
+<style>
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --text: #1d1d1b; --muted: #66645e; --line: #d9d6cd;
+  --accent: #1f5f8b; --accent-text: #ffffff;
+  --ok: #1e6b3a; --ok-bg: #e3f2e8; --warn: #8a5a00; --warn-bg: #fbefd2; --bad: #9b2226; --bad-bg: #f9e0e0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181a; --panel: #212326; --text: #ececea; --muted: #a3a29c; --line: #3a3d41;
+    --accent: #6cb4e4; --accent-text: #0e1114;
+    --ok: #7fd49a; --ok-bg: #1b3326; --warn: #f0c36a; --warn-bg: #3a2f14; --bad: #f0908f; --bad-bg: #3d1f20;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.3rem; margin: 0 0 4px; }
+h2 { font-size: 1rem; margin: 20px 0 6px; }
+.progress { color: var(--muted); margin: 0 0 8px; }
+.progress strong { color: var(--text); }
+button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+  border-radius: 6px; padding: 6px 14px; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.notice { margin: 10px 0; padding: 8px 12px; border-radius: 6px; background: var(--warn-bg); color: var(--warn); }
+.notice.bad { background: var(--bad-bg); color: var(--bad); }
+.next { background: var(--panel); border: 1px solid var(--accent); border-radius: 8px; padding: 12px; margin: 12px 0; }
+.next p { margin: 4px 0; }
+.row { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; margin: 8px 0; padding: 8px 12px;
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.id { font-family: ui-monospace, Menlo, monospace; font-size: .9rem; color: var(--muted); }
+.what { flex: 1 1 260px; min-width: 0; }
+.what small { display: block; color: var(--muted); overflow-wrap: anywhere; }
+.badge { font-size: .8rem; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted); }
+.badge.done { color: var(--ok); background: var(--ok-bg); border-color: transparent; }
+.badge.pushed, .badge.handed_in, .badge.in_progress, .badge.copied { color: var(--warn); background: var(--warn-bg); border-color: transparent; }
+.badge.check_failed, .badge.held, .badge.check_unknown { color: var(--bad); background: var(--bad-bg); border-color: transparent; }
+.empty { color: var(--muted); padding: 24px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>CSE rewrite batches</h1>
+  <p class="progress" id="progress">Loading...</p>
+  <div id="notices"></div>
+  <div id="next"></div>
+  <h2>All batches</h2>
+  <div id="rows"></div>
+</main>
+<script>
+"use strict";
+let busy = false;
+
+function el(tag, attrs, ...children) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs || {})) {
+    if (key === "class") node.className = value; else node.setAttribute(key, value);
+  }
+  for (const child of children) node.append(child);
+  return node;
+}
+
+async function post(path, body) {
+  const response = await fetch(path, {method: "POST", headers: {"X-Rewrite": "1", "Content-Type": "application/json"},
+    body: JSON.stringify(body)});
+  if (!response.ok) throw new Error(await response.text());
+  return response.json();
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) { /* fall through */ }
+  }
+  const box = el("textarea"); box.value = text; document.body.append(box); box.select();
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  box.remove();
+  return ok;
+}
+
+// Safari only allows a clipboard write inside the click, so hand it a promise for the text.
+async function copyFrom(url) {
+  if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+    try {
+      const blob = fetch(url).then(async r => { if (!r.ok) throw new Error(await r.text()); return r.blob(); });
+      await navigator.clipboard.write([new ClipboardItem({"text/plain": blob})]);
+      return true;
+    } catch (e) { /* fall through to the plain way */ }
+  }
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(await response.text());
+  return copyText(await response.text());
+}
+
+function copyButton(batch, primary, label) {
+  const button = el("button", {type: "button", class: primary ? "primary" : ""}, label);
+  button.addEventListener("click", async () => {
+    try {
+      const ok = await copyFrom("/api/prompt?id=" + encodeURIComponent(batch.id));
+      button.textContent = ok ? "Copied" : "Copy failed";
+      if (ok) { await post("/api/copied", {id: batch.id}); busy = true; setTimeout(() => { busy = false; refresh(); }, 2000); }
+    } catch (error) {
+      button.textContent = "Copy failed";
+      notices([String(error.message || error)], true);
+    }
+  });
+  return button;
+}
+
+function notices(messages, bad) {
+  const box = document.getElementById("notices");
+  box.replaceChildren(...messages.map(m => el("div", {class: "notice" + (bad ? " bad" : "")}, m)));
+}
+
+function render(data) {
+  document.getElementById("progress").replaceChildren(
+    el("strong", {}, String(data.counts.done)), " of " + data.counts.total + " batches done (pushed, check passed)");
+  const messages = data.notes.slice();
+  if (data.blocked) messages.unshift(data.blocked);
+  notices(messages, !!data.blocked);
+
+  const byId = new Map(data.batches.map(b => [b.id, b]));
+  const next = document.getElementById("next");
+  if (data.next) {
+    const batch = byId.get(data.next);
+    next.replaceChildren(el("div", {class: "next"},
+      el("p", {}, el("strong", {}, "Next batch: " + batch.id), " (" + batch.type + ", " + batch.topic + ")"),
+      el("p", {class: "id"}, batch.lessons.join(", ")),
+      copyButton(batch, true, "Copy prompt")));
+  } else {
+    next.replaceChildren(el("p", {class: "empty"},
+      data.blocked ? "No new batch until the problem above is fixed." : "No batch is waiting to start."));
+  }
+
+  const rows = document.getElementById("rows");
+  if (!data.batches.length) { rows.replaceChildren(el("p", {class: "empty"}, "No batches yet.")); return; }
+  rows.replaceChildren(...data.batches.map(batch => {
+    const row = el("div", {class: "row"},
+      el("span", {class: "id"}, batch.id),
+      el("span", {class: "what"}, batch.topic, el("small", {}, batch.lessons.join(", "))),
+      el("span", {class: "badge " + batch.state}, batch.label));
+    if (!batch.done) row.append(copyButton(batch, false, "Copy prompt again"));
+    return row;
+  }));
+}
+
+async function refresh() {
+  if (busy) return;
+  try {
+    const response = await fetch("/api/state");
+    if (!response.ok) throw new Error(await response.text());
+    render(await response.json());
+  } catch (error) {
+    notices([String(error.message || error)], true);
+  }
+}
+
+refresh();
+setInterval(refresh, 10000);
+</script>
+</body>
+</html>

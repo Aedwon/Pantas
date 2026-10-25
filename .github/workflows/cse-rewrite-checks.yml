@@ -1,0 +1,50 @@
+# Checks for the CSE content rewrite. Runs only on a push to the rewrite branch, so it uses no minutes on
+# other branches (the repository is public, so minutes are free). A failing push stops new batches on the
+# local page (tools/content_rewrite/relay/server.py), which reads this workflow's result.
+#
+# NOT TESTED ON GITHUB. The steps were run one by one on a Mac, never as a workflow. First run: push to the
+# branch and read the Actions tab. Known unknowns: the dart-lang/setup-dart version, and the importer's
+# one-package pubspec below (the repository pubspec needs the Flutter SDK, which this job does not install).
+name: CSE rewrite checks
+
+on:
+  push:
+    branches: [content/cse-rewrite-r1]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the branch with its history
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Relay tool tests
+        run: |
+          set -e
+          for t in tools/content_rewrite/tests/test_relay_*.py; do python3 -I "$t"; done
+
+      - name: Lesson checks on the lessons this push changed
+        run: python3 -I tools/content_rewrite/relay/ci_check.py "${{ github.event.before }}" lessons
+
+      - name: Question typing check on the question files this push changed
+        run: python3 -I tools/content_rewrite/relay/ci_check.py "${{ github.event.before }}" typing
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+
+      - name: Resolve the question importer's one package
+        run: |
+          mkdir "$RUNNER_TEMP/importer"
+          printf 'name: importer\nenvironment:\n  sdk: ">=3.5.0 <4.0.0"\ndependencies:\n  yaml: ^3.1.2\n' > "$RUNNER_TEMP/importer/pubspec.yaml"
+          cd "$RUNNER_TEMP/importer"
+          dart pub get
+
+      - name: Question import check
+        # The importer prints every converted question (2.8 MB), so only its errors and exit code are kept.
+        run: dart --packages="$RUNNER_TEMP/importer/.dart_tool/package_config.json" tools/import_questions/import_questions.dart --root content/questions > /dev/null

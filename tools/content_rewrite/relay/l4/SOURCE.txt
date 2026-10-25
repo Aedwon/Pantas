@@ -1,0 +1,12 @@
+Vendored from the Level 4 audit paste tools. Source branch: docs/content-coverage-audit-r1
+(worktree Pantas-wt-content-coverage-audit-r1), commit ecbfa88b4e550fd5853d9ff74c1ae17425a1cdba,
+folder docs/content/audit/coverage-r1/level4/. The audit branch was not modified.
+
+form.py       unchanged
+rules.json    unchanged (rule list and standards_commit of the Level 4 audit)
+mechanical.py only the command line entry point (main) and its unused imports removed
+l4lib.py      subset: parse_lesson, quote_in, norm, rules loader. parse_lesson also turns a
+              bad quoted frontmatter value into L4Error instead of a raw JSON error.
+judging.md    "How to judge" through "Accuracy concerns" of prompts/packet.md, edited: the
+              prerequisite and Level 3 lines now point at the brief, and a "Brief items"
+              section was added.

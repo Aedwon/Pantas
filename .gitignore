@@ -72,3 +72,6 @@ flutter_*.log
 # OS junk
 Thumbs.db
 ehthumbs.db
+
+# CSE rewrite relay: files a chat saves before the hand-in script checks and moves them
+tools/content_rewrite/relay/inbox/
