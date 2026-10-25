@@ -182,7 +182,7 @@ A wetland has lost native plants because nearby land was cleared, and polluted r
 3. Monitor the community to see whether native populations recover.
 4. One action is not enough because habitat loss and pollution are different problems.
 
-## Exam Strategies
+## Speed Tricks & Shortcuts
 
 For food-web arrows, read each arrow as **energy moves to** the consumer.
 
