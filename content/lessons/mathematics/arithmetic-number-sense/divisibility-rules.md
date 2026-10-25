@@ -1,15 +1,17 @@
 ---
 _id: "lesson-arithmetic-number-sense-divisibility-rules"
 title: "Divisibility Rules"
-summary: "Use divisibility rules to test integers quickly without full long division."
+summary: "Use digit tests and coprime factors to check divisibility without long division."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-An integer is **divisible** by a nonzero integer when division leaves no remainder. Divisibility rules let you test many numbers by checking only some digits or by combining digits in a simple way.
+An integer is **divisible** by a nonzero integer when division leaves no remainder. A **factor** divides a number exactly. A **multiple** is the result of multiplying an integer by another integer.
+
+Divisibility rules let you check digits instead of doing full division. For a negative integer, test its positive value. The sign does not change whether there is a remainder of $0$.
 
 ### Rules for $2$, $4$, and $8$
 
@@ -17,13 +19,13 @@ A number is divisible by $2$ when its last digit is even: $0$, $2$, $4$, $6$, or
 
 A number is divisible by $4$ when the number formed by its last $2$ digits is divisible by $4$.
 
-A number is divisible by $8$ when the number formed by its last $3$ digits is divisible by $8$.
+A number is divisible by $8$ when the number formed by its last $3$ digits is divisible by $8$. If a number has fewer digits than a test needs, test the whole number.
 
 ### Rules for $3$ and $9$
 
 A number is divisible by $3$ when the sum of its digits is divisible by $3$.
 
-A number is divisible by $9$ when the sum of its digits is divisible by $9$.
+A number is divisible by $9$ when the sum of its digits is divisible by $9$. You may add the digits of the sum again if that makes the test easier.
 
 ### Rules for $5$ and $10$
 
@@ -33,79 +35,106 @@ A number is divisible by $10$ when its last digit is $0$.
 
 ### Rule for $6$
 
-A number is divisible by $6$ when it is divisible by both $2$ and $3$.
+A number is divisible by $6$ when it is divisible by both $2$ and $3$. Passing just one test is not enough.
 
 ### Rule for $7$
 
-Remove the last digit and double it. Subtract that doubled value from the remaining leading digits.
+Remove the last digit and double it. Subtract that doubled value from the number formed by the remaining digits.
 
-The original number is divisible by $7$ exactly when the result is divisible by $7$. You may repeat the process until the result is easy to test.
-
-For $203$, remove $3$ and double it to get $6$.
-
-$$20-6=14$$
-
-Since $14$ is divisible by $7$, $203$ is also divisible by $7$.
+The original number is divisible by $7$ exactly when the result is divisible by $7$. You may repeat the test. A result of $0$ or a negative multiple of $7$ also passes.
 
 ### Rule for $11$
 
-Add the digits in alternating positions into two groups. Subtract the smaller total from the larger total, or take the difference in either order.
+Add the digits in alternating positions into two groups. Find the difference between the two totals.
 
-If the difference is $0$ or a multiple of $11$, the original number is divisible by $11$.
+If the difference is $0$ or a multiple of $11$, the original number is divisible by $11$. Either subtraction order works.
 
 ### Combining Coprime Factors
 
-Two integers are **relatively prime**, also called **coprime**, when their only common positive factor is $1$.
+Two positive integers are **relatively prime**, or **coprime**, when their only common positive factor is $1$.
 
-If $a$ and $b$ are relatively prime, then a number is divisible by $ab$ exactly when it is divisible by both $a$ and $b$.
+If $a$ and $b$ are coprime, a number is divisible by $ab$ exactly when it is divisible by both $a$ and $b$. Here, $ab$ means $a\times b$.
 
-For example, $8$ and $9$ are relatively prime. A number is divisible by $72$ exactly when it is divisible by both $8$ and $9$ because:
+For example, $8$ and $9$ have no common factor greater than $1$. Since $8\times9=72$, passing both tests proves divisibility by $72$.
 
-$$8\times9=72$$
-
-This split does not work in the same way when the chosen factors share a common factor.
+The factors need not be prime numbers themselves. But they must be coprime for this product test to work.
 
 ## Mnemonics & Memory Aids
 
-For $2$, $4$, and $8$, remember that the test stays at the end of the number. Check the last digit, then the last $2$ digits, then the last $3$ digits.
+For $2$, $4$, and $8$, check the end of the number: the last digit, the last $2$ digits, then the last $3$ digits.
 
-For $3$ and $9$, add the digits. Then test the sum.
+For $3$ and $9$, add the digits and test the sum.
 
 ## Examples
 
-### #1: Finding a Missing Digit
+### #1: Last-Digit Tests
+
+Which of $735$ and $740$ is divisible by $5$? Which is divisible by $10$?
+
+**Solution:**
+
+1. The last digits are $5$ and $0$. Both numbers are divisible by $5$.
+2. Only $740$ ends in $0$. Only $740$ is divisible by $10$.
+
+### #2: Testing the Last Two Digits
+
+Is $5,116$ divisible by $4$?
+
+**Solution:**
+
+1. Test the number formed by the last $2$ digits.
+
+$$16\div4=4$$
+
+2. The division is exact, so $5,116$ is divisible by $4$.
+
+### #3: Testing for $7$
+
+Is $203$ divisible by $7$?
+
+**Solution:**
+
+1. Double the last digit.
+
+$$2\times3=6$$
+
+2. Subtract from the remaining number.
+
+$$20-6=14$$
+
+3. Since $14=7\times2$, $203$ is divisible by $7$.
+
+### #4: Finding a Missing Digit
 
 If the five-digit number $57x81$ is divisible by $9$, what is the value of the digit $x$?
 
 **Solution:**
 
-1. Use the rule for $9$. Add the digits.
+1. Add the digits.
 
 $$5+7+x+8+1=21+x$$
 
-2. Since $x$ is a digit from $0$ to $9$, the sum ranges from $21$ to $30$.
-3. The only multiple of $9$ in that range is $27$.
+2. A digit ranges from $0$ to $9$, so the sum ranges from $21$ to $30$. The only multiple of $9$ in that range is $27$.
 
 $$21+x=27$$
 
-4. Solve for $x$.
+3. Subtract $21$.
 
 $$x=6$$
 
-### #2: Composite Divisibility
+### #5: Composite Divisibility
 
 A shipping company packs exactly $6$ books per box. Which inventory count can be packed with no books left over?
 
-* A) $24,532$
-* B) $24,534$
-* C) $24,536$
-* D) $24,538$
+- A) $24,532$
+- B) $24,534$
+- C) $24,536$
+- D) $24,538$
 
 **Solution:**
 
-1. A number divisible by $6$ must be divisible by both $2$ and $3$.
-2. All four choices are even, so each choice passes the rule for $2$.
-3. Check the digit sums.
+1. A number divisible by $6$ must pass the tests for $2$ and $3$. All four choices are even, so each passes the test for $2$.
+2. Check the digit sums in choice order.
 
 $$2+4+5+3+2=16$$
 
@@ -115,9 +144,9 @@ $$2+4+5+3+6=20$$
 
 $$2+4+5+3+8=22$$
 
-4. Only $18$ is divisible by $3$. The answer is B.
+3. Only $18$ is divisible by $3$. The answer is B, $24,534$.
 
-### #3: Rule of $11$ Edge Case
+### #6: A Zero Difference for $11$
 
 The six-digit number $3a42b1$ is divisible by $11$. If $a=5$, what is the value of $b$?
 
@@ -130,30 +159,28 @@ $$3+4+b=7+b$$
 
 $$5+2+1=8$$
 
-3. Find the difference.
+3. Subtract the totals.
 
 $$(7+b)-8=b-1$$
 
-4. Since $b$ is a digit, $b-1$ ranges from $-1$ to $8$. The only multiple of $11$ in that range is $0$.
+4. Since $b$ is a digit, $b-1$ ranges from $-1$ to $8$. Only $0$ in this range is a multiple of $11$.
 
 $$b-1=0$$
 
-5. Solve for $b$.
-
 $$b=1$$
 
-### #4: Combining Divisibility Tests
+### #7: Combining Divisibility Tests
 
 The five-digit number $5X34Y$ is a multiple of $72$. Find $X+Y$.
 
 **Solution:**
 
-1. Since $72=8\times9$ and $8$ and $9$ are relatively prime, the number must be divisible by both $8$ and $9$.
-2. Test the last three digits for divisibility by $8$. The only value of $Y$ that makes $34Y$ divisible by $8$ is $4$.
+1. Since $72=8\times9$ and the factors are coprime, test divisibility by both $8$ and $9$.
+2. The last $3$ digits range from $340$ to $349$. The only multiple of $8$ in that range is $344$.
 
 $$344\div8=43$$
 
-3. The number is now $5X344$. Apply the rule for $9$.
+3. Thus $Y=4$. Apply the rule for $9$ to $5X344$.
 
 $$5+X+3+4+4=16+X$$
 
@@ -163,7 +190,7 @@ $$16+X=18$$
 
 $$X=2$$
 
-5. Add the digits found.
+5. Add the two digits.
 
 $$X+Y=2+4=6$$
 
@@ -171,38 +198,32 @@ $$X+Y=2+4=6$$
 
 ### Cast Out Nines
 
-When testing divisibility by $3$ or $9$, you can remove groups of digits whose sum is a multiple of $9$. This keeps the same result for the divisibility test.
+When testing divisibility by $3$ or $9$, you may skip groups of digits whose sum is a multiple of $9$. Each skipped group is divisible by both $3$ and $9$. The leftover sum gives the same pass-or-fail result.
 
-For $945,712$, remove $9$, then $4+5$, then $7+2$. Only $1$ remains.
+For $945,712$, skip $9$, then $4+5$, then $7+2$. Only $1$ remains.
 
-Since $1$ is not divisible by $3$ or $9$, the original number is divisible by neither $3$ nor $9$.
+Since $1$ is divisible by neither $3$ nor $9$, the original number passes neither test.
 
 ### Coprime Split
 
-For a large composite divisor, look for relatively prime factors with easy divisibility rules.
-
-To test divisibility by $36$, you may test divisibility by $4$ and $9$ because:
-
-$$4\times9=36$$
-
-The factors $4$ and $9$ are relatively prime.
+Look for coprime factors with easy tests. To test divisibility by $36$, test $4$ and $9$ because $4\times9=36$ and they are coprime.
 
 ## Traps to Watch For
 
-### #1: Splitting a Composite Divisor Incorrectly
+### #1: Splitting a Divisor Incorrectly
 
-> Two tests are not enough if the chosen factors share a common factor.
+> Shared factors can make a product test fail.
 
-Divisibility by both $4$ and $6$ does not by itself prove divisibility by $24$. Testing $3$ and $8$ works because those factors are relatively prime and their product is $24$.
+The number $12$ is divisible by both $4$ and $6$, but not by $24$. To test $24$, use the coprime factors $3$ and $8$.
 
-### #2: Forgetting the Zero Exception
+### #2: Forgetting Zero
 
 > Every nonzero integer divides $0$, but division by $0$ is undefined.
 
-For the rule of $11$, a difference of $0$ passes the test because $0$ is a multiple of $11$.
+A difference of $0$ passes the test for $11$. Rejecting that difference would give the wrong missing digit in Example #6.
 
-### #3: Rule of $4$ Addition Mistake
+### #3: Adding the Last Two Digits
 
-> Do not add the last two digits for the rule of $4$.
+> For $4$, use the number formed by the last $2$ digits.
 
-For $5,116$, look at $16$. Since $16$ is divisible by $4$, $5,116$ is also divisible by $4$.
+For $5,116$, test $16$, not $1+6=7$. Adding those digits would wrongly reject the number.
