@@ -1,95 +1,178 @@
 ---
 _id: "lesson-grammar-and-structure-parts-of-speech"
 title: "Parts of Speech / Bahagi ng Pananalita"
-summary: "Learn the traditional English parts of speech and recognize that Filipino grammar uses its own system of word classes and markers."
+summary: "Learn how to identify common English and Filipino word classes by the job they do in a sentence."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 10
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-A **part of speech** or **word class** groups words according to how they function grammatically. Traditional school grammar commonly teaches eight English categories:
+A **part of speech** or **word class** groups words by the job they do in a sentence. Traditional school grammar often teaches eight English classes.
 
-- **Noun**: typically names or heads a noun phrase (*Maria*, *city*, *book*, *freedom*).
-- **Pronoun**: can stand in positions associated with noun phrases (*she*, *they*, *it*, *who*).
-- **Verb**: functions as the central word of a verb phrase and can express actions, events, or states (*run*, *think*, *is*, *become*).
-- **Adjective**: typically modifies a noun or functions as a complement (*red* apple; the apple is *red*).
-- **Adverb**: can modify verbs, adjectives, other adverbs, clauses, or whole sentences (*quickly*, *very*, *yesterday*, *fortunately*).
-- **Preposition**: heads a prepositional phrase and relates its complement to the rest of the sentence (*in*, *on*, *under*, *before*).
-- **Conjunction**: links grammatical units (*and*, *but*, *because*).
-- **Interjection**: functions relatively independently to express a reaction or discourse move (*Wow!*, *Ouch!*).
+- A **noun** names a person, place, thing, or idea, such as *Maria, city, book,* or *freedom*.
+- A **pronoun** can take the place of a noun or name, such as *she, they, it,* or *who*.
+- A **verb** shows an action, event, or state, such as *run, think, is,* or *become*.
+- An **adjective** describes a noun or pronoun, such as *red* in *red apple*.
+- An **adverb** can add information about a verb, adjective, another adverb, or a whole sentence, such as *quickly, very,* or *yesterday*.
+- A **preposition** begins a phrase that shows a relation, such as place, time, or direction. Examples include *in, on, under,* and *before*.
+- A **conjunction** joins words or groups of words, such as *and, but,* and *because*.
+- An **interjection** is a short expression of reaction, such as *Wow!* or *Ouch!*
 
-Modern grammars sometimes divide words differently, for example, by treating determiners as a separate class, so "eight parts of speech" is a useful **traditional school classification**, not the only possible linguistic analysis.
+Some grammar books group words in other ways. For school questions, use the system named in the material and judge each word by its job in the sentence.
 
-The same spelling can belong to different word classes depending on use. In "I need a *drink*," *drink* is a noun; in "I will *drink* the water," it is a verb.
+The same word can have different jobs. In "I need a *drink*," *drink* is a noun. In "I will *drink* the water," it is a verb.
 
-### Filipino categories are not a one-to-one copy
+A **clause** is a group of words with a subject and a verb. A **subordinate clause** cannot stand alone as a complete sentence in that use. A **subordinating conjunction** can introduce such a clause, as *before* does in "before it rained."
 
-Do not assume Filipino has exactly the same eight categories as traditional English grammar. In Lope K. Santos's *Balarila ng Wikang Pambansa*, functional categories include **pantukoy**, **pangngalan**, **pang-uri**, **panghalip**, **pandiwa**, **pandiwari**, **pang-abay**, **pang-ukol**, **pangatnig**, and **pandamdam**. Other modern Filipino grammars may organize categories differently as linguistic analysis develops.
+### Sa Filipino: Mga Bahagi ng Pananalita
 
-For exam preparation, learn the labels used by the specific material you are reading and identify a word by its function in the sentence, not by assuming English and Filipino categories map perfectly onto each other.
+Hindi kailangang tumugma nang isa-sa-isa ang mga kategorya sa Filipino at English. Sa tradisyunal na balarila, makikita ang mga katawagang nasa ibaba. Kilalanin ang salita ayon sa tungkulin nito sa pangungusap.
+
+Ang **pantukoy** (marker/article) ay kasama ng pangngalan o pangalan upang tukuyin ito. Sa *ang bata* at *si Liza*, ang *ang* at *si* ay pantukoy.
+
+Ang **pangngalan** (noun) ay ngalan ng tao, bagay, hayop, lugar, o ideya. Sa *Masipag ang guro*, ang *guro* ay pangngalan dahil ito ang tawag sa tao.
+
+Ang **pang-uri** (adjective) ay naglalarawan sa pangngalan o panghalip. Sa *masipag na guro*, ang *masipag* ay pang-uri dahil inilalarawan nito ang guro.
+
+Ang **panghalip** (pronoun) ay humahalili sa pangngalan o pangalan. Sa *Dumating si Liza. Umupo siya*, ang *siya* ay panghalip dahil pumapalit ito kay Liza.
+
+Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Sa *Sumulat si Ben*, ang *sumulat* ay pandiwa dahil ito ang kilos.
+
+Ang **pandiwari** (participle, traditional label) ay katawagang makikita sa ilang tradisyunal na balarila para sa anyong kaugnay ng pandiwa na maaaring gumanap na parang pandiwa, pang-uri, o pangngalan. Sa *Tinulungan nila ang nasugatan*, ang *nasugatan* ay may anyong pandiwa ngunit tumutukoy dito sa taong nasugatan. Sa ibang pagsusuri, maaari itong ilagay sa ibang kategorya ayon sa gamit.
+
+Ang **pang-abay** (adverb) ay nagbibigay-linaw sa kilos, pang-uri, o kapuwa pang-abay. Ang **pang-abay na panlunan** (place adverb) ay nagsasabi kung saan. Sa *Doon naghintay si Mara*, ang *doon* ay pang-abay na panlunan dahil sinasabi nito ang lugar ng paghihintay.
+
+Maaari ring grupo ng mga salita ang magsabi ng lugar. Sa *Nag-aral siya sa silid-aklatan*, ang *sa silid-aklatan* ay grupong nagsasabi kung saan nag-aral.
+
+Ang **pang-ukol** (preposition) ay nag-uugnay sa kasunod na salita o grupo ng mga salita sa ibang bahagi ng pangungusap. Sa *para sa bata*, ang *para sa* ay pang-ukol.
+
+Ang **pangatnig** (conjunction) ay nag-uugnay ng mga salita o bahagi ng pangungusap. Sa *Nagbasa siya at nagsulat*, ang *at* ay pangatnig.
+
+Ang **pandamdam** (interjection) ay maikling salitang nagpapahayag ng damdamin o reaksiyon. Sa *Aray! Masakit ang sugat*, ang *Aray!* ay pandamdam.
+
+Kapag nag-uuri ng salita, huwag tingnan ang anyo lamang. Tanungin kung ano ang ginagawa ng salita sa mismong pangungusap.
 
 ## Examples
 
-### #1: Identifying the Part of Speech
+### #1: Identifying an Adjective and an Adverb
 
-In "The *diligent* student finished her project *quickly*," identify the italicized words.
+In "The **diligent** student finished her project **quickly**," identify the words in bold.
 
 **Solution:**
 
-1. *Diligent* modifies *student*: adjective.
-2. *Quickly* modifies *finished*: adverb.
+1. **Diligent** describes *student*, so it is an adjective.
+2. **Quickly** tells how the student *finished*, so it is an adverb.
 
 ### #2: Same Word, Different Jobs
 
-Identify *light*: (a) "Turn on the *light*." (b) "Please *light* the candle." (c) "The bag felt *light*."
+Identify the part of speech of **light** in each sentence.
+
+(A) "Turn on the **light**."  
+(B) "Please **light** the candle."  
+(C) "The bag felt **light**."
 
 **Solution:**
 
-1. (a) noun.
-2. (b) verb.
-3. (c) adjective.
+1. In (A), **light** names a thing, so it is a noun.
+2. In (B), **light** shows an action, so it is a verb.
+3. In (C), **light** describes *bag*, so it is an adjective.
 
-### #3: Filipino Word Class
+### #3: Pronoun and Interjection
 
-Sa "Ang *matapang* na sundalo ay nagtanggol sa bayan," ano ang tungkulin ng *matapang*?
-
-**Solution:**
-
-*Matapang* gives a quality of *sundalo*, so in the traditional school classification it functions as a **pang-uri**.
-
-### #4: A Word with More Than One Possible Class
-
-Compare: "We met *before* dinner" and "We left *before* it rained."
+Identify the words in bold: "**Wow!** Ana solved the puzzle, and **she** smiled."
 
 **Solution:**
 
-1. In "before dinner," *before* heads a phrase whose complement is the noun phrase *dinner*: preposition.
-2. In "before it rained," *before* introduces a subordinate clause in traditional school grammar: subordinating conjunction.
+1. **Wow!** expresses a reaction, so it is an interjection.
+2. **She** takes the place of *Ana*, so it is a pronoun.
+
+### #4: Preposition or Conjunction
+
+Classify **before** in each sentence.
+
+(A) "We met **before** dinner."  
+(B) "We left **before** it rained."
+
+**Solution:**
+
+1. In (A), **before** begins the phrase *before dinner*, so it is a preposition.
+2. In (B), **before** introduces the clause *before it rained*, so it is a subordinating conjunction.
+
+### #5: Tukuyin ang Pang-uri
+
+Sa "Ang **matapang** na sundalo ay nagtanggol sa bayan," anong bahagi ng pananalita ang salitang nasa bold?
+
+**Solution:**
+
+1. Inilalarawan ng **matapang** ang *sundalo*.
+2. Dahil naglalarawan ito sa pangngalan, ang **matapang** ay pang-uri.
+
+### #6: Tukuyin ang Pang-abay na Panlunan
+
+Sa "Doon naghihintay ang mga aplikante," anong bahagi ng pananalita ang **doon**, at bakit?
+
+**Solution:**
+
+1. Sinasabi ng **doon** kung saan naghihintay ang mga aplikante.
+2. Dahil nagbibigay ito ng lugar ng kilos, ang **doon** ay pang-abay na panlunan.
+
+### #7: Kilalanin ang Ilang Kategoryang Filipino
+
+Sa pangungusap na "Ang masipag na guro ay nagturo at siya ay ngumiti," tukuyin ang tungkulin ng **ang**, **guro**, **masipag**, **nagturo**, **at**, at **siya**.
+
+**Solution:**
+
+1. **Ang** ay pantukoy dahil tinutukoy nito ang kasunod na pangngalan.
+2. **Guro** ay pangngalan dahil ito ang tawag sa tao.
+3. **Masipag** ay pang-uri dahil inilalarawan nito ang guro.
+4. **Nagturo** ay pandiwa dahil nagsasaad ito ng kilos.
+5. **At** ay pangatnig dahil nag-uugnay ito ng dalawang bahagi.
+6. **Siya** ay panghalip dahil humahalili ito sa *guro*.
+
+### #8: Tradisyunal na Pandiwari
+
+Sa "Tinulungan ng nars ang **nasugatan**," paano ginagamit ang salitang nasa bold sa tradisyunal na pag-uuri?
+
+**Solution:**
+
+1. Ang **nasugatan** ay anyong kaugnay ng pandiwang *nasugatan* ngunit ginagamit dito upang tukuyin ang tao.
+2. Sa ilang tradisyunal na balarila, maaari itong talakayin bilang pandiwari.
+3. Sa ibang sistema, maaaring iba ang tawag sa kategorya nito, kaya sundin ang sistemang ginagamit ng tanong.
 
 ## Speed Tricks & Shortcuts
 
-**Ask what the word is doing in this sentence.** Do not classify from spelling alone.
+**Ask what job the word does.** Meaning helps, but the sentence job decides the class.
 
-**Use morphology only as a clue.** Many adverbs end in *-ly*, but *friendly* and *lovely* are adjectives; many adverbs such as *fast*, *well*, and *often* lack *-ly*.
+**Look at what comes after a joining word.** If *before* is followed by a noun or a short noun group, it may act as a preposition. If it introduces a clause with a subject and verb, it may act as a conjunction.
 
-**Keep language systems separate.** A familiar English label may have a useful Filipino counterpart, but the categories are not guaranteed to be structurally identical.
+**Sa Filipino, hanapin muna ang tungkulin.** Nagtutukoy ba, nagpapangalan, naglalarawan, humahalili, nagsasaad ng kilos, nagbibigay-linaw, nag-uugnay, o nagpapahayag ng damdamin?
+
+**Para sa pang-abay na panlunan, itanong ang "saan?"** Ang salitang o pariralang sumasagot sa lugar ng kilos ay maaaring gumaganap bilang pang-abay na panlunan.
 
 ## Traps to Watch For
 
-### #1: Treating the Eight English Classes as the Only Analysis
+### #1: Treating the Eight English Classes as the Only System
 
-> The eight-part scheme is traditional and useful for school grammar, but modern linguistic grammars may classify some words differently.
+> The eight-part list is a common school system, but grammar books can group words differently.
+
+Follow the system used by the question. Do not force every language into the same set of labels.
 
 ### #2: Classifying by Meaning Alone
 
-> Grammatical function matters. *Run*, *study*, *light*, and many other words can belong to different classes in different sentences.
+> The same word can do different jobs in different sentences.
+
+Check the word inside the sentence before choosing its class.
 
 ### #3: The *-ly* Trap
 
 > Not every *-ly* word is an adverb, and not every adverb ends in *-ly*.
 
+Words such as *friendly* can be adjectives, while words such as *often* can be adverbs.
+
 ### #4: Assuming Filipino Is English with Translated Labels
 
-> Filipino grammar includes categories and markers that do not map one-to-one onto the traditional English eight-part list.
+> Filipino categories do not always match English categories one-to-one.
+
+Use the Filipino term and the word's function in the sentence. When a traditional label such as *pandiwari* is used, follow the grammar system named by the material.
