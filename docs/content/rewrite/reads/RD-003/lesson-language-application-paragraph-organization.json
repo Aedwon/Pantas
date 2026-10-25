@@ -1,0 +1,328 @@
+{
+ "batch": "RD-003",
+ "lesson_id": "lesson-language-application-paragraph-organization",
+ "path": "content/lessons/language-proficiency/language-application/paragraph-organization.md",
+ "lesson_sha256": "74565e65f465b07a0584ed06882bfd4bb3581b001e4f2a082236ee2e420cf924",
+ "rewrite_commit": "2ccea9e8d6df7157fee1a06d8194816fc9af9af8",
+ "form": {
+  "packet": "lesson-language-application-paragraph-organization",
+  "role": "A",
+  "lesson_sha256": "74565e65f465b07a0584ed06882bfd4bb3581b001e4f2a082236ee2e420cf924",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked reference words as backward links, transition words as relationship clues rather than fixed positions, time/procedure clues, cause versus effect, and the possibility of effect-first order.",
+     "Checked the cautious claims that an opening often introduces the situation and that pronouns can open a paragraph when context supplies the referent. The examples about rivers, forms, floods, and library use make no unsupported universal claim.",
+     "Read Filipino statements about reference words, sequence markers, cause/result markers, topics, supporting details, and outlining. Their general meanings are coherent; #9's nonunique worked order is separately recorded under B02."
+    ],
+    "note": "No external source is included for the public CSE scope sentence. This is a content-level check from the supplied packet, not independent source confirmation.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Solved #1: C opens the river/civilization set. #2: B follows C because resources points to soil and water. #3: C-B-A-D completes that chain.",
+     "Solved #4: however signals contrast with an earlier idea, without identifying an exact preceding sentence. #5: C-B-D-A. #6: B-A. #7: A-B.",
+     "Solved #8: B, digital forms can make office work easier. #9: B-C-D-A is possible, but B-D-C-A is also coherent. #10: B-A. #11: B, library use in studying."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "(C) \"Pagkatapos, binasa niya itong muli.\"",
+      "problem": "The stated order B-C-D-A is not unique. B-D-C-A also works: Lea writes the letter, signs it, rereads it, then puts it in the envelope. Pagkatapos and sumunod both indicate a later step; neither fixes which of these two actions is second."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Located the required Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For sections, with only the topical Filipino subsection added.",
+     "Compared against the brief's None figure requirement. All example material is sentence text; no required visual is omitted. The prompt supplies no full outline for an additional outline-level comparison."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the reference-word explanation: it now uses the concrete question What problem and avoids demonstratives and backward-reference jargon in that teaching paragraph.",
+     "Checked chronology, cause/effect, inference, strategies, and traps. Ideas are stated in short sentences, and the original dense contrast explanation has been replaced with direct wording."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The first use of infer is immediately followed by To infer means to reach a reasonable idea from clues in the text. Other directions use everyday arrange, read, choose, and find."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Found no analogy in the organization explanation, example solutions, strategies, or traps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [
+     "Checked #1's complete shared set and the adjacent continuation tasks #2-#3. Their references are recoverable from that clearly connected set.",
+     "Checked English stems #4-#8 and Filipino stems #10-#11 for complete supplied text and simple solutions. #9 supplies the sentences but lacks information that would determine its middle order."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "(D) \"Sumunod, pinirmahan niya ang liham.\"",
+      "problem": "The ordering task does not supply a dependency between signing and rereading. The two generic sequence markers cannot determine the one order asserted in the solution. Add a sentence-level link if the task requires a unique sequence."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The single scope mention explains why paragraph connections matter. Example and trap openings do not repeat a stock claim about test makers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read Pag-aayos ng Talata and solutions #9-#11. The prose uses simple Filipino to explain links, steps, rain as a cause, and library use.",
+     "Checked that Filipino instructions and reasoning remain short and concrete. The order ambiguity is an answer issue rather than a readability issue."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "fail",
+    "checked": [
+     "Checked first uses in the Filipino subsection and examples #9-#11. Sanhi and bunga first appear together in Core Concept without English glosses.",
+     "Checked balangkas at its first use in Core Concept and later in the example #11 heading. No English gloss appears at first use or later."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang *dahil, sapagkat,* at *kaya* ay maaaring magpakita ng sanhi at bunga.",
+      "problem": "The first use of sanhi and bunga has no short English gloss, such as cause and effect."
+     },
+     {
+      "quote": "Maaari ring gumawa ng maikling balangkas: pangunahing ideya muna, saka ang mga detalyeng sumusuporta rito.",
+      "problem": "The first use of balangkas has no short English gloss, such as outline. The Filipino explanation does not supply the English gloss required by L09."
+     }
+    ]
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked #9-#11: arrangement instructions, sentence sets, reading passage, answer choices, and substantive solutions are all in Filipino.",
+     "The earlier English examples teach the English part of the bilingual lesson; they are not presented as Filipino-language tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text appears in the subsection and examples #9-#11. Official KWF usage needs the source check unavailable in this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino subsection and all Filipino solution steps for Taglish. They use Filipino throughout, apart from the required shared Solution label."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Example #4 explicitly asks What does the word in bold, **however**, tell you. The target is now bold. No other task targets a single named word for identification."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Read the summary and section openings for banned stock phrasing and repeated starts. The summary names the actual ordering clues and the prose varies its openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked subject fit: this Language Proficiency lesson retains the permitted core, examples, shortcut, and trap headings. No forced mnemonic was added.",
+     "No example uses a mathematical formula. The displayed arrow orders are sentence sequences, not new mathematical rules requiring a Core Concept formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped opening/reference-chain reasoning to #1-#3, contrast transitions to #4, procedure to #5, cause-first order to #6, effect-first order to #7, and main idea to #8.",
+     "Mapped Filipino sequence to #9, causal order to #10, and topic recognition to #11. No worked example performs inference, detail selection, or outline construction."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "After arranging a paragraph, check the **main idea**, the important details, and what you can **infer**.",
+      "problem": "The expanded comprehension scope is not fully worked. Example #8 only finds a main idea; no example works an inference or important-detail question."
+     },
+     {
+      "quote": "Maaari ring gumawa ng maikling balangkas: pangunahing ideya muna, saka ang mga detalyeng sumusuporta rito.",
+      "problem": "The Filipino section teaches making an outline, but #11 only selects a topic. It never builds a balangkas or shows the supporting details under an idea."
+     },
+     {
+      "quote": "What best follows sentence (C)?",
+      "problem": "Examples #1-#3 still divide the same C-B-A-D chain into three examples using the same reference-link reasoning. They do not provide three distinct scenarios, and the newly taught comprehension and outline cases remain unworked."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed solutions #1-#11. Each uses numbered reasoning steps, including the previously prose-only opening and transition explanations. There are no numerical computations to display."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations. The short sentence-order arrows do not create an equation-width issue.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned Core Concept, the Filipino subsection, strategies, and traps. Paragraphs stay within one to three sentences, and the numbered lists are worked solution steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No existing illustration or placeholder needs review. Ordering and reference tasks are fully represented by their sentence sets.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Checked reference-word meaning through the it/this examples and the question What problem. Opening ideas, transitions, chronology, and cause/effect are immediately explained in ordinary words.",
+     "Checked infer's explicit definition before any inference task would be required. Main idea is made concrete through #8's whole-paragraph answer, and the Filipino outline instruction describes placing the main idea before supporting details.",
+     "No prerequisite lesson is supplied or needed for the locally explained ordering vocabulary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked how ordering works: find what a reference names, match time signals, interpret a cause as why and an effect as the result, then test the entire paragraph.",
+     "Checked the worked reference chain, both cause/effect directions, and the transition example for actual reasoning rather than labels alone.",
+     "The Filipino section explains referents, event-order signals, causal words, and a basic outline procedure. Missing worked comprehension and outline applications are recorded under L18."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the opening-sentence caveat: real paragraphs may begin with known pronouns, questions, quotations, or story openings.",
+     "Checked the transition limitation: a relationship does not determine an exact sentence position. The cause/effect rule explicitly permits either direction when meaning and signals support it.",
+     "Checked the whole-order requirement: a locally sensible pair is insufficient if the complete paragraph becomes confusing. #9 violates unique-answer discipline; the general caveats themselves are taught."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "Inspected the candidate Mark reference words. Mark means annotate or flag text, not an exam score. No score called marks or question called a card appears."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Ang *pagkatapos* ay kasunod ng unang hakbang, kaya (C) ang ikalawa.",
+    "concern": "This assigns a fixed second position that the word pagkatapos does not establish. B-D-C-A remains coherent because signing can happen before rereading, and both middle markers simply introduce a following action."
+   }
+  ],
+  "brief_items": {
+   "lesson-language-application-paragraph-organization|L18|0": {
+    "status": "fixed",
+    "quote": "The order is **C → B → D → A**.",
+    "note": "Example #5 now works a complete procedure using First, Next, After checking, and Finally with each link explained."
+   },
+   "lesson-language-application-paragraph-organization|L18|1": {
+    "status": "fixed",
+    "quote": "The order **A → B** works because the second sentence signals the cause.",
+    "note": "Examples #6 and #7 now work both cause-first and effect-first arrangements. The second explicitly uses The reason was."
+   },
+   "lesson-language-application-paragraph-organization|L02|0": {
+    "status": "fixed",
+    "quote": "If a sentence starts with *this problem*, ask, \"What problem?\"",
+    "note": "The dense reference-and-cohesion teaching was replaced with concrete reference words and a short question the student can use."
+   },
+   "lesson-language-application-paragraph-organization|L05|0": {
+    "status": "fixed",
+    "quote": "The word alone does not tell you the exact sentence that must come right before it.",
+    "note": "The contrast solution now uses simple words instead of discourse and immediately precede, while retaining the limitation on exact order."
+   },
+   "lesson-language-application-paragraph-organization|L14|0": {
+    "status": "fixed",
+    "quote": "What does the word in bold, **however**, tell you?",
+    "note": "The target word is bold and the prompt now explicitly says the word in bold."
+   },
+   "lesson-language-application-paragraph-organization|L19|0": {
+    "status": "fixed",
+    "quote": "Sentence (C) introduces the topic without pointing back to an earlier idea.",
+    "note": "The opening solution and the other multi-step solutions now use numbered reasoning lists."
+   },
+   "language-proficiency-language-application#11": {
+    "status": "fixed",
+    "quote": "*After checking* points back to (B), so (D) comes next.",
+    "note": "The English procedure example now supplies a worked timed sequence with a necessary check-before-signing dependency."
+   },
+   "language-proficiency-language-application#44": {
+    "status": "not_fixed",
+    "quote": "What is the main idea?",
+    "note": "Example #8 develops main-idea selection. Inference, detail questions, and applications to varied passage genres are still not developed."
+   },
+   "language-proficiency-language-application#51": {
+    "status": "not_fixed",
+    "quote": "Ang ayos ay **B → C → D → A**.",
+    "note": "Filipino sequence connectors and a worked sequence were added, but the middle order is not determined. B-D-C-A also works, so the event-order application needs repair."
+   },
+   "language-proficiency-language-application#52": {
+    "status": "fixed",
+    "quote": "Ang *kaya* ay nagpapakita ng bunga.",
+    "note": "The Filipino core names causal connectors, and #10 applies kaya to order a cause before its result."
+   },
+   "language-proficiency-language-application#54": {
+    "status": "not_fixed",
+    "quote": "Maaari ring gumawa ng maikling balangkas: pangunahing ideya muna, saka ang mga detalyeng sumusuporta rito.",
+    "note": "The lesson adds a brief outline instruction and works topic selection. It does not interpret key words, model a text explanation, or construct an actual outline."
+   },
+   "lesson-language-application-paragraph-organization|L18|2": {
+    "status": "not_fixed",
+    "quote": "Place the remaining two sentences after C and B.",
+    "note": "Examples #1-#3 still use successive pieces of the same C-B-A-D chain. The optional restructuring was not made."
+   }
+  }
+ }
+}
