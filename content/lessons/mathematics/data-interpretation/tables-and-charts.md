@@ -1,71 +1,180 @@
 ---
 _id: "lesson-data-interpretation-tables-and-charts"
 title: "Reading Data from Tables and Charts"
-summary: "Learn to extract, calculate, and interpret numerical values directly from structured tables and charts."
+summary: "Read values, scales, totals, differences, averages, and parts of a whole from tables and charts."
 subject: "subject-mathematics"
 topic: "topic-data-interpretation"
-estimatedMinutes: 10
+estimatedMinutes: 15
 isActive: true
 ---
+
 ## Core Concept
 
-Data interpretation questions present data in structured tables or charts. Candidates must accurately read quantities, compute totals, and evaluate differences between categories.
+Tables and charts organize numbers so you can compare them quickly. Read the labels and units before doing any arithmetic.
 
-### Reading Strategy
+### Reading a Table
 
-1. **Read Column and Row Headers:** Understand what each row and column represents before calculating.
-2. **Verify Units:** Check whether values are given in thousands, millions, or raw units.
-3. **Perform Exact Arithmetic:** Calculate values directly from the tabulated figures without rounding unnecessarily.
+A table uses **rows** and **columns**. A row label names one category, and a column label names another.
+
+To find one value, trace across the correct row and down the correct column. The value where they meet belongs to both labels.
+
+Check the unit beside the table title or header. If the table says "thousands of pesos," a shown value of $18$ means $18,000$ pesos.
+
+### Reading a Bar or Line Chart
+
+A chart uses axes and tick marks to show scale. Read the label on each axis, then check how much one tick step represents.
+
+A bar or point may fall between labeled ticks. Count the smaller steps to read the value instead of guessing from the bar height.
+
+### Totals and Differences
+
+For a total, add only the categories or time periods the question asks for. For a difference, subtract the smaller compared value from the larger one unless the question asks for a signed change.
+
+### Average across Time Periods
+
+An **average**, or arithmetic mean, gives one value that represents a group of values. Add the values, then divide by how many values there are.
+
+Use:
+
+$$\text{Average}=\dfrac{\text{sum of values}}{\text{number of values}}$$
+
+### Reading a Pie Chart
+
+A pie chart shows parts of one whole. The full circle represents $100\%$.
+
+If a slice gives a percentage and the total amount is known, find the slice amount with:
+
+$$\text{part}=\dfrac{\text{percent}}{100}\times\text{total}$$
+
+Use this only when the pie chart slices are parts of the same whole.
 
 ## Examples
 
-### #1: Calculating Totals from a Table
+### #1: Finding a Row-Column Value
 
-A table shows quarterly office expenses in thousands of pesos: Quarter 1 is $12$, Quarter 2 is $15$, Quarter 3 is $18$, and Quarter 4 is $11$. What is the total expense for the year in pesos?
+<!-- ILLUSTRATION: table titled "Quarterly Office Expenses, in thousands of pesos" with columns Quarter 1, Quarter 2, Quarter 3, Quarter 4 and rows Administration 12, 15, 18, 11; Operations 20, 24, 27, 23; Training 8, 10, 9, 12 -->
 
-**Solution:**
-Sum the quarterly values and account for the unit scale.
-
-1. Add the quarterly values given in thousands:
-
-$$12 + 15 + 18 + 11 = 56$$
-
-2. Convert from thousands to actual pesos by multiplying by $1,000$:
-
-$$56 \times 1,000 = 56,000$$
-
-3. The total annual expense is $56,000$ pesos.
-
-### #2: Finding Differences Between Chart Categories
-
-<!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["Factory A", "Factory B"], "values": [450, 320], "yAxis": {"label": "Units produced", "min": 0, "max": 500, "step": 100}, "semanticsLabel": "A bar chart showing Units produced with Factory A at 450 and Factory B at 320."} -->
-
-A bar chart shows production output for two factories. Factory A produced $450$ units and Factory B produced $320$ units. How many more units did Factory A produce than Factory B?
+Use the table. What was the Operations expense in Quarter $3$, in pesos?
 
 **Solution:**
-Extract the values and subtract to find the difference.
 
-1. Identify Factory A output: $450$ units.
-2. Identify Factory B output: $320$ units.
-3. Compute the difference:
+1. Find the Operations row.
+2. Trace to the Quarter $3$ column. The value where they meet is $27$.
+3. The table is in thousands of pesos, so multiply by $1,000$.
 
-$$450 - 320 = 130$$
+$$27\times1,000=27,000$$
 
-4. Factory A produced $130$ more units than Factory B.
+The Operations expense was $27,000$ pesos.
 
-### #3: Finding the Average across Time Periods
+### #2: Finding a Total from a Table
 
-A table records monthly revenue for three consecutive months: Month 1 is $40,000$ pesos, Month 2 is $50,000$ pesos, and Month 3 is $60,000$ pesos. Find the average monthly revenue.
+<!-- ILLUSTRATION: table titled "Quarterly Office Expenses, in thousands of pesos" with columns Quarter 1, Quarter 2, Quarter 3, Quarter 4 and rows Administration 12, 15, 18, 11; Operations 20, 24, 27, 23; Training 8, 10, 9, 12 -->
+
+Use the table. What was the total Administration expense for the four quarters, in pesos?
 
 **Solution:**
-Calculate the mean of the three monthly values.
 
-1. Sum the monthly revenues:
+1. Read the Administration row values.
 
-$$40,000 + 50,000 + 60,000 = 150,000$$
+$$12+15+18+11=56$$
 
-2. Divide by the number of months ($3$):
+2. The table is in thousands of pesos.
 
-$$\dfrac{150,000}{3} = 50,000$$
+$$56\times1,000=56,000$$
 
-3. The average monthly revenue is $50,000$ pesos.
+The total Administration expense was $56,000$ pesos.
+
+### #3: Reading a Chart Scale and Finding a Difference
+
+<!-- ILLUSTRATION: bar chart titled "Factory Output" with x-axis labels Factory A and Factory B, y-axis labeled "Units produced" from 0 to 500, labeled every 100 with smaller tick marks every 20; Factory A bar reaches 440 and Factory B bar reaches 320 -->
+
+Use the bar chart. How many more units did Factory A produce than Factory B?
+
+**Solution:**
+
+1. Each small tick is $20$ units. Factory A reaches $440$ units.
+2. Factory B reaches $320$ units.
+3. Subtract to find the difference.
+
+$$440-320=120$$
+
+Factory A produced $120$ more units.
+
+### #4: Finding an Average across Months
+
+<!-- ILLUSTRATION: table titled "Monthly Revenue" with columns Month 1, Month 2, Month 3 and one row labeled "Revenue, pesos" with values 40,000, 50,000, 60,000 -->
+
+Use the table. Find the average monthly revenue.
+
+**Solution:**
+
+1. Add the three monthly values.
+
+$$40,000+50,000+60,000=150,000$$
+
+2. Divide by the number of months.
+
+$$\dfrac{150,000}{3}=50,000$$
+
+The average monthly revenue is $50,000$ pesos.
+
+### #5: Reading a Pie Chart
+
+<!-- ILLUSTRATION: pie chart titled "Training Budget" with slices Materials 35%, Venue 30%, Travel 20%, Other 15%, and a note below the chart that the total budget is 200,000 pesos -->
+
+Use the pie chart. How much of the training budget is for Materials?
+
+**Solution:**
+
+1. The Materials slice is $35\%$ of the whole budget.
+2. Convert the percent to a part of the total.
+
+$$\dfrac{35}{100}\times200,000=70,000$$
+
+The Materials budget is $70,000$ pesos.
+
+## Speed Tricks & Shortcuts
+
+### Read Labels Before Numbers
+
+First read the title, row labels, column labels, and units. This prevents mistakes before you calculate.
+
+### Mark the Needed Values
+
+For a table, follow only the row and column named in the question. For a chart, read only the bars, points, or slices you need.
+
+### Check the Scale Once
+
+Before reading several chart values, find the value of one small tick. Then use the same scale for the rest of that chart.
+
+## Traps to Watch For
+
+### #1: Ignoring the Unit Scale
+
+> A displayed number may stand for thousands or millions.
+
+If a table is in thousands of pesos, $27$ means $27,000$ pesos. Do not report $27$ pesos.
+
+### #2: Using the Wrong Row or Column
+
+> A table value belongs to both its row and its column.
+
+Reading the right row with the wrong column gives a different value. Trace both labels before choosing the cell.
+
+### #3: Guessing a Bar Height
+
+> Read the tick spacing before reading the bar.
+
+A bar between labeled values may match a smaller tick. Count the steps instead of judging by eye.
+
+### #4: Averaging the Wrong Number of Values
+
+> Divide by the number of values you actually added.
+
+If you add $3$ monthly values, divide by $3$. Do not divide by the number of labels or categories you did not include.
+
+### #5: Treating a Pie Slice as a Separate Whole
+
+> Every slice is part of the same $100\%$ circle.
+
+Use the full pie as the total. A slice percentage tells how much of that one whole belongs to the category.

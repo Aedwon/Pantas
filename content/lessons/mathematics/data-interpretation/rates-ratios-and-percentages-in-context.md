@@ -1,42 +1,90 @@
 ---
 _id: "lesson-data-interpretation-rates-ratios-and-percentages-in-context"
 title: "Rates, Ratios, and Percentages in Context"
-summary: "Calculate percentage changes, proportions, and ratios from contextual data."
+summary: "Use rates, ratios, proportions, and percentages to compare and scale quantities in context."
 subject: "subject-mathematics"
 topic: "topic-data-interpretation"
-estimatedMinutes: 10
+estimatedMinutes: 15
 isActive: true
 ---
+
 ## Core Concept
 
-Data interpretation often requires comparing quantities using percentage change, proportions, or ratios.
+Rates, ratios, and percentages compare quantities in different ways. First, decide what kind of comparison the question asks for.
 
-### Key Formulas and Conditions
+### Percentage Change
 
-- **Percentage change from an original value:** when the original value is nonzero,
+**Percentage change** compares a change with the original value. When the original value is positive and nonzero, use:
 
-$$\text{Percentage Change}=\dfrac{\text{New Value}-\text{Original Value}}{\text{Original Value}}\times100\%$$
+$$\text{Percent change}=\dfrac{\text{change}}{\text{original}}\times100\%$$
 
-A positive result is an increase and a negative result is a decrease. If the original value is zero, this ordinary percentage-change formula is undefined because it would divide by zero; the change should then be described another way.
+Find the change with:
 
-- **Percentage of a total:** when the total is nonzero,
+$$\text{change}=\text{new}-\text{original}$$
 
-$$\text{Percentage}=\dfrac{\text{Part}}{\text{Total}}\times100\%$$
+A positive result means an increase. A negative result means a decrease.
 
-- **Ratio:** $A:B$ compares two quantities in the stated order. For integer counts, a ratio such as $60:40$ can be simplified by dividing both terms by their greatest common divisor.
+If the original value is $0$, ordinary percentage change is not defined because division by $0$ is not allowed. Report the actual amount of change instead, unless the question gives another comparison rule.
 
-Always keep units and the direction of comparison attached to the numbers. "A to B" and "B to A" are reciprocal ratios, not interchangeable descriptions.
+### Percentage of a Total
+
+A **percentage of a total** tells what part of the whole belongs to one group. When the total is nonzero, use:
+
+$$\text{Percentage}=\dfrac{\text{part}}{\text{total}}\times100\%$$
+
+### Ratios and Lowest Terms
+
+A **ratio** such as $A:B$ compares two quantities in that order. Reversing the order changes the ratio.
+
+For whole-number counts, a ratio can be reduced to lowest terms. The **greatest common divisor** is the largest whole number that divides both terms with no remainder.
+
+Divide both terms by that same number. This keeps the comparison the same while using smaller numbers.
+
+### Rates and Unit Rates
+
+A **rate** compares quantities with different units, such as pesos per notebook or kilometers per hour. A **unit rate** tells the amount for $1$ unit.
+
+Use:
+
+$$\text{Unit rate}=\dfrac{\text{total amount}}{\text{number of units}}$$
+
+If the rate stays the same, multiply the unit rate by the number of units you need.
+
+### Direct Proportion
+
+In a **direct proportion**, both related quantities change by the same factor. If one quantity doubles, the other also doubles.
+
+This model works only when the rate between the quantities stays constant. For example, if every notebook has the same price, buying twice as many notebooks costs twice as much.
+
+### Inverse Proportion
+
+In an **inverse proportion**, one quantity goes up while the other goes down so the same total work or amount is shared. If twice as many workers do the same job at the same working rate, the time is cut in half.
+
+For two changing quantities in an inverse proportion, their product stays the same:
+
+$$\text{first}\times\text{second}=\text{same total}$$
+
+Use this only when the total job or amount is fixed and the individual working rate does not change.
+
+### Dividing a Total by a Ratio
+
+A ratio can split one total into parts. For a ratio $a:b$:
+
+1. Add the ratio terms to get the total number of parts.
+2. Divide the total amount by the number of parts.
+3. Multiply one part by each ratio term.
+
+This works when the whole amount is being divided according to the stated ratio.
 
 ## Examples
 
-### #1: Computing Percentage Change
+### #1: Percentage Increase
 
-An agency budget increased from $50$ million pesos in 2020 to $65$ million pesos in 2021. Find the percentage increase.
+An agency budget increased from $50$ million pesos in $2020$ to $65$ million pesos in $2021$. Find the percentage increase.
 
 **Solution:**
-The original value is $50$, which is nonzero.
 
-1. Change:
+1. Find the change.
 
 $$65-50=15$$
 
@@ -50,12 +98,33 @@ $$0.30\times100\%=30\%$$
 
 The budget increased by $30\%$.
 
-### #2: Computing Percentage of Total
+### #2: Percentage Decrease
 
-In an office of $200$ employees, $30$ work in accounting, $50$ in human resources, and $120$ in operations. What percentage of the workforce works in human resources?
+A supply cost fell from $80,000$ pesos to $68,000$ pesos. Find the signed percentage change.
 
 **Solution:**
-1. Use part over total.
+
+1. Find the change.
+
+$$68,000-80,000=-12,000$$
+
+2. Divide by the original value.
+
+$$\dfrac{-12,000}{80,000}=-0.15$$
+
+3. Convert to percent.
+
+$$-0.15\times100\%=-15\%$$
+
+The signed percentage change is $-15\%$. This means the cost decreased by $15\%$.
+
+### #3: Percentage of a Total
+
+In an office of $200$ employees, $50$ work in human resources. What percentage of the workforce works in human resources?
+
+**Solution:**
+
+1. Divide the part by the total.
 
 $$\dfrac{50}{200}=0.25$$
 
@@ -63,37 +132,127 @@ $$\dfrac{50}{200}=0.25$$
 
 $$0.25\times100\%=25\%$$
 
-Human resources accounts for $25\%$ of the workforce.
+Human resources has $25\%$ of the workforce.
 
-### #3: Simplifying a Ratio Between Categories
+### #4: Simplifying a Ratio
 
-A survey records $60$ satisfied customers and $40$ dissatisfied customers. What is the ratio of satisfied to dissatisfied customers in lowest integer terms?
+A survey records $60$ satisfied customers and $40$ dissatisfied customers. What is the ratio of satisfied to dissatisfied customers in lowest whole-number terms?
 
 **Solution:**
-1. Write the requested order: $60:40$.
-2. The greatest common divisor is $20$.
+
+1. Write the ratio in the requested order: $60:40$.
+2. The largest whole number that divides both $60$ and $40$ is $20$.
 3. Divide both terms by $20$.
 
 $$60:40=3:2$$
 
-The simplified ratio is $3:2$.
+The ratio in lowest terms is $3:2$.
+
+### #5: Finding a Unit Rate
+
+A machine packs $240$ boxes in $6$ hours at a steady rate. How many boxes does it pack per hour?
+
+**Solution:**
+
+1. Divide the total boxes by the total hours.
+
+$$\dfrac{240}{6}=40$$
+
+The unit rate is $40$ boxes per hour.
+
+### #6: Scaling a Direct Proportion
+
+Four identical notebooks cost $120$ pesos. At the same price per notebook, how much do $10$ notebooks cost?
+
+**Solution:**
+
+1. Find the cost of $1$ notebook.
+
+$$\dfrac{120}{4}=30$$
+
+2. Multiply by $10$ notebooks.
+
+$$30\times10=300$$
+
+The cost of $10$ notebooks is $300$ pesos.
+
+### #7: Using an Inverse Proportion
+
+Six workers can finish one fixed job in $8$ hours when all workers have the same work rate. If $12$ workers do the same job at the same rate, how many hours will it take?
+
+**Solution:**
+
+1. The number of workers doubles from $6$ to $12$.
+2. Because the job is fixed, the time is cut in half.
+
+$$\dfrac{8}{2}=4$$
+
+The job will take $4$ hours.
+
+### #8: Dividing a Total in a Ratio
+
+A fund of $45,000$ pesos is divided between Program A and Program B in the ratio $2:3$. How much does Program B receive?
+
+**Solution:**
+
+1. Add the ratio terms.
+
+$$2+3=5$$
+
+2. Find the value of $1$ part.
+
+$$\dfrac{45,000}{5}=9,000$$
+
+3. Program B has $3$ parts.
+
+$$9,000\times3=27,000$$
+
+Program B receives $27,000$ pesos.
+
+## Speed Tricks & Shortcuts
+
+### Use the Question Words
+
+"Per" usually points to a rate. "Out of" often points to a part of a total.
+
+"Increase" or "decrease" from an old value usually points to percentage change. A split such as $2:3$ points to ratio parts.
+
+### Reduce a Ratio Fast
+
+Look for a number that divides both terms. If both terms end in $0$, try $10$ first, then check whether a larger common divisor works.
+
+### Spot Direct and Inverse Change
+
+If both quantities move in the same direction by the same factor, think direct proportion. If one goes up while the other goes down for the same fixed job or amount, check for inverse proportion.
 
 ## Traps to Watch For
 
 ### #1: Dividing by the New Value
 
-> Ordinary percent change uses the original value as the reference denominator.
+> Percentage change uses the original value as the reference.
 
-A change from $50$ to $65$ is measured relative to $50$, not $65$.
+A change from $50$ to $65$ is measured against $50$, not $65$. Using the new value gives the wrong percentage.
 
 ### #2: Original Value Equal to Zero
 
-> The usual percentage-change formula is undefined when the original value is $0$.
+> Do not divide by $0$ to find ordinary percentage change.
 
-Do not report an ordinary percent increase by dividing by zero. State the absolute change or use a different, explicitly defined comparison measure.
+If the original value is $0$, report the actual amount of change unless the question gives another rule. The usual percentage-change formula cannot be used.
 
 ### #3: Reversing a Ratio
 
 > Ratio order follows the wording.
 
-Satisfied-to-dissatisfied is $60:40=3:2$; dissatisfied-to-satisfied is $40:60=2:3$.
+Satisfied-to-dissatisfied is $60:40=3:2$. Dissatisfied-to-satisfied is $40:60=2:3$.
+
+### #4: Mixing Direct and Inverse Proportion
+
+> Do not assume every proportion moves in the same direction.
+
+More items at the same price means a higher total cost, so that is direct. More equal workers on the same fixed job means less time, so that is inverse.
+
+### #5: Ignoring Units
+
+> Put quantities in matching units before comparing them.
+
+A rate per hour cannot be used directly with minutes unless you convert the time. Unit labels help you see what must be changed first.
