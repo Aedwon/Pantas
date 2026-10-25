@@ -1757,3 +1757,16 @@ Aedwon's exact reply:
 
 Decision: style D. Reference files and style rules on `content/cse-rewrite-r1` in
 `docs/content/rewrite/figure-style/`.
+
+## October 25: lesson splits approved
+
+Options: split as proposed (8 new split lessons plus 4 new lessons, about 240 new questions,
+about 12 more pastes), or no splits with only organizer-named parts. Lead recommended splitting.
+Aedwon's exact reply:
+
+> ok with splits
+>
+> what's with the svg sorry could you recap
+
+Decision: split as proposed in `docs/content/rewrite/plans/split-proposals.md` on
+`content/cse-rewrite-r1`, with the lead decisions recorded there.
