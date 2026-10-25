@@ -84,6 +84,8 @@ D) fast
 
 ### #2: Finding a Root
 
+Ang "tukuyin" ay nangangahulugang hanapin at sabihin ang hinihinging sagot.
+
 Tukuyin ang salitang-ugat ng salitang nakadiin: **pinagsumikapan**.
 
 A) sikap  
@@ -136,7 +138,8 @@ D) chronology = chrono- + log + y
 **Solution:**
 
 1. *Happy* is a meaningful base, and *un-* changes its meaning to "not happy."
-2. This split explains the whole word. The other splits rely on misleading letter groups, such as the English word *log*. Answer: **B**.
+2. This split explains the whole word. In *uncle*, *cle* is not a base with a meaning that *un-* changes.
+3. The other splits also use letter groups that do not explain the words. The English word *log*, for example, does not explain *chronology*. Answer: **B**.
 
 ### #6: Parts and Context Together
 
@@ -193,6 +196,34 @@ D) Helpful means without help; quickly means without speed.
 
 1. *-Ful* gives *helpful* the idea of giving help. It describes the clerk, so it is an adjective.
 2. *-Ly* makes *quickly* tell how the clerk answered. It is an adverb. Answer: **B**.
+
+### #10: An Ending with a Different Job
+
+In "A **friendly** guard welcomed the visitors," what job does the word in bold do?
+
+A) It names the act of welcoming.  
+B) It tells how the visitors arrived.  
+C) It describes the guard.  
+D) It names a group of visitors.
+
+**Solution:**
+
+1. **Friendly** tells what the guard is like. It does not tell how an action happens.
+2. It describes the noun *guard*, so it is an adjective despite its *-ly* ending. Answer: **C**.
+
+### #11: A Suffix Meaning Without
+
+The family was **homeless** after the fire. Which phrase best gives the meaning of the word in bold?
+
+A) without a home  
+B) full of homes  
+C) returning home  
+D) building a home
+
+**Solution:**
+
+1. The base is *home*, and *-less* means "without."
+2. **Homeless** means without a home. Answer: **A**.
 
 ## Speed Tricks & Shortcuts
 

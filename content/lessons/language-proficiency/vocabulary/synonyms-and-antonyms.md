@@ -47,7 +47,7 @@ Grammar matters too. A replacement must fit how the word is used. *Decide* names
 
 A **prefix** is a word part added at the beginning of a word. For example, *un-* can mean *not*, as in *unfair*. Use the prefix as a clue, then check the whole word in the sentence.
 
-Not every opening group of letters is a prefix. *Uncle* does not mean “not cle.” Word parts help only when they belong to the word and give a meaning that fits.
+Not every opening group of letters is a prefix. *Uncle* does not mean "not cle." Word parts help only when they belong to the word and give a meaning that fits.
 
 ## Examples
 
@@ -123,9 +123,9 @@ D) vault
 
 ### #6: Matching Formality
 
-Which word best completes this formal notice?
+Which word or phrase best completes this formal notice?
 
-“The examination will _____ at $8{:}00$ a.m.”
+"The examination will _____ at $8{:}00$ a.m."
 
 A) commence  
 B) kick off  
@@ -163,7 +163,7 @@ D) furious
 **Solution:**
 
 1. Rina soon forgot the delay, so the sentence describes mild anger.
-2. **Irritated** keeps that strength. *Enraged* and *furious* would make the anger much stronger. The answer is **C**.
+2. **Irritated** keeps that strength. The answer is **C**.
 
 ### #9: Using a Common Word Pairing
 
@@ -195,7 +195,7 @@ D) returned the book to Mara
 
 ### #11: A System with Two States
 
-A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which word must describe its state in this record?
+A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which opposite of the word in bold must describe its state in this record?
 
 A) weak  
 B) asleep  
@@ -209,7 +209,7 @@ D) dead
 
 ### #12: Opposites with Middle Levels
 
-The soup is not **hot**. Which statement must be true based on this sentence alone?
+The soup is not **hot**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
 
 A) The soup is cold.  
 B) The soup is warm.  
@@ -249,6 +249,20 @@ D) avoiding tasks to reduce effort
 1. The assistant supports even bad ideas because he wants the manager to like him.
 2. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
+### #15: Keeping the Same Grammar
+
+The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?
+
+A) decision  
+B) choice  
+C) choose  
+D) decisive
+
+**Solution:**
+
+1. After *will*, the sentence needs a verb that names the action of making a choice.
+2. **Choose** fits that job and meaning. The answer is **C**.
+
 ## Speed Tricks & Shortcuts
 
 **Read the task first.** Check whether it asks for a similar meaning or an opposite. Then read the whole sentence.
@@ -271,7 +285,7 @@ A stronger word may change a mild feeling into a strong one. A casual phrase may
 
 ### #2: Treating Every Opposite as a Two-State Choice
 
-> “Not hot” does not have to mean “cold.”
+> "Not hot" does not have to mean "cold."
 
 Warm and cool are possible middle levels. Use the two-state rule only when the meaning or stated system allows just two states.
 
