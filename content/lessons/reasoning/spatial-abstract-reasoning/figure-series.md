@@ -42,7 +42,7 @@ Triangle → square → pentagon. What is the intended next figure?
 
 **Solution:**
 
-The simple count pattern is $3,4,5$, so the intended continuation is a **hexagon** with 6 sides.
+The simple count pattern is $3,4,5$, so the intended continuation is a **hexagon** with $6$ sides.
 
 <!-- FIGURE: {"kind": "figure-series", "items": [{"form": "triangle"}, {"form": "square"}, {"form": "pentagon"}], "blank": true, "semanticsLabel": "A series of shapes with increasing sides: triangle, square, and pentagon, followed by an empty frame."} -->
 ### #3: Alternating Fill

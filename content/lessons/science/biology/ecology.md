@@ -34,7 +34,7 @@ A **trophic level** describes an organism's feeding position:
 
 Energy transfer between trophic levels is inefficient because organisms use much of the energy they acquire for metabolism, movement, maintenance, and other processes; some energy is also never eaten or is lost in waste. Much ultimately dissipates as heat.
 
-The familiar **10% rule** is a classroom approximation, not a universal constant. Ecological or trophic transfer efficiency varies by ecosystem and organisms. For a problem that explicitly tells you to use 10%, applying a factor of $0.10$ per trophic step is appropriate.
+The familiar **$10\%$ rule** is a classroom approximation, not a universal constant. Ecological or trophic transfer efficiency varies by ecosystem and organisms. For a problem that explicitly tells you to use $10\%$, applying a factor of $0.10$ per trophic step is appropriate.
 
 ### Biogeochemical Cycles
 
@@ -86,7 +86,7 @@ $$10{,}000(0.10)=1{,}000\text{ kJ}$$
 
 $$1{,}000(0.10)=100\text{ kJ}$$
 
-3. This is an estimate based on the problem's 10% assumption, not a law that all ecosystems obey exactly.
+3. This is an estimate based on the problem's $10\%$ assumption, not a law that all ecosystems obey exactly.
 
 ### #3: Identifying Symbiosis
 
@@ -113,7 +113,7 @@ Why can most plants not simply use atmospheric $N_2$ directly?
 
 For food-web arrows, read the arrow as **energy moves to** the consumer.
 
-For trophic-energy calculations, use 10% only when the lesson/problem presents it as an approximation or explicitly instructs you to assume it.
+For trophic-energy calculations, use $10\%$ only when the lesson/problem presents it as an approximation or explicitly instructs you to assume it.
 
 For the nitrogen cycle, keep the verbs separate: **fix $N_2$ → ammonia; nitrify ammonium → nitrite/nitrate; denitrify nitrate → nitrogen gases**.
 
@@ -123,7 +123,7 @@ For symbiosis, $(+,+)$ = mutualism, $(+,0)$ = commensalism, $(+,-)$ = parasitism
 
 ### #1: Treating the 10% Rule as Exact
 
-> Trophic transfer efficiency varies; 10% is a useful rule of thumb for simple problems.
+> Trophic transfer efficiency varies; $10\%$ is a useful rule of thumb for simple problems.
 
 Measured efficiencies can be higher or lower.
 

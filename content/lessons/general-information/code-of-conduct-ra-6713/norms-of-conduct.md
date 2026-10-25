@@ -35,7 +35,7 @@ Recall the official list of norms in Section 4 of RA 6713.
 
 1. Section 4 enumerates the norms of conduct in statutory order.
 2. The list contains: Commitment to public interest, Professionalism, Justness and sincerity, Political neutrality, Responsiveness to the public, Nationalism and patriotism, Commitment to democracy, and Simple living.
-3. Count the listed norms: exactly 8 norms.
+3. Count the listed norms: exactly $8$ norms.
 
 ### #2: Identifying Political Neutrality
 

@@ -18,9 +18,9 @@ Section 8 of RA 6713 requires covered public officials and employees to file a s
 
 ### Key Deadlines for SALN Filing
 
-1. **Assumption of office:** Within 30 days after assumption of office.
+1. **Assumption of office:** Within $30$ days after assumption of office.
 2. **Annual filing:** On or before April 30 of every year thereafter.
-3. **Separation from service:** Within 30 days after separation from the service.
+3. **Separation from service:** Within $30$ days after separation from the service.
 
 ### Where SALN and Financial Disclosures Are Filed
 
@@ -35,9 +35,9 @@ RA 6713 assigns filing offices by category:
 
 ### Public Access and Divestment
 
-- **Inspection and copying:** Filed statements must be available for inspection at reasonable hours. They become available for copying or reproduction after 10 working days from filing.
-- **Retention:** Statements remain available to the public for 10 years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.
-- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within 30 days and/or divest the relevant shareholdings or interests within 60 days. For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose.
+- **Inspection and copying:** Filed statements must be available for inspection at reasonable hours. They become available for copying or reproduction after $10$ working days from filing.
+- **Retention:** Statements remain available to the public for $10$ years after receipt. After that period, they may be destroyed unless needed in an ongoing investigation.
+- **Divestment rules:** When a conflict of interest exists, the official or employee must resign from the private business position within $30$ days and/or divest the relevant shareholdings or interests within $60$ days. For a person already in government service when the conflict arises, the implementing rules reckon these periods from the date the conflict arose.
 
 ## Examples
 
@@ -49,8 +49,8 @@ A newly appointed government employee starts working on June 1. By what deadline
 Identify the SALN deadline for assumption of office under Section 8 of RA 6713.
 
 1. Under RA 6713, a covered official or employee must file after assumption of office.
-2. The deadline is within 30 days after assumption of office.
-3. Therefore, the employee must file the initial SALN within 30 days after assuming office.
+2. The deadline is within $30$ days after assumption of office.
+3. Therefore, the employee must file the initial SALN within $30$ days after assuming office.
 
 ### #2: Divestment Deadlines for Private Interests
 
@@ -60,18 +60,18 @@ A newly appointed bureau director has a conflict of interest because they own sh
 Apply the divestment timeframes in RA 6713.
 
 1. The official must avoid conflicts of interest.
-2. The official must resign from the private business position within 30 days.
-3. The official must divest the relevant shareholdings or interests within 60 days.
-4. Therefore, the deadlines are 30 days for resignation and 60 days for divestment.
+2. The official must resign from the private business position within $30$ days.
+3. The official must divest the relevant shareholdings or interests within $60$ days.
+4. Therefore, the deadlines are $30$ days for resignation and $60$ days for divestment.
 
 ### #3: Public Inspection, Copying, and Retention
 
-A journalist requests a copy of a local official's SALN filed 8 years ago. When does a filed statement become available for copying, and how long does it remain available to the public?
+A journalist requests a copy of a local official's SALN filed $8$ years ago. When does a filed statement become available for copying, and how long does it remain available to the public?
 
 **Solution:**
 Review the accessibility and retention rules under Section 8.
 
 1. Filed statements must be available for inspection at reasonable hours.
-2. They become available for copying or reproduction after 10 working days from filing.
-3. They remain available to the public for 10 years after receipt, and an 8-year-old statement is still within that period.
-4. Therefore, the statement may be copied after the 10-working-day period and remains within the 10-year public-availability window.
+2. They become available for copying or reproduction after $10$ working days from filing.
+3. They remain available to the public for $10$ years after receipt, and an $8$-year-old statement is still within that period.
+4. Therefore, the statement may be copied after the $10$-working-day period and remains within the $10$-year public-availability window.

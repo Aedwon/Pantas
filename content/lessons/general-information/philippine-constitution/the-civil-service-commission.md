@@ -15,7 +15,7 @@ Article IX, Section B of the 1987 Constitution establishes the Civil Service Com
 
 - **Composition:** Composed of a **Chairman and two Commissioners**.
 - **Citizenship:** Must be **natural-born citizens** of the Philippines.
-- **Age:** Must be **at least 35 years of age** at the time of appointment.
+- **Age:** Must be **at least $35$ years of age** at the time of appointment.
 - **Qualifications:** Must possess proven capacity for public administration.
 - **Elective disqualification:** Must **not have been candidates for any elective position in the election immediately preceding** their appointment.
 

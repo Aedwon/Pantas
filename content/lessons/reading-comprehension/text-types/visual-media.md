@@ -20,7 +20,7 @@ Comic strips create meaning through the relationship among panels: sequence, fra
 Editorial cartoons comment on public issues using techniques such as symbolism, caricature, analogy, labeling, juxtaposition, irony, and exaggeration. Many take a recognizable stance, but a cartoon can also pose a question, expose a contradiction, or satirize several sides at once.
 
 - **Symbolism:** an image represents or evokes a broader idea.
-- **Caricature:** selected traits—often physical or behavioral—are exaggerated for recognition, humor, or criticism.
+- **Caricature:** selected traits, often physical or behavioral, are exaggerated for recognition, humor, or criticism.
 - **Labels:** text identifies what an object, figure, or idea represents.
 
 Interpret a symbol from context. An eagle does not have one universal meaning in every image, and a labeled boulder's significance depends on its relation to other elements.
@@ -30,7 +30,7 @@ Interpret a symbol from context. An eagle does not have one universal meaning in
 
 Charts encode quantitative information through position, length, angle, area, color, or other visual channels. Read titles, units, labels, legends, source notes, and axis scales before drawing a conclusion.
 
-A **bar chart** uses bar length to represent magnitude. Because length is measured from a baseline, truncating the quantitative axis can exaggerate differences; a zero baseline is normally appropriate when bar lengths encode absolute magnitudes. By contrast, a **line chart** emphasizes position and change, so its vertical axis does not necessarily need to begin at zero. The scale should match the analytical purpose and make changes interpretable without distortion. citeturn704367search0
+A **bar chart** uses bar length to represent magnitude. Because length is measured from a baseline, truncating the quantitative axis can exaggerate differences; a zero baseline is normally appropriate when bar lengths encode absolute magnitudes. By contrast, a **line chart** emphasizes position and change, so its vertical axis does not necessarily need to begin at zero. The scale should match the analytical purpose and make changes interpretable without distortion.
 
 ## Examples
 
@@ -64,10 +64,10 @@ April is highest; **February** is second-highest.
 <!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["January", "February", "March", "April"], "values": [50, 70, 60, 90], "yAxis": {"label": "Sales (thousands of pesos)", "min": 0}, "semanticsLabel": "A bar graph of monthly sales with bars for January at 50, February at 70, March at 60, and April at 90."} -->
 ### #4: Truncated Bar Axis
 
-A bar chart starts at 80 and compares values 85 and 81.
+A bar chart starts at $80$ and compares values $85$ and $81$.
 
 
-Because the bar lengths begin visually at 80, the displayed length ratio greatly exaggerates the actual magnitude ratio 85:81. Check the numerical scale instead of judging only from the apparent bar sizes.
+Because the bar lengths begin visually at $80$, the displayed length ratio greatly exaggerates the actual magnitude ratio 85:81. Check the numerical scale instead of judging only from the apparent bar sizes.
 
 <!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["Brand A", "Brand B"], "values": [85, 81], "yMin": 80, "compareZero": true, "semanticsLabel": "A bar graph starting at 80 comparing bars of 85 and 81, alongside a comparison starting at zero."} -->
 ## Speed Tricks & Shortcuts
@@ -94,4 +94,4 @@ Because the bar lengths begin visually at 80, the displayed length ratio greatly
 
 ### #4: "Every Graph Must Start at Zero"
 
-> Zero is especially important for bar charts whose lengths encode magnitude. Line charts and other positional displays may legitimately use nonzero ranges when the scale is clear and suited to the analytical question. citeturn704367search0
+> Zero is especially important for bar charts whose lengths encode magnitude. Line charts and other positional displays may legitimately use nonzero ranges when the scale is clear and suited to the analytical question.

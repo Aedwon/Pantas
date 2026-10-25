@@ -17,7 +17,7 @@ A common personal-name convention is to index by surname first, then given name,
 
 - *Juan Antonio Santos* → **Santos, Juan Antonio**
 
-When two records have identical primary filing units, use the next filing unit specified by the system—such as given name, middle name, date, location, or another identifier.
+When two records have identical primary filing units, use the next filing unit specified by the system, such as given name, middle name, date, location, or another identifier.
 
 ### Surname prefixes and particles
 

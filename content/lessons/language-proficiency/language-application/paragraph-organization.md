@@ -17,7 +17,7 @@ Useful clues include:
 
 **Reference and cohesion.** Pronouns and demonstratives such as *it, this, these,* and *they* often refer back to something already available in the text or context. In a self-contained scrambled paragraph, an unexplained backward reference is strong evidence that another sentence should come first. It is not a universal rule that a pronoun can never begin a paragraph.
 
-**Transitions.** Words such as *however, therefore, for example, meanwhile,* and *in addition* show logical relationships. Their target can be the immediately preceding sentence or a broader earlier idea, so use meaning—not position alone—to place them.
+**Transitions.** Words such as *however, therefore, for example, meanwhile,* and *in addition* show logical relationships. Their target can be the immediately preceding sentence or a broader earlier idea, so use meaning, not position alone, to place them.
 
 **Chronology and procedure.** Time markers and sequence words can establish what happens first, next, and later.
 
@@ -62,7 +62,7 @@ A paragraph contains "However, not everyone agreed with the new policy." What do
 
 **Solution:**
 
-It signals contrast with an idea already established in the discourse—for example, support for the policy or an expectation that it would be accepted. It cannot tell you by itself exactly which sentence must immediately precede it; you still need the paragraph's meaning.
+It signals contrast with an idea already established in the discourse, for example, support for the policy or an expectation that it would be accepted. It cannot tell you by itself exactly which sentence must immediately precede it; you still need the paragraph's meaning.
 
 ## Speed Tricks & Shortcuts
 

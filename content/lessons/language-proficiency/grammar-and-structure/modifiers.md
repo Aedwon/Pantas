@@ -79,7 +79,7 @@ In (A), *only* limits *she*; in (B), it limits *him*. Modifier placement control
 
 > Proximity strongly affects interpretation, but syntax and meaning also determine attachment.
 
-The goal is clear, intended reference—not blindly placing every modifier next to the nearest noun.
+The goal is clear, intended reference, not blindly placing every modifier next to the nearest noun.
 
 ### #2: Calling Every Introductory Phrase Dangling
 

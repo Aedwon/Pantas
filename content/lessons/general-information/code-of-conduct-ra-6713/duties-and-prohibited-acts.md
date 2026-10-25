@@ -13,8 +13,8 @@ Sections 5 and 7 of RA 6713 establish duties and prohibited acts for public offi
 
 ### Duties and Response Deadlines
 
-- **Act on letters and requests:** Respond within 15 working days from receipt of letters, telegrams, or other communications sent by the public. The reply must state the action taken on the request. Under the implementing rules, failure to act promptly within this period is a ground for administrative disciplinary action.
-- **Annual performance reports:** Heads or other responsible officers of government offices, agencies, and government-owned or controlled corporations must render the agency or office's annual performance report within 45 working days from the end of the year. The report must be available to the public during regular office hours.
+- **Act on letters and requests:** Respond within $15$ working days from receipt of letters, telegrams, or other communications sent by the public. The reply must state the action taken on the request. Under the implementing rules, failure to act promptly within this period is a ground for administrative disciplinary action.
+- **Annual performance reports:** Heads or other responsible officers of government offices, agencies, and government-owned or controlled corporations must render the agency or office's annual performance report within $45$ working days from the end of the year. The report must be available to the public during regular office hours.
 - **Process documents promptly:** Official papers and documents must be processed and completed within a reasonable time. As far as practicable, they should contain no more than three signatories.
 - **Attend to personal transactions:** Public officials and employees must promptly attend to people seeking the services of their offices.
 - **Public access:** Public documents must be accessible and readily available for inspection during reasonable working hours, subject to other lawful restrictions on disclosure.
@@ -25,7 +25,7 @@ Section 7 of RA 6713 prohibits public officials and employees from engaging in s
 
 - **Financial or material interest:** Having a direct or indirect financial or material interest in a transaction requiring the approval of their office.
 - **Outside employment:** Owning, controlling, managing, or accepting specified roles or employment in a private enterprise regulated, supervised, or licensed by their office, unless expressly allowed by law.
-- **Private practice:** Engaging in private professional practice unless authorized by the Constitution or law and the practice does not conflict or tend to conflict with official functions. For 1 year after leaving public office, the professional cannot practice in connection with a matter before the former office.
+- **Private practice:** Engaging in private professional practice unless authorized by the Constitution or law and the practice does not conflict or tend to conflict with official functions. For $1$ year after leaving public office, the professional cannot practice in connection with a matter before the former office.
 - **Recommending persons:** Recommending a person for a position in a private enterprise that has a regular or pending official transaction with their office.
 - **Misuse of information:** Using or disclosing confidential or classified information learned through office to further private interests, give anyone undue advantage, or prejudice the public interest.
 - **Soliciting or accepting gifts:** Soliciting or accepting gifts, gratuities, favors, entertainment, loans, or anything of monetary value in the course of official duties or in connection with a regulated operation or affected transaction.
@@ -52,9 +52,9 @@ A citizen submits a written request for official information to a government off
 Identify the statutory deadline for responding to public communications under Section 5.
 
 1. Section 5 requires public officials and employees to respond to letters and other communications from the public.
-2. The statutory deadline is within 15 working days from receipt.
+2. The statutory deadline is within $15$ working days from receipt.
 3. The reply must state the action taken on the request.
-4. Therefore, the office must respond within 15 working days.
+4. Therefore, the office must respond within $15$ working days.
 
 ### #2: Post-Employment Private Practice Restriction
 
@@ -64,8 +64,8 @@ A former bureau chief resigns from government service to enter private law pract
 Apply the post-employment restriction under Section 7.
 
 1. During public service, private professional practice is allowed only when authorized by the Constitution or law and when it does not conflict or tend to conflict with official functions.
-2. After separation, a professional cannot practice in connection with a matter before the former office for 1 year.
-3. Therefore, the restriction lasts for 1 year after separation.
+2. After separation, a professional cannot practice in connection with a matter before the former office for $1$ year.
+3. Therefore, the restriction lasts for $1$ year after separation.
 
 ### #3: Maximum Number of Signatories on Official Documents
 

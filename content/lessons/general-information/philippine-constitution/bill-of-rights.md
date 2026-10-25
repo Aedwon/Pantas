@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-Article III of the 1987 Constitution is the Bill of Rights. It contains exactly **22 sections** that protect individual rights and liberties against unlawful government action.
+Article III of the 1987 Constitution is the Bill of Rights. It contains exactly **$22$ sections** that protect individual rights and liberties against unlawful government action.
 
 ### Core Rights and Liberties (Sections 1 to 11)
 
@@ -52,7 +52,7 @@ Recall the official section count of Article III.
 
 1. Article III of the 1987 Constitution is the Bill of Rights.
 2. It contains Sections 1 through 22.
-3. Therefore, the Bill of Rights contains exactly 22 sections.
+3. Therefore, the Bill of Rights contains exactly $22$ sections.
 
 ### #2: Locating Protection Against Self-Incrimination
 

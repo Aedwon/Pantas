@@ -150,7 +150,7 @@ $$A = 10000 \times 1.0824$$
 
 ## Speed Tricks & Shortcuts
 
-For **compound growth**, the **Rule of 72** gives a rough doubling-time estimate: divide $72$ by the annual percentage rate. For example, at an annual compound growth rate of about $8\%$, the estimated doubling time is $72 \div 8 = 9$ years. This is an approximation, not the simple-interest formula.
+For **compound growth**, the **Rule of $72$** gives a rough doubling-time estimate: divide $72$ by the annual percentage rate. For example, at an annual compound growth rate of about $8\%$, the estimated doubling time is $72 \div 8 = 9$ years. This is an approximation, not the simple-interest formula.
 
 For successive discounts of $a\%$ and $b\%$, the equivalent single discount is:
 

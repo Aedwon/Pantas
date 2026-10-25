@@ -68,7 +68,7 @@ Rewrite for standard edited English: "I can't hardly hear you."
 
 ## Speed Tricks & Shortcuts
 
-**For redundancy, test information—not just dictionary overlap.** Ask what meaning, emphasis, or contrast disappears if the word is removed.
+**For redundancy, test information, not just dictionary overlap.** Ask what meaning, emphasis, or contrast disappears if the word is removed.
 
 **For standard-English negation, choose one negative frame.** After *not*, forms such as *anybody, anything,* and *anywhere* are usually expected instead of *nobody, nothing,* and *nowhere*.
 

@@ -11,7 +11,7 @@ isActive: true
 
 The **main idea** is the central point a paragraph or passage develops. It is more specific than the general topic but broader than an individual supporting detail.
 
-A **topic sentence** is a sentence that explicitly states or frames the main point of a paragraph. Many expository paragraphs place it near the beginning, but there is no rule that it must be first—or that every paragraph contains one explicit topic sentence.
+A **topic sentence** is a sentence that explicitly states or frames the main point of a paragraph. Many expository paragraphs place it near the beginning, but there is no rule that it must be first, or that every paragraph contains one explicit topic sentence.
 
 When the main idea is implied, infer it from the pattern of details, relationships, examples, contrasts, and conclusions in the passage.
 

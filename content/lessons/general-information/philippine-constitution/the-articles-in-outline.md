@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-The 1987 Constitution of the Republic of the Philippines consists of a Preamble and 18 Articles.
+The 1987 Constitution of the Republic of the Philippines consists of a Preamble and $18$ Articles.
 
 ### Article Outline
 
@@ -58,8 +58,8 @@ Recall the structure of the Constitution.
 
 1. The Constitution begins with a Preamble.
 2. The Preamble is followed by Article I through Article XVIII.
-3. Roman numeral XVIII equals 18.
-4. The Constitution contains 18 articles.
+3. Roman numeral XVIII equals $18$.
+4. The Constitution contains $18$ articles.
 
 ### #3: Locating the Civil Service Commission
 

@@ -51,5 +51,5 @@ Which article of the Philippine Constitution serves as the primary domestic guar
 Identify the primary domestic constitutional bill of rights.
 
 1. Article III of the 1987 Constitution is the Bill of Rights.
-2. It contains 22 sections establishing fundamental civil and political liberties.
+2. It contains $22$ sections establishing fundamental civil and political liberties.
 3. Therefore, Article III is the primary domestic guarantee of individual rights.

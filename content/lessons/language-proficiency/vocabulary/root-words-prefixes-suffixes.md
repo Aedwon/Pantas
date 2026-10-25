@@ -40,7 +40,7 @@ Filipino affixation is highly productive and interacts with phonological and gra
 - *-in-* in forms such as *sinulat* from *sulat*;
 - *ka-...-an* in many nouns such as *kabataan* from *bata*.
 
-The same surface letters can behave differently across roots and constructions, so root-finding should use known Filipino morphology and meaning—not only an "outside-in peeling" algorithm.
+The same surface letters can behave differently across roots and constructions, so root-finding should use known Filipino morphology and meaning, not only an "outside-in peeling" algorithm.
 
 ## Examples
 

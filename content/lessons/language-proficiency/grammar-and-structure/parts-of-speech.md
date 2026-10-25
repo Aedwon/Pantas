@@ -20,7 +20,7 @@ A **part of speech** or **word class** groups words according to how they functi
 - **Conjunction**: links grammatical units (*and*, *but*, *because*).
 - **Interjection**: functions relatively independently to express a reaction or discourse move (*Wow!*, *Ouch!*).
 
-Modern grammars sometimes divide words differently—for example, by treating determiners as a separate class—so "eight parts of speech" is a useful **traditional school classification**, not the only possible linguistic analysis.
+Modern grammars sometimes divide words differently, for example, by treating determiners as a separate class, so "eight parts of speech" is a useful **traditional school classification**, not the only possible linguistic analysis.
 
 The same spelling can belong to different word classes depending on use. In "I need a *drink*," *drink* is a noun; in "I will *drink* the water," it is a verb.
 

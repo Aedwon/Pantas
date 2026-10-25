@@ -38,7 +38,7 @@ Find the intended next term: $4,9,14,19,\ldots$
 
 **Solution:**
 
-All shown consecutive differences are $+5$, so the simple arithmetic continuation gives **24**.
+All shown consecutive differences are $+5$, so the simple arithmetic continuation gives **$24$**.
 
 ### #2: Geometric Pattern
 
@@ -56,7 +56,7 @@ Find the intended next term: $2,3,5,8,12,\ldots$
 
 **Solution:**
 
-The differences are $1,2,3,4$. Continuing that simple difference pattern with $+5$ gives **17**.
+The differences are $1,2,3,4$. Continuing that simple difference pattern with $+5$ gives **$17$**.
 
 ### #4: Letter Positions
 

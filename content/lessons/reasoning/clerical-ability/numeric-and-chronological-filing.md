@@ -28,7 +28,7 @@ Chronological files may be arranged:
 
 Both are legitimate systems. Use the direction stated or established by the filing system.
 
-When comparing complete calendar dates, compare **year first**, then **month**, then **day**, regardless of how the date is displayed. ISO-style notation `YYYY-MM-DD` is convenient because ordinary lexicographic order matches chronological order for complete dates written in that fixed format, but it is a date notation—not a rule that every physical file must be stored oldest-first.
+When comparing complete calendar dates, compare **year first**, then **month**, then **day**, regardless of how the date is displayed. ISO-style notation `YYYY-MM-DD` is convenient because ordinary lexicographic order matches chronological order for complete dates written in that fixed format, but it is a date notation, not a rule that every physical file must be stored oldest-first.
 
 ### Reference Numbers and Extensions
 
@@ -75,7 +75,7 @@ Therefore, $12.008$ is smallest.
 
 ### #4: Reference Codes Are Not Automatically Decimals
 
-Suppose a filing system contains codes `12.05`, `12.1`, and `12.008` and says each segment after the period is a separate **integer subcode**. Then compare the first segments (all 12), followed by subcodes 5, 1, and 8. Under that rule, `12.1` comes first.
+Suppose a filing system contains codes `12.05`, `12.1`, and `12.008` and says each segment after the period is a separate **integer subcode**. Then compare the first segments (all $12$), followed by subcodes $5$, $1$, and $8$. Under that rule, `12.1` comes first.
 
 The same visible strings can therefore sort differently depending on whether they represent decimal quantities or segmented reference identifiers.
 

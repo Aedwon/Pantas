@@ -19,9 +19,9 @@ To turn a percentage into a decimal, divide by $100$. To turn a decimal into a p
 
 Use the Alphabet Rule to remember which way to move the decimal point. The letter **D** (Decimal) comes before **P** (Percent).
 
-> **D** to **P**: multiply by $100$, so the decimal point moves 2 places right.
+> **D** to **P**: multiply by $100$, so the decimal point moves $2$ places right.
 
-> **P** to **D**: divide by $100$, so the decimal point moves 2 places left.
+> **P** to **D**: divide by $100$, so the decimal point moves $2$ places left.
 
 The percent sign ($\%$) can remind you that percent means "per 100."
 
