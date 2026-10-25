@@ -1,0 +1,312 @@
+{
+ "batch": "RD-042",
+ "lesson_id": "lesson-text-types-visual-media",
+ "path": "content/lessons/reading-comprehension/text-types/visual-media.md",
+ "lesson_sha256": "c7f1b56cbc7d185b6035a620c935b03a39e41c91570f9860df54a40fce41c92d",
+ "rewrite_commit": "89b4a8fcd3a40e1e1a1486fb8960f5626567d760",
+ "form": {
+  "packet": "lesson-text-types-visual-media",
+  "role": "A",
+  "lesson_sha256": "c7f1b56cbc7d185b6035a620c935b03a39e41c91570f9860df54a40fce41c92d",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Bars begin at zero for totals; a line chart may start higher; the tallest bar is highest only when larger values run upward: standard chart-reading rules.",
+     "Pie chart facts (360 degrees, share equals angle over 360, larger sector for larger share) and the definitions of symbolism, caricature, exaggeration, analogy, juxtaposition and irony are accurate."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Ex1, Ex2, Ex3 are open readings of the figures; the stated messages fit the described pictures.",
+     "Ex4 ranking April 90, February 70, March 60, January 50; Ex5 85-80=5 and 81-80=1 but 85/81 about 1.05; Ex6 fell Tuesday to Wednesday, 65-50=15; Ex7 180/360 x 120 = 60; Ex8 27-18=9. All match my own work."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Comics, editorial cartoons, charts, graphs and tables are all covered; the comic (Ex1) and cartoon (Ex2) have placeholders, plus placeholders for every chart and table example.",
+     "No completed images are required before the figure stage."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The 'analytical purpose, interpretable, distortion' sentence is gone; the axis, scale and truncated-axis sentences use common words.",
+     "Terms such as symbolism, juxtaposition and irony are each defined in plain words with an example."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "'Interpret' is explained in one line in the first paragraph; 'rank' is explained inline ('rank the values from greatest to least')."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Counted analogies: the snail comparison inside the definition of 'analogy' illustrates a cartoon technique, not a teaching analogy; no analogy is used to teach."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Every example has a question stem, for example 'Which message is best supported by the full sequence?', 'Which month has the second-highest sales...' and 'How many were sent online?'.",
+     "Chart, cartoon and table data are supplied by the figure, which is the load-bearing exception for this lesson; solutions repeat the readings in plain words."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson does not mention any exam, so there is no repeated opener."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "English-only lesson with no Filipino text, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word in bold, so the rule cannot apply.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for stock AI phrases and 'citeturn' fragments: none remain.",
+     "Summary 'Read comics, cartoons, charts, and tables by checking their details, labels, order, and scales.' is varied; chart definition openings vary around the term."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Shown length equals value minus axis start and value ratio (Ex5), change equals later minus earlier (Ex6), share equals angle over 360 and part equals share times total (Ex7): each is stated in Core Concept first.",
+     "The table subtraction in Ex8 is plain subtraction and needs no formula."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped cases: comic sequence (Ex1), labeled cartoon (Ex2), irony and analogy (Ex3), bar ranking (Ex4), truncated axis (Ex5), line change with a nonzero axis (Ex6), pie sector (Ex7), table lookup (Ex8). The line-chart gap is closed.",
+     "Difficulty rises from reading values to computing a ratio, change and share; caricature, juxtaposition and exaggeration have no worked example but are short definitions, so this is not a required case."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eight solutions are numbered lists under 'Solution:'; Ex5 shows 85-80=5, 81-80=1 and 85/81 as display lines, as the brief asked.",
+     "Ex6 to Ex8 show their key arithmetic as display lines; no step is skipped."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display lines are short: subtractions, one ratio, and fractions such as 180 over 360; none runs wide."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences in every Core Concept, Reading Strategies and Traps paragraph: none exceeds three, including the bar and line chart text now split into short paragraphs.",
+     "No bullet lists, tables or links; tables are described in text."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Eight placeholders each give exact labels, axis ranges, values and layout (for example the Requests line chart with Monday to Thursday points).",
+     "The text of each example still states what is asked; the figure is the question, which is the stated exception."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Panel, symbolism, labels, exaggeration, caricature, analogy, juxtaposition, irony, legend, unit, axis, scale, bar, truncated axis, line chart, pie chart, sector and table are defined before use.",
+     "Analogy, juxtaposition, irony and exaggeration now have meanings, fixing the brief item."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Bar, line, pie and table reading each say what is shown and how to read it; the pie share formula and the rank, change and ratio steps explain how values are found.",
+     "The channels angle and area (pie) and color (legend) are now explained rather than only named."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Zero baseline for bar totals versus nonzero line axis; the tallest bar is highest only when larger values run upward; pie rules assume equal radii; color means nothing without a legend."
+    ],
+    "note": "No finding on this rule after checking the lesson text.",
+    "findings": []
+   }
+  },
+  "illustrations": [
+   {
+    "kind": "exact_exam_figure",
+    "method": "code",
+    "priority": "low",
+    "status": "insufficient",
+    "position_quote": "<!-- ILLUSTRATION: two bar charts comparing Brand A at 85 and Brand B at 81;",
+    "description": "One bar chart titled Brand Values: bars Brand A 85 and Brand B 81, vertical axis from 80 to 86 in steps of 1, bars drawn from 80, no value labels.",
+    "why": "The stem asks about 'the chart', but the placeholder draws two charts labeled 'Starts at 80' and 'Starts at zero', which gives the answer away before the learner reads the scale. One truncated chart matches the question; the zero-based chart can follow in the solution."
+   }
+  ],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-text-types-visual-media|L05|0": {
+    "status": "fixed",
+    "quote": "The comic shows a man building a sandcastle, admiring it, and then watching a wave wash it away. Which message is best supported by the full sequence?",
+    "note": "The comic example now has an exam-style question, and every other example has a question stem as well."
+   },
+   "lesson-text-types-visual-media|L18|0": {
+    "status": "fixed",
+    "quote": "A **line chart** places points on a scale and joins them to show change.",
+    "note": "Example 6 is a worked line-chart example with a fall, a change computation and a nonzero axis note."
+   },
+   "lesson-text-types-visual-media|L19|0": {
+    "status": "fixed",
+    "quote": "3. Brand A's value is only about $1.05$ times Brand B's.",
+    "note": "Example 5 is now a numbered solution with the visible lengths 85-80 and 81-80 and the 85 over 81 ratio as display lines."
+   },
+   "lesson-text-types-visual-media|B08|0": {
+    "status": "fixed",
+    "quote": "Read the bar tops as January $50$, February $70$, March $60$, and April $90$ thousand pesos.",
+    "note": "The sales figures in prose are wrapped in math delimiters."
+   },
+   "lesson-text-types-visual-media|B08|1": {
+    "status": "fixed",
+    "quote": "On the left chart, the visible lengths start at $80$.",
+    "note": "The axis start in Example 5 is wrapped in math delimiters."
+   },
+   "lesson-text-types-visual-media|B08|2": {
+    "status": "fixed",
+    "quote": "The visible lengths have a ratio of $5:1$.",
+    "note": "The ratio in Example 5 is wrapped in math delimiters."
+   },
+   "lesson-text-types-visual-media|L02|0": {
+    "status": "fixed",
+    "quote": "An **axis** is a reference line on a graph.",
+    "note": "The sentence with analytical, interpretable and distortion is gone; axis and scale are now explained in plain words."
+   },
+   "lesson-text-types-visual-media|L22a|0": {
+    "status": "fixed",
+    "quote": "A **bar chart** uses bar length to show an amount.",
+    "note": "The old four-sentence bar and line paragraph is now split into short paragraphs of three sentences or fewer."
+   },
+   "lesson-text-types-visual-media|L25|0": {
+    "status": "fixed",
+    "quote": "**Irony** shows a gap between what is said or expected and what happens.",
+    "note": "Analogy, juxtaposition, irony and exaggeration are each defined before they are used."
+   },
+   "lesson-text-types-visual-media|lead-add|0": {
+    "status": "fixed",
+    "quote": "Read the whole visual before deciding its message.",
+    "note": "Searched the whole lesson for 'cite' and 'turn' fragments; no stray citation text remains."
+   },
+   "reading-comprehension-text-types#83": {
+    "status": "fixed",
+    "quote": "Compare the values from greatest to least: April, February, March, January.",
+    "note": "Example 4 ranks four bar values and finds the second-highest."
+   },
+   "reading-comprehension-text-types#87": {
+    "status": "fixed",
+    "quote": "Requests increased by $15$ overall.",
+    "note": "Example 6 reads a plotted trend and computes a change from point values."
+   },
+   "reading-comprehension-text-types#88": {
+    "status": "fixed",
+    "quote": "The online sector covers $180^\\circ$ out of $360^\\circ$.",
+    "note": "Example 7 reads a pie sector from its angle and finds the part amount."
+   },
+   "reading-comprehension-text-types#90": {
+    "status": "fixed",
+    "quote": "Find row B. Its morning entry is $18$, and its afternoon entry is $27$.",
+    "note": "Example 8 and the table paragraph teach row and column reading and matching a statement to a table."
+   },
+   "lesson-text-types-visual-media|L01|0": {
+    "status": "fixed",
+    "quote": "First separate what you can see from what you conclude.",
+    "note": "Optional item: Core Concept now separates visible detail from conclusion, which supports the verbal versus visual distinction."
+   },
+   "lesson-text-types-visual-media|L03|0": {
+    "status": "fixed",
+    "quote": "To **interpret** a visual means to explain what its details show or suggest.",
+    "note": "Optional item: 'interpret' now has a one-line explanation on first use."
+   },
+   "lesson-text-types-visual-media|L18|1": {
+    "status": "not_fixed",
+    "quote": "**Exaggeration** makes a feature much larger or stronger than normal.",
+    "note": "Optional item: caricature, exaggeration and juxtaposition are defined but have no worked cartoon example; only labels, irony and analogy are applied."
+   },
+   "lesson-text-types-visual-media|L26|0": {
+    "status": "fixed",
+    "quote": "A **pie chart** divides a circle into sectors, or slices, showing parts of one whole.",
+    "note": "Optional item: angle and area are now taught in the pie chart passage and color is tied to the legend."
+   }
+  }
+ }
+}
