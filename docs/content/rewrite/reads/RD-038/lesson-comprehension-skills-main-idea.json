@@ -1,0 +1,265 @@
+{
+ "batch": "RD-038",
+ "lesson_id": "lesson-comprehension-skills-main-idea",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/main-idea.md",
+ "lesson_sha256": "1d39e13f5a28c91efa9b5c638e2bc792c351d327f7fbcc3a0a0766164bcbdd37",
+ "rewrite_commit": "8f19837bfb2d771eaf08930e15303e330305566f",
+ "form": {
+  "packet": "lesson-comprehension-skills-main-idea",
+  "role": "A",
+  "lesson_sha256": "1d39e13f5a28c91efa9b5c638e2bc792c351d327f7fbcc3a0a0766164bcbdd37",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the lesson's conceptual claims about main ideas, topics, supporting details, topic-sentence position, paragraph unity, and connecting words; none is factually wrong or unusually source-dependent."
+    ],
+    "note": "No hard-to-remember factual claim in the lesson appears incorrect or unsupported on its face.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Solved Examples 1 through 4 and 6 through 7 from their own question text and matched the stated answers; Example 5 is not independently solvable because its passage is omitted."
+    ],
+    "note": "All worked answers except Example 5 are independently checkable from their own questions.",
+    "findings": [
+     {
+      "quote": "The same passage is summarized as \"School activities are useful.\" Why is this not the best main idea?",
+      "problem": "This worked example cannot be solved from its question alone because it does not include the passage it refers to, so the stated reason that the summary is too broad depends on information supplied only in the previous example."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that the reading-comprehension structure includes Core Concept, Examples, Reading Strategies, and Traps to Watch For, and that no brief-required figure is missing."
+    ],
+    "note": "Required lesson structure and brief-requested content are present.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [
+     "Read the English teaching prose for sentence length and uncommon vocabulary; most was simple, but the trap example introduces an unexplained difficult word."
+    ],
+    "note": "Most prose is simple, but one trap sentence exceeds the intended vocabulary level.",
+    "findings": [
+     {
+      "quote": "\"Renewable energy can lower the use of fossil fuels but may require new infrastructure\" is a main idea.",
+      "problem": "The word \"infrastructure\" is uncommon for the required Grade 5 teaching voice and is not explained, making this trap explanation harder than the lesson standard allows."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson uses only everyday instructions such as read, identify, choose, and arrange; no exam-specific command word needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Core Concept and the rest of the lesson for tutor analogies; none is used."
+    ],
+    "note": "The lesson uses no analogy, so it stays within the one-analogy limit.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [
+     "Checked all seven example stems for a clear task and necessary passage-specific givens; Examples 1, 2, 3, 4, 6, and 7 are self-contained, while Example 5 depends on the previous example."
+    ],
+    "note": "The rewrite adds clear exam-style stems, but Example 5 still depends on prior context.",
+    "findings": [
+     {
+      "quote": "The same passage is summarized as \"School activities are useful.\" Why is this not the best main idea?",
+      "problem": "This question omits the school-garden passage needed to judge the summary's scope, so the example does not supply all problem-specific information within its own exam-style stem."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked for specific-exam claims or repetitive exam-name openers; the lesson makes none."
+    ],
+    "note": "There are no repeated or unsupported references to particular exams.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino teaching paragraphs and Example 6 and Example 7; sentences are short, common, and focused on one idea at a time."
+    ],
+    "note": "The Filipino reading instruction is simple and appropriate for the stated student level.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson does not introduce a hard Filipino grammar term that would require an English gloss.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino-focused worked examples: Example 6 and Example 7 have Filipino prompts, source text, and solutions."
+    ],
+    "note": "The Filipino worked material is consistently written in Filipino.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [
+     "The lesson contains Filipino teaching and examples, including forms such as paksa, pangunahing ideya, balangkas, dahil dito, and bukod dito."
+    ],
+    "note": "Official Komisyon sa Wikang Filipino spelling and usage cannot be confirmed from this packet alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino teaching paragraphs and worked examples for unnecessary English insertions; the prose remains in Filipino apart from formatting labels outside the teaching text."
+    ],
+    "note": "No Taglish appears in the Filipino teaching prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a specific target word or refers to a word that should be identified as bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary, sentence openings, and listed stock phrases; none of the banned AI phrases appears, and sentence rhythm varies."
+    ],
+    "note": "The lesson avoids the listed stock phrasing and uses a plain, varied summary.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked reading-comprehension section fit: Core Concept, Examples, Reading Strategies, and Traps to Watch For are used; the lesson contains no formulas."
+    ],
+    "note": "The lesson follows the allowed reading-comprehension section structure.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the worked cases: stated main idea, implied main idea, topic sentence at the end, too-narrow scope, too-broad scope, Filipino topic/main idea, and Filipino paragraph arrangement with outline production.",
+     "The examples move from direct main-idea recognition to implied meaning, position, scope judgments, and finally multi-part Filipino organization work; no required brief case is missing."
+    ],
+    "note": "Required distinct cases are covered without near-duplicate number-only variations.",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all seven worked solutions: every solution with two or more reasoning steps is written as a numbered list, and there are no calculations requiring display equations."
+    ],
+    "note": "Worked solutions use the required numbered-step format.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations, so phone-width equation formatting does not apply.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned prose paragraphs and solution text; paragraphs stay within one to three short sentences, and bullets appear only in the short outline."
+    ],
+    "note": "Paragraphs are short and the one bullet list is used sparingly.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the existing concept figure placeholder: it specifies a central idea with three supporting details and a semantics label, and the surrounding prose already teaches the concept without relying on the figure."
+    ],
+    "note": "The single concept figure is specific and non-load-bearing.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced main idea, topic, supporting detail, topic sentence, unity, paksa, pangunahing ideya, balangkas, and connecting-word relationships to explanations before they are used in methods or examples.",
+     "The strategy phrase \"Test the scope\" is immediately explained as covering important parts without being too narrow or too broad."
+    ],
+    "note": "Necessary terms are introduced with enough meaning before students need them.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that the lesson explains how to find stated and implied main ideas, how supporting details relate to the main idea, how paragraph unity works, and how Filipino connectors support arrangement."
+    ],
+    "note": "The concepts are explained as usable ideas, not merely named.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked stated limitations and exceptions: topic sentences may appear at the beginning, middle, or end; some paragraphs have no explicit topic sentence; paragraph order is not always time order; and main ideas must avoid both narrow and broad scope."
+    ],
+    "note": "The lesson states when its main rules apply and where common exceptions occur.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-main-idea|L18|0": {
+    "status": "fixed",
+    "quote": "The last sentence combines those actions into one main point. It is the topic sentence.",
+    "note": "Checked the added worked case: Example 3 places the topic sentence at the end, covering the missing non-initial position scenario."
+   },
+   "lesson-comprehension-skills-main-idea|L19|0": {
+    "status": "fixed",
+    "quote": "1. The first sentence gives one point that covers the whole paragraph.",
+    "note": "Checked the worked solutions throughout the rewrite; multi-step reasoning is now presented as numbered solution steps."
+   },
+   "lesson-comprehension-skills-main-idea|B08|0": {
+    "status": "fixed",
+    "quote": "A passage explains that a school garden gives students vegetables to study, a place to practice teamwork, and a quiet area for science activities.",
+    "note": "Checked the rewritten narrow-main-idea passage: the old prose reference to bare \"Example 1\" is gone, and the replacement contains no bare prose numeral."
+   },
+   "lesson-comprehension-skills-main-idea|L02|0": {
+    "status": "fixed",
+    "quote": "A sentence may give an example, explain a different side, connect ideas, or give a conclusion.",
+    "note": "Checked the formerly dense paragraph idea: the rewrite replaces abstract words such as qualifications and counterpoints with simpler wording."
+   },
+   "lesson-comprehension-skills-main-idea|L05|0": {
+    "status": "fixed",
+    "quote": "Read the paragraph. What is its main idea?",
+    "note": "Checked Example 1: it now includes a direct exam-style question asking the student to identify the main idea."
+   },
+   "lesson-comprehension-skills-main-idea|L05|1": {
+    "status": "fixed",
+    "quote": "Read the paragraph. What main idea is suggested by the details?",
+    "note": "Checked Example 2: it now includes a direct exam-style question for the implied main idea."
+   },
+   "reading-comprehension-comprehension-skills#73": {
+    "status": "fixed",
+    "quote": "Tumutulong ang mga salitang nag-uugnay tulad ng *halimbawa*, *bukod dito*, *ngunit*, *dahil dito*, at *kaya*. Ipinapakita nila kung ang susunod na ideya ay halimbawa, dagdag na detalye, salungat na ideya, o bunga.",
+    "note": "Checked the Filipino additions: the lesson teaches cohesive connectors and their logical roles, and Example 7 also requires a short balangkas."
+   },
+   "reading-comprehension-comprehension-skills#77": {
+    "status": "fixed",
+    "quote": "Paragraph order is about the flow of ideas, while event sequence is about what happened first, next, and last.",
+    "note": "Checked the added distinction and Example 7: the rewrite separates paragraph organization from chronology and asks for arrangement plus main-point recognition."
+   },
+   "lesson-comprehension-skills-main-idea|L18|1": {
+    "status": "not_fixed",
+    "quote": "\"The coach arrived early to set up equipment. She stayed late after games to review plays with the team. On weekends, she checked on the players' school work.\"",
+    "note": "Checked the implied-main-idea coverage: it still uses one short three-sentence passage, with no harder multi-paragraph or competing-emphasis case."
+   }
+  }
+ }
+}
