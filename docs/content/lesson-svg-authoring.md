@@ -97,7 +97,11 @@ font; font availability differs by platform. Keep a useful alt description.
 
 No filters (including blur/shadow), masks, raster images, scripts, event handlers,
 foreignObject, CSS, animation/SMIL, external references, entities or doctypes.
-Unknown attributes fail instead of silently disappearing. The checker lists the
+A `<use>` that draws itself, directly or through other elements, fails and the
+message names the ids in the cycle. File names under `content/illustrations` must
+follow the path rule above, with a lowercase `.svg` extension; a misnamed file
+fails with its path instead of being skipped. Unknown attributes fail instead of
+silently disappearing. The checker lists the
 accepted attributes in its source; keep exports simple presentation attributes.
 
 Run from the APP worktree, with no other Flutter command running:

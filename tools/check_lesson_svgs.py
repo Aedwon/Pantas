@@ -32,6 +32,11 @@ SPECIAL = {
     'title': {'id'}, 'desc': {'id'},
 }
 SVG_NS = 'http://www.w3.org/2000/svg'
+# The path rule for a lesson figure, relative to content/illustrations. The seed and
+# the content upload apply the same rule.
+FIGURE_PATH = re.compile(r'([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/(\d{2,})-[a-z0-9-]+\.svg')
+FIGURE_PATH_RULE = ('<subject>/<topic>/<lesson>/NN-slug.svg '
+                    '(lowercase letters, digits and hyphens; NN is two or more digits, 01 or more)')
 
 
 def validate(file):
@@ -70,6 +75,56 @@ def validate(file):
                     raise ValueError(f'external paint reference: {reference}')
             if name in ('fill', 'stroke', 'stop-color') and ('var(' in value.lower() or 'context-' in value.lower()):
                 raise ValueError(f'unsupported CSS color: {value}')
+    check_use_cycles(root)
+
+
+def check_use_cycles(root):
+    """Reject <use> elements that draw themselves, directly or through others.
+
+    An element with an id points at every id its subtree draws with <use>. A cycle
+    in those links would draw forever."""
+    links = {}
+    for element in root.iter():
+        element_id = element.attrib.get('id')
+        if element_id is None:
+            continue
+        targets = []
+        for inner in element.iter():
+            if inner.tag.removeprefix(f'{{{SVG_NS}}}') != 'use':
+                continue
+            href = inner.attrib.get('href') or inner.attrib.get('{http://www.w3.org/1999/xlink}href', '')
+            targets.append(href.strip().removeprefix('#'))
+        links[element_id] = targets
+    finished = set()
+
+    def visit(element_id, path):
+        if element_id in path:
+            cycle = path[path.index(element_id):] + [element_id]
+            raise ValueError(f'<use> cycle: {" -> ".join(cycle)}')
+        if element_id in finished or element_id not in links:
+            return
+        for target in links[element_id]:
+            visit(target, path + [element_id])
+        finished.add(element_id)
+
+    for element_id in links:
+        visit(element_id, [])
+
+
+def check_name(file):
+    """Check a file under content/illustrations against the path rule.
+
+    Files outside that folder, such as the test fixtures, have no name rule."""
+    parts = file.resolve().parts
+    for index in range(len(parts) - 1):
+        if parts[index] == 'content' and parts[index + 1] == 'illustrations':
+            relative = '/'.join(parts[index + 2:])
+            match = FIGURE_PATH.fullmatch(relative)
+            if not match:
+                raise ValueError(f'file name does not match {FIGURE_PATH_RULE}')
+            if int(match[4]) < 1:
+                raise ValueError(f'sequence must be 1 or more, as in {FIGURE_PATH_RULE}')
+            return
 
 
 def main():
@@ -81,10 +136,11 @@ def main():
     if not root.exists():
         print(f'{root}: missing SVG root', file=sys.stderr)
         return 1
-    files = sorted(root.rglob('*.svg')) if root.is_dir() else [root]
+    files = sorted(file for file in root.rglob('*') if file.suffix.lower() == '.svg') if root.is_dir() else [root]
     errors = 0
     for file in files:
         try:
+            check_name(file)
             validate(file)
         except (ValueError, OSError) as error:
             print(f'{file}: {error}', file=sys.stderr)
