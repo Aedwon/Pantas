@@ -1,0 +1,233 @@
+{
+ "batch": "RD-025",
+ "lesson_id": "lesson-arithmetic-number-sense-ratio-and-proportion",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/ratio-and-proportion.md",
+ "lesson_sha256": "b525a87fb90ffa097c9ccec4e867c1c1983f02d96b29469388411ac11a173498",
+ "rewrite_commit": "89efa84d6bd3a15bed09eb6df3c14c200390ec91",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-ratio-and-proportion",
+  "role": "A",
+  "lesson_sha256": "b525a87fb90ffa097c9ccec4e867c1c1983f02d96b29469388411ac11a173498",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the definitions and conditions for ratio, direct proportion, inverse proportion, partitive proportion, cross-multiplication, and distance-rate-time; each statement is mathematically correct.",
+     "Checked the worker-time and person-day statements against the stated equal-rate and fixed-job assumptions; the relationships are correct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved Example 1 independently: 4/24 = x/84 gives x = 14 cups.",
+     "Solved Example 2 independently: 6×15 = 9x gives x = 10 days.",
+     "Solved Example 3 independently: 2+3+5 = 10 parts, so 5/10 of Php 120,000 is Php 60,000.",
+     "Solved Example 4 independently: the 3-part difference is 21 m, so one part is 7 m and 11 parts total 77 m.",
+     "Solved Example 5 independently: 40 people for 20 remaining days gives 800 person-days; 800/30 = 26 2/3 days.",
+     "Solved Example 6 independently: 240 km ÷ 80 km/h = 3 hours."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the required mathematics sections and the brief's added distance/rate/time facet; Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, with a natural memory aid section.",
+     "The brief lists no required figure, and no example depends on a missing figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching prose for sentence length and vocabulary; specialized terms such as ratio, proportion, rate, constant, and person-day are defined or explained in plain language before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in this lesson.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Counted analogies in Core Concept and the rest of the lesson; there are no tutor analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all six example stems for sufficient problem-specific givens without giving away a tested formula or method.",
+     "Checked each worked solution for simple language and an exam-like progression from direct proportion through the mid-problem inverse case and distance/rate/time."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked exam references and motivational phrasing; the lesson makes no repetitive or unsupported specific-exam claims."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears because the lesson is written in English.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino-language examples or quiz items to evaluate under this rule.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling rules do not apply.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English, so the Filipino-teaching-prose Taglish restriction does not apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary, listed stock-AI phrases, and sentence openings; the summary is plain, no banned stock phrase appears, and sentence openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1 uses equal-ratio setup and cross-multiplication, introduced in Core Concept as A/B = C/D and AD = BC.",
+     "Examples 2 and 5 use the inverse-product relationship, introduced in Core Concept as xy = k.",
+     "Examples 3 and 4 use partitive ratio-parts, explained in Core Concept before the examples; no new general formula is introduced in those solutions.",
+     "Example 6 uses d = rt, introduced in the Distance, Rate, and Time subsection of Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the worked cases: basic direct proportion, basic inverse worker-time proportion, basic partitive sharing, partitive sharing from a given difference, a mid-problem inverse change, and distance/rate/time.",
+     "The examples progress from basic setup to multi-stage applications and do not repeat the same reasoning with only changed numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked every multi-step solution: each uses numbered steps and places its key ratio, product, division, or distance-rate-time computation on display lines."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked every display equation in the six examples; each is short enough for a phone-width lesson view."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned prose paragraphs and the shortcut list; paragraphs stay within one to three short sentences and bullets are limited to one short list."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The brief requires no figure, no example depends on a figure, and the lesson contains no illustration placeholder to review.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Checked necessary terms and symbols before use: ratio, proportion, direct/inverse/partitive proportion, k as a constant, cross-multiplication conditions, rate, d/r/t, and person-day are all explained before students rely on them.",
+     "The person-day definition appears in the same step before the first person-day computation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that direct proportion is explained by constant ratio, inverse proportion by constant product, partitive proportion by ratio-parts, cross-multiplication by equal ratios, and distance/rate/time by d = rt with proportional relationships."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked applicability limits: denominators for equal ratios are nonzero, cross-multiplication follows equal ratios in the same order, inverse quantities are nonzero, rate/time units must match, and the worker-time shortcut states its fixed-job, equal-rate, shareable-work conditions."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-ratio-and-proportion|L02|0": {
+    "status": "fixed",
+    "quote": "When $k>0$, making one quantity larger makes the other smaller. For example, if one quantity doubles, the other is cut in half.",
+    "note": "Checked the inverse-proportion explanation; the unexplained word reciprocal is gone and the relationship is stated in plain language."
+   },
+   "lesson-arithmetic-number-sense-ratio-and-proportion|L17|0": {
+    "status": "fixed",
+    "quote": "When two ratios are equal, you can cross-multiply. For nonzero $B$ and $D$:",
+    "note": "Checked that cross-multiplication is now taught in Core Concept before Example 1 uses it."
+   },
+   "lesson-arithmetic-number-sense-ratio-and-proportion|L25|0": {
+    "status": "fixed",
+    "quote": "When $k>0$, making one quantity larger makes the other smaller. For example, if one quantity doubles, the other is cut in half.",
+    "note": "Checked the former reciprocal-term gap; the lesson now explains inverse change without relying on that undefined term."
+   },
+   "lesson-arithmetic-number-sense-ratio-and-proportion|L25|1": {
+    "status": "fixed",
+    "quote": "One **person-day** means enough food for $1$ person for $1$ day.",
+    "note": "Checked Example 5; person-day is defined immediately before the first person-day computation."
+   },
+   "mathematics-arithmetic-number-sense#60": {
+    "status": "fixed",
+    "quote": "Distance, rate, and time are connected by:",
+    "note": "Checked the added CSE facet; Core Concept teaches d = rt and Example 6 applies it to a distance-rate-time problem."
+   }
+  }
+ }
+}

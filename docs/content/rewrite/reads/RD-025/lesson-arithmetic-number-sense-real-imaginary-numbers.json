@@ -1,0 +1,282 @@
+{
+ "batch": "RD-025",
+ "lesson_id": "lesson-arithmetic-number-sense-real-imaginary-numbers",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+ "lesson_sha256": "ba36cb729e7d8b7e477ef388ed1ed1aeb1995a060a486a9eec28dcef66fc29ee",
+ "rewrite_commit": "89efa84d6bd3a15bed09eb6df3c14c200390ec91",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-real-imaginary-numbers",
+  "role": "A",
+  "lesson_sha256": "ba36cb729e7d8b7e477ef388ed1ed1aeb1995a060a486a9eec28dcef66fc29ee",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the number-set definitions, the natural-number convention note, rational/irrational decimal descriptions, i^2 = -1, complex-number form, power cycle, conjugate identity, and division conditions; the mathematical claims are correct.",
+     "Checked the negative-square-root trap: the product rule is limited to nonnegative real inputs before the lesson rewrites negative square roots using i."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved Example 1 independently: under the stated convention, zero is not natural, so choice B is the false statement.",
+     "Solved Example 2 independently: 143 leaves remainder 3 and 2024 leaves remainder 0 on division by 4, so the result is 1 - i.",
+     "Solved Example 3 independently: (3-4i)(2+5i) = 26+7i.",
+     "Solved Example 4 independently: multiplying by 1+i gives (-1+5i)/2 = -1/2 + (5/2)i."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the mathematics section structure and the brief's required fixes: number sets, powers of i, multiplication, conjugates/division, examples, shortcuts, and traps are all present.",
+     "The nested number-set figure placeholder is present, and no worked example requires a missing figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "To multiply complex numbers, multiply each term as you would with two binomials. Then replace every $i^2$ with $-1$ and combine the real terms and the $i$ terms.",
+      "problem": "The teaching uses the advanced word “binomials” without explaining it. That breaks the very-simple Grade 5 prose requirement even though the rest of the multiplication method is plain."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the first exam-specific instruction words: “Evaluate” is glossed immediately before Example 2, and “Express” is glossed immediately before Example 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Counted analogies throughout the lesson; there are no tutor analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all four example stems for sufficient givens and authentic mathematical wording; none supplies a tested formula or method in the question itself.",
+     "Checked the solutions for simple language and complete steps from classification through powers, multiplication, and division."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked exam references and motivational wording; there are no repetitive or unsupported claims about a specific exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson, not a Filipino-language grammar, vocabulary, or reading lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears because the lesson is written in English.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino-language examples or quiz items to evaluate under this rule.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling rules do not apply.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English, so the Filipino-teaching-prose Taglish restriction does not apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary, listed stock-AI phrases, and sentence openings; the summary is plain, no banned stock phrase appears, and the prose rhythm varies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Example 2 uses the four-power cycle i, -1, -i, 1, which Core Concept introduces before the example.",
+     "Example 3 uses complex multiplication and i^2 = -1; Core Concept introduces both the expansion pattern and i^2 = -1 first.",
+     "Example 4 uses conjugation and complex division; Core Concept first defines the conjugate, gives (a+bi)(a-bi)=a^2+b^2, and shows the conjugate-division setup."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the worked cases to the lesson: number-set classification, a large power of i, complex multiplication, and complex division.",
+     "The examples move from classification to progressively more involved complex-number operations without near-duplicate reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked every multi-step solution: all steps are numbered, and the power-cycle, multiplication, and division computations that drive the answers are displayed on separate equation lines."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the example display equations, including the conjugate products and final quotient; each is short enough for a phone-width view."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A **complex number** has the form $a+bi$, where $a$ and $b$ are real numbers. The number $a$ is the **real part**, and $b$ is the **imaginary part**. If $b=0$, the number is real. If $a=0$ and $b\\ne0$, it is purely imaginary.",
+      "problem": "This paragraph has four sentences. The formatting rule limits lesson paragraphs to one to three short sentences."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the nested-boxes placeholder: it specifies the labeled sets and nesting clearly enough to draw, and the surrounding prose independently teaches the number-set relationships."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "To multiply complex numbers, multiply each term as you would with two binomials. Then replace every $i^2$ with $-1$ and combine the real terms and the $i$ terms.",
+      "problem": "The method depends on the unexplained term “binomials.” A student needs that meaning before this sentence can serve as the promised multiplication teaching."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the concepts central to the lesson: each number set is defined, the power cycle explains how large powers work, complex multiplication gives the multiply-replace-combine method, and complex division explains why a conjugate makes the denominator real."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the stated conditions and exceptions: q is nonzero for rational form, the natural-number convention is explicit, the large-power shortcut is for positive exponents, the complex divisor must be nonzero, and the square-root product rule is limited to nonnegative real inputs."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L17|1": {
+    "status": "fixed",
+    "quote": "A complex number times its conjugate becomes real:",
+    "note": "Checked Core Concept; the conjugate identity and division setup now appear before Example 4 uses them."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L26|0": {
+    "status": "fixed",
+    "quote": "To multiply complex numbers, multiply each term as you would with two binomials.",
+    "note": "Checked that complex multiplication now has a Core Concept method before Example 3, even though “binomials” creates a separate readability/term finding."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L26|1": {
+    "status": "fixed",
+    "quote": "To divide by a nonzero complex number $c+di$, multiply the numerator and denominator by its conjugate $c-di$:",
+    "note": "Checked Core Concept; the conjugate division method is explained before the worked division example."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L02|0": {
+    "status": "fixed",
+    "quote": "For a large positive exponent, divide the exponent by $4$ and use the remainder to find its place in the cycle.",
+    "note": "Checked the former modulo wording; it is replaced by plain divide-by-4 and remainder language."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L02|1": {
+    "status": "fixed",
+    "quote": "For nonnegative real numbers $a$ and $b$, the rule $\\sqrt{a}\\sqrt{b}=\\sqrt{ab}$ works. When negative numbers appear, rewrite them with $i$ first.",
+    "note": "Checked the negative-root teaching; the rare word radicands is gone and the condition is stated in simpler sentences."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L03|0": {
+    "status": "fixed",
+    "quote": "\"Evaluate\" means find the final number answer.",
+    "note": "Checked Example 2; Evaluate is explained in one line immediately before its first use."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L17|0": {
+    "status": "fixed",
+    "quote": "The powers of $i$ repeat every $4$ powers:",
+    "note": "Checked that the full four-power cycle now appears in Core Concept before Example 2."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L25|0": {
+    "status": "fixed",
+    "quote": "For a large positive exponent, divide the exponent by $4$ and use the remainder to find its place in the cycle.",
+    "note": "Checked the former modulo term gap; the method now uses and explains the remainder directly."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L25|1": {
+    "status": "fixed",
+    "quote": "The **conjugate** of $a+bi$ is $a-bi$. The real part stays the same, while the sign of the $i$ term changes.",
+    "note": "Checked that conjugate is defined and its sign-change meaning is taught before the division method uses it."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L03|1": {
+    "status": "fixed",
+    "quote": "\"Express\" means write an equivalent answer in the form asked for.",
+    "note": "Checked the optional item; Express now has a one-line meaning before the Example 4 prompt."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L19|0": {
+    "status": "fixed",
+    "quote": "$$143=4(35)+3$$",
+    "note": "Checked the first remainder computation; it is now shown on its own display-equation line."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L19|1": {
+    "status": "fixed",
+    "quote": "$$2024=4(506)$$",
+    "note": "Checked the second remainder computation; it is now shown on its own display-equation line."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L27|0": {
+    "status": "fixed",
+    "quote": "The divisor must not be $0$.",
+    "note": "Checked the optional division limitation; Core Concept now states that the complex divisor must be nonzero."
+   }
+  }
+ }
+}
