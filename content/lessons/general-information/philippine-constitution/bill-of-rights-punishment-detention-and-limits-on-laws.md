@@ -14,57 +14,67 @@ isActive: true
 
 Article III, Section $18$ bars detention solely because of political beliefs or aspirations. A person cannot be jailed just for supporting an unpopular political idea. This does not excuse a separate crime.
 
-The section also bans **involuntary servitude**, which means forced work or service against a person's will. It allows an exception when the service is punishment for a crime after due conviction. An accusation alone is not a conviction.
+The section also bans **involuntary servitude**, forced work or service against a person's will. It allows an exception when the service is punishment for a crime after due conviction. An accusation alone is not a conviction.
 
 ### Fines and Punishment
 
 Section $19$ forbids excessive fines and cruel, degrading, or inhuman punishment. **Degrading punishment** attacks a person's dignity. A lawful conviction does not give officials permission to abuse a prisoner.
 
-The Constitution also requires laws to address physical, psychological, or degrading punishment of prisoners or detainees. It requires laws to address prison facilities kept in subhuman conditions. Basic human dignity still applies in detention.
+The Constitution requires laws to address physical, psychological, or degrading punishment of prisoners or detainees. It also requires laws to address prison facilities kept in subhuman conditions. Basic human dignity still applies in detention.
 
-The constitutional text generally bars the death penalty but allows Congress to provide for it for compelling reasons involving heinous crimes. **Heinous** means extremely wicked or shocking. The constitutional wording and the law now in force must be kept separate.
+The constitutional text generally bars the death penalty. It allows Congress to provide for it for compelling reasons involving heinous crimes. **Heinous** means extremely wicked or shocking.
 
-Republic Act No. $9346$ prohibits imposing the death penalty. In its place, the Act provides reclusion perpetua when the violated law uses Revised Penal Code penalty names. It provides life imprisonment when the violated law does not use those names.
+Keep that constitutional wording separate from the law now in force. Republic Act No. $9346$ prohibits imposing the death penalty. It provides replacement penalties instead.
 
-Both are severe prison penalties, but they are not interchangeable legal names. The Act also bars parole for those convicted of offenses punished with reclusion perpetua, or reduced to it, by reason of the Act. **Parole** is conditional release after serving part of a sentence.
+The replacement is **reclusion perpetua** when the violated law uses Revised Penal Code penalty names. It is **life imprisonment** when the violated law does not use those names. Both are severe prison penalties, but their legal names are not interchangeable.
+
+The Act also bars parole for people whose offenses are punished with reclusion perpetua, or whose sentences are reduced to it, by reason of the Act. **Parole** is conditional release after serving part of a sentence.
 
 ### Debt and Poll Tax
 
-Section $20$ bars imprisonment for debt or non-payment of a poll tax. A **poll tax** charges a fixed amount per person, rather than an amount based on income or property.
+Section $20$ bars imprisonment for debt or non-payment of a poll tax. A **poll tax** charges a fixed amount per person. It is not based on income or property.
 
 The rule protects against jail for the unpaid obligation itself. It does not cancel a valid debt. A separate criminal act, such as fraud, raises a different issue from simple failure to pay.
 
 ### Double Jeopardy
 
-Section $21$ protects against **double jeopardy**, being placed at risk of punishment again for the same offense after a protected end to the first criminal case. It does not mean that any earlier accusation blocks every later case.
+Section $21$ protects against **double jeopardy**, being put at risk of punishment again for the same offense after a protected end to the first criminal case. An earlier accusation does not always block a later case. Check how the first case began and ended.
 
-For the general rule, the first case must have a valid formal charge before a court with legal authority to hear it. The accused must have been arraigned and entered a valid plea. **Arraignment** is the formal reading of the charge, when the accused answers with a plea, such as guilty or not guilty.
+The first case must have a valid formal charge before a court with legal authority to hear it. The accused must have been arraigned and entered a valid plea. **Arraignment** is the formal reading of the charge, when the accused answers with a plea, such as guilty or not guilty.
 
-The first case must then end in conviction, acquittal, or dismissal or termination without the accused's express consent. **Acquittal** means a judgment that the accused is not guilty. Filing a complaint alone does not meet these conditions.
+That case must then end in conviction, acquittal, or dismissal or termination without the accused's express consent. **Acquittal** means a judgment that the accused is not guilty. Filing a complaint alone does not meet these conditions.
 
-The protection generally bars another prosecution for the same offense. It also covers an attempt, a frustrated form of the offense, or an offense that necessarily includes or is included in the first charge. A frustrated offense is one where the offender performs all acts needed to commit it, but the intended crime fails for a cause outside the offender's will.
+The protection generally bars another prosecution for the same offense. It also covers an attempt or frustrated form of that offense. An **attempt** means the person starts acts directly aimed at a crime but does not complete all the acts needed, for a reason other than freely stopping.
 
-There are legal exceptions to these general rules. For example, a graver offense may later develop from the same act, such as when an injured victim later dies. A dismissal requested by the accused generally does not bar another case, though dismissal for insufficient evidence or a violation of the right to speedy trial can raise exceptions.
+In a **frustrated offense**, the person performs all the acts needed to cause the crime. The intended result still fails for a reason outside that person's will. The legal requirements of the particular crime determine whether these forms apply.
 
-Section $21$ also has a special rule for an act punished by both a national law and a local ordinance. A conviction or acquittal under either one bars another prosecution under the other for that same act. Here, the Constitution expressly refers to the same act.
+The rule also covers an offense that necessarily includes, or is included in, the first charge. An **included offense** has required parts that are all contained in the larger offense as charged. The larger offense requires an added part.
+
+For example, homicide involves an unlawful killing. Murder involves an unlawful killing plus a qualifying circumstance, such as treachery. **Treachery** involves a method of attack that prevents the victim from defending against it and protects the attacker from that defense.
+
+Homicide is included in a murder charge that alleges the required facts. After a valid acquittal of that murder charge, the State generally cannot try the person for homicide for the same killing. Changing the charge's name does not avoid the protection.
+
+Legal exceptions still matter. A graver offense may develop later from the same act, such as when an injured victim later dies. A dismissal requested by the accused generally does not bar another case, though dismissal for insufficient evidence or denial of a speedy trial can raise exceptions.
+
+Section $21$ gives a special rule for an act punished by both a national law and a local ordinance. Conviction or acquittal under either bars another prosecution under the other for the same act. Here, the Constitution expressly refers to the same act.
 
 ### Ex Post Facto Laws
 
-An **ex post facto law** is a penal law applied backward in a way that harms the accused. It may make an earlier lawful act a crime or increase the punishment after an offense was committed. It may also wrongly reduce the proof needed for conviction or remove a legal defense available when the act was done.
+**Penal** means relating to crimes and punishment. An **ex post facto law** is a penal law applied backward in a way that harms the accused. It may make an earlier lawful act a crime or increase punishment after an offense was committed.
 
-**Penal** means relating to crimes and punishment. A later rule is not ex post facto just because it affects an earlier event. Look for a harmful backward change in criminal consequences or protections.
+It may also reduce the proof needed for conviction or remove a legal defense available when the act was done. A later rule is not ex post facto just because it concerns an earlier event. Look for a harmful backward change in criminal consequences or protections.
 
 ### Bills of Attainder
 
-A **bill of attainder** is a law that punishes a named or clearly identified person or group without a judicial trial. The legislature imposes punishment itself instead of leaving guilt and punishment to a court.
+A **bill of attainder** is a law that punishes a named or clearly identified person or group without a judicial trial. The legislature imposes punishment itself. It does not leave guilt and punishment to a court.
 
 Section $22$ bans both bills of attainder and ex post facto laws. A general law defining an offense and requiring a court trial is not automatically a bill of attainder.
 
 ### Analyzing and Addressing Rights Violations
 
-To **analyze** a claim means to study its parts and explain how the facts fit a rule. First identify who acted and what happened. Then identify the right, its conditions, and any stated exception.
+To **analyze** a claim means to study its parts and explain how the facts fit a rule. First identify who acted and what happened. Then check the right, its conditions, and any stated exception.
 
-Use available evidence, such as records, witness accounts, or medical findings. An accusation must be checked. Do not treat a label alone as proof.
+Use available evidence, such as records, witness accounts, or medical findings. An accusation must be checked. A label alone is not proof.
 
 Violations can harm more than the person directly affected. Unlawful detention may stop a person from working or caring for family. Abuse can cause injury, fear, and loss of trust in public offices.
 
@@ -72,7 +82,7 @@ Protection depends on the facts. A person may seek a lawyer or legal aid and ask
 
 The Commission on Human Rights may investigate civil and political rights violations. It may provide protective legal measures and legal aid to underprivileged people who need human-rights protection. An investigation is not itself a criminal conviction.
 
-A **quasi-judicial body** is an agency outside the courts that hears facts and decides certain disputes. Choosing a court, agency, or complaint process depends on its legal powers. Not every office can grant every remedy.
+A **quasi-judicial body** is an agency outside the courts that hears facts and decides certain disputes. The proper court, agency, or complaint process depends on its legal powers. Not every office can grant every remedy.
 
 ## Examples
 
@@ -108,7 +118,7 @@ A fine is challenged as grossly excessive in relation to an offense. Which const
 
 ### #4: The Death Penalty and Current Law
 
-A question asks whether Republic Act No. $9346$ permits a court to impose death as punishment. What is the answer?
+Does Republic Act No. $9346$ permit a court to impose death as punishment?
 
 **Solution:**
 
@@ -122,21 +132,21 @@ A citizen is threatened with jail solely for failing to pay a personal debt. Doe
 
 1. Section $20$ bars imprisonment for debt.
 2. The stated threat concerns only non-payment.
-3. The person cannot be imprisoned solely for that debt, though the debt may remain payable.
+3. The person cannot be imprisoned solely for that debt, though it may remain payable.
 
 ### #6: A Second Trial for the Same Offense
 
-An accused faced a valid charge in a court with authority to hear it. After arraignment and a valid not-guilty plea, the court acquitted the accused. Prosecutors then seek another trial for exactly the same offense on the same facts. Which protection applies?
+An accused faced a valid charge in a court with authority to hear it. After arraignment and a valid not-guilty plea, the court acquitted the accused. Prosecutors seek another trial for exactly the same offense on the same facts. Which protection applies?
 
 **Solution:**
 
 1. The first case had a valid charge, proper court, arraignment, and valid plea.
 2. It ended in acquittal.
-3. A second prosecution for the same offense is barred by double jeopardy under these facts.
+3. Double jeopardy bars the second prosecution under these facts.
 
 ### #7: A Complaint Without a Plea
 
-A complaint was filed, but the accused was never arraigned and entered no plea. Does the filing alone establish the general double-jeopardy protection?
+A complaint was filed, but the accused was never arraigned and entered no plea. Does filing alone establish the general double-jeopardy protection?
 
 **Solution:**
 
@@ -144,7 +154,17 @@ A complaint was filed, but the accused was never arraigned and entered no plea. 
 2. Arraignment and a valid plea are among its conditions.
 3. Filing alone does not establish the protection.
 
-### #8: One Act Under a Law and an Ordinance
+### #8: An Included Offense
+
+After a valid murder charge, arraignment, and a not-guilty plea in a proper court, an accused is acquitted. Prosecutors then seek a homicide trial for the same killing. Homicide's required parts were included in the murder charge. Does using the lesser charge avoid double jeopardy?
+
+**Solution:**
+
+1. The first case met the conditions for double jeopardy and ended in acquittal.
+2. Homicide was included in the murder charge.
+3. A new name for an included offense does not avoid the bar. The second trial is barred under these facts.
+
+### #9: One Act Under a Law and an Ordinance
 
 A person is acquitted under a national law. A local ordinance punishes the same act. May another prosecution proceed under the ordinance for that act?
 
@@ -154,7 +174,7 @@ A person is acquitted under a national law. A local ordinance punishes the same 
 2. Acquittal under either bars prosecution under the other for the same act.
 3. The second prosecution is barred.
 
-### #9: A Harsher Penalty Applied Backward
+### #10: A Harsher Penalty Applied Backward
 
 After an offense is committed, a new penal law increases its punishment. Officials apply that increase to the earlier offense. Which limit applies?
 
@@ -164,7 +184,7 @@ After an offense is committed, a new penal law increases its punishment. Officia
 2. That change harms the accused for an earlier act.
 3. It is prohibited as an ex post facto law.
 
-### #10: An Earlier Lawful Act
+### #11: An Earlier Lawful Act
 
 A law makes certain conduct criminal and orders punishment of people who did it before the law existed, when it was lawful. Which prohibition applies?
 
@@ -174,7 +194,7 @@ A law makes certain conduct criminal and orders punishment of people who did it 
 2. That is a harmful backward penal change.
 3. The ex post facto prohibition applies.
 
-### #11: Legislative Punishment
+### #12: Legislative Punishment
 
 Congress passes a law identifying a group and directly imposing punishment on it without a court trial. Which constitutional limit is involved?
 
@@ -184,7 +204,7 @@ Congress passes a law identifying a group and directly imposing punishment on it
 2. It imposes punishment without a judicial trial.
 3. It fits the meaning of a bill of attainder, which Section $22$ bans.
 
-### #12: Evidence of Abuse
+### #13: Evidence of Abuse
 
 A detainee reports degrading physical punishment by officers. What should be checked when analyzing the claim?
 
@@ -195,17 +215,17 @@ A detainee reports degrading physical punishment by officers. What should be che
 3. Check who was responsible and what legal process can address the conduct.
 4. The report raises a rights issue, but the facts still need investigation.
 
-### #13: Effects on a Family
+### #14: Effects on a Family
 
 A worker is unlawfully detained for political beliefs alone. The worker misses paid work, and the family cannot meet daily expenses. Explain one direct effect and one family effect shown by these facts.
 
 **Solution:**
 
 1. The direct effect is loss of the worker's liberty through unlawful detention.
-2. The missed work also harms the family's income and ability to meet daily needs.
-3. These facts show how a violation can affect both the detained person and others.
+2. The missed work harms the family's income and ability to meet daily needs.
+3. The violation affects both the detained person and others.
 
-### #14: Seeking Protection
+### #15: Seeking Protection
 
 A family wants a court to examine the legal basis for a relative's detention. Which court remedy should it discuss with a lawyer?
 
@@ -213,7 +233,7 @@ A family wants a court to examine the legal basis for a relative's detention. Wh
 
 1. The issue is whether the detention has a lawful basis.
 2. A lawyer can assess a petition for a writ of habeas corpus.
-3. The court, not the family or an investigating office, decides whether relief is proper.
+3. The court decides whether relief is proper.
 
 ## Traps to Watch For
 
@@ -235,13 +255,19 @@ A valid debt may be enforced through lawful remedies that do not imprison the de
 
 Double jeopardy has conditions. A filed complaint without arraignment and a valid plea does not meet them.
 
-### #4: Retroactive Does Not Always Mean Ex Post Facto
+### #4: Different Names May Cover an Included Offense
+
+> Compare the required parts of the charges, not just their names.
+
+A charge may include all the required parts of a lesser offense. A second trial for that included offense can still be barred.
+
+### #5: Retroactive Does Not Always Mean Ex Post Facto
 
 > Look for a harmful backward penal change.
 
-A law concerning an earlier event is not automatically prohibited. The rule concerns criminal consequences and protections.
+A law concerning an earlier event is not automatically prohibited. Check the change in criminal consequences or protections.
 
-### #5: A Complaint Office Is Not a Trial Court
+### #6: A Complaint Office Is Not a Trial Court
 
 > Investigation and punishment are different powers.
 

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-philippine-constitution-accountability-and-impeachment"
 title: "Article XI: Accountability of Public Officers and Impeachment"
-summary: "Learn who may be impeached, what the grounds mean, how impeachment works, and how the Ombudsman helps protect public trust."
+summary: "Learn who may be impeached, what the grounds mean, how impeachment works, and how the Ombudsman protects public trust."
 subject: "subject-general-information"
 topic: "topic-philippine-constitution"
 estimatedMinutes: 15
@@ -12,11 +12,11 @@ isActive: true
 
 Article XI, Section $1$ says that public office is a public trust. Public officers and employees must answer to the people. They must do their work honestly, responsibly, and well.
 
-They must be loyal to the country and act fairly. They must also lead modest lives, without using public office to support a lavish way of life.
+They must be loyal to the country and act fairly. They must also lead modest lives. Public office must not be used to support a lavish way of life.
 
 ### Who May Be Impeached
 
-**Impeachment** is the constitutional process for charging certain high officers and trying whether they should be removed. An impeachment charge is not a conviction.
+**Impeachment** is the constitutional process for charging certain high officers and trying whether they should be removed. A charge is not a conviction, which is a decision finding the officer guilty.
 
 Article XI, Section $2$ lists the officers covered:
 
@@ -25,7 +25,7 @@ Article XI, Section $2$ lists the officers covered:
 - Members of the Constitutional Commissions: the Civil Service Commission, Commission on Elections, and Commission on Audit
 - The Ombudsman
 
-Other public officers may be removed as provided by law, but not by impeachment. A Cabinet Secretary or trial court judge is not on this list.
+Other public officers may be removed as provided by law, but not by impeachment. Cabinet Secretaries and trial court judges are not on this list.
 
 ### Grounds for Impeachment
 
@@ -35,33 +35,33 @@ Section $2$ names six grounds. **Culpable violation of the Constitution** means 
 
 **Bribery** involves an improper payment, gift, or benefit linked to an official act. An officer who accepts money in exchange for an official favor may face this accusation.
 
-**Graft and corruption** involve misuse of public office for an improper benefit. An officer who uses public power to give a favored company an unlawful advantage may raise this issue. The exact facts and the law still matter.
+**Graft and corruption** involve misuse of public office for an improper benefit. Using public power to give a favored company an unlawful advantage may raise this issue. The exact facts and the law still matter.
 
-**Other high crimes** is a broad ground for grave wrongdoing. The Constitution gives no complete list of offenses under this phrase. Do not assume that any crime, however minor, automatically qualifies.
+**Other high crimes** is a broad ground for grave wrongdoing. The Constitution gives no complete list of offenses under this phrase. A minor crime does not automatically qualify.
 
-**Betrayal of public trust** concerns serious conduct that breaks the trust placed in a high officer. It may include serious abuse, neglect, or favoritism that makes the officer unfit to remain in office. It is not limited to conduct already punished as a crime.
+**Betrayal of public trust** concerns serious conduct that breaks the trust placed in a high officer. It may include serious abuse, neglect, or favoritism that makes the officer unfit to remain in office. It is not limited to acts already punished as crimes.
 
-The broad grounds require judgment in the impeachment process. A conduct example may raise more than one ground. Matching an accusation to the list does not prove the facts, legal sufficiency, guilt, or need for removal.
+A conduct example may raise more than one ground. Finding a ground on the list only shows that the ground is allowed. The House and Senate must still address the facts and decide the case through the proper process.
 
 ### House Charge and Senate Trial
 
-The House of Representatives alone has the power to initiate impeachment cases. A **verified complaint** is a complaint formally sworn to as true. A House Member may file one, or a citizen may file one with a House Member's endorsement.
+The House of Representatives alone initiates impeachment cases. A **verified complaint** is a complaint formally sworn to as true. A House Member may file one, or a citizen may file one with a House Member's endorsement.
 
-In the regular process, the complaint goes through committee review and House action. At least $\dfrac{1}{3}$ of all House Members must support the Articles of Impeachment. These articles state the formal charges sent to the Senate.
+In the regular route, the complaint goes through committee review and House action. A vote of at least $\dfrac{1}{3}$ of all House Members is needed to approve the charges or override the committee's contrary resolution. The approved charges become the **Articles of Impeachment**, the formal charges sent to the Senate.
 
-A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. The Senate trial then proceeds under the constitutional process.
+There is also a direct route. A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. It does not need the regular committee route to become the articles.
 
 The Senate alone tries and decides impeachment cases. Conviction requires agreement by at least $\dfrac{2}{3}$ of all Senators. When the President is tried, the Chief Justice presides but does not vote.
 
 Impeachment judgment is limited to removal and possible disqualification from public office. It does not itself impose a prison sentence. A convicted officer may still face a separate criminal case and punishment under law.
 
-The Constitution bars initiating impeachment proceedings against the same official more than once within a period of one year. These are the basic constitutional rules, not a complete guide to every procedural dispute.
+The Constitution bars initiating impeachment proceedings against the same official more than once within a period of one year. These are the basic constitutional rules. Applying them to a disputed case may require further legal rulings.
 
 ### The Ombudsman
 
 The Ombudsman may investigate public officers or employees on its own or after a complaint. The conduct may be an act or a failure to act that appears illegal, unjust, improper, or inefficient.
 
-The office may direct officials to perform and speed up duties required by law. It may also direct them to stop or correct abuse. It can request government records and help for an investigation.
+The office may direct officials to perform and speed up duties required by law. It may direct them to stop or correct abuse. It can request government records and help for an investigation.
 
 The Ombudsman may recommend removal, suspension, demotion, a fine, censure, or prosecution and ensure compliance as provided by law. **Censure** is a formal expression of disapproval. A complaint does not itself prove wrongdoing or automatically remove anyone.
 
@@ -71,12 +71,12 @@ The office also studies red tape, fraud, poor management, and corruption. It rec
 
 ### #1: President as an Impeachable Officer
 
-A complaint seeks the President's removal through impeachment. Is the President among the officers covered by Article XI, Section $2$?
+Is the President among the officers who may be removed through impeachment under Article XI, Section $2$?
 
 **Solution:**
 
 1. Section $2$ includes the President.
-2. The President may therefore be impeached, subject to the grounds and process in the Constitution.
+2. The President may be impeached, subject to the constitutional grounds and process.
 
 ### #2: Trial Court Judge
 
@@ -120,7 +120,7 @@ An impeachable officer knowingly and deliberately disobeys a clear command of th
 
 ### #6: Aid to a Wartime Enemy
 
-During a war, an impeachable Filipino officer deliberately sides with the enemy and supplies it with military information to help its forces. Which named ground most directly fits?
+During a war, an impeachable Filipino officer deliberately sides with the enemy and supplies military information to help its forces. Which named ground most directly fits?
 
 **Solution:**
 
@@ -140,13 +140,13 @@ An impeachable officer uses public power to give a favored company an unlawful a
 
 ### #8: The Limits of Other High Crimes
 
-A complaint accuses an impeachable officer of ordering a killing and invokes other high crimes. Must the act be expressly named in Section $2$ before this ground can even be considered?
+A complaint accuses an impeachable officer of ordering a killing and invokes other high crimes. Must the act be expressly named in Section $2$ before this ground can be considered?
 
 **Solution:**
 
 1. Section $2$ includes the broad ground other high crimes.
-2. It does not give a complete offense-by-offense list under that ground.
-3. The alleged grave crime may be considered under it, but the allegation alone does not establish guilt or require conviction.
+2. It gives no complete offense-by-offense list under that ground.
+3. The alleged grave crime may be considered under it. The allegation alone does not establish guilt or require conviction.
 
 ### #9: Serious Favoritism
 
@@ -158,16 +158,36 @@ An impeachable officer repeatedly uses official power to favor close allies at t
 2. Betrayal of public trust may apply to such conduct.
 3. The House and Senate must still address the facts and the case.
 
-### #10: Trial and Conviction
+### #10: The Regular Complaint Route
 
-After the House approves Articles of Impeachment, which body tries the case, and what vote is needed for conviction?
+A citizen files a verified impeachment complaint with a House Member's endorsement. Fewer than $\dfrac{1}{3}$ of all House Members filed it. Does the filing itself become the Articles of Impeachment?
+
+**Solution:**
+
+1. The complaint uses the regular route for a citizen's endorsed complaint.
+2. It must go through committee review and House action.
+3. Filing alone does not make it the articles. The required House vote must still be obtained.
+
+### #11: The Direct Filing Route
+
+At least $\dfrac{1}{3}$ of all House Members file a verified impeachment complaint. Must it first pass through the regular committee route to become the Articles of Impeachment?
+
+**Solution:**
+
+1. The filing meets the constitutional threshold for the direct route.
+2. The verified complaint itself becomes the Articles of Impeachment.
+3. The Senate trial proceeds under the constitutional process.
+
+### #12: Trial and Conviction
+
+After the House sends Articles of Impeachment, which body tries the case, and what vote is needed for conviction?
 
 **Solution:**
 
 1. The Senate tries and decides the case.
 2. At least $\dfrac{2}{3}$ of all Senators must agree to convict.
 
-### #11: Complaint About Delay
+### #13: Complaint About Delay
 
 A public employee repeatedly delays a duty required by law without a proper reason. May the Ombudsman act on a complaint?
 
@@ -202,3 +222,9 @@ Impeachment may lead to removal and disqualification. A separate criminal case m
 > Other high crimes does not automatically include every minor offense.
 
 The Constitution gives no complete list under this ground. Its application requires judgment about the alleged conduct through the proper process.
+
+### #5: Filing Routes Differ
+
+> A citizen's endorsed complaint does not itself become the articles.
+
+The direct route requires filing by at least $\dfrac{1}{3}$ of all House Members. Do not confuse that filing threshold with the later vote in the regular route.
