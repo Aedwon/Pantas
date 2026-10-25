@@ -71,7 +71,9 @@ For **obligation**, *must* and *have to* show a strong requirement. "You must su
 
 *Should* usually gives advice: "You should check your answers." *Must not* means something is forbidden. *Do not have to* means it is not required, but it may still be allowed.
 
-For **possibility**, *may, might,* and *could* can all mean that something is possible: "It might rain later." They can overlap, so meaning alone may not select just one of them. *Must* can also express a strong conclusion: "The lights are on, so someone must be home."
+For **possibility**, *may, might,* and *could* can all mean that something is possible: "It might rain later." They can overlap, so meaning alone may not select just one of them.
+
+*Must* can also express a strong conclusion: "The lights are on, so someone must be home." Here, the speaker uses what they see to decide what is very likely true. This use of *must* does not give an order.
 
 ## Examples
 
@@ -214,6 +216,17 @@ Choose the modal that presents the change as possible, without saying it is requ
 
 1. The requested meaning is possibility.
 2. Choose *might*: "The schedule might change if the office closes."
+
+### #16: A Conclusion from Evidence
+
+What does the word in bold express: ability, permission, obligation, or a strong conclusion?
+
+"Lina's signed receipt is on the desk, so she **must** be back from the delivery."
+
+**Solution:**
+
+1. The signed receipt gives the speaker a reason to believe Lina is back.
+2. Choose *a strong conclusion*. The speaker is deciding what is very likely true, not telling Lina what she is required to do.
 
 ## Speed Tricks & Shortcuts
 
