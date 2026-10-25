@@ -32,7 +32,9 @@ Report all required business interests and financial connections. The declaratio
 
 ### Who Is Covered
 
-Section $8(A)$ excludes people serving in an **honorary capacity**, laborers, and casual or temporary workers from its filing requirement. Honorary capacity is a service category named in the law. Do not decide that a role is honorary only because it is unpaid.
+Section $8(A)$ excludes people serving in an **honorary capacity**, laborers, and casual or temporary workers from its filing requirement. Honorary service means government work without pay and without service credit. Service credit means the work counts as government service for benefits based on length of service.
+
+Check both conditions when deciding whether service is honorary. Unpaid work alone does not establish this exemption.
 
 The law also includes permanent and temporary appointees in its broad definition of public officials. A temporary appointment label alone does not settle whether someone is an excluded temporary worker. Check the worker's actual category and the rules that apply.
 
@@ -120,7 +122,16 @@ A covered employee assumes office on June $1$. By what date must the initial SAL
 **Solution:**
 
 1. The period is $30$ days after assumption of office. Start counting on June $2$.
-2. June $2$ through June $30$ gives $29$ days. July $1$ is day $30$.
+2. Count the days left in June, then the days needed in July.
+
+$$
+30 - 1 = 29 \text{ days in June}
+$$
+
+$$
+30 - 29 = 1 \text{ day in July}
+$$
+
 3. The deadline is **July $1$**.
 
 ### #2: Annual and Separation Filings
@@ -130,8 +141,17 @@ A covered employee stays in service through April and leaves on September $15$ o
 **Solution:**
 
 1. The annual filing is due on or before **April $30$**.
-2. The separation filing is due within $30$ days after September $15$.
-3. September $16$ through September $30$ gives $15$ days. October $15$ completes the period.
+2. The separation filing is due within $30$ days after September $15$. Begin counting on September $16$.
+3. Count the days left in September, then the days needed in October.
+
+$$
+30 - 15 = 15 \text{ days in September}
+$$
+
+$$
+30 - 15 = 15 \text{ days in October}
+$$
+
 4. The separation deadline is **October $15$**. It does not replace the annual filing.
 
 ### #3: Constitutional and National Elective Officials
