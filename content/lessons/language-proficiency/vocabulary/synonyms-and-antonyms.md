@@ -1,51 +1,53 @@
 ---
 _id: "lesson-vocabulary-synonyms-and-antonyms"
 title: "Synonyms and Antonyms"
-summary: "Learn how context, word feeling, formality, strength, and common word pairings affect synonym and antonym choices."
+summary: "Use context, tone, strength, formality, and common word pairings to choose synonyms and antonyms."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
-estimatedMinutes: 13
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-A **synonym** is a word or phrase with the same or a closely related meaning in a certain context. Two synonyms are rarely perfect matches in every sentence.
+A **synonym** is a word or phrase with the same or a closely related meaning in a certain context. Synonyms do not fit every sentence in the same way.
 
-Words with close meanings can still differ in several ways. One may sound more formal. One may be stronger.
+Words with close meanings can differ in strength. They can also sound more formal, friendly, or harsh. Choose the word that keeps the meaning and fits the sentence.
 
-One may also carry a warmer or harsher feeling.
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. Similar meanings do not always lead to the same word pairings.
 
-A **collocation** is a group of words that people commonly use together. For example, English usually says *heavy rain*, not *strong rain*, even though *heavy* and *strong* can both suggest great force.
-
-An **antonym** is a word with an opposite or contrasting meaning. Not all opposites work in the same way.
+An **antonym** is a word with an opposite or contrasting meaning. The right opposite must match the meaning used in the sentence.
 
 ### Types of Opposites
 
-**Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* can fall between them.
+**Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* fall between them. Something that is not hot may still be warm, so *not hot* does not always mean *cold*.
 
-**Complementary opposites** act like two choices in a system where only one can be true at a time. In a simple alive/dead distinction, something classed as alive is not classed as dead.
+**Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other. In a simple alive/dead classification of an organism, *not alive* means *dead*.
 
-**Converse opposites** describe the same relationship from different roles. If Ana **sells** a book to Ben, Ben **buys** the book from Ana.
+Use that rule only when the stated system allows no middle state. A stone is not alive, but calling it dead would not fit this use.
 
-These labels help you see how the contrast works. In a question, choose the opposite that matches the exact relationship in the sentence.
+**Converse opposites** describe the same relationship from different roles. If Ana sells a book to Ben, Ben buys the book from Ana. The book and exchange stay the same, but the person doing the action changes.
 
 ### Context Matters
 
-A word can have more than one meaning. The best synonym or antonym must match the meaning used in that sentence.
+A word can have more than one meaning. Read the whole sentence before choosing its synonym or antonym.
 
-For example, *fast* can mean quick. In *to fast*, it means not to eat for a period of time.
+For example, *fast* can mean quick. In *to fast*, it means to go without food for a time. *Bank* can mean a business that handles money or the land beside a river.
 
-*Bank* can mean a financial institution. It can also mean the land beside a river.
+Grammar matters too. A replacement must fit how the word is used. *Decide* names an action, while *decision* names a choice, so they cannot simply replace each other.
 
-### Connotation, Strength, and Formality
+### Feeling, Strength, and Formality
 
-**Connotation** is the feeling or attitude a word can carry beyond its basic meaning. *Slim* and *skinny* both describe thinness, but *slim* is often more positive.
+**Connotation** is the feeling a word carries beyond its basic meaning. *Slim* and *skinny* both describe thinness, but *slim* often sounds more positive. The nearby words help show which feeling fits.
 
-**Intensity** is how strong a meaning is. *Annoyed* and *furious* are both negative feelings, but *furious* is much stronger.
+**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry, so it would make a mild complaint sound much stronger.
 
-**Register** is the level of formality that fits a situation. *Commence* is formal. *Start* is neutral, while *kick off* is more casual.
+**Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual. An official notice and a chat with friends may call for different wording.
 
-The current public CSE verbal scope includes **word meaning**. It does not give a guaranteed vocabulary list or answer-position pattern, so use meaning and context.
+### Word Parts as Clues
+
+A **prefix** is a word part added at the beginning of a word. For example, *un-* can mean *not*, as in *unfair*. Use the prefix as a clue, then check the whole word in the sentence.
+
+Not every opening group of letters is a prefix. *Uncle* does not mean “not cle.” Word parts help only when they belong to the word and give a meaning that fits.
 
 ## Examples
 
@@ -74,12 +76,12 @@ D) isolate
 
 **Solution:**
 
-1. In this use, **mitigate** means to make something less severe.
+1. **Mitigate** means to make something less severe.
 2. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
 
 ### #3: Filipino Synonym
 
-Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang naka-bold?
+Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang nakadiin?
 
 A) natupad  
 B) nasira  
@@ -88,12 +90,12 @@ D) nagsimula
 
 **Solution:**
 
-1. Sa pangungusap, ang **gumuho** ay nangangahulugang nasira o nabigo ang kaniyang mga pangarap.
-2. Ang pinakamalapit na sagot ay **nasira**. Ang sagot ay **B**.
+1. Ang **gumuho** ay hindi tumutukoy sa isang gusali rito. Ipinapakita nitong nasira ang kaniyang mga pangarap dahil sa pagkabigo.
+2. Ang pinakamalapit na kahulugan ay **nasira**. Ang sagot ay **B**.
 
 ### #4: Filipino Antonym
 
-Alin ang pinakamalinaw na kasalungat ng salitang naka-bold na **maralita**?
+Alin ang kasalungat ng salitang nakadiin na **maralita**?
 
 A) mahirap  
 B) mayaman  
@@ -103,23 +105,9 @@ D) tamad
 **Solution:**
 
 1. Ang **maralita** ay tumutukoy sa taong mahirap.
-2. Ang malinaw na kasalungat nito ay **mayaman**. Ang sagot ay **B**.
+2. Ang kasalungat nito ay **mayaman**. Ang sagot ay **B**.
 
-### #5: Meaning from Context
-
-The manager's **sycophantic** assistant agreed with every bad idea in hopes of gaining favor. Which meaning best fits the word in bold?
-
-A) rebellious  
-B) overly flattering to win approval  
-C) intelligent  
-D) lazy
-
-**Solution:**
-
-1. The assistant agrees with bad ideas because he wants the manager's favor.
-2. That behavior is **overly flattering to win approval**. The answer is **B**.
-
-### #6: Choosing the Active Sense
+### #5: Choosing the Meaning Used
 
 They rested on the **bank** of the river after crossing the bridge. Which word is closest in meaning to the word in bold?
 
@@ -130,14 +118,14 @@ D) vault
 
 **Solution:**
 
-1. The phrase *of the river* shows which meaning of **bank** is active.
-2. Here, **bank** means the land beside the water, so **shore** is closest. The answer is **B**.
+1. The words *of the river* show that **bank** refers to land beside water.
+2. **Shore** has the closest meaning here. The answer is **B**.
 
-### #7: Matching Formality
+### #6: Matching Formality
 
-Which word best completes a formal notice?
+Which word best completes this formal notice?
 
-"The examination will _____ at 8:00 a.m."
+“The examination will _____ at $8{:}00$ a.m.”
 
 A) commence  
 B) kick off  
@@ -146,10 +134,10 @@ D) fire up
 
 **Solution:**
 
-1. A formal notice calls for formal or neutral wording.
-2. **Commence** means begin and fits the formal setting best. The answer is **A**.
+1. The missing word must mean *begin* and fit an official notice.
+2. **Commence** has that meaning and is formal. The answer is **A**.
 
-### #8: Matching Connotation and Strength
+### #7: Keeping a Positive Tone
 
 The article praised the athlete's **slim** build. Which replacement best keeps the positive tone of the word in bold?
 
@@ -160,8 +148,22 @@ D) bony
 
 **Solution:**
 
-1. The sentence has a positive tone.
-2. **Slender** is close in meaning and keeps that positive tone. The answer is **B**.
+1. The word *praised* shows that the description is positive.
+2. **Slender** describes a thin build with a positive tone. The answer is **B**.
+
+### #8: Matching Intensity
+
+Rina was **annoyed** by the brief delay, but she soon forgot about it. Which replacement best keeps the strength of the word in bold?
+
+A) enraged  
+B) delighted  
+C) irritated  
+D) furious
+
+**Solution:**
+
+1. Rina soon forgot the delay, so the sentence describes mild anger.
+2. **Irritated** keeps that strength. *Enraged* and *furious* would make the anger much stronger. The answer is **C**.
 
 ### #9: Using a Common Word Pairing
 
@@ -175,9 +177,9 @@ D) powerful rain
 **Solution:**
 
 1. English commonly pairs **heavy** with **rain**.
-2. The natural collocation is **heavy rain**. The answer is **C**.
+2. The natural phrase is **heavy rain**. The answer is **C**.
 
-### #10: Converse Opposites
+### #10: Opposite Roles
 
 Mara sold a used book to Leo. From Leo's point of view, what did he do?
 
@@ -188,49 +190,111 @@ D) returned the book to Mara
 
 **Solution:**
 
-1. **Sell** and **buy** describe the same exchange from opposite roles.
-2. Mara sold the book, so Leo **bought** it from her. The answer is **A**.
+1. *Sell* and *buy* describe the same exchange from opposite roles.
+2. Mara sold the book, so Leo **bought the book from Mara**. The answer is **A**.
+
+### #11: A System with Two States
+
+A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which word must describe its state in this record?
+
+A) weak  
+B) asleep  
+C) injured  
+D) dead
+
+**Solution:**
+
+1. The record allows only *alive* or *dead*.
+2. Ruling out *alive* leaves **dead**. The answer is **D**.
+
+### #12: Opposites with Middle Levels
+
+The soup is not **hot**. Which statement must be true based on this sentence alone?
+
+A) The soup is cold.  
+B) The soup is warm.  
+C) The soup is cool.  
+D) The exact temperature is not given.
+
+**Solution:**
+
+1. *Hot* and *cold* have middle levels, such as *warm* and *cool*.
+2. *Not hot* does not tell us which other level applies. The answer is **D**.
+
+### #13: Checking a Prefix in Context
+
+The report was **incomplete** because it lacked the final page. Which phrase is closest in meaning to the word in bold?
+
+A) not finished  
+B) not correct  
+C) not clear  
+D) not needed
+
+**Solution:**
+
+1. Here, the prefix *in-* means *not*. **Incomplete** means not complete or not finished.
+2. The missing final page confirms that meaning. The answer is **A**.
+
+### #14: Meaning from Behavior
+
+The manager's **sycophantic** assistant agreed with every bad idea in hopes of gaining favor. Which meaning best fits the word in bold?
+
+A) resisting orders to show independence  
+B) giving too much praise to win approval  
+C) offering sound advice to solve problems  
+D) avoiding tasks to reduce effort
+
+**Solution:**
+
+1. The assistant supports even bad ideas because he wants the manager to like him.
+2. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
 ## Speed Tricks & Shortcuts
 
-**Find the meaning used in the sentence first.** Do not choose a synonym until you know which sense of the word is active.
+**Read the task first.** Check whether it asks for a similar meaning or an opposite. Then read the whole sentence.
 
-**Match strength and feeling.** A word can be close in basic meaning but too weak, too strong, too positive, or too harsh.
+**Try a simple replacement.** Put the choice in place of the target word. Check meaning, grammar, feeling, strength, and formality.
 
-**Match formality.** A word that fits casual speech may sound wrong in an official notice.
+**Check nearby words.** They can show which meaning fits and which word pairing sounds natural.
 
-**Check common word pairings.** If two choices have similar meanings, the one that normally goes with the nearby words may be the better fit.
+**For opposites, check the relationship.** Are there middle levels, only two allowed states, or two people in opposite roles? Do not use a two-state rule when middle levels are possible.
 
-**For antonyms, identify the kind of contrast.** Ask whether the question is about degree, one-of-two states, or opposite roles in one relationship.
+**Check prefix clues against context.** A word part can suggest a meaning. The full word must still fit the sentence.
 
 ## Traps to Watch For
 
 ### #1: Treating Near-Synonyms as Identical
 
-> Close meanings do not make two words fit every sentence.
+> Close meanings do not make words fit every sentence.
 
-Check tone, strength, formality, grammar, and common word pairings.
+A stronger word may change a mild feeling into a strong one. A casual phrase may also sound wrong in a formal notice. Check more than the basic meaning.
 
-### #2: Assuming Every Antonym Has Only Two States
+### #2: Treating Every Opposite as a Two-State Choice
 
-> Some opposites have middle values.
+> “Not hot” does not have to mean “cold.”
 
-*Hot* and *cold* are opposites, but *warm* and *cool* can lie between them.
+Warm and cool are possible middle levels. Use the two-state rule only when the meaning or stated system allows just two states.
 
-### #3: Choosing by Positive or Negative Feeling Alone
+### #3: Choosing a Familiar Meaning
 
-> Two words can sound equally positive or negative and still mean different things.
+> A word's familiar meaning may not fit the sentence.
 
-Choose the word that matches the sentence's meaning.
+Choosing a money-related meaning for *bank* fails when the sentence describes a river. Use the nearby words to pick the meaning in use.
 
-### #4: Trusting a Prefix More Than the Whole Word
+### #4: Losing Track of Who Does What
 
-> A familiar prefix can be a clue, but the whole word and context decide the meaning.
+> Converse opposites change the role of the person doing the action.
 
-Do not choose an answer only because one word begins with a familiar letter pattern.
+If Mara sells to Leo, Leo buys from Mara. Saying that Leo sells to Mara reverses the exchange itself.
 
-### #5: Guessing from Choice Position
+### #5: Trusting a Prefix Alone
 
-> There is no safe rule that the synonym is usually the first choice or that the strangest-looking option is correct.
+> A familiar beginning is only a clue.
 
-Read the sentence and compare the meanings.
+Check that it is a real word part and that the full meaning fits. Guessing from letters alone can lead to a word with the wrong meaning.
+
+### #6: Guessing from Choice Position
+
+> A choice's position does not tell you its meaning.
+
+Do not pick the first choice or the strangest-looking word just because of its position or look. Compare the meanings and use the sentence.
