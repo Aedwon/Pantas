@@ -12,157 +12,237 @@ isActive: true
 
 ### Political Beliefs and Forced Service
 
-Article III, Section $18$ says that a person cannot be detained only because of political beliefs or aspirations. Government may not use detention as punishment for a person's political ideas alone.
+Article III, Section $18$ bars detention solely because of political beliefs or aspirations. A person cannot be jailed just for supporting an unpopular political idea. This does not excuse a separate crime.
 
-Section $18$ also bans **involuntary servitude**, which means being forced to work or serve against one's will. The Constitution allows an exception when the service is punishment for a crime after due conviction.
+The section also bans **involuntary servitude**, which means forced work or service against a person's will. It allows an exception when the service is punishment for a crime after due conviction. An accusation alone is not a conviction.
 
 ### Fines and Punishment
 
-Section $19$ bans excessive fines. It also bans cruel, degrading, or inhuman punishment.
+Section $19$ forbids excessive fines and cruel, degrading, or inhuman punishment. **Degrading punishment** attacks a person's dignity. A lawful conviction does not give officials permission to abuse a prisoner.
 
-The Constitution also says that physical, psychological, or degrading punishment against prisoners or detainees must be dealt with by law. The same is true for substandard or inadequate penal facilities kept under subhuman conditions.
+The Constitution also requires laws to address physical, psychological, or degrading punishment of prisoners or detainees. It requires laws to address prison facilities kept in subhuman conditions. Basic human dignity still applies in detention.
 
-The Constitution contains a rule on the death penalty. Under current law, Republic Act No. $9346$ prohibits the imposition of the death penalty.
+The constitutional text generally bars the death penalty but allows Congress to provide for it for compelling reasons involving heinous crimes. **Heinous** means extremely wicked or shocking. The constitutional wording and the law now in force must be kept separate.
+
+Republic Act No. $9346$ prohibits imposing the death penalty. In its place, the Act provides reclusion perpetua when the violated law uses Revised Penal Code penalty names. It provides life imprisonment when the violated law does not use those names.
+
+Both are severe prison penalties, but they are not interchangeable legal names. The Act also bars parole for those convicted of offenses punished with reclusion perpetua, or reduced to it, by reason of the Act. **Parole** is conditional release after serving part of a sentence.
 
 ### Debt and Poll Tax
 
-Section $20$ says that no person may be imprisoned for debt or for non-payment of a poll tax. A **poll tax** is a tax imposed on a person as a fixed amount, not based on property or income.
+Section $20$ bars imprisonment for debt or non-payment of a poll tax. A **poll tax** charges a fixed amount per person, rather than an amount based on income or property.
 
-The protection concerns imprisonment for the debt or poll tax itself. It does not erase the debt.
+The rule protects against jail for the unpaid obligation itself. It does not cancel a valid debt. A separate criminal act, such as fraud, raises a different issue from simple failure to pay.
 
 ### Double Jeopardy
 
-**Double jeopardy** protects a person from being placed in jeopardy of punishment twice for the same offense after the first criminal case has reached the kind of result protected by law.
+Section $21$ protects against **double jeopardy**, being placed at risk of punishment again for the same offense after a protected end to the first criminal case. It does not mean that any earlier accusation blocks every later case.
 
-The Constitution also gives a special rule when the same act is punished by both a law and an ordinance. A conviction or acquittal under either one bars another prosecution for the same act under the other.
+For the general rule, the first case must have a valid formal charge before a court with legal authority to hear it. The accused must have been arraigned and entered a valid plea. **Arraignment** is the formal reading of the charge, when the accused answers with a plea, such as guilty or not guilty.
+
+The first case must then end in conviction, acquittal, or dismissal or termination without the accused's express consent. **Acquittal** means a judgment that the accused is not guilty. Filing a complaint alone does not meet these conditions.
+
+The protection generally bars another prosecution for the same offense. It also covers an attempt, a frustrated form of the offense, or an offense that necessarily includes or is included in the first charge. A frustrated offense is one where the offender performs all acts needed to commit it, but the intended crime fails for a cause outside the offender's will.
+
+There are legal exceptions to these general rules. For example, a graver offense may later develop from the same act, such as when an injured victim later dies. A dismissal requested by the accused generally does not bar another case, though dismissal for insufficient evidence or a violation of the right to speedy trial can raise exceptions.
+
+Section $21$ also has a special rule for an act punished by both a national law and a local ordinance. A conviction or acquittal under either one bars another prosecution under the other for that same act. Here, the Constitution expressly refers to the same act.
 
 ### Ex Post Facto Laws
 
-An **ex post facto law** is a penal rule that works backward in a way that harms the accused. For example, it cannot make an earlier innocent act a crime after the act was done, or increase the punishment after the offense was committed.
+An **ex post facto law** is a penal law applied backward in a way that harms the accused. It may make an earlier lawful act a crime or increase the punishment after an offense was committed. It may also wrongly reduce the proof needed for conviction or remove a legal defense available when the act was done.
 
-The rule is about harmful retroactive punishment. A later law that does not create this kind of penal disadvantage is not an ex post facto law merely because it affects an earlier event.
+**Penal** means relating to crimes and punishment. A later rule is not ex post facto just because it affects an earlier event. Look for a harmful backward change in criminal consequences or protections.
 
 ### Bills of Attainder
 
-A **bill of attainder** is a legislative act that punishes a named person or group without a judicial trial. The problem is that the legislature is acting as if it already decided guilt and punishment.
+A **bill of attainder** is a law that punishes a named or clearly identified person or group without a judicial trial. The legislature imposes punishment itself instead of leaving guilt and punishment to a court.
 
-Section $22$ prohibits both ex post facto laws and bills of attainder.
+Section $22$ bans both bills of attainder and ex post facto laws. A general law defining an offense and requiring a court trial is not automatically a bill of attainder.
 
-### How to Analyze a Possible Human-Rights Violation
+### Analyzing and Addressing Rights Violations
 
-Start with the facts. Identify what government action happened, which right may apply, and whether the Constitution states an exception or condition.
+To **analyze** a claim means to study its parts and explain how the facts fit a rule. First identify who acted and what happened. Then identify the right, its conditions, and any stated exception.
 
-Use evidence, not only a label. Ask who acted, what was done, what right was affected, and whether the required process was followed.
+Use available evidence, such as records, witness accounts, or medical findings. An accusation must be checked. Do not treat a label alone as proof.
 
-Human-rights violations can cause loss of liberty, unfair punishment, fear, and loss of trust in public institutions. They can also harm families and communities.
+Violations can harm more than the person directly affected. Unlawful detention may stop a person from working or caring for family. Abuse can cause injury, fear, and loss of trust in public offices.
 
-Protection methods depend on the facts. A person may seek legal help and the proper court remedy. The Commission on Human Rights may investigate civil and political rights violations and may provide protective legal measures or legal aid services to underprivileged persons who need human-rights protection.
+Protection depends on the facts. A person may seek a lawyer or legal aid and ask a court for the proper remedy. A **writ of habeas corpus** is a court order requiring the custodian to bring a detained person before the court so it can examine the detention.
+
+The Commission on Human Rights may investigate civil and political rights violations. It may provide protective legal measures and legal aid to underprivileged people who need human-rights protection. An investigation is not itself a criminal conviction.
+
+A **quasi-judicial body** is an agency outside the courts that hears facts and decides certain disputes. Choosing a court, agency, or complaint process depends on its legal powers. Not every office can grant every remedy.
 
 ## Examples
 
-### #1: Detention for Political Beliefs Alone
+### #1: Political Belief Alone
 
-A person is detained only because the person supports an unpopular political belief. No other lawful ground for detention is given. Which protection applies?
-
-**Solution:**
-
-1. Section $18$ protects against detention solely because of political beliefs and aspirations.
-2. The stated reason for detention is the political belief alone.
-3. The detention conflicts with that protection.
-
-### #2: Forced Labor After Conviction
-
-A person is required to perform work as part of a lawful punishment after due conviction for a crime. Does the constitutional ban on involuntary servitude contain an exception that may apply?
+A person is detained solely for supporting an unpopular political belief. No other lawful ground is given. Which protection applies?
 
 **Solution:**
 
-1. Section $18$ generally bans involuntary servitude.
-2. It allows an exception when the service is punishment for a crime after due conviction.
-3. The facts fit that stated exception.
+1. Section $18$ bars detention solely because of political beliefs or aspirations.
+2. The stated detention rests on that reason alone.
+3. It conflicts with the protection.
 
-### #3: Excessive Fine
+### #2: Work After Conviction
 
-A law imposes a fine that is challenged as grossly excessive in relation to the offense. Which Bill of Rights protection is directly involved?
+A person must perform work as part of lawful punishment after due conviction for a crime. Does Section $18$ contain an exception that may apply?
+
+**Solution:**
+
+1. The general rule bans involuntary servitude.
+2. The section allows service as punishment for a crime after due conviction.
+3. The stated facts fit that exception.
+
+### #3: An Excessive Fine
+
+A fine is challenged as grossly excessive in relation to an offense. Which constitutional protection is directly involved?
 
 **Solution:**
 
 1. Section $19$ prohibits excessive fines.
-2. The issue is whether the amount crosses that constitutional limit.
-3. The facts must be examined to decide whether the fine is excessive.
+2. The issue is whether this fine exceeds that limit.
+3. Its amount and the facts must be examined before deciding the claim.
 
-### #4: Imprisonment for Debt
+### #4: The Death Penalty and Current Law
+
+A question asks whether Republic Act No. $9346$ permits a court to impose death as punishment. What is the answer?
+
+**Solution:**
+
+The Act prohibits imposing the death penalty. Its replacement penalty depends on the penalty names used by the violated law.
+
+### #5: Debt and Jail
 
 A citizen is threatened with jail solely for failing to pay a personal debt. Does Article III permit imprisonment for the debt itself?
 
 **Solution:**
 
-1. Section $20$ says no person shall be imprisoned for debt or non-payment of a poll tax.
-2. The threat is based only on the unpaid personal debt.
-3. Therefore, the person cannot be imprisoned solely for that debt.
+1. Section $20$ bars imprisonment for debt.
+2. The stated threat concerns only non-payment.
+3. The person cannot be imprisoned solely for that debt, though the debt may remain payable.
 
-### #5: Same Act Under a Law and an Ordinance
+### #6: A Second Trial for the Same Offense
 
-A person is acquitted for an act under a national law. A local ordinance also punishes the same act. May the person be prosecuted again under the ordinance for that same act?
-
-**Solution:**
-
-1. Section $21$ addresses an act punished by both a law and an ordinance.
-2. An acquittal under either one bars another prosecution for the same act under the other.
-3. Therefore, the second prosecution is barred by this constitutional rule.
-
-### #6: Retroactive Harsher Punishment
-
-A person commits an offense when the law provides a lighter punishment. A later penal law increases the punishment and is applied backward to that earlier act. What protection is involved?
+An accused faced a valid charge in a court with authority to hear it. After arraignment and a valid not-guilty plea, the court acquitted the accused. Prosecutors then seek another trial for exactly the same offense on the same facts. Which protection applies?
 
 **Solution:**
 
-1. The later law changes punishment after the offense was committed.
-2. Applying the harsher punishment backward harms the accused.
-3. That is the kind of retroactive penal rule prohibited as an ex post facto law.
+1. The first case had a valid charge, proper court, arraignment, and valid plea.
+2. It ended in acquittal.
+3. A second prosecution for the same offense is barred by double jeopardy under these facts.
 
-### #7: Punishment Without a Trial
+### #7: A Complaint Without a Plea
 
-Congress passes a law that names a specific group and directly imposes punishment on that group without a judicial trial. What constitutional limit is involved?
-
-**Solution:**
-
-1. The legislature has named a group.
-2. It has imposed punishment without a judicial trial.
-3. That fits the basic meaning of a bill of attainder, which Section $22$ prohibits.
-
-### #8: Analyzing a Rights Violation
-
-A detainee says officers used degrading physical punishment. What should be checked first when analyzing the claim?
+A complaint was filed, but the accused was never arraigned and entered no plea. Does the filing alone establish the general double-jeopardy protection?
 
 **Solution:**
 
-1. Identify the government action and gather facts about what happened.
-2. Match the conduct to Section $19$, which bans cruel, degrading, or inhuman punishment and addresses degrading punishment of detainees.
-3. Check the evidence and the applicable legal process.
-4. The person may seek legal help and the proper protection or complaint process.
+1. The general rule requires more than a filed complaint.
+2. Arraignment and a valid plea are among its conditions.
+3. Filing alone does not establish the protection.
+
+### #8: One Act Under a Law and an Ordinance
+
+A person is acquitted under a national law. A local ordinance punishes the same act. May another prosecution proceed under the ordinance for that act?
+
+**Solution:**
+
+1. Section $21$ gives a special rule for an act punished by both a law and an ordinance.
+2. Acquittal under either bars prosecution under the other for the same act.
+3. The second prosecution is barred.
+
+### #9: A Harsher Penalty Applied Backward
+
+After an offense is committed, a new penal law increases its punishment. Officials apply that increase to the earlier offense. Which limit applies?
+
+**Solution:**
+
+1. The new law applies a harsher punishment backward.
+2. That change harms the accused for an earlier act.
+3. It is prohibited as an ex post facto law.
+
+### #10: An Earlier Lawful Act
+
+A law makes certain conduct criminal and orders punishment of people who did it before the law existed, when it was lawful. Which prohibition applies?
+
+**Solution:**
+
+1. The law turns an earlier lawful act into a crime after it happened.
+2. That is a harmful backward penal change.
+3. The ex post facto prohibition applies.
+
+### #11: Legislative Punishment
+
+Congress passes a law identifying a group and directly imposing punishment on it without a court trial. Which constitutional limit is involved?
+
+**Solution:**
+
+1. The law targets an identified group.
+2. It imposes punishment without a judicial trial.
+3. It fits the meaning of a bill of attainder, which Section $22$ bans.
+
+### #12: Evidence of Abuse
+
+A detainee reports degrading physical punishment by officers. What should be checked when analyzing the claim?
+
+**Solution:**
+
+1. Establish what happened through available records, witnesses, and medical evidence.
+2. Compare the conduct with Section $19$ and its protections for detainees.
+3. Check who was responsible and what legal process can address the conduct.
+4. The report raises a rights issue, but the facts still need investigation.
+
+### #13: Effects on a Family
+
+A worker is unlawfully detained for political beliefs alone. The worker misses paid work, and the family cannot meet daily expenses. Explain one direct effect and one family effect shown by these facts.
+
+**Solution:**
+
+1. The direct effect is loss of the worker's liberty through unlawful detention.
+2. The missed work also harms the family's income and ability to meet daily needs.
+3. These facts show how a violation can affect both the detained person and others.
+
+### #14: Seeking Protection
+
+A family wants a court to examine the legal basis for a relative's detention. Which court remedy should it discuss with a lawyer?
+
+**Solution:**
+
+1. The issue is whether the detention has a lawful basis.
+2. A lawyer can assess a petition for a writ of habeas corpus.
+3. The court, not the family or an investigating office, decides whether relief is proper.
 
 ## Traps to Watch For
 
-### #1: Political Belief Alone Is the Key
+### #1: Political Belief Does Not Excuse a Crime
 
-> Section $18$ does not say that political beliefs excuse an unrelated crime.
+> The protection concerns detention for political beliefs alone.
 
-The protection is against detention solely because of political beliefs or aspirations.
+An unrelated lawful ground for detention must be examined separately.
 
-### #2: No Imprisonment for Debt Does Not Cancel the Debt
+### #2: Unpaid Debt Is Not Erased
 
-> The Constitution protects against jail for the debt itself.
+> No imprisonment for debt does not mean no duty to pay.
 
-A valid debt may still exist and may be enforced through lawful non-imprisonment remedies.
+A valid debt may be enforced through lawful remedies that do not imprison the debtor for the debt itself.
 
-### #3: Ex Post Facto Is More Than Any Retroactive Rule
+### #3: An Earlier Complaint Is Not Enough
 
-> Look for a harmful backward change in criminal or penal consequences.
+> Check how far the first criminal case went and how it ended.
 
-A rule is not ex post facto merely because it concerns an earlier event.
+Double jeopardy has conditions. A filed complaint without arraignment and a valid plea does not meet them.
 
-### #4: Bill of Attainder Requires Punishment Without Judicial Trial
+### #4: Retroactive Does Not Always Mean Ex Post Facto
 
-> A law that only creates a general rule is not automatically a bill of attainder.
+> Look for a harmful backward penal change.
 
-The key signs are a targeted person or group, punishment, and no judicial trial.
+A law concerning an earlier event is not automatically prohibited. The rule concerns criminal consequences and protections.
+
+### #5: A Complaint Office Is Not a Trial Court
+
+> Investigation and punishment are different powers.
+
+The Commission on Human Rights can investigate covered violations. A court decides a criminal case and may grant court remedies within its powers.
