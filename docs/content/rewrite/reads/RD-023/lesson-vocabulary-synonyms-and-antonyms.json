@@ -75,10 +75,12 @@
    "note": ""
   },
   "L09": {
-   "verdict": "not_applicable",
+   "verdict": "pass",
    "findings": [],
-   "checked": [],
-   "note": "No hard Filipino grammar term is introduced in the Filipino examples, so there is no term that needs a first-use English gloss."
+   "checked": [
+    "Checked the Filipino synonym and antonym examples for hard grammar terminology. They use ordinary words such as kahulugan and kasalungat, not a hard Filipino grammar label that needs an English gloss."
+   ],
+   "note": ""
   },
   "L10": {
    "verdict": "pass",
