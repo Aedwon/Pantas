@@ -1,0 +1,328 @@
+{
+ "batch": "RD-003",
+ "lesson_id": "lesson-language-application-sentence-completion",
+ "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+ "lesson_sha256": "73817e27b0580f88fb6ed553ef92b2cda72440f9985a2ec020c9abb20d5ae9f4",
+ "rewrite_commit": "2ccea9e8d6df7157fee1a06d8194816fc9af9af8",
+ "form": {
+  "packet": "lesson-language-application-sentence-completion",
+  "role": "A",
+  "lesson_sha256": "73817e27b0580f88fb6ed553ef92b2cda72440f9985a2ec020c9abb20d5ae9f4",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked noun, adjective, and adverb descriptions; want to go versus enjoy reading; the difference between indefinite and definite articles; matching -ing list forms; and the listed collocations.",
+     "Checked although as a contrast signal, because as a reason signal, therefore as a usual result signal, and the earlier-past condition for possible past-perfect use.",
+     "Read the Filipino statements about meaning, time, connectors, and common word combinations. They are coherent; formal Filipino usage confirmation is reserved to L11."
+    ],
+    "note": "The packet has no independent citation for the public CSE sentence-completion scope claim. This pass does not certify external sourcing. The nonunique article answer is recorded under B02.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Solved #1: B, successful. #2: C, unsafe. #3: B, thorough/nervous, gives the intended unexpected contrast; the revised other pairs give ordinary expected combinations.",
+     "Solved #4: C, approved, supplies the main verb in this American-English sentence. #5: A, strong evidence. #6: B, interested in.",
+     "Solved #7: C, the, is natural, but B, an, is also grammatical and coherent. #8: B, filing.",
+     "Solved #9: B, ipinasa. #10: B, kaya. #11: A, tulong. Compared these independent choices with every stated solution."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "\"She submitted ______ application that the office had requested.\"",
+      "problem": "Both the application and an application are defensible. The relative clause can describe an application without establishing that the reader already knows one uniquely identified application. Nothing in the stem rules out an, so C is not a unique answer."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Located Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, plus the relevant Filipino subsection. No mandatory main heading is omitted.",
+     "Compared the brief's None figure requirement with the textual completion tasks. No question requires a figure. No unseen outline information was assumed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the grammar-clue subsections, strategies, and traps. They now use short explanations instead of stacking agreement, aspect, and complementation in one sentence.",
+     "Read all English solutions. The former finite-verb and review-and-decision wording is gone; the steps use concrete terms such as main verb, list, reason, and blank. Unexplained technical terms are separately identified under L25."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The completion tasks have blanks and choices, and the solutions use everyday choose. No specialized exam instruction verb needs a first-use gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Counted no analogy in Core Concept or any other section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [
+     "Checked all eleven completion stems for their complete sentence, blanks, and choices. No referenced passage is missing; #7 lacks the context needed to distinguish its competing articles.",
+     "Checked the remaining stems for ordinary completion wording and solutions for simple numbered reasoning. They do not provide a rule or definition in place of the knowledge being tested."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "\"She submitted ______ application that the office had requested.\"",
+      "problem": "The article task supplies no context establishing one uniquely known application. That missing referential context matters because both an and the fit the supplied sentence, so the student cannot determine the intended single answer."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The opening makes one motivating CSE scope reference. The lesson does not repeat claims about exam frequency, formats, or planted answer choices."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino subsection and solutions #9-#11. They use short Filipino sentences for past action, cause/result, and a natural word combination.",
+     "Checked that the Filipino explanation stays concrete: kahapon points to past time, rain supplies a reason, and malaking tulong fits what a teacher provides."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Tingnan din kung ang pang-ugnay ay nagpapakita ng dahilan, bunga, pagsalungat, o dagdag na ideya.",
+      "problem": "Pang-ugnay first appears as a grammar term without a short English gloss. Its functions are listed, but the required first-use gloss is absent."
+     }
+    ]
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked examples #9-#11: all sentence stems, choices, and substantive solution steps are Filipino.",
+     "English examples #1-#8 belong to the English part of this bilingual lesson, and the shared Solution marker follows the required example template."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson contains Filipino prose and examples. KWF spelling and usage require a source check that the supplied packet cannot provide.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino teaching and solutions for Taglish. They use Filipino terms consistently and do not insert unexplained English teaching phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a named target word. Each task selects a completion for a blank, so the target-word bolding rule has no applicable prompt.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all prose for the banned stock phrases and three identical sentence openings in a row. The summary plainly names meaning, grammar, and word-combination clues."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Language Proficiency structure. The core, examples, shortcut, and trap sections are allowed, and the Filipino topic is a subsection.",
+     "There are no mathematical formulas in #1-#11. No example introduces a calculation formula before Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped contrast to #1, cause to #2, multiple blanks to #3, a main-verb form to #4, collocation to #5, preposition to #6, article to #7, and list parallelism to #8.",
+     "Mapped Filipino past-time meaning to #9, cause/result connection to #10, and a natural combination to #11."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Some verbs need a certain form after them. For example, *want to go* uses *to* plus the base verb, while *enjoy reading* uses an *-ing* form.",
+      "problem": "Verb-following form is taught as a distinct completion clue, but no worked example chooses between to plus verb and an -ing complement."
+     },
+     {
+      "quote": "If an action happened before another past action, the past perfect may be needed.",
+      "problem": "The timeline clue has no worked past-perfect or contrasting past-time completion. #4 only selects a main verb from approve, approving, approved, and approval."
+     },
+     {
+      "quote": "Words such as *although, because, therefore, however,* and *for example* can show contrast, cause, result, or an example.",
+      "problem": "Cause/result is applied in #2 and Filipino #10, but the taught illustration relation has no worked for-example case. The worked set does not cover every named relation."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Traced every solution #1-#11. All reasoning steps appear in numbered lists, including the former prose contrast, two-blank, and verb-form explanations. No computation needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No mathematical display equations appear, so there is no phone-width equation to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ask what kind of word belongs in the blank. A noun names a person, place, thing, or idea. An adjective describes a noun. An adverb often describes a verb or adjective.",
+      "problem": "The Word form paragraph has four teaching sentences in one paragraph, exceeding the allowed one to three. The short sentences can be split into two paragraphs without changing the teaching."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no existing figures or placeholders. All completion problems can be taught and answered through the supplied sentences.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Found local meanings for noun, adjective, adverb, collocation, and list parallelism. The former finite verb term is absent.",
+     "Checked terms needed for the tense and article rules; two necessary meanings remain unexplained and no prerequisite lesson is supplied."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "If an action happened before another past action, the past perfect may be needed.",
+      "problem": "Past perfect is named with a use condition but never given a form or a clear example. Students cannot recognize or build it from this lesson alone."
+     },
+     {
+      "quote": "*A* and *an* usually introduce one non-specific countable noun.",
+      "problem": "Countable noun is used to decide article choice without explaining which nouns can be counted. The packet supplies no prerequisite for this necessary distinction."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [
+     "Checked the actual explanations of noun/adjective/adverb, want to go and enjoy reading, known versus nonspecific article reference, matched list forms, and collocations.",
+     "The grammar list has been expanded into useful subsections, but subject agreement and past-perfect construction remain instructions or names without the necessary mechanism."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Make sure the verb matches the subject and fits the time of the sentence.",
+      "problem": "This tells students to check subject-verb agreement but never explains how a singular or plural subject changes the verb. The worked approved example does not teach that mechanism."
+     },
+     {
+      "quote": "If an action happened before another past action, the past perfect may be needed.",
+      "problem": "The use case is mentioned, but the lesson never shows had plus a past participle or a completed earlier action in a full example. Naming the tense does not teach how to use this grammar eliminator."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [
+     "Checked the warning that one nearby time phrase does not force a tense, the instruction to fill all blanks together, and the need to check both grammar and meaning.",
+     "Checked the article conditions against #7's a/an/the options. The basic sound distinction needed for a versus an is not supplied."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "*A* and *an* usually introduce one non-specific countable noun.",
+      "problem": "The lesson gives no condition for choosing a versus an, although both are options in its article example. It needs the consonant-sound versus vowel-sound condition to make the article check usable beyond a single definite-article answer."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "The sentence refers to a specific application already identified by \"that the office had requested.\"",
+    "concern": "That relative clause can restrict the description without establishing a uniquely known application. An application that the office had requested is also valid, so the explanation does not establish a unique article choice."
+   }
+  ],
+  "brief_items": {
+   "lesson-language-application-sentence-completion|L18|1": {
+    "status": "fixed",
+    "quote": "**Strong evidence** is a natural English word combination.",
+    "note": "Example #5 now explicitly chooses an answer by collocation. Example #6 also applies the expression interested in."
+   },
+   "lesson-language-application-sentence-completion|L18|2": {
+    "status": "fixed",
+    "quote": "**Filing** makes the list parallel.",
+    "note": "The added examples work preposition choice and -ing parallel structure, as well as an article task. The article task's separate ambiguity is flagged under B02."
+   },
+   "lesson-language-application-sentence-completion|L26|0": {
+    "status": "not_fixed",
+    "quote": "Make sure the verb matches the subject and fits the time of the sentence.",
+    "note": "Word classes, complements, articles, and lists now have explanations. Subject-verb matching is still a command without a rule, and past perfect still lacks its construction."
+   },
+   "lesson-language-application-sentence-completion|B02|0": {
+    "status": "fixed",
+    "quote": "(A) thorough, relaxed",
+    "note": "The old careless/confident alternative is gone. B is the only pair giving the ordinary unexpected contrast between thorough preparation and nervousness."
+   },
+   "lesson-language-application-sentence-completion|L02|0": {
+    "status": "fixed",
+    "quote": "A noun names a person, place, thing, or idea.",
+    "note": "The dense string of grammar labels was replaced by short subsections with direct wording and concrete examples."
+   },
+   "lesson-language-application-sentence-completion|L05|0": {
+    "status": "fixed",
+    "quote": "The sentence needs a main verb after the subject *committee*.",
+    "note": "Example #4 now explains the choice with main verb and completed action. The former abstract review-and-decision and finite-verb language is absent."
+   },
+   "lesson-language-application-sentence-completion|L19|0": {
+    "status": "fixed",
+    "quote": "*Although* shows that the second idea should contrast with the bad forecast.",
+    "note": "The contrast solution and all other worked solutions now use numbered steps rather than unnumbered explanation paragraphs."
+   },
+   "lesson-language-application-sentence-completion|L25|0": {
+    "status": "not_fixed",
+    "quote": "If an action happened before another past action, the past perfect may be needed.",
+    "note": "Several former grammar labels are removed or explained, but past perfect is still named without a recognizable form. Countable noun is also used without its meaning."
+   },
+   "lesson-language-application-sentence-completion|L25|1": {
+    "status": "fixed",
+    "quote": "**Approved** fits both the grammar and the meaning.",
+    "note": "The verb-form solution drops finite verb entirely and uses the ordinary main verb explanation."
+   },
+   "lesson-language-application-sentence-completion|L02|1": {
+    "status": "fixed",
+    "quote": "Use the whole sentence and the timeline.",
+    "note": "The warning no longer uses discourse relations, nuanced, or versus. It now directly tells students to check the whole sentence."
+   },
+   "lesson-language-application-sentence-completion|L18|0": {
+    "status": "not_fixed",
+    "quote": "Words such as *although, because, therefore, however,* and *for example* can show contrast, cause, result, or an example.",
+    "note": "The set works contrast and cause/result, including Filipino kaya. It still lacks a worked illustration relation using for example."
+   }
+  }
+ }
+}
