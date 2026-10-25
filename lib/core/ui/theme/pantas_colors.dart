@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
 
 @immutable
-class PantasColors extends AppColors {
+class PantasColors extends ThemeExtension<PantasColors> {
   const PantasColors({
     required this.background,
     required this.surface,
@@ -49,9 +48,7 @@ class PantasColors extends AppColors {
     required this.segmentedShadow,
   });
 
-  @override
   final Color background;
-  @override
   final Color surface;
   final Color label;
   final Color secondaryLabel;
@@ -226,37 +223,6 @@ class PantasColors extends AppColors {
   Object get type => PantasColors;
 
   @override
-  PantasColors get tokens => this;
-
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get ink => label;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get inkMuted => secondaryLabel;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get rule => separator;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get ruleFaint => fill;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get board => accent;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get boardTint => accentTint;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get onBoard => surface;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get rust => destructive;
-  @override
-  @Deprecated('W1 adapter, removed in W2 close-out')
-  Color get amber => pro;
-
-  @override
   PantasColors copyWith({
     Color? background,
     Color? surface,
@@ -301,35 +267,26 @@ class PantasColors extends AppColors {
     Color? switchThumb,
     Color? switchThumbShadow,
     Color? segmentedShadow,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? ink,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? inkMuted,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? rule,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? ruleFaint,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? board,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? boardTint,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? onBoard,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? rust,
-    @Deprecated('W1 adapter, removed in W2 close-out') Color? amber,
   }) =>
       PantasColors(
         background: background ?? this.background,
-        surface: surface ?? onBoard ?? this.surface,
-        label: label ?? ink ?? this.label,
-        secondaryLabel: secondaryLabel ?? inkMuted ?? this.secondaryLabel,
+        surface: surface ?? this.surface,
+        label: label ?? this.label,
+        secondaryLabel: secondaryLabel ?? this.secondaryLabel,
         tertiaryLabel: tertiaryLabel ?? this.tertiaryLabel,
         disabledActionLabel: disabledActionLabel ?? this.disabledActionLabel,
-        separator: separator ?? rule ?? this.separator,
-        fill: fill ?? ruleFaint ?? this.fill,
+        separator: separator ?? this.separator,
+        fill: fill ?? this.fill,
         onFillLabel: onFillLabel ?? this.onFillLabel,
         skeleton: skeleton ?? this.skeleton,
         chevron: chevron ?? this.chevron,
-        accent: accent ?? board ?? this.accent,
+        accent: accent ?? this.accent,
         accentFill: accentFill ?? this.accentFill,
-        accentTint: accentTint ?? boardTint ?? this.accentTint,
-        destructive: destructive ?? rust ?? this.destructive,
+        accentTint: accentTint ?? this.accentTint,
+        destructive: destructive ?? this.destructive,
         wrongTint: wrongTint ?? this.wrongTint,
         wrongText: wrongText ?? this.wrongText,
-        pro: pro ?? amber ?? this.pro,
+        pro: pro ?? this.pro,
         liquidStart: liquidStart ?? this.liquidStart,
         liquidEnd: liquidEnd ?? this.liquidEnd,
         controlOutline: controlOutline ?? this.controlOutline,

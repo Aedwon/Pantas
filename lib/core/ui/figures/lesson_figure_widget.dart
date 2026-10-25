@@ -49,10 +49,10 @@ class _MissingLessonFigure extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 12),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-      decoration: BoxDecoration(border: Border.all(color: colors.ruleFaint)),
+      decoration: BoxDecoration(border: Border.all(color: colors.fill)),
       child: Text(
         'This lesson needs a diagram that has not been drawn yet.',
-        style: context.textStyles.bodySmall.copyWith(color: colors.inkMuted),
+        style: context.type.subhead.copyWith(color: colors.secondaryLabel),
         semanticsLabel: 'Lesson diagram missing: $reason',
       ),
     );

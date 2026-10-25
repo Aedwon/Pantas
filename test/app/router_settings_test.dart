@@ -31,8 +31,8 @@ void main() {
     }
   });
 
-  test('the retired subscription path still redirects', () {
-    expect(collectRoutePaths(), contains('/settings/subscription'));
+  test('the retired subscription path is absent', () {
+    expect(collectRoutePaths(), isNot(contains('/settings/subscription')));
   });
 
   Future<SettingsEntitlementSnapshot> deletionSnapshot(

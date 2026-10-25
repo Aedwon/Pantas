@@ -1,13 +1,11 @@
 import 'dart:convert';
 import 'dart:ui' as ui;
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 
@@ -79,7 +77,7 @@ void main() {
           body: ValueListenableBuilder<int>(
             valueListenable: rebuild,
             builder: (_, __, ___) =>
-                PortableTextRenderer(blocks: [image(svgUrl(drawing))]),
+                ContentRenderer(blocks: [image(svgUrl(drawing))]),
           ),
         ),
       ),
@@ -102,7 +100,7 @@ void main() {
             home: Scaffold(
               body: reader
                   ? ContentRenderer(blocks: blocks, readerFigures: true)
-                  : PortableTextRenderer(blocks: blocks),
+                  : ContentRenderer(blocks: blocks),
             ),
           ),
         );
@@ -152,7 +150,7 @@ void main() {
       MaterialApp(
         theme: buildLightTheme(),
         home: Scaffold(
-          body: PortableTextRenderer(
+          body: ContentRenderer(
             blocks: [image('https://example.com/figure.SVG?v=2')],
           ),
         ),
@@ -160,19 +158,19 @@ void main() {
     );
     expect(find.byType(SvgPicture), findsOneWidget);
   });
-  testWidgets('existing remote PNG keeps its cached image path',
-      (tester) async {
+  testWidgets('remote PNG uses the current image path', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(),
         home: Scaffold(
-          body: PortableTextRenderer(
+          body: ContentRenderer(
             blocks: [image('https://example.com/figure.png')],
           ),
         ),
       ),
     );
-    expect(find.byType(CachedNetworkImage), findsOneWidget);
+    expect(find.byType(Image), findsOneWidget);
+    expect(tester.widget<Image>(find.byType(Image)).image, isA<NetworkImage>());
   });
   for (final reader in [false, true]) {
     testWidgets('invalid SVG uses existing failure state reader=$reader',
@@ -186,16 +184,14 @@ void main() {
                     blocks: [image(svgUrl('broken'))],
                     readerFigures: true,
                   )
-                : PortableTextRenderer(blocks: [image(svgUrl('broken'))]),
+                : ContentRenderer(blocks: [image(svgUrl('broken'))]),
           ),
         ),
       );
       await tester.pumpAndSettle();
       expect(
         find.text(
-          reader
-              ? 'This illustration didn’t load.'
-              : 'Content unavailable. Update the app.',
+          reader ? 'This illustration didn’t load.' : 'Image could not load.',
         ),
         findsOneWidget,
       );
@@ -231,7 +227,7 @@ void main() {
             home: Scaffold(
               body: reader
                   ? ContentRenderer(blocks: [image(url)], readerFigures: true)
-                  : PortableTextRenderer(blocks: [image(url)]),
+                  : ContentRenderer(blocks: [image(url)]),
             ),
           ),
         );
@@ -239,9 +235,7 @@ void main() {
         expect(tester.takeException(), isNull);
         expect(
           find.text(
-            reader
-                ? 'This illustration didn’t load.'
-                : 'Content unavailable. Update the app.',
+            reader ? 'This illustration didn’t load.' : 'Image could not load.',
           ),
           findsOneWidget,
         );
@@ -295,7 +289,7 @@ void main() {
         home: Scaffold(
           body: SingleChildScrollView(
             child: switch (renderer) {
-              'portable' => PortableTextRenderer(blocks: blocks),
+              'portable' => ContentRenderer(blocks: blocks),
               'reader' => ContentRenderer(blocks: blocks, readerFigures: true),
               _ => ContentRenderer(blocks: blocks),
             },
@@ -372,7 +366,7 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(),
-        home: Scaffold(body: PortableTextRenderer(blocks: [image(png)])),
+        home: Scaffold(body: ContentRenderer(blocks: [image(png)])),
       ),
     );
     await tester.runAsync(

@@ -1,218 +1,263 @@
-# W4h Task 4 and W2 Task 9
+# W4h Task 4 fixes and W2 Task 9 close-out
 
-Date: October 25, 2026. CSE PWA launch scope. Worker evidence, not lead acceptance.
+Date: October 25, 2026. Worktree `Pantas-wt-new-design-w4h-r2`, branch `web/new-design-w4h-r2`. Base `ca231750`.
 
-## Identity and authorization
+## Scope and authorization
 
-- Worktree: `/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4h-r2`.
-- Branch: `web/new-design-w4h-r2`.
-- Source HEAD: `fefe36a064ebcd287c2a099488bad829da3289e4`.
-- Policy and controlling documents read from existing `origin/main`, `3812935160b2d245244bc0ae92a4f85e7ddc1316`. No fetch or pull.
-- Read AGENTS.md, WORKFLOW.md, SUBAGENTS.md, full L3/L2 W4h and W2 plans, PWA launch plan, and the relevant new-design STATUS rows. STATUS lives under `docs/superpowers/plans/new-design/`, not the repository root.
-- Main STATUS still says A7 queued, with older unfinished W4 family rows. The current explicit assignment establishes the candidate and authorizes this check. No status lock or other worktree changed.
-- No commit, staging, merge, push, deploy, dependency addition, feature-file edit, board change, or screenshot capture.
+The lead brief authorizes edits across W4 families, including native and deferred paths. This supersedes the original inventory-only boundary. No commit, staging, merge, push, dependency addition, protected-content rebuild, or deployment is authorized or performed. The previous run's uncommitted work was preserved.
 
-## W4h Task 4: inventory performed, clean acceptance not met
+Controlling sources: L3/L2 W2 and W4h, the October 5 amendment spec, relevant family plans and later rulings from existing `origin/main`. In this worktree those plans are available through Git. No fetch or pull. The October 14 reader ContentsGlyph ruling explicitly preserves its painter and paths. The repository's older WORKFLOW.md is absent; this brief supplies the current task and verification instructions.
 
-Task 4 is check-only. Family owners fix their own screens. No behavior was changed, so no new failing-first behavior test is claimed.
+## W4h Task 4
 
-Actual required grep output:
+Native MockStartRoute now uses the existing `errorFor('mock', retry)` for preparation, start, resume, submit and discard failures. Each action retains its actual retry operation. Fresh-load retry invalidates failed blueprint/question-pool providers. Corrupt saved attempts retain Discard. Raw exceptions go to `telemetryProvider.recordError`.
 
-```text
-['grep', '-rnF', 'Error: $'] lib/features/*/presentation
-(empty output)
+ServerMockRoute no longer passes failed-precondition server messages into visible copy. It uses the same generic mock error and Retry. The original ServerMockException remains available to telemetry, including the message copied by the Firebase adapter. No server text is mapped into student copy.
 
-exit: 1
+QuizController's eight `toString()` matches are internal failure data. QuizPage uses `errorFor('quiz', retry)` and never renders that data. The initial inventory classified those as non-exposures. No change to quiz launch or persistence behavior is needed for those matches.
 
-['grep', '-rnE', '\\b(e|err|error|exception)\\.toString\\(\\)'] lib/features/*/presentation
-lib/features/mock_exam/presentation/pages/mock_start_route.dart:181:          _errorMessage = e.toString();
-lib/features/mock_exam/presentation/pages/mock_start_route.dart:245:          _errorMessage = e.toString();
-lib/features/mock_exam/presentation/pages/mock_start_route.dart:355:          _errorMessage = e.toString();
-lib/features/mock_exam/presentation/pages/mock_start_route.dart:552:          _errorMessage = e.toString();
-lib/features/mock_exam/presentation/pages/mock_start_route.dart:705:      if (mounted) setState(() => _errorMessage = error.toString());
-lib/features/quiz/presentation/quiz_controller.dart:124:      if (mounted) state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:164:      state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:189:      state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:235:      if (mounted) state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:277:      if (mounted) state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:383:      state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:406:      state = QuizFailure(e.toString());
-lib/features/quiz/presentation/quiz_controller.dart:433:      state = QuizFailure(e.toString());
+Tests cover native fresh-load diagnostics, generic error and successful Retry; corrupt saved-state diagnostics and Discard; and server refusal text hidden with generic copy, telemetry and successful Retry. See the failing-first and final logs below.
 
-exit: 0
+## W2 Task 9
 
-['grep', '-rnE', 'Text\\([^)]*\\$\\{?(e|err|error|exception)\\b'] lib/features/*/presentation
-(empty output)
+Remaining legacy callers move to the named W2 replacements: GroupedSection/ListRow, PantasButton, PantasPage, LoadingShapes, current QuestionCard/ChoiceRow/AnswerReveal/PassageCard and ContentRenderer. Retired helpers with zero callers and their dedicated tests/accessibility cases are deleted. Theme users now read PantasColors/PantasType directly. AppColors, AppTextStyles and AppDimensions adapters are removed. Source Sans 3 and Source Serif 4 font files, declarations and obsolete license registration are removed. Math uses the existing KaTeX font contract.
 
-exit: 1
-```
+Interim redirects for retired routes are removed. Route tests now assert live destinations and the absence of retired paths.
 
-Classification after reading the consumers:
+Kept: ContentsGlyph, because L3 W4c's October 14 Task 5 ruling explicitly requires the existing painter/paths and its optional strokeWidth. This later ruling supersedes the generic W2 retirement list for this reader control. Other retained helpers, such as ReviewList, ExamNameLine, LessonSvg, MathSupport, ReportForm and TodayQuestions, have no named replacement in the retirement plan and serve live screens.
 
-- `mock_start_route.dart:181,245,355,552,705` stores raw exception text. At lines 798-806 the widget displays it through ErrorBanner. Native legacy path: `mock_routes.dart:51` chooses it only when `mockUsesServerProvider` is false; that provider defaults to `kIsWeb`. Reported to W4e/lead, not edited here.
-- Quiz controller's eight matches are internal failure data. `quiz_page.dart:524-530` shows `errorFor('quiz', retry)` without the stored message. These matches do not themselves expose exception text.
-- Additional launch-path finding missed by the greps: `server_mock_route.dart:312-314` forwards `ServerMockException.message` into `errorFor` for `failed-precondition`. `data/server_mock_api.dart:111` copies `FirebaseFunctionsException.message` directly. `state_patterns.dart:31` renders the supplied message. Backend text can reach the CSE web mock widget. W4e/lead must decide the safe code-to-copy mapping. This worker did not edit another family's screen or invent replacement copy.
+The remaining flag callers in QuizPage, FlaggedListPage, MockReviewPage and ReviewList now use W1 PantasIcons.flag. Existing quiz pop timing, action semantics and hit targets stay in place. The old PennantMark painter/test/accessibility case is deleted. Its regression assertions failed before the replacement (resume-full-test.log), then passed in the 102-test focused run.
 
-Silent-section spot checks: Home focus and Today data use `errorFor`; Home masthead handles either failed provider with a retry; Study renders a plan error when Today lessons fail; bookmarks, Study search, reader contents, assessment results, exam picker, included content and Quiz async sections have explicit error branches. No claim of exhaustive runtime failure injection. Home masthead and server mock still use FaintBars directly, retaining a retired loading component; listed below for family reconciliation.
+Final deleted-path audit: 43 component files and three theme adapters removed. Zero import/export callers remain for those 46 exact deleted Dart paths in lib/test. The audit resolves relative and package imports and distinguishes new_design replacements from their deleted same-named predecessors. Dedicated obsolete tests are removed; surviving renderer, accessibility, theme and screen tests target current replacements. The source changes also cover figure/preview-tool token consumers after adapter removal.
 
-## W2 Task 9: blocked, no retirement applied
+## Failing-first evidence
 
-The plan says: "A remaining caller means a W4 family missed a call site: report it to the lead; do not edit the feature file." It also requires keeping a retired component while callers remain. Remaining callers prevent complete close-out. SUBAGENTS Part 6 requires reporting stop conditions. No partial deletion set was applied or represented as completed close-out.
+The interrupted earlier run saved actual RED results in `build/w4h-task4-w2-task9/`:
 
-Inventory resolves import/export URIs to exact files. This distinguishes old question pieces from same-named replacements under `components/new_design/`.
+- `run2-red.log`: server refusal still visible, and corrupt saved-state diagnostics still visible. 26 passed, 2 failed.
+- `run2-retry-red.log`: native generic error could not recover to Start the Paper after Retry. 0 passed, 1 failed.
+- `run2-migration-red.log`: font retirement contract, current review pieces and preparation loader/button expectations. 25 passed, 4 failed.
+- `run2-page-red.log` and `run2-routes-red.log`: current page/retired-route expectations before migration.
 
-```text
-settings_group: 0 caller(s)
-ruled_section: 1 caller(s)
-  lib/features/mock_exam/presentation/widgets/mock_status_card.dart:3
-ruled_panel: 0 caller(s)
-section_header: 0 caller(s)
-settings_value_row: 0 caller(s)
-ink_table_row: 1 caller(s)
-  lib/features/wrapped/presentation/wrapped_reveal_page.dart:5
-data_row_tile: 0 caller(s)
-exam_selection_row: 0 caller(s)
-settings_switch: 1 caller(s)
-  lib/core/ui/components/settings_value_row.dart:3
-ink_checkbox: 1 caller(s)
-  lib/core/ui/components/topic_scope_index.dart:2
-ink_chevron: 2 caller(s)
-  lib/core/ui/components/ink_table_row.dart:2
-  lib/core/ui/components/settings_value_row.dart:2
-theme_control: 0 caller(s)
-board_button: 11 caller(s)
-  lib/core/ui/components/exam_date_sheet.dart:3
-  lib/core/ui/components/empty_state.dart:2
-  lib/core/ui/components/confirmation_dialog.dart:2
-  lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart:4
-  lib/features/mock_exam/presentation/pages/mock_review_page.dart:7
-  lib/features/mock_exam/presentation/pages/mock_setup_page.dart:5
-  lib/features/mock_exam/presentation/widgets/mock_resume_sheet.dart:2
-  lib/features/mock_exam/presentation/widgets/mock_status_card.dart:2
-  lib/features/mock_exam/presentation/widgets/exam_marks_offer.dart:2
-  lib/features/wrapped/presentation/wrapped_reveal_page.dart:3
-  lib/features/notifications/presentation/permission_rationale_page.dart:5
-settings_bar: 0 caller(s)
-tab_header: 0 caller(s)
-page_scaffold: 1 caller(s)
-  lib/features/lesson/presentation/learn_tab_home.dart:8
-inline_meter: 1 caller(s)
-  lib/core/ui/components/data_row_tile.dart:2
-progress_rule: 1 caller(s)
-  lib/core/ui/components/quiz_progress_bar.dart:2
-quiz_progress_bar: 0 caller(s)
-stats_band: 0 caller(s)
-ink_sheet: 1 caller(s)
-  lib/core/ui/components/exam_date_sheet.dart:4
-confirmation_dialog: 0 caller(s)
-error_banner: 1 caller(s)
-  lib/features/mock_exam/presentation/pages/mock_start_route.dart:9
-ink_wheel: 1 caller(s)
-  lib/core/ui/components/exam_date_sheet.dart:5
-exam_date_sheet: 0 caller(s)
-topic_scope_index: 0 caller(s)
-ink_magnifier: 0 caller(s)
-faint_bars: 8 caller(s)
-  lib/features/home/presentation/widgets/home_masthead.dart:9
-  lib/features/mock_exam/presentation/pages/custom_mock_setup_route.dart:13
-  lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart:5
-  lib/features/mock_exam/presentation/pages/mock_setup_route.dart:6
-  lib/features/mock_exam/presentation/pages/mock_start_route.dart:10
-  lib/features/mock_exam/presentation/pages/server_mock_route.dart:10
-  lib/features/wrapped/presentation/my_shared_cards_page.dart:3
-  lib/features/wrapped/presentation/wrapped_reveal_page.dart:4
-empty_state: 0 caller(s)
-question_card: 1 caller(s)
-  lib/features/mock_exam/presentation/pages/mock_review_page.dart:10
-answer_row: 1 caller(s)
-  lib/core/ui/components/question_card.dart:6
-answer_reveal: 2 caller(s)
-  lib/core/ui/components/review_list.dart:5
-  lib/features/mock_exam/presentation/pages/mock_review_page.dart:6
-passage_card: 2 caller(s)
-  lib/core/ui/components/review_list.dart:6
-  lib/core/ui/components/question_card.dart:7
-portable_text_renderer: 4 caller(s)
-  lib/core/ui/components/review_list.dart:8
-  lib/core/ui/components/question_card.dart:8
-  lib/core/ui/components/answer_reveal.dart:5
-  lib/features/mock_exam/presentation/pages/mock_review_page.dart:9
-inline_math_text: 2 caller(s)
-  lib/core/ui/components/answer_row.dart:2
-  lib/core/ui/components/portable_text_renderer.dart:5
-accessible_math: 1 caller(s)
-  lib/core/ui/components/portable_text_renderer.dart:4
-spaced_repetition_note: 0 caller(s)
-pennant_mark: 6 caller(s)
-  lib/core/ui/components/review_list.dart:7
-  lib/core/ui/components/question_grid_sheet.dart:2
-  lib/core/ui/components/bookmark_ribbon.dart:2
-  lib/features/mock_exam/presentation/pages/mock_review_page.dart:8
-  lib/features/quiz/presentation/quiz_page.dart:20
-  lib/features/quiz/presentation/pages/flagged_list_page.dart:14
-bookmark_ribbon: 0 caller(s)
-contents_glyph: 1 caller(s)
-  lib/features/lesson/presentation/widgets/reader_bar.dart:4
-back_chevron: 1 caller(s)
-  lib/core/ui/components/settings_bar.dart:2
-nav_glyph: 0 caller(s)
-ink_plate_rule: 0 caller(s)
-question_grid_sheet: 0 caller(s)
-```
+Resume started with `git status --short` and `git diff --stat`: 174 changed files, 752 insertions and 10,076 deletions. No changes were reverted. The resumed suite reproduced stale expectations in ReviewList, image-rendering tests and a Settings redirect test. Those assertions now target the actual replacement contracts. The first resumed broad run reached 4,797 passes and 11 failures, including the two intentional flag RED assertions. It was interrupted while the roadmap property test was still running and is not full-suite evidence. All nine stale-contract assertions were corrected. A separate probe demonstrated progress through generated cases, and the unmodified property test passed alone: `03:53 +1: All tests passed!`.
 
-Further retirement blockers:
+`resume-focused.log`: `00:07 +102: All tests passed!`, covering ReviewList, image renderer, router redirects, quiz flags and StartTodaySession. The reported StartTodaySession failure did not reproduce; no domain/storage source or test change was made to hide it.
 
-- `lib/core/ui/theme/pantas_colors.dart:5` extends AppColors. `app_theme.dart` still constructs AppTextStyles and installs both compatibility extensions.
-- Feature imports of AppDimensions remain in `features/shell/presentation/app_shell.dart:8`, `features/mock_exam/presentation/pages/mock_review_page.dart:13`, and deferred Wrapped.
-- SourceSans3 remains referenced by the legacy passage and question-grid components. Font files and declaration remain required until callers retire.
-- `pantas_type.dart:139` still returns SourceSerif4 for math. `font_licenses.dart:9` registers its license. Tests still require that font. Removing files alone would leave an invalid font contract.
-- Retired-route redirects remain in onboarding, quiz, settings and mock route files. They are owned by feature families. No route was removed here.
-- Wrapped is deferred at launch but still imports legacy components. Launch-only scope does not authorize deleting its live dependencies.
-
-## Web-lineage reconciliation
-
-Do not port B7, web content bootstrap or App Check from `web/pwa-staging-r1` here. No bootstrap file changed. On later integration, recheck loading delay and safe error/retry patterns against the web content/deferred-route lifecycle. Preserve the separate startup and App Check changes. Recheck the server mock failed-precondition message against the handed-off backend error contract. No live web or protected-content verification was performed.
+First resumed analysis found 12 style infos. Existing changed code/tests were corrected for import ordering, trailing commas and one redundant default argument. Final analysis is clean.
 
 ## Verification
 
-Initial `flutter test` found absent ignored generated files, including `lib/l10n/app_localizations.dart`, domain Freezed/JSON files, and Drift database files. The run was interrupted after repeated compile failures. This is environment setup failure, not a deliberate behavior RED test. Initial output remains in `build/w4h-task4-w2-task9/flutter-test.log`.
-
-Generated ignored files using `flutter gen-l10n` (exit 0), then `dart run build_runner build --delete-conflicting-outputs` (exit 0):
+Detailed local logs are under `build/w4h-task4-w2-task9/` (ignored). All requested gates passed on the final source. The full run completed normally with exit 0. No application/test/tool source changed during the final run.
 
 ```text
-Built with build_runner/aot in 27s; wrote 3129 outputs.
-```
-
-Final candidate has no tracked application/test/tool diff from HEAD. Only this evidence file is untracked. Ignored generated files are setup outputs, not source changes. No behavior RED test was added or claimed.
-
-All final commands exited 0. Actual output summaries:
-
-```text
-$ flutter test
-08:41 +5059: All tests passed!
+$ flutter test --reporter expanded
+09:58 +4804: All tests passed!
 
 $ flutter analyze lib test tool
-Analyzing 3 items...                                            
-No issues found! (ran in 8.6s)
+Analyzing 3 items...
+No issues found! (ran in 10.8s)
 
 $ dart format --output=none --set-exit-if-changed lib test tool
-Formatted 1598 files (0 changed) in 2.72 seconds.
+Formatted 1515 files (0 changed) in 3.71 seconds.
 
 $ dart run tool/check_layering.dart
 Running build hooks...Running build hooks...check_layering: OK
+```
 
+No phone/screenshot check, live web build, backend suite or independent review is claimed. Aedwon's visual acceptance remains separate.
+
+## Final attribution and working-tree output
+
+```text
 $ dart run tool/check_no_ai_attribution.dart
 Running build hooks...Running build hooks...check_no_ai_attribution: OK
 
 $ git status --short
-?? docs/superpowers/plans/new-design/evidence/W4h-task4-W2-task9.md
+ D assets/fonts/OFL-SourceSans3.txt
+ D assets/fonts/OFL-SourceSerif4.txt
+ D assets/fonts/SourceSans3-Bold.ttf
+ D assets/fonts/SourceSans3-Regular.ttf
+ D assets/fonts/SourceSans3-SemiBold.ttf
+ D assets/fonts/SourceSerif4-Regular.ttf
+ D assets/fonts/SourceSerif4-Semibold.ttf
+ M docs/superpowers/plans/new-design/evidence/W4h-task4-W2-task9.md
+ M lib/app/routes/mock_routes.dart
+ M lib/app/routes/onboarding_routes.dart
+ M lib/app/routes/quiz_routes.dart
+ M lib/app/routes/settings_routes.dart
+ D lib/core/ui/components/accessible_math.dart
+ D lib/core/ui/components/answer_reveal.dart
+ D lib/core/ui/components/answer_row.dart
+ D lib/core/ui/components/back_chevron.dart
+ D lib/core/ui/components/board_button.dart
+ D lib/core/ui/components/bookmark_ribbon.dart
+ D lib/core/ui/components/confirmation_dialog.dart
+ M lib/core/ui/components/content_renderer.dart
+ M lib/core/ui/components/contents_glyph.dart
+ D lib/core/ui/components/data_row_tile.dart
+ D lib/core/ui/components/empty_state.dart
+ D lib/core/ui/components/error_banner.dart
+ D lib/core/ui/components/exam_date_sheet.dart
+ M lib/core/ui/components/exam_name_line.dart
+ D lib/core/ui/components/exam_selection_row.dart
+ D lib/core/ui/components/faint_bars.dart
+ D lib/core/ui/components/ink_checkbox.dart
+ D lib/core/ui/components/ink_chevron.dart
+ D lib/core/ui/components/ink_magnifier.dart
+ D lib/core/ui/components/ink_plate_rule.dart
+ D lib/core/ui/components/ink_sheet.dart
+ D lib/core/ui/components/ink_table_row.dart
+ D lib/core/ui/components/ink_wheel.dart
+ D lib/core/ui/components/inline_math_text.dart
+ D lib/core/ui/components/inline_meter.dart
+ D lib/core/ui/components/nav_glyph.dart
+ D lib/core/ui/components/page_scaffold.dart
+ M lib/core/ui/components/pantas_page.dart
+ D lib/core/ui/components/passage_card.dart
+ D lib/core/ui/components/pennant_mark.dart
+ D lib/core/ui/components/portable_text_renderer.dart
+ D lib/core/ui/components/progress_rule.dart
+ D lib/core/ui/components/question_card.dart
+ D lib/core/ui/components/question_grid_sheet.dart
+ D lib/core/ui/components/quiz_progress_bar.dart
+ M lib/core/ui/components/review_list.dart
+ D lib/core/ui/components/ruled_panel.dart
+ D lib/core/ui/components/ruled_section.dart
+ D lib/core/ui/components/section_header.dart
+ D lib/core/ui/components/settings_bar.dart
+ D lib/core/ui/components/settings_group.dart
+ D lib/core/ui/components/settings_switch.dart
+ D lib/core/ui/components/settings_value_row.dart
+ D lib/core/ui/components/spaced_repetition_note.dart
+ D lib/core/ui/components/stats_band.dart
+ D lib/core/ui/components/tab_header.dart
+ D lib/core/ui/components/theme_control.dart
+ D lib/core/ui/components/topic_scope_index.dart
+ M lib/core/ui/figures/biology_diagram_figure.dart
+ M lib/core/ui/figures/chart_figure.dart
+ M lib/core/ui/figures/chemistry_diagram_figure.dart
+ M lib/core/ui/figures/concept_diagram_figure.dart
+ M lib/core/ui/figures/coordinate_graph_figure.dart
+ M lib/core/ui/figures/cube_net_figure.dart
+ M lib/core/ui/figures/earth_science_diagram_figure.dart
+ M lib/core/ui/figures/figure_matrix_figure.dart
+ M lib/core/ui/figures/figure_series_figure.dart
+ M lib/core/ui/figures/fluid_vessel_figure.dart
+ M lib/core/ui/figures/gear_train_figure.dart
+ M lib/core/ui/figures/geometry_diagram_figure.dart
+ M lib/core/ui/figures/lesson_figure_widget.dart
+ M lib/core/ui/figures/lever_balance_figure.dart
+ M lib/core/ui/figures/paper_fold_figure.dart
+ M lib/core/ui/figures/physics_energy_diagram_figure.dart
+ M lib/core/ui/figures/physics_mechanics_diagram_figure.dart
+ M lib/core/ui/figures/pulley_system_figure.dart
+ M lib/core/ui/figures/question_figure.dart
+ M lib/core/ui/figures/reading_diagram_figure.dart
+ M lib/core/ui/figures/shape_row_figure.dart
+ M lib/core/ui/figures/spring_scale_figure.dart
+ M lib/core/ui/figures/stability_shape_figure.dart
+ M lib/core/ui/severity.dart
+ D lib/core/ui/theme/app_colors.dart
+ D lib/core/ui/theme/app_dimensions.dart
+ D lib/core/ui/theme/app_text_styles.dart
+ M lib/core/ui/theme/app_theme.dart
+ M lib/core/ui/theme/font_licenses.dart
+ M lib/core/ui/theme/pantas_colors.dart
+ M lib/core/ui/theme/pantas_type.dart
+ M lib/features/home/presentation/widgets/home_masthead.dart
+ M lib/features/lesson/presentation/learn_tab_home.dart
+ M lib/features/mock_exam/presentation/pages/custom_mock_setup_route.dart
+ M lib/features/mock_exam/presentation/pages/mock_review_page.dart
+ M lib/features/mock_exam/presentation/pages/mock_setup_page.dart
+ M lib/features/mock_exam/presentation/pages/mock_setup_route.dart
+ M lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart
+ M lib/features/mock_exam/presentation/pages/mock_start_route.dart
+ M lib/features/mock_exam/presentation/pages/server_mock_route.dart
+ M lib/features/mock_exam/presentation/widgets/exam_marks_offer.dart
+ M lib/features/mock_exam/presentation/widgets/mock_resume_sheet.dart
+ M lib/features/mock_exam/presentation/widgets/mock_status_card.dart
+ M lib/features/mock_exam/presentation/widgets/score_headline.dart
+ M lib/features/notifications/presentation/permission_rationale_page.dart
+ M lib/features/quiz/presentation/pages/flagged_list_page.dart
+ M lib/features/quiz/presentation/quiz_page.dart
+ M lib/features/shell/presentation/app_shell.dart
+ M lib/features/wrapped/presentation/my_shared_cards_page.dart
+ M lib/features/wrapped/presentation/share_privacy_sheet.dart
+ M lib/features/wrapped/presentation/wrapped_reveal_page.dart
+ M pubspec.yaml
+ M test/app/router_paths_preserved_test.dart
+ M test/app/router_redirect_test.dart
+ M test/app/router_settings_test.dart
+ M test/core/ui/components/accessibility_test.dart
+ D test/core/ui/components/answer_reveal_test.dart
+ D test/core/ui/components/answer_row_test.dart
+ D test/core/ui/components/board_button_test.dart
+ D test/core/ui/components/confirmation_dialog_test.dart
+ D test/core/ui/components/data_row_tile_test.dart
+ M test/core/ui/components/destructive_contrast_test.dart
+ D test/core/ui/components/empty_state_test.dart
+ D test/core/ui/components/error_banner_test.dart
+ D test/core/ui/components/exam_date_sheet_test.dart
+ M test/core/ui/components/exam_name_line_test.dart
+ D test/core/ui/components/exam_selection_row_test.dart
+ D test/core/ui/components/faint_bars_test.dart
+ D test/core/ui/components/ink_checkbox_test.dart
+ D test/core/ui/components/ink_chevron_test.dart
+ D test/core/ui/components/ink_plate_rule_test.dart
+ D test/core/ui/components/ink_sheet_test.dart
+ D test/core/ui/components/ink_table_row_test.dart
+ D test/core/ui/components/ink_wheel_test.dart
+ D test/core/ui/components/inline_math_text_test.dart
+ M test/core/ui/components/lesson_svg_test.dart
+ M test/core/ui/components/math_accessibility_test.dart
+ D test/core/ui/components/nav_glyph_test.dart
+ D test/core/ui/components/pennant_mark_test.dart
+ D test/core/ui/components/portable_text_renderer_test.dart
+ D test/core/ui/components/progress_rule_test.dart
+ D test/core/ui/components/question_card_test.dart
+ D test/core/ui/components/question_grid_sheet_test.dart
+ M test/core/ui/components/review_list_test.dart
+ D test/core/ui/components/ruled_panel_test.dart
+ D test/core/ui/components/ruled_section_test.dart
+ D test/core/ui/components/section_header_test.dart
+ D test/core/ui/components/settings_group_test.dart
+ D test/core/ui/components/settings_switch_test.dart
+ D test/core/ui/components/settings_value_row_test.dart
+ D test/core/ui/components/spaced_repetition_note_test.dart
+ D test/core/ui/components/stats_band_test.dart
+ D test/core/ui/components/tab_header_test.dart
+ D test/core/ui/components/theme_control_test.dart
+ D test/core/ui/components/topic_scope_index_test.dart
+ M test/core/ui/figures/lesson_original_code_a_test.dart
+ M test/core/ui/figures/lesson_original_code_b_test.dart
+ D test/core/ui/theme/app_colors_test.dart
+ D test/core/ui/theme/app_dimensions_test.dart
+ D test/core/ui/theme/app_text_styles_test.dart
+ M test/core/ui/theme/app_theme_test.dart
+ M test/core/ui/theme/font_licenses_test.dart
+ M test/core/ui/theme/fonts_declared_test.dart
+ M test/core/ui/theme/pantas_theme_test.dart
+ M test/core/ui/theme/pantas_type_test.dart
+ M test/features/lesson/presentation/learn_tab_home_test.dart
+ M test/features/lesson/presentation/topic_ending_page_test.dart
+ M test/features/mock_exam/presentation/mock_review_page_test.dart
+ M test/features/mock_exam/presentation/mock_start_route_persistence_test.dart
+ M test/features/mock_exam/presentation/pages/mock_start_preparation_page_test.dart
+ M test/features/mock_exam/presentation/server_mock_route_test.dart
+ M test/features/quiz/passage_regression_test.dart
+ M test/features/quiz/presentation/pages/flagged_list_page_test.dart
+ M test/features/quiz/presentation/quiz_page_chrome_test.dart
+ M test/features/shell/app_shell_test.dart
+ M test/helpers/pump_app.dart
+ M test/tools/lesson_illustration_preview_renderer_test.dart
+ M tools/lesson_author/illustration_preview_renderer.dart
+ M tools/lesson_author/render_illustration_previews_test.dart
 ```
 
-One intermediate concurrent Dart hook run failed while rewriting `objective_c.dylib` with `input file ... is not a Mach-O file`. The final layering and attribution checks were run sequentially and both exited 0. This was a tooling collision, not an attribution finding. The initial missing-generated-files run was interrupted and has no full-suite result. The complete generated-input suite above finished normally.
+## Completion and limits
 
-Local detailed outputs are under `build/w4h-task4-w2-task9/` (ignored). The final summaries above are preserved in this evidence file. No web build, backend suite, deployment, independent review or phone/visual check was run. Task 4's inventory/report is complete; its no-student-facing-raw-error acceptance is not met. Task 9 is not implemented because live callers remain. Lead-owned STATUS has not been changed or represented as current acceptance.
-
-
-## Product decisions and remaining work
-
-No product decision was made by this worker. Lead rulings needed: safe failed-precondition copy for the web mock; family ownership and scope for remaining legacy callers, fonts, theme adapters and route redirects, including native/deferred screens. Family owners must finish the caller migrations before complete W2 retirement. Aedwon retains visual acceptance. Independent review, web build/live PWA checks and launch acceptance are not claimed.
+- W4h Task 4 fixes: done for every student-facing raw-error exposure in the inventory, including the native path. Internal QuizFailure data is still not rendered.
+- W2 Task 9: caller migrations, unused component/test deletion, theme/font retirement and interim-route close-out are done. ContentsGlyph is retained under the later explicit reader ruling.
+- The reported StartTodaySession failure did not recur in either the focused or final full run. No unrelated quiz/roadmap behavior was changed.
+- Verification: 4,804 tests passed, scoped analysis clean, format unchanged, layering OK, attribution OK. Final git status is pasted above. All 179 changed paths remain uncommitted. No new dependency or attribution text was introduced.
+- Visual/device acceptance, web build/live PWA checks, backend tests and independent review were not run. This is implementation evidence, not a claim of those separate approvals.

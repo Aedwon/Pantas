@@ -286,6 +286,4 @@ List<RouteBase> quizRoutes(Ref ref) => [
           ),
         ),
       ),
-      GoRoute(path: '/quiz/results/:attemptId', redirect: (_, __) => '/quiz'),
-      GoRoute(path: '/review', redirect: (_, __) => '/quiz'),
     ];

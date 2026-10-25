@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
@@ -51,7 +51,7 @@ class HomeMasthead extends ConsumerWidget {
     }
     final masthead = headState.valueOrNull;
     final week = weekState.valueOrNull;
-    if (masthead == null || week == null) return const FaintBars();
+    if (masthead == null || week == null) return const LoadingShapes();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

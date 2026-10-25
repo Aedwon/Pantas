@@ -7,8 +7,8 @@ import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/figures/physics_mechanics_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/reading_diagram_figure.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/ui/theme/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/pantas_type.dart';
 
 void main() {
   setUpAll(() async {
@@ -590,7 +590,7 @@ void main() {
     await tester.binding.setSurfaceSize(const Size(390, 844));
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
-    for (final palette in const [AppColors.light, AppColors.dark]) {
+    for (final palette in const [PantasColors.light, PantasColors.dark]) {
       for (final item in cases) {
         await _pumpFigure(tester, item.spec, palette);
         expect(tester.takeException(), isNull, reason: item.key);
@@ -602,7 +602,7 @@ void main() {
     final item = cases.singleWhere(
       (item) => item.key == 'science/chemistry/acids-bases-ph#1',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
     const left = 18.0;
     final step = (image.width - 36) / 14;
     final samples = <int>{};
@@ -619,7 +619,7 @@ void main() {
     final item = cases.singleWhere(
       (item) => item.key == 'science/chemistry/periodic-table#1',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
     final cellWidth = (image.width - 44) / 18;
     final colors = <int>{
       image.pixel(22 + cellWidth * 5.5, 24 + 20 * 4.5).toARGB32(),
@@ -628,7 +628,7 @@ void main() {
     };
 
     expect(colors, hasLength(3));
-    expect(colors, isNot(contains(AppColors.light.surface.toARGB32())));
+    expect(colors, isNot(contains(PantasColors.light.surface.toARGB32())));
   });
 
   testWidgets('second-law panel includes a line-drawn pushing hand', (
@@ -637,22 +637,22 @@ void main() {
     final item = cases.singleWhere(
       (item) => item.key == 'science/physics/dynamics#1',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
 
     expect(
       image.countNear(
-            AppColors.light.ink,
+            PantasColors.light.label,
             const Rect.fromLTRB(145, 93, 174, 109),
           ) +
           image.countNear(
-            AppColors.light.ink,
+            PantasColors.light.label,
             const Rect.fromLTRB(145, 116, 174, 132),
           ),
       greaterThan(10),
     );
     expect(
       image.countNear(
-        AppColors.light.ink,
+        PantasColors.light.label,
         const Rect.fromLTRB(145, 93, 174, 109),
       ),
       greaterThan(0),
@@ -665,11 +665,11 @@ void main() {
     final item = cases.singleWhere(
       (item) => item.key == 'science/physics/kinematics#1',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
     final occupiedRows = <int>{};
     for (var y = 24; y <= 56; y++) {
       if (image.countNear(
-            AppColors.light.board,
+            PantasColors.light.accent,
             Rect.fromLTRB(80, y.toDouble(), 310, y + 1.0),
           ) >
           0) {
@@ -692,24 +692,24 @@ void main() {
     final speechImage = await _renderFigure(
       tester,
       speech.spec,
-      AppColors.light,
+      PantasColors.light,
     );
     final bondingImage = await _renderFigure(
       tester,
       bonding.spec,
-      AppColors.light,
+      PantasColors.light,
     );
 
     expect(
       speechImage.countNear(
-        AppColors.light.board,
+        PantasColors.light.accent,
         Rect.fromLTWH(0, 0, speechImage.width.toDouble(), 210),
       ),
       0,
     );
     expect(
       bondingImage.countNear(
-        AppColors.light.board,
+        PantasColors.light.accent,
         const Rect.fromLTWH(0, 0, 130, 38),
       ),
       0,
@@ -720,7 +720,7 @@ void main() {
     final item = cases.singleWhere(
       (item) => item.key == 'science/physics/gravity-and-keplers-laws#2',
     );
-    final image = await _renderFigure(tester, item.spec, AppColors.light);
+    final image = await _renderFigure(tester, item.spec, PantasColors.light);
     final orbitWidth = image.width * 0.72;
     final orbitHeight = _mathMin(230 * 0.54, orbitWidth * 0.62);
     final a = orbitWidth / 2;
@@ -730,7 +730,7 @@ void main() {
 
     expect(
       image.countNear(
-        AppColors.light.board,
+        PantasColors.light.accent,
         Rect.fromCircle(center: focus, radius: 8),
       ),
       greaterThan(70),
@@ -751,13 +751,13 @@ double _mathSqrt(double value) {
 Future<void> _pumpFigure(
   WidgetTester tester,
   Map<String, Object?> spec,
-  AppColors palette,
+  PantasColors palette,
 ) async {
   await tester.pumpWidget(
     MaterialApp(
       themeAnimationDuration: Duration.zero,
       theme: ThemeData(
-        extensions: [palette, AppTextStyles.create()],
+        extensions: [palette, PantasType.create()],
       ),
       home: Scaffold(
         body: SizedBox(
@@ -773,14 +773,14 @@ Future<void> _pumpFigure(
 Future<_RenderedFigure> _renderFigure(
   WidgetTester tester,
   Map<String, Object?> spec,
-  AppColors palette,
+  PantasColors palette,
 ) async {
   final boundaryKey = GlobalKey();
   await tester.pumpWidget(
     MaterialApp(
       themeAnimationDuration: Duration.zero,
       theme: ThemeData(
-        extensions: [palette, AppTextStyles.create()],
+        extensions: [palette, PantasType.create()],
       ),
       home: Align(
         alignment: Alignment.topCenter,

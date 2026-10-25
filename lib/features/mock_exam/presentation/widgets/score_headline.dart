@@ -26,7 +26,7 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     final targetPercent = widget.scoreTotal > 0
         ? (widget.scoreRaw / widget.scoreTotal * 100).round()
@@ -64,7 +64,7 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
               builder: (context, value, child) {
                 return Text(
                   '${value.round()}',
-                  style: styles.headlineLarge.copyWith(
+                  style: styles.sectionHero.copyWith(
                     fontSize: 54,
                     fontWeight: FontWeight.w700,
                     letterSpacing: -1.4,
@@ -75,9 +75,9 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
             ),
             Text(
               '%',
-              style: styles.bodyMedium.copyWith(
+              style: styles.subhead.copyWith(
                 fontSize: 19,
-                color: colors.inkMuted,
+                color: colors.secondaryLabel,
               ),
             ),
           ],
@@ -86,7 +86,7 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
           const SizedBox(height: 7),
           Text(
             bandText,
-            style: styles.headlineSmall.copyWith(
+            style: styles.emphasized.copyWith(
               fontSize: 15,
               fontWeight: FontWeight.w700,
             ),
@@ -95,9 +95,9 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
         const SizedBox(height: 4),
         Text(
           '${widget.scoreRaw} of ${widget.scoreTotal}',
-          style: styles.bodySmall.copyWith(
+          style: styles.subhead.copyWith(
             fontSize: 12,
-            color: colors.inkMuted,
+            color: colors.secondaryLabel,
           ),
         ),
       ],

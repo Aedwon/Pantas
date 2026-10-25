@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
@@ -133,7 +132,6 @@ void main() {
       (tester) async {
     await pumpEnding(tester, read: 9, total: 9);
 
-    expect(find.byType(BookmarkRibbon), findsNothing);
     expect(find.byType(ContentsGlyph), findsNothing);
   });
 

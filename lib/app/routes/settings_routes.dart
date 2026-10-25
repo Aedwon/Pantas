@@ -1,41 +1,40 @@
 // ignore_for_file: directives_ordering
 
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
-import 'package:pantas/features/paywall/paywall.dart';
-import 'package:pantas/features/settings/settings.dart';
-import 'package:pantas/features/settings/presentation/pages/about_page.dart';
-import 'package:pantas/features/settings/presentation/pages/appearance_page.dart';
-import 'package:pantas/features/settings/presentation/pages/account_page.dart';
-import 'package:pantas/features/settings/presentation/pages/name_page.dart';
-import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
-import 'package:pantas/features/settings/domain/exam_change_result.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
+import 'package:pantas/features/paywall/domain/switch_outcome.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
-import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/settings/domain/exam_change_result.dart';
+import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/pages/about_page.dart';
+import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/appearance_page.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
+import 'package:pantas/features/settings/presentation/pages/name_page.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
 import 'package:pantas/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
-import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/storage/age_gate.dart';
-import 'package:pantas/core/ui/components/centered_dialog.dart';
-import 'package:pantas/features/paywall/domain/switch_outcome.dart';
-import 'package:go_router/go_router.dart';
+import 'package:pantas/features/settings/settings.dart';
 
 List<RouteBase> settingsRoutes(Ref ref) => [
-      GoRoute(path: '/paywall', redirect: (_, __) => '/settings/pro'),
       GoRoute(
         path: '/pro',
         redirect: (_, state) =>
@@ -46,20 +45,12 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         builder: (_, __) => const SettingsHomePage(),
       ),
       GoRoute(
-        path: '/settings/sessions',
-        redirect: (_, __) => '/settings/practice',
-      ),
-      GoRoute(
         path: '/settings/practice',
         builder: (_, __) => const SessionBuildingPage(),
       ),
       GoRoute(
         path: '/settings/appearance',
         builder: (_, __) => const AppearancePage(),
-      ),
-      GoRoute(
-        path: '/more',
-        redirect: (_, __) => '/settings',
       ),
       GoRoute(
         path: '/settings/exam',
@@ -133,10 +124,6 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(
         path: '/settings/pro',
         builder: (_, state) => ProPage(checkoutReturnUri: state.uri),
-      ),
-      GoRoute(
-        path: '/settings/subscription',
-        redirect: (_, __) => '/settings/pro',
       ),
       GoRoute(
         path: '/settings/backup',

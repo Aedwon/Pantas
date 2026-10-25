@@ -11,9 +11,9 @@ import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
@@ -181,10 +181,10 @@ class _FlaggedListPageState extends ConsumerState<FlaggedListPage> {
             onPressed: _removing.contains(entry.question.id)
                 ? null
                 : () => unawaited(_remove(entry.question.id)),
-            icon: PennantMark(
-              isSet: true,
+            icon: Icon(
+              PantasIcons.flag,
+              size: 21,
               color: context.colors.accent,
-              animate: false,
             ),
           ),
         ],

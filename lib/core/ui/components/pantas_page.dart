@@ -19,7 +19,9 @@ class PantasPage extends StatelessWidget {
     this.backPadding = const EdgeInsets.symmetric(horizontal: 16),
     this.titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
     super.key,
-  })  : settingsPicker = false,
+  })  : contentBody = null,
+        contentPadding = EdgeInsets.zero,
+        settingsPicker = false,
         onboarding = false,
         progress = null,
         detail = null,
@@ -39,7 +41,9 @@ class PantasPage extends StatelessWidget {
     this.surfaceBackground = false,
     this.detailLineHeight = 1.4,
     super.key,
-  })  : bottomInset = 24,
+  })  : contentBody = null,
+        contentPadding = EdgeInsets.zero,
+        bottomInset = 24,
         titleStyle = null,
         headerTrailing = null,
         fixedTitle = false,
@@ -55,7 +59,9 @@ class PantasPage extends StatelessWidget {
     required this.onBack,
     required this.children,
     super.key,
-  })  : bottomInset = 24,
+  })  : contentBody = null,
+        contentPadding = EdgeInsets.zero,
+        bottomInset = 24,
         titleStyle = null,
         headerTrailing = null,
         fixedTitle = false,
@@ -75,6 +81,38 @@ class PantasPage extends StatelessWidget {
         centerBody = false,
         surfaceBackground = false,
         detailLineHeight = 1.4;
+
+  /// Keeps a screen-owned scrolling body, such as the Study search and map.
+  const PantasPage.content({
+    required Widget body,
+    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 16),
+    this.bottom,
+    super.key,
+  })  : contentBody = body,
+        contentPadding = padding,
+        title = '',
+        children = const [],
+        backLabel = null,
+        onBack = null,
+        bottomInset = 24,
+        titleStyle = null,
+        headerTrailing = null,
+        fixedTitle = false,
+        backIconSize = 20,
+        backIconGap = 0,
+        headerPadding = EdgeInsets.zero,
+        backPadding = const EdgeInsets.symmetric(horizontal: 16),
+        titlePadding = const EdgeInsets.fromLTRB(4, 0, 4, 20),
+        settingsPicker = false,
+        onboarding = false,
+        progress = null,
+        detail = null,
+        bodyGap = 28,
+        centerBody = false,
+        surfaceBackground = false,
+        detailLineHeight = 1.4;
+  final Widget? contentBody;
+  final EdgeInsets contentPadding;
   final double detailLineHeight;
   final bool settingsPicker;
   final bool onboarding;
@@ -246,76 +284,82 @@ class PantasPage extends StatelessWidget {
         backgroundColor: context.colors.background,
         bottomNavigationBar: bottom,
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (backLabel != null || headerTrailing != null)
-                Padding(
-                  padding: headerPadding,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: backLabel == null
-                              ? const SizedBox.shrink()
-                              : TextButton(
-                                  onPressed: onBack,
-                                  style: TextButton.styleFrom(
-                                    minimumSize: const Size(44, 44),
-                                    padding: backPadding,
-                                    tapTargetSize: fixedTitle
-                                        ? MaterialTapTargetSize.shrinkWrap
-                                        : null,
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        PantasIcons.back,
-                                        size: backIconSize,
-                                        color: context.colors.accent,
-                                      ),
-                                      if (backIconGap > 0)
-                                        SizedBox(width: backIconGap),
-                                      Flexible(
-                                        child: Text(
-                                          backLabel!,
-                                          style: context.type.body.copyWith(
-                                            color: context.colors.accent,
-                                          ),
+          child: contentBody != null
+              ? Padding(padding: contentPadding, child: contentBody)
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (backLabel != null || headerTrailing != null)
+                      Padding(
+                        padding: headerPadding,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: backLabel == null
+                                    ? const SizedBox.shrink()
+                                    : TextButton(
+                                        onPressed: onBack,
+                                        style: TextButton.styleFrom(
+                                          minimumSize: const Size(44, 44),
+                                          padding: backPadding,
+                                          tapTargetSize: fixedTitle
+                                              ? MaterialTapTargetSize.shrinkWrap
+                                              : null,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              PantasIcons.back,
+                                              size: backIconSize,
+                                              color: context.colors.accent,
+                                            ),
+                                            if (backIconGap > 0)
+                                              SizedBox(width: backIconGap),
+                                            Flexible(
+                                              child: Text(
+                                                backLabel!,
+                                                style:
+                                                    context.type.body.copyWith(
+                                                  color: context.colors.accent,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ),
+                              ),
+                            ),
+                            if (headerTrailing != null) headerTrailing!,
+                          ],
                         ),
                       ),
-                      if (headerTrailing != null) headerTrailing!,
-                    ],
-                  ),
+                    if (fixedTitle)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: heading(context),
+                      ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        padding: EdgeInsets.fromLTRB(
+                          16,
+                          fixedTitle ? 0 : 2,
+                          16,
+                          bottomInset,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            if (!fixedTitle) heading(context),
+                            ...children,
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              if (fixedTitle)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: heading(context),
-                ),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.fromLTRB(
-                    16,
-                    fixedTitle ? 0 : 2,
-                    16,
-                    bottomInset,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [if (!fixedTitle) heading(context), ...children],
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
       );
 }

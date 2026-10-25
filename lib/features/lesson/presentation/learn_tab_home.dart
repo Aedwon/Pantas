@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -234,8 +234,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           open: _bookmarksOpen,
           label: 'Bookmarks',
           onDismiss: () => setState(() => _bookmarksOpen = false),
-          page: PageScaffold(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          page: PantasPage.content(
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

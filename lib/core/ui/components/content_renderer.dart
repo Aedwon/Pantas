@@ -16,6 +16,7 @@ class ContentRenderer extends StatelessWidget {
     this.blocks,
     this.text,
     this.style,
+    this.maxLines,
     this.figureBuilder,
     this.readerFigures = false,
     super.key,
@@ -23,6 +24,7 @@ class ContentRenderer extends StatelessWidget {
   final List<Map<String, Object?>>? blocks;
   final String? text;
   final TextStyle? style;
+  final int? maxLines;
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
   final bool readerFigures;
   static List<Map<String, Object?>> _parseTextToBlocks(String text) {
@@ -175,7 +177,12 @@ class ContentRenderer extends StatelessWidget {
         ],
       );
     }
-    Widget body = Text.rich(TextSpan(children: spans), style: type);
+    Widget body = Text.rich(
+      TextSpan(children: spans),
+      style: type,
+      maxLines: maxLines,
+      overflow: maxLines == null ? TextOverflow.clip : TextOverflow.ellipsis,
+    );
     if (hasMath && validSpeech) {
       body = Semantics(
         label: '${marker == null ? '' : '$marker '}$spoken',

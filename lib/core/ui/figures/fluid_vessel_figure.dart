@@ -78,7 +78,7 @@ class FluidVesselFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     return Semantics(
       label: switch (vessel) {
         'pipe' => 'A pipe that changes width along its length, with water '
@@ -95,9 +95,9 @@ class FluidVesselFigure extends StatelessWidget {
             points: points,
             widths: widths,
             columns: columns,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            labelStyle: styles.bodySmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            faint: colors.fill,
+            labelStyle: styles.subhead.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),

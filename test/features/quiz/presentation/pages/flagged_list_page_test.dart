@@ -11,7 +11,7 @@ import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -295,7 +295,7 @@ void main() {
 
     expect(find.text('Practice these 3'), findsOneWidget);
 
-    await tester.tap(find.byType(PennantMark).first);
+    await tester.tap(find.byIcon(PantasIcons.flag).first);
     await tester.pumpAndSettle();
 
     expect(find.text('Practice these 2'), findsOneWidget);

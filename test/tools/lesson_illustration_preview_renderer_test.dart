@@ -136,9 +136,9 @@ void _copyPreviewFonts(Directory root) {
   final target = Directory(p.join(root.path, 'assets', 'fonts'))
     ..createSync(recursive: true);
   for (final fileName in const <String>[
-    'SourceSans3-Regular.ttf',
-    'SourceSans3-SemiBold.ttf',
-    'SourceSans3-Bold.ttf',
+    'Geist-Regular.ttf',
+    'Geist-SemiBold.ttf',
+    'Geist-Bold.ttf',
   ]) {
     File(p.join('assets', 'fonts', fileName)).copySync(
       p.join(target.path, fileName),

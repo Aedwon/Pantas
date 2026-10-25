@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 
@@ -17,7 +17,7 @@ class MockResumeSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
+    final textStyles = context.type;
     final colors = context.colors;
     final remainingSeconds =
         (attempt.durationMinutes * 60) - attempt.elapsedSeconds;
@@ -28,19 +28,19 @@ class MockResumeSheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(attempt.blueprintName, style: textStyles.headlineMedium),
+            Text(attempt.blueprintName, style: textStyles.sectionHero),
             const SizedBox(height: 8),
             Text(
               'Elapsed ${_format(attempt.elapsedSeconds)} · '
               'Remaining ${_format(remainingSeconds)}',
-              style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
+              style: textStyles.subhead.copyWith(color: colors.secondaryLabel),
             ),
             const SizedBox(height: 16),
-            BoardButton(label: 'Resume', onPressed: onResume),
+            PantasButton(label: 'Resume', onPressed: onResume),
             const SizedBox(height: 8),
-            BoardButton(
+            PantasButton(
               label: 'Discard',
-              secondary: true,
+              variant: PantasButtonVariant.tertiary,
               onPressed: onDiscard,
             ),
           ],

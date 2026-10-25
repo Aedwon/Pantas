@@ -177,7 +177,7 @@ class FigureSeriesFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     return Semantics(
       label: 'A sequence of ${items.length} figures'
           '${blank ? ', then an empty frame for the next one' : ''}.',
@@ -187,9 +187,9 @@ class FigureSeriesFigure extends StatelessWidget {
           painter: _SeriesPainter(
             items: items,
             blank: blank,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            markStyle: styles.headlineSmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            faint: colors.fill,
+            markStyle: styles.emphasized.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),

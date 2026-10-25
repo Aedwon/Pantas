@@ -1,8 +1,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
@@ -110,7 +110,7 @@ class MockStartPreparationPage extends StatelessWidget {
                 style: type.subheadStrong,
               ),
               const SizedBox(height: 20),
-              BoardButton(
+              PantasButton(
                 label: 'Start the Paper',
                 onPressed: onStart,
               ),
@@ -118,7 +118,7 @@ class MockStartPreparationPage extends StatelessWidget {
               Semantics(
                 label: 'Setting out your paper',
                 liveRegion: true,
-                child: const Center(child: FaintBars()),
+                child: const Center(child: LoadingShapes()),
               ),
           ],
         ),

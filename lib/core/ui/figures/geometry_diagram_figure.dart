@@ -92,10 +92,10 @@ class GeometryDiagramFigure extends StatelessWidget {
           painter: _GeometryDiagramPainter(
             type: type,
             labels: labels,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            labelStyle: context.textStyles.bodySmall.copyWith(
-              color: colors.ink,
+            ink: colors.label,
+            faint: colors.fill,
+            labelStyle: context.type.subhead.copyWith(
+              color: colors.label,
             ),
           ),
         ),

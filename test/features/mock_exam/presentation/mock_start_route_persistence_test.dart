@@ -5,17 +5,76 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
+class _ErrorSink extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
+
 void main() {
+  testWidgets('fresh native failure hides diagnostics and retries the load',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    await _seedMockContent(contentDb);
+    final error = StateError('private question pool diagnostic');
+    final sink = _ErrorSink();
+    var fail = true;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          telemetryProvider.overrideWithValue(sink),
+          mockQuestionPoolsProvider('exam_cse').overrideWith((ref) async {
+            if (fail) throw error;
+            return const MockQuestionPools(
+              poolsByTopic: {
+                'topic_1': ['q1', 'q2'],
+              },
+              passageSetsByTopic: {},
+            );
+          }),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      find.textContaining('private question pool diagnostic'),
+      findsNothing,
+    );
+    expect(find.text('Could not load your mock.'), findsOneWidget);
+    expect(sink.errors, contains(same(error)));
+    fail = false;
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    expect(find.text('Start the Paper'), findsOneWidget);
+    expect(find.text('Could not load your mock.'), findsNothing);
+  });
+
   testWidgets('backgrounding persists the latest mock answer and position',
       (tester) async {
     final db = inMemoryDatabase();
@@ -441,6 +500,10 @@ void main() {
     );
     await tester.pumpAndSettle();
     await _startPreparedPaperIfPresent(tester);
+
+    expect(find.text('Could not load your mock.'), findsOneWidget);
+    expect(find.textContaining('FormatException'), findsNothing);
+    expect(find.text('Try Again'), findsOneWidget);
 
     await tester.tap(find.text('Discard saved mock'));
     await tester.pumpAndSettle();

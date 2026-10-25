@@ -84,8 +84,8 @@ class StabilityShapeFigure extends StatelessWidget {
           painter: _StabilityPainter(
             shapes: shapes,
             tiltDegrees: tiltDegrees,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
+            ink: colors.label,
+            faint: colors.fill,
           ),
           size: Size.infinite,
         ),

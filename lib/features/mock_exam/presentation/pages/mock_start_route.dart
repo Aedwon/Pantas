@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_persistence_scheduler.dart';
@@ -66,7 +66,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   Timer? _timer;
   Stopwatch? _stopwatch;
   StrictModeLifecycle? _strictModeLifecycle;
-  String? _errorMessage;
+  VoidCallback? _retryError;
   String? _recoverableAttemptId;
   late MockSample _sample;
   late String _examId;
@@ -175,10 +175,17 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         _preparedSample = sample;
         _preparedParts = parts;
       });
-    } catch (e) {
+    } catch (e, stackTrace) {
+      if (!mounted) return;
+      unawaited(ref.read(telemetryProvider).recordError(e, stackTrace));
       if (mounted) {
         setState(() {
-          _errorMessage = e.toString();
+          _retryError = () {
+            ref
+              ..invalidate(mockSetupParsedBlueprintProvider(widget.examId!))
+              ..invalidate(mockQuestionPoolsProvider(widget.examId!));
+            unawaited(_loadFresh());
+          };
         });
       }
     }
@@ -239,10 +246,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       );
 
       _installController(controller);
-    } catch (e) {
+    } catch (e, stackTrace) {
+      if (!mounted) return;
+      unawaited(ref.read(telemetryProvider).recordError(e, stackTrace));
       if (mounted) {
         setState(() {
-          _errorMessage = e.toString();
+          _retryError = _startPreparedMock;
           _startingPaper = false;
         });
       }
@@ -348,11 +357,13 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         _strictBackgroundedAt = null;
         unawaited(_bestEffortForceFlush());
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
       final recoverable = await _discardableAttemptId();
+      if (!mounted) return;
+      unawaited(ref.read(telemetryProvider).recordError(e, stackTrace));
       if (mounted) {
         setState(() {
-          _errorMessage = e.toString();
+          _retryError = _loadResume;
           _recoverableAttemptId = recoverable;
         });
       }
@@ -521,7 +532,9 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
         await ref.read(mockAnswerRecorderProvider).record(snapshot.attemptId);
         ref.read(roadmapRevisionProvider.notifier).bump();
       } on Object catch (error, stackTrace) {
-        debugPrint('Mock answers not recorded yet: $error\n$stackTrace');
+        if (mounted) {
+          unawaited(ref.read(telemetryProvider).recordError(error, stackTrace));
+        }
       }
       if (mounted) {
         final controller = _controller!;
@@ -546,10 +559,12 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
           extra: finaleInput,
         );
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      if (!mounted) return;
+      unawaited(ref.read(telemetryProvider).recordError(e, stackTrace));
       if (mounted) {
         setState(() {
-          _errorMessage = e.toString();
+          _retryError = () => _handleSubmit(reason);
           _submitting = false;
         });
       }
@@ -701,8 +716,10 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
       );
       if (!mounted) return;
       _leaveMock();
-    } catch (error) {
-      if (mounted) setState(() => _errorMessage = error.toString());
+    } catch (error, stackTrace) {
+      if (!mounted) return;
+      unawaited(ref.read(telemetryProvider).recordError(error, stackTrace));
+      setState(() => _retryError = _discardCorruptAttempt);
     }
   }
 
@@ -795,17 +812,18 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
 
   @override
   Widget build(BuildContext context) {
-    if (_errorMessage != null) {
+    if (_retryError != null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Error')),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              ErrorBanner(
-                message: _errorMessage!,
-                variant: ErrorBannerVariant.error,
-              ),
+              errorFor('mock', () {
+                final retry = _retryError!;
+                setState(() => _retryError = null);
+                retry();
+              }),
               if (_recoverableAttemptId != null)
                 TextButton(
                   onPressed: _discardCorruptAttempt,
@@ -827,7 +845,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
           onStart: _startPreparedMock,
         );
       }
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
 
     final state = controller.state;
@@ -885,7 +903,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
     }
 
     if (state is! MockSessionInProgress) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
 
     return _lastPaper = MockSessionPage(

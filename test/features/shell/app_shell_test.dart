@@ -10,7 +10,6 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
@@ -298,13 +297,6 @@ void main() {
         matching: find.byType(AppShell),
       ),
       findsOneWidget,
-    );
-    expect(
-      find.descendant(
-        of: find.byType(SettingsBar),
-        matching: find.bySemanticsLabel('Back'),
-      ),
-      findsNothing,
     );
   });
   testWidgets('floating bar exposes occupied space to scrolling screens',

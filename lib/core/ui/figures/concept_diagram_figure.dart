@@ -629,11 +629,11 @@ class ConceptDiagramFigure extends StatelessWidget {
             wavelength: wavelength,
             frequency: frequency,
             speed: speed,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
+            ink: colors.label,
+            faint: colors.fill,
             background: colors.background,
-            labelStyle: context.textStyles.bodySmall.copyWith(
-              color: colors.ink,
+            labelStyle: context.type.subhead.copyWith(
+              color: colors.label,
             ),
           ),
         ),

@@ -72,7 +72,7 @@ class FigureMatrixFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     return Semantics(
       label: 'A $rows by $cols grid of figures with one cell left empty.',
       child: SizedBox(
@@ -82,9 +82,9 @@ class FigureMatrixFigure extends StatelessWidget {
             rows: rows,
             cols: cols,
             cells: cells,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            markStyle: styles.headlineSmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            faint: colors.fill,
+            markStyle: styles.emphasized.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),

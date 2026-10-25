@@ -10,7 +10,7 @@ import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
@@ -93,7 +93,7 @@ class CustomMockSetupRoute extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(customMockSetupDataProvider).valueOrNull;
     if (data == null) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
 
     return CustomMockSetupPage(

@@ -15,7 +15,7 @@ class ContentsGlyph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectiveColor = color ?? context.colors.ink;
+    final effectiveColor = color ?? context.colors.label;
     return CustomPaint(
       size: Size(size, size),
       painter: _ContentsGlyphPainter(

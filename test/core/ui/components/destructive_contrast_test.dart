@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/confirmation_dialog.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/pantas_colors.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
@@ -20,14 +20,17 @@ void main() {
             builder: (context) {
               return Scaffold(
                 body: TextButton(
-                  onPressed: () => showAppConfirmationDialog(
+                  onPressed: () => showDialog<void>(
                     context: context,
-                    title: 'Delete?',
-                    body: 'This cannot be undone.',
-                    cancelLabel: 'Cancel',
-                    confirmLabel: 'Delete',
-                    onCancel: () {},
-                    onConfirm: () {},
+                    builder: (_) => CenteredDialog(
+                      title: 'Delete?',
+                      message: 'This cannot be undone.',
+                      destructive: true,
+                      secondaryLabel: 'Cancel',
+                      primaryLabel: 'Delete',
+                      onCancel: () {},
+                      onConfirm: () {},
+                    ),
                   ),
                   child: const Text('Open'),
                 ),

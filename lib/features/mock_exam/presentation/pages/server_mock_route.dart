@@ -4,10 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
@@ -149,12 +150,13 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
         (_) => _onTick(const Duration(milliseconds: 250)),
       );
       setState(() => _session = session);
-    } on Object catch (error) {
+    } on Object catch (error, stackTrace) {
       if (!mounted || _disposed) return;
       if (_identityLost || actor() != uid) {
         await _close();
         return;
       }
+      unawaited(ref.read(telemetryProvider).recordError(error, stackTrace));
       setState(() => _loadError = error);
     }
   }
@@ -300,7 +302,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   @override
   Widget build(BuildContext context) {
     if (_identityLost) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
     final error = _loadError;
     if (error != null) {
@@ -309,19 +311,15 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
           'mock',
           _load,
           error: error,
-          message: error is ServerMockException &&
-                  error.code == 'failed-precondition'
-              ? error.message
-              : null,
         ),
       );
     }
     final session = _session;
     if (session == null) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
     if (session.stale) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
     final paper = session.paper;
     final failure = session.failure;

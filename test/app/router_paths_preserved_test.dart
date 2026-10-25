@@ -12,7 +12,6 @@ void main() {
       '/onboarding',
       '/onboarding/custom/name',
       '/onboarding/custom/subjects',
-      '/notifications/rationale',
       '/plan',
       '/plan/day/:date',
       '/plan/week/:start',
@@ -32,7 +31,6 @@ void main() {
       '/quiz/all/:attemptId',
       '/quiz/debrief/:attemptId',
       '/quiz/flagged/:examId',
-      '/quiz/results/:attemptId',
       '/quiz/mock/setup',
       '/quiz/mock/start',
       '/quiz/mock/resume/:attemptId',
@@ -41,19 +39,14 @@ void main() {
       '/study/ending/:topicId',
       '/assessment/:examId',
       'results',
-      '/review',
       '/mock/results/:attemptId',
       '/mock/review/:attemptId',
-      '/mock-exam',
       '/wrapped/:artifactId',
-      '/paywall',
       '/pro',
       '/settings',
-      '/settings/sessions',
       '/settings/practice',
       '/settings/appearance',
       '/settings/account/name',
-      '/more',
       '/settings/exam',
       '/settings/exam/change',
       '/settings/exam/upgrade',
@@ -62,7 +55,6 @@ void main() {
       '/settings/account',
       '/settings/account/delete',
       '/settings/pro',
-      '/settings/subscription',
       '/settings/backup',
       '/update-required',
       '/settings/about',
@@ -73,6 +65,21 @@ void main() {
       collectRoutePaths(includeDebugGallery: false),
       unorderedEquals(before),
     );
+  });
+  test('interim redirects are retired after family integration', () {
+    final paths = collectRoutePaths();
+    for (final path in [
+      '/notifications/rationale',
+      '/quiz/results/:attemptId',
+      '/review',
+      '/mock-exam',
+      '/paywall',
+      '/settings/sessions',
+      '/more',
+      '/settings/subscription',
+    ]) {
+      expect(paths, isNot(contains(path)));
+    }
   });
   test('retired Progress and dossier routes are absent', () {
     expect(

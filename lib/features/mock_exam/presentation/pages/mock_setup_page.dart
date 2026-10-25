@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -131,7 +131,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
               ),
             ),
             const SizedBox(height: 28),
-            BoardButton(
+            PantasButton(
               label: 'Start the Mock Exam',
               onPressed: () => widget.onStart(_strictMode),
             ),

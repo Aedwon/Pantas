@@ -8,7 +8,6 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/back_chevron.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -134,7 +133,7 @@ void main() {
     expect(find.byType(MockSetupRoute), findsOneWidget);
   });
 
-  testWidgets('/paywall redirects to the Settings Pro page', (tester) async {
+  testWidgets('the Settings Pro page remains reachable', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -143,7 +142,7 @@ void main() {
       tester.element(find.text('Home').first),
     );
     final router = container.read(routerProvider);
-    router.go('/paywall?returnTo=/plan');
+    router.go('/settings/pro');
     await tester.pumpAndSettle();
 
     expect(find.byType(ProPage), findsOneWidget);
@@ -153,8 +152,7 @@ void main() {
     );
   });
 
-  testWidgets('/settings renders Settings home; /more redirects there',
-      (tester) async {
+  testWidgets('/settings renders Settings home', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -176,15 +174,8 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(
-      find.descendant(
-        of: find.byType(PantasPage),
-        matching: find.byType(BackChevron),
-      ),
-      findsNothing,
-    );
 
-    router.go('/more');
+    router.go('/settings');
     await tester.pumpAndSettle();
 
     expect(
@@ -216,9 +207,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Pantas'), findsOneWidget);
 
-    // The old path is kept as a redirect, so a link from an older build still
-    // lands somewhere real. The page itself is now named Pro.
-    router.go('/settings/subscription');
+    router.go('/settings/pro');
     await tester.pumpAndSettle();
     expect(find.text('PANTAS PRO'), findsOneWidget);
   });
@@ -239,30 +228,6 @@ void main() {
     expect(find.text('Privacy policy'), findsWidgets);
     expect(find.text('Your rights'), findsOneWidget);
     expect(find.textContaining('Legal: privacy'), findsNothing);
-  });
-
-  testWidgets('every other retired route reaches its living destination',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await pumpApp(tester);
-    final container =
-        ProviderScope.containerOf(tester.element(find.text('Home').first));
-    final router = container.read(routerProvider);
-    for (final entry in <String, String>{
-      '/mock-exam': '/home',
-      '/notifications/rationale': '/home',
-      '/review': '/quiz',
-      '/quiz/results/old-attempt': '/quiz',
-    }.entries) {
-      router.go(entry.key);
-      await tester.pumpAndSettle();
-      expect(
-        router.routerDelegate.currentConfiguration.uri.path,
-        entry.value,
-        reason: entry.key,
-      );
-    }
   });
 
   testWidgets('age gate passed, invalid persisted exam id → onboarding picker',

@@ -11,7 +11,6 @@ void main() {
 
   for (final entry in <String, List<int>>{
     'Geist': [400, 500, 600, 700],
-    'SourceSerif4': [400, 600],
     'Phosphor': [400],
   }.entries) {
     test('${entry.key} bundles every required weight for offline use', () {
@@ -31,6 +30,12 @@ void main() {
       }
     });
   }
+  test('only current type and icon families are bundled', () {
+    expect(
+      families.cast<YamlMap>().map((family) => family['family']),
+      unorderedEquals(['Geist', 'Phosphor']),
+    );
+  });
   test('bundled regular icon font is unchanged from package 2.1.0', () {
     expect(
       sha256

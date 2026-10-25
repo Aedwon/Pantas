@@ -6,8 +6,8 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
     as passage_ui;
-import 'package:pantas/core/ui/components/passage_card.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
 import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
@@ -226,8 +226,8 @@ void main() {
       final q = freeStanding('q1');
       await tester.pumpApp(
         QuestionCard(
-          question: q,
-          onAnswer: (_) {},
+          subject: '',
+          stem: q.stem,
         ),
       );
 
@@ -298,9 +298,9 @@ void main() {
       final q = passageQuestion('pq1');
       await tester.pumpApp(
         QuestionCard(
-          question: q,
-          passage: passage,
-          onAnswer: (_) {},
+          subject: '',
+          stem: q.stem,
+          passage: PassageCard(title: passage.title, text: passage.body),
         ),
       );
 

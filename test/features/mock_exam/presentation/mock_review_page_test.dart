@@ -12,6 +12,8 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_review_providers.dart';
@@ -395,6 +397,8 @@ void main() {
 
     await tester.tap(find.text('Left blank').first);
     await tester.pumpAndSettle();
+    expect(find.byType(ChoiceRow), findsNWidgets(2));
+    expect(find.byType(AnswerReveal), findsOneWidget);
     expect(find.text('1 of 11'), findsOneWidget);
     expect(find.text('All questions'), findsOneWidget);
     expect(find.text('Opt B'), findsOneWidget);

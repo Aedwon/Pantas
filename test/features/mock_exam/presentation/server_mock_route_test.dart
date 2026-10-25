@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_providers.dart';
@@ -23,7 +25,16 @@ import '../../../helpers/in_memory_database.dart';
 const _mockId = 'abcdefghij1';
 final _actorEvents = StateProvider<String?>((ref) => 'uid_a');
 
+class _ErrorSink extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
+
 class _Server {
+  final telemetry = _ErrorSink();
   String examId = 'exam_cse_pro';
   bool strict = false;
   int remainingMs = 8000000;
@@ -221,6 +232,7 @@ Future<_Fixture> _open(
           entitlementProvider
               .overrideWith((ref) => const Stream<Entitlement>.empty()),
         appDatabaseProvider.overrideWithValue(db),
+        telemetryProvider.overrideWithValue(server.telemetry),
         contentDatabaseProvider.overrideWithValue(content),
         serverMockApiProvider.overrideWithValue(ServerMockApi(server.call)),
         serverMockActorProvider.overrideWithValue(() => fixture.actor()),
@@ -463,7 +475,8 @@ void main() {
     expect(fixture.router.canPop(), isFalse);
   });
 
-  testWidgets('a refusal from the server is shown with Retry', (tester) async {
+  testWidgets('a server refusal hides raw text and offers Retry',
+      (tester) async {
     final server = _Server()
       ..failStart = const ServerMockException(
         code: 'failed-precondition',
@@ -473,7 +486,13 @@ void main() {
 
     expect(
       find.text('Free accounts can take one mock every 30 days.'),
-      findsOneWidget,
+      findsNothing,
+    );
+    expect(find.text('Could not load your mock.'), findsOneWidget);
+    expect(server.telemetry.errors.single, isA<ServerMockException>());
+    expect(
+      (server.telemetry.errors.single as ServerMockException).message,
+      'Free accounts can take one mock every 30 days.',
     );
     await tester.tap(find.text('Try Again'));
     await advance(tester, 100);

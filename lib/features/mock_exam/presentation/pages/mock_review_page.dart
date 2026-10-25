@@ -3,14 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/answer_reveal.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_review_providers.dart';
@@ -86,8 +87,12 @@ class _MockReviewPageState extends ConsumerState<MockReviewPage> {
               tooltip: savedFlags.requireValue.contains(viewed.question.id)
                   ? 'Unflag question'
                   : 'Flag question',
-              icon: PennantMark(
-                isSet: savedFlags.requireValue.contains(viewed.question.id),
+              icon: Icon(
+                PantasIcons.flag,
+                size: 21,
+                color: savedFlags.requireValue.contains(viewed.question.id)
+                    ? context.colors.accent
+                    : context.colors.secondaryLabel,
               ),
               onPressed: () => _toggleFlag(viewed.question.id),
             ),
@@ -352,7 +357,7 @@ class _ReviewListBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('All questions', style: context.textStyles.displaySmall),
+          Text('All questions', style: context.type.sectionHero),
           const SizedBox(height: 22),
           _MockFilterRow(active: filter, counts: counts, onChanged: onFilter),
           if (proIsActive && filter == ReviewFilter.wrong) ...[
@@ -403,7 +408,7 @@ class _MockFilterRow extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: context.colors.ruleFaint,
+        color: context.colors.fill,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -424,7 +429,7 @@ class _MockFilterRow extends StatelessWidget {
                       : null,
                   child: Text(
                     label(filter),
-                    style: context.textStyles.bodySmall
+                    style: context.type.subhead
                         .copyWith(fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -455,7 +460,7 @@ class _NotesPrompt extends StatelessWidget {
               'the more every review helps.',
             ),
             const SizedBox(height: 12),
-            BoardButton(label: 'Finish the Notes', onPressed: onPressed),
+            PantasButton(label: 'Finish the Notes', onPressed: onPressed),
           ],
         ),
       );
@@ -489,15 +494,15 @@ class _FlagOffer extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: BoardButton(
+                  child: PantasButton(
                     label: 'No Thanks',
                     onPressed: onDismiss,
-                    secondary: true,
+                    variant: PantasButtonVariant.tertiary,
                   ),
                 ),
                 const SizedBox(width: 8),
                 Expanded(
-                  child: BoardButton(
+                  child: PantasButton(
                     label: 'Save All $count',
                     onPressed: onKeep,
                   ),
@@ -522,16 +527,16 @@ class _PartHeader extends StatelessWidget {
             Expanded(
               child: Text(
                 name.toUpperCase(),
-                style: context.textStyles.bodySmall.copyWith(
-                  color: context.colors.inkMuted,
+                style: context.type.subhead.copyWith(
+                  color: context.colors.secondaryLabel,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
             Text(
               label,
-              style: context.textStyles.bodySmall
-                  .copyWith(color: context.colors.inkMuted),
+              style: context.type.subhead
+                  .copyWith(color: context.colors.secondaryLabel),
             ),
           ],
         ),
@@ -546,7 +551,7 @@ class _MockReviewRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final outcomeColor =
-        entry.isCorrect ? context.colors.board : context.colors.rust;
+        entry.isCorrect ? context.colors.accent : context.colors.destructive;
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -554,8 +559,8 @@ class _MockReviewRow extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: context.colors.ruleFaint,
-              width: AppDimensions.hairline,
+              color: context.colors.fill,
+              width: 0.5,
             ),
           ),
         ),
@@ -566,7 +571,7 @@ class _MockReviewRow extends StatelessWidget {
               width: 32,
               child: Text(
                 '${entry.number}',
-                style: context.textStyles.bodyMedium
+                style: context.type.subhead
                     .copyWith(color: outcomeColor, fontWeight: FontWeight.w700),
               ),
             ),
@@ -574,7 +579,7 @@ class _MockReviewRow extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  PortableTextRenderer(
+                  ContentRenderer(
                     text: entry.label,
                     maxLines: entry.labelIsStem ? 2 : null,
                   ),
@@ -582,8 +587,8 @@ class _MockReviewRow extends StatelessWidget {
                     const SizedBox(height: 3),
                     Text(
                       'Left blank',
-                      style: context.textStyles.bodySmall
-                          .copyWith(color: context.colors.inkMuted),
+                      style: context.type.subhead
+                          .copyWith(color: context.colors.secondaryLabel),
                     ),
                   ],
                 ],
@@ -630,17 +635,44 @@ class _QuestionViewer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           QuestionCard(
-            question: entry.question,
-            passage: entry.passage,
-            chosenChoiceId: entry.chosenChoiceId,
-            revealed: true,
-            onAnswer: null,
+            subject: entry.subjectName,
+            stem: entry.question.stem,
+            passage: entry.passage == null
+                ? null
+                : PassageCard(
+                    title: entry.passage!.title,
+                    text: entry.passage!.body,
+                  ),
+            figure: entry.question.figureSpecJson == null
+                ? null
+                : QuestionFigure(specJson: entry.question.figureSpecJson),
+            choices: [
+              for (final choice in entry.question.choices)
+                ChoiceRow(
+                  letter: choice.label,
+                  text: choice.text,
+                  state: choice.isCorrect
+                      ? ChoiceRowState.right
+                      : choice.id == entry.chosenChoiceId
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed,
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           AnswerReveal(
-            question: entry.question,
-            chosenChoiceId: entry.chosenChoiceId ?? '',
-            proIsActive: proIsActive,
+            correctLetter: entry.question.correctChoice.label,
+            explanation: entry.question.explanation,
+            pickedLetter: entry.question.choices
+                .where((c) => c.id == entry.chosenChoiceId)
+                .firstOrNull
+                ?.label,
+            wrongPick: proIsActive && !entry.isCorrect
+                ? entry.question.choices
+                    .where((c) => c.id == entry.chosenChoiceId)
+                    .firstOrNull
+                    ?.rationale
+                : null,
           ),
           if (noteOpen && proIsActive && !entry.isCorrect) ...[
             const SizedBox(height: 16),
@@ -664,7 +696,7 @@ class _QuestionViewer extends StatelessWidget {
                 child: Text(
                   '${index + 1} of ${entries.length}',
                   textAlign: TextAlign.center,
-                  style: context.textStyles.bodyMedium
+                  style: context.type.subhead
                       .copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
@@ -757,8 +789,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
         children: [
           Text(
             title,
-            style: context.textStyles.bodyMedium
-                .copyWith(fontWeight: FontWeight.w600),
+            style: context.type.subhead.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 10),
           if (widget.isBlank) ...[
@@ -816,7 +847,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
             const SizedBox(height: 8),
             TextField(controller: _controller, maxLines: 3),
             const SizedBox(height: 8),
-            BoardButton(
+            PantasButton(
               label: 'Save Note',
               onPressed: () {
                 final note = _controller.text.trim();

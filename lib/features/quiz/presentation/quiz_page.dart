@@ -17,7 +17,6 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart'
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/toast.dart';
@@ -988,9 +987,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   }
 
   Widget _flag(String id, bool flagged) {
-    final icon = PennantMark(
-      isSet: flagged,
-      animate: false,
+    final icon = Icon(
+      PantasIcons.flag,
+      size: 21,
       color: flagged ? context.colors.accent : context.colors.controlOutline,
     );
     if (!flagged ||

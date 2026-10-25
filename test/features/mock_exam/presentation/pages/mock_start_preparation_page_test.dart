@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
@@ -83,6 +84,7 @@ void main() {
     );
     expect(find.text('Start the Paper'), findsOneWidget);
     expect(started, isFalse);
+    expect(find.byType(PantasButton), findsOneWidget);
 
     await tester.tap(find.text('Start the Paper'));
     expect(started, isTrue);
@@ -101,7 +103,7 @@ void main() {
     );
 
     expect(find.text('Setting out your paper'), findsOneWidget);
-    expect(find.byType(FaintBars), findsWidgets);
+    expect(find.byType(LoadingShapes), findsWidgets);
     expect(find.text('Start the Paper'), findsNothing);
   });
 

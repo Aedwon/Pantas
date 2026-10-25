@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
 import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
@@ -13,7 +12,7 @@ class MySharedCardsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final styles = context.textStyles;
+    final styles = context.type;
     final colors = context.colors;
     final asyncCards = ref.watch(sharedWrappedCardsProvider);
     return Scaffold(
@@ -21,12 +20,12 @@ class MySharedCardsPage extends ConsumerWidget {
       body: asyncCards.when(
         loading: () => ListView(
           padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-          children: const [FaintBars()],
+          children: const [LoadingShapes()],
         ),
         error: (_, __) => Center(
           child: Text(
             'Shared cards are unavailable.',
-            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+            style: styles.subhead.copyWith(color: colors.secondaryLabel),
           ),
         ),
         data: (cards) {
@@ -34,11 +33,11 @@ class MySharedCardsPage extends ConsumerWidget {
             return ListView(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
               children: [
-                Text('No shared cards yet', style: styles.headlineMedium),
+                Text('No shared cards yet', style: styles.sectionHero),
                 const SizedBox(height: 6),
                 Text(
                   'Share a Wrapped card to create a public pantas.app link.',
-                  style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+                  style: styles.subhead.copyWith(color: colors.secondaryLabel),
                 ),
               ],
             );
@@ -62,7 +61,7 @@ class _SharedCardRow extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final styles = context.textStyles;
+    final styles = context.type;
     final colors = context.colors;
     return Container(
       constraints: const BoxConstraints(minHeight: 44),
@@ -70,9 +69,9 @@ class _SharedCardRow extends ConsumerWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: colors.ruleFaint,
+            color: colors.fill,
             // ignore: avoid_redundant_argument_values
-            width: AppDimensions.hairline,
+            width: 0.5,
           ),
         ),
       ),
@@ -82,11 +81,11 @@ class _SharedCardRow extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(card.title, style: styles.bodyMedium),
+                Text(card.title, style: styles.subhead),
                 const SizedBox(height: 1),
                 Text(
                   'pantas.app/wrapped/${card.shareId}',
-                  style: styles.bodySmall.copyWith(color: colors.inkMuted),
+                  style: styles.subhead.copyWith(color: colors.secondaryLabel),
                 ),
               ],
             ),
@@ -95,13 +94,13 @@ class _SharedCardRow extends ConsumerWidget {
           TextButton(
             onPressed: () => _revoke(ref),
             style: TextButton.styleFrom(
-              foregroundColor: colors.rust,
+              foregroundColor: colors.destructive,
               minimumSize: const Size(48, 48),
               padding: EdgeInsets.zero,
             ),
             child: Text(
               'Revoke',
-              style: styles.labelLarge.copyWith(color: colors.rust),
+              style: styles.sectionHeader.copyWith(color: colors.destructive),
             ),
           ),
         ],

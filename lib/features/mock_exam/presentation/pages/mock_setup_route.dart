@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
@@ -99,7 +99,7 @@ class MockSetupRoute extends ConsumerWidget {
     if (parsedAsync.isLoading ||
         settingsAsync.isLoading ||
         countAsync.isLoading) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const Scaffold(body: Center(child: LoadingShapes()));
     }
 
     final parsed = parsedAsync.valueOrNull;
