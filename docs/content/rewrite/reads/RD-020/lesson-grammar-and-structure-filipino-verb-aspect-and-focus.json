@@ -1,0 +1,257 @@
+{
+ "batch": "RD-020",
+ "lesson_id": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.md",
+ "lesson_sha256": "7dafeeb5e2f49f32b091a33a182373b28d89903492948030b7affae68ef4957e",
+ "rewrite_commit": "241990f223e0fc932e578da889d58ea10d8038d9",
+ "form": {
+  "packet": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+  "role": "A",
+  "lesson_sha256": "7dafeeb5e2f49f32b091a33a182373b28d89903492948030b7affae68ef4957e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the four aspect meanings against their action sentences and actor/object focus against the marked topics. The readings agree. Official Filipino usage still needs the separate L11 source check."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1 perpektibo; #2 imperpektibo; #3 kontemplatibo; #4 perpektibong katatapos; #5 tagaganap, Ramon cooks; #6 layon, sopas is cooked. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. No figure is requested in the brief or needed by these verbal questions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Advanced English linguistic phrasing is removed. Short English grammar glosses remain; Filipino readability is checked under L08."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Only ordinary identify, fix, choose, revise, or Filipino equivalents appear. No specialized instruction verb needs a definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Six complete sentences provide the facts needed to identify aspect or focus. Stems do not provide the tested method; solutions use simple Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no named-exam claims or repeated exam introductions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions, time clues, focus instructions, and solutions use short Filipino sentences about concrete actions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "The first teaching heading glosses Aspekto and Pokus. Aspect categories, panlapi, pantig, ugat, time adverbs, paksa, and focus roles receive short English glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "All six example questions and their numbered solutions are Filipino. There are no quizzes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from this supplied packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "English tense and parenthetical grammar glosses are common grammar terminology. The rest of the teaching prose is Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "The questions analyze whole sentences, not a target word designated by typography.",
+    "findings": [
+     {
+      "quote": "anong aspekto ng pandiwang **naglinis**?",
+      "problem": "Examples #1 through #4 bold their target verbs but do not direct readers to the word in bold, or use the required Filipino equivalent."
+     }
+    ]
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No stock AI phrases appear. Sentence openings vary and the summary names the content."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The main sections fit Language Proficiency. No example uses a mathematical formula, so none requires introduction in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Hindi iisa ang hulma ng lahat ng pandiwa.",
+      "problem": "No worked case selects or forms aspect variants across patterns, although brief #92 requires that application. Time-adverb placement and choice also receive no worked application."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution has numbered steps. No reasoning step is skipped and there are no numerical computations needing display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have one to three short sentences. Bullets are absent except the limited four-category aspect list."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Aspect meanings precede examples. Panlapi, pantig, ugat, and time adverbs receive glosses or explanations; paksa is identified with ang/si markers before focus examples use it."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ibang ugat at panlapi ay maaaring magkaroon ng ibang pagbabago, kaya huwag gumawa ng iisang tuntunin para sa lahat ng pandiwa.",
+      "problem": "The lesson warns that forms vary but never explains how to form or choose the variant. Other focus roles are named with glosses without explaining how those relations work."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson limits time words to clues, requires checking verb form, distinguishes aspect from English tense, and warns that roots need different patterns."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-tenses-and-voice|L02|1": {
+    "status": "fixed",
+    "quote": "Ang **aspekto** ay nagsasabi kung ang kilos ay tapos na, nangyayari pa, gagawin pa, o katatapos lamang.",
+    "note": "The advanced linguistic wording is replaced with simple Filipino."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L09|0": {
+    "status": "fixed",
+    "quote": "### Sa Filipino: Aspekto (Aspect) at Pokus (Voice/Focus) ng Pandiwa",
+    "note": "The first teaching heading supplies the English gloss."
+   },
+   "language-proficiency-grammar-and-structure#88": {
+    "status": "fixed",
+    "quote": "Ang **naglinis** ay nasa perpektibong aspekto.",
+    "note": "The completion distinction is applied with reasons in example #1."
+   },
+   "language-proficiency-grammar-and-structure#89": {
+    "status": "fixed",
+    "quote": "Nagsimula na ang pagsusulat at nagpapatuloy pa.",
+    "note": "Example #2 reasons from an ongoing action and its time clues."
+   },
+   "language-proficiency-grammar-and-structure#90": {
+    "status": "fixed",
+    "quote": "Hindi pa nangyayari ang pagbiyahe.",
+    "note": "Example #3 applies the contemplated-action distinction."
+   },
+   "language-proficiency-grammar-and-structure#91": {
+    "status": "fixed",
+    "quote": "Ang anyong *kadarating* at ang salitang *lang* ay nagpapakitang katatapos lamang ng kilos.",
+    "note": "Example #4 reasons from the recently completed form and lang."
+   },
+   "language-proficiency-grammar-and-structure#92": {
+    "status": "not_fixed",
+    "quote": "Hindi iisa ang hulma ng lahat ng pandiwa.",
+    "note": "The warning and kain list do not supply a formation or choice method with reasoned application."
+   },
+   "language-proficiency-grammar-and-structure#93": {
+    "status": "fixed",
+    "quote": "Ang paksa ay *ang sopas*.",
+    "note": "The topic-finding method is applied to actor and object focus."
+   },
+   "language-proficiency-grammar-and-structure#104": {
+    "status": "fixed",
+    "quote": "Maaaring ilagay ang pang-abay na pamanahon sa unahan o malapit sa pandiwa, depende sa pangungusap.",
+    "note": "Placement alternatives and the limits of time words as aspect clues are taught."
+   }
+  }
+ }
+}

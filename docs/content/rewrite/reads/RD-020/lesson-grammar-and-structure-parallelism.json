@@ -1,0 +1,228 @@
+{
+ "batch": "RD-020",
+ "lesson_id": "lesson-grammar-and-structure-parallelism",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/parallelism.md",
+ "lesson_sha256": "b62b2fb7fa930156c7679f8ceca6e954dc201ae09986596514d159ec4fe0ffba",
+ "rewrite_commit": "241990f223e0fc932e578da889d58ea10d8038d9",
+ "form": {
+  "packet": "lesson-grammar-and-structure-parallelism",
+  "role": "A",
+  "lesson_sha256": "b62b2fb7fa930156c7679f8ceca6e954dc201ae09986596514d159ec4fe0ffba",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "The supplied brief identifies the enjoy complement restriction. Like correctly accepts hiking and to swim separately. Checked matching list forms, pairs, shared to over base verbs, and reading/watching comparison."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1 to run faster, to jump higher, and to try harder. #2 not only fun but also educational. #3 B, install/update/troubleshoot share to. #4 Reading a book is more relaxing than watching television. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. No figure is requested in the brief or needed by these verbal questions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The teaching uses short paragraphs and immediate examples. Correlative conjunctions are explained as pairs and base verb as plain form."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Only ordinary identify, fix, choose, revise, or Filipino equivalents appear. No specialized instruction verb needs a definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All repair questions provide a complete sentence and explicit task. The selection question provides both alternatives without giving the method. Solutions explain each change simply."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no named-exam claims or repeated exam introductions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar and contains no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions analyze whole sentences, not a target word designated by typography.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No stock AI phrases appear. Sentence openings vary and the summary names the content."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The main sections fit Language Proficiency. No example uses a mathematical formula, so none requires introduction in Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked examples cover mixed list, correlative pair, shared-to selection, and comparison. These are distinct constructions, progressing from direct repair to selection and comparison. No additional distinct case is required in the supplied brief."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution has numbered steps. No reasoning step is skipped and there are no numerical computations needing display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have one to three short sentences. Bullets are absent except the limited four-category aspect list."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Parallelism, correlative conjunctions, and base verb form are explained before use. Describing word and longer part replace adjective and full clause."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Matching forms are demonstrated using -ing and to + verb. Core Concept teaches how a single to applies to several base verbs; example #3 applies it explicitly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson rejects visible-endings-only checking. Shared to is allowed when meaning stays clear. Matching forms are required for parts doing the same job."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-parallelism|B01|0": {
+    "status": "fixed",
+    "quote": "\"She likes hiking and to swim\" mixes two forms that can each follow *like*.",
+    "note": "Like replaces enjoy and accepts either complement separately."
+   },
+   "lesson-grammar-and-structure-parallelism|L27|0": {
+    "status": "fixed",
+    "quote": "In \"how to install, update, and troubleshoot,\" one *to* can apply to all three base verbs.",
+    "note": "Shared to is explicitly taught and endings-only checking is rejected."
+   },
+   "lesson-grammar-and-structure-parallelism|L02|0": {
+    "status": "fixed",
+    "quote": "Matching form does not always mean matching visible endings.",
+    "note": "Teaching is divided into short explanations with concrete examples."
+   },
+   "lesson-grammar-and-structure-parallelism|L03|0": {
+    "status": "not_fixed",
+    "quote": "Identify and fix the parallelism error:",
+    "note": "No definition was added. This optional item is unchanged; the current rule exempts ordinary instructions."
+   },
+   "lesson-grammar-and-structure-parallelism|L25|0": {
+    "status": "fixed",
+    "quote": "After *not only*, the sentence uses the describing word *fun*.",
+    "note": "Describing word and longer part replace the unexplained technical labels."
+   },
+   "lesson-grammar-and-structure-parallelism|L25|1": {
+    "status": "fixed",
+    "quote": "A **base verb form** is the plain form of a verb, such as *install, update,* or *troubleshoot*.",
+    "note": "Base verb form is defined before the selection example."
+   },
+   "lesson-grammar-and-structure-parallelism|L26|0": {
+    "status": "fixed",
+    "quote": "You do not need to repeat *to* before every verb when the shared meaning stays clear.",
+    "note": "Core Concept explains shared to before the manual example applies it."
+   }
+  }
+ }
+}
