@@ -1,0 +1,308 @@
+{
+ "batch": "RD-021",
+ "lesson_id": "lesson-grammar-and-structure-subject-verb-agreement",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/subject-verb-agreement.md",
+ "lesson_sha256": "0629b6ad0c40f1f65b0e42aa4e3a407fe86c55fd7f0adda0cbc67c5773f52c40",
+ "rewrite_commit": "016a7d27e708373088ff55f249b5ea914b39bb69",
+ "form": {
+  "packet": "lesson-grammar-and-structure-subject-verb-agreement",
+  "role": "A",
+  "lesson_sha256": "0629b6ad0c40f1f65b0e42aa4e3a407fe86c55fd7f0adda0cbc67c5773f52c40",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked person forms am/are/is and have/has, intervening phrases, collective nouns with variety qualifications, everyone, water quantifiers, and nearer-subject agreement. Filipino aspect examples correctly contrast completed, ongoing, and not-yet actions; markers are qualified as common uses. No demonstrated error appears; external source checks are unavailable under the packet restrictions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 am, is; #2 is; #3 has under the supplied American-English unit condition; #4 needs; #5 has; #6 are; #7 were; #8 Kumakain si Lea ngayon for an action ongoing now. All agree with the worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required main sections are present. The brief requires no figures and every question is text-based."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The opening now describes verb forms matching subjects in plain language. Number and person receive short explanations and am/are/is illustrations. English solutions use short sentences without recast or clumsy construction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Questions use the everyday command choose or piliin. No exam-specific instruction verb needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eight questions state a choice task with full sentence context. The collective-noun item supplies the necessary English variety and unit meaning. Solutions give short, explicit reasons for the selected forms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam openers or unsupported exam-frequency claims occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino body explains aspect, focus, and markers in Filipino with short local sentence examples. Example #8 uses Filipino reasoning about an ongoing action."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Aspekto, pokus, pananda, parirala, and layon receive English glosses on introduction, including the previously missing aspect gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino examples use Filipino sentences and solutions; English examples address the separate English material. There are no quizzes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present; official KWF spelling and usage cannot be confirmed from this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino prose uses Filipino sentences and first-use glosses. English appears in the explicit comparison to English grammar and its example verb forms, where it is necessary to the subject."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions ask students to choose a verb form or whole sentence. None asks for classification or meaning of a target word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the topic plainly. Listed stock AI phrases are absent and sentence openings vary outside parallel definitions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The Language Proficiency section layout is allowed. No mathematical formula is used in any example; no formula introduction is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang **pokus** (voice/focus) ay tumutulong magpakita kung aling kalahok ang sentro ng pandiwa.",
+      "problem": "Pokus and the ang/ng/sa distinctions are taught but receive no worked application. Example #8 chooses aspect and merely appends a si label. The brief requests reasoned applications of these Filipino distinctions; inline illustrations do not provide worked coverage."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All worked solutions use numbered steps. Grammar explanations require no mathematical display computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have at most three sentences. Lists are confined to reference definitions or worked solution steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or required figures for these text questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The subject head is *list*.",
+      "problem": "Subject head and of-phrase are used as decision terms without explaining how to find the head or what a phrase is. Filipino parirala receives only the English word phrase, whose meaning is also never taught. No prerequisite supplies these meanings."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang **pokus** (voice/focus) ay tumutulong magpakita kung aling kalahok ang sentro ng pandiwa.",
+      "problem": "Pokus is described as a center, but no procedure connects the verb form to the marked participant. The contrasting examples name the actor in one sentence and the center in the other without explaining how to decide focus in a new sentence."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Agreement is limited to verb forms that change. Collective nouns depend on meaning and English variety; quantifiers depend on referents. And is qualified as usually plural, or/nor uses nearer-subject agreement with a clarity caveat, and Filipino transfer is explicitly limited."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "The flagged mark means judge a form wrong, not a score. No scores called marks or questions called cards occur."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-subject-verb-agreement|L18|0": {
+    "status": "fixed",
+    "quote": "Choose the correct verb: Everyone in the two offices *(needs / need)* a new ID.",
+    "note": "Example #4 now works through indefinite-pronoun agreement."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L18|1": {
+    "status": "fixed",
+    "quote": "Choose the correct verb: The supervisor and the clerk *(is / are)* checking the forms.",
+    "note": "Example #6 now analyzes an and compound subject."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L02|0": {
+    "status": "fixed",
+    "quote": "In English, **subject-verb agreement** means that some verb forms change to match the subject.",
+    "note": "The opening removes finite verb and distinct agreement forms."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L05|0": {
+    "status": "fixed",
+    "quote": "If the result sounds awkward, rewrite the sentence in a clearer way.",
+    "note": "The advanced recast wording is replaced with common words."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L09|0": {
+    "status": "fixed",
+    "quote": "Ang **aspekto** (aspect)",
+    "note": "The first occurrence now provides the missing English gloss."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L22a|0": {
+    "status": "fixed",
+    "quote": "Plural agreement can occur when the members are treated separately, especially in British English.",
+    "note": "Collective-noun teaching is divided into two short paragraphs."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L25|0": {
+    "status": "fixed",
+    "quote": "**Number** means singular or plural.",
+    "note": "Finite verb is removed; person and number are explained before the application tasks."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L26|0": {
+    "status": "fixed",
+    "quote": "Compare \"I *am* ready,\" \"you *are* ready,\" and \"she *is* ready.\"",
+    "note": "Person agreement now has contrasts and a worked am/is example."
+   },
+   "language-proficiency-grammar-and-structure#71": {
+    "status": "not_fixed",
+    "quote": "Kaya hindi dapat direktang ilipat ang tuntuning English na *is/are* o *barks/bark* sa pangungusap na Filipino.",
+    "note": "The warning distinguishes systems, but there is no reasoned comparison applying both to singular and plural Filipino subjects."
+   },
+   "language-proficiency-grammar-and-structure#72": {
+    "status": "fixed",
+    "quote": "Ang *kumakain* ay anyong nagsasaad ng kilos na nagaganap.",
+    "note": "The time-and-form method is applied in the ongoing-action worked example."
+   },
+   "language-proficiency-grammar-and-structure#73": {
+    "status": "not_fixed",
+    "quote": "Sa \"Niluto ni Mara ang sopas,\" ang sopas ang sentro.",
+    "note": "The contrast labels a center but supplies no transferable procedure or reasoned focus analysis."
+   },
+   "language-proficiency-grammar-and-structure#124": {
+    "status": "fixed",
+    "quote": "*I* takes *am* in this form of *be*.",
+    "note": "The person categories, contrasts, and worked choice teach local application."
+   },
+   "language-proficiency-grammar-and-structure#125": {
+    "status": "not_fixed",
+    "quote": "Ang *ang* o *si* ay karaniwang kasama ng **parirala** (phrase) na nasa pokus.",
+    "note": "A marker rule and illustration are present, but the learner is not shown how to establish focus in a new sentence."
+   },
+   "language-proficiency-grammar-and-structure#126": {
+    "status": "fixed",
+    "quote": "Sa \"bahay **ng guro**,\" ipinapakita ng *ng* ang pagmamay-ari o ugnayan.",
+    "note": "The lesson distinguishes object and possession uses through reasoned local sentence examples."
+   },
+   "language-proficiency-grammar-and-structure#127": {
+    "status": "fixed",
+    "quote": "ipinapakita ng *sa* ang direksiyon o lugar na pinuntahan.",
+    "note": "The destination example connects the marker to the place reached, supplying a local application test."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L19|0": {
+    "status": "fixed",
+    "quote": "1. The subject head is *list*.",
+    "note": "The intervening-phrase solution now uses numbered steps."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L19|1": {
+    "status": "fixed",
+    "quote": "1. The sentence treats the committee as one unit.",
+    "note": "The collective-noun solution now uses numbered steps."
+   },
+   "lesson-grammar-and-structure-subject-verb-agreement|L19|2": {
+    "status": "fixed",
+    "quote": "1. The nearer subject is *employees*.",
+    "note": "The nearer-subject solution now uses numbered steps."
+   }
+  }
+ }
+}

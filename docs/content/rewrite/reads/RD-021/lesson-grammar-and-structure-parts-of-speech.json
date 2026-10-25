@@ -1,0 +1,322 @@
+{
+ "batch": "RD-021",
+ "lesson_id": "lesson-grammar-and-structure-parts-of-speech",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
+ "lesson_sha256": "b39a7755fd9de7bcacc6764f5e038c7c3638d73a61d870ceb4a4467a7b8b9e74",
+ "rewrite_commit": "241990f223e0fc932e578da889d58ea10d8038d9",
+ "form": {
+  "packet": "lesson-grammar-and-structure-parts-of-speech",
+  "role": "A",
+  "lesson_sha256": "b39a7755fd9de7bcacc6764f5e038c7c3638d73a61d870ceb4a4467a7b8b9e74",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked eight English class definitions, the light and before contrasts, and friendly versus often. Filipino categories are qualified by grammar system, including pandiwari. No factual contradiction is evident from the packet. External source confirmation is unavailable under the assignment; this is a text-based accuracy judgment."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 diligent adjective, quickly adverb; #2 light noun, verb, adjective; #3 Wow interjection, she pronoun; #4 before preposition then subordinating conjunction; #5 matapang pang-uri; #6 doon pang-abay na panlunan; #7 ang pantukoy, guro pangngalan, masipag pang-uri, nagturo pandiwa, at pangatnig, siya panghalip; #8 nasugatan denotes the injured person and can take the qualified traditional pandiwari label. These match all solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required main sections are present. The brief requires no figures and every question is text-based."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "English definitions use familiar words and sentence uses. The former dense determiners and linguistic-analysis discussion is replaced by short statements about differing grammar systems."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Classify **before** in each sentence.",
+      "problem": "Classify means name the word class here, but this exam-specific instruction receives no explanation at first use. Identify is an everyday word and needs no gloss."
+     }
+    ]
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eight stems state a task and supply complete sentence contexts. The before question now requests classification. Solutions explain sentence jobs without giving definitions away in the stems."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam openers or unsupported exam-frequency claims occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino category teaching and solutions #5 through #8 use Filipino prose with short sentence analyses. Technical labels are glossed and illustrated."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Pantukoy, pangngalan, pang-uri, panghalip, pandiwa, pandiwari, pang-abay, pang-abay na panlunan, pang-ukol, pangatnig, and pandamdam receive first-use English glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino examples use Filipino sentences and solutions; English examples address the separate English material. There are no quizzes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present; official KWF spelling and usage cannot be confirmed from this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino explanations remain in Filipino. English terms occur in first-use category glosses or as common language and formatting terms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Identify the part of speech of **light** in each sentence.",
+      "problem": "The target is bold but the prompt does not say the word in bold. The before, doon, and multi-target Filipino prompts likewise omit that required wording. Example #7 also leaves target occurrences unbolded within its sentence."
+     }
+    ]
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the topic plainly. Listed stock AI phrases are absent and sentence openings vary outside parallel definitions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The Language Proficiency section layout is allowed. No mathematical formula is used in any example; no formula introduction is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang **pang-ukol** (preposition) ay nag-uugnay sa kasunod na salita o grupo ng mga salita sa ibang bahagi ng pangungusap.",
+      "problem": "Pang-ukol and pandamdam have only Core Concept illustrations, with no worked application despite the brief. The taught multiword place phrase also lacks a worked example distinct from single-word doon."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All worked solutions use numbered steps. Grammar explanations require no mathematical display computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have at most three sentences. Lists are confined to reference definitions or worked solution steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or required figures for these text questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A **clause** is a group of words with a subject and a verb.",
+      "problem": "Subject is necessary for the clause test but is not explained. No prerequisite is supplied. The new subordinate-clause definitions fix the old gap but still depend on this unexplained term."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Every English class receives a meaning and sentence job. Filipino categories receive local reasoned illustrations. Light and before demonstrate how sentence use determines class."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The eight-class list is limited to a traditional system. Filipino categories and pandiwari are system-qualified. The before shortcut checks noun groups versus clauses, and the -ly trap explains its limitation."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-parts-of-speech|B02|0": {
+    "status": "fixed",
+    "quote": "Classify **before** in each sentence.",
+    "note": "The revised question explicitly requests classification."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L02|0": {
+    "status": "fixed",
+    "quote": "Some grammar books group words in other ways.",
+    "note": "The dense caveat has been replaced by simple sentences."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L05|0": {
+    "status": "fixed",
+    "quote": "Classify **before** in each sentence.",
+    "note": "The question now specifies the feature to identify."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L14|0": {
+    "status": "fixed",
+    "quote": "identify the words in bold.",
+    "note": "Example #1 now uses bold targets and the required wording."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L25|0": {
+    "status": "fixed",
+    "quote": "A **pronoun** can take the place of a noun or name",
+    "note": "Pronoun no longer depends on the term noun phrases."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L25|1": {
+    "status": "fixed",
+    "quote": "A **subordinate clause** cannot stand alone as a complete sentence in that use.",
+    "note": "The previously missing clause terms are taught before the example."
+   },
+   "language-proficiency-grammar-and-structure#17": {
+    "status": "fixed",
+    "quote": "Inilalarawan ng **matapang** ang *sundalo*.",
+    "note": "The worked example finds the noun being described and explains pang-uri."
+   },
+   "language-proficiency-grammar-and-structure#105": {
+    "status": "fixed",
+    "quote": "Dahil nagbibigay ito ng lugar ng kilos, ang **doon** ay pang-abay na panlunan.",
+    "note": "The saan test and worked doon example teach place-adverb identification."
+   },
+   "language-proficiency-grammar-and-structure#111": {
+    "status": "fixed",
+    "quote": "**Ang** ay pantukoy dahil tinutukoy nito ang kasunod na pangngalan.",
+    "note": "The multi-target example explains the marker and its following noun."
+   },
+   "language-proficiency-grammar-and-structure#112": {
+    "status": "fixed",
+    "quote": "**Guro** ay pangngalan dahil ito ang tawag sa tao.",
+    "note": "The example applies the naming test to guro."
+   },
+   "language-proficiency-grammar-and-structure#113": {
+    "status": "fixed",
+    "quote": "**Siya** ay panghalip dahil humahalili ito sa *guro*.",
+    "note": "The example identifies the name replaced by siya."
+   },
+   "language-proficiency-grammar-and-structure#114": {
+    "status": "fixed",
+    "quote": "**Nagturo** ay pandiwa dahil nagsasaad ito ng kilos.",
+    "note": "The action test is applied explicitly to nagturo."
+   },
+   "language-proficiency-grammar-and-structure#115": {
+    "status": "fixed",
+    "quote": "Sa ilang tradisyunal na balarila, maaari itong talakayin bilang pandiwari.",
+    "note": "Example #8 applies the traditional category to a verb form naming a person, with a system caveat."
+   },
+   "language-proficiency-grammar-and-structure#116": {
+    "status": "fixed",
+    "quote": "Sinasabi ng **doon** kung saan naghihintay ang mga aplikante.",
+    "note": "A local question test and reasoned place-adverb application are provided."
+   },
+   "language-proficiency-grammar-and-structure#117": {
+    "status": "not_fixed",
+    "quote": "Sa *para sa bata*, ang *para sa* ay pang-ukol.",
+    "note": "The example is only a fragment with a label; it does not reason through the relation to another sentence part."
+   },
+   "language-proficiency-grammar-and-structure#118": {
+    "status": "fixed",
+    "quote": "**At** ay pangatnig dahil nag-uugnay ito ng dalawang bahagi.",
+    "note": "The worked sentence identifies at through its joining function."
+   },
+   "language-proficiency-grammar-and-structure#119": {
+    "status": "fixed",
+    "quote": "Sa *Aray! Masakit ang sugat*, ang *Aray!* ay pandamdam.",
+    "note": "The reaction definition and local Aray example supply a usable identification test."
+   },
+   "language-proficiency-grammar-and-structure#120": {
+    "status": "fixed",
+    "quote": "Sa ibang sistema, maaaring iba ang tawag sa kategorya nito, kaya sundin ang sistemang ginagamit ng tanong.",
+    "note": "The pandiwari example applies the instruction to follow the stated classification system."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L03|0": {
+    "status": "not_fixed",
+    "quote": "identify the words in bold.",
+    "note": "Identify still has no gloss. The current standard exempts this everyday command."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L18|0": {
+    "status": "fixed",
+    "quote": "**Wow!** Ana solved the puzzle, and **she** smiled.",
+    "note": "Example #3 now works through pronoun and interjection identification."
+   },
+   "lesson-grammar-and-structure-parts-of-speech|L19|0": {
+    "status": "fixed",
+    "quote": "1. **Wow!** expresses a reaction, so it is an interjection.",
+    "note": "The replacement example uses numbered solution steps."
+   }
+  }
+ }
+}

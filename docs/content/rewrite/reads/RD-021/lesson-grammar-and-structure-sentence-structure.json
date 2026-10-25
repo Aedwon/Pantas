@@ -1,0 +1,294 @@
+{
+ "batch": "RD-021",
+ "lesson_id": "lesson-grammar-and-structure-sentence-structure",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md",
+ "lesson_sha256": "f09150f8967c0fc9ba1acc0de90564d675b74d1a5265923b8dc3f2c10b91ade9",
+ "rewrite_commit": "016a7d27e708373088ff55f249b5ea914b39bb69",
+ "form": {
+  "packet": "lesson-grammar-and-structure-sentence-structure",
+  "role": "A",
+  "lesson_sha256": "f09150f8967c0fc9ba1acc0de90564d675b74d1a5265923b8dc3f2c10b91ade9",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked English clause-count definitions, compound subjects and verbs, and since Monday as a phrase. Filipino langkapan now has explicit distinct subjects Liza and Ben; the causal clause is separate. No demonstrated factual error appears in the packet; no external source verification is possible under its restrictions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 simple, one clause despite compound subject and verb; #2 compound, two independent clauses; #3 complex, one dependent and one independent; #4 compound-complex, one dependent and two independent; #5 langkapan, independent Liza and Ben clauses plus dahil may pagsusulit siya. All match the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All required main sections are present. The brief requires no figures and every question is text-based."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Clause, subject, and verb are explained in short English sentences. Example #1 now separates the compound-subject, compound-verb, and clause-count reasoning into three short steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Classify is explicitly explained as name the sentence type before the first worked question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each question supplies a complete sentence and asks for its type. No question supplies the classification method. Solutions identify actual clauses and give the resulting type in plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam openers or unsupported exam-frequency claims occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section explains sugnay and the four sentence types in Filipino. The langkapan worked example also uses Filipino reasoning throughout."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Sugnay, simuno, panaguri, payak, tambalan, pangatnig na magkatimbang, hugnayan, and langkapan receive English glosses at introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino examples use Filipino sentences and solutions; English examples address the separate English material. There are no quizzes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present; official KWF spelling and usage cannot be confirmed from this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino teaching uses Filipino wording beyond the allowed first-use English glosses. The earlier English complete-thought framing is absent from this section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Questions classify whole sentences; none asks for a target word within a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary describes the topic plainly. Listed stock AI phrases are absent and sentence openings vary outside parallel definitions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The Language Proficiency section layout is allowed. No mathematical formula is used in any example; no formula introduction is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Sa pagsasalaysay, piliin din ang panandang tugma sa ayos ng pangyayari.",
+      "problem": "The brief asks for narrative connector selection, but there is no worked selection or ordering example. Coordinating and causal connectors likewise appear only in illustrations, not worked Filipino choice or formation tasks. The only Filipino worked case is langkapan."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All worked solutions use numbered steps. Grammar explanations require no mathematical display computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs have at most three sentences. Lists are confined to reference definitions or worked solution steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no placeholders or required figures for these text questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang sugnay na makapag-iisa ay buo ang diwa.",
+      "problem": "Simuno and panaguri are only given English glosses. The English material explains subject and verb, but predicate is never explained, so students cannot use the Filipino clause test from the supplied teaching alone."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Independent and dependent clauses are explained through complete and unfinished thoughts. Four English types have count rules and clause analyses. Filipino langkapan includes a procedure and a fully reasoned sentence breakdown; connectors have joining, cause, and event-order functions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The marker shortcut requires an actual clause with its own subject and verb. Since Monday supplies a counterexample. Clause counts distinguish all four structures and warn against counting compound subjects as separate clauses."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-sentence-structure|B08|0": {
+    "status": "fixed",
+    "quote": "A **simple sentence** has one independent clause and no dependent clause.",
+    "note": "The table is removed and the count is written in words, with no bare numeric expression."
+   },
+   "lesson-grammar-and-structure-sentence-structure|B08|1": {
+    "status": "fixed",
+    "quote": "A **compound sentence** has at least two independent clauses and no dependent clause.",
+    "note": "The table is removed and the count is written in words, with no bare numeric expression."
+   },
+   "lesson-grammar-and-structure-sentence-structure|B08|2": {
+    "status": "fixed",
+    "quote": "A **complex sentence** has one independent clause and at least one dependent clause.",
+    "note": "The table is removed and the count is written in words, with no bare numeric expression."
+   },
+   "lesson-grammar-and-structure-sentence-structure|B08|3": {
+    "status": "fixed",
+    "quote": "A **compound-complex sentence** has at least two independent clauses and at least one dependent clause.",
+    "note": "The table is removed and the count is written in words, with no bare numeric expression."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L02|0": {
+    "status": "fixed",
+    "quote": "There is only one independent clause and no dependent clause, so this is a simple sentence.",
+    "note": "The dense explanation is split into short numbered reasoning steps."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L25|0": {
+    "status": "fixed",
+    "quote": "A **clause** is a group of words with a subject and a verb.",
+    "note": "Clause and both clause types are defined before the sentence types."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L27|0": {
+    "status": "fixed",
+    "quote": "Check that the word is actually joining a clause with its own subject and verb.",
+    "note": "The shortcut now requires the actual subordinating function."
+   },
+   "language-proficiency-grammar-and-structure#62": {
+    "status": "fixed",
+    "quote": "Una, hanapin ang dalawang buo at makapag-iisang diwa.",
+    "note": "The two-stage method and worked langkapan analysis provide local application."
+   },
+   "language-proficiency-grammar-and-structure#63": {
+    "status": "fixed",
+    "quote": "Pagsamahin ang magkapantay na diwa gamit ang **pangatnig na magkatimbang**",
+    "note": "A formation method and contrasting ngunit sentence demonstrate joining equal thoughts."
+   },
+   "language-proficiency-grammar-and-structure#64": {
+    "status": "fixed",
+    "quote": "Kapag dahilan ang ikalawang diwa, maaaring gamitin ang *dahil* o *sapagkat*.",
+    "note": "The cause-selection condition and worked dahil clause supply reasoned application."
+   },
+   "language-proficiency-grammar-and-structure#106": {
+    "status": "fixed",
+    "quote": "Gamitin ang *una* sa simula, *pagkatapos* o *saka* sa kasunod, at *sa huli* sa pangwakas na pangyayari.",
+    "note": "Event-order functions are explicitly mapped to beginning, next, and final narrative links."
+   },
+   "lesson-grammar-and-structure-sentence-structure|B01|0": {
+    "status": "fixed",
+    "quote": "In \"She has lived here since Monday,\" *since Monday* has no subject and verb.",
+    "note": "An explicit counterexample prevents automatic marker classification."
+   },
+   "lesson-grammar-and-structure-sentence-structure|B01|1": {
+    "status": "fixed",
+    "quote": "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat.",
+    "note": "The uncertain omitted-subject illustration is replaced with two explicit subjects."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L03|0": {
+    "status": "fixed",
+    "quote": "\"Classify\" means name the sentence type.",
+    "note": "The command receives a one-line explanation before use."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L08|0": {
+    "status": "fixed",
+    "quote": "Ang **payak** (simple) ay may isang sugnay na makapag-iisa.",
+    "note": "The Filipino section now teaches in Filipino prose."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L12|0": {
+    "status": "fixed",
+    "quote": "Ang sugnay na makapag-iisa ay buo ang diwa.",
+    "note": "The section no longer uses English complete-thought prose."
+   },
+   "lesson-grammar-and-structure-sentence-structure|L18|0": {
+    "status": "not_fixed",
+    "quote": "May dalawang sugnay na makapag-iisa at isang di-makapag-iisa, kaya langkapan ang pangungusap.",
+    "note": "Langkapan now has worked analysis, but payak, tambalan, and hugnayan still have no Filipino worked examples."
+   }
+  }
+ }
+}
