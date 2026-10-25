@@ -1,0 +1,272 @@
+{
+ "batch": "RD-037",
+ "lesson_id": "lesson-comprehension-skills-authors-purpose-tone-pov",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+ "lesson_sha256": "c1a9227ba986d4bbe21481acee20bec547c0d26a4c9315ab439444146ecbb9a0",
+ "rewrite_commit": "ff9374cfa2c20f422a9eb01cab74d85ba888d0cc",
+ "form": {
+  "packet": "lesson-comprehension-skills-authors-purpose-tone-pov",
+  "role": "A",
+  "lesson_sha256": "c1a9227ba986d4bbe21481acee20bec547c0d26a4c9315ab439444146ecbb9a0",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the lesson's definitions and distinctions for author purpose, tone, five narrative points of view, argumentative viewpoint, bias, paragraph patterns, and sentence cues; no factual claim is clearly wrong."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind-solved #1 as persuasion; #2 as persuasion dominant with information supporting; #3 as cautious/skeptical tone; #4 as first person; #5 as second person.",
+     "Blind-solved #6 as third-person omniscient; #7 as third-person limited because Nico's thoughts are given; #8 as cautious support for a trial; #9 as problem-and-solution with cause-and-effect support. These match the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For. The briefed purpose, tone, point-of-view, viewpoint/bias, paragraph-development, and sentence-cue material is present, and none of these examples requires a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the teaching prose for sentence length and vocabulary. Hard reading terms such as diction, imagery, syntax, emphasis, context, viewpoint, bias, and referential cohesion are introduced with short plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb that requires a one-line gloss appears in the lesson questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Core Concept and the rest of the lesson; it uses no teaching analogy."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all nine worked examples. Each now contains an exam-style question, enough passage information to answer it, and a simple solution that reasons only from the supplied text."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the lesson for claims about named exams or repeated exam-motivation openers; it makes none."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains no Filipino-language teaching prose.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains no Filipino grammar terms requiring English glosses.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains no Filipino examples or quiz items.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains no Filipino text to check against KWF usage.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains no Filipino teaching prose in which Taglish could occur.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a specific target word in the passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the listed stock phrases, sentence openings, and summary; none of the banned phrasing appears, openings vary, and the summary is plain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Reading Comprehension section fit. The lesson uses the standard Core Concept, Examples, Speed Tricks & Shortcuts, and Traps layout, and no formula appears in any example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "- **Third person objective:** the narrator reports actions and speech but does not enter a character's thoughts.",
+      "problem": "Third-person objective is taught as a distinct classification, but no worked example gives an objective passage and asks the learner to identify it. Example #7 only classifies a limited passage and mentions objective hypothetically."
+     },
+     {
+      "quote": "**Bias** is a slant that can make a presentation less fair. It can appear when a writer selects only helpful evidence, frames one side with loaded words, or leaves out important evidence from the other side.",
+      "problem": "Bias diagnosis is taught as an exam-relevant case, but the worked examples never present a biased passage for the learner to identify or explain. Example #8 instead shows a passage described as fair."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all nine solutions. Every solution with multiple reasoning steps is labeled Solution and uses a numbered list; there are no calculations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked paragraph length and lists; paragraphs stay within one to three short sentences and lists are used only for compact term or pattern sets."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no illustration placeholders, and none of its questions depends on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "It can appear when a writer selects only helpful evidence, frames one side with loaded words, or leaves out important evidence from the other side.",
+      "problem": "The lesson uses 'loaded words' as a necessary clue for diagnosing bias but never explains what loaded words are. No prerequisite is supplied, so a learner may not know how to apply this clue."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "- **Subject-verb agreement** helps show which subject an action belongs to.",
+      "problem": "This names subject-verb agreement and gives only a vague effect, but it does not explain what agreement means or how subject and verb forms must match. The added grammar family is therefore not actually taught."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limits and exceptions: mixed purpose is resolved by dominant details; tone must use several clues; pronouns alone do not decide point of view; viewpoint is not automatically bias; sentence cues do not decide purpose or tone by themselves."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L05|0": {
+    "status": "fixed",
+    "quote": "What is the author's main purpose in this sentence?",
+    "note": "All worked passages now have an explicit exam-style question before the solution."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|0": {
+    "status": "fixed",
+    "quote": "Because the passage moves from explanation to a call for action, **persuasion** is the dominant purpose, with information as a supporting purpose.",
+    "note": "Example #2 now weighs two purposes and identifies the dominant one."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|1": {
+    "status": "fixed",
+    "quote": "The passage uses **first-person point of view**.",
+    "note": "Example #4 now gives and classifies a first-person passage."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|2": {
+    "status": "fixed",
+    "quote": "The passage uses **second-person point of view**.",
+    "note": "Example #5 now gives and classifies a second-person passage."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L19|0": {
+    "status": "fixed",
+    "quote": "1. The sentence tells the reader to take a specific action: vote yes.",
+    "note": "Worked solutions now use a Solution label and numbered reasoning steps."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L02|0": {
+    "status": "fixed",
+    "quote": "- **Diction** means word choice.",
+    "note": "The academic tone-evidence terms were replaced with short plain definitions before use."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L25|0": {
+    "status": "fixed",
+    "quote": "- **Syntax** means how words and parts of a sentence are arranged.",
+    "note": "Diction, imagery, syntax, emphasis, and context are all defined before the lesson asks learners to use them."
+   },
+   "reading-comprehension-comprehension-skills#38": {
+    "status": "fixed",
+    "quote": "Paragraphs can also have different jobs. One may state a problem, another may explain causes, and another may give a solution.",
+    "note": "The rewrite adds referential links, paragraph functions, and several named development patterns."
+   },
+   "reading-comprehension-comprehension-skills#40": {
+    "status": "fixed",
+    "quote": "To find a viewpoint, collect the writer's claims, reasons, examples, and repeated judgments. Then ask what position those details support.",
+    "note": "The lesson now separates argumentative viewpoint from narrative point of view and gives a method for inferring the writer's position."
+   },
+   "reading-comprehension-comprehension-skills#41": {
+    "status": "fixed",
+    "quote": "A viewpoint is not automatically biased. A fair argument can take a clear position and still present evidence accurately.",
+    "note": "The lesson defines bias through selection, framing, and omission and distinguishes a viewpoint from unfair presentation."
+   },
+   "reading-comprehension-comprehension-skills#54": {
+    "status": "not_fixed",
+    "quote": "- **Subject-verb agreement** helps show which subject an action belongs to.",
+    "note": "The rewrite lists the requested grammar families, but several are only named or glossed. Subject-verb agreement, for example, is not explained as matching subject and verb forms, so the wider rule families are not actually taught."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|B08|0": {
+    "status": "fixed",
+    "quote": "\"Vote yes on Proposition $12$ to protect our local parks for future generations.\"",
+    "note": "The numeral in the quoted sample is now wrapped in inline math."
+   },
+   "lesson-comprehension-skills-authors-purpose-tone-pov|L18|3": {
+    "status": "fixed",
+    "quote": "\"The proposal is ambitious and could improve access to public services. Yet its cost estimates are incomplete, and the timetable seems far too hopeful. The plan deserves study, but not blind approval.\"",
+    "note": "Example #3 now uses a sustained three-sentence passage with positive and negative tone cues that must be weighed together."
+   }
+  }
+ }
+}
