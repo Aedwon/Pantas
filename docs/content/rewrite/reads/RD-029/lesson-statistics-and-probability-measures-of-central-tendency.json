@@ -1,0 +1,258 @@
+{
+ "packet": "lesson-statistics-and-probability-measures-of-central-tendency",
+ "role": "A",
+ "lesson_sha256": "8423f05f48f8b6b3465ee3fdc87ba5b4756a110c5ee97ae71b7ef0765e211487",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the mean, median, mode, multimode/no-mode convention as qualified, outlier effects, weighted-mean rule, deviation shortcut, and backwards-mean statements; the factual and mathematical claims are correct."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 blind solve: (4+7+8+10+11)/5 = 8.",
+    "Example #2 blind solve: sorted even set has middle 7 and 9, giving 8; sorted odd set has middle value 9.",
+    "Example #3 blind solve: modes are 7; then 2 and 3; then no mode under the stated basic convention.",
+    "Example #4 blind solve: required total 4×85 = 340; known total 258; fourth score = 82; check gives mean 85.",
+    "Example #5 blind solve: (90×3 + 85×2 + 80×5)/(3+2+5) = 840/10 = 84.",
+    "Example #6 blind solve: mean = 393/5 = 78.6, median = 25, and the median better represents the cluster 20–26 because 300 pulls the mean upward."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the required mathematics structure and the mean, median, mode, weighted-mean, backwards-mean, and outlier-choice cases. The brief requires no figure, and no figure-dependent question is present."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for the Grade 5 standard. The former “exact magnitude” and “convenient reference value” wording is gone; outliers, weights, and the deviation shortcut are explained with short common-word sentences."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The rewritten lesson no longer uses “describe” as an exam instruction; its questions use ordinary prompts such as “Find” and “Which one.”"
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all six example stems for sufficient scores, data values, weights, or context without giving away the selected method. The worked solutions use short direct language and show the needed calculations."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question refers to a specially emphasized target word or asks the student about “the word in bold.”"
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The ordinary mean formula used in Examples #1, #2, #4, and #6 appears first in Core Concept; Example #4 uses the same mean relationship algebraically to recover a total.",
+    "The weighted-mean formula and value×weight procedure used in Example #5 appear first in Core Concept before the worked example."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct cases to worked examples: ordinary mean (#1), even and odd medians (#2), single/multiple/no mode (#3), backwards from a known mean (#4), weighted mean (#5), and choosing median over mean with an outlier (#6)."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all multi-step solutions. Arithmetic computations are on display lines, including the backwards-mean verification, and explanatory steps are numbered without skipped reasoning."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "$$\\text{weighted mean}=\\dfrac{\\text{sum of }(\\text{value}\\times\\text{weight})}{\\text{sum of weights}}$$",
+     "problem": "This weighted-mean display is a long, unbroken expression with several text labels and is too wide for a typical phone content area."
+    },
+    {
+     "quote": "$$\\dfrac{20+22+25+26+300}{5}=\\dfrac{393}{5}=78.6$$",
+     "problem": "This worked-example display chains a long five-value numerator and two equalities on one line, making it too wide for a typical phone content area."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and its mean, median, mode, and weighted-mean examples do not depend on a figure."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that mean, median, mode, weight, weighted mean, and deviation are defined before the student needs their meanings; the deviation definition now immediately precedes the shortcut example."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked concept explanations: the lesson explains how mean, median, and mode represent center, why outliers affect mean more than median, and why larger weights make a value count more in a weighted average."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions and exceptions: odd/even median rules, tied modes and the stated no-mode convention, outlier guidance for choosing median, weighted averaging by unequal weights, and the nearby-number condition for the deviation shortcut."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-statistics-and-probability-measures-of-central-tendency|L18|2": {
+   "status": "fixed",
+   "quote": "The amounts, in pesos, spent by $5$ customers are $20,22,25,26,300$. Find the mean and median. Which one better shows a typical amount for this data set?",
+   "note": "Example #6 now makes the student compute both centers and justify why the median better represents the clustered values with an outlier."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L26|0": {
+   "status": "fixed",
+   "quote": "A larger weight gives that value more effect on the result. A **weighted mean** uses the weights instead of counting every listed value equally.",
+   "note": "Core Concept now explains the weighting principle and why a larger weight changes how much a value influences the average."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L02|0": {
+   "status": "fixed",
+   "quote": "The median mainly depends on the order of the values. One extreme value may change a lot without moving the median much.",
+   "note": "The abstract “exact magnitude” wording was replaced with two short concrete sentences about order and an extreme value."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L02|1": {
+   "status": "fixed",
+   "quote": "For nearby numbers, you can compare each value with an easy middle number.",
+   "note": "The shortcut now uses plain wording about an easy middle number and immediately defines deviation before listing the differences."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L17|0": {
+   "status": "fixed",
+   "quote": "$$\\text{weighted mean}=\\dfrac{\\text{sum of }(\\text{value}\\times\\text{weight})}{\\text{sum of weights}}$$",
+   "note": "The weighted-mean formula and weighting principle now appear in Core Concept before Example #5 applies them."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L18|1": {
+   "status": "fixed",
+   "quote": "In set (b), $2$ and $3$ each appear $2$ times, which is the highest frequency. The modes are $2$ and $3$.",
+   "note": "Example #3 now includes a tied-highest-frequency data set and explicitly identifies both values as modes."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L22a|0": {
+   "status": "fixed",
+   "quote": "The best measure depends on the data. The mean uses every value, so one very large or very small value can pull it away from most of the data.",
+   "note": "The former four-sentence paragraph has been split into shorter paragraphs, each staying within the one-to-three-sentence limit."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L25|0": {
+   "status": "fixed",
+   "quote": "A **weight** tells how much a value counts in an average.",
+   "note": "Weight and weighted mean are now defined in Core Concept before the weighted-grade example uses subject units as weights."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L25|1": {
+   "status": "fixed",
+   "quote": "A **deviation** here means how far a value is above or below that chosen number.",
+   "note": "Deviation is now defined immediately before the shortcut lists positive and negative deviations from the chosen middle number."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L03|0": {
+   "status": "fixed",
+   "quote": "Find the mode of each set: (a) $2,4,4,5,7,7,7,9$, (b) $1,2,2,3,3,4$, and (c) $5,6,7,8$.",
+   "note": "Checked the rewritten lesson for the exam verb “describe”; it is gone, and the mode example now uses the everyday instruction “Find.”"
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L15|0": {
+   "status": "fixed",
+   "quote": "A **mode** is a value that appears most often.",
+   "note": "The prior run of three consecutive Core Concept paragraphs starting with “The” is broken because the mode definition now starts with “A.”"
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L18|0": {
+   "status": "fixed",
+   "quote": "Find the median of (a) $15,3,9,7,11,5$ and (b) $12,4,9,7,20$.",
+   "note": "Example #2 now covers both an even-sized set and an odd-sized set, including sorting and selecting the single middle value for the odd case."
+  },
+  "lesson-statistics-and-probability-measures-of-central-tendency|L19|0": {
+   "status": "fixed",
+   "quote": "$$\\dfrac{258+82}{4}=85$$",
+   "note": "The backwards-mean verification is now on its own display-math line after the numbered check step instead of being embedded inline."
+  }
+ }
+}

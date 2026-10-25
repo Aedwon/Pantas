@@ -1,0 +1,228 @@
+{
+ "packet": "lesson-statistics-and-probability-basic-probability",
+ "role": "A",
+ "lesson_sha256": "c2298681a8a9bb214fded9086a6c63b72731eab2e577d5dba765cf0309d9fc17",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the probability definitions and rules, fair coin and die claims, replacement effects, gambler's-fallacy statement, and standard 52-card deck counts; the factual statements are correct."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 blind solve: outcomes 5 and 6 give 2/6 = 1/3.",
+    "Example #2 blind solve: 6 ordered pairs sum to 7 out of 36, so 1/6.",
+    "Example #3 blind solve: (1/2)(1/6) = 1/12.",
+    "Example #4 blind solve: (5/8)(4/7) = 5/14.",
+    "Example #5 blind solve: replacement restores 5/8 on both draws, so 25/64.",
+    "Example #6 blind solve: king or queen = 8/52 = 2/13; king or heart = (4+13-1)/52 = 4/13.",
+    "Example #7 blind solve: 1 - (1/2)^3 = 7/8."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the required mathematics structure and topic coverage: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the optional mnemonic section is omitted, and the brief requires no figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for the Grade 5 standard. Conditional probability, replacement, overlap, complements, and independence are explained with short concrete sentences and without the abstract phrase flagged in the brief."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson uses everyday prompts such as “Find” and introduces no exam-specific instruction word that needs a gloss."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all seven example stems for sufficient problem-specific givens and no supplied tested method; each solution returns to short, direct language and uses the information in its stem."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English mathematics lesson, so the Filipino-language lesson rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks the student to identify or interpret a specially emphasized target word."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The single-event probability formula used in Example #1 appears first in Core Concept as P(event) = favorable outcomes / total outcomes.",
+    "The multiplication rule and its independent-event form used in Examples #3, #4, and #5 appear first under “And”: multiplication rule.",
+    "The addition rule for overlapping or mutually exclusive events used in Example #6 appears first under “Or”: addition rule.",
+    "The complement rule used in Example #7 appears first in Core Concept before the examples."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught cases to worked examples: single event (#1), ordered two-dice sample space (#2), independent events (#3), dependent sampling without replacement (#4), sampling with replacement (#5), mutually exclusive and overlapping “or” (#6), and at-least-one by complement (#7)."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every multi-step solution. Examples #2 through #7 number each step, and their key computations are placed on display lines; Example #1 is a one-step calculation."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "$$P(A\\text{ or }B)=P(A)+P(B)-P(A\\text{ and }B)$$",
+     "problem": "This is a long, unbroken display equation with text on both sides of several operators, making it too wide for a typical phone content area."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no illustration placeholder, and the packet identifies no required figure for this lesson."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that probability, complement, conditional notation P(B|A), independent/dependent events, with/without replacement, mutually exclusive events, and overlap are explained before their meanings are needed."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the core concepts and the repaired two-dice case: the lesson explains how each rule works, and Example #2 derives 6×6 = 36 and explains what the ordered pair positions mean."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability conditions: the basic probability ratio is limited to equally likely outcomes; replacement rules explain when counts reset; independence controls multiplication; overlap controls subtraction in the “or” rule; complement is tied to at-least-one questions."
+   ],
+   "note": ""
+  },
+  "B09": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-statistics-and-probability-basic-probability|L18|0": {
+   "status": "fixed",
+   "quote": "A bag holds $5$ red and $3$ blue marbles. One marble is drawn, returned to the bag, and then a second marble is drawn. Find the probability that both marbles drawn are red.",
+   "note": "Checked for a worked with-replacement case. Example #5 restores the bag to 5 red out of 8 and computes 25/64."
+  },
+  "lesson-statistics-and-probability-basic-probability|L02|0": {
+   "status": "fixed",
+   "quote": "The notation $P(B\\mid A)$ means the probability that $B$ happens after we know that $A$ happened.",
+   "note": "The abstract conditional-probability sentence was replaced by a short plain-language explanation before the rule."
+  },
+  "lesson-statistics-and-probability-basic-probability|L25|0": {
+   "status": "fixed",
+   "quote": "The notation $P(B\\mid A)$ means the probability that $B$ happens after we know that $A$ happened.",
+   "note": "The lesson now explains what the bar in P(B|A) means before the multiplication formula uses the notation."
+  },
+  "lesson-statistics-and-probability-basic-probability|L26|0": {
+   "status": "fixed",
+   "quote": "The first die has $6$ possible results, and the second die also has $6$.",
+   "note": "Example #2 now develops the 36 outcomes as 6×6 and then explains the order of the two numbers in each pair."
+  },
+  "lesson-statistics-and-probability-basic-probability|L27|0": {
+   "status": "fixed",
+   "quote": "Drawing **with replacement** means the item is put back before the next draw. The original counts are restored.",
+   "note": "The lesson now contrasts with replacement directly with no replacement and states that the original counts return."
+  },
+  "lesson-statistics-and-probability-basic-probability|L19|0": {
+   "status": "fixed",
+   "quote": "1. The coin result does not change the die result, so the events are independent.",
+   "note": "Example #3 now puts its reasoning and multiplication instruction in numbered solution steps before the display calculation."
+  }
+ }
+}
