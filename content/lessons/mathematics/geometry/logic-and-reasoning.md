@@ -1,31 +1,55 @@
 ---
 _id: "lesson-geometry-logic-and-reasoning"
 title: "Logic and Reasoning (Conditional Statements, Converses, Inverses, Contrapositives)"
-summary: "How to rewrite if-then statements and tell which versions must be true."
+summary: "How to rewrite if-then statements, test claims, and draw valid conclusions."
 subject: "subject-mathematics"
 topic: "topic-geometry"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-A **conditional statement** is an if-then sentence: "If $p$, then $q$."
+A **conditional statement** is an if-then sentence: "If $p$, then $q$." The letters stand for statements that can be true or false.
 
-The **hypothesis** ($p$) is the "if" part. The **conclusion** ($q$) is the "then" part.
+The **hypothesis** ($p$) is the "if" part. The **conclusion** ($q$) is the "then" part. A conditional rules out a true hypothesis with a false conclusion.
 
-From one conditional, you can build three new statements:
+To **negate** a statement means to say that it is not true. From one conditional, you can build three new statements:
 
 - **Converse**: swap the parts. "If $q$, then $p$."
 - **Inverse**: negate both parts. "If not $p$, then not $q$."
 - **Contrapositive**: swap and negate. "If not $q$, then not $p$."
 
-Here is the most important fact in this lesson. A conditional and its **contrapositive** always have the same truth value. They are **logically equivalent**. The converse and the inverse are also equivalent to each other, but not to the original.
+A conditional and its contrapositive always have the same **truth value**: they are true or false together. They are **logically equivalent**, which means they agree in every possible case.
 
-To prove a statement false, you need a **counterexample**: one case where the hypothesis is true but the conclusion is false. One counterexample kills a statement.
+The converse and inverse are also equivalent to each other. They need not match the original conditional. A converse may be true, but the original alone does not prove it.
 
-A **biconditional** uses "if and only if". It means the conditional and its converse are both true.
+A **counterexample** is one case with a true hypothesis and a false conclusion. It proves that an "always true" conditional is false. A case with a false hypothesis does not disprove the conditional.
 
-CETs test this two ways: "write the contrapositive of..." and "which statement is logically equivalent to...". Both become easy with one memory trick below.
+### Biconditionals
+
+A **biconditional** uses "if and only if." The statement "$p$ if and only if $q$" means both "If $p$, then $q$" and "If $q$, then $p$."
+
+To prove a biconditional, check both directions. Proving only one direction is not enough. You can join a conditional and its converse this way only when both are true.
+
+### Drawing Conclusions
+
+For these rules, accept the given statements as true. A **deduction** is a conclusion that must follow from them.
+
+The **Law of Detachment** needs a true conditional and its true hypothesis:
+
+$$p \Rightarrow q,\quad p\quad\therefore q$$
+
+The arrow ($\Rightarrow$) means "if ... then." The symbol $\therefore$ means "therefore." If "If $p$, then $q$" is true and $p$ is true, you may conclude $q$.
+
+Knowing only that $q$ is true does not let you conclude $p$. There may be another reason for $q$ to be true.
+
+The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals:
+
+$$p \Rightarrow q,\quad q \Rightarrow r$$
+
+$$\therefore p \Rightarrow r$$
+
+The first conclusion must match the next hypothesis. This gives a new conditional. To conclude that $r$ actually happens, you also need the fact $p$.
 
 ## Mnemonics & Memory Aids
 
@@ -33,7 +57,7 @@ To build the contrapositive, remember:
 
 > Flip and negate.
 
-The converse only flips. The inverse only negates. The contrapositive does both, and doing both is what keeps the truth value safe.
+The converse only flips. The inverse only negates. The contrapositive does both.
 
 ## Examples
 
@@ -42,88 +66,114 @@ The converse only flips. The inverse only negates. The contrapositive does both,
 Identify the hypothesis and conclusion: "If a number is divisible by $6$, then it is divisible by $3$."
 
 **Solution:**
-The hypothesis follows "if". The conclusion follows "then".
 
-1. Hypothesis: a number is divisible by $6$.
-2. Conclusion: it is divisible by $3$.
-3. This conditional is true: every multiple of $6$ (like $6$, $12$, $18$) is also a multiple of $3$.
+1. The hypothesis follows "if": a number is divisible by $6$.
+2. The conclusion follows "then": it is divisible by $3$.
+3. The conditional is true. Every multiple of $6$, such as $6$, $12$, or $18$, is also a multiple of $3$.
 
 ### #2: Writing All Three Forms
 
 Write the converse, inverse, and contrapositive of: "If it is raining, then the ground is wet."
 
 **Solution:**
-Let $p$ be "it is raining" and $q$ be "the ground is wet".
 
-1. Converse (flip): "If the ground is wet, then it is raining."
-2. Inverse (negate): "If it is not raining, then the ground is not wet."
-3. Contrapositive (flip and negate): "If the ground is not wet, then it is not raining."
-4. Only the contrapositive must match the original. If rain always wets the ground, then dry ground truly means no rain.
+1. Let $p$ mean "it is raining" and $q$ mean "the ground is wet."
+2. Converse: "If the ground is wet, then it is raining."
+3. Inverse: "If it is not raining, then the ground is not wet."
+4. Contrapositive: "If the ground is not wet, then it is not raining."
+5. The contrapositive must have the same truth value as the original. The converse and inverse need not have that truth value.
 
 ### #3: Finding a Counterexample
 
-Is the converse in Example $2$ true: "If the ground is wet, then it is raining"?
+Is this claim always true: "If the ground is wet, then it is raining"?
 
 **Solution:**
-Look for one case with a wet ground but no rain.
 
-1. A janitor mops the floor. The ground is wet, but it is not raining.
-2. The hypothesis (wet ground) is true, but the conclusion (raining) is false.
-3. That single counterexample makes the converse false.
-4. Lesson: a true statement can have a false converse. Never assume the converse for free.
+1. Consider a sprinkler watering the ground on a day with no rain.
+2. The hypothesis is true: the ground is wet. The conclusion is false: it is not raining.
+3. This counterexample proves that the claim is not always true.
 
 ### #4: Picking the Equivalent Statement
 
-Which statement is logically equivalent to: "If a figure is a square, then it has four sides"?
+Which statement is logically equivalent to "If a figure is a square, then it has $4$ sides"?
 
-A) If a figure has four sides, then it is a square.
-B) If a figure is not a square, then it does not have four sides.
-C) If a figure does not have four sides, then it is not a square.
-D) A figure has four sides only if it is a square.
+A) If a figure has $4$ sides, then it is a square.
 
-**Solution:**
-"Logically equivalent" means it is true and false in exactly the same situations. Only the contrapositive qualifies.
+B) If a figure is not a square, then it does not have $4$ sides.
 
-1. Flip and negate the original.
-2. Contrapositive: "If a figure does not have four sides, then it is not a square."
-3. That matches choice C. The converse in choice A ("If a figure has four sides, then it is a square") is false: a rectangle has four sides but is not necessarily a square.
+C) If a figure does not have $4$ sides, then it is not a square.
 
-### #5: Chaining Statements (Deductive Reasoning)
-
-Given: "If a student passes the UPCAT, then the student enrolls at UP." and "If a student enrolls at UP, then the student moves to Diliman." Rico passes the UPCAT. What can you conclude?
+D) A figure has $4$ sides only if it is a square.
 
 **Solution:**
-Chain the conditionals like dominoes.
 
-1. From the first statement, Rico passing means Rico enrolls at UP.
-2. From the second statement, enrolling at UP means Rico moves to Diliman.
-3. Conclusion: Rico moves to Diliman.
-4. This chain is called the **Law of Syllogism**: if $p$ leads to $q$ and $q$ leads to $r$, then $p$ leads to $r$. Using one true statement plus a matching fact is the **Law of Detachment**.
+1. Swap the hypothesis and conclusion, then negate both.
+2. The contrapositive is "If a figure does not have $4$ sides, then it is not a square."
+3. The answer is C. It has the same truth value as the original in every case.
+
+### #5: Chaining Statements and Using a Fact
+
+Assume these statements are true: "If an application is complete, then it is sent for review." "If an application is sent for review, then a tracking number is assigned." Rico's application is complete. What must follow?
+
+<!-- ILLUSTRATION: Statement chain with arrows from application complete to sent for review to tracking number assigned; show Rico's complete application at the start. -->
+
+**Solution:**
+
+1. The first conclusion matches the second hypothesis: the application is sent for review.
+2. Use the Law of Syllogism. If an application is complete, then a tracking number is assigned.
+3. Rico's application is complete. Use the Law of Detachment with that fact and the new conditional.
+4. A tracking number is assigned to Rico's application.
+
+### #6: Proving Both Directions
+
+For an integer $n$, check this statement: "$n$ is even if and only if $n$ is divisible by $2$."
+
+<!-- ILLUSTRATION: Two statements, n is even and n is divisible by 2, connected by arrows in both directions to show the two claims of the biconditional. -->
+
+**Solution:**
+
+1. Check the forward direction. An even integer can be divided into pairs with nothing left over. So it is divisible by $2$.
+2. Check the reverse direction. An integer divisible by $2$ has no remainder when split into pairs. So it is even.
+3. Both directions are true. The biconditional is true.
 
 ## Speed Tricks & Shortcuts
 
-For "which is equivalent" questions, do not test each choice with stories. Just build the contrapositive mechanically (flip and negate) and find it among the choices. It is always the answer.
+For an equivalent-statement question, first build the contrapositive. Then compare its meaning with the choices. Different wording can express the same statement.
 
-Truth pairs to memorize: the original and contrapositive always match, and the converse and inverse always match. So if a question says the converse is true, the inverse is automatically true too, and you get that answer for free.
+Remember the truth pairs: original with contrapositive, and converse with inverse. If the converse is true, the inverse is true too.
 
-To check any "always true" claim, hunt for a counterexample first. Finding one weird case is much faster than proving all cases.
+For a chain, match each conclusion to the next hypothesis. Keep the final answer as an if-then statement unless a given fact lets you use detachment.
+
+To test an "always true" claim, look for a counterexample. One case with a true hypothesis and a false conclusion is enough.
 
 ## Traps to Watch For
 
 ### #1: Believing the Converse
 
-> A true statement does not make its converse true.
+> A true conditional does not prove its converse.
 
-"All squares have four sides" is true, but "all four-sided figures are squares" is false. Test-makers state a true conditional and offer the converse as a conclusion. Refuse it unless the problem says "if and only if".
+Every square has $4$ sides. A rectangle that is not a square also has $4$ sides. Having $4$ sides alone does not prove that a figure is a square.
 
 ### #2: Mixing Up Inverse and Contrapositive
 
 > The inverse only negates. The contrapositive negates and swaps.
 
-Students negate both parts, forget to swap them, and pick the inverse thinking it is the contrapositive. The inverse is not equivalent to the original. Always do both moves: flip and negate.
+Negating both parts without swapping gives the inverse. It need not match the original's truth value. Check that you made both changes when asked for a contrapositive.
 
 ### #3: A Bad Counterexample
 
 > A counterexample needs a true hypothesis and a false conclusion.
 
-To disprove "If a number is prime, then it is odd", the counterexample is $2$: prime (hypothesis true) but even (conclusion false). The number $9$ is not a counterexample; it is odd but not prime, so its hypothesis is false and it proves nothing.
+To disprove "If a number is prime, then it is odd," use $2$. It is prime but not odd. The number $9$ does not work because it is not prime, so the hypothesis is false.
+
+### #4: Starting from the Conclusion
+
+> Detachment starts with a true hypothesis, not just a true conclusion.
+
+"If it rains, then the ground is wet" and "the ground is wet" do not prove that it rains. A sprinkler could have wet the ground. That conclusion would require the converse, which was not given.
+
+### #5: Checking Only Half a Biconditional
+
+> "If and only if" makes two claims.
+
+"If a figure is a square, then it is a rectangle" is true. Its converse is false because some rectangles are not squares. So "a figure is a square if and only if it is a rectangle" is false.
