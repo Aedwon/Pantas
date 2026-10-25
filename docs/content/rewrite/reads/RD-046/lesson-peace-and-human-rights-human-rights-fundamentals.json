@@ -1,0 +1,330 @@
+{
+ "batch": "RD-046",
+ "lesson_id": "lesson-peace-and-human-rights-human-rights-fundamentals",
+ "path": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+ "lesson_sha256": "ffd403150481e9c580b72b0e8033aa20a80012a16c0334688e72f0b745650b1d",
+ "rewrite_commit": "4e09a54c73d14ebd81fc34a4bc7d18b13cebe65e",
+ "form": {
+  "packet": "lesson-peace-and-human-rights-human-rights-fundamentals",
+  "role": "A",
+  "lesson_sha256": "ffd403150481e9c580b72b0e8033aa20a80012a16c0334688e72f0b745650b1d",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the stated Article III section subjects with the constitutional protections: Sections 1 through 22 are assigned the correct topics; Article XIII creates CHR.",
+     "Checked ICCPR Article 4 emergency criteria and non-suspendable life/torture protections, and UDHR community duties and 1948 adoption against the named instruments as known. No external sources are supplied or accessed; current CHR channel availability is not independently verified."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 nondiscrimination, equal protection, and no religious test; #2 due process and just compensation; #3 invalid general warrant and excluded evidence; #4 speech, assembly, petition; #5 confession inadmissible.",
+     "Independent answers: #6 innocence and confrontation; #7 Sections 11, 18, 22 respectively; #8 witness may complain, CHR investigates but cannot convict; #9 no suspension of torture ban; #10 equal dignity and universal protection; #11 no right to threaten others; #12 Article III and Article XIII. Each matches its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, optional Speed Tricks & Shortcuts, and required Traps to Watch For are present. No supplied brief requires a figure; none of the verbal cases depends on one."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Its Article $4$ permits temporary suspension of some duties only during an officially proclaimed emergency threatening the life of the nation.",
+      "problem": "The emergency teaching stacks several legal abstractions in one sentence. Terms such as proclamation, provisions, and inadmissible elsewhere are not consistently translated into Grade 5 language."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The question verbs ask ordinary identification, matching, or explanation; no exam-specific instruction word needs a separate definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all twelve stems: each supplies the relevant conduct or asks direct constitutional recall. No selection question lacks choices. The historical item paraphrases the source idea it asks the reader to interpret; solutions explain the legal connection."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam mentions or unsupported claims about exam frequency occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or an underlined word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. No listed stock AI phrases occur; sentence openings vary outside necessary section references."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information has Core Concept, Examples, and Traps to Watch For, plus optional Speed Tricks & Shortcuts. No example uses a mathematical formula, so there are no formulas to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $3$ protects private messages.",
+      "problem": "The lesson expands to all 22 sections but has no worked application of privacy of communications, bail, double jeopardy, or ex post facto punishment. These are distinct protections taught here, not number-only variations of the worked cases."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multistep solutions use numbered lists immediately after Solution. One-step responses are paragraphs; there are no key numerical computations requiring displays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs have one to three sentences. Lists are limited to solutions and, where present, a compact set of treaty protections or answer choices."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or existing figures occur; the cases are verbal.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Evidence obtained through the unconstitutional search is inadmissible under Section $3$.",
+      "problem": "Inadmissible is needed to understand the search answer but is never explained as evidence the court cannot use. No prerequisite teaching is supplied. Habeas corpus and probable cause, in contrast, are explicitly explained."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Universality and nondiscrimination have meanings; due process and equal protection describe government conduct; search safeguards connect facts to scope; CHR teaching explains reporting, evidence, investigation, assistance, referrals, and the court boundary. History connects persecution to universal dignity."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $21$ protects against **double jeopardy**, or being put at risk of punishment again for the same offense after the legal conditions for that protection are met.",
+      "problem": "The rule refers to legal conditions but never teaches them. The learner cannot tell when jeopardy attaches or when a prior dismissal supports this protection. No prerequisite explanation is identified."
+     }
+    ]
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "The capitalized abbreviations name institutions, treaties, or legal regimes. They are real acronyms, not emphasis; first definitions are bold."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-peace-and-human-rights-human-rights-fundamentals|B03|0": {
+    "status": "fixed",
+    "quote": "Match the act to the protection before choosing a label.",
+    "note": "Both the shortcut section and the required traps section are now present."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L17|0": {
+    "status": "fixed",
+    "quote": "Match the act to the protection before choosing a label.",
+    "note": "The General Information layout includes the required traps and optional shortcuts."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L18|0": {
+    "status": "fixed",
+    "quote": "A public office refuses an otherwise qualified applicant solely because of her religion.",
+    "note": "Example 1 now works through universality and religion-based discrimination."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|B08|0": {
+    "status": "fixed",
+    "quote": "Article XIII of the $1987$ Constitution creates it.",
+    "note": "The date in the CHR explanation is now wrapped in inline math."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|B08|1": {
+    "status": "fixed",
+    "quote": "Which articles of the $1987$ Constitution contain the Bill of Rights and create the CHR?",
+    "note": "The constitutional-source question now wraps the date in inline math."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|B08|2": {
+    "status": "fixed",
+    "quote": "Article III of the $1987$ Constitution is the **Bill of Rights**.",
+    "note": "The constitutional date in Core Concept is now inside inline math."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|B08|3": {
+    "status": "fixed",
+    "quote": "Its $22$ sections limit government power.",
+    "note": "The section count is now wrapped in inline math."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L02|0": {
+    "status": "fixed",
+    "quote": "**Human rights** are basic rights every person has because each person has worth.",
+    "note": "The original dense definition is replaced by short plain sentences."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L19|0": {
+    "status": "fixed",
+    "quote": "Article III contains the Bill of Rights and its $22$ sections. Article XIII creates the CHR.",
+    "note": "The source answer is a direct one-step response with no stray instruction."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L19|1": {
+    "status": "fixed",
+    "quote": "1. The CHR may act on a complaint by any party or on its own.",
+    "note": "The application answer uses numbered steps with no unnumbered lead-in."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L19|2": {
+    "status": "fixed",
+    "quote": "Article III contains the Bill of Rights and its $22$ sections. Article XIII creates the CHR.",
+    "note": "The former unnumbered instruction is gone from the constitutional answer."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L25|0": {
+    "status": "fixed",
+    "quote": "Human rights law mainly places duties on governments and their offices.",
+    "note": "The unexplained phrase about state organs is replaced by plain wording."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L25|1": {
+    "status": "fixed",
+    "quote": "**Civil and political rights** protect personal freedom, fair treatment, and participation in public life.",
+    "note": "The rights category now has a short explanation of its meaning."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L26|0": {
+    "status": "fixed",
+    "quote": "The CHR investigates violations involving civil and political rights.",
+    "note": "CHR now has functions, reporting routes, evidence handling, and limits explained."
+   },
+   "lesson-peace-and-human-rights-human-rights-fundamentals|L27|0": {
+    "status": "fixed",
+    "quote": "Some duties cannot be suspended through this rule. The right to life and the ban on torture are examples.",
+    "note": "The lesson separates ordinary limits from emergency treaty suspension and names protected core duties."
+   },
+   "general-information-peace-and-human-rights#6": {
+    "status": "fixed",
+    "quote": "**Due process**, in Section $1$, requires fair legal rules before government takes life, liberty, or property.",
+    "note": "Actual protections and their application appear in property, search, speech, custody, and trial cases."
+   },
+   "general-information-peace-and-human-rights#7": {
+    "status": "fixed",
+    "quote": "The CHR investigates violations involving civil and political rights.",
+    "note": "Independence, investigative scope, assistance, and the limit on convictions are explained."
+   },
+   "general-information-peace-and-human-rights#10": {
+    "status": "fixed",
+    "quote": "Its $22$ sections limit government power.",
+    "note": "All sections receive substantive protection descriptions instead of only a count."
+   },
+   "general-information-peace-and-human-rights#14": {
+    "status": "fixed",
+    "quote": "Having rights also brings duties to other people.",
+    "note": "Community duties are taught and applied to threats against neighbors."
+   },
+   "general-information-peace-and-human-rights#15": {
+    "status": "fixed",
+    "quote": "The Holocaust involved Nazi persecution and mass murder, including the murder of Jews because they were Jews.",
+    "note": "A historical rights challenge now supports the universal-rights discussion."
+   },
+   "general-information-peace-and-human-rights#17": {
+    "status": "fixed",
+    "quote": "Give the known facts, people involved, place, date, available evidence, and help sought.",
+    "note": "Complaint standing, channels, evidence, follow-up, and possible assistance are taught."
+   },
+   "general-information-peace-and-human-rights#18": {
+    "status": "fixed",
+    "quote": "It can visit jails and detention facilities and provide legal help and measures to protect victims.",
+    "note": "Protective and investigative actions are now explained with their court boundary."
+   },
+   "general-information-peace-and-human-rights#20": {
+    "status": "fixed",
+    "quote": "The UDHR's opening text connects human dignity and equal rights with freedom, justice, and peace.",
+    "note": "Historical source meaning is connected to wartime abuses and worked in Example 10."
+   }
+  }
+ }
+}

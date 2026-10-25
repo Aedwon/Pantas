@@ -1,0 +1,306 @@
+{
+ "batch": "RD-046",
+ "lesson_id": "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+ "path": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md",
+ "lesson_sha256": "5cd95c7c37ead45582bfb3b8a94573435ab855e6adb75324938909a762b7cc7b",
+ "rewrite_commit": "4e09a54c73d14ebd81fc34a4bc7d18b13cebe65e",
+ "form": {
+  "packet": "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law",
+  "role": "A",
+  "lesson_sha256": "5cd95c7c37ead45582bfb3b8a94573435ab855e6adb75324938909a762b7cc7b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked IAC versus NIAC thresholds, concurrent HRL/IHL operation, civilian direct-participation limits, surrender conditions, and distinction/proportionality/precautions against the named legal framework as known.",
+     "Checked ICCPR Article 4 emergency criteria, notice requirements and listed non-derogable protections; Third Geneva Convention Article 127 dissemination duty and Geneva Gas Protocol poison-gas prohibition. No external source documents are provided or accessed in this prompt-only review."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 B; #2 IAC then NIAC; #3 no NIAC established; #4 civilians cannot be targeted; #5 neither surrendered nor incapacitated fighter may be attacked on these facts; #6 renewed firing ends that protection; #7 military advantage does not legalize poison gas.",
+     "Independent answers: #8 proportionality; #9 choose the feasible safer time; #10 neither blanket position, use IHL targeting rules with continuing life protection; #11 no Article 4 qualification; #12 torture suspension forbidden; #13 shorten to necessity, end religious discrimination, send notices; #14 consistent peacetime duties; #15 hear needs, agree lawful shared access and review. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required Core Concept, Examples, and Traps to Watch For occur, with optional Speed Tricks & Shortcuts. No figure is required by the brief or needed to solve the verbal scenarios."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Proportionality** bars an attack expected to cause incidental civilian harm excessive compared with its expected concrete and direct military advantage.",
+      "problem": "This central explanation keeps dense legal wording such as excessive, incidental, and concrete and direct military advantage. Incidental is glossed, but the comparison itself is not restated in Grade 5 language. Several treaty-list items use similarly formal teaching prose."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The example prompts use ordinary comparison, classification, and decision questions, without a specialized exam instruction verb.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All fifteen questions contain a complete scenario or recall task. Example 1 now has four candidate statements and a single correct one. The attack examples give target and anticipated harm facts needed to select the rule; legal criteria remain knowledge to apply. Solutions state reasons in steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam mentions or unsupported claims about exam frequency occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or an underlined word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. No listed stock AI phrases occur; sentence openings vary outside necessary section references."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information has Core Concept, Examples, and Traps to Watch For, plus optional Speed Tricks & Shortcuts. No example uses a mathematical formula, so there are no formulas to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage: #1 timing and parties; #2 interstate and internal conflict; #3 subthreshold riot; #4 civilians; #5 surrender/wounds; #6 renewed hostility; #7 weapons ban; #8 proportionality; #9 precautions; #10 concurrent legal regimes; #11 invalid threshold; #12 non-derogable right; #13 necessity/discrimination/notices; #14 preparation; #15 peaceful negotiation. Cases progress from comparison to applications and combined conditions without number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multistep solutions use numbered lists immediately after Solution. One-step responses are paragraphs; there are no key numerical computations requiring displays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs have one to three sentences. Lists are limited to solutions and, where present, a compact set of treaty protections or answer choices."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or existing figures occur; the cases are verbal.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Jurisdiction is glossed at first use. IAC, NIAC, complementarity, derogation, non-derogable rights, civilians, hors de combat, means/methods, distinction, proportionality, precautions and grave breaches each receive a local explanation before worked applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Regimes explain timing, parties and protections, plus how IHL targeting rules inform arbitrary-killing analysis. Emergency teaching explains thresholds and measures. Weapons, attack planning, treatment, training and negotiation each describe how rules or procedures work."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked NIAC intensity and organization, IAC force/occupation, civilian participation, surrender and escape conditions, military targets with separate weapons/harm/precaution checks, and cancellation. Article 4 includes proclamation, necessity/duration, other duties, discrimination, notices, non-derogable protections and ordinary-right limits. Peacetime implementation is distinguished from armed-conflict classification."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L13": {
+    "verdict": "pass",
+    "checked": [
+     "The capitalized abbreviations name institutions, treaties, or legal regimes. They are real acronyms, not emphasis; first definitions are bold."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|B03|0": {
+    "status": "fixed",
+    "quote": "First ask whether the facts establish armed conflict.",
+    "note": "Required traps and optional shortcuts now follow the worked examples."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L18|0": {
+    "status": "fixed",
+    "quote": "Neither may be attacked. Both must be treated humanely, and the wounded person must receive needed care.",
+    "note": "Examples now apply protection of nonparticipants and concurrent HRL/IHL rules."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L02|0": {
+    "status": "fixed",
+    "quote": "**Derogation** means a temporary departure from a treaty duty under this rule.",
+    "note": "The specific unexplained terms now receive meanings and separate explanatory sentences."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L05|0": {
+    "status": "fixed",
+    "quote": "B. HRL applies in peace and war, while IHL governs armed conflict and binds its parties.",
+    "note": "The comparison question now supplies four candidate statements."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L19|0": {
+    "status": "fixed",
+    "quote": "1. HRL applies in peace and during armed conflict. Its main duties fall on states.",
+    "note": "Solutions now start directly with numbered steps, without a stray lead-in."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L25|0": {
+    "status": "fixed",
+    "quote": "**Non-derogable rights** are rights whose treaty protection cannot be suspended through Article $4$.",
+    "note": "Both derogation and non-derogable rights now receive local definitions."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L25|1": {
+    "status": "fixed",
+    "quote": "meaning their territory or authority or control.",
+    "note": "Jurisdiction now receives a short gloss at its first use."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L26|0": {
+    "status": "fixed",
+    "quote": "During armed conflict, IHL gives rules made for fighting. HRL continues to protect people against unlawful government action.",
+    "note": "Concurrent operation is explained and then applied to battlefield targeting."
+   },
+   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law|L27|0": {
+    "status": "fixed",
+    "quote": "The government must officially proclaim it.",
+    "note": "The emergency section adds the threshold, proclamation, necessity, notices and core protections."
+   },
+   "general-information-peace-and-human-rights#23": {
+    "status": "fixed",
+    "quote": "For battlefield hostilities, IHL's specific targeting rules help determine whether taking life is arbitrary.",
+    "note": "Example 10 resolves competing claims about the right to life during fighting."
+   },
+   "general-information-peace-and-human-rights#26": {
+    "status": "fixed",
+    "quote": "Its scope and duration must stay within that need.",
+    "note": "Article 4 criteria, proclamation, necessity, nondiscrimination and notice are taught."
+   },
+   "general-information-peace-and-human-rights#27": {
+    "status": "fixed",
+    "quote": "The torture ban allows no emergency exception.",
+    "note": "The ICCPR is identified and its non-derogable protections are listed and explained."
+   },
+   "general-information-peace-and-human-rights#29": {
+    "status": "fixed",
+    "quote": "For example, Article $127$ of the Third Geneva Convention requires teaching its rules in peace and war, including military instruction.",
+    "note": "A named treaty provision, military teaching, and grave-breach laws provide concrete preparation duties."
+   },
+   "general-information-peace-and-human-rights#33": {
+    "status": "fixed",
+    "quote": "Pressure on the enemy does not turn civilians into military targets. The attack is prohibited.",
+    "note": "Distinction is applied to a proposed direct attack on civilians."
+   },
+   "general-information-peace-and-human-rights#34": {
+    "status": "fixed",
+    "quote": "The surrendered fighter is out of the fight under the stated conditions.",
+    "note": "Wounded, surrendered, and renewed-hostility cases apply protection conditions."
+   },
+   "general-information-peace-and-human-rights#35": {
+    "status": "fixed",
+    "quote": "Military advantage does not override the weapons ban. The proposed use is prohibited.",
+    "note": "A poison-gas legality decision applies a named weapons prohibition."
+   },
+   "general-information-peace-and-human-rights#36": {
+    "status": "fixed",
+    "quote": "Proportionality is a separate requirement. The expected excessive civilian harm makes the planned attack unlawful.",
+    "note": "Distinct examples apply distinction, proportionality and feasible precautions."
+   },
+   "general-information-peace-and-human-rights#44": {
+    "status": "fixed",
+    "quote": "The other case has intense fighting and an organized armed group. Those facts support classification as a NIAC.",
+    "note": "Classification is inferred from interstate force or organization/intensity, with a contrasting riot."
+   },
+   "general-information-peace-and-human-rights#45": {
+    "status": "fixed",
+    "quote": "Meeting the emergency threshold does not permit suspension of every right.",
+    "note": "Separate cases apply threshold, torture, necessity, nondiscrimination and notices."
+   },
+   "general-information-peace-and-human-rights#46": {
+    "status": "fixed",
+    "quote": "Agree on a clear schedule and a way to review problems later.",
+    "note": "The community hall case teaches hearing needs, finding lawful options, agreement and follow-up."
+   }
+  }
+ }
+}
