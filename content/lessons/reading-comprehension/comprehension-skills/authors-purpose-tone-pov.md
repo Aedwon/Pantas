@@ -37,7 +37,7 @@ Check the narrator's own words. A character saying “I” in dialogue does not 
 
 ### Argument Viewpoint and Bias
 
-A writer's **viewpoint** is the position taken on an issue. It differs from the voice telling a story. To **infer** a viewpoint means to work it out from clues rather than a direct statement.
+A writer's **viewpoint** is the position taken on an issue. It differs from the voice telling a story. To **infer** a viewpoint means to work it out from clues instead of a direct statement.
 
 Collect the writer's claims, reasons, examples, and repeated judgments. Ask which position they support across the passage.
 
@@ -86,6 +86,7 @@ A **conditional** gives a condition and a result: “If the form is complete, th
 What is the author's main purpose?
 
 **Solution:**
+
 1. The writer asks readers to vote a certain way.
 2. Protecting parks is the reason given for that action.
 3. The main purpose is to persuade.
@@ -97,6 +98,7 @@ What is the author's main purpose?
 Which purpose is dominant: explaining a process or persuading residents to visit?
 
 **Solution:**
+
 1. Most sentences explain the route and treatment of water.
 2. The invitation is a small part of the passage.
 3. The main purpose is to explain a process. The invitation is a second purpose.
@@ -108,6 +110,7 @@ Which purpose is dominant: explaining a process or persuading residents to visit
 Which phrase best describes the writer's tone?
 
 **Solution:**
+
 1. The writer recognizes a possible benefit.
 2. The writer also questions the cost and timing.
 3. The tone is cautious and skeptical, meaning doubtful. It is neither excited approval nor total rejection.
@@ -119,6 +122,7 @@ Which phrase best describes the writer's tone?
 Which narrative point of view is used?
 
 **Solution:**
+
 1. The narrator uses *I* to tell personal fears and hopes.
 2. The narrator takes part in the event.
 3. The passage uses first person.
@@ -130,6 +134,7 @@ Which narrative point of view is used?
 Which narrative point of view is used?
 
 **Solution:**
+
 1. The narration makes *you* the person doing the actions.
 2. The passage uses second person.
 
@@ -140,6 +145,7 @@ Which narrative point of view is used?
 Which narrative point of view is used?
 
 **Solution:**
+
 1. The narrator shares Sarah's hope and Marco's thought.
 2. The narrator also knows something neither character knows.
 3. The passage uses third person omniscient.
@@ -151,6 +157,7 @@ Which narrative point of view is used?
 Which narrative point of view is shown in this passage?
 
 **Solution:**
+
 1. The narrator directly shares Nico's thoughts.
 2. Bea's action is reported, but her thoughts are not.
 3. The passage shows third person limited.
@@ -162,6 +169,7 @@ Which narrative point of view is shown in this passage?
 Which narrative point of view is shown?
 
 **Solution:**
+
 1. The narrator reports actions and speech.
 2. No thoughts or feelings are directly stated.
 3. The passage shows third person objective.
@@ -173,9 +181,10 @@ Which narrative point of view is shown?
 How does the writer's viewpoint differ from full support or rejection?
 
 **Solution:**
+
 1. The writer gives both a benefit and a concern.
 2. The recommendation is a trial before a final decision.
-3. The writer supports testing the plan. The passage treats both positions fairly instead of dismissing either one.
+3. The writer supports testing the plan. The passage gives a reason for each side and does not dismiss either group.
 
 ### #10: Diagnosing Bias
 
@@ -184,22 +193,24 @@ How does the writer's viewpoint differ from full support or rejection?
 What evidence shows bias in this presentation?
 
 **Solution:**
+
 1. “Lazy complainers” uses an insult to frame opponents unfairly.
 2. The survey selects one interested group but speaks for all workers.
-3. The announcement leaves out a known concern. Loaded framing, unfair selection, and omission all support the bias judgment.
+3. The announcement leaves out a known concern. Unfair wording, selection, and omission all support the bias judgment.
 
 ### #11: Paragraph Jobs and References
 
-“Residents lose work time waiting to file forms. This burden is greatest for those paid by the day.
+“Residents lose work time waiting to file forms. **This burden** is greatest for those paid by the day.
 
 “Many forms are copied by hand, which slows service.
 
 “An appointment system could reduce waiting. Unlike adding more chairs, it would change when residents arrive.”
 
-What does “this burden” refer to, and what pattern organizes the passage?
+What does the expression in bold refer to, and what pattern organizes the passage?
 
 **Solution:**
-1. “This burden” refers to losing work time while waiting.
+
+1. The expression in bold refers to losing work time while waiting.
 2. The paragraphs present a problem, explain a cause, and offer a response.
 3. Problem and solution is the main pattern. Cause and effect explains the delay, while comparison helps defend the proposed response.
 
@@ -210,6 +221,7 @@ What does “this burden” refer to, and what pattern organizes the passage?
 Does the passage establish that everyone has been notified?
 
 **Solution:**
+
 1. *List* is singular, so “is ready” describes one list. *It* refers to that list.
 2. Ana's reported statement uses *might*. Signing is possible, not certain.
 3. The *if* sentence makes later work depend on signing. The matching *-ing* forms list those later tasks.
