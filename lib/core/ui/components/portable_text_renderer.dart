@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/accessible_math.dart';
 import 'package:pantas/core/ui/components/inline_math_text.dart';
+import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -454,16 +456,33 @@ class _ImageBlockRenderer extends StatelessWidget {
   Widget _image(BuildContext context, String url) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
-      child: CachedNetworkImage(
-        imageUrl: url,
-        fit: BoxFit.cover,
-        placeholder: (context, _) => Container(
-          height: 200,
-          color: context.colors.ruleFaint,
-        ),
-        errorWidget: (_, __, ___) =>
-            const _UnknownBlockPlaceholder(blockType: 'image'),
-      ),
+      child: isLessonSvg(url)
+          ? SvgPicture(
+              lessonSvgLoader(url, context.colors),
+              fit: BoxFit.cover,
+              excludeFromSemantics: true,
+              placeholderBuilder: (context) =>
+                  Container(height: 200, color: context.colors.ruleFaint),
+              errorBuilder: (_, __, ___) =>
+                  const _UnknownBlockPlaceholder(blockType: 'image'),
+            )
+          : url.startsWith('data:image/')
+              ? Image.memory(
+                  Uri.parse(url).data!.contentAsBytes(),
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) =>
+                      const _UnknownBlockPlaceholder(blockType: 'image'),
+                )
+              : CachedNetworkImage(
+                  imageUrl: url,
+                  fit: BoxFit.cover,
+                  placeholder: (context, _) => Container(
+                    height: 200,
+                    color: context.colors.ruleFaint,
+                  ),
+                  errorWidget: (_, __, ___) =>
+                      const _UnknownBlockPlaceholder(blockType: 'image'),
+                ),
     );
   }
 }

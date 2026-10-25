@@ -129,11 +129,66 @@ class LessonAssetMap {
   }
 
   factory LessonAssetMap.fromJsonFile(File file) {
-    if (!file.existsSync()) return const LessonAssetMap.unconfigured();
-    return LessonAssetMap.fromJsonString(
-      file.readAsStringSync(),
-      credits: _loadCredits(Directory('${file.parent.path}/sources')),
-    );
+    final credits = <String, String>{
+      ..._loadCredits(Directory('${file.parent.path}/sources')),
+    };
+    final prior = file.existsSync()
+        ? LessonAssetMap.fromJsonString(
+            file.readAsStringSync(),
+            credits: credits,
+          )
+        : const LessonAssetMap.unconfigured();
+    final entries = <String, LessonAssetEntry>{...prior._entries};
+    final found = <String, File>{};
+    final seen = <String>{};
+    if (file.parent.existsSync()) {
+      final files = file.parent
+          .listSync(recursive: true, followLinks: false)
+          .whereType<File>()
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
+      for (final image in files) {
+        final relative = image.path
+            .substring(file.parent.path.length + 1)
+            .replaceAll(r'\', '/');
+        final match = RegExp(
+          r'^([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([0-9]{2,})-[a-z0-9-]+\.(svg|png)$',
+        ).firstMatch(relative);
+        if (match == null) continue;
+        final sequence = int.parse(match[4]!);
+        if (sequence < 1) {
+          throw FormatException('Invalid illustration sequence: ${image.path}');
+        }
+        final key = '${match[1]}/${match[2]}/${match[3]}#$sequence';
+        final previous = found[key];
+        if (!seen.add('$key/${match[5]}')) {
+          throw FormatException(
+            'Duplicate illustration sequence: ${image.path}',
+          );
+        }
+        // An SVG replaces the old PNG for the same marker slot.
+        if (previous == null || match[5] == 'svg') found[key] = image;
+      }
+    }
+    for (final item in found.entries) {
+      if (entries.containsKey(item.key) && !item.value.path.endsWith('.svg')) {
+        continue;
+      }
+      final mime =
+          item.value.path.endsWith('.svg') ? 'image/svg+xml' : 'image/png';
+      final creditKey = prior.get(item.key)?.creditKey ?? item.key;
+      credits.putIfAbsent(creditKey, () => 'Pantas');
+      entries[item.key] = LessonAssetEntry(
+        url: Uri.dataFromBytes(item.value.readAsBytesSync(), mimeType: mime)
+            .toString(),
+        alt: prior.get(item.key)?.alt ?? '',
+        creditKey: creditKey,
+      );
+    }
+    if (entries.isEmpty && !prior.isConfigured) {
+      return const LessonAssetMap.unconfigured();
+    }
+    return LessonAssetMap(entries, credits: credits);
   }
 
   final Map<String, LessonAssetEntry> _entries;

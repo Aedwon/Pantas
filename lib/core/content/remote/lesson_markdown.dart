@@ -4,7 +4,8 @@ import 'dart:convert';
 /// Portable Text blocks the lesson screen reads.
 ///
 /// This is `tools/content/markdown_portable_text.dart` without the
-/// illustration asset map, which the web client does not have: an
+/// illustration asset map, which the web client does not have. Resolved
+/// `IMAGE` markers carry SVG/PNG data URLs from the upload tool. An
 /// `<!-- ILLUSTRATION: ... -->` marker is dropped, exactly as the bundled
 /// build drops it while no asset map is configured. A test compares the two
 /// on every lesson in `content/lessons`, so they cannot drift apart.
@@ -37,6 +38,7 @@ List<Map<String, Object?>> lessonBlocksFromMarkdown(String body) {
   final bullet = RegExp(r'^(\s*)[-*+]\s+(.*)$');
   final numbered = RegExp(r'^(\s*)\d+\.\s+(.*)$');
   final displayMath = RegExp(r'^\$\$(.*)\$\$$');
+  final imageRegex = RegExp(r'<!--\s*IMAGE:\s*(.*?)\s*-->', dotAll: true);
   final figureRegex = RegExp(r'<!--\s*FIGURE:\s*(.*?)\s*-->', dotAll: true);
   final illustrationRegex =
       RegExp(r'<!--\s*ILLUSTRATION:\s*(.*?)\s*-->', dotAll: true);
@@ -52,6 +54,26 @@ List<Map<String, Object?>> lessonBlocksFromMarkdown(String body) {
 
     if (trimmed.isEmpty) {
       flushAll();
+      i++;
+      continue;
+    }
+
+    final imageMatch = imageRegex.firstMatch(trimmed);
+    if (imageMatch != null) {
+      flushAll();
+      final Object? decoded;
+      try {
+        decoded = jsonDecode(imageMatch[1]!);
+      } on FormatException catch (error) {
+        throw FormatException('Invalid IMAGE JSON at line $lineNumber: $error');
+      }
+      if (decoded is! Map<String, dynamic> ||
+          decoded['asset'] is! Map<String, dynamic> ||
+          (decoded['asset'] as Map<String, dynamic>)['url'] is! String ||
+          decoded['alt'] is! String) {
+        throw FormatException('Invalid IMAGE at line $lineNumber');
+      }
+      blocks.add({...decoded, '_type': 'image'});
       i++;
       continue;
     }

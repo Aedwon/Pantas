@@ -17,6 +17,8 @@ import {createRequire} from 'node:module';
 import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
+import {resolveLessonIllustrations} from './lesson_illustrations.mjs';
+
 const here = dirname(fileURLToPath(import.meta.url));
 const functionsDir = resolve(here, '../../functions');
 const require = createRequire(join(functionsDir, 'package.json'));
@@ -52,6 +54,14 @@ const pros = [];
 const invalid = [];
 const lessonFronts = [];
 const setSources = [];
+const illustrationRoot = join(root, 'illustrations');
+const credits = {};
+const sourcesRoot = join(illustrationRoot, 'sources');
+for (const file of existsSync(sourcesRoot) ? walk(sourcesRoot, '.yaml') : []) {
+  for (const asset of parse(readFileSync(file, 'utf8'))?.assets ?? []) {
+    if (typeof asset.key === 'string' && typeof asset.credit === 'string') credits[asset.key] = asset.credit;
+  }
+}
 
 for (const file of walk(join(root, 'lessons'), '.md')) {
   try {
@@ -59,7 +69,9 @@ for (const file of walk(join(root, 'lessons'), '.md')) {
     const match = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/.exec(text);
     if (!match) throw new Error('no frontmatter');
     const front = parse(match[1]);
-    items.push(lessonItem(front, match[2]));
+    const body = resolveLessonIllustrations(match[2], relative(join(root, 'lessons'), file).split('\\').join('/'), illustrationRoot, credits);
+    if (Buffer.byteLength(body, 'utf8') > 900_000) throw new Error('resolved lesson exceeds safe Firestore document size');
+    items.push(lessonItem(front, body));
     lessonFronts.push(front);
   } catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
 }

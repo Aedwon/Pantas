@@ -7,6 +7,25 @@ import '../../../../tools/content/lesson_asset_map.dart';
 import '../../../../tools/content/markdown_portable_text.dart';
 
 void main() {
+  test('server resolved SVG marker becomes an accessible image block', () {
+    final blocks = lessonBlocksFromMarkdown(
+      '<!-- IMAGE: {"asset":{"url":"data:image/svg+xml;base64,PHN2Zy8+","credit":"Pantas"},"alt":"A triangle"} -->',
+    );
+    expect(blocks, hasLength(1));
+    expect(blocks.single['_type'], 'image');
+    expect(blocks.single['alt'], 'A triangle');
+    expect(
+      (blocks.single['asset']! as Map<String, Object?>)['url'],
+      startsWith('data:image/svg+xml'),
+    );
+  });
+  test('malformed resolved image marker fails explicitly', () {
+    expect(
+      () => lessonBlocksFromMarkdown('<!-- IMAGE: {} -->'),
+      throwsFormatException,
+    );
+  });
+
   test('every lesson converts exactly as the bundled content build does', () {
     final files = Directory('content/lessons')
         .listSync(recursive: true)
