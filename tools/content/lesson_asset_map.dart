@@ -62,10 +62,15 @@ class LessonAssetEntry {
     this.assetId,
     this.sha256,
     this.creditKey,
+    this.file,
   });
 
   final String url;
   final String alt;
+
+  /// The local figure file this entry was built from, or null for an entry
+  /// that came from the asset map.
+  final String? file;
   final String? assetId;
   final String? sha256;
   final String? creditKey;
@@ -78,6 +83,20 @@ class LessonAssetEntry {
         if (creditKey != null) 'creditKey': creditKey,
       };
 }
+
+/// The path rule for a local lesson figure, relative to the illustrations
+/// folder. The upload tool applies the same rule.
+const figurePathRule = '<subject>/<topic>/<lesson>/NN-slug.svg or .png '
+    '(lowercase letters, digits and hyphens; '
+    'NN is two or more digits, 01 or more)';
+
+/// The credit of a new original SVG drawing.
+const pantasCredit = 'Pantas';
+final _figureExtension =
+    RegExp(r'\.(svg|png|jpe?g|gif|webp)$', caseSensitive: false);
+final _figurePath = RegExp(
+  r'^([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([0-9]{2,})-[a-z0-9-]+\.(svg|png)$',
+);
 
 /// Lookup map for lesson illustration assets.
 class LessonAssetMap {
@@ -129,11 +148,94 @@ class LessonAssetMap {
   }
 
   factory LessonAssetMap.fromJsonFile(File file) {
-    if (!file.existsSync()) return const LessonAssetMap.unconfigured();
-    return LessonAssetMap.fromJsonString(
-      file.readAsStringSync(),
-      credits: _loadCredits(Directory('${file.parent.path}/sources')),
-    );
+    final credits = <String, String>{
+      ..._loadCredits(Directory('${file.parent.path}/sources')),
+    };
+    final prior = file.existsSync()
+        ? LessonAssetMap.fromJsonString(
+            file.readAsStringSync(),
+            credits: credits,
+          )
+        : const LessonAssetMap.unconfigured();
+    final entries = <String, LessonAssetEntry>{...prior._entries};
+    final found = <String, File>{};
+    final seen = <String>{};
+    if (file.parent.existsSync()) {
+      final files = file.parent
+          .listSync(recursive: true, followLinks: false)
+          .where((entity) => entity is File || entity is Link)
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
+      for (final image in files) {
+        final relative = image.path
+            .substring(file.parent.path.length + 1)
+            .replaceAll(r'\', '/');
+        if (!_figureExtension.hasMatch(relative)) continue;
+        final match = _figurePath.firstMatch(relative);
+        if (match == null) {
+          throw FormatException(
+            'Illustration file name does not match $figurePathRule: '
+            '${image.path}',
+          );
+        }
+        final sequence = int.parse(match[4]!);
+        if (sequence < 1) {
+          throw FormatException(
+            'Illustration sequence must be 1 or more, as in $figurePathRule: '
+            '${image.path}',
+          );
+        }
+        if (image is! File) {
+          throw FormatException(
+            'Illustration file must not be a symbolic link: ${image.path}',
+          );
+        }
+        final key = '${match[1]}/${match[2]}/${match[3]}#$sequence';
+        final previous = found[key];
+        if (!seen.add('$key/${match[5]}')) {
+          throw FormatException(
+            'Duplicate illustration sequence: ${image.path}',
+          );
+        }
+        // An SVG replaces the old PNG for the same marker slot.
+        if (previous == null || match[5] == 'svg') found[key] = image;
+      }
+    }
+    for (final item in found.entries) {
+      final path = item.value.path;
+      final isSvg = path.endsWith('.svg');
+      // An asset-map entry without a URL is not an entry.
+      final existing = prior.get(item.key);
+      final hasExisting = existing != null && existing.url.isNotEmpty;
+      if (hasExisting && !isSvg) continue;
+      final creditKey = existing?.creditKey ?? item.key;
+      // The only figure without a credit entry is a new original SVG, which
+      // docs/content/lesson-svg-authoring.md defines as made by Pantas. Any
+      // other figure with no credit is an error, never a default. The upload
+      // tool applies the same rule.
+      if (!credits.containsKey(creditKey)) {
+        if (hasExisting || !isSvg) {
+          throw FormatException(
+            'No credit for figure file $path: add "$creditKey" with a credit '
+            'to content/illustrations/sources/*.yaml',
+          );
+        }
+        credits[creditKey] = pantasCredit;
+      }
+      entries[item.key] = LessonAssetEntry(
+        url: Uri.dataFromBytes(
+          item.value.readAsBytesSync(),
+          mimeType: isSvg ? 'image/svg+xml' : 'image/png',
+        ).toString(),
+        alt: existing?.alt ?? '',
+        creditKey: creditKey,
+        file: path,
+      );
+    }
+    if (entries.isEmpty && !prior.isConfigured) {
+      return const LessonAssetMap.unconfigured();
+    }
+    return LessonAssetMap(entries, credits: credits);
   }
 
   final Map<String, LessonAssetEntry> _entries;
@@ -189,6 +291,28 @@ class LessonAssetMap {
     }
     results.sort((a, b) => a.key.compareTo(b.key));
     return results;
+  }
+
+  /// The local figure files for [lesson], in marker order.
+  List<String> localFiguresFor(LessonIdentity lesson) => [
+        for (final entry in orderedEntriesFor(lesson))
+          if (entry.value.file != null) entry.value.file!,
+      ];
+
+  /// Throws when a local figure belongs to no lesson in [lessons], for example
+  /// after a lesson was renamed and its figures were left behind.
+  void assertNoOrphanFigures(Iterable<LessonIdentity> lessons) {
+    final known = {for (final lesson in lessons) lesson.assetKeyPrefix};
+    for (final entry in _entries.entries) {
+      final file = entry.value.file;
+      if (file == null) continue;
+      final lessonKey = entry.key.substring(0, entry.key.lastIndexOf('#'));
+      if (!known.contains(lessonKey)) {
+        throw FormatException(
+          'Figure file belongs to no lesson ($lessonKey.md): $file',
+        );
+      }
+    }
   }
 
   bool contains(String key) => _entries.containsKey(key);

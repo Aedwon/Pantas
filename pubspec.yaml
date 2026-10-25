@@ -76,6 +76,7 @@ dependencies:
   uuid: ^4.6.0
   in_app_review: ^2.0.12
   cryptography: 2.9.0
+  flutter_svg: ^2.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
