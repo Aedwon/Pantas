@@ -35,30 +35,9 @@ For a combined expression, work inside parentheses first. Then evaluate the conn
 Build the complete truth table for $P \land Q$.
 
 **Solution:**
-1. List all four possible pairs of truth values.
-
-$$
-(T,T),\ (T,F),\ (F,T),\ (F,F)
-$$
-
+1. List all four possible pairs of truth values: $(T,T)$, $(T,F)$, $(F,T)$, and $(F,F)$.
 2. Use the rule for and. The result is true only when both values are true.
-3. Evaluate each pair.
-
-$$
-T \land T = T
-$$
-
-$$
-T \land F = F
-$$
-
-$$
-F \land T = F
-$$
-
-$$
-F \land F = F
-$$
+3. Evaluate each pair: $T \land T=T$, $T \land F=F$, $F \land T=F$, and $F \land F=F$.
 
 These four results give the complete truth table for $P \land Q$.
 
@@ -91,17 +70,8 @@ A conditional is false only when $P$ is true and $Q$ is false. Here, $P$ is fals
 If $P$ is true, $Q$ is false, and $R$ is true, evaluate $(P \land Q) \lor R$.
 
 **Solution:**
-1. Evaluate the expression inside the parentheses first.
-
-$$
-T \land F = F
-$$
-
-2. Replace $P \land Q$ with its truth value, then evaluate the or statement.
-
-$$
-F \lor T = T
-$$
+1. Evaluate the expression inside the parentheses first: $T \land F=F$.
+2. Replace $P \land Q$ with its truth value, then evaluate the or statement: $F \lor T=T$.
 
 The full expression is true.
 
