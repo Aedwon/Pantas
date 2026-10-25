@@ -28,7 +28,7 @@ export function formatPesos(centavos: number): string {
  * sitting is published, because checkout would refuse it.
  */
 export async function listPlans(auth: Parameters<typeof assertNamedUser>[0], deps: PlansDeps = {}):
-  Promise<{plans: WebPlan[]; trialEligible: boolean; googlePlayPlanRenews: boolean}> {
+  Promise<{plans: WebPlan[]; trialEligible: boolean; googlePlayPlanRenews?: boolean}> {
   if (!auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
   const now = (deps.now ?? Date.now)();
   const allowed = await (deps.allow ?? (id => allowAtMost(id, 'webPlans', LISTS_PER_WINDOW, WINDOW_MS)))(auth.uid);
@@ -42,7 +42,14 @@ export async function listPlans(auth: Parameters<typeof assertNamedUser>[0], dep
     plans.push({product: product.id, priceCentavos: cents, priceString: formatPesos(cents),
       prepaid: product.prepaid, examId: product.kind === 'pass' ? product.examId : null});
   }
-  return {plans, googlePlayPlanRenews: await (deps.renewal ?? ((uid, at) => googlePlayRenews(deps.db ?? getFirestore(), uid, at)))(auth.uid, now), trialEligible: await (deps.eligibility ?? (caller => trialEligible(caller, deps.db ?? getFirestore())))(auth)};
+  try {
+    const renews = await (deps.renewal ?? ((uid, at) => googlePlayRenews(deps.db ?? getFirestore(), uid, at)))(auth.uid, now);
+    const eligible = await (deps.eligibility ?? (caller => trialEligible(caller, deps.db ?? getFirestore())))(auth);
+    return {plans, googlePlayPlanRenews: renews, trialEligible: eligible};
+  } catch (error) {
+    console.error('Web plan eligibility or renewal read failed', {uid: auth.uid, error});
+    return {plans, trialEligible: false};
+  }
 }
 
 /** Only explicit, current production Play renewal facts justify the warning. */

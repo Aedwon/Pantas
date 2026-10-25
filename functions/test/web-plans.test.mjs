@@ -63,3 +63,22 @@ test('the limit is checked for the calling account', async () => {
 test('index exports listWebPlans', () => {
   assert.equal(typeof endpoints.listWebPlans, 'function');
 });
+
+for (const failingRead of ['eligibility', 'renewal']) {
+  test(`plans remain available without trial or renewal warning when ${failingRead} fails`, async t => {
+    const failure = new Error(`${failingRead} unavailable`);
+    const recorded = [];
+    t.mock.method(console, 'error', (...args) => recorded.push(args));
+    const expectedPlans = (await listPlans(named('u1'), deps())).plans;
+    const out = await listPlans(named('u1'), deps({
+      eligibility: async () => true,
+      renewal: async () => true,
+      [failingRead]: async () => {throw failure;},
+    }));
+    assert.deepEqual(out.plans, expectedPlans);
+    assert.equal(out.trialEligible, false);
+    assert.equal(Object.hasOwn(out, 'googlePlayPlanRenews'), false);
+    assert.equal(recorded.length, 1);
+    assert.equal(recorded[0][1].error, failure);
+  });
+}

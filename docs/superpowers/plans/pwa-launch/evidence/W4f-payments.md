@@ -140,3 +140,58 @@ git status --short
  M test/features/paywall/data/web_payment_gateway_test.dart
 ?? docs/superpowers/plans/pwa-launch/evidence/
 ```
+
+
+## October 25 audit fixes, items 16 and 17
+
+Candidate: `web/paymongo-r1`, HEAD `8e5fac5d17ac0eb99a6ddbd5f919ce0035c8cc2e`, plus this uncommitted audit patch. Worktree was clean before edits. Policy retrieved from local `origin/main` with `git show`: `73572280cf4d9478d56e42247be04dad8ad1acd9`. No fetch, pull, commit, push, deploy, dependency change, or history rewrite.
+
+Item 16: if either the renewal read or eligibility read fails, `listPlans` keeps all available plans, returns `trialEligible: false`, omits `googlePlayPlanRenews`, and records the error with the existing server `console.error` pattern. Authentication and rate-limit failures retain their existing refusal behavior.
+
+Failing-first evidence: both new behavior cases failed on the original implementation with the injected eligibility/renewal errors (7 pass, 2 fail). The absence assertions also failed against an intermediate false-valued renewal flag (7 pass, 2 fail). Final focused runner: 9 pass, 0 fail. Logs: `/tmp/w4f-payments-audit-red.log`, `/tmp/w4f-payments-audit-flag-red.log`, `/tmp/w4f-payments-audit-green.log`.
+
+Item 17: commit `8e5fac5d` already includes the optional authoritative renewal ingestion and `googlePlayPlanRenews` discovery contract described above. This audit leaves those changes and commit history intact. No ingestion or gateway source was changed by this assignment.
+
+`npx tsc --noEmit`: exit 0, no output (`/tmp/w4f-payments-audit-tsc.log`).
+
+The first full npm run passed 121 plain tests, then its storage emulator crashed with ENOENT under the shared temporary storage directory. The next attempt found the crashed run's Firestore listener on 28080. The sandbox rejected stopping that listener. Retried using isolated temporary storage and different ports; no production/test assertion was changed for these execution failures.
+
+Final command from `functions`:
+
+```sh
+TMPDIR=/tmp/w4f-payments-audit-emulator NO_UPDATE_NOTIFIER=1 XDG_CONFIG_HOME=/tmp/w4f-payments-audit-firebase-config PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH npm test
+```
+
+The final run temporarily uses Auth 39099, Firestore 38080, Storage 39199, hub 34400, logging 34500, websocket 39152, disabled emulator UI, and a serial emulator test runner. Original Firebase and npm config bytes are preserved and restored afterward. No package change is part of the candidate. Log: `/tmp/w4f-payments-audit-npmtest-final.log`.
+
+
+Final literal npm wrapper: exit 0. Actual summaries:
+
+```text
+ℹ tests 121
+ℹ pass 121
+ℹ fail 0
+ℹ tests 145
+ℹ pass 145
+ℹ fail 0
+✔  Script exited successfully (code 0)
+```
+
+The original `firebase.json` and `functions/package.json` bytes were restored and compared exactly. `git diff --check`: exit 0. Final production/test dirty diff SHA-256 (`git diff -- functions/src functions/test | shasum -a 256`): `e6c8dc36c5f4bad7a77cefe53bba7fd83fab85f89c0509b2d7ba71ba2bbbe69d`.
+
+```text
+git status --short
+ M docs/superpowers/plans/pwa-launch/evidence/W4f-payments.md
+ M functions/src/webPlans.ts
+ M functions/test/web-plans.test.mjs
+```
+
+No open product decisions in items 16 or 17. Real PayMongo checkout/deployed behavior and visual acceptance remain unverified. The client lead owns gateway parity and combined review. All changes remain uncommitted.
+
+
+### Audit lead review
+
+The lead inspected the final plans fallback and both injected-read regression cases.
+Independent read-only review found no issue in the final fallback. Original HEAD and cached
+matching remote branch SHA remain `8e5fac5d17ac0eb99a6ddbd5f919ce0035c8cc2e`.
+Gateway source remains byte-identical to CLIENT. All changes remain uncommitted.
