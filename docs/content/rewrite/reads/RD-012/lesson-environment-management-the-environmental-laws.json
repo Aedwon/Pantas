@@ -1,0 +1,336 @@
+{
+ "batch": "RD-012",
+ "lesson_id": "lesson-environment-management-the-environmental-laws",
+ "path": "content/lessons/general-information/environment-management/the-environmental-laws.md",
+ "lesson_sha256": "bfcf9965c8b37d3b9d61c829b6e1c859b37bdcce6f69e94e1f595dc293dfe375",
+ "rewrite_commit": "9737750698b9638227acd0cbe771f6778b3c229c",
+ "form": {
+  "packet": "lesson-environment-management-the-environmental-laws",
+  "role": "A",
+  "lesson_sha256": "bfcf9965c8b37d3b9d61c829b6e1c859b37bdcce6f69e94e1f595dc293dfe375",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the hard legal claims across RA $9003$, RA $8749$, RA $9275$, RA $9729$, RA $10121$, PD $1586$, RA $9147$, and NIPAS, including the NDRRMC rename, incineration condition and exceptions, WQMA and discharge-permit rules, ECP/ECA distinction, ECC, critical habitat, and protected-area management; I found no factual conflict."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind-solved all ten examples: #1 RA $9003$; #2 RA $10121$; #3 DENR; #4 RA $8749$; #5 RA $9275$; #6 RA $9729$; #7 ECP coverage because a major dam is a listed project type; #8 ECC; #9 RA $9147$; #10 RA $7586$ as amended by RA $11038$. Every answer matches the lesson solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Confirmed Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. General Information requires Core, Examples, and Traps, with Speed Tricks optional, and the packet lists no required figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "An ECA is based on the **location**. Proclamation $2146$ includes areas such as national parks and wildlife sanctuaries, habitat of endangered or threatened Philippine wildlife, hazard-prone areas, critical slopes, prime agricultural lands, aquifer recharge areas, and certain water bodies, mangroves, and coral reefs.",
+      "problem": "This teaching sentence packs many technical location labels, including “critical slopes,” “prime agricultural lands,” and “aquifer recharge areas,” into one long sentence. It is not very simple Grade 5 prose."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson uses ordinary instruction words such as identify, match, and which; none has a special exam meaning that requires a one-line definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears anywhere in Core Concept, so the lesson stays within the one-analogy limit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all ten stems. Each gives the scenario-specific clues needed to identify the law, agency, ECP/ECA status, or ECC without directly supplying the tested match; solutions remain direct and readable."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The CSE is mentioned once to motivate why the laws matter, and later examples do not repeat a stock exam opener or unsupported format claim."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is written in English, not Filipino.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar term appears in this English lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no Filipino-language examples or quiz items in this lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino text is present for an official spelling check.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English prose, so the Taglish rule does not apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word that must be bolded.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "I found none of the listed stock AI phrases, sentence openings vary across the statute and agency sections, and the summary is a plain overview rather than the banned repeated template."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information section fit is satisfied with Core Concept, Examples, optional Speed Tricks, and Traps. No mathematical formula is used in the lesson or examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples to all distinct brief cases: RA $9003$ (#1), RA $10121$/NDRRMC (#2), EMB/DENR (#3), RA $8749$ (#4), RA $9275$ (#5), RA $9729$ (#6), ECP versus ECA (#7), PD $1586$/ECC (#8), RA $9147$ (#9), and NIPAS (#10). Early items are direct matching; later items add regulatory details and classification, without number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the ten worked solutions places every reasoning step inside the numbered list. No unnumbered lead-in reasoning remains, and there are no calculations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations to check for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept uses short prose paragraphs rather than the old statute bullet block. The only bullet list is the purposeful eight-item law-matching shortcut, so bullet use remains limited."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no placeholders, and the brief specifies no required figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "There is no single discharge number for every facility. DENR sets effluent standards, and the permit applies the relevant limits and conditions to the discharge.",
+      "problem": "The technical term “effluent” is needed to understand how the discharge limits work, but the lesson never gives it a plain meaning before using “effluent standards.”"
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The rewrite explains the meanings and operation of source segregation, waste diversion, the conditional incineration rule, discharge permits, the climate framework, project proponents, ECP/ECA classification, ECC review, WQMAs, DENR/EMB roles, and the Climate Change Commission."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked rule conditions and limits: RA $8749$ states the toxic-fume condition and named exceptions; PD $1586$ distinguishes project type from sensitive location; RA $9275$ explains permit-specific limits instead of one universal number; and the devolution statement is limited to capable local bodies."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-environment-management-environmental-concepts|B03|0": {
+    "status": "fixed",
+    "quote": "Match the law to the main problem first. Then check the details in the question.",
+    "note": "The rewritten lesson now continues beyond Examples with a real shortcut section and a Traps to Watch For section."
+   },
+   "lesson-environment-management-environmental-concepts|L18|1": {
+    "status": "fixed",
+    "quote": "A proposed major dam is not inside a wildlife sanctuary or another listed sensitive location. Why can it still fall within the Philippine EIS System under Proclamation $2146$?",
+    "note": "The example set now goes beyond plain recall and includes the harder ECP-versus-ECA classification case."
+   },
+   "lesson-environment-management-the-environmental-laws|B03|0": {
+    "status": "fixed",
+    "quote": "> RA $10121$ did not create the council from nothing.",
+    "note": "The rewritten lesson now includes Traps to Watch For after Examples, and it also adds the optional shortcut section."
+   },
+   "lesson-environment-management-the-environmental-laws|L18|0": {
+    "status": "fixed",
+    "quote": "A question describes a protected area managed through a long-term plan that can use zoning, buffer-zone management, habitat conservation, and rehabilitation. Which legal framework best matches the description?",
+    "note": "The ten examples now cover each distinct statute or agency case named in the brief, including clean air, clean water, climate, ECC, wildlife, and NIPAS."
+   },
+   "lesson-environment-management-environmental-concepts|L02|0": {
+    "status": "fixed",
+    "quote": "An ECP is based on the **type of project**. Proclamation $2146$ includes specified heavy industries, major mining and quarrying projects, major dams, major power plants, major reclamation projects, and major roads and bridges.",
+    "note": "The original packed ECP/ECA sentence is no longer present; the rewrite separates project type from location and teaches them in separate paragraphs."
+   },
+   "lesson-environment-management-environmental-concepts|L25|0": {
+    "status": "fixed",
+    "quote": "A **project proponent** is the person, company, or agency that wants to carry out a project.",
+    "note": "The required term project proponent now gets a plain definition before the ECC example uses it."
+   },
+   "lesson-environment-management-the-environmental-laws|B01|0": {
+    "status": "fixed",
+    "quote": "The existing National Disaster Coordinating Council became known as the National Disaster Risk Reduction and Management Council (NDRRMC).",
+    "note": "The rewrite now states the rename of the existing council instead of saying RA $10121$ created it from nothing."
+   },
+   "lesson-environment-management-the-environmental-laws|B08|0": {
+    "status": "fixed",
+    "quote": "**RA $9003$: Ecological Solid Waste Management Act of $2000$.**",
+    "note": "The statute number and year are now wrapped in inline math, and the same style is used throughout the statute teaching."
+   },
+   "lesson-environment-management-the-environmental-laws|L02|0": {
+    "status": "fixed",
+    "quote": "It controls air pollution. Its incineration ban applies to the burning of municipal, biomedical, and hazardous waste when the process emits poisonous and toxic fumes.",
+    "note": "The original clause-heavy Clean Air Act sentence is split into shorter statements, with the exceptions moved to a separate sentence."
+   },
+   "lesson-environment-management-the-environmental-laws|L19|0": {
+    "status": "fixed",
+    "quote": "1. Separating waste where it is produced is segregation at source.",
+    "note": "Example #1 now begins its reasoning inside the numbered list, with no unnumbered solution lead-in."
+   },
+   "lesson-environment-management-the-environmental-laws|L19|1": {
+    "status": "fixed",
+    "quote": "1. RA $10121$ is the Philippine Disaster Risk Reduction and Management Act of $2010$.",
+    "note": "Example #2 now puts the first reasoning step in the numbered list and removes the old unnumbered instruction."
+   },
+   "lesson-environment-management-the-environmental-laws|L19|2": {
+    "status": "fixed",
+    "quote": "1. EMB is part of the Department of Environment and Natural Resources.",
+    "note": "Example #3 now begins with a numbered reasoning step instead of the old unnumbered recall instruction."
+   },
+   "lesson-environment-management-the-environmental-laws|L25|0": {
+    "status": "fixed",
+    "quote": "**Segregation at source** means separating waste where it is produced. **Waste diversion** means reducing or removing waste that would otherwise go to disposal facilities, such as through reuse, recycling, composting, and other resource recovery.",
+    "note": "Both required waste-management terms now receive plain local definitions before the examples use them."
+   },
+   "lesson-environment-management-the-environmental-laws|L26|0": {
+    "status": "fixed",
+    "quote": "As first enacted, RA $9729$ required a **Framework Strategy on Climate Change** to guide climate planning, research, development, and monitoring.",
+    "note": "The rewrite uses Framework Strategy on Climate Change for the original RA $9729$ requirement and explains what the framework guides."
+   },
+   "lesson-environment-management-the-environmental-laws|L27|0": {
+    "status": "fixed",
+    "quote": "The stated exceptions include traditional small-scale community or neighborhood sanitation burning called *siga*, traditional agricultural, cultural, health, and food-preparation burning, and crematoria.",
+    "note": "The incineration teaching now names the statutory exceptions instead of merely saying that exceptions exist."
+   },
+   "lesson-environment-management-the-environmental-laws|lead-add|0": {
+    "status": "fixed",
+    "quote": "As first enacted, RA $9729$ required a **Framework Strategy on Climate Change** to guide climate planning, research, development, and monitoring.",
+    "note": "The added legal-name correction now uses the Framework Strategy wording for RA $9729$ and gives its purpose."
+   },
+   "general-information-environment-management#15": {
+    "status": "fixed",
+    "quote": "An ECP is based on the **type of project**. Proclamation $2146$ includes specified heavy industries, major mining and quarrying projects, major dams, major power plants, major reclamation projects, and major roads and bridges.",
+    "note": "The lesson now teaches that ECP classification is project-type based and supplies the listed project categories."
+   },
+   "general-information-environment-management#16": {
+    "status": "fixed",
+    "quote": "An ECA is based on the **location**. Proclamation $2146$ includes areas such as national parks and wildlife sanctuaries, habitat of endangered or threatened Philippine wildlife, hazard-prone areas, critical slopes, prime agricultural lands, aquifer recharge areas, and certain water bodies, mangroves, and coral reefs.",
+    "note": "The lesson now teaches that ECA classification is location based and supplies representative sensitive-area categories."
+   },
+   "general-information-environment-management#17": {
+    "status": "fixed",
+    "quote": "A covered project must go through the required environmental review and secure the required Environmental Compliance Certificate (ECC) before implementation.",
+    "note": "PD $1586$ is now tied to the EIS System operation, environmental review, and ECC requirement, not only named in a solution."
+   },
+   "general-information-environment-management#35": {
+    "status": "fixed",
+    "quote": "**Segregation at source** means separating waste where it is produced. **Waste diversion** means reducing or removing waste that would otherwise go to disposal facilities, such as through reuse, recycling, composting, and other resource recovery.",
+    "note": "The rewrite now teaches both RA $9003$ operational concepts locally instead of relying on a companion lesson."
+   },
+   "general-information-environment-management#38": {
+    "status": "fixed",
+    "quote": "Its incineration ban applies to the burning of municipal, biomedical, and hazardous waste when the process emits poisonous and toxic fumes.",
+    "note": "The toxic-fume condition is stated directly, and the following sentence gives the named statutory exceptions."
+   },
+   "general-information-environment-management#40": {
+    "status": "fixed",
+    "quote": "Under RA $9275$, the DENR can designate **Water Quality Management Areas** using units such as watersheds, river basins, or water-resource regions.",
+    "note": "The rewrite now explains how Water Quality Management Areas are designated and then teaches the governing board role."
+   },
+   "general-information-environment-management#41": {
+    "status": "fixed",
+    "quote": "Facilities that discharge regulated wastewater must secure a discharge permit. The permit states how much wastewater may be released, the allowed quality of the discharge, the compliance schedule, and monitoring requirements.",
+    "note": "The lesson now teaches the discharge-permit mechanism, the kinds of limits it contains, compliance timing, and monitoring."
+   },
+   "general-information-environment-management#57": {
+    "status": "fixed",
+    "quote": "It makes and enforces environmental rules, manages natural resources, controls pollution, and sets standards for water and air quality.",
+    "note": "The DENR section now states concrete national powers and later explains regional implementation and limited devolution under RA $9275$."
+   },
+   "lesson-environment-management-environmental-concepts|B08|2": {
+    "status": "fixed",
+    "quote": "PD $1586$ works with proclamations that identify **Environmentally Critical Projects (ECPs)** and **Environmentally Critical Areas (ECAs)**.",
+    "note": "The edited PD identifier is now wrapped in inline math in the rewritten teaching."
+   },
+   "lesson-environment-management-environmental-concepts|L19|2": {
+    "status": "fixed",
+    "quote": "1. PD $1586$ established the Philippine EIS System.",
+    "note": "The ECC worked solution now starts directly with a numbered step and has no unnumbered instruction before the list."
+   },
+   "lesson-environment-management-the-environmental-laws|L22a|0": {
+    "status": "fixed",
+    "quote": "**RA $9003$: Ecological Solid Waste Management Act of $2000$.** **Segregation at source** means separating waste where it is produced. **Waste diversion** means reducing or removing waste that would otherwise go to disposal facilities, such as through reuse, recycling, composting, and other resource recovery. The law also prohibits open dumps.",
+    "note": "Core Concept is no longer dominated by statute bullet lists; the statutes are taught in short prose paragraphs, leaving only one purposeful shortcut list."
+   }
+  }
+ }
+}

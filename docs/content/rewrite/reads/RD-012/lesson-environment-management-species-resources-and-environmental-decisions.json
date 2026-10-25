@@ -1,0 +1,248 @@
+{
+ "batch": "RD-012",
+ "lesson_id": "lesson-environment-management-species-resources-and-environmental-decisions",
+ "path": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+ "lesson_sha256": "07cced4ea56de66bcc88f022afbbd2a7ddd43570e48bf5c4584359a912cd7c88",
+ "rewrite_commit": "9737750698b9638227acd0cbe771f6778b3c229c",
+ "form": {
+  "packet": "lesson-environment-management-species-resources-and-environmental-decisions",
+  "role": "A",
+  "lesson_sha256": "07cced4ea56de66bcc88f022afbbd2a7ddd43570e48bf5c4584359a912cd7c88",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the ecological definitions and the RA $9147$ and NIPAS legal statements, including critical habitats, conservation breeding with habitat protection, protected-area categories, and management plans; I found no factual conflict."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind-solved all six examples: #1 route the trail around the nesting area; #2 repair leaks and reduce avoidable use; #3 loss of plant cover increases sediment and worsens river conditions; #4 use RA $9147$ critical-habitat designation; #5 choose Route B; #6 use the management plan to zone activities and restore habitat. Each matches the lesson solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Confirmed the General Information layout has Core Concept, Examples, and Traps to Watch For. The packet lists no required figures, and Speed Tricks & Shortcuts is optional for General Information."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A critical habitat is chosen using scientific data, including the presence of threatened species and pressures on their survival. Once designated, it must be protected from exploitation or destruction that can harm the threatened species that depend on it.",
+      "problem": "The second sentence uses legal and abstract words such as “designated” and “exploitation” without simpler wording. That sentence is above the required Grade 5 teaching-prose level."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The first use of **Evaluate** immediately explains it as judging choices using evidence and reasons. No other exam-specific instruction word needs a gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in the lesson, so it stays within the one-analogy limit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all six example stems for needed givens and tested knowledge. Each scenario supplies its own facts without supplying the rule to select, and each solution uses direct, simple reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repetitive exam-name openers or repeated stock exam mentions; the scenarios motivate the environmental reasoning directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is written in English, not Filipino.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar terms appear in this English lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no Filipino-language examples or quiz items.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino text whose official spelling needs checking.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English prose, so the Taglish rule does not apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt refers to a target word that must be shown in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "I found none of the banned stock phrases, the sentence openings vary, and the summary plainly describes species, resources, and weighing options."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson follows the General Information section fit: Core Concept, Examples, and Traps are present, with no unnecessary formula section. No formula is used in any example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the distinct cases to the brief: species action (#1), resource action (#2), human ecosystem impact (#3), RA $9147$ critical habitat (#4), environmental tradeoff evaluation (#5), and protected-area management (#6). The sequence moves from direct conservation choices to legal and tradeoff cases without number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All six multi-step worked solutions put every reasoning step in numbered lists. None contains a skipped computation or a key calculation that needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to test for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Every prose paragraph is one to three short sentences, and the lesson uses no bullet list in its teaching sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders, and the brief requires no figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Necessary terms are introduced before use: species, habitat, ecosystem, species conservation, critical habitat, natural resource, resource conservation, evaluate, and tradeoff are defined or immediately explained. The renewable-resource sentence also states the needed recovery idea before the example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how ecosystem harm happens, how conservation actions should match the cause, how critical-habitat protection works, how resource conservation works, and how evidence and tradeoffs guide an environmental choice."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Applicability limits are taught: critical habitat is tied to threatened species and scientific evidence, conservation is not automatically no-use, actions depend on the resource and law, and environmental choices must account for legal limits and tradeoffs."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "general-information-environment-management#29": {
+    "status": "fixed",
+    "quote": "**Evaluate** means judge the choices using evidence and reasons. Do not choose an option only because it sounds green or costs less.",
+    "note": "The rewrite now gives a local evidence-based method for comparing environmental alternatives."
+   },
+   "general-information-environment-management#30": {
+    "status": "fixed",
+    "quote": "People can affect ecosystems in several direct ways. Cutting or clearing habitat can remove food, shelter, or breeding places. Pollution can change water, soil, or air and make it harder for organisms to survive.",
+    "note": "The lesson now teaches causal human-impact mechanisms instead of only naming environmental programs."
+   },
+   "general-information-environment-management#31": {
+    "status": "fixed",
+    "quote": "Useful actions include protecting or restoring habitat, limiting harmful collection or trade, and reducing pollution or other pressures.",
+    "note": "The rewrite now supplies concrete species-conservation actions and ties action choice to the cause."
+   },
+   "general-information-environment-management#32": {
+    "status": "fixed",
+    "quote": "Good resource actions depend on the resource. They may include reducing waste, reusing materials, recycling, protecting source areas, restoring damaged places, or limiting harvest so a renewable resource has time to recover.",
+    "note": "The lesson now teaches several resource-conservation actions beyond waste sorting."
+   },
+   "general-information-environment-management#53": {
+    "status": "fixed",
+    "quote": "RA $9147$ also allows conservation breeding or propagation of threatened species. This work goes together with rehabilitation or protection of the habitat where the species may be released.",
+    "note": "RA $9147$ is now connected to a concrete threatened-species conservation action and habitat work."
+   },
+   "general-information-environment-management#54": {
+    "status": "fixed",
+    "quote": "A critical habitat is chosen using scientific data, including the presence of threatened species and pressures on their survival. Once designated, it must be protected from exploitation or destruction that can harm the threatened species that depend on it.",
+    "note": "The rewrite now explains the habitat-protection mechanism and why protection matters to threatened species."
+   },
+   "general-information-environment-management#56": {
+    "status": "fixed",
+    "quote": "NIPAS has protected-area categories such as strict nature reserve, natural park, natural monument, wildlife sanctuary, protected landscape or seascape, resource reserve, and natural biotic area. The category helps describe what kind of area is being protected.",
+    "note": "The rewrite now adds protected-area categories and later gives a worked local management action using zoning and restoration."
+   },
+   "general-information-environment-management#64": {
+    "status": "fixed",
+    "quote": "The action should match the cause of the problem.",
+    "note": "The lesson now teaches how to select a conservation action by matching it to the source of harm."
+   },
+   "general-information-environment-management#65": {
+    "status": "fixed",
+    "quote": "Taking wildlife or other resources too quickly can also cause harm. If a population or resource is removed faster than it can recover, less remains for the future.",
+    "note": "The rewrite now explains a cause-and-effect mechanism for human pressure on ecosystems and resources."
+   },
+   "general-information-environment-management#66": {
+    "status": "fixed",
+    "quote": "A **tradeoff** happens when one choice gives a benefit but also has a cost. A strong answer explains both sides and chooses the option that meets the goal with the least avoidable environmental harm.",
+    "note": "The lesson now explicitly teaches tradeoffs and an evidence-based rule for choosing among workable alternatives."
+   }
+  }
+ }
+}
