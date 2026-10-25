@@ -1,7 +1,7 @@
 ---
 _id: "lesson-clerical-ability-numeric-and-chronological-filing"
 title: "Numeric and Chronological Filing"
-summary: "Learn how to sort records by numbers, dates, and stated code rules, including terminal-digit filing."
+summary: "Sort records by numbers, dates, and stated code rules, including terminal-digit filing."
 subject: "subject-reasoning"
 topic: "topic-clerical-ability"
 estimatedMinutes: 13
@@ -9,41 +9,51 @@ isActive: true
 ---
 ## Core Concept
 
-Numeric filing sorts records by numbers or number-like codes. Chronological filing sorts records by dates. First identify the filing key and the direction the task asks you to use.
+**Numeric filing** sorts records by numbers or number-like codes. **Chronological filing** sorts records by dates. A **filing key** is the part of a record used to decide its place, such as its file number or date.
+
+First find which part the task asks you to use. Then check the direction and any special code rule.
 
 ### Consecutive Numeric Filing
 
-When the entries are ordinary numbers and the task says ascending order, compare their values from smallest to largest:
+**Ascending order** means smallest to largest. **Descending order** means largest to smallest. For ordinary file numbers, compare their full number values.
 
 $$
 0389 < 0395 < 0401 < 0452
 $$
 
-Leading zeros may stay in a fixed-format file number even when they do not change its numerical value.
+The symbol $<$ means “is less than.” Leading zeros are zeros at the start of a number. They may stay in a file number, but they do not change its value.
+
+For decimal numbers, compare the whole-number parts first. If those match, compare the decimal places from left to right. You may add zeros at the end of a decimal without changing its value.
 
 ### Chronological Filing
 
-Chronological order uses time. A system may use **oldest to newest** or **newest to oldest**, also called reverse chronological order. Follow the direction stated in the task.
+A system may use **oldest to newest** or **newest to oldest**. Newest to oldest is also called **reverse chronological order**. Follow the direction stated in the task.
 
-For complete dates, compare **year first**, then **month**, then **day**.
+For complete dates, compare the year first. If the years match, compare the months. Compare the days only when both the year and month match.
 
-The fixed format **YYYY-MM-DD** puts the year first, the month second, and the day last. Because each part stays in the same place, complete dates in this format can be compared from left to right by year, then month, then day. The format itself does not tell you whether the filing direction is oldest first or newest first.
+The fixed date format **YYYY-MM-DD** puts the year first, the month second, and the day last. Each Y stands for a year digit. Each M stands for a month digit, and each D stands for a day digit.
+
+For example, $2024\text{-}03\text{-}05$ means March $5$, $2024$. The month and day each use two digits, so March is $03$ and the fifth day is $05$. Compare complete dates in this format from left to right.
+
+The format keeps the date parts in the same places. It does not tell you whether to file oldest first or newest first. If a date such as $03/05/2024$ could mean either March $5$ or May $3$, use the date format stated in the task.
 
 ### Reference Codes
 
-A period or hyphen inside a code may be a separator instead of a math sign. The task may tell you to treat a code as a decimal number, as separate number parts, or as a character string.
+A period or hyphen inside a code may separate parts. It may not be a math sign. Read the rule before deciding how to compare the code.
 
-An **integer subcode** is a whole-number part inside a larger code. If a rule says to compare integer subcodes, compare the first part, then move to the next part only when the earlier part matches.
+An **integer subcode** is a whole-number part inside a larger code. Under a rule that compares separate number parts, start with the first part. Move to the next part only when the earlier parts match.
 
-A **character string** is a row of letters, digits, or symbols treated as characters. If the rule says to compare strings from left to right, compare one character at a time under the order stated by the task. Do not turn the code into a decimal number unless the rule says to do that.
+A **character string** is a row of letters, digits, or symbols. Under a character-string rule, compare one character at a time from left to right. The first pair that differs decides the order.
 
-For a hyphenated code, the hyphen may separate filing parts. If the system says each part is compared separately, compare the first part, then the second, and so on.
+Use the character order stated in the task. Do not treat several digits as one whole number under this rule. If one string is the exact start of another, use the task's rule for shorter strings.
+
+For a hyphenated code, the hyphen may separate filing parts. If the rule compares each number part as a whole number, compare the first part, then the second, and so on. This can give a different order from character-by-character filing.
 
 ### Terminal-Digit Filing
 
-A **terminal-digit** rule starts with the rightmost group of a file number. If those groups match, compare the next group to the left. Keep moving left only when needed.
+A **terminal-digit** rule starts with the rightmost group of a file number. For the rule used here, compare the next group to the left if the rightmost groups match. Keep moving left only when needed.
 
-Use terminal-digit filing only when the task states or shows that method. Do not apply it to an ordinary ascending-number question.
+Compare each group as a whole number. Follow any group order and filing direction given in the task. Use terminal-digit filing only when the task calls for it.
 
 ## Examples
 
@@ -53,7 +63,7 @@ Arrange $0452$, $0389$, $0401$, and $0395$ from smallest to largest.
 
 **Solution:**
 
-1. Compare the numerical values.
+1. Compare the full number values. The leading zeros do not change them.
 
 $$
 0389 < 0395 < 0401 < 0452
@@ -68,19 +78,36 @@ Arrange March $15$, $2024$; January $20$, $2024$; November $5$, $2023$; and Febr
 **Solution:**
 
 1. Compare the years. November $5$, $2023$ is the earliest date.
-2. The two dates in $2024$ are January $20$ and March $15$. January comes first.
+2. The dates in $2024$ are January $20$ and March $15$. January comes first.
 3. February $10$, $2025$ is the latest date.
 4. The order is November $5$, $2023$; January $20$, $2024$; March $15$, $2024$; February $10$, $2025$.
 
-If the task asks for reverse chronological order, use the same dates in the opposite direction.
+### #3: Reverse Chronological Order
 
-### #3: Decimal Values
+Place these records in reverse chronological order: July $8$, $2024$; July $21$, $2024$; and June $30$, $2024$.
+
+**Solution:**
+
+1. All years match. For newest first, July comes before June.
+2. Within July, day $21$ is later than day $8$.
+3. The order is July $21$, $2024$; July $8$, $2024$; June $30$, $2024$.
+
+### #4: Year-First Dates
+
+Records use YYYY-MM-DD dates. Which date comes first when filed oldest to newest: $2024\text{-}11\text{-}02$, $2023\text{-}12\text{-}19$, or $2024\text{-}02\text{-}11$?
+
+**Solution:**
+
+1. Read the first part as the year. The years are $2024$, $2023$, and $2024$.
+2. The earliest year is $2023$, so $2023\text{-}12\text{-}19$ comes first. It means December $19$, $2023$.
+
+### #5: Decimal Values
 
 If the entries are decimal numbers, which is smallest: $12.05$, $12.1$, or $12.008$?
 
 **Solution:**
 
-1. Write the decimals with the same number of decimal places.
+1. Add ending zeros so all entries show the same number of decimal places.
 
 $$
 12.05 = 12.050
@@ -90,56 +117,62 @@ $$
 12.1 = 12.100
 $$
 
+2. Compare the values from left to right.
+
 $$
-12.008 = 12.008
+12.008 < 12.050 < 12.100
 $$
 
-2. Compare the values. $12.008$ is the smallest.
+3. The smallest is $12.008$.
 
-### #4: Dotted Codes with Integer Subcodes
+### #6: Dotted Codes with Integer Subcodes
 
-A filing rule says each part of $12.05$, $12.1$, and $12.008$ is a separate integer subcode. Which code comes first?
+A filing system treats each part of a dotted code as a separate integer subcode and files in ascending order. Which code comes first: $12.05$, $12.1$, or $12.008$?
 
 **Solution:**
 
 1. The first subcode is $12$ in all three codes.
 2. Compare the next subcodes as whole numbers: $5$, $1$, and $8$.
-3. Since $1$ is the smallest, $12.1$ comes first.
 
-The dot is a separator here. It is not a decimal point under this rule.
+$$
+1 < 5 < 8
+$$
 
-### #5: Character-String Ordering
+3. The code $12.1$ comes first.
 
-A filing rule says codes are compared as character strings from left to right, and digits use their usual order. Which comes first: $\text{A-10}$ or $\text{A-2}$?
+The dot separates parts here. It is not a decimal point under this rule.
+
+### #7: Character-String Ordering
+
+A filing system compares codes as character strings from left to right. Digits use ascending order. Which comes first: $\text{A-10}$ or $\text{A-2}$?
 
 **Solution:**
 
 1. The letter and hyphen match in both codes.
-2. Compare the next characters, $1$ and $2$.
-3. Since $1$ comes before $2$, $\text{A-10}$ comes first.
+2. The next characters are $1$ and $2$. Since $1$ comes before $2$, $\text{A-10}$ comes first.
 
-This is string ordering. It does not compare $10$ and $2$ as whole numbers.
+The rule compares single characters. It does not compare $10$ and $2$ as whole numbers.
 
-### #6: Hyphenated Codes Compared by Parts
+### #8: Hyphenated Codes Compared by Parts
 
-A filing rule says the hyphen separates parts and each number part is compared as a whole number. Which comes first: $\text{AB-5-12}$ or $\text{AB-5-7}$?
+A filing system uses hyphens to separate parts. It files number parts as whole numbers in ascending order. Which comes first: $\text{AB-5-12}$ or $\text{AB-5-7}$?
 
 **Solution:**
 
 1. The first part, $\text{AB}$, matches.
 2. The next part, $5$, also matches.
-3. Compare the last parts as whole numbers: $12$ and $7$.
-4. Since $7$ is smaller, $\text{AB-5-7}$ comes first.
+3. Compare the last parts as whole numbers. Since $7$ is smaller than $12$, $\text{AB-5-7}$ comes first.
 
-### #7: Terminal-Digit Filing
+### #9: Terminal-Digit Filing
 
-A filing rule says to compare the rightmost group first, then the middle group, then the leftmost group. Which comes first: $\text{12-44-03}$ or $\text{98-10-03}$?
+A filing system compares the rightmost group first, then the middle group, then the leftmost group. Each group uses ascending numeric order. Arrange $\text{12-44-03}$, $\text{98-10-03}$, and $\text{01-99-02}$ in filing order.
 
 **Solution:**
 
-1. Compare the rightmost groups. Both are $03$, so they tie.
-2. Move one group left. Compare $44$ and $10$.
-3. Since $10$ is smaller, $\text{98-10-03}$ comes first.
+1. Compare the rightmost groups: $03$, $03$, and $02$. The file $\text{01-99-02}$ comes first.
+2. The remaining files both end in $03$. Compare their middle groups, $44$ and $10$.
+3. Since $10$ is smaller, $\text{98-10-03}$ comes before $\text{12-44-03}$.
+4. The order is $\text{01-99-02}$, $\text{98-10-03}$, $\text{12-44-03}$.
 
 ## Traps to Watch For
 
@@ -147,28 +180,28 @@ A filing rule says to compare the rightmost group first, then the middle group, 
 
 > Check whether the task asks for oldest to newest or newest to oldest.
 
-Both directions can be used by a filing system. Reversing the required direction reverses the answer.
+Both directions can be used by a filing system. Choosing the opposite direction reverses the answer.
 
 ### #2: Treating Every Dot as a Decimal Point
 
 > A dot inside a reference code may only separate code parts.
 
-If the task defines separate subcodes, decimal arithmetic gives the wrong comparison.
+As decimals, $12.008$ is smaller than $12.1$. Under the separate integer-subcode rule in the example, $12.1$ comes first. Read the rule before comparing.
 
-### #3: Letting the Date Format Choose the Filing Direction
+### #3: Letting the Date Format Choose the Direction
 
-> **YYYY-MM-DD** shows the parts of a date, not whether records go oldest first or newest first.
+> YYYY-MM-DD shows the date parts, not the filing direction.
 
-The wrong move is to see the year-first format and assume a storage direction that the task never stated.
+The year comes first in this format. That does not mean the oldest record must come first. Check the task's direction.
 
 ### #4: Mixing String Order with Numeric-Part Order
 
-> First decide whether the code is being compared character by character or part by part.
+> Check whether to compare single characters or whole number parts.
 
-A string rule may compare the first differing digit, while a numeric-part rule compares the whole number in that part. Mixing the two methods can change the order.
+A character-string rule places $\text{A-10}$ before $\text{A-2}$ when digits use ascending order. A whole-number-part rule places $\text{A-2}$ first. Using the wrong rule changes the answer.
 
-### #5: Using Terminal-Digit Filing Without a Terminal-Digit Rule
+### #5: Starting from the Right Without a Rule
 
-> Start from the right only when the task states or shows terminal-digit filing.
+> Use terminal-digit filing only when the task calls for it.
 
-Ordinary ascending numeric filing starts by comparing the full numerical values. Using terminal-digit order there can place records incorrectly.
+Ordinary ascending numeric filing compares the full number values. Starting with the last group can place those records in the wrong order.
