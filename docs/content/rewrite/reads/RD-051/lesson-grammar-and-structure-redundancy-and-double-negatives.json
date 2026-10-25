@@ -1,0 +1,249 @@
+{
+ "batch": "RD-051",
+ "lesson_id": "lesson-grammar-and-structure-redundancy-and-double-negatives",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+ "lesson_sha256": "93e332e07ff5cc98c71b631b76b32001a697a8fa54bfcc70badaef6b3d3aa319",
+ "rewrite_commit": "c904eadaa7f8ef7e7982f9dfdb34ccc7556797df",
+ "form": {
+  "packet": "lesson-grammar-and-structure-redundancy-and-double-negatives",
+  "role": "A",
+  "lesson_sha256": "93e332e07ff5cc98c71b631b76b32001a697a8fa54bfcc70badaef6b3d3aa319",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked return/back overlap, context-dependent repeat again, advance-warning timing, standard editing versus negative concord, qualified not unexpected, and hardly/scarcely/seldom meanings. No incorrect claim identified from the packet; external source verification was not supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "#1 Please return to the office.; #2 She does not want any help with the project, or She wants no help with the project.; #3 Residents received warning several days before the closure.",
+     "#4 I can hardly hear you.; #5 the result was not a surprise and was expected to some degree, without certainty; #6 yes, again asks for a further repeat; #7 near; #8 A. All match the worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are included. The newly required qualified-negative example is present as #5. No visual material is required for these sentence tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Redundancy and dialect are explained in short sentences. Negative concord receives a plain definition. The former abstract list of precision and idiomatic effects is removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Rewrite receives a one-line meaning in its first example stem. Remove, make shorter, choose, and what does this suggest are clear ordinary instructions here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used. The shortcut about counting ideas is a direct instruction to interpret meaning, not a comparison with arithmetic."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eight examples include explicit tasks and enough context to preserve meaning. The repeated-notice story establishes the needed further repeat. The warning example supplies the timing and the negative examples specify intended meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam mentions or claims about particular exam content occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No vocabulary question asks the learner to interpret a marked target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary states editing goals plainly. Openings vary across definitions, examples, and warnings, and the listed stock expressions do not appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The standard Language Proficiency section structure fits the editing topic. No example uses a mathematical formula, so there are no formulas requiring earlier introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped redundant return/back to #1, negative-concord editing to #2, repeated timing to #3, hardly editing to #4, qualified positive meaning to #5, needed repetition to #6, wordy location phrase to #7, and seldom meaning to #8. Each case tests a different decision."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every example uses numbered solution steps, including the formerly unnumbered first example. There are no calculations needing display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Mara read the notice aloud. At Ben's request, she repeated it. Ben still could not hear. Does \"again\" add meaning in his next request, \"Please repeat it again\"?",
+      "problem": "Example #6 places four sentences in one paragraph. L22a permits only one to three short sentences per paragraph."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or figure-dependent questions occur.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Redundancy, standard edited English, dialect, negative concord, hardly, scarcely, and seldom receive meanings before examples. The core location phrase is translated to near before proximity appears in its worked solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how to test whether words add meaning, preserve negative intent while changing form, distinguish qualified negatives from negative concord, and keep frequency and degree meanings during edits."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Rules are limited to formal editing and the intended single negative meaning. Repetition is retained when context requires another repeat. Qualified negative statements and dialect usage are explicitly distinguished, and seldom is not treated as never."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L02|1": {
+    "status": "fixed",
+    "quote": "This means several negative words work together to give one negative meaning.",
+    "note": "Dialect and negative concord now receive separate short definitions and a clear meaning example."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L18|0": {
+    "status": "fixed",
+    "quote": "What does this sentence suggest? \"The result was not unexpected, since the team had prepared for that outcome.\"",
+    "note": "Example #5 now interprets a qualified negative without overstating certainty."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|B02|0": {
+    "status": "fixed",
+    "quote": "Remove the needless word: \"Please return back to the office.\"",
+    "note": "Example #1 now supplies a determinate removal task."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L02|0": {
+    "status": "fixed",
+    "quote": "Two words with similar meanings are not always wrong together.",
+    "note": "The long abstract wording is replaced with short explanations about stress and meaning."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L05|0": {
+    "status": "fixed",
+    "quote": "Remove the needless word: \"Please return back to the office.\"",
+    "note": "The stem now directs the learner to remove an unnecessary word."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L22a|0": {
+    "status": "fixed",
+    "quote": "Repetition can add stress or make a difference clear.",
+    "note": "The former long sentence is now split into short sentences in the edited passage."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L25|0": {
+    "status": "fixed",
+    "quote": "**Standard edited English** is the form usually expected in formal reports, school essays, and edited writing.",
+    "note": "The central register term is now defined before the editing examples."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L03|0": {
+    "status": "fixed",
+    "quote": "\"Rewrite\" means write the sentence in a new form while keeping the intended meaning.",
+    "note": "The first rewrite task now supplies a one-line instruction definition."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L04|0": {
+    "status": "fixed",
+    "quote": "Count the ideas, not only the negative words.",
+    "note": "The old arithmetic comparison is absent. The shortcut now directly asks for meaning checks."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L19|0": {
+    "status": "fixed",
+    "quote": "Write: \"Please return to the office.\"",
+    "note": "Example #1 now gives its reasoning and edited answer in a numbered list."
+   }
+  }
+ }
+}

@@ -1,0 +1,275 @@
+{
+ "batch": "RD-051",
+ "lesson_id": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+ "lesson_sha256": "baf40356ec0e4978086e2a3e1d3d5a918eb28ecb46a389d18c45186df371ee0a",
+ "rewrite_commit": "c904eadaa7f8ef7e7982f9dfdb34ccc7556797df",
+ "form": {
+  "packet": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+  "role": "A",
+  "lesson_sha256": "baf40356ec0e4978086e2a3e1d3d5a918eb28ecb46a389d18c45186df371ee0a",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked singular they with singular antecedents and plural verb forms, unit versus member readings of collective nouns, and the Filipino person, number, inclusion, ownership, actor, and recipient distinctions. No factual contradiction found in the supplied text; no external source ledger was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 their; #2 its; #3 their; #4 When Mrs. Santos spoke to Anna, Anna seemed upset.",
+     "#5 Neither the players nor the coach brought the required equipment. #6 Siya ang tatawag sa opisina. #7 nila. #8 Ibinigay ng kawani sa kaniya ang resibo.",
+     "#9 Siya. #10 Tayo. #11 ko. #12 Akin. Each agrees with the worked answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Usage Notes, and Traps to Watch For are present. Mixed-number editing and all four requested Filipino facets are included. None of these verbal questions needs a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The English explanations define pronoun, antecedent, singular they, and collective noun with short sentences and familiar examples. The former abstract style-guide wording is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Choose, edit, make clear, palitan, and piliin state ordinary actions here. No unexplained specialized instruction such as infer or evaluate is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in any section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve stems give a task. The English choices test agreement or reference; the Filipino stems supply speakers, referents, or sentence context without stating which form to select. Solutions explain the decisions simply."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-name openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino subsection explains sentence roles, speaker, listener, ownership, and gender with short Filipino sentences. The Filipino worked explanations use the same simple language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Panghalip Panao receives Personal Pronoun in the first heading. The subsequent ang, ng, and sa labels are ordinary Filipino form labels explained through sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #6 through #12 use Filipino questions, sentence material, and solution prose. The English examples teach the separate English portion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF verification is outside the supplied packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino paragraphs use Filipino teaching prose. The first heading supplies the required English gloss; it does not introduce English clauses into the explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No vocabulary question asks the learner to interpret a marked target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the two topics directly. Sentence openings vary, and the listed stock phrases do not occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Usage Notes is an allowed Language Proficiency adaptation. There are no mathematical formulas in any example, so no formula needs tracing to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped singular they to #1, unit collective noun to #2, and-joining to #3, unclear reference to #4, mixed nor to #5, ang to #6, ng actor to #7, sa recipient to #8, gender to #9, inclusive versus exclusive to #10, ng ownership to #11, and fronted ownership to #12. These require different decisions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1 and #4 through #12 number the reasoning steps. Examples #2 and #3 each give one direct choice in one sentence. No computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core paragraphs have one to three short sentences. The mixed-number explanation and its rewrite are separated into short paragraphs. No excessive bullet list appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or figure-dependent questions occur.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Pronoun and antecedent are defined before use; singular and plural receive meanings before the agreement cases. Filipino role explanations precede the examples, and person and inclusion sets are explained before they are tested."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson teaches how to choose by referent and role. Ang identifies the featured person, ng identifies an owner or actor, and sa identifies a recipient; local examples and worked decisions show how these differ."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Conditions cover unknown gender, singular verbs after everyone, collective unit/member meanings, and-joining, mixed or/nor editing, inclusive/exclusive forms, polite kayo, and the absence of a gender distinction in siya. Fronted akin explicitly does not require sa."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L18|0": {
+    "status": "fixed",
+    "quote": "Edit this sentence for clear pronoun use.",
+    "note": "Example #5 now requires editing mixed singular and plural antecedents joined by nor."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L26|0": {
+    "status": "fixed",
+    "quote": "Ang anyong **ng** ay maaaring magsabi kung sino ang may-ari.",
+    "note": "The three form groups now have role explanations and worked applications."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L02|0": {
+    "status": "fixed",
+    "quote": "It is not always a better choice than *their*.",
+    "note": "The advanced wording about inherent grammar and conventions is replaced with plain sentences."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L02|1": {
+    "status": "fixed",
+    "quote": "Nagbabago ang anyo nito ayon sa gamit sa pangungusap.",
+    "note": "The technical syntactic-form wording is removed and the roles are explained in Filipino."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L09|0": {
+    "status": "fixed",
+    "quote": "Ang **panghalip panao** ay salitang pamalit sa ngalan ng tao.",
+    "note": "The first appearance supplies the required English gloss."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L22a|0": {
+    "status": "fixed",
+    "quote": "A pronoun can then leave the meaning unclear.",
+    "note": "The mixed-number explanation now uses short sentences and a separate example paragraph."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L25|0": {
+    "status": "fixed",
+    "quote": "Ang anyong **ang** ay pamalit sa taong itinatampok sa pangungusap.",
+    "note": "The ang, ng, and sa roles are explained before application."
+   },
+   "language-proficiency-grammar-and-structure#32": {
+    "status": "fixed",
+    "quote": "Gamitin ang *siya*: \"Siya ang tatawag sa opisina.\"",
+    "note": "Example #6 selects an ang form from the featured person and singular referent."
+   },
+   "language-proficiency-grammar-and-structure#33": {
+    "status": "fixed",
+    "quote": "Ang panghalip ay magsasabi kung sino ang may-ari.",
+    "note": "Examples #7 and #11 explain ng choices for actor and owner."
+   },
+   "language-proficiency-grammar-and-structure#34": {
+    "status": "fixed",
+    "quote": "Si Ana ang tumanggap ng resibo. Kailangan ang anyong sa.",
+    "note": "Example #8 identifies the recipient and selects sa kaniya."
+   },
+   "language-proficiency-grammar-and-structure#35": {
+    "status": "fixed",
+    "quote": "Ganoon din ang anyo kung babae ang tinutukoy.",
+    "note": "Example #9 chooses siya from role and explicitly preserves the form across genders."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|0": {
+    "status": "not_fixed",
+    "quote": "The company is an organization acting as one unit, so *its* is correct.",
+    "note": "Example #2 remains a permitted single-sentence answer; the requested optional numbering was not added."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|1": {
+    "status": "not_fixed",
+    "quote": "Liza and Carlo are two people joined by *and*, so use *their*.",
+    "note": "Example #3 remains a permitted single-sentence answer; the optional numbered format was not added."
+   },
+   "lesson-grammar-and-structure-pronoun-antecedent-agreement|L19|2": {
+    "status": "fixed",
+    "quote": "Repeat the intended name: \"When Mrs. Santos spoke to Anna, Anna seemed upset.\"",
+    "note": "Example #4 now presents its two reasoning steps as a numbered list."
+   }
+  }
+ }
+}

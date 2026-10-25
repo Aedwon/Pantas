@@ -1,0 +1,277 @@
+{
+ "batch": "RD-051",
+ "lesson_id": "lesson-grammar-and-structure-punctuation-and-capitalization",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/punctuation-and-capitalization.md",
+ "lesson_sha256": "e77851db33220b0ee746e67d3560526fbc05197e289faac84dae31f5d10bfc1b",
+ "rewrite_commit": "c904eadaa7f8ef7e7982f9dfdb34ccc7556797df",
+ "form": {
+  "packet": "lesson-grammar-and-structure-punctuation-and-capitalization",
+  "role": "A",
+  "lesson_sha256": "e77851db33220b0ee746e67d3560526fbc05197e289faac84dae31f5d10bfc1b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked comma joining, dependent openings, identifying versus extra clauses, complex-list separators, possessive placement, contractions, its/it's, title conventions, and quoted capitalization. City-province pairings are consistent. No factual error found from the packet; external sources were not provided."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "#1 semicolon or period between amazing and everyone; #2 comma before and; #3 A; #4 comma after closed; #5 After the meeting, my brother, who lives in Cebu, drove me home.; #6 no commas.",
+     "#7 Bring a pencil, an eraser, and a ruler.; #8 Calamba, Laguna; Vigan, Ilocos Sur; and Malolos, Bulacan.; #9 B.",
+     "#10 Maria's book, the teachers' room, the children's books; #11 James's bag; #12 Please don't enter.; #13 its; #14 President Reyes, then the president; #15 The meeting is over, then meeting. These independent results match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The requested apostrophe cases and complex-list semicolons are included. No required figure is suggested by these text-only tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The opening uses signs, sentences, and names. Independent and dependent clauses are explained with short examples. The dense nonrestrictive terminology has been removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The stems use correct, choose, add, write, and shorten in their everyday senses. The previous unexplained compare instruction is absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Every example asks a determinate editing or choice task. Brother-count context disambiguates commas; serial-comma and James conventions are supplied where variation requires them. The solutions give simple reasons for each edit."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The prose makes no repeated or unsupported exam-content claims."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English and contains no Filipino teaching or example text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No vocabulary question asks the learner to interpret a marked target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No listed stock phrasing appears. The summary plainly lists the punctuation topics, and paragraph openings vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The language lesson uses the permitted standard section structure. No example contains a mathematical formula, so the formula-in-Core requirement has no instances."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases map to comma splice #1, joined independent clauses #2, shared subject #3, opening dependent clause #4, opening phrase and extra information #5, identifying information #6, serial list #7, complex list #8, semicolon clause test #9, three possessive owner patterns #10, singular s-name #11, contraction #12, its/it's #13, titles #14, and complete versus word quotation #15."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multistep solutions are numbered. The s-name and contraction examples each give one direct answer. No numerical computation or display equation is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs stay within one to three short sentences. The former four-sentence capitalization paragraph is split into small groups. Numbered lists serve worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholders or figure-dependent questions occur.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Independent clause and coordinating conjunction are defined before the comma rule. Dependent/subordinate clause is explained before the semicolon comparison. Possession, contraction, and serial comma also receive meanings before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Comma placement follows complete-clause and identifying-information tests. Complex-list teaching finds each whole item, keeps its internal commas, and separates items with semicolons. Apostrophe and capitalization rules have demonstrations and worked applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson distinguishes shared subjects from complete clauses, extra from identifying information, list separators from clause joins, all three possessive noun patterns, variable s-name conventions, and title and serial-comma style variations."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L18|1": {
+    "status": "fixed",
+    "quote": "*Maria* is singular, so write \"Maria's book.\"",
+    "note": "Example #10 forms three possessive types, and #12 forms an ordinary contraction."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L02|0": {
+    "status": "fixed",
+    "quote": "Capital letters show where sentences begin and help identify names.",
+    "note": "The abstract opening has been replaced with short concrete explanations."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L02|1": {
+    "status": "fixed",
+    "quote": "Use commas around extra information.",
+    "note": "Extra and identifying information are taught with plain wording and separate examples."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L05|0": {
+    "status": "fixed",
+    "quote": "Correct the punctuation: \"The concert was amazing, everyone stayed until the end.\"",
+    "note": "Example #1 now gives an explicit correction task."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L05|1": {
+    "status": "fixed",
+    "quote": "Using the usual title-before-name rule, correct the capital letters:",
+    "note": "Example #14 now asks for a specific capitalization edit."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L22a|0": {
+    "status": "fixed",
+    "quote": "Begin a sentence with a capital letter. Capitalize proper names, such as *Ana* and *Cebu*.",
+    "note": "The capitalization teaching is split into paragraphs of no more than three sentences."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L25|0": {
+    "status": "fixed",
+    "quote": "An **independent clause** is a group of words that can stand as a complete sentence.",
+    "note": "Both independent clause and coordinating conjunction are defined before they drive the comma rule."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L25|1": {
+    "status": "fixed",
+    "quote": "A **dependent clause**, also called a subordinate clause, needs another part to complete its meaning.",
+    "note": "Subordinate is introduced with the meaning of dependent clause before any example uses it."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L26|0": {
+    "status": "fixed",
+    "quote": "Keep its inside commas, then put semicolons between the whole items.",
+    "note": "The complex-list procedure is now explicit and demonstrated."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L27|0": {
+    "status": "fixed",
+    "quote": "For a plural noun ending in *s*, add only an apostrophe: \"the teachers' room.\"",
+    "note": "Plural s, irregular plural, and singular s-name conditions are now taught."
+   },
+   "language-proficiency-grammar-and-structure#41": {
+    "status": "fixed",
+    "quote": "Put semicolons between the pairs:",
+    "note": "Example #8 identifies city-province pairs and applies the whole-item procedure."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L03|0": {
+    "status": "fixed",
+    "quote": "Using the usual title-before-name rule, correct the capital letters:",
+    "note": "The compare instruction has been removed and replaced with a concrete task."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L18|0": {
+    "status": "fixed",
+    "quote": "Each whole item contains a city and its province.",
+    "note": "Example #8 supplies a worked application of complex-list semicolons."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L18|2": {
+    "status": "fixed",
+    "quote": "The first quotation is a complete sentence.",
+    "note": "Example #15 works both a complete quoted sentence and an embedded ordinary word."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L19|0": {
+    "status": "fixed",
+    "quote": "Replace the comma with a semicolon:",
+    "note": "Example #1 now presents the reasoning and possible repairs as numbered steps."
+   },
+   "lesson-grammar-and-structure-punctuation-and-capitalization|L19|1": {
+    "status": "fixed",
+    "quote": "Put a comma before *and*:",
+    "note": "Example #2 now numbers the complete-clause check and comma placement."
+   }
+  }
+ }
+}
