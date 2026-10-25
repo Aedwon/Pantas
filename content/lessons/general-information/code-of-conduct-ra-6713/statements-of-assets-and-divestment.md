@@ -10,13 +10,17 @@ isActive: true
 
 ## Core Concept
 
-Section $8$ of RA $6713$ requires covered public officials and employees to file sworn financial declarations. These include a **Statement of Assets, Liabilities and Net Worth (SALN)** and a Disclosure of Business Interests and Financial Connections.
+Section $8$ of RA $6713$ requires covered public officials and employees to file sworn financial declarations. These include a **Statement of Assets, Liabilities and Net Worth (SALN)** and a **Disclosure of Business Interests and Financial Connections**.
 
 A SALN lists property and other assets, liabilities or debts, and financial or business interests. **Net worth** is what remains when total liabilities are subtracted from total assets.
 
+A **business interest** is an existing interest in a private business or company. A **financial connection** is a paid link to a business, such as work as a consultant or adviser. The disclosure reports these interests and connections for the filer and the family members covered below.
+
 ### Who Is Covered
 
-The SALN filing rule does not cover people who serve only in an honorary capacity, laborers, or casual or temporary workers. A worker is not exempt just because an appointment has a special label. The worker must actually fall within a statutory excluded category.
+The SALN filing rule does not cover people who serve only in an **honorary capacity**, laborers, or casual or temporary workers. An honorary role is government service done without pay and without counting it as regular service.
+
+A worker is not exempt just because an appointment has a special label. The worker must actually fall within one of the excluded groups named by the law.
 
 The declarations cover the official or employee, their spouse, and unmarried children under $18$ years old who live in the household. If both spouses are public officials or employees, they may file jointly or separately.
 
@@ -71,7 +75,9 @@ Public access does not allow every use. Section $8(D)$ bans obtaining or using a
 
 ### Conflict of Interest and Divestment
 
-A **conflict of interest** exists when an official or employee is a board member, officer, substantial stockholder, owner, or person with a substantial business interest, and that private interest may oppose or be affected by faithful performance of official duty. A **substantial stockholder** owns enough shares, directly or indirectly, to elect a corporation director.
+A **conflict of interest** can arise when a public official has a private business role or ownership interest that can clash with official duty or be affected by that duty. The law lists roles such as board member, officer, owner, substantial stockholder, or person with a substantial business interest.
+
+A **substantial stockholder** owns enough shares, directly or indirectly, to elect a corporation director.
 
 **Divestment** means completely giving up title or interest in property. The transfer must be real and complete, and it must be to someone other than the official's spouse or relatives within the fourth civil degree.
 
@@ -158,13 +164,13 @@ A public employee has a first cousin who works in another government office. Is 
 
 ### #7: Conflict of Interest and Divestment
 
-A newly appointed bureau director owns enough shares to elect a director of a private company affected by the bureau's official decisions. The director also sits on the company's board. What deadlines apply after the conflict of interest arises?
+A newly appointed bureau director owns enough shares to elect a director of a private company affected by the bureau's official decisions. The director also sits on the company's board. Does this create a conflict of interest, and what deadlines apply?
 
 **Solution:**
 
-1. The private role and substantial shareholding can conflict with faithful official duties.
-2. The official must resign from the private business position within $30$ days.
-3. The official must divest the relevant shareholdings or interest within $60$ days.
+1. The director has a private board role and enough shares to be a substantial stockholder.
+2. The company's interests can be affected by the director's official duties. This creates a **conflict of interest** under the rule.
+3. The official must resign from the private business position within $30$ days and divest the relevant shareholdings or interest within $60$ days.
 4. A transfer to the official's spouse or a relative within the fourth civil degree would not count as true divestment.
 
 ### #8: Already in Government When the Conflict Begins
@@ -208,6 +214,16 @@ A reviewing body finds that a filed statement is incomplete. What should happen 
 1. The reviewing body checks whether the statement is timely, complete, and in proper form.
 2. If it is incomplete, the filer must be informed.
 3. The filer is then directed to take the needed corrective action.
+
+### #12: Statement Needed After $10$ Years
+
+A filed statement was received more than $10$ years ago, but an ongoing investigation still needs it. May the statement be destroyed under Section $8(C)$?
+
+**Solution:**
+
+1. After $10$ years, a filed statement may usually be destroyed.
+2. There is an exception when the statement is needed in an ongoing investigation.
+3. Because the investigation still needs this statement, it should not be destroyed under this rule.
 
 ## Traps to Watch For
 
