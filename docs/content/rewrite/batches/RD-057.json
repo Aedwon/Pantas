@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-algebra-types-of-functions",
+  "lesson-algebra-word-problems"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-types-of-functions": "68cc79749ee1bd567a96954ba314472c9dae3e1c",
+  "lesson-algebra-word-problems": "5686839f8e1f3da230ec6d4f85635e24648683c8"
+ },
+ "sha256": {
+  "lesson-algebra-types-of-functions": "a4f1d1dbcddf96640e53a8cc8bf83aa7d0c21b5f2087535755af55e1c4f730a1",
+  "lesson-algebra-word-problems": "953641b4a1b7d53dc3e0b24fe243e01a1afdb2d34b151d10eb7912d5e0da1157"
+ },
+ "paths": {
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md",
+  "lesson-algebra-word-problems": "content/lessons/mathematics/algebra/word-problems.md"
+ },
+ "id": "RD-057",
+ "type": "read",
+ "created": "2026-10-25T20:03:50+00:00"
+}
