@@ -1,0 +1,277 @@
+{
+ "batch": "RD-036",
+ "lesson_id": "lesson-algebra-word-problems",
+ "path": "content/lessons/mathematics/algebra/word-problems.md",
+ "lesson_sha256": "5194be014685f72f49b7a537efb3bf628fcd0eb3dc6b1db1047d53aa3c6a863e",
+ "rewrite_commit": "35fe474fe20ea628e7865a55755006991429a21f",
+ "form": {
+  "packet": "lesson-algebra-word-problems",
+  "role": "A",
+  "lesson_sha256": "5194be014685f72f49b7a537efb3bf628fcd0eb3dc6b1db1047d53aa3c6a863e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked shared age increments, d=rt, straight-path relative speed, additive job rates, time=1/r, product-over-sum, concentration times volume, count/value equations, and place-value expressions. These are correct under the stated models. The two unsupported universal exam claims are gone; no external source was consulted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 Ana 18, Ben 6. #2 350/(60+80)=2.5 hours. #3 270/(50+40)=3 hours. #4 40/(90-70)=2 hours.",
+     "#5 1/(1/6+1/3)=2 hours. #6 16 liters: 3.2+4=7.2 liters of alcohol in 24 liters. #7 eight 5-peso coins and twelve 1-peso coins. #8 original 36, reversal 63. All match the worked answers. Shortcut example also gives 18/9=2 hours."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The supplied brief requires no figures; none of the question stems depends on an unseen image. No separate outline was supplied for comparison."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The work explanation now says one divided by the rate. Concentration and relative speed receive short plain meanings; teaching sentences are short and direct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "3. Simplify.",
+      "problem": "The worked digit solution uses simplify as an exam-style mathematical instruction without a first-use meaning. Find is everyday English and needs no gloss."
+     }
+    ]
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The eight stems supply ages and time changes, speeds and gaps, solo job times, mixture concentrations/volume, coin denominations/count/value, and digit relationships. Methods are selected in the solutions. Solutions use plain arithmetic language with no reciprocal jargon."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Exam references are brief and do not repeat a stock opener or assert a specific exam format."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains English teaching and no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a language passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly. No listed stock AI phrase appears; sentence openings vary across explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept introduces equal age increments for #1; d=rt and relative-speed addition/subtraction for #2–4; rate addition and t=1/r for #5; pure amount=concentration×total for #6; separate count and value equations for #7; 10t+u and 10u+t for #8. Product-over-sum is also stated before its shortcut calculation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "The eight worked cases cover age, apart motion, toward motion, chase motion, simultaneous work, mixture, coin count/value, and digit reversal. The added motion problems require distinct relative-speed reasoning. No brief-required case is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Let $b$ be Ben's age now. Then Ana's age now is $3b$.",
+      "problem": "Minor formatting: variable definitions are solution steps but sit outside the numbered lists in the age, mixture, coin, and digit solutions. All substantive arithmetic is shown."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Displayed calculations use short expressions and do not chain a wide row of unrelated equalities."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs have at most three short sentences. Numbered lists support the plan and worked solutions; there are no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No placeholders are present and no question depends on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "1. Change each percent to a decimal: $20\\%=0.20$, $50\\%=0.50$, and $30\\%=0.30$.",
+      "problem": "The solution gives three conversions but never explains that percent means per hundred or that conversion divides by 100. No identified prerequisite teaching or reminder supplies the method in this prompt."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Age increments, changing distance gaps, job-per-hour rates, pure-part accounting, separate coin count/value, and tens/units place value are explained and then used to build equations. Each family has a worked model and solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept restricts relative-speed shortcuts to steady motion on the same straight path. Product-over-sum explicitly requires the same whole job, simultaneous work throughout the modeled interval, and steady positive rates. The age model advances both people equally."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-algebra-word-problems|L18|0": {
+    "status": "fixed",
+    "quote": "Two towns are $270$ km apart.",
+    "note": "Separate examples now work toward-each-other motion and a same-direction chase."
+   },
+   "lesson-algebra-word-problems|B01|0": {
+    "status": "fixed",
+    "quote": "These patterns help turn common exam word problems into equations.",
+    "note": "The unsupported claim that CETs repeatedly use exactly these six families is removed."
+   },
+   "lesson-algebra-word-problems|B01|1": {
+    "status": "fixed",
+    "quote": "A wrong intermediate value may also appear as a choice, so use the requested value.",
+    "note": "The universal answer-choice claim is replaced by a qualified warning."
+   },
+   "lesson-algebra-word-problems|L02|0": {
+    "status": "fixed",
+    "quote": "One divided by the rate gives the time for one room.",
+    "note": "The unexplained word reciprocal is replaced by plain division language."
+   },
+   "lesson-algebra-word-problems|L27|0": {
+    "status": "fixed",
+    "quote": "This shortcut assumes both workers work together on the same job for the whole modeled time and each keeps a steady positive rate.",
+    "note": "All requested work-shortcut conditions are now explicit."
+   },
+   "lesson-algebra-word-problems|L27|1": {
+    "status": "fixed",
+    "quote": "When objects move at steady speeds along the same straight path, **relative speed** tells how fast the gap changes.",
+    "note": "The motion rule now states steady speeds and a common straight path."
+   },
+   "lesson-algebra-word-problems|L03|0": {
+    "status": "not_fixed",
+    "quote": "Find the original number.",
+    "note": "Find remains unchanged. The current standard treats it as an everyday word with no gloss required."
+   },
+   "lesson-algebra-word-problems|L05|0": {
+    "status": "fixed",
+    "quote": "One divided by the rate gives the time for one room.",
+    "note": "The work solution uses plain words instead of reciprocal."
+   },
+   "lesson-algebra-word-problems|L17|0": {
+    "status": "fixed",
+    "quote": "$$t=\\dfrac{1}{r}$$",
+    "note": "Core Concept explicitly gives time as one divided by combined rate."
+   },
+   "lesson-algebra-word-problems|L19|0": {
+    "status": "not_fixed",
+    "quote": "Let $b$ be Ben's age now. Then Ana's age now is $3b$.",
+    "note": "The variable setup still sits outside the numbered solution steps."
+   },
+   "lesson-algebra-word-problems|L19|1": {
+    "status": "fixed",
+    "quote": "$$3(6)=18$$",
+    "note": "The requested age computation is now on its own display line."
+   },
+   "lesson-algebra-word-problems|L21|0": {
+    "status": "fixed",
+    "quote": "$$r_{\\text{together}}=\\dfrac{1}{6}+\\dfrac{1}{3}$$",
+    "note": "The combined-rate computation is split across short display lines."
+   },
+   "lesson-algebra-word-problems|L25|0": {
+    "status": "fixed",
+    "quote": "One divided by the rate gives the time for one room.",
+    "note": "Reciprocal is removed and the division operation is stated directly."
+   },
+   "lesson-algebra-word-problems|L25|1": {
+    "status": "not_fixed",
+    "quote": "1. Change each percent to a decimal: $20\\%=0.20$, $50\\%=0.50$, and $30\\%=0.30$.",
+    "note": "Conversions are now explicit, but how to convert percent to decimal is still not taught or linked to a supplied prerequisite."
+   }
+  }
+ }
+}
