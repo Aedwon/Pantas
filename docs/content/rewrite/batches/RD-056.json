@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-algebra-algebraic-expressions",
+  "lesson-algebra-linear-equations-inequalities",
+  "lesson-algebra-polynomials"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-algebraic-expressions": "44acb1c09cd1fade376334b2a6c6fa879acc2f69",
+  "lesson-algebra-linear-equations-inequalities": "91f6bbeaa0851ffb914e50fe42d300782a8e08d7",
+  "lesson-algebra-polynomials": "44acb1c09cd1fade376334b2a6c6fa879acc2f69"
+ },
+ "sha256": {
+  "lesson-algebra-algebraic-expressions": "ab6550360498da559e2d241061fcae5a231e08f21580ffdb5d92d47a53e06677",
+  "lesson-algebra-linear-equations-inequalities": "2f39e0dca259d37f22186fa22e6f5cf272cc51d7aa79c54ea787982781a499c4",
+  "lesson-algebra-polynomials": "f0ea517eae7de046527abc86a26eeba7ff22ad67c369924de32ec033eda30e01"
+ },
+ "paths": {
+  "lesson-algebra-algebraic-expressions": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+  "lesson-algebra-linear-equations-inequalities": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+  "lesson-algebra-polynomials": "content/lessons/mathematics/algebra/polynomials.md"
+ },
+ "id": "RD-056",
+ "type": "read",
+ "created": "2026-10-25T20:01:04+00:00"
+}
