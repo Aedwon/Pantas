@@ -1,7 +1,7 @@
 ---
 _id: "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
 title: "Prohibited Acts and Gift Rules under RA 6713 (Section 7)"
-summary: "Learn how Section 7 prohibits conflicts, outside work, misuse of information, and improper gifts, including the main exceptions."
+summary: "Apply the bans on private interests, outside work, information misuse, and gifts with their separate exceptions."
 subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
@@ -9,274 +9,323 @@ isActive: true
 ---
 ## Core Concept
 
-Section $7$ of RA $6713$ lists acts that public officials and employees must avoid. Many of these rules prevent a private interest from affecting public duty.
+Section $7$ of RA $6713$ lists acts that public officials and employees must avoid. These rules keep private gain from affecting public duties. Check the link between the act and the worker's own office.
 
 ### Financial or Material Interest
 
-A public official or employee must not have a direct or indirect **financial or material interest** in a transaction that needs the approval of the person's office. A financial or material interest is a money or property interest through which the person may gain or lose something.
+A **financial or material interest** is a money or property stake. It may let someone gain or lose money or property from a transaction. A public worker must not have that stake in a transaction that needs approval from the worker's office.
 
-The key link is the office's approval. A private investment is not automatically the same as a prohibited transaction. The problem arises when the interest is tied to a transaction requiring approval by the person's office.
+The stake may be direct, such as personally owning shares. It may also be indirect, such as holding the interest through another person. The approval link matters: a private investment is not automatically a transaction requiring the office's approval.
 
-### Outside Employment and Private Enterprises
+### Outside Work in a Private Business
 
-A public official or employee must not own, control, or manage a private enterprise regulated, supervised, or licensed by the person's office, unless a law expressly allows it. The rule also covers accepting work as an officer, employee, consultant, counsel, broker, agent, trustee, or nominee in such an enterprise.
+A public worker must not own, control, manage, or accept covered work in a private business that the worker's own office regulates, supervises, or licenses. **Regulates or supervises** means the office has legal power to set or enforce rules for the business or oversee its work. **Licenses** means it issues the permission the business needs to operate.
 
-A private enterprise is **regulated, supervised, or licensed** by an office when that office has legal authority to oversee it, control part of its operation, or issue the license it needs. The connection to the official's own office is what matters.
+The covered jobs include an **officer**, who helps lead the business, and an **employee**, who works for it. A **consultant** gives expert advice. **Counsel** is a lawyer who gives legal advice or represents the business.
+
+A **broker** arranges deals between parties. An **agent** acts for another person or business. A **trustee** holds or manages property for someone else, and a **nominee** holds a named role or interest for another person.
+
+The ban applies unless a law expressly allows the arrangement. This means the law must clearly permit it. A supervisor's verbal approval alone does not meet that exception.
 
 ### Private Professional Practice
 
-A public official or employee may engage in private professional practice only when the Constitution, a law, or a regulation allows it. The practice must also not conflict, or tend to conflict, with the person's official functions.
+**Private professional practice** means serving private clients in a profession, such as law or medicine. While in public service, a worker needs authority under the Constitution, law, or applicable regulation. The work must also not conflict, or tend to conflict, with public duties.
 
-After leaving public service, this rule has a special limit. For $1$ year after separation, the former official or employee may not practice the profession in connection with a matter before the office the person used to serve.
+A **conflict** exists when the private work pulls against the person's public duty. A government lawyer cannot rely only on permission to take clients if a client wants help opposing the lawyer's own public work. Both legal permission and absence of conflict must be checked.
 
-### Recommendations to Private Enterprises
+### Recommendations and Rules After Leaving Office
 
-A public official or employee generally must not recommend a person for a position in a private enterprise that has a regular or pending official transaction with the person's office. The implementing rules recognize exceptions when the recommendation or referral is required by law, an international agreement or commitment, or the person's official functions.
+A public worker generally must not recommend someone for a job in a private business with a regular or pending official transaction with the worker's office. A regular transaction is part of ongoing dealings. A pending transaction is one still awaiting action or completion.
 
-The outside-enterprise prohibition and this recommendation prohibition continue for $1$ year after resignation, retirement, or separation from public office. Private professional practice follows the different former-office rule explained above.
+The rules allow referrals required by law, an international agreement or commitment, or the worker's assigned public duties. This is different from using public influence to get a friend a private job.
 
-### Confidential or Classified Information
+The outside-business and recommendation bans continue for $1$ year after resignation, retirement, or other departure from office. The legal term **separation** means leaving government service.
 
-A public official or employee must not disclose or misuse confidential or classified information learned through office. The rule applies when the information is used to help a private interest, give someone an unfair advantage, or harm the public interest.
+Private practice has a different limit after leaving. For $1$ year, the former worker cannot practice on a matter before the former office. That limit does not ban every professional job everywhere for that year.
 
-Information that is already lawfully available to the public is different. The prohibition focuses on confidential or classified information officially known because of public office.
+### Protected Work Information
 
-### Gifts, Favors, and Things of Monetary Value
+**Confidential or classified information** is protected information learned through office and not made available to the public. A worker must not use or share it to serve a private interest, give someone an unfair advantage, or harm the public interest.
 
-A public official or employee must not solicit or accept, directly or indirectly, a gift, gratuity, favor, entertainment, loan, or other thing of monetary value when it is connected with official duties, a regulated operation, or a transaction affected by the office.
+Information already lawfully made public is different. In a case, check both the protected nature of the information and the purpose of its use or disclosure.
 
-The rules look at the value of the item, the relationship between giver and receiver, and the reason for the gift. A small item can still be improper when it is meant to obtain a favor.
+### Gifts and Valuable Benefits
 
-### Exceptions to the Gift Rule
+A worker must not ask for or accept a gift, favor, entertainment, loan, or other valuable benefit tied to public duties. The ban also covers benefits linked to a business the office oversees or a transaction the office may affect. It applies to receiving a benefit directly or through someone else.
 
-The implementing rules list situations that are not covered by the gift prohibition. Each exception has its own conditions.
+**Solicitation** means asking for a benefit. A worker can break the rule by asking, even if the requested gift is never delivered. A gift offered in return for special treatment is not made proper by calling it a token.
 
-- **Unsolicited nominal gift:** A gift of nominal or insignificant value may be allowed when it was not requested and was not given in anticipation of, or in exchange for, a favor. Whether a gift is nominal depends on the circumstances, including its value, how often gifts are given, and whether a benefit is expected.
-- **Family celebration gift:** A gift from a family member or relative on a family celebration may be allowed when there is no expectation of **pecuniary gain or benefit**, which means money or another financial benefit.
-- **Nominal donation from a person:** A nominal donation may be allowed when the donor has no regular, pending, or expected transaction with the official's department, office, or agency and no financial benefit is expected.
-- **Humanitarian or altruistic donation:** A donation from a private organization may fall within the exception when it is considered and accepted as humanitarian or altruistic in purpose and mission. Do not add the separate "no office transaction" condition from the nominal-donation exception unless the facts of the item require that different exception.
-- **Government-to-government donation:** A donation from one government entity to another is within the listed exceptions.
-- **Foreign-government courtesy gift:** A public official or employee may accept and keep a foreign-government gift of nominal value received as a souvenir or mark of courtesy.
-- **Foreign-government scholarship, fellowship, or medical treatment:** These are within the listed exceptions.
-- **Foreign-government travel grant or expense:** The travel must take place entirely outside the Philippines. Acceptance must be appropriate or consistent with Philippine interests and must be permitted by the head of the person's office, branch, or agency.
+### Separate Gift Exceptions
 
-When classifying a gift, first ask who gave it, why it was given, whether the giver has a transaction with the office, whether a favor or financial benefit is expected, and whether a special foreign-government condition applies.
+Each exception has its own conditions. Ask who gave the benefit, why it was given, and whether a favor or financial gain is expected. Then check every condition of the relevant exception.
+
+An **unsolicited nominal gift** is a gift not requested and small or insignificant in value. It must not be given in anticipation of, or in exchange for, a favor. Giving it after a service does not by itself prove that it is proper.
+
+There is no single peso cutoff stated in this exception. The circumstances matter, including the worker's salary, how often gifts are given, and the expected benefit. Low value alone is not enough.
+
+A gift from a family member or relative at a family celebration may fit a separate exception. There must be no expected **pecuniary gain or benefit**, meaning money or another financial benefit. An ordinary birthday gift from a parent is different from a gift seeking paid government business.
+
+The Code has a legal meaning for family and relatives. Family includes the spouse and unmarried children under $18$. Relatives include those within the fourth civil degree by blood or marriage and the specifically included family relationships under the Code.
+
+A nominal donation from a person has another test. The donor must have no regular, pending, or expected transaction with the worker's department, office, or agency. No money or financial benefit may be expected.
+
+A separate exception covers donations from private organizations, local or foreign, considered and accepted as **humanitarian and altruistic** in purpose and mission. Humanitarian means aimed at helping people in need or reducing suffering. Altruistic means aimed at helping others without seeking personal gain.
+
+For example, the purpose may be emergency aid for flood victims. Check the intended recipients, the planned use, and whether the donor seeks special treatment. Calling a personal reward a relief donation does not make it aid for people in need.
+
+This organization-donation exception does not state the separate no-office-transaction condition used for nominal donations from persons. Office dealings therefore do not automatically settle the question. The donation must actually meet the purpose and acceptance conditions of its own exception.
+
+Donations from one government entity to another are also listed. A gift to an officer personally is not automatically a government-to-government donation.
+
+### Benefits From Foreign Governments
+
+A worker may accept and keep a foreign-government gift of nominal value received as a souvenir or courtesy. The nominal-value condition belongs to this courtesy-gift exception.
+
+Foreign-government scholarships, fellowship grants, and medical treatment are also listed. A **fellowship** is a grant for study, training, or research. These are separate from the courtesy-souvenir rule.
+
+Foreign-government travel benefits have extra conditions. The travel must take place entirely outside the Philippines. Acceptance must be appropriate or consistent with Philippine interests and permitted by the head of the person's office, branch, or agency.
+
+The travel exception can include allowances, transportation, food, and lodging worth more than a nominal amount. Other reporting or disclosure rules may still apply. The Code also preserves educational, scientific, and cultural exchanges subject to national-security requirements.
 
 ## Examples
 
-### #1: Financial Interest in a Transaction
+### #1: Shares and Office Approval
 
-A government employee owns shares in a private company. The employee's office must approve a transaction involving that company. Does Section $7$ apply?
+A government employee owns shares in a company. A transaction involving that company requires approval by the employee's office. Does the financial-interest ban apply?
 
 **Solution:**
 
-1. The employee has a financial interest in the company.
+1. Shares give the employee a money stake in the company.
 2. The transaction requires approval by the employee's office.
-3. Section $7$ prohibits a direct or indirect financial or material interest in such a transaction.
-4. Therefore, the situation is covered by the prohibition.
+3. The rule prohibits that direct or indirect stake in such a transaction.
 
 ### #2: Consultant for a Licensed Company
 
-An employee of a licensing agency accepts work as a consultant for a private company licensed by that same agency. No law expressly allows the arrangement. Is this allowed?
+An employee of a licensing agency accepts a consultant job with a company licensed by that agency. No law expressly permits it. Is the job allowed under the outside-work rule?
 
 **Solution:**
 
-1. The private company is licensed by the employee's own agency.
-2. Consultant is one of the roles covered by the outside-employment rule.
-3. No law expressly allows the arrangement.
-4. Therefore, accepting the consultant role is prohibited.
+1. The company is licensed by the employee's own agency.
+2. A consultant is a covered outside role.
+3. No law clearly permits this arrangement. The employee may not accept it.
 
-### #3: Outside Role Expressly Allowed by Law
+### #3: Permission in a Law
 
-A public employee accepts an outside role in a private enterprise supervised by the employee's office. A law expressly allows that exact arrangement. Does the general outside-employment rule still bar it?
-
-**Solution:**
-
-1. The general rule would normally cover the outside role because the enterprise is supervised by the employee's office.
-2. The rule contains an exception when the arrangement is expressly allowed by law.
-3. Here, the facts state that a law expressly allows it.
-4. Therefore, the general outside-employment prohibition does not bar the arrangement on these facts.
-
-### #4: Private Practice While in Office
-
-A government lawyer wants to take private clients. A law allows limited private practice, but one proposed client has a matter that directly conflicts with the lawyer's official duties. Is the private practice allowed in that matter?
+A public employee accepts a covered role in a private business supervised by the employee's office. A law expressly allows that exact arrangement. Does the general outside-work ban itself bar the role?
 
 **Solution:**
 
-1. Permission by law is only one condition.
-2. The private practice must also not conflict, or tend to conflict, with official functions.
-3. The proposed client creates a direct conflict with the lawyer's public duties.
-4. Therefore, the private practice is not allowed in that matter.
+1. The rule normally covers the role and the business connection.
+2. It makes an exception when a law expressly allows the arrangement.
+3. The stated law meets that condition. This general ban does not itself bar the role on these facts.
 
-### #5: Former Official and the $1$-Year Rules
+### #4: Private Practice With a Conflict
 
-A former official leaves government service. During the next $1$ year, the former official wants to take an outside role in a company regulated by the former office and also wants to handle a professional matter before that former office. How do the rules apply?
-
-**Solution:**
-
-1. The outside-enterprise prohibition continues for $1$ year after separation.
-2. Private professional practice follows a separate rule for the same $1$-year period.
-3. The former official may not practice the profession in connection with a matter before the former office during that period.
-4. Therefore, both proposed activities are restricted, but under different post-service rules.
-
-### #6: Recommendation Required by Official Functions
-
-A public officer refers a qualified applicant to a private enterprise with a pending transaction before the officer's agency. The referral is required as part of the officer's official duties. Is the referral automatically prohibited?
+A government lawyer has legal authority to take some private clients. One proposed client needs help on a matter that directly conflicts with the lawyer's public duties. May the lawyer take that matter?
 
 **Solution:**
 
-1. A recommendation to an enterprise with a pending office transaction is generally restricted.
-2. The implementing rules recognize a recommendation or referral required by official functions as an exception.
-3. The facts state that the referral is part of the officer's official duties.
-4. Therefore, the general recommendation ban does not automatically prohibit the referral.
+1. Legal permission is only one condition.
+2. The proposed work conflicts with the lawyer's public duties.
+3. The lawyer may not take that matter despite the general permission to practice.
 
-### #7: Confidential Information for a Friend
+### #5: Work After Leaving Office
 
-A public employee learns confidential information through work and gives it to a friend so the friend can gain an advantage in a private deal. Is this allowed?
-
-**Solution:**
-
-1. The information is confidential and was learned through public office.
-2. It is being disclosed to give another person an unfair private advantage.
-3. Section $7$ prohibits that use or disclosure.
-4. Therefore, the employee may not give the information to the friend.
-
-### #8: Solicited Gift from a Regulated Business
-
-An employee asks a business regulated by the employee's office to provide an expensive item for the employee's personal use. Is this allowed?
+A former official left government $6$ months ago. No law allows an exception. The person now wants a consultant job at a company regulated by the former office and wants to handle a private client's matter before that office. How do the rules apply?
 
 **Solution:**
 
-1. The employee is soliciting a thing of monetary value.
-2. The giver is a business regulated by the employee's office.
-3. The gift rule prohibits solicitation or acceptance in connection with a regulated operation or affected transaction.
-4. Therefore, the request is prohibited unless a specific exception clearly applies, and none is given here.
+1. The outside-business ban continues for $1$ year after leaving. The consultant job falls within that period and business connection.
+2. For the same $1$-year period, the person cannot practice on a matter before the former office.
+3. The person may not take the consultant job or handle that matter during the stated period.
 
-### #9: Unsolicited Nominal Courtesy Gift
+### #6: A Required Job Referral
 
-A visitor gives a public employee a low-value souvenir without being asked. The visitor has no request for special treatment, and the gift is not given in exchange for a favor. Which rule is most relevant?
-
-**Solution:**
-
-1. The gift was unsolicited.
-2. It is described as low in value.
-3. No favor is expected in return.
-4. These facts fit the exception for an unsolicited nominal or insignificant gift, subject to the circumstances of the case.
-
-### #10: Family Celebration Gift
-
-A public employee receives a birthday gift from a relative during a family celebration. The relative expects no money, financial benefit, or official favor in return. Is the gift within a listed exception?
+An officer's assigned public duties require referring qualified job seekers to employers. One referral goes to a business with a pending agency transaction. Is that referral automatically prohibited?
 
 **Solution:**
 
-1. The giver is a relative.
-2. The gift is tied to a family celebration.
-3. No pecuniary gain or benefit is expected.
-4. Therefore, the gift fits the family-celebration exception.
+1. The general rule covers recommendations to businesses with regular or pending office transactions.
+2. The rules recognize referrals required by the officer's assigned duties.
+3. This required referral falls within that exception. The pending transaction alone does not make it prohibited.
 
-### #11: Nominal Donation and an Office Transaction
+### #7: A Recommendation After Retirement
 
-A private person gives a nominal donation to a public official's office. The donor has a pending transaction with that office. Can the donation qualify under the exception for nominal donations from persons with no office transaction?
-
-**Solution:**
-
-1. That exception requires the donor to have no regular, pending, or expected transaction with the office.
-2. The donor has a pending transaction.
-3. Therefore, the donation does not meet that specific exception.
-4. Another exception would have to apply before the donation could be treated differently.
-
-### #12: Humanitarian Donation from a Private Organization
-
-A private organization offers a donation that is considered and accepted as humanitarian in purpose and mission. The exam item asks whether the separate "no regular, pending, or expected transaction" condition from the nominal-donation exception must also be added automatically. What is the best answer?
+An officer retired $4$ months ago. The former officer now recommends a friend for a job at a business with a pending transaction before the former office. No law, agreement, or assigned duty requires the recommendation. Does retirement end the ban?
 
 **Solution:**
 
-1. The implementing rules list humanitarian or altruistic donations from private organizations as a separate exception.
-2. The "no regular, pending, or expected transaction" condition is written for the nominal-donation exception from persons.
-3. The two exceptions should not be mixed unless the facts make both relevant.
-4. Therefore, do not automatically add that separate condition to the humanitarian-donation exception.
+1. The recommendation ban continues for $1$ year after leaving office.
+2. Only $4$ months have passed, and the business has a pending transaction with the former office.
+3. No exception is shown. The former officer may not make this recommendation during the remaining restricted period.
 
-### #13: Government-to-Government Donation
+### #8: Protected Information for a Friend
 
-A foreign public agency donates equipment directly to a Philippine government agency as a government-to-government donation. Which gift rule applies?
-
-**Solution:**
-
-1. The transaction is between government entities.
-2. Government-to-government donations are listed as an exception.
-3. Therefore, the donation falls within that listed exception.
-
-### #14: Foreign-Government Courtesy Gift
-
-A foreign government gives a public official a nominal souvenir during an official visit. It is received as a mark of courtesy. May the official accept and keep it under the listed exception?
+An employee gives a friend confidential work information that has not been made public. The purpose is to give the friend an unfair advantage in a private deal. Is this allowed?
 
 **Solution:**
 
-1. The giver is a foreign government.
-2. The gift is nominal in value.
-3. It is received as a souvenir or mark of courtesy.
-4. Therefore, it fits the listed foreign-government courtesy-gift exception.
+1. The protected information came through the employee's work.
+2. Sharing it serves an unfair private advantage. Section $7$ prohibits that act.
 
-### #15: Foreign Scholarship or Medical Treatment
+### #9: Asking a Regulated Business for a Gift
 
-A foreign government offers a public employee a fellowship grant. In another case, it offers medical treatment. Are these among the listed exceptions?
+An employee asks a business regulated by the employee's agency for an expensive item for personal use. The business refuses. Has the refusal made the employee's request proper?
 
 **Solution:**
 
-1. The implementing rules specifically include foreign-government scholarships and fellowships.
-2. They also include foreign-government medical treatment.
-3. Therefore, both are among the listed exceptions.
+1. The employee asked for a valuable personal benefit from a regulated business.
+2. The ban covers asking as well as accepting. No exception is shown.
+3. The business's refusal does not make the request proper.
 
-### #16: Foreign Travel Grant
+### #10: A Small Gift With No Favor Expected
 
-A foreign government offers to pay for a public official's travel. The trip will take place entirely outside the Philippines, the acceptance is consistent with Philippine interests, and the head of the official's agency gives permission. Does the listed exception apply?
+A visitor gives a worker a single low-value souvenir without being asked. No official favor is expected or being rewarded. The surrounding facts support treating the value as insignificant. Which exception fits?
 
 **Solution:**
 
-1. The travel takes place entirely outside the Philippines.
-2. The acceptance is consistent with Philippine interests.
-3. The head of the official's agency has given permission.
-4. These facts meet the listed conditions for the foreign-government travel exception.
+1. The gift was not requested and has insignificant value in the stated circumstances.
+2. No favor is expected or exchanged.
+3. These facts fit the unsolicited nominal-gift exception.
+
+### #11: A Small Gift Seeking Priority
+
+A permit applicant gives an employee a cheap souvenir and asks for priority over other applicants in return. Does low value establish the nominal-gift exception?
+
+**Solution:**
+
+1. The giver expects special treatment in return for the gift.
+2. That fails the no-favor condition. Low value alone does not establish the exception.
+
+### #12: Family Celebration
+
+A public employee's parent gives the employee a birthday gift during a family celebration. The parent expects no money, financial benefit, or official favor. Which exception applies?
+
+**Solution:**
+
+1. A parent is a relative, and the gift is for a family celebration.
+2. No financial benefit is expected.
+3. These facts fit the family-celebration exception.
+
+### #13: Nominal Donations With Different Donors
+
+A person offers a nominal donation with no expected financial benefit and no regular, pending, or expected transaction with the office. Another donor offers the same kind of donation but has a pending office transaction. Do both meet the nominal-donation exception?
+
+**Solution:**
+
+1. The first donor meets both the no-office-transaction and no-financial-benefit conditions.
+2. The second donor has a pending transaction. That donation fails this specific exception.
+3. The donation's small value does not remove the transaction condition.
+
+### #14: Relief Donation From an Organization With Office Dealings
+
+A private organization has a pending license renewal before an agency. It offers food for flood victims through the agency's relief program. The donation is reviewed and accepted for that relief mission, goes only to victims, and brings no personal benefit or request for favorable license action. Does the pending renewal alone defeat the private-organization donation exception?
+
+**Solution:**
+
+1. Food for flood victims serves people in need. The stated facts also show help without a sought private gain.
+2. The donation is considered and accepted for that purpose. These facts support the humanitarian and altruistic organization-donation exception.
+3. That separate exception does not state the no-office-transaction condition used for nominal donations from persons. The pending renewal alone does not defeat it.
+4. The agency must still decide the license renewal fairly. The donation does not buy favorable action.
+
+### #15: A Donation Label Hiding a Personal Reward
+
+A private organization with a pending agency application calls its offer a humanitarian donation. It actually offers a personal vacation to the deciding officer in return for approval. Does the stated label establish an exception?
+
+**Solution:**
+
+1. The benefit is a personal reward for approval. It does not serve people in need without seeking private gain.
+2. Calling it humanitarian does not change those facts.
+3. It does not meet that donation exception. The officer may not accept it on the stated facts.
+
+### #16: Government-to-Government Equipment
+
+A foreign public agency donates equipment directly to a Philippine government agency as a government-to-government donation. Is it within a listed exception?
+
+**Solution:**
+
+1. The donation passes between government entities.
+2. It fits the government-to-government exception. The facts do not describe a personal gift to an officer.
+
+### #17: Foreign Courtesy Souvenir
+
+A foreign government gives an official a nominal souvenir during an official visit. It is received as a courtesy. May the official accept and keep it under the stated exception?
+
+**Solution:**
+
+1. The giver is a foreign government, and the souvenir has nominal value.
+2. It is received as a courtesy. These facts fit the foreign-government souvenir exception.
+
+### #18: Scholarship, Fellowship, and Medical Treatment
+
+A foreign government offers a public worker a scholarship. In separate cases, it offers a fellowship grant and medical treatment. Are these benefit types among the listed exceptions?
+
+**Solution:**
+
+1. The rule lists foreign-government scholarships and fellowship grants.
+2. It also lists medical treatment. Each stated benefit type is included.
+
+### #19: Foreign Travel With Permission
+
+A foreign government offers to cover an official's travel, food, and lodging. The trip is entirely outside the Philippines, acceptance is consistent with Philippine interests, and the agency head permits it. Do these facts meet the travel exception?
+
+**Solution:**
+
+1. The whole trip takes place outside the Philippines.
+2. Acceptance fits Philippine interests, and the proper office head gives permission.
+3. The stated conditions are met. The travel exception may cover benefits worth more than a nominal amount.
+
+### #20: Missing Travel Permission
+
+A foreign government offers a travel grant for a trip entirely outside the Philippines. Acceptance fits Philippine interests, but the official has not obtained the required office-head permission. May the official rely on the travel exception now?
+
+**Solution:**
+
+1. Travel location and Philippine interests are only part of the test.
+2. The required permission is missing. The official cannot rely on this exception on the stated facts.
 
 ## Speed Tricks & Shortcuts
 
-For a gift question, check the facts in this order:
+For a gift case, read the giver and purpose first. Then check the exact exception. Do not copy a condition from one exception into every other exception.
 
-1. **Connection:** Is the gift tied to official duty, a regulated operation, or an affected transaction?
-2. **Purpose:** Is a favor or financial benefit expected?
-3. **Giver:** Is the giver family, a private person, a private organization, another government entity, or a foreign government?
-4. **Special conditions:** Does the exact exception require nominal value, no office transaction, a family celebration, humanitarian purpose, travel outside the Philippines, or agency-head permission?
+Nominal personal gifts need the no-favor test. Nominal donations from persons add the no-office-transaction test. Private-organization relief donations need their own genuine helping purpose and acceptance for that mission.
 
-Do not choose an exception just because the gift sounds harmless. Match every condition stated for that exception.
+For foreign travel, check location, Philippine interests, and permission together. For work after leaving office, identify the activity before applying the $1$-year rule.
 
 ## Traps to Watch For
 
 ### #1: Treating Every Small Gift as Allowed
 
-> Low value alone does not settle the question.
+> Low value does not cancel an expected favor.
 
-An unsolicited nominal gift must also not be given in anticipation of, or in exchange for, a favor. The surrounding facts matter.
+A cheap gift offered for special treatment fails the no-favor condition. Check the purpose as well as the price.
 
-### #2: Mixing the Gift Exceptions
+### #2: Accepting a Label Without Checking the Facts
 
-> Each gift exception has its own conditions.
+> A relief donation must actually serve its stated helping purpose.
 
-The no-office-transaction condition belongs to the nominal-donation exception from persons. Do not automatically copy it into the separate humanitarian-donation rule.
+Look at who receives the benefit and what the donor seeks. A personal vacation for an approval is not aid for people in need.
 
-### #3: Forgetting the $1$-Year Post-Service Rules
+### #3: Mixing the Donation Exceptions
 
-> Leaving public office does not end every restriction immediately.
+> Each exception keeps its own conditions.
 
-The outside-enterprise and recommendation prohibitions continue for $1$ year after separation. Private professional practice has its own $1$-year rule for matters before the former office.
+The nominal-donation rule includes no regular, pending, or expected office transaction. The organization-donation rule instead requires its stated humanitarian and altruistic purpose and acceptance. Office dealings do not remove the need to examine that purpose.
 
-### #4: Thinking Permission Alone Makes Private Practice Safe
+### #4: Forgetting Recommendations After Leaving
 
-> Private practice needs both legal permission and no conflict with official functions.
+> The recommendation ban also continues for $1$ year.
 
-If the practice conflicts, or tends to conflict, with public duties, permission by itself is not enough.
+The rule is not limited to outside jobs. Private practice has a different limit focused on matters before the former office.
 
-### #5: Treating All Foreign-Government Benefits the Same
+### #5: Relying Only on Permission
 
-> Courtesy gifts, scholarships, medical treatment, and travel have different conditions.
+> Private practice also needs absence of conflict with public duties.
 
-A travel grant has extra tests. The trip must be entirely outside the Philippines, acceptance must fit Philippine interests, and the proper office head must permit it.
+Legal authority to take clients does not allow a conflicting matter. For covered outside-business work, check express permission in law.
+
+### #6: Mixing Foreign Benefits
+
+> A courtesy souvenir and a travel grant have different tests.
+
+A courtesy souvenir must have nominal value. Foreign travel has the added location, national-interest, and permission conditions. Scholarships, fellowships, and medical treatment are separately listed.

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts"
 title: "Duties and Prohibited Acts under RA 6713"
-summary: "Understand the duties, public access rules, prohibited acts, and key exceptions under RA 6713."
+summary: "Know who the Code covers, how to serve public requests, and which private interests public workers must avoid."
 subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
@@ -9,192 +9,257 @@ isActive: true
 ---
 ## Core Concept
 
-Sections $5$ and $7$ of RA $6713$ cover two sides of public service. Section $5$ tells public officials and employees what they must do. Section $7$ tells them what they must not do.
-
-The implementing rules also list some failures as grounds for **administrative disciplinary action**. This means the government may bring a service case about the act. The case still follows Civil Service law and rules before a penalty is decided.
+Section $5$ of RA $6713$ states duties of public officials and employees. Section $7$ lists acts they must avoid. Both protect the public from poor service and misuse of office.
 
 ### Who the Code Covers
 
-The rules cover government officials and employees who are elective or appointive, permanent or temporary, and career or non-career. They also cover military and police personnel. Coverage does not depend on whether the person receives pay.
+**Public officials and employees** include people who hold government posts through election or appointment. An elected official is chosen by voters. An appointed worker is chosen for a government post by an authorized person.
 
-Do not confuse Code coverage with rules on filing a Statement of Assets, Liabilities and Net Worth, or SALN. The SALN rules have their own exemptions. Those exemptions do not change the separate coverage rule for the Code.
+The Code covers permanent workers and temporary workers. Permanent workers hold posts on a lasting basis under the rules for their appointment. Temporary workers hold posts for a limited time or under a temporary appointment.
 
-### Duties and Response Rules
+It covers both **career service** and **non-career service**. Career service generally uses merit and fitness to select workers and offers a path for advancement. Non-career service includes posts filled on other legal grounds, such as elected posts or posts tied to a set term or project.
 
-**Letters and requests.** A public official or employee must act on letters, telegrams, and similar communications from the public within $15$ working days from receipt. The reply must state what action was taken.
+Military and police personnel are included. The government includes national and local offices, other government bodies, and government-owned or controlled corporations and their subsidiaries. A subsidiary is a company controlled by another company.
 
-For a nonroutine matter, the office may acknowledge the request and explain what action is being taken or what more information is needed. If the matter belongs to another office, it should be referred to the proper office and the sender should be told about the referral.
+Pay does not decide coverage. **Free voluntary service** means government service given without pay. A volunteer must have a proper document assigning the work, be fit for it, and follow rules against improper appointments of relatives.
 
-Failure to act promptly can be a ground for administrative disciplinary action. This does not mean a penalty is automatic. The alleged violation is handled through the proper administrative process.
+Volunteers remain subject to the Code's conduct rules, duties, prohibitions, and penalties. They do not gain freedom to accept improper gifts just because they serve for free.
 
-**Annual performance reports.** Heads or other responsible officers of government offices, agencies, and government-owned or controlled corporations must submit the annual performance report within $45$ working days from the end of the year. The report must also be open to the public during regular office hours.
+Filing rules for the **SALN**, or Statement of Assets, Liabilities and Net Worth, are separate. Assets are things owned, such as money and property. Liabilities are debts, and net worth is what remains after debts are taken from assets.
 
-**Official papers and documents.** They must be processed and completed within a reasonable time. If a law or rule gives a deadline, that deadline controls.
+The rules exempt free-service volunteers from filing the SALN and financial disclosures. That filing exemption does not exempt them from the Code's duties and bans.
 
-If no deadline is given, the agency must set what counts as reasonable time. It may consider the difficulty of the matter, whether the requirements are complete, resources lost for reasons beyond the office's control, legal orders that stop action, delay caused by the party concerned, and events beyond anyone's control.
+### Letters, Reports, and People at the Counter
 
-As far as practicable, a written action or decision should have no more than $3$ initials or signatures. A law or regulation may provide a different rule. If the authorized signer is absent, the next-in-rank official, officer in charge, or another duly authorized person may sign under the office's rules.
+A public worker must respond to letters, telegrams, and similar messages from the public within $15$ working days after receipt. The reply must state the action taken. Working days are the days counted as workdays, not every calendar day.
 
-**Personal transactions.** Public officials and employees must promptly attend to people who seek the services of their offices. Leaving a person waiting without proper reason can violate this duty.
+A routine request should normally be answered without delay. If the matter is complex, the office must still reply within the period. It should explain what it is doing, why more time is needed, or what information the sender must supply.
 
-**Public access.** Public documents must be accessible for inspection during reasonable working hours. But access is not absolute.
+If another office handles the matter, the receiving office should send it to the proper office and inform the sender. A request sent to the wrong office is not a reason to ignore it.
 
-An office may lawfully withhold information when disclosure would harm national security, put a person's life or safety in danger, reveal protected or privileged information, expose draft decisions, invade personal privacy without proper reason, harm certain law-enforcement work, or cause other harm covered by law or settled policy.
+Heads or other responsible officers must submit an annual performance report within $45$ working days after the year ends. It shows the work done by the office, agency, or government corporation. The public must be able to inspect it during regular office hours.
 
-### Prohibited Acts
+Workers must also attend promptly to people who seek their office's services in person. The written-reply deadline does not give a counter worker permission to leave a visitor waiting for no proper reason.
 
-Section $7$ also bars acts that can put private interest over public duty.
+### Completing Documents Within a Reasonable Time
 
-- **Financial or material interest:** A public official or employee must not have a direct or indirect money or property interest in a transaction that needs the approval of the person's office.
-- **Outside enterprise:** A public official or employee must not own, control, manage, or work in certain roles for a private enterprise regulated, supervised, or licensed by the person's office, unless a law expressly allows it.
-- **Private practice:** A profession may be practiced privately only when the Constitution, a law, or a regulation allows it and the practice does not conflict, or tend to conflict, with official duties.
-- **Recommendations to private enterprises:** A public official or employee generally must not recommend a person for a position in a private enterprise with a regular or pending official transaction with the office. A recommendation or referral required by law, an international commitment, or the person's official functions is treated differently.
-- **Confidential information:** Information learned through office that is confidential or classified must not be used or disclosed to help a private interest, give someone an unfair advantage, or harm the public interest.
-- **Gifts and favors:** A public official or employee must not solicit or accept a gift, favor, entertainment, loan, or other thing of monetary value when it is tied to official duties, a regulated operation, or a transaction affected by the office. The implementing rules contain limited exceptions, which must be checked carefully.
+**Reasonable time** means a period justified by the work and its conditions. A deadline set by law or rule controls. When no such deadline exists, the agency must set a reasonable period under its rules.
+
+Relevant facts include how hard the matter is and whether the required papers are complete. The agency may also consider a court order stopping action, delay caused by the person making the request, or events outside the office's control. A claim that the office is busy does not by itself prove that every delay is proper.
+
+As far as practicable, a written action or decision should carry no more than $3$ initials or signatures. This means the limit should be followed when it can reasonably be done. A law or regulation may require otherwise.
+
+If the proper signer is absent, the next-in-rank official or officer in charge signs on that person's behalf. Another person may sign when properly authorized under the office's rules. An absent signer should not cause needless delay.
+
+### Public Access and Lawful Limits
+
+Public documents must be ready for public inspection during reasonable working hours. A document is not secret merely because an office would rather keep it private.
+
+Some records have lawful protection. For example, release may expose national-security secrets, put a person's life in immediate danger, or reveal private personal details without a proper reason. **Privileged information** is information the law protects from disclosure, such as certain confidential lawyer-client communications.
+
+The rules also recognize protection for draft decisions and certain investigation records. Investigation records may be withheld when release would harm enforcement, deny a fair trial, reveal a confidential source, or improperly expose investigation methods. The office must connect the refusal to a lawful ground.
+
+Other limited cases involve early release that would seriously harm financial markets or defeat a planned official action. These rules have conditions. They do not allow an office to label every unfinished matter secret.
+
+### Failure to Respond and a Fair Process
+
+Failure to act promptly may lead to **administrative disciplinary action**. This is a process for deciding whether a public worker broke a work rule and should receive a penalty. A complaint does not make the worker guilty.
+
+The proper authority examines the complaint and supporting records. If a charge proceeds, the worker must learn the charge and have a fair chance to answer it and present evidence. The authority must consider that evidence before deciding.
+
+A worker may show dated proof that a reply was sent on time. For a complex request, the reply may show that the office explained the work still needed within the required period. That can answer an accusation that the office gave no response.
+
+Proof that another office had authority, together with a timely referral and notice to the sender, may also matter. A court order or missing required paper may explain a delay in completing a document. It does not automatically excuse total silence about a written request.
+
+### Private Interests and Prohibited Acts
+
+A **financial or material interest** is a money or property stake. A worker must not have such a stake, directly or through another person, in a transaction that needs the worker's office to approve it.
+
+Outside work can also be prohibited. Without express permission in law, a worker must not own, control, manage, or accept covered work in a private business that the worker's own office oversees or licenses. A supervisor's casual approval is not a law allowing the work.
+
+Private professional practice needs legal authority under the Constitution, law, or applicable regulation. It must also not conflict, or tend to conflict, with public duties. Permission and absence of conflict are separate tests.
+
+A worker generally must not recommend someone for a job in a private business with a regular or pending official transaction with the office. The rules allow referrals required by law, an international agreement or commitment, or the worker's assigned public duties.
+
+The outside-business and recommendation bans continue for $1$ year after the worker leaves office. Private practice has a different limit: for $1$ year, the former worker cannot practice on a matter before the former office.
+
+**Confidential or classified information** is work information that is protected and not made public. A worker must not use or share it to serve a private interest, give anyone an unfair advantage, or harm the public.
+
+Workers must not ask for or accept gifts, favors, entertainment, loans, or other valuable benefits tied to their duties, a business their office oversees, or a transaction their office can affect. Gift exceptions have specific conditions. A gift's small size alone does not prove that it is allowed.
 
 ## Examples
 
-### #1: Acting on a Written Request
+### #1: Written Reply Deadline
 
-A citizen sends a written request to a government office. Under Section $5$ of RA $6713$, within how many working days must the office act on the communication?
-
-**Solution:**
-
-1. The rule covers letters and similar communications from the public.
-2. The office must act within $15$ working days from receipt.
-3. The reply must state what action was taken.
-4. Therefore, the office must act within $15$ working days.
-
-### #2: Request Sent to the Wrong Office
-
-A citizen sends a request to Agency A, but the matter belongs to Agency B. Agency A knows which office has authority over the matter. What should Agency A do?
+A citizen sends a written request to a government office. What response does Section $5$ require, and within what period?
 
 **Solution:**
 
-1. The request is outside Agency A's authority.
-2. Agency A should refer the request to the proper office.
-3. It should also tell the citizen about the referral.
-4. Ignoring the request simply because it reached the wrong office is not the proper response.
+1. The office must reply within $15$ working days after receiving the request.
+2. Its reply must say what action it took. Receiving the letter without answering is not enough.
 
-### #3: Reasonable Time and Signatures
+### #2: A Complex Request and a Complaint
 
-An office is processing a document. No law gives a fixed deadline, and an agency rule says the matter may take longer because a court order temporarily prevents action. The document also needs $4$ signatures because another regulation requires them. Which rules apply?
+A request needs a review of old files. Within $15$ working days, the office explains that the review is underway and why more time is needed. The citizen later claims the office failed to respond because the review is not finished. What evidence matters?
 
 **Solution:**
 
-1. With no fixed legal deadline, the agency's reasonable-time rules apply.
-2. A legal order that prevents action may be considered when deciding what time is reasonable.
-3. The usual limit of no more than $3$ signatures is qualified by the phrase "as far as practicable" and by laws or regulations that provide otherwise.
-4. Because another regulation requires $4$ signatures, the $3$-signature guideline does not override that regulation.
+1. The dated reply matters. A complex matter can require more time to finish, but the office must still explain its action within the reply period.
+2. The authority should check what the reply said and when it was sent.
+3. The unfinished review alone does not prove that no response was given. Any charge must still be decided through a fair process.
 
-### #4: Missing Authorized Signer
+### #3: A Request for Another Office
 
-A document is ready, but the regular authorized signer is absent. Must the document always wait for that person to return?
-
-**Solution:**
-
-1. The rules allow another authorized person to sign when the regular signer is absent.
-2. The next-in-rank official, officer in charge, or another person authorized under the office's rules may sign.
-3. Therefore, the document does not always have to wait for the regular signer.
-
-### #5: Annual Report and Public Access
-
-A government agency finishes the year but waits $60$ working days before submitting its annual performance report. It also keeps the report from public inspection during regular office hours. Is this consistent with Section $5$?
+Agency A receives a request that belongs to Agency B. It knows which office can act. What should it do?
 
 **Solution:**
 
-1. The annual performance report is due within $45$ working days from the end of the year.
-2. Waiting $60$ working days goes beyond that period.
-3. The report must also be open to the public during regular office hours.
-4. Both actions are inconsistent with the duty stated in Section $5$.
+1. Agency A should send the request to Agency B.
+2. It should tell the sender about the referral. It should not simply leave the letter unanswered.
 
-### #6: Lawful Limit on Public Access
+### #4: A Visitor at the Counter
 
-A person asks to inspect a government record containing private personal information. Releasing it would clearly invade another person's privacy without a proper public reason. Must the office release it just because it is a government record?
+During office hours, a worker has no waiting tasks but tells a visitor to return another day. The visitor has all papers needed for a routine service. Is the written-reply period a valid reason for the delay?
 
 **Solution:**
 
-1. Public access is the general rule, but lawful restrictions still apply.
-2. The implementing rules recognize protection against a clearly unwarranted invasion of personal privacy.
-3. Therefore, the office may withhold the protected information when that lawful restriction applies.
+1. This is a request for service in person. The worker must attend to it promptly.
+2. The $15$-working-day reply rule does not permit an unjustified delay at the counter.
 
-### #7: Private Financial Interest in an Approval
+### #5: Court Order and Required Signatures
 
-A public employee owns a financial interest in a company. The employee's office must approve a transaction involving that same company. Is the situation covered by the prohibited-act rule?
+No law sets a document's completion deadline. A court order prevents further action for now. Another regulation requires $4$ signatures. Does the usual $3$-signature guideline require the office to ignore these conditions?
 
 **Solution:**
 
-1. The employee has a financial interest in the company.
-2. The transaction requires approval by the employee's office.
-3. A direct or indirect financial or material interest in such a transaction is prohibited.
-4. Therefore, the situation falls under the prohibited-act rule.
+1. A court order stopping work is a fact the agency may consider in judging reasonable time.
+2. The signature guideline allows a different requirement set by law or regulation.
+3. The office may not ignore the court order or omit a required signature just to meet the usual guideline.
 
-### #8: Work for a Regulated Company
+### #6: An Absent Signer
 
-A licensing officer accepts a paid consultant role in a private company licensed by the officer's own agency. No law expressly allows the arrangement. Is this allowed?
+A document is ready, but its usual authorized signer is absent. Must it always wait for that person's return?
+
+**Solution:**
+
+The next-in-rank official or officer in charge may sign on the absent person's behalf. A properly authorized substitute can prevent needless delay.
+
+### #7: Late Annual Report
+
+An agency submits its annual performance report $60$ working days after the year ends. It also refuses all public inspection during regular office hours. Are these actions consistent with Section $5$?
+
+**Solution:**
+
+1. The report is due within $45$ working days. Submission after $60$ working days is late.
+2. The report must be open for public inspection during regular office hours.
+3. Both actions fail to meet the stated duties.
+
+### #8: Private Details in a Record
+
+Someone requests a government file containing another person's private medical details. The facts show no proper reason to expose those details. Must the office release them merely because it holds the file?
+
+**Solution:**
+
+1. Public access has lawful limits that protect personal privacy.
+2. The office may withhold protected details when release would improperly invade that privacy.
+3. Keeping a record in a government office does not remove its legal protection.
+
+### #9: An Unpaid Government Volunteer
+
+A person formally serves a government office without pay. The person claims that exemption from SALN filing also allows accepting gifts for official favors. Is the claim correct?
+
+**Solution:**
+
+1. Free-service volunteers remain covered by the Code's duties and bans.
+2. Their SALN filing exemption concerns a different duty.
+3. The person cannot use that exemption to accept gifts for official favors.
+
+### #10: Ownership and Office Approval
+
+An employee owns shares in a company. A transaction involving that company needs approval by the employee's office. Which prohibited act is involved?
+
+**Solution:**
+
+1. Shares give the employee a money stake in the company.
+2. The transaction requires approval by the employee's own office.
+3. These facts bring it within the ban on a financial or material interest in such a transaction.
+
+### #11: Work for a Licensed Business
+
+A licensing officer accepts a consultant job with a company licensed by the officer's agency. No law expressly allows it. May the officer accept the role?
 
 **Solution:**
 
 1. The company is licensed by the officer's own agency.
-2. Consultant is one of the outside roles covered by the rule.
-3. No law expressly allows the arrangement.
-4. Therefore, accepting the consultant role is prohibited.
+2. The outside-work rule covers consultant jobs in that business.
+3. No law allows this arrangement, so the officer may not accept it.
 
-### #9: Confidential Information Used for Private Gain
+### #12: Two Tests for Private Practice
 
-A public employee learns confidential information through work and gives it to a friend so the friend can gain an advantage in a private transaction. Is this allowed?
-
-**Solution:**
-
-1. The information is confidential and came from public office.
-2. It is being disclosed to give another person an unfair private advantage.
-3. Section $7$ prohibits that use or disclosure.
-4. Therefore, the employee may not give the information to the friend.
-
-### #10: Recommendation Required by Official Duty
-
-A public officer refers a qualified person to a private enterprise that has a pending transaction with the officer's agency. The referral is specifically required as part of the officer's official functions. Does the general recommendation ban automatically make the referral unlawful?
+A government lawyer has legal permission to take private clients. One client wants help on a matter that conflicts with the lawyer's public duties. Another government lawyer has no legal authority to take private clients but says the work would cause no conflict. May either rely on the stated reason alone?
 
 **Solution:**
 
-1. The general rule restricts recommendations to a private enterprise with a regular or pending transaction with the office.
-2. The implementing rules treat a recommendation or referral required by law or official functions differently.
-3. Here, the referral is required by the officer's official functions.
-4. Therefore, the general ban does not automatically make this required referral unlawful.
+1. The first lawyer has permission, but the proposed work conflicts with public duties. That work is not allowed.
+2. The second lawyer claims no conflict, but lacks legal authority for private practice. That claim alone is not enough.
+3. Both legal authority and absence of conflict are required.
 
-### #11: Gift Connected to a Regulated Transaction
+### #13: Sharing a Protected File
 
-A business owner offers an expensive gift to an employee of the agency that regulates the business. The gift is connected with the owner's dealings with the agency. May the employee accept it?
+An employee shares a confidential work file to give a friend an unfair advantage in a private deal. Is this allowed?
 
 **Solution:**
 
-1. The giver has dealings connected with an operation regulated by the employee's office.
-2. The item has monetary value and is connected with official functions.
-3. The gift prohibition applies unless a specific exception is clearly met.
-4. On these facts, no exception is given, so the employee should not accept the gift.
+1. The employee learned the protected information through work.
+2. Sharing it gives someone an unfair private advantage. The Code prohibits that act.
+
+### #14: A Required Job Referral
+
+An officer's assigned public duties require referring qualified job seekers to employers. A referral goes to a company with a pending agency transaction. Does that fact alone make the required referral unlawful?
+
+**Solution:**
+
+1. The general ban covers recommendations to companies with regular or pending office transactions.
+2. The rules recognize referrals required by the officer's assigned duties.
+3. The pending transaction alone does not make this required referral unlawful.
+
+### #15: A Gift for Favorable Treatment
+
+A regulated business offers an expensive gift to an agency employee in return for favorable treatment. May the employee accept?
+
+**Solution:**
+
+1. The gift is tied to work the agency can affect.
+2. It is offered for an official favor. No gift exception is shown, so the employee may not accept it.
 
 ## Traps to Watch For
 
-### #1: Treating the $3$-Signature Rule as Absolute
+### #1: Confusing a Reply With Final Completion
 
-> The usual $3$-signature limit has conditions and exceptions.
+> A complex matter still needs a timely reply.
 
-The rule says "as far as practicable," and a law or regulation may provide otherwise. An exam item may test that qualifier instead of the number alone.
+The office may need time to finish a review. It must explain the action being taken within the reply period. Silence and an unfinished review are different facts.
 
-### #2: Assuming Every Government Record Must Be Released
+### #2: Treating the Signature Guideline as Absolute
 
-> Public access is broad, but lawful limits still exist.
+> Read the conditions attached to the $3$-signature guideline.
 
-Look for facts about security, privacy, privilege, draft decisions, investigations, or another legal restriction. Those facts can change the answer.
+It applies as far as practicable. A law or regulation may require more signatures. An absent signer may also have an authorized substitute.
 
-### #3: Mixing Code Coverage with SALN Exemptions
+### #3: Assuming Every Record Is Open Without Limits
 
-> Do not use the SALN exemption list as the definition of who the Code covers.
+> A refusal needs a lawful ground.
 
-The Code's implementing rules state their own broad coverage. SALN filing rules are a separate question with separate exemptions.
+Privacy, safety, security, and protected investigations can limit access. A mere wish to avoid public attention is not enough.
 
-### #4: Treating a Disciplinary Ground as an Automatic Penalty
+### #4: Assuming a Complaint Proves Guilt
 
-> A listed ground can start a disciplinary issue, but it does not decide the case by itself.
+> The worker must have a fair chance to answer.
 
-Administrative proceedings still follow Civil Service law and rules. First identify the duty and whether the facts show that it was actually violated.
+Check receipt dates, replies, referrals, and reasons for delay. An accusation alone does not settle whether a duty was broken.
+
+### #5: Mixing SALN Exemptions With Code Coverage
+
+> An exemption from filing does not erase conduct rules.
+
+A free-service volunteer remains subject to duties and gift bans. Always check which specific rule the exemption concerns.
