@@ -1799,3 +1799,19 @@ the exam actually tests, as the triage did; connector-refused batches go straigh
 > go with your adjustments
 
 Not yet approved: deleting branches `cse-inbox/RD-003` and `cse-inbox/RD-006`.
+
+## 2026-10-25/26 CSE rewrite: first pass done, overnight Codex loop
+
+- Branch deletions approved: "ok with deletions as long as it's safe to delete". Empty or fully handed-in
+  `cse-inbox/*` branches were deleted; branches with unmerged work were saved first.
+- Aedwon asked to stop pasting: "can you use codex a to complete the things please i'm tired of copy pasting lol",
+  then "keep this path purely codex for now". Codex now writes and reads; for Codex-written lessons the reader is
+  the same model, and the Astra audit is the independent check.
+- Hand-in gate changes by the lead after false positives: the figure sweep no longer treats "folder" as folding;
+  the formula sweep accepts letters an example names itself and is a reader note, not a block; polish-level sweep
+  findings go to the reader instead of rejecting.
+- First pass result: 86 lessons rewritten and read; 15 clean, 17 minor only, 45 with Majors, 9 with Blockers.
+  A reader Blocker claiming the SALN deadline is April 15 was dropped: RA 6713 Section 8(A) says April 30.
+- Overnight mandate (/goal): "please babysit this entire process of content while i sleep ... you can max out the
+  codex usage". Choices: "Loop until clean", "Use A, B and C", "Start question blind-solves". Engineering:
+  "i deliberately stopped engineering to focus on content". A lesson is parked for Aedwon after 5 rewrite rounds.
