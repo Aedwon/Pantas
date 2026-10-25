@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-parallelism"
 title: "Parallelism / Parallel Structure"
-summary: "Learn how to keep matching parts of a sentence in the same grammatical form for clarity and balance."
+summary: "Learn how to make lists, paired ideas, and comparisons use matching grammatical forms."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 9
@@ -9,20 +9,19 @@ isActive: true
 ---
 ## Core Concept
 
-**Parallelism** (or **parallel structure**) means that similar parts of a sentence (items in a list, choices joined by "or," or ideas linked by "and") should all use the same grammatical form.
+**Parallelism** or **parallel structure** means that parts doing the same job in a sentence use matching forms. This often appears in lists, paired ideas, and comparisons.
 
-"She likes *swimming*, *hiking*, and *reading*." All three items are "-ing" words (gerunds), so the list is parallel and reads smoothly.
+"She likes *swimming, hiking,* and *reading*." All three list items use the *-ing* form, so the list is parallel.
 
-"She likes *swimming*, *to hike*, and *reading*." This list mixes forms: two "-ing" words and one "to + verb" phrase. This breaks parallelism and sounds awkward, even though each individual item is grammatically fine on its own.
+"She likes *swimming, to hike,* and *reading*." The list mixes an *-ing* form with a *to + verb* form. The sentence is not parallel.
 
-Parallelism especially matters with **correlative conjunctions**, word pairs that connect two balanced parts: *either...or*, *neither...nor*, *not only...but also*, *both...and*. Whatever grammatical form follows the first word of the pair must be matched by the same form after the second word.
+Parallelism also matters with **correlative conjunctions**, pairs such as *either...or, neither...nor, not only...but also,* and *both...and*. The parts joined by the pair should have matching forms.
 
-"She wanted *not only* to travel *but also* to save money." Both halves use "to + verb." "She wanted *not only* traveling *but also* to save money" breaks this matching pattern.
+"She wanted *not only to travel but also to save money*." Both joined parts use *to + verb*.
 
-| Structure Pattern | List Item Forms | Parallelism Status |
-| --- | --- | --- |
-| **Matching forms** | `-ing`, `-ing`, `-ing` | Parallel |
-| **Mismatched forms** | `-ing`, `to + verb`, `-ing` | Broken parallelism |
+A **base verb form** is the plain form of a verb, such as *install, update,* or *troubleshoot*. In "how to install, update, and troubleshoot," one *to* can apply to all three base verbs. You do not need to repeat *to* before every verb when the shared meaning stays clear.
+
+Matching form does not always mean matching visible endings. First find the parts that do the same job, then check whether their grammar matches.
 
 ## Examples
 
@@ -31,61 +30,77 @@ Parallelism especially matters with **correlative conjunctions**, word pairs tha
 Identify and fix the parallelism error: "The coach told the team to run faster, jumping higher, and to try harder."
 
 **Solution:**
-1. The list mixes forms: "to run" (to + verb), "jumping" (-ing), and "to try" (to + verb).
-2. Change "jumping" to match the "to + verb" pattern used by the other two items.
+
+1. The list mixes *to run*, *jumping*, and *to try*.
+2. Change *jumping* to the matching *to + verb* form.
 3. Corrected sentence: "The coach told the team *to run faster, to jump higher,* and *to try harder*."
 
-### #2: Fixing a Correlative Conjunction
+### #2: Fixing a Correlative Pair
 
 Identify and fix the parallelism error: "The festival was not only fun but also it was educational."
 
 **Solution:**
-1. After "not only," the sentence uses the adjective "fun." After "but also," it awkwardly uses a full clause, "it was educational," instead of matching with just the adjective "educational."
-2. Match the second half's form to the first half's form (a plain adjective).
+
+1. After *not only*, the sentence uses the describing word *fun*. After *but also*, it uses the longer part *it was educational*.
+2. Make both joined parts use the same form.
 3. Corrected sentence: "The festival was not only *fun* but also *educational*."
 
 ### #3: Choosing the Parallel Sentence
 
-Choose the sentence with correct parallel structure: (A) "The manual explains how to install the software, updating it, and troubleshoot common errors." (B) "The manual explains how to install the software, update it, and troubleshoot common errors."
+Choose the sentence with correct parallel structure.
+
+(A) "The manual explains how to install the software, updating it, and troubleshoot common errors."  
+(B) "The manual explains how to install the software, update it, and troubleshoot common errors."
 
 **Solution:**
-1. In (A), the list mixes "install" (base verb), "updating" (-ing), and "troubleshoot" (base verb).
-2. In (B), all three items ("install," "update," and "troubleshoot") use the same base verb form.
-3. The correct sentence is (B).
+
+1. In (A), *updating* does not match the base verbs *install* and *troubleshoot*.
+2. In (B), *install, update,* and *troubleshoot* are all base verbs.
+3. The single *to* in *how to install* can apply to the whole list.
+4. The correct answer is (B).
 
 ### #4: Parallelism in Comparisons
 
 Identify and fix the parallelism error: "Reading a book is more relaxing than to watch television."
 
 **Solution:**
-1. The comparison mismatches "reading" (-ing form) with "to watch" (to + verb form).
-2. Match the second half's form to the first half's form.
+
+1. The comparison matches *reading* with *to watch*, which use different forms.
+2. Change the second part to an *-ing* form.
 3. Corrected sentence: "Reading a book is more relaxing than *watching* television."
 
 ## Speed Tricks & Shortcuts
 
-**Scan the list for matching endings.** For any list joined by "and" or "or," quickly check whether each item ends the same way (all "-ing," all "to + verb," all plain nouns, and so on).
+**Line up the list items.** Check whether they use the same kind of word or phrase.
 
-**With correlative conjunctions, cover up everything except the two matched parts.** Read only what comes right after "either/or," "not only/but also," or "both/and" and check that both halves share the identical grammatical form.
+**Do not check endings alone.** A shared word can apply to several items. In "to read, write, and revise," the single *to* can apply to all three base verbs.
 
-**In comparisons using "than" or "as," check both sides of the comparison** for matching form, the same way you would check a list.
+**With a correlative pair, compare the two joined parts.** Check what follows *either/or, not only/but also,* or *both/and*.
+
+**In comparisons with *than* or *as*, check both sides.** Matching ideas should also use matching forms.
 
 ## Traps to Watch For
 
-### #1: Missing a Parallelism Break Hidden in a Long Sentence
+### #1: Missing an Error in a Long Sentence
 
-> Break a long sentence down into its individual list items or paired halves, and check each one's form separately.
+> Break a long list into separate items and check each one.
 
-Long, complex sentences can hide a parallelism error in the middle, especially when the mismatched item is not the last one in the list. Always check every item, not just the first and last.
+A mismatch can hide in the middle of a sentence. Do not check only the first and last items.
 
-### #2: Assuming Each Item Only Needs to Be Grammatically Correct on Its Own
+### #2: Assuming Each Item Only Needs to Work by Itself
 
-> Parallel structure requires matching form across all items, even if each individual item would be fine as a standalone sentence.
+> Items that are individually possible can still fail to match each other.
 
-"She enjoys hiking and to swim": both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.
+"She likes hiking and to swim" mixes two forms that can each follow *like*. Make the pair parallel, such as "She likes hiking and swimming."
 
-### #3: Forgetting That Correlative Conjunctions Need Matching Forms on both Sides
+### #3: Repeating Every Shared Word
 
-> Whatever word or phrase form immediately follows the first half of a correlative pair (*either*, *not only*, *both*) must be echoed by the same form after the second half (*or*, *but also*, *and*).
+> Parallel items do not always need the same word repeated before each one.
 
-A sentence like "He wanted either to win or winning" breaks this rule; both halves need the same form: "either *to win* or *to lose* gracefully," or "either *winning* or *losing* gracefully."
+"She wants to read, write, and revise" is parallel because *to* can apply to the three base verbs.
+
+### #4: Forgetting the Two Sides of a Correlative Pair
+
+> The parts joined by *either...or* or *not only...but also* should have matching forms.
+
+"He wanted either to win or winning" mixes forms. A parallel version is "He wanted either to win or to finish with pride."
