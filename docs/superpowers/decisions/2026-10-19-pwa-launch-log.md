@@ -1745,3 +1745,15 @@ lead starts P0 preparation that needs no ChatGPT, delegating to Sonnet 5.5 and H
 `content/cse-rewrite-r1` created from `content/question-qa-r2` at 765c5dc0 (base unchanged) and
 pushed; worktree `Pantas-wt-cse-rewrite-r1`. App code for SVG display waits until it can be
 coordinated with the engineering run.
+
+## October 25: lesson figure style
+
+Options shown on the private page "Lesson Figure Styles" (version 1): A clean textbook, B friendly
+illustrated, C bold infographic, D modern flat with depth. Asked which costs least to generate,
+the lead answered C, then A; B and D cost up to about half again as much on small figures.
+Aedwon's exact reply:
+
+> hmm i think the quality bar should reach modern flat with deph. let's go with that
+
+Decision: style D. Reference files and style rules on `content/cse-rewrite-r1` in
+`docs/content/rewrite/figure-style/`.
