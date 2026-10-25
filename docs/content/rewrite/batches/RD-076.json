@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "547c268eabedfbc14b46bd89afd4e44a8a462e22",
+  "lesson-arithmetic-number-sense-sequences-and-series": "547c268eabedfbc14b46bd89afd4e44a8a462e22"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "252b918bd888d73301d3c7ec8ab182d758c64a58de98676c71abdcb8dae13cb9",
+  "lesson-arithmetic-number-sense-sequences-and-series": "9df0ddeaa29e757900b07ff0405ac615256aeb8b348347aeccc911e0ab284cc2"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": "content/lessons/mathematics/arithmetic-number-sense/fractions-decimals-percentages.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "id": "RD-076",
+ "type": "read",
+ "created": "2026-10-25T22:27:40+00:00"
+}
