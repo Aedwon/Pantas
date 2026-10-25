@@ -1,0 +1,293 @@
+{
+  "packet": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
+  "role": "A",
+  "lesson_sha256": "db59b1a739596a022f9919af4bc5b728a36bc9616f73f93df244b34410b18fdb",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+    "B01": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the logic definitions and factual premises used in the teaching and examples; the validity/soundness distinctions and the mammal, whale, bird, and penguin statements are used correctly."
+      ],
+      "note": ""
+    },
+    "B02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Solved #1 independently: valid and sound.",
+        "Solved #2 independently: valid by modus ponens.",
+        "Solved #3 independently: invalid by affirming the consequent.",
+        "Solved #4 independently: valid by modus tollens.",
+        "Solved #5 independently: invalid by denying the antecedent.",
+        "Solved #6 independently: valid form but unsound because the first premise is false.",
+        "Solved #7 independently: valid disjunctive syllogism.",
+        "Solved #8 independently: a decision must be sent."
+      ],
+      "note": ""
+    },
+    "B03": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the Reasoning section structure and figure needs: Core Concept, Examples, a genuine shortcut section, and Traps are present; the categorical set relationships have specific circle illustrations where they help."
+      ],
+      "note": ""
+    },
+    "L02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Read the teaching prose for sentence length and vocabulary; technical names such as categorical syllogism, modus ponens, and disjunctive syllogism are immediately paired with simple explanations."
+      ],
+      "note": ""
+    },
+    "L03": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in the lesson."
+    },
+    "L04": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked Core Concept and the rest of the lesson for tutor analogies; none are used."
+      ],
+      "note": ""
+    },
+    "L05": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked all eight example stems for a clear task and necessary givens, and checked the solutions for simple language; each stem asks what to determine instead of presenting only an argument."
+      ],
+      "note": ""
+    },
+    "L07": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked for specific-exam mentions and repeated exam-motivation openers; the lesson makes no specific exam-content claims and has no repeated exam opener."
+      ],
+      "note": ""
+    },
+    "L08": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is an English-language Reasoning lesson, so the Filipino teaching-prose rule does not apply."
+    },
+    "L09": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This English lesson does not introduce Filipino grammar terms that would need an English gloss."
+    },
+    "L10": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is not a Filipino-language lesson, so Filipino example and quiz language requirements do not apply."
+    },
+    "L11": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson contains no Filipino teaching text whose spelling or usage needs a KWF source check."
+    },
+    "L12": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson is written in English, so the no-Taglish rule for Filipino teaching prose does not apply."
+    },
+    "L14": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No question asks about a target word or refers to a word as bold or underlined."
+    },
+    "L15": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked for the listed stock AI phrases, repetitive sentence openings, and a formulaic summary; none appear, and the summary plainly describes the lesson."
+      ],
+      "note": ""
+    },
+    "L17": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked Reasoning section fit and symbolic forms: the shortcut section contains actual validity, arrow, and circle shortcuts; every conditional form used in examples is introduced in Core Concept first."
+      ],
+      "note": ""
+    },
+    "L18": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Mapped the taught cases to worked examples: categorical validity #1, modus ponens #2, affirming the consequent #3, modus tollens #4, denying the antecedent #5, valid-but-unsound #6, disjunctive syllogism #7, and conditional chain #8."
+      ],
+      "note": ""
+    },
+    "L19": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked every multi-step solution: #1 and #6 use numbered two-step lists, #8 uses a numbered two-step chain, and the remaining examples are one-step verbal judgments allowed to stay in prose."
+      ],
+      "note": ""
+    },
+    "L21": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson has no display equations, so there is no phone-width display equation to evaluate."
+    },
+    "L22a": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked paragraph length and list use; prose paragraphs stay within one to three short sentences, and bullets are limited to compact form summaries."
+      ],
+      "note": ""
+    },
+    "L23": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked every illustration placeholder for specificity and independence: each names the circles, labels, nesting or overlap, and marked item, while the surrounding prose still teaches the reasoning."
+      ],
+      "note": ""
+    },
+    "L25": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked necessary terms and symbols before use: premises, valid, sound, categorical group statements, circle meanings, and P/Q/R are explained before the examples rely on them."
+      ],
+      "note": ""
+    },
+    "L26": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked that each core concept explains how it works: circle inclusion is tied to all/no/some, conditional forms state their inference pattern, invalid forms explain the alternative cause, and chains show P to Q to R."
+      ],
+      "note": ""
+    },
+    "L27": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked conditions and limits for the taught rules: validity is separated from truth, soundness requires true premises, conditional reversals are rejected, and the disjunctive case explains that or may allow both."
+      ],
+      "note": ""
+    },
+    "B09": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the script candidate and the lesson for score terminology; the word 'mark' refers to a visual point placed in a circle, not an exam score."
+      ],
+      "note": ""
+    }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L05|0": {
+      "status": "fixed",
+      "quote": "All mammals are warm-blooded. A whale is a mammal. Therefore, a whale is warm-blooded. Is the argument valid? If it is valid, is it sound?",
+      "note": "The rewritten example now gives an explicit exam-style task asking the student to judge validity and soundness."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L18|0": {
+      "status": "fixed",
+      "quote": "If a permit is approved, the office sends a notice. The permit was approved. Therefore, the office sent a notice. Is the argument valid?",
+      "note": "Modus ponens now has its own worked example, so the taught valid form is covered in the Examples section."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L18|1": {
+      "status": "fixed",
+      "quote": "If Leo takes the bus, he will arrive by noon. Leo did not take the bus. Therefore, Leo will not arrive by noon. Is the argument valid?",
+      "note": "Denying the antecedent now has its own worked example and the solution explains why another route could still produce the result."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L26|1": {
+      "status": "fixed",
+      "quote": "If **all A are B**, draw the A circle inside the B circle.",
+      "note": "The circle method now explains how class inclusion is drawn, followed by no and some cases and a rule for testing the conclusion."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L02|0": {
+      "status": "fixed",
+      "quote": "Deduction does not have to go from a broad statement to a specific one. It can use broad or specific statements. What matters is whether the conclusion must follow from the premises.",
+      "note": "The abstract wording was replaced with short, concrete sentences about broad or specific statements and whether the conclusion follows."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L02|1": {
+      "status": "fixed",
+      "quote": "A **categorical syllogism** is a deductive argument about groups. It uses statements such as \"all A are B,\" \"no A are B,\" or \"some A are B.\"",
+      "note": "The definition now says the idea is an argument about groups and gives simple all, no, and some statement forms."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L02|2": {
+      "status": "fixed",
+      "quote": "Another valid form is **disjunctive syllogism**. If the premises say \"either $P$ or $Q$\" and also say \"not $P$,\" then $Q$ must be true.",
+      "note": "The dense inclusive-disjunction wording was replaced with a direct explanation of the either-or pattern and what follows."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L25|0": {
+      "status": "fixed",
+      "quote": "The letters $P$, $Q$, and $R$ stand for whole statements. For example, $P$ could mean \"the permit is approved.\"",
+      "note": "The lesson now defines P, Q, and R as whole statements before using them to teach conditional forms."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L25|1": {
+      "status": "fixed",
+      "quote": "In some questions, \"or\" may allow both choices to be true, but ruling out one still leaves the other.",
+      "note": "The lesson now explains the relevant meaning of or in plain language before the disjunctive example relies on it."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L25|2": {
+      "status": "fixed",
+      "quote": "Words such as *all*, *no*, and *some* tell you how the circles should sit.",
+      "note": "The unexplained term quantifier was removed and replaced with the actual words all, no, and some that students need to recognize."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L26|0": {
+      "status": "fixed",
+      "quote": "A **conditional chain** links statements in the same direction. If $P$ leads to $Q$, and $Q$ leads to $R$, then $P$ leads to $R$.",
+      "note": "The lesson now defines a conditional chain and directly shows how the conclusion follows through P, Q, and R."
+    },
+    "reasoning-logical-verbal-reasoning#14": {
+      "status": "fixed",
+      "quote": "Use the circles to test the conclusion. A conclusion is valid only if the picture forced by the premises also forces the conclusion.",
+      "note": "Categorical class inclusion now has a local representation procedure plus a decision rule for using the circles to test the conclusion."
+    },
+    "reasoning-logical-verbal-reasoning#20": {
+      "status": "fixed",
+      "quote": "The conclusion does not have to follow. Leo may arrive by noon in another way, so this is the invalid form called denying the antecedent.",
+      "note": "Denying the antecedent now has a worked decision and explains the alternative route that makes the proposed conclusion invalid."
+    },
+    "reasoning-logical-verbal-reasoning#22": {
+      "status": "fixed",
+      "quote": "If the records are complete, the application will be reviewed. If the application is reviewed, a decision will be sent. The records are complete. What conclusion must follow?",
+      "note": "Conditional chains now have both a local P-to-Q-to-R procedure and a worked multi-premise application that asks for the forced conclusion."
+    },
+    "reasoning-logical-verbal-reasoning#23": {
+      "status": "fixed",
+      "quote": "For group statements, circles can show the relationship:",
+      "note": "The lesson now gives a concrete circle procedure for all, no, and some statements and then tells students how to test a conclusion with it."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L17|0": {
+      "status": "fixed",
+      "quote": "**Follow conditional arrows in the same direction.** For a chain, move from $P$ to $Q$ to $R$. Do not reverse an arrow unless the logic gives you a valid reason.",
+      "note": "The Speed Tricks section now contains genuine shortcuts, so keeping it is allowed by the current Reasoning subject-fit rule."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L18|2": {
+      "status": "fixed",
+      "quote": "If the records are complete, the application will be reviewed. If the application is reviewed, a decision will be sent. The records are complete. What conclusion must follow?",
+      "note": "The final example is now a two-link conditional-chain problem rather than only a one-step form-recognition item."
+    },
+    "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic|L19|0": {
+      "status": "fixed",
+      "quote": "1. Complete records lead to a reviewed application.",
+      "note": "Multi-step worked solutions now use numbered steps; one-step verbal validity judgments remain prose as the guide permits."
+    }
+  }
+}
