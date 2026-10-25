@@ -155,9 +155,13 @@ No model checks its own work. Every rewritten lesson gets a fresh chat's full re
      before the pilot; a mismatch is a blocker.
    - The hand-in script validates each item (lesson checks, import check, change guard, form
      checks), refuses on any change outside the batch's paths, moves accepted files into place,
-     commits them with the batch id, and pushes the rewrite branch. The chat never commits or
-     pushes. Rejections print numbered reasons only; the chat fixes them in the same chat (two
-     attempts, then the item goes to Codex).
+     and commits them with the batch id. The script never pushes: the relay forbids pushing from
+     scripts. After an accepted hand-in the chat runs the relay's guarded `git_push_current`.
+     The chat makes no other commit. Rejections print numbered reasons only; the chat fixes them
+     in the same chat (two attempts, then the item goes to Codex).
+   - Relay operations on one worktree wait for each other (15-minute lock wait). With 2 or 3
+     chats at once this is acceptable; if waits time out in the pilot, give each subject lane
+     its own worktree and branch, merged by the lead.
    - A GitHub Actions workflow on the rewrite branch reruns the lesson and question checks on
      each push (public repository, so minutes are free). A failing push stops new batches.
    - The page marks an item done when its commit is on the remote branch and the check passed,
