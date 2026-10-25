@@ -1,0 +1,281 @@
+{
+ "batch": "RD-043",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md",
+ "lesson_sha256": "b8d710fe54414a2859082cec012ce0f05b4396bef7b56baec49020f2f69663db",
+ "rewrite_commit": "783d6623d931dffc49b09c41669a29d5fcbf5e3b",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts",
+  "role": "A",
+  "lesson_sha256": "b8d710fe54414a2859082cec012ce0f05b4396bef7b56baec49020f2f69663db",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "The 15-working-day reply, 45-working-day annual report, qualified three-signature limit, substitute signer, and one-year post-service rules agree with the legal points identified in the brief.",
+     "Code coverage and separate volunteer SALN exemption are distinguished. Financial interests, licensed-business employment, private practice, referrals, confidentiality, and work-linked gifts are presented as separate prohibitions."
+    ],
+    "note": "No external legal sources were opened. The packet does not reproduce the implementing rules for independently confirming every access exception and volunteer condition.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 reply within 15 working days stating action taken; #2 examine dated timely explanatory reply, not completion alone; #3 refer to Agency B and inform sender; #4 no, attend promptly.",
+     "#5 obey the court order and regulation requiring four signatures; #6 authorized next-in-rank or officer-in-charge substitute; #7 both late reporting and denial of inspection breach duties; #8 protected private medical details may be withheld.",
+     "#9 volunteer filing exemption does not allow gifts for favors; #10 prohibited financial stake in an office-approved transaction; #11 no licensed-company consultancy without legal permission; #12 neither lawyer satisfies both permission and no-conflict tests.",
+     "#13 prohibited protected-file disclosure; #14 required-duty referral exception applies; #15 reject the work-linked reward. Each independent answer agrees with its solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omitting Speed Tricks & Shortcuts. The verbal legal cases require no figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Implementing-rule consequences are restated as a process to decide a work-rule violation and penalty. Coverage, appointment, working days, reasonable time, privacy, and money stakes receive plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special tested meaning is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All fifteen stems state the facts needed for the selected case, including missing legal permission, required referrals, private medical details, and reply dates. Solutions avoid the former statutory-deadline lead-in and use plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-based introductory phrases appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning or use of a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the specific subject matter. Teaching openings vary; none of the listed stock AI expressions appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information reduced section layout is allowed. No example uses a mathematical formula; numerical deadlines and signature limits are introduced in Core Concept before examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–9 cover reply, complexity, referral, in-person service, reasonable-time conditions, absent signer, annual report, privacy, and unpaid coverage.",
+     "Examples 10–15 add financial interests, licensed-company work, two private-practice conditions, confidential information, required referrals, and gift-for-favor rejection. Detailed post-service and gift-exception cases are taught in the supplied companion lesson rather than needing duplication here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multistep worked solution uses numbered steps. Single-step answers remain prose; there is no unnumbered solution lead-in."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this legal lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core teaching paragraphs contain at most three sentences. There are no long teaching bullet lists. Numbered worked solutions serve the required solution format."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Career/non-career service, appointments, volunteer status, SALN, working days, reasonable time, privileged information, administrative discipline, and financial interests are explained before use. Specific detailed outside-role and gift rules are addressed in the companion gift lesson supplied in this packet."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The text explains why incomplete complex requests still need a reply, how evidence can answer a complaint, how lawful confidentiality limits access, and why SALN exemption does not erase conduct rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Another person may sign when properly authorized under the office's rules.",
+      "problem": "The substitute-signer rule gives no required written authorization. The Section 5(c) alternative for someone other than the next-in-rank official or officer in charge requires authorization in writing; an unspecified office authorization is not the full condition."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Another person may sign when properly authorized under the office's rules.",
+    "concern": "Section 5(c) requires authorization in writing for the alternative authorized person. This wording leaves the form of authorization unspecified and can be read as allowing oral authorization."
+   }
+  ],
+  "brief_items": {
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L18|1": {
+    "status": "fixed",
+    "quote": "Sharing it gives someone an unfair private advantage. The Code prohibits that act.",
+    "note": "The rewrite adds annual-report, public-access, prohibited-interest, licensed-work, private-practice, confidential-information, referral, and gift application cases."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|B03|0": {
+    "status": "fixed",
+    "quote": "Privacy, safety, security, and protected investigations can limit access.",
+    "note": "The required Traps section is present; Speed Tricks remains optional."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|B08|0": {
+    "status": "fixed",
+    "quote": "The office must reply within $15$ working days after receiving the request.",
+    "note": "Quantities including deadlines and signature counts now use inline math."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L02|0": {
+    "status": "fixed",
+    "quote": "This is a process for deciding whether a public worker broke a work rule and should receive a penalty.",
+    "note": "The legal consequence has a short plain-language restatement."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L05|0": {
+    "status": "fixed",
+    "quote": "Its reply must say what action it took. Receiving the letter without answering is not enough.",
+    "note": "The solution states the action and deadline without the former legalistic instructional phrase."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L25|0": {
+    "status": "fixed",
+    "quote": "A complaint does not make the worker guilty.",
+    "note": "The preceding administrative-discipline definition explains the consequence and the following paragraph explains notice and evidence."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L27|0": {
+    "status": "fixed",
+    "quote": "When no such deadline exists, the agency must set a reasonable period under its rules.",
+    "note": "Reasonable-time criteria, signature exceptions, and the next-in-rank substitute are now taught. The separate written-authorization omission is recorded under L27."
+   },
+   "general-information-code-of-conduct-ra-6713#2": {
+    "status": "fixed",
+    "quote": "The proper authority examines the complaint and supporting records.",
+    "note": "The lesson explains notice, opportunity to answer, evidence, timely-reply defenses, and referrals."
+   },
+   "general-information-code-of-conduct-ra-6713#6": {
+    "status": "fixed",
+    "quote": "Relevant facts include how hard the matter is and whether the required papers are complete.",
+    "note": "Reasonable-time assessment includes legal deadlines, complexity, complete papers, court orders, requester delay, and outside events."
+   },
+   "general-information-code-of-conduct-ra-6713#8": {
+    "status": "fixed",
+    "quote": "Workers must also attend promptly to people who seek their office's services in person.",
+    "note": "Prompt counter service is explained and applied separately from the written-reply period."
+   },
+   "general-information-code-of-conduct-ra-6713#9": {
+    "status": "fixed",
+    "quote": "The office must connect the refusal to a lawful ground.",
+    "note": "Privacy, security, safety, privilege, investigations, draft decisions, and protected planned action illustrate access limits."
+   },
+   "general-information-code-of-conduct-ra-6713#33": {
+    "status": "fixed",
+    "quote": "That filing exemption does not exempt them from the Code's duties and bans.",
+    "note": "Election, appointment, temporary and permanent status, career status, military/police, and volunteers are covered separately from SALN exemptions."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|0": {
+    "status": "fixed",
+    "quote": "Its reply must say what action it took. Receiving the letter without answering is not enough.",
+    "note": "The first solution places all instructional content in numbered steps."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L19|2": {
+    "status": "fixed",
+    "quote": "Both actions fail to meet the stated duties.",
+    "note": "The annual-report and other multistep solutions contain no unnumbered instructional lead-ins."
+   },
+   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts|L22a|0": {
+    "status": "fixed",
+    "quote": "A supervisor's casual approval is not a law allowing the work.",
+    "note": "The former long bullet runs are replaced by short topical paragraphs."
+   }
+  }
+ }
+}
