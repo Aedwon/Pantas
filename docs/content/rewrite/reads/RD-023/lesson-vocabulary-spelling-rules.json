@@ -1,0 +1,239 @@
+{
+ "packet": "lesson-vocabulary-spelling-rules",
+ "role": "A",
+ "lesson_sha256": "57c08d50945aa94a0f91614ff34a2927b35d8ce9122c5d495287f9946e5883a0",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the spelling claims and named-source statements in the supplied packet: conceive, managing, noticeable, truly, beginning, occurrence, and the stated KWF kwento/kuwento variant example are internally consistent with the lesson and brief; no incorrect form is taught as standard."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Blind-solved Example 1 as B (conceive), Example 2 as B (managing), Example 3 as B (noticeable), Example 4 as C (truly), Example 5 as A (beginning), Example 6 as A (occurrence), and Example 7 as B (both kwento and kuwento per the supplied KWF claim). All match the lesson keys."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked required structure and brief coverage: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, and the brief requires no figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose at the Grade 5 standard. Syllable and stress are defined in short sentences, the old jargon-heavy doubling sentence is split into simpler statements, and the longer-word procedure is concrete and sequential."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The only instruction word at issue is ordinary “Choose,” which the supplied standard explicitly treats as an everyday word that needs no gloss."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the full lesson for tutor analogies; none appears, so the analogy limit and placement rule are satisfied."
+   ],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all seven example stems for complete exam-style wording and necessary givens, then read each solution for simple language. Each stem asks a complete spelling question without supplying the answer method."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked exam references: the lesson makes one sourced-scope-style CSE mention and otherwise teaches the spelling skill without repeated exam-motivation phrasing."
+   ],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This is an English spelling lesson with one Filipino orthography subsection, not a Filipino-language lesson written primarily in Filipino."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No hard Filipino grammar term is introduced in Filipino teaching prose that would require a first-use English gloss."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is not a Filipino-language lesson; the loanword example tests a named KWF spelling fact inside an English spelling lesson."
+  },
+  "L11": {
+   "verdict": "needs_source_check",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains Filipino orthography and KWF variant claims, so official Filipino spelling and usage require the prescribed source check."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There is no Filipino teaching-prose passage in which Taglish usage can be meaningfully evaluated under this rule."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No example asks about a visually emphasized target word by referring to it as an underlined or otherwise formatted word; the spelling choices themselves are the targets."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the summary, sentence openings, and all prose for the listed stock AI phrases; none appears, and the summary is specific to spelling patterns and exceptions."
+   ],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Language Proficiency section fit. The general structure is permitted and no mathematical formula appears in an example, so the formula-before-example requirement is irrelevant but not breached."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped worked examples to the taught cases: vowel-pair mnemonic limits, silent-e dropping, silent-e keeping, a common exception, final-consonant doubling, syllable-based checking of a longer word, and Filipino loanword variation. The mandatory silent-e coverage gap is now worked directly in Examples 2 and 3."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all seven solutions. Each multi-step solution is presented as a numbered two-step list, and no mathematical computation requires display equations."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no display equations, so the phone-width requirement for displayed math cannot apply."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Scanned all teaching sections and traps. Paragraphs are one to three short sentences; the only longer list is the five-step spelling-check procedure, where a numbered list is appropriate."
+   ],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The brief requires no figure, and the lesson has no illustration placeholder that needs a specificity or sufficiency judgment."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "A **suffix** is a word part added at the end of a base. Spelling can change when a suffix is added.",
+     "problem": "The lesson relies on the term “base” to explain suffix changes but never defines what a base is, and no prerequisite lesson is supplied in the packet for explanation reuse."
+    }
+   ],
+   "checked": [
+    "Traced the terms needed by the rules and procedure. Syllable and stress are defined, consonant-vowel-consonant is written out, and “morphological family” is removed, but “base” is still used as a necessary morphology term without explanation."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked each taught concept for meaning plus operation: mnemonic limits, silent-e behavior, consonant doubling with stress, syllable-based checking, sound limits, and Filipino loanword variation all include an explanation of how the learner should use the concept."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions and exceptions: the i/e rhyme is explicitly limited, silent-e rules include keeping and exceptions, doubling depends on word shape/stress and has a counterexample, sound is only a clue, and KWF variants are not generalized into a blanket rule."
+   ],
+   "note": ""
+  },
+  "B09": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the script candidate “Do not mark one wrong...” and all student text. “Mark” there is an ordinary verb meaning judge/label, not a score; the lesson does not use “marks” for points or “cards” for questions."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-vocabulary-spelling-rules|L18|0": {
+   "status": "fixed",
+   "quote": "1. *Manage* ends in a silent *e*.\n2. Before *-ing*, the final *e* is dropped, so the standard spelling is **managing**. The answer is **B**.",
+   "note": "Silent-e dropping is now directly worked in Example 2, and Example 3 separately works the keeping-e case with noticeable."
+  },
+  "lesson-vocabulary-spelling-rules|L02|0": {
+   "status": "fixed",
+   "quote": "A **syllable** is a beat or part of a word that has one main vowel sound. **Stress** is the syllable you say more strongly.",
+   "note": "The rewrite defines the formerly jargon-heavy terms in two short sentences before using them in the doubling rule."
+  },
+  "lesson-vocabulary-spelling-rules|L19|0": {
+   "status": "fixed",
+   "quote": "1. The standard spelling is **conceive**.\n2. Choice **B**, *concieve*, switches the vowel order. The answer is **B**.",
+   "note": "The conceive solution is now a numbered two-step explanation instead of a prose paragraph."
+  },
+  "lesson-vocabulary-spelling-rules|L25|0": {
+   "status": "fixed",
+   "quote": "Spelling has patterns, but some words must be learned one by one. A pattern can help you check a word, but it cannot replace the standard spelling of that word.",
+   "note": "The unexplained term lexical is gone and the same idea is stated directly as learning some words one by one."
+  },
+  "lesson-vocabulary-spelling-rules|L25|1": {
+   "status": "fixed",
+   "quote": "Do not use a simple consonant-vowel-consonant shape as an automatic rule. *Visit* becomes *visiting*, not *visitting*.",
+   "note": "The abbreviation CVC has been replaced by the full consonant-vowel-consonant wording before the limitation is applied."
+  },
+  "lesson-vocabulary-spelling-rules|L25|2": {
+   "status": "fixed",
+   "quote": "**Look at related word forms.** Pairs such as *begin/beginning* and *refer/referred* can help you notice where doubling happens.",
+   "note": "The unexplained “morphological family” label is replaced with the plain phrase “related word forms.”"
+  },
+  "language-proficiency-vocabulary#77": {
+   "status": "fixed",
+   "quote": "1. Say the word slowly.\n2. Break it into syllables.\n3. Listen for the main vowel sound in each syllable.\n4. Match the sounds to the spelling you know.\n5. Check common suffix, doubling, and exception patterns.",
+   "note": "The lesson now gives an explicit syllable-and-sound procedure for checking multisyllabic words instead of merely naming stress."
+  },
+  "lesson-vocabulary-spelling-rules|L03|0": {
+   "status": "not_fixed",
+   "quote": "Choose the standard spelling:",
+   "note": "The optional item remains as written: “Choose” appears without a separate gloss, although the standards treat it as an everyday instruction word."
+  }
+ }
+}
