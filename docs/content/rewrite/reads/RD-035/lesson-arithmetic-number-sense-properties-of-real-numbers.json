@@ -1,0 +1,270 @@
+{
+ "packet": "lesson-arithmetic-number-sense-properties-of-real-numbers",
+ "role": "A",
+ "lesson_sha256": "7ecb60aba07ab65066369706c86a22ca51406eb996e216c7df46fbc998a577cd",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all five real-number property statements, additive and multiplicative inverse conditions, reverse distribution, like-term rules, zero's lack of multiplicative inverse, and the subtraction/division trap; each mathematical claim is correct."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Solved Example #1 independently: 3×4=4×3 is commutative multiplication, so B.",
+    "Solved Example #2 independently: reciprocal of -2/3 is -3/2 and its additive inverse is 3/2, so A.",
+    "Solved Example #3 independently: (48+0)×1+25 = 73.",
+    "Solved Example #4 independently: 4(2x-3y)-2(x+5y) = 6x-22y, so A.",
+    "Solved Example #5 independently: 847(63+37) = 84,700, so A.",
+    "Solved Example #6 independently: 0 has no multiplicative inverse, so C."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed the required mathematics sections are present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For; no example depends on a figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose at the Grade 5 benchmark; property meanings, inverse conditions, common-factor teaching, and like-term teaching are stated in short sentences with common wording and no filler."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all six example stems for self-contained givens and tested knowledge; the choices use property language without supplying the tested method, and the worked solutions explain each step in simple English."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so an official Filipino spelling check does not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word in the prompt."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Traced every example method to Core Concept: commutative and associative formulas are stated first; distributive formulas over addition/subtraction and reverse distribution are stated first; additive and multiplicative identities are stated first; additive and multiplicative inverse formulas plus the a≠0 condition are stated first; like-term combination is also taught before use."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught cases to examples: property identification (#1), inverse composition (#2), identity simplification (#3), forward distribution plus like terms (#4), reverse distribution/common factor (#5), and the zero inverse edge case (#6)."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every multi-step solution: all steps are numbered; Examples #3-#5 display their key computations, while the identification, inverse, and zero-inverse examples use short verbal transformations without skipping a calculation needed to reach the answer."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No example depends on a figure, and this algebra lesson contains no illustration placeholder."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked necessary lesson-specific terms before use: each named property is explained, common factor is defined before reverse distribution is used, and term, like terms, and coefficient are defined before the combining-like-terms method and examples."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked meaning and mechanism for every concept: each property has a verbal rule plus formula, reverse distribution explains factoring out a common factor, and like terms explain both recognition and coefficient combination."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability conditions and exceptions: commutative/associative teaching is limited to addition and multiplication, subtraction and division are explicitly excluded in general, multiplicative inverse requires a≠0, and zero is explained as having no multiplicative inverse."
+   ],
+   "note": ""
+  },
+  "B08": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "**1. Commutative Property**",
+     "problem": "The property label uses the prose number 1 outside inline math, contrary to the rule that numbers in prose must be wrapped in $...$."
+    },
+    {
+     "quote": "**2. Associative Property**",
+     "problem": "The property label uses the prose number 2 outside inline math, contrary to the rule that numbers in prose must be wrapped in $...$."
+    },
+    {
+     "quote": "**3. Distributive Property**",
+     "problem": "The property label uses the prose number 3 outside inline math, contrary to the rule that numbers in prose must be wrapped in $...$."
+    },
+    {
+     "quote": "**4. Identity Property**",
+     "problem": "The property label uses the prose number 4 outside inline math, contrary to the rule that numbers in prose must be wrapped in $...$."
+    },
+    {
+     "quote": "**5. Inverse Property**",
+     "problem": "The property label uses the prose number 5 outside inline math, contrary to the rule that numbers in prose must be wrapped in $...$."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L18|0": {
+   "status": "fixed",
+   "quote": "Simplify $(48+0)\\times1+25$.",
+   "note": "Checked worked identity coverage; Example #3 now uses both additive and multiplicative identities to simplify a calculation."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L03|0": {
+   "status": "fixed",
+   "quote": "In exam questions, **simplify** means write an equivalent expression in a simpler form. **Evaluate** means find the final number answer.",
+   "note": "Checked the first simplify use; its required one-line exam meaning now appears in Core Concept before the examples."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L03|1": {
+   "status": "fixed",
+   "quote": "In exam questions, **simplify** means write an equivalent expression in a simpler form. **Evaluate** means find the final number answer.",
+   "note": "Checked the first evaluate use; its required one-line exam meaning now appears in Core Concept before the examples."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L25|0": {
+   "status": "fixed",
+   "quote": "**Like terms** have the same variable part with the same exponents. The number multiplying the variable part is the **coefficient**.",
+   "note": "Checked terminology before use; like terms and coefficients are now defined before the worked simplification that combines them."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L25|1": {
+   "status": "fixed",
+   "quote": "You can also read the distributive property backward. If two products have a **common factor**, meaning the same factor appears in both products, factor it out.",
+   "note": "Checked reverse distribution teaching; common factor and factoring it out are now explained in Core Concept before Example #5."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L26|0": {
+   "status": "fixed",
+   "quote": "To combine like terms, add or subtract their coefficients and keep the variable part unchanged.",
+   "note": "Checked the method itself; the lesson now explains how like terms are combined instead of only naming the instruction."
+  },
+  "mathematics-arithmetic-number-sense#52": {
+   "status": "fixed",
+   "quote": "To combine like terms, add or subtract their coefficients and keep the variable part unchanged.",
+   "note": "Checked the requested CSE facet; the lesson now defines like terms, defines coefficient, teaches the operation, and applies it in Example #4."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|B08|0": {
+   "status": "not_fixed",
+   "quote": "**1. Commutative Property**",
+   "note": "Checked all five numbered property labels; their digits still appear outside inline math, so the optional notation issue remains."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L01|0": {
+   "status": "fixed",
+   "quote": "Simplify $(48+0)\\times1+25$.",
+   "note": "Checked the optional goal-alignment issue; the new identity example now uses identities to simplify an actual calculation."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L17|1": {
+   "status": "fixed",
+   "quote": "You can also read the distributive property backward. If two products have a **common factor**, meaning the same factor appears in both products, factor it out.",
+   "note": "Checked formula placement; reverse distribution is now taught in Core Concept before the worked example uses factoring."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L18|1": {
+   "status": "fixed",
+   "quote": "### #6: Zero Has No Multiplicative Inverse\n\nWhich statement is correct?",
+   "note": "Checked the optional inverse edge case; Example #6 now directly tests and explains that zero has no multiplicative inverse."
+  },
+  "lesson-arithmetic-number-sense-properties-of-real-numbers|L19|0": {
+   "status": "not_fixed",
+   "quote": "1. The multiplicative inverse of $-\\dfrac{2}{3}$ is $-\\dfrac{3}{2}$.",
+   "note": "Checked the optional formatting issue; the inverse transformation is still written inline in a numbered prose step instead of as a display equation."
+  }
+ }
+}
