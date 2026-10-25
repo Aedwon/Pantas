@@ -66,3 +66,15 @@ the `CSE hand-in` check rejected it in 14 seconds, naming the two missing lesson
 unmerged. The merge path is untested until the first real batch. Branch `cse-inbox/RW-007`
 was deleted with Aedwon's approval.
 Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major problems.
+
+## October 25: pilot run 2
+
+- PR hand-in merges work: RD-001 (#31), RD-005 (#32), RW-007 (#33) merged by the workflow.
+- RW-006 (earth science): the ChatGPT GitHub connector refused the lesson commit (second refusal
+  for this lesson, after the relay refusal). Per the plan's fallback, Codex GPT 6.1 Sol (high,
+  then low for the fix) rewrote it locally; the lead cleared the earlier relay chats' two
+  rejections (backup `~/.pantas-rewrite/rejections.json.bak-rw006`), ran the hand-in: one
+  rejection (ILLUS, STRUCT), Codex fixed both, accepted as 58f22421 after rebase. Codex's
+  sandbox cannot commit in this worktree, so the lead runs the hand-in for Codex batches.
+- RD-006 and RD-007 are duplicates (same lessons, same rewrite commit); use RD-006 only.
+  RD-008 reads RW-006.
