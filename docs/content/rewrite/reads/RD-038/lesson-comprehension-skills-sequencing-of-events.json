@@ -1,0 +1,241 @@
+{
+ "batch": "RD-038",
+ "lesson_id": "lesson-comprehension-skills-sequencing-of-events",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
+ "lesson_sha256": "76a81dd1e69368276540b177e2d0091aac2b4e9b808573f38a7d459f010a1aff",
+ "rewrite_commit": "8f19837bfb2d771eaf08930e15303e330305566f",
+ "form": {
+  "packet": "lesson-comprehension-skills-sequencing-of-events",
+  "role": "A",
+  "lesson_sha256": "76a81dd1e69368276540b177e2d0091aac2b4e9b808573f38a7d459f010a1aff",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Time words, past-perfect construction, written versus event order, and cause preceding its resulting event are correctly described. The example timelines agree with their supplied passages.",
+     "The law and bridge examples are passage-specific fictional givens, not claims about professional requirements or a documented disaster."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1, knead, rest/rise, bake; 2, the family evacuates before firefighters arrive; 3, warning, delayed repairs, collapse; 4, law study, bar passage, junior-associate work, partnership.",
+     "Independent answer 5: wind, fallen tree, road closure, bus delay, tree removal, road reopening. This matches the solution. The bus delay is read as its onset caused by the closure, not its full duration."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. The required Filipino chronological reconstruction and connectors appear in example 5. None of these questions depends on an image."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The dense original opening is replaced by three simple sentences. English explanations and solutions use short prose; the technical prerequisite gap in past participle is recorded under L25."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Order and put in the correct order have their everyday meanings. No specialized exam instruction word is used.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the five examples supplies its passage and a clear sequencing question. The combined-clue example lists the events to arrange without giving the method, and the Filipino example supplies all the events used in the answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson contains no repetitive exam references or unsupported exam-frequency claims."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino teaching uses short sentences about time words and cause and effect. Example 5 has Filipino directions, passage, and solution steps at the same simple level."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "There are no hard Filipino grammar terms requiring an English gloss. Sanhi and bunga are used as reading relationships, with their English equivalents already explained in the English cause-and-effect paragraph."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino worked example and all four solution steps are in Filipino. The English examples belong to the English portion of the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson contains Filipino teaching and an example; official KWF usage requires a separate source check.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino connector explanations and example solution use Filipino prose without Taglish."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question singles out a target word for a meaning question. Italic signal words are teaching examples, not question targets.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary states the skills plainly. No listed stock AI wording appears, and paragraph openings vary across time words, tense, cause, and written order."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson uses the allowed Reading Strategies heading. All examples involve language clues, not mathematical formulas; no formula requires a Core Concept introduction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Distinct cases are direct time signals (1), earlier completion through past perfect (2), out-of-order narration (3), combined tense and time clues (4), and Filipino time-plus-cause reconstruction (5). Examples progress from direct signals to a mixed-clue passage."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All five solutions use numbered steps. Each identifies the relevant clues and states the resulting order. There are no mathematical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs stay within one to three sentences, including the rewritten opening. Solutions use numbered steps and there are no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no illustration placeholder or existing image to evaluate; the passages do not depend on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Sequencing, time-signal words, written order, and event order are explained locally. Past participle has no local definition or supplied prerequisite."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The **past perfect** uses *had* with a past participle, such as *had walked* or *had finished*.",
+      "problem": "Past participle is needed to recognize and use the stated tense pattern but is not explained. Two regular-verb examples do not define that form or identify it in other verbs. No prerequisite teaching or later explanation is supplied."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Sequencing is explained as reconstructing actual time order. The lesson explains how time signals, earlier completed actions, and causes help recover that order; examples demonstrate all three mechanisms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Time words are explicitly not guaranteed for every event. Past perfect is described as a clue that can show earlier completion and must be linked to its later event. The written order can differ, and signal words must be attached to their own actions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "Mark the time words uses mark as a verb meaning highlight or note. It does not name a score. No prohibited score marks or question cards occur."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-sequencing-of-events|B08|0": {
+    "status": "fixed",
+    "quote": "The event order is **kneading, resting and rising, baking**.",
+    "note": "The old numeral table is removed. Remaining digits are structural heading or numbered-list labels, not bare numbers in prose."
+   },
+   "lesson-comprehension-skills-sequencing-of-events|L02|0": {
+    "status": "fixed",
+    "quote": "**Sequencing** means putting events in the order they happened.",
+    "note": "The opening now explains the task simply without the former cluster of advanced terms."
+   },
+   "lesson-comprehension-skills-sequencing-of-events|L22a|0": {
+    "status": "fixed",
+    "quote": "A passage may tell a later event first and explain an earlier event afterward.",
+    "note": "The former long second sentence is split into short sentences within a three-sentence paragraph."
+   },
+   "reading-comprehension-comprehension-skills#72": {
+    "status": "fixed",
+    "quote": "Ang tamang ayos ay **malakas na hangin, pagbagsak ng puno, pagsara ng kalsada, pagkaantala ng bus, pag-alis ng puno, muling pagbukas ng kalsada**.",
+    "note": "Example 5 reconstructs Filipino events and explains Bago nito, dahil, kaya, and Pagkatapos as temporal or causal clues."
+   },
+   "lesson-comprehension-skills-sequencing-of-events|L03|0": {
+    "status": "fixed",
+    "quote": "What is the correct order of the steps?",
+    "note": "The old bare command Order was replaced by a full question. Order is an everyday word and does not need an exam-specific gloss."
+   }
+  }
+ }
+}
