@@ -8,15 +8,17 @@ estimatedMinutes: 15
 isActive: true
 ---
 
+<!-- SOURCE AUDIT: RW-077; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: distinguish impeachable officers and grounds, apply basic conduct descriptions, and separate charges from proof, trial, and accountability remedies. Sources: 1987 Constitution, Article XI Sections 1-3 and 12-13, and Article IX-A Section 1, https://officialgazette.gov.ph/constitutions/1987-constitution/ (officers, commissions, procedure, Ombudsman); Revised Penal Code Articles 114 and 210, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (treason and bribery); RA 3019 Section 3(e), quoted in https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/63490 (unwarranted advantage); Gonzales III v. Office of the President, G.R. 196231, September 4, 2012, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/55179 (bad faith and gravity for betrayal); Carpio separate opinion in Republic v. Sereno, May 11, 2018, https://lawphil.net/judjuris/juri2018/may2018/gr_237428_so_2018.html (willful constitutional breach, identified as an opinion); UP College of Law, Impeachment Primer, February 2025, page 2, https://law.upd.edu.ph/wp-content/uploads/2025/02/ENGLISH-UP-Law-Impeachment-Primer_v2.pdf (interpretive caution and high crimes). Constitutional text controls procedure; statutory illustrations do not conclusively define impeachment grounds. Examples are hypothetical list and rule applications, not rulings on actual cases. No prerequisite relied on. -->
+
 ## Core Concept
 
 Article XI, Section $1$ says that public office is a public trust. Public officers and employees must answer to the people. They must do their work honestly, responsibly, and well.
 
-They must be loyal to the country and act fairly. They must also lead modest lives. Public office must not be used to support a lavish way of life.
+They must be loyal to the country and act fairly. They must also lead modest lives. Their office exists to serve the public.
 
 ### Who May Be Impeached
 
-**Impeachment** is the constitutional process for charging certain high officers and trying whether they should be removed. A charge is not a conviction, which is a decision finding the officer guilty.
+**Impeachment** is the process for charging certain high officers so they can be tried for removal. A charge is not a **conviction**, a decision finding the officer guilty.
 
 Article XI, Section $2$ lists the officers covered:
 
@@ -25,47 +27,55 @@ Article XI, Section $2$ lists the officers covered:
 - Members of the Constitutional Commissions: the Civil Service Commission, Commission on Elections, and Commission on Audit
 - The Ombudsman
 
-Other public officers may be removed as provided by law, but not by impeachment. Cabinet Secretaries and trial court judges are not on this list.
+Other public officers may be removed as provided by law, but not by impeachment. Cabinet Secretaries and trial court judges are not on this list. Neither are legislators or Deputy Ombudsmen.
 
-### Grounds for Impeachment
+### What the Grounds Mean
 
-Section $2$ names six grounds. **Culpable violation of the Constitution** means a willful breach of the Constitution. It involves deliberate wrongdoing, not merely an honest mistake.
+Section $2$ names $6$ grounds. The Constitution lists them but does not give a complete definition of each. The explanations below help match conduct to a possible ground. They do not settle a legal case.
 
-**Treason** involves betrayal of the country during war. Under criminal law, it includes levying war against the Philippines or siding with its enemies and giving them aid or comfort. Ordinary criticism of the government is not treason.
+**Culpable violation of the Constitution** concerns a willful and intentional breach of the Constitution. This reading distinguishes deliberate disobedience from an honest mistake. For example, knowingly refusing to obey a clear constitutional duty may raise this ground.
 
-**Bribery** involves an improper payment, gift, or benefit linked to an official act. An officer who accepts money in exchange for an official favor may face this accusation.
+**Treason** concerns betrayal of the country in wartime. Under criminal law, it includes levying war against the Philippines or siding with its enemies and giving them aid or comfort. Supplying military information to help a wartime enemy illustrates the second form.
 
-**Graft and corruption** involve misuse of public office for an improper benefit. Using public power to give a favored company an unlawful advantage may raise this issue. The exact facts and the law still matter.
+**Bribery** concerns an improper benefit linked to official duties. Accepting money in return for an official favor may raise this ground. The connection between the benefit and the official act matters.
 
-**Other high crimes** is a broad ground for grave wrongdoing. The Constitution gives no complete list of offenses under this phrase. A minor crime does not automatically qualify.
+**Graft and corruption** concern misuse of public office for an improper benefit. Giving a favored company an unlawful contract advantage may raise this ground. Under anti-graft law, giving an unwarranted advantage through clear favoritism is one covered form of conduct.
 
-**Betrayal of public trust** concerns serious conduct that breaks the trust placed in a high officer. It may include serious abuse, neglect, or favoritism that makes the officer unfit to remain in office. It is not limited to acts already punished as crimes.
+These criminal-law descriptions help explain treason, bribery, and graft. They do not make an impeachment trial the same as a criminal trial. Congress must address the constitutional ground and the evidence.
 
-A conduct example may raise more than one ground. Finding a ground on the list only shows that the ground is allowed. The House and Senate must still address the facts and decide the case through the proper process.
+**Other high crimes** concerns serious wrongdoing bearing on fitness for high office. The UP College of Law's impeachment primer explains it through grave breaches of the trust placed in the officer. The Constitution gives no complete list of offenses under the phrase.
+
+Do not assume every crime qualifies because it is illegal. The seriousness and nature of the conduct must be considered. A complaint alleging an ordered killing still needs evidence and a decision through the impeachment process.
+
+**Betrayal of public trust** can cover serious abuse or favoritism even without a criminal offense. The Supreme Court has explained that conduct short of a crime must involve bad faith and seriousness comparable to the other grounds. An honest error is not enough under that explanation.
+
+For example, repeatedly using official power in bad faith to favor allies at the public's expense may raise this ground. A conduct example may raise more than one ground.
+
+Matching conduct to a ground only shows why that ground may be raised. It does not prove the facts, legal sufficiency, guilt, or a right to removal. The House and Senate must still decide the case through the proper process.
 
 ### House Charge and Senate Trial
 
-The House of Representatives alone initiates impeachment cases. A **verified complaint** is a complaint formally sworn to as true. A House Member may file one, or a citizen may file one with a House Member's endorsement.
+The House of Representatives alone initiates impeachment cases. A **verified complaint** is formally sworn to as true. A House Member may file one, or a citizen may file one with a House Member's endorsement.
 
-In the regular route, the complaint goes through committee review and House action. A vote of at least $\dfrac{1}{3}$ of all House Members is needed to approve the charges or override the committee's contrary resolution. The approved charges become the **Articles of Impeachment**, the formal charges sent to the Senate.
+In the regular route, the complaint goes through committee review and House action. At least $\dfrac{1}{3}$ of all House Members must vote to approve the charges or override the committee's contrary resolution. The approved charges become the **Articles of Impeachment**, the formal charges sent to the Senate.
 
-There is also a direct route. A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. It does not need the regular committee route to become the articles.
+There is also a direct route. A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. The Constitution provides that trial by the Senate shall proceed forthwith.
 
 The Senate alone tries and decides impeachment cases. Conviction requires agreement by at least $\dfrac{2}{3}$ of all Senators. When the President is tried, the Chief Justice presides but does not vote.
 
-Impeachment judgment is limited to removal and possible disqualification from public office. It does not itself impose a prison sentence. A convicted officer may still face a separate criminal case and punishment under law.
+Impeachment judgment is limited to removal and disqualification from public office. It does not itself impose a prison sentence. A convicted officer may still face prosecution, trial, and punishment under law.
 
-The Constitution bars initiating impeachment proceedings against the same official more than once within a period of one year. These are the basic constitutional rules. Applying them to a disputed case may require further legal rulings.
+The Constitution bars initiating impeachment proceedings against the same official more than once within a period of one year. Applying this limit to disputed filings may require legal rulings. These basic text rules do not resolve every procedural dispute.
 
 ### The Ombudsman
 
-The Ombudsman may investigate public officers or employees on its own or after a complaint. The conduct may be an act or a failure to act that appears illegal, unjust, improper, or inefficient.
+The Ombudsman may investigate public officers or employees on its own or after a complaint. The conduct may be an act or failure to act that appears illegal, unjust, improper, or inefficient.
 
-The office may direct officials to perform and speed up duties required by law. It may direct them to stop or correct abuse. It can request government records and help for an investigation.
+It may direct officials to perform and speed up duties required by law. The office may also direct them to stop or correct abuse. It can request government records and assistance for an investigation.
 
-The Ombudsman may recommend removal, suspension, demotion, a fine, censure, or prosecution and ensure compliance as provided by law. **Censure** is a formal expression of disapproval. A complaint does not itself prove wrongdoing or automatically remove anyone.
+The Constitution gives it power to recommend removal, suspension, demotion, a fine, censure, or prosecution and ensure compliance as provided by law. **Censure** is formal disapproval. A complaint alone does not prove wrongdoing or automatically remove anyone.
 
-The office also studies red tape, fraud, poor management, and corruption. It recommends ways to correct these problems.
+The office also studies red tape, fraud, poor management, and corruption. It recommends ways to correct these problems. A complaint about an unexplained delay can therefore seek action on both the delay and the employee's conduct.
 
 ## Examples
 
@@ -90,11 +100,11 @@ May a Regional Trial Court judge be removed through impeachment under Article XI
 
 ### #3: A Ground Outside the List
 
-Is inefficiency, by itself, one of the six named grounds for impeachment?
+Is inefficiency, by itself, one of the $6$ named grounds for impeachment?
 
 **Solution:**
 
-1. Compare the word with the constitutional list.
+1. Compare it with the constitutional list.
 2. Inefficiency is not a separately named ground.
 3. Whether particular conduct supports a listed ground requires facts and legal judgment.
 
@@ -130,7 +140,7 @@ During a war, an impeachable Filipino officer deliberately sides with the enemy 
 
 ### #7: Improper Contract Advantage
 
-An impeachable officer uses public power to give a favored company an unlawful advantage in a government contract. Which named ground concerns this misuse of office for improper benefit?
+An impeachable officer uses public power in bad faith to give a favored company an unlawful advantage in a government contract. Which named ground concerns this misuse of office for improper benefit?
 
 **Solution:**
 
@@ -140,27 +150,27 @@ An impeachable officer uses public power to give a favored company an unlawful a
 
 ### #8: The Limits of Other High Crimes
 
-A complaint accuses an impeachable officer of ordering a killing and invokes other high crimes. Must the act be expressly named in Section $2$ before this ground can be considered?
+A complaint accuses an impeachable officer of ordering a killing and invokes other high crimes. Must that specific crime be separately named in Section $2$ before the ground can be considered?
 
 **Solution:**
 
-1. Section $2$ includes the broad ground other high crimes.
-2. It gives no complete offense-by-offense list under that ground.
-3. The alleged grave crime may be considered under it. The allegation alone does not establish guilt or require conviction.
+1. Section $2$ includes other high crimes without a complete offense-by-offense list.
+2. The alleged grave wrongdoing may be considered under that ground.
+3. This does not mean every offense qualifies or that the accusation is proved.
 
 ### #9: Serious Favoritism
 
-An impeachable officer repeatedly uses official power to favor close allies at the public's expense. Which broad ground may apply even without a stated criminal charge?
+An impeachable officer repeatedly uses official power in bad faith to favor close allies at great public expense. Which ground may apply even without a stated criminal charge?
 
 **Solution:**
 
-1. The facts describe serious misuse of public trust.
+1. The facts allege serious favoritism and bad faith in public office.
 2. Betrayal of public trust may apply to such conduct.
-3. The House and Senate must still address the facts and the case.
+3. The House and Senate must still address the evidence and decide the case.
 
 ### #10: The Regular Complaint Route
 
-A citizen files a verified impeachment complaint with a House Member's endorsement. Fewer than $\dfrac{1}{3}$ of all House Members filed it. Does the filing itself become the Articles of Impeachment?
+A citizen files a verified complaint with a House Member's endorsement. Fewer than $\dfrac{1}{3}$ of all House Members filed it. Does filing alone make it the Articles of Impeachment?
 
 **Solution:**
 
@@ -170,13 +180,13 @@ A citizen files a verified impeachment complaint with a House Member's endorseme
 
 ### #11: The Direct Filing Route
 
-At least $\dfrac{1}{3}$ of all House Members file a verified impeachment complaint. Must it first pass through the regular committee route to become the Articles of Impeachment?
+At least $\dfrac{1}{3}$ of all House Members file a verified impeachment complaint. Under the constitutional text, must it first pass through the regular committee route to become the articles?
 
 **Solution:**
 
 1. The filing meets the constitutional threshold for the direct route.
 2. The verified complaint itself becomes the Articles of Impeachment.
-3. The Senate trial proceeds under the constitutional process.
+3. The Constitution directs that Senate trial proceed forthwith.
 
 ### #12: Trial and Conviction
 
@@ -207,7 +217,7 @@ Cabinet Secretaries, legislators, and trial court judges are not impeachable off
 
 ### #2: An Allowed Ground Does Not Prove Guilt
 
-> A label is not evidence or a conviction.
+> A ground's name is not evidence or a conviction.
 
 The House initiates the case. The Senate tries it and decides whether to convict under the required vote.
 
@@ -215,13 +225,13 @@ The House initiates the case. The Senate tries it and decides whether to convict
 
 > Impeachment and criminal punishment are separate processes.
 
-Impeachment may lead to removal and disqualification. A separate criminal case may still follow.
+Impeachment judgment concerns removal and disqualification. A separate criminal case may still follow.
 
 ### #4: Broad Does Not Mean Unlimited
 
-> Other high crimes does not automatically include every minor offense.
+> Other high crimes does not automatically include every offense.
 
-The Constitution gives no complete list under this ground. Its application requires judgment about the alleged conduct through the proper process.
+The Constitution gives no complete list under this ground. Its application requires a decision about the alleged serious conduct and the evidence.
 
 ### #5: Filing Routes Differ
 
