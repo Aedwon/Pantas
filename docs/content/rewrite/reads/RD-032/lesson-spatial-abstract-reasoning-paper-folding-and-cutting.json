@@ -1,0 +1,235 @@
+{
+  "packet": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+  "role": "A",
+  "lesson_sha256": "f90064d7d4abd7403e3b6946a4c4a5b8b5a2f491148dbc81f0e610dae6113284",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+    "B01": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the geometry and counting claims: reflection places corresponding points the same distance across the fold line with reversed orientation; complete half-folds can double layers; $2^n$ is only a special-case count for cuts through all doubled layers away from fold lines; fold-line cuts can join; partial-layer cuts depend on the local packet."
+      ],
+      "note": ""
+    },
+    "B02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Solved all four examples independently: #1 opens to one connected symmetric opening on the fold; #2 gives four separate holes; #3 gives one center opening because the copies meet at both fold lines; #4 gives eight separate holes from three complete half-folds with all eight layers punched away from the folds."
+      ],
+      "note": ""
+    },
+    "B03": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the required Reasoning structure and figure needs: Core Concept, Examples, and Traps to Watch For are present, and each paper-folding example has a specific fold/cut/unfolded-result figure placeholder."
+      ],
+      "note": ""
+    },
+    "L02": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Read the full teaching prose for Grade 5 readability. The rare word \"coincide\" is gone, reflection is explained in short sentences using mirror-copy language, and the conditions for hole counts are stated with common words."
+      ],
+      "note": ""
+    },
+    "L03": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in the lesson."
+    },
+    "L04": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The only analogy is the mirror comparison used to explain reflection in Core Concept."
+      ],
+      "note": ""
+    },
+    "L05": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked all four example stems and solutions. Each stem states the fold sequence, cut location, layer condition, and fold-line relation needed for that case without supplying the reflection method, and the solutions use short direct steps."
+      ],
+      "note": ""
+    },
+    "L07": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The lesson makes no named-exam claims and does not repeat any exam-motivation opener."
+      ],
+      "note": ""
+    },
+    "L08": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "This is an English reasoning lesson, not a Filipino-language lesson."
+    },
+    "L09": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No Filipino grammar term appears because this is an English reasoning lesson."
+    },
+    "L10": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "There are no Filipino-language examples or quiz items in this English reasoning lesson."
+    },
+    "L11": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "The lesson contains no Filipino text requiring an official spelling or usage check."
+    },
+    "L12": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "Taglish rules do not apply because the teaching prose is entirely English."
+    },
+    "L14": {
+      "verdict": "not_applicable",
+      "findings": [],
+      "checked": [],
+      "note": "No question refers to a target word that must be bolded and identified in the prompt."
+    },
+    "L15": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the listed stock AI phrases, sentence openings, and summary. None of the banned phrases appears, sentence starts vary, and the summary plainly names the lesson content."
+      ],
+      "note": ""
+    },
+    "L17": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The Reasoning lesson uses only Core Concept → Examples → Traps to Watch For, with no Speed Tricks or Mnemonics section. The $2^n$ layer/count relationship is introduced and limited in Core Concept before Example #4 uses $2^3=8$."
+      ],
+      "note": ""
+    },
+    "L18": {
+      "verdict": "fail",
+      "findings": [
+        {
+          "quote": "A cut near an uneven packet boundary may pass through only some layers.",
+          "problem": "The lesson explicitly teaches the distinct partial-layer case in a trap, but no worked example shows how to count or place openings when a cut reaches only some layers. That leaves an exam-relevant scenario taught by the lesson without the worked example required by L18."
+        }
+      ],
+      "checked": [
+        "Mapped the worked cases: one fold-line cut (#1), an interior punch away from two folds (#2), a cut at the intersection of two folds (#3), and a three-fold interior punch through all layers (#4). None works the taught uneven-boundary case where only some layers are cut."
+      ],
+      "note": ""
+    },
+    "L19": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked solution structure: Examples #1, #2, and #3 use numbered multi-step reasoning. Example #4 has one counting step, shows its key computation as the short display equation $2^3=8$, then states the result."
+      ],
+      "note": ""
+    },
+    "L21": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The only display equation is $2^3=8$, which is short and fits comfortably on a phone screen."
+      ],
+      "note": ""
+    },
+    "L22a": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Paragraphs are one to three short sentences, and the only bullet list is the five-condition checklist in Core Concept."
+      ],
+      "note": ""
+    },
+    "L23": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the Core Concept figure plus all four example placeholders. Each specifies fold directions, cut type/location, whether to show the unfolded result, and a semantics description of the intended opening pattern; these are load-bearing paper-fold figures and are present at each dependent example."
+      ],
+      "note": ""
+    },
+    "L25": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "The central operation is defined before use: reflection is introduced as a mirror copy on the opposite side, with matching points the same distance from the fold line and the copied shape facing the opposite way."
+      ],
+      "note": ""
+    },
+    "L26": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked that the method explains how it works: the lesson tells the student to undo folds in reverse order, place each reflected copy across the opened fold, preserve equal distance from the fold line, and reverse orientation like a mirror."
+      ],
+      "note": ""
+    },
+    "L27": {
+      "verdict": "pass",
+      "findings": [],
+      "checked": [
+        "Checked the stated limits and exceptions: $2^n$ is restricted to all doubled layers cut away from folds, fold-line copies may overlap or join, edge notches differ from interior holes, and uneven packet boundaries may expose only some layers."
+      ],
+      "note": ""
+    }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L02|0": {
+      "status": "fixed",
+      "quote": "Reflecting it across either fold line puts the copy on the same center spot instead of making a separate hole.",
+      "note": "Checked the rewritten passage and the full lesson: the rare word \"coincide\" is gone and the idea is expressed with common words."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L19|0": {
+      "status": "fixed",
+      "quote": "1. The punch sits on both fold lines.",
+      "note": "Checked Example #3: its reasoning is now split into three numbered steps before the final one-opening result."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L25|0": {
+      "status": "fixed",
+      "quote": "To **reflect** a cut, make a mirror copy on the other side of the fold line. Every point in the copy must be the same distance from the fold line as the matching point in the original cut.",
+      "note": "Checked that reflection now has the missing geometric meaning before students use it in the unfolding method."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L26|0": {
+      "status": "fixed",
+      "quote": "The copy also faces the opposite way, just as it would in a mirror.",
+      "note": "Checked that the rewrite now explains both the reflected cut's position and its changed orientation, not only the order of unfolding."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|B01|0": {
+      "status": "fixed",
+      "quote": "then opened to show eight symmetrically placed holes.",
+      "note": "Checked the Example #4 figure text: the unsupported claim that all eight holes are evenly spaced has been removed."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L17|0": {
+      "status": "fixed",
+      "quote": "The unfolded sheet has **$8$ separate symmetric holes**.",
+      "note": "Checked the section sequence around this passage: Examples goes directly to Traps to Watch For, and the old Speed Tricks & Shortcuts section is gone."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L18|0": {
+      "status": "not_fixed",
+      "quote": "A cut near an uneven packet boundary may pass through only some layers.",
+      "note": "The partial-layer case is still only stated in a trap. No worked example shows a cut that reaches only some layers or how its unfolded openings are determined."
+    },
+    "lesson-spatial-abstract-reasoning-paper-folding-and-cutting|L19|1": {
+      "status": "not_fixed",
+      "quote": "The punch passes through all $8$ layers and stays away from the fold lines, so the special-case count applies:",
+      "note": "The optional structural item remains unchanged: Example #4 still presents its single counting step as prose around a display equation instead of a numbered list."
+    }
+  }
+}
