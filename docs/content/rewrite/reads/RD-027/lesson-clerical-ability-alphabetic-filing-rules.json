@@ -1,0 +1,243 @@
+{
+ "packet": "lesson-clerical-ability-alphabetic-filing-rules",
+ "role": "A",
+ "lesson_sha256": "61d0c7da7e8062025f0ec3d54f8d3e92235101ba06d72d42600bf4281313153a",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the lesson's factual statements about name parts, suffixes, titles, and alphabetic comparison. Rules that can vary by filing system are stated conditionally rather than as universal facts."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Solved all eight examples from the questions alone: #1 Santos, Juan Antonio; #2 Garcia, Anna; #3 Santos, Maria Elena; #4 Reyes, Carlo; #5 De la Cruz, Maria; #6 Reyes, Paolo Jr.; #7 Cruz, Ana; #8 Boston. Each matches the lesson solution."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The Reasoning lesson uses the required reduced layout: Core Concept, Examples, then Traps to Watch For. The brief says Figures: None, and no example depends on a figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the opening, name-part definitions, special-surname section, suffix/title section, examples, and traps for Grade 5 readability. Technical terms are introduced with short plain explanations."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked instruction-style wording in the examples. Everyday prompts such as 'which comes first' need no gloss, and the filing/indexing idea is taught before 'indexed' appears in Example #1."
+   ],
+   "note": ""
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "No analogy is used anywhere in Core Concept or the rest of the lesson."
+   ],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1-#8. Each stem gives only the local filing rule or data needed for that case, asks the student to apply it, and the solutions use short plain steps."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson makes no unsupported claim about a specific exam and does not repeat stock exam-motivation openers."
+   ],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is written in English, not Filipino."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is not a Filipino-language grammar or vocabulary lesson."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino-language examples or quiz items."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text requiring an official spelling check."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is in English, so Taglish teaching prose does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No prompt asks the learner to identify or interpret a target word."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked for the listed stock AI phrases, repeated sentence openings, and generic summary wording. None appears, and the summary plainly describes the lesson."
+   ],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The Reasoning layout is reduced to Core Concept, Examples, and Traps to Watch For, with no Speed Tricks section. The examples use filing procedures rather than mathematical formulas, so there is no formula introduced first inside an example."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught CSE cases to worked examples: basic key construction (#1), equal surname then given-name ordering (#2), equal surname and given name then middle-name ordering (#3), inferred rule (#4), multiword surname treatment (#5), suffix tie-break (#6), title handling (#7), and an explicitly stated later tie-break unit (#8)."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1-#8. Every solution with multiple actions is a numbered list and no computational step is skipped; this filing lesson has no key arithmetic computation needing a display equation."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no display equations to size for a phone screen."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Paragraphs stay within one to three short sentences. The only bullet list is the three-item list of name parts, which is sparing and instructional."
+   ],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There are no illustration placeholders, and the brief says no figures are required."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Necessary terms are taught before use: 'filing key' is defined as the name parts used to sort a record; given name, middle name or initial, and surname are defined before comparison; suffix and title are defined before their examples."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson explains how the filing key works, how successive units break ties, how a rule can be inferred from demonstrations, and how special surnames, suffixes, and titles are handled under stated rules."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability limits throughout: the lesson repeatedly says to use only the rule stated or shown, treats special surnames conditionally, places suffixes/titles only where the rule says, and warns not to assume city as a tie-breaker."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-clerical-ability-alphabetic-filing-rules|L18|0": {
+   "status": "fixed",
+   "quote": "Both records have the surname *Garcia*, so the first filing unit is tied.",
+   "note": "Examples #2 and #3 now separately work the given-name and middle-name tie cases after earlier units match."
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules|L02|0": {
+   "status": "fixed",
+   "quote": "Alphabetic filing puts records in letter order. The question may state the filing rule or show it through examples.",
+   "note": "The opening now uses short, concrete sentences and removes the earlier abstract CSE-scope and universal-manual wording."
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules|L02|1": {
+   "status": "fixed",
+   "quote": "Some surnames include words such as *De, Del, de la, van, von,* or *San*. Treat the surname the way the task tells you.",
+   "note": "The special-surname passage now uses plain language and removes the difficult 'particles,' 'governing,' and 'established surname' wording."
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules|L19|0": {
+   "status": "fixed",
+   "quote": "1. The name units are identical, so move to the stated next unit, city.",
+   "note": "The city tie-break case is now a worked example with numbered solution steps instead of one unnumbered solution paragraph."
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules|L26|0": {
+   "status": "fixed",
+   "quote": "A **title** comes before a name, such as *Mr., Ms.,* or *Dr.* A filing system may tell you to ignore titles, or it may use them as a later filing unit.",
+   "note": "The rewrite now defines a title and explains two ways a stated filing system can handle it."
+  },
+  "reasoning-clerical-ability#1": {
+   "status": "fixed",
+   "quote": "Sometimes the task shows sample names and their filed forms instead of giving the rule in words. Look for the same pattern in every sample.",
+   "note": "The lesson now gives a local procedure for inferring a filing convention and applies it in Example #4."
+  },
+  "reasoning-clerical-ability#5": {
+   "status": "fixed",
+   "quote": "A **filing key** is the set of name parts used to sort a record. One common personal-name rule is surname first, then given name, then middle name or initial.",
+   "note": "The rewrite explicitly identifies the personal-name components and explains their order under the stated common rule."
+  },
+  "reasoning-clerical-ability#11": {
+   "status": "fixed",
+   "quote": "If the filing rule uses the suffix as a later filing unit, compare it only after the earlier name units match.",
+   "note": "The lesson now explains when the suffix is used and Example #6 applies it after the earlier units tie."
+  },
+  "reasoning-clerical-ability#12": {
+   "status": "fixed",
+   "quote": "A filing system may tell you to ignore titles, or it may use them as a later filing unit. Follow the rule stated in the task.",
+   "note": "The title variant now has a local procedure, and Example #7 applies an explicit rule that titles are ignored."
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules|L17|0": {
+   "status": "fixed",
+   "quote": "A filing system may tell you to ignore titles, or it may use them as a later filing unit. Follow the rule stated in the task.",
+   "note": "The optional layout issue was fixed: Core Concept now flows directly into Examples, with no Speed Tricks section."
+  },
+  "lesson-clerical-ability-alphabetic-filing-rules|L18|1": {
+   "status": "fixed",
+   "quote": "A filing rule says to compare surname, then given name, then suffix. Which comes first: \"Paolo Reyes Sr.\" or \"Paolo Reyes Jr.\"?",
+   "note": "The rewrite adds a worked suffix tie-break example for otherwise matching surname and given name."
+  }
+ }
+}
