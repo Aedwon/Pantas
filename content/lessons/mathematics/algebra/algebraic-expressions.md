@@ -145,30 +145,35 @@ The sum of three consecutive even integers is $S$. Express the largest integer i
 
 **Solution:**
 
-1. Let the smallest even integer be $x$. The next two are $x+2$ and $x+4$.
-2. Add the three integers and set their sum equal to $S$.
+1. Let the smallest even integer be $x$.
+2. The next even integer is $x+2$. The largest is $x+4$.
+3. Add the three integers and set their sum equal to $S$.
 
 $$x+(x+2)+(x+4)=S$$
 
-3. Combine like terms.
+4. Combine like terms.
 
 $$3x+6=S$$
 
-4. Subtract $6$ from both sides.
+5. Subtract $6$ from both sides.
 
 $$3x=S-6$$
 
-5. Divide both sides by $3$.
+6. Divide both sides by $3$.
 
 $$x=\dfrac{S-6}{3}$$
 
-6. The largest integer is $x+4$. Substitute the expression for $x$.
+7. Add $4$ to get the largest integer.
 
-$$\dfrac{S-6}{3}+4$$
+$$\text{Largest}=\dfrac{S-6}{3}+4$$
 
-7. Write $4$ with denominator $3$ and combine.
+8. Write $4$ as $\dfrac{12}{3}$.
 
-$$\dfrac{S-6}{3}+\dfrac{12}{3}=\dfrac{S+6}{3}$$
+$$\text{Largest}=\dfrac{S-6}{3}+\dfrac{12}{3}$$
+
+9. Combine the numerators.
+
+$$\text{Largest}=\dfrac{S+6}{3}$$
 
 ## Speed Tricks & Shortcuts
 
