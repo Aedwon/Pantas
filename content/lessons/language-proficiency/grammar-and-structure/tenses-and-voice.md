@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-tenses-and-voice"
 title: "Tenses, Aspect, and Voice of Verbs (Active vs. Passive)"
-summary: "Learn how English verb forms show time and aspect, how modals express meaning, and how active and passive voice change focus."
+summary: "Choose verb forms for time, use modals for meaning, and recognize active and passive voice."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
@@ -9,236 +9,258 @@ isActive: true
 ---
 ## Core Concept
 
-English verb forms help show **time** and **aspect**. Time tells when something happens. Aspect tells how the speaker views the action, such as ongoing, completed, or connected to another time.
+English verb forms help show **time** and **aspect**. Time tells when something happens. Aspect shows an action as ongoing, already complete before a point, or linked to now.
 
-School grammar often uses labels such as **present, past, future, perfect,** and **progressive**. These labels help you choose a verb form, but the timeline still controls the choice.
+The **base form** is the plain verb form, such as *write, eat,* or *finish*. It has no added *-s, -ed,* or *-ing*.
 
-**Simple present** can show a habit, a general truth, or a scheduled event. "She *writes* every day."
+A **past participle** is a verb form used in perfect forms and many passive forms. Regular verbs usually use *-ed*, as in *finished*. Irregular verbs have forms you must learn, such as *written, eaten,* and *broken*.
 
-**Simple past** shows an event placed in past time. "She *wrote* a letter yesterday."
+### Choosing Time and Aspect
 
-**Future meaning with *will*** uses *will + base verb*. Use it for a future statement, prediction, promise, or decision: "She *will write* tomorrow."
+**Simple present** can show a habit, a general truth, or a scheduled event. Use the base form, adding *-s* or *-es* for *he, she, it,* or a singular noun: "She writes daily." The verb *be* uses *am, is,* or *are*.
 
-**Present progressive** uses *am/is/are + -ing form*. It often shows an action that is ongoing around the present time: "She *is writing* a letter."
+**Simple past** places an event in past time: "She wrote yesterday." Regular verbs usually add *-ed*, but irregular forms include *wrote, ate,* and *bought*. The past forms of *be* are *was* and *were*.
 
-**Present perfect** uses *has/have + past participle*. Use it when a past event matters now, when talking about experience up to now, or when a situation began in the past and still continues.
+**Future meaning with will** uses *will + base form*. Use it for a prediction, promise, future statement, or decision made as you speak: "I will help you." Do not add *-s* or *-ed* after *will*.
 
-"She *has finished* the report, so it is ready now." "She *has lived* here for three years."
+**Present progressive** uses *am/is/are + -ing form*. It often shows an action going on now or around now: "She is writing a report." Some verbs that describe states, such as *know* and *own*, usually use a simple form instead: "I know the answer."
 
-Do not normally use the present perfect with a finished past-time phrase such as *yesterday* when the sentence is about that finished time. Use simple past instead: "She *finished* the report yesterday."
+**Present perfect** uses *has/have + past participle*. Use *has* with *he, she, it,* or a singular noun. Use *have* with *I, you, we,* or *they*.
 
-**Past perfect** uses *had + past participle*. It can make clear that one past event was already complete before another past point: "She *had written* the letter before he arrived."
+This form can show a present result: "She has finished the report, so it is ready now." It can also show experience up to now: "She has visited Cebu."
 
-The **past participle** is a verb form used after *has, have,* or *had* in perfect forms and after *be* or *get* in many passive forms. Examples include *written, eaten, finished,* and *broken*.
+It can describe a situation that began in the past and still continues: "She has lived here since June." It can also count events in a period that continues to now: "The printer has stopped twice since Monday."
 
-A tense shift is not automatically wrong. Change forms when the time or viewpoint really changes.
+When a sentence places an event at a finished past time, such as *yesterday*, normally use simple past. "She finished the report yesterday" names that past time. "She has finished the report" connects the completion to now without naming a finished past time.
 
-### Past Simple versus Past Perfect
+**Past perfect** uses *had + past participle*. It shows that an action was already complete before a past point: "She had written the letter by noon yesterday."
 
-Use past perfect when the earlier past event needs to be made clear or emphasized. It is not required every time one past event happened before another.
+Past perfect is not needed for every earlier past event. Both "She finished before he arrived" and "She had finished before he arrived" are possible. *Before* already gives the order, while *had finished* stresses earlier completion.
 
-"She finished the report before her boss asked for it" is correct because *before* already shows the order. "She had finished the report before her boss asked for it" is also correct and puts more focus on the earlier completion.
+A change in verb form is correct when the time or viewpoint changes. "The report was late, but it is ready now" moves from past to present for a reason.
 
 ### Active and Passive Voice
 
-In **active voice**, the subject usually does the action. "The chef cooked the meal."
+In **active voice**, the subject does the action: "The chef cooked the meal." In **passive voice**, the subject receives or is affected by the action: "The meal was cooked by the chef."
 
-In **passive voice**, the subject receives or is affected by the action. "The meal was cooked by the chef."
+The **agent** is the doer of the action. The chef is the agent in both sentences. Passive voice can name the agent with *by* or leave it out: "The forms were checked."
 
-The common passive pattern is **be + past participle**. The agent can be named with *by*, but it can also be left out: "The forms were checked."
+The common passive pattern is **be + past participle**. Change the form of *be* to keep the time: "The form is checked daily," "The form was checked yesterday," or "The form has been checked."
 
-English can also use **get + past participle** as a passive, especially for an event that happens to the subject. "The package got delivered." This form is common in speech and informal writing, so use it only when that style fits.
+To change active to passive, make the receiver the subject. Use the correct form of *be* and the past participle. Add *by* and the agent if needed.
 
-Passive voice is useful when the agent is unknown, obvious, unimportant, or less important than the affected person or thing. Active voice is often clearer when the agent matters.
+To change passive to active, make the agent the subject and keep the same time. "The meal was cooked by the chef" becomes "The chef cooked the meal." A verb needs an object, something acted on, to allow this usual passive change; "The child slept" has no such object.
+
+A **get-passive** uses *get + past participle*: "The package got delivered." It often describes something that happens to the subject. It is common in speech and informal writing; use a *be*-passive when a formal style is needed.
+
+Passive voice helps when the agent is unknown or less important than the affected thing. Active voice helps when the doer matters. Neither a form of *be* nor *get* alone makes a sentence passive: "She is happy" and "The package got heavy" describe states.
 
 ### Modal Verbs and Meaning
 
-A **modal verb** is a helper such as *can, could, may, might, must, should,* or *will*. The choice changes the meaning.
+A **modal verb** is a helper such as *can, could, may, might, must, should,* or *will*. Follow these helpers with the base form: "She can swim," not "She can swims."
 
-For **ability**, use *can* for present or general ability and *could* for general ability in the past. "She *can swim*." "She *could read* at age five."
+For **ability**, use *can* for present or general ability. Use *could* for general ability in the past: "She could read before she started school."
 
-For **permission**, *can* is common in everyday English, while *may* is more formal. "You *may leave* after the test."
+For **permission**, *can* is common in everyday requests. *May* is more formal: "May I leave?" *Could* can make a polite request: "Could I use your pen?"
 
-For **obligation**, *must* or *have to* can show a strong requirement. *Should* usually gives advice, not the same level of requirement.
+For **obligation**, *must* and *have to* show a strong requirement. "You must submit the form" and "You have to submit the form" both say it is required. Use *has to* with a singular third-person subject and *had to* for a past requirement.
 
-"You *must submit* the form today." "You *should check* your answers."
+*Should* usually gives advice: "You should check your answers." *Must not* means something is forbidden. *Do not have to* means it is not required, but it may still be allowed.
 
-For **possibility**, *may, might,* and *could* can all show that something is possible. "It *might rain* later."
+For **possibility**, *may, might,* and *could* can all mean that something is possible: "It might rain later." They can overlap, so meaning alone may not select just one of them. *Must* can also express a strong conclusion: "The lights are on, so someone must be home."
 
 ## Examples
 
-### #1: Correcting an Unmotivated Tense Shift
+### #1: Choosing Simple Present
 
-Choose the correction that keeps the timeline clear: "Yesterday, she *walks* to the store and *bought* bread."
+Choose the correct forms: The clerk usually *(checks / is checking)* IDs at the door. Water *(boils / boiled)* at its boiling point. According to tomorrow's fixed schedule, the briefing *(starts / started)* at noon.
+
+**Solution:**
+
+1. *Usually* describes a habit, so choose *checks*.
+2. The statement about water gives a general truth, so choose *boils*.
+3. A fixed schedule can use simple present even for tomorrow. Choose *starts*.
+
+### #2: Correcting a Tense Shift
+
+Rewrite the sentence with the correct verb forms: "Yesterday, she walks to the store and bought bread."
 
 **Solution:**
 
 1. *Yesterday* places both actions in past time.
-2. *Walks* must change to the simple past *walked*.
-3. Correct: "Yesterday, she *walked* to the store and *bought* bread."
+2. Change *walks* to *walked*. Keep *bought*.
+3. Correct: "Yesterday, she walked to the store and bought bread."
 
-### #2: Choosing *will* for Future Meaning
+### #3: A Future Prediction
 
 Choose the correct form: I think the office *(will close / closed)* early tomorrow.
 
 **Solution:**
 
-1. *Tomorrow* points to future time.
-2. The sentence gives a prediction, so *will + base verb* fits.
-3. Correct: "I think the office *will close* early tomorrow."
+1. *Tomorrow* places the closing in the future. *I think* introduces a prediction.
+2. Use *will* and the base form *close*: "I think the office will close early tomorrow."
 
-### #3: Choosing the Present Progressive
+### #4: An Ongoing Action
 
-Choose the form that shows an action happening around now: Please wait. The clerk *(checks / is checking)* your record.
-
-**Solution:**
-
-1. The action is happening around the present moment.
-2. Use *is + -ing form* for the present progressive.
-3. Correct: "The clerk *is checking* your record."
-
-### #4: Choosing the Present Perfect
-
-Choose the correct form for an unfinished time period: Since Monday, the printer *(has stopped / stopped)* working three times.
+Choose the form that shows an action happening now: Please wait. The clerk *(checks / is checking)* your record.
 
 **Solution:**
 
-1. *Since Monday* starts a time period that continues to now.
-2. The sentence counts events during that unfinished period.
-3. Correct: "Since Monday, the printer *has stopped* working three times."
+1. The task asks for an ongoing action.
+2. Use *is* and *checking*: "The clerk is checking your record."
 
-### #5: Past Perfect before a Later Past Point
+### #5: Present Perfect Uses
 
-Choose the form that clearly shows the report was already complete before the meeting began: By the time the meeting started, Ana *(finished / had finished)* the report.
-
-**Solution:**
-
-1. The meeting started at a past point.
-2. The report was already complete before that point.
-3. *Had finished* clearly marks the earlier past event.
-
-### #6: Active or Passive?
-
-Which sentence is in passive voice? (a) "The dog chased the ball." (b) "The ball was chased by the dog."
+Choose the correct forms to connect each situation to now: The team *(has finished / will finish)* the work, so it is ready for inspection now. So far, Mara *(has visited / will visit)* Cebu twice. She moved here in June and still lives here, so she *(has lived / had lived)* here since June.
 
 **Solution:**
 
-1. In sentence (a), *the dog* does the action, so it is active.
-2. In sentence (b), *the ball* receives the action.
-3. Sentence (b) is passive because it uses *was + chased*, a form of *be + past participle*.
+1. The work is already ready. Choose *has finished* for its present result.
+2. *So far* counts experience up to now. Choose *has visited*.
+3. The situation began in June and continues now. Choose *has lived*.
 
-### #7: Converting Passive to Active
+### #6: A Finished Time or an Unfinished Period
 
-Change this sentence to active voice without changing its time: "The novel was written by a famous author."
-
-**Solution:**
-
-1. Make *a famous author* the subject.
-2. Keep the action in past time.
-3. Correct: "A famous author wrote the novel."
-
-### #8: Recognizing a Get-Passive
-
-Which sentence uses a get-passive? (a) "The package got delivered before noon." (b) "The package got heavy in the rain."
+Choose the correct forms: The printer *(stopped / has stopped)* working yesterday. Since Monday, it *(stopped / has stopped)* working several times, and the problem continues today.
 
 **Solution:**
 
-1. In sentence (a), *delivered* is a past participle and the package receives the action.
-2. Sentence (b) describes a change of state with the adjective *heavy*.
-3. Sentence (a) uses the get-passive.
+1. *Yesterday* names a finished past time, so choose *stopped*.
+2. The second period runs from Monday to now. Choose *has stopped*.
 
-### #9: Choosing a Modal for Ability
+### #7: Marking Earlier Completion
 
-Choose the best modal: Maria *(can / must)* solve the puzzle without help.
-
-**Solution:**
-
-1. The sentence is about ability, not a requirement.
-2. *Can* shows present ability.
-3. Correct: "Maria *can* solve the puzzle without help."
-
-### #10: Choosing a Modal for Permission
-
-Choose the more formal request for permission: *(May / Must)* I enter the room?
+Complete the sentence using the past perfect form of *finish*: "By the time the meeting started, Ana ___ the report."
 
 **Solution:**
 
-1. The speaker is asking for permission.
-2. *May* can be used for formal permission.
-3. Correct: "*May* I enter the room?"
+1. The task requires past perfect to mark completion before a past point.
+2. Use *had* and the past participle *finished*: "By the time the meeting started, Ana had finished the report."
 
-### #11: Choosing a Modal for Obligation
+### #8: Passive or a Description?
 
-Choose the word that gives advice, not a strict requirement: You *(should / must)* review your answers if you have time.
-
-**Solution:**
-
-1. The phrase *if you have time* makes this advice, not a strict rule.
-2. *Should* is the better choice for advice.
-3. Correct: "You *should* review your answers if you have time."
-
-### #12: Choosing a Modal for Possibility
-
-Choose the modal that shows possibility: The schedule *(might / must)* change if the office closes.
+Which sentence is passive: "The dog chased the ball," "The ball was chased by the dog," or "The dog was happy"?
 
 **Solution:**
 
-1. The change is possible, not certain.
-2. *Might* can show possibility.
-3. Correct: "The schedule *might* change if the office closes."
+1. The dog does the chasing in the first sentence. It is active.
+2. The ball receives the action in the second sentence. *Was chased* makes it passive.
+3. *Happy* describes a state in the last sentence. A form of *be* alone does not make it passive.
+
+### #9: Changing Voice and Keeping Time
+
+Change "The clerk checked the forms" to passive voice. Then change "The novel was written by a famous author" to active voice.
+
+**Solution:**
+
+1. Make the receiver *the forms* the first subject. Keep past time with *were checked*: "The forms were checked by the clerk."
+2. Make the agent *a famous author* the second subject. Use simple past *wrote*: "A famous author wrote the novel."
+
+### #10: A Get-Passive
+
+Which sentence uses a get-passive: "The package got delivered before noon" or "The package got heavy in the rain"? Rewrite the passive sentence for a formal report.
+
+**Solution:**
+
+1. *Delivered* names an action done to the package. The first sentence is a get-passive.
+2. *Heavy* describes a state, so the second sentence is not passive.
+3. For a formal report, use "The package was delivered before noon."
+
+### #11: Present and Past Ability
+
+Choose the forms that express ability: Maria *(can / must)* solve the puzzle without help now. Even before she started school, she *(could / may)* solve similar puzzles.
+
+**Solution:**
+
+1. The task asks about ability, so choose *can* for the present.
+2. Choose *could* for her general ability in the past.
+
+### #12: Asking Permission
+
+Choose the more formal request for permission: "*(May / Must)* I enter the room?"
+
+**Solution:**
+
+1. The speaker wants permission to enter.
+2. Choose *may*: "May I enter the room?"
+
+### #13: Requirement and Advice
+
+Choose the forms that fit the stated meanings: Attendance is required, so all employees *(have to / should)* attend. Checking notes is advice, so they *(must / should)* review their notes beforehand.
+
+**Solution:**
+
+1. A requirement calls for *have to*.
+2. Advice calls for *should*.
+
+### #14: Not Required or Forbidden
+
+Visitors may bring a printed copy, but it is optional. Choose the matching sentence: "Visitors do not have to bring a copy" or "Visitors must not bring a copy."
+
+**Solution:**
+
+1. Optional means allowed but not required.
+2. Choose "Visitors do not have to bring a copy." *Must not* would forbid it.
+
+### #15: Possibility
+
+Choose the modal that presents the change as possible, without saying it is required: The schedule *(might / must)* change if the office closes.
+
+**Solution:**
+
+1. The requested meaning is possibility.
+2. Choose *might*: "The schedule might change if the office closes."
 
 ## Speed Tricks & Shortcuts
 
-**Build the timeline first.** Ask whether each action is past, present, future, ongoing, or already complete before another point.
+Build the timeline first. Decide whether the sentence describes a habit, past event, future event, ongoing action, or action completed before another point.
 
-**Look for time clues, but do not obey them blindly.** A phrase such as *yesterday* points to simple past. A phrase such as *by the time* can support past perfect when an earlier completion matters.
+For present perfect, find the link to now. A present result, experience up to now, or continuing situation can support it. A finished past time normally calls for simple past.
 
-**For present perfect, check the link to now.** Use it for a present result, experience up to now, or a situation that began in the past and continues now. A finished past-time phrase usually points to simple past instead.
+To check passive voice, find the subject and ask whether someone or something acts on it. Then check for the full verb pattern. A form of *be* or *get* by itself is not enough.
 
-**For passive voice, check the whole pattern.** A form of *be* alone does not make a passive. Look for a past participle and a subject that receives the action.
-
-**For modal questions, identify the meaning first.** Decide whether the sentence asks about ability, permission, obligation, advice, possibility, or future meaning before choosing the helper.
+For modals, identify the meaning before choosing the word. More than one modal can fit a sentence unless the task or context narrows the meaning.
 
 ## Traps to Watch For
 
 ### #1: Treating Every Tense Shift as Wrong
 
-> A shift is correct when the time or viewpoint really changes.
+> A verb form may change when the time changes.
 
-"The report was late, but it is ready now" correctly moves from past to present because the time changes.
+"The report was late, but it is ready now" correctly moves from past to present. Keeping both verbs in the past would change the message.
 
-### #2: Requiring Past Perfect for Every Earlier Past Event
+### #2: Requiring Past Perfect for Every Earlier Event
 
-> Past perfect is useful for an earlier past event, but it is not always required.
+> Words such as *before* can already show the order of past events.
 
-Words such as *before* and *after* can already make the order clear with simple past.
+"She finished before he arrived" is correct. "She had finished before he arrived" also works and stresses earlier completion.
 
-### #3: Using Present Perfect with a Finished Past Time
+### #3: Ignoring a Finished Past Time
 
-> A finished time such as *yesterday* usually calls for simple past.
+> Use simple past when the sentence places an event at a finished past time.
 
-Use "She finished yesterday" when the focus is that finished past time. Use present perfect when the sentence connects the past event to now without a finished past-time frame.
+"She finished yesterday" fits that time frame. "She has finished yesterday" does not fit the usual rule for present perfect.
 
-### #4: Assuming Every *be + word* Form Is Passive
+### #4: Calling Every *be* or *get* Form Passive
 
-> Passive voice needs a past participle that shows an action done to the subject.
+> Check for an action done to the subject, not just a helper word.
 
-"She is happy" is not passive because *happy* describes her state. "She was invited" is passive because someone invited her.
+"She is happy" and "The package got heavy" describe states. "She was invited" and "The package got delivered" describe actions received by their subjects.
 
-### #5: Treating Every *get + word* Form as Passive
+### #5: Rejecting All Passive Sentences
 
-> A get-passive needs a past participle and an action received by the subject.
+> Passive voice can help when the agent is unknown or less important.
 
-"The package got delivered" is passive. "The package got heavy" is not passive because *heavy* is an adjective.
+"The records were lost" can fit when the writer does not know who lost them. Do not invent an agent just to change it to active voice.
 
-### #6: Saying Passive Voice Is Always Weak
+### #6: Treating Modals as Fixed Labels
 
-> Passive voice can be useful when the receiver of the action matters more than the agent.
+> Context controls a modal's meaning.
 
-"The records were lost" may be the clearest form when the writer does not know who lost them.
+*Could* can show past ability, a polite request, or possibility. Read the whole sentence before deciding its use.
 
-### #7: Treating *must* and *should* as Equal
+### #7: Confusing Advice, a Rule, and a Ban
 
-> *Must* can show a strong requirement, while *should* usually gives advice.
+> *Should*, *must*, and *must not* express different meanings.
 
-Check whether the sentence means something is required or only recommended.
+*Should* usually gives advice. *Must* can state a requirement, while *must not* forbids an action. *Do not have to* leaves the action optional.
