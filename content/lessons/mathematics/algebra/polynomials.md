@@ -86,7 +86,7 @@ Which expressions are polynomials in $x$: $4x^3-2x+7$, $\dfrac{5}{x}+1$, $x^{1/2
 **Solution:**
 
 1. $4x^3-2x+7$ is a polynomial because its exponents are nonnegative whole numbers.
-2. $\dfrac{5}{x}+1$ is not a polynomial because $\dfrac{5}{x}=5x^{-1}$ has a negative exponent.
+2. $\dfrac{5}{x}+1$ is not a polynomial. A variable in the denominator would require a negative exponent.
 3. $x^{1/2}+2$ is not a polynomial because $x$ has a fractional exponent.
 4. $3$ is a polynomial because it can be written as $3x^0$.
 
