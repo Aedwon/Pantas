@@ -1,0 +1,218 @@
+{
+ "packet": "lesson-arithmetic-number-sense-order-of-operations",
+ "role": "A",
+ "lesson_sha256": "e5d4dc89d446042c2e2be74aec2010faa220610dcbb82c36c25dd843afbaf633",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the order-of-operations sequence, equal-priority left-to-right rules, signed-integer sign rules, division-by-zero statement, root example, and negative-base distinction; each mathematical claim is correct."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Solved Example #1 independently: 16 ÷ 4 × 2 + 3 = 11.",
+    "Solved Example #2 independently: 18 - 6(-3) + 8/(-2) = 32.",
+    "Solved Example #3 independently: 2[5 + 3(4 - 2)^2] - 10 = 24.",
+    "Solved Example #4 independently: sqrt(81) + 2^3 × 3 = 33.",
+    "Solved Example #5 independently: (3^2 + 4×5)/(6 - 2^3 + 4) = 29/2.",
+    "Solved Example #6 independently with x=-2, y=3: x^2 - 3xy + 12/x = 16."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Confirmed the required mathematics structure is present: Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, with an optional mnemonic section; none of the examples requires a figure."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read all teaching prose for Grade 5 readability; definitions and procedures use short, direct sentences, and the longer signed-integer rule is still stated in common words without filler."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all six example stems for necessary givens and tested knowledge: the substitution example supplies x and y, other expressions are self-contained, and every solution returns to short procedural language."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so an official Filipino spelling check does not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English, so this Filipino-language rule does not apply."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word in the prompt."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Examples use no new standalone formula. Core Concept first teaches the operation hierarchy, left-to-right equal-priority rules, exponent meaning, root meaning, signed-integer operations, fraction bars as grouping, and parentheses for negative substitution before those methods appear in Examples #1-#6."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the distinct taught cases to examples: equal-priority left-to-right (#1), signed integers (#2), nested grouping and powers (#3), roots (#4), fraction-bar grouping (#5), and substitution with a negative value (#6)."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked every worked solution: all multi-step examples use numbered steps, and each key arithmetic computation is shown on its own display line."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No example depends on a figure, and this arithmetic lesson contains no illustration placeholder."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked terms needed by the taught methods before use: grouping symbols are named, exponent meaning is demonstrated, root is defined with a square-root example, and signed integer and absolute value are defined before the signed-integer procedures."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked that the lesson explains how each taught concept works: operation priority, equal-priority direction, powers and roots, signed-integer operations, and negative-value substitution all include a meaning or procedure, not only a name."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability limits and exceptions: multiplication/division and addition/subtraction share priority and go left to right, division by zero is undefined, substitution keeps a negative value parenthesized, and the shortcut warns not to cross higher-priority operations or grouping."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-arithmetic-number-sense-order-of-operations|L03|0": {
+   "status": "fixed",
+   "quote": "In exam questions, **evaluate** means find the final number answer.",
+   "note": "Checked the first use of evaluate; the required one-line exam meaning now appears before the procedure."
+  },
+  "lesson-arithmetic-number-sense-order-of-operations|L03|1": {
+   "status": "fixed",
+   "quote": "In exam questions, **simplify** means write an equivalent expression in a simpler form.",
+   "note": "Checked the first simplify prompt; its one-line exam meaning now appears immediately before the example."
+  },
+  "lesson-arithmetic-number-sense-order-of-operations|L18|0": {
+   "status": "fixed",
+   "quote": "Evaluate $\\sqrt{81}+2^3\\times3$.",
+   "note": "Checked worked coverage for roots; Example #4 now requires evaluating a square root."
+  },
+  "lesson-arithmetic-number-sense-order-of-operations|L25|0": {
+   "status": "fixed",
+   "quote": "Second, evaluate **E**xponents and roots. An exponent tells how many times a base is used as a factor. For example, $3^2=3\\times3$.",
+   "note": "Checked the operation-order teaching; exponent meaning is now recalled before students use it, followed by the root explanation."
+  },
+  "lesson-arithmetic-number-sense-order-of-operations|L26|0": {
+   "status": "fixed",
+   "quote": "A **root** reverses a power. For example, $\\sqrt{49}=7$ because $7^2=49$.",
+   "note": "Checked root teaching and use; the lesson now explains the idea and demonstrates how the shown square root is evaluated."
+  },
+  "mathematics-arithmetic-number-sense#37": {
+   "status": "fixed",
+   "quote": "When adding integers with the same sign, add their absolute values and keep the sign. When the signs differ, subtract the smaller absolute value from the larger one and keep the sign of the number with the larger absolute value. If the absolute values are equal, the sum is $0$.",
+   "note": "Checked the requested CSE facet; the lesson now teaches signed-integer addition plus subtraction, multiplication, and division rules."
+  },
+  "lesson-arithmetic-number-sense-order-of-operations|L26|1": {
+   "status": "fixed",
+   "quote": "When substituting a negative value for a variable, put the value in parentheses. This keeps the negative sign attached to the number before powers and other operations are applied.",
+   "note": "Checked the optional substitution issue; the reason for parenthesizing a negative input is now taught before the worked example."
+  }
+ }
+}
