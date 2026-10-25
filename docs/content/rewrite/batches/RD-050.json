@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+  "lesson-grammar-and-structure-parts-of-speech",
+  "lesson-grammar-and-structure-phrases-and-clauses"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "rewrites": {
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": "f9d10a7158108e85fa22371158b3db83388b71ba",
+  "lesson-grammar-and-structure-parts-of-speech": "f9d10a7158108e85fa22371158b3db83388b71ba",
+  "lesson-grammar-and-structure-phrases-and-clauses": "f9d10a7158108e85fa22371158b3db83388b71ba"
+ },
+ "sha256": {
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": "05ce2c986e844fdfa1a4b36e747af891f30f4f31fac2a7d69bc9a33f13a648c0",
+  "lesson-grammar-and-structure-parts-of-speech": "4520fcc4ba99e0acee0602b54e30af8f008446a7ebf4644ec916c497c7da78ae",
+  "lesson-grammar-and-structure-phrases-and-clauses": "10496011f0919600200d8e8c916375f066c613ee6549f0f56456563eec2a15f2"
+ },
+ "paths": {
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": "content/lessons/language-proficiency/grammar-and-structure/filipino-verb-aspect-and-focus.md",
+  "lesson-grammar-and-structure-parts-of-speech": "content/lessons/language-proficiency/grammar-and-structure/parts-of-speech.md",
+  "lesson-grammar-and-structure-phrases-and-clauses": "content/lessons/language-proficiency/grammar-and-structure/phrases-and-clauses.md"
+ },
+ "id": "RD-050",
+ "type": "read",
+ "created": "2026-10-25T19:37:44+00:00"
+}
