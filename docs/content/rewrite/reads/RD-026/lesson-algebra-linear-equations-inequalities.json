@@ -1,0 +1,270 @@
+{
+ "packet": "lesson-algebra-linear-equations-inequalities",
+ "role": "A",
+ "lesson_sha256": "239c807afc57391b0dd233dd89983507ac96b0d79f5b55ca38dee062c25b7d1c",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked equation-balance rules, inequality sign reversal, number-line endpoints, slope formulas, vertical/horizontal slope facts, perpendicular conditions, and boundary-line conventions."
+   ],
+   "note": "The mathematical facts and stated edge cases are correct."
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 gives $x=\\dfrac{11}{7}$.",
+    "Example #2 gives $x<-1$ with an open endpoint and left shading.",
+    "Example #3 gives $5x-2y=17$.",
+    "Example #4 correctly identifies undefined and zero slopes and perpendicular lines.",
+    "Example #5 gives $x+y<3$."
+   ],
+   "note": "All five worked answers match independent solutions."
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the number-line and coordinate-region cases both include figures or placeholders."
+   ],
+   "note": "Required structure and figure-dependent content are present."
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose for sentence length and vocabulary; sentences are short and technical terms are presented in direct statements."
+   ],
+   "note": "The lesson uses concise, mostly simple teaching prose."
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson explains solving as finding a value that makes both sides equal; “find” is ordinary language and does not need an exam-specific definition."
+   ],
+   "note": "No unexplained exam-specific instruction word remains."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "No analogy appears in Core Concept or elsewhere in the lesson."
+   ],
+   "note": "The lesson stays within the allowed analogy count."
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all five stems for necessary coordinates, equations, signs, and region information; solutions use simple wording and do not rely on missing givens."
+   ],
+   "note": "Examples supply needed problem data without supplying the tested method."
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "There are no specific exam-content claims or repeated exam-motivation openers in the rewritten text."
+   ],
+   "note": "The lesson avoids unsupported or repetitive exam mentions."
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question refers to a target word or asks about a word by bold formatting."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the lesson for listed stock AI phrases, repetitive sentence openings, and a formulaic summary; none is present."
+   ],
+   "note": "The wording avoids stock phrasing and keeps a varied rhythm."
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 uses equation balancing and denominator clearing after Core Concept explains both.",
+    "Example #2 uses the negative-inequality flip after Core Concept states it.",
+    "Example #3 uses $m=-\\dfrac{A}{B}$, the negative-reciprocal rule, and point-slope form after all three appear in Core Concept.",
+    "Example #4 uses the vertical and horizontal slope cases after Core Concept states them.",
+    "Example #5 uses slope-intercept and boundary rules introduced in Core Concept."
+   ],
+   "note": "Every formula and explicit line rule used in examples is introduced first."
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped distinct worked cases: equation with fractions, one-variable inequality plus number-line graph, perpendicular-line equation, vertical/horizontal slope edge cases, and two-variable inequality region."
+   ],
+   "note": "The examples cover the required distinct scenarios without near-duplicate work."
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Each multi-step example uses numbered steps; algebraic transformations and final relations are displayed where computations occur."
+   ],
+   "note": "All multi-step solutions follow the numbered-step and display format."
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all display equations and graph-related formulas; each line is short enough for phone display."
+   ],
+   "note": "No display equation is too wide for the intended layout."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Scanned all prose paragraphs; none exceeds three short sentences, and no unnecessary bullet list appears."
+   ],
+   "note": "Paragraph length and list use comply with the formatting rule."
+  },
+  "L23": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The number-line placeholder specifies the open circle, endpoint, direction, and label; the coordinate-graph figure specifies line, points, shading, and semantics, while the prose still supplies the needed data."
+   ],
+   "note": "Both visual cases are specific and instructional rather than decorative."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "where $m$ is the slope and $b$ is the $y$-intercept.",
+     "problem": "The lesson names slope and y-intercept but does not explain what either means before examples use them. No prerequisite lesson is supplied to provide those meanings."
+    }
+   ],
+   "checked": [
+    "Checked terms before their first instructional use; slope and y-intercept are named in Core Concept and then used in examples without their meanings being explained or an identified prerequisite."
+   ],
+   "note": "Two necessary line terms are named but not defined."
+  },
+  "L26": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "For a nonvertical line, slope-intercept form is:",
+     "problem": "The lesson gives slope-intercept formulas and later uses slope and intercept information, but it never explains what slope measures or what an intercept represents, so the concepts are not fully taught."
+    }
+   ],
+   "checked": [
+    "Checked the line concepts against the learning content; formulas for slope and line forms are given, but the lesson never explains slope as change or steepness or the y-intercept as where the line crosses the y-axis."
+   ],
+   "note": "The line concepts rely on formulas without enough meaning."
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked nonzero-denominator conditions, negative inequality reversal, vertical/horizontal edge cases, nonzero finite-slope reciprocal condition, dashed/solid boundaries, and point-testing limits."
+   ],
+   "note": "The lesson states the important conditions and edge cases for its rules."
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-algebra-linear-equations-inequalities|L18|0": {
+   "status": "fixed",
+   "quote": "Solve $-2(x-4)>3x+13$, then describe its graph on a number line.",
+   "note": "Example #2 now works a one-variable inequality and explicitly gives the endpoint type and shading direction."
+  },
+  "lesson-algebra-linear-equations-inequalities|L18|2": {
+   "status": "fixed",
+   "quote": "Find the slope of $3x=12$ and the slope of $2y=6$. State whether the two lines are perpendicular.",
+   "note": "Example #4 now works both vertical and horizontal slope edge cases and their perpendicular relationship."
+  },
+  "lesson-algebra-linear-equations-inequalities|L01|0": {
+   "status": "fixed",
+   "quote": "A shaded region includes $(0,0)$. Its boundary is a dashed line through $(0,3)$ and $(3,0)$. Which inequality defines the region?",
+   "note": "The out-of-goal two-variable calculator system was removed; the replacement example stays within inequality-region interpretation."
+  },
+  "lesson-algebra-linear-equations-inequalities|L17|0": {
+   "status": "fixed",
+   "quote": "For $Ax+By=C$ with $B\\ne0$, the slope is:",
+   "note": "Core Concept now introduces the standard-form slope formula before the perpendicular-line example uses it."
+  },
+  "lesson-algebra-linear-equations-inequalities|L17|1": {
+   "status": "fixed",
+   "quote": "Two nonvertical lines with nonzero slopes are perpendicular when their slopes are negative reciprocals:",
+   "note": "The perpendicular-slope relationship is now stated in Core Concept before Example #3 applies it."
+  },
+  "lesson-algebra-linear-equations-inequalities|L17|2": {
+   "status": "fixed",
+   "quote": "The **point-slope form** of a nonvertical line through $(x_1,y_1)$ with slope $m$ is:",
+   "note": "Point-slope form is now introduced in Core Concept before the worked perpendicular-line solution uses it."
+  },
+  "lesson-algebra-linear-equations-inequalities|L19|0": {
+   "status": "fixed",
+   "quote": "1. The boundary has slope $-1$ and $y$-intercept $3$, so its equation is:",
+   "note": "The former unnumbered systems example was removed; the current Example #5 uses numbered solution steps."
+  },
+  "lesson-algebra-linear-equations-inequalities|L26|0": {
+   "status": "fixed",
+   "quote": "Use an **open circle** for $<$ or $>$ because the endpoint is not included. Use a **closed circle** for $\\le$ or $\\ge$ because the endpoint is included.",
+   "note": "Core Concept now explains endpoint choice and the next paragraph explains left-versus-right shading."
+  },
+  "lesson-algebra-linear-equations-inequalities|L26|1": {
+   "status": "fixed",
+   "quote": "For equal fractions, multiplying both sides by the denominators clears the fractions. This is why cross-multiplication works when the denominators are nonzero.",
+   "note": "The rewrite now explains the equality-preserving reason behind clearing denominators and cross-multiplication."
+  },
+  "lesson-algebra-linear-equations-inequalities|L03|0": {
+   "status": "fixed",
+   "quote": "Solving it means finding the value that makes both sides equal.",
+   "note": "The rewrite now explains what solving an equation means before the first worked prompt says “Solve.”"
+  },
+  "lesson-algebra-linear-equations-inequalities|L03|1": {
+   "status": "not_fixed",
+   "quote": "Find the equation of the line through $(3,-1)$ that is perpendicular to $2x+5y=10$.",
+   "note": "The optional item remains unchanged: “Find” is not separately defined, which is acceptable because it is ordinary language."
+  },
+  "lesson-algebra-linear-equations-inequalities|L18|1": {
+   "status": "not_fixed",
+   "quote": "A shaded region includes $(0,0)$. Its boundary is a dashed line through $(0,3)$ and $(3,0)$. Which inequality defines the region?",
+   "note": "The optional separate construction from given slope-intercept information is still not worked as its own example."
+  }
+ }
+}

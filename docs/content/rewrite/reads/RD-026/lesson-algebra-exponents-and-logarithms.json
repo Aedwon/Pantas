@@ -1,0 +1,262 @@
+{
+ "packet": "lesson-algebra-exponents-and-logarithms",
+ "role": "A",
+ "lesson_sha256": "2880f1eae7bd0a91a3e99b5f917070d577cdd47640799100c2e1670d2cfa7461",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked exponent identities, logarithm definitions and laws, base restrictions, zero and negative exponent rules, and the power-of-a-power limitation; no false exam-specific claim remains."
+   ],
+   "note": "The mathematical statements and stated conditions are correct."
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 simplifies to $\\dfrac{x^5}{y^2}$.",
+    "Example #2 evaluates to $4$.",
+    "Example #3 evaluates to $\\dfrac{1}{4}$.",
+    "Example #4 gives $\\log_3(81)=4$.",
+    "Example #5 condenses to $\\log\\left(\\dfrac{x^2y}{z^3}\\right)$.",
+    "Example #6 gives $x=5$.",
+    "Example #7 gives $2a+b$."
+   ],
+   "note": "All seven worked answers match independent solutions."
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; no figure is required for these cases."
+   ],
+   "note": "All required mathematics sections and content are present."
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the lesson for sentence length and vocabulary; the prose uses short explanatory sentences around the required exponent and logarithm terms."
+   ],
+   "note": "The teaching prose remains concise despite the advanced topic."
+  },
+  "L03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Simplify and Evaluate are defined together in Core Concept, and Express is defined before the examples use those instruction words."
+   ],
+   "note": "The exam-specific instruction words that need definitions are explained first."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "No tutor analogy appears in Core Concept or elsewhere."
+   ],
+   "note": "The lesson uses no analogy, so it stays under the limit."
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all seven stems for sufficient givens and all solutions for simple wording; formulas expected from the lesson are not supplied inside the stems."
+   ],
+   "note": "The worked questions are self-contained without answer-giving method hints."
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The rewrite makes no specific exam-content claim and does not repeat stock exam-motivation phrasing."
+   ],
+   "note": "There are no problematic exam mentions to vary."
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is entirely in English and contains no Filipino-language teaching or items."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No prompt refers to a target word or asks about a word by its formatting."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked for the listed stock AI phrases, repetitive openings, and a formulaic summary; none appears."
+   ],
+   "note": "The wording and summary avoid the prohibited stock patterns."
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Example #1 uses product, quotient, and negative-exponent laws introduced in Core Concept.",
+    "Example #2 uses the zero-exponent law introduced in Core Concept.",
+    "Example #3 uses negative and fractional exponent laws introduced in Core Concept.",
+    "Example #4 uses the logarithm-exponential equivalence introduced in Core Concept.",
+    "Example #5 uses the log power, product, and quotient laws introduced in Core Concept.",
+    "Example #6 uses power-of-a-power and equal-base exponent comparison introduced in Core Concept.",
+    "Example #7 uses the log product and power laws introduced in Core Concept."
+   ],
+   "note": "Every formula used in the worked examples appears earlier in Core Concept."
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the worked cases to the lesson goal: same-base simplification, zero exponent, negative/fractional exponents, basic logarithm evaluation, log condensation, unknown exponent equation, and log expression from givens are all covered."
+   ],
+   "note": "The example set covers the required distinct cases and progresses in difficulty."
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "All multi-step worked solutions use numbered steps, with key transformations and results shown as display equations."
+   ],
+   "note": "No multi-step solution is left as unnumbered prose."
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all display equations, including the logarithm identities and worked transformations; none is excessively wide for a phone screen."
+   ],
+   "note": "Displayed mathematics stays compact enough for mobile."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Scanned the prose paragraphs; each stays within one to three sentences, and no unnecessary bullet list is used."
+   ],
+   "note": "Paragraph and list formatting follow the lesson rule."
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No worked case depends on a figure, and the lesson contains no illustration placeholder."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked definitions before use: exponent meaning, logarithm reversal, reciprocal meaning through its formula, common logarithm, and equal-base exponent comparison are all supplied before needed examples."
+   ],
+   "note": "Necessary terms and symbols used by the examples are introduced before use."
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "The lesson explains repeated multiplication, inverse logarithm meaning, zero and negative exponents, fractional exponents, and why equal-base powers allow exponent comparison."
+   ],
+   "note": "The core concepts include both meaning and working explanations."
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked restrictions for logarithm bases and arguments, division by zero, zero and negative exponents, fractional powers, and power-of-a-power with negative bases."
+   ],
+   "note": "Relevant identities and shortcuts state the conditions needed for safe use."
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-algebra-exponents-and-logarithms|L18|0": {
+   "status": "fixed",
+   "quote": "Evaluate $7^0+3$.",
+   "note": "Zero exponents are now taught in Core Concept and worked explicitly in Example #2."
+  },
+  "lesson-algebra-exponents-and-logarithms|L03|0": {
+   "status": "fixed",
+   "quote": "**Simplify** means rewrite an expression in a shorter equivalent form.",
+   "note": "Simplify is now defined in Core Concept before its first use in a worked prompt."
+  },
+  "lesson-algebra-exponents-and-logarithms|L03|1": {
+   "status": "fixed",
+   "quote": "**Evaluate** means find the final number answer.",
+   "note": "Evaluate is defined before the first example that uses it as an instruction word."
+  },
+  "lesson-algebra-exponents-and-logarithms|L03|2": {
+   "status": "fixed",
+   "quote": "**Express** means write the answer in the form the question asks for.",
+   "note": "Express is defined in Core Concept before the logarithm-condensing example uses it."
+  },
+  "lesson-algebra-exponents-and-logarithms|L19|0": {
+   "status": "fixed",
+   "quote": "1. Rewrite the logarithm as an exponential equation.",
+   "note": "The basic-logarithm example now uses a numbered sequence of solution steps with display equations."
+  },
+  "lesson-algebra-exponents-and-logarithms|L25|0": {
+   "status": "fixed",
+   "quote": "For a valid exponential base, equal powers have equal exponents. In other words, if $b^u=b^v$, then $u=v$.",
+   "note": "The rewrite replaces the unexplained “one-to-one” term with the exact equality rule students need."
+  },
+  "lesson-algebra-exponents-and-logarithms|L25|1": {
+   "status": "fixed",
+   "quote": "A logarithm written as $\\log(x)$ with no base shown is the **common logarithm**, which has base $10$ in this lesson.",
+   "note": "Common logarithm is now defined in Core Concept before the worked condensing example uses it."
+  },
+  "lesson-algebra-exponents-and-logarithms|L26|0": {
+   "status": "fixed",
+   "quote": "A zero exponent equals $1$ for a nonzero base:",
+   "note": "The zero-exponent identity is now stated and followed by a short derivation explaining why it works."
+  },
+  "lesson-algebra-exponents-and-logarithms|L27|0": {
+   "status": "fixed",
+   "quote": "When fractional exponents appear, a safe common case is $a>0$. Do not apply the power-of-a-power shortcut blindly to a negative base with fractional exponents.",
+   "note": "The rewrite now states a safe condition and explicitly warns against the negative-base fractional-exponent failure."
+  },
+  "lesson-algebra-exponents-and-logarithms|B01|0": {
+   "status": "fixed",
+   "quote": "For integer exponents, the power-of-a-power rule is:",
+   "note": "The power-of-a-power statement is no longer asserted for all real-exponent cases; the fractional case is separately restricted."
+  },
+  "lesson-algebra-exponents-and-logarithms|L03|3": {
+   "status": "not_fixed",
+   "quote": "Solve $4^{2x-1}=8^{x+1}$.",
+   "note": "The optional item remains unchanged: “Solve” is not given its own one-line definition, although it is ordinary language here."
+  },
+  "lesson-algebra-exponents-and-logarithms|L18|1": {
+   "status": "not_fixed",
+   "quote": "Evaluate $\\log_3(81)$.",
+   "note": "The optional unknown-argument logarithm case is still not worked; the lesson only evaluates a known logarithm value."
+  }
+ }
+}
