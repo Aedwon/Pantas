@@ -1,0 +1,222 @@
+{
+ "packet": "lesson-arithmetic-number-sense-divisibility-rules",
+ "role": "A",
+ "lesson_sha256": "6980645f145e2af539369ccd5bccb7fe12dbd9974dbaf713f6accc877f0771c2",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the divisibility tests for $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$, and $11$, the coprime-product rule, and the zero exception; each statement is mathematically correct."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Blind-solved Example #1: $x=6$. Example #2: choice B, $24,534$.",
+    "Blind-solved Example #3: $b=1$. Example #4: $Y=4$, $X=2$, so $X+Y=6$. All match the lesson."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the mathematics section structure and the brief. Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present, with no required figures."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the rewritten teaching prose, including the cast-out-nines shortcut. The former modulo and congruent jargon is gone, and the directions are short and readable at the stated benchmark."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The example prompts use everyday instruction words such as find and which; no exam-specific instruction word needs a special definition."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all four example stems for sufficient givens and authentic problem wording; the solutions use simple language and do not supply tested rules inside the stems."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling rules do not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question refers to a target word or asks about a word in the prompt."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Traced every rule used by the worked examples to Core Concept before use: divisibility by $9$; by $6$ through $2$ and $3$; by $11$; and the coprime split for $72$ using the rules for $8$ and $9$."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "fail",
+   "findings": [
+    {
+     "quote": "A number is divisible by $5$ when its last digit is $0$ or $5$.",
+     "problem": "The lesson teaches the distinct last-digit tests for $5$ and $10$, but the Examples section still gives no worked example for either case, so the identified coverage gap remains."
+    }
+   ],
+   "checked": [],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1 through #4. Multi-step solutions are numbered, and the digit sums in Example #2 are now separate display equations rather than inline bullet computations."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There are no illustration placeholders, and the brief explicitly lists no required figures for this lesson."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked needed vocabulary before use: divisible is defined at the start; relatively prime/coprime is defined in Core Concept before Example #4; the rewritten shortcut no longer uses unexplained modulo or congruent terminology."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked each divisibility rule for an explanation of how to apply it, including the repeated $7$ test, alternating-position $11$ test, and coprime-factor combination."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked conditions and exceptions: the divisor is nonzero in the definition, the $7$ and $11$ rules state their pass conditions, the coprime split states its shared-factor limitation, and the zero exception is explicit."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-arithmetic-number-sense-divisibility-rules|L17|0": {
+   "status": "fixed",
+   "quote": "A number is divisible by $9$ when the sum of its digits is divisible by $9$.",
+   "note": "The divisibility rule for $9$ is now in Core Concept before Example #1 relies on it."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L02|0": {
+   "status": "fixed",
+   "quote": "When testing divisibility by $3$ or $9$, you can remove groups of digits whose sum is a multiple of $9$. This keeps the same result for the divisibility test.",
+   "note": "The cast-out-nines explanation is now split into simple sentences and no longer uses the technical word modulo."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L02|1": {
+   "status": "fixed",
+   "quote": "Since $1$ is not divisible by $3$ or $9$, the original number is divisible by neither $3$ nor $9$.",
+   "note": "The rewritten conclusion states the divisibility result directly and removes the unexplained congruent and modulo language."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L17|1": {
+   "status": "fixed",
+   "quote": "If $a$ and $b$ are relatively prime, then a number is divisible by $ab$ exactly when it is divisible by both $a$ and $b$.",
+   "note": "The coprime product split is now taught in Core Concept before Example #4 uses it for $72$."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L25|0": {
+   "status": "fixed",
+   "quote": "Two integers are **relatively prime**, also called **coprime**, when their only common positive factor is $1$.",
+   "note": "Relatively prime is now explicitly defined in Core Concept before the combined-divisibility example uses the term."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L25|1": {
+   "status": "fixed",
+   "quote": "When testing divisibility by $3$ or $9$, you can remove groups of digits whose sum is a multiple of $9$. This keeps the same result for the divisibility test.",
+   "note": "The shortcut was rewritten so understanding no longer depends on undefined congruent or modulo terminology."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L18|0": {
+   "status": "not_fixed",
+   "quote": "A number is divisible by $10$ when its last digit is $0$.",
+   "note": "The lesson still teaches the $5$ and $10$ last-digit tests without a worked Examples-section case for that distinct scenario."
+  },
+  "lesson-arithmetic-number-sense-divisibility-rules|L19|0": {
+   "status": "fixed",
+   "quote": "$$2+4+5+3+4=18$$",
+   "note": "Example #2 now places its key digit-sum computations in display equations inside the numbered solution steps."
+  }
+ }
+}
