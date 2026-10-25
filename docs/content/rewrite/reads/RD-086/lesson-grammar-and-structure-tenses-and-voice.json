@@ -1,0 +1,297 @@
+{
+ "batch": "RD-086",
+ "lesson_id": "lesson-grammar-and-structure-tenses-and-voice",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md",
+ "lesson_sha256": "3bc74b865dee1783088a7cb215df7a836896bea67d7369e8dc854d524497951b",
+ "rewrite_commit": "9165334f6c3903f50d59ab93005f25707d7dbabe",
+ "form": {
+  "packet": "lesson-grammar-and-structure-tenses-and-voice",
+  "role": "A",
+  "lesson_sha256": "3bc74b865dee1783088a7cb215df7a836896bea67d7369e8dc854d524497951b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked regular and irregular verb forms, subject agreement with has/have and be, and the six tense/aspect patterns against standard English grammar knowledge.",
+     "Checked active/passive roles, be/get passive formation, informal get-passive usage, and the object restriction on the usual passive conversion.",
+     "Checked can/could ability, can/may/could permission, must/have to requirements, should advice, must not prohibition, optional do not have to, overlapping possibility modals, and inferential must. No incorrect claim found."
+    ],
+    "note": "Review is limited to the supplied text. No source ledger or external sources were supplied or consulted, as instructed.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers to #1: checks, boils, starts. #2: Yesterday, she walked to the store and bought bread. #3: will close. #4: is checking.",
+     "#5: has finished, has visited, has lived. #6: stopped, has stopped. #7: had finished, uniquely among the supplied choices.",
+     "#8: The ball was chased by the dog. #9: The forms were checked by the clerk; A famous author wrote the novel. #10: The package got delivered before noon; formal rewrite: The package was delivered before noon.",
+     "#11: can, could. #12: May. #13: have to, should. #14: Visitors do not have to bring a copy. #15: might. #16: a strong conclusion. All match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. No forced mnemonic section is included.",
+     "Compared coverage with every supplied brief requirement: tense selection, voice, get-passive, and all four modal meanings are present. No question depends on a figure; the brief specifies none."
+    ],
+    "note": "No separate outline was supplied; assessment uses the required content in this packet.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching and solutions for simple wording. Tense and aspect are split into short explanations; verb forms have concrete sentences. Subject, agent, object, and modal meanings are explained in plain words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The commands choose, rewrite, change, and asking what a word expresses use ordinary meanings. No exam-specific instruction verb needs a separate definition.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All sixteen examples have explicit tasks. Tense choices supply time and context; voice changes supply complete sentences; modal tasks specify the meaning to recognize.",
+     "No stem supplies a formation rule or solution method. Stated meanings such as advice and requirement define the requested task, leaving modal selection to the student. Solutions use short, direct explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported exam claim or repeated exam opener appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar in English. It contains no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar in English. It contains no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar in English. It contains no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar in English. It contains no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson teaches English grammar in English. It contains no Filipino teaching prose or Filipino-language examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Example #16 asks what “the word in bold” expresses and bolds must in its sentence. Other tasks select complete verb forms or sentences and do not refer to a marked target word."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No listed stock phrase appears. The summary names verb time, modals, and voice directly. Paragraph openings and solution sentences vary."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language Proficiency may retain Speed Tricks & Shortcuts; the lesson uses that permitted structure. There are no mathematical formulas.",
+     "Verb patterns used in #1–#7 are introduced under Choosing Time and Aspect: simple-present base plus -s/-es, simple past including irregular forms, will + base form, am/is/are + -ing, has/have + past participle, and had + past participle.",
+     "Patterns used in #8–#10 are introduced under Active and Passive Voice: be + past participle, tense-preserving voice conversion, get + past participle, and nonpassive be/get descriptions. Patterns used in #11–#16 follow the base-form rule and meaning contrasts in Modal Verbs and Meaning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped #1 to habit, general truth, and schedule; #2 to correction of a past-time shift; #3 to future prediction; #4 to ongoing present action; #5 to present result, experience, and continuing situation; #6 to finished versus unfinished time; #7 to earlier past completion.",
+     "Mapped #8 to active/passive/nonpassive description; #9 to both conversion directions; #10 to get-passive and formal be-passive; #11 to present/past ability; #12 to formal permission; #13 to requirement/advice; #14 to optional versus forbidden; #15 to possibility; #16 to evidential must.",
+     "The sequence moves from basic form selection to time contrasts, voice conversions, and context-sensitive modals. Multiple simple-present and present-perfect clauses exercise distinct uses, not merely changed nouns. No distinct case required by the brief is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every example has a Solution label and numbered steps. All selections and both voice changes include the reason or transformation. There are no numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this English grammar lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked prose paragraphs: each contains one to three sentences. Examples and solutions use numbered steps without unnecessary bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders. All questions and explanations work as text; no load-bearing figure is needed.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Base form and past participle are defined before tense and passive patterns need them. The time/aspect section explains each named form alongside its construction.",
+     "Subject is explained before active/passive identification. Agent and object are defined before voice conversion needs them. Modal verb, ability, permission, obligation, advice, and possibility are introduced with meaning and examples before the worked tasks.",
+     "No mathematical symbols or units need explanation, and no prerequisite teaching is assumed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Tense is linked to when an event happens and aspect to ongoing action, prior completion, or a present link. Each construction has an explanation of when it is chosen.",
+     "Present perfect explicitly explains present result, experience, continuing situations, and events counted in an unfinished period. Past perfect explains completion before a past point.",
+     "Voice explains who acts and who receives the action, how to convert both directions, and why passive may be chosen. Get-passive has formation and a reasoned application in #10. Modal sections explain each required meaning; #11–#16 apply them with reasons."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked restrictions: no -s/-ed after will, state verbs usually simple rather than progressive, has/have agreement, finished past time versus present perfect, and past perfect not required whenever before establishes order.",
+     "Checked voice conditions: ordinary conversion requires an object, agent may be omitted, get-passive is informal, and be/get alone does not establish passive voice.",
+     "Checked modal limits: could is described as general past ability, permission varies by formality, must not differs from do not have to, possibility modals overlap, and must can express a conclusion rather than an order."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-grammar-and-structure-tenses-and-voice|L18|0": {
+    "status": "fixed",
+    "quote": "Choose the correct form: I think the office *(will close / closed)* early tomorrow.",
+    "note": "Examples #3, #4, and #5 now work through future will, present progressive, and present perfect selection."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L02|0": {
+    "status": "fixed",
+    "quote": "Tense helps show when something happens.",
+    "note": "The dense distinction is now split into short sentences with plain descriptions of time and aspect."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L05|0": {
+    "status": "fixed",
+    "quote": "Rewrite the sentence with the correct verb forms: \"Yesterday, she walks to the store and bought bread.\"",
+    "note": "The correction example now includes an explicit exam-style command."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L25|0": {
+    "status": "fixed",
+    "quote": "A **past participle** is a verb form used after *has, have,* or *had* and in many passive forms.",
+    "note": "The term is defined before passive formation and includes regular and irregular examples."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L26|1": {
+    "status": "fixed",
+    "quote": "This form can show a present result: \"She has finished the report, so it is ready now.\"",
+    "note": "Present result, experience, continuing situations, and counts in an unfinished period are all explained and practiced."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|lead-add|0": {
+    "status": "fixed",
+    "quote": "By the time the meeting started yesterday, Ana *(had finished / has finished / will finish)* the report.",
+    "note": "The revised earlier-completion item offers only one correct option, had finished. Simple past is no longer an alternative key."
+   },
+   "language-proficiency-grammar-and-structure#77": {
+    "status": "fixed",
+    "quote": "**Future meaning with will** uses *will + base form*.",
+    "note": "Formation and uses are explicit. Example #3 applies future prediction and explains the base-form choice."
+   },
+   "language-proficiency-grammar-and-structure#79": {
+    "status": "fixed",
+    "quote": "It can describe a situation that began in the past and still continues: \"She has lived here since June.\"",
+    "note": "Formation, present links, and finished-time limits are taught. Examples #5 and #6 apply the distinctions."
+   },
+   "language-proficiency-grammar-and-structure#84": {
+    "status": "fixed",
+    "quote": "Choose the form of *get* to match the time.",
+    "note": "The get-passive pattern, past form, informal setting, and formal be-passive alternative are taught and applied in #10."
+   },
+   "language-proficiency-grammar-and-structure#94": {
+    "status": "fixed",
+    "quote": "For **ability**, use *can* for present or general ability.",
+    "note": "Can and could are distinguished for present and general past ability, then applied in #11."
+   },
+   "language-proficiency-grammar-and-structure#95": {
+    "status": "fixed",
+    "quote": "For **permission**, *can* is common in everyday requests.",
+    "note": "Can, may, and polite could requests are explained. Example #12 applies the formal permission choice."
+   },
+   "language-proficiency-grammar-and-structure#96": {
+    "status": "fixed",
+    "quote": "For **obligation**, *must* and *have to* show a strong requirement.",
+    "note": "Strong requirement, advice, prohibition, and lack of requirement are contrasted and applied in #13 and #14."
+   },
+   "language-proficiency-grammar-and-structure#97": {
+    "status": "fixed",
+    "quote": "For **possibility**, *may, might,* and *could* can all mean that something is possible: \"It might rain later.\"",
+    "note": "Possibility choices and their overlap are explained. Example #15 applies might against a requirement reading."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L18|1": {
+    "status": "fixed",
+    "quote": "Which sentence uses a get-passive: \"The package got delivered before noon\" or \"The package got heavy in the rain\"?",
+    "note": "Examples #8 and #10 distinguish passive actions from be/get descriptions. Example #10 also converts get-passive for formal style."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L19|0": {
+    "status": "fixed",
+    "quote": "1. *Yesterday* places both actions in past time.",
+    "note": "The tense-correction solution now uses a numbered list for its reasoning and final rewrite."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L26|0": {
+    "status": "fixed",
+    "quote": "Use it for a prediction, promise, future statement, or decision made as you speak: \"I will help you.\"",
+    "note": "Will now has explicit selection conditions and a worked prediction example, not just an illustrative form."
+   },
+   "lesson-grammar-and-structure-tenses-and-voice|L27|0": {
+    "status": "fixed",
+    "quote": "It is common in speech and informal writing; use a *be*-passive when a formal style is needed.",
+    "note": "The vague suitable-context condition is replaced with a register distinction and a formal-report application."
+   }
+  }
+ }
+}
