@@ -1,107 +1,213 @@
 ---
 _id: "lesson-grammar-and-structure-punctuation-and-capitalization"
 title: "Punctuation and Capitalization Rules"
-summary: "Learn core comma, semicolon, apostrophe, and capitalization conventions while recognizing style-dependent choices."
+summary: "Use commas, semicolons, apostrophes, and capital letters to make sentences clear."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 10
+estimatedMinutes: 13
 isActive: true
 ---
 ## Core Concept
 
-Punctuation helps show grammatical structure and relationships between ideas. Some conventions are stable; others depend on the style guide being followed.
+**Punctuation** uses signs such as commas and periods to help readers follow a sentence. Capital letters show where sentences begin and help identify names. Some choices depend on the writing rules set by a school or publisher.
 
 ### Commas
 
-Common uses include:
+Use commas between items in a list: "I bought apples, bananas, and oranges." The comma before *and* is the **serial comma**, also called the Oxford comma. Some writing rules require it and others do not, so follow the task's rule and keep the meaning clear.
 
-- Separate items in a series: "I bought apples, bananas, and oranges." The final **serial/Oxford comma** before *and* is required by some styles and optional in others; use it when needed for clarity and follow the style expected by the task.
-- Place a comma before a coordinating conjunction (*and, but, or, so, for, nor, yet*) when it joins two independent clauses: "She studied hard, and she passed."
-- Usually place a comma after a substantial introductory dependent clause or phrase: "After the meeting, we went home." Very short introductory elements may not always require one if there is no risk of misreading.
-- Set off nonrestrictive/nonessential information: "My brother, who lives in Cebu, is visiting." Restrictive information that identifies which person or thing is meant is normally not set off with commas.
+An **independent clause** is a group of words that can stand as a complete sentence. A **coordinating conjunction** joins words or groups of equal rank. These joining words are *and, but, or, so, for, nor,* and *yet*.
+
+When a joining word connects two independent clauses, put a comma before it. "She studied hard, and she passed." Each side could stand as a sentence.
+
+Do not add a comma just because you see *and*. In "She studied and passed," the verbs share the subject *she*. The second part is not a separate independent clause.
+
+A **dependent clause**, also called a subordinate clause, needs another part to complete its meaning. "Because she was tired" leaves us waiting to hear what happened. Put a comma after an opening dependent clause: "Because she was tired, she rested."
+
+An opening phrase may also take a comma: "After the meeting, we went home." A very short opening may not need one if the sentence is easy to read.
+
+Use commas around extra information. In "My brother, who lives in Cebu, is visiting," the words between commas add a fact about the brother already meant.
+
+Do not use those commas when the words tell which person you mean. "The brother who lives in Cebu is visiting" picks that brother from others. The commas depend on the intended meaning.
 
 ### Semicolons
 
-A semicolon can join two closely related independent clauses without a coordinating conjunction: "The rain stopped; the sun came out." It can also separate complicated list items that already contain commas.
+A **semicolon** can join two closely related independent clauses without a joining word. "The rain stopped; the sun came out." Both sides can stand alone.
 
-Joining two independent clauses with only a comma is a **comma splice** in standard edited prose. Repair it with a period, semicolon, coordinating conjunction, or another suitable restructuring.
+Two independent clauses joined by only a comma form a **comma splice** in formal writing. Fix it with a period, a semicolon, or a comma and a suitable joining word.
+
+Semicolons also separate large list items that have commas inside them. First find each whole item. Keep its inside commas, then put semicolons between the whole items.
+
+"The delegates came from Calamba, Laguna; Vigan, Ilocos Sur; and Malolos, Bulacan." Each item is a city with its province. The semicolons show where one city-province pair ends and the next begins.
 
 ### Apostrophes
 
-Apostrophes commonly mark possession (*Maria's book*) and omitted letters in contractions (*don't*, *it's*). **Its** is the possessive determiner; **it's** means *it is* or *it has*.
+An **apostrophe** can show possession, meaning who owns something. Add *'s* to a singular noun: "Maria's book." For a plural noun ending in *s*, add only an apostrophe: "the teachers' room."
+
+For a plural noun that does not end in *s*, add *'s*: "the children's books." Start with the owner, decide whether it is singular or plural, then place the apostrophe.
+
+For a singular name ending in *s*, many writing rules use *'s*: "James's bag." Other rules allow "James' bag." Follow the rule stated in the task and use it consistently.
+
+A **contraction** is a shortened form with missing letters. Put the apostrophe where letters were left out: *do not* becomes *don't*.
+
+**Its** shows possession: "The dog wagged its tail." **It's** means *it is* or *it has*. Unlike a noun such as *Maria*, possessive *its* has no apostrophe.
 
 ### Capitalization
 
-Capitalize sentence beginnings and proper names. Capitalization of titles depends partly on style and function. Formal titles directly before names are often capitalized ("President Reyes"), while occupational descriptions are commonly lowercase ("the president," "the doctor"). Some institutional or editorial styles also capitalize certain titles used alone, so "only before a name" is too absolute.
+Begin a sentence with a capital letter. Capitalize proper names, such as *Ana* and *Cebu*.
 
-A direct quotation that is itself a complete sentence normally begins with a capital letter: She said, "The meeting is over." A quoted word or fragment embedded in a sentence need not: The word "meeting" appears twice.
+A formal title directly before a name is usually capitalized: "President Reyes." A general job label is usually lowercase: "the president" or "the doctor."
+
+Some offices and publishers capitalize certain titles used alone. Follow a special rule if the task gives one. Do not assume every job word needs a capital letter.
+
+A quoted complete sentence normally begins with a capital letter: She said, "The meeting is over." A quoted word within a sentence need not: The word "meeting" appears twice.
 
 ## Examples
 
 ### #1: Fixing a Comma Splice
 
-"The concert was amazing, everyone stayed until the end."
+Correct the punctuation without adding or removing words: "The concert was amazing, everyone stayed until the end."
 
 **Solution:**
 
-Both sides are independent clauses. Possible repairs include:
+1. "The concert was amazing" and "everyone stayed until the end" can each stand alone. A comma alone does not join them correctly here.
+2. Replace the comma with a semicolon: "The concert was amazing; everyone stayed until the end."
+3. A period also works: "The concert was amazing. Everyone stayed until the end."
 
-- "The concert was amazing, **so** everyone stayed until the end."
-- "The concert was amazing; everyone stayed until the end."
-- "The concert was amazing. Everyone stayed until the end."
+### #2: A Joining Word
 
-### #2: *Its* or *It's*
-
-The company announced *(its / it's)* new product line.
+Add a comma where needed: "The clerk checked the form and the applicant signed it."
 
 **Solution:**
 
-The blank shows possession, so **its** is correct. The substitution *it is new product line* does not work.
+1. Both "The clerk checked the form" and "the applicant signed it" are complete clauses.
+2. Put a comma before *and*: "The clerk checked the form, and the applicant signed it."
 
-### #3: Semicolon
+### #3: Opening and Extra Information
 
-Which is standard? (A) "She wanted to travel; because she loved adventure." (B) "She loves reading; she visits the library every weekend."
-
-**Solution:**
-
-(B). Both clauses can stand independently. In (A), the *because*-clause is subordinate.
-
-### #4: Capitalizing a Formal Title
-
-Compare: "We met **President Reyes** yesterday" and "We met **the president** yesterday."
+Add the needed commas. The speaker has only one brother: "After the meeting my brother who lives in Cebu drove me home."
 
 **Solution:**
 
-The first uses a formal title as part of the name; the second uses the role generically. Both follow a common capitalization convention.
+1. Separate the opening phrase with a comma: "After the meeting, ..."
+2. The speaker has only one brother, so "who lives in Cebu" adds extra information. Put commas on both sides.
+3. Write: "After the meeting, my brother, who lives in Cebu, drove me home."
+
+### #4: Identifying Information
+
+The speaker has several brothers. Add commas only if needed: "The brother who lives in Cebu is visiting."
+
+**Solution:**
+
+1. "Who lives in Cebu" tells which brother is meant.
+2. Keep that information attached without commas: "The brother who lives in Cebu is visiting."
+
+### #5: A List Within a List
+
+Add punctuation to separate the city-province pairs: "The delegates came from Calamba, Laguna, Vigan, Ilocos Sur, and Malolos, Bulacan."
+
+**Solution:**
+
+1. Each whole item contains a city and its province. The comma within each pair belongs there.
+2. Put semicolons between the pairs: "The delegates came from Calamba, Laguna; Vigan, Ilocos Sur; and Malolos, Bulacan."
+
+### #6: Checking Semicolon Halves
+
+Which sentence uses a semicolon correctly? (A) "She wanted to travel; because she loved adventure." (B) "She loves reading; she visits the library every weekend."
+
+**Solution:**
+
+1. In (B), both sides can stand as complete sentences. The semicolon correctly joins them.
+2. In (A), "because she loved adventure" is dependent. It cannot serve as the second complete clause, so choose (B).
+
+### #7: Forming Possessives
+
+Write each phrase to show ownership: (a) the book belonging to Maria; (b) the room used by several teachers; (c) the books belonging to the children.
+
+**Solution:**
+
+1. *Maria* is singular, so write "Maria's book."
+2. *Teachers* is plural and ends in *s*, so write "the teachers' room."
+3. *Children* is plural but does not end in *s*, so write "the children's books."
+
+### #8: A Name Ending in S
+
+Write "the bag belonging to James" using the rule that adds *'s* to singular names.
+
+**Solution:**
+
+James is one person, so the stated rule gives "James's bag."
+
+### #9: A Contraction
+
+Shorten "do not" in this sentence: "Please do not enter."
+
+**Solution:**
+
+Replace the missing *o* with an apostrophe: "Please don't enter."
+
+### #10: Its or It's
+
+Choose the correct form: "The company announced (its / it's) new product line."
+
+**Solution:**
+
+1. The sentence tells whose product line it is. It needs the possessive *its*.
+2. "It is new product line" and "it has new product line" do not fit. Write: "The company announced its new product line."
+
+### #11: Formal Titles
+
+Using the usual title-before-name rule, correct the capital letters: "We met president Reyes yesterday. Later, the President spoke."
+
+**Solution:**
+
+1. Capitalize the title directly before the name: "President Reyes."
+2. Use lowercase for the general role: "We met President Reyes yesterday. Later, the president spoke."
+
+### #12: Quoted Sentence or Word
+
+Correct the opening letters of the quoted text: She said, "the meeting is over." The word "Meeting" appears twice.
+
+**Solution:**
+
+1. The first quotation is a complete sentence. Write: She said, "The meeting is over."
+2. The second quotation names an ordinary word within a sentence. Write: The word "meeting" appears twice.
 
 ## Speed Tricks & Shortcuts
 
-**Test semicolon halves as sentences.** In its basic joining use, each side should be an independent clause.
+For a semicolon joining clauses, read each side as a sentence. For a complex list, find the whole items instead.
 
-**Expand *it's*.** If *it is* or *it has* fits, use *it's*; otherwise possession is normally *its*.
+Expand *it's* to *it is* or *it has*. If neither fits and the meaning is ownership, use *its*.
 
-**Separate grammar from house style.** Serial commas and some title-capitalization choices vary by style guide. Prefer the option that preserves clarity and matches the stated convention.
+For a possessive noun, write the owner first. Check whether it is singular, a plural ending in *s*, or another plural.
 
 ## Traps to Watch For
 
-### #1: Treating the Oxford Comma as Universally Required or Forbidden
+### #1: Making Every Serial Comma Required or Forbidden
 
-> Both serial-comma conventions exist in edited English.
+> Writing rules differ on the last comma in a simple list.
 
-Use the style required by the context, and use punctuation that avoids ambiguity.
+Follow any rule stated in the task. Keep the comma when it is needed to prevent an unclear reading.
 
-### #2: Joining Independent Clauses with Only a Comma
+### #2: Joining Sentences with Only a Comma
 
-> In standard edited prose, a comma alone does not normally join two independent clauses.
+> A comma alone usually cannot join two complete clauses in formal writing.
 
-### #3: Using a Semicolon Before a Subordinate Clause
+Check whether both sides can stand alone. A semicolon or a comma with a joining word may be needed.
 
-> "Because she loved adventure" cannot function as the second independent clause in a basic semicolon construction.
+### #3: Putting a Semicolon Before Because
 
-### #4: Capitalizing Every Occupational Title
+> A dependent clause cannot be the second complete clause in a basic semicolon join.
 
-> A job label is not automatically a proper name. "President Reyes" and "the president" illustrate the common distinction.
+"Because she loved adventure" needs another part. Do not separate it from its main clause with a semicolon.
 
-### #5: Capitalizing Every Directly Quoted Fragment
+### #4: Putting the Apostrophe Before Every S
 
-> Capitalize the opening of a quoted complete sentence, but an embedded quoted word or fragment follows the surrounding sentence's needs.
+> Find the owner before placing a possessive apostrophe.
+
+"Teacher's" means one teacher owns something. "Teachers'" means several teachers own or share it.
+
+### #5: Capitalizing Every Job or Quoted Word
+
+> A job label or a quoted word does not always need a capital letter.
+
+Use "President Reyes" but usually "the president." A complete quoted sentence begins with a capital, but an ordinary quoted word within a sentence may stay lowercase.

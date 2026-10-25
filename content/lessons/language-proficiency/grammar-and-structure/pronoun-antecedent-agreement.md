@@ -1,106 +1,171 @@
 ---
 _id: "lesson-grammar-and-structure-pronoun-antecedent-agreement"
 title: "Pronoun-Antecedent Agreement"
-summary: "Learn how pronouns refer clearly to antecedents and how number, meaning, and modern singular they affect agreement."
+summary: "Choose clear English pronouns and use Filipino personal pronoun forms for their sentence roles."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 9
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-An **antecedent** is the word or phrase a pronoun refers to. In "Maria forgot *her* umbrella," "Maria" is the antecedent of "her."
+A **pronoun** stands for a person or thing, as *she, it,* and *they* do. An **antecedent** is the word or phrase the pronoun refers to. In "Maria forgot her umbrella," *Maria* is the antecedent of *her*.
 
-Pronouns should make their reference clear and should fit the antecedent in number and meaning.
+Choose a pronoun that fits the person or thing meant. A singular form refers to one. A plural form refers to more than one: "The girls lost their books."
 
-"The girls lost *their* books." Here the plural antecedent "girls" takes plural *their*.
+### Singular They
 
-### Singular *they*
+**Singular they** refers to one person when gender is unknown or does not matter. It is also used for a person who uses *they* as their pronoun. Its forms include *they, them, their,* and *theirs*.
 
-Modern standard English widely accepts **singular they** (*they, them, their, theirs*) when a person's gender is unknown, irrelevant, or nonbinary. This usage has a long history in English.
+"Everyone must bring their lunch" is accepted modern English. *Everyone* still takes a singular verb: "Everyone is ready." With *they*, use "they are," even when it refers to one person.
 
-"Everyone must bring *their* lunch." is standard modern English. The antecedent *everyone* still takes a singular verb ("Everyone *is* ready"), while *they* itself takes the ordinary *they* verb form ("Everyone said *they are* ready").
+*His or her* is also possible in some sentences. It is not always a better choice than *their*. Follow any special rule stated in the task.
 
-Forms such as *his or her* are also possible in some contexts, but they are not inherently more grammatical than singular *their*. Do not assume an exam must prefer *his or her* unless the item or style guide explicitly establishes that convention.
+### Groups and Joined Antecedents
 
-### Other agreement patterns
+A **collective noun** names a group, such as *company* or *team*. Use *it* or *its* when the group acts as one unit: "The company announced its policy."
 
-**Collective nouns** can be referred to as a unit or as individual members. "The company announced *its* policy" treats the organization as one unit. In a context emphasizing people within the group, plural reference can be natural, especially in British English.
+Some uses, especially in British English, treat a group as its members and use a plural pronoun. To make that meaning clear, name the members: "The team members packed their bags."
 
-**Compound antecedents joined by *and*** are normally plural: "Ana and Ben brought *their* snacks."
+Antecedents joined by *and* are normally plural: "Ana and Ben brought their snacks."
 
-With antecedents joined by *or/nor*, a pronoun can become awkward if one option is singular and another plural. Instead of relying on a mechanical "nearest antecedent" rule for pronouns, rewrite for clarity when possible: "Neither the coach nor the players brought the equipment they needed" or "Neither the players nor the coach brought the required equipment."
+With *or* or *nor*, the sentence may mix a single person and a group. A pronoun can then leave the meaning unclear. When editing, name the people meant or remove the pronoun if it adds nothing.
 
-### Clear reference matters
+### Clear Reference
 
-A pronoun should not leave two equally plausible antecedents. "When Mrs. Santos spoke to Anna, she seemed upset" is ambiguous because *she* could refer to either person.
+"When Mrs. Santos spoke to Anna, she seemed upset" leaves two possible meanings. *She* could mean either person. Repeat the intended name when needed.
 
-### Sa Filipino: Panghalip Panao
+### Sa Filipino: Panghalip Panao (Personal Pronoun)
 
-Filipino personal pronouns are commonly grouped by syntactic form, including forms associated with *ang*, *ng*, and *sa* roles. Examples include *ako/ko/akin*, *siya/niya/kaniya*, and plural forms such as *sila/nila/kanila*. Filipino *siya* does not encode the he/she gender distinction of English.
+Ang **panghalip panao** ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa gamit sa pangungusap. Alamin muna kung sino ang tinutukoy at kung ano ang papel niya.
+
+Ang anyong **ang** ay pamalit sa taong itinatampok sa pangungusap. Sa "Si Ana ang nagsulat," maaaring ipalit ang "Siya ang nagsulat." Kabilang dito ang *ako, ikaw, siya, kami, tayo, kayo,* at *sila*.
+
+Ang anyong **ng** ay maaaring magsabi kung sino ang may-ari. "Aklat ko" ang pamalit sa "aklat ni Liza" kung si Liza ang nagsasalita. Maaari rin itong tumukoy sa gumawa: "Sinulat niya ang liham."
+
+Kabilang sa anyong ng ang *ko, mo, niya, namin, natin, ninyo,* at *nila*. Sa "Sinulat niya ang liham," si *niya* ang gumawa. Ang liham ang itinatampok sa pangungusap.
+
+Ang anyong **sa** ay ginagamit kapag sinasabi kung para kanino o kanino ibinigay ang isang bagay. "Para kay Ana" ay nagiging "para sa kaniya." Kabilang dito ang *akin, iyo, kaniya, amin, atin, inyo,* at *kanila*.
+
+Gamitin ang *sa* sa "Ibinigay sa akin ang sulat." Maaari ring sabihin ang "Akin ang sulat" upang tukuyin ang may-ari. Hindi kailangan ng *sa* sa ganitong ayos.
+
+Ang *ako, ko,* at *akin* ay tumutukoy sa nagsasalita. Ang *siya, niya,* at *kaniya* ay para sa isang taong pinag-uusapan. Para sa higit sa isang taong pinag-uusapan, gamitin ang *sila, nila,* at *kanila*.
+
+Kasama ang kausap sa *tayo, natin,* at *atin*. Hindi kasama ang kausap sa *kami, namin,* at *amin*. Ang *kayo, ninyo,* at *inyo* ay tumutukoy sa mga kausap.
+
+Walang pagkakaiba ang *siya* para sa babae at lalaki. Tingnan ang papel sa pangungusap upang pumili sa *siya, niya,* at *kaniya*. Huwag ibatay sa kasarian ang pagpili.
 
 ## Examples
 
-### #1: Singular Indefinite Antecedent
+### #1: One Person, Unstated Gender
 
-Choose the natural modern form: Each of the students must submit *(their / its)* essay by Friday.
-
-**Solution:**
-
-1. *Each* is grammatically singular.
-2. Singular *their* is a standard gender-neutral pronoun for a person whose gender is not specified.
-3. Correct: "Each of the students must submit *their* essay by Friday."
-
-### #2: Collective Noun Antecedent
-
-The company announced *(its / his)* new policy yesterday.
+Choose the natural modern form: "Each of the students must submit (their / its) essay by Friday."
 
 **Solution:**
 
-"Company" refers to the organization as one unit, so *its* is appropriate.
+1. *Each* refers to one student at a time. The student's gender is not given.
+2. Singular *their* can refer to that person. Write: "Each of the students must submit their essay by Friday."
 
-### #3: Compound Antecedent with *and*
+### #2: A Group as One Unit
 
-Liza and Carlo finished *(her / their)* project early.
-
-**Solution:**
-
-The compound antecedent is plural, so *their* is correct.
-
-### #4: Ambiguous Antecedent
-
-What is unclear in "When Mrs. Santos spoke to Anna, she seemed upset"?
+Choose the correct form: "The company announced (its / his) new policy yesterday."
 
 **Solution:**
 
-The reader cannot tell whether *she* means Mrs. Santos or Anna. Name the intended person: "When Mrs. Santos spoke to Anna, Anna seemed upset."
+The company is an organization acting as one unit, so *its* is correct.
 
-## Speed Tricks & Shortcuts
+### #3: Antecedents Joined by And
 
-**Find the antecedent before judging agreement.** Then check number and whether the reference is clear.
+Choose the correct form: "Liza and Carlo finished (her / their) project early."
 
-**Do not reject singular *they*.** It is established modern English for indefinite or gender-neutral singular reference.
+**Solution:**
 
-**Rewrite mixed *or/nor* references when needed.** Clarity is more important than forcing an awkward pronoun choice.
+Liza and Carlo are two people joined by *and*, so use *their*.
+
+### #4: An Unclear Reference
+
+Make it clear that Anna was upset: "When Mrs. Santos spoke to Anna, she seemed upset."
+
+**Solution:**
+
+1. *She* could refer to Mrs. Santos or Anna.
+2. Repeat the intended name: "When Mrs. Santos spoke to Anna, Anna seemed upset."
+
+### #5: Mixed Number with Nor
+
+Remove the unclear pronoun without changing the main meaning: "Neither the players nor the coach brought his or their required equipment."
+
+**Solution:**
+
+1. *Players* is plural, but *coach* is singular. "His or their" makes the sentence hard to read.
+2. The pronoun is not needed to say what was missing. Write: "Neither the players nor the coach brought the required equipment."
+
+### #6: Anyong Ang
+
+Palitan ng panghalip ang pangalang nasa pangungusap: "Si Ana ang tatawag sa opisina."
+
+**Solution:**
+
+1. Si Ana ang taong itinatampok. Isang tao ang tinutukoy.
+2. Gamitin ang *siya*: "Siya ang tatawag sa opisina."
+
+### #7: Anyong Ng
+
+Piliin ang tamang anyo: "Sina Ana at Ben ang gumawa ng ulat. Ipinasa (sila / nila / kanila) ang ulat kahapon."
+
+**Solution:**
+
+1. Sina Ana at Ben ang gumawa ng kilos. Ang ulat ang itinatampok sa ikalawang pangungusap.
+2. Kailangan ang anyong ng para sa higit sa isang tao. Tama ang "Ipinasa nila ang ulat kahapon."
+
+### #8: Anyong Sa
+
+Palitan ng panghalip ang "kay Ana" sa "Ibinigay ng kawani kay Ana ang resibo."
+
+**Solution:**
+
+1. Si Ana ang tumanggap ng resibo. Kailangan ang anyong sa.
+2. Isang tao ang tinutukoy, kaya gamitin ang *kaniya*: "Ibinigay ng kawani sa kaniya ang resibo."
+
+### #9: Kasarian at Papel
+
+Piliin ang tamang anyo: "Si Marco ang bagong kawani. (Siya / Niya / Kaniya) ang tutulong sa atin."
+
+**Solution:**
+
+1. Si Marco ang itinatampok sa ikalawang pangungusap. Kailangan ang anyong ang.
+2. Gamitin ang *siya*: "Siya ang tutulong sa atin." Ganoon din ang anyo kung babae ang tinutukoy.
+
+## Usage Notes
+
+Find the antecedent before choosing an English pronoun. Check its number, its meaning, and whether the reader can tell who is meant.
+
+Singular *they* does not change the verb after *everyone*. Write "Everyone has said they are ready."
+
+Sa Filipino, tingnan ang papel ng tao. "Siya ang sumulat," "Sinulat niya," at "Para sa kaniya" ay may magkakaibang gamit.
 
 ## Traps to Watch For
 
-### #1: Calling Singular *They* an Error
+### #1: Rejecting Singular They
 
-> Singular *they/their* is widely accepted in modern formal as well as informal English.
+> Singular *their* can refer to one person.
 
-*Everyone should bring their identification* is not automatically incorrect.
+"Everyone should bring their identification" is accepted modern English. Do not reject it only because *everyone* is singular.
 
-### #2: Confusing Verb Agreement with Pronoun Reference
+### #2: Treating Every Group the Same Way
 
-> *Everyone* takes a singular verb, but it can be referred to by singular *they*.
+> A group may act as one unit or as individual members.
 
-Correct: "Everyone *has* said *they are* ready."
+"The company changed its policy" treats it as a unit. "The members changed their plans" clearly points to the people.
 
-### #3: Treating Every Collective Noun the Same Way
+### #3: Choosing Only the Nearest Noun
 
-> Collective reference depends on whether the group is viewed as a unit or as members, and usage varies across English varieties.
+> A nearby noun is not always the intended antecedent.
 
-### #4: Leaving Reference Ambiguous
+Read the whole sentence. With mixed *or/nor* groups, a clear rewrite may work better than forcing a pronoun.
 
-> A grammatically possible pronoun can still be poor writing if readers cannot identify its antecedent.
+### #4: Pagpapalit ng Anyo Batay sa Kasarian
+
+> Hindi nakabatay sa kasarian ang pagpili sa *siya, niya,* at *kaniya*.
+
+Magkakaiba ang papel ng mga anyong ito. Maaaring tumukoy ang bawat isa sa babae o lalaki.

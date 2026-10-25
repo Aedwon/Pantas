@@ -1,93 +1,144 @@
 ---
 _id: "lesson-grammar-and-structure-phrases-and-clauses"
 title: "Phrases and Clauses (Independent vs. Dependent)"
-summary: "Learn the school-grammar distinction between phrases and clauses and how independent and dependent clauses function in sentences."
+summary: "Tell phrases from clauses, find complete thoughts, and join clauses with the right connector."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
-estimatedMinutes: 9
+estimatedMinutes: 10
 isActive: true
 ---
 ## Core Concept
 
-In traditional school grammar, a **clause** contains a predicative relationship built around a verb, usually with an expressed or understood subject. A **phrase** is a smaller grammatical unit that does not function as a finite clause.
+A **subject** tells who or what a clause is about. A **verb** tells an action or state, such as *slept* or *is*. A **clause** joins a verb with a subject, which may be stated or left understood.
 
-The familiar shortcut "a clause has a subject and a verb; a phrase does not have both" works for many basic exam examples, but it is not a complete linguistic definition. English also has **nonfinite clauses** such as "to finish the project" or "walking down the street," whose verb does not carry ordinary finite tense/agreement. Different textbooks may call some of these constructions "phrases" in introductory grammar. For this lesson, use the standard school distinction in the examples while recognizing that more advanced grammars analyze the boundary differently.
+In "The cat slept," *the cat* is the subject and *slept* is the verb. In the command "Sit down," the subject is understood to be *you*.
+
+A **phrase** is a group of words that works as one part of a sentence. In basic school grammar, "under the old bridge" is a phrase. It has no subject doing an action or being in a state.
 
 ### Independent and Dependent Clauses
 
-An **independent clause** can function as a complete sentence in the relevant context: "The rain stopped."
+An **independent clause** gives a complete thought and can stand as a sentence: "The rain stopped."
 
-A **dependent (subordinate) clause** is grammatically subordinate to another element and normally cannot stand alone as a complete standard sentence in the same way: "because the rain stopped." Subordination can be marked by words such as *because, although, when, if,* and *while*, by relative words such as *who/which/that*, or by other constructions.
+A **dependent clause**, also called a subordinate clause, needs another part to complete its meaning. "Because the rain stopped" gives a reason but leaves us waiting to hear what happened.
 
-A dependent clause plus an independent clause can form a complete sentence: "Because the rain stopped, we went outside."
+Words such as *because, although, when, if,* and *while* can begin dependent clauses. Words such as *who, which,* and *that* can also introduce them: "the worker who helped us." Here, "who helped us" describes the worker.
 
-| Unit | Example | Basic school analysis |
-| --- | --- | --- |
-| Phrase | under the old bridge | no finite clause |
-| Independent clause | The rain stopped. | can stand as a sentence |
-| Dependent clause | because the rain stopped | subordinate; needs a larger construction |
+### Choosing a Connector
+
+Use **because** to give a reason. First ask what happened. Then ask why: "We went outside because the rain stopped."
+
+Use **although** to show a result that may seem surprising. "Although she was tired, she finished her homework." Being tired might keep her from finishing, but she finished anyway.
+
+When the dependent clause comes first, put a comma after it. "Because the rain stopped, we went outside." When a *because* clause follows the main thought, a comma is usually not needed.
+
+### The Nonfinite Boundary
+
+A **finite verb** shows tense or works with a subject to form a main clause. Compare "she walks" with "she walked." The verb changes to show present or past time.
+
+A **nonfinite verb** does not show tense by itself. Examples include *to finish* and *walking*. In "Walking down the street, Ana saw Ben," Ana does the walking, but *walking* alone does not tell the tense.
+
+Basic school books often call "to finish the project" an infinitive phrase. More advanced grammar may call it a nonfinite clause because someone is understood to do the action. Follow the terms given in the question.
+
+To check this boundary, look for the verb that carries the sentence's tense. In "Ana hopes to finish the project," *hopes* does that job. "To finish the project" cannot stand alone as a complete formal sentence.
 
 ## Examples
 
 ### #1: Phrase or Clause?
 
-Using the basic school distinction, classify: (a) "under the old bridge"; (b) "the cat slept."
+Classify each group as a phrase or an independent clause: (a) "under the old bridge"; (b) "the cat slept." "Classify" means put each item in the right group.
 
 **Solution:**
 
-1. (a) is a prepositional phrase; it contains no finite predication.
-2. (b) is an independent clause with subject *the cat* and finite verb *slept*.
+1. In (a), there is no subject with a verb. "Under the old bridge" is a phrase that tells where.
+2. In (b), *the cat* is the subject and *slept* is the verb. The thought is complete, so it is an independent clause.
 
-### #2: Independent or Dependent?
+### #2: A Contrast Clause
 
-(a) "Although she was tired"  
-(b) "She finished her homework."
-
-**Solution:**
-
-1. (a) is subordinate because *although* marks a concessive relation requiring a larger clause in ordinary standard prose.
-2. (b) is independent and can stand as a complete sentence.
-
-### #3: Combining Clauses
-
-Combine "Because the store was closed" with an independent clause.
+Identify each group as independent or dependent: (a) "Although she was tired"; (b) "She finished her homework."
 
 **Solution:**
 
-"Because the store was closed, **we went home instead**."
+1. In (a), *although* tells us to expect a surprising result. That result is missing, so the clause is dependent.
+2. In (b), we learn a complete thought. It is an independent clause.
+3. Together, they make: "Although she was tired, she finished her homework."
 
-### #4: Fragment in Standard Edited Prose
+### #3: Giving a Reason
 
-"Although the teacher explained the lesson twice."
+Join these sentences using a connector that shows the reason: "We went home instead. The store was closed."
 
 **Solution:**
 
-As written in isolation, this subordinate clause is a sentence fragment in ordinary formal prose. A repair is: "Although the teacher explained the lesson twice, **some students were still confused**."
+1. Going home is the result. The closed store is the reason, so place *because* before "the store was closed."
+2. Write: "We went home instead because the store was closed."
+3. The reason can also come first: "Because the store was closed, we went home instead."
 
-Fragments can be used deliberately in dialogue, fiction, advertising, and informal writing, so "cannot ever stand alone" is a style-context claim rather than a law of all English communication.
+### #4: Repairing a Fragment
+
+Make this group a complete formal sentence by adding a main clause: "Although the teacher explained the lesson twice."
+
+**Solution:**
+
+1. *Although* leaves us waiting for a result that goes against what we expect. The group is a **fragment**, an incomplete sentence.
+2. Add an independent clause: "Although the teacher explained the lesson twice, some students were still confused."
+
+### #5: A Nonfinite Verb Group
+
+In "Ana hopes to finish the project," can "to finish the project" stand alone as a complete formal sentence? Explain its role.
+
+**Solution:**
+
+1. *Hopes* is the verb that shows present time. *To finish* does not show tense by itself.
+2. "To finish the project" tells what Ana hopes to do. It cannot stand alone as a complete formal sentence.
+3. Basic school grammar calls it an infinitive phrase. A grammar that includes nonfinite clauses may call it a nonfinite clause with Ana as the understood doer.
+
+### #6: An Understood Subject
+
+Is "Please close the door" a complete sentence even though it has no stated subject?
+
+**Solution:**
+
+1. This is a command. The person being spoken to, *you*, is the understood subject.
+2. *Close* gives the action. The command is a complete sentence.
+
+### #7: The Words After the Connector
+
+Which group contains a dependent clause: "after lunch" or "after we ate lunch"?
+
+**Solution:**
+
+1. "After lunch" has no subject with a verb. It is a phrase.
+2. "After we ate lunch" has subject *we* and verb *ate*. *After* makes it depend on another clause, so it is a dependent clause.
 
 ## Speed Tricks & Shortcuts
 
-**Find the finite verb and subject relationship.** This helps identify the main clause structure in school-grammar questions.
+Find the subject and the verb before naming the group. Then ask whether it gives a complete formal sentence.
 
-**Look for subordination.** *Because, although, if, when, while,* and relative markers often signal dependent clauses, but their exact function depends on the sentence.
+Check the meaning of the connector. *Because* gives a reason. *Although* sets up a contrast with an expected result.
 
-**Use the stand-alone test as a practical heuristic.** If a group works as a complete standard sentence, it is likely independent; if it depends grammatically on another clause, it is subordinate.
+Do not count every verb-shaped word as the main verb. *To finish* and *walking* need more context to form a complete sentence.
 
 ## Traps to Watch For
 
-### #1: Defining Every Phrase as "No Subject and Verb"
+### #1: Using Only the Subject-and-Verb Shortcut
 
-> That shortcut is useful for simple exercises but breaks down with nonfinite constructions and different grammatical frameworks.
+> A verb group can have an understood doer without being a complete sentence.
 
-### #2: Assuming Every Clause Starts with an Explicit Subject
+"To finish the project" is the key boundary case. Check the terms used by the question before calling it a phrase or a nonfinite clause.
 
-> English can have understood subjects, especially in imperatives and nonfinite clauses.
+### #2: Looking Only for a Written Subject
 
-### #3: Treating Every Subordinating Word as Proof Without Parsing
+> A command can leave out the subject *you*.
 
-> Words such as *before, after,* and *since* can serve different functions depending on what follows them.
+"Sit down" is complete. Calling every group without a written subject a phrase would give the wrong answer here.
 
-### #4: Saying Fragments Are Impossible English
+### #3: Judging Only the First Word
 
-> Fragments are normally errors in formal sentence-completion tasks when a complete sentence is required, but writers can use them deliberately in other genres.
+> Read what follows words such as *before, after,* and *since*.
+
+"After lunch" is a phrase. "After we ate lunch" contains a dependent clause. The first word alone does not settle the answer.
+
+### #4: Treating Every Fragment as a Writing Error
+
+> A formal task may require complete sentences, but dialogue and stories can use fragments on purpose.
+
+In a sentence-completion task, add the missing main thought. Do not assume that the same fragment is wrong in every kind of writing.
