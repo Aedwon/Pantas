@@ -1,0 +1,260 @@
+{
+ "batch": "RD-040",
+ "lesson_id": "lesson-grammar-and-structure-redundancy-and-double-negatives",
+ "path": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+ "lesson_sha256": "022e0d7bb2614ca19cf311ac0e263e638c7d3df923e75dee58838d92aefc28e2",
+ "rewrite_commit": "5145876efae4abf8181a96c4b87b111ca4f5525c",
+ "form": {
+  "packet": "lesson-grammar-and-structure-redundancy-and-double-negatives",
+  "role": "A",
+  "lesson_sha256": "022e0d7bb2614ca19cf311ac0e263e638c7d3df923e75dee58838d92aefc28e2",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked claims: 'return back' repeats 'back'; hardly and scarcely already mean almost not; seldom means not often; 'not unexpected' is a softened positive; negative concord exists in some dialects and standard edited English uses one negation. All match standard usage references. The advance warning and close proximity hedges are not wrong facts."
+    ],
+    "note": "No wrong fact; the hedges are cautious.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [
+     "Solved from the questions alone. #1 return to the office. #2 doesn't want any help. #3 is ambiguous (see finding). #4 can hardly hear you. #5 outcome was not a surprise, expected to some degree. #6 Lea seldom misses a meeting."
+    ],
+    "note": "Example 3 has an arguable key.",
+    "findings": [
+     {
+      "quote": "The agency gave residents advance warning several days before the closure, instead of telling them at the last moment.",
+      "problem": "The key says advance is not needless, but 'several days before the closure' already says the warning came early, so a solver can fairly answer that advance adds nothing. The answer is not determinate from the question alone."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts and Traps to Watch For are present with exact titles. The optional Mnemonics section is absent. No figure is needed."
+    ],
+    "note": "Required sections are present.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Core Concept as a Grade 5 student. Sentences such as 'A dialect is a form of a language used by a group of speakers.' and 'This means several negative words work together to give one negative meaning.' are short and plain. The precision and idiomatic wording is gone."
+    ],
+    "note": "Prose is simple enough.",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The exam verb 'Rewrite' first appears in #2 and is explained in the same item: 'Rewrite means write the sentence in a new form while keeping the intended meaning.' 'Remove', 'correct' and 'choose' are everyday words."
+    ],
+    "note": "Exam verb is explained on first use.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned every section, including Speed Tricks & Shortcuts, for comparisons used as analogies. The earlier arithmetic comparison is gone and none appears."
+    ],
+    "note": "The lesson contains no analogy.",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked stems #1 to #6. Each names a task (remove, rewrite, is it needless, what does it suggest, correct) and gives the meaning to keep where meaning could be misread. Solutions use plain words."
+    ],
+    "note": "Stems have tasks and necessary givens.",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "Searched for exam mentions. The lesson has none."
+    ],
+    "note": "The lesson has no exam mentions.",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is an English lesson with no Filipino teaching prose, so the Filipino rules cannot apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no Filipino grammar terms, so no English gloss is needed.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "All examples are in English because the lesson teaches English grammar.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino text to check against the Komisyon sa Wikang Filipino.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino teaching prose in which Taglish could appear.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question refers to a target word shown in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary 'Remove needless repeated meaning and edit negative statements without changing what they mean.' is plain. Searched for stock phrases and the not-just-but pattern and found none. Read the openings in Core Concept and Speed Tricks."
+    ],
+    "note": "No stock phrasing.",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson has no formulas. Layout is Core Concept, Examples, Speed Tricks & Shortcuts and Traps, allowed for Language Proficiency."
+    ],
+    "note": "There is no formula to trace.",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [
+     "Mapped cases: redundant word (#1), negative concord (#2), useful repetition (#3), hardly (#4), not unexpected (#5), seldom (#6). #4 and #6 use the same reasoning."
+    ],
+    "note": "Two examples are near-duplicates.",
+    "findings": [
+     {
+      "quote": "Correct the sentence to mean that Lea rarely misses meetings:",
+      "problem": "Example 6 repeats the reasoning of Example 4: a word that already carries a negative meaning (seldom, hardly) plus an added negative verb. Changing only the word is not a new case."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Followed each solution. #1 to #6 are numbered lists with two steps. No computations are involved."
+    ],
+    "note": "Numbered steps are used throughout.",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson has no display equations.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Counted sentences in each paragraph. All have one to three sentences, each under about 25 words. No bullet lists."
+    ],
+    "note": "Paragraphs are within the rule.",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure or placeholder is needed in this grammar lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Traced terms. Redundancy, standard edited English, dialect and negative concord are each defined before they are used in the rule or in an example."
+    ],
+    "note": "Needed terms are explained before use.",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Checked that concepts explain how they work. Redundancy has a keep-or-cut test, negative concord says what the sentence means, not unexpected is unpacked, and hardly and seldom have meanings."
+    ],
+    "note": "Concepts are explained.",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked conditions. Similar words are not always wrong, dialect negatives keep a negative meaning, formal tasks want one negation, and pairs such as not uncommon are allowed."
+    ],
+    "note": "Limits are stated.",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "**Close proximity** can stress how near things are.",
+    "concern": "Exam items commonly treat close proximity and advance warning as redundant. The lesson hedges them as sometimes useful, which could lead a student away from the usual keyed answer when no contrast is given in the item."
+   }
+  ],
+  "brief_items": {
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L02|1": {
+    "status": "fixed",
+    "quote": "A **dialect** is a form of a language used by a group of speakers.",
+    "note": "The long negative concord paragraph is replaced by short sentences with the dialect and negative concord defined."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L18|0": {
+    "status": "fixed",
+    "quote": "The result was not unexpected, since the team had prepared for that outcome.",
+    "note": "Example 5 is a worked not unexpected example."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|B02|0": {
+    "status": "fixed",
+    "quote": "Remove the needless word: \"Please return back to the office.\"",
+    "note": "Example 1 now states a task. A different example (#3) has an arguable key, covered under B02."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L02|0": {
+    "status": "fixed",
+    "quote": "Two words with similar meanings are not always wrong together.",
+    "note": "The long sentence with precision and idiomatic is replaced by short plain sentences."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L05|0": {
+    "status": "fixed",
+    "quote": "Remove the needless word: \"Please return back to the office.\"",
+    "note": "Example 1 now tells the student what to do."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L22a|0": {
+    "status": "fixed",
+    "quote": "Repetition can add stress or make a difference clear.",
+    "note": "The long second sentence is gone and the paragraph is three short sentences."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L25|0": {
+    "status": "fixed",
+    "quote": "**Standard edited English** is the form usually expected in formal reports, school essays, and edited writing.",
+    "note": "The term is now defined before the rule that uses it."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L03|0": {
+    "status": "fixed",
+    "quote": "\"Rewrite\" means write the sentence in a new form while keeping the intended meaning.",
+    "note": "Example 2 explains the exam verb in one line."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L04|0": {
+    "status": "fixed",
+    "quote": "Before deleting a repeated idea, ask what the sentence loses.",
+    "note": "The arithmetic comparison no longer appears in Speed Tricks & Shortcuts."
+   },
+   "lesson-grammar-and-structure-redundancy-and-double-negatives|L19|0": {
+    "status": "fixed",
+    "quote": "1. *Return* already gives the meaning \"come back.\" Here, *back* adds nothing.",
+    "note": "Example 1 now uses numbered steps."
+   }
+  }
+ }
+}
