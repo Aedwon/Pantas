@@ -1,0 +1,270 @@
+{
+ "batch": "RD-059",
+ "lesson_id": "lesson-arithmetic-number-sense-real-imaginary-numbers",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/real-imaginary-numbers.md",
+ "lesson_sha256": "69521625b64bde1ea160969ddb4b01f9008a3c9de1cce8f21d8be3beaa8d2f21",
+ "rewrite_commit": "588558a528c3988e12bd78e8135d86b621440eba",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-real-imaginary-numbers",
+  "role": "A",
+  "lesson_sha256": "69521625b64bde1ea160969ddb4b01f9008a3c9de1cce8f21d8be3beaa8d2f21",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked set inclusion and decimal classifications using the definitions supplied; natural-number convention is explicitly qualified.",
+     "Checked i squared equals negative one, the four-power cycle, complex multiplication and conjugate product by algebra.",
+     "Negative-root product is (2i)(3i)=-6; imaginary part b and purely imaginary conditions are correct. No external source was consulted under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 B, since zero is excluded by the stated convention; #2 1-i, since the exponent remainders are 3 and 0; #3 26+7i; #4 -1/2+(5/2)i. All match.",
+     "Also checked the trap computation: sqrt(-4)sqrt(-9)=-6, not 6."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All brief-required cases remain; no example depends on a missing figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Modulo and radicands are removed. Remainders, conjugates, multiplication, and division are taught in short direct sentences with needed technical names explained."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is glossed before its question; Express is glossed before its question. Classifying and simplifying headings do not issue unexplained exam commands."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no analogies in the teaching or examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The classification stem supplies only the convention needed to resolve zero; powers, product, and quotient stems leave the mathematical method to the student. Solutions use plain instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about named exams or repeated exam-related openers occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is in English and does not teach Filipino language.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly; prose avoids the listed stock phrases and varies its openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Example #1 uses rational form p/q from the number-set definitions in Core Concept.",
+     "Example #2 uses i^1=i, i^2=-1, i^3=-i, i^4=1 and remainder cycling, all in Core Concept/Powers of i.",
+     "Example #3 uses distributive multiplication and replacement of i^2 by -1, both taught in Core Concept/Multiplying Complex Numbers.",
+     "Example #4 uses the conjugate a-bi, product a^2+b^2, and multiplying numerator and denominator by the conjugate, all introduced in Core Concept/Conjugates and Division."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover classification with the zero convention, large powers, complex multiplication, and complex division. The negative-root trap additionally works a distinct root-product case. Cases progress from sets to multi-step operations without duplicate examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All four worked examples number their solution steps; power remainders, products, and quotient computations are displayed. The short n/1 classification justification may remain inline."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The longest displays are single expansions such as the complex product; each stays on one reasonably narrow algebra line."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs stay within three sentences; lists are limited to useful checks or shortcuts and solution steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The single FIGURE comment specifies nested sets and separates irrational from rational numbers within the reals. Its semantics label resolves the flat box list, and the surrounding definitions teach the inclusion without the image."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Number sets, i, real and imaginary parts, the power cycle and remainder method are defined before examples. Conjugate is defined before division uses it; numerator and denominator are used in their ordinary fraction sense."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Multiplication explicitly distributes each term and collects real and imaginary terms. Division explains why multiplying by the conjugate preserves value and makes the denominator real. Powers and classification are explained, not merely named."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Rational denominators are nonzero; natural-number conventions are qualified. Negative-root rewriting requires positive k; the real root-product identity is limited to nonnegative inputs. Complex division forbids zero and the power-cycle method specifies positive exponents."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L17|1": {
+    "status": "fixed",
+    "quote": "$$(a+bi)(a-bi)=a^2+b^2$$",
+    "note": "The conjugate-product identity now precedes the division example."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L26|0": {
+    "status": "fixed",
+    "quote": "Multiply each term in the first complex number by each term in the second.",
+    "note": "Core Concept now teaches distribution and then replacing i squared."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L26|1": {
+    "status": "fixed",
+    "quote": "The second fraction equals $1$, so the value does not change.",
+    "note": "Division now explains the equivalent fraction and real denominator before examples."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L02|0": {
+    "status": "fixed",
+    "quote": "divide the exponent by $4$ and use the remainder",
+    "note": "The technical word modulo is replaced by a plain remainder instruction."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L02|1": {
+    "status": "fixed",
+    "quote": "If both numbers under the square roots are negative, using that rule can give the wrong sign.",
+    "note": "The rare term radicands is replaced with a direct description."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L03|0": {
+    "status": "fixed",
+    "quote": "\"Evaluate\" means find the final number answer.",
+    "note": "The requested one-line meaning appears before the first command."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L17|0": {
+    "status": "fixed",
+    "quote": "The powers of $i$ repeat every $4$ powers:",
+    "note": "The complete four-power cycle now appears in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L25|0": {
+    "status": "fixed",
+    "quote": "A remainder of $0$ matches $i^4=1$.",
+    "note": "The remainder method is explained without requiring the term modulo."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L25|1": {
+    "status": "fixed",
+    "quote": "The **conjugate** of $a+bi$ is $a-bi$.",
+    "note": "The term and sign change are defined before the division method."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L03|1": {
+    "status": "fixed",
+    "quote": "\"Express\" means write an equal answer in the form asked for.",
+    "note": "The optional instruction-word explanation has been added."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L19|0": {
+    "status": "fixed",
+    "quote": "$$143=4(35)+3$$",
+    "note": "The first remainder computation now has its own display line."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L19|1": {
+    "status": "fixed",
+    "quote": "$$2024=4(506)$$",
+    "note": "The second remainder computation now has its own display line."
+   },
+   "lesson-arithmetic-number-sense-real-imaginary-numbers|L27|0": {
+    "status": "fixed",
+    "quote": "The divisor must not be $0$.",
+    "note": "The nonzero-divisor limitation is explicit and repeated in a trap."
+   }
+  }
+ }
+}
