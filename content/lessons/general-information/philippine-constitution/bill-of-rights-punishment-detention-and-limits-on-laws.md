@@ -8,7 +8,7 @@ estimatedMinutes: 15
 isActive: true
 ---
 
-<!-- SOURCE AUDIT: RW-077; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: apply detention, punishment, double-jeopardy, and legislative limits and identify evidence, effects, and protection methods in rights cases. Sources: 1987 Constitution, Article III Sections 18-22 and Article XIII Section 18, https://lawphil.net/consti/cons1987.html (rights and CHR); RA 9346 Sections 1-3, https://lawphil.net/statutes/repacts/ra2006/ra_9346_2006.html (death prohibited; Section 2(a) reclusion perpetua for RPC penalty terminology, Section 2(b) life imprisonment otherwise; Section 3 parole restriction); Rules of Court, Rule 117 Section 7 and Rule 119 Section 23, https://lawphil.net/courts/rules/rc_110-127_crim.html (double-jeopardy conditions, included offenses, later graver offense, demurrer); Revised Penal Code Articles 6, 14(16), 248 and 249, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (attempt, frustration, treachery, murder and homicide); Trillanes IV v. Medialdea, G.R. 241494, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/69500 (ex post facto categories); Rules of Court Rule 102 Sections 1-2 (habeas corpus). Constitutional permission for future death-penalty legislation is distinct from RA 9346's statutory prohibition; no conflict. Examples are hypothetical applications; family effects are expressly supplied facts. No prerequisite relied on. -->
+<!-- SOURCE AUDIT: RW-080; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: apply detention, punishment, double-jeopardy, and legislative limits and identify evidence, effects, and protection methods in rights cases. Sources: 1987 Constitution, Article III Sections 18-22 and Article XIII Section 18, https://lawphil.net/consti/cons1987.html (rights and CHR); RA 9346 Sections 1-3, https://lawphil.net/statutes/repacts/ra2006/ra_9346_2006.html (death prohibited; replacement penalties and parole restriction); Rules of Court, Rule 117 Section 7 and Rule 119 Section 23, https://lawphil.net/courts/rules/rc_110-127_crim.html (double-jeopardy conditions, included offenses, later graver offense, demurrer); Revised Penal Code Articles 6, 14(16), 248 and 249, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (attempt, frustration, treachery, murder and homicide); Trillanes IV v. Medialdea, G.R. 241494, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/69500 (ex post facto categories); Rules of Court Rule 102 Sections 1-2 (habeas corpus); Aytona v. Paule, G.R. 253649, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/68685 (requested-dismissal exceptions). Constitutional permission for future death-penalty legislation is distinct from RA 9346's statutory prohibition. Examples are hypothetical applications; family effects are supplied facts. No prerequisite relied on. -->
 
 ## Core Concept
 
@@ -60,6 +60,10 @@ Exceptions still matter. A graver offense may develop later from the same act, s
 
 A dismissal requested by the accused generally does not bar another case. Exceptions include an acquittal for insufficient evidence and a dismissal for violation of the constitutional right to a speedy trial. Do not decide from the word "dismissed" alone.
 
+After the prosecution presents its evidence, the accused may ask for dismissal because that evidence is insufficient. This request is called a **demurrer to evidence**. A court's grant of that request is an acquittal, even though the accused requested it.
+
+### One Act Under a Law and an Ordinance
+
 Section $21$ gives a special rule for an act punished by both a national law and a local ordinance. An **ordinance** is a local law. Conviction or acquittal under either bars another prosecution under the other for the same act.
 
 ### Ex Post Facto Laws
@@ -80,9 +84,11 @@ To **analyze** a claim means to study its parts and explain how the facts fit a 
 
 Use available evidence, such as records, witness accounts, or medical findings. An accusation must be checked. A label alone is not proof.
 
-Look for effects that the facts support. Detention can prevent work or family care. Abuse can cause injury and fear. Do not assume a particular harm occurred without supporting facts.
+Look for effects that the facts support. Detention can prevent work or family care. Abuse can cause injury and fear.
 
-Protection depends on the facts. A person may seek a lawyer or legal aid and ask a court for the proper remedy. A **writ of habeas corpus** orders the custodian to bring a detained person before the court so it can examine the detention.
+Do not assume a particular harm occurred without supporting facts. Protection depends on the facts. A person may seek a lawyer or legal aid and ask a court for the proper remedy.
+
+A **writ of habeas corpus** orders the custodian to bring a detained person before the court so it can examine the detention. It lets a court check whether there is a lawful basis for holding the person.
 
 The Commission on Human Rights may investigate civil and political rights violations. It may provide protective legal measures and legal aid to underprivileged people who need human-rights protection. An investigation is not itself a criminal conviction.
 
@@ -279,6 +285,36 @@ A family wants a court to examine the legal basis for a relative's detention. Wh
 2. A lawyer can assess a petition for a writ of habeas corpus.
 3. The court decides whether relief is proper.
 
+### #20: A Requested Dismissal
+
+After a valid charge, arraignment, and plea in a proper court, the accused requests dismissal for a procedural defect. The court grants it without deciding guilt or finding a speedy-trial violation. Does that dismissal alone bar another prosecution for the same offense?
+
+**Solution:**
+
+1. The accused expressly requested the dismissal.
+2. The court did not acquit for insufficient evidence or dismiss for a speedy-trial violation.
+3. The stated dismissal does not by itself bar another prosecution under the general double-jeopardy rule.
+
+### #21: Dismissal for Insufficient Evidence
+
+After a valid charge, arraignment, and plea in a proper court, the prosecution finishes presenting its evidence. The accused files a demurrer to evidence. The court grants it because the evidence cannot support conviction. May the State retry the same offense merely because the accused requested dismissal?
+
+**Solution:**
+
+1. The court granted dismissal because the prosecution's evidence was insufficient.
+2. This ruling is an acquittal, even though the accused asked for it.
+3. Double jeopardy bars a second prosecution for the same offense under these facts.
+
+### #22: Dismissal for a Speedy-Trial Violation
+
+A valid charge proceeds through arraignment and plea in a proper court. The accused requests dismissal, and the court finds that the constitutional right to a speedy trial was violated. It dismisses the case on that ground. Does the accused's request alone allow another prosecution for the same offense?
+
+**Solution:**
+
+1. A requested dismissal usually does not bar another prosecution.
+2. A dismissal for a constitutional speedy-trial violation is an exception.
+3. Under the stated facts, the accused's request does not remove the double-jeopardy protection.
+
 ## Traps to Watch For
 
 ### #1: Political Belief Does Not Excuse a Crime
@@ -322,3 +358,9 @@ The Commission on Human Rights can investigate covered violations. A court decid
 > Check the penalty terms used by the violated law.
 
 Republic Act No. $9346$ uses reclusion perpetua for laws using Revised Penal Code penalty names. It uses life imprisonment otherwise.
+
+### #8: The Reason for Dismissal Matters
+
+> A requested dismissal is not always permission to prosecute again.
+
+Check for an acquittal based on insufficient evidence or a dismissal for violation of the constitutional right to a speedy trial. The word "dismissed" alone does not decide the issue.

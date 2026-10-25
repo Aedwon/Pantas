@@ -8,7 +8,7 @@ estimatedMinutes: 15
 isActive: true
 ---
 
-<!-- SOURCE AUDIT: RW-077; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: locate Article III protections, apply the basic rules for Sections 1-8, and recognize conditions that prevent decisions from section labels alone. Sources: 1987 Constitution Article III Sections 1-22, https://lawphil.net/consti/cons1987.html and https://www.comelec.gov.ph/index.html?r=References%2FRelatedLaws%2FConstitution%2F1987Constitution (catalogue and text limits); G.R. 248680, November 2024, https://lawphil.net/judjuris/juri2024/nov2024/pdf/gr_248680_2024.pdf (four classification requirements); G.R. 229781, October 2017, https://lawphil.net/judjuris/juri2017/oct2017/pdf/gr_229781_2017.pdf (arrest warrant independent evaluation of supporting evidence); G.R. 204603, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/67731 (search-warrant personal examination); Rules of Court Rules 113 Section 5, 117 Section 7, and 126 Sections 4-5 and 13, https://lawphil.net/courts/rules/rc_110-127_crim.html (warrantless arrest, search incident to lawful arrest, double jeopardy); People v. Yanson, G.R. 238453, https://elibrary.judiciary.gov.ph/assets/pdf/philrep/2019/G.R.%20No.%20238453.pdf (silence is not consent); Adoma v. People, G.R. 240126, April 12, 2023, https://lawphil.net/judjuris/juri2023/apr2023/pdf/gr_240126_2023.pdf (hot pursuit personal knowledge and immediacy). No conflict: different procedures apply to search and arrest warrants; classification requirements are basic checks, not a complete account of all levels of judicial scrutiny. Examples are hypothetical applications. No prerequisite needed; the companion lesson Article III, Part 4 develops detention, punishment, and double jeopardy in greater detail. -->
+<!-- SOURCE AUDIT: RW-080; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: locate Article III protections, apply the basic rules for Sections 1-8, and recognize conditions that prevent decisions from section labels alone. Sources: 1987 Constitution Article III Sections 1-22, https://lawphil.net/consti/cons1987.html and https://www.comelec.gov.ph/index.html?r=References%2FRelatedLaws%2FConstitution%2F1987Constitution (catalogue, debt, habeas corpus, and text limits); G.R. 248680, November 2024, https://lawphil.net/judjuris/juri2024/nov2024/pdf/gr_248680_2024.pdf (four classification requirements); G.R. 229781, October 2017, https://lawphil.net/judjuris/juri2017/oct2017/pdf/gr_229781_2017.pdf (arrest warrant independent evaluation of supporting evidence); G.R. 204603, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/67731 (search-warrant personal examination); Rules of Court Rules 113 Section 5, 117 Section 7, and 126 Sections 4-5 and 13, https://lawphil.net/courts/rules/rc_110-127_crim.html (warrantless arrest, search incident to lawful arrest, double jeopardy); People v. Yanson, G.R. 238453, https://elibrary.judiciary.gov.ph/assets/pdf/philrep/2019/G.R.%20No.%20238453.pdf (silence is not consent); Adoma v. People, G.R. 240126, April 12, 2023, https://lawphil.net/judjuris/juri2023/apr2023/pdf/gr_240126_2023.pdf (hot pursuit personal knowledge and immediacy). No conflict: different procedures apply to search and arrest warrants; classification requirements are basic checks, not a complete account of all levels of judicial scrutiny. Examples are hypothetical applications. No prerequisite needed; the companion lesson Article III, Part 4 develops detention, punishment, and double jeopardy in greater detail. -->
 
 ## Core Concept
 
@@ -80,7 +80,7 @@ The **right to travel** has a different rule. It may be restricted for national 
 
 Section $7$ recognizes the right to information on matters of public concern. Citizens may access official records and papers about official acts, deals, and decisions. This also covers government research data used to make policy.
 
-Access is subject to limits provided by law. Check whether the request concerns public affairs and protected records. Then check for a lawful limit, such as legally confidential information.
+Access is subject to limits provided by law. Check whether the request concerns public affairs and covered records. Then check for a lawful limit, such as legally confidential information.
 
 Section $8$ protects forming **associations**, groups organized for a shared purpose. Public and private employees may form unions, and people may form other groups. The purpose must not be contrary to law.
 
@@ -98,11 +98,15 @@ Giving up those rights requires a written waiver in the lawyer's presence. Tortu
 
 Section $13$ protects **bail**, security for temporary release while ensuring that the person returns to court. Before conviction, its stated exception concerns a charge punishable by **reclusion perpetua**, a severe prison penalty, when evidence of guilt is strong. Both conditions matter.
 
+To understand the next bail rule, first know **habeas corpus**. This is a court remedy for checking whether detention is lawful. A writ orders the custodian to bring the detained person before the court so the detention can be examined.
+
+Suspending the **privilege of the writ** temporarily limits access to release through this remedy. Section $15$ allows suspension only during invasion or rebellion when public safety requires it. Suspension does not remove the separate right to bail.
+
 Excessive bail is forbidden. The right to bail remains protected even when the privilege of the writ of habeas corpus is suspended.
 
 Section $14$ protects an accused person's fair criminal trial. It includes innocence until guilt is proved, a chance to answer with a lawyer, knowledge of the charge, and a speedy, impartial, public trial. It also protects meeting opposing witnesses and obtaining court orders for defense witnesses and evidence.
 
-Section $15$ concerns **habeas corpus**, a court remedy for checking whether detention is lawful. Its privilege may be suspended only during invasion or rebellion when public safety requires it.
+Section $15$ is the section on suspension of the habeas corpus privilege explained above. Both the emergency condition and the public-safety need must be met.
 
 Section $16$ requires cases to be handled and resolved without unreasonable delay. It covers courts, quasi-judicial bodies, and administrative bodies. **Administrative bodies** are government offices handling matters under the law.
 
@@ -351,6 +355,16 @@ A law makes a previously lawful act a crime and punishes people who did it befor
 1. The act was lawful when done.
 2. The new criminal law reaches back to punish it.
 3. This is an ex post facto law.
+
+### #24: Imprisonment for Debt
+
+A person cannot pay a personal loan. No fraud or other crime is alleged. May the person be imprisoned solely for the unpaid debt?
+
+**Solution:**
+
+1. Section $20$ bars imprisonment for debt.
+2. The facts describe only failure to pay a loan.
+3. Imprisonment solely for that unpaid debt is prohibited. The debt may still be collected through lawful means.
 
 ## Traps to Watch For
 

@@ -8,7 +8,7 @@ estimatedMinutes: 15
 isActive: true
 ---
 
-<!-- SOURCE AUDIT: RW-077; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: distinguish impeachable officers and grounds, apply basic conduct descriptions, and separate charges from proof, trial, and accountability remedies. Sources: 1987 Constitution, Article XI Sections 1-3 and 12-13, and Article IX-A Section 1, https://officialgazette.gov.ph/constitutions/1987-constitution/ (officers, commissions, procedure, Ombudsman); Revised Penal Code Articles 114 and 210, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (treason and bribery); RA 3019 Section 3(e), quoted in https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/63490 (unwarranted advantage); Gonzales III v. Office of the President, G.R. 196231, September 4, 2012, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/55179 (bad faith and gravity for betrayal); Carpio separate opinion in Republic v. Sereno, May 11, 2018, https://lawphil.net/judjuris/juri2018/may2018/gr_237428_so_2018.html (willful constitutional breach, identified as an opinion); UP College of Law, Impeachment Primer, February 2025, page 2, https://law.upd.edu.ph/wp-content/uploads/2025/02/ENGLISH-UP-Law-Impeachment-Primer_v2.pdf (interpretive caution and high crimes). Constitutional text controls procedure; statutory illustrations do not conclusively define impeachment grounds. Examples are hypothetical list and rule applications, not rulings on actual cases. No prerequisite relied on. -->
+<!-- SOURCE AUDIT: RW-080; branch content/cse-rewrite-r1; supplied standards base c38ca13c; source records supplied in prompt, 2026-10-26. Goal: distinguish impeachable officers and grounds, apply basic conduct descriptions, and separate charges from proof, trial, and accountability remedies. Sources: 1987 Constitution, Article XI Sections 1-3 and 12-13, and Article IX-A Section 1, https://officialgazette.gov.ph/constitutions/1987-constitution/ (officers, commissions, procedure, Ombudsman); Revised Penal Code Articles 114 and 210, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (treason and bribery); RA 3019 Section 3(e), quoted in https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/63490 (unwarranted advantage); Gonzales III v. Office of the President, G.R. 196231, September 4, 2012, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/55179 (bad faith and gravity for betrayal); Carpio separate opinion in Republic v. Sereno, May 11, 2018, https://lawphil.net/judjuris/juri2018/may2018/gr_237428_so_2018.html (willful constitutional breach, identified as an opinion); UP College of Law, Impeachment Primer, February 2025, page 2, https://law.upd.edu.ph/wp-content/uploads/2025/02/ENGLISH-UP-Law-Impeachment-Primer_v2.pdf (interpretive caution and high crimes). Constitutional text controls procedure; statutory illustrations do not conclusively define impeachment grounds. Examples are hypothetical applications, not rulings on actual cases. No prerequisite relied on. -->
 
 ## Core Concept
 
@@ -31,9 +31,9 @@ Other public officers may be removed as provided by law, but not by impeachment.
 
 ### What the Grounds Mean
 
-Section $2$ names $6$ grounds. The Constitution lists them but does not give a complete definition of each. The explanations below help match conduct to a possible ground. They do not settle a legal case.
+Section $2$ names $6$ grounds. The Constitution lists them but does not give a complete definition of each. These explanations help match conduct to a possible ground without settling a legal case.
 
-**Culpable violation of the Constitution** concerns a willful and intentional breach of the Constitution. This reading distinguishes deliberate disobedience from an honest mistake. For example, knowingly refusing to obey a clear constitutional duty may raise this ground.
+**Culpable violation of the Constitution** concerns a willful and intentional breach of the Constitution. This reading separates deliberate disobedience from an honest mistake. Knowingly refusing to obey a clear constitutional duty may raise this ground.
 
 **Treason** concerns betrayal of the country in wartime. Under criminal law, it includes levying war against the Philippines or siding with its enemies and giving them aid or comfort. Supplying military information to help a wartime enemy illustrates the second form.
 
@@ -51,7 +51,7 @@ Do not assume every crime qualifies because it is illegal. The seriousness and n
 
 For example, repeatedly using official power in bad faith to favor allies at the public's expense may raise this ground. A conduct example may raise more than one ground.
 
-Matching conduct to a ground only shows why that ground may be raised. It does not prove the facts, legal sufficiency, guilt, or a right to removal. The House and Senate must still decide the case through the proper process.
+Matching conduct to a ground only shows why that ground may be raised. It does not prove the facts, that the charge meets legal requirements, or guilt. The House and Senate must still decide the case through the proper process.
 
 ### House Charge and Senate Trial
 
@@ -59,7 +59,7 @@ The House of Representatives alone initiates impeachment cases. A **verified com
 
 In the regular route, the complaint goes through committee review and House action. At least $\dfrac{1}{3}$ of all House Members must vote to approve the charges or override the committee's contrary resolution. The approved charges become the **Articles of Impeachment**, the formal charges sent to the Senate.
 
-There is also a direct route. A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. The Constitution provides that trial by the Senate shall proceed forthwith.
+There is also a direct route. A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members itself becomes the Articles of Impeachment. The Constitution says Senate trial shall proceed **forthwith**, meaning without delay.
 
 The Senate alone tries and decides impeachment cases. Conviction requires agreement by at least $\dfrac{2}{3}$ of all Senators. When the President is tried, the Chief Justice presides but does not vote.
 
@@ -73,9 +73,11 @@ The Ombudsman may investigate public officers or employees on its own or after a
 
 It may direct officials to perform and speed up duties required by law. The office may also direct them to stop or correct abuse. It can request government records and assistance for an investigation.
 
-The Constitution gives it power to recommend removal, suspension, demotion, a fine, censure, or prosecution and ensure compliance as provided by law. **Censure** is formal disapproval. A complaint alone does not prove wrongdoing or automatically remove anyone.
+The Constitution gives it power to recommend removal, suspension, demotion, a fine, censure, or prosecution. It must ensure compliance as provided by law. **Censure** is formal disapproval.
 
-The office also studies red tape, fraud, poor management, and corruption. It recommends ways to correct these problems. A complaint about an unexplained delay can therefore seek action on both the delay and the employee's conduct.
+A complaint alone does not prove wrongdoing or automatically remove anyone. The office also studies red tape, fraud, poor management, and corruption. It recommends ways to correct these problems.
+
+A complaint about an unexplained delay can seek action on both the delay and the employee's conduct.
 
 ## Examples
 
@@ -186,7 +188,7 @@ At least $\dfrac{1}{3}$ of all House Members file a verified impeachment complai
 
 1. The filing meets the constitutional threshold for the direct route.
 2. The verified complaint itself becomes the Articles of Impeachment.
-3. The Constitution directs that Senate trial proceed forthwith.
+3. Senate trial must proceed forthwith, or without delay, under the constitutional text.
 
 ### #12: Trial and Conviction
 
@@ -206,6 +208,15 @@ A public employee repeatedly delays a duty required by law without a proper reas
 1. The Ombudsman may investigate a failure to act that appears improper or inefficient.
 2. It may direct the employee to perform and speed up the required duty.
 3. The complaint falls within the kinds of matters the office may address.
+
+### #14: A Cabinet Secretary
+
+Is a Cabinet Secretary subject to removal by impeachment under Article XI, Section $2$?
+
+**Solution:**
+
+1. A Cabinet Secretary is not among the officers listed in Section $2$.
+2. The Secretary may face other lawful removal processes, but not impeachment.
 
 ## Traps to Watch For
 
