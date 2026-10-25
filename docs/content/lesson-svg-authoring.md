@@ -44,6 +44,22 @@ figure that would pass the limit, with a warning, as they did before figures wer
 embedded. Split or optimize an oversized figure instead of weakening the limit. No
 new public asset host is required.
 
+## Figure size
+
+A figure draws at its own size, one SVG unit to one logical pixel, the same as a
+PNG. It shrinks to fit the lesson column and is never enlarged. A figure narrower
+than the column keeps its size and sits at the left edge. Tests compare an SVG and
+a PNG of the same size in every lesson renderer and find the same frame.
+
+- Set `viewBox`, and set `width` and `height` to match it. Without `width` and
+  `height`, the figure takes its size from the `viewBox`.
+- A phone's lesson column is under 400 pixels wide. A canvas much wider than that
+  shrinks, and its text shrinks with it. Draw text-heavy figures on a canvas about
+  360 units wide, with text at 12 units or larger.
+- Keep the height in proportion. A tall figure pushes the lesson text down the page.
+- While a figure loads, the frame holds 223 pixels of height, then takes the
+  figure's size.
+
 ## Theme colors without CSS
 
 Use `fill="currentColor"` and `stroke="currentColor"` for primary ink. The app

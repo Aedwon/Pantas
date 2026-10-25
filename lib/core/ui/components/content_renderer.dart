@@ -830,13 +830,40 @@ class _ContentImageState extends State<_ContentImage> {
       );
     }
     if (isLessonSvg(widget.url)) {
+      final loader = lessonSvgLoader(widget.url, context.colors);
+      final failure = _ImageFailure(
+        reader: widget.reader,
+        onRetry: () => setState(() => _retry++),
+      );
+      // The PNG path draws with BoxFit.contain and no width, so a figure takes
+      // its own size up to the frame's width. SvgPicture's defaults are the
+      // same (contain, no width), and a test compares both sizes.
+      if (!widget.reader) {
+        // Like a PNG here: the frame holds the figure, its loading space and
+        // its failure.
+        return _FigureFrame(
+          label: widget.label,
+          credit: widget.credit,
+          imageSemantics: false,
+          followTheme: true,
+          figure: SvgPicture(
+            loader,
+            key: ValueKey((widget.url, _retry)),
+            semanticsLabel: widget.label,
+            excludeFromSemantics: widget.label.isEmpty,
+            placeholderBuilder: (context) => const SizedBox(height: 223),
+            errorBuilder: (context, error, stackTrace) => failure,
+          ),
+        );
+      }
+      // Like a reader PNG: loading inside the frame, failure in its own box.
       return SvgPicture(
-        lessonSvgLoader(widget.url, context.colors),
+        loader,
         key: ValueKey((widget.url, _retry)),
         semanticsLabel: widget.label,
         excludeFromSemantics: widget.label.isEmpty,
         placeholderBuilder: (context) => _FigureFrame(
-          reader: widget.reader,
+          reader: true,
           followTheme: true,
           label: widget.label,
           credit: widget.credit,
@@ -844,12 +871,9 @@ class _ContentImageState extends State<_ContentImage> {
           imageSemantics: false,
           figure: const SizedBox(height: 223),
         ),
-        errorBuilder: (context, error, stackTrace) => _ImageFailure(
-          reader: widget.reader,
-          onRetry: () => setState(() => _retry++),
-        ),
+        errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
-          reader: widget.reader,
+          reader: true,
           followTheme: true,
           label: widget.label,
           credit: widget.credit,
