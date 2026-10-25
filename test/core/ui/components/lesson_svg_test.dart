@@ -202,4 +202,62 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  test('malformed data URLs give no bytes and a loader that does not throw',
+      () {
+    expect(lessonDataUrlBytes('data:image/png'), isNull);
+    expect(lessonDataUrlBytes('data:image/png;base64,@@@@'), isNull);
+    expect(lessonDataUrlBytes('https://example.com/a.png'), isNull);
+    expect(
+      () =>
+          lessonSvgLoader('data:image/svg+xml;base64,@@@@', PantasColors.light),
+      returnsNormally,
+    );
+  });
+  const malformed = [
+    'data:image/svg+xml;base64,@@@@',
+    'data:image/png;base64,@@@@',
+    'data:image/png',
+    'data:image/svg+xml;base64,%zz',
+  ];
+  for (final url in malformed) {
+    for (final reader in [false, true]) {
+      testWidgets(
+          'malformed data URL shows the failure state '
+          '$url reader=$reader', (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: buildLightTheme(),
+            home: Scaffold(
+              body: reader
+                  ? ContentRenderer(blocks: [image(url)], readerFigures: true)
+                  : PortableTextRenderer(blocks: [image(url)]),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(
+          find.text(
+            reader
+                ? 'This illustration didn’t load.'
+                : 'Content unavailable. Update the app.',
+          ),
+          findsOneWidget,
+        );
+      });
+    }
+    testWidgets(
+        'malformed data URL shows the failure state in legacy content '
+        '$url', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(),
+          home: Scaffold(body: ContentRenderer(blocks: [image(url)])),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      expect(find.text('Image could not load.'), findsOneWidget);
+    });
+  }
 }
