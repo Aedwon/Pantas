@@ -7,47 +7,52 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
 ---
+<!-- Audit: RW-075; branch content/cse-rewrite-r1 (assigned, not inspected); standards base c38ca13c (supplied); accessed 2026-10-26. Goal: Apply Section 7 prohibitions and distinguish each gift exception's donor, purpose, and permission conditions in CSE cases. No prerequisite is assumed. Sources checked: RA 6713 Sections 3 and 7, Supreme Court E-Library document 6474; Rules Implementing RA 6713, Rule X Section 1(a)-(f), National Council on Disability Affairs official publication; Department of Agrarian Reform MC 06, 2022, guidelines governing SALN filing, Section 2.1.5 and relationship footnotes, official media.dar.gov.ph publication dated 2022/11/22. DAR's official guidance confirms inso as the wife of an elder brother or male cousin, bilas as a brother-in-law's wife or sister-in-law's husband, and balae as a parent of a son-in-law or daughter-in-law; it also lists the relationship degrees used below. No source conflict identified. Hypothetical cases are givens, not claims about actual events. -->
 ## Core Concept
 
 Section $7$ of RA $6713$ lists acts that public officials and employees must avoid. These rules keep private gain from affecting public duties. Check the link between the act and the worker's own office.
 
 ### Financial or Material Interest
 
-A **financial or material interest** is a money or property stake. It may let someone gain or lose money or property from a transaction. A public worker must not have that stake in a transaction needing approval from the worker's office.
+A **financial or material interest** is a money or property stake. It may let someone gain or lose money or property from a transaction. A public worker must not hold that stake in a transaction needing approval from the worker's office.
 
 The stake may be direct, such as personally owning shares. It may also be indirect, such as holding the interest through another person. A private investment does not automatically involve a transaction requiring the office's approval.
 
 ### Outside Work in a Private Business
 
-A public worker must not own, control, manage, or take covered work in a private business the worker's own office regulates, supervises, or licenses. **Regulates or supervises** means the office has legal power to set or enforce rules for the business or oversee its work. **Licenses** means it issues the permission the business needs to operate.
+A public worker must not own, control, or manage a private business that the worker's own office regulates, supervises, or licenses. The ban also covers certain jobs in that business. It applies unless a law expressly allows the arrangement.
+
+**Regulates or supervises** means the office has legal power to enforce rules for the business or oversee its work. **Licenses** means it issues permission the business needs to operate. The connection to the worker's own office is part of the test.
 
 Covered jobs include an **officer**, who helps lead the business, and an **employee**, who works for it. A **consultant** gives expert advice. **Counsel** is a lawyer who gives legal advice or represents the business.
 
 A **broker** arranges deals between parties. An **agent** acts for another person or business. A **trustee** holds or manages property for someone else, and a **nominee** holds a named role or interest for someone else.
 
-The ban applies unless a law expressly allows the arrangement. The law must clearly permit it. A supervisor's verbal approval alone does not meet that exception.
+Express permission means a law clearly allows the arrangement. A supervisor's verbal approval alone does not meet this exception. Check the legal permission as well as the job and business.
 
 ### Private Professional Practice
 
-**Private professional practice** means serving private clients in a profession, such as law or medicine. During public service, a worker needs authority under the Constitution, law, or applicable regulation. The work must also not conflict, or tend to conflict, with public duties.
+**Private professional practice** means serving private clients in a profession, such as law or medicine. During public service, the Act requires authority under the Constitution or law. The implementing rules also refer to authority under regulation.
 
-A **conflict** exists when private work pulls against the person's public duty. A government lawyer cannot rely only on permission to take clients if a client seeks help opposing the lawyer's public work. Check both legal permission and absence of conflict.
+Implementing rules explain how to carry out a law. The private work must also not conflict, or tend to conflict, with public duties. Both authority and absence of conflict are needed.
+
+A **conflict** exists when private work pulls against the person's public duty. A government lawyer cannot rely only on permission if a client seeks help opposing the lawyer's public work.
 
 ### Recommendations and Rules After Leaving Office
 
-A public worker generally must not recommend someone for a job in a private business with a regular or pending official transaction with the worker's office. A regular transaction is part of ongoing dealings. A pending transaction still awaits action or completion.
+A public worker generally must not recommend someone for a job in a private business with regular or pending official dealings with the worker's office. Regular dealings are ongoing. A pending transaction still awaits action or completion.
 
-The rules allow referrals required by law, an international agreement or commitment, or assigned public duties. This differs from using public influence to get a friend a private job.
+The implementing rules allow referrals required by law, international agreements or commitments, or assigned public duties. This exception does not cover simply using public influence to get a friend a job.
 
-The outside-business and recommendation bans continue for $1$ year after resignation, retirement, or other departure from office. **Separation** means leaving government service.
+The outside-business and recommendation bans continue for $1$ year after resignation, retirement, or other departure from office. **Separation** means leaving government service. Leaving office does not end these bans at once.
 
 Private practice has a different limit after leaving. For $1$ year, the former worker cannot practice on a matter before the former office. This does not ban every professional job everywhere during that year.
 
 ### Protected Work Information
 
-**Confidential or classified information** is protected information learned through office and not made public. A worker must not use or share it to serve a private interest, give someone an unfair advantage, or harm the public interest.
+**Confidential or classified information** is protected information learned through office and not made public. A worker must not use or share it for private gain, an unfair advantage, or harm to the public interest.
 
-Information already lawfully made public is different. Check both the protected nature of the information and the purpose of its use or disclosure.
+Information already lawfully made public is different. Check both the protected nature of the information and the purpose of its use or disclosure. The ban covers using the information as well as sharing it.
 
 ### Gifts and Valuable Benefits
 
@@ -59,25 +64,25 @@ A worker must not ask for or accept a gift, favor, entertainment, loan, or other
 
 Each exception has its own conditions. Ask who gave the benefit, why it was given, and whether a favor or financial gain is expected. Check every condition of the relevant exception.
 
-An **unsolicited nominal gift** is a gift not requested and small or insignificant in value. It must not be given in anticipation of, or in exchange for, a favor. A gift after a service is not automatically proper.
+An **unsolicited nominal gift** is a gift not requested and small or insignificant in value. It must not be given in anticipation of, or in exchange for, a favor. Giving it after a service does not make a reward for an official favor proper.
 
 This exception sets no single peso cutoff. The circumstances matter, including the worker's salary, how often gifts are given, and the expected benefit. Low value alone is not enough.
 
 A gift from a family member or relative at a family celebration has a separate exception. There must be no expected **pecuniary gain or benefit**, meaning money or another financial benefit. A birthday gift from a parent differs from a gift seeking paid government business.
 
-The Code defines family as the spouse and unmarried children under $18$. It defines relatives to include those within the fourth civil degree by blood or marriage, including **bilas**, **inso**, and **balae**. These named relationships must not be left out of the family-gift check.
+The Code defines family as the spouse and unmarried children under $18$. Relatives include those within the fourth civil degree by blood or marriage, including **bilas**, **inso**, and **balae**. These named relationships are expressly included in the Code.
 
-Bilas means the spouse of one's spouse's sibling, such as a brother-in-law's wife or a sister-in-law's husband. Inso refers to the wife of an elder brother or male cousin. Balae is the parent of one's son-in-law or daughter-in-law.
+Bilas means a brother-in-law's wife or a sister-in-law's husband. Inso means the wife of an elder brother or male cousin. Balae is the parent of one's son-in-law or daughter-in-law.
 
 A civil degree counts steps in a family relationship. For blood relatives, count each birth up to the shared ancestor and then down to the relative. A parent is in the first degree, a sibling in the second, an aunt or uncle in the third, and a first cousin in the fourth.
 
-Marriage connects a person to the spouse's blood relatives in the corresponding degrees. The Code also expressly includes the named relationships above. Do not assume that calling someone a family friend makes the person a legal relative.
+Marriage connects a person to the spouse's blood relatives in the corresponding degrees. The Code also expressly includes the named relationships above. Calling someone a family friend does not make the person a legal relative.
 
 A nominal donation from a person has another test. The donor must have no regular, pending, or expected transaction with the worker's department, office, or agency. No money or financial benefit may be expected.
 
-A separate exception covers donations from private organizations, local or foreign, considered and accepted as **humanitarian and altruistic** in purpose and mission. Humanitarian means helping people in need or reducing suffering. Altruistic means helping others without seeking personal gain.
+A separate exception covers donations from private organizations, local or foreign. They must be considered and accepted as **humanitarian and altruistic** in purpose and mission. Humanitarian means helping people in need, while altruistic means helping without seeking personal gain.
 
-Emergency aid for flood victims can serve such a purpose. Check the recipients, planned use, and whether the donor seeks special treatment. Calling a personal reward a relief donation does not make it aid for people in need.
+Emergency aid for flood victims can serve such a purpose. Check who receives it, how it will be used, and whether the donor seeks special treatment. A personal reward does not become relief aid because the donor calls it a donation.
 
 This organization-donation exception does not state the no-office-transaction condition used for nominal donations from persons. Office dealings therefore do not automatically settle the question. The donation must actually meet its own purpose and acceptance conditions.
 
@@ -91,7 +96,7 @@ Foreign-government scholarships, fellowship grants, and medical treatment are al
 
 Foreign-government travel benefits have extra conditions. Travel must take place entirely outside the Philippines. Acceptance must be appropriate or consistent with Philippine interests and permitted by the head of the person's office, branch, or agency.
 
-This travel exception can include allowances, transportation, food, and lodging worth more than a nominal amount. Other reporting or disclosure rules may still apply. Educational, scientific, and cultural exchanges remain subject to national-security requirements.
+This travel exception can include allowances, transportation, food, and lodging worth more than a nominal amount. Reporting or disclosure requirements may still apply. Educational, scientific, and cultural exchanges remain subject to national-security requirements.
 
 ## Examples
 
@@ -102,7 +107,7 @@ An employee owns shares in a company. A transaction involving that company requi
 **Solution:**
 
 1. Shares give the employee a money stake in the company.
-2. The transaction requires the employee's office to approve it. The rule prohibits that direct or indirect stake.
+2. The transaction requires the employee's office to approve it. The ban on direct or indirect interests applies.
 
 ### #2: Consultant for a Licensed Company
 
@@ -120,16 +125,16 @@ A public employee accepts a covered role in a private business supervised by the
 **Solution:**
 
 1. The rule normally covers the role and business connection.
-2. A law expressly allowing the arrangement meets the exception. This general ban does not itself bar the role on these facts.
+2. The law expressly allows this arrangement. That meets this rule's exception.
 
 ### #4: Private Practice With a Conflict
 
-A government lawyer has legal authority to take some private clients. One proposed client needs help that directly conflicts with the lawyer's public duties. May the lawyer take that matter?
+A government lawyer has legal authority to take some private clients. A proposed client needs help that directly conflicts with the lawyer's public duties. May the lawyer take that matter?
 
 **Solution:**
 
-1. Permission to practice is only one condition.
-2. The proposed work conflicts with public duties. The lawyer may not take that matter.
+1. Authority to practice is only one condition.
+2. The work conflicts with public duties. The lawyer may not take that matter.
 
 ### #5: Work After Leaving Office
 
@@ -139,7 +144,7 @@ A former official left government $6$ months ago. No law allows an exception. Th
 
 1. The outside-business ban continues for $1$ year. The consultant job falls within that period and business connection.
 2. The person also cannot practice on a matter before the former office during that year.
-3. Neither proposed activity is allowed during the stated period.
+3. Neither proposed activity is allowed during the stated period. This does not mean every professional job is banned.
 
 ### #6: A Required Job Referral
 
@@ -147,17 +152,17 @@ An officer's assigned duties require referring qualified job seekers to employer
 
 **Solution:**
 
-1. The general rule covers recommendations to businesses with regular or pending office transactions.
+1. The general rule covers recommendations to businesses with regular or pending office dealings.
 2. A referral required by assigned duties has an exception. The pending transaction alone does not defeat it.
 
 ### #7: A Recommendation After Retirement
 
-An officer retired $4$ months ago and now recommends a friend for a job at a business with a pending transaction before the former office. No law, agreement, or assigned duty requires it. Does retirement end the ban?
+An officer retired $4$ months ago and recommends a friend for a job at a business with a pending transaction before the former office. No law, agreement, or assigned duty requires it. Does retirement end the ban?
 
 **Solution:**
 
 1. The recommendation ban continues for $1$ year after leaving office. Only $4$ months have passed.
-2. The business has a pending transaction, and no exception is shown. Retirement does not permit this recommendation during the restricted period.
+2. The business has a pending transaction, and no exception is shown. The recommendation remains prohibited during the restricted period.
 
 ### #8: Protected Information for a Friend
 
@@ -166,25 +171,25 @@ An employee gives a friend confidential work information not made public. The pu
 **Solution:**
 
 1. The protected information came through work.
-2. Sharing it serves an unfair private advantage. Section $7$ prohibits the act.
+2. Sharing it gives an unfair private advantage. Section $7$ prohibits the act.
 
 ### #9: Asking for a Gift
 
-An employee asks a business regulated by the employee's agency for an expensive personal item. The business refuses. Does that refusal make the employee's request proper?
+An employee asks a business regulated by the employee's agency for an expensive personal item. The business refuses. Does that refusal make the request proper?
 
 **Solution:**
 
-1. The request seeks a valuable personal benefit from a regulated business.
+1. The employee sought a valuable personal benefit from a regulated business.
 2. The ban covers asking as well as accepting. Refusal does not make the request proper.
 
 ### #10: A Small Gift With No Favor Expected
 
-A visitor gives a worker a single low-value souvenir without being asked. No official favor is expected or being rewarded. The surrounding facts support treating the value as insignificant. Which exception fits?
+A visitor gives a worker a single low-value souvenir without being asked. No official favor is expected or being rewarded. The surrounding facts support treating its value as insignificant. Which exception fits?
 
 **Solution:**
 
-1. The gift was not requested and has insignificant value in the stated circumstances.
-2. No favor is expected or exchanged. These facts fit the unsolicited nominal-gift exception.
+1. The gift was not requested and has insignificant value in these circumstances.
+2. No favor is expected or exchanged. The facts fit the unsolicited nominal-gift exception.
 
 ### #11: A Small Gift Seeking Priority
 
@@ -221,7 +226,7 @@ An organization has a pending license renewal. It offers food for flood victims 
 
 1. The food serves people in need without a sought private gain.
 2. It is considered and accepted for that purpose. These facts support the humanitarian and altruistic organization-donation exception.
-3. This separate exception does not state the no-office-transaction condition for nominal donations from persons. The renewal alone does not defeat it.
+3. This exception does not state the no-office-transaction condition used for nominal donations from persons. The renewal alone does not defeat it.
 4. The agency must still decide the renewal fairly. The donation does not buy approval.
 
 ### #15: A Donation Label Hiding a Reward
@@ -230,7 +235,7 @@ An organization with a pending application calls its offer a humanitarian donati
 
 **Solution:**
 
-1. The offer is a personal reward for approval. It does not help people in need without seeking private gain.
+1. The offer is a personal reward for approval. It does not serve the stated helping purpose.
 2. The label does not change those facts. The officer may not rely on this donation exception.
 
 ### #16: Government-to-Government Equipment
@@ -240,7 +245,7 @@ A foreign public agency donates equipment directly to a Philippine government ag
 **Solution:**
 
 1. The donation passes between government entities.
-2. It fits the government-to-government exception. It is not described as a personal gift to an officer.
+2. It fits the government-to-government exception. It is not a personal gift to an officer.
 
 ### #17: Foreign Courtesy Souvenir
 
@@ -314,7 +319,7 @@ Look at who receives the benefit and what the donor seeks. A vacation for an app
 
 > Each exception keeps its own conditions.
 
-The nominal-donation rule includes no regular, pending, or expected office transaction. The organization-donation rule requires its stated helping purpose and acceptance. Office dealings do not remove the need to examine the actual purpose.
+The nominal-donation rule requires no regular, pending, or expected office transaction. The organization-donation rule requires its stated helping purpose and acceptance. Office dealings do not remove the need to examine the actual purpose.
 
 ### #4: Forgetting Recommendations After Leaving
 
