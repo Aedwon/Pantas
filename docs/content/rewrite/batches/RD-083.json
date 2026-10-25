@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-tenses-and-voice"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "rewrites": {
+  "lesson-grammar-and-structure-tenses-and-voice": "2dcdc5b8782a2ab75fd81b05f404b4fc28ff247c"
+ },
+ "sha256": {
+  "lesson-grammar-and-structure-tenses-and-voice": "fde2651893b815124ca121d5ce1d9ae808a5af2252125b070abe73adca6ebc77"
+ },
+ "paths": {
+  "lesson-grammar-and-structure-tenses-and-voice": "content/lessons/language-proficiency/grammar-and-structure/tenses-and-voice.md"
+ },
+ "id": "RD-083",
+ "type": "read",
+ "created": "2026-10-25T23:04:05+00:00"
+}
