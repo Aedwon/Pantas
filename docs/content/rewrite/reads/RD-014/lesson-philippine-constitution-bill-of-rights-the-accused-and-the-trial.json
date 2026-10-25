@@ -1,0 +1,211 @@
+{
+ "packet": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+ "role": "A",
+ "lesson_sha256": "0d6092ae28410c11133b691626f1ebfb50a8b2e1891dc063885e10fa0996a364",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Checked the Section 14 safeguards, the post-arraignment absence condition, the Section 15 suspension conditions, Section 16 speedy disposition coverage, and Section 17 compelled self-incrimination statement for constitutional accuracy."],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Solved Example 1 as presumption of innocence; Example 2 as notice of the accusation plus counsel; Example 3 as public and impartial trial; Example 4 as confrontation plus compulsory process; Example 5 as no valid habeas-corpus suspension; Example 6 as speedy disposition; Example 7 as compelled self-incrimination. Each matches the lesson solution."],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Compared the lesson with the brief: it contains Core Concept, Examples, and Traps to Watch For, covers the listed Section 14 to 17 safeguards, and the brief requires no figures."],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Read the teaching prose for sentence length and legal vocabulary. The lesson breaks the former dense catalogue into short paragraphs and directly explains due process, impartial, compulsory process, arraignment, habeas corpus, quasi-judicial body, and administrative body."],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in the lesson."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Checked all seven example stems for direct exam-style application wording and necessary facts, and checked that each solution uses short, simple statements without supplying a method in the stem."],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino language content."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino language content."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino language content."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino language content."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "This lesson is written in English and does not teach Filipino language content."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question asks about a target word or refers to a word by formatting."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Checked the General Information section fit: the lesson uses Core Concept, Examples, and Traps to Watch For, with no formula or calculation that would require a formula in Core Concept."],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "fail",
+   "findings": [{"quote": "The trial must be speedy, impartial, and public. **Impartial** means the decision-maker must not favor one side.", "problem": "The examples apply the impartial and public parts of this safeguard but never give a worked case about whether a criminal trial is speedy. That leaves a distinct brief-listed Section 14 application scenario uncovered."}],
+   "checked": [],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Checked Examples 1 through 7. Every multi-step solution is entirely a numbered list, and none contains a computation that would require a display equation."],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson has no display equations."
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The brief requires no figures and the lesson contains no illustration placeholders."
+  },
+  "L25": {
+   "verdict": "fail",
+   "findings": [{"quote": "The key word is compelled. The protection stops the government from forcing a person to give testimonial evidence against himself or herself.", "problem": "The phrase \"testimonial evidence\" is needed to understand the scope of the Section 17 protection, but the lesson never explains what testimonial evidence means before using it again in Example 7."}],
+   "checked": [],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Checked each main concept for a meaning plus how it operates: presumption of innocence is tied to accusation versus proof, compulsory process to required witnesses or evidence, habeas corpus to testing detention, speedy disposition to covered bodies, and self-incrimination to compelled testimony."],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": ["Checked the stated limits and exceptions: trial after arraignment may proceed only after due notice and unjustifiable absence; habeas-corpus privilege suspension requires invasion or rebellion plus public safety; and Section 17 is limited in the lesson to compelled testimonial evidence."],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-philippine-constitution-bill-of-rights|L02|0": {
+   "status": "fixed",
+   "quote": "A **quasi-judicial body** is a government body that is not a court but can hear facts and decide certain disputes.",
+   "note": "Checked the former dense legal wording. The rewrite uses short paragraphs and gives plain explanations for the difficult legal terms it keeps."
+  },
+  "lesson-philippine-constitution-bill-of-rights|L27|0": {
+   "status": "fixed",
+   "quote": "Section $15$ says the privilege of the writ may be suspended only in cases of invasion or rebellion when public safety requires it.",
+   "note": "Checked the missing suspension conditions. The rewrite now states both invasion or rebellion and the separate public-safety requirement."
+  },
+  "general-information-philippine-constitution#38": {
+   "status": "fixed",
+   "quote": "A person is charged with a crime. Before evidence is heard, an official says the person must prove innocence. Which constitutional rule is being ignored?",
+   "note": "Checked for an application method. Example 1 now applies the presumption of innocence to an attempt to shift the burden merely because a charge was filed."
+  },
+  "general-information-philippine-constitution#39": {
+   "status": "fixed",
+   "quote": "An accused person is brought to trial without being told the criminal charge and is not allowed counsel. Which rights are affected?",
+   "note": "Checked for application of the right to be heard with counsel. Example 2 directly tests denial of counsel and identifies the Section 14 protection."
+  },
+  "general-information-philippine-constitution#40": {
+   "status": "fixed",
+   "quote": "An accused person is brought to trial without being told the criminal charge and is not allowed counsel. Which rights are affected?",
+   "note": "Checked for application of the right to know the accusation. Example 2 directly tests failure to tell the accused the criminal charge."
+  },
+  "general-information-philippine-constitution#41": {
+   "status": "not_fixed",
+   "quote": "The trial must be speedy, impartial, and public. **Impartial** means the decision-maker must not favor one side.",
+   "note": "The rewrite applies impartial and public trial in Example 3, but it still gives no application method or worked case for deciding whether a criminal trial is speedy."
+  },
+  "general-information-philippine-constitution#42": {
+   "status": "fixed",
+   "quote": "The prosecution presents a witness against the accused. The accused is not allowed to meet that witness, and the court refuses to require an important defense witness to attend. Which rights are involved?",
+   "note": "Checked for confrontation application. Example 4 directly tests the accused being denied a face-to-face meeting with a prosecution witness."
+  },
+  "general-information-philippine-constitution#43": {
+   "status": "fixed",
+   "quote": "The accused also has the right to **compulsory process**. This means the court can require needed witnesses to attend and can require needed evidence to be produced for the defense.",
+   "note": "Checked both meaning and application. The lesson explains compulsory process and Example 4 applies it to a needed defense witness."
+  },
+  "general-information-philippine-constitution#44": {
+   "status": "fixed",
+   "quote": "Section $15$ says the privilege of the writ may be suspended only in cases of invasion or rebellion when public safety requires it.",
+   "note": "Checked the named-only gap. The rewrite now gives both constitutional conditions and Example 5 applies them to a proposed suspension."
+  },
+  "general-information-philippine-constitution#45": {
+   "status": "fixed",
+   "quote": "A person's case before a government administrative body remains unresolved for an unreasonable period. Which Bill of Rights protection should be checked?",
+   "note": "Checked the speedy-disposition facet. The lesson defines the covered bodies and Example 6 applies the right to delay in an administrative case."
+  },
+  "general-information-philippine-constitution#46": {
+   "status": "fixed",
+   "quote": "A person is forced to give testimonial evidence that would be used against that same person. Which protection applies?",
+   "note": "Checked for application of compelled self-incrimination. Example 7 directly tests forced testimonial evidence against the same person."
+  }
+ }
+}
