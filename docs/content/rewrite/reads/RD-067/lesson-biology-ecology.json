@@ -1,0 +1,328 @@
+{
+ "batch": "RD-067",
+ "lesson_id": "lesson-biology-ecology",
+ "path": "content/lessons/science/biology/ecology.md",
+ "lesson_sha256": "4a02f88b811acbc0a91755f99ba59b834800ea1bbe53a1627062d0dd23a544dd",
+ "rewrite_commit": "31d9adb0092351155e956a86a5ad498da8783edb",
+ "form": {
+  "packet": "lesson-biology-ecology",
+  "role": "A",
+  "lesson_sha256": "4a02f88b811acbc0a91755f99ba59b834800ea1bbe53a1627062d0dd23a544dd",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked food-arrow direction, producer and consumer roles, energy loss as heat, and the conditional 10% transfer description.",
+     "Checked carbon uptake by photosynthesis, carbon return by respiration and decay, nitrogen fixation versus nitrification and denitrification, phosphate weathering and uptake, and evaporation versus condensation and precipitation.",
+     "Checked carrying capacity, competition, symbiosis signs, biodiversity effects, invasive species, and conservation responses. These statements agree with established ecology; no incorrect factual claim was identified."
+    ],
+    "note": "Judged only the supplied text as instructed. No external source verification was available in this packet.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1: grass → grasshopper → frog → hawk; producer, primary, secondary, tertiary consumer.",
+     "Example 2: frogs may decline with less grasshopper food; rabbits provide hawks an alternative food path.",
+     "Example 3: primary consumers receive 1,000 kJ; secondary consumers receive 100 kJ under the stated rate.",
+     "Example 4: (a) parasitism; (b) mutualism; (c) commensalism under the stated evidence.",
+     "Example 5: photosynthesis moves carbon into plants; decomposition returns carbon; evaporation, condensation, and precipitation describe the water sequence.",
+     "Example 6: most plants cannot convert atmospheric nitrogen directly; nitrogen fixation produces ammonia.",
+     "Example 7: rock → soil phosphate → grass → grazing animals → decay and runoff → lake sediment.",
+     "Example 8: drought lowers carrying capacity by reducing food and water.",
+     "Example 9: fewer seeds and potentially less food for seed eaters.",
+     "Example 10: restore habitat, control polluted runoff, and monitor populations and water quality."
+    ],
+    "note": "Independently derived each answer from its question and compared it with the worked solution.",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Exam Strategies, and Traps to Watch For are present, as allowed for conceptual science.",
+     "All brief topics are present: branching feeding, carbon/water/phosphorus/nitrogen cycles, population change, biodiversity, human impacts, and conservation.",
+     "The branching-web example has its own specific figure placeholder; the energy pyramid also has a placeholder. No question requires an absent figure."
+    ],
+    "note": "No separate outline was supplied; presence was checked against the packet requirements.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the explanations of biome, carrying capacity, matter cycles, biodiversity, and conservation for simple wording. Technical terms receive short explanations.",
+     "The former difficult nitrogen explanation now says plants lack a way to break nitrogen gas apart. Solutions use short, concrete sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Classify is explained as putting examples into the correct group before the question uses it. Arrange, identify, name, describe, and estimate have ordinary meanings here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all ten stems: feeding links, the assumed transfer rate and starting energy, relationship effects, cycle events, drought, pollinator loss, and wetland damage supply the relevant case information.",
+     "The questions ask students to apply ecological knowledge. Example 7 gives weathering as an event because the task is tracing phosphorus, not identifying weathering.",
+     "Solutions explain causal links in plain language; no answer depends on unspecified numerical data."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam claims or exam-specific promises appear; strategy paragraphs give practical interpretation advice."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson with no Filipino teaching text or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson with no Filipino teaching text or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson with no Filipino teaching text or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson with no Filipino teaching text or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson with no Filipino teaching text or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a designated target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "For food-web arrows, read each arrow as **energy moves to** the consumer.",
+      "problem": "All seven strategy paragraphs begin with \"For\". This repeats the same sentence opening more than three times in a row and breaks the required variation."
+     }
+    ]
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Conceptual biology uses the allowed Exam Strategies heading.",
+     "Example 3 uses successive multiplication by 0.10: 10,000 × 0.10 and 1,000 × 0.10. Core Concept introduces multiplying by 0.10 for each trophic step before the example.",
+     "The symbiosis sign pairs used in Example 4 are defined in Core Concept; chemical symbols in Examples 5 and 6 are also introduced there. No other example introduces a calculation formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–4 cover chain roles, a branching-web population change, conditional energy transfer, and all three symbiosis outcomes.",
+     "Examples 5–7 cover carbon and water processes, the reason for nitrogen fixation and its distinction from nitrification, and phosphorus movement.",
+     "Examples 8–10 apply resource limits, biodiversity loss, and combined conservation responses. These add distinct causal tasks rather than number substitutions.",
+     "The sequence starts with direct food-chain roles and proceeds to interacting populations and environmental decisions. No distinct required scenario is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the ten worked solutions uses numbered steps; no necessary reasoning step is omitted. Example 3 displays both key multiplications separately."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Both display equations in Example 3 are short single multiplications with kJ units and fit a phone-width line."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs contain at most three sentences. The two short definition lists group trophic roles and symbiosis categories; example solutions use numbered lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The energy-pyramid placeholder specifies four levels, their assumed percentages, and the caution label.",
+     "The branching-web placeholder specifies every arrow and the grasshopper decline marker. The adjacent stem states every feeding link, so students can reason without the finished drawing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Trophic level and feeding roles are defined before the worked chains; kJ is defined as kilojoule, a unit of energy, before Example 3.",
+     "Population, community, carrying capacity, competition, reservoir, and all named cycle processes receive local explanations before the examples.",
+     "CO2, N2, and NH4+ are introduced with their meanings; symbiosis signs are explained before their sign pairs.",
+     "The undefined prokaryotes term has been replaced with bacteria. Weathering, sediment, overharvesting, invasive species, and conservation receive local meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Food chains and webs explain energy-arrow direction and linked population effects. Energy teaching explains losses and repeated conditional transfer.",
+     "Population teaching explains births, deaths, movement, limiting resources, and changing carrying capacity.",
+     "Carbon, nitrogen, phosphorus, and water sections explain the processes moving matter, including phosphate uptake, decay, runoff, evaporation, condensation, precipitation, and return flow.",
+     "Symbiosis explains effects on partners. Biodiversity and conservation connect species loss and human damage to consequences and suitable responses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The 10% shortcut is explicitly limited to stated assumptions; energy transfer is not presented as universal.",
+     "Carrying capacity can change and populations need not respond immediately. Food-web predictions allow alternative food sources and uncertain population effects.",
+     "Symbiosis depends on stated evidence. Phosphorus is described as lacking a major atmospheric gas reservoir, not all atmospheric movement.",
+     "Conservation measures must match the cause, and multiple causes may require multiple responses."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-biology-ecology|L18|0": {
+    "status": "fixed",
+    "quote": "Hawks can still eat rabbits in this web.",
+    "note": "Example 2 works a branching web and explains how an alternative food source changes the expected effect."
+   },
+   "lesson-biology-ecology|L18|1": {
+    "status": "fixed",
+    "quote": "Evaporation changes lake water into water vapor.",
+    "note": "Example 5 interprets carbon and water cycles; Example 7 separately traces phosphorus."
+   },
+   "lesson-biology-ecology|L26|0": {
+    "status": "fixed",
+    "quote": "**Condensation** changes water vapor into tiny liquid drops, which can form clouds.",
+    "note": "Water teaching now explains evaporation, condensation, precipitation, runoff, groundwater return, and transpiration."
+   },
+   "lesson-biology-ecology|L26|1": {
+    "status": "fixed",
+    "quote": "Plants absorb phosphate from soil or water, and animals get it by feeding.",
+    "note": "Phosphorus teaching now covers weathering, uptake, feeding, waste, decay, runoff, sediment, and rock formation."
+   },
+   "lesson-biology-ecology|B08|0": {
+    "status": "fixed",
+    "quote": "The familiar **$10\\%$ rule** is a classroom estimate, not a rule that every ecosystem follows exactly.",
+    "note": "The percentage in the rule name is now inside inline math."
+   },
+   "lesson-biology-ecology|B08|1": {
+    "status": "fixed",
+    "quote": "These results use the problem's $10\\%$ assumption.",
+    "note": "The worked-solution percentage now uses the required inline math form."
+   },
+   "lesson-biology-ecology|B08|2": {
+    "status": "fixed",
+    "quote": "For trophic-energy calculations, use $10\\%$ only when the problem gives that approximation or tells you to assume it.",
+    "note": "The strategy percentage is now inside inline math."
+   },
+   "lesson-biology-ecology|B08|3": {
+    "status": "fixed",
+    "quote": "Energy transfer varies; $10\\%$ is an estimate for problems that state this assumption.",
+    "note": "The trap warning now places the percentage inside inline math."
+   },
+   "lesson-biology-ecology|L02|0": {
+    "status": "fixed",
+    "quote": "A **biome** is a large region with a usual climate and common kinds of plants.",
+    "note": "The biome definition replaces the difficult phrases with short, common wording."
+   },
+   "lesson-biology-ecology|L03|2": {
+    "status": "fixed",
+    "quote": "\"Classify\" means put each example into the correct group.",
+    "note": "A one-line meaning now appears immediately before the classification question."
+   },
+   "lesson-biology-ecology|L05|0": {
+    "status": "fixed",
+    "quote": "Most plants lack a way to break nitrogen gas apart and change it into compounds they can use.",
+    "note": "The solution now explains the limitation without the difficult triple-bond wording."
+   },
+   "lesson-biology-ecology|L25|0": {
+    "status": "fixed",
+    "quote": "A **kilojoule (kJ)** is a unit of energy.",
+    "note": "Core Concept explains the abbreviation and unit before the calculation example."
+   },
+   "lesson-biology-ecology|L25|1": {
+    "status": "fixed",
+    "quote": "Nitrogen-fixing bacteria change $N_2$ into ammonia.",
+    "note": "The unexplained prokaryotes term is removed and replaced with bacteria."
+   },
+   "science-biology#28": {
+    "status": "fixed",
+    "quote": "Population size changes through births, deaths, movement into an area, and movement out.",
+    "note": "Population and community definitions, resource limits, competition, predation, and carrying capacity are taught and applied."
+   },
+   "science-biology#29": {
+    "status": "fixed",
+    "quote": "Losing a species can change feeding relationships, competition, and other links in a community.",
+    "note": "Biodiversity is defined at several levels and Example 9 traces consequences of pollinator loss."
+   },
+   "science-biology#30": {
+    "status": "fixed",
+    "quote": "Human activities can change ecosystems through habitat loss, pollution, and climate change.",
+    "note": "Human impacts now include habitat loss, pollution, climate change, overharvesting, and invasive species."
+   },
+   "science-biology#31": {
+    "status": "fixed",
+    "quote": "Checking populations over time helps show whether these actions are working.",
+    "note": "Conservation measures and monitoring are taught; Example 10 combines restoration, pollution control, and recovery checks."
+   },
+   "lesson-biology-ecology|L03|0": {
+    "status": "not_fixed",
+    "quote": "Arrange grass, grasshopper, frog, and hawk into a simple food chain and identify their trophic roles in that chain.",
+    "note": "Optional glosses were not added. Arrange and identify remain ordinary instruction words."
+   },
+   "lesson-biology-ecology|L03|1": {
+    "status": "not_fixed",
+    "quote": "Estimate the energy transferred to primary and then secondary consumers.",
+    "note": "The optional estimate gloss was not added; the worked calculation demonstrates the task."
+   }
+  }
+ }
+}
