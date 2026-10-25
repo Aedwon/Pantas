@@ -261,3 +261,118 @@ $ git status --short
 - The reported StartTodaySession failure did not recur in either the focused or final full run. No unrelated quiz/roadmap behavior was changed.
 - Verification: 4,804 tests passed, scoped analysis clean, format unchanged, layering OK, attribution OK. Final git status is pasted above. All 179 changed paths remain uncommitted. No new dependency or attribution text was introduced.
 - Visual/device acceptance, web build/live PWA checks, backend tests and independent review were not run. This is implementation evidence, not a claim of those separate approvals.
+
+
+## Review fixes, October 26, 2026
+
+Lead brief: two bounded review fixes on clean base
+`5ac7888bd945670e81e73be7bb882a0a151c23f7`, in the assigned worktree only.
+Policy read with `git show origin/main:<file>` at
+`44afc369259e599acdfdc6417d808014e578c1fc`: AGENTS.md, WORKFLOW.md,
+SUBAGENTS.md and linked startup/routing/resource guidance. No fetch or pull.
+Read L2/L3 W4h and W2, the amendment spec, and the parallel map from that
+existing reference. This brief authorizes the native retry and test changes.
+No staging, commit, merge, push, dependency addition, protected-content build,
+key access or other worktree edit was performed.
+
+### Item 1: scoring-load retry
+
+The submit error's Try Again callback now invalidates
+`mockScoringQuestionsProvider(attemptId)` before submitting again.
+The widget test starts a real seeded paper, answers one question, submits,
+observes a scoring-load failure and an unfinished attempt, clears the cause,
+and taps Try Again. It checks a second load, results navigation, completed
+persistence and a score of 1 out of 2. The generic error hides diagnostics.
+
+Failing first: `build/w4h-review-retry-red.log`, exit 1. After correcting an
+initial test assertion that compared a database string to the domain enum,
+the unchanged production code failed at the intended retry assertion:
+
+```text
+Expected: <2>
+  Actual: <1>
+00:00 +0 -1: Some tests failed.
+```
+
+### Item 2: restored fraction coverage
+
+Restored all eight deleted `displayFractions` cases in
+`test/core/ui/components/math_support_test.dart`, importing the surviving
+`math_support.dart` used by ContentRenderer. These cover braceless fractions,
+adjacent fractions, numerator and denominator nesting, nesting inside an
+existing dfrac, already-promoted input, and input without fractions.
+The original helper passes all eight. No math regression or math source change
+was needed.
+
+These are restored coverage, not a newly reproduced production defect.
+To check that the assertions can fail, temporarily disabled promotion and then
+temporarily promoted every fraction, including nested ones. Both mutations
+were restored immediately, before final verification:
+
+```text
+$ flutter test test/core/ui/components/math_support_test.dart
+# Promotion disabled, build/w4h-review-math-mutation-red.log, exit 1
+00:00 +3 -5: Some tests failed.
+# Every fraction promoted, build/w4h-review-math-nesting-red.log, exit 1
+00:00 +5 -3: Some tests failed.
+```
+
+The second mutation failed the numerator, denominator and existing-dfrac
+nesting cases. The first failed promotion, braceless and adjacent cases.
+
+Renewed focused check on restored source, exit 0:
+
+```text
+$ flutter test test/features/mock_exam/presentation/mock_start_route_persistence_test.dart test/core/ui/components/math_support_test.dart
+00:02 +20: All tests passed!
+```
+
+Files touched: native MockStartRoute, its persistence widget test, the new
+math_support_test.dart and this evidence file. No other source files changed.
+Independent review and visual/device acceptance remain with the lead.
+
+### Review-fix verification
+
+All commands ran locally. Flutter 3.44.6 (ee80f08bbf), Dart 3.12.2.
+Full-suite source remained unchanged throughout its run. Initial scoped analysis
+then found one required trailing comma in the new test. Added that comma and
+reran the affected tests and every remaining gate. This formatting-only change
+did not change test assertions or behavior. No second full-suite run is claimed.
+
+Final code/test identity: SHA-256 of `git diff -- lib test` followed by the new
+math_support_test.dart bytes: `cb7df56957d359fe15099abd2d72146751ad98591e79b88c0e78eecd23420aee`.
+Ignored raw logs: `build/w4h-review/` and `build/w4h-review-*.log`.
+
+Actual summaries (each command exited 0):
+
+```text
+$ flutter test
+16:22 +4813: All tests passed!
+
+$ flutter test test/features/mock_exam/presentation/mock_start_route_persistence_test.dart test/core/ui/components/math_support_test.dart
+00:08 +20: All tests passed!
+
+$ flutter analyze lib test tool
+Analyzing 3 items...
+No issues found! (ran in 29.0s)
+
+$ dart format --output=none --set-exit-if-changed lib test tool
+Formatted 1516 files (0 changed) in 5.40 seconds.
+
+$ dart run tool/check_layering.dart
+Running build hooks...Running build hooks...check_layering: OK
+
+$ dart run tool/check_no_ai_attribution.dart
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+
+$ git status --short
+ M docs/superpowers/plans/new-design/evidence/W4h-task4-W2-task9.md
+ M lib/features/mock_exam/presentation/pages/mock_start_route.dart
+ M test/features/mock_exam/presentation/mock_start_route_persistence_test.dart
+?? test/core/ui/components/math_support_test.dart
+```
+
+`git diff --check` also exited 0. Both review items are implemented and tested.
+No unresolved finding or stop condition remains from this assignment.
+No backend, device, screenshot, visual acceptance or independent review is claimed.
+The lead owns review and commit.

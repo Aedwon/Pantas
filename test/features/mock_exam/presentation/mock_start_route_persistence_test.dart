@@ -75,6 +75,82 @@ void main() {
     expect(find.text('Could not load your mock.'), findsNothing);
   });
 
+  testWidgets('submission retries scoring questions after a load failure',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    await _seedMockContent(contentDb);
+    final sink = _ErrorSink();
+    var loads = 0;
+    var fail = true;
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const MockStartRoute(
+            examId: 'exam_cse',
+            blueprintId: 'bp_cse',
+          ),
+        ),
+        GoRoute(
+          path: '/mock/results/:attemptId',
+          builder: (context, state) => const Scaffold(body: Text('Results')),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          telemetryProvider.overrideWithValue(sink),
+          mockScoringQuestionsProvider.overrideWith((ref, id) async {
+            loads++;
+            if (fail) throw StateError('private scoring diagnostic');
+            return ref
+                .read(contentRepositoryProvider)
+                .questionsByIds({'q1', 'q2'});
+          }),
+        ],
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await _startPreparedPaperIfPresent(tester);
+    await tester.tap(find.text('Choice A'));
+    await tester.tap(find.byKey(const ValueKey('mock-next')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('mock-next')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Submit'));
+    await tester.pumpAndSettle();
+
+    expect(loads, 1);
+    expect(find.text('Could not load your mock.'), findsOneWidget);
+    expect(find.textContaining('private scoring diagnostic'), findsNothing);
+    expect(sink.errors, hasLength(1));
+    expect(
+      (await db.select(db.mockAttempts).get()).single.status,
+      'in_progress',
+    );
+
+    fail = false;
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+
+    expect(loads, 2);
+    expect(find.text('Results'), findsOneWidget);
+    final attempt = (await db.select(db.mockAttempts).get()).single;
+    expect(attempt.status, 'completed');
+    expect(attempt.scoreRaw, 1);
+    expect(attempt.scoreTotal, 2);
+  });
+
   testWidgets('backgrounding persists the latest mock answer and position',
       (tester) async {
     final db = inMemoryDatabase();
