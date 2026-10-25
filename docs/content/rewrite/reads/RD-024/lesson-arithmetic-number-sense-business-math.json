@@ -1,0 +1,199 @@
+{
+ "packet": "lesson-arithmetic-number-sense-business-math",
+ "role": "A",
+ "lesson_sha256": "43fd4f408e21ea2863d7f395d94b2af385fa08b26143d18894278496582716da",
+ "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+ "rules": {
+  "B01": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the discount, markup, commission, sales-tax, simple-interest, compound-interest, Rule of $72$, and successive-discount statements; each is mathematically correct as stated."
+   ],
+   "note": ""
+  },
+  "B02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Blind-solved Example #1: Php $1,200$. Example #2: Php $21,600$. Example #3: Php $1,500$.",
+    "Blind-solved Example #4: Php $5,100$. Example #5: Php $2,520$. Example #6: $5$ years. Example #7: approximately Php $10,824$. All match the lesson."
+   ],
+   "note": ""
+  },
+  "B03": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked the full mathematics section structure and the brief: Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present; the brief requires no figures."
+   ],
+   "note": ""
+  },
+  "L02": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Read the teaching prose throughout Core Concept, shortcuts, and traps. Definitions and directions use short, direct sentences and common language suitable for the stated Grade 5 benchmark."
+   ],
+   "note": ""
+  },
+  "L03": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No exam-specific instruction word such as evaluate, infer, simplify, or express appears in this lesson."
+  },
+  "L04": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L05": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked all seven example stems for sufficient problem-specific givens and no answer-giving formulas; the worked solutions return to simple language and show the needed reasoning."
+   ],
+   "note": ""
+  },
+  "L07": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L08": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L09": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L10": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L11": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson contains no Filipino text, so Komisyon sa Wikang Filipino spelling rules do not apply."
+  },
+  "L12": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "The lesson is entirely in English and contains no Filipino-language teaching or examples."
+  },
+  "L14": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "No question refers to a target word or asks about a word in the prompt."
+  },
+  "L15": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L17": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Traced every example formula or rule to Core Concept before use: discount and selling-price formulas; markup and listed-price formulas; commission; sales tax and total price; $I=PRT$; and $A=P(1+r)^t$."
+   ],
+   "note": ""
+  },
+  "L18": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Mapped the lesson cases to worked examples: basic discount, successive discounts, markup, commission, sales tax, solving simple-interest time, and compound interest each have a distinct example, ordered from simpler percentage work to interest."
+   ],
+   "note": ""
+  },
+  "L19": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked Examples #1 through #7. Every solution with multiple steps is numbered, and each key arithmetic computation is shown as a display equation."
+   ],
+   "note": ""
+  },
+  "L21": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L22a": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [],
+   "note": ""
+  },
+  "L23": {
+   "verdict": "not_applicable",
+   "findings": [],
+   "checked": [],
+   "note": "There are no illustration placeholders, and the brief explicitly lists no required figures for this lesson."
+  },
+  "L25": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked necessary terms before use: discount, markup, commission, sales tax and taxable price, interest, principal, rate, and per annum are defined in Core Concept; compounding frequency is explained before calculation."
+   ],
+   "note": ""
+  },
+  "L26": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked each taught business-math concept for meaning plus operation: discount, markup, commission, tax, simple interest, and compound interest all have an explanation and a usable method."
+   ],
+   "note": ""
+  },
+  "L27": {
+   "verdict": "pass",
+   "findings": [],
+   "checked": [
+    "Checked applicability statements: percentage bases are named, simple interest is tied to annual rate and years, compound rates are converted to compounding periods, Rule of $72$ is labeled an approximation, and successive discounts use the reduced price."
+   ],
+   "note": ""
+  }
+ },
+ "illustrations": [],
+ "accuracy_concerns": [],
+ "brief_items": {
+  "lesson-arithmetic-number-sense-business-math|B08|0": {
+   "status": "fixed",
+   "quote": "For **compound growth**, the **Rule of $72$** gives a rough doubling-time estimate. Divide $72$ by the annual percentage rate.",
+   "note": "The prose name now wraps $72$ in inline math, so the reported B08 notation problem is fixed."
+  },
+  "lesson-arithmetic-number-sense-business-math|L25|0": {
+   "status": "fixed",
+   "quote": "The **principal** is the starting amount. The **rate** is the interest rate for a stated time period. **Per annum** means per year.",
+   "note": "Per annum is now defined in Core Concept before the simple-interest example uses the term."
+  },
+  "mathematics-arithmetic-number-sense#10": {
+   "status": "fixed",
+   "quote": "A **commission** is pay based on a stated amount, such as sales. When a problem says the commission rate is based on sales:",
+   "note": "Commission now has a definition, a formula, and its own worked example, so the missing CSE facet is taught."
+  },
+  "mathematics-arithmetic-number-sense#11": {
+   "status": "fixed",
+   "quote": "A **sales tax** problem gives a tax rate and a price on which the tax is based. That starting amount is the **taxable price**.",
+   "note": "Sales tax now has a definition, formula, total-price relation, and worked example, so the missing facet is taught."
+  }
+ }
+}
