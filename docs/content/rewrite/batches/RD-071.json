@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-peace-and-human-rights-human-rights-fundamentals",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law"
+ ],
+ "topic": "general-information/peace-and-human-rights",
+ "rewrites": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "cd2cdace62daf14db39f3051cc385e157336ca9a",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "cd2cdace62daf14db39f3051cc385e157336ca9a"
+ },
+ "sha256": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "c12eb2afa6f0c11faabfc82a81fdeb88c36268d8055e11e0ad6ee9efc359b735",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "ab46a4f37e94f97df1797450b40681335cd6bb8b879347a254784809b6b3711e"
+ },
+ "paths": {
+  "lesson-peace-and-human-rights-human-rights-fundamentals": "content/lessons/general-information/peace-and-human-rights/human-rights-fundamentals.md",
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": "content/lessons/general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md"
+ },
+ "id": "RD-071",
+ "type": "read",
+ "created": "2026-10-25T22:18:17+00:00"
+}
