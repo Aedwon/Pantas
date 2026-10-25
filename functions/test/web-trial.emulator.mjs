@@ -2,6 +2,7 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
+import {listPlans} from '../lib/webPlans.js';
 import {startTrial} from '../lib/webTrial.js';
 import {createCheckout} from '../lib/paymongoCheckout.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
@@ -121,4 +122,48 @@ test('the real rate limiter (users/{uid}/limits) allows 10 checkouts per window'
   for (let i = 0; i < 10; i++) await createCheckout(named(uid), {product: 'pantas_cs_weekly'}, d);
   assert.equal(await code(createCheckout(named(uid), {product: 'pantas_cs_weekly'}, d)), 'resource-exhausted');
   assert.equal(calls.length, 10);
+});
+
+
+test('listed trial eligibility matches trial enforcement for named and anonymous accounts and all past records', async () => {
+  const cases = {
+    fresh: [null, true],
+    marker: [uid => db.doc(`users/${uid}/server/trial`).set({usedAt: 1}), false],
+    paid: [uid => db.doc(`users/${uid}/grants/old`).set({source: 'paymongo', product: 'pantas_cs_weekly', state: 'revoked', endsAt: 2}), false],
+    pass: [uid => db.doc(`users/${uid}/passes/old`).set({product: 'pantas_pass_cse_pro', state: 'revoked'}), false],
+    subscription: [uid => db.doc(`users/${uid}/server/entitlement`).set({facts: {sources: [{productId: 'pantas_cs_monthly'}]}}), false],
+    purchase: [uid => db.doc(`users/${uid}/server/entitlement`).set({facts: {purchases: [{productId: 'pantas_pass_cse_pro'}]}}), false],
+    proUntil: [uid => db.doc(`users/${uid}/server/entitlement`).set({pro: false, proUntil: 1}), false],
+    pro: [uid => db.doc(`users/${uid}/server/entitlement`).set({pro: true}), false],
+    empty: [uid => db.doc(`users/${uid}/server/entitlement`).set({pro: false, proUntil: 0, facts: {sources: [], purchases: []}}), true],
+  };
+  for (const [key, [seed, eligible]] of Object.entries(cases)) {
+    const uid = `plans-trial-${key}`;
+    await reset(uid);
+    if (seed) await seed(uid);
+    const out = await listPlans(named(uid), {db, allow: async () => true, now: () => NOW});
+    assert.equal(out.trialEligible, eligible, key);
+    assert.equal((await db.doc(`users/${uid}/server/trial`).get()).exists, key === 'marker');
+    assert.equal(await code(startTrial(named(uid), deps())), eligible ? 'ok' : 'failed-precondition', key);
+  }
+  const uid = 'plans-trial-anon';
+  await reset(uid);
+  assert.equal((await listPlans(anon(uid), {db, allow: async () => true})).trialEligible, false);
+});
+
+
+test('listed Play renewal requires explicit live production Play facts', async () => {
+  const source = {productId: 'pantas_cs_monthly', entitlementIds: ['pro'], appId: 'app-test',
+    environment: 'production', store: 'play_store', endsAt: NOW + 86400000, active: true, willRenew: true};
+  for (const [key, patch, expected] of [
+    ['renewing', {}, true], ['canceled', {willRenew: false}, false],
+    ['expired', {endsAt: NOW}, false], ['inactive', {active: false}, false],
+    ['apple', {store: 'app_store'}, false], ['sandbox', {environment: 'sandbox'}, false],
+    ['unknown', {willRenew: null}, false], ['otherapp', {appId: 'other-app'}, false],
+  ]) {
+    const uid = `listed-renewal-${key}`;
+    await reset(uid);
+    await db.doc(`users/${uid}/server/entitlement`).set({facts: {sources: [{...source, ...patch}], coverageContext: {appId: 'app-test'}}});
+    assert.equal((await listPlans(named(uid), {db, allow: async () => true, now: () => NOW})).googlePlayPlanRenews, expected, key);
+  }
 });

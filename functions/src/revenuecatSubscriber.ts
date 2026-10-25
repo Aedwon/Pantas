@@ -72,7 +72,9 @@ export async function readRevenueCatCustomer(
     if (subscription.gives_access && !product) throw new Error('Missing RevenueCat store-product mapping');
     sources.push({productId:product ? string(product.store_identifier) : null,
       appId:product ? string(product.app_id) : null, entitlementIds,environment,store,
-      endsAt,active:subscription.gives_access});
+      endsAt,active:subscription.gives_access,
+      ...(subscription.auto_renewal_status === 'will_renew' ? {willRenew: true} :
+        subscription.auto_renewal_status === 'will_not_renew' ? {willRenew: false} : {})});
   }
   return sources;
 }

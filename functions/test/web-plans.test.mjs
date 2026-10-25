@@ -8,7 +8,7 @@ const named = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com'}}}
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const sitting = {firstDay: '2027-03-14', lastDay: '2027-03-14', sourceUrl: 'https://x.test/official'};
 const catalog = [{id: 'exam_cse_pro', publishedSittings: [sitting]}, {id: 'exam_cse_sub', publishedSittings: [sitting]}];
-const deps = (extra = {}) => ({allow: async () => true, catalog, now: () => NOW, ...extra});
+const deps = (extra = {}) => ({renewal: async () => false, eligibility: async () => false, allow: async () => true, catalog, now: () => NOW, ...extra});
 const code = async promise => {try {await promise; return 'ok';} catch (e) {assert.equal(typeof e.code, 'string', String(e)); return e.code;}};
 const byProduct = out => Object.fromEntries(out.plans.map(p => [p.product, p]));
 

@@ -28,3 +28,10 @@ test('AC-3 two subscriptions can share an entitlement product page', async () =>
   const rows = await subscriber.readRevenueCatCustomer('test-project','test-user','test-key',async url=>({ok:true,json:async()=>url.includes('/subscriptions') ? {items:[withPage,withPage],next_page:null} : {items:subscription.entitlements.items[0].products.items,next_page:null}}));
   assert.equal(rows.length,2);
 });
+
+test('renewal facts retain explicit renewing and canceled status without guessing unknowns', async () => {
+  for (const [status, expected] of [['will_renew', true], ['will_not_renew', false], [undefined, undefined], ['future_status', undefined]]) {
+    const rows = await subscriber.readRevenueCatCustomer('test-project','test-user','test-key',async()=>({ok:true,json:async()=>({items:[{...subscription,auto_renewal_status:status}],next_page:null})}));
+    assert.equal(rows[0].willRenew, expected, String(status));
+  }
+});

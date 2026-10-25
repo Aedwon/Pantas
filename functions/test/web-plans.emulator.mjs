@@ -13,7 +13,7 @@ test('the real per-account limit allows 30 lists in the window, then refuses, pe
   await db.recursiveDelete(db.doc('users/pl-a'));
   await db.recursiveDelete(db.doc('users/pl-b'));
   const deps = {catalog, now: () => Date.parse('2026-10-20T10:00:00+08:00')};
-  for (let i = 0; i < 30; i++) assert.equal(await code(listPlans({uid: 'pl-a'}, deps)), 'ok', `call ${i + 1}`);
-  assert.equal(await code(listPlans({uid: 'pl-a'}, deps)), 'resource-exhausted');
-  assert.equal(await code(listPlans({uid: 'pl-b'}, deps)), 'ok');
+  for (let i = 0; i < 30; i++) assert.equal(await code(listPlans({uid: 'pl-a', token: {firebase: {sign_in_provider: 'google.com'}}}, deps)), 'ok', `call ${i + 1}`);
+  assert.equal(await code(listPlans({uid: 'pl-a', token: {firebase: {sign_in_provider: 'google.com'}}}, deps)), 'resource-exhausted');
+  assert.equal(await code(listPlans({uid: 'pl-b', token: {firebase: {sign_in_provider: 'google.com'}}}, deps)), 'ok');
 });
