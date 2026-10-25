@@ -117,16 +117,18 @@ def check_rewrite_text(base, new, path):
     new_rows = sweep_findings(new, rel)
     new_counts = _count(new_rows, lambda row: (row[0], row[1], row[3]))
     for cls in sorted({key[0] for key in new_counts}):
-        extra_lines = []
+        extra_lines, blocking = [], False
         for key, count in new_counts.items():
             if key[0] != cls:
                 continue
             more = count - old_sweep.get(key, 0)
             if more > 0:
                 extra_lines += [row[2] for row in new_rows if (row[0], row[1], row[3]) == key][-more:]
+                # A polish finding asks for judgment, so it goes to the reader instead of rejecting.
+                blocking = blocking or key[1] != "polish"
         if not extra_lines:
             continue
-        if cls in BLOCKING_SWEEPS:
+        if cls in BLOCKING_SWEEPS and blocking:
             reasons.append("sweep %s found %d more than before; lines %s"
                            % (cls, len(extra_lines), ", ".join(str(n) for n in sorted(set(extra_lines))[:12])))
         else:
