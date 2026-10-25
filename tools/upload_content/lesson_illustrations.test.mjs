@@ -3,7 +3,7 @@ import {mkdtempSync, mkdirSync, writeFileSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {test} from 'node:test';
-import {resolveLessonIllustrations} from './lesson_illustrations.mjs';
+import {checkIllustrationFiles, resolveLessonIllustrations} from './lesson_illustrations.mjs';
 
 test('server content carries SVG and PNG bytes in marker order', () => {
   const root = mkdtempSync(join(tmpdir(), 'b9-upload-'));
@@ -53,4 +53,56 @@ test('rejects symlinked subject ancestors', async () => {
     symlinkSync(join(root, 'outside'), join(root, 'math'));
     assert.throws(() => resolveLessonIllustrations('<!-- ILLUSTRATION: x -->', 'math/topic/lesson.md', root), /unsafe/i);
   } finally { rmSync(root, {recursive:true, force:true}); }
+});
+
+function lessonDir(root) {
+  const dir = join(root, 'math/topic/lesson'); mkdirSync(dir, {recursive: true});
+  return dir;
+}
+for (const name of ['1-short-number.svg', '01-Upper-Case.svg', '01-upper-extension.SVG', '01-photo.jpg', '01_underscore.svg', '00-zero.svg']) {
+  test(`misnamed figure file fails with its path and the rule: ${name}`, () => {
+    const root = mkdtempSync(join(tmpdir(), 'b9-name-'));
+    try {
+      const dir = lessonDir(root);
+      writeFileSync(join(dir, '01-good.svg'), '<svg/>');
+      writeFileSync(join(dir, name), '<svg/>');
+      assert.throws(
+        () => resolveLessonIllustrations('<!-- ILLUSTRATION: One -->', 'math/topic/lesson.md', root),
+        error => error.message.includes(join(dir, name)) && error.message.includes('NN-slug'),
+      );
+    } finally { rmSync(root, {recursive: true, force: true}); }
+  });
+}
+test('a figure file no marker uses fails with its path', () => {
+  const root = mkdtempSync(join(tmpdir(), 'b9-unused-'));
+  try {
+    const dir = lessonDir(root);
+    writeFileSync(join(dir, '01-a.svg'), '<svg/>');
+    writeFileSync(join(dir, '02-b.svg'), '<svg/>');
+    assert.throws(
+      () => resolveLessonIllustrations('<!-- ILLUSTRATION: Only one -->', 'math/topic/lesson.md', root),
+      error => error.message.includes(join(dir, '02-b.svg')) && /no ILLUSTRATION marker/.test(error.message),
+    );
+    assert.throws(
+      () => resolveLessonIllustrations('No figures here.', 'math/topic/lesson.md', root),
+      error => error.message.includes(join(dir, '01-a.svg')),
+    );
+  } finally { rmSync(root, {recursive: true, force: true}); }
+});
+test('the whole illustration tree is checked for names at the wrong depth and for lessons that do not exist', () => {
+  const root = mkdtempSync(join(tmpdir(), 'b9-tree-'));
+  try {
+    mkdirSync(join(root, 'math/topic/lesson/extra'), {recursive: true});
+    mkdirSync(join(root, 'math/topic/renamed'), {recursive: true});
+    writeFileSync(join(root, 'math/topic/lesson/01-good.svg'), '<svg/>');
+    writeFileSync(join(root, 'math/topic/01-too-shallow.svg'), '<svg/>');
+    writeFileSync(join(root, 'math/topic/lesson/extra/01-too-deep.svg'), '<svg/>');
+    writeFileSync(join(root, 'math/topic/renamed/01-a.svg'), '<svg/>');
+    writeFileSync(join(root, 'math/topic/lesson/notes.txt'), 'not a figure');
+    const problems = checkIllustrationFiles(root, new Set(['math/topic/lesson']));
+    assert.equal(problems.length, 3);
+    assert.ok(problems.some(p => p.includes(join(root, 'math/topic/01-too-shallow.svg')) && p.includes('NN-slug')));
+    assert.ok(problems.some(p => p.includes(join(root, 'math/topic/lesson/extra/01-too-deep.svg')) && p.includes('NN-slug')));
+    assert.ok(problems.some(p => p.includes(join(root, 'math/topic/renamed/01-a.svg')) && /no lesson/.test(p)));
+  } finally { rmSync(root, {recursive: true, force: true}); }
 });

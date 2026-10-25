@@ -62,10 +62,15 @@ class LessonAssetEntry {
     this.assetId,
     this.sha256,
     this.creditKey,
+    this.file,
   });
 
   final String url;
   final String alt;
+
+  /// The local figure file this entry was built from, or null for an entry
+  /// that came from the asset map.
+  final String? file;
   final String? assetId;
   final String? sha256;
   final String? creditKey;
@@ -78,6 +83,17 @@ class LessonAssetEntry {
         if (creditKey != null) 'creditKey': creditKey,
       };
 }
+
+/// The path rule for a local lesson figure, relative to the illustrations
+/// folder. The upload tool applies the same rule.
+const figurePathRule = '<subject>/<topic>/<lesson>/NN-slug.svg or .png '
+    '(lowercase letters, digits and hyphens; '
+    'NN is two or more digits, 01 or more)';
+final _figureExtension =
+    RegExp(r'\.(svg|png|jpe?g|gif|webp)$', caseSensitive: false);
+final _figurePath = RegExp(
+  r'^([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([0-9]{2,})-[a-z0-9-]+\.(svg|png)$',
+);
 
 /// Lookup map for lesson illustration assets.
 class LessonAssetMap {
@@ -144,20 +160,32 @@ class LessonAssetMap {
     if (file.parent.existsSync()) {
       final files = file.parent
           .listSync(recursive: true, followLinks: false)
-          .whereType<File>()
+          .where((entity) => entity is File || entity is Link)
           .toList()
         ..sort((a, b) => a.path.compareTo(b.path));
       for (final image in files) {
         final relative = image.path
             .substring(file.parent.path.length + 1)
             .replaceAll(r'\', '/');
-        final match = RegExp(
-          r'^([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([0-9]{2,})-[a-z0-9-]+\.(svg|png)$',
-        ).firstMatch(relative);
-        if (match == null) continue;
+        if (!_figureExtension.hasMatch(relative)) continue;
+        final match = _figurePath.firstMatch(relative);
+        if (match == null) {
+          throw FormatException(
+            'Illustration file name does not match $figurePathRule: '
+            '${image.path}',
+          );
+        }
         final sequence = int.parse(match[4]!);
         if (sequence < 1) {
-          throw FormatException('Invalid illustration sequence: ${image.path}');
+          throw FormatException(
+            'Illustration sequence must be 1 or more, as in $figurePathRule: '
+            '${image.path}',
+          );
+        }
+        if (image is! File) {
+          throw FormatException(
+            'Illustration file must not be a symbolic link: ${image.path}',
+          );
         }
         final key = '${match[1]}/${match[2]}/${match[3]}#$sequence';
         final previous = found[key];
@@ -183,6 +211,7 @@ class LessonAssetMap {
             .toString(),
         alt: prior.get(item.key)?.alt ?? '',
         creditKey: creditKey,
+        file: item.value.path,
       );
     }
     if (entries.isEmpty && !prior.isConfigured) {
@@ -244,6 +273,28 @@ class LessonAssetMap {
     }
     results.sort((a, b) => a.key.compareTo(b.key));
     return results;
+  }
+
+  /// The local figure files for [lesson], in marker order.
+  List<String> localFiguresFor(LessonIdentity lesson) => [
+        for (final entry in orderedEntriesFor(lesson))
+          if (entry.value.file != null) entry.value.file!,
+      ];
+
+  /// Throws when a local figure belongs to no lesson in [lessons], for example
+  /// after a lesson was renamed and its figures were left behind.
+  void assertNoOrphanFigures(Iterable<LessonIdentity> lessons) {
+    final known = {for (final lesson in lessons) lesson.assetKeyPrefix};
+    for (final entry in _entries.entries) {
+      final file = entry.value.file;
+      if (file == null) continue;
+      final lessonKey = entry.key.substring(0, entry.key.lastIndexOf('#'));
+      if (!known.contains(lessonKey)) {
+        throw FormatException(
+          'Figure file belongs to no lesson ($lessonKey.md): $file',
+        );
+      }
+    }
   }
 
   bool contains(String key) => _entries.containsKey(key);

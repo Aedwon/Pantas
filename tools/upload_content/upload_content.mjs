@@ -17,7 +17,7 @@ import {createRequire} from 'node:module';
 import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
-import {resolveLessonIllustrations} from './lesson_illustrations.mjs';
+import {checkIllustrationFiles, resolveLessonIllustrations} from './lesson_illustrations.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const functionsDir = resolve(here, '../../functions');
@@ -63,7 +63,9 @@ for (const file of existsSync(sourcesRoot) ? walk(sourcesRoot, '.yaml') : []) {
   }
 }
 
+const lessonKeys = new Set();
 for (const file of walk(join(root, 'lessons'), '.md')) {
+  lessonKeys.add(relative(join(root, 'lessons'), file).split('\\').join('/').replace(/\.md$/, ''));
   try {
     const text = readFileSync(file, 'utf8');
     const match = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/.exec(text);
@@ -75,6 +77,8 @@ for (const file of walk(join(root, 'lessons'), '.md')) {
     lessonFronts.push(front);
   } catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
 }
+// Names off the path rule and figures of a lesson that does not exist are never read by a marker.
+invalid.push(...checkIllustrationFiles(illustrationRoot, lessonKeys));
 const questionsRoot = join(root, 'questions');
 for (const file of walk(questionsRoot, '.yaml')) {
   try {

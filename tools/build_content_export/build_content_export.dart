@@ -494,6 +494,12 @@ List<Map<String, Object?>> buildLessons(
     });
   }
 
+  // A figure folder with no lesson file (a renamed lesson, say) is never read
+  // by a marker, so name it here instead of dropping it silently.
+  assetMap.assertNoOrphanFigures([
+    for (final file in _filesUnder('$root/content/lessons', '.md'))
+      LessonIdentity.fromPath(file.path),
+  ]);
   return lessons;
 }
 
