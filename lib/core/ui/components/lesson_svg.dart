@@ -43,13 +43,30 @@ class LessonSvgColors extends ColorMapper {
   int get hashCode => colors.hashCode;
 }
 
+// Decoded data-URL bytes by URL, least recently used first. A rebuild or a
+// theme change builds a new loader; reusing the same bytes keeps the loaders
+// equal when nothing else changed, so flutter_svg does not parse again.
+// Bounded so a long lesson cannot hold every figure in memory.
+final _dataUrlBytes = <String, Uint8List>{};
+const _dataUrlBytesLimit = 16;
+
+Uint8List _decodedDataUrl(String url) {
+  final cached = _dataUrlBytes.remove(url);
+  final bytes = cached ?? Uri.parse(url).data!.contentAsBytes();
+  _dataUrlBytes[url] = bytes;
+  if (_dataUrlBytes.length > _dataUrlBytesLimit) {
+    _dataUrlBytes.remove(_dataUrlBytes.keys.first);
+  }
+  return bytes;
+}
+
 BytesLoader lessonSvgLoader(String url, PantasColors colors) {
   final theme = SvgTheme(currentColor: colors.label);
   final mapper = LessonSvgColors(colors);
   final uri = Uri.parse(url);
   if (uri.scheme == 'data') {
     return SvgBytesLoader(
-      uri.data!.contentAsBytes(),
+      _decodedDataUrl(url),
       theme: theme,
       colorMapper: mapper,
     );
