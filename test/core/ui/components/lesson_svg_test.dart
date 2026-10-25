@@ -54,6 +54,42 @@ void main() {
     });
   }
 
+  test('a data URL is decoded once so rebuilds and theme changes reuse it', () {
+    final url = svgUrl(drawing);
+    final first = lessonSvgLoader(url, PantasColors.light);
+    final again = lessonSvgLoader(url, PantasColors.light);
+    final dark = lessonSvgLoader(url, PantasColors.dark);
+    expect(again, first);
+    expect(
+      identical(
+        (dark as SvgBytesLoader).bytes,
+        (first as SvgBytesLoader).bytes,
+      ),
+      isTrue,
+    );
+  });
+  testWidgets('a parent rebuild keeps the same SVG loader', (tester) async {
+    final rebuild = ValueNotifier<int>(0);
+    addTearDown(rebuild.dispose);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: Scaffold(
+          body: ValueListenableBuilder<int>(
+            valueListenable: rebuild,
+            builder: (_, __, ___) =>
+                PortableTextRenderer(blocks: [image(svgUrl(drawing))]),
+          ),
+        ),
+      ),
+    );
+    final before = tester.widget<SvgPicture>(find.byType(SvgPicture));
+    rebuild.value++;
+    await tester.pump();
+    final after = tester.widget<SvgPicture>(find.byType(SvgPicture));
+    expect(after.bytesLoader, before.bytesLoader);
+  });
+
   for (final reader in [false, true]) {
     for (final dark in [false, true]) {
       testWidgets('SVG renders with alt text reader=$reader dark=$dark',
