@@ -4,7 +4,8 @@
 Usage: python3 -I tools/content_rewrite/relay/handin_ci.py <batch-id> <base-commit> <head-commit>
 
 Run it in a checkout that holds both commits. It reads the batch from the batch file committed at the point
-where the branch started (docs/content/rewrite/batches/<batch-id>.json), checks that the pull request changes
+where the branch started, falling back to the base branch head if missing
+(docs/content/rewrite/batches/<batch-id>.json), checks that the pull request changes
 only the files the batch may place, and runs the same per-file checks as the local hand-in (handin.py): the
 rewrite checks for a lesson, the form checks for a read, against the lesson text at the base commit.
 The output is a Markdown report. Its first line is "## ACCEPTED", "## REJECTED" or "## ERROR". It holds rule
@@ -122,6 +123,8 @@ def process(batch_id, base, head, ctx=None):
     ctx.base_ref = merge_base
     try:
         batch = ctx.batch_at(merge_base, batch_id)
+        if batch is None:
+            batch = ctx.batch_at(base_sha, batch_id)
         if batch is None:
             return 64, ["## ERROR", "", "There is no batch file for %s at the point where the branch started. "
                         "The lead must look at this pull request." % batch_id]

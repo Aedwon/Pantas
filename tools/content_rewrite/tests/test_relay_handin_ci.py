@@ -153,6 +153,42 @@ class Rejections(CiCase):
         self.assertIn("regular file", self.text(lines))
 
 
+class LateBatchFiles(unittest.TestCase):
+    def setUp(self):
+        self.repo = F.Repo()
+        self.addCleanup(self.repo.cleanup)
+        self.branch_start = self.repo.head()
+
+    def check(self, extra_files=None, plan=True):
+        files = {F.lesson_path(s): F.rewritten(s) for s in SLUGS}
+        files.update(extra_files or {})
+        _, head = F.pr_branch(self.repo, "RW-001", files)
+        if plan:
+            planner.plan(self.repo.ctx)
+            self.repo.commit_batches()
+        ctx = rw_lib.Ctx(root=self.repo.root, state_dir=self.repo.state)
+        result = handin_ci.process("RW-001", self.repo.head(), head, ctx)
+        self.assertEqual(ctx.base_ref, self.branch_start)
+        return result
+
+    def test_a_batch_only_at_base_head_is_accepted(self):
+        code, lines = self.check()
+        self.assertEqual((code, lines[0]), (0, "## ACCEPTED"), lines)
+
+    def test_a_batch_missing_at_both_commits_keeps_the_error(self):
+        self.assertEqual(self.check(plan=False), (64, [
+            "## ERROR", "",
+            "There is no batch file for RW-001 at the point where the branch started. "
+            "The lead must look at this pull request.",
+        ]))
+
+    def test_the_pull_request_cannot_add_the_fallback_batch(self):
+        path = "%s/RW-001.json" % rw_lib.BATCHES_REL
+        code, lines = self.check({path: "{}\n"})
+        self.assertEqual((code, lines[0]), (1, "## REJECTED"), lines)
+        self.assertIn("`%s` is not a file this batch may change" % path, "\n".join(lines))
+
+
 class BadRequests(CiCase):
     def test_bad_ids_and_commits(self):
         ctx = rw_lib.Ctx(root=self.repo.root, state_dir=self.repo.state)
