@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-environment-management-environmental-problems-and-climate-change",
+  "lesson-environment-management-species-resources-and-environmental-decisions",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "rewrites": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "b40e0d2ea9a703a1fabe2b321acf1dae446944e5",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "b40e0d2ea9a703a1fabe2b321acf1dae446944e5",
+  "lesson-environment-management-the-environmental-laws": "b40e0d2ea9a703a1fabe2b321acf1dae446944e5"
+ },
+ "sha256": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "6c410dea3c4e0f7262b5dcd060e4a626abccea07e2a04e3a6f94a4caae3e1d2e",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "dcf83cbc020f6fcd5be77ea791bcdf49c07eb545f5cb492f52c4d65d3fce15a7",
+  "lesson-environment-management-the-environmental-laws": "90914b0f3281cb7477738786fc5293e29a27975e3dcc39fa85b15ff60f6a20d6"
+ },
+ "paths": {
+  "lesson-environment-management-environmental-problems-and-climate-change": "content/lessons/general-information/environment-management/environmental-problems-and-climate-change.md",
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "id": "RD-045",
+ "type": "read",
+ "created": "2026-10-25T19:21:02+00:00"
+}
