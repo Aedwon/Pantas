@@ -1,0 +1,251 @@
+{
+ "batch": "RD-037",
+ "lesson_id": "lesson-comprehension-skills-inferencing-and-conclusions",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md",
+ "lesson_sha256": "b8e990c1e8e6d1ca617d2c6890d6349453ed983f0b22da4d97b863dbbf16f5b3",
+ "rewrite_commit": "ff9374cfa2c20f422a9eb01cab74d85ba888d0cc",
+ "form": {
+  "packet": "lesson-comprehension-skills-inferencing-and-conclusions",
+  "role": "A",
+  "lesson_sha256": "b8e990c1e8e6d1ca617d2c6890d6349453ed983f0b22da4d97b863dbbf16f5b3",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked inference versus direct statement, claim strength, premise/conclusion definitions, and the negation test for necessary assumptions. These reading concepts are explained without dated or specific exam claims; Filipino usage still needs official source checking."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 waiting with impatience/anxiety; 2 A, concern about hours; 3 assignment was late, motive unknown; 4 someone studying or working late; 5 Lino is an employee; 6 Tuesday most and Wednesday fewest from the specified figure design; 7 Tuesday; 8 Nena preparing an activity and awaiting others; 9 community habits reducing plastic use and waste. All agree with the solutions. Actual rendered graphs are not supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For sections in lesson 3; no outline beyond the supplied brief is available. Figure needs were assessed separately."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English definitions, worked reasoning, shortcuts, and warnings. Technical reading terms receive short meanings and the surrounding teaching uses common words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Inference is defined at the start as an idea figured out from clues. The questions ask for supported conclusions using that taught meaning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "In the graph above, Tuesday has the highest bar.",
+      "problem": "Example 7 tells the reader the exact graph comparison the question should test. The answer can be found from the note and this sentence without interpreting any visual information."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-name openings occur in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino core section, Filipino worked steps, and Filipino shortcut. The explanations use short Filipino sentences and explain the key reading ideas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first-use glosses in the Filipino section; English glosses are given once for the introduced technical terms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino example passages, questions, and worked reasoning. Their content is Filipino; the shared Solution label follows the required template."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official spelling and usage cannot be confirmed from this prompt alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino explanations use Filipino prose. English parenthetical terms are first-use glosses and bold is the common formatting term."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No example asks about the meaning of a specific target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned the summary, explanations, and warnings for the listed stock phrases; none occur. Openings vary across paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "This is Reading Comprehension. Core Concept, Examples, shortcuts, and traps fit that subject. No example uses a mathematical formula, so there is no formula to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Sa paghatol sa isang pahayag, ihiwalay ang tiyak na sinabi sa maaari lamang mangyari.",
+      "problem": "The Filipino section promises justified judgment, but its examples cover a situational inference and an unstated main point only. No Filipino worked example weighs a judgment against what the text can establish."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All 9 examples have a Solution label and numbered reasoning steps. There are no key numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Reviewed prose blocks outside numbered solutions: each has one to three sentences. Lists group definitions or criteria and do not replace the worked teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Both visual-data examples have their own specific one-line bar-graph placeholders. The title, weekday categories, ordering of heights, and visitor axis are specified. Example 6 describes enough context without replacing the load-bearing graph; example 7 supplies too much in prose, reported under L05."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Inference, premise, conclusion, and assumption are defined before examples. The old trading-volume example is removed. Graph reading is introduced through title, labels, and units; the examples require only comparing visitor bars, with no unfamiliar unit or calculation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson shows how to join clues, control claim strength, negate a candidate assumption, and combine a note with visual categories. Filipino teaching explains how repeated details support an unstated main point."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked warnings against invented motives, automatic preference for weak answers, treating assumptions as facts, and ignoring graph labels. The assumption shortcut is qualified with may be necessary and the core explains testing whether support fails."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-inferencing-and-conclusions|L02|0": {
+    "status": "fixed",
+    "quote": "An **inference** is an idea you figure out from clues.",
+    "note": "The abstract definition is replaced by a short plain explanation."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L05|0": {
+    "status": "fixed",
+    "quote": "What can reasonably be inferred about Maria?",
+    "note": "The former stimulus-only cases now include explicit questions."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L19|0": {
+    "status": "fixed",
+    "quote": "1. Maria keeps checking the time and the entrance.",
+    "note": "Every worked answer now has a Solution label and numbered steps."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|B08|0": {
+    "status": "fixed",
+    "quote": "After the manager announced that the store would close earlier each night, several workers immediately asked how their weekly hours would change.",
+    "note": "The stock-price passage and its bare percentage are removed."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|B08|1": {
+    "status": "fixed",
+    "quote": "The kitchen light was still on at $3$ a.m.",
+    "note": "The time numeral is now wrapped in inline math."
+   },
+   "lesson-comprehension-skills-inferencing-and-conclusions|L25|0": {
+    "status": "fixed",
+    "quote": "The announcement changes the store's closing time.",
+    "note": "The finance example is replaced by an ordinary schedule example with no trading-volume term."
+   },
+   "reading-comprehension-comprehension-skills#45": {
+    "status": "fixed",
+    "quote": "If Lino were not an employee, the rule in the first premise would not apply to him.",
+    "note": "Premise and conclusion are defined, and example 5 tests the unstated employee condition by making it false."
+   },
+   "reading-comprehension-comprehension-skills#59": {
+    "status": "not_fixed",
+    "quote": "A bar graph compares the number of visitors to a help desk on Monday, Tuesday, and Wednesday.",
+    "note": "Specific graph placeholders exist, but actual visual information is not supplied in the rewritten text. Example 7 also gives away the visual comparison."
+   }
+  }
+ }
+}

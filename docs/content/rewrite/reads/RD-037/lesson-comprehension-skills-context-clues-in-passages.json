@@ -1,0 +1,274 @@
+{
+ "batch": "RD-037",
+ "lesson_id": "lesson-comprehension-skills-context-clues-in-passages",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/context-clues-in-passages.md",
+ "lesson_sha256": "afac119bd285b3314e7734153812e822d7648917815f8c85dfb061d55349533f",
+ "rewrite_commit": "ff9374cfa2c20f422a9eb01cab74d85ba888d0cc",
+ "form": {
+  "packet": "lesson-comprehension-skills-context-clues-in-passages",
+  "role": "A",
+  "lesson_sha256": "afac119bd285b3314e7734153812e822d7648917815f8c85dfb061d55349533f",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the four clue types, prefix/root/suffix definitions, qualified re- and -less meanings, and the contextual meanings used in the examples. Filipino usage is reserved for L11 source checking."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 shock and worry; 2 miscellaneous small decorative objects; 3 friendly; 4 delaying necessary work; 5 arranging again; 6 low energy; 7 sudden surge of anger; 8 Mara may arrive tomorrow if she finishes today. These match the worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For sections in lesson 2; no outline beyond the supplied brief is available. Figure needs were assessed separately."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English definitions, worked reasoning, shortcuts, and warnings. Technical reading terms receive short meanings and the surrounding teaching uses common words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Infer is explained immediately as figuring something out from clues. No other unexplained exam-specific instruction word appears in the questions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the eight questions supplies its passage and asks for a contextual meaning or sentence implication. English solutions use direct clue-to-meaning steps; Filipino solutions similarly cite nearby details."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-name openings occur in the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino core section, Filipino worked steps, and Filipino shortcut. The explanations use short Filipino sentences and explain the key reading ideas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked first-use glosses in the Filipino section; English glosses are given once for the introduced technical terms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino example passages, questions, and worked reasoning. Their content is Filipino; the shared Solution label follows the required template."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official spelling and usage cannot be confirmed from this prompt alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino explanations use Filipino prose. English parenthetical terms are first-use glosses and bold is the common formatting term."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Matamlay si Ben buong umaga. Wala siyang sigla at mabagal ang kanyang kilos.",
+      "problem": "Example 6 asks for the word in bold, but matamlay is not bold in the question passage. Bold in the later solution does not identify the target before answering."
+     }
+    ]
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Scanned the summary, explanations, and warnings for the listed stock phrases; none occur. Openings vary across paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "This is Reading Comprehension. Core Concept, Examples, shortcuts, and traps fit that subject. No example uses a mathematical formula, so there is no formula to trace to Core Concept."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "### #7: Kasalungat at Di-Tuwirang Kahulugan",
+      "problem": "Example 7 uses bugso for a surge of emotion but does not work through the taught nonliteral phrase or another clear nonliteral comparison. The requested pronoun/modifier, spelling, and sentence-type usage cases have no worked applications."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All 8 examples have a Solution label and numbered reasoning steps. There are no key numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Reviewed prose blocks outside numbered solutions: each has one to three sentences. Lists group definitions or criteria and do not replace the worked teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or existing figures to inspect; these examples depend on words.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Context clue and infer are explained first. The four clue types, word parts, Filipino synonym/antonym, aspect, adverb, pronoun, modifier, and sentence-type names are locally defined before their examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Mahalaga rin ang ayos at baybay ng pangungusap.",
+      "problem": "This only says order and spelling matter. It does not teach any spelling or placement distinction that a student can apply. Pronouns, modifiers, and sentence types are listed but their requested language-specific usage is not developed."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Word parts are explicitly guesses requiring contextual support. Nearby clues must all fit, contrast can reverse meaning, and literal readings are limited by the surrounding situation."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-context-clues-in-passages|L18|0": {
+    "status": "fixed",
+    "quote": "A cracked vase leaned beside a rusty toy soldier.",
+    "note": "The example clues now occur after the target sentence."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L18|1": {
+    "status": "fixed",
+    "quote": "She kept putting her report aside for other small tasks.",
+    "note": "The delay and its result now span several sentences."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L02|0": {
+    "status": "fixed",
+    "quote": "Words such as *however, unlike,* and *but* can signal contrast.",
+    "note": "The old semicolon chain is split into short sentences."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L05|0": {
+    "status": "fixed",
+    "quote": "The later meeting is hostile and angry.",
+    "note": "The contrast solution now uses short direct steps."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|0": {
+    "status": "fixed",
+    "quote": "The committee's decision was met with **consternation**.",
+    "note": "The target is bold and its prompt refers to the word in bold."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|1": {
+    "status": "fixed",
+    "quote": "The shelf was crowded with **bric-a-brac**.",
+    "note": "The target is bold and the question uses the required reference."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|2": {
+    "status": "fixed",
+    "quote": "At first, the talks seemed **amicable**.",
+    "note": "The target is bold and its meaning question refers to bold."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L14|3": {
+    "status": "fixed",
+    "quote": "Rina had a habit of **procrastination**.",
+    "note": "The target is bold and its prompt uses the word in bold."
+   },
+   "reading-comprehension-comprehension-skills#50": {
+    "status": "fixed",
+    "quote": "The prefix *re-* can suggest doing something again.",
+    "note": "Word parts are defined and example 5 combines prefix meaning with passage evidence."
+   },
+   "reading-comprehension-comprehension-skills#68": {
+    "status": "not_fixed",
+    "quote": "Ang **bugso** ay tumutukoy sa bigla at malakas na paglabas ng damdamin.",
+    "note": "Filipino synonym and contrast meanings are worked, but a clear nonliteral interpretation is not worked."
+   },
+   "reading-comprehension-comprehension-skills#74": {
+    "status": "not_fixed",
+    "quote": "Mahalaga rin ang ayos at baybay ng pangungusap.",
+    "note": "Possibility and time are applied, but spelling, pronoun and modifier usage are only mentioned without application."
+   },
+   "lesson-comprehension-skills-context-clues-in-passages|L25|0": {
+    "status": "fixed",
+    "quote": "To **infer** means to figure something out from clues instead of being told the answer directly.",
+    "note": "Infer is defined and the unexplained elimination phrase is absent."
+   }
+  }
+ }
+}
