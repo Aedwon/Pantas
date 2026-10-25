@@ -10,15 +10,15 @@ isActive: true
 
 ## Core Concept
 
-Section "'$8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath. A declaration **under oath** is a statement sworn to be true. The documents are the **Statement of Assets, Liabilities and Net Worth (SALN)** and the **Disclosure of Business Interests and Financial Connections**.
+Section $8$ of RA $6713$ requires covered public officials and employees to file financial declarations under oath. A declaration **under oath** is a statement sworn to be true. The documents are the **Statement of Assets, Liabilities and Net Worth (SALN)** and the **Disclosure of Business Interests and Financial Connections**.
 
 ### What the Declarations Contain
 
 **Assets** are things a person owns, such as land, a home, savings, and investments. **Liabilities** are debts. **Net worth** is total assets minus total liabilities.
 
 $$
-'"\text{Net worth} = \text{assets} - \text{liabilities}
-"'$$
+\text{Net worth} = \text{assets} - \text{liabilities}
+$$
 
 For real property, such as land and buildings, report its improvements, acquisition cost, assessed value, and current fair market value. **Acquisition cost** is what was paid to acquire it. **Assessed value** is the value used for property tax, while **fair market value** is its value in an open-market sale.
 
@@ -32,9 +32,9 @@ Report all required business interests and financial connections. A SALN is not 
 
 Section $8(A)$ excludes people serving in an **honorary capacity**, laborers, and casual or temporary workers from its filing requirement. An honorary role is service as an honor, without pay. Do not assume every unpaid role is honorary.
 
-The law also defines public officials broadly to include permanent and temporary appointees. A temporary appointment label alone does not settle whether someone is an excluded temporary worker. Check the worker'"'s actual category and the applicable rules.
+The law also defines public officials broadly to include permanent and temporary appointees. A temporary appointment label alone does not settle whether someone is an excluded temporary worker. Check the worker's actual category and the applicable rules.
 
-The declarations include the filer, the spouse, and unmarried children under "'$18$ who live in the household. For a child, all three conditions matter: unmarried, under $18$, and living in the household. Spouses who are both public officials or employees may file jointly or separately.
+The declarations include the filer, the spouse, and unmarried children under $18$ who live in the household. For a child, all three conditions matter: unmarried, under $18$, and living in the household. Spouses who are both public officials or employees may file jointly or separately.
 
 ### Relatives in Government
 
@@ -44,7 +44,7 @@ RA $6713$ covers relatives within the fourth civil degree of **consanguinity**, 
 
 A parent is in the first degree, a grandparent in the second, and a great-grandparent in the third. A sibling is in the second degree: up to a parent, then down. A first cousin is in the fourth degree.
 
-For affinity, use the same degree for a spouse'"'s blood relative. A spouse's parent is a first-degree relative by affinity. The law also expressly includes these relations:
+For affinity, use the same degree for a spouse's blood relative. A spouse's parent is a first-degree relative by affinity. The law also expressly includes these relations:
 
 - **Bilas:** the spouse of one's brother-in-law or sister-in-law.
 - **Inso:** the wife of an elder brother or male cousin.
@@ -52,7 +52,7 @@ For affinity, use the same degree for a spouse'"'s blood relative. A spouse's pa
 
 ### Filing Dates
 
-File within "'$30$ days after assuming office. Annual filings are due on or before April $30$ every year after that. File again within $30$ days after leaving government service.
+File within $30$ days after assuming office. Annual filings are due on or before April $30$ every year after that. File again within $30$ days after leaving government service.
 
 For a period stated as days after an event, begin counting on the next day. Only the copying rule below says working days. Do not change every deadline into working days.
 
@@ -60,7 +60,7 @@ Covered filers must also give the Ombudsman the required authority to obtain gov
 
 ### Filing Offices Under RA $6713$
 
-Match the person'"'s position to the statutory filing category. These are the offices named in the law:
+Match the person's position to the statutory filing category. These are the offices named in the law:
 
 - **National office of the Ombudsman:** constitutional and national elective officials, with the specific destinations below for legislators and justices.
 - **Secretary of the Senate or House of Representatives:** members of the respective chamber.
@@ -73,7 +73,7 @@ These are statutory destinations. Follow the applicable filing instructions when
 
 ### Public Access and Use Limits
 
-Filed statements are open for inspection at reasonable hours. Copies become available after "'$10$ working days from filing. A reasonable fee may cover copying, mailing, and certification.
+Filed statements are open for inspection at reasonable hours. Copies become available after $10$ working days from filing. A reasonable fee may cover copying, mailing, and certification.
 
 Statements stay available to the public for $10$ years after receipt. After that, they may be destroyed unless needed in an ongoing investigation. Destruction is allowed, not required.
 
@@ -81,13 +81,13 @@ Section $8(D)$ bans obtaining or using statements for purposes contrary to moral
 
 ### Conflict of Interest and Divestment
 
-A **conflict of interest** requires a private business role or stake and a possible clash with official duty. The law names a board member, officer, substantial stockholder, business owner, or person with a substantial business interest. The business interest or the person'"'s rights or duties in it may be opposed to or affected by faithful public service.
+A **conflict of interest** requires a private business role or stake and a possible clash with official duty. The law names a board member, officer, substantial stockholder, business owner, or person with a substantial business interest. The business interest or the person's rights or duties in it may be opposed to or affected by faithful public service.
 
 A **substantial stockholder** owns enough shares, directly or indirectly, to elect a company director. A private role alone does not show the full conflict. Check how public duty may affect that business or the person's role in it.
 
 **Divestment** means voluntarily, completely, and actually giving up title or interest in property. A real sale or other complete transfer may do this. The recipient cannot be the official's spouse or a relative covered by the law.
 
-When a conflict exists on entering office, resign from the private business position within "'$30$ days after assumption of office and/or divest the relevant interests within $60$ days. The needed action depends on whether the conflict involves a position, an ownership interest, or both. The same rule applies to a partner in a partnership.
+When a conflict exists on entering office, resign from the private business position within $30$ days after assumption of office and/or divest the relevant interests within $60$ days. The needed action depends on whether the conflict involves a position, an ownership interest, or both. The same rule applies to a partner in a partnership.
 
 If the person is already in government when the conflict starts, the periods run from the day it starts under the rules carrying out the law. Resigning from a board does not by itself give up shares. A transfer that leaves the official in control is not true divestment.
 
@@ -143,7 +143,7 @@ A senator and a member of the House of Representatives must file their declarati
 
 1. A senator files with the **Secretary of the Senate**.
 2. A House member files with the **Secretary of the House of Representatives**.
-3. The specific legislative rule applies to each member'"'s own chamber.
+3. The specific legislative rule applies to each member's own chamber.
 
 ### #5: Justices and Judges
 
@@ -176,18 +176,18 @@ A city employee and a covered employee who falls outside all the specifically na
 
 ### #8: Family Coverage Boundaries
 
-A filer has a spouse and three unmarried children. The children are ages "'$16$, $17$, and $19$. Only the children ages $17$ and $19$ live in the household. Whose finances must be included with the filer'"'s under the family coverage rule?
+A filer has a spouse and three unmarried children. The children are ages $16$, $17$, and $19$. Only the children ages $17$ and $19$ live in the household. Whose finances must be included with the filer's under the family coverage rule?
 
 **Solution:**
 
 1. Include the spouse.
-2. The unmarried child age "'$17$ is under $18$ and lives in the household. Include that child.
+2. The unmarried child age $17$ is under $18$ and lives in the household. Include that child.
 3. The child age $16$ does not meet the household condition. The child age $19$ does not meet the age condition.
 4. Include **the filer, the spouse, and the unmarried child age $17$ living at home**.
 
 ### #9: Net Worth
 
-A covered employee'"'s reported total assets are ₱"'$800{,}000$. Total liabilities are ₱$250{,}000$. What is the net worth?
+A covered employee's reported total assets are ₱$800{,}000$. Total liabilities are ₱$250{,}000$. What is the net worth?
 
 **Solution:**
 
@@ -201,27 +201,27 @@ $$
 
 ### #10: A First Cousin in Government
 
-An employee'"'s first cousin works in another government office. Is that cousin within the fourth civil degree?
+An employee's first cousin works in another government office. Is that cousin within the fourth civil degree?
 
 **Solution:**
 
 1. Count up to the employee's parent and shared grandparent. Then count down to the aunt or uncle and the cousin.
-2. There are "'$4$ parent-child steps. The cousin is within the **fourth civil degree of consanguinity**.
+2. There are $4$ parent-child steps. The cousin is within the **fourth civil degree of consanguinity**.
 
 ### #11: A Conflict and Both Deadlines
 
-A new bureau director sits on the board of a private company and owns enough shares to elect a director. The bureau'"'s decisions may affect the company. Does a statutory conflict exist, and what actions are required?
+A new bureau director sits on the board of a private company and owns enough shares to elect a director. The bureau's decisions may affect the company. Does a statutory conflict exist, and what actions are required?
 
 **Solution:**
 
 1. The director has a listed private role and is a substantial stockholder. Official duty may affect that company's interests.
 2. These facts create a **conflict of interest**.
-3. The director must leave the private business position within "'$30$ days and give up the relevant shares within $60$ days after assumption of office.
+3. The director must leave the private business position within $30$ days and give up the relevant shares within $60$ days after assumption of office.
 4. Both actions are needed here because both the position and ownership create the conflict.
 
 ### #12: A Transfer to a Spouse
 
-To address a conflict, an official transfers all relevant shares to the official'"'s spouse. The documents state that the transfer is complete. Does this satisfy statutory divestment?
+To address a conflict, an official transfers all relevant shares to the official's spouse. The documents state that the transfer is complete. Does this satisfy statutory divestment?
 
 **Solution:**
 
@@ -230,7 +230,7 @@ To address a conflict, an official transfers all relevant shares to the official
 
 ### #13: A Later Conflict
 
-An employee has served for years when a new private business interest creates a conflict on August "'$10$. From what day do the periods for resignation and divestment run?
+An employee has served for years when a new private business interest creates a conflict on August $10$. From what day do the periods for resignation and divestment run?
 
 **Solution:**
 
@@ -296,7 +296,7 @@ Initial and separation filings use $30$ days. April $30$ is the annual deadline.
 
 ### #2: Sending Every Filing to the CSC
 
-> Match the office to the filer'"'s category.
+> Match the office to the filer's category.
 
 The CSC is the destination for the remaining statutory category. Legislators, judicial officers, executive officials, local employees, and military officers have specific rules.
 
@@ -304,7 +304,7 @@ The CSC is the destination for the remaining statutory category. Legislators, ju
 
 > Check the spouse and all the child-coverage conditions.
 
-The declarations include the spouse and unmarried children under "'$18$ living in the household. Assets, debts, and business links all matter.
+The declarations include the spouse and unmarried children under $18$ living in the household. Assets, debts, and business links all matter.
 
 ### #4: Calling a Family Transfer Divestment
 

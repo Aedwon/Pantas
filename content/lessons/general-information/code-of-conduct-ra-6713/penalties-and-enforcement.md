@@ -10,21 +10,21 @@ isActive: true
 
 ## Core Concept
 
-Section "'$11$ of RA $6713$ gives penalties for violations of the Code. Section $12$ assigns enforcement duties. First find the rule broken, then match it to the right penalty and process.
+Section $11$ of RA $6713$ gives penalties for violations of the Code. Section $12$ assigns enforcement duties. First find the rule broken, then match it to the right penalty and process.
 
 ### General Administrative Penalties
 
-A public official or employee who violates the Code may face a fine of up to $6$ months'"' salary, suspension of up to "'$1$ year, or removal. The proper body chooses the sanction based on how serious the offense is. These are ceilings, not automatic penalties for every violation.
+A public official or employee who violates the Code may face a fine of up to $6$ months' salary, suspension of up to $1$ year, or removal. The proper body chooses the sanction based on how serious the offense is. These are ceilings, not automatic penalties for every violation.
 
 The body must give **due notice and hearing** before imposing the sanction. Due notice tells the person what charge they must answer. A hearing gives them a fair chance to answer and present evidence.
 
 An **administrative proceeding** is the lawful process for deciding a work-related charge against a public official or employee. The body considers the charge, the answer, and the evidence before deciding. An accusation alone does not prove a violation.
 
-RA $6713$ does not give one full hearing sequence or one evidence rule for every body. The rules of the body handling the case govern the steps and the level of proof needed. Do not assume that a criminal court'"'s rules apply to every administrative case.
+RA $6713$ does not give one full hearing sequence or one evidence rule for every body. The rules of the body handling the case govern the steps and the level of proof needed. Do not assume that a criminal court's rules apply to every administrative case.
 
 ### Criminal Penalties and Separate Cases
 
-Violations of Sections "'$7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also disqualify the person from holding public office. Disqualification is up to the court, not automatic.
+Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also disqualify the person from holding public office. Disqualification is up to the court, not automatic.
 
 If another law gives a heavier penalty for the violation, prosecution proceeds under that law. **Prosecution** means bringing and pursuing a criminal case.
 
@@ -58,9 +58,9 @@ The **Civil Service Commission (CSC)** has primary responsibility for administer
 
 Each House of Congress keeps the power to discipline its own members for disorderly behavior. The **Ombudsman** must take steps to protect citizens who report acts or failures to act that violate the Code.
 
-The protection duty does not mean every reporter automatically receives a particular benefit or legal immunity. Section $12$ states the Ombudsman'"'s duty. It does not list a single protection package for every report.
+The protection duty does not mean every reporter automatically receives a particular benefit or legal immunity. Section $12$ states the Ombudsman's duty. It does not list a single protection package for every report.
 
-RA "'$6713$ does not set one appeal route for all cases. An **appeal** asks a higher body to review a decision. The right review body and filing steps depend on the office deciding the case and the rules that apply to it.
+RA $6713$ does not set one appeal route for all cases. An **appeal** asks a higher body to review a decision. The right review body and filing steps depend on the office deciding the case and the rules that apply to it.
 
 ## Examples
 
@@ -70,11 +70,11 @@ After due notice and hearing, a public employee is found liable for a general vi
 
 **Solution:**
 
-1. The fine ceiling is the equivalent of $6$ months'"' salary.
+1. The fine ceiling is the equivalent of $6$ months' salary.
 
-"'$$
-6 '"\times 30{,}000 = 180{,}000
-"'$$
+$$
+6 \times 30{,}000 = 180{,}000
+$$
 
 2. The fine may be up to **₱$180{,}000$**. Suspension may be up to **$1$ year**.
 3. Removal is also possible depending on how serious the offense is. The required notice and hearing have taken place.
@@ -88,7 +88,7 @@ A public official is proven to have violated Section $7$. What maximum criminal 
 
 1. Section $7$ falls under the special criminal penalty rule.
 2. The court may impose imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both.
-3. It may also order disqualification from public office. That added consequence is at the court'"'s discretion.
+3. It may also order disqualification from public office. That added consequence is at the court's discretion.
 
 ### #3: A Private Co-Principal
 
@@ -98,11 +98,11 @@ An officer and a private consultant agree to sell confidential agency informatio
 
 1. Both agreed on the unlawful plan and carried it out.
 2. The consultant directly performed part of the offense by selling the records. This is direct participation, not mere knowledge or minor help.
-3. The consultant is a **co-principal**. Under Section "'$11$, a private participant can face the same penal liabilities and be tried jointly with the officer.
+3. The consultant is a **co-principal**. Under Section $11$, a private participant can face the same penal liabilities and be tried jointly with the officer.
 
 ### #4: A Private Accomplice
 
-A businessperson learns of an officer'"'s plan to commit an RA "'$6713$ offense. Knowing its unlawful purpose, the businessperson supplies records before it happens. The records help, but the offense does not depend on them. The businessperson does not directly carry out or induce the offense. Which role fits?
+A businessperson learns of an officer's plan to commit an RA $6713$ offense. Knowing its unlawful purpose, the businessperson supplies records before it happens. The records help, but the offense does not depend on them. The businessperson does not directly carry out or induce the offense. Which role fits?
 
 **Solution:**
 
@@ -112,13 +112,13 @@ A businessperson learns of an officer'"'s plan to commit an RA "'$6713$ offense.
 
 ### #5: A Private Accessory
 
-A private person takes no part in planning or carrying out an officer'"'s completed offense. After learning what happened, the person knowingly destroys the tool used in it to prevent discovery. The person is unrelated to the officer. Which participation role fits these facts?
+A private person takes no part in planning or carrying out an officer's completed offense. After learning what happened, the person knowingly destroys the tool used in it to prevent discovery. The person is unrelated to the officer. Which participation role fits these facts?
 
 **Solution:**
 
 1. The person knew of the completed offense and had not taken part as a principal or accomplice.
 2. Destroying its tool to prevent discovery is a covered form of later help.
-3. The role is **accessory**. Section "'$11$ includes private participants in this role with public officers or employees.
+3. The role is **accessory**. Section $11$ includes private participants in this role with public officers or employees.
 
 ### #6: Checking Disputed Facts
 
@@ -128,17 +128,17 @@ An officer denies wrongdoing after sharing an agency file with a business owner.
 
 1. Section $7$ bans using or sharing confidential work information that is not public to serve private interests, give an unfair advantage, or harm public interest.
 2. The records and messages support those required facts. The denial must still be considered through the proper process.
-3. If the Section $7$ violation is proven, the criminal ceiling is $5$ years'"' imprisonment, ₱"'$5{,}000$ in fines, or both. The court may also disqualify the officer.
+3. If the Section $7$ violation is proven, the criminal ceiling is $5$ years' imprisonment, ₱$5{,}000$ in fines, or both. The court may also disqualify the officer.
 4. Administrative discipline is separately possible after the required proceeding. A complaint alone does not impose either penalty.
 
 ### #7: Commercial Use of a Filed SALN
 
-A company uses a public employee'"'s filed SALN to build a paid marketing list. It is not a news or communications organization informing the public. Is this use prohibited, and what consequence may apply?
+A company uses a public employee's filed SALN to build a paid marketing list. It is not a news or communications organization informing the public. Is this use prohibited, and what consequence may apply?
 
 **Solution:**
 
 1. The company uses the statement for a commercial purpose outside the stated media exception.
-2. Section "'$8(D)$ prohibits this use.
+2. Section $8(D)$ prohibits this use.
 3. The employee concerned may bring an action. The court may assess a penalty of up to ₱$25{,}000$, subject to the heavier-sanction rule.
 
 ### #8: A Heavier Penalty in Another Law
@@ -152,7 +152,7 @@ The same violation is punishable under RA $6713$ and another law. The other law 
 
 ### #9: Removal Without a Criminal Case
 
-A proper administrative proceeding proves an officer'"'s RA "'$6713$ violation. No criminal case has been filed. May the officer still be removed or dismissed?
+A proper administrative proceeding proves an officer's RA $6713$ violation. No criminal case has been filed. May the officer still be removed or dismissed?
 
 **Solution:**
 
