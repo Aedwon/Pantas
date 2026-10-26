@@ -24,7 +24,7 @@ questions:
 
       '
   - text: '15'
-    rationale: 'This confuses a familiar response-deadline number with a norm count. Fifteen appears elsewhere in RA 6713. Check the unit being asked.
+    rationale: 'This gives more norms than Section 4 lists. Count the eight named headings.
 
       '
   explanation: 'Section 4 lists eight norms. Count the named norms, not the individual duties within each norm.
@@ -44,7 +44,7 @@ questions:
 
       '
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about efficient use of funds.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about efficient use of funds.
 
       '
   - text: Public responsiveness
@@ -92,7 +92,7 @@ questions:
 
       '
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about order in the statutory list.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about order in the statutory list.
 
       '
   - text: Professionalism
@@ -129,7 +129,7 @@ questions:
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
   type: single_choice
   difficulty: medium
-  stem: 'Which norm most directly emphasizes excellence, intelligence, and skill in discharging duties?
+  stem: 'Which norm most directly emphasizes skill, care, and dedication in discharging duties?
 
     '
   choices:
@@ -144,10 +144,10 @@ questions:
 
       '
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about excellence and skill.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about excellence and skill.
 
       '
-  explanation: 'Professionalism requires a high degree of excellence, intelligence, and skill in official work.
+  explanation: 'Professionalism requires skill, care, and dedication in official work.
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
@@ -208,7 +208,7 @@ questions:
   - text: Public responsiveness
     correct: true
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about prompt courteous service.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about prompt courteous service.
 
       '
   - text: Professionalism
@@ -308,7 +308,7 @@ questions:
 
       '
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about final position in the list.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about final position in the list.
 
       '
   - text: Public responsiveness
@@ -360,7 +360,7 @@ questions:
 
       '
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about public resources versus personal use.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about public resources versus personal use.
 
       '
   explanation: 'Commitment to public interest requires government resources to serve public needs and avoid waste. Ending personal use of the vehicle supports that duty.
@@ -435,7 +435,7 @@ questions:
 
       '
   - text: Commitment to democracy
-    rationale: 'This substitutes constitutional accountability and civilian authority for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about locally produced goods.
+    rationale: 'This substitutes upholding the Constitution and public accountability for the specific rule asked about. Both concern responsible public service, so the label can seem suitable. Check the clue about locally produced goods.
 
       '
   explanation: 'Section 4(f), nationalism and patriotism, includes promoting locally produced goods, resources, and technology.
@@ -474,10 +474,10 @@ questions:
 
     '
   choices:
-  - text: Civilian authority is supreme over the military.
+  - text: Officials must answer to the people for how they use public power and resources.
     correct: true
-  - text: Military authority may override civilian institutions whenever it chooses.
-    rationale: 'This reverses the civilian-authority rule. Military power can seem decisive. Check who has constitutional supremacy.
+  - text: Officials may use public power without answering to the people.
+    rationale: 'This rejects public accountability. Officials must answer to the people for how they use public power and resources.
 
       '
   - text: Loyalty to a powerful individual takes priority over the Constitution.
@@ -488,6 +488,6 @@ questions:
     rationale: 'This treats a party''s influence as control over public services. Parties form governments. Check the duties owed to the public as a whole.
 
       '
-  explanation: 'Section 4(g) requires officials to show the supremacy of civilian authority over the military. This is an express democratic principle.
+  explanation: 'Commitment to democracy includes public accountability. Officials must answer to the people for how they use public power and resources.
 
     '
