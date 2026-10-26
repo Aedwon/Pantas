@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="360" height="340">
+<title>Bar chart of Factory Output for Factory A and Factory B on a 0 to 500 scale</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="340" rx="14" fill="url(#bg)"/>
+<text x="180" y="32" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Factory Output</tspan></text>
+<line x1="80" y1="60" x2="80" y2="292" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="80" y1="292" x2="336" y2="292" stroke="#B7CBDD" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="68" y1="292" x2="80" y2="292" stroke="#FFC857" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<text x="60" y="297" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="60">0</tspan></text>
+<line x1="74" y1="282.8" x2="80" y2="282.8" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="273.6" x2="80" y2="273.6" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="264.4" x2="80" y2="264.4" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="255.2" x2="80" y2="255.2" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="68" y1="246" x2="80" y2="246" stroke="#FFC857" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<text x="60" y="251" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="60">100</tspan></text>
+<line x1="74" y1="236.8" x2="80" y2="236.8" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="227.6" x2="80" y2="227.6" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="218.4" x2="80" y2="218.4" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="209.2" x2="80" y2="209.2" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="68" y1="200" x2="80" y2="200" stroke="#FFC857" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<text x="60" y="205" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="60">200</tspan></text>
+<line x1="74" y1="190.8" x2="80" y2="190.8" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="181.6" x2="80" y2="181.6" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="172.4" x2="80" y2="172.4" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="163.2" x2="80" y2="163.2" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="68" y1="154" x2="80" y2="154" stroke="#FFC857" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<text x="60" y="159" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="60">300</tspan></text>
+<line x1="74" y1="144.8" x2="80" y2="144.8" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="135.6" x2="80" y2="135.6" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="126.4" x2="80" y2="126.4" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="117.2" x2="80" y2="117.2" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="68" y1="108" x2="80" y2="108" stroke="#FFC857" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<text x="60" y="113" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="60">400</tspan></text>
+<line x1="74" y1="98.8" x2="80" y2="98.8" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="89.6" x2="80" y2="89.6" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="80.4" x2="80" y2="80.4" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="74" y1="71.2" x2="80" y2="71.2" stroke="#FFC857" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="68" y1="62" x2="80" y2="62" stroke="#FFC857" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<text x="60" y="67" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#FFFFFF"><tspan x="60">500</tspan></text>
+<text x="28" y="177" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" transform="rotate(-90 28 177)"><tspan x="28">Units produced</tspan></text>
+<rect x="138" y="89.6" width="64" height="202.4" rx="4" fill="#2A86C1"/>
+<text x="170" y="316" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="170">Factory A</tspan></text>
+<rect x="238" y="144.8" width="64" height="147.2" rx="4" fill="#2A86C1"/>
+<text x="270" y="316" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="270">Factory B</tspan></text>
+</svg>

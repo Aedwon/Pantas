@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" width="360" height="250">
+<title>Triangle, square and pentagon in frames, a blank frame, and four shape choices</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="250" rx="14" fill="url(#bg)"/>
+<rect x="28" y="44" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<polygon points="60,55 78.2,86.5 41.8,86.5" fill="none" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="108" y="44" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<polygon points="154.8,61.2 154.8,90.8 125.2,90.8 125.2,61.2" fill="none" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="188" y="44" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<polygon points="220,55 240,69.5 232.3,93 207.7,93 200,69.5" fill="none" stroke="#0A1A2E" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="268" y="44" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#FFC857" stroke-width="3"/>
+<circle cx="60" cy="170" r="23" fill="none" stroke="#F2F7FB" stroke-width="2.5"/>
+<polygon points="140,146 160.8,182 119.2,182" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="232,149.2 244,170 232,190.8 208,190.8 196,170 208,149.2" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="309.2,147.8 322.2,160.8 322.2,179.2 309.2,192.2 290.8,192.2 277.8,179.2 277.8,160.8 290.8,147.8" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+<title>Black and white circles alternating in frames, followed by a blank frame</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="200" rx="14" fill="url(#bg)"/>
+<rect x="26" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="52" cy="100" r="14" fill="#0A1A2E" stroke="#0A1A2E" stroke-width="2.5"/>
+<rect x="90" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="116" cy="100" r="14" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<rect x="154" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="180" cy="100" r="14" fill="#0A1A2E" stroke="#0A1A2E" stroke-width="2.5"/>
+<rect x="218" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="244" cy="100" r="14" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<rect x="282" y="74" width="52" height="52" rx="6" fill="#DCEBF7" stroke="#FFC857" stroke-width="3"/>
+</svg>

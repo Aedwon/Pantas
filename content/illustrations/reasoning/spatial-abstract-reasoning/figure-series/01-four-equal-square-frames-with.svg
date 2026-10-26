@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+<title>Four frames with one dot moving through the corners</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="200" rx="14" fill="url(#bg)"/>
+<rect x="28" y="68" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#FFC857" stroke-width="3"/>
+<circle cx="40" cy="80" r="5" fill="#0A1A2E"/>
+<rect x="108" y="68" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="160" cy="80" r="5" fill="#0A1A2E"/>
+<rect x="188" y="68" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="240" cy="120" r="5" fill="#0A1A2E"/>
+<rect x="268" y="68" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="280" cy="120" r="5" fill="#0A1A2E"/>
+</svg>

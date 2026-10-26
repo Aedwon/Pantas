@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300">
+<title>Eight numbered cells of circles with dots and squares; cell 8 is blank</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="300" rx="14" fill="url(#bg)"/>
+<text x="60" y="50" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="60">1</tspan></text>
+<rect x="28" y="58" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="60" cy="90" r="21" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<circle cx="60" cy="90" r="3.5" fill="#0A1A2E"/>
+<text x="140" y="50" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="140">2</tspan></text>
+<rect x="108" y="58" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<rect x="122" y="72" width="36" height="36" rx="3" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<text x="220" y="50" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="220">3</tspan></text>
+<rect x="188" y="58" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="220" cy="90" r="21" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<circle cx="213" cy="90" r="3.5" fill="#0A1A2E"/>
+<circle cx="227" cy="90" r="3.5" fill="#0A1A2E"/>
+<text x="300" y="50" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="300">4</tspan></text>
+<rect x="268" y="58" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<rect x="282" y="72" width="36" height="36" rx="3" fill="#0A1A2E" stroke="#0A1A2E" stroke-width="2.5"/>
+<text x="60" y="190" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="60">5</tspan></text>
+<rect x="28" y="198" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="60" cy="230" r="21" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<circle cx="53" cy="235" r="3.5" fill="#0A1A2E"/>
+<circle cx="67" cy="235" r="3.5" fill="#0A1A2E"/>
+<circle cx="60" cy="223" r="3.5" fill="#0A1A2E"/>
+<text x="140" y="190" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="140">6</tspan></text>
+<rect x="108" y="198" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<rect x="122" y="212" width="36" height="36" rx="3" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<text x="220" y="190" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="220">7</tspan></text>
+<rect x="188" y="198" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#6FD0FF" stroke-width="2"/>
+<circle cx="220" cy="230" r="21" fill="#FFFFFF" stroke="#0A1A2E" stroke-width="2.5"/>
+<circle cx="213" cy="223" r="3.5" fill="#0A1A2E"/>
+<circle cx="227" cy="223" r="3.5" fill="#0A1A2E"/>
+<circle cx="213" cy="237" r="3.5" fill="#0A1A2E"/>
+<circle cx="227" cy="237" r="3.5" fill="#0A1A2E"/>
+<text x="300" y="190" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="300">8</tspan></text>
+<rect x="268" y="198" width="64" height="64" rx="6" fill="#DCEBF7" stroke="#FFC857" stroke-width="3"/>
+</svg>

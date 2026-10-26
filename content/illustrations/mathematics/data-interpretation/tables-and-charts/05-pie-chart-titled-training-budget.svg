@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 350" width="360" height="350">
+<title>Pie chart of the training budget: Materials 35, Venue 30, Travel 20, Other 15 percent</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="350" rx="14" fill="url(#bg)"/>
+<text x="180" y="32" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF"><tspan x="180">Training Budget</tspan></text>
+<path d="M180 165 L180 101 A64 64 0 0 1 231.8 202.6 Z" fill="url(#warm)" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
+<line x1="237" y1="135.9" x2="249.5" y2="129.6" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<path d="M180 165 L231.8 202.6 A64 64 0 0 1 128.2 202.6 Z" fill="url(#teal)" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
+<line x1="180" y1="229" x2="180" y2="243" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<path d="M180 165 L128.2 202.6 A64 64 0 0 1 128.2 127.4 Z" fill="url(#sky)" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
+<line x1="116" y1="165" x2="102" y2="165" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<path d="M180 165 L128.2 127.4 A64 64 0 0 1 180 101 Z" fill="#7BD3B5" stroke="#0E2747" stroke-width="2" stroke-linejoin="round"/>
+<line x1="150.9" y1="108" x2="144.6" y2="95.5" stroke="#D6E6F5" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<text x="254.5" y="127.6" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="254.5">Materials</tspan><tspan x="254.5" dy="1.2em">35%</tspan></text>
+<text x="180" y="260" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="180">Venue</tspan><tspan x="180" dy="1.2em">30%</tspan></text>
+<text x="97" y="164" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="97">Travel</tspan><tspan x="97" dy="1.2em">20%</tspan></text>
+<text x="139.6" y="86.5" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="139.6">Other</tspan><tspan x="139.6" dy="1.2em">15%</tspan></text>
+<line x1="60" y1="300" x2="300" y2="300" stroke="#6FD0FF" stroke-width="2" stroke-linecap="butt" fill="none" stroke-opacity="0.4"/>
+<text x="180" y="328" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="400" fill="#D6E6F5"><tspan x="180">Total budget: 200,000 pesos</tspan></text>
+</svg>

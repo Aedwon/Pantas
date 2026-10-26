@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" width="360" height="220">
+<title>Timeline from January 1, 2026 approval (day 0) to March 2 (day 60) and April 1 (day 90) with the window between day 60 and day 90 shaded</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="teal" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sky" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#4DA9E0"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="warm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+</defs>
+<rect width="360" height="220" rx="14" fill="url(#bg)"/>
+<line x1="30" y1="128" x2="330" y2="128" stroke="#B7CBDD" stroke-width="3" stroke-linecap="round" fill="none"/>
+<rect x="230" y="116" width="100" height="24" rx="0" fill="#FFC857" fill-opacity="0.35"/>
+<line x1="30" y1="114" x2="30" y2="142" stroke="#FFFFFF" stroke-width="3" stroke-linecap="butt" fill="none"/>
+<line x1="230" y1="114" x2="230" y2="142" stroke="#FFC857" stroke-width="3.5" stroke-linecap="butt" fill="none"/>
+<line x1="330" y1="114" x2="330" y2="142" stroke="#FFC857" stroke-width="3.5" stroke-linecap="butt" fill="none"/>
+<line x1="30" y1="114" x2="30" y2="86" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<text x="16" y="60" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"><tspan x="16">January 1, 2026</tspan><tspan x="16" dy="1.2em">approval (day 0)</tspan></text>
+<line x1="330" y1="114" x2="330" y2="86" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<text x="344" y="60" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan x="344">April 1 (day 90)</tspan></text>
+<line x1="230" y1="142" x2="230" y2="164" stroke="#B7CBDD" stroke-width="1.5" stroke-linecap="butt" fill="none"/>
+<text x="230" y="182" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFC857"><tspan x="230">March 2 (day 60)</tspan></text>
+</svg>
