@@ -1,0 +1,272 @@
+{
+ "batch": "RD-160",
+ "lesson_id": "lesson-spatial-abstract-reasoning-figure-matrices",
+ "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md",
+ "lesson_sha256": "52ab41a3f9aac2d843a3f849bdf34ec81274e98d77b5337a2544b9a57a31f131",
+ "rewrite_commit": "b7605fb731c699fffdce73cb023e76de9291a691",
+ "form": {
+  "packet": "lesson-spatial-abstract-reasoning-figure-matrices",
+  "role": "A",
+  "lesson_sha256": "52ab41a3f9aac2d843a3f849bdf34ec81274e98d77b5337a2544b9a57a31f131",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked quarter-turn direction and corner movement, the dot progressions, independent size/shading rules, and both feature-combination operations. Clockwise rotation moves the top side right and top-left corner top-right. No unsupported claims about most matrices or frequent patterns remain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved all five stems independently: 1 square with thick right side and dot near top-right; 2 circle with 5 dots; 3 large black square; 4 square with both diagonals forming X; 5 square with only the top-left to bottom-right diagonal. Each agrees with the worked answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required reduced sections are present. Each of the five matrix questions has a full grid placeholder with the missing cell specified. Core also has a grid illustrating separate row and column changes. Both all-feature and shared-feature cases are worked."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all core explanations, solutions, and traps. Grid, cell, rotation, and combination rules are explained in short plain sentences. The earlier long square-rotation explanation has been split into direct actions with visible marks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Questions ask which figure does not belong or what a blank should show. No specialized exam instruction verb needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or any other section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Stems supply cell-by-cell visual givens and ask for the missing cell. None tells the student the transformation to apply. Solutions use simple directions, feature comparisons, and short count sequences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No named-exam claims or repetitive exam openers occur in the teaching or traps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson and contains no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to highlighted vocabulary.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names row, column, and combination rules plainly. No banned stock phrase occurs. Explanations vary between definitions, checks, and direct instructions without three consecutive prose sentences sharing an opening."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Only Core Concept, Examples, and Traps to Watch For remain. No computational formula is used. Example 1 uses the 90-degree quarter turn defined in Core; Example 2 infers a count increase from supplied cells rather than invoking a formula. Examples 3-5 use the independent-feature and combination methods taught in Core."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1 covers visible rotation of the entire marked shape; 2 covers dot progression in both directions; 3 combines independent row shading and column size; 4 keeps all features; 5 keeps only shared features. These distinct cases progress from direct changes to combination-rule selection without repeating a case with new numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All five solutions use numbered steps. Example 2 displays both completed count sequences and the missing-count sequence, then checks the column. Other solutions compare visible features without numerical computation. No necessary transformation step is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "All four display lines are short three-number arrow sequences, including 3 to 4 to 5. None needs a wide phone layout."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core paragraphs and trap paragraphs have one to three short sentences. Long grid descriptions are split across paragraphs. There are no unnecessary bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the core figure and all five example placeholders. Each fixes grid dimensions, cell contents, and missing position. Rotation specifies the marked side and corner dot; shading specifies visible outlines; shared-feature lines cross the center, fixing matching positions. The figures support the stated answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Matrix, cell, row, column, rotation, clockwise, and quarter turn are explained before use. The two combination operations are defined through keeping either all features or only features at matching positions. Diagonal directions are specified by their corner endpoints in the questions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core explains how row and column rules can govern separate features and how turning moves internal details. It explains both combination operations with retained-line criteria. Examples demonstrate each method and show how completed rows establish the operation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The checks are explicitly not a complete taxonomy. Core requires testing every applicable completed row or column. Combination choice comes from completed cells, and Example 5 distinguishes shared lines from crossing points and rejects joining all lines. Rotation warns that a plain square may hide a turn."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-spatial-abstract-reasoning-figure-matrices|L02|0": {
+    "status": "fixed",
+    "quote": "Its top side moves to the right side. Its top-left corner moves to the top-right corner.",
+    "note": "The rotation solution uses separate short sentences and no rotational-symmetry jargon."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B01|0": {
+    "status": "fixed",
+    "quote": "These are checks to try, not a complete list of possible rules.",
+    "note": "The unsupported claim about most matrices is replaced with an explicit scope limit."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B01|1": {
+    "status": "fixed",
+    "quote": "Use a completed row or column to find which rule applies.",
+    "note": "Combination advice now depends on the given grid and makes no frequency claim."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|0": {
+    "status": "fixed",
+    "quote": "Row $1$ has $1$, $2$, and $3$ dots. Row $2$ has $2$, $3$, and $4$ dots.",
+    "note": "The row labels and dot counts in the student prose use inline math."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|1": {
+    "status": "fixed",
+    "quote": "Apply the same increase to row $3$.",
+    "note": "The row label is wrapped in math. The increase is also written as math, and the old quoted operator is gone."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L18|0": {
+    "status": "fixed",
+    "quote": "The blank should show a square with only the diagonal from top-left to bottom-right.",
+    "note": "Example 5 now works the shared-feature case separately from keeping all features."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L25|0": {
+    "status": "fixed",
+    "quote": "Another keeps only features found in both cells at the same position.",
+    "note": "Both combination operations are defined before examples require them; unexplained union terminology is removed."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L26|0": {
+    "status": "fixed",
+    "quote": "a line stays only if both starting figures have it.",
+    "note": "The text explains what the shared-feature operation retains, and Example 5 demonstrates it."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|lead-add|0": {
+    "status": "fixed",
+    "quote": "The blank should show a square with a thick right side and a dot near its top-right corner.",
+    "note": "Example 1 supplies a marked side and corner dot, making the inferred rotation visible in the answer."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|2": {
+    "status": "fixed",
+    "quote": "Some rules keep all features. Others keep only shared features.",
+    "note": "The former unwrapped Example 3 reference is absent from the rewritten advice."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|B08|3": {
+    "status": "fixed",
+    "quote": "A triangle and a marked square can both turn $90^\\circ$ clockwise.",
+    "note": "The former unwrapped Example 1 reference is replaced with a description using math for the angle."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L17|0": {
+    "status": "fixed",
+    "quote": "Test a proposed rule on all completed rows or columns where it should apply.",
+    "note": "Advice is integrated into Core Concept and the reduced Reasoning layout is used."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L19|0": {
+    "status": "fixed",
+    "quote": "$$3 \\to 4 \\to 5$$",
+    "note": "The key dot-count progressions are now separate display equations within the numbered solution."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L22a|0": {
+    "status": "fixed",
+    "quote": "A **cell** is one space in the grid. Rows run from left to right, and columns run from top to bottom.",
+    "note": "The opening explanation is split into short sentences and later teaching uses similarly short paragraphs."
+   },
+   "lesson-spatial-abstract-reasoning-figure-matrices|L27|0": {
+    "status": "fixed",
+    "quote": "Use a completed row or column to find which rule applies.",
+    "note": "The lesson now states how to choose a combination operation and validates both using completed rows."
+   }
+  }
+ }
+}
