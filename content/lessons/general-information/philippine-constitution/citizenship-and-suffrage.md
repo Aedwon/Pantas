@@ -36,7 +36,7 @@ Commonwealth Act $473$, Section $2$, generally requires age $21$ at the hearing 
 
 RA $9139$ provides a separate administrative process for aliens born and residing here since birth. It requires age $18$ at filing and other qualifications. Do not apply one process's age rule to every naturalization case.
 
-<!-- ILLUSTRATION: Citizenship flow for status at acquisition, before any later loss: Already a citizen when the Constitution was adopted? Yes: Citizen, natural-born status needs separate checking; No: Covered by Article IV Section 1(3), born before January 17, 1973 to a Filipino mother? Yes: Validly elected upon majority? Yes: Natural-born citizen; No: Citizenship not established through this route, check another legal basis; No to Section 1(3): Filipino father or mother at birth? Yes: Natural-born citizen; No: Naturalized under law? Yes: Naturalized citizen; No: Citizenship not established by these routes. -->
+<!-- ILLUSTRATION: Citizenship flow for status at acquisition, before any later loss: Already a citizen when the Constitution was adopted? Yes: Citizen, natural-born status needs separate checking; No: Covered by Article IV Section 1(3), born before January 17, 1973 to a mother who was a Filipino citizen when the child was born? Yes: Validly elected upon majority? Yes: Natural-born citizen; No: Citizenship not established through this route, check another legal basis; No to Section 1(3): Was either parent a Filipino citizen when the child was born? Yes: Natural-born citizen; No: Naturalized under law? Yes: Naturalized citizen; No: Citizenship not established by these routes. -->
 
 ### Keeping and regaining citizenship
 
@@ -80,7 +80,7 @@ Congress must also design voting without assistance for voters with disabilities
 
 ### #1: Filipino Mother
 
-A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?
+A child was born in $2005$. The mother was a Filipino citizen when the child was born. The father was an alien. Is the child Filipino from birth?
 
 **Solution:**
 
@@ -96,7 +96,7 @@ No. The child is Filipino through the parents.
 
 ### #3: Election of Citizenship
 
-Lina was born in $1970$ to a Filipino mother and alien father. She validly elected Philippine citizenship upon majority. Is she natural-born?
+Lina was born in $1970$. Her mother was a Filipino citizen when Lina was born. Her father was an alien. She validly elected Philippine citizenship upon majority. Is she natural-born?
 
 **Solution:**
 
@@ -129,7 +129,7 @@ A natural-born Filipino lost citizenship through foreign naturalization. What se
 
 ### #7: Two Citizenships
 
-A child is Filipino through a parent and a foreign citizen through birthplace. Does this alone establish dual allegiance?
+A child is Filipino through a parent who was a Filipino citizen when the child was born. The child is also a foreign citizen through birthplace. Does this alone establish dual allegiance?
 
 **Solution:**
 
