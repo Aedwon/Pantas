@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-figure-grouping",
+  "lesson-spatial-abstract-reasoning-figure-matrices"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "rewrites": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "f7f472debaf0bde575625d91aa46ceba50aa1eda",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "f7f472debaf0bde575625d91aa46ceba50aa1eda"
+ },
+ "sha256": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "e9db08ca79aa83c9543cd2ae2d4ed91b633aca987b4ef8f4452a0d348d241f8a",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "9f3e888d97fbfaadedbe5853cfe168dfded690fe1d5d78c01bcb9667eed1bd9c"
+ },
+ "paths": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md"
+ },
+ "id": "RD-106",
+ "type": "read",
+ "created": "2026-10-26T04:49:06+00:00"
+}
