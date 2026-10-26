@@ -167,8 +167,7 @@ questions:
         rationale: |
           This changes the sign but keeps the magnitude. That can look like reversing the direction of the line. Check that the reciprocal is also required.
     explanation: |
-      For a nonzero finite slope, the perpendicular slope is its negative reciprocal. Thus the slope is $-\dfrac{1}{3}$, and $3\left(-\dfrac{1}{3}
-      ight)=-1$.
+      For perpendicular lines with nonzero slopes, take the reciprocal of one slope and change its sign to get the other slope. Thus the slope is $-\dfrac{1}{3}$, and $3\left(-\dfrac{1}{3}\right)=-1$.
 
   - id: q-algebra-linear-equations-inequalities-0009
     type: word-problem
