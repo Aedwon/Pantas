@@ -5,4 +5,385 @@ meta:
   exams:
   - cse-pro
   - cse-sub
-questions: []
+questions:
+- id: q-philippine-constitution-citizenship-and-suffrage-0001
+  type: citizen-groups
+  difficulty: easy
+  stem: |
+    Which group is expressly included among Philippine citizens under Article IV, Section 1?
+  choices:
+  - text: All aliens who have lived in the Philippines for ten years
+    rationale: Residence alone does not grant citizenship. Naturalization requires a legal process and other qualifications.
+  - text: Persons naturalized in accordance with law
+    correct: true
+  - text: All persons born in the Philippines, regardless of their parents' citizenship
+    rationale: Philippine birthplace alone does not grant citizenship.
+  - text: All aliens who marry Philippine citizens
+    rationale: Marriage to a Filipino does not by itself make an alien a Philippine citizen.
+  explanation: |
+    Article IV, Section 1 includes persons naturalized according to law.
+    Residence, birthplace, and marriage alone do not grant citizenship.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0002
+  type: natural-born-definition
+  difficulty: easy
+  stem: |
+    Apart from the Constitution's special rule for persons who elect citizenship, which description defines a natural-born Philippine citizen?
+  choices:
+  - text: A person born in the Philippines, whatever the parents' citizenship
+    rationale: Birthplace alone does not establish Philippine citizenship or natural-born status.
+  - text: A person who becomes a citizen after completing naturalization
+    rationale: Naturalization grants citizenship but does not make the person natural-born.
+  - text: A person who has been a Philippine citizen for at least ten years
+    rationale: The length of citizenship does not determine natural-born status.
+  - text: A citizen from birth who needs no act to acquire or complete Philippine citizenship
+    correct: true
+  explanation: |
+    Article IV, Section 2 defines natural-born citizens as citizens from birth
+    who need no act to gain or complete citizenship. It also makes a special
+    rule for those who properly elect citizenship under Section 1(3).
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0003
+  type: marriage-to-alien
+  difficulty: easy
+  stem: |
+    A Filipino citizen marries a foreign citizen. No act or failure to act amounts to renunciation under Philippine law. What happens to the Filipino's citizenship?
+  choices:
+  - text: It is retained.
+    correct: true
+  - text: It is lost as soon as the marriage takes place.
+    rationale: Article IV, Section 4 does not treat marriage alone as loss of citizenship.
+  - text: It is suspended until the marriage ends.
+    rationale: The Constitution provides retention of citizenship, not suspension during marriage.
+  - text: It must be acquired again through naturalization.
+    rationale: There is no need to regain citizenship because the stated marriage did not remove it.
+  explanation: |
+    Article IV, Section 4 protects citizenship after marriage to an alien.
+    Citizenship is kept unless an act or failure to act counts as renunciation
+    under law.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0004
+  type: voter-age
+  difficulty: easy
+  stem: |
+    What is the minimum voting age under Article V, Section 1, measured by election day?
+  choices:
+  - text: "16"
+    rationale: Sixteen is below the constitutional minimum voting age.
+  - text: "17"
+    rationale: A person who is still seventeen on election day does not meet the age requirement.
+  - text: "18"
+    correct: true
+  - text: "21"
+    rationale: Twenty-one exceeds the voting age minimum. It must not be substituted for eighteen.
+  explanation: |
+    A voter must be at least eighteen on election day. Age is only one
+    requirement. Citizenship, residence, registration, and legal
+    disqualifications must also be checked.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0005
+  type: forbidden-voter-requirements
+  difficulty: easy
+  stem: |
+    Which proposed condition for otherwise qualified voters is forbidden by Article V, Section 1?
+  choices:
+  - text: Requiring Philippine citizenship
+    rationale: Philippine citizenship is a constitutional voting qualification.
+  - text: Requiring ownership of land
+    correct: true
+  - text: Requiring the minimum voting age
+    rationale: The Constitution itself requires voters to be at least eighteen.
+  - text: Requiring the prescribed residence in the place of voting
+    rationale: Local residence is a constitutional voting qualification.
+  explanation: |
+    The Constitution bars property and literacy requirements for voting.
+    A qualified voter does not need to own land or pass a reading test.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0006
+  type: filipino-parent-abroad
+  difficulty: medium
+  stem: |
+    Paolo was born abroad in 2004. His father was a Philippine citizen at the time of his birth, and his mother was an alien. Which statement follows from Article IV?
+  choices:
+  - text: He must first live in the Philippines for one year to become a citizen.
+    rationale: The one-year residence rule concerns domestic voting. It does not control citizenship through a Filipino parent.
+  - text: He must elect Philippine citizenship at majority because he was born abroad.
+    rationale: Foreign birth does not place a child born in 2004 under the special pre-1973 election rule.
+  - text: He must be naturalized because his mother was an alien.
+    rationale: Either Filipino parent is enough under the current parent rule.
+  - text: He is a Philippine citizen from birth and is natural-born.
+    correct: true
+  explanation: |
+    Paolo's father was Filipino when Paolo was born. That makes Paolo a
+    citizen from birth under Article IV, Section 1(2). Birth abroad does not
+    remove this right. He needs no act to complete his Philippine citizenship.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0007
+  type: pre-1973-election
+  difficulty: medium
+  stem: |
+    Rosa was born in 1965 to a Filipino mother and an alien father. She properly elected Philippine citizenship upon reaching majority under Article IV, Section 1(3). How does Section 2 classify her?
+  choices:
+  - text: As a natural-born Philippine citizen
+    correct: true
+  - text: As a naturalized citizen because she performed an act to elect citizenship
+    rationale: Section 2 expressly treats proper election under Section 1(3) as natural-born status.
+  - text: As an alien until she completes court-based naturalization
+    rationale: Proper election under the stated constitutional rule does not require a separate naturalization proceeding.
+  - text: As a citizen who must still be born in the Philippines to qualify as natural-born
+    rationale: Section 2 does not add a Philippine birthplace requirement for those covered by the election rule.
+  explanation: |
+    Section 2 expressly treats those who properly elect citizenship under
+    Section 1(3) as natural-born. Rosa falls under that special rule.
+    Election under this rule is not naturalization.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0008
+  type: natural-born-office
+  difficulty: medium
+  stem: |
+    An applicant for membership in the Civil Service Commission acquired Philippine citizenship through naturalization. The applicant meets every other qualification. Does the applicant satisfy the office's citizenship requirement?
+  choices:
+  - text: Yes, because every Philippine citizen meets the citizenship requirement for every public office.
+    rationale: Some offices, including Civil Service Commission Member, require natural-born citizenship.
+  - text: Yes, because meeting the other qualifications converts naturalized status into natural-born status.
+    rationale: Other qualifications do not change how citizenship was acquired.
+  - text: No, because the office requires natural-born citizenship.
+    correct: true
+  - text: No, because naturalized persons are not Philippine citizens.
+    rationale: Naturalized persons are Philippine citizens. The issue is the separate natural-born requirement.
+  explanation: |
+    A Civil Service Commission Member must be natural-born. Naturalization
+    makes someone a Philippine citizen. It does not make the person
+    natural-born.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0009
+  type: loss-and-reacquisition
+  difficulty: medium
+  stem: |
+    Which statement accurately describes Article IV, Section 3 on loss and reacquisition of Philippine citizenship?
+  choices:
+  - text: Citizenship lost for any reason can never be regained.
+    rationale: Section 3 allows reacquisition in the manner provided by law.
+  - text: Both loss and reacquisition are governed by law.
+    correct: true
+  - text: A former citizen regains citizenship simply by returning to the Philippines.
+    rationale: Physical return alone does not replace the legal requirements for reacquisition.
+  - text: A former citizen may regain citizenship only by marrying a Filipino.
+    rationale: Section 3 leaves reacquisition to law. It does not establish marriage as the sole route.
+  explanation: |
+    Section 3 says citizenship may be lost or regained as provided by law.
+    A former citizen must use an applicable legal process. Returning to the
+    country alone is not enough.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0010
+  type: ra-9225-oath
+  difficulty: medium
+  stem: |
+    A natural-born Filipino lost Philippine citizenship through naturalization in another country. Under Republic Act 9225, Section 3, which act is required to reacquire Philippine citizenship?
+  choices:
+  - text: Taking the prescribed oath of allegiance to the Republic of the Philippines
+    correct: true
+  - text: Purchasing land in the Philippines
+    rationale: Property ownership does not replace the prescribed oath for reacquisition under this law.
+  - text: Living in the Philippines for six months without taking an oath
+    rationale: The six-month local voting residence rule is not the reacquisition procedure under Republic Act 9225.
+  - text: Filing a certificate of candidacy without taking an oath
+    rationale: Filing for office does not replace the oath required to reacquire citizenship.
+  explanation: |
+    Republic Act 9225, Section 3 requires the prescribed oath of allegiance.
+    This route applies to natural-born Filipinos who lost citizenship through
+    foreign naturalization. Running for elective office has further rules.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0011
+  type: domestic-residence
+  difficulty: medium
+  stem: |
+    A registered Philippine citizen is twenty years old and is not disqualified by law. Immediately before election day, the citizen will have lived continuously in the Philippines for one year, including six months in the place of voting. Does the citizen meet the age and residence minimums for domestic voting?
+  choices:
+  - text: No, because two years of Philippine residence are required.
+    rationale: The Philippine residence minimum is one year, not two.
+  - text: No, because one full year in the place of voting is required.
+    rationale: The separate local residence minimum is six months.
+  - text: No, because the citizen must be at least twenty-one.
+    rationale: The voting age minimum is eighteen.
+  - text: Yes, because the age and both residence minimums are met.
+    correct: true
+  explanation: |
+    The citizen is over eighteen. One year in the Philippines and six months
+    in the place of voting meet both residence minimums. Time in the voting
+    place can also count toward Philippine residence.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0012
+  type: local-residence
+  difficulty: medium
+  stem: |
+    A registered adult Philippine citizen has lived in the country continuously for twelve years. By election day, the citizen will have lived in the proposed voting place for only four months. Assume no legal disqualification. Which statement is correct about voting in that place?
+  choices:
+  - text: The citizen qualifies because long Philippine residence cancels the local residence rule.
+    rationale: National residence and local residence are separate requirements. Extra years in the country do not replace local residence.
+  - text: The citizen qualifies because registration removes all residence requirements.
+    rationale: Registration does not excuse failure to meet the constitutional residence minimums.
+  - text: The citizen falls short of the six-month local residence requirement.
+    correct: true
+  - text: The citizen falls short of the Philippine residence requirement.
+    rationale: Twelve years in the country exceeds the one-year Philippine residence minimum.
+  explanation: |
+    Four months in the voting place is less than the required six months.
+    The citizen meets the one-year Philippine residence rule. That does not
+    cure the short local residence.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0013
+  type: ballot-secrecy
+  difficulty: medium
+  stem: |
+    An election proposal would require each voter to show a completed ballot to a local official before casting it. Which constitutional duty does this directly conflict with?
+  choices:
+  - text: Providing a system for absentee voting by qualified Filipinos abroad
+    rationale: That duty concerns overseas voting. The stated defect is forced disclosure of a voter's choices.
+  - text: Protecting the secrecy and sanctity of the ballot
+    correct: true
+  - text: Requiring at least one year of Philippine residence for domestic voting
+    rationale: Showing a ballot does not establish or change the voter's residence.
+  - text: Treating proper election of citizenship as natural-born status
+    rationale: That rule concerns citizenship classification, not disclosure of votes.
+  explanation: |
+    Article V, Section 2 requires protection of ballot secrecy and sanctity.
+    Forcing a voter to show a completed ballot exposes the voter's choices.
+    The vote must be protected from interference.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0014
+  type: overseas-voting
+  difficulty: medium
+  stem: |
+    Which statement correctly describes voting by Filipinos abroad under Article V and the overseas voting laws cited in the lesson?
+  choices:
+  - text: Qualified Filipinos abroad must use the overseas voting system and meet its eligibility and registration rules.
+    correct: true
+  - text: Every Filipino abroad may vote without registration because citizenship is enough.
+    rationale: Overseas voters must meet the system's registration and eligibility rules. Citizenship alone is not enough.
+  - text: Congress may refuse to create any absentee voting system for Filipinos abroad.
+    rationale: Article V, Section 2 requires a system for absentee voting by qualified Filipinos abroad.
+  - text: Overseas voting is available to any foreign resident with a Filipino relative.
+    rationale: A Filipino relative does not make a foreign resident a qualified Filipino overseas voter.
+  explanation: |
+    The Constitution requires overseas voting for qualified Filipinos abroad.
+    Republic Act 9189, as amended by Republic Act 10590, sets its process.
+    Being abroad alone does not prove that a person is eligible.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0015
+  type: repatriation-eligibility
+  difficulty: hard
+  stem: |
+    Which person belongs to a class expressly covered by Republic Act 8171 for possible repatriation, subject to its requirements and exclusions?
+  choices:
+  - text: An alien who has never held Philippine citizenship but has lived in Manila for many years
+    rationale: Long residence by an alien is not repatriation. Repatriation restores former Philippine citizenship to covered persons.
+  - text: A foreign citizen whose only connection to the Philippines is owning a business there
+    rationale: Business ownership does not place a person in a former-citizen class covered by this law.
+  - text: A Filipino who married an alien and retained Philippine citizenship
+    rationale: A person who kept Philippine citizenship has no lost citizenship to restore through repatriation.
+  - text: A Filipino woman who lost Philippine citizenship by marriage to an alien
+    correct: true
+  explanation: |
+    Republic Act 8171 includes Filipino women who lost citizenship by marriage
+    to aliens. It also covers certain natural-born former citizens under its
+    political or economic necessity rule. The process includes an oath and
+    registration, subject to exclusions.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0016
+  type: dual-citizenship-and-allegiance
+  difficulty: hard
+  stem: |
+    A child acquires Philippine citizenship through a Filipino parent and foreign citizenship through the foreign country's birth laws. No positive act of loyalty to both states is shown. Which conclusion is justified?
+  choices:
+  - text: The child automatically loses Philippine citizenship because two citizenships are prohibited.
+    rationale: Dual citizenship can arise from different national laws. It does not automatically remove Philippine citizenship.
+  - text: The two citizenships alone establish harmful dual allegiance under Article IV, Section 5.
+    rationale: Dual allegiance involves a positive act of loyalty to two states. Two citizenships alone do not establish it.
+  - text: The child has dual citizenship, which alone does not prove dual allegiance.
+    correct: true
+  - text: The child must undergo naturalization before being recognized as a Philippine citizen.
+    rationale: The Filipino-parent rule already grants Philippine citizenship from birth in the stated case.
+  explanation: |
+    Different citizenship laws can give a child two citizenships. That fact
+    alone does not prove dual allegiance. The lesson cites Mercado v. Manzano
+    for this distinction. Article IV, Section 5 addresses dual allegiance.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0017
+  type: accessible-independent-voting
+  difficulty: hard
+  stem: |
+    An election planner argues that voters who cannot read should be excluded until a fully independent voting method is available. Which response best follows Article V, Section 2?
+  choices:
+  - text: Congress must design a way for them to vote without assistance, while existing laws and COMELEC rules apply in the meantime.
+    correct: true
+  - text: Exclusion is allowed because reading ability is a constitutional voting qualification.
+    rationale: Article V, Section 1 forbids a literacy requirement for suffrage.
+  - text: Their votes must always be announced publicly so officials can check them.
+    rationale: Public announcement would expose their choices. Interim rules must protect ballot secrecy.
+  - text: Congress may permanently replace independent voting with a rule that relatives choose for them.
+    rationale: The constitutional duty is to design voting without assistance. It does not authorize relatives to choose a voter's candidates.
+  explanation: |
+    Congress must design a way for voters with disabilities and those who
+    cannot read to vote without help. Existing laws and COMELEC rules apply
+    until then. These voters cannot simply be excluded.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0018
+  type: reacquisition-and-candidacy
+  difficulty: hard
+  stem: |
+    A natural-born Filipino lost citizenship through foreign naturalization and later reacquired it by taking the prescribed oath under Republic Act 9225. The person now seeks elective public office. Which further requirement does Section 5(2) impose, along with meeting the office's qualifications?
+  choices:
+  - text: Merely attach proof of the citizenship oath, with no separate renunciation.
+    rationale: The reacquisition oath alone does not satisfy the separate rule for elective public office.
+  - text: Personally make a sworn renunciation of all foreign citizenship when filing the certificate of candidacy.
+    correct: true
+  - text: Promise privately to renounce foreign citizenship after winning the election.
+    rationale: The law requires a personal sworn renunciation at the time of filing, not a private promise after election.
+  - text: Ask a representative to make the sworn renunciation on the candidate's behalf.
+    rationale: Section 5(2) requires the candidate to make the sworn renunciation personally.
+  explanation: |
+    Reacquiring citizenship and qualifying to run for office have separate
+    requirements. Section 5(2) requires a personal sworn renunciation of all
+    foreign citizenship when the certificate of candidacy is filed. The
+    candidate must also meet the qualifications for the office.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0019
+  type: election-day-qualification
+  difficulty: exam
+  stem: |
+    During a lawful registration period, a Philippine citizen is seventeen. The citizen will turn eighteen on election day and will then have lived continuously in the Philippines for two years and in the voting place for eight months. Assume all other registration conditions are met and there is no legal disqualification. Which statement follows from Republic Act 8189, Section 9?
+  choices:
+  - text: Registration must be refused because the citizen is not yet eighteen on the application date.
+    rationale: Section 9 allows registration before the age minimum is reached if it will be met by election day.
+  - text: Registration is allowed only if the citizen has already lived in the voting place for one year.
+    rationale: The local residence minimum is six months by election day, not one year at registration.
+  - text: Registration is unnecessary because the citizen will meet the age and residence rules on election day.
+    rationale: Meeting age and residence rules does not remove the separate registration requirement.
+  - text: Registration may proceed because the required age and residence periods will be met by election day.
+    correct: true
+  explanation: |
+    Section 9 measures age and residence by election day. The citizen will
+    be eighteen and will exceed both residence minimums by then.
+    Registration is still required under Section 10.
+  approved: false
+- id: q-philippine-constitution-citizenship-and-suffrage-0020
+  type: mixed-citizenship-and-voting
+  difficulty: exam
+  stem: |
+    Elena was born abroad in 2000 to a mother who was Filipino at Elena's birth and an alien father. Elena has retained her Philippine citizenship. On election day, she will have lived continuously in the Philippines for fourteen months, all in her proposed voting place. She is registered, cannot read, owns no land, and is not disqualified by law. Which assessment is correct for domestic voting?
+  choices:
+  - text: She must first elect Philippine citizenship because her father was an alien.
+    rationale: Her birth in 2000 falls under the current Filipino-parent rule, not the special pre-1973 election rule.
+  - text: She cannot vote because she must pass a reading test or own land.
+    rationale: Literacy and property requirements are forbidden. Neither condition can be added to her voting qualifications.
+  - text: She is a natural-born citizen and meets the stated voting qualifications.
+    correct: true
+  - text: She cannot vote because she needs one year in the Philippines plus a separate six months afterward in the voting place.
+    rationale: The residence periods can overlap. Her fourteen months in the voting place satisfy both minimums.
+  explanation: |
+    Elena was a citizen from birth through her Filipino mother. She did not
+    need to elect citizenship. She is over eighteen and has met both residence
+    minimums. The periods can overlap. Reading ability and land ownership
+    cannot be required for voting.
+  approved: false
