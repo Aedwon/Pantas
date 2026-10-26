@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 5,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "## Left open by the earlier read (RD-123)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This makes payment a universal starting condition. The processing-time rule requires payment only when a fee applies. A complete fee-free request does not need a payment before its processing clock can start.\n   > Processing starts with complete requirements and payment.\n2. Rule L27 (Major). Problem: The processing-start condition omits that payment applies only when applicable. Students need that limit to avoid treating fee-free requests as outside the stated processing deadlines.\n   > Processing starts with complete requirements and payment.\n\n### Accuracy concerns\n\n1. Payment is stated without the applicable-fee condition. Fee-free transactions also have processing deadlines once their requirements are complete.\n   > Processing starts with complete requirements and payment."
+ },
+ "id": "RW-120",
+ "type": "rewrite",
+ "created": "2026-10-26T06:35:30+00:00"
+}

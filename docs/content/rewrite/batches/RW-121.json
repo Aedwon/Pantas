@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 5,
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "## Left open by the earlier read (RD-124)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: This is a General Information lesson, but the teaching is in Filipino throughout. L02 requires simple English. The Filipino-language exception is for lessons teaching Filipino grammar, vocabulary or reading; this lesson teaches constitutional law.\n   > Ang **pagkamamamayan** (citizenship) ay pagiging kasapi ng isang bansa ayon sa batas.\n2. Rule L26 (Major). Problem: The brief requires teaching retention as well as reacquisition under RA 9225. This says only that retention has conditions. It does not explain that natural-born citizens who become foreign citizens after the Act retain Philippine citizenship upon the prescribed oath. The preceding paragraph explains reacquisition only.\n   > May tuntunin din ang batas sa pagpapanatili ng pagkamamamayan sa ilalim ng mga kondisyon nito."
+ },
+ "id": "RW-121",
+ "type": "rewrite",
+ "created": "2026-10-26T06:35:30+00:00"
+}
