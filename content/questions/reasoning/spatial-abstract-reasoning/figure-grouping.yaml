@@ -629,5 +629,5 @@ questions:
         rationale: |
           This assumes only even-sided shapes have reflection symmetry. The triangle has three sides. Check its three vertex-to-opposite-side reflection axes.
     explanation: |
-      A regular triangle has three reflection axes, a square four, and a regular pentagon five. The first three figures contain three, four, and five dots. Fourth figure contains two dots despite having three outline axes.
+      Each regular triangle has three reflection axes, and each square has four. The first three figures have three, four, and three dots, matching their outlines' reflection axes. The fourth figure is a square with two dots but four reflection axes. It breaks the relation.
     approved: false
