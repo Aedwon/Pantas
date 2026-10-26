@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-civil-service-commission",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-the-civil-service-commission": "b0255da6fa9e31e7b09401563b06a9e5c868bc1d",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "b0255da6fa9e31e7b09401563b06a9e5c868bc1d",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "b0255da6fa9e31e7b09401563b06a9e5c868bc1d"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-the-civil-service-commission": "30fa73507b6ff9475b50dc4395ca23fcf69e0460ed0d563aca0c2d76589c80f5",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "547d2d166ba4a5725a4ba958e879068c24cec9ac5ca78d98f56562acee4871cc",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "aabee75d6baca049478d2fdda9ea11d49b9d071d8b208225abbb24a7ea36ac7b"
+ },
+ "paths": {
+  "lesson-philippine-constitution-the-civil-service-commission": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "id": "RD-153",
+ "type": "read",
+ "created": "2026-10-26T13:55:44+00:00"
+}
