@@ -238,7 +238,7 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      A right circular cone has a base radius of $5\text{ cm}$ and a height of $12\text{ cm}$. What is its total surface area (including the base)?
+      A right circular cone has a base radius of $5\text{ cm}$ and a height of $12\text{ cm}$. What is its total surface area (including the base)? Use $SA=\pi r\ell+\pi r^2$, where $\ell$ is the slant height.
     choices:
       - text: '$90\pi\text{ cm}^2$'
         correct: true
