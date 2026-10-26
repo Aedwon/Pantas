@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-environment-management-disaster-risk-reduction-and-management",
+  "lesson-environment-management-environmental-concepts",
+  "lesson-environment-management-the-environmental-laws"
+ ],
+ "topic": "general-information/environment-management",
+ "round": 5,
+ "paths": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "content/lessons/general-information/environment-management/disaster-risk-reduction-and-management.md",
+  "lesson-environment-management-environmental-concepts": "content/lessons/general-information/environment-management/environmental-concepts.md",
+  "lesson-environment-management-the-environmental-laws": "content/lessons/general-information/environment-management/the-environmental-laws.md"
+ },
+ "extra_brief": {
+  "lesson-environment-management-disaster-risk-reduction-and-management": "## Left open by the earlier read (RD-136)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This version-specific plan claim requires a source. The packet supplies no plan excerpt or source evidence to confirm it; prompt-only review cannot establish its accuracy.\n   > The National DRRM Plan for $2020$ to $2030$ groups response with early recovery.\n2. Rule L22a (Minor). Problem: The paragraph under trap #2 has four sentences. Paragraphs may contain only one to three short sentences.\n   > Rescue, evacuation, and emergency aid are response actions. Early recovery can restore essential services, facilities, and livelihoods during response. Long-term rebuilding belongs to rehabilitation and recovery. Look at the action's main purpose.\n3. Rule L25 (Major). Problem: Exposure and vulnerability are needed to understand this explanation but neither term is explained. No prerequisite or later explanation is identified.\n   > It focuses on lowering exposure and vulnerability before a disaster.\n\n### Brief items not fixed\n\n1. Item `lesson-environment-management-environmental-concepts|L01|0`: The recorded learning goal is limited to recognizing source segregation, waste diversion, and the ECC requirement for an already covered project. This separate DRRM teaching does not serve that recorded goal. Reason: Learning goal record not found; summary and title include DRRM, so it is in scope though thinly taught.\n   Reader's note: No learning-goal audit record is supplied. Its revision cannot be confirmed from lesson text.",
+  "lesson-environment-management-environmental-concepts": "## Left open by the earlier read (RD-136)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The statutory definition and claimed scope require source confirmation. No statutory excerpt or source ledger is supplied for this prompt-only review; this legal claim remains unconfirmed.\n   > RA $9003$, Section $3$(bb), also counts collecting, sorting, and reusing used packaging as recycling.",
+  "lesson-environment-management-the-environmental-laws": "## Left open by the earlier read (RD-136)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This claim about an amendment, along with the detailed legal exceptions, coverage criteria, and agency powers, requires authoritative source confirmation. No source text for these additions is supplied in the packet. They remain unconfirmed in this prompt-only review.\n   > Section $8$ of RA $10174$ amended that provision."
+ },
+ "id": "RW-124",
+ "type": "rewrite",
+ "created": "2026-10-26T12:45:51+00:00"
+}

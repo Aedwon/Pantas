@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 5,
+ "paths": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "## Left open by the earlier read (RD-140)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Impeachment is first used as a limit on pardon before it is defined. The definition appears much later under Checks and balances, but this first use gives neither a reminder nor a pointer to that later explanation. A learner cannot yet tell which kind of proceeding the pardon excludes.\n   > It cannot cover impeachment (Section $19$)."
+ },
+ "id": "RW-125",
+ "type": "rewrite",
+ "created": "2026-10-26T12:45:51+00:00"
+}
