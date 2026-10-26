@@ -13,9 +13,9 @@ Spelling has patterns, but some words must be learned one by one. Use a pattern 
 
 ### Letters and Sounds
 
-The letters **a, e, i, o, u** are the main **vowel** letters in English. Their sounds are made without blocking the flow of air. Sometimes *y* also acts as a vowel, as in *my*.
+The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also acts as a vowel, as in *my*.
 
-The other letters are **consonant** letters. Their sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
+The other letters are **consonant** letters. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
 
 A **syllable** is a beat in a word with one main vowel sound. **Stress** is the extra force used to say one syllable. *Begin* has stress on its last syllable, while *visit* has stress on its first.
 
@@ -29,7 +29,7 @@ The rhyme “i before e except after c” helps with words such as *believe*, *r
 
 ### Adding Suffixes
 
-A **suffix** is a word part added at the end of a base. The base is the word or part to which the suffix is added.
+A **suffix** is a word part added at the end of a base. The **base** is the word or part to which the suffix is added.
 
 A final silent *e* is often dropped before a suffix that begins with a vowel. *Manage* becomes *managing*, and *hope* becomes *hoping*.
 
