@@ -151,3 +151,390 @@ questions:
   explanation: 'Section 18 bars detention solely for political beliefs and aspirations. It prohibits involuntary servitude except as punishment after due conviction for a crime.
 
     '
+- id: q-philippine-constitution-bill-of-rights-0021
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A family asks a lawyer how to have a court examine the legal basis for a
+    relative's detention. Which remedy directly serves that purpose?
+  choices:
+  - text: A request for parole
+    rationale: |
+      Parole concerns conditional release after part of a sentence has been
+      served. It does not serve to examine the basis for detention.
+  - text: A petition for a writ of habeas corpus
+    correct: true
+  - text: A request that Congress declare the relative innocent
+    rationale: |
+      Congress does not decide guilt in an individual criminal trial. The
+      family needs a court to examine the detention.
+  - text: A request that the Commission on Human Rights acquit the relative
+    rationale: |
+      The Commission may investigate rights violations. It does not issue
+      criminal acquittals as a trial court does.
+  explanation: |
+    A writ of habeas corpus brings the detained person before a court.
+    The court can then check the legal basis for detention. Parole serves
+    a different purpose and follows service of part of a sentence.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0022
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A detainee reports abuse to the Commission on Human Rights. Which action
+    falls within the Commission's role described in the Constitution?
+  choices:
+  - text: Impose a prison sentence on the officers after its investigation
+    rationale: |
+      An investigation by the Commission is not a criminal trial. The
+      Commission cannot impose a criminal prison sentence.
+  - text: Treat the complaint as a criminal conviction without hearing evidence
+    rationale: |
+      A complaint is an allegation that needs checking. It is not proof of
+      guilt or a criminal conviction.
+  - text: Investigate the reported civil and political rights violation
+    correct: true
+  - text: Replace the trial court in deciding every criminal charge against the officers
+    rationale: |
+      The Commission's investigative role does not give it the trial
+      court's power to decide criminal charges.
+  explanation: |
+    The Commission on Human Rights may investigate civil and political
+    rights violations. A court decides criminal guilt. An investigation
+    does not itself convict the officers.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0023
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Two laws formerly prescribed death. One uses Revised Penal Code penalty
+    names, while the other does not. Under Republic Act No. 9346, which
+    replacement penalties apply, respectively?
+  choices:
+  - text: Reclusion perpetua and life imprisonment
+    correct: true
+  - text: Life imprisonment and reclusion perpetua
+    rationale: |
+      This reverses the rule. Reclusion perpetua applies when the violated
+      law uses Revised Penal Code penalty names.
+  - text: Reclusion perpetua for both laws
+    rationale: |
+      The Act uses life imprisonment when the violated law does not use
+      Revised Penal Code penalty names.
+  - text: Life imprisonment for both laws
+    rationale: |
+      The Act uses reclusion perpetua when the violated law uses Revised
+      Penal Code penalty names.
+  explanation: |
+    Republic Act No. 9346 prohibits imposing death. The replacement depends
+    on the penalty names used by the violated law. Revised Penal Code
+    names require reclusion perpetua. Other penalty names require life
+    imprisonment.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0024
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A death sentence is reduced to reclusion perpetua by reason of Republic
+    Act No. 9346. The prisoner argues that the reduction guarantees eligibility
+    for parole. Which statement correctly applies the Act?
+  choices:
+  - text: The reduction makes parole automatic after part of the sentence is served.
+    rationale: |
+      A reduced sentence is not a promise of parole. The Act expressly
+      bars parole for the category described.
+  - text: The prisoner may choose life imprisonment to remove the parole restriction.
+    rationale: |
+      The Act bases the replacement penalty on the violated law's penalty
+      names. It does not let the prisoner choose a different sentence.
+  - text: The parole restriction applies only while the sentence still prescribes death.
+    rationale: |
+      The restriction expressly covers sentences reduced to reclusion
+      perpetua by reason of the Act.
+  - text: The Act bars parole for a prisoner whose sentence is reduced in this way.
+    correct: true
+  explanation: |
+    The Act bars parole when a death sentence is reduced to reclusion
+    perpetua by reason of the Act. The sentence reduction does not create
+    parole eligibility.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0025
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A borrower cannot repay a valid personal loan. No fraud or other crime
+    is alleged. The borrower says the constitutional ban on imprisonment
+    for debt also cancels the loan. Which response is correct?
+  choices:
+  - text: The loan is canceled as soon as the borrower cannot pay.
+    rationale: |
+      The protection concerns imprisonment for debt. It does not erase
+      a valid obligation to pay.
+  - text: The debt remains payable, but nonpayment alone cannot justify imprisonment.
+    correct: true
+  - text: The lender may obtain imprisonment by showing that the loan was in writing.
+    rationale: |
+      A written agreement does not remove the protection against jail
+      for the debt itself.
+  - text: The protection applies only to unpaid poll taxes, so this loan can lead to jail.
+    rationale: |
+      The Constitution protects against imprisonment for debt as well
+      as nonpayment of a poll tax.
+  explanation: |
+    The Constitution bars jail for the debt itself. It does not cancel
+    a valid loan. The lender may use lawful remedies that do not imprison
+    the borrower solely for nonpayment.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0026
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A criminal complaint is withdrawn before the accused is arraigned or
+    enters a plea. The accused argues that filing the complaint alone
+    prevents any later prosecution for the same offense. Which assessment
+    correctly applies the general double-jeopardy rule?
+  choices:
+  - text: Filing the complaint alone is enough to establish double jeopardy.
+    rationale: |
+      Filing is only an earlier step. The general rule also requires
+      arraignment and a valid plea, among other conditions.
+  - text: Withdrawal of a complaint is always equivalent to an acquittal after trial.
+    rationale: |
+      A withdrawal before arraignment is not an acquittal after trial.
+      The facts do not show the required plea.
+  - text: Filing alone is insufficient because arraignment and a valid plea are required.
+    correct: true
+  - text: Double jeopardy arises only after an accused has served a prison sentence.
+    rationale: |
+      Serving a sentence is not a condition for this protection. A valid
+      acquittal can trigger it without any prison sentence.
+  explanation: |
+    A filed complaint alone does not establish double jeopardy. The
+    general rule requires a valid charge, a court with authority,
+    arraignment, a valid plea, and a protected end to the case.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0027
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A proper court acquits an accused after a valid murder charge,
+    arraignment, and plea. The charge alleged all the elements of homicide
+    plus treachery. Prosecutors then seek a homicide trial for the same
+    killing. Which statement best applies double jeopardy?
+  choices:
+  - text: The homicide trial is barred because homicide was included in the murder charge.
+    correct: true
+  - text: The homicide trial may proceed because the second charge has a different name.
+    rationale: |
+      Different names do not avoid the protection. The required parts
+      of homicide were included in the first charge.
+  - text: The homicide trial may proceed because only a prior conviction can bar it.
+    rationale: |
+      A valid acquittal can also bar a later prosecution. A conviction
+      is not the only protected ending.
+  - text: The homicide trial may proceed because the second charge requires fewer elements.
+    rationale: |
+      Having fewer elements does not remove the protection. The rule
+      covers an offense necessarily included in the first charge.
+  explanation: |
+    The murder charge included every required part of homicide. The
+    acquittal therefore bars a homicide trial for the same killing under
+    these facts. Changing the charge's name does not remove the bar.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0028
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A person is validly convicted under a local ordinance. A national law
+    punishes the same act, and a prosecutor proposes another prosecution
+    under that law. Which constitutional rule applies?
+  choices:
+  - text: A national prosecution is allowed because national laws outrank local ordinances.
+    rationale: |
+      The special protection applies when both a law and an ordinance
+      punish the same act. Their different levels do not remove it.
+  - text: Only an acquittal under the ordinance could bar the national prosecution.
+    rationale: |
+      The Constitution gives this protection after either conviction
+      or acquittal under the law or ordinance.
+  - text: A second prosecution is allowed if it seeks a different penalty for the same act.
+    rationale: |
+      A different penalty does not defeat the special rule. The stated
+      second prosecution still concerns the same act.
+  - text: The ordinance conviction bars another prosecution under the law for the same act.
+    correct: true
+  explanation: |
+    When a law and an ordinance punish the same act, conviction or
+    acquittal under either bars prosecution under the other. The rule
+    applies even though one measure is national and the other is local.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0029
+  type: single_choice
+  difficulty: hard
+  stem: |
+    After a valid criminal case ends in conviction for physical injuries,
+    the victim dies from those injuries. The death causes a graver offense
+    to develop after conviction. Which statement correctly applies the
+    rule on a later prosecution?
+  choices:
+  - text: Any conviction permanently bars prosecution for every later result of the act.
+    rationale: |
+      This ignores the exception for a graver offense that develops
+      after the first conviction.
+  - text: A later prosecution may proceed under the exception for a graver offense developing after conviction.
+    correct: true
+  - text: The first conviction automatically establishes guilt of the graver offense.
+    rationale: |
+      Allowing a later prosecution does not decide guilt in that case.
+      The later charge still requires a court determination.
+  - text: A later prosecution is allowed only if the injuries came from an unrelated act.
+    rationale: |
+      The stated exception concerns a graver offense developing from
+      the same act after conviction.
+  explanation: |
+    The victim's later death caused a graver offense to develop after
+    conviction. Rule 117 recognizes an exception for this situation.
+    The first conviction does not automatically bar the later case.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0030
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A new penal law leaves the prison penalty unchanged but lowers the
+    proof needed for conviction. It requires courts to use that lower
+    standard for offenses committed before the law took effect. Which
+    assessment best applies the ex post facto prohibition?
+  choices:
+  - text: The law is allowed because it does not increase the prison penalty.
+    rationale: |
+      A higher penalty is not the only harmful backward change.
+      Lowering the proof needed for conviction can also be prohibited.
+  - text: The law is allowed because a court will still conduct a trial.
+    rationale: |
+      Holding a trial does not cure a harmful backward change in the
+      proof required to convict.
+  - text: The backward reduction in required proof falls within the ex post facto prohibition.
+    correct: true
+  - text: The change is a bill of attainder solely because it concerns earlier offenses.
+    rationale: |
+      Earlier offenses alone do not make a bill of attainder. That
+      prohibition concerns legislative punishment without judicial trial.
+  explanation: |
+    An ex post facto law can lower the proof needed to convict for an
+    earlier offense. The penalty need not increase. The harmful backward
+    change in proof is enough to raise this prohibition.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0031
+  type: single_choice
+  difficulty: exam
+  stem: |
+    After a valid charge, arraignment, and plea in a proper court, an
+    accused requests dismissal for a procedural defect. The court grants
+    the request without deciding guilt or finding a speedy-trial violation.
+    What is the effect of that dismissal under the general double-jeopardy rule?
+  choices:
+  - text: The requested procedural dismissal does not by itself bar another prosecution.
+    correct: true
+  - text: Every dismissal after a plea is an acquittal that bars another prosecution.
+    rationale: |
+      The reason for dismissal and the accused's consent matter.
+      Not every dismissal after a plea is an acquittal.
+  - text: The request proves that the prosecution's evidence was insufficient.
+    rationale: |
+      The court dismissed for a procedural defect. The facts do not
+      describe an acquittal based on insufficient evidence.
+  - text: Any requested dismissal necessarily establishes a speedy-trial violation.
+    rationale: |
+      A request alone does not establish that violation. The court
+      made no such finding in this case.
+  explanation: |
+    The accused expressly requested this procedural dismissal. The
+    stated facts show neither an acquittal for insufficient evidence nor
+    a speedy-trial violation. The dismissal alone does not bar another case.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0032
+  type: single_choice
+  difficulty: exam
+  stem: |
+    In a proper court, an accused faces a valid charge, is arraigned, and
+    enters a valid plea. After the prosecution rests, the court grants the
+    accused's demurrer to evidence because the proof cannot support conviction.
+    Prosecutors seek another trial for the same offense solely because the
+    accused requested dismissal. Which assessment is correct?
+  choices:
+  - text: Another trial is allowed because every requested dismissal waives double jeopardy.
+    rationale: |
+      A granted demurrer for insufficient evidence is an acquittal.
+      It is an exception to the usual rule on requested dismissals.
+  - text: Another trial is allowed because only a jury can acquit an accused.
+    rationale: |
+      The court's grant of this demurrer is an acquittal. The lesson's
+      rule does not require a jury verdict.
+  - text: Another trial is required because a demurrer prevents the court from assessing evidence.
+    rationale: |
+      A demurrer asks the court to assess whether the prosecution's
+      evidence can support conviction. The court found it insufficient.
+  - text: Another trial is barred because the granted demurrer is an acquittal under these facts.
+    correct: true
+  explanation: |
+    The court found the prosecution's evidence insufficient and granted
+    the demurrer. That ruling is an acquittal. The accused's request does
+    not permit a second prosecution for the same offense under these facts.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0033
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A valid charge proceeds through arraignment and a valid plea in a
+    proper court. On the accused's request, the court dismisses the case
+    after finding a violation of the constitutional right to a speedy trial.
+    Prosecutors argue that the request alone permits a new prosecution for
+    the same offense. Which response correctly applies the stated exception?
+  choices:
+  - text: The request permits a new prosecution regardless of the court's reason for dismissal.
+    rationale: |
+      This ignores the exception for a constitutional speedy-trial
+      violation. The reason for dismissal matters.
+  - text: The speedy-trial dismissal bars a new prosecution despite the accused's request.
+    correct: true
+  - text: The bar applies only if the accused had already been convicted in the dismissed case.
+    rationale: |
+      A prior conviction is not required for the stated exception.
+      The court dismissed because the constitutional speedy-trial right was violated.
+  - text: Only a grant of a demurrer can ever protect an accused who requested dismissal.
+    rationale: |
+      An acquittal for insufficient evidence is one exception. A
+      dismissal for a constitutional speedy-trial violation is another.
+  explanation: |
+    A dismissal for a constitutional speedy-trial violation is an
+    exception to the usual rule on requested dismissals. The accused's
+    request does not remove double-jeopardy protection under these facts.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0034
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Congress passes a general law defining a new offense. It applies only
+    to future conduct and requires prosecutors to prove guilt in court
+    before punishment. A critic calls it both an ex post facto law and a
+    bill of attainder. Which assessment follows from these facts alone?
+  choices:
+  - text: It is ex post facto because every new penal law changes criminal consequences.
+    rationale: |
+      Ex post facto laws apply harmful penal changes backward. This
+      law applies only to future conduct.
+  - text: It is a bill of attainder because Congress defined a punishable offense.
+    rationale: |
+      Defining a general offense does not itself impose punishment
+      without trial. This law requires proof of guilt in court.
+  - text: Neither label is established because the law is prospective and requires a judicial trial.
+    correct: true
+  - text: Both labels apply because a judicial trial cannot authorize punishment under a new law.
+    rationale: |
+      Neither prohibition bars every new penal law. The facts show
+      no harmful backward application or legislative punishment without trial.
+  explanation: |
+    The law applies only to future conduct, so the facts show no harmful
+    backward penal change. A court must decide guilt before punishment.
+    Defining this general offense does not itself create a bill of attainder.
+  approved: false
