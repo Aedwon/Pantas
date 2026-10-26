@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 7,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "## Left open by the earlier read (RD-087)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The packet supplies no statutory text or source evidence for the added Revised Penal Code accessory conditions. These hard-to-remember legal conditions remain unconfirmed in this restricted review; this finding does not assert that they are false.\n   > The list also covers a principal known to be habitually guilty of another crime.\n2. Rule L25 (Major). Problem: The lesson requires students to distinguish criminal and administrative proof, but gives no meaning for beyond reasonable doubt. Calling it stricter does not explain what doubt prevents a criminal finding. No prerequisite or later explanation supplies that meaning.\n   > Criminal guilt must be proved beyond reasonable doubt, a stricter test than substantial evidence.\n3. Rule L26 (Major). Problem: The criminal proof concept is named and ranked against substantial evidence but never explained. Example 7 requires this distinction, so the student needs more than the label and comparative strength.\n   > Criminal guilt must be proved beyond reasonable doubt, a stricter test than substantial evidence.\n\n### Accuracy concerns\n\n1. The expanded accessory conditions require confirmation against the governing statutory text. The packet does not include that source, so their accuracy remains unconfirmed rather than disproved.\n   > The list also covers a principal known to be habitually guilty of another crime.\n\n## Lead decision (2026-10-26)\n\nKeep the lesson at Civil Service Exam depth. Define an accessory in one or two plain sentences: a person who, knowing an offense was committed, helps only afterward, for example by profiting from it or by hiding or destroying its evidence or tools. Remove the Revised Penal Code escape conditions (abuse of public functions, listed serious-offender groups, habitual offenders), the sentences that describe them, and any example, trap or check question built on them. Do not reintroduce the Article 20 family exemption. Explain \"beyond reasonable doubt\" in one plain sentence where it first appears (proof that leaves no reasonable doubt about guilt in the mind of a fair judge), and keep its contrast with substantial evidence."
+ },
+ "id": "RW-083",
+ "type": "rewrite",
+ "created": "2026-10-26T03:23:29+00:00"
+}
