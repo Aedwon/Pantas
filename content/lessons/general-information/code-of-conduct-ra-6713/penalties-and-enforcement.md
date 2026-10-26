@@ -27,7 +27,9 @@ Administrative guilt requires **substantial evidence**. This is relevant evidenc
 
 ### Criminal Penalties and Separate Cases
 
-A **criminal case** asks a court to decide whether someone committed a crime. **Prosecution** means bringing and pursuing that case. Criminal guilt must be proved beyond reasonable doubt, a stricter test than substantial evidence.
+A **criminal case** asks a court to decide whether someone committed a crime. **Prosecution** means bringing and pursuing that case.
+
+Criminal guilt requires proof **beyond reasonable doubt**: proof that leaves no reasonable doubt about guilt in the mind of a fair judge. This is a stricter test than substantial evidence.
 
 Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also order **disqualification**, which bars the person from holding public office. That added penalty is up to the court.
 
@@ -49,13 +51,7 @@ A **co-principal** may directly carry out the offense. Another way is to force s
 
 An **accomplice** knows the unlawful purpose and helps before or during the offense. The help supports the offense but does not make the helper a principal. Useful but nonessential help can fit this role when the other conditions are met.
 
-An **accessory** knows the offense has happened and takes a legally covered part afterward. The person did not already take part as a principal or accomplice. Covered acts include profiting from the offense, helping the offender profit, or hiding or destroying its evidence or tools to prevent discovery.
-
-The Revised Penal Code also describes sheltering, hiding, or helping a principal escape, but only under stated conditions. The helper must misuse public duties, or the principal must fall within the law's listed serious-offender groups. Merely helping any offender escape does not by itself meet this accessory rule.
-
-Those groups include a principal guilty of treason, parricide, murder, or an attempt on the Chief Executive's life. Treason is betrayal of the country by aiding its enemy under the law. Parricide is the unlawful killing of a close family member covered by that offense.
-
-The list also covers a principal known to be habitually guilty of another crime. Habitually means repeatedly. For a private helper who holds no public duties, check these conditions before assigning escape-related accessory responsibility.
+An **accessory** knows an offense was committed and helps only afterward, without having taken part as a principal or accomplice. Examples include profiting from the offense or hiding or destroying its evidence or tools to prevent discovery.
 
 Knowing about an offense is not enough by itself. Look for an actual act of participation. Someone who planned and directly carried out the offense remains a principal even if that person also helps afterward.
 
@@ -210,15 +206,6 @@ An employee wants an agency decision reviewed. A coworker says every Code case g
 1. The route depends on the deciding body and kind of decision.
 2. Check the applicable review rules, proper body, and deadline. The Code does not create one route for every case.
 
-### #14: Escape Help Alone
-
-An unrelated private person with no public duties helps an offender hide after a Code offense. The offender is not within any listed serious-offender group and is not known to be habitually guilty of another crime. Does hiding alone establish accessory responsibility under the escape provision?
-
-**Solution:**
-
-1. The helper did not misuse public duties, and the principal meets none of the stated offender conditions.
-2. The escape provision's conditions are missing. Hiding alone does not establish accessory responsibility under that provision.
-
 ## Traps to Watch For
 
 ### #1: Making Every Penalty Automatic
@@ -237,7 +224,7 @@ A proper administrative case can support removal. It still needs evidence and a 
 
 > Check knowledge, agreement, acts, and the importance of the help.
 
-Earlier direct participation can make a person a principal. Later help must meet the accessory conditions. Mere knowledge does not establish participation.
+Earlier direct participation can make a person a principal. An accessory must knowingly take a covered part only afterward. Mere knowledge does not establish participation.
 
 ### #4: Mixing Fine Ceilings
 
