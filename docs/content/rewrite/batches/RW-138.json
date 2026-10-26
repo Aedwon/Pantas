@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "round": 5,
+ "paths": {
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "extra_brief": {
+  "lesson-language-application-sentence-completion": "## Left open by the earlier read (RD-154)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Subject and verb are necessary terms here, but neither is explained. The later instruction to find a main verb also relies on that missing meaning. No prerequisite teaching is supplied. Defining noun, adjective, and adverb does not explain what a verb or subject does.\n   > **Subject-verb agreement** means matching the subject and verb."
+ },
+ "id": "RW-138",
+ "type": "rewrite",
+ "created": "2026-10-26T16:41:59+00:00"
+}

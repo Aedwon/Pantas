@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-geometry-logic-and-reasoning"
+ ],
+ "topic": "mathematics/geometry",
+ "round": 5,
+ "paths": {
+  "lesson-geometry-logic-and-reasoning": "content/lessons/mathematics/geometry/logic-and-reasoning.md"
+ },
+ "extra_brief": {
+  "lesson-geometry-logic-and-reasoning": "## Left open by the earlier read (RD-157)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson teaches only-if translation as a distinct case but gives no worked example asking students to translate or reason from an only-if statement. Example 4 includes only-if wording only in a distractor and never explains that choice. Add a worked only-if case to cover this exam-relevant direction reversal.\n   > The words **only if** also form a conditional."
+ },
+ "id": "RW-140",
+ "type": "rewrite",
+ "created": "2026-10-26T16:41:59+00:00"
+}

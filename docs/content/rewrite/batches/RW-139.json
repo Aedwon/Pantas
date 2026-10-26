@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-vocabulary-spelling-rules"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 5,
+ "paths": {
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md"
+ },
+ "extra_brief": {
+  "lesson-vocabulary-spelling-rules": "## Left open by the earlier read (RD-155)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The claim about the contents and purpose of a specific KWF illustration cannot be confirmed from the supplied material. No illustration or source excerpt is supplied. The rule requires leaving out unconfirmed facts.\n   > Sa isang larawan sa gabay, magkakasamang ipinakita ang *cuento*, *kwento*, at *kuwento*.\n2. Rule B03 (Blocker). Problem: Example #10 asks about a particular picture, but neither that picture nor an illustration placeholder is supplied. Its contents are the material the question asks the student to inspect.\n   > Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?\n3. Rule L05 (Major). Problem: Example #10 tests recall of the contents of a named picture without supplying it. This is neither a standard-spelling selection nor an application of a spelling rule; the necessary referenced material is absent.\n   > Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?\n4. Rule L18 (Major). Problem: The lesson promises checking Filipino spellings, but its sole Filipino example asks which forms appeared in a picture. No worked case chooses a standard Filipino spelling or applies a stated borrowing rule. The English cases are covered by #1 through #9 and #11.\n   > Sa Filipino, basahin ang paliwanag sa gabay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.\n5. Rule L26 (Major). Problem: The Filipino section tells students to consult a rule but never teaches any actual Filipino borrowing or spelling rule. Describing a picture and warning against overgeneralizing do not explain how to check a Filipino spelling, which the summary includes in this lesson's scope.\n   > Tingnan ang tuntunin at ang hinihingi ng tanong.\n\n### Accuracy concerns\n\n1. The supplied material does not establish what the named KWF picture actually says or whether its purpose is historical spelling change. Verify against the original before treating it as a sourced fact.\n   > Ipinapakita nito ang pagbabago sa baybay ng salitang mula sa Espanyol.\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-spelling-rules|L03|0`: The exam verb \"Choose\" first appears here without the required one-line explanation of what the student should do. Reason: Choose is a plain instruction word, not an exam verb needing a gloss.\n   Reader's note: Choose remains unglossed. It is an everyday instruction and does not need a definition."
+ },
+ "id": "RW-139",
+ "type": "rewrite",
+ "created": "2026-10-26T16:41:59+00:00"
+}

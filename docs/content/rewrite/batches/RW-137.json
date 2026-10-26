@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 7,
+ "paths": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "## Left open by the earlier read (RD-153)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L02 (Major). Problem: The long legal quotation is required by the brief and explained afterward, but the surrounding qualification and appointment teaching also remains dense. In particular the statutory appointment catchall is not Grade-5-simple prose.\n   > It also covers other officers whose appointments the Constitution vests in the President, subject to its specific appointment rules.\n2. Rule L18 (Major). Problem: No worked example applies legislative inquiry safeguards, the budget-increase prohibition, or the war-declaration threshold. These are distinct legislative powers expressly within the brief, unlike changing numbers in an existing case.\n   > Either House or its committees may hold inquiries to help make laws.\n3. Rule L27 (Major). Problem: The suspension discussion omits the Section 18 requirement to charge an arrested or detained person within three days or release them. This is a directly relevant limit on the emergency power being taught.\n   > The suspension applies only to people charged in court with rebellion or offenses that are part of or directly connected with invasion (Article VII, Section $18$)."
+ },
+ "id": "RW-137",
+ "type": "rewrite",
+ "created": "2026-10-26T16:41:59+00:00"
+}
