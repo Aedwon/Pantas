@@ -71,11 +71,11 @@ For example, sound can help you hear the parts of *occurrence*. It cannot tell y
 
 ### Baybay ng mga Hiram na Salita
 
-Ang **Ortograpiyang Pambansa** ng Komisyon sa Wikang Filipino ay gabay sa pagsulat ng Filipino. Kasama rito ang mga salitang hiniram sa ibang wika.
+Ang **hiram na salita** (borrowed word) ay mula sa ibang wika. May mga tuntunin ang Komisyon sa Wikang Filipino sa pagbaybay nito.
 
-Sa isang larawan sa gabay, magkakasamang ipinakita ang *cuento*, *kwento*, at *kuwento*. Ipinapakita nito ang pagbabago sa baybay ng salitang mula sa Espanyol.
+Sa *cuento*, magkasunod ang *u* at *e*. Tinatawag itong **kambal-patinig** (vowel pair). Nasa unang pantig ang pares at may katinig bago ito.
 
-Ang paglitaw ng isang anyo sa talakay ay hindi sapat na patunay na iyon ang dapat gamitin sa lahat ng sulatin. Tingnan ang tuntunin at ang hinihingi ng tanong. Huwag gawing batayan ang pinaikling baybay sa mensahe sa telepono.
+Sa ganitong ayos, panatilihin ang *u* at maglagay ng *w* bago ang kasunod na patinig. Kaya *kuwento* ang baybay sa Filipino ayon sa Ortograpiyang Pambansa. Hindi ito tuntunin para sa lahat ng salitang hiram.
 
 ## Examples
 
@@ -208,19 +208,19 @@ D) ocurrence
 3. The final syllable of *occur* is stressed. Its final *r* doubles before *-ence* in **occurrence**.
 4. Recall the ending *-ence*. Its weak vowel can sound like the vowel in *-ance*, so sound alone cannot choose the spelling. Answer: **A**.
 
-### #10: Pagbasa ng Halimbawa sa Gabay
+### #10: Baybay sa Filipino
 
-Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?
+Aling baybay ang naaayon sa Ortograpiyang Pambansa upang mabuo ang pangungusap? “Binasa niya ang maikling ______ bago matulog.”
 
-A) kwento at kuwento  
-B) kwentu at kuwento  
-C) kwento at kuwentu  
-D) kwentu at kuwentu
+A) kwento  
+B) kuwento  
+C) kuwentu  
+D) kwentu
 
 **Solution:**
 
-1. Ipinakita sa larawan ang *cuento*, *kwento*, at *kuwento*.
-2. Ang pares na tumutugma sa larawan ay **kwento at kuwento**. Sagot: **A**.
+1. Sa salitang mula sa *cuento*, panatilihin ang *u* at isingit ang *w* bago ang *e*.
+2. Ang baybay ay **kuwento**. Sagot: **B**.
 
 ### #11: Limits of Doubling
 
@@ -244,7 +244,7 @@ Compare related forms such as *begin/beginning* and *refer/referred*. Say the ba
 
 Break a long word into spoken parts. Use a known base to check letters that are hard to hear. Check the ending separately.
 
-Sa Filipino, basahin ang paliwanag sa gabay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.
+Sa Filipino, suriin ang puwesto ng mga patinig. Sa *kuwento*, hindi inaalis ang *u*.
 
 ## Traps to Watch For
 
@@ -278,8 +278,8 @@ Learn **truly** and **argument** as common exceptions. Keeping the *e* would pro
 
 The weak ending of *occurrence* does not clearly reveal *-ence*. Use sound to divide the word, then recall its standard letters.
 
-### #6: Pagbuo ng Tuntunin mula sa Larawan
+### #6: Pag-alis ng Patinig
 
-> Basahin ang paliwanag, hindi lamang ang mga anyong ipinakita.
+> Huwag basta alisin ang u sa kuwento.
 
-Maaaring ipakita sa gabay ang pagbabago ng baybay. Hindi nito agad sinasabing ang bawat anyo ay angkop sa lahat ng gamit. Sundin ang tuntuning hinihingi ng tanong.
+Maaaring pamilyar ang *kwento*. Ngunit *kuwento* ang anyong sumusunod sa tuntuning itinuro rito.
