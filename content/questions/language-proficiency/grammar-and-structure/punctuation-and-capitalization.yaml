@@ -375,39 +375,39 @@ questions:
     type: "punctuation"
     difficulty: "medium"
     stem: |
-      Which sentence follows the standard semicolon-plus-transition pattern?
+      Which sentence uses a semicolon correctly?
     choices:
-      - text: "The train was late; however, the passengers remained calm."
+      - text: "The train was late; the passengers remained calm."
         correct: true
-      - text: "The train was late, however, the passengers remained calm."
+      - text: "The train was late, the passengers remained calm."
         rationale: |
-          This joins two independent clauses with only commas. "However" sounds like a joining word. Check: remember that "however" alone is not a coordinating conjunction.
-      - text: "The train was late; however the passengers remained calm."
+          This joins two independent clauses with only a comma. The statements are closely related. Check: a comma alone does not correctly join two complete clauses in formal writing.
+      - text: "The train was late; because the passengers remained calm."
         rationale: |
-          This omits the comma after the transitional word. The semicolon already separates the clauses. Check: set off introductory "however" in this pattern.
-      - text: "The train was late however; the passengers remained calm."
+          This puts a dependent clause after the semicolon. The words after "because" contain a subject and a verb. Check: test whether the whole second half can stand alone.
+      - text: "The train was; late and the passengers remained calm."
         rationale: |
-          This attaches the transitional word to the first clause. The semicolon is near the clause boundary. Check: place "however" with the second statement it introduces.
+          This splits the first clause before "late". A semicolon can join complete clauses. Check: test whether each half can stand alone.
     explanation: |
-      Both statements are independent clauses, so a semicolon joins them. "However" introduces the contrasting second statement and is followed by a comma.
+      Both statements are independent clauses. A semicolon can join these closely related statements without a joining word.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0020"
     type: "punctuation"
     difficulty: "exam"
     stem: |
-      Use the common convention that capitalizes a formal title directly before a name. Which revision fixes every error in "the report was ready, however it's final section needed president Cruz's approval"?
+      Use the common convention that capitalizes a formal title directly before a name. Which revision fixes every error in "the report was ready, it's final section needed president Cruz's approval"?
     choices:
-      - text: "The report was ready; however, its final section needed President Cruz's approval."
+      - text: "The report was ready; its final section needed President Cruz's approval."
         correct: true
-      - text: "The report was ready, however, its final section needed President Cruz's approval."
+      - text: "The report was ready, its final section needed President Cruz's approval."
         rationale: |
-          This leaves a comma splice before the transition. Commas surround "however" neatly. Check: check the boundary between the independent clauses.
-      - text: "The report was ready; however, it's final section needed President Cruz's approval."
+          This leaves a comma splice between two complete clauses. The statements are closely related. Check: use a semicolon, a period, or a comma with a suitable joining word.
+      - text: "The report was ready; it's final section needed President Cruz's approval."
         rationale: |
           This uses a contraction in the possessive position. Apostrophes often signal ownership in nouns. Check: expand "it's" as "it is" or "it has".
-      - text: "The report was ready; however, its final section needed president Cruz's approval."
+      - text: "The report was ready; its final section needed president Cruz's approval."
         rationale: |
           This leaves the formal title before a name lowercase. Generic job labels usually stay lowercase. Check: apply the specified before-name title convention.
     explanation: |
-      Start the sentence with "The." Join the two complete clauses with a semicolon, then set off "however" with a comma. "Its" shows that the section belongs to the report. Capitalize the formal title before "Cruz," and use "Cruz's" to show whose approval is needed.
+      Start the sentence with "The." Join the two complete clauses with a semicolon. "Its" shows that the section belongs to the report. Capitalize the formal title before "Cruz," and use "Cruz's" to show whose approval is needed.
     approved: true
