@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage",
+  "lesson-philippine-constitution-the-civil-service-commission",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 11,
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+  "lesson-philippine-constitution-the-civil-service-commission": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "## Left open by the earlier read (RD-146)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: Example #9 compares two residence periods and then identifies which person passes, but gives the multi-step solution as unnumbered sentences. Example #8 also compresses the separate age and residence checks into an unnumbered conclusion. This is a formatting finding; the correct results are present.\n   > Only the first. The second lacks the required $6$ months locally.",
+  "lesson-philippine-constitution-the-civil-service-commission": "## Left open by the earlier read (RD-139)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: This political-limits paragraph has five sentences. Split the political-office exception and the electioneering definition into separate paragraphs to meet the one-to-three-sentence rule.\n   > Civil service officers and employees may not take part, directly or indirectly, in electioneering or a partisan political campaign.",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "## Left open by the earlier read (RD-144)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: Example 7 puts its final conclusion outside the numbered solution after two numbered steps and the computation. The conclusion is part of the solution and should be a numbered step. This is a minor formatting breach; the calculation and answer are present.\n   > At least $16$ Senators must concur."
+ },
+ "id": "RW-128",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}

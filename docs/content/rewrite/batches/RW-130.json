@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-vocabulary-spelling-rules",
+  "lesson-vocabulary-synonyms-and-antonyms"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 7,
+ "paths": {
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+  "lesson-vocabulary-synonyms-and-antonyms": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md"
+ },
+ "extra_brief": {
+  "lesson-vocabulary-spelling-rules": "## Left open by the earlier read (RD-095)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Accuracy concerns\n\n1. This is a specific claim about an official KWF publication. No source excerpt is supplied, so its accuracy and the key of example ten need official source confirmation; no contradiction is established here.\n   > Inililista ng gabay ang **kwento** at **kuwento** bilang mga anyo mula sa Espanyol na *cuento*.",
+  "lesson-vocabulary-synonyms-and-antonyms": "## Left open by the earlier read (RD-096)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-vocabulary-synonyms-and-antonyms|L03|0`: The lesson uses the exam command \"Choose\" without giving the required one-line explanation when that exam verb first appears. Reason: Choose is a plain instruction word, not an exam verb needing a gloss.\n   Reader's note: Choose remains without a gloss. The optional complaint does not apply to this everyday command.\n2. Item `lesson-vocabulary-synonyms-and-antonyms|L03|1`: The later exam command \"Select\" also appears without a one-line explanation of what the student is being asked to do. Reason: Select is a plain instruction word, not an exam verb needing a gloss.\n   Reader's note: Select remains without a gloss. The optional complaint does not require a change."
+ },
+ "id": "RW-130",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}

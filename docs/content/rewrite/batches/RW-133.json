@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-sequencing-of-events"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "round": 5,
+ "paths": {
+  "lesson-comprehension-skills-sequencing-of-events": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
+ },
+ "extra_brief": {
+  "lesson-comprehension-skills-sequencing-of-events": "## Left open by the earlier read (RD-102)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-comprehension-skills-sequencing-of-events|L03|0`: The exam command verb \"Order\" is used without the required one-line explanation of what the student must do. Reason: \"Order\" here is an everyday word, not an exam verb needing a gloss.\n   Reader's note: The optional gloss was not added. Order is used as an everyday instruction, which the brief explicitly says does not need a gloss."
+ },
+ "id": "RW-133",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}

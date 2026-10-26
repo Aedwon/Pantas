@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "round": 4,
+ "paths": {
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "extra_brief": {
+  "lesson-language-application-sentence-completion": "## Left open by the earlier read (RD-094)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L09 (Minor). Problem: Parirala is a Filipino grammar term used without the required English gloss on first use. Pang-ugnay has its connector gloss, but parirala has no corresponding phrase gloss anywhere in this lesson.\n   > Dapat ding akma ang buong parirala sa sinasabi ng pangungusap."
+ },
+ "id": "RW-129",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}

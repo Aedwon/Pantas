@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 6,
+ "paths": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "extra_brief": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "## Left open by the earlier read (RD-118)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-arithmetic-number-sense-sequences-and-series|L03|0`: The exam verb \"Find\" is used in a question without a one-line explanation of what the verb asks the student to do. Reason: \"Find\" is an everyday verb; a gloss is unnecessary.\n   Reader's note: Find remains without a gloss. This optional change is unnecessary because find is an everyday verb under L03."
+ },
+ "id": "RW-131",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}

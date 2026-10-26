@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-spatial-abstract-reasoning-figure-grouping",
+  "lesson-spatial-abstract-reasoning-figure-matrices"
+ ],
+ "topic": "reasoning/spatial-abstract-reasoning",
+ "round": 3,
+ "paths": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "content/lessons/reasoning/spatial-abstract-reasoning/figure-matrices.md"
+ },
+ "extra_brief": {
+  "lesson-spatial-abstract-reasoning-figure-grouping": "## Left open by the earlier read (RD-106)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: L22a limits paragraphs to one to three short sentences. This example stem is one paragraph with seven sentences; split it into shorter paragraphs.\n   > Five figures are labeled A to E. A is a small square with one dot. B is a large circle with one dot. C is a small triangle with one dot. D is a large pentagon with one dot. E is a small hexagon with two dots. Which figure does not belong?",
+  "lesson-spatial-abstract-reasoning-figure-matrices": "## Left open by the earlier read (RD-106)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: L22a allows one to three short sentences per paragraph. The Example 2 stem contains five sentences in one paragraph and needs paragraph breaks.\n   > A $3 \\times 3$ matrix shows circles with dot counts. Row $1$ has $1$, $2$, and $3$ dots. Row $2$ has $2$, $3$, and $4$ dots. Row $3$ has $3$, $4$, and a blank. How many dots should the blank cell have?"
+ },
+ "id": "RW-135",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}

@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-amending-and-revising-the-constitution",
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+  "lesson-philippine-constitution-bill-of-rights"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 8,
+ "paths": {
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md",
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "content/lessons/general-information/philippine-constitution/bill-of-rights-the-accused-and-the-trial.md",
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "## Left open by the earlier read (RD-110)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: The majority calculation is a key computation but stays in prose. Example #7 also keeps half of 600 and the comparison in prose. No solving step is missing, so this is a Minor formatting finding under L19.\n   > 2. Asking voters needs more than half, so at least $121$ votes.\n2. Rule B08 (Minor). Problem: Section numbers are numbers in prose and must be inside inline math. The same breach occurs for Section 1(2), Section 3, Section 2 and Section 4 in Core Concept and Section 2 in example #8. Top-level fractions otherwise use the correct notation.\n   > Article XVII, Section 1(1) allows Congress to propose amendments or revisions with three-fourths of all its Members.",
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": "## Left open by the earlier read (RD-138)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: The final trap explanation is one paragraph containing five sentences. L22a permits one to three short sentences per paragraph; this passage needs paragraph breaks.\n   > Section $12$ protects silence and counsel during **custodial investigation**. This is police questioning of a suspect who is held or whose freedom to act is greatly limited. Under RA 7438, it also includes police invitations to question someone about an offense they are suspected of committing. These safeguards do not apply to every general inquiry. Section $17$ separately protects against forced testimony against oneself.\n2. Rule B08 (Minor). Problem: The statute number 7438 appears in prose without inline math delimiters. B08 requires prose numbers to be wrapped even when they identify a statute.\n   > Under RA 7438, it also includes police invitations to question someone about an offense they are suspected of committing.",
+  "lesson-philippine-constitution-bill-of-rights": "## Left open by the earlier read (RD-139)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: The custodial-investigation paragraph has five sentences. Split it into paragraphs of at most three short sentences.\n   > Section $12$ protects a person during **custodial investigation**."
+ },
+ "id": "RW-127",
+ "type": "rewrite",
+ "created": "2026-10-26T13:46:08+00:00"
+}
