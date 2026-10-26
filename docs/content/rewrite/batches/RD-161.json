@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-bill-of-rights",
+  "lesson-philippine-constitution-citizenship-and-suffrage",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-bill-of-rights": "af68c3c2861c7e7f386afe6d91c12bd08000908a",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "af68c3c2861c7e7f386afe6d91c12bd08000908a",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "af68c3c2861c7e7f386afe6d91c12bd08000908a"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-bill-of-rights": "e1b37642878abf2a4c89afaa2a61ed0a4416499144d176e7e96817ebc74d1834",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "2d21d13e8b321b00213efc3360dde333b4bb53af5d76adb706f9ac1fe57a21c1",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "6022ca39f5193dbb5ef892ae7b6c7f3f0b7932c2c5abaf2e8d7aad753157ace0"
+ },
+ "paths": {
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md"
+ },
+ "id": "RD-161",
+ "type": "read",
+ "created": "2026-10-26T16:44:52+00:00"
+}
