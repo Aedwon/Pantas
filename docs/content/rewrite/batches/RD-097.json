@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-algebra-exponents-and-logarithms",
+  "lesson-algebra-types-of-functions",
+  "lesson-algebra-word-problems"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-exponents-and-logarithms": "a6992842cd86b9460d2c24a4e1c2507081c731bc",
+  "lesson-algebra-types-of-functions": "a6992842cd86b9460d2c24a4e1c2507081c731bc",
+  "lesson-algebra-word-problems": "a6992842cd86b9460d2c24a4e1c2507081c731bc"
+ },
+ "sha256": {
+  "lesson-algebra-exponents-and-logarithms": "0a482a9c104bcac571048d385e88c38d338ed85615c72b09a1ef1ab738387b06",
+  "lesson-algebra-types-of-functions": "3af13b02eb83d57930adaff22f5c195cf9d46aefd66ec3f44eb1a861836df315",
+  "lesson-algebra-word-problems": "8668201c527c888d402b3d3d74ebb8a3f61e044dba2808ba091e5493947914b3"
+ },
+ "paths": {
+  "lesson-algebra-exponents-and-logarithms": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md",
+  "lesson-algebra-word-problems": "content/lessons/mathematics/algebra/word-problems.md"
+ },
+ "id": "RD-097",
+ "type": "read",
+ "created": "2026-10-26T04:35:54+00:00"
+}
