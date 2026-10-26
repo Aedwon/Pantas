@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-vocabulary-synonyms-and-antonyms"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-synonyms-and-antonyms": "36ac99f4a1b2fcd3a183106a45ebd766a76d7402"
+ },
+ "sha256": {
+  "lesson-vocabulary-synonyms-and-antonyms": "22080f3971c7b042defc78cdfc85068ddbfb2821b59374629398944f72255020"
+ },
+ "paths": {
+  "lesson-vocabulary-synonyms-and-antonyms": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md"
+ },
+ "id": "RD-096",
+ "type": "read",
+ "created": "2026-10-26T04:34:00+00:00"
+}
