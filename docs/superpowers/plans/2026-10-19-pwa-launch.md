@@ -371,4 +371,7 @@ Publication is a separate decision under `WORKFLOW.md`.
   animation candidates during the CSE rewrite are upgraded then.
 - Parameterized question generator to replace near-duplicate questions (idea, October 25; its
   own conversation).
+- Probabilistic roadmap engine (spec `2026-10-26-prerequisite-roadmap-design.md` R3): mastery beliefs spread along
+  the lesson map, a ready-to-learn frontier, gain-per-minute scheduling with an unlock bonus, adaptive placement; and
+  the Pro knowledge map, readiness forecast and what-if screens.
 - Android and iOS store releases.

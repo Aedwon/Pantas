@@ -1819,3 +1819,20 @@ Not yet approved: deleting branches `cse-inbox/RD-003` and `cse-inbox/RD-006`.
   39 minor only, 1 parked with a Blocker after 5 rounds (`lesson-code-of-conduct-ra-6713-penalties-and-enforcement`).
   Blind-solve of 1,100 CSE questions: 1,099 agree with the key; the one mismatch is a solver error. Report:
   `docs/content/audit/cse-blind-solve-r1.md` on `content/cse-rewrite-r1`.
+
+## 2026-10-26 Roadmap dependencies and the Free and Pro split
+
+- Found: the roadmap uses four hardcoded topic links (October 1) and alphabetical lesson order; the audit's lesson
+  prerequisite map is unused.
+- Aedwon: "a strict lesson order isn't good i think. because the purpose of having the dependencies is that the roadmap
+  should recommend learning a prereq first before another lesson ... a 2nd consideration of it is the performance for
+  that lesson. think of this as a smart but systematic roadmap maker."
+- Design agreed: lesson prerequisite map with required and helpful links (content), rule-based prerequisite-aware
+  recommendations at launch (R1), probabilistic engine after launch (R3). FSRS unchanged and read-only to the planner.
+- Aedwon: "could we make a distinction for Free and Pro? just to give users a better reason to convert." Split follows
+  the existing gates: the engine is never weaker for Free; Pro gets the diagnosis, knowledge map, forecast and what-if.
+  Recommendation recorded, to confirm at kickoff: no cap on how far Free users advance.
+- Debrief gap line placement: "1 sounds good" (session-finished screen). Mockups shown in the new design.
+- Aedwon: "write up the changes for free vs pro, and also the roadmap. line it up for the engineering path, which will
+  resume once we're done here in the content". Spec `docs/superpowers/specs/2026-10-26-prerequisite-roadmap-design.md`;
+  STATUS rows R1, R2, E8; PWA plan After launch gains R3.
