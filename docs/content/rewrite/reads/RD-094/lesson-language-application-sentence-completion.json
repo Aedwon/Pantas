@@ -1,0 +1,277 @@
+{
+ "batch": "RD-094",
+ "lesson_id": "lesson-language-application-sentence-completion",
+ "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+ "lesson_sha256": "5e4b6e0e93eed5910f2d95b847b59a73b9d3835eea847ea806b8fcae12005e18",
+ "rewrite_commit": "1c1fee6472f639663891cb7433b7d8f1cd108bf7",
+ "form": {
+  "packet": "lesson-language-application-sentence-completion",
+  "role": "A",
+  "lesson_sha256": "5e4b6e0e93eed5910f2d95b847b59a73b9d3835eea847ea806b8fcae12005e18",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the meanings of although/despite/however, because, therefore and for example against their use in the lesson. They correctly distinguish contrast, reason, result and illustration.",
+     "Checked subject agreement, simple/progressive/perfect past constructions, want plus to-infinitive, enjoy plus -ing, sound-based a/an, contextual the, fixed interested in, and parallel -ing lists. No incorrect grammar statement found.",
+     "Strong evidence, keep an eye on, malaking tulong and the Filipino past form ipinasa fit the stated meanings. No specific-exam fact is asserted. No outside source is supplied or consulted; official Filipino usage still needs L11 checking."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved independently: #1 B successful; #2 C unsafe; #3 B thorough, nervous; #4 C approved. The revised alternatives in #3 no longer offer the competing careless/confident contrast.",
+     "#5 B check; #6 had finished and was reading; #7 B to leave, talking; #8 A strong; #9 B in; #10 B the, an. All match the supplied solutions.",
+     "#11 B filing; #12 A For example; #13 B eye; #14 B ipinasa; #15 B kaya; #16 A tulong. Checked each completed sentence for grammar and contextual meaning before comparing its answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The brief requests no figures and no question depends on a visual.",
+     "Compared the supplied brief with the text: collocation, several grammar eliminators, revised two-blank choices, simpler numbered solutions, and Filipino completion teaching are all present. No separate outline entry was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English teaching paragraphs and solutions. Former jargon lists are replaced with short definitions and concrete contrasts such as clear answer/answer clearly and clerk works/clerks work.",
+     "The old standalone sentence/finite verb solution is gone. Remaining terms such as past participle, preposition, collocation and idiom are explained in ordinary words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Choose, complete, check, predict and reread have their ordinary meanings in these tasks. No unexplained evaluate, infer, classify or other exam-specific instruction word appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used; examples of actual sentences teach the rules directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each example explicitly asks for a completion or pair and provides its sentence and choices. Necessary context includes yesterday, every morning, an earlier introduction of the envelope, and the interrupted reading in Example 6.",
+     "No stem gives a grammar formula or tells the student the selection rule. Solutions use plain explanations of meaning, time, word role or fixed expression.",
+     "Checked the progression from one meaning blank to two blanks, verb form, agreement, combined past forms, complements and contextual articles. Some distractors are basic, but basic items are allowed in the ramp and the later tasks combine clues."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or unsupported claims about the format of a named exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino Core Concept paragraphs and Examples 14–16. Their teaching and solutions use short Filipino sentences about familiar application, weather, and teacher-help situations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Dapat ding akma ang buong parirala sa sinasabi ng pangungusap.",
+      "problem": "Parirala is a Filipino grammar term used without the required English gloss on first use. Pang-ugnay has its connector gloss, but parirala has no corresponding phrase gloss anywhere in this lesson."
+     }
+    ]
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 14–16 have Filipino stems, sample sentences, choices and explanatory solution prose. Examples 1–13 belong to the separate English portion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino prose and completion examples require official KWF usage checking, which cannot be done from the supplied prompt alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section uses Filipino teaching prose. The single connector gloss is required terminology support; no unnecessary English words are mixed into its sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No example asks about a target word in a supplied sentence; these are completion tasks, not bold-word meaning questions.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly names the completion clues. No banned stock phrase appears, and the teaching paragraphs vary their sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The Language Proficiency layout uses Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For, which is permitted. No worked example uses a mathematical formula; the formula-before-example requirement has no formula instance here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped distinct meaning cases: contrast #1, cause/result #2, interacting blanks #3, illustration #12, and idiom #13.",
+     "Mapped grammar and usage cases: main verb/word form #4, agreement #5, earlier/ongoing past #6, verb complements #7, collocation #8, preposition #9, articles/context #10, parallel list #11.",
+     "Filipino contextual time/form #14, linking meaning #15, and natural word combination #16 cover the added Filipino completion facet. Examples move from direct meaning clues to combined choices. No brief-required completion case remains absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–8, 10–12 and 14–16 use numbered reasoning steps. Examples 9 and 13 each give one fixed-expression answer directly, which permits a one-step solution. No computational step or display equation is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to measure against phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked teaching and trap paragraphs for the one-to-three-sentence limit. Multi-step reasoning is in numbered lists, and there are no long bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No figure or illustration placeholder appears, and the completion questions are fully verbal.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Word form, noun, adjective and adverb are defined before their application. Agreement is introduced with singular/plural sentence pairs. Past participle and the three past constructions are explained before Example 6.",
+     "Countable noun, a/an sounds, contextual the, prepositions, parallel structure, collocation and idiom each get local meaning and examples before the worked tasks.",
+     "The Filipino section explains linking words through reason, result and contrast and gives natural word combinations. No finite verb terminology remains. Parirala lacks its English gloss under L09, but its ordinary phrase meaning is shown by the adjacent combinations malaking tulong and matinding ulan."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Meaning clues explain the links they signal and require checking both ideas. Word-form teaching explains the job of a blank rather than only naming grammar categories.",
+     "Agreement, past forms, verb complements, articles and prepositions each show how a completion is selected. Parallel structure demonstrates shared -ing forms; collocation and idiom show whole expressions and their meanings.",
+     "Filipino instruction links a past-time cue to completed action, explains dahil/kaya/ngunit, and demonstrates natural combinations. Examples 14–16 apply these checks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson warns against deciding from a signal word alone or solving only one blank. Each completed sentence must fit both meaning and grammar.",
+     "Past perfect is limited to making an earlier past action clear, and simple past may be enough for a finished event. Verb-complement patterns must be learned with the governing verb.",
+     "A/an applies to one countable item not already identified and is chosen by sound. The applies when context identifies the referent. Prepositions depend on fixed phrase and intended meaning; matching forms apply to items doing the same job."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-language-application-sentence-completion|L18|1": {
+    "status": "fixed",
+    "quote": "**Strong evidence** is the usual combination for convincing support. Choose **(A)**.",
+    "note": "Example 8 now requires choosing the natural collocation strong evidence."
+   },
+   "lesson-language-application-sentence-completion|L18|2": {
+    "status": "fixed",
+    "quote": "The first blank points to the envelope already introduced. Use **the**.",
+    "note": "Examples 9–11 now work prepositions, contextual articles, and parallel structure beyond verb form."
+   },
+   "lesson-language-application-sentence-completion|L26|0": {
+    "status": "fixed",
+    "quote": "Use *want to go*, with *to* plus the base verb. Use *enjoy reading*, with an *-ing* form.",
+    "note": "The named grammar checks now have local explanations and sentence patterns, including verb complements."
+   },
+   "lesson-language-application-sentence-completion|B02|0": {
+    "status": "fixed",
+    "quote": "(A) thorough, relaxed",
+    "note": "Checked every pair: only thorough/nervous gives the intended despite contrast. The competing careless/confident pair is removed."
+   },
+   "lesson-language-application-sentence-completion|L02|0": {
+    "status": "fixed",
+    "quote": "**Subject-verb agreement** means matching the subject and verb.",
+    "note": "The old stacked grammar-term sentence is replaced by separate, simple explanations."
+   },
+   "lesson-language-application-sentence-completion|L05|0": {
+    "status": "fixed",
+    "quote": "*Yesterday* places the completed decision in the past.",
+    "note": "Example 4 now explains the answer with the time clue and main verb, without the old abstract wording."
+   },
+   "lesson-language-application-sentence-completion|L19|0": {
+    "status": "fixed",
+    "quote": "1. *Although* links the bad forecast to an unexpected outcome.",
+    "note": "The contrast solution and all other multi-step solutions now use numbered steps."
+   },
+   "lesson-language-application-sentence-completion|L25|0": {
+    "status": "fixed",
+    "quote": "**Parallel structure** uses matching forms for items doing the same job.",
+    "note": "Grammar terms are explained before use, with separate teaching for agreement, verb forms, articles, prepositions and parallel structure."
+   },
+   "lesson-language-application-sentence-completion|L25|1": {
+    "status": "fixed",
+    "quote": "The sentence needs a main verb after *the committee*.",
+    "note": "The unexplained finite verb term is removed from the solution."
+   },
+   "lesson-language-application-sentence-completion|L02|1": {
+    "status": "fixed",
+    "quote": "Read signal words and the ideas they connect.",
+    "note": "The old discourse-relations and nuanced wording is replaced by a direct meaning check."
+   },
+   "lesson-language-application-sentence-completion|L18|0": {
+    "status": "fixed",
+    "quote": "**For example**, choice **(A)**, introduces that case.",
+    "note": "Example 2 covers cause/result and Example 12 now adds an illustration relation."
+   }
+  }
+ }
+}
