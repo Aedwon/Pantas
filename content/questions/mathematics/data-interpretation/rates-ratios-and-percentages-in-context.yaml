@@ -260,7 +260,7 @@ questions:
       | Engineering | 300 | 200 |
       | Education | 150 | 450 |
 
-      By how many percentage points does the female share of Education graduates exceed that of Engineering graduates?
+      By how many percentage points does the female share of Education graduates exceed that of Engineering graduates? Use the difference between their percentages.
     choices:
       - text: '$35$ points'
         correct: true
