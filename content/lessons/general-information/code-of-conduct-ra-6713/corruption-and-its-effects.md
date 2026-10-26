@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 12
 isActive: true
 ---
-<!-- Audit: RW-107; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: supplied primary-source excerpts and current Lawphil checks of RA 3019 Section 3(b), (e), (g), (h), (k), RA 7080 Sections 1(d) and 2, RA 7659 Section 12, RA 11032 Sections 4 and 9, Constitution Article XI Sections 1, 2, 3, 4, 17, and RA 6713 Sections 3(c) and 7(d). Supplied verified sources: RA 6770 Section 13 and BP 881 Section 261(a). RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative cause-and-effect explanations, not measured claims. All case facts are hypothetical. -->
+<!-- Audit: RW-116; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: primary legal provisions and verification supplied in the assignment: RA 3019 Section 3(b), (e), (g), (h), (k); RA 7080 Sections 1(d) and 2; RA 7659 Section 12; RA 11032 Sections 4 and 9; Constitution Article XI Sections 1, 2, 3, 4, 17; RA 6713 Sections 3(c) and 7(d); RA 6770 Section 13; BP 881 Section 261(a). No fresh source access is claimed. RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative cause-and-effect explanations, not measured claims. All case facts are hypothetical. -->
 ## Core Concept
 
 ### What corruption is
@@ -23,9 +23,13 @@ Public interest means putting people's needs before personal gain. Simple living
 **Graft and corrupt practices** include acts under RA $3019$, Section $3$:
 
 - Section $3(b)$: seeking or receiving benefits tied to a government contract or transaction the officer must handle under law.
-- Section $3(e)$: causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence. These mean clear favoritism, clearly dishonest intent, or extreme carelessness with no excuse.
+- Section $3(e)$: causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence.
 - Section $3(h)$: holding a money interest in a transaction the officer officially handles, or an interest forbidden by law.
 - Section $3(k)$: giving valuable confidential office information to unauthorized people or releasing it early.
+
+In Section $3(e)$, **undue injury** means unjust harm. **Unwarranted benefits** are advantages with no proper basis. The clause covers harm to any party, including the government, or such benefits given to a private party.
+
+**Manifest partiality** means clear favoritism. **Evident bad faith** means clearly dishonest intent. **Gross inexcusable negligence** means extreme carelessness with no excuse.
 
 Section $3(g)$ covers clearly and greatly harmful government contracts even without private profit. Each clause has conditions. A bad result alone does not prove every condition.
 
@@ -68,6 +72,8 @@ RA $6713$, Section $7(d)$ sets gift restrictions. Section $3(c)$ excludes unsoli
 ### Weighing the effects
 
 “Evaluate” means judge a claim using reasons. Separate the act from its results. One act can cause social, economic, and political harm at once.
+
+“Classify” means sort into groups. To classify an effect, look at the main harm described: harm to people's lives, harm to resources, or harm to public accountability.
 
 ## Examples
 
