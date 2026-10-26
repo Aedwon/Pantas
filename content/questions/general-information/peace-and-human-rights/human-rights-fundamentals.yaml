@@ -33,25 +33,25 @@ questions:
 - id: q-peace-and-human-rights-human-rights-fundamentals-0002
   type: single_choice
   difficulty: easy
-  stem: 'What is the title of Article XIII?
+  stem: 'Which statement describes Article XIII in the lesson?
 
     '
   choices:
-  - text: Social Justice and Human Rights
+  - text: It creates the Commission on Human Rights.
     correct: true
-  - text: Bill of Rights and Constitutional Freedoms
-    rationale: 'This substitutes Article III''s subject. Both protect rights. Check the article number.
+  - text: It contains the Bill of Rights.
+    rationale: 'This substitutes Article III''s role. Both concern rights. Check which article creates CHR.
 
       '
-  - text: General Provisions and Public Office Rules
-    rationale: 'This substitutes a broad constitutional category. Institutions follow public rules. Check Article XIII''s exact heading.
+  - text: It allows CHR to impose criminal sentences.
+    rationale: 'This gives CHR a court''s power. CHR investigates violations. Courts decide criminal guilt.
 
       '
-  - text: Declaration of Principles and State Policies
-    rationale: 'This substitutes Article II''s heading. Principles include respect for rights. Check the title attached to XIII.
+  - text: It places CHR under the control of a government department.
+    rationale: 'This removes CHR''s independence. Check how independence helps CHR investigate government conduct.
 
       '
-  explanation: 'Article XIII is titled Social Justice and Human Rights.
+  explanation: 'Article XIII creates the independent Commission on Human Rights.
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0003
@@ -352,14 +352,14 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'The lesson lists nationality, religion, language, and any other status. How should that list be read?
+  stem: 'The lesson says rights belong to everyone and lists race, sex, religion, language, nationality, and where someone lives. How should that list be read?
 
     '
   choices:
   - text: It gives examples, not an exclusive list.
     correct: true
   - text: It permits denial of basic human rights on every status not specifically named.
-    rationale: 'This treats examples as a closed list. Named categories are easiest to recall. Check the phrase any other status.
+    rationale: 'This treats examples as a closed list. Named categories are easiest to recall. Check the rule that rights belong to everyone.
 
       '
   - text: It requires a person to possess every listed status before having human rights.
@@ -370,14 +370,14 @@ questions:
     rationale: 'This treats a universal rule as a menu. Several statuses are mentioned. Check whether everyone remains within the principle.
 
       '
-  explanation: 'The lesson begins with rights for all human beings and ends its examples with any other status. The examples illustrate broad protection instead of limiting it.
+  explanation: 'The lesson says rights belong to everyone. Its list gives examples of differences that do not take away human rights.
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0016
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'What does the phrase ''at all times'' describe in the lesson?
+  stem: 'What follows from the lesson''s statement that government human-rights duties continue in peace and during armed conflict?
 
     '
   choices:
@@ -395,7 +395,7 @@ questions:
     rationale: 'This confuses legal continuity with service hours. Offices work on schedules. Check rights versus administrative opening times.
 
       '
-  explanation: 'At all times means the human-rights framework applies in both peace and conflict. It describes continuity, not an automatic result for every case.
+  explanation: 'The human-rights framework applies in both peace and armed conflict. Some rights allow lawful limits, but an emergency does not erase all rights.
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0017
