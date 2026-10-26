@@ -317,26 +317,26 @@ questions:
     type: "error-identification"
     difficulty: "medium"
     stem: |
-      Identify the part of the sentence that contains an error.
+      The review was complete before the error was caught. Identify the part with an incorrect past participle.
 
-      "If the analysts would have reviewed the statistical data earlier, they would have caught the error before publication."
+      "The analysts had review the statistical data before they caught the error."
     choices:
-      - text: "If the analysts"
+      - text: "The analysts"
         rationale: |
-          This flags the subject instead of the conditional verb. The clause begins with "if," so its opening may draw attention. Check the verb pattern for an unreal past condition.
-      - text: "would have reviewed"
+          This flags the subject instead of the verb form. Check the word after "had".
+      - text: "had review"
         correct: true
-      - text: "the statistical data earlier,"
+      - text: "the statistical data"
         rationale: |
-          This flags the object and time phrase. The time word "earlier" may look like the cause of the tense problem. Check which words form the verb in the if-clause.
-      - text: "they would have caught"
+          This flags the object of the review. Check which words form the past-perfect verb group.
+      - text: "before they caught the error."
         rationale: |
-          This applies the if-clause rule to the result clause. Both describe a past event that did not happen, so their verb forms may seem interchangeable. Check which clause states the result.
+          This rejects the simple past for the later event. Check which action was already complete before that event.
       - text: "No error"
         rationale: |
-          This accepts a result-clause verb pattern inside the if-clause. The repeated "would have" may sound balanced. Check that the unreal past condition uses "had" with a past participle.
+          This accepts a base verb after "had". Check that the past perfect uses "had" with a past participle.
     explanation: |
-      This sentence imagines a different past. The condition needs "had reviewed," and the result uses "would have caught." The corrected sentence begins, "If the analysts had reviewed the statistical data earlier."
+      The past perfect uses "had" plus a past participle. Change "had review" to "had reviewed" to show that the review was complete before the error was caught.
   - id: "q-language-application-error-identification-0015"
     type: "error-identification"
     difficulty: "medium"
@@ -420,39 +420,39 @@ questions:
     type: "error-identification"
     difficulty: "hard"
     stem: |
-      Preserve the completed past event in "The courier delivered the documents." Which passive verb completes "The documents ___ by the courier"?
+      The documents arrived yesterday. Preserve that completed past event when choosing the verb form: "The documents ___ by the courier yesterday."
     choices:
       - text: "were delivered"
         correct: true
       - text: "are being delivered"
         rationale: |
-          This changes the completed past event into ongoing present delivery. It is a grammatical passive form. Check: preserve both time and completion.
+          This changes the completed past event into ongoing present delivery. Check the past-time clue "yesterday".
       - text: "have delivered"
         rationale: |
-          This makes the documents the actors. The form sounds like a completed action. Check: check whether the subject performs or receives delivery.
+          This makes the documents the actors. Check whether the documents performed the delivery action.
       - text: "will be delivered"
         rationale: |
-          This changes the event to future time. It is a grammatical passive form. Check: keep the original past event.
+          This changes the event to future time. Check the past-time clue "yesterday".
     explanation: |
-      The documents receive the delivery action. "Were delivered" forms the plural past passive and preserves the completed event.
+      "Yesterday" places the finished delivery in the past. "Were delivered" keeps that past time and agrees with the plural subject "documents".
     approved: false
   - id: "q-language-application-error-identification-0020"
     type: "error-identification"
     difficulty: "exam"
     stem: |
-      The phrase "the cashier on duty" adds extra information about Mika. Which sentence correctly sets off that whole phrase?
+      Mika was the cashier on duty. Which sentence correctly joins the two complete thoughts without adding a cause or result?
     choices:
-      - text: "Mika, the cashier on duty, counted the receipts."
+      - text: "Mika was the cashier on duty; she counted the receipts."
         correct: true
-      - text: "Mika, the cashier, on duty counted the receipts."
+      - text: "Mika was the cashier on duty, she counted the receipts."
         rationale: |
-          This closes the added description before "on duty." Two commas make the sentence look balanced. Check: include every word of the specified extra phrase.
-      - text: "Mika the cashier, on duty, counted the receipts."
+          This joins two independent clauses with only a comma. Check whether each side can stand alone.
+      - text: "Mika was the cashier on duty she counted the receipts."
         rationale: |
-          This puts the commas around only "on duty." That part also sounds like extra information. Check: set off the complete phrase named in the stem.
-      - text: "Mika, the cashier on duty counted, the receipts."
+          This runs two independent clauses together without punctuation or a joining word. Check where the first complete thought ends.
+      - text: "Mika was the cashier on duty. she counted the receipts."
         rationale: |
-          This includes the main verb inside the added description. The comma after the name gives the first boundary correctly. Check: close the extra phrase before the main action verb.
+          This separates the clauses with a period but leaves the next sentence with a lowercase first letter. Check the letter after the period.
     explanation: |
-      The entire added noun phrase is "the cashier on duty." One comma comes before it and another comes after it, leaving "Mika counted the receipts" as the main clause.
+      "Mika was the cashier on duty" and "she counted the receipts" are independent clauses. A semicolon joins them without adding a cause or result.
     approved: false
