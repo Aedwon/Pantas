@@ -114,7 +114,19 @@ What makes the sign in this cartoon ironic?
 1. The sign promises fast service, but the line and snail suggest slow service.
 2. This gap creates irony. The snail also compares the service process to a slow animal.
 
-### #4: Ranking Bar Values
+### #4: Contrasting Words and Actions
+
+How do the official's features and the side-by-side scenes support the cartoon's message?
+
+<!-- ILLUSTRATION: editorial cartoon with two side-by-side scenes featuring the same fictional official labeled "Official"; left scene shows the official with an extremely large mouth speaking into many microphones beside a sign "Public promises"; right scene shows the official with tiny hands beside a large pile of untouched repair requests and a sign "Public work"; keep the official's face and clothes recognizable in both scenes -->
+
+**Solution:**
+
+1. The very large mouth and tiny hands exaggerate the official's features. This caricature suggests much talk and little work.
+2. Placing the scenes side by side creates juxtaposition. Readers can compare the public promises with the untouched requests.
+3. Together, these details criticize an official who makes promises but does little to carry them out. The cartoon does not identify a real person or prove a claim about one.
+
+### #5: Ranking Bar Values
 
 The chart shows monthly sales. Which month has the second-highest sales, and what is the full order from highest to lowest?
 
@@ -126,7 +138,7 @@ The chart shows monthly sales. Which month has the second-highest sales, and wha
 2. Compare the values from greatest to least: April, February, March, January.
 3. February is second-highest. Its bar reaches $70$ thousand pesos.
 
-### #5: A Truncated Bar Axis
+### #6: A Truncated Bar Axis
 
 Does the chart show that Brand A's value is five times Brand B's value? Explain using the scale.
 
@@ -152,7 +164,7 @@ $$
 
 3. Brand A's value is only about $1.05$ times Brand B's. The truncated scale makes the difference look much larger.
 
-### #6: Line-Chart Changes
+### #7: Line-Chart Changes
 
 According to the line chart, during which interval did requests fall? What was the increase from Monday to Thursday?
 
@@ -169,7 +181,7 @@ $$
 
 3. Requests increased by $15$ overall. The axis starts at $40$, so use the point values to measure change.
 
-### #7: Reading a Pie Sector
+### #8: Reading a Pie Sector
 
 The pie chart shows how $120$ requests were sent. How many were sent online?
 
@@ -191,7 +203,7 @@ $$
 
 3. The chart shows $60$ online requests. The online sector also takes up half the circle's area.
 
-### #8: Matching a Table to a Statement
+### #9: Matching a Table to a Statement
 
 Using the table, compare Center B's afternoon total with its morning total. Complete the statement: “Center B handled ___ more requests in the afternoon than in the morning.”
 
