@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-accountability-and-impeachment"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "5208c3fba320683aebdb02a5388506f36d09c66f"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "d9802c76400a5ff20b8c3a03e54eded6bec2406b38963ab8e152b4a84704125b"
+ },
+ "paths": {
+  "lesson-philippine-constitution-accountability-and-impeachment": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md"
+ },
+ "id": "RD-148",
+ "type": "read",
+ "created": "2026-10-26T13:31:43+00:00"
+}
