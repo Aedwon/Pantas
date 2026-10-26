@@ -1,0 +1,216 @@
+{
+ "batch": "RD-166",
+ "lesson_id": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+ "path": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+ "lesson_sha256": "096367d63f3f4b8175b26bc89180123dea0a86c31157b457b9594c0a2058cbd7",
+ "rewrite_commit": "5541edce0dd6e95845c45e421a79500ec3ca89cf",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "role": "A",
+  "lesson_sha256": "096367d63f3f4b8175b26bc89180123dea0a86c31157b457b9594c0a2058cbd7",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the constitutional claims with the provisions identified in the supplied brief: Articles VI (membership, terms, bill origination, inquiries, budget, war and veto), VII (term, succession, appointments, emergency powers, clemency and treaties), VIII (judicial power, composition, appointments and qualifications), IX-C/IX-D (commission qualifications) and XI (Ombudsman). No factual contradiction identified.",
+     "Checked potentially misleading qualifications: the House size is expressly subject to later law; party-list share includes party-list members in its denominator; war votes are separate; judicial appointments require no confirmation; lower collegiate judges must be natural-born; COA cannot consist entirely of one profession.",
+     "The exact judicial-power quotation matches the constitutional wording as recalled. Election-offense clemency requires COMELEC recommendation; the suspension discussion includes the three-day charge-or-release condition. External source verification was outside this prompt-only assignment."
+    ],
+    "note": "Accuracy judgment is limited to the supplied material and constitutional knowledge; no outside source was opened.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 legislative/Congress, executive/President, judicial/courts; #2 Senate six years/two consecutive terms, House three years/three consecutive terms; #3 revenue must originate in House, education need not unless a listed category applies.",
+     "#4 No: published rules and protection of rights remain necessary. #5 No increase in the specified recommended appropriations. #6 No pooling: joint session, separate votes. #7 200 of 300 House Members and 16 of 24 Senators.",
+     "#8 Ambassador requires consent, Supreme Court Justice does not. #9 Initial limit 60 days, report within 48 hours, congressional revocation and judicial review; release after three days without charge; no impeachment pardon, no election-offense pardon without COMELEC recommendation, no amnesty without congressional concurrence.",
+     "#10 16 Senators. #11 15 Members; divisions of three, five or seven; courts exercise judicial review for constitutional conflict. #12 Ana qualifies by age for Representative; Ben for Representative and Senator; Cara for all three.",
+     "#13 Fourteen years is insufficient for Supreme Court appointment; lower-court qualifications also depend on law and natural-born status for collegiate courts. #14 Prior candidacy bars COMELEC and COA appointment; age 35 is too young for Ombudsman. #15 Congress exercises override; court exercises judicial review. All match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept covers the three branches, Congress's composition and powers, presidential powers and succession, courts, officer qualifications and checks and balances. Examples, Speed Tricks & Shortcuts and Traps to Watch For are present.",
+     "Mapped all fourteen proposed example cases to the fifteen supplied examples: branch matching 1; terms 2; origination 3; veto 7; consent 8; emergency powers and clemency 9; treaty 10; composition/review 11; ages 12; judicial qualifications 13; other offices 14; mixed checks 15. Additional inquiry, budget and war examples are 4–6.",
+     "Four requested learning figures have specific placeholders: branch columns, martial-law timeline, qualification ladder and checks-and-balances arrows. No question depends on an absent exam figure."
+    ],
+    "note": "The conditional cap of twelve examples applies if the word budget is tight; it is not an unconditional limit.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions translate legislative/executive power, at large, originate, veto, override, concurrence, en banc, natural-born citizenship, CPA and auditing into plain English.",
+     "The required verbatim constitutional quotation is followed by two short explanatory sentences. Most surrounding prose explains one legal rule at a time without filler."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a first-use gloss appears; questions use ordinary words such as which, what and how many.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Questions supply the hypothetical membership counts, candidate ages and credentials, emergency duration and procedural facts needed to answer. They leave the constitutional rules to student knowledge.",
+     "Example 12 expressly supplies satisfaction of other requirements, so its age-only answers are determinate. The examples progress from naming branches to applying several constitutional checks. Solutions use direct English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam-promotional openings or unsupported claims about CSE frequency or format appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose, grammar instruction or Filipino examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose, grammar instruction or Filipino examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose, grammar instruction or Filipino examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose, grammar instruction or Filipino examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching prose, grammar instruction or Filipino examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a designated target word or refers to an underlined or bold target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the content directly. No listed stock AI phrase appears. Sentence openings vary across the explanations and examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples and Traps, with an optional genuine threshold/age shortcut section. No forced mnemonic is included.",
+     "Examples 7 and 10 calculate two-thirds times membership. Core Concept introduces the two-thirds-of-all rule under veto override and treaties. Example 11 adds the Chief Justice to fourteen Associate Justices, both introduced in Judicial power. The special requirement for prior display of every formula applies to Mathematics and quantitative Science, not this subject."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Distinct cases include branch matching, term limits, House origination, inquiry safeguards, budget restriction, separate war votes, override arithmetic, appointment confirmation, emergency/clemency limits, treaty arithmetic, court composition/review, age comparisons, judicial experience and commission candidacy disqualification.",
+     "The last example combines override with judicial review. The repeated two-thirds arithmetic tests different constitutional voting bodies. Earlier basic identification supports later application; no distinct required example case is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples with multiple reasoning stages use numbered solutions. The override calculations and treaty calculation have separate narrow display equations. The terms answer and budget answer are direct responses requiring no intermediate calculation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "All three display equations contain only a two-thirds multiplication and its result: 300 gives 200, and 24 gives 16 twice. They fit a phone-width line."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Representatives serve $3$ years, with at most $3$ consecutive terms (Section $7$). Consecutive means in a row, not a lifetime total. For both Houses, Article VI, Sections $4$ and $7$ state: \"Voluntary renunciation of the office for any length of time shall not be considered as an interruption in the continuity of his service for the full term for which he was elected.\" This means choosing to give up the office does not break the term count.",
+      "problem": "This paragraph exceeds the limit of three short sentences. Separate the term rule, constitutional quotation and explanation into shorter paragraphs."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the four one-line placeholders specifies labels and structure an artist can draw. The timeline separates the 48-hour report, 60-day initial limit and three-day detention rule. The ladder warns that age alone does not qualify a person.",
+     "All accompanying concepts are fully stated in prose. No placeholder carries facts absent from the surrounding lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson defines branch powers, bill, origination, appropriation, veto, override and all Members before application. Emergency powers introduce martial law and the writ before their limits. Judicial review, en banc and the Judicial and Bar Council are defined before examples.",
+     "Qualification teaching defines natural-born citizenship, Bar membership, collegiate courts, judicial character terms, CPA and auditing. The citizenship special case and CSC row are expressly referred to named lessons; neither is needed to solve the supplied cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Congress is taught through lawmaking, origination, inquiry, appropriation and voting rules; executive power through control, appointments, succession and bounded emergency/clemency powers; judicial power through actual disputes and review of unconstitutional acts.",
+     "Officer eligibility compares ages, citizenship, residence, experience, professional mix and prior candidacy. Checks and balances identify the acting body and its limiting power. The lesson teaches these concepts locally instead of relying on bare prerequisite names."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "House size includes the unless-law-fixes-otherwise qualification; term limits distinguish consecutive terms from lifetime totals and address voluntary renunciation. District voter/residence requirements exclude party-list representatives.",
+     "Emergency power requires invasion or rebellion plus public safety, includes initial duration, reporting, revocation, extension, judicial review and detention safeguards. Pardon requires final conviction and excludes impeachment; election clemency and amnesty have their stated concurrence conditions.",
+     "Appointment rules distinguish listed executive offices, constitutional commissions, judges and the Vice-President in Cabinet. Judicial review requires a proper case. Age is expressly insufficient alone; lower collegiate courts and other qualifications are distinguished."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
