@@ -294,20 +294,20 @@ questions:
   type: dual-citizenship-and-allegiance
   difficulty: hard
   stem: |
-    A child acquires Philippine citizenship through a Filipino parent and foreign citizenship through the foreign country's birth laws. No positive act of loyalty to both states is shown. Which conclusion is justified?
+    A child acquires Philippine citizenship through a Filipino parent and foreign citizenship through the foreign country's birth laws. No voluntary loyalty to both states is shown. Which conclusion is justified?
   choices:
   - text: The child automatically loses Philippine citizenship because two citizenships are prohibited.
     rationale: Dual citizenship can arise from different national laws. It does not automatically remove Philippine citizenship.
   - text: The two citizenships alone establish harmful dual allegiance under Article IV, Section 5.
-    rationale: Dual allegiance involves a positive act of loyalty to two states. Two citizenships alone do not establish it.
+    rationale: Dual allegiance involves voluntarily owing loyalty to two states. Two citizenships alone do not establish it.
   - text: The child has dual citizenship, which alone does not prove dual allegiance.
     correct: true
   - text: The child must undergo naturalization before being recognized as a Philippine citizen.
     rationale: The Filipino-parent rule already grants Philippine citizenship from birth in the stated case.
   explanation: |
     Different citizenship laws can give a child two citizenships. That fact
-    alone does not prove dual allegiance. The lesson cites Mercado v. Manzano
-    for this distinction. Article IV, Section 5 addresses dual allegiance.
+    alone does not prove dual allegiance. Dual allegiance involves voluntarily
+    owing loyalty to two states. Article IV, Section 5 addresses dual allegiance.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0017
   type: accessible-independent-voting
@@ -336,7 +336,7 @@ questions:
   choices:
   - text: Merely attach proof of the citizenship oath, with no separate renunciation.
     rationale: The reacquisition oath alone does not satisfy the separate rule for elective public office.
-  - text: Personally make a sworn renunciation of all foreign citizenship when filing the certificate of candidacy.
+  - text: Personally make a sworn renunciation of all foreign citizenship before an authorized officer when filing the certificate of candidacy.
     correct: true
   - text: Promise privately to renounce foreign citizenship after winning the election.
     rationale: The law requires a personal sworn renunciation at the time of filing, not a private promise after election.
@@ -345,8 +345,9 @@ questions:
   explanation: |
     Reacquiring citizenship and qualifying to run for office have separate
     requirements. Section 5(2) requires a personal sworn renunciation of all
-    foreign citizenship when the certificate of candidacy is filed. The
-    candidate must also meet the qualifications for the office.
+    foreign citizenship before an authorized officer when the certificate of
+    candidacy is filed. The candidate must also meet the qualifications for
+    the office.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0019
   type: election-day-qualification
