@@ -1,0 +1,210 @@
+{
+ "batch": "RD-143",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "1908d22f5deead7596c20f055f6b1ce7edd68a0c98c9f0b1a556332520b039c8",
+ "rewrite_commit": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "1908d22f5deead7596c20f055f6b1ce7edd68a0c98c9f0b1a556332520b039c8",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The loss and its amount must be stated and proved beyond reasonable doubt.",
+      "problem": "This added judicial proof requirement is not confirmed by the primary-source descriptions supplied in this packet. RA 3019 Section 3(e) is identified, but the packet supplies no decision establishing this detailed evidentiary rule. It cannot be independently confirmed within the assigned evidence."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 demand for money; 2 bribery; 3 RA 3019 Section 3(b); 4 repeated kickbacks and exactly fifty million meet the stated means and threshold; 5 social; 6 inflated bills consume funds and reduce classrooms; 7 political; 8 social, economic, political respectively; 9 Ombudsman; 10 posted rules expose extra demands; 11 false, because services and accountability also suffer. All match the worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples and Traps are present; all eleven requested cases appear. Forms, three effect groups, State responses and weighing effects are taught. Effects map, complaint-routing diagram and cost chain each have a specific placeholder. No Speed Tricks section is required or included."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $3(e)$: causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence while carrying out official duties.",
+      "problem": "This teaching bullet stacks several difficult legal phrases in one long sentence. Later definitions help with meaning but do not make the initial teaching sentence Grade-5-simple; split the conditions into short explanations."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate and classify each receive a one-line meaning before the examples use them. No other unexplained exam-specific instruction verb appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the eleven stems supplies its case facts without supplying the tested rule. Example 4 asks only whether means and amount fit, so its facts support the limited answer. Short written questions fit the taught classification and legal-rule tasks; solutions explain in plain terms apart from the separately flagged Core Concept density."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or test-maker openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the subject plainly; no listed stock phrases or three identical consecutive sentence openings found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples and Traps. No mathematical formula is used in a solution; the plunder threshold is introduced in Forms before Example 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases map to Examples 1 misuse versus mistake, 2 bribery, 3 contract gift, 4 threshold and series, 5 social, 6 economic chain, 7 political, 8 mixed effects, 9 complaint office, 10 prevention, 11 evaluating a budget-only claim. The ramp moves from recognition to combined reasoning without number-only duplicates."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4, 6, 8 and 11 number their reasoning steps. Other solutions give a direct classification or one short reason. No arithmetic computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "In Section $3(e)$, **undue injury** means actual loss or damage.",
+      "problem": "The paragraph beginning here contains seven sentences, including the definitions of unwarranted benefits and the separate injury and benefit grounds. The limit is one to three short sentences per paragraph."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All three placeholders are single-line drawing instructions: a labeled three-arm effects map, distinct complaint and court boxes, and a labeled three-box cost chain. Nearby prose explains the ideas without requiring the drawings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Corruption, public interest, simple living, bribery, injury, benefits, the three fault terms, plunder, ill-gotten wealth, kickback, red tape and fixer receive meanings locally. Effects groups, accountability, Ombudsman, court, impeachment and SALN are explained before the examples. Gift exceptions receive a local reminder and a named duties-lesson reference."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson connects misuse to private gain, illustrates each listed legal form, traces how lost resources harm services, and distinguishes social lives, economic resources and political accountability. State bodies and SALN are described by their functions, not just named."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Forms state statutory connections and fault conditions; contract harm can exist without profit. Plunder excludes lawful wealth and uses the amended threshold. Processing includes complete requirements, applicable fees, extensions, pauses and council exceptions. Gifts require more than small value; delay and bad outcomes alone do not prove corruption. Mixed effects are classified by the main harm."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "The loss and its amount must be stated and proved beyond reasonable doubt.",
+    "concern": "The supplied source descriptions do not establish this detailed rule about proving the amount of injury. It needs a verified judicial source before acceptance."
+   }
+  ],
+  "brief_items": {}
+ }
+}
