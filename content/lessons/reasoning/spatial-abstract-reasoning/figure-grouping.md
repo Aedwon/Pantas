@@ -1,31 +1,31 @@
 ---
 _id: "lesson-spatial-abstract-reasoning-figure-grouping"
 title: "Figure Grouping (Identifying the Odd-One-Out)"
-summary: "Learn how to find the rule shared by most figures and identify the one figure that breaks it."
+summary: "Find a rule shared by most figures and choose the figure that breaks it."
 subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
-estimatedMinutes: 10
+estimatedMinutes: 12
 isActive: true
 ---
 ## Core Concept
 
-**Figure grouping** questions show several figures. Most figures follow one clear rule. One figure does not.
+**Figure grouping** questions show several figures. Most figures follow one rule. The **odd-one-out** is the figure that breaks that rule.
 
-Start by checking simple features one at a time:
+Check simple features one at a time:
 
 - **Number of sides or parts**: count sides, dots, lines, or other pieces.
 - **Symmetry**: check whether a figure can be folded along a line so both halves match.
-- **Number of enclosed regions**: count the separate areas inside a figure.
+- **Enclosed regions**: count the separate areas inside a figure.
 - **Curved or straight lines**: check whether the outline uses curves, straight lines, or both.
 - **Inside details**: compare shading, dots, and internal lines.
 
-<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square"}, {"form": "rectangle"}, {"form": "rhombus"}, {"form": "parallelogram"}, {"form": "pentagon"}], "semanticsLabel": "A row of five shapes: a square, a rectangle, a rhombus, a parallelogram, and a pentagon."} -->
+<!-- ILLUSTRATION: one row containing a square, a rectangle, a rhombus, a slanted parallelogram, and a regular pentagon, all with plain unshaded outlines -->
 
-A good rule must fit every figure in the main group. Then one figure should clearly break that rule.
+A good rule fits every figure in the main group. Exactly one figure should break it. A rule that leaves out several figures does not solve the question.
 
-**Orientation** means which way a figure points or faces. Size or orientation can catch your eye, but they may not be the real grouping rule.
+**Orientation** means which way a figure points or faces. A large figure or a turned figure may catch your eye. It can still share the rule followed by the others.
 
-If two rules seem possible, test both against every figure. Use the answer choices to see which rule gives one clear odd-one-out.
+Test a possible rule against every figure before choosing. If it fails, check another feature. Sometimes more than one simple rule gives a different answer, so the figures alone may not settle the question.
 
 ## Examples
 
@@ -33,7 +33,7 @@ If two rules seem possible, test both against every figure. Use the answer choic
 
 Four figures are shown: a square, a rectangle, a rhombus, and a triangle. Which figure does not belong?
 
-<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square"}, {"form": "rectangle"}, {"form": "rhombus"}, {"form": "triangle"}], "semanticsLabel": "A row of four shapes: a square, a rectangle, a rhombus, and a triangle."} -->
+<!-- ILLUSTRATION: four figures in one row, a square, a rectangle, a rhombus, and a triangle, all with plain unshaded outlines -->
 
 **Solution:**
 
@@ -51,74 +51,90 @@ Four figures are shown: a circle, a square, an equilateral triangle, and an irre
 
 1. Check whether each figure has at least one line that makes matching halves.
 2. The circle, square, and equilateral triangle each have such a line.
-3. The irregular blob does not, so it is the odd-one-out.
+3. The blob has none, so it is the odd-one-out.
 
-### #3: Grouping by Number of Enclosed Regions
-
-Four circles are shown. The first has one straight line through the center and $2$ regions. The second has two different straight lines through the center and $4$ regions. The third has three different straight lines through the center and $6$ regions. The fourth has two parallel off-center lines that do not cross, making $3$ regions. Which figure does not belong?
-
-<!-- ILLUSTRATION: four circles in one row, with the first split into 2 regions by one center line, the second into 4 regions by two center lines, the third into 6 regions by three center lines, and the fourth into 3 regions by two parallel off-center lines -->
-
-**Solution:**
-
-1. Count the enclosed regions in each circle.
-2. The first three figures have an even number of regions: $2$, $4$, and $6$.
-3. The fourth figure has $3$ regions, so it is the odd-one-out.
-
-The off-center position alone is not the rule. The exact line arrangement creates the $3$ regions in this figure.
-
-### #4: Grouping by an Inside Detail
-
-Five outer shapes are different. Four shapes each contain exactly one shaded dot. One shape contains two shaded dots. Which figure does not belong?
-
-<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square", "dots": 1}, {"form": "triangle", "dots": 1}, {"form": "circle", "dots": 1}, {"form": "pentagon", "dots": 1}, {"form": "hexagon", "dots": 2}], "semanticsLabel": "Five shapes with dots inside, four with one dot and one with two dots."} -->
-
-**Solution:**
-
-1. Ignore the different outer shapes for a moment.
-2. Four figures each have $1$ shaded dot inside.
-3. The fifth figure has $2$ shaded dots, so the fifth figure is the odd-one-out.
-
-### #5: Grouping by Curved and Straight Lines
+### #3: Grouping by Curved and Straight Lines
 
 Four figures are shown: a triangle, a square, a pentagon, and a circle. Which figure does not belong?
 
-<!-- ILLUSTRATION: four figures in one row, a triangle, a square, a pentagon, and a circle -->
+<!-- ILLUSTRATION: four figures in one row, a triangle, a square, a pentagon, and a circle, all with plain unshaded outlines -->
 
 **Solution:**
 
-1. Check the type of line used in each outline.
-2. The triangle, square, and pentagon are made only of straight line segments.
-3. The circle uses a curved outline, so the circle is the odd-one-out.
+1. Check the lines used in each outline.
+2. The triangle, square, and pentagon use only straight line segments.
+3. The circle has a curved outline, so the circle is the odd-one-out.
+
+### #4: Grouping by Number of Enclosed Regions
+
+Four circles are shown. The first has one straight line through the center and $2$ regions. The second has two different straight lines through the center and $4$ regions.
+
+The third has three different straight lines through the center and $6$ regions. The fourth has two parallel off-center lines that do not cross, making $3$ regions. Which figure does not belong?
+
+<!-- ILLUSTRATION: four circles in one row, the first split into 2 regions by one full center line, the second into 4 regions by two full center lines, the third into 6 regions by three distinct full center lines, and the fourth into 3 regions by two parallel horizontal chords above and below the center -->
+
+**Solution:**
+
+1. Count the regions in each circle.
+2. The first three counts are even: $2$, $4$, and $6$. An even count can be split into pairs with none left over.
+3. The fourth count is $3$, which is odd. The fourth circle is the odd-one-out.
+
+The exact line arrangement gives the fourth circle $3$ regions. Missing the center alone does not cause an odd count. Two off-center lines that cross inside a circle can make $4$ regions.
+
+### #5: Grouping by an Inside Detail
+
+Five figures have different outlines: a square, a triangle, a circle, a pentagon, and a hexagon. Each of the first four contains one shaded dot. The hexagon contains two shaded dots. Which figure does not belong?
+
+<!-- ILLUSTRATION: five figures in one row, a square with 1 shaded dot, a triangle with 1 shaded dot, a circle with 1 shaded dot, a pentagon with 1 shaded dot, and a hexagon with 2 shaded dots -->
+
+**Solution:**
+
+1. Compare the dots inside the figures.
+2. The first four figures each have $1$ shaded dot.
+3. The hexagon has $2$ shaded dots, so it is the odd-one-out.
+
+### #6: Testing a First Guess
+
+Five figures are labeled A to E. A is a small square with one dot. B is a large circle with one dot. C is a small triangle with one dot. D is a large pentagon with one dot. E is a small hexagon with two dots. Which figure does not belong?
+
+<!-- ILLUSTRATION: five labeled figures in one row, A small square with 1 dot, B circle twice A's height with 1 dot, C small triangle with 1 dot, D pentagon twice A's height with 1 dot, E small hexagon with 2 dots; A C and E have equal heights, B and D have equal heights -->
+
+**Solution:**
+
+1. Try size first. A, C, and E are small. B and D are large. Size leaves out $2$ figures, so it does not give one odd-one-out.
+2. Try the dot count. A, B, C, and D each have $1$ dot. This rule includes both large figures.
+3. E has $2$ dots, so E is the odd-one-out.
+
+The large figures stand out, but both follow the dot rule. Checking every figure helped us reject the first guess.
 
 ## Traps to Watch For
 
 ### #1: Picking the Figure That Looks Strangest
 
-> The biggest or most unusual-looking figure is not always the odd-one-out.
+> The biggest or most unusual-looking figure may still belong.
 
-A figure can differ in size or orientation and still follow the real rule. Check count, symmetry, regions, line type, and inside details before choosing.
+Size and orientation can draw your attention away from the shared rule. Count parts and check inside details before choosing.
 
 ### #2: Looking Only at the Outer Shape
 
 > The shared rule may be inside the figures.
 
-Dots, shading, and internal lines can matter more than the outline. Compare both the outside and the inside.
+Different outlines can contain the same dot count or line pattern. Check both the outside and the inside.
 
-### #3: Using a Rule That Does Not Fit the Whole Group
+### #3: Keeping a Rule That Fails
 
-> A shared rule must fit every figure that belongs together.
+> A shared rule must fit every figure in the main group.
 
-If your rule fits only some of the group, keep checking. One ignored mismatch means the rule is not strong enough.
+A size rule that leaves out both large figures does not give one answer. Try another feature when a rule leaves several figures out.
 
-### #4: Treating One Visual Detail as a Cause
+### #4: Treating Position as a Cause
 
-> A detail can be present without causing the pattern.
+> Count the regions shown instead of guessing from the line positions.
 
-In the region example, the fourth circle has off-center lines and $3$ regions. Other off-center line arrangements can make a different number of regions, so count the regions shown instead of assuming that every off-center line pattern works the same way.
+The parallel lines in Example $4$ make $3$ regions. Other off-center arrangements can make a different count. Look at where the lines meet and which areas they separate.
 
-### #5: Finding More Than One Plausible Rule
+### #5: Forcing an Answer from Competing Rules
 
-> Test each possible rule against every figure and the answer choices.
+> More than one simple rule can make a question unclear.
 
-A small set of figures can sometimes fit more than one description. Choose the rule that is simple, fits the full group, and leaves one clear figure out.
+Test each rule against all the figures. Answer choices may help you reject a rule, but they do not prove that a rule is unique. If two equally clear rules still select different figures, the question needs more information.
