@@ -35,11 +35,11 @@ questions:
     choices:
       - text: 'If all interior angles of a triangle measure $60^\circ$, then the triangle is equilateral.'
         correct: true
-      - text: 'If a triangle is not equilateral, then all of its interior angles do not measure $60^\circ$.'
+      - text: 'If a triangle is not equilateral, then not all of its interior angles measure $60^\circ$.'
         correct: false
         rationale: |
           This negates both parts without swapping them. Negations appear in other derived forms. Check that a converse only swaps.
-      - text: 'If all interior angles of a triangle do not measure $60^\circ$, then the triangle is not equilateral.'
+      - text: 'If not all interior angles of a triangle measure $60^\circ$, then the triangle is not equilateral.'
         correct: false
         rationale: |
           This swaps and negates the parts instead of only swapping them. A contrapositive also changes the order. Check that a converse only swaps.
@@ -320,7 +320,7 @@ questions:
       Conclusion: Quadrilateral ABCD is a square.
       Which of the following best describes this argument?
     choices:
-      - text: 'It is invalid due to the fallacy of affirming the consequent.'
+      - text: 'It is invalid because a true conclusion does not prove the hypothesis.'
         correct: true
       - text: 'It is a valid application of the Law of Detachment.'
         correct: false
@@ -335,7 +335,7 @@ questions:
         rationale: |
           This blames the geometry fact instead of the inference direction. An argument can fail because of a false premise. Check the actual form of the argument.
     explanation: |
-      The argument starts with if P then Q, observes Q, and concludes P. The rule does not guarantee that reverse direction. A nonsquare rectangle has congruent diagonals and satisfies the observed conclusion while failing the square condition. Thus the argument is invalid, an error called affirming the consequent.
+      The argument starts with if P then Q, observes Q, and concludes P. The rule does not guarantee that reverse direction. A nonsquare rectangle has congruent diagonals and satisfies the observed conclusion while failing the square condition. Thus the argument is invalid. Knowing that the conclusion is true does not prove the hypothesis.
 
   - id: q-geometry-logic-and-reasoning-0015
     type: which-is-true
