@@ -369,7 +369,7 @@ questions:
         rationale: |
           This multiplies by the conjugate instead of adding. That familiar product is a squared-magnitude sum. Check which operation is requested.
     explanation: |
-      Add the real parts to get $3+3=6$. The imaginary parts cancel: $4i-4i=0$. The sum is $6$.
+      Add the real parts to get $3+3=6$. The imaginary terms cancel: $4i-4i=0$. The sum is $6$.
     approved: false
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0019
