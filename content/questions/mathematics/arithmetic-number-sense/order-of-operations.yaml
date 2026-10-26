@@ -183,7 +183,7 @@ questions:
           This subtracts before multiplying in the denominator. The denominator starts with subtraction. Check multiplication priority inside each grouped part.
       - text: '$11$'
         rationale: |
-          This multiplies the entire numerator sum by two. Multiplication must be done before division. Check which term is multiplied by two.
+          This multiplies the entire numerator sum by two. Multiplication and division share priority. Check which term is multiplied by two.
       - text: '$28$'
         rationale: |
           This reports the numerator without dividing. The numerator has been evaluated correctly. Check that the denominator is used.
