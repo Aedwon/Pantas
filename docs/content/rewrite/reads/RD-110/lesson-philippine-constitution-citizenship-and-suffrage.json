@@ -1,0 +1,232 @@
+{
+ "batch": "RD-110",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "cb03c9e0913b3e52d359a7fd717223d1942000f9dea4f5816590dc9db4d269eb",
+ "rewrite_commit": "c0dbc6c4fcb7f22e91ff0c7efaf837a5389ba399",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "cb03c9e0913b3e52d359a7fd717223d1942000f9dea4f5816590dc9db4d269eb",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The majority age for the older citizenship-election cases was $21$. Republic Act $6809$ later lowered the general majority age to $18$. Do not use today's age to decide when someone born before $1973$ reached adulthood.",
+      "problem": "This treats all pre-1973 births as reaching majority at 21. Someone born in 1972 reached 18 after RA 6809 lowered majority in 1989. The applicable majority age depends on when adulthood was reached, not simply on being born before 1973. The supplied brief does not support this blanket historical instruction."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 yes through mother; #2 foreign birth does not defeat citizenship; #3 properly elected citizenship is deemed natural-born; #4 only natural-born applicant meets Senator citizenship requirement; #5 marriage alone does not remove citizenship.",
+     "#6 prescribed reacquisition oath plus personal sworn foreign-citizenship renunciation for candidacy and other office qualifications; #7 dual citizenship alone does not establish dual allegiance.",
+     "#8 yes, age 18 on election day and both residence periods met; #9 only 8-month local resident; #10 neither reading nor property test is permitted; #11 secrecy, overseas voting and access for voters unable to read must be protected. Solutions match these answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Four citizen groups, natural-born/election status, naturalization routes, marriage, reacquisition, repatriation, dual status, domestic eligibility and ballot safeguards are present. All 11 required example slots appear; both helpful figures have placeholders; no Speed Tricks section was added."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Citizenship, alien, election, majority, naturalization, renunciation, oath, suffrage and ballot sanctity receive short explanations. Statutory paragraphs use short sentences and avoid a long introductory discussion."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No unexplained instruction uses a special exam meaning.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy occurs in Core Concept or later sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Questions supply birth years and parent status, proper election, naturalization history, candidacy purpose and voter residence data. None prints the tested rule as a hint. Solutions state the legal consequence in plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam openers or unsupported claims about exam frequency occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Citizenship** means legal membership in a country. Many public offices and rights depend on it.",
+      "problem": "This lesson is designated Filipino, but its teaching prose is in English. It does not teach in simple Filipino at the Grade 5 standard."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "No hard Filipino grammar term appears in this citizenship and suffrage lesson, so no first-use English gloss is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A child born in $2005$ has a Filipino mother and an alien father. Is the child a Philippine citizen from birth?",
+      "problem": "This lesson is designated Filipino, but all 11 worked examples use English questions and solutions. The examples must be in Filipino."
+     }
+    ]
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson is designated Filipino. Filipino spelling and usage require checking against the Komisyon sa Wikang Filipino source.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "An **alien** is a citizen of another country. To **elect citizenship** means to formally choose it as the law requires.",
+      "problem": "This lesson is designated Filipino, but its teaching prose uses full English sentences throughout. These are not isolated common English terms in Filipino prose."
+     }
+    ]
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or an underlined word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic directly; prose avoids the listed stock phrases and repeated three-sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information correctly uses Core Concept, Examples and Traps without a forced shortcut. No example uses a mathematical formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1–7 cover maternal citizenship, foreign birth, historical election, natural-born office status, marriage, reacquisition/candidacy and dual status. #8–11 cover election-day age, local residence failure, banned extra tests and protected voting access. Cases match the brief and are distinct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "The separate acts in #6 and the three constitutional duties in #11 are numbered. Remaining solutions are direct legal answers without hidden computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equation appears in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Each prose paragraph has at most three sentences. The only bullet list gives the four constitutional citizenship groups."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The citizenship flow distinguishes current parent rule, historical election and naturalization. The domestic-voter checklist includes age/date, both residence periods and a registration/disqualification footer. Both can be drawn from their one-line instructions and both supplement complete prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Necessary meanings are supplied for citizenship, alien, elect, majority, natural-born, naturalized, renunciation, oath, repatriation, dual citizenship, dual allegiance, suffrage and ballot sanctity. Age and residence units are ordinary years/months; no prerequisite is needed to decode the examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains citizenship by parentage and election, legal acquisition versus birth status, reacquisition oath versus candidacy renunciation, dual status distinction and separate voting requirements. Examples apply each process."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The majority age for the older citizenship-election cases was $21$. Republic Act $6809$ later lowered the general majority age to $18$. Do not use today's age to decide when someone born before $1973$ reached adulthood.",
+      "problem": "The historical-election condition is misstated as a single age rule for everyone born before 1973. It must distinguish people who reached adulthood before and after RA 6809 changed the majority age. Otherwise students are told to apply the wrong age to part of the covered group."
+     }
+    ]
+   },
+   "B10": {
+    "verdict": "pass",
+    "checked": [
+     "The flagged word retention describes keeping citizenship under RA 9225. It is a subject-matter legal use, not the prohibited learning-system term; no other reserved learning-system wording occurs."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "The majority age for the older citizenship-election cases was $21$. Republic Act $6809$ later lowered the general majority age to $18$. Do not use today's age to decide when someone born before $1973$ reached adulthood.",
+    "concern": "This treats all pre-1973 births as reaching majority at 21. Someone born in 1972 reached 18 after RA 6809 lowered majority in 1989. The applicable majority age depends on when adulthood was reached, not simply on being born before 1973. The supplied brief does not support this blanket historical instruction."
+   }
+  ],
+  "brief_items": {}
+ }
+}
