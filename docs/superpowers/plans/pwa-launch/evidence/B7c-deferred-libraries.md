@@ -154,3 +154,210 @@ real-device web behavior, and visual acceptance remain staging checks.
 Independent review and integration belong to the lead. No commit, push, deploy,
 or other worktree change was made. The shared `new-design/STATUS.md` is absent in
 this tree; its task update remains with the lead and the status-lock owner.
+
+## October 26: merged B7c comparison at 417078bf
+
+This new run supersedes the earlier statement that B7c size was unmeasured. It does
+not replace browser transfer or offline acceptance. Policy: origin/main
+`44afc369259e599acdfdc6417d808014e578c1fc`. Candidate:
+`417078bf8015e50b6b78b0e5026204d680534aaf`; baseline: `9d3141a5`.
+The initial candidate working tree was clean. No fetch, pull, staging, commit,
+push, deploy, dependencies, or visual changes were made.
+
+Both builds used Flutter 3.44.6 / Dart 3.12.2, engine
+`83675ed27633283e7fc296c8bca22e841224c096`, and:
+
+```sh
+git worktree add --detach /private/tmp/pantas-b7c-before-9d3141a5 9d3141a5
+# In that temporary worktree, after supplying the ignored generated files:
+flutter pub get --offline
+dart run build_runner build --delete-conflicting-outputs
+flutter build web --release -t lib/main_staging.dart --source-maps
+# In the assigned candidate worktree:
+flutter build web --release -t lib/main_staging.dart --source-maps
+# After saving measurements and checking the temporary tree was clean:
+git worktree remove /private/tmp/pantas-b7c-before-9d3141a5
+```
+
+Actual execution built the candidate first, then the baseline. Existing ignored
+`.g.dart`, `.freezed.dart`, and localization outputs were copied into the temporary
+worktree before its own code generation. Ignored seed companions were also copied;
+the platform-filtered web bundle excludes them. Both measurement builds used the
+committed `588610f4184ff762` seed-version constant, so the local native rebuild did
+not contaminate the source comparison. The rebuilt native constant was restored
+afterward. The baseline worktree was removed successfully.
+
+B8 method: raw file bytes; Python `gzip.compress(data, compresslevel=9, mtime=0)`,
+compressing each file separately. Source maps are diagnostics and excluded from
+first load. Deferred part files are excluded from the static first-load set for
+onboarding/Home/lesson/quiz. Direct entry to a deferred route adds its part.
+No browser request timing or transferred-byte measurement is claimed.
+
+| JavaScript payload | Before raw | Before gzip | After raw | After gzip |
+|---|---:|---:|---:|---:|
+| `main.dart.js` | 6,828,259 | 1,926,780 | 6,705,270 | 1,889,609 |
+| `main.dart.js_1.part.js` | absent | absent | 135,941 | 43,133 |
+| Main plus all deferred parts | 6,828,259 | 1,926,780 | 6,841,211 | 1,932,742 |
+
+Main savings: **122,989 raw / 37,171 gzip bytes**. Loading the deferred part later
+makes the total compiled JavaScript **12,952 raw / 5,962 gzip bytes larger** than
+the baseline. One part was emitted, plus its `.map` diagnostic. No other deferred
+part files were emitted. Main SHA-256 before:
+`b9ceeae07cd2a9e6486f6704de0435fa0c2cf3dce5e0ddad6ac61ffe7d35b393`;
+after: `cb2b1c595470099614eec55150a7bddb1175de01d348c06af005345c914d17aa`.
+Deferred part SHA-256:
+`4c8f106604cd493c981127810de7ceee342b8a3ce19cfab7bd61bafbd51901df`.
+
+### Static first-load set, same B8 inventory
+
+Both AssetManifest representations, FontManifest, the exam catalog, web manifest,
+favicon, HTML/bootstrap, SQLite/Drift worker, all Geist/icon/KaTeX fonts, main JS,
+and the selected CanvasKit pair. Other renderer variants, source maps, native seed,
+and deferred parts are excluded. Dynamic Firebase/auth/App Check scripts, server
+responses, headers and cache behavior remain unmeasured.
+
+| Group | Before raw | Before gzip | After raw | After gzip |
+|---|---:|---:|---:|---:|
+| HTML + bootstrap | 11,475 | 4,591 | 11,475 | 4,589 |
+| Main JS | 6,828,259 | 1,926,780 | 6,705,270 | 1,889,609 |
+| Chromium CanvasKit pair | 5,846,998 | 2,209,125 | 5,846,998 | 2,209,125 |
+| SQLite + Drift worker | 1,176,595 | 494,090 | 1,176,595 | 494,090 |
+| Geist, four weights | 510,404 | 241,178 | 510,404 | 241,178 |
+| Phosphor + Material icons | 22,924 | 10,797 | 22,924 | 10,797 |
+| KaTeX fonts | 640,372 | 370,050 | 640,372 | 370,050 |
+| Manifests + catalog + web metadata | 18,627 | 3,883 | 18,627 | 3,883 |
+
+| Renderer configuration | Before raw | Before gzip | After raw | After gzip |
+|---|---:|---:|---:|---:|
+| Chromium CanvasKit | 15,055,654 | 5,260,494 | 14,932,665 | 5,223,321 |
+| Full CanvasKit | 16,524,982 | 5,977,393 | 16,401,993 | 5,940,220 |
+
+Total static first-load savings: **122,989 raw / 37,173 gzip bytes**. The bootstrap
+accounts for the extra 2 gzip bytes saved. As in B8, this is a conservative static
+budget, not proof of the under-6-MB network target. The full-renderer gzip budget
+leaves only 59,780 bytes for all omitted dynamic requests and overhead.
+
+Both builds passed. Both printed the existing missing CupertinoIcons font warning.
+The emitted `flutter_service_worker.js` unregisters itself on activation; it does
+not contain a cache inventory for the new part. Offline delivery after a first
+visit is therefore not established by this build. No service worker change was
+made. Real-browser Back/retry/deferred-route behavior, phone/Safari checks, visual
+acceptance, Lighthouse, actual staging first/repeat traffic and Welcome timing
+remain unverified. Mock remains eager as documented above.
+
+Full local build logs, byte/hash inventories, and the measurement script are in
+`/private/tmp/staging-r1-verification/` (`web-before.log`, `web-after.log`,
+`before.json`, `after.json`, `measure.py`). The table records the durable results.
+
+
+## October 27: repeated B7c measurement, exact before and after sources
+
+The whole lead brief was repeated on resumption. Policy read from origin/main:
+`3613e243f059de4f4ce5b6f8980c9229f59df933`. Source comparison remains before
+`9d3141a5` and after `417078bf8015e50b6b78b0e5026204d680534aaf`.
+Flutter 3.44.6 / Dart 3.12.2 and the engine revision match October 26.
+The existing evidence edits were reviewed and kept as historical results.
+This section records fresh measurements; it supersedes their byte totals for
+this run only. No browser traffic measurement is claimed.
+
+B8 method was reused: each selected file's raw bytes and Python
+`gzip.compress(data, compresslevel=9, mtime=0)` bytes. The static inventory includes
+HTML/bootstrap, main JS, both AssetManifest representations, FontManifest,
+exam catalog, web manifest/favicon, SQLite/Drift worker, all Geist/icon/KaTeX fonts,
+and one CanvasKit pair. Source maps, other renderer variants, native seed,
+and deferred parts are excluded from first load. Direct deferred-route entry
+adds its part. Dynamic scripts, server responses, headers and cache behavior
+remain excluded and unmeasured.
+
+The assigned branch was never switched. Exact comparison builds:
+
+```sh
+# Candidate: preserve the rebuilt local constant, use the committed source for comparison.
+cp lib/core/content/content_seed_version.dart /private/tmp/staging-r1-oct27/schema10-content_seed_version.dart
+git show HEAD:lib/core/content/content_seed_version.dart > lib/core/content/content_seed_version.dart
+flutter build web --release -t lib/main_staging.dart --source-maps
+cp /private/tmp/staging-r1-oct27/schema10-content_seed_version.dart lib/core/content/content_seed_version.dart
+python3 /private/tmp/staging-r1-oct27/measure.py build/web /private/tmp/staging-r1-oct27/after.json
+
+git worktree add --detach /private/tmp/pantas-b7c-oct27-before 9d3141a5
+# In the temporary baseline worktree, supply ignored generated outputs and seed companions.
+flutter pub get --offline
+dart run build_runner build --delete-conflicting-outputs
+flutter build web --release -t lib/main_staging.dart --source-maps
+# From the assigned worktree:
+python3 /private/tmp/staging-r1-oct27/measure.py /private/tmp/pantas-b7c-oct27-before/build/web /private/tmp/staging-r1-oct27/before.json
+git -C /private/tmp/pantas-b7c-oct27-before status --short
+git -C /private/tmp/pantas-b7c-oct27-before diff --exit-code
+git worktree remove /private/tmp/pantas-b7c-oct27-before
+```
+
+Actual preparation created the baseline worktree before the candidate comparison
+build. Candidate measurement preceded baseline measurement. Ignored `.g.dart`,
+`.freezed.dart`, localization outputs and seed companions were copied for setup.
+Baseline code generation ran against its own source. No dependencies were added.
+Both comparison builds used the committed `588610f4184ff762` version constant.
+A preparatory command briefly copied the rebuilt constant into the baseline;
+it was restored from baseline HEAD before code generation or compilation.
+An initial measurement invocation pointed at the unbuilt baseline and produced
+an empty inventory; it was discarded and rerun against the candidate output.
+Neither mistake affects the recorded inventories. The assigned candidate's local
+schema-10 constant was restored. Baseline status/diff were clean before successful
+worktree removal; no force removal was used.
+
+```text
+# Candidate comparison build, exit 0
+Compiling lib/main_staging.dart for the Web...                     32.8s
+✓ Built build/web
+# Baseline comparison build, exit 0
+Compiling lib/main_staging.dart for the Web...                     30.9s
+✓ Built build/web
+```
+
+Both full compilations printed the existing missing CupertinoIcons font warning.
+No font changes were made.
+
+| JavaScript payload | Before raw | Before gzip | After raw | After gzip |
+|---|---:|---:|---:|---:|
+| `main.dart.js` | 6,828,259 | 1,926,780 | 6,705,270 | 1,889,609 |
+| `main.dart.js_1.part.js` | absent | absent | 135,941 | 43,133 |
+| Main plus all deferred parts | 6,828,259 | 1,926,780 | 6,841,211 | 1,932,742 |
+
+Main saves **122,989 raw / 37,171 gzip bytes**. Loading the deferred part later
+makes total compiled JS **12,952 raw / 5,962 gzip bytes larger** than baseline.
+The candidate emits exactly one deferred part plus its diagnostic `.map`.
+The baseline emits no deferred parts. Main and part hashes match October 26:
+
+- Before main: `b9ceeae07cd2a9e6486f6704de0435fa0c2cf3dce5e0ddad6ac61ffe7d35b393`.
+- After main: `cb2b1c595470099614eec55150a7bddb1175de01d348c06af005345c914d17aa`.
+- After part: `4c8f106604cd493c981127810de7ceee342b8a3ce19cfab7bd61bafbd51901df`.
+
+| Static first-load group | Before raw | Before gzip | After raw | After gzip |
+|---|---:|---:|---:|---:|
+| HTML + bootstrap | 11,474 | 4,590 | 11,475 | 4,592 |
+| Main JS | 6,828,259 | 1,926,780 | 6,705,270 | 1,889,609 |
+| Chromium CanvasKit pair | 5,846,998 | 2,209,125 | 5,846,998 | 2,209,125 |
+| SQLite + Drift worker | 1,176,595 | 494,090 | 1,176,595 | 494,090 |
+| Geist, four weights | 510,404 | 241,178 | 510,404 | 241,178 |
+| Phosphor + Material icons | 22,924 | 10,797 | 22,924 | 10,797 |
+| KaTeX fonts | 640,372 | 370,050 | 640,372 | 370,050 |
+| Manifests + catalog + web metadata | 18,627 | 3,883 | 18,627 | 3,883 |
+
+| Renderer configuration | Before raw | Before gzip | After raw | After gzip |
+|---|---:|---:|---:|---:|
+| Chromium CanvasKit | 15,055,653 | 5,260,493 | 14,932,665 | 5,223,324 |
+| Full CanvasKit | 16,524,981 | 5,977,392 | 16,401,993 | 5,940,223 |
+
+Static first-load savings: **122,988 raw / 37,169 gzip bytes**. Bootstrap output
+accounts for the difference from main-JS savings and the small difference from
+October 26 static totals. The full-renderer gzip budget leaves **59,777 bytes**
+under decimal 6 MB before omitted requests and overhead. This does not establish
+the under-6-MB transferred target. Source maps remain diagnostics only.
+
+Mock remains eager. The generated service worker unregisters itself; deferred
+chunk offline delivery remains unverified. Actual staging first/repeat traffic,
+Welcome timing, Lighthouse, phone/Safari behavior, browser Back/retry and human
+visual acceptance remain unverified. No deploy or UI automation was performed.
+Fresh measurement inputs, file hashes, script and build logs are preserved in
+`/private/tmp/staging-r1-oct27/` as `before.json`, `after.json`, `measure.py`,
+`before-size.log`, `after-size.log`, `web-before.log`, `web-after.log`,
+`before-pubget.log` and `before-codegen.log`.

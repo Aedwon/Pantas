@@ -5,4 +5,4 @@
 // immediately before protection. Protected payload bytes are intentionally
 // randomized and therefore do not define the logical content revision.
 
-const contentSeedVersion = '588610f4184ff762';
+const contentSeedVersion = '8ee751ee0504bafc';
