@@ -148,21 +148,21 @@ questions:
     type: which-is-true
     difficulty: medium
     stem: |
-      What is the primary purpose of the "casting out nines" technique, and what remainder is obtained when $84,931$ is divided by $9$?
+      How does the "casting out nines" technique test divisibility by $9$, and is $84,931$ divisible by $9$?
     choices:
-      - text: 'It finds a remainder for $9$; here it is $7$.'
+      - text: 'It skips groups of digits whose sum is a multiple of $9$; here the number is not divisible by $9$.'
         correct: true
       - text: 'It drops even digits for a $9$ test; here it gives $4$.'
         rationale: |
           This drops even digits instead of groups summing to nine. Both methods remove digits. Check the sum of every removed group.
       - text: 'It uses the $11$ test after subtracting $9$ from each digit.'
         rationale: |
-          This applies an eleven test to a nine-remainder question. Both rules combine digits. Check which divisor the method handles.
+          This applies an eleven test to a nine-divisibility question. Both rules combine digits. Check which divisor the method handles.
       - text: 'It finds a remainder for $8$; here it is $1$.'
         rationale: |
           This uses the last-three-digit test for eight. Eight has a useful shortcut too. Check that casting out nines concerns division by nine.
     explanation: |
-      Casting out nines finds the remainder on division by $9$ from the digit sum. Here $8+4+9+3+1=25$. Since $25=9(2)+7$, the remainder is $7$.
+      Casting out nines skips groups of digits whose sum is a multiple of $9$. In $84,931$, skip $9$ and $8+1=9$. The remaining digits sum to $4+3=7$. Since $7$ is not divisible by $9$, neither is $84,931$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0009
     type: which-is-true
@@ -275,7 +275,7 @@ questions:
           This reports the valid smaller sum. The pair with a final zero does pass both tests. Check whether the largest sum is requested.
       - text: '$8$'
         rationale: |
-          This reports the final digit eight alone. The final-digit test is needed first. Check that the requested result adds both unknown digits.
+          This reports the final digit eight alone. The last-three-digit test is needed first. Check that the requested result adds both unknown digits.
       - text: '$11$'
         correct: true
       - text: '$14$'
