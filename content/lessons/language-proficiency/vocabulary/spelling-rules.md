@@ -4,7 +4,7 @@ title: "Spelling Rules"
 summary: "Check English and Filipino spellings with useful patterns, common exceptions, and syllable clues."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
-estimatedMinutes: 13
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
@@ -13,17 +13,17 @@ Spelling has patterns, but some words must be learned one by one. Use a pattern 
 
 ### Letters and Sounds
 
-The letters **a, e, i, o, u** are the main **vowel** letters in English. They often stand for sounds made with an open mouth and no blocked airflow. Sometimes *y* also acts as a vowel, as in *my*.
+The letters **a, e, i, o, u** are the main **vowel** letters in English. Their sounds are made without blocking the flow of air. Sometimes *y* also acts as a vowel, as in *my*.
 
-The other letters are **consonant** letters. Their sounds usually involve blocking or narrowing the airflow with the lips, tongue, or teeth, as in *p*, *t*, and *s*.
+The other letters are **consonant** letters. Their sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
 
 A **syllable** is a beat in a word with one main vowel sound. **Stress** is the extra force used to say one syllable. *Begin* has stress on its last syllable, while *visit* has stress on its first.
 
-Letters and sounds do not always match one for one. In *chief*, *ie* represents one vowel sound. In *manage*, the final *e* has no sound of its own.
+Letters and sounds do not always match one for one. In *chief*, *ie* stands for one vowel sound. In *manage*, the final *e* has no sound of its own.
 
 ### The Limited I Before E Rhyme
 
-The rhyme "i before e except after c" helps with words such as *believe*, *receive*, and *conceive*. It does not work for every English word.
+The rhyme “i before e except after c” helps with words such as *believe*, *receive*, and *conceive*. It does not work for every English word.
 
 *Weird*, *seize*, *science*, and *height* do not fit the simple rhyme. Learn these spellings as whole words.
 
@@ -33,35 +33,41 @@ A **suffix** is a word part added at the end of a base. The base is the word or 
 
 A final silent *e* is often dropped before a suffix that begins with a vowel. *Manage* becomes *managing*, and *hope* becomes *hoping*.
 
-Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*, which keeps the soft sound heard in *notice*.
+Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the sound of *s* heard at the end of *notice*, often called the soft sound of *c*.
 
-Some common forms must be learned separately. *True* becomes *truly*, even though *-ly* begins with a consonant. *Argue* becomes *argument*, with no final *e* from the base.
+Some forms must be learned separately. *True* becomes *truly*, even though *-ly* begins with a consonant. *Argue* becomes *argument*, with no final *e* from the base.
 
 ### Doubling a Final Consonant
 
-In many one-syllable words, double the last consonant before *-ing* or *-ed*. This applies when the word ends in one vowel letter followed by one consonant letter: *run* becomes *running*.
+In many one-syllable words, double the last consonant before *-ing* or *-ed*. The base must end in one vowel letter followed by one consonant letter. For example, *run* becomes *running*.
 
-Do not double final *w*, *x*, or *y* by this rule. For example, *fix* becomes *fixing*, and *play* becomes *playing*.
+This ending is often called the **consonant-vowel-consonant** pattern. In *run*, *r* is a consonant, *u* is a vowel, and *n* is a consonant. Check the letters at the end, not just how the word sounds.
+
+Do not double final *w*, *x*, or *y* by this rule. *Fix* becomes *fixing*, and *play* becomes *playing*.
 
 In a longer word, the last syllable must also be stressed for this pattern. *Begin* becomes *beginning*, and *refer* becomes *referred*.
 
 *Visit* has stress on its first syllable. Its final *t* does not double in *visiting*. The final letter pattern alone is not enough.
 
+These are useful patterns, not rules for every suffix or every English word. Check a standard spelling when the pattern does not settle the answer.
+
 ### Checking Longer Words by Syllable
 
-Say the word slowly and listen for its beats. Check the letters for each part, then check the ending and any doubled letters.
+Say the word slowly and listen for its beats. Check the sounds and letters in each part. Then check the base, ending, and any doubled letters.
 
-For *beginning*, listen to *be-gin-ning*. The first vowel may sound weak, so sound alone does not prove its spelling. The known base *begin* supplies the letters.
+For *beginning*, listen to *be-gin-ning*. The first vowel may sound weak, so sound alone does not prove its spelling. The known base *begin* supplies the letters *b-e-g-i-n*.
 
-The stressed final syllable of *begin* explains the doubled *n* before *-ing*. In the finished word, the ending *-ing* keeps its spelling even though the spoken beats divide the word differently.
+The stress on the last syllable of *begin* explains the doubled *n* before *-ing*. The ending *-ing* has the vowel sound heard in *sing*. The spoken parts and the base-plus-suffix parts do not always divide at the same place.
 
-Use this process for unfamiliar long words:
+Use this process for a long word:
 
 1. Say the word and listen for each syllable.
 2. Find a base or word part you know.
-3. Match sounds to known letter patterns.
+3. Match the sounds to letter patterns you know.
 4. Check stress, suffix changes, and doubled letters.
 5. Learn any part that sound or a rule cannot predict.
+
+For example, sound can help you hear the parts of *occurrence*. It cannot tell you every letter. You must also know the spelling of *occur* and the ending *-ence*.
 
 ### Baybay ng mga Hiram na Salita
 
@@ -115,7 +121,7 @@ D) notiseable
 1. The base is *notice*, and the suffix is *-able*.
 2. Keep the *e* after *c* to preserve its soft sound. The spelling is **noticeable**. Answer: **B**.
 
-### #4: A Common Exception
+### #4: An Exception Before Ly
 
 Which spelling is standard?
 
@@ -126,10 +132,38 @@ D) truley
 
 **Solution:**
 
-1. The base is *true*, but the final *e* does not stay before *-ly* in this word.
+1. The base is *true*, but this word loses its final *e* before *-ly*.
 2. The standard spelling is **truly**. Answer: **C**.
 
-### #5: A Stressed Final Syllable
+### #5: An Exception Before Ment
+
+Choose the correctly spelled word to complete the sentence: “The report presents a strong ______ for extending office hours.”
+
+A) arguement  
+B) argumant  
+C) argument  
+D) arguemant
+
+**Solution:**
+
+1. The word is formed from *argue*, but the final *e* does not stay before *-ment*.
+2. The standard spelling is **argument**. Answer: **C**.
+
+### #6: A One-Syllable Base
+
+Choose the standard spelling.
+
+A) runing  
+B) running  
+C) runeing  
+D) runnning
+
+**Solution:**
+
+1. *Run* has one syllable and ends in one vowel letter followed by one consonant letter.
+2. Double the final *n* before *-ing*. The spelling is **running**. Answer: **B**.
+
+### #7: A Stressed Final Syllable
 
 Choose the standard spelling.
 
@@ -140,10 +174,11 @@ D) begininning
 
 **Solution:**
 
-1. The last syllable of *begin* is stressed. The word ends in one vowel letter followed by one consonant letter.
-2. Double the final *n* before *-ing*: **beginning**. Answer: **A**.
+1. Say *begin* in two beats: *be-gin*. The last beat is stressed.
+2. The base ends in one vowel letter, *i*, followed by one consonant letter, *n*. Double that *n* before *-ing*.
+3. Check the finished word in spoken parts: *be-gin-ning*. The spelling is **beginning**. Answer: **A**.
 
-### #6: An Unstressed Final Syllable
+### #8: An Unstressed Final Syllable
 
 Choose the standard spelling.
 
@@ -157,9 +192,9 @@ D) vissiting
 1. *Visit* has stress on its first syllable, not its last.
 2. Add *-ing* without doubling the final *t*. The spelling is **visiting**. Answer: **C**.
 
-### #7: A Long Word in Context
+### #9: A Long Word in Context
 
-Choose the correctly spelled word to complete the sentence: "Flooding is a frequent ______ in the area."
+Choose the correctly spelled word to complete the sentence: “Flooding is a frequent ______ in the area.”
 
 A) occurrence  
 B) occurrance  
@@ -168,10 +203,12 @@ D) ocurrence
 
 **Solution:**
 
-1. The word has spoken parts that sound like *uh-kur-uns*. The middle part is stressed. The known base *occur* supplies the double *c*.
-2. The standard noun is **occurrence**, with double *r* and the ending *-ence*. The weak final vowel does not tell you whether to write *a* or *e*, so learn this ending. Answer: **A**.
+1. Say the word in beats that sound like *uh-kur-uns*. The middle beat is stressed. This helps separate the sounds, but it does not settle every letter.
+2. Recall the base *occur*, with double *c*. Its *cc* stands for the *k* sound here.
+3. The final syllable of *occur* is stressed. Its final *r* doubles in **occurrence**.
+4. Recall the ending *-ence*. Its weak vowel can sound like the vowel in *-ance*, so sound alone cannot choose the spelling. Answer: **A**.
 
-### #8: Dalawang Tinatanggap na Baybay
+### #10: Dalawang Tinatanggap na Baybay
 
 Aling pahayag ang tumutugma sa halimbawa ng KWF para sa Espanyol na *cuento*?
 
@@ -185,7 +222,7 @@ D) Laging kailangang may u bago ang w sa hiram na salita.
 1. Inililista ng gabay ang **kwento** at **kuwento**.
 2. Parehong ibinigay ang mga anyong ito. Sagot: **B**.
 
-### #9: Limits of Doubling
+### #11: Limits of Doubling
 
 Choose the pair in which both words are spelled correctly.
 
@@ -203,9 +240,9 @@ D) fixing; playing
 
 Use patterns to check a spelling. For an exception, recall the whole word instead of forcing the pattern.
 
-Compare related forms such as *begin/beginning* and *refer/referred*. Say the base aloud to locate its stress before deciding whether to double the last letter.
+Compare related forms such as *begin/beginning* and *refer/referred*. Say the base aloud to find its stressed syllable before deciding whether to double the last letter.
 
-Break a long word into spoken parts. Use a known base to check letters that are hard to hear, then check the ending separately.
+Break a long word into spoken parts. Use a known base to check letters that are hard to hear. Check the ending separately.
 
 Sa Filipino, gamitin ang tinatanggap na baybay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.
 
@@ -215,7 +252,7 @@ Sa Filipino, gamitin ang tinatanggap na baybay. Huwag gumawa ng pangkalahatang t
 
 > The i before e rhyme does not cover every word.
 
-*Seize* is standard even though it does not fit the rhyme. A choice may be correct because it is a known exception.
+*Seize* is standard even though it does not fit the rhyme. A known exception can be the correct choice.
 
 ### #2: Dropping Every Final E
 
@@ -227,7 +264,7 @@ Compare *managing* with *noticeable*. In *noticeable*, the *e* helps keep the so
 
 > Some words lose final e before a suffix starting with a consonant.
 
-Learn **truly** and **argument** as common exceptions. A simple keep-the-e shortcut would produce wrong spellings here.
+Learn **truly** and **argument** as common exceptions. Keeping the *e* would produce wrong spellings in these words.
 
 ### #4: Doubling from Letter Shape Alone
 
