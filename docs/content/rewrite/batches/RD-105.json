@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
+ ],
+ "topic": "reasoning/logical-verbal-reasoning",
+ "rewrites": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "db7ff61136b6d0eb774a46aa579c4cc5534df4ee",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "db7ff61136b6d0eb774a46aa579c4cc5534df4ee"
+ },
+ "sha256": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "0cbeea7f7f79087d1d28f637c896f946db2b74a9edf4681fd34c0ee771c34348",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "5e9ff471230d05031bebeec134eaae379b149b282422efec19ccbfd5508a9d14"
+ },
+ "paths": {
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": "content/lessons/reasoning/logical-verbal-reasoning/number-and-letter-sequences.md",
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": "content/lessons/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.md"
+ },
+ "id": "RD-105",
+ "type": "read",
+ "created": "2026-10-26T04:47:35+00:00"
+}
