@@ -66,3 +66,10 @@ prefers role examples.
 
 Closing state: 74 clean or minor-only beyond the items above; content (lessons and questions) is complete for review.
 Illustrations are paused by Aedwon.
+
+## 2026-10-27 final state
+
+After the polish round (17 lessons), one targeted round (7 lessons) and a last fix to the three branches lesson
+(voluntary renunciation per Article VI, Sections 4 and 7; COA probity and independence per Article IX-D):
+85 clean, 5 minor-only, 0 Blocker or Major (lead-voided findings excluded, see the rulings above). Lessons and
+questions are complete for Aedwon's review. Illustrations remain paused by Aedwon.
