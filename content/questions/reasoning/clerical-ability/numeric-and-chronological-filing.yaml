@@ -23,7 +23,7 @@ questions:
         rationale: |
           This reverses numbers within small pairs. The same four identifiers are present. Check the entire sequence from left to right.
     explanation: |
-      Ascending consecutive order increases by one each time. The sequence starts at 0102, then continues through 0103, 0104, and 0105.
+      Ascending numeric order goes from smallest to largest. The sequence starts at 0102, then continues through 0103, 0104, and 0105.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0002
     type: single_choice
@@ -109,7 +109,7 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      When filing records chronologically by year, month, and day, which date precedes 2025-06-15?
+      When filing records from oldest to newest by year, month, and day, which date precedes 2025-06-15?
     choices:
       - text: "2025-06-10"
         correct: true
@@ -149,7 +149,7 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Which file number comes immediately BEFORE file number 5000 in a consecutive numeric filing system?
+      Which file number comes immediately BEFORE file number 5000 in an ascending consecutive numeric filing system?
     choices:
       - text: "4999"
         correct: true
