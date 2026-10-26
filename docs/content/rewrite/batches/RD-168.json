@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-vocabulary-spelling-rules",
+  "lesson-vocabulary-synonyms-and-antonyms"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-spelling-rules": "d1a5012dce2a14506321bbbc60fc860c171060af",
+  "lesson-vocabulary-synonyms-and-antonyms": "d1a5012dce2a14506321bbbc60fc860c171060af"
+ },
+ "sha256": {
+  "lesson-vocabulary-spelling-rules": "417fb41edc353512bc6fd6665f4ac47e2a7311394c22392d0bee3e5a91817267",
+  "lesson-vocabulary-synonyms-and-antonyms": "14753c1b0773ea8613fc27c50a856bd536aaa1265e4180319f7a1f6e1c8e04a8"
+ },
+ "paths": {
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+  "lesson-vocabulary-synonyms-and-antonyms": "content/lessons/language-proficiency/vocabulary/synonyms-and-antonyms.md"
+ },
+ "id": "RD-168",
+ "type": "read",
+ "created": "2026-10-26T19:12:30+00:00"
+}
