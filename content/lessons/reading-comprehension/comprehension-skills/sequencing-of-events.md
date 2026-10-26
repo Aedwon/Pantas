@@ -114,7 +114,9 @@ Here, “concluded” means decided from the information given.
 
 Basahin ang talata. Ano ang tamang pagkakasunod-sunod mula sa pagbagsak ng puno hanggang sa muling pagbukas ng kalsada?
 
-“Isinara ang kalsada kaya naantala ang biyahe ng bus. Bago isinara ang kalsada, bumagsak ang malaking puno dahil sa malakas na hangin. Nang malaman ng mga kawani na naantala ang bus, inalis nila ang puno. Pagkatapos alisin ang puno, muling binuksan ang kalsada.”
+“Isinara ang kalsada kaya naantala ang biyahe ng bus. Bago isinara ang kalsada, bumagsak ang malaking puno dahil sa malakas na hangin.
+
+Nang malaman ng mga kawani na naantala ang bus, inalis nila ang puno. Pagkatapos alisin ang puno, muling binuksan ang kalsada.”
 
 **Solution:**
 
