@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 4,
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "## Left open by the earlier read (RD-122)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: This definition excludes stateless noncitizens. Alien means a person who is not a citizen of the country concerned; foreign citizenship is not necessary. The narrower definition is presented as universal, so it gives an incorrect meaning for a central citizenship term.\n   > An **alien** is a citizen of another country.\n2. Rule L08 (Major). Problem: This lesson is designated Filipino, but its teaching prose is in English. It must teach in simple Filipino at the Grade 5 standard.\n   > **Citizenship** means legal membership in a country. Some rights and public offices depend on it.\n3. Rule L10 (Major). Problem: This example is in English. All eleven example questions and their solutions use English, but examples in this Filipino lesson must be in Filipino.\n   > Both parents were Filipino citizens when their child was born abroad. Does the birthplace prevent Philippine citizenship?\n4. Rule L12 (Minor). Problem: The explanation continues in English beyond a short term gloss. This Filipino lesson requires Filipino teaching prose, with English limited to allowed glosses or common terms.\n   > To **elect citizenship** means to formally choose it under law. A private wish to be Filipino is not enough.\n\n### Accuracy concerns\n\n1. An alien can be stateless. The definition should cover noncitizens, including those who have no citizenship.\n   > An **alien** is a citizen of another country.",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "## Left open by the earlier read (RD-122)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The brief requires a worked amnesty-concurrence case, allowing its merger with martial law and pardon. Example 6 asks only about martial law and two pardons. Its added amnesty sentence gives a rule but never applies it to a question. Add an amnesty decision to that merged example.\n   > Amnesty is separate and needs congressional concurrence, plus COMELEC's favorable recommendation if it covers election offenses."
+ },
+ "id": "RW-119",
+ "type": "rewrite",
+ "created": "2026-10-26T06:26:12+00:00"
+}

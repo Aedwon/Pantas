@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 4,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "## Left open by the earlier read (RD-121)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The summary omits the purpose condition in RA 3019 Section 3(k): the disclosure or early release must benefit private interests or prejudice the public interest. It consequently describes a broader set of acts as this statutory corrupt practice.\n   > Section $3(k)$: giving valuable confidential office information to unauthorized people or releasing it early.\n2. Rule L27 (Major). Problem: The Section 3(k) rule lacks its private-interest or public-prejudice purpose condition. Students are told to check clause conditions in the final trap but are not taught this condition for information disclosure or early release.\n   > Section $3(k)$: giving valuable confidential office information to unauthorized people or releasing it early.\n\n### Accuracy concerns\n\n1. The summary omits the purpose condition in RA 3019 Section 3(k): the disclosure or early release must benefit private interests or prejudice the public interest. It consequently describes a broader set of acts as this statutory corrupt practice.\n   > Section $3(k)$: giving valuable confidential office information to unauthorized people or releasing it early."
+ },
+ "id": "RW-118",
+ "type": "rewrite",
+ "created": "2026-10-26T06:26:12+00:00"
+}
