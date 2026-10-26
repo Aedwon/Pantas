@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 6,
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "## Left open by the earlier read (RD-126)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L08 (Major). Problem: This lesson is designated as Filipino, but its teaching prose is in English. Teach the concepts in simple Filipino at the Grade 5 standard.\n   > **Citizenship** means legal membership in a country. Some rights and public offices depend on it.\n2. Rule L10 (Major). Problem: All eleven examples have English questions and solutions. This lesson is designated as Filipino, so its examples must be in Filipino.\n   > A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?\n3. Rule L12 (Minor). Problem: The teaching prose uses full English explanations in a lesson designated as Filipino. Use Filipino teaching prose and retain English only where it is the common term.\n   > **Suffrage** is the right to vote. Article V, Section $1$ requires Philippine citizenship, age of at least $18$, and no legal disqualification.\n4. Rule L22a (Minor). Problem: This paragraph has four sentences. L22a limits each paragraph to one to three short sentences. Split the definition and covered groups from the procedural conditions.\n   > **Repatriation** restores former Philippine citizenship. RA $8171$ covers Filipino women who lost citizenship through marriage to aliens. It also covers natural-born Filipinos who lost it from political or economic necessity, including their minor children. Restrictions apply; an oath and registration with the proper civil registry and Bureau of Immigration are required.\n5. Rule L25 (Major). Problem: The required oath of allegiance is never explained. A student must know that this means a formal sworn promise of loyalty to understand the reacquisition step used again in example 6. No prerequisite teaching or later explanation is supplied.\n   > Those who lost citizenship through foreign naturalization reacquire it through the prescribed oath of allegiance to the Philippines.\n6. Rule L25 (Major). Problem: Certificate of candidacy is a necessary legal term for the filing deadline, but the lesson never explains that it is the formal document filed to run for an elective office. Example 6 repeats the term without teaching it.\n   > Under Section $5(2)$, seeking elected office also requires a personal, sworn renunciation of all foreign citizenship when filing the certificate of candidacy."
+ },
+ "id": "RW-122",
+ "type": "rewrite",
+ "created": "2026-10-26T06:43:25+00:00"
+}
