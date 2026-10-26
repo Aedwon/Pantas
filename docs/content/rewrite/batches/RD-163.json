@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-language-application-sentence-completion"
+ ],
+ "topic": "language-proficiency/language-application",
+ "rewrites": {
+  "lesson-language-application-sentence-completion": "7b9b9959a0d2960a5598e551743c99821118d6ef"
+ },
+ "sha256": {
+  "lesson-language-application-sentence-completion": "0a6254b5de41e228b04666674fdff5e9969943e40179193e412c149e080b0cd6"
+ },
+ "paths": {
+  "lesson-language-application-sentence-completion": "content/lessons/language-proficiency/language-application/sentence-completion.md"
+ },
+ "id": "RD-163",
+ "type": "read",
+ "created": "2026-10-26T16:47:58+00:00"
+}
