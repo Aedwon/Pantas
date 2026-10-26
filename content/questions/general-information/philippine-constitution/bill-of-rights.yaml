@@ -127,3 +127,405 @@ questions:
   explanation: 'Article III protects forming unions, associations, and societies for purposes not contrary to law.
 
     '
+- id: q-philippine-constitution-bill-of-rights-0019
+  type: single_choice
+  difficulty: easy
+  stem: |
+    Residents submit a written request asking the city government to stop
+    dumping waste near their homes. Which right most directly protects
+    their act of asking the government to address the complaint?
+  choices:
+  - text: The right to information on matters of public concern
+    rationale: |
+      This right covers access to public records. The residents are asking
+      for action, not requesting records.
+  - text: The right to petition the government for redress of grievances
+    correct: true
+  - text: The right to just compensation
+    rationale: |
+      Just compensation concerns private property taken for public use.
+      The question concerns submitting a complaint to officials.
+  - text: The right against self-incrimination
+    rationale: |
+      This right protects against forced testimony against oneself.
+      The residents are freely asking officials to act.
+  explanation: |
+    A petition asks the government to fix a wrong. Section 4 protects
+    this request. It does not guarantee that officials will grant it.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0020
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A proposed rule would allow a qualified citizen to vote only after
+    joining a government-approved religion. Which prohibition most
+    directly applies?
+  choices:
+  - text: The prohibition against excessive bail
+    rationale: |
+      Bail concerns temporary release while a criminal case proceeds.
+      The rule concerns a condition for voting.
+  - text: The prohibition against involuntary servitude
+    rationale: |
+      Involuntary servitude means forced work. The proposed rule requires
+      religious membership, not labor.
+  - text: The prohibition against religious tests for political rights
+    correct: true
+  - text: The prohibition against imprisonment for debt
+    rationale: |
+      This protects people from imprisonment solely for unpaid debt.
+      The voting condition does not concern a debt.
+  explanation: |
+    Voting is a political right. Section 5 forbids requiring a particular
+    religion to exercise that right.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0021
+  type: single_choice
+  difficulty: easy
+  stem: |
+    The government takes privately owned land for a public road.
+    Which requirement does Article III impose for this taking?
+  choices:
+  - text: Payment of just compensation to the owner
+    correct: true
+  - text: Payment only if the owner is unable to afford other land
+    rationale: |
+      Just compensation does not depend on the owner's poverty.
+      It is required for private property taken for public use.
+  - text: Payment only if the land will later return to private use
+    rationale: |
+      Section 9 requires payment for a public taking. A later change
+      to private use is not the condition stated in that section.
+  - text: No payment because the road serves the public
+    rationale: |
+      Public use does not remove the duty to pay. It is part of the
+      rule that requires just compensation.
+  explanation: |
+    Section 9 requires fair payment when private property is taken for
+    public use. A public road does not excuse the government from paying.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0022
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A citizen requests government research data used to set a public
+    policy. The office says that a law makes part of the data confidential.
+    What is the proper approach under the right to information?
+  choices:
+  - text: Release the entire file because policy data can never be confidential
+    rationale: |
+      Section 7 covers policy research data, but access remains subject
+      to limits provided by law.
+  - text: Deny the entire request because any claim of confidentiality is final
+    rationale: |
+      An office's claim does not prove that a legal limit applies.
+      The claimed law and the covered material must be checked.
+  - text: Deny access because research data is outside the right to information
+    rationale: |
+      Section 7 includes government research data used to develop policy.
+      The file is not excluded simply because it contains research.
+  - text: Check whether the claimed law actually limits access to the requested material
+    correct: true
+  explanation: |
+    Section 7 covers government policy research data. Access can have
+    legal limits. The office must have an applicable legal basis for its claim.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0023
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A law grants a public benefit to one group of applicants and denies
+    it to another group in the same situation. The only difference between
+    the groups has no connection to the law's purpose. Which finding
+    most directly raises an equal-protection concern?
+  choices:
+  - text: The law does not require a court hearing for every application
+    rationale: |
+      Hearing requirements concern due process. They do not explain
+      whether the grouping fits the purpose of the benefit.
+  - text: The distinction between the groups does not serve the law's purpose
+    correct: true
+  - text: The law treats all members of each group alike
+    rationale: |
+      Equal treatment within each group is one requirement for a valid
+      grouping. It does not cure an unrelated distinction between groups.
+  - text: The law continues to apply to future applicants
+    rationale: |
+      Applying beyond present conditions is one requirement for a valid
+      grouping. It does not justify a difference unrelated to the purpose.
+  explanation: |
+    Different treatment needs a valid reason tied to the law's purpose.
+    Treating each group consistently does not make an unrelated grouping fair.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0024
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Officials obtain private letters in a manner already found to violate
+    Article III, Section 3. They offer the letters as evidence in an
+    administrative case. How does the exclusionary rule apply?
+  choices:
+  - text: The letters may be used because the case is not criminal
+    rationale: |
+      The rule covers any proceeding. It is not limited to criminal cases.
+  - text: The letters may be used if they appear reliable
+    rationale: |
+      Reliable content does not remove the exclusion required after
+      a violation of Section 3.
+  - text: The letters may not be used for any purpose in the proceeding
+    correct: true
+  - text: The letters may be used if officials obtained them for a public purpose
+    rationale: |
+      A claimed public purpose does not cure the violation already found.
+      Evidence obtained through that violation is excluded.
+  explanation: |
+    Evidence obtained in violation of Section 2 or Section 3 is excluded
+    for any purpose in any proceeding. Administrative cases are included.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0025
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Armed officers surround a commuter and order the commuter to open
+    a bag. The commuter remains silent and follows the order. The officers
+    claim that this alone proves consent. Which assessment is correct?
+  choices:
+  - text: Silence and obedience under these conditions do not by themselves establish free consent
+    correct: true
+  - text: Following an officer's order always establishes informed consent
+    rationale: |
+      Following an order can result from pressure. Consent must be freely
+      and clearly given.
+  - text: Consent is established whenever the person does not physically resist
+    rationale: |
+      Lack of resistance does not prove permission. A person may submit
+      because armed officers create pressure.
+  - text: The presence of armed officers removes the need to establish a search exception
+    rationale: |
+      Being armed does not give officers an unlimited right to search.
+      A warrant exception must still meet its conditions.
+  explanation: |
+    Consent must be clear, informed, specific, and free from pressure.
+    Silence and submission to armed officers do not by themselves prove it.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0026
+  type: single_choice
+  difficulty: medium
+  stem: |
+    An official orders a person to leave a permanent home and live in
+    another town. The official cites national security but has no lawful
+    court order. Which statement correctly distinguishes the rights involved?
+  choices:
+  - text: National security automatically allows officials to choose a person's residence
+    rationale: |
+      National security is a listed ground for restricting travel as
+      provided by law. It does not replace the rule for liberty of abode.
+  - text: Residence and travel may be restricted under identical conditions
+    rationale: |
+      Section 6 gives these rights different rules. Forced relocation
+      concerns liberty of abode.
+  - text: Liberty of abode permits no restrictions even with a lawful court order
+    rationale: |
+      Section 6 allows restrictions on abode within limits set by law
+      upon a lawful court order.
+  - text: The order concerns liberty of abode, whose restriction requires a lawful court order within limits set by law
+    correct: true
+  explanation: |
+    Choosing where to live concerns liberty of abode. Section 6 requires
+    a lawful court order within legal limits. Travel has a separate rule.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0027
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A judge independently reviews a prosecutor's report and sufficient
+    supporting evidence before finding probable cause for an arrest warrant.
+    An objection claims that the judge also had to question the complainant
+    and witnesses personally. Which response follows the lesson?
+  choices:
+  - text: The objection is correct because every arrest warrant requires that personal questioning
+    rationale: |
+      This transfers the search-warrant examination requirement to every
+      arrest warrant. Sufficient records may support the arrest decision.
+  - text: The objection is incorrect because personal review of sufficient supporting evidence can meet the judge's duty
+    correct: true
+  - text: The objection is incorrect because the prosecutor alone determines probable cause for the warrant
+    rationale: |
+      The judge must decide independently. The prosecutor's conclusion
+      does not replace the judge's review.
+  - text: The objection is correct because arrest warrants cannot rely on written evidence
+    rationale: |
+      A judge may personally evaluate the prosecutor's report and
+      supporting evidence. Written records are not barred.
+  explanation: |
+    For an arrest warrant, the judge may personally review sufficient
+    records. The judge must make an independent decision. Personal
+    questioning is not always required.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0028
+  type: single_choice
+  difficulty: hard
+  stem: |
+    An officer arrests a person without a warrant based only on an
+    unverified message alleging a theft committed several weeks earlier.
+    The officer invokes hot pursuit. Which assessment is most accurate?
+  choices:
+  - text: The exception applies because any report of theft supplies personal knowledge
+    rationale: |
+      An unverified report alone does not give the officer personal
+      knowledge of facts supporting probable cause.
+  - text: The exception fails only because the officer did not witness the theft
+    rationale: |
+      Hot pursuit does not require witnessing the offense itself.
+      It requires a just-committed offense and personal knowledge of supporting facts.
+  - text: The exception fails because the offense did not just occur and the officer lacks the required personal knowledge
+    correct: true
+  - text: The exception applies because officers may pursue any unsolved offense without a warrant
+    rationale: |
+      An unsolved offense does not remove the requirements of immediacy
+      and personal knowledge for a hot-pursuit arrest.
+  explanation: |
+    Hot pursuit requires an offense that has just occurred. The officer
+    must personally know facts supporting the arrest and act with the
+    required immediacy. These facts meet neither requirement.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0029
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A person under investigation for an offense cannot afford a lawyer.
+    Investigators obtain a written waiver of the rights to silence and
+    counsel while no lawyer is present. Which statement is correct?
+  choices:
+  - text: The waiver does not meet the requirement that it be made in the presence of counsel
+    correct: true
+  - text: The waiver is sufficient because a written signature replaces the need for counsel
+    rationale: |
+      Writing is only one requirement. The waiver must also be made
+      in the presence of counsel.
+  - text: The person loses the right to counsel by being unable to pay
+    rationale: |
+      Section 12 requires a lawyer to be provided when the person
+      cannot afford one.
+  - text: Investigators may accept an oral waiver later to cure the missing lawyer
+    rationale: |
+      An oral waiver does not meet the written-waiver requirement.
+      It also does not supply counsel's required presence.
+  explanation: |
+    Section 12 requires a written waiver made in the presence of counsel.
+    A signature alone is not enough. A person who cannot afford a lawyer
+    must be provided one.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0030
+  type: single_choice
+  difficulty: hard
+  stem: |
+    Before conviction, an accused is charged with an offense punishable
+    by reclusion perpetua. The evidence of guilt is not strong. The State
+    relies only on the charged penalty to invoke Section 13's stated
+    exception to bail. Which conclusion follows?
+  choices:
+  - text: The exception applies whenever the charge carries reclusion perpetua
+    rationale: |
+      The charged penalty is only one condition. Section 13 also requires
+      strong evidence of guilt for this exception.
+  - text: The accused must prove innocence before the exception can be rejected
+    rationale: |
+      The stated rule asks whether the evidence of guilt is strong.
+      It does not require the accused to prove innocence.
+  - text: The exception applies because bail is available only after conviction
+    rationale: |
+      Section 13 protects bail before conviction, subject to its stated
+      exception. This reverses the timing of that protection.
+  - text: The stated exception does not apply because strong evidence of guilt is also required
+    correct: true
+  explanation: |
+    Both conditions matter. The charge must carry reclusion perpetua,
+    and the evidence of guilt must be strong. The charged penalty alone
+    does not meet this exception.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0031
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Rebellion exists, and public safety requires suspension of the
+    privilege of the writ of habeas corpus. An official argues that
+    this also suspends the right to bail. Which statement correctly
+    applies the constitutional rules?
+  choices:
+  - text: Rebellion alone permits suspension, and bail is suspended with it
+    rationale: |
+      Suspension also requires a public-safety need. The right to bail
+      remains protected even during suspension.
+  - text: The stated conditions support suspension of the privilege, but the right to bail remains protected
+    correct: true
+  - text: Suspension is forbidden during rebellion even when public safety requires it
+    rationale: |
+      Section 15 expressly allows suspension during invasion or rebellion
+      when public safety requires it.
+  - text: Suspension gives every detained person an unconditional right to release on bail
+    rationale: |
+      Bail remains subject to its own constitutional rules. Suspension
+      neither removes those rules nor guarantees release to everyone.
+  explanation: |
+    Rebellion and the stated public-safety need meet Section 15's conditions.
+    Section 13 separately protects bail during suspension. Its own rules
+    still determine whether bail is available.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0032
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An act is punishable under both a national law and a local ordinance.
+    In a court with authority, an accused faces a valid charge under the
+    ordinance, enters a valid plea after arraignment, and is acquitted.
+    The State then prosecutes the same act under the national law.
+    Which rule most directly governs?
+  choices:
+  - text: The second prosecution is allowed because the two laws have different sources
+    rationale: |
+      Section 21 expressly covers an act punished by both a national law
+      and an ordinance. Different sources do not avoid that protection.
+  - text: Only a prior conviction can bar the second prosecution
+    rationale: |
+      Section 21 includes both conviction and acquittal under either law
+      as a bar to another prosecution for the same act under the other.
+  - text: The acquittal under the ordinance bars prosecution under the national law for the same act
+    correct: true
+  - text: Double jeopardy begins with any complaint even before arraignment and plea
+    rationale: |
+      A complaint alone is not enough. A valid charge, proper court,
+      arraignment, valid plea, and protected end must be checked.
+  explanation: |
+    Section 21 covers the same act punished by a national law and an
+    ordinance. Conviction or acquittal under either bars another
+    prosecution under the other. The stated first case meets the required steps.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0033
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A new criminal law increases the punishment for an offense and applies
+    the increase to acts committed before it took effect. A separate law
+    directly punishes named people without a court trial. Which pair
+    correctly identifies the prohibited laws, in that order?
+  choices:
+  - text: Ex post facto law and bill of attainder
+    correct: true
+  - text: Bill of attainder and ex post facto law
+    rationale: |
+      This reverses the terms. The first law increases past punishment.
+      The second imposes punishment on named people without a trial.
+  - text: Ex post facto law and law impairing the obligation of contracts
+    rationale: |
+      The first term fits. The second law punishes named people without
+      trial. It does not concern changing duties under a contract.
+  - text: Law impairing the obligation of contracts and bill of attainder
+    rationale: |
+      The second term fits. The first law changes punishment for past
+      crimes. It does not concern contractual duties.
+  explanation: |
+    An ex post facto law applies a harmful criminal-law change backward.
+    A bill of attainder punishes named or identifiable people without
+    a court trial. Section 22 bans both.
+  approved: false
