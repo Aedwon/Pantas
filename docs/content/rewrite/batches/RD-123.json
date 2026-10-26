@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "81564501e3d2025711895378eb2b8f05f3f6340b"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "e86d12b0a53956a6da8bd693d331495a4605da21cded3bf1c7f19dc598fd0b1a"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md"
+ },
+ "id": "RD-123",
+ "type": "read",
+ "created": "2026-10-26T06:27:23+00:00"
+}
