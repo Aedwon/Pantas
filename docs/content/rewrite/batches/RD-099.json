@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-geometry-logic-and-reasoning",
+  "lesson-geometry-measurement"
+ ],
+ "topic": "mathematics/geometry",
+ "rewrites": {
+  "lesson-geometry-logic-and-reasoning": "cc8697bab5c56662e8fa1e3472baea6281ecee17",
+  "lesson-geometry-measurement": "cc8697bab5c56662e8fa1e3472baea6281ecee17"
+ },
+ "sha256": {
+  "lesson-geometry-logic-and-reasoning": "693028a992f7defa00df8c5d9ea1692d70e5214e33cddb91b1439a3e744811cc",
+  "lesson-geometry-measurement": "61d17ebc5a3c82e8f85d66fc3b573ac2f69e7e158a4edcf08522dc6570b0eac4"
+ },
+ "paths": {
+  "lesson-geometry-logic-and-reasoning": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+  "lesson-geometry-measurement": "content/lessons/mathematics/geometry/measurement.md"
+ },
+ "id": "RD-099",
+ "type": "read",
+ "created": "2026-10-26T04:39:34+00:00"
+}
