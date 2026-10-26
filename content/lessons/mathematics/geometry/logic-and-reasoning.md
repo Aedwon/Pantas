@@ -113,7 +113,20 @@ D) A figure has $4$ sides only if it is a square.
 2. The contrapositive is "If a figure does not have $4$ sides, then it is not a square."
 3. The answer is C. It has the same truth value as the original in every case.
 
-### #5: Chaining Statements and Using a Fact
+### #5: Reading Only If
+
+An office follows this rule: "An applicant may enter the records room only if the applicant has a visitor pass." Rewrite the rule as an if-then statement. Does having a visitor pass alone prove that an applicant may enter?
+
+<!-- ILLUSTRATION: One-way arrow from applicant may enter the records room to applicant has a visitor pass; label the first statement hypothesis and the second conclusion. -->
+
+**Solution:**
+
+1. The part after "only if" is the conclusion: the applicant has a visitor pass.
+2. The rule means "If an applicant may enter the records room, then the applicant has a visitor pass."
+3. Having a visitor pass does not prove that the applicant may enter. That would use the converse, which the rule does not establish.
+4. The rule does show that an applicant without a visitor pass may not enter. This is the contrapositive.
+
+### #6: Chaining Statements and Using a Fact
 
 Assume these statements are true: "If an application is complete, then it is sent for review." "If an application is sent for review, then a tracking number is assigned." Rico's application is complete. What must follow?
 
@@ -126,7 +139,7 @@ Assume these statements are true: "If an application is complete, then it is sen
 3. Rico's application is complete. Use the Law of Detachment with that fact and the new conditional.
 4. A tracking number is assigned to Rico's application.
 
-### #6: Proving Both Directions
+### #7: Proving Both Directions
 
 For an integer $n$, check this statement: "$n$ is even if and only if $n$ is divisible by $2$."
 
@@ -144,6 +157,8 @@ For an integer $n$, check this statement: "$n$ is even if and only if $n$ is div
 For an equivalent-statement question, first build the contrapositive. Then compare its meaning with the choices. Different wording can express the same statement.
 
 Remember the truth pairs: original with contrapositive, and converse with inverse. If the converse is true, the inverse is true too.
+
+For "only if," put the part after those words after "then." Do not reverse the direction.
 
 For a chain, match each conclusion to the next hypothesis. Keep the final answer as an if-then statement unless a given fact lets you use detachment.
 
