@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-vocabulary-spelling-rules"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-spelling-rules": "2f040cca8b34e861b7b4854cfc576d126f172a3e"
+ },
+ "sha256": {
+  "lesson-vocabulary-spelling-rules": "e02cef185ccd38569ebaeaaaea74ae654a25d955f8cdc0b58629e2ce2684a495"
+ },
+ "paths": {
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md"
+ },
+ "id": "RD-164",
+ "type": "read",
+ "created": "2026-10-26T16:49:11+00:00"
+}
