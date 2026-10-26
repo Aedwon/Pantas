@@ -1,0 +1,312 @@
+{
+ "batch": "RD-108",
+ "lesson_id": "lesson-biology-ecology",
+ "path": "content/lessons/science/biology/ecology.md",
+ "lesson_sha256": "35111a7b46295246bf0f9ae98796cce82a0f223353de5aec2caff4c3301c2d57",
+ "rewrite_commit": "1ae9d70edf2bdb61e67919ee396bb771fb5bff4d",
+ "form": {
+  "packet": "lesson-biology-ecology",
+  "role": "A",
+  "lesson_sha256": "35111a7b46295246bf0f9ae98796cce82a0f223353de5aec2caff4c3301c2d57",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked food-chain arrow direction, producer and consumer roles, heat loss, and the conditional transfer estimate against standard ecology principles; no contradictory factual claim found.",
+     "Checked carbon uptake and return, nitrogen fixation versus nitrification and denitrification, phosphate weathering and sediment, and evaporation through return flow. These descriptions are scientifically consistent.",
+     "Checked resource-limited carrying capacity, conditional food-web effects, symbiotic effects, biodiversity loss, invasive species, and matching conservation responses. No factual error identified."
+    ],
+    "note": "Assessment uses only the supplied lesson and brief. No external source ledger or source text was supplied for independent source verification.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers from stems: #1 grass → grasshopper → frog → hawk, with producer, primary, secondary, and tertiary consumer roles. #2 frogs likely decline from less food; hawks retain rabbits as another food source.",
+     "#3 primary consumers receive 1,000 kJ and secondary consumers 100 kJ under the stated assumption. #4 (a) parasitism, (b) mutualism, (c) commensalism.",
+     "#5 photosynthesis puts carbon into plants; decay returns it; evaporation, condensation, and precipitation move lake water through vapor, droplets, and rain. #6 most plants cannot convert nitrogen gas directly; fixation produces ammonia.",
+     "#7 rock weathering → soil phosphate → grass → grazers → decay and runoff to lake sediment. #8 drought lowers carrying capacity. #9 seed production likely falls, reducing food for seed eaters. #10 restore native habitat, stop polluted runoff, and monitor populations and water quality. All match the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Exam Strategies, and Traps to Watch For supply the conceptual-science layout. No mnemonic is required.",
+     "Both the energy pyramid and branching-web example have specific illustration placeholders. Brief coverage includes all four matter cycles, population dynamics, biodiversity, human impacts, and conservation."
+    ],
+    "note": "No separate outline was supplied; required coverage was checked against the supplied brief and standards.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching and solutions for sentence length and vocabulary. Technical terms such as carrying capacity, reservoir, sediment, and transpiration receive short plain explanations.",
+     "The biome definition uses common words, and the nitrogen solution explains the inability to use gas without chemical jargon. No sustained passage exceeds the simple teaching standard."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Classify is explained before its first question. Arrange, identify, and estimate also receive short meanings. No unexplained exam-specific instruction word found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all ten stems for supplied scenario information and plain worked explanations. The web supplies feeding links; energy supplies the assumed rate and starting amount; symbiosis supplies partner effects.",
+     "Cycle, drought, pollinator, and wetland stems supply the conditions needed to reason. No solution requires an unstated numerical input or advanced chemical explanation. #5 still requires naming water processes and explaining carbon movement despite its named photosynthesis context."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported claim about a named exam or repeated exam-motivation opener appears. Strategies directly support answering ecology questions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson. It contains no Filipino teaching, grammar terms, or Filipino example text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson. It contains no Filipino teaching, grammar terms, or Filipino example text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson. It contains no Filipino teaching, grammar terms, or Filipino example text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson. It contains no Filipino teaching, grammar terms, or Filipino example text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English ecology lesson. It contains no Filipino teaching, grammar terms, or Filipino example text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target vocabulary word or refers to an underlined or bold target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary plainly names the ecology coverage. No listed stock AI phrase appears; definitions, explanations, and strategies use varied openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Conceptual biology uses the permitted Exam Strategies title and retains Core Concept, Examples, and Traps to Watch For.",
+     "The only numerical calculation is repeated energy transfer in #3: multiply available energy by 0.10 at each step. Core Concept explicitly introduces this operation before the example. CO_2, N_2, NH_4^+, and symbiosis sign pairs are notation, not new calculation formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped cases: #1 chain roles, #2 branching-web disturbance, #3 stated transfer approximation, #4 all three symbiotic effects, #5 carbon and water interpretation, #6 nitrogen fixation, and #7 phosphorus movement.",
+     "#8 covers resource change and carrying capacity; #9 covers species loss and dependent populations; #10 covers habitat loss, pollution, and management monitoring. Cases differ in reasoning, start with a basic chain, and progress to multi-cause applications. No distinct brief-required case is missing."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution uses numbered steps. #3 displays both key multiplications separately. Traced all conceptual solutions without finding a missing inference."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Both displayed multiplications in #3 are short single equations with kJ units and fit a narrow phone screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs contain one to three sentences. The two short bullet groups organize trophic roles and symbiosis; longer sequences are numbered solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Energy-pyramid placeholder specifies levels, percentages, and an explicit assumption label; surrounding prose explains energy loss and the conditional estimate.",
+     "The branching-web placeholder gives each arrow and the changed population. Its stem independently supplies every feeding link needed to solve the question. Both are specific single-line artist instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Checked ecosystem, biome, trophic level, consumer roles, decomposers, and detritivores against their local definitions before worked use. kJ is expanded as kilojoule and identified as energy before #3.",
+     "Population, community, carrying capacity, cycle, reservoir, carbon dioxide, nitrogen gas, fixation, nitrification, phosphate, weathering, sediment, and water processes have local explanations. Bacteria replaces the unexplained prokaryotes term.",
+     "Symbiosis effects and signs are defined before #4. Biodiversity, overharvesting, invasive species, and conservation are explained before species-loss and management applications. No prerequisite explanation is needed for the methods used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Food arrows and branching links explain energy movement; resource limits explain population change; partner benefits and harm explain symbiotic categories.",
+     "Carbon is traced through photosynthesis, feeding, respiration, decay, and burning. Nitrogen processes distinguish gas conversion, ammonium-to-nitrate changes, and return to air.",
+     "Phosphorus teaching traces weathering, plant uptake, feeding, decay, runoff, and sediment. Water teaching explains evaporation, condensation, precipitation, runoff, underground return, and transpiration.",
+     "Biodiversity consequences are explained through pollinator and food links; conservation actions address distinct damage causes and are checked through monitoring."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The transfer estimate is explicitly conditional on a problem stating it. Consumers may occupy several trophic levels; alternate food sources can soften effects without guaranteeing no change.",
+     "Carrying capacity may change, overshoot is possible, and population response can be delayed. Symbiosis labels depend on measured effects rather than appearance.",
+     "Nitrogen gas is not directly usable by most plants; phosphorus lacks a major atmospheric gas reservoir. Species-loss effects depend on ecological links; habitat and pollution responses have separate limits."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-biology-ecology|L18|0": {
+    "status": "fixed",
+    "quote": "Hawks can still eat rabbits in this web.",
+    "note": "Example #2 works a branching web and explains how another food source can reduce a disturbance effect."
+   },
+   "lesson-biology-ecology|L18|1": {
+    "status": "fixed",
+    "quote": "Photosynthesis moves carbon from carbon dioxide into plant material.",
+    "note": "Example #5 interprets carbon and water processes; #7 separately works the phosphorus path."
+   },
+   "lesson-biology-ecology|L26|0": {
+    "status": "fixed",
+    "quote": "**Evaporation** changes liquid water into water vapor, the gas form of water.",
+    "note": "Core Concept now explains evaporation, condensation, precipitation, runoff, underground return, and transpiration."
+   },
+   "lesson-biology-ecology|L26|1": {
+    "status": "fixed",
+    "quote": "Plants absorb phosphate from soil or water, and animals get it by feeding.",
+    "note": "The phosphorus passage explains weathering, uptake, feeding, waste, decay, runoff, and sediment formation."
+   },
+   "lesson-biology-ecology|B08|0": {
+    "status": "fixed",
+    "quote": "The familiar **$10\\%$ rule** is a classroom estimate, not a rule that every ecosystem follows exactly.",
+    "note": "The original prose percentage is now enclosed in inline math."
+   },
+   "lesson-biology-ecology|B08|1": {
+    "status": "fixed",
+    "quote": "These results use the problem's $10\\%$ assumption. Real ecosystems do not all transfer energy at this exact rate.",
+    "note": "The worked-example caveat now puts the percentage inside inline math."
+   },
+   "lesson-biology-ecology|B08|2": {
+    "status": "fixed",
+    "quote": "Use $10\\%$ in energy calculations only when the problem gives that approximation or tells you to assume it.",
+    "note": "The strategy passage formats the percentage in inline math and preserves the condition."
+   },
+   "lesson-biology-ecology|B08|3": {
+    "status": "fixed",
+    "quote": "Energy transfer varies; $10\\%$ is an estimate for problems that state this assumption.",
+    "note": "The trap warning formats the percentage in inline math and retains the limitation."
+   },
+   "lesson-biology-ecology|L02|0": {
+    "status": "fixed",
+    "quote": "A **biome** is a large region with a usual climate and common kinds of plants.",
+    "note": "The biome definition replaces the difficult wording with short common words."
+   },
+   "lesson-biology-ecology|L03|2": {
+    "status": "fixed",
+    "quote": "\"Classify\" means put each example into the correct group.",
+    "note": "The classification instruction now has a plain one-line explanation before use."
+   },
+   "lesson-biology-ecology|L05|0": {
+    "status": "fixed",
+    "quote": "Most plants lack a way to break nitrogen gas apart and change it into compounds they can use.",
+    "note": "The worked solution now states the reason without strong-triple-bond or chemically-unavailable language."
+   },
+   "lesson-biology-ecology|L25|0": {
+    "status": "fixed",
+    "quote": "A **kilojoule (kJ)** is a unit of energy.",
+    "note": "The unit is expanded and explained before the numerical transfer example."
+   },
+   "lesson-biology-ecology|L25|1": {
+    "status": "fixed",
+    "quote": "Certain bacteria carry out this process.",
+    "note": "The nitrogen passage uses bacteria and no longer requires the undefined term prokaryotes."
+   },
+   "science-biology#28": {
+    "status": "fixed",
+    "quote": "Population size changes through births, deaths, movement into an area, and movement out.",
+    "note": "Population and community definitions, resource limits, competition, predation, and carrying capacity are taught; #8 applies resource change."
+   },
+   "science-biology#29": {
+    "status": "fixed",
+    "quote": "Losing a species can change feeding relationships, competition, and other links in a community.",
+    "note": "Biodiversity levels and ecosystem consequences are taught; #9 works loss of a required pollinator."
+   },
+   "science-biology#30": {
+    "status": "fixed",
+    "quote": "Human activities can change ecosystems through habitat loss, pollution, and climate change.",
+    "note": "Human impacts include habitat loss, pollution, climate change, overharvesting, and invasive species; #10 applies two causes."
+   },
+   "science-biology#31": {
+    "status": "fixed",
+    "quote": "Checking populations over time helps show whether these actions are working.",
+    "note": "Conservation actions and matching environmental management are taught, with monitoring worked in #10."
+   },
+   "lesson-biology-ecology|L03|0": {
+    "status": "fixed",
+    "quote": "\"Arrange\" means put in order. \"Identify\" means name the requested item or role.",
+    "note": "Both optional instruction meanings were added before the first example question."
+   },
+   "lesson-biology-ecology|L03|1": {
+    "status": "fixed",
+    "quote": "\"Estimate\" means find an approximate amount.",
+    "note": "The optional estimate explanation appears before the energy calculation question."
+   }
+  }
+ }
+}
