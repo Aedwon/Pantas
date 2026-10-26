@@ -1,7 +1,7 @@
 ---
 _id: "lesson-logical-verbal-reasoning-truth-tables-propositional-logic"
 title: "Truth Tables and Propositional Logic"
-summary: "Build and read truth tables for negation, conjunction, disjunction, conditionals, and combined logical statements."
+summary: "Read and make truth tables for negation, conjunction, disjunction, conditionals, and combined statements."
 subject: "subject-reasoning"
 topic: "topic-logical-verbal-reasoning"
 estimatedMinutes: 11
@@ -18,17 +18,19 @@ To make a truth table, first list every possible set of truth values. For $P$ an
 
 A **connective** joins statements or changes a statement's truth value. The following symbols show which rule to use.
 
-**not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is true, $\neg P$ is false. If $P$ is false, $\neg P$ is true.
+**Not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is true, $\neg P$ is false. If $P$ is false, $\neg P$ is true.
 
-**and** (conjunction, symbol $\land$) is true only when both statements are true. So $P \land Q$ is false if either statement is false.
+**And** (conjunction, symbol $\land$) is true only when both statements are true. So $P \land Q$ is false if either statement is false.
 
-**or** (disjunction, symbol $\lor$) is true when at least one statement is true. This includes the case where both statements are true. It is false only when both statements are false.
+**Or** (disjunction, symbol $\lor$) is true when at least one statement is true. This includes the case where both statements are true. It is false only when both statements are false.
 
-**if...then** (conditional, symbol $\rightarrow$) is written as $P \rightarrow Q$ and read as "if $P$, then $Q$." It is false only when $P$ is true and $Q$ is false.
+**If...then** (conditional, symbol $\rightarrow$) is written as $P \rightarrow Q$. Read it as "if $P$, then $Q$." It is false only when $P$ is true and $Q$ is false.
 
 Think of a conditional as a promise: if $P$ happens, then $Q$ happens. The promise is broken only when $P$ happens but $Q$ does not. If $P$ is false, the conditional is true whether $Q$ is true or false.
 
 **Evaluate** means find the final truth value. For a combined expression, work inside parentheses first. Then use the rule for the connective outside the parentheses.
+
+If a part begins with $\neg$, flip that part's truth value before joining it to another part. Parentheses show how much of the expression the negation changes. For example, $\neg(P \land Q)$ flips the result of the whole and statement.
 
 ## Examples
 
@@ -36,27 +38,21 @@ Think of a conditional as a promise: if $P$ happens, then $Q$ happens. The promi
 
 Build the complete truth table for $P \land Q$.
 
+Here, "build" means list every case and find its result.
+
 **Solution:**
 
 1. List all possible pairs of truth values: $(T,T)$, $(T,F)$, $(F,T)$, and $(F,F)$.
 2. Use the rule for and. The result is true only when both values are true.
-3. Evaluate each pair:
+3. Find the result for each pair.
 
-$$
-T \land T=T
-$$
+$$T \land T=T$$
 
-$$
-T \land F=F
-$$
+$$T \land F=F$$
 
-$$
-F \land T=F
-$$
+$$F \land T=F$$
 
-$$
-F \land F=F
-$$
+$$F \land F=F$$
 
 Each line gives one case of the complete truth table for $P \land Q$.
 
@@ -66,7 +62,11 @@ If $P$ is false, what is the truth value of $\neg P$?
 
 **Solution:**
 
-Negation flips the truth value. Since $P$ is false, $\neg P$ is true.
+Negation flips false to true.
+
+$$\neg F=T$$
+
+So $\neg P$ is true.
 
 ### #3: Evaluating an Or Statement
 
@@ -74,7 +74,11 @@ If $P$ is false and $Q$ is true, what is the truth value of $P \lor Q$?
 
 **Solution:**
 
-Or is true when at least one statement is true. Since $Q$ is true, $P \lor Q$ is true.
+Or is true when at least one statement is true.
+
+$$F \lor T=T$$
+
+Since $Q$ is true, $P \lor Q$ is true.
 
 ### #4: Evaluating a Conditional Statement
 
@@ -82,27 +86,53 @@ If $P$ is false and $Q$ is false, what is the truth value of $P \rightarrow Q$?
 
 **Solution:**
 
-A conditional is false only when $P$ is true and $Q$ is false. Here, $P$ is false, so $P \rightarrow Q$ is true.
+A conditional is false only when its if-part is true and its then-part is false. Here, the if-part is false.
 
-### #5: Combining Connectives
+$$F \rightarrow F=T$$
+
+So $P \rightarrow Q$ is true.
+
+### #5: Finding the False Conditional Case
+
+If $P$ is true and $Q$ is false, what is the truth value of $P \rightarrow Q$?
+
+**Solution:**
+
+The if-part is true, but the then-part is false. This is the only pair that makes a conditional false.
+
+$$T \rightarrow F=F$$
+
+### #6: Combining Connectives
 
 If $P$ is true, $Q$ is false, and $R$ is true, evaluate $(P \land Q) \lor R$.
 
 **Solution:**
 
-1. Evaluate the expression inside the parentheses first:
+1. Find the value inside the parentheses first.
 
-$$
-T \land F=F
-$$
+$$T \land F=F$$
 
-2. Replace $P \land Q$ with its truth value. Then evaluate the or statement:
+2. Replace $P \land Q$ with its truth value. Then use the or rule.
 
-$$
-F \lor T=T
-$$
+$$F \lor T=T$$
 
 The full expression is true.
+
+### #7: Negating a Grouped Statement
+
+If $P$ is true and $Q$ is false, evaluate $\neg(P \land Q)$.
+
+**Solution:**
+
+1. Find the value of the and statement inside the parentheses.
+
+$$T \land F=F$$
+
+2. Negate that result.
+
+$$\neg F=T$$
+
+The full expression is true. The negation changes the result of the grouped statement.
 
 ## Speed Tricks & Shortcuts
 
@@ -110,7 +140,7 @@ For and, one false value is enough to make the result false. For or, one true va
 
 For a conditional, check for the one false case: a true if-part followed by a false then-part. Every other pair gives a true conditional.
 
-These shortcuts apply to the statements joined by that connective. In a combined expression, finish the parts inside parentheses before using the outer connective.
+These shortcuts apply to the statements joined by that connective. In a combined expression, find any inner values needed to use the outer rule. If a negation applies to the whole result, flip that result at the end.
 
 ## Traps to Watch For
 
@@ -128,6 +158,12 @@ Using the and rule for an or statement can give a false answer when one statemen
 
 ### #3: Ignoring Parentheses
 
-> Evaluate the expression inside parentheses before combining it with the rest.
+> Find the value inside parentheses before combining it with the rest.
 
-Changing the grouping can change the answer. For $P=F$, $Q=T$, and $R=T$, $(P \land Q) \lor R$ is true, but $P \land (Q \lor R)$ is false.
+Changing the grouping can change the answer. For $P=F$, $Q=T$, and $R=T$, $(P \land Q) \lor R$ is true. But $P \land (Q \lor R)$ is false.
+
+### #4: Flipping the Wrong Part
+
+> A negation before parentheses changes the value of the whole group.
+
+In $\neg(P \land Q)$, find the and result, then flip it. Flipping only $P$ would answer a different question. Follow the parentheses to see what the negation covers.
