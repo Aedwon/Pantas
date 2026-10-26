@@ -281,7 +281,7 @@ questions:
     type: root-word-affix-analysis
     difficulty: hard
     stem: |
-      A warning label reads "INFLAMMABLE MATERIAL." What does the adjective say about the material?
+      A warning label reads "INFLAMMABLE MATERIAL: Keep away from flames. This material catches fire easily." What does the adjective say about the material?
     choices:
       - text: "Easily ignited"
         correct: true
@@ -295,7 +295,7 @@ questions:
         rationale: |
           This confuses catching fire with handling high temperature. Both are heat-related properties. Check whether the word names ignition or temperature resistance.
     explanation: |
-      "Inflammable" means able to catch fire easily. Its historical first element is part of a word meaning set on fire, so the whole word indicates a fire risk.
+      "Inflammable" means able to catch fire easily, as the warning explains. Do not assume that familiar initial letters mean "not." Check the whole word and its context.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0015
@@ -323,21 +323,21 @@ questions:
     type: root-word-affix-analysis
     difficulty: hard
     stem: |
-      Sa tradisyonal na pagsusuring pampaaralan, bakit gitlapi ang "-um-" sa "sumayaw" ngunit nasa unahan ito sa "umalis"?
+      Ang salitang-ugat ng "sumayaw" ay "sayaw," at ang salitang-ugat ng "umalis" ay "alis." Batay sa puwesto ng panlapi, bakit gitlapi ang "-um-" sa "sumayaw" ngunit unlapi ang "um-" sa "umalis"?
     choices:
-      - text: "Dahil nagsisimula sa katinig ang \"sayaw,\" kaya naisingit ang -um- pagkatapos ng unang katinig; nagsisimula naman sa patinig ang \"alis,\" kaya lumilitaw ang um- sa unahan."
+      - text: "Dahil nasa loob ng \"sayaw\" ang -um- sa \"sumayaw,\" at nasa unahan ng \"alis\" ang um- sa \"umalis\"."
         correct: true
       - text: "Dahil magkaibang salita ang mga ito at walang tuntunin sa posisyon ng panlapi."
         rationale: |
-          This treats the two positions as random. The roots look different, which can make a single pattern harder to see. Check the first sound of each root.
+          This ignores the position used to name each affix. The roots look different. Check whether the affix is inside or before each root.
       - text: "Dahil palaging unlapi ang um-."
         rationale: |
           This treats every um- form as a prefix. The form stands at the start of "umalis." Check where it sits inside "sumayaw."
       - text: "Dahil palaging gitlapi ang -um-."
         rationale: |
-          This assumes the label guarantees an inside position in every written form. The -um- pattern is often called an infix. Check how the word begins when the root starts with a vowel.
+          This uses the same label for both positions. The affix is inside "sayaw" in "sumayaw." Check whether it is also inside "alis" in "umalis".
     explanation: |
-      In this school pattern, -um- goes after the first consonant of "sayaw," giving "sumayaw." Because "alis" starts with a vowel, um- appears at the beginning in "umalis."
+      In "sumayaw," -um- is inside the root "sayaw," so it is a gitlapi. In "umalis," um- is before the root "alis," so it is an unlapi. The labels describe where the affix appears.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0017
