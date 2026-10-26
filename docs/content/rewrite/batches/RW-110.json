@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification"
+ ],
+ "topic": "language-proficiency/language-application",
+ "round": 5,
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md"
+ },
+ "extra_brief": {
+  "lesson-language-application-error-identification": "## Left open by the earlier read (RD-094)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The Filipino section teaches langkapan, but no worked Filipino example identifies or builds one. Example 19 works tambalan and comments on payak and hugnayan only. The English compound-complex example does not demonstrate the Filipino construction requested by the Filipino sentence-structure brief.\n   > Ang **langkapan** (compound-complex) ay may dalawa o higit pang sugnay na makapag-iisa at isa o higit pang sugnay na di-makapag-iisa."
+ },
+ "id": "RW-110",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

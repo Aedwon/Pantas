@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-redundancy-and-double-negatives"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "round": 4,
+ "paths": {
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md"
+ },
+ "extra_brief": {
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "## Left open by the earlier read (RD-093)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L14 (Major). Problem: The prompt designates again as its target word with quotation marks. L14 requires the target to be bold and the prompt to say \"the word in bold\". Neither is present.\n   > Does \"again\" add meaning in his next request, \"Please repeat it again\"?"
+ },
+ "id": "RW-109",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

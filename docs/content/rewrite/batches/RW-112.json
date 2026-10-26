@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-algebra-exponents-and-logarithms",
+  "lesson-algebra-types-of-functions"
+ ],
+ "topic": "mathematics/algebra",
+ "round": 5,
+ "paths": {
+  "lesson-algebra-exponents-and-logarithms": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md"
+ },
+ "extra_brief": {
+  "lesson-algebra-exponents-and-logarithms": "## Left open by the earlier read (RD-097)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Argument is used as a technical logarithm term without explaining that it is the expression inside the logarithm. No prerequisite explanation is supplied.\n   > 1. The argument must be positive.",
+  "lesson-algebra-types-of-functions": "## Left open by the earlier read (RD-097)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L17 (Major). Problem: Example 10 uses the zero-exponent identity a^0=1, but Core Concept never states that formula. No prerequisite lesson is identified in the supplied packet.\n   > $$f(0)=1,\\qquad f(1)=1.2$$"
+ },
+ "id": "RW-112",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

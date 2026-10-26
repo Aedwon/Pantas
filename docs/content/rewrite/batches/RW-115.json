@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-text-types-visual-media"
+ ],
+ "topic": "reading-comprehension/text-types",
+ "round": 3,
+ "paths": {
+  "lesson-text-types-visual-media": "content/lessons/reading-comprehension/text-types/visual-media.md"
+ },
+ "extra_brief": {
+  "lesson-text-types-visual-media": "## Left open by the earlier read (RD-103)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Radii is needed to understand the stated condition for comparing sectors, but the lesson never explains that a radius runs from the center of a circle to its edge. No supplied prerequisite teaches the term.\n   > With equal radii, larger sectors have larger angles and areas, so they show larger shares."
+ },
+ "id": "RW-115",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

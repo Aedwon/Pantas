@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-geometry-measurement"
+ ],
+ "topic": "mathematics/geometry",
+ "round": 3,
+ "paths": {
+  "lesson-geometry-measurement": "content/lessons/mathematics/geometry/measurement.md"
+ },
+ "extra_brief": {
+  "lesson-geometry-measurement": "## Left open by the earlier read (RD-099)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L25 (Major). Problem: Similar is needed to understand why an area ratio determines a length ratio. Its meaning is first given in the solution, after the question requires it. Core Concept describes uniform scaling but never identifies similar figures as figures with this relationship. No prerequisite or later-explanation signpost supplies that term before use.\n   > Two similar rectangles have areas of $20\\text{ cm}^2$ and $180\\text{ cm}^2$.\n\n### Brief items not fixed\n\n1. Item `lesson-geometry-measurement|L03|0`: The command verb \"Find\" is used in the first worked question without the required one-line explanation on first use. Reason: \"Find\" is an everyday verb; a gloss is unnecessary.\n   Reader's note: Find remains an everyday command with no gloss. The optional change is unnecessary."
+ },
+ "id": "RW-114",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

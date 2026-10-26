@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-vocabulary-idioms-and-figures-of-speech"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "round": 3,
+ "paths": {
+  "lesson-vocabulary-idioms-and-figures-of-speech": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md"
+ },
+ "extra_brief": {
+  "lesson-vocabulary-idioms-and-figures-of-speech": "## Left open by the earlier read (RD-095)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L14 (Major). Problem: The target phrase is italicized instead of bold. The prompt also does not identify it as the phrase in bold, unlike the other targeted-word questions.\n   > Which literary device is created by the phrase *deafening silence*?"
+ },
+ "id": "RW-111",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

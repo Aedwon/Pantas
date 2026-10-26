@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "round": 5,
+ "paths": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "extra_brief": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "## Left open by the earlier read (RD-098)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L18 (Major). Problem: The lesson explicitly teaches finding the number of arithmetic terms from endpoints and a difference, including a separate formula and shortcut. None of the twelve worked examples solves for that count. This is a distinct application, not another set of numbers for finding a term or sum.\n   > Subtract the first term from the last term. Divide by the nonzero common difference, then add $1$ to count the first term.\n2. Rule L25 (Major). Problem: Coefficient is needed to follow Example 10 but is never defined in this lesson. No prerequisite lesson is supplied or identified for this term. Explain that it is the number multiplying a variable before asking students to add coefficients.\n   > Add the coefficients of $a$ and add the plain numbers."
+ },
+ "id": "RW-113",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}

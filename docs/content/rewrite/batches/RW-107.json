@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 7,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "content/lessons/general-information/code-of-conduct-ra-6713/prohibited-acts-and-gift-rules.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "## Left open by the earlier read (RD-111)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule B01 (Blocker). Problem: The brief supplies no Revised Penal Code source or verified text for Articles 210 and 211. These new legal claims cannot be confirmed from the permitted evidence. This is an unconfirmed-source finding, not a claim that the provisions are false.\n   > Article $211$ covers accepting gifts offered because of one's office, even without a specific bargain.\n2. Rule L25 (Major). Problem: Impeachment is used without explaining what it means or identifying the accountability-and-impeachment prerequisite. That prerequisite text is not supplied, so its teaching cannot be assumed. Students need a short explanation of this removal process to understand the State response.\n   > Article XI, Section $2$ names bribery and graft and corruption as impeachment grounds for specified high officials.\n3. Rule L26 (Major). Problem: The lesson does not explain what kinds of acts qualify under RA 7080. Naming unspecified criminal acts and a threshold does not explain how this form works. Example 4 assumes the legally qualifying acts instead of illustrating them.\n   > **Plunder** involves a public officer gathering ill-gotten wealth through a combination or series of the criminal acts covered by RA $7080$.\n4. Rule L27 (Major). Problem: The processing-time shortcut names exceptions without explaining when an extension or suspension is allowed. No prerequisite or later section is identified for these conditions. Students cannot tell when the stated deadlines apply or when a delay is lawful.\n   > Lawful extensions, disaster-related suspensions, and special rules can apply.\n\n### Accuracy concerns\n\n1. Articles 210 and 211 are additions beyond the verified-source list in the brief. Their precise legal scope needs a primary-source check; no assertion of falsity is made here.\n   > Article $211$ covers accepting gifts offered because of one's office, even without a specific bargain.",
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": "## Left open by the earlier read (RD-090)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L05 (Major). Problem: The stem explicitly labels the transfer a government-to-government donation, supplying the classification being tested. Naming the two agencies and the direct equipment transfer already supplies the necessary facts; the legal exception label gives away the recognition step.\n   > A foreign public agency donates equipment directly to a Philippine government agency as a government-to-government donation. Is this within a listed exception?"
+ },
+ "id": "RW-107",
+ "type": "rewrite",
+ "created": "2026-10-26T05:41:37+00:00"
+}
