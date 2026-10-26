@@ -1,0 +1,208 @@
+{
+ "batch": "RD-145",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "c74d293f4e805333f546b009d46c9c87cb5c697f16e8c882099d73fd46919a98",
+ "rewrite_commit": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "c74d293f4e805333f546b009d46c9c87cb5c697f16e8c882099d73fd46919a98",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Compared the fifty-million plunder threshold with the supplied RA 7659 amendment; no penalty or measured corruption statistic is taught.",
+     "Checked RA 3019 clause descriptions against the supplied brief and the stated distinction from RA 6713 Section 7(c); the additional Renales proof claim is asserted in a source comment but its source text is not supplied."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Direct bribery** involves a benefit offered or accepted to influence official action.",
+      "problem": "The supplied primary-source verification does not include the Revised Penal Code provision defining direct bribery. The wording also treats an offer alone as direct bribery without stating the public officer's acceptance or agreement and the required official-act conditions. This named legal offense is not established by the supplied sources."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 the demand for money; 2 bribery; 3 Section 3(b); 4 repeated covered kickbacks and exactly fifty million meet the stated means and amount tests.",
+     "5 social; 6 inflated bills consume money and leave fewer classrooms; 7 political; 8 social, economic, political respectively; 9 Ombudsman; 10 posted requirements expose improper demands; 11 false because service access and accountability also suffer. These match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples and Traps are present; all eleven requested cases appear. Effects map, cause chain and institution-routing placeholders are present; no Speed Tricks section is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Legal terms such as undue injury, unwarranted benefits, kickback and accountability receive plain meanings. Most sentences explain one short idea; no unexplained stack of legal categories found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate and classify are explained before examples use them; other prompts use ordinary task words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven stems provide their scenario facts, including the contract-handling connection and repeated project kickbacks; none supplies a clause answer or a classification definition. Solutions use plain descriptions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam claims or exam-based introductions appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or its formatting.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the content directly; no listed stock phrases or repeated three-sentence openings found."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted three-section structure. No example uses a mathematical formula; the fifty-million threshold is introduced in Core Concept before Example 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples 1–4 to recognition, bribery, contract benefit and plunder; 5–8 to separate and mixed effects; 9–11 to complaint routing, prevention and claim evaluation. Each changes the reasoning task."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4, 6, 8 and 11 number their reasoning steps; remaining answers make one direct identification. No calculation needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student paragraphs contain at most three short sentences; the four-item clause list is the only substantial bullet list. The long audit comment is not displayed teaching prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All three placeholders are single-line drawing instructions with explicit labels and relationships. Adjacent prose explains the categories, project-cost chain and institutional roles without the images."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Public trust, public interest, simple living, confidential information, undue injury, proof, kickback, red tape, fixer, accountability, impeachment and SALN receive local meanings; classification terms are defined before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains private gain versus honest mistakes, legal clause conditions, plunder accumulation, service deadlines, cause-and-effect categories and the separate complaint/court functions. These teach recognition and effects locally."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked lawful wealth exclusion, exact threshold inclusion, Section 3(e) alternative grounds and mental conditions, fee-free requests, extensions and exceptional deadlines, gift exception conditions, overlapping effects and delay not proving corruption."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "**Direct bribery** involves a benefit offered or accepted to influence official action.",
+    "concern": "This broad description of bribery does not establish the elements of the specifically named offense of direct bribery. An offer alone should not be equated with that completed offense."
+   }
+  ],
+  "brief_items": {}
+ }
+}
