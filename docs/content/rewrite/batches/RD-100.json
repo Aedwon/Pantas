@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-statistics-and-probability-basic-probability",
+  "lesson-statistics-and-probability-data-analysis-graphs",
+  "lesson-statistics-and-probability-measures-of-central-tendency"
+ ],
+ "topic": "mathematics/statistics-and-probability",
+ "rewrites": {
+  "lesson-statistics-and-probability-basic-probability": "aade027563a9e2467f0052ebf17c7688069083ca",
+  "lesson-statistics-and-probability-data-analysis-graphs": "aade027563a9e2467f0052ebf17c7688069083ca",
+  "lesson-statistics-and-probability-measures-of-central-tendency": "aade027563a9e2467f0052ebf17c7688069083ca"
+ },
+ "sha256": {
+  "lesson-statistics-and-probability-basic-probability": "09fbf56b8a348f32037b39f965c6e5cb62c408e84df3935edaf7b99666c9c696",
+  "lesson-statistics-and-probability-data-analysis-graphs": "4894aaf79607014e868e6281b960ac035cdf772f40bcee07b493d6f957ed1e6d",
+  "lesson-statistics-and-probability-measures-of-central-tendency": "83a1d8a7f3013e2ef1f9b3a77ce37b8486a027dbbbbeabdbab24927f8e83d386"
+ },
+ "paths": {
+  "lesson-statistics-and-probability-basic-probability": "content/lessons/mathematics/statistics-and-probability/basic-probability.md",
+  "lesson-statistics-and-probability-data-analysis-graphs": "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
+  "lesson-statistics-and-probability-measures-of-central-tendency": "content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md"
+ },
+ "id": "RD-100",
+ "type": "read",
+ "created": "2026-10-26T04:41:47+00:00"
+}
