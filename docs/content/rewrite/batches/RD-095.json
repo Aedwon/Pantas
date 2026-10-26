@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-vocabulary-context-clues",
+  "lesson-vocabulary-idioms-and-figures-of-speech",
+  "lesson-vocabulary-spelling-rules"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-context-clues": "b31bc8fcf5026753c837f0531b0f10f84989ec06",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "4bb0778811c928638ce3acf1d3917cda7eda0e52",
+  "lesson-vocabulary-spelling-rules": "b31bc8fcf5026753c837f0531b0f10f84989ec06"
+ },
+ "sha256": {
+  "lesson-vocabulary-context-clues": "23af9955aea5ff794250e78b2c6112feb6584ad80cb95200b9c3cbb8b973890e",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "8225dae97deb12d88004f437622db7d0e4880860167fcc84df4af53cc9e93021",
+  "lesson-vocabulary-spelling-rules": "6a7041d7155f3b50f048636f9f890a004b3191d6527fc51976b10e83d18f393c"
+ },
+ "paths": {
+  "lesson-vocabulary-context-clues": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+  "lesson-vocabulary-idioms-and-figures-of-speech": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+  "lesson-vocabulary-spelling-rules": "content/lessons/language-proficiency/vocabulary/spelling-rules.md"
+ },
+ "id": "RD-095",
+ "type": "read",
+ "created": "2026-10-26T04:33:10+00:00"
+}
