@@ -105,7 +105,7 @@ questions:
 - id: q-environment-management-the-environmental-laws-0005
   type: single_choice
   difficulty: medium
-  stem: 'Which law established the modern disaster-management framework and NDRRMC?
+  stem: 'Which law set the disaster-risk framework and renamed the National Disaster Coordinating Council as the NDRRMC?
 
     '
   choices:
@@ -123,7 +123,7 @@ questions:
     rationale: 'This selects the expanded protected-area system. Both laws support environmental safety, so the number may seem familiar. Check which system the stem asks about.
 
       '
-  explanation: 'RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010. It established the NDRRMC.
+  explanation: 'RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010. It renamed the existing National Disaster Coordinating Council as the NDRRMC.
 
     '
 - id: q-environment-management-the-environmental-laws-0006
@@ -225,25 +225,25 @@ questions:
 - id: q-environment-management-the-environmental-laws-0010
   type: single_choice
   difficulty: hard
-  stem: 'Under RA 9729, where is the Climate Change Commission attached?
+  stem: 'Which body guides and coordinates government climate policy under RA 9729?
 
     '
   choices:
-  - text: Office of the President
+  - text: Climate Change Commission
     correct: true
   - text: Department of Environment and Natural Resources
-    rationale: 'This assumes an environmental body must be inside DENR. Its subject is environmental. Check RA 9729''s specific attachment.
+    rationale: 'DENR has broad environmental duties. RA 9729 created a separate commission to guide and coordinate government climate policy.
 
       '
   - text: National Disaster Risk Reduction and Management Council
-    rationale: 'This substitutes a related coordinating body. Climate hazards and disaster risks overlap. Check whether the commission is subordinate to that council.
+    rationale: 'This substitutes the disaster-risk council. Climate hazards and disaster risks overlap. Check which body RA 9729 created for climate policy.
 
       '
   - text: Department of Energy
-    rationale: 'This assumes the emissions connection determines attachment. Energy affects climate change. Check the statutory organizational rule.
+    rationale: 'Energy affects climate change. The lesson assigns government climate-policy coordination to the commission created by RA 9729.
 
       '
-  explanation: 'RA 9729 attaches the Climate Change Commission to the Office of the President.
+  explanation: 'RA 9729 created the Climate Change Commission. It guides and coordinates government climate policy.
 
     '
 - id: q-environment-management-the-environmental-laws-0011
@@ -298,7 +298,7 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'Which law expanded and amended NIPAS in 2018?
+  stem: 'Which law expanded and amended NIPAS?
 
     '
   choices:
@@ -316,7 +316,7 @@ questions:
     rationale: 'This selects disaster risk reduction. Both laws support environmental safety, so the number may seem familiar. Check which system the stem asks about.
 
       '
-  explanation: 'RA 11038 is the Expanded NIPAS Act of 2018. It amended and expanded the system originally established under RA 7586.
+  explanation: 'RA 11038 amended and expanded the system originally established under RA 7586.
 
     '
 - id: q-environment-management-the-environmental-laws-0014
@@ -423,7 +423,7 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'Which instrument does the Climate Change Act require for national policy direction?
+  stem: 'Which instrument does the Climate Change Act, as amended by RA 10174, require for national policy direction?
 
     '
   choices:
@@ -441,7 +441,7 @@ questions:
     rationale: 'This substitutes a local permit for national planning. Buildings can affect climate resilience. Check scope and purpose.
 
       '
-  explanation: 'RA 9729 requires a National Strategic Framework on Climate Change. It guides national climate-policy direction.
+  explanation: 'RA 9729 originally required a Framework Strategy on Climate Change. RA 10174 amended Section 11 to call for a National Strategic Framework on Climate Change. It guides national climate-policy direction.
 
     '
 - id: q-environment-management-the-environmental-laws-0019
