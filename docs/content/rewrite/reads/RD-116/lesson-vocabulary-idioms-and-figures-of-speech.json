@@ -1,0 +1,271 @@
+{
+ "batch": "RD-116",
+ "lesson_id": "lesson-vocabulary-idioms-and-figures-of-speech",
+ "path": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md",
+ "lesson_sha256": "77e8224982884c0b0b576ea2cc451ecf9a7ce042890aeb49dd6100dc21a4bc6c",
+ "rewrite_commit": "277bc88e87d8d09e3538c96763fd18b65421467c",
+ "form": {
+  "packet": "lesson-vocabulary-idioms-and-figures-of-speech",
+  "role": "A",
+  "lesson_sha256": "77e8224982884c0b0b576ea2cc451ecf9a7ce042890aeb49dd6100dc21a4bc6c",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the definitions of idiom, literal meaning, simile, metaphor, personification, hyperbole, alliteration, onomatopoeia, and oxymoron against their standard meanings. The Filipino equivalents and contextual idiom meanings agree with those definitions. No dates, attributed quotations, or exam-content claims require verification here."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers from the stems: #1 B, return to the beginning; #2 C, move the piece to the first space; #3 C, personification; #4 B, reduce spending; #5 B, hyperbole; #6 A, metaphor; #7 A, simile; #8 A, alliteration; #9 A, onomatopoeia; #10 C, oxymoron; #11 B, pagtutulad; #12 A, pagwawangis; #13 C, pagbibigay-katauhan. Each matches its solution. In #5 the earnings context supports exaggerated abundance as the clearest effect."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The seven English devices, Filipino terms, idiom interpretation, and literal-context contrast are included. None of the questions depends on a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The English explanations use direct wording such as returning to the beginning, speaking softly, and opposing meanings. Subject terms receive definitions and short examples; the former abstract wording is absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No instruction verb with an exam-specific meaning appears; questions ask which device or what a phrase means.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy is used. The comparisons quoted as literary examples are the subject being taught."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All thirteen examples have question stems and choices. Context is supplied for the lost work, game move, family spending, and store earnings without naming the tested device. Device items supply the sentence to classify. Solutions explain the relevant wording simply."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-name openers. Examples directly practice the target language tasks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Sawikain at Tayutay subsection defines the Filipino concepts in Filipino. Filipino strategy prose and the solutions to #4, #5, and #11 through #13 also use short Filipino sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Sawikain, tayutay, pagtutulad, pagwawangis, pagbibigay-katauhan/personipikasyon, and pagmamalabis receive English glosses on their initial definitions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #4, #5, #11, #12, and #13 have Filipino sentences, question prompts, choices, and numbered explanations. The shared Solution label does not change the language of their teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be checked from the supplied packet alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino prose stays in Filipino. Parenthetical English glosses serve the required term explanations; naka-bold uses the common formatting term."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "The target expressions in #1, #2, #4, and #10 are bold and their prompts refer to the phrase in bold or pariralang naka-bold. The target word bang in #9 is bold and the prompt explicitly says the word in bold."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No listed stock phrase appears. The summary names the skills directly. Definitions, contextual reminders, and worked explanations vary their openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "This language lesson uses Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For. Retaining the shortcut title is allowed. No example uses a mathematical formula, so the formula-first requirement has no instances."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped idiomatic and literal uses to #1 and #2; personification to #3; Filipino idiom and hyperbole to #4 and #5; metaphor, simile, alliteration, onomatopoeia, and oxymoron to #6 through #10; and Filipino comparison and personification terms to #11 through #13. Each adds a distinct context or language application. The set moves from contextual phrase meaning to device classification and Filipino applications."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Each of the thirteen solutions has its own Solution block and two numbered steps. The first step identifies the contextual or verbal evidence and the second states the interpretation. There are no computations to display."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs contain one to three short sentences. The sole extended bullet list defines the seven devices and supports comparison. Choices are kept separate from teaching paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent examples to assess.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Idiom and literal are explained before the contextual examples. All seven English devices are defined before classification questions. Filipino terms receive meanings and glosses before #4, #5, and #11 through #13. Foregrounded has been replaced by used most clearly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Idiom meaning is explained through separate-word meaning and context; literal meaning through direct word meaning. Each device describes what words do and provides an illustration. Filipino definitions explain comparison, human actions, and exaggeration rather than merely naming the devices."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains that context distinguishes idiomatic from literal use, that alliteration depends on sound, and that like/as alone does not establish simile. Traps explain overlapping devices, the need for a comparison in metaphor, and why ordinary nonhuman sounds are not automatically personification."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "Mark is a person in #1 and #2, not a score. The penalty card in #2 is part of a board game, not a question. No prohibited score or question terminology appears."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-idioms-and-figures-of-speech|L05|1": {
+    "status": "fixed",
+    "quote": "“Hope is a bird that carries us beyond our fear.” Which literary device is used most clearly?",
+    "note": "The metaphor passage is now a question with four choices and a separate numbered solution."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L18|1": {
+    "status": "fixed",
+    "quote": "1. Several nearby words begin with the same *s* sound.",
+    "note": "Examples #7 through #10 work simile, alliteration, onomatopoeia, and oxymoron separately."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L19|0": {
+    "status": "fixed",
+    "quote": "1. Mark lost his work and must start again.",
+    "note": "Every worked example now has a separate Solution block with numbered steps."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L02|0": {
+    "status": "fixed",
+    "quote": "A **figure of speech** uses words to create a comparison, image, sound, or strong effect.",
+    "note": "The definition replaces abstract rhetorical wording with plain descriptions of what words do."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L02|1": {
+    "status": "fixed",
+    "quote": "Maaaring magkaiba nang kaunti ang tawag sa ilang aklat.",
+    "note": "The former terminology and linguistic-effect sentence is replaced with a simple Filipino reminder."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L05|0": {
+    "status": "fixed",
+    "quote": "Malaki ang kinita ng tindahan ngayong buwan.",
+    "note": "The stem gives the earnings context without explicitly naming exaggeration or defining hyperbole."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L10|0": {
+    "status": "fixed",
+    "quote": "Ano ang ibig sabihin ng pariralang naka-bold?",
+    "note": "The Filipino idiom question now uses a Filipino prompt and Filipino choices."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L10|1": {
+    "status": "fixed",
+    "quote": "1. Hindi totoong umuulan ng salapi. Sobra ang paglalarawan sa dami ng kita.",
+    "note": "The hyperbole explanation is now written in simple Filipino across two numbered steps."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L25|0": {
+    "status": "fixed",
+    "quote": "“The wind whispered through the dark forest.” Which literary device is used most clearly?",
+    "note": "The unexplained word foregrounded is removed and replaced by plain question wording."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L08|0": {
+    "status": "fixed",
+    "quote": "Ang **tayutay** (figure of speech) ay masining na paggamit ng salita.",
+    "note": "The Filipino concept subsection now teaches in Filipino with the required English term glosses."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L18|0": {
+    "status": "fixed",
+    "quote": "During a board game, Mark moved his piece **back to square one** after drawing a penalty card.",
+    "note": "Example #2 works the literal board-game use alongside the idiomatic research context in #1."
+   },
+   "lesson-vocabulary-idioms-and-figures-of-speech|L18|2": {
+    "status": "fixed",
+    "quote": "1. Inihahambing ang tinig sa banayad na agos ng ilog gamit ang *parang*.",
+    "note": "Examples #11 through #13 separately work pagtutulad, pagwawangis, and pagbibigay-katauhan in Filipino."
+   }
+  }
+ }
+}
