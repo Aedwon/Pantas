@@ -17,11 +17,13 @@ First find which part the task asks you to use. Then check the direction and any
 
 **Ascending order** means smallest to largest. **Descending order** means largest to smallest. For ordinary file numbers, compare their full number values.
 
+The symbol $<$ means “is less than.” For example:
+
 $$
 0389 < 0395 < 0401 < 0452
 $$
 
-The symbol $<$ means “is less than.” Leading zeros are zeros at the start of a number. They may stay in a file number, but they do not change its value.
+**Leading zeros** are zeros at the start of a number. They may stay in a file number, but they do not change its value.
 
 For decimal numbers, compare the whole-number parts first. If those match, compare the decimal places from left to right. You may add zeros at the end of a decimal without changing its value.
 
@@ -51,9 +53,9 @@ For a hyphenated code, the hyphen may separate filing parts. If the rule compare
 
 ### Terminal-Digit Filing
 
-A **terminal-digit** rule starts with the rightmost group of a file number. For the rule used here, compare the next group to the left if the rightmost groups match. Keep moving left only when needed.
+A **terminal-digit** rule starts with the rightmost group of a file number. The order for checking the other groups must come from the filing rule. In this lesson's examples, check the middle group next, then the leftmost group.
 
-Compare each group as a whole number. Follow any group order and filing direction given in the task. Use terminal-digit filing only when the task calls for it.
+Compare each group as a whole number. Move to the next group only when the groups you just checked match. Follow the stated filing direction, and use terminal-digit filing only when the task calls for it.
 
 ## Examples
 
@@ -165,14 +167,14 @@ A filing system uses hyphens to separate parts. It files number parts as whole n
 
 ### #9: Terminal-Digit Filing
 
-A filing system compares the rightmost group first, then the middle group, then the leftmost group. Each group uses ascending numeric order. Arrange $\text{12-44-03}$, $\text{98-10-03}$, and $\text{01-99-02}$ in filing order.
+A filing system compares the rightmost group first, then the middle group, then the leftmost group. Each group uses ascending numeric order. Arrange $\text{12-44-03}$, $\text{98-10-03}$, $\text{05-10-03}$, and $\text{01-99-02}$ in filing order.
 
 **Solution:**
 
-1. Compare the rightmost groups: $03$, $03$, and $02$. The file $\text{01-99-02}$ comes first.
-2. The remaining files both end in $03$. Compare their middle groups, $44$ and $10$.
-3. Since $10$ is smaller, $\text{98-10-03}$ comes before $\text{12-44-03}$.
-4. The order is $\text{01-99-02}$, $\text{98-10-03}$, $\text{12-44-03}$.
+1. Compare the rightmost groups. The file $\text{01-99-02}$ ends in $02$. All the others end in $03$, so it comes first.
+2. Compare the middle groups of the remaining files. Group $10$ comes before group $44$, so $\text{12-44-03}$ comes last.
+3. The files $\text{98-10-03}$ and $\text{05-10-03}$ match in both the rightmost and middle groups. Compare the leftmost groups. Since $05$ is smaller than $98$, $\text{05-10-03}$ comes first within this pair.
+4. The full order is $\text{01-99-02}$, $\text{05-10-03}$, $\text{98-10-03}$, $\text{12-44-03}$.
 
 ## Traps to Watch For
 
