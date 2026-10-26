@@ -17,6 +17,8 @@ A **dependent clause** has a subject and a verb but cannot stand as a complete s
 
 A **simple sentence** has one independent clause and no dependent clause. "The dog barked." It can have a compound subject or verb: "The dog and the cat played and ran."
 
+A compound subject joins subjects, as in "the dog and the cat." A compound verb joins verbs that share a subject, as in "played and ran." Neither feature alone adds another clause.
+
 A **compound sentence** has at least two independent clauses and no dependent clause. A **coordinating conjunction** joins equal parts, including independent clauses. These conjunctions include *and, but, or, so, for, nor,* and *yet*.
 
 "The dog barked, and the cat ran" is compound. A semicolon can also join independent clauses: "The dog barked; the cat ran."
@@ -31,9 +33,9 @@ A **compound-complex sentence** has at least two independent clauses and at leas
 
 Ang **sugnay** (clause) ay pangkat ng mga salitang may **simuno** (subject) at **panaguri** (predicate). Ang simuno ang pinag-uusapan. Ang panaguri ang nagsasabi tungkol sa simuno, gaya ng kilos o kalagayan nito.
 
-Sa "Umuwi ang bata," ang simuno ay *ang bata*. Ang panaguri ay *umuwi*. Buo ang diwa nito, kaya ito ay sugnay na makapag-iisa.
+Sa "Umuwi ang bata," ang simuno ay *ang bata*. Ang panaguri ay *umuwi*. Buo ang diwa nito, kaya ito ay **sugnay na makapag-iisa** (independent clause).
 
-Ang sugnay na di-makapag-iisa ay nangangailangan ng ibang sugnay upang mabuo ang diwa. Sa "dahil umuulan na," may kalagayang sinasabi, ngunit hinihintay pa natin kung ano ang bunga nito.
+Ang **sugnay na di-makapag-iisa** (dependent clause) ay nangangailangan ng ibang sugnay upang mabuo ang diwa. Sa "dahil umuulan na," may kalagayang sinasabi, ngunit hinihintay pa natin kung ano ang bunga nito.
 
 Ang **payak** (simple) ay may isang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa. Ang **tambalan** (compound) ay may dalawa o higit pang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa.
 
@@ -149,7 +151,7 @@ Sa Filipino, suriin muna kung buo ang bawat diwa. Pagkatapos, piliin ang pang-ug
 
 ## Traps to Watch For
 
-### #1: Counting Every *and* as a New Clause
+### #1: Counting Every And as a New Clause
 
 > A compound subject or verb can stay within one clause.
 
@@ -171,4 +173,4 @@ Two independent clauses alone make a compound sentence. Adding a dependent claus
 
 > Magkaiba ang gamit ng *dahil* at *ngunit*.
 
-Ipinapakita ng *dahil* kung bakit nangyari ang isang bagay. Ipinapakita ng *ngunit* ang salungat na diwa. Piliin ang salitang tugma sa nais sabihin.
+Ipinapakita ng *dahil* kung bakit nangyari ang isang bagay. Ipinapakita ng *ngunit* ang salungat na diwa. Piliin ang salitang tugma sa ugnayan ng mga diwa.

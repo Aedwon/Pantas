@@ -37,15 +37,15 @@ For example, "Neither the players nor the coach brought his or their required eq
 
 "When Mrs. Santos spoke to Anna, she seemed upset" leaves two possible meanings. *She* could mean either person. Repeat the intended name when needed.
 
-### Sa Filipino: Panghalip Panao (Personal Pronoun)
+### Sa Filipino: Panghalip Panao
 
-Ang **panghalip panao** ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa gamit sa pangungusap. Alamin muna kung sino ang tinutukoy at kung ano ang papel niya.
+Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa gamit sa pangungusap. Alamin muna kung sino ang tinutukoy at kung ano ang papel niya.
 
 Ang anyong **ang** ay pamalit sa taong itinatampok sa pangungusap. Sa "Si Ana ang nagsulat," maaaring ipalit ang "Siya ang nagsulat." Kabilang dito ang *ako, ikaw, siya, kami, tayo, kayo,* at *sila*.
 
 Ang anyong **ng** ay maaaring magsabi kung sino ang may-ari. Kung si Liza ang nagsasalita, maaari niyang sabihing "aklat ko" sa halip na "aklat ni Liza." Maaari rin itong tumukoy sa gumawa: "Sinulat niya ang liham."
 
-Kabilang sa anyong ng ang *ko, mo, niya, namin, natin, ninyo,* at *nila*. Sa "Sinulat niya ang liham," si *niya* ang gumawa. Ang liham ang itinatampok sa pangungusap.
+Kabilang sa anyong ng ang *ko, mo, niya, namin, natin, ninyo,* at *nila*. Sa "Sinulat niya ang liham," ang *niya* ay tumutukoy sa gumawa. Ang liham ang itinatampok sa pangungusap.
 
 Ang anyong **sa** ay ginagamit kapag sinasabi kung para kanino o kanino ibinigay ang isang bagay. "Para kay Ana" ay nagiging "para sa kaniya." Kabilang dito ang *akin, iyo, kaniya, amin, atin, inyo,* at *kanila*.
 
@@ -76,7 +76,8 @@ Choose the correct form: "The company announced (its / his) new policy yesterday
 
 **Solution:**
 
-The company is an organization acting as one unit, so *its* is correct.
+1. The company is an organization acting as one unit.
+2. Use *its*: "The company announced its new policy yesterday."
 
 ### #3: Antecedents Joined by And
 
@@ -84,7 +85,8 @@ Choose the correct form: "Liza and Carlo finished (her / their) project early."
 
 **Solution:**
 
-Liza and Carlo are two people joined by *and*, so use *their*.
+1. Liza and Carlo are two people joined by *and*.
+2. Use *their*: "Liza and Carlo finished their project early."
 
 ### #4: An Unclear Reference
 
