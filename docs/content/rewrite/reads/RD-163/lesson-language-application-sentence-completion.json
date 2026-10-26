@@ -1,0 +1,258 @@
+{
+ "batch": "RD-163",
+ "lesson_id": "lesson-language-application-sentence-completion",
+ "path": "content/lessons/language-proficiency/language-application/sentence-completion.md",
+ "lesson_sha256": "0a6254b5de41e228b04666674fdff5e9969943e40179193e412c149e080b0cd6",
+ "rewrite_commit": "7b9b9959a0d2960a5598e551743c99821118d6ef",
+ "form": {
+  "packet": "lesson-language-application-sentence-completion",
+  "role": "A",
+  "lesson_sha256": "0a6254b5de41e228b04666674fdff5e9969943e40179193e412c149e080b0cd6",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the subject, verb, noun, adjective, adverb, agreement, tense, article, preposition, parallel-list, collocation, and idiom explanations against ordinary language usage. No specialized exam-content claims appear. Filipino official usage remains subject to L11 source checking."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved the stems independently: 1 B successful; 2 C unsafe; 3 B thorough/nervous; 4 C approved; 5 B check; 6 had finished and was reading; 7 B to leave/talking; 8 A strong; 9 B in; 10 B the/an; 11 B filing; 12 A For example; 13 B eye; 14 B ipinasa; 15 B kaya; 16 A tulong. Each matches the solution.",
+     "For example 3, A has expected readiness and calm, C has expected poor preparation and worry, and D has expected rushed preparation and unreadiness. Only B supplies the requested despite-contrast."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. The brief requires no figures. English completion cases remain and Filipino meaning, grammar, and natural combinations have been added."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching and solutions for difficult unexplained prose. Grammar labels receive short meanings and concrete sentences. The old stacked grammar terms and abstract finite-verb explanation are gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Prompts use ordinary choose or piliin instructions. No exam-specific instruction verb requires a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All English stems supply complete sentences and choices without giving the tested completion rule. Example 6 supplies separate form sets for its two blanks. Solutions use direct explanations of meaning and word form. Filipino stems provide the sentence context needed to select their completions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam mentions or unsupported claims about exam frequency or choices occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino section uses short Filipino explanations of kahapon, pang-ugnay, dahilan, bunga, pagsalungat, and natural phrases. Examples 14 through 16 explain their answers in simple Filipino."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "First definitions supply pang-ugnay (connector) and parirala (phrase). Later teaching does not repeat the glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino examples 14, 15, and 16 have Filipino stems, choices, and solution prose. The remaining examples belong to the English teaching portion of this mixed-language lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF spelling and usage cannot be confirmed from this prompt alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino teaching uses Filipino wording throughout, with only the required parenthetical English grammar glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No prompt asks students to interpret a specified target word. These prompts ask for blank completions.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked summary, teaching, and traps for listed stock phrases. None appear. Openings vary between definitions, instructions, and examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language Proficiency uses the permitted standard section structure. No mathematical formula is used by any example, so there is no formula introduction to trace."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped distinct cases: contrast 1; cause/result 2; interacting blanks 3; main verb and past form 4; agreement 5; earlier and ongoing past 6; verb complements 7; collocation 8; fixed preposition 9; definite reference and vowel-sound article 10; parallel list 11; illustration relation 12; idiom 13; Filipino past context 14, cause/result 15, and natural combination 16.",
+     "The sequence begins with direct meaning clues, moves into combined and grammar checks, then applies the method to Filipino. The brief does not identify a remaining distinct required scenario."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1 through 8, 10 through 12, and 14 through 16 number their reasoning steps. Examples 9 and 13 have one-step expression answers. No computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this language lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. Solutions use numbered lists. No long bullet list or overlong paragraph appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder appears, and none of the completion questions depends on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Subject and verb precede agreement and main-verb examples. Word form, noun, adjective, and adverb receive meanings. Past participle and base form are defined before use in examples. Countable noun, prepositions, parallel structure, collocations, idiom, pang-ugnay, and parirala are explained before their applications. No finite-verb label remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Meaning clues explain contrast, reason, result, and illustration and require checking both ideas. Grammar teaching shows singular/plural forms, completed/ongoing/earlier past, want/enjoy patterns, article sound and reference, fixed prepositions, and matching list forms. Natural combinations and idioms have meanings and examples. Filipino teaching connects time, idea links, and natural phrases to completion choices."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limits: a signal alone is insufficient; every blank must fit; had is not needed for every past event; verb patterns vary by first verb; a/an applies to one unidentified countable item and depends on sound; the depends on identified reference; prepositions depend on phrase and meaning. Example 6 explicitly permits simple past for a clear earlier sequence while explaining that it is not an offered option."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-language-application-sentence-completion|L18|1": {
+    "status": "fixed",
+    "quote": "**Strong evidence** is the usual combination for convincing support. Choose **(A)**.",
+    "note": "Example 8 now requires selecting the natural collocation strong evidence."
+   },
+   "lesson-language-application-sentence-completion|L18|2": {
+    "status": "fixed",
+    "quote": "The first blank points to the envelope already introduced. Use **the**.",
+    "note": "Examples 9, 10, and 11 now work prepositions, articles, and parallel structure separately."
+   },
+   "lesson-language-application-sentence-completion|L26|0": {
+    "status": "fixed",
+    "quote": "**Parallel structure** uses matching forms for items doing the same job.",
+    "note": "The grammar section explains agreement, time forms, verb patterns, articles, prepositions, and matching forms with concrete uses."
+   },
+   "lesson-language-application-sentence-completion|B02|0": {
+    "status": "fixed",
+    "quote": "(A) thorough, relaxed",
+    "note": "Checked all four pairs. Only thorough/nervous gives the unexpected contrast. The former alternative coherent contrast is removed."
+   },
+   "lesson-language-application-sentence-completion|L02|0": {
+    "status": "fixed",
+    "quote": "A **subject** is the person or thing the sentence says something about.",
+    "note": "The stacked unexplained terms are replaced by short definitions and concrete sentences."
+   },
+   "lesson-language-application-sentence-completion|L05|0": {
+    "status": "fixed",
+    "quote": "The sentence needs a verb to tell what *the committee* did.",
+    "note": "Example 4 now explains the answer with simple words about the action and yesterday."
+   },
+   "lesson-language-application-sentence-completion|L19|0": {
+    "status": "fixed",
+    "quote": "1. *Although* links the bad forecast to an unexpected outcome.",
+    "note": "Multistep solutions are numbered throughout. The two fixed-expression answers are one-step solutions."
+   },
+   "lesson-language-application-sentence-completion|L25|0": {
+    "status": "fixed",
+    "quote": "**Subject-verb agreement** means choosing a verb form that fits the subject.",
+    "note": "Necessary grammar terms now receive meanings and examples before the worked questions use them."
+   },
+   "lesson-language-application-sentence-completion|L25|1": {
+    "status": "fixed",
+    "quote": "Use **approved**, choice **(C)**.",
+    "note": "The finite verb term is removed. Earlier teaching defines a verb and explains simple past."
+   },
+   "lesson-language-application-sentence-completion|L02|1": {
+    "status": "fixed",
+    "quote": "Read signal words and the ideas they connect.",
+    "note": "The warning uses plain language about connected ideas. The old abstract warning terms are absent."
+   },
+   "lesson-language-application-sentence-completion|L18|0": {
+    "status": "fixed",
+    "quote": "The second sentence gives a case of reusing an office supply.",
+    "note": "Example 12 now works an illustration relation. Example 2 still covers cause and result."
+   }
+  }
+ }
+}
