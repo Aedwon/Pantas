@@ -23,8 +23,8 @@ questions:
     rationale: 'This selects self-incrimination protection. Government can affect both interests. Check the kind of state action.
 
       '
-  - text: Freedom from punishment for unpaid private debt
-    rationale: 'This selects a debt-related liberty. Both concern financial interests. Check taking for public use.
+  - text: Freedom from imprisonment for unpaid private debt
+    rationale: 'This selects protection from imprisonment for debt. Both concern financial interests. Check taking for public use.
 
       '
   explanation: 'Section 9 requires just compensation when private property is taken for public use.
