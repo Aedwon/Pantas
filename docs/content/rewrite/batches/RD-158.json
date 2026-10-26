@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-sequencing-of-events"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "rewrites": {
+  "lesson-comprehension-skills-sequencing-of-events": "653fc0fa4020d01d83ad7493c5e2ae07aef2576b"
+ },
+ "sha256": {
+  "lesson-comprehension-skills-sequencing-of-events": "d3bef642a6d7a782c09b7ef17caf394e714b193e6a3eeae563b97f60efd51e46"
+ },
+ "paths": {
+  "lesson-comprehension-skills-sequencing-of-events": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md"
+ },
+ "id": "RD-158",
+ "type": "read",
+ "created": "2026-10-26T14:02:07+00:00"
+}
