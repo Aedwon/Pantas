@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+<title>One main idea box joined by plain lines to three supporting detail boxes</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="280" rx="14" fill="url(#bg)"/>
+<path d="M180 64 L180 80 L70 80 L70 242" fill="none" stroke="#9ADFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="70" y1="118" x2="90" y2="118" stroke="#9ADFFF" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="70" y1="180" x2="90" y2="180" stroke="#9ADFFF" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="70" y1="242" x2="90" y2="242" stroke="#9ADFFF" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="110" y="16" width="140" height="48" rx="10" fill="url(#wm)"/>
+<text x="180" y="46" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#0E2747">Main idea</text>
+<rect x="90" y="96" width="180" height="44" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="180" y="123.2" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
+<rect x="90" y="158" width="180" height="44" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="180" y="185.2" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
+<rect x="90" y="220" width="180" height="44" rx="10" fill="#2C6A98" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="180" y="247.2" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Supporting detail</text>
+</svg>

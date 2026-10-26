@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 486" width="360" height="486">
+<title>Three views of a joint with long, medium and short arms: the original, Candidate A and Candidate B</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="tl" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="sk" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="wm" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stop-color="#FFD27A"/><stop offset="1" stop-color="#FFB347"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A86C1"/><stop offset="1" stop-color="#0A3A66"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA28C"/><stop offset="1" stop-color="#14524A"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B7CBDD"/></linearGradient>
+
+</defs>
+<rect width="360" height="486" rx="14" fill="url(#bg)"/>
+<text x="180" y="34" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">original</text>
+<line x1="180" y1="78" x2="114.2" y2="40" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="76" x2="112.7" y2="38" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="106.2" y="36" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">long</text>
+<line x1="180" y1="78" x2="226.8" y2="51" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="76" x2="225.3" y2="49" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="234.8" y="47" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">medium</text>
+<line x1="180" y1="78" x2="180" y2="112" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="76" x2="178.5" y2="110" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="180" y="130" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">short</text>
+<circle cx="180" cy="78" r="9" fill="url(#wm)" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.5"/>
+<line x1="40" y1="166" x2="320" y2="166" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="180" y="190" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Candidate A</text>
+<line x1="180" y1="234" x2="245.8" y2="196" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="232" x2="244.3" y2="194" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="253.8" y="192" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">long</text>
+<line x1="180" y1="234" x2="180" y2="288" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="232" x2="178.5" y2="286" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="180" y="306" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">medium</text>
+<line x1="180" y1="234" x2="150.6" y2="217" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="232" x2="149.1" y2="215" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="142.6" y="213" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">short</text>
+<circle cx="180" cy="234" r="8" fill="#F2F7FB"/>
+<line x1="40" y1="322" x2="320" y2="322" stroke="#6FD0FF" stroke-width="1.5" stroke-opacity="0.4"/>
+<text x="180" y="346" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Candidate B</text>
+<line x1="180" y1="390" x2="245.8" y2="352" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="388" x2="244.3" y2="350" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="253.8" y="348" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">long</text>
+<line x1="180" y1="390" x2="133.2" y2="363" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="388" x2="131.7" y2="361" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="125.2" y="359" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">medium</text>
+<line x1="180" y1="390" x2="180" y2="424" stroke="#2A86C1" stroke-width="11" stroke-linecap="round"/>
+<line x1="178.5" y1="388" x2="178.5" y2="422" stroke="#8FDCFF" stroke-width="3.5" stroke-opacity="0.85" stroke-linecap="round"/>
+<text x="180" y="442" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">short</text>
+<circle cx="180" cy="390" r="8" fill="#F2F7FB"/>
+</svg>
