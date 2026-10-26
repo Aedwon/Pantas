@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-divisibility-rules",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers",
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "6e8faac1bc9c821502e25170d74f4ebab0b6f36a",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "6e8faac1bc9c821502e25170d74f4ebab0b6f36a",
+  "lesson-arithmetic-number-sense-sequences-and-series": "6e8faac1bc9c821502e25170d74f4ebab0b6f36a"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "53add460b2e75702b0b8d7f0c1587e98265c548457cde72977c29f396f5b0633",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "9e394b17c8ede788a4df470e4e3c6f8da221832efa98e6f9d775e68e9af28ccf",
+  "lesson-arithmetic-number-sense-sequences-and-series": "a06f8d35aeab79ba10c171174e8f184658d22dee2bb436440f4c3c0e5b588cb8"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-divisibility-rules": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "id": "RD-098",
+ "type": "read",
+ "created": "2026-10-26T04:37:56+00:00"
+}
