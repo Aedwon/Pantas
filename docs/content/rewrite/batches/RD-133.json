@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-bill-of-rights",
+  "lesson-philippine-constitution-the-civil-service-commission"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-bill-of-rights": "5208c3fba320683aebdb02a5388506f36d09c66f",
+  "lesson-philippine-constitution-the-civil-service-commission": "6d3ab3d3b0a56350edf8967bb70bb79e7963ac27"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-bill-of-rights": "eef00d078e1bd59ebebeb2c19ec430afeb7ebb5695b7280d3ba6d89dbdf0f8fa",
+  "lesson-philippine-constitution-the-civil-service-commission": "096f3374bbdc5b5949ab6853ce6461537f00d5db0a62895977e83c340495482b"
+ },
+ "paths": {
+  "lesson-philippine-constitution-bill-of-rights": "content/lessons/general-information/philippine-constitution/bill-of-rights.md",
+  "lesson-philippine-constitution-the-civil-service-commission": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md"
+ },
+ "id": "RD-133",
+ "type": "read",
+ "created": "2026-10-26T12:27:51+00:00"
+}
