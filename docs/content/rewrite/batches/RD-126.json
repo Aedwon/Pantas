@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "cd3e4f102b3775cf40c2e2a76209a09d6f1230a8"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "aaa8832d0f8a735f0180943a2cb92383d6194fbfc5bf7cd0ecd4582b90bb1f7f"
+ },
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "id": "RD-126",
+ "type": "read",
+ "created": "2026-10-26T06:39:00+00:00"
+}
