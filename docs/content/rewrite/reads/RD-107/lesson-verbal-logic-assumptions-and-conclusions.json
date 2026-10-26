@@ -1,0 +1,306 @@
+{
+ "batch": "RD-107",
+ "lesson_id": "lesson-verbal-logic-assumptions-and-conclusions",
+ "path": "content/lessons/reasoning/verbal-logic/assumptions-and-conclusions.md",
+ "lesson_sha256": "2f67f3c9df40d7ef835fe42c9f775d5cd65322de43674d1276fcfbf7f89fa6f8",
+ "rewrite_commit": "fb224cf1c5367d62e7fa494aac86277d458b3bde",
+ "form": {
+  "packet": "lesson-verbal-logic-assumptions-and-conclusions",
+  "role": "A",
+  "lesson_sha256": "2f67f3c9df40d7ef835fe42c9f775d5cd65322de43674d1276fcfbf7f89fa6f8",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the logical definitions and negations: all negates to an exception, some to none, none to some, conjunction to at least one false part, and inclusive disjunction to both parts false. These are correct.",
+     "Checked that association and timing alone do not establish cause, an action alone does not establish motive, and an opinion alone does not establish bias. The office scenarios are hypothetical givens, not external factual claims."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: B, website access is needed to preserve access when printed notices are replaced. A preference and neighboring offices are unnecessary.",
+     "Solved #2: no, paper checks provide a counterexample to needing electronic checks.",
+     "Solved #3: Maria is a full-time employee, by applying the all statement to Maria.",
+     "Solved #4: no, all inspectors could be certified auditors.",
+     "Solved #5: Joel is not a permanent employee, because the classes do not overlap.",
+     "Solved #6: C, closure is possible under the stated condition. Neither certainty nor impossibility follows.",
+     "Solved #7: B, the observed appointment/wait association is supported only for the branch and test period.",
+     "Solved #8: B, higher early arrivals after the change are recorded; cause and motive are not.",
+     "Solved #9: B, reading feedback before approval is stated; fear and a wish to impress are not.",
+     "Solved #10: B, one office unable to process forms negates all offices being able to do so.",
+     "Solved #11: scanner failure or network unavailability negates the conjunction; either breaks the stated submission route.",
+     "Solved #12: B, unsupported insults against disagreement supply the bias evidence. All answers agree with the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The required reduced reasoning sections are present: Core Concept, Examples, and Traps to Watch For.",
+     "Checked the brief additions: evidence ranking, cause, motive, none, may, quantified/compound negation, and bias all receive teaching and worked applications. No question depends on a figure. No separate outline was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the teaching and solutions for sentence length and unexplained abstract language. Premise, conclusion, assumption, negation, deductive, motive, and bias receive short plain definitions. The former diagnostic-heuristic and evidential-standard prose is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Infer is defined on its first use: draw a conclusion from the given facts. Negate and best-supported are also explained before the questions use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all twelve question blocks for complete tasks and sufficient givens. Each asks for an assumption, conclusion, negation, or bias feature. The scenarios provide the facts needed without inserting the tested logic rule into the stem.",
+     "Examples 2 and 4 use yes/no tasks; examples 3 and 5 request an open conclusion; example 11 requests a negation and its effect. These are complete worked questions. Solutions use plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about any specific exam or repeated exam-motivation openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino-language text or Filipino grammar teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino-language text or Filipino grammar teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino-language text or Filipino grammar teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino-language text or Filipino grammar teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English reasoning lesson with no Filipino-language text or Filipino grammar teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a designated target word. The may example tests the meaning of the whole statement.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary states the lesson scope directly. No listed stock AI phrase appears. Teaching openings vary across definitions, instructions, conditions, and warnings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The layout follows the reduced Reasoning structure with no mnemonic or unnecessary shortcut section. No mathematical formula appears in any example.",
+     "The verbal rules used in examples are introduced in Core Concept: necessary-assumption negation (#1–2), all/some/none/may (#3–6), evidence comparison and cause/motive limits (#7–9), all and conjunction negation (#10–11), and bias criteria (#12)."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped distinct cases to examples: needed assumption #1; useful but unnecessary condition #2; all membership #3; some allowing all #4; none exclusion #5; may possibility #6; evidence ranking #7; unsupported cause #8; unsupported motive #9; quantified negation #10; compound negation #11; bias #12.",
+     "The sequence moves from simple assumptions and class statements to passage comparisons and compound reasoning. Cause and motive cases test different unsupported additions. Some/none negations and inclusive-or negation receive explicit Core Concept rules; the brief specifically requests quantified and compound applications, supplied by #10 and #11."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve solutions use numbered lists. Each explains the factual link or negation before giving the answer. No computations require display equations, and no reasoning step is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations or numerical computations in this verbal reasoning lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Body paragraphs contain one to three short sentences. The two bullet lists group negation patterns and strength words; each has a clear teaching purpose. Numbered solution lists carry the worked reasoning."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders, and none of the questions depends on a figure.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Premise and conclusion are defined in the opening paragraph before deductive reasoning uses them. Assumption uses statement, not the undefined proposition.",
+     "Negation, deductive, infer, all, some, none, may, must, best-supported, motive, and bias are explained before their applications. A and B are explicitly parts of statements. No prerequisite explanation is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Necessary assumptions are taught through the negate-and-test method and the helpful-versus-needed distinction. Each quantified or compound negation pattern states what makes the original false.",
+     "The strength-word list explains none as total exclusion and may as possibility. Examples 5 and 6 apply those meanings.",
+     "Best-supported selection has a four-step evidence comparison procedure and worked ranking in #7. Cause, motive, and bias each have an evidence criterion and a separate worked example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The negation test is limited to the argument's stated reason and does not require the assumption to prove the conclusion alone. Inclusive or is explicitly distinguished from an exclusive reading.",
+     "Some may include all; may is not certainty; deductive conclusions assume true premises. Observed patterns are limited to observed cases, association alone does not establish cause, and sequence alone does not establish motive.",
+     "Bias requires evidence beyond having an opinion or omitting material from a short passage. Best-supported choices must have actual support, even when cautiously worded."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-verbal-logic-assumptions-and-conclusions|B02|0": {
+    "status": "fixed",
+    "quote": "Negate (B): at least one employee cannot access the website notices. That employee would lose access, so the stated reason fails.",
+    "note": "The overpass example is replaced by a necessary access condition for replacing printed notices. The negation defeats the stated access requirement."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L18|0": {
+    "status": "fixed",
+    "quote": "Which conclusion is best supported?",
+    "note": "Example 7 now requires choosing the supported appointment/wait link and compares it with overbroad and causal claims."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L26|0": {
+    "status": "fixed",
+    "quote": "Choose the answer with the closest match to the evidence and the fewest unsupported claims.",
+    "note": "A four-step method now explains how to compare evidence and remove unsupported additions; example 7 applies it."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L02|0": {
+    "status": "fixed",
+    "quote": "Test the reason the argument gives, not a new reason you can imagine.",
+    "note": "The diagnostic-heuristic sentence has been replaced with a short direct instruction."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L02|1": {
+    "status": "fixed",
+    "quote": "It may be likely without being certain.",
+    "note": "The former abstract contrast is now explained in plain words and followed by a concrete selection method."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L05|0": {
+    "status": "fixed",
+    "quote": "Which conclusion must be true?",
+    "note": "Example 3 now includes an explicit question after the premises and before its solution."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L25|0": {
+    "status": "fixed",
+    "quote": "An **assumption** is an unstated statement that the reasoning needs.",
+    "note": "The definition now uses statement and removes the undefined logic term proposition."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L25|1": {
+    "status": "fixed",
+    "quote": "A **premise** is a statement given as a reason or fact.",
+    "note": "Premise is defined in the opening paragraph before any deductive rule uses the plural premises."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L26|1": {
+    "status": "fixed",
+    "quote": "**None** means no members. If no inspectors are trainees, any known inspector is not a trainee.",
+    "note": "None receives an exclusion rule; may receives a possibility rule. Separate worked examples apply each meaning."
+   },
+   "reasoning-verbal-logic#7": {
+    "status": "fixed",
+    "quote": "Check which parts of each choice those facts support.",
+    "note": "The four-step ranking method and example 7 compare passage evidence with each conclusion and limit scope."
+   },
+   "reasoning-verbal-logic#9": {
+    "status": "fixed",
+    "quote": "They do not rule out other causes. They also give no visitors' reasons.",
+    "note": "Example 8 applies the cause check to a before/after change and selects the recorded change without causal attribution."
+   },
+   "reasoning-verbal-logic#10": {
+    "status": "fixed",
+    "quote": "Separate the action from its possible reasons. Carlo read the feedback and then approved the schedule.",
+    "note": "Example 9 separates the recorded action from fear and impressing others, which lack supporting evidence."
+   },
+   "reasoning-verbal-logic#14": {
+    "status": "fixed",
+    "quote": "Joel is contract staff. Therefore, **Joel is not a permanent employee**.",
+    "note": "Example 5 applies the none-class exclusion to a named member and derives the required negative conclusion."
+   },
+   "reasoning-verbal-logic#15": {
+    "status": "fixed",
+    "quote": "Only **(C)** keeps the meaning of the statement.",
+    "note": "Example 6 compares certainty, impossibility, and possibility. The solution preserves the meaning of may."
+   },
+   "reasoning-verbal-logic#17": {
+    "status": "fixed",
+    "quote": "Negate the whole statement: **the scanner does not work or the network is not available**. Either failure makes the original statement false.",
+    "note": "Core Concept lists quantified and compound negation rules. Examples 10 and 11 apply all and conjunction negation and explain their effect."
+   },
+   "reasoning-verbal-logic#19": {
+    "status": "fixed",
+    "quote": "Look for unfair praise or blame, facts chosen to show only one side, or claims accepted without support.",
+    "note": "The lesson defines bias criteria and example 12 identifies unfair blame and missing supporting facts."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L17|0": {
+    "status": "fixed",
+    "quote": "A necessary assumption does not have to prove the conclusion alone.",
+    "note": "The lesson now uses only the reduced reasoning layout. Examples lead directly into traps with no Speed Tricks section."
+   },
+   "lesson-verbal-logic-assumptions-and-conclusions|L19|0": {
+    "status": "fixed",
+    "quote": "The company could check completion on paper. The promised promotions could still happen.",
+    "note": "Example 2 now has numbered solution steps. Examples 3 and 4 also use numbered steps consistently."
+   }
+  }
+ }
+}
