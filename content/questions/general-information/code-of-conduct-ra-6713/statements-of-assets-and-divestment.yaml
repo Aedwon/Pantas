@@ -273,7 +273,7 @@ questions:
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
   type: single_choice
   difficulty: medium
-  stem: 'Besides the official, whose financial information is included under Section 8? For children, assume they live in the household and are under eighteen.
+  stem: 'Besides the official, whose financial information is included under Section 8? Assume the spouses are not under complete separation of property. For children, assume they live in the household and are under eighteen.
 
     '
   choices:
@@ -291,7 +291,7 @@ questions:
     rationale: 'This replaces the listed relationship tests with dependency. Dependents may share household expenses. Use the specific family definition.
 
       '
-  explanation: 'Section 8 includes the spouse and unmarried children under eighteen who live in the household. The stated child conditions therefore leave unmarried status as the remaining test.
+  explanation: 'Section 8 includes the spouse and unmarried children under eighteen who live in the household. The stated child conditions therefore leave unmarried status as the remaining test. The spouse''s separate assets, debts, and net worth need not be included when complete separation of property applies by law or by an agreement made before marriage. That exception does not apply here.
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013

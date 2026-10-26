@@ -22,7 +22,9 @@ $$
 
 For real property, such as land and buildings, report its improvements, acquisition cost, assessed value, and current fair market value. Improvements include buildings added to land.
 
-**Acquisition cost** is what was paid to acquire the property. **Assessed value** is the value used for property tax. **Fair market value** is its value in an open-market sale.
+**Acquisition cost** is what was paid to acquire the property. **Assessed value** is the value used for property tax. **Fair market value** for SALN is the market value shown in the property's latest available tax declaration.
+
+If the tax declaration is not readily available, use other government sources, such as the local Assessor's Office. If it has no market value, use other government sources, such as the Assessor's Office or the Bureau of Internal Revenue's zonal value. If the property has no tax declaration, enter "N/A" for assessed and fair market values.
 
 The declarations also list personal property and its acquisition cost. Other assets include cash, investments, stocks, and bonds. List debts as well, so the statement shows what is owned and what is owed.
 
@@ -39,6 +41,8 @@ Check both conditions when deciding whether service is honorary. Unpaid work alo
 The law also includes permanent and temporary appointees in its broad definition of public officials. A temporary appointment label alone does not settle whether someone is an excluded temporary worker. Check the worker's actual category and the rules that apply.
 
 The declarations include the filer, the spouse, and unmarried children under $18$ who live in the household. For a child, all three conditions matter: unmarried, under $18$, and living in the household. Spouses who are both public officials or employees may file jointly or separately.
+
+There is an exception for the spouse's separate assets, debts, and net worth. These need not be included if the marriage follows **complete separation of property** by law or by an agreement made before marriage. This means each spouse owns and controls their own property. The Supreme Court recognized this exception in *Abid-Babano v. Executive Secretary*.
 
 ### Relatives in Government
 
@@ -204,7 +208,7 @@ A city employee and a covered employee who falls outside all the specifically na
 
 ### #8: Family Coverage Boundaries
 
-A filer has a spouse and three unmarried children. The children are ages $16$, $17$, and $19$. Only the children ages $17$ and $19$ live in the household. Whose finances must be included with the filer's under the family coverage rule?
+A filer has a spouse and three unmarried children. The spouse exception for complete separation of property does not apply. The children are ages $16$, $17$, and $19$. Only the children ages $17$ and $19$ live in the household. Whose finances must be included with the filer's under the family coverage rule?
 
 **Solution:**
 
@@ -332,7 +336,7 @@ The CSC is the destination for the remaining statutory category. Legislators, ju
 
 > Check the spouse and all the child-coverage conditions.
 
-The declarations include the spouse and unmarried children under $18$ living in the household. Assets, debts, and business links all matter.
+The declarations generally include the spouse and unmarried children under $18$ living in the household. Check the spouse exception for complete separation of property explained above. Assets, debts, and business links all matter.
 
 ### #4: Calling a Family Transfer Divestment
 
