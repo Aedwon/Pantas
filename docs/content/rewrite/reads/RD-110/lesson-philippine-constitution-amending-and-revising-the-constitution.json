@@ -1,0 +1,213 @@
+{
+ "batch": "RD-110",
+ "lesson_id": "lesson-philippine-constitution-amending-and-revising-the-constitution",
+ "path": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md",
+ "lesson_sha256": "7e9ee84cd1072df9646e3b26b3aaa90d001a34c0a882a0481afce88567b05c94",
+ "rewrite_commit": "8a0d38d108c6e296250c63656d367d15d7a9ce07",
+ "form": {
+  "packet": "lesson-philippine-constitution-amending-and-revising-the-constitution",
+  "role": "A",
+  "lesson_sha256": "7e9ee84cd1072df9646e3b26b3aaa90d001a34c0a882a0481afce88567b05c94",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared three proposal routes, 3/4 proposal vote, 2/3 convention call, majority referral, 12% national and 3% district signatures, five-year limits and 60–90-day ratification window with the supplied Article XVII brief.",
+     "The amendment/revision tests are attributed to Lambino rather than Article XVII. No claim decides current initiative availability or joint/separate congressional voting. Calendar calculation independently gives March 2 and April 1, 2026."
+    ],
+    "note": "Source assessment is limited to the legal provisions and case descriptions supplied in the prompt; no external source was opened.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 Congress/convention/initiative respectively; #2 amendment then revision; #3 180 votes; #4 160 for direct call and 121 for referral.",
+     "#5 120,000 nationwide and 1,200 in that district, with every district separately meeting 3%; #6 January 1 plus 60 days is March 2, plus 90 days is April 1 in non-leap 2026.",
+     "#7 yes, 310 exceeds half of 600; #8 no, three years is short of five; #9 missing plebiscite and initiative attempting revision respectively. Each matches its worked answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core covers case-law tests, all three routes, separate voting thresholds, both signature requirements, timing limits, ratification and electorate reminder. All nine requested example cases occur. Route and calendar figures have placeholders; threshold circles were suggested, not required exam figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Technical tests receive simple explanations about number and effect. Convention, initiative, majority, ratification and plebiscite are defined in short sentences; no extended introductory prose occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No unexplained instruction uses a special exam meaning.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy occurs in Core Concept or later sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Hypothetical membership and voter totals, approval date, votes cast and elapsed years are supplied. The questions test selecting the applicable constitutional rule without printing that rule as a provided method; solutions use direct explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam openers or unsupported claims about exam frequency occur."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English civics lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English civics lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English civics lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English civics lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English civics lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or an underlined word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic directly; prose avoids the listed stock phrases and repeated three-sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout uses Core Concept, Examples and Traps. Example #3 multiplies by 3/4, #4 by 2/3 and uses more than half, #5 applies 12% and 3%, and #7 uses majority: each threshold is introduced in Core Concept. A separate arithmetic-formula block is not required for this subject."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped #1 routes, #2 amendment/revision, #3 proposal threshold, #4 convention thresholds, #5 both signature bases, #6 calendar window, #7 votes-cast majority, #8 five-year limit and #9 invalid routes/skipped ratification. These cover the brief and progress to combined defects."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "2. Asking voters needs more than half, so at least $121$ votes.",
+      "problem": "The majority calculation is a key computation but stays in prose. Example #7 also keeps half of 600 and the comparison in prose. No solving step is missing, so this is a Minor formatting finding under L19."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The four displayed fraction/percentage multiplications use short factors and results. The longest uses 1,000,000 and 120,000 and remains a single compact computation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Core paragraphs contain two or three short sentences. Example and trap prose stays within the paragraph sentence limit; no bullet list is overused."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The route diagram specifies three paths, initiative limitation and plebiscite/approval endpoint. The calendar timeline names approval and both endpoint dates with a shaded window. Prose supplies the same reasoning without the figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Amendment, revision, both tests, convention, initiative, majority, ratification, plebiscite, votes cast, registered voters and COMELEC are explained locally. Congress and suffrage have reminders pointing to the two supplied prerequisite lessons."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Count versus effect explains how to distinguish amendment and revision. Each proposal route names the actor and required action. Separate national/district signature rules and proposal versus ratification explain how constitutional change proceeds."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson limits initiative to amendments, applies both signature conditions and five-year limits, distinguishes approval from certification as the clock start, uses votes cast for ratification and avoids deciding unresolved joint/separate voting or present initiative usability."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Article XVII, Section 1(1) allows Congress to propose amendments or revisions with three-fourths of all its Members.",
+      "problem": "Section numbers are numbers in prose and must be inside inline math. The same breach occurs for Section 1(2), Section 3, Section 2 and Section 4 in Core Concept and Section 2 in example #8. Top-level fractions otherwise use the correct notation."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
