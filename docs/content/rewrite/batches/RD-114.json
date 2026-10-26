@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-redundancy-and-double-negatives"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "rewrites": {
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "df1c933090287d266ca7bdb2d5d72d1e31b862ad"
+ },
+ "sha256": {
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "738212dd582918c256031a6afec17537644128ef229e9f59d978f219cce715e9"
+ },
+ "paths": {
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md"
+ },
+ "id": "RD-114",
+ "type": "read",
+ "created": "2026-10-26T05:48:12+00:00"
+}
