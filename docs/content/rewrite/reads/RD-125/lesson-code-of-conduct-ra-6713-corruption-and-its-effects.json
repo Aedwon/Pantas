@@ -1,0 +1,208 @@
+{
+ "batch": "RD-125",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "47ae521eec147baffda9d9aa84a32ceb4d057948844fc3da2b2e16e4628d7fda",
+ "rewrite_commit": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "47ae521eec147baffda9d9aa84a32ceb4d057948844fc3da2b2e16e4628d7fda",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the public-trust, impeachment-ground, and Sandiganbayan statements with the Constitution provisions identified in the supplied brief. No expanded claim of court jurisdiction is made.",
+     "Compared the RA 3019 contract-gift, injury/benefit, financial-interest, and confidential-information descriptions with the verified clause descriptions supplied in the packet. The lesson distinguishes RA 6713's purpose condition from RA 3019 Section 3(k).",
+     "Checked the plunder amount against the supplied amendment: RA 7659 Section 12 changes the threshold to fifty million pesos. The lesson requires covered acts and unlawfully gained wealth and teaches no penalty.",
+     "Checked the general 3/7/20-working-day limits against the brief, and the fee-free clock clarification against the supplied correction. Detailed extension and suspension statements are represented in the lesson's supplied legal audit, but their underlying statutory wording is not reproduced in this packet.",
+     "Checked the vote-buying statement, complaint role of the Ombudsman, SALN purpose, and gift discussion against the supplied legal-source descriptions. Effects are possible qualitative chains, not statistics or claims about actual measured losses."
+    ],
+    "note": "Prompt-only review; no independent source access was authorized. Detailed statutory paraphrases cannot be independently verified from the excerpts supplied.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers from the example questions: 1, the demand for money; 2, bribery; 3, RA 3019 Section 3(b); 4, repeated project kickbacks and exactly fifty million meet the stated means and amount tests.",
+     "5, social harm from loss of aid; 6, excessive bills consume funds and leave fewer classrooms; 7, political harm because payments displace residents' interests; 8, social, economic, political in that order.",
+     "9, the Ombudsman can act on the complaint; 10, a posted process makes improper demands easier to detect; 11, the claim is unsound because services and accountability are also harmed. All eleven match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept includes the definition, legally identified forms, three effect groups, State responses, and weighing effects. All eleven example cases in the brief are present.",
+     "All five requested traps appear. The required General Information layout is used without a Speed Tricks section. Three specific illustration placeholders cover the effects map, institutions, and project-cost chain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the definitions, effects, institutions, and solutions for plain-language teaching. Difficult legal labels such as manifest partiality, bad faith, and gross inexcusable negligence receive short explanations. The long statutory list is divided into separate bullets; surrounding prose uses short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is defined before Example 11; classify is defined before Example 8. No other exam-specific instruction word needs a separate definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all eleven stems for necessary scenario facts. The contract example supplies the officer's legal role; the plunder example supplies repeated covered acts and amount. Neither supplies the tested rule.",
+     "Classification, complaint, prevention, and claim-evaluation questions ask students to select and apply taught knowledge. Answers use plain language. Open questions are worked examples, not incomplete multiple-choice quizzes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repetitive exam claims or exam-name openers. The lesson makes no assertion that CSC tests these curriculum-support cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino teaching prose or Filipino-language items.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino teaching prose or Filipino-language items.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino teaching prose or Filipino-language items.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino teaching prose or Filipino-language items.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson with no Filipino teaching prose or Filipino-language items.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target vocabulary word or an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and prose for listed stock phrases and repeated sentence openings. The summary names the content plainly; openings vary across definitions, effects, and solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout contains Core Concept, Examples, and Traps to Watch For. Mnemonics and Speed Tricks are omitted as permitted. No worked example uses a mathematical formula; the plunder threshold is taught in Core Concept before Example 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples 1–4 to recognizing misuse, naming bribery, applying Section 3(b), and checking plunder means and threshold. Examples 5–7 distinguish social, economic, and political effects; Example 6 traces a cause chain.",
+     "Examples 8–11 cover mixed classification, reporting a complaint, prevention through a transparent process, and evaluating an overbroad budget-only claim. This matches the brief's distinct cases and moves from recognition to reasoning. No repeated case merely changes numbers or names."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4, 6, 8, and 11 use numbered steps for their multi-part reasoning. Other solutions answer a single recognition or explanation task directly. No computation requires a display equation and no reasoning step is skipped."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to check for phone-screen width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student-facing paragraphs contain one to three sentences. One four-item bullet list groups the RA 3019 clauses; numbered lists are confined to worked solutions. The audit comment is not student-facing prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The effects-map placeholder names its center, all three arms, and two examples per arm. The complaint/court placeholder supplies labels and distinguishes the two roles. The cost-chain placeholder supplies all three boxes and the arrow labels. Each is a specific single-line instruction; all associated concepts are also stated in prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Corruption, public interest, simple living, bribery, confidential information, undue injury, unwarranted benefits, partiality, bad faith, negligence, plunder, ill-gotten wealth, kickback, red tape, fixer, accountability, impeachment, and SALN receive local meanings before the examples need them.",
+     "The Citizen's Charter is described as the posted service guide. Social, economic, and political groups are explained before classification. The gift exception is locally summarized before the trap uses it; no unseen prerequisite is needed for these examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains misuse through private gain and contrasts it with a mistake. Each named corruption form is linked to the relevant behavior rather than merely listed.",
+     "The three effect groups contain concrete cause-and-effect explanations. Complaint handling, court trials, impeachment, wealth checks, and published processes explain how accountability measures work. The final example applies the central learning goal to reject a budget-only account of harm."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked limitations: an honest mistake and delay alone do not prove corruption; Section 3(e) identifies alternative mental-state conditions; Section 3(g) need not involve private profit; confidential-information provisions are distinguished.",
+     "Plunder needs unlawfully gained wealth, covered acts, and the amended threshold. Processing rules distinguish applicable fees, one extension with notice, interruptions, and council approval. Gift treatment depends on purpose and all exception conditions, not small value alone. Effect groups can overlap, and a complaint does not establish guilt."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
