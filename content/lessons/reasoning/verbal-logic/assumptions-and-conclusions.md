@@ -1,7 +1,7 @@
 ---
 _id: "lesson-verbal-logic-assumptions-and-conclusions"
 title: "Assumptions and Conclusions"
-summary: "Learn to test necessary assumptions and choose conclusions that are required or best supported by the given evidence."
+summary: "Test needed assumptions and choose conclusions that must be true or have the best support."
 subject: "subject-reasoning"
 topic: "topic-verbal-logic"
 estimatedMinutes: 15
@@ -11,80 +11,90 @@ isActive: true
 
 An argument uses statements to support a point. A **premise** is a statement given as a reason or fact. A **conclusion** is the claim the argument is trying to show.
 
-An **assumption** is an unstated statement that the reasoning needs. In a **necessary-assumption** question, the correct choice must be needed for the stated reason to support the conclusion. It does not have to prove the conclusion by itself.
+An **assumption** is an unstated statement that the reasoning needs. A necessary-assumption question asks which missing statement the argument needs. The answer does not have to prove the conclusion by itself.
 
 ### Testing a necessary assumption
 
-Use the **negation test**. To negate a statement means to make it false. If the argument's stated reason stops working after you negate a choice, that choice may be necessary.
+Use the **negation test**. To negate a statement means to say that it is false. Negate a choice, then check whether the stated reason can still support the conclusion.
 
-Test the actual reasoning in the argument. Do not ask whether you can imagine some other reason for the same conclusion.
+If the reason still works, the choice is not necessary. If the reason fails, the choice may be the needed assumption. Test the reason the argument gives, not a new reason you can imagine.
 
-Common negations are:
+Keep the exact strength of the choice when you negate it:
 
 - "All applicants qualify" becomes "At least one applicant does not qualify."
 - "Some applicants qualify" becomes "No applicants qualify."
 - "No applicants qualify" becomes "At least one applicant qualifies."
 - "A and B are true" becomes "At least one of A or B is false."
+- "A or B is true" becomes "Both A and B are false." Here, "or" allows either part or both parts to be true.
 
-For a longer choice, split it into parts first. Negate only what the choice says, then test whether the argument can still use its stated reason.
+An **and** statement needs both parts to be true. To make it false, only one part needs to fail. Do not change "and" to "neither" when testing an assumption.
+
+For a choice with several parts, separate the parts first. Find the smallest change that makes the whole choice false. Then check what that change does to the stated reason.
 
 ### Drawing conclusions
 
-A **deductive** question asks what must be true if the premises are true. Do not add a new fact. Keep words such as *all, some, none, may,* and *must* at the right strength.
+A **deductive** question asks what must be true if the premises are true. "Infer" means draw a conclusion from the given facts. Do not add a new fact, even if it seems likely in real life.
+
+Watch these words:
 
 - **All** means every member of the group.
-- **Some** means at least one. It does not mean "some but not all."
-- **None** means zero members. If no $X$ is $Y$, any known $X$ is not $Y$.
+- **Some** means at least one. It can include all members.
+- **None** means no members. If no inspectors are trainees, any known inspector is not a trainee.
 - **May** means something is possible. It does not mean it will happen.
 - **Must** means the conclusion has to be true if the premises are true.
 
-A question may instead ask for the conclusion **best supported** by the evidence. That answer does not need to be certain. It should make the fewest new claims while matching the facts given.
+### Choosing the best-supported conclusion
 
-Use this quick method:
+A **best-supported** conclusion has the strongest backing from the given facts. It may be likely without being certain. Choose it by comparing the evidence for each answer.
 
-1. Find the facts the passage clearly gives.
-2. Remove choices that add a new cause, motive, or broad claim.
-3. Prefer the choice that stays closest to the pattern shown by the evidence.
-4. If two choices seem possible, choose the one that claims less while still matching the facts.
+1. Find the facts the passage gives.
+2. Check which parts of each choice those facts support.
+3. Remove choices that conflict with a fact or add an unsupported claim.
+4. Choose the answer with the closest match to the evidence and the fewest unsupported claims.
 
-Two events happening together or one after another does not by itself show that one caused the other. An action also does not prove a person's motive unless the passage gives evidence for that motive.
+A pattern seen in several cases can support a careful claim about those cases. It does not prove that the pattern holds everywhere. A shorter or weaker answer is not always better, either: it must still have support.
+
+Two events happening together does not by itself show that one caused the other. Check whether the passage gives evidence of a cause, such as a fair comparison that rules out other changes. If it gives only timing, report the change without claiming its cause.
+
+An action does not by itself prove a person's **motive**, or reason for acting. Look for stated reasons or other evidence of that reason. Do not guess that someone acted from fear, dislike, or a wish to impress.
 
 ### Recognizing bias
 
-**Bias** means favoring one side in a way that can shape how evidence is presented. Look for loaded praise or blame, one-sided evidence, or a claim treated as obvious without support.
+**Bias** means favoring one side in a way that can shape how facts are presented. Look for unfair praise or blame, facts chosen to show only one side, or claims accepted without support.
 
-Having a conclusion is not enough to prove bias. Judge the wording and the use of evidence.
+Having an opinion does not by itself prove bias. Check the words and the evidence used to support it. A short passage may leave things out simply because it is short.
 
 ## Examples
 
-### #1: Necessary Assumption
+### #1: Finding a Needed Assumption
 
-Argument: "The city should add a pedestrian overpass at this intersection because it will reduce pedestrian-vehicle conflicts by moving some crossings above the road."
+Argument: "The office should replace its printed notices with website notices. This will lower printing costs while still giving every employee access to the notices."
 
-Which assumption is necessary to this stated reason?
+Which assumption is necessary to the argument?
 
-(A) Every pedestrian prefers overpasses to crosswalks.  
-(B) At least some pedestrians who would otherwise cross at road level will use the proposed overpass.  
-(C) This intersection has more traffic than every other intersection in the city.
+(A) Every employee prefers reading on a screen.  
+(B) Every employee can access the website notices.  
+(C) Every nearby office uses website notices.
 
 **Solution:**
 
-1. Choice (A) is stronger than needed. The reason does not require every pedestrian to prefer the overpass.
-2. Choice (C) is not needed. The argument only talks about reducing conflicts at this intersection.
-3. Negate (B): no pedestrians who would otherwise cross at road level will use the overpass.
-4. If that is true, the overpass cannot reduce conflicts in the stated way. Therefore **(B)** is necessary.
+1. The argument promises that every employee will still have access after printed notices are replaced.
+2. Negate (B): at least one employee cannot access the website notices. That employee would lose access, so the stated reason fails.
+3. Screen preferences and nearby offices do not affect that need. The answer is **(B)**.
 
 ### #2: Helpful but Not Necessary
 
 Statement: "All employees who complete the training program will receive a promotion."
 
-Does this statement necessarily assume that the company uses an electronic system to verify completion?
+Does this statement necessarily assume that the company uses an electronic system to check completion?
 
 **Solution:**
 
-No. The statement can still be true even if the company checks completion in another way or has a poor checking process. Electronic verification may be helpful, but the statement does not need it to be true.
+1. Negate the proposed assumption: the company does not use an electronic system to check completion.
+2. The company could check completion on paper. The promised promotions could still happen.
+3. The answer is **no**. An electronic system may help, but the statement does not need one.
 
-### #3: Deductive Conclusion
+### #3: Following an All Statement
 
 Premises: "All administrative officers are full-time employees. Maria is an administrative officer."
 
@@ -92,20 +102,22 @@ Which conclusion must be true?
 
 **Solution:**
 
-1. Every administrative officer belongs to the group of full-time employees.
-2. Maria is an administrative officer, so Maria must be a full-time employee.
+1. Every administrative officer is a full-time employee.
+2. Maria belongs to that group. Therefore, **Maria is a full-time employee**.
 
-### #4: Avoiding Overreach from *Some*
+### #4: Avoiding Overreach from Some
 
 Premise: "Some inspectors are certified auditors."
 
-Does it follow that "Some inspectors are not certified auditors"?
+Does it follow that some inspectors are not certified auditors?
 
 **Solution:**
 
-No. **Some** only tells us that at least one inspector is a certified auditor. It is still possible that every inspector is a certified auditor.
+1. The premise tells us that at least one inspector is a certified auditor.
+2. It says nothing about inspectors who are not certified auditors. Every inspector could be certified.
+3. The answer is **no**. The proposed conclusion does not have to be true.
 
-### #5: Using *None*
+### #5: Using None
 
 Premises: "No contract staff are permanent employees. Joel is contract staff."
 
@@ -113,43 +125,61 @@ Which conclusion must be true?
 
 **Solution:**
 
-1. **None** means zero contract staff are in the group of permanent employees.
-2. Joel is contract staff, so Joel is not a permanent employee.
+1. The first premise excludes every contract staff member from the group of permanent employees.
+2. Joel is contract staff. Therefore, **Joel is not a permanent employee**.
 
-### #6: Reading *May* Correctly
+### #6: Reading May Correctly
 
 Statement: "The road may close if the river rises further."
 
 Which conclusion is justified?
 
-(A) The road will close.  
-(B) The road cannot close.  
+(A) The road will close if the river rises further.  
+(B) The road cannot close if the river rises further.  
 (C) Road closure is possible if the river rises further.
 
 **Solution:**
 
-The correct answer is **(C)**. **May** shows possibility, not certainty. The statement does not support either "will close" or "cannot close."
+1. The word "may" allows a road closure. It does not promise one.
+2. Choice (A) makes closure certain. Choice (B) rules it out.
+3. Only **(C)** keeps the meaning of the statement.
 
-### #7: Best-Supported Conclusion Without Adding a Cause
+### #7: Ranking Evidence for a Conclusion
 
-Evidence: "Before a branch changed its schedule, few people arrived during the early morning. After it began opening earlier, records showed more people arriving during that same early-morning period. The records do not explain why."
+A branch tested an appointment service on several mornings. On each test morning, visitors with appointments had shorter waits than visitors without appointments. The report covered only those mornings and did not explain the difference.
+
+Which conclusion is best supported?
+
+(A) Appointments will remove waiting time at every branch.  
+(B) Having an appointment appears to be linked with shorter waits at the branch during the test.  
+(C) Visitors without appointments caused the branch's delays.
+
+**Solution:**
+
+1. The same pattern appeared on each test morning: visitors with appointments had shorter waits.
+2. That pattern supports the careful link in (B). The words "appears" and "during the test" keep the claim within the evidence.
+3. Choice (A) adds every branch and promises no waiting. Choice (C) blames a group without evidence.
+4. The best-supported answer is **(B)**. The report does not prove that appointments caused the shorter waits.
+
+### #8: Avoiding an Unsupported Cause
+
+Before a branch changed its schedule, few people arrived early in the morning. After it began opening earlier, records showed more arrivals during that same early-morning period. No other details were recorded.
 
 Which conclusion is best supported?
 
 (A) Opening earlier caused the increase in early-morning visits.  
-(B) Early-morning visits were higher after the schedule change than before it.  
+(B) Early-morning visits were higher after the schedule change.  
 (C) Visitors came earlier because they disliked the old schedule.
 
 **Solution:**
 
-1. The evidence directly compares early-morning visits before and after the schedule change.
-2. Choice (A) adds a cause that the records do not prove.
-3. Choice (C) adds a motive that the records do not give.
-4. Therefore **(B)** is best supported because it stays with the evidence.
+1. The records show a change in visits after a change in schedule.
+2. They do not rule out other causes. They also give no visitors' reasons.
+3. Choose **(B)**. It reports the change without adding a cause or motive.
 
-### #8: Avoiding an Unsupported Motive
+### #9: Avoiding an Unsupported Motive
 
-Passage: "Carlo approved the revised schedule after reading staff feedback. The passage gives no reason for his decision."
+Carlo approved a revised schedule after reading staff feedback. The passage gives no reason for his decision.
 
 Which conclusion is supported?
 
@@ -159,13 +189,15 @@ Which conclusion is supported?
 
 **Solution:**
 
-The correct answer is **(B)**. It repeats what the passage states. Choices (A) and (C) invent motives that the passage never gives.
+1. Separate the action from its possible reasons. Carlo read the feedback and then approved the schedule.
+2. The passage gives no evidence of fear or a wish to impress anyone.
+3. Choose **(B)**. Reading feedback before a decision does not prove why he made it.
 
-### #9: Negating an *All* Assumption
+### #10: Negating an All Assumption
 
-Candidate assumption: "All regional offices can process online forms."
+Argument: "Each regional office must handle its own online forms. We can start the plan today because all regional offices can already process online forms."
 
-Which statement correctly negates this assumption?
+To test the claim about all regional offices, which statement is its correct negation?
 
 (A) No regional office can process online forms.  
 (B) At least one regional office cannot process online forms.  
@@ -173,92 +205,93 @@ Which statement correctly negates this assumption?
 
 **Solution:**
 
-The correct answer is **(B)**. To make an **all** statement false, you only need one exception. Use that negation when you test whether the original assumption is necessary.
+1. An "all" statement becomes false as soon as one member is an exception. Its negation is **(B)**.
+2. Under that negation, at least one office cannot handle its own online forms today. The claim used to support starting the plan fails.
+3. Choice (A) goes too far. We do not need every office to fail before the "all" claim becomes false.
 
-### #10: Negating a Compound Assumption
+### #11: Testing a Compound Assumption
 
-Candidate assumption: "The scanner works and the network is available."
+Argument: "The office will send every application through its only scanner and then through the network today. This will let the office submit all applications today."
 
-Which statement correctly negates the whole assumption?
+Consider this proposed assumption: "The scanner works and the network is available."
 
-(A) The scanner does not work or the network is not available.  
-(B) The scanner works and the network is available.  
-(C) The scanner does not work and the network is not available.
+How should the whole assumption be negated, and what does the test show?
 
 **Solution:**
 
-The correct answer is **(A)**. An **and** statement fails when at least one part is false. You do not need both parts to fail.
+1. Split the assumption into its parts: the scanner works; the network is available.
+2. Negate the whole statement: **the scanner does not work or the network is not available**. Either failure makes the original statement false.
+3. If either part fails, the office cannot send every application through the stated route today. The argument needs both parts of this assumption.
+4. Saying that both parts fail is too strong as a negation. One failure is enough.
 
-### #11: Recognizing Bias
+### #12: Recognizing Bias
 
-Passage: "Only a careless manager would reject our plan. It is clearly the sensible choice." The passage gives no disadvantages of the plan.
+Passage: "Only a careless manager would reject our plan. It is clearly the sensible choice." The writer offers no facts about the plan's benefits or drawbacks.
 
 Which feature most strongly suggests bias?
 
 (A) The passage states a conclusion.  
-(B) The passage uses loaded blame and gives only one side.  
-(C) The passage is about a manager.
+(B) The writer insults those who disagree instead of supporting the plan.  
+(C) The passage discusses a manager's decision.
 
 **Solution:**
 
-The correct answer is **(B)**. Words such as "careless" attack the other side instead of giving evidence. The passage also gives no opposing facts or disadvantages.
-
-## Speed Tricks & Shortcuts
-
-**For assumptions, find the gap first.** Ask what must be true for the stated reason to support the conclusion. Then negate that choice and see whether the reason still works.
-
-**Negate the exact strength of the statement.** "All" needs only one exception to become false. "None" becomes "at least one." An "and" statement becomes false when at least one part fails.
-
-**For conclusions, watch strength words.** *All* and *none* make broad claims. *Some* means at least one. *May* only means possible, while *must* means required by the premises.
-
-**For best-supported questions, stay close to the evidence.** A choice that adds a cause, motive, or broad claim needs extra support. Prefer the choice that says only what the facts justify.
+1. The word "careless" blames anyone who rejects the plan. It gives no reason to believe the plan is good.
+2. Calling the plan "clearly" sensible also takes its value for granted.
+3. Choose **(B)**. The unfair blame and lack of supporting facts suggest bias.
 
 ## Traps to Watch For
 
 ### #1: Choosing a Helpful but Unnecessary Assumption
 
-> A statement can make a plan easier without being required by the argument.
+> A statement can help a plan without being required by the argument.
 
-Use the negation test. If the stated reason still works after the choice is negated, the choice is not necessary.
+Negate the choice. If the stated reason still works, reject it as a necessary assumption. A useful tool or a popular preference may not be needed.
 
-### #2: Requiring an Assumption to Prove the Conclusion by Itself
+### #2: Asking an Assumption to Prove Everything
 
-> A necessary assumption does not need to prove the conclusion alone.
+> A necessary assumption does not have to prove the conclusion alone.
 
-It only has to be a condition the argument's stated reasoning needs.
+The assumption works with the given reasons. A choice can be needed even when more evidence would be needed to prove the whole conclusion.
 
-### #3: Turning *Some* into *Some but Not All*
+### #3: Turning Some into Some but Not All
 
-> **Some** means at least one, not "some and not all."
+> Some means at least one, and it can include all.
 
-A statement about some members can still be true when every member has the same property.
+"Some inspectors are auditors" does not show that any inspector is not an auditor. Do not add an exception that the premise never gives.
 
-### #4: Weakening *None*
+### #4: Weakening None
 
-> **None** means zero members of one group are in the other group.
+> None excludes every member of the named group.
 
-Do not turn "none" into "some are not." The original statement excludes every member of the first group.
+"No contract staff are permanent employees" applies to every contract staff member. An answer saying only that some are not permanent loses part of what the premise tells us.
 
-### #5: Turning *May* into *Must*
+### #5: Turning May into Must
 
-> **May** shows possibility, not certainty.
+> A possible event is not a certain event.
 
-A possible event does not become guaranteed just because the passage says it may happen.
+Keep "may" as a possibility. Do not choose "will" unless the passage supports that stronger claim.
 
-### #6: Inventing a Cause or Motive
+### #6: Negating Too Much
 
-> Timing or behavior alone does not prove why something happened.
+> To negate all, find one exception. To negate and, allow one part to fail.
 
-Choose a cause or motive only when the passage gives evidence for it. Otherwise, stay with the facts that were actually stated.
+"Not all offices are ready" does not mean no offices are ready. "The scanner and network are not both working" does not mean both have failed.
 
-### #7: Calling Every Opinion Biased
+### #7: Inventing a Cause or Motive
 
-> A conclusion is not automatically evidence of bias.
+> Timing alone does not show why something happened.
 
-Look for loaded wording, one-sided evidence, or unsupported praise or blame before choosing bias as the answer.
+An event that comes first may not cause the next event. An action may also have several possible reasons. Choose only what the passage supports.
 
-### #8: Picking the Strongest-Sounding Conclusion
+### #8: Calling Every Opinion Biased
 
-> The best-supported answer is often the one that claims less.
+> An opinion alone is not proof of bias.
 
-A broad or dramatic choice may sound convincing, but it fails if the evidence does not support every part of it.
+Look for unfair words or unfair use of evidence. A writer can support a view with clear facts and still consider the other side.
+
+### #9: Choosing by Strength Alone
+
+> Match the claim to the evidence, not to how bold or cautious it sounds.
+
+A broad claim may go beyond the facts. A cautious claim can also lack support. Check every part of the answer against the passage.
