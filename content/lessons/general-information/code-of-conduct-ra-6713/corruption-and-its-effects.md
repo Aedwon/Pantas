@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 12
 isActive: true
 ---
-<!-- Audit: RW-116; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: primary legal provisions and verification supplied in the assignment: RA 3019 Section 3(b), (e), (g), (h), (k); RA 7080 Sections 1(d) and 2; RA 7659 Section 12; RA 11032 Sections 4 and 9; Constitution Article XI Sections 1, 2, 3, 4, 17; RA 6713 Sections 3(c) and 7(d); RA 6770 Section 13; BP 881 Section 261(a). No fresh source access is claimed. RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative cause-and-effect explanations, not measured claims. All case facts are hypothetical. -->
+<!-- Audit: RW-118; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: assignment-supplied verification for Constitution Article XI Sections 1, 2, 3, 4, 17; RA 7080 Sections 1(d) and 2; RA 7659 Section 12; RA 11032 Sections 4 and 9; RA 6713 Sections 3(c), 7(c), 7(d); RA 6770 Section 13; BP 881 Section 261(a). RA 3019 Section 3(b), (e), (g), (h), (k) checked at https://lawphil.net/statutes/repacts/ra1960/ra_3019_1960.html on 2026-10-26. Source conflict: RD-121 attributes a private-benefit/public-prejudice purpose condition to Section 3(k), but that condition is in RA 6713 Section 7(c); the accessed RA 3019 text does not state it. The lesson distinguishes the provisions and includes the requested purpose condition under the correct law. RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative possible cause-and-effect explanations, not measured claims. All case facts are hypothetical. -->
 ## Core Concept
 
 ### What corruption is
@@ -18,14 +18,16 @@ Public interest means putting people's needs before personal gain. Simple living
 
 ### Forms
 
-**Bribery** involves an offered or accepted benefit meant to influence official action. Paying an officer to skip a required check is an example. A gift's purpose matters.
+**Bribery** involves a benefit offered or accepted to influence official action. Paying an officer to skip a required check is an example. A gift's purpose matters.
 
 **Graft and corrupt practices** include acts under RA $3019$, Section $3$:
 
 - Section $3(b)$: seeking or receiving benefits tied to a government contract or transaction the officer must handle under law.
-- Section $3(e)$: causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence.
+- Section $3(e)$: causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence while carrying out official duties.
 - Section $3(h)$: holding a money interest in a transaction the officer officially handles, or an interest forbidden by law.
-- Section $3(k)$: giving valuable confidential office information to unauthorized people or releasing it early.
+- Section $3(k)$: sharing valuable confidential information gained through office with unauthorized people, or releasing it before its authorized release date.
+
+**Confidential information** is information kept from public release. RA $6713$, Section $7(c)$ also prohibits disclosing or misusing such office information to benefit private interests or harm the public interest. This purpose condition belongs to that provision.
 
 In Section $3(e)$, **undue injury** means unjust harm. **Unwarranted benefits** are advantages with no proper basis. The clause covers harm to any party, including the government, or such benefits given to a private party.
 
@@ -65,7 +67,7 @@ The **Ombudsman** acts on complaints against government workers under RA $6770$,
 
 A **SALN**, or Statement of Assets, Liabilities, and Net Worth, reports wealth and debts. Article XI, Section $17$ requires sworn declarations. These records help make wealth open to checks.
 
-RA $6713$, Section $7(d)$ sets gift restrictions. Section $3(c)$ excludes unsolicited gifts of insignificant value not given for a favor. The Prohibited Acts and Gift Rules lesson explains the separate exceptions.
+RA $6713$, Section $7(d)$ sets gift restrictions. Section $3(c)$ excludes unsolicited gifts of insignificant value not given for a favor. The Duties and Prohibited Acts lesson covers the gift rules and their exceptions.
 
 <!-- ILLUSTRATION: "Complaint" points to "Ombudsman: acts on complaints"; separate box "Sandiganbayan: tries cases within its legal authority". -->
 
@@ -186,7 +188,7 @@ Bad procedures may be red tape. Demanding payment to escape them adds corruption
 
 > Benefits and misuse take other forms.
 
-Favoritism and information leaks can fall under RA $3019$. Check the relevant clause's conditions.
+Favoritism and information leaks can fall under RA $3019$. Check the relevant clause's conditions. For RA $6713$, Section $7(c)$, check whether the disclosure or misuse benefits private interests or harms the public interest.
 
 ### #5: Nobody Loses
 
