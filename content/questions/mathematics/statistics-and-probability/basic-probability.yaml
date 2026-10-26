@@ -122,7 +122,7 @@ questions:
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
-    A jar contains $6$ sampaloc candies and $4$ yema candies. Maria draws one candy at random, records its flavor, and replaces it into the jar. She then draws a second candy. What is the probability that both candies drawn are sampaloc?
+    A jar contains $6$ sampaloc candies and $4$ yema candies. Maria draws one candy at random, records its flavor, and replaces it into the jar. She mixes the candies and draws a second candy at random in the same way. What is the probability that both candies drawn are sampaloc?
   choices:
   - text: '$\dfrac{9}{25}$'
     correct: true
@@ -136,7 +136,7 @@ questions:
     rationale: |
       This makes the second candy yema. Both flavors are in the jar. Match both requested flavors.
   explanation: |
-    Replacement keeps each draw probability at $\dfrac6{10}$. Multiply the independent probabilities: $\dfrac6{10}\dfrac6{10}=\dfrac9{25}$.
+    Returning the candy and mixing before the next random draw keeps each draw probability at $\dfrac6{10}$. Multiply the independent probabilities: $\dfrac6{10}\dfrac6{10}=\dfrac9{25}$.
 - id: 'q-statistics-and-probability-basic-probability-0008'
   type: 'word-problem'
   difficulty: 'medium'
@@ -185,7 +185,7 @@ questions:
     correct: true
   - text: '$\dfrac{17}{52}$'
     rationale: |
-      This double-counts the ace of hearts. Both event counts are included. Subtract their intersection.
+      This double-counts the ace of hearts. Both event counts are included. Subtract their overlap once.
   - text: '$\dfrac{1}{13}$'
     rationale: |
       This counts only aces. Aces are one of the two groups. Include hearts too.
@@ -193,7 +193,7 @@ questions:
     rationale: |
       This adds the overlap instead of subtracting it. The shared card needs special handling. Count each favorable card once.
   explanation: |
-    There are four aces and thirteen hearts. The ace of hearts is counted in both groups, so the union has $4+13-1=16$ cards. The probability is $\dfrac{16}{52}=\dfrac4{13}$.
+    There are four aces and thirteen hearts. The ace of hearts is counted in both groups, so $4+13-1=16$ cards are aces or hearts. The probability is $\dfrac{16}{52}=\dfrac4{13}$.
 - id: 'q-statistics-and-probability-basic-probability-0011'
   type: 'word-problem'
   difficulty: 'medium'
@@ -296,7 +296,7 @@ questions:
     rationale: |
       This allows all six color orders. All three colors are requested. Keep the specified order.
   explanation: |
-    The successive required probabilities are $\dfrac5{12}$, $\dfrac4{11}$, and $\dfrac3{10}$. Only the total drops after each different-color draw. Multiply to get $\dfrac{60}{1320}=\dfrac1{22}$.
+    The successive required probabilities are $\dfrac5{12}$, $\dfrac4{11}$, and $\dfrac3{10}$. After drawing green, all $4$ red clips remain among $11$ clips. After drawing red, all $3$ blue clips remain among $10$ clips. Multiply to get $\dfrac{60}{1320}=\dfrac1{22}$.
 - id: 'q-statistics-and-probability-basic-probability-0016'
   type: 'word-problem'
   difficulty: 'hard'
@@ -352,9 +352,9 @@ questions:
       This adds the overlap as another group. Six students play both. Check that they are already in each total.
   - text: '$6$'
     rationale: |
-      This reports the intersection alone. Six is the overlap. Check whether either or both is requested.
+      This reports the overlap alone. Six is the overlap. Check whether either or both is requested.
   explanation: |
-    The union count is $18+12-6=24$. Subtracting six removes the extra count of students in both groups.
+    The count playing either game is $18+12-6=24$. Subtracting six removes the extra count of students in both groups.
   approved: false
 - id: 'q-statistics-and-probability-basic-probability-0019'
   type: 'which-is-true'
@@ -367,14 +367,14 @@ questions:
   - text: 'They must be independent.'
     rationale: |
       This confuses no overlap with no effect on probability. Both phrases can sound separate. Check that A happening makes B impossible.
-  - text: 'Their intersection equals their probability product.'
+  - text: 'The probability of both events equals their probability product.'
     rationale: |
-      This applies the independence formula. Both probabilities are positive. Compare the positive product with the zero intersection.
-  - text: 'Their union has probability zero.'
+      This applies the independence formula. Both probabilities are positive. Compare the positive product with the zero probability of both events.
+  - text: 'The probability of either event is zero.'
     rationale: |
-      This applies the empty-intersection result to the union. Mutual exclusion does mean no shared outcomes. Check the difference between either and both.
+      This uses the probability of both events for the probability of either event. Mutual exclusion does mean no shared outcomes. Check the difference between either and both.
   explanation: |
-    Mutual exclusion gives $P(A\cap B)=0$. Independence would give the positive product $P(A)P(B)$. These cannot agree, so the events are not independent.
+    Mutual exclusion gives $P(A\text{ and }B)=0$. Independence would give the positive product $P(A)P(B)$. These cannot agree, so the events are not independent.
   approved: false
 - id: 'q-statistics-and-probability-basic-probability-0020'
   type: 'word-problem'
