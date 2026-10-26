@@ -1,0 +1,243 @@
+{
+ "batch": "RD-102",
+ "lesson_id": "lesson-comprehension-skills-sequencing-of-events",
+ "path": "content/lessons/reading-comprehension/comprehension-skills/sequencing-of-events.md",
+ "lesson_sha256": "19d8f6cee0bffd488c5e9627e185a07fb1ee9d1fd976cfde227952da5ded2eb7",
+ "rewrite_commit": "4286bd5465ddda01d1d0a05bef5359f72157a113",
+ "form": {
+  "packet": "lesson-comprehension-skills-sequencing-of-events",
+  "role": "A",
+  "lesson_sha256": "19d8f6cee0bffd488c5e9627e185a07fb1ee9d1fd976cfde227952da5ded2eb7",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the before/after examples: rain stops before departure in both sentences. Meanwhile and habang indicate overlap without fixing start order.",
+     "Past perfect uses had plus a past participle; gone, eaten, and written are correct forms. Cause/effect and Filipino connector explanations agree with the supplied examples. No specific exam-format or historical claim needs outside confirmation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: knead, rest and rise, bake.",
+     "Solved #2: the family goes outside before the fire department arrives.",
+     "Solved #3: engineers warn officials, repairs are delayed, bridge collapses.",
+     "Solved #4: training, skills test, assistant work, team leader.",
+     "Solved #5: stage damage, damage check, cancellation announcement; adjacency is not established.",
+     "Solved #6: report preparation and receipt checking overlap; neither start is established as first; sending follows completion of both.",
+     "Solved #7: tree falls, road closes, bus is delayed, tree is removed, road reopens.",
+     "Solved #8: Tuesday room preparation, Wednesday receipt, Thursday inspection, Friday distribution: B, D, A, C. All match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Reading Strategies, and Traps to Watch For are present. Reading Strategies is the allowed reading-comprehension adaptation.",
+     "The brief requires Filipino temporal/causal connectors and informational sequencing; both are taught and worked in examples #7 and #8. All questions are self-contained verbal passages and need no figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the English explanations of written/event order, time words, past perfect, and cause/effect. Technical words are defined in short sentences and concrete sentence pairs.",
+     "The rewritten opening replaces chronological order, flashbacks, and foreshadowing with plain descriptions. Worked solutions use direct, short steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Concluded receives the explanation decided from the information given at its first example. Put, find, and order are everyday instructions and need no special gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1 through #6 supply their passages and ask students to recover event order or overlap without giving a sequencing method in the stem.",
+     "Examples #7 and #8 supply the Filipino narrative/report and all necessary events, dates, and labels. Their solutions explain the connector and calendar evidence in simple language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or unsupported claims about what a named exam asks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino connector subsection and Filipino reading-strategy paragraph use short Filipino sentences. Examples #7 and #8 explain the sequence with common verbs such as nauna, sumunod, and inalis."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Sanhi and bunga receive cause and effect glosses at their first bold definitions. No hard Filipino grammar label is introduced without an English gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Both Filipino examples, #7 and #8, have Filipino questions, source passages, event labels, and solution steps. English examples serve the separately taught English sequencing material."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino prose and examples are present. Official KWF spelling and usage cannot be confirmed from the supplied packet alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Filipino teaching sentences remain in Filipino. The parenthetical cause and effect terms are the permitted first-definition English glosses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning or use of a specific target word. Questions ask for event order or conclusions about timing.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary directly names the covered skills. No listed stock AI phrases occur, and the prose varies sentence openings across definitions, comparisons, and instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The reading-comprehension layout uses Core Concept, Examples, Reading Strategies, and Traps to Watch For. No example uses a mathematical formula, so there is no formula introduction to trace."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Coverage maps to #1 explicit time signals, #2 past perfect, #3 written order versus event order, #4 combined clues, #5 later-mentioned cause and non-immediate order, and #6 overlapping events with unknown start order.",
+     "The required Filipino cases are distinct: #7 reconstructs a disrupted narrative using temporal and causal connectors; #8 reconstructs an informational report using weekdays and labeled events. Examples progress from explicit signals to multiple clues and reconstruction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eight worked solutions use numbered steps. Each supplies the reasoning needed to reach its final sequence or timing conclusion. There are no numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to assess for phone width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three short sentences. The longer Filipino narrative is split into two paragraphs. Numbered solution steps are used instead of excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders. Each question supplies a verbal passage and requires no visual material.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Sequencing, written order, event order, time-signal words, verb tense, past perfect, past participle, cause, and effect are defined before students use them in examples.",
+     "Filipino time connectors, overlapping habang, and sanhi/bunga are explained before #7 and #8. No prerequisite teaching is needed to supply missing meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson shows how to connect before/after to actions using two sentence forms, how had plus a participle locates an earlier action, and how to rebuild order when an effect is mentioned first.",
+     "Filipino connector explanations distinguish time, overlap, cause, and result; worked examples demonstrate their use in a narrative and an informational report."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The text explicitly limits meanwhile and habang: overlap does not establish which action began first. Before need not mean immediately before.",
+     "Past perfect must be read with the later past event and surrounding text. Earlier events are not automatically causes, and a cause may continue during its effect. Reading Strategies tells students not to invent unstated order."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-comprehension-skills-sequencing-of-events|B08|0": {
+    "status": "fixed",
+    "quote": "The order of the sentences is the **written order**. The order in which the events happened is the **event order**.",
+    "note": "The banned random-label table and its bare numerals are removed. The bridge passage wraps its numeral in inline math."
+   },
+   "lesson-comprehension-skills-sequencing-of-events|L02|0": {
+    "status": "fixed",
+    "quote": "**Sequencing** means putting events in the order they happened. A passage may tell a later event first and explain an earlier event afterward.",
+    "note": "The opening now uses familiar words and explains the distinction directly without the former unexplained technical terms."
+   },
+   "lesson-comprehension-skills-sequencing-of-events|L22a|0": {
+    "status": "fixed",
+    "quote": "**Sequencing** means putting events in the order they happened. A passage may tell a later event first and explain an earlier event afterward. Rebuild the true order from the clues in the text.",
+    "note": "The opening is now three short sentences. The former long sentence listing several narrative devices is gone."
+   },
+   "reading-comprehension-comprehension-skills#72": {
+    "status": "fixed",
+    "quote": "Ang *dahil* ay karaniwang nagpapakilala ng sanhi, at ang *kaya* at *dahil dito* ay karaniwang nagpapakilala ng bunga.",
+    "note": "The Filipino subsection teaches temporal and causal connectors. Example #7 reconstructs the tree/road/bus sequence, and #8 orders a dated informational report."
+   },
+   "lesson-comprehension-skills-sequencing-of-events|L03|0": {
+    "status": "not_fixed",
+    "quote": "Put these events in order: becoming a team leader, completing training, passing the skills test, working as an assistant.",
+    "note": "The optional gloss was not added. Order is used as an everyday instruction, which the brief explicitly says does not need a gloss."
+   }
+  }
+ }
+}
