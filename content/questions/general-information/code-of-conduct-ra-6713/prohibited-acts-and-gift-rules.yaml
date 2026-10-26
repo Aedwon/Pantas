@@ -37,7 +37,7 @@ questions:
 
     '
   choices:
-  - text: A small unsolicited token unrelated to any expected favor
+  - text: A small unsolicited token unrelated to any expected or exchanged favor
     correct: true
   - text: A small token requested in return for promptly approving a permit
     rationale: 'This treats small value as enough. Nominal tokens can be allowed. Check whether it was solicited or tied to a favor.
@@ -61,7 +61,7 @@ questions:
 
     '
   choices:
-  - text: An applicant for a job in a firm with pending office business
+  - text: An applicant for a private job in a firm with pending office business, with no required-referral exception
     correct: true
   - text: A student for a merit scholarship without any promise of special treatment
     rationale: 'This treats any recommendation as prohibited. Official influence can create concerns. Check whether a job in a transacting private firm is involved.
@@ -75,7 +75,7 @@ questions:
     rationale: 'This removes the transaction link from the rule. The employer is private. Check its relationship with the office.
 
       '
-  explanation: 'Section 7(b)(3) bans recommending a person for a position in a private enterprise with a regular or pending transaction with the official''s office.
+  explanation: 'Section 7(b)(3) generally bans recommending a person for a position in a private enterprise with a regular or pending transaction with the official''s office. The implementing rules allow referrals required by law, international agreements or commitments, or assigned public duties. No such exception applies here.
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
@@ -160,15 +160,15 @@ questions:
   - text: Section 7
     correct: true
   - text: Section 2
-    rationale: 'This chooses the broad policy statement. Ethics are introduced there. Check the section listing specific prohibited acts.
+    rationale: 'The lesson places the ban on misuse of protected work information in Section 7, not Section 2.
 
       '
   - text: Section 8
-    rationale: 'This confuses public financial disclosure with misuse of confidential information. Both involve information. Check the kind of information and conduct.
+    rationale: 'The lesson places the ban on misuse of protected work information in Section 7, not Section 8.
 
       '
   - text: Section 9
-    rationale: 'This confuses removing business interests with misusing information. Both address private gain. Check the particular prohibited act.
+    rationale: 'The lesson places the ban on misuse of protected work information in Section 7, not Section 9.
 
       '
   explanation: 'Section 7(c) prohibits using or disclosing confidential or classified official information to further private interests, give undue advantage, or harm the public interest.
@@ -320,7 +320,7 @@ questions:
     rationale: 'This replaces legal tests with scheduling. After-hours work avoids lost office time. Check whether duties and clients still conflict.
 
       '
-  explanation: 'The practice must be authorized by the Constitution or law. It must also not conflict or tend to conflict with official functions. Both conditions are needed.
+  explanation: 'The Act requires authority under the Constitution or law. The implementing rules also refer to authority under regulation. The practice must also not conflict or tend to conflict with official functions. Both authority and absence of conflict are needed.
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
