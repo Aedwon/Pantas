@@ -71,6 +71,8 @@ In a geometric sequence, reaching position $n$ takes $n-1$ multiplications by $r
 
 $$a_n=a_1r^{n-1}$$
 
+The first term is $a_1$ itself. For later terms, the formula also works when $r=0$: every term after the first is $0$.
+
 For a finite geometric series with $r\ne1$:
 
 $$S_n=\dfrac{a_1(1-r^n)}{1-r}$$
