@@ -320,7 +320,17 @@ Alin ang tambalang pangungusap?
 2. Payak ang (A). Hugnayan ang (C), dahil may sugnay itong nagsisimula sa *dahil*.
 3. **Parirala** (phrase) lamang ang (D). Wala itong buong diwa na may paksa at panaguri. Piliin ang **(B)**.
 
-### #20: Magkasingkahulugan
+### #20: Langkapang Pangungusap
+
+Ano ang kayarian ng pangungusap na ito? "Nang matapos ang pulong, umuwi si Mara at naglinis ng silid si Ben."
+
+**Solution:**
+
+1. Ang *nang matapos ang pulong* ay sugnay na di-makapag-iisa. Kailangan nito ng karugtong upang mabuo ang diwa.
+2. May dalawang sugnay na makapag-iisa: *umuwi si Mara* at *naglinis ng silid si Ben*. Bawat isa ay may buong diwa.
+3. **Langkapan** ang pangungusap. May dalawa itong sugnay na makapag-iisa at isang sugnay na di-makapag-iisa.
+
+### #21: Magkasingkahulugan
 
 Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang mga empleyado sa magandang balita"?
 
