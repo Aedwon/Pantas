@@ -82,7 +82,7 @@ Water can flow over land as **runoff** or soak into the ground. Some underground
 
 ### Symbiotic Relationships
 
-**Symbiosis** is a close relationship between different species. Simple ecology questions group these relationships by their effects. A plus sign means a benefit, a minus sign means harm, and zero means no clear net effect.
+**Symbiosis** is a close relationship between different species. Simple ecology questions group these relationships by their effects. A plus sign ($+$) means a benefit, a minus sign ($-$) means harm, and zero ($0$) means no clear net effect.
 
 - **Mutualism**: both partners benefit $(+,+)$.
 - **Commensalism**: one benefits while the other has no clear net effect $(+,0)$.
@@ -105,6 +105,8 @@ Environmental management should match the problem. Habitat protection does not b
 ## Examples
 
 ### #1: Building a Food Chain
+
+"Arrange" means put in order. "Identify" means name the requested item or role.
 
 Arrange grass, grasshopper, frog, and hawk into a simple food chain and identify their trophic roles in that chain.
 
@@ -130,7 +132,9 @@ In a food web, grass is eaten by rabbits and grasshoppers. Frogs eat grasshopper
 
 ### #3: Applying a Given $10\%$ Approximation
 
-Assume $10\%$ trophic transfer efficiency. Producers hold $10{,}000$ kJ of energy available for transfer. Estimate the energy transferred to primary and then secondary consumers.
+"Estimate" means find an approximate amount.
+
+Assume that $10\%$ of the energy at each trophic level reaches the next level. Producers hold $10{,}000$ kJ of energy available for transfer. Estimate the energy transferred to primary and then secondary consumers.
 
 **Solution:**
 
@@ -222,19 +226,19 @@ A wetland has lost native plants because nearby land was cleared, and polluted r
 
 ## Exam Strategies
 
-For food-web arrows, read each arrow as **energy moves to** the consumer. Trace every food path before predicting the effect of a population change.
+Read each food-web arrow as energy moving to the consumer. Trace every food path before predicting the effect of a population change.
 
-For trophic-energy calculations, use $10\%$ only when the problem gives that approximation or tells you to assume it.
+Use $10\%$ in energy calculations only when the problem gives that approximation or tells you to assume it.
 
-For the nitrogen cycle, keep the steps separate: fixation changes nitrogen gas into ammonia. Nitrification changes ammonium into nitrite and nitrate. Denitrification returns nitrogen gases to the air.
+Keep the nitrogen-cycle steps separate. Fixation changes nitrogen gas into ammonia. Nitrification changes ammonium into nitrite and nitrate, while denitrification returns nitrogen gases to the air.
 
-For cycle questions, follow the material and name the process that moves it. Water becoming vapor is evaporation. Phosphate leaving rock through weathering belongs to the phosphorus cycle.
+In cycle questions, follow the material and name the process that moves it. Water becoming vapor is evaporation. Phosphate leaving rock through weathering belongs to the phosphorus cycle.
 
-For population questions, look for changes in resources, predators, disease, births, deaths, or movement. A change in carrying capacity does not mean the population changes at once.
+Population questions may describe changes in resources, predators, disease, births, deaths, or movement. A change in carrying capacity does not mean the population changes at once.
 
-For environmental problems, match each response to a cause. A plan may need habitat protection, pollution control, harvest limits, or control of an invasive species.
+Match each environmental response to a cause. A plan may need habitat protection, pollution control, harvest limits, or control of an invasive species.
 
-For symbiosis, check the effect on each partner: $(+,+)$ is mutualism, $(+,0)$ is commensalism, and $(+,-)$ is parasitism.
+Check the effect on each partner in symbiosis questions. Mutualism is $(+,+)$, commensalism is $(+,0)$, and parasitism is $(+,-)$.
 
 ## Traps to Watch For
 
@@ -260,7 +264,7 @@ Their feeding position depends on the food path being traced. Decomposers also r
 
 > Use the stated effect on each partner.
 
-Commensalism requires no clear net effect on one partner. If both benefit, the relationship is mutualism; if one benefits and the other is harmed, it is parasitism.
+Commensalism requires no clear net effect on one partner. If both benefit, the relationship is mutualism. If one benefits and the other is harmed, it is parasitism.
 
 ### #5: Assuming One Population Changes by Itself
 
