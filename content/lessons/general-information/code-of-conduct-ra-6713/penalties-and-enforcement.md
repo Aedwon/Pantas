@@ -43,7 +43,7 @@ Under Section $11(b)$, a Code violation proved in a proper administrative case i
 
 ### Private People Who Take Part
 
-A **conspiracy** exists when people agree to commit an offense and decide to carry it out. Section $11(c)$ covers private individuals who participate with public workers as co-principals, accomplices, or accessories.
+Section $11(c)$ covers private individuals "who participate in conspiracy as co-principals, accomplices or accessories" with public officials or employees in a violation of the Code. The three roles below describe how a private person can take part.
 
 They face the same **penal liabilities** as the public workers. This means criminal responsibility and penalties under this provision. They are tried together with the public workers.
 
@@ -125,7 +125,7 @@ An officer and a consultant agree to sell confidential agency records for privat
 
 ### #5: Helpful but Nonessential Aid
 
-A businessperson knows an officer's unlawful purpose and supplies useful records before the offense. The records are not essential. The person neither directly performs nor causes the offense and has not joined an agreement to carry it out. Which role fits?
+A businessperson knows an officer's unlawful purpose and supplies useful records before the offense. The records are not essential. The person neither directly performs nor causes the offense. Which role fits?
 
 **Solution:**
 
