@@ -98,7 +98,7 @@ What does this sentence suggest? "The result was not unexpected, since the team 
 
 Mara read the notice aloud. At Ben's request, she repeated it. Ben still could not hear.
 
-Does "again" add meaning in his next request, "Please repeat it again"?
+Does the word in bold add meaning in his next request, "Please repeat it **again**"?
 
 **Solution:**
 
