@@ -149,7 +149,7 @@ questions:
         rationale: |
           This treats contrast as an isolated emotional reaction. The sentence suggests disappointment. Check: check whether "but" has a linking role in the grammar.
     explanation: |
-      "But" connects two clauses (wanting to attend, and having homework), making it a conjunction.
+      "But" connects two clauses ("She wanted to attend the party" and "she had too much homework"), making it a conjunction.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0008"
     type: "parts-of-speech-identification"
