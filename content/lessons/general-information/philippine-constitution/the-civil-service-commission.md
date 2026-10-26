@@ -70,7 +70,9 @@ These are exceptions to the competitive-examination rule. Merit and fitness stil
 
 A civil service officer or employee may be removed or suspended only for a cause provided by law. **Security of tenure** is this protection against losing a position without a lawful cause. It does not excuse misconduct or prevent lawful discipline.
 
-Civil service officers and employees may not take part, directly or indirectly, in electioneering or a partisan political campaign. Officials holding political offices, such as elected mayors, are an exception. They may campaign within legal limits. **Electioneering** means working to help a candidate or political party win. Voting is different from campaigning for a candidate.
+Civil service officers and employees may not take part, directly or indirectly, in electioneering or a partisan political campaign. **Electioneering** means working to help a candidate or political party win. Voting is different from campaigning for a candidate.
+
+Officials holding political offices, such as elected mayors, are an exception to the campaigning ban. They may campaign within legal limits.
 
 ### Independence and Conflict Rules
 
@@ -249,7 +251,8 @@ An official threatens to delay the CSC's approved annual funding to pressure it 
 
 **Solution:**
 
-Fiscal autonomy protects the Commission's control over its approved funds. The Constitution requires automatic and regular release of its approved annual funding.
+1. Fiscal autonomy protects the Commission's control over its approved funds.
+2. The Constitution requires automatic and regular release of its approved annual funding. An official cannot withhold it to control a decision.
 
 ## Traps to Watch For
 

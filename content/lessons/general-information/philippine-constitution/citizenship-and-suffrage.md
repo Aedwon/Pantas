@@ -62,7 +62,7 @@ Article IV, Section $5$, calls dual allegiance harmful to the national interest 
 - Residence in the Philippines for $1$ year.
 - Residence in the place of voting for $6$ months immediately before the election.
 
-RA $8189$, Section $9$, measures age and residence on election day. A person may register earlier if these requirements will be met then. Section $10$ requires registration to vote.
+RA $8189$, Section $9$, allows registration before reaching these minimums if they will be met on election day. Section $10$ requires registration to vote.
 
 Section $11$ lists legal disqualifications, including certain final criminal judgments. A charge alone is not a final judgment. The law also provides ways to restore voting rights.
 
@@ -145,7 +145,10 @@ A registered Filipino turns $18$ on election day. By then, residence is $2$ year
 
 **Solution:**
 
-Yes. All minimums are met on election day.
+1. The person reaches the minimum age of $18$ on election day.
+2. The $2$ years in the country meet the $1$-year minimum.
+3. The $8$ months locally meet the $6$-month minimum.
+4. Yes. The person meets the minimums, is registered, and has no disqualification.
 
 ### #9: Local Residence
 
@@ -153,7 +156,10 @@ Two adult Filipinos have each lived in the country for $10$ years. One has lived
 
 **Solution:**
 
-Only the first. The second lacks the required $6$ months locally.
+1. Both meet the $1$-year residence minimum in the country.
+2. The first person's $8$ months locally meet the $6$-month minimum.
+3. The second person's $3$ months locally fall short.
+4. Only the first person meets both residence minimums.
 
 ### #10: Reading and Property Tests
 
@@ -205,7 +211,6 @@ An office requiring natural-born status needs more than citizenship alone.
 
 RA $9225$ allows retention under conditions. Under Section $5(2)$, candidates covered by this law must make a separate sworn renunciation of foreign citizenship.
 
-<!-- Source check, 2026-10-26: Cordora v. COMELEC, G.R. No. 176947, February 19, 2009, applying Local Government Code Section 40(d): https://lawphil.net/judjuris/juri2009/feb2009/gr_176947_2009.html. The rule requires the certificate's oath and concerns Philippine candidacy, not loss of citizenship under foreign law. Gana-Carait v. COMELEC, G.R. No. 257453, August 9, 2022, confirms that RA 9225 Sections 3 and 5(2) do not cover citizenship acquired by birth: https://lawphil.net/judjuris/juri2022/aug2022/gr_257453_2022.html. -->
 In Cordora v. COMELEC, the Court applied Local Government Code Section $40(d)$ to a dual citizen by birth. Filing the certificate of candidacy with its oath of allegiance was enough for Philippine candidacy. This rule concerns someone who never lost Philippine citizenship through foreign naturalization.
 
 For this purpose, filing the certificate counts as giving up foreign citizenship under Philippine law. It does not decide citizenship status under the other country's law. Other office qualifications still apply.

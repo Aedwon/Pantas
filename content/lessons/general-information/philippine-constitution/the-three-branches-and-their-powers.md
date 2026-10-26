@@ -134,7 +134,9 @@ Which branches pass a law, direct an executive department to enforce it, and dec
 
 **Solution:**
 
-Congress uses legislative power. The President uses executive power. Courts use judicial power.
+1. Congress passes the law using legislative power.
+2. The President directs the department using executive power.
+3. Courts decide the dispute using judicial power.
 
 ### #2: Congressional Terms
 
@@ -150,7 +152,8 @@ Must a revenue bill start in the House? Must every education bill start there?
 
 **Solution:**
 
-A revenue bill must start there. An education bill need not, unless it falls in a Section $24$ category, such as an appropriation bill.
+1. A revenue bill must start in the House under Article VI, Section $24$.
+2. An education bill need not start there unless it falls in a listed category, such as an appropriation bill.
 
 ### #4: Overriding a Veto
 
@@ -160,11 +163,15 @@ A vetoed bill returns to Congress. Suppose the House has $300$ Members and the S
 
 1. Use two-thirds of all House Members.
 
-$$\dfrac{2}{3}\times300=200$$
+$$
+\dfrac{2}{3}\times300=200
+$$
 
 2. Use two-thirds of all Senators.
 
-$$\dfrac{2}{3}\times24=16$$
+$$
+\dfrac{2}{3}\times24=16
+$$
 
 3. The bill needs at least $200$ House votes and $16$ Senate votes. If the President had not communicated a veto within $30$ days of receipt, it would become law as if signed.
 
@@ -174,7 +181,8 @@ Which needs Commission on Appointments consent: an ambassador or a Supreme Court
 
 **Solution:**
 
-The ambassador does. The Justice follows the Judicial and Bar Council process without confirmation.
+1. The ambassador needs Commission on Appointments consent under Article VII, Section $16$.
+2. The Justice follows the Judicial and Bar Council process without confirmation under Article VIII, Section $9$.
 
 ### #6: Emergency Powers and Clemency
 
@@ -198,9 +206,11 @@ With $24$ Senators, how many must concur in a treaty?
 1. Apply the requirement of at least two-thirds of all Senators.
 2. Multiply the full membership by that fraction.
 
-$$\dfrac{2}{3}\times24=16$$
+$$
+\dfrac{2}{3}\times24=16
+$$
 
-At least $16$ Senators must concur.
+3. At least $16$ Senators must concur.
 
 ### #8: Court Composition and Review
 
@@ -217,7 +227,9 @@ On election day, Ana is $25$, Ben is $35$, and Cara is $40$. All meet other requ
 
 **Solution:**
 
-Ana meets the Representative minimum. Ben meets the Representative and Senator minimums. Cara meets all three.
+1. Ana meets the Representative minimum of $25$.
+2. Ben meets the Representative and Senator minimums because he has reached $35$.
+3. Cara meets all three age minimums because she has reached $40$.
 
 ### #10: Judicial Qualifications
 
@@ -243,7 +255,8 @@ Congress overrides a veto. Later, a court declares the law unconstitutional in a
 
 **Solution:**
 
-Congress used its veto-override power. The court used judicial review to check the law against the Constitution.
+1. Congress used its veto-override power to pass the bill despite the President's rejection.
+2. The court used judicial review to check the law against the Constitution.
 
 ## Speed Tricks & Shortcuts
 
