@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+<title>A row of five plain outline shapes: square, rectangle, rhombus, parallelogram, pentagon</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="200" rx="14" fill="url(#bg)"/>
+<line x1="150" y1="40" x2="210" y2="40" stroke="#FFC857" stroke-width="4" stroke-linecap="round"/>
+<rect x="16" y="90" width="40" height="40" rx="0" fill="none" stroke="#F2F7FB" stroke-width="2.5"/>
+<rect x="82" y="94" width="52" height="32" rx="0" fill="none" stroke="#F2F7FB" stroke-width="2.5"/>
+<polygon points="180,88 206,110 180,132 154,110" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="234,94 278,94 270,126 226,126" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="324,88 346.8,104.6 338.1,131.4 309.9,131.4 301.2,104.6" fill="none" stroke="#F2F7FB" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>

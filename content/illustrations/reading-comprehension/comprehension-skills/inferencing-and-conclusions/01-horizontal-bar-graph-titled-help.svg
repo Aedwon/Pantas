@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+<title>Bar graph Help Desk Visitors: Monday 20, Tuesday 30, Wednesday 15, each square is 5 visitors</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="280" rx="14" fill="url(#bg)"/>
+<text x="180" y="30" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Help Desk Visitors</text>
+<text x="180" y="50" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="400" fill="#D6E6F5"><tspan x="180">Each square represents</tspan><tspan x="180" dy="16">5 visitors.</tspan></text>
+<text x="92" y="109" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Monday</text>
+<rect x="100" y="84" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="140" y="84" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="180" y="84" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="220" y="84" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<text x="92" y="155" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Tuesday</text>
+<rect x="100" y="130" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="140" y="130" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="180" y="130" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="220" y="130" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="260" y="130" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="300" y="130" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<text x="92" y="201" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Wednesday</text>
+<rect x="100" y="176" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="140" y="176" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<rect x="180" y="176" width="40" height="40" rx="0" fill="#3FA28C" stroke="#0E2747" stroke-width="1.5"/>
+<line x1="100" y1="224" x2="340" y2="224" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<line x1="100" y1="224" x2="100" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="100" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">0</text>
+<line x1="140" y1="224" x2="140" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="140" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">5</text>
+<line x1="180" y1="224" x2="180" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="180" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">10</text>
+<line x1="220" y1="224" x2="220" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="220" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">15</text>
+<line x1="260" y1="224" x2="260" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="260" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">20</text>
+<line x1="300" y1="224" x2="300" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="300" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">25</text>
+<line x1="340" y1="224" x2="340" y2="230" stroke="#FFC857" stroke-width="2" stroke-linecap="butt"/>
+<text x="340" y="246" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">30</text>
+<text x="220" y="268" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFC857">Visitors</text>
+</svg>
