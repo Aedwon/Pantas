@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-A **synonym** is a word or phrase with the same or a closely related meaning in a certain context. Synonyms do not fit every sentence in the same way.
+A **synonym** is a word or phrase with the same or a closely related meaning in a sentence. Synonyms do not fit every sentence in the same way.
 
 Words with close meanings can differ in strength. They can also sound more formal, friendly, or harsh. Choose the word that keeps the meaning and fits the sentence.
 
-A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. Similar meanings do not always lead to the same word pairings.
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. Words with similar meanings do not always fit the same word pairings.
 
 An **antonym** is a word with an opposite or contrasting meaning. The right opposite must match the meaning used in the sentence.
 
@@ -21,7 +21,7 @@ An **antonym** is a word with an opposite or contrasting meaning. The right oppo
 
 **Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* fall between them. Something that is not hot may still be warm, so *not hot* does not always mean *cold*.
 
-**Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other. In a simple alive/dead classification of an organism, *not alive* means *dead*.
+**Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other. In a record that classifies each organism as either alive or dead, *not alive* means *dead*.
 
 Use that rule only when the stated system allows no middle state. A stone is not alive, but calling it dead would not fit this use.
 
@@ -90,7 +90,7 @@ D) nagsimula
 
 **Solution:**
 
-1. Ang **gumuho** ay hindi tumutukoy sa isang gusali rito. Ipinapakita nitong nasira ang kaniyang mga pangarap dahil sa pagkabigo.
+1. Hindi gusali ang gumuho sa pangungusap. Nasira ang kaniyang mga pangarap dahil sa pagkabigo.
 2. Ang pinakamalapit na kahulugan ay **nasira**. Ang sagot ay **B**.
 
 ### #4: Filipino Antonym
@@ -237,7 +237,7 @@ D) not needed
 
 ### #14: Meaning from Behavior
 
-The manager's **sycophantic** assistant agreed with every bad idea in hopes of gaining favor. Which meaning best fits the word in bold?
+The manager's **sycophantic** assistant praised every idea, even bad ones, in hopes of gaining favor. Which meaning best fits the word in bold?
 
 A) resisting orders to show independence  
 B) giving too much praise to win approval  
@@ -246,7 +246,7 @@ D) avoiding tasks to reduce effort
 
 **Solution:**
 
-1. The assistant supports even bad ideas because he wants the manager to like him.
+1. The assistant praises even bad ideas because he wants the manager to like him.
 2. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
 ### #15: Keeping the Same Grammar
