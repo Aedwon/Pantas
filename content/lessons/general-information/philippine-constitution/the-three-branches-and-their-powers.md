@@ -23,7 +23,7 @@ A **check and balance** lets one branch limit another branch's use of power.
 
 Congress has two Houses. The Senate has $24$ Senators elected **at large**, meaning nationwide. They serve $6$ years, with at most $2$ consecutive terms (Article VI, Sections $2$ and $4$).
 
-The House has district and party-list representatives. Section $5$ sets not more than $250$ Members, unless law fixes otherwise. The $20\%$ share of total House seats, including party-list seats, sets the maximum seats available to party-list groups. Some may remain unfilled.
+The House has district and party-list representatives. Section $5$ sets not more than $250$ Members, unless law fixes otherwise. Under Section $5(2)$, party-list representatives shall constitute $20\%$ of the total number of representatives, including those under the party list.
 
 Representatives serve $3$ years, with at most $3$ consecutive terms (Section $7$). Consecutive means in a row, not a lifetime total.
 
@@ -64,7 +64,9 @@ At the President's initiative, Congress may extend it if invasion or rebellion p
 
 <!-- ILLUSTRATION: timeline Day 0: proclamation or suspension; Within 48 hours: report to Congress; Day 60: initial limit; notes Congress may revoke and Supreme Court may review -->
 
-A **pardon** grants forgiveness for a criminal offense after conviction by final judgment. It cannot cover impeachment (Section $19$). For violations of election laws, rules, or regulations, it requires a favorable COMELEC recommendation (Article IX-C, Section $5$).
+**Impeachment** is a process for charging and trying certain high officials for removal from office. The House brings the charges, and the Senate holds the trial (Article XI, Section $3$).
+
+A **pardon** grants forgiveness for a criminal offense after conviction by final judgment. It cannot cover impeachment (Article VII, Section $19$). For violations of election laws, rules, or regulations, it requires a favorable COMELEC recommendation (Article IX-C, Section $5$).
 
 **Amnesty** forgives offenses covered by a grant, often for a group. It needs concurrence, meaning agreement, of a majority of all Members of Congress. Election offenses also require a favorable COMELEC recommendation.
 
@@ -118,7 +120,7 @@ These three offices bar candidates in the election immediately before appointmen
 
 President → Congress: veto. Congress → President: veto override and consent to listed appointments through the Commission on Appointments.
 
-Congress → impeachable officers: the House starts impeachment cases; the Senate tries them. **Impeachment** is charging and trying certain high officials for removal. See Accountability and Impeachment for Article XI, Section $3$.
+Congress → impeachable officers: the House starts impeachment cases; the Senate tries them. See Accountability and Impeachment for more on Article XI, Section $3$.
 
 Courts → government acts: judicial review.
 
@@ -285,4 +287,4 @@ An ambassador needs Commission on Appointments consent. A judge does not.
 
 > Judicial review does not replace Congress's lawmaking role.
 
-Courts interpret and apply laws and check unconstitutional acts in proper cases. Disagreement with a policy alone does not make it unconstitutional.
+Courts interpret and apply laws and check unconstitutional acts in proper cases. Disagreement with a policy alone does not make a law unconstitutional.
