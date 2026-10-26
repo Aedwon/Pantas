@@ -23,7 +23,7 @@ A **check and balance** lets one branch limit another branch's use of power.
 
 Congress has two Houses. The Senate has $24$ Senators elected **at large**, meaning nationwide. They serve $6$ years, with at most $2$ consecutive terms (Article VI, Sections $2$ and $4$).
 
-The House has district and party-list representatives. Section $5$ sets not more than $250$ Members, unless law fixes otherwise. Party-list representatives form $20\%$ of the total House, including party-list seats.
+The House has district and party-list representatives. Section $5$ sets not more than $250$ Members, unless law fixes otherwise. The $20\%$ share of total House seats, including party-list seats, sets the maximum seats available to party-list groups. Some may remain unfilled.
 
 Representatives serve $3$ years, with at most $3$ consecutive terms (Section $7$). Consecutive means in a row, not a lifetime total.
 
