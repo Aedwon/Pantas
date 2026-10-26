@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "lesson-philippine-constitution-citizenship-and-suffrage"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "1f506aad3a859448db71e524ab8bc8f1da384aa0",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "1f506aad3a859448db71e524ab8bc8f1da384aa0"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "b87e88425f8c8ffdffa8cf22b59eb7826a3b44b99c2316d1a2c21df53fe38134",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "4eb563b05eed79a1cbadebc72fe4d386c976e9f292b637dbbec1a6af19df99e6"
+ },
+ "paths": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md"
+ },
+ "id": "RD-113",
+ "type": "read",
+ "created": "2026-10-26T05:47:32+00:00"
+}
