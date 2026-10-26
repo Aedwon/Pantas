@@ -1,52 +1,53 @@
 ---
 _id: "lesson-vocabulary-idioms-and-figures-of-speech"
 title: "Idioms and Figures of Speech / Sawikain at Tayutay"
-summary: "Learn how context reveals idiom meanings and how common figures of speech work in English and Filipino."
+summary: "Use context to understand idioms and recognize common figures of speech in English and Filipino."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
-estimatedMinutes: 13
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-An **idiom** is a familiar expression whose meaning may be different from the literal meanings of its words. For example, "back to square one" means returning to the beginning of a process.
+An **idiom** is a familiar expression whose meaning may differ from the meanings of its separate words. For example, *back to square one* means returning to the beginning of a process.
 
-A **figure of speech** uses words in a special way to create an image, comparison, sound, or strong effect. One line can sometimes show more than one figure, so use the wording and context to find the clearest one.
+A **literal** meaning is the direct meaning of the words. The same words can be literal in one setting and an idiom in another. Read what happens around the phrase to decide.
+
+A **figure of speech** uses words to create a comparison, image, sound, or strong effect. A line can show more than one figure. Look for the clearest effect supported by the wording.
 
 Common figures include:
 
-- **Simile:** compares two things, often with *like* or *as*: "Her voice was like velvet."
-- **Metaphor:** says or shows that one thing is another to make a comparison: "Time is a thief."
-- **Personification:** gives a human action or quality to something nonhuman: "Opportunity knocked."
-- **Hyperbole:** uses a very large exaggeration for effect: "I've told you a million times."
-- **Alliteration:** repeats the same starting consonant sound in nearby words.
+- **Simile:** compares different things, often with *like* or *as*: “Her voice was like velvet.”
+- **Metaphor:** presents one thing as another to make a comparison: “Time is a thief.”
+- **Personification:** gives a human action or quality to something nonhuman: “Opportunity knocked.”
+- **Hyperbole:** makes something seem much greater or smaller than it really is: “I've told you a million times.” This is exaggeration for effect.
+- **Alliteration:** repeats the same starting consonant sound in nearby words, as in *busy bees buzzed*.
 - **Onomatopoeia:** uses a word that sounds like the sound it names, such as *buzz* or *clang*.
-- **Oxymoron:** puts two ideas together that seem to oppose each other, such as *deafening silence*.
+- **Oxymoron:** puts words with opposing meanings together, such as *deafening silence*.
 
-Words such as *like* and *as* are clues, not automatic proof of a simile. "She works as a teacher" is literal because it states her job.
+Sound matters in alliteration, not just spelling. A simile needs a comparison, not just *like* or *as*. “She works as a teacher” states her job without comparing different things.
 
-### Filipino Terms
+### Sawikain at Tayutay
 
-Sa Filipino, ang **sawikain** ay pahayag na may nakasanayang kahulugan na maaaring hindi literal. Ang **tayutay** naman ay masining na paggamit ng salita.
+Ang **sawikain** (idiom) ay pahayag na may nakasanayang kahulugan. Maaaring iba ito sa tuwirang kahulugan ng bawat salita. Ang *naghigpit ng sinturon* ay maaaring mangahulugang nagtipid.
 
-Karaniwang tawag sa ilang tayutay:
+Ang **tayutay** (figure of speech) ay masining na paggamit ng salita. Maaari itong maghambing, magbigay-buhay sa isang bagay, o magpalabis ng paglalarawan.
 
-- **pagtutulad** para sa simile;
-- **pagwawangis** para sa metaphor;
-- **pagbibigay-katauhan** o **personipikasyon** para sa personification;
-- **pagmamalabis** para sa hyperbole.
+Sa **pagtutulad** (simile), may paghahambing na gumagamit ng *parang*, *tulad ng*, o *gaya ng*. Sa **pagwawangis** (metaphor), tuwirang itinuturing na ibang bagay ang inilalarawan.
 
-Maaaring magkaiba nang kaunti ang tawag sa ilang aklat. Tingnan muna kung ano ang ginagawa ng mga salita sa pangungusap bago pumili ng sagot.
+Ang **pagbibigay-katauhan** o **personipikasyon** (personification) ay pagbibigay ng kilos o katangiang pantao sa hindi tao. Ang **pagmamalabis** (hyperbole) ay sadyang pagsobra sa paglalarawan.
+
+Maaaring magkaiba nang kaunti ang tawag sa ilang aklat. Tingnan kung paano ginamit ang mga salita bago pumili ng sagot.
 
 ## Examples
 
-### #1: English Idiom in Context
+### #1: An English Idiom
 
 After losing his unsaved research paper, Mark knew he was **back to square one**. What does the phrase in bold mean?
 
 A) To play a board game  
 B) To return to the beginning  
-C) To get angry  
+C) To become angry  
 D) To give up permanently
 
 **Solution:**
@@ -54,9 +55,23 @@ D) To give up permanently
 1. Mark lost his work and must start again.
 2. **Back to square one** means to return to the beginning. Answer: **B**.
 
-### #2: Personification
+### #2: The Same Words Used Literally
 
-"The wind whispered through the dark forest." Which figure of speech is used most clearly?
+During a board game, Mark moved his piece **back to square one** after drawing a penalty card. What does the phrase in bold mean in this sentence?
+
+A) He restarted his research.  
+B) He stopped playing the game.  
+C) He returned his piece to the first space.  
+D) He forgot the rules of the game.
+
+**Solution:**
+
+1. The sentence describes a piece moving on a game board.
+2. The words name an actual move to the first space. The meaning is literal. Answer: **C**.
+
+### #3: Personification
+
+“The wind whispered through the dark forest.” Which literary device is used most clearly?
 
 A) Metaphor  
 B) Hyperbole  
@@ -65,10 +80,10 @@ D) Simile
 
 **Solution:**
 
-1. *Whispered* is a human action.
-2. The sentence gives that action to the wind, so the answer is **personification**. Answer: **C**.
+1. Whispering means speaking very softly. The wind cannot speak.
+2. Giving this human action to the wind creates personification. Answer: **C**.
 
-### #3: Filipino Sawikain
+### #4: Sawikain sa Pangungusap
 
 Dahil kapos sa kita, **naghigpit ng sinturon** ang pamilya. Ano ang ibig sabihin ng pariralang naka-bold?
 
@@ -80,11 +95,11 @@ D) Nagpalit ng damit
 **Solution:**
 
 1. Kapos sa kita ang pamilya, kaya kailangan nilang bawasan ang gastos.
-2. Ang **naghigpit ng sinturon** ay nangangahulugang *nagtipid sa gastusin*. Sagot: **B**.
+2. Ang parirala ay nangangahulugang *nagtipid sa gastusin*. Sagot: **B**.
 
-### #4: Filipino Tayutay
+### #5: Pagmamalabis
 
-Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, "Umuulan ng salapi sa negosyo ko." Anong tayutay ang ginamit?
+Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, “Umuulan ng salapi sa negosyo ko.” Anong tayutay ang pinakamalinaw na ginamit?
 
 A) Pagtutulad  
 B) Pagmamalabis  
@@ -93,12 +108,12 @@ D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Hindi literal na umuulan ng salapi. Sobra ang paglalarawan upang ipakita na malaki ang kinita.
-2. Ang ganitong pagsobra sa paglalarawan ay **pagmamalabis**. Sagot: **B**.
+1. Hindi totoong umuulan ng salapi. Sobra ang paglalarawan sa dami ng kita.
+2. Ang sadyang pagsobra sa paglalarawan ay pagmamalabis. Sagot: **B**.
 
-### #5: Metaphor
+### #6: Metaphor
 
-"Hope is the thing with feathers that perches in the soul." Which figure of speech is used most clearly?
+“Hope is a bird that carries us beyond our fear.” Which literary device is used most clearly?
 
 A) Metaphor  
 B) Simile  
@@ -107,12 +122,12 @@ D) Onomatopoeia
 
 **Solution:**
 
-1. The line presents hope as a feathered, bird-like thing without using *like* or *as*.
-2. This direct comparison is a **metaphor**. Answer: **A**.
+1. The line presents hope as a bird. It compares two different things directly.
+2. This comparison is a metaphor. Answer: **A**.
 
-### #6: Simile
+### #7: Simile
 
-"The calm lake shone like a mirror under the moon." Which device is used most clearly?
+“The calm lake shone like a mirror under the moon.” Which literary device is used most clearly?
 
 A) Simile  
 B) Hyperbole  
@@ -122,11 +137,11 @@ D) Personification
 **Solution:**
 
 1. The sentence compares the lake with a mirror using *like*.
-2. That clear comparison is a **simile**. Answer: **A**.
+2. This comparison is a simile. Answer: **A**.
 
-### #7: Alliteration
+### #8: Alliteration
 
-"Silver snakes silently slid across the sand." Which sound device is used most clearly?
+“Silver snakes silently slid across the sand.” Which sound device is used most clearly?
 
 A) Alliteration  
 B) Onomatopoeia  
@@ -136,11 +151,11 @@ D) Oxymoron
 **Solution:**
 
 1. Several nearby words begin with the same *s* sound.
-2. Repeating a starting consonant sound is **alliteration**. Answer: **A**.
+2. Repeating a starting consonant sound is alliteration. Answer: **A**.
 
-### #8: Onomatopoeia
+### #9: Onomatopoeia
 
-"The firecracker went **bang** beside the gate." Which device is shown by the word in bold?
+“The firecracker went **bang** beside the gate.” Which device is shown by the word in bold?
 
 A) Onomatopoeia  
 B) Simile  
@@ -149,59 +164,103 @@ D) Oxymoron
 
 **Solution:**
 
-1. **Bang** sounds like the sudden noise it names.
-2. A word that imitates a sound is **onomatopoeia**. Answer: **A**.
+1. **Bang** imitates the sudden noise it names.
+2. A word that imitates a sound is onomatopoeia. Answer: **A**.
 
-### #9: Oxymoron
+### #10: Oxymoron
 
-"The crowd waited in deafening silence." Which device is used most clearly?
+“The crowd waited in deafening silence.” Which literary device is created by the phrase *deafening silence*?
 
 A) Personification  
-B) Hyperbole  
+B) Simile  
 C) Oxymoron  
-D) Simile
+D) Onomatopoeia
 
 **Solution:**
 
-1. *Deafening* suggests very loud sound, while *silence* means no sound.
-2. Putting these opposing ideas together creates an **oxymoron**. Answer: **C**.
+1. *Deafening* suggests very loud sound. *Silence* means no sound.
+2. Putting these opposing meanings together creates an oxymoron. Answer: **C**.
+
+### #11: Pagtutulad
+
+“Ang tinig ni Ana ay parang banayad na agos ng ilog.” Anong tayutay ang ginamit?
+
+A) Pagmamalabis  
+B) Pagtutulad  
+C) Pagbibigay-katauhan  
+D) Pagwawangis
+
+**Solution:**
+
+1. Inihahambing ang tinig sa banayad na agos ng ilog gamit ang *parang*.
+2. Ang ganitong paghahambing ay pagtutulad. Sagot: **B**.
+
+### #12: Pagwawangis
+
+“Si Liza ang ilaw ng aming pangkat sa panahon ng problema.” Anong tayutay ang ginamit?
+
+A) Pagwawangis  
+B) Pagtutulad  
+C) Pagmamalabis  
+D) Pagbibigay-katauhan
+
+**Solution:**
+
+1. Tuwirang tinawag na ilaw si Liza. Ipinapakita nito na nagbibigay siya ng gabay.
+2. Ang tuwirang paghahambing na ito ay pagwawangis. Sagot: **A**.
+
+### #13: Pagbibigay-katauhan
+
+“Niyakap ng gabi ang tahimik na bayan.” Anong tayutay ang ginamit?
+
+A) Pagtutulad  
+B) Pagmamalabis  
+C) Pagbibigay-katauhan  
+D) Pagwawangis
+
+**Solution:**
+
+1. Ang pagyakap ay kilos ng tao. Hindi literal na yumayakap ang gabi.
+2. Binigyan ng kilos ng tao ang gabi. Ito ay pagbibigay-katauhan. Sagot: **C**.
 
 ## Speed Tricks & Shortcuts
 
-**Start with context.** An idiom's known meaning must fit the sentence or passage.
+**Start with context.** An idiom's known meaning must fit what happens in the sentence.
 
-**Treat signal words as clues, not proof.** *Like, as, parang,* and *tulad ng* often appear in comparisons, but first check whether two things are actually being compared.
+**Check the effect.** Ask whether the words compare things, give a human quality, stretch the truth, repeat a sound, or join opposing meanings.
 
-**Look for the clearest effect.** If a line seems to show more than one figure, choose the device most directly shown by the wording.
+**Use signal words carefully.** *Like* and *as* may introduce comparisons, but they also have ordinary uses.
+
+Sa Filipino, hanapin muna ang paghahambing, kilos, o pagsobra sa paglalarawan. Pagkatapos, itugma ito sa pangalan ng tayutay.
 
 ## Traps to Watch For
 
-### #1: Assuming Every Literal-Looking Choice Is Wrong
+### #1: Rejecting a Literal Meaning
 
-> An idiom can have a nonliteral meaning in one sentence and the same words can be literal in another.
+> The same phrase can have a literal meaning or an idiom's meaning.
 
-Use the context to decide which meaning is intended.
+A game piece can return to an actual first square. Lost work can make someone start a task again. The setting tells you which meaning fits.
 
-### #2: "Like" or "As" Automatically Means Simile
+### #2: Choosing Simile from One Word
 
-> A simile needs a real comparison, not only the words *like* or *as*.
+> Like or as alone does not prove a simile.
 
-Check what two things are being compared before choosing simile.
+“She works as a teacher” states a job. It does not compare two different things.
 
-### #3: No Trigger Word Automatically Means Metaphor
+### #3: Choosing Metaphor Without a Comparison
 
-> A sentence without *like* or *as* may use another figure or no comparison at all.
+> A sentence without like or as is not always a metaphor.
 
-Look for a direct comparison before choosing metaphor.
+Look for one thing being presented as another. A plain statement may have no figure at all.
 
 ### #4: Treating Figures as Always Separate
 
-> One line can sometimes support more than one reading.
+> A line can show more than one figure.
 
-In an exam item, choose the device most clearly shown by the exact words and context.
+Read the exact question and any phrase it points to. Choose the figure most directly shown by those words.
 
-### #5: Calling Any Nonhuman Sound Personification
+### #5: Calling Every Sound Personification
 
-> A nonhuman thing making a sound is not automatically personification.
+> A nonhuman thing making a sound is not always personification.
 
-Choose personification when the wording gives a clearly human action or quality to something nonhuman.
+“The bell rang” describes an ordinary sound. “The bell begged us to hurry” gives the bell a human action.
