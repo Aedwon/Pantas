@@ -1,0 +1,19 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-citizenship-and-suffrage",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 3,
+ "paths": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-citizenship-and-suffrage": "## Left open by the earlier read (RD-113)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L12 (Minor). Problem: The English verb in mag-apply is Taglish in teaching prose. A simple Filipino verb such as mag-aplay or humiling can express the idea without switching to English.\n   > May mga hindi maaaring mag-apply; kailangan din ang panunumpa at pagpaparehistro.\n2. Rule L23 (Major). Problem: The flow instructions overlap: a pre-1973 child of a Filipino mother satisfies the first parent branch, which labels the child natural-born without requiring election. The artist needs an explicit earlier date/parent exception branch before the general parent rule.\n   > <!-- ILLUSTRATION: Filipino citizenship flow with labels Magulang na Pilipino sa pagsilang: natural-born; Isinilang bago Enero 17, 1973 sa inang Pilipino at dayuhang ama: wastong pagpili, itinuturing na natural-born; Naturalisasyon: naturalisadong mamamayan -->",
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "## Left open by the earlier read (RD-113)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L19 (Major if a step is skipped, otherwise Minor). Problem: The treaty solution requires choosing the two-thirds threshold and then multiplying it by 24. It gives the computation but does not number the two steps. No mathematical step is missing, so this is a minor formatting finding.\n   > At least $16$ Senators must concur:\n2. Rule L25 (Major). Problem: Public debt, bills of local application, and private bills are listed as origination categories without explaining their meanings. A learner cannot classify those bill types from the teaching provided; no supplied prerequisite teaches them.\n   > So must bills increasing public debt, bills of local application, and private bills.\n3. Rule L27 (Major). Problem: The lesson acknowledges other pardon limits without stating the election-offense exception requiring COMELEC recommendation. The brief asks for constitutional limits, and an unspecified warning does not teach when the pardon rule applies. This point needs primary-source confirmation because the supplied brief does not quote Article IX-C Section 5.\n   > It cannot be used in impeachment cases, and other constitutional limits apply."
+ },
+ "id": "RW-117",
+ "type": "rewrite",
+ "created": "2026-10-26T06:17:06+00:00"
+}

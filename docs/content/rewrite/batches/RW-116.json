@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "round": 3,
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md"
+ },
+ "extra_brief": {
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": "## Left open by the earlier read (RD-112)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L03 (Minor). Problem: Classify is an exam instruction meaning sort into groups, but its first use has no one-line explanation. Evaluate is explained, but that does not explain classify.\n   > Classify these results: families lose aid, repairs waste funds, and voters lose faith in government.\n2. Rule L25 (Major). Problem: The clause gloss explains partiality, bad faith, and negligence, but never explains undue injury or unwarranted benefits. Students need the meanings of unjust harm and benefits with no proper basis to understand what the rule covers; no prerequisite explanation is supplied.\n   > causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence."
+ },
+ "id": "RW-116",
+ "type": "rewrite",
+ "created": "2026-10-26T06:17:06+00:00"
+}
