@@ -140,7 +140,7 @@ questions:
           This adds one factor of five and seven even though neither is shared. These prime bases appear somewhere in the two numbers. Check that a GCF includes only shared bases.
       - text: '$453,600$'
         rationale: |
-          This finds the LCM instead of the GCF. GCF and LCM use the same bases. Check whether a factor or a multiple is requested.
+          This finds the LCM instead of the GCF. The LCM uses every prime present, but the GCF uses only shared primes. Check whether a factor or a multiple is requested.
     explanation: |
       The shared prime bases are $2$ and $3$. Their smaller exponents are $3$ and $2$. The GCF is $2^3\times3^2=8(9)=72$.
 
@@ -248,21 +248,21 @@ questions:
     type: direct-computation
     difficulty: hard
     stem: |
-      What is the smallest positive integer with exactly 12 positive factors, using only prime factors 2 and 3?
+      A positive integer and $108$ have a GCF of $36$ and an LCM of $216$. What is the integer?
     choices:
       - text: '$60$'
         rationale: |
-          This allows the prime factor five. Sixty does have twelve positive factors. Check that only two and three are permitted primes.
+          This does not give the stated GCF. The GCF of $60$ and $108$ is $12$. Check that the GCF is $36$.
       - text: '$72$'
         correct: true
       - text: '$96$'
         rationale: |
-          This finds a valid twelve-divisor number but not the smallest. Ninety-six uses only the permitted primes. Compare all possible exponent pairs before choosing the least number.
+          This does not give the stated GCF. The GCF of $96$ and $108$ is $12$. Check that the GCF is $36$.
       - text: '$108$'
         rationale: |
-          This assigns the larger exponent to three instead of two. One hundred eight has the required divisor count. Check whether swapping the exponents makes a smaller valid number.
+          This repeats the known integer. Two equal positive integers have that same number as both their GCF and LCM. Check the given GCF and LCM.
     explanation: |
-      Write the number as $2^a3^b$. Every positive divisor selects a power of $2$ from zero through $a$ and a power of $3$ from zero through $b$. Hence the divisor count is $(a+1)(b+1)=12$. The possible exponent pairs give $2048,486,108,72,96,$ and $177147$. The least is $72=2^3(3^2)$.
+      For two positive integers, GCF times LCM equals their product. Let the missing integer be $n$. Then $108n=36(216)$. Divide by $108$: $n=\dfrac{36(216)}{108}=72$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0014
     type: word-problem
@@ -331,7 +331,7 @@ questions:
     stem: |
       A student says the LCM of $6,10,15$ is $900$ because no prime divides all three and their product is $900$. What is the error?
     choices:
-      - text: 'Shared factors need to be counted only once.'
+      - text: 'Use each prime with its largest exponent across the factorizations.'
         correct: true
       - text: 'The largest original number is always the LCM.'
         rationale: |
@@ -371,7 +371,7 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      For positive integers $a$ and $b$, which expression always equals their LCM?
+      For positive integers $a$ and $b$, which expression always equals their LCM? Here, $\gcd(a,b)$ means their GCF.
     choices:
       - text: '$\dfrac{ab}{\gcd(a,b)}$'
         correct: true
