@@ -1,0 +1,204 @@
+{
+ "batch": "RD-112",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "5594ffa0ec2795efeffaecfdd23698cc68e416dea7631d1a24acb3c66f98534d",
+ "rewrite_commit": "819a2d0d746fba97298443380853bf9cc1dfecdf",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "5594ffa0ec2795efeffaecfdd23698cc68e416dea7631d1a24acb3c66f98534d",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared public trust, impeachment, Ombudsman, Sandiganbayan, gift restrictions, and vote-buying descriptions with the provisions identified in the supplied brief and audit. No contradictory provision is supplied.",
+     "Plunder uses the amended fifty-million threshold, not the original seventy-five million, and teaches no unverified penalty. Processing limits use 3, 7, and 20 working days with extension and interruption qualifications. Effects are conditional qualitative chains, not invented statistics."
+    ],
+    "note": "Source verification is restricted to the supplied legal-source descriptions and audit. No external source was opened or independently authenticated.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 the demand for money, not the typo; #2 bribery; #3 Section 3(b); #4 yes, repeated kickbacks and exactly fifty million meet the stated means and amount; #5 social harm; #6 excessive payments reduce funds for classrooms.",
+     "#7 weakened political accountability; #8 social, economic, political respectively; #9 Ombudsman; #10 posted rules expose invented charges and delays; #11 unsound because harm also reaches services and accountability. All answers match the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Contains the requested Core Concept, Examples, and Traps, with no Speed Tricks section. Covers definition, legal forms, three effect groups, State responses, and weighing effects. All eleven outlined example scenarios and all three suggested figure placeholders are present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Core explanations use short sentences and concrete food, construction, and service examples. Legal terms such as ill-gotten, kickback, accountability, SALN, and Citizen's Charter receive simple glosses; missing clause terminology is recorded separately under L25."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Classify these results: families lose aid, repairs waste funds, and voters lose faith in government.",
+      "problem": "Classify is an exam instruction meaning sort into groups, but its first use has no one-line explanation. Evaluate is explained, but that does not explain classify."
+     }
+    ]
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used; concrete hypothetical situations are examples rather than analogies."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven stems supply the needed act, benefit, harm, or institutional question. None supplies a tested formula or legal definition as a hint. Solutions use brief classifications and plain cause-and-effect reasons; the plunder question carefully asks only about stated means and amount."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claim says these curriculum-support effects are a CSC exam requirement. There are no repetitive test-maker introductions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino-language teaching or Filipino example sentence to check; Sandiganbayan is an institution name.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or its formatting.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No listed stock AI phrase occurs. Openings vary between definitions, legal references, and concrete effects. Summary specifically names corruption forms and its three harm groups."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses its permitted reduced layout: Core Concept, Examples, Traps. No mathematical formula is used in an example. The fifty-million threshold is introduced in Forms before Example #4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "#1-4 cover mistake versus misuse, bribery, contract gifts, and the amended plunder threshold. #5-8 cover separate social, economic, political, and mixed effects. #9-11 cover complaint handling, prevention, and evaluation of a budget-only claim. These match the eleven brief cases and progress from recognition to reasoned evaluation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Multi-step Examples #4, #6, #8, and #11 use numbered steps without skipped reasoning. Remaining solutions are single classifications or explanations. No arithmetic computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Visible prose paragraphs stay within three short sentences. The single four-item clause list is a compact, relevant use of bullets; worked steps use numbered lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Effects-map placeholder names the center, three arms, and two effects per arm. The complaint/court placeholder separates complaint action from trial. The classroom chain specifies three boxes and arrow labels. All are single-line instructions; surrounding prose independently explains each idea."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence.",
+      "problem": "The clause gloss explains partiality, bad faith, and negligence, but never explains undue injury or unwarranted benefits. Students need the meanings of unjust harm and benefits with no proper basis to understand what the rule covers; no prerequisite explanation is supplied."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Corruption is connected to misuse for gain and contrasted with honest error. Bribery, plunder, red tape, and fixing receive meanings and mechanisms. Each effects group includes a concrete causal chain, while State-response institutions and prevention measures have stated functions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Notes that each RA 3019 clause has conditions and bad results alone are insufficient. Plunder requires covered repeated/combined acts, unlawful wealth, and the amended minimum. Processing periods are qualified by complete submission/payment, authorized extension, system disruption, and council approval. Gift purpose and exception conditions matter; slow service alone does not establish gain, and effect groups can overlap."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
