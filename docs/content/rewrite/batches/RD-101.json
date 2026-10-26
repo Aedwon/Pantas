@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-comprehension-skills-fact-vs-opinion",
+  "lesson-comprehension-skills-authors-purpose-tone-pov",
+  "lesson-comprehension-skills-inferencing-and-conclusions"
+ ],
+ "topic": "reading-comprehension/comprehension-skills",
+ "rewrites": {
+  "lesson-comprehension-skills-fact-vs-opinion": "e3702680cbc1e8b368b984ca0e3d107f53023515",
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "e3702680cbc1e8b368b984ca0e3d107f53023515",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "e3702680cbc1e8b368b984ca0e3d107f53023515"
+ },
+ "sha256": {
+  "lesson-comprehension-skills-fact-vs-opinion": "d0bf44d09d3bef74b500e97b350ea6c69cf93f8b4aa3240971a5b9c76cf9aefe",
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "f409fe5943a7466bdcc484c915d0eef9a7b2e117a19f643c8c4673f7daca9d34",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "8e4f358a66eea1efc53bbd7231ada2de0eb3d53509441344d76edab28eba43b1"
+ },
+ "paths": {
+  "lesson-comprehension-skills-fact-vs-opinion": "content/lessons/reading-comprehension/comprehension-skills/fact-vs-opinion.md",
+  "lesson-comprehension-skills-authors-purpose-tone-pov": "content/lessons/reading-comprehension/comprehension-skills/authors-purpose-tone-pov.md",
+  "lesson-comprehension-skills-inferencing-and-conclusions": "content/lessons/reading-comprehension/comprehension-skills/inferencing-and-conclusions.md"
+ },
+ "id": "RD-101",
+ "type": "read",
+ "created": "2026-10-26T04:43:47+00:00"
+}
