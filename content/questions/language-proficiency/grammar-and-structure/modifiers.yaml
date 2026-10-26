@@ -277,7 +277,7 @@ questions:
     stem: |
       Which revision gives "excited about the trip" a suitable subject in "Excited about the trip, the suitcases were packed a week early"?
     choices:
-      - text: "Excited about the trip, we packed the suitcases early."
+      - text: "Excited about the trip, we packed the suitcases a week early."
         correct: true
       - text: "The suitcases, excited about the trip, were packed a week early."
         rationale: |
@@ -375,7 +375,7 @@ questions:
     type: "modifier-placement"
     difficulty: "hard"
     stem: |
-      The curator displayed every vase except one. Which sentence preserves that meaning?
+      The curator displayed nearly all the vases. Which sentence preserves that meaning?
     choices:
       - text: "The curator displayed almost all the vases."
         correct: true
@@ -389,7 +389,7 @@ questions:
         rationale: |
           This limits the duration of the display. The phrase "almost" still suggests an exception. Check: keep the exception attached to the vases.
     explanation: |
-      "Almost all the vases" limits the number of vases displayed. It fits the stated exception of one vase.
+      "Almost all the vases" limits the number of vases displayed. It means nearly all were displayed, without giving an exact number left out.
     approved: false
   - id: "q-grammar-and-structure-modifiers-0020"
     type: "modifier-placement"
