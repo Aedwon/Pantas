@@ -45,7 +45,7 @@ $$p \Rightarrow q,\quad p\quad\therefore q$$
 
 If "If $p$, then $q$" is true and $p$ is true, you may conclude $q$. Knowing only that $q$ is true does not let you conclude $p$. There may be another reason for $q$ to be true.
 
-The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals:
+The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals. Here, $r$ stands for a third statement:
 
 $$p \Rightarrow q,\quad q \Rightarrow r$$
 
@@ -65,7 +65,7 @@ The converse only flips. The inverse only negates. The contrapositive does both.
 
 ### #1: Naming the Parts
 
-Identify the hypothesis and conclusion: "If a number is divisible by $6$, then it is divisible by $3$."
+Find the hypothesis and conclusion: "If a number is divisible by $6$, then it is divisible by $3$."
 
 **Solution:**
 
@@ -137,6 +137,7 @@ For an integer $n$, check this statement: "$n$ is even if and only if $n$ is div
 1. Check the forward direction. An even integer is a multiple of $2$. So it is divisible by $2$ with no remainder.
 2. Check the reverse direction. An integer divisible by $2$ with no remainder is a multiple of $2$. So it is even.
 3. Both directions are true. The biconditional is true.
+4. Join the two true directions: "If $n$ is even, then it is divisible by $2$" and "If $n$ is divisible by $2$, then it is even."
 
 ## Speed Tricks & Shortcuts
 
