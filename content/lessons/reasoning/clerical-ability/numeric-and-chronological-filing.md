@@ -35,7 +35,9 @@ For complete dates, compare the year first. If the years match, compare the mont
 
 The fixed date format **YYYY-MM-DD** puts the year first, the month second, and the day last. Each Y stands for a year digit. Each M stands for a month digit, and each D stands for a day digit.
 
-For example, $2024\text{-}03\text{-}05$ means March $5$, $2024$. The month and day each use two digits, so March is $03$ and the fifth day is $05$. Compare complete dates in this format from left to right.
+For example, $2024\text{-}03\text{-}05$ means March $5$, $2024$. The month and day each use $2$ digits, so March is $03$ and the fifth day is $05$.
+
+Compare complete dates in this format from left to right. The year digits come before the month digits. The day digits decide the order only if the year and month match.
 
 The format keeps the date parts in the same places. It does not tell you whether to file oldest first or newest first. If a date such as $03/05/2024$ could mean either March $5$ or May $3$, use the date format stated in the task.
 
@@ -53,7 +55,7 @@ For a hyphenated code, the hyphen may separate filing parts. If the rule compare
 
 ### Terminal-Digit Filing
 
-A **terminal-digit** rule starts with the rightmost group of a file number. The order for checking the other groups must come from the filing rule. In this lesson's examples, check the middle group next, then the leftmost group.
+A **terminal-digit** rule starts with the rightmost group of a file number. The order for checking the other groups must come from the filing rule. In this lesson's example, check the middle group next, then the leftmost group.
 
 Compare each group as a whole number. Move to the next group only when the groups you just checked match. Follow the stated filing direction, and use terminal-digit filing only when the task calls for it.
 
@@ -96,12 +98,13 @@ Place these records in reverse chronological order: July $8$, $2024$; July $21$,
 
 ### #4: Year-First Dates
 
-Records use YYYY-MM-DD dates. Which date comes first when filed oldest to newest: $2024\text{-}11\text{-}02$, $2023\text{-}12\text{-}19$, or $2024\text{-}02\text{-}11$?
+Records use YYYY-MM-DD dates. Arrange $2024\text{-}11\text{-}02$, $2023\text{-}12\text{-}19$, and $2024\text{-}02\text{-}11$ from oldest to newest.
 
 **Solution:**
 
-1. Read the first part as the year. The years are $2024$, $2023$, and $2024$.
-2. The earliest year is $2023$, so $2023\text{-}12\text{-}19$ comes first. It means December $19$, $2023$.
+1. Compare the years. The date $2023\text{-}12\text{-}19$ comes first because $2023$ is the earliest year.
+2. Both remaining dates are in $2024$. Compare their months. February, $02$, comes before November, $11$.
+3. The order is $2023\text{-}12\text{-}19$, $2024\text{-}02\text{-}11$, $2024\text{-}11\text{-}02$.
 
 ### #5: Decimal Values
 
@@ -133,7 +136,7 @@ A filing system treats each part of a dotted code as a separate integer subcode 
 
 **Solution:**
 
-1. The first subcode is $12$ in all three codes.
+1. The first subcode is $12$ in all $3$ codes.
 2. Compare the next subcodes as whole numbers: $5$, $1$, and $8$.
 
 $$
