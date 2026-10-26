@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 352" width="360" height="352">
+<title>Energy pyramid with producers 100%, primary consumers 10%, secondary consumers 1% and tertiary consumers 0.1%, an assumed transfer rate</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="360" height="352" rx="14" fill="url(#bg)"/>
+<polygon points="17.0,248 183.0,248 163.0,195 37.0,195" fill="#17697F" stroke="#B8F0FF" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="176.3" y1="222" x2="196" y2="222" stroke="#6FD0FF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<text x="204" y="220" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">producers</text>
+<text x="204" y="238" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">100%</text>
+<polygon points="38.0,193 162.0,193 142.0,140 58.0,140" fill="#2F9A99" stroke="#B8F0FF" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="155.3" y1="167" x2="196" y2="167" stroke="#6FD0FF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<text x="204" y="165" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">primary consumers</text>
+<text x="204" y="183" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">10%</text>
+<polygon points="59.0,138 141.0,138 121.0,85 79.0,85" fill="#2A86C1" stroke="#B8F0FF" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="134.3" y1="112" x2="196" y2="112" stroke="#6FD0FF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<text x="204" y="110" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">secondary consumers</text>
+<text x="204" y="128" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">1%</text>
+<polygon points="80.0,83 120.0,83 100,30" fill="#5CC8FF" stroke="#B8F0FF" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="113.3" y1="57" x2="196" y2="57" stroke="#6FD0FF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<text x="204" y="55" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">tertiary consumers</text>
+<text x="204" y="73" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">0.1%</text>
+<rect x="30" y="262" width="300" height="72" rx="10" fill="none" stroke="#FFC857" stroke-width="2"/>
+<text x="180" y="284" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFD27A"><tspan x="180">Illustration of an assumed</tspan><tspan x="180" dy="1.2em">transfer rate, not an exact</tspan><tspan x="180" dy="1.2em">rule.</tspan></text>
+</svg>

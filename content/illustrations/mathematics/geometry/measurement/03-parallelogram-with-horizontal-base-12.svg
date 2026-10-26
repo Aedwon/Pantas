@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 230" width="360" height="230">
+<title>Parallelogram and triangle, each with base 12 cm and perpendicular height 4 cm</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="360" height="230" rx="14" fill="url(#bg)"/>
+<polygon points="50,140 164,140 209,80 95,80" fill="url(#i)" stroke="#B8F0FF" stroke-width="2" stroke-linejoin="round"/>
+<line x1="95" y1="80" x2="95" y2="140" stroke="#FFC857" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="5 4"/>
+<path d="M104 140 L104 131 L95 131" fill="none" stroke="#FFC857" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="103" y="116" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFC857">4 cm</text>
+<text x="107" y="168" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">12 cm</text>
+<text x="62" y="106" text-anchor="end" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">5 cm</text>
+<polygon points="224,140 338,140 250,80" fill="url(#i)" stroke="#B8F0FF" stroke-width="2" stroke-linejoin="round"/>
+<line x1="250" y1="80" x2="250" y2="140" stroke="#B8F0FF" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4"/>
+<path d="M259 140 L259 131 L250 131" fill="none" stroke="#B8F0FF" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="258" y="132" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">4 cm</text>
+<text x="281" y="168" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">12 cm</text>
+</svg>

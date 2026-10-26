@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" width="360" height="420">
+<title>Circle Alarms working properly under these conditions inside Alarms that ring during a fire, with the tested alarm outside both</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="360" height="420" rx="14" fill="url(#bg)"/>
+<circle cx="180" cy="165" r="135" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
+<text x="180" y="62" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="180">Alarms that ring</tspan><tspan x="180" dy="1.2em">during a fire</tspan></text>
+<circle cx="180" cy="195" r="95" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
+<text x="180" y="191" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF"><tspan x="180">Alarms working properly</tspan><tspan x="180" dy="1.2em">under these conditions</tspan></text>
+<circle cx="180" cy="347" r="36" fill="url(#g)"/>
+<path d="M166 358 C166 336 172 328 180 328 C188 328 194 336 194 358 Z" fill="#FFC857"/><rect x="161" y="358" width="38" height="6" rx="3" fill="#FFC857"/><circle cx="180" cy="370" r="4" fill="#FFC857"/><line x1="180" y1="320" x2="180" y2="328" stroke="#FFC857" stroke-width="3" stroke-linecap="round"/>
+<text x="180" y="398" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">tested alarm</text>
+</svg>

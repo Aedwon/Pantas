@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="360" height="340">
+<title>Circle Birds inside the circle Can fly as the first premise assumes, with a point labeled penguin inside Birds</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="360" height="340" rx="14" fill="url(#bg)"/>
+<circle cx="180" cy="170" r="135" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
+<text x="180" y="84" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF"><tspan x="180">Can fly as the first</tspan><tspan x="180" dy="1.2em">premise assumes</tspan></text>
+<circle cx="180" cy="215" r="70" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
+<text x="180" y="190" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Birds</text>
+<circle cx="180" cy="232" r="18" fill="url(#g)"/><circle cx="180" cy="232" r="7" fill="#FFC857" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="180" y="262" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">penguin</text>
+</svg>

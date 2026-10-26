@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" width="360" height="420">
+<title>Food web: grass to rabbits and grasshoppers, grasshoppers to frogs, rabbits and frogs to hawks, with a downward arrow beside grasshoppers</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="360" height="420" rx="14" fill="url(#bg)"/>
+<line x1="150" y1="313" x2="94.5" y2="216.8" stroke="#B8F0FF" stroke-width="2.5" stroke-linecap="round"/><polygon points="90,209 100.2,214.7 89.8,220.7" fill="#B8F0FF"/>
+<line x1="210" y1="313" x2="234.9" y2="276.4" stroke="#B8F0FF" stroke-width="2.5" stroke-linecap="round"/><polygon points="240,269 239.3,280.6 229.4,273.9" fill="#B8F0FF"/>
+<line x1="270" y1="233" x2="270.0" y2="168.0" stroke="#B8F0FF" stroke-width="2.5" stroke-linecap="round"/><polygon points="270,159 276.0,169.0 264.0,169.0" fill="#B8F0FF"/>
+<line x1="95" y1="173" x2="147.7" y2="76.9" stroke="#B8F0FF" stroke-width="2.5" stroke-linecap="round"/><polygon points="152,69 152.5,80.7 141.9,74.9" fill="#B8F0FF"/>
+<line x1="258" y1="123" x2="217.8" y2="75.9" stroke="#B8F0FF" stroke-width="2.5" stroke-linecap="round"/><polygon points="212,69 223.1,72.7 213.9,80.5" fill="#B8F0FF"/>
+<line x1="186" y1="226" x2="186.0" y2="255.0" stroke="#FFC857" stroke-width="4.5" stroke-linecap="round"/><polygon points="186,268 178.0,254.0 194.0,254.0" fill="#FFC857"/>
+<rect x="140" y="313" width="80" height="34" rx="10" fill="#17697F" stroke="#B8F0FF" stroke-width="1.8"/><text x="180" y="335" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">grass</text>
+<rect x="35" y="173" width="90" height="34" rx="10" fill="url(#i)" stroke="#B8F0FF" stroke-width="1.8"/><text x="80" y="195" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">rabbits</text>
+<rect x="205" y="233" width="130" height="34" rx="10" fill="url(#i)" stroke="#B8F0FF" stroke-width="1.8"/><text x="270" y="255" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">grasshoppers</text>
+<rect x="235" y="123" width="70" height="34" rx="10" fill="url(#i)" stroke="#B8F0FF" stroke-width="1.8"/><text x="270" y="145" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">frogs</text>
+<rect x="140" y="33" width="80" height="34" rx="10" fill="url(#i)" stroke="#B8F0FF" stroke-width="1.8"/><text x="180" y="55" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">hawks</text>
+<line x1="80" y1="384" x2="115.0" y2="384.0" stroke="#B8F0FF" stroke-width="2.5" stroke-linecap="round"/><polygon points="124,384 114.0,390.0 114.0,378.0" fill="#B8F0FF"/>
+<text x="136" y="389" text-anchor="start" font-family="Source Sans 3, Arial, sans-serif" font-size="14" font-weight="600" fill="#D6E6F5">energy moves to</text>
+</svg>

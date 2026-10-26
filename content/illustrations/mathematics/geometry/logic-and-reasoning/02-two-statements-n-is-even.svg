@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" width="360" height="250">
+<title>For an integer n: n is even and n is divisible by 2, joined by arrows in both directions</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+<radialGradient id="o" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#2FB5B0"/><stop offset="1" stop-color="#17697F"/></radialGradient>
+<radialGradient id="i" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#6FD0FF"/><stop offset="1" stop-color="#2468C8"/></radialGradient>
+<radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD27A" stop-opacity="0.7"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="360" height="250" rx="14" fill="url(#bg)"/>
+<text x="180" y="38" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="600" fill="#D6E6F5">For an integer n</text>
+<rect x="70" y="56" width="220" height="46" rx="10" fill="url(#o)" stroke="#B8F0FF" stroke-width="2"/>
+<text x="180" y="86" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">n is even</text>
+<line x1="150" y1="108" x2="150.0" y2="147.0" stroke="#FFC857" stroke-width="3.5" stroke-linecap="round"/><polygon points="150,158 143.0,146.0 157.0,146.0" fill="#FFC857"/>
+<line x1="210" y1="158" x2="210.0" y2="119.0" stroke="#FFC857" stroke-width="3.5" stroke-linecap="round"/><polygon points="210,108 217.0,120.0 203.0,120.0" fill="#FFC857"/>
+<rect x="70" y="164" width="220" height="46" rx="10" fill="url(#i)" stroke="#B8F0FF" stroke-width="2"/>
+<text x="180" y="194" text-anchor="middle" font-family="Source Sans 3, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">n is divisible by 2</text>
+</svg>
