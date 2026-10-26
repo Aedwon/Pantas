@@ -207,9 +207,9 @@ questions:
           This keeps only the second feature. It is the latest input. Check the two-feature result in the completed row.
       - text: "Square with rays up and right"
         rationale: |
-          This copies the first row's ray directions. Both rows use union. Combine the second row's actual directions.
+          This copies the first row's ray directions. Both rows keep all features from the first two cells. Combine the second row's actual directions.
     explanation: |
-      The third cell in the first row contains both rays from its first two cells. Apply that union to the square row. The blank therefore keeps both diagonal rays, one upper-right and one lower-right.
+      The third cell in the first row contains both rays from its first two cells. Keep both rays in the square row too. The blank therefore keeps both diagonal rays, one upper-right and one lower-right.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0006"
     type: "figure-matrix"
@@ -374,7 +374,7 @@ questions:
         correct: true
       - text: "Square with all three diagonal rays"
         rationale: |
-          This uses union instead of overlap. All the rays occur in the inputs. Check that the completed output kept only the common ray.
+          This keeps all rays instead of only shared rays. All the rays occur in the inputs. Check that the completed output kept only the common ray.
       - text: "Square with only the upper-right ray"
         rationale: |
           This chooses a ray present in only the first input. It is prominent there. Compare both inputs for a shared direction.
@@ -407,15 +407,15 @@ questions:
         correct: true
       - text: "Pentagon with dot at top-right"
         rationale: |
-          This copies the first row's final location. That location is part of the example. Reflect the bottom row's own dot.
+          This copies the first row's final location. That location is part of the example. Switch the bottom row's own dot from right to left.
       - text: "Pentagon with dot at bottom-right"
         rationale: |
-          This keeps the starting location. A regular outline may look similar after reflection. Track the marked dot.
+          This keeps the starting location. The outline stays the same while the dot switches sides. Track the marked dot.
       - text: "Square with dot at bottom-left"
         rationale: |
-          This gets the dot but copies the first row's outline. Both rows use the same reflection. Preserve the bottom row's pentagon.
+          This gets the dot but copies the first row's outline. Both rows switch the dot between left and right. Preserve the bottom row's pentagon.
     explanation: |
-      Across the first row, the marked shape is reflected left to right: top-left dot becomes top-right. Apply that same reflection to the bottom-left shape's bottom-right dot. Its new dot is bottom-left, and its pentagon outline is kept.
+      Across the first row, the dot switches from left to right and stays at the top. Apply the same left-right switch to the bottom row. The bottom-right dot moves to bottom-left. Keep the pentagon outline.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0011"
     type: "figure-matrix"
