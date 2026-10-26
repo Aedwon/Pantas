@@ -128,3 +128,318 @@ questions:
   explanation: 'Section 11 protects court and quasi-judicial access and adequate legal assistance from denial by reason of poverty.
 
     '
+- id: q-philippine-constitution-bill-of-rights-0018
+  type: single_choice
+  difficulty: easy
+  stem: |
+    What does just compensation mean when private property is taken for public use?
+  choices:
+  - text: A payment based only on what the government has left in its budget
+    rationale: |
+      The government's remaining budget does not set the full and fair value of the property.
+  - text: The full and fair value of the property taken
+    correct: true
+  - text: A reward for the owner's support of the public project
+    rationale: |
+      Payment is required for the taking. It is not a reward for supporting the project.
+  - text: A promise that the owner may use the finished public project
+    rationale: |
+      Access to the project does not replace payment for the property taken.
+  explanation: |
+    Just compensation means the full and fair value of the property taken.
+    The benefit of a public project does not remove the duty to pay.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0019
+  type: single_choice
+  difficulty: easy
+  stem: |
+    When an accused person is released on bail with sufficient sureties, what do the sureties guarantee?
+  choices:
+  - text: That the accused will be found innocent
+    rationale: |
+      Bail does not decide guilt. Sureties do not guarantee the result of the case.
+  - text: That the accused will admit the charge
+    rationale: |
+      Bail secures appearance. It does not require an admission of guilt.
+  - text: That the case will end without a trial
+    rationale: |
+      Release on bail does not end the case or remove the need for further proceedings.
+  - text: That the accused will appear as required
+    correct: true
+  explanation: |
+    Sureties guarantee the accused person's appearance as required.
+    Bail allows release from custody. It does not decide the case.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0020
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A law permits an eligible accused person to leave custody on a lawful undertaking instead of a bail bond. What is this form of release called?
+  choices:
+  - text: Release on recognizance
+    correct: true
+  - text: Acquittal
+    rationale: |
+      Acquittal is a finding that the accused is not guilty. The undertaking only allows release from custody.
+  - text: Waiver of custodial rights
+    rationale: |
+      A waiver gives up a right during investigation. It is not a form of release on an undertaking.
+  - text: Just compensation
+    rationale: |
+      Just compensation is payment for private property taken for public use. It does not describe release from custody.
+  explanation: |
+    This is release on recognizance. It uses a lawful undertaking instead
+    of a bail bond and must be allowed by law. It does not decide guilt.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0021
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A government board outside the court system hears evidence and decides disputes. It refuses to hear an applicant solely because the applicant is poor. Which statement correctly applies the constitutional protection on access?
+  choices:
+  - text: The protection applies only if the board is renamed a court.
+    rationale: |
+      The protection includes quasi-judicial bodies. The board's dispute-deciding role matters, not a change in its name.
+  - text: The protection applies only after the applicant wins the dispute.
+    rationale: |
+      Access to a hearing cannot depend on first winning a dispute that has not been heard.
+  - text: The protection covers access to this quasi-judicial body despite poverty.
+    correct: true
+  - text: The protection concerns legal help only, so the board may deny the hearing.
+    rationale: |
+      The Constitution protects access to quasi-judicial bodies as well as adequate legal assistance.
+  explanation: |
+    A government body that hears facts and decides disputes outside the
+    courts is quasi-judicial. Poverty cannot be the reason to deny access.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0022
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A poor litigant is allowed to file a case but is denied needed legal assistance solely because she cannot pay. An official says accepting her case satisfies all the protections on access and legal help. What is wrong with that claim?
+  choices:
+  - text: Accepting a case automatically guarantees a favorable judgment.
+    rationale: |
+      Access allows a case to be heard. It does not guarantee that the litigant will win.
+  - text: Access to court and adequate legal assistance are separate protections.
+    correct: true
+  - text: The Constitution protects legal assistance only during custodial investigation.
+    rationale: |
+      The court-access provision also protects adequate legal assistance against denial because of poverty.
+  - text: A litigant must be denied filing before a denial of legal assistance can matter.
+    rationale: |
+      Legal help may be wrongly denied even when the person is allowed to file a case.
+  explanation: |
+    Permission to file does not settle whether needed legal help was given.
+    Poverty cannot be the reason to deny adequate legal assistance.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0023
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Investigators question a suspected offender in a room and prevent him from leaving. They say custodial safeguards do not apply because they have not formally called him arrested. Which fact most directly shows that the safeguards apply?
+  choices:
+  - text: The investigators have not yet announced a formal arrest.
+    rationale: |
+      The absence of a formal arrest label does not remove safeguards when the suspect's freedom is significantly restricted.
+  - text: The suspect has not yet signed a statement.
+    rationale: |
+      The safeguards apply during custodial questioning. They do not begin only after a statement is signed.
+  - text: The suspect has not yet been convicted.
+    rationale: |
+      Lack of a conviction does not by itself make every conversation a custodial investigation.
+  - text: The suspect's freedom is significantly restricted while he is questioned about an offense.
+    correct: true
+  explanation: |
+    Custodial investigation includes questioning a suspect whose freedom
+    is significantly restricted. A formal arrest label is not required.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0024
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A lawyer advising a suspect can give proper legal help but follows investigators' instructions instead of protecting the suspect's interests. Which requirement is most directly lacking?
+  choices:
+  - text: Independence of counsel
+    correct: true
+  - text: A written waiver by the investigators
+    rationale: |
+      Investigators do not waive the suspect's rights. Their written approval would not make the lawyer independent.
+  - text: Proof that the suspect can pay the lawyer
+    rationale: |
+      Ability to pay is not required for the right to counsel. A lawyer must be provided if the suspect cannot afford one.
+  - text: A finding of guilt before legal advice is given
+    rationale: |
+      The right to counsel applies during custodial investigation. It does not wait for a finding of guilt.
+  explanation: |
+    Counsel must be competent and independent. A lawyer must protect the
+    suspect's interests and be free from the investigators' control.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0025
+  type: single_choice
+  difficulty: medium
+  stem: |
+    During custodial investigation, a suspect orally agrees to give up his rights while his lawyer is present. Nothing is put in writing. Which conclusion follows from the constitutional waiver requirements?
+  choices:
+  - text: The waiver is sufficient because counsel heard the agreement.
+    rationale: |
+      Counsel's presence meets only one requirement. The waiver must also be in writing.
+  - text: The waiver is sufficient if an investigator remembers the suspect's words.
+    rationale: |
+      An investigator's memory does not replace the required written waiver.
+  - text: The waiver fails because it must also be in writing.
+    correct: true
+  - text: The waiver fails because counsel must be absent when rights are waived.
+    rationale: |
+      Counsel must be present. The lawyer's presence is required, not forbidden.
+  explanation: |
+    A waiver must be in writing and made in counsel's presence.
+    An oral agreement fails the writing requirement even if a lawyer is there.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0026
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Officers keep a suspect in a secret detention place and cut off all communication. They argue that the arrangement is allowed because no physical force has been used. Which response follows the custodial safeguards?
+  choices:
+  - text: The arrangement is allowed if questioning has not produced a confession.
+    rationale: |
+      The ban on secret detention does not depend on whether officers obtain a confession.
+  - text: Secret detention and detention that cuts off communication are prohibited.
+    correct: true
+  - text: Only physical violence is prohibited during detention.
+    rationale: |
+      The safeguards also prohibit threats and certain forms of detention, including secret and incommunicado detention.
+  - text: The arrangement becomes lawful if officers promise to reveal the location later.
+    rationale: |
+      A promise of later disclosure does not remove the prohibition on keeping a person in a secret detention place.
+  explanation: |
+    The ban covers secret detention and detention that cuts off communication.
+    Physical violence is not required for these forms of detention to be prohibited.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0027
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A business argues that a later public-welfare law is automatically unconstitutional because compliance affects an existing service contract. Which is the most accurate response based on the protection of contracts?
+  choices:
+  - text: Any effect on an existing contract makes a later law unconstitutional.
+    rationale: |
+      Contract rights remain subject to valid public-welfare regulation. An effect on a contract alone does not decide validity.
+  - text: Calling a law a public-welfare measure permits it to erase any contract duty.
+    rationale: |
+      A public-welfare label does not remove constitutional limits on weakening valid contract duties.
+  - text: Contract protection applies only to agreements signed after a law is passed.
+    rationale: |
+      The issue here is a later law affecting duties already accepted in a valid contract.
+  - text: The law's effect and its valid public-welfare basis must be examined.
+    correct: true
+  explanation: |
+    A law affecting a contract is not automatically invalid.
+    Its effect on the agreed duties and its public-welfare basis must be checked.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0028
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A property owner argues that every government rule affecting private property requires just compensation, even without a taking for public use. Which statement best identifies the error?
+  choices:
+  - text: The compensation rule concerns a taking for public use, not every rule affecting property.
+    correct: true
+  - text: Just compensation is required only when the public project makes a profit.
+    rationale: |
+      The rule is based on a taking for public use. It does not depend on profit from the project.
+  - text: Property loses constitutional protection once the government regulates it.
+    rationale: |
+      Regulation does not erase property protections. The error is treating every regulation as a compensable taking.
+  - text: A public purpose allows the government to take property without paying.
+    rationale: |
+      Public use does not excuse payment when private property is taken.
+  explanation: |
+    The rule requires just compensation for private property taken for public use.
+    A rule affecting property does not by itself establish such a taking.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0029
+  type: single_choice
+  difficulty: hard
+  stem: |
+    Through threats during custodial investigation, officers make a suspect admit a fact that helps prove the charge. The statement does not admit guilt. May it be used against the suspect merely because it is an admission instead of a confession?
+  choices:
+  - text: Yes, because only a full confession can be excluded.
+    rationale: |
+      The exclusion covers both confessions and admissions obtained in violation of the protected rights.
+  - text: Yes, because admitting a fact automatically waives the right against self-incrimination.
+    rationale: |
+      A statement forced through threats is not made valid by calling it a waiver.
+  - text: No, the exclusion also covers admissions obtained through the prohibited threats.
+    correct: true
+  - text: No, because every admission is excluded even when all rights are respected.
+    rationale: |
+      The rule here excludes admissions obtained through violations. It does not exclude every admission.
+  explanation: |
+    A confession admits guilt. An admission may acknowledge only a helpful fact.
+    Neither may be used against the person when obtained through prohibited threats.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0030
+  type: single_choice
+  difficulty: hard
+  stem: |
+    An investigator says a suspect cannot invoke protection against compelled self-incrimination unless the demanded testimony would admit the entire offense. Which response correctly states the protection?
+  choices:
+  - text: It applies only after the person has been convicted.
+    rationale: |
+      The protection is not limited to testimony given after conviction.
+  - text: It also protects against being forced to give testimony that could help prove one's own guilt.
+    correct: true
+  - text: It prevents investigators from asking any question, even if answering is voluntary.
+    rationale: |
+      This protection concerns compelled self-incrimination. It is not a ban on every question.
+  - text: It protects only testimony that could prove another person's guilt.
+    rationale: |
+      Self-incrimination concerns testimony that could help prove the speaker's own guilt.
+  explanation: |
+    Forced testimony need not admit the whole offense to help prove guilt.
+    The protection covers being compelled to give testimony against oneself.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0031
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Before conviction, an accused faces an offense punishable by reclusion perpetua. The evidence of guilt is not strong. An official argues that the named penalty alone removes the constitutional right to bail. Which conclusion is supported?
+  choices:
+  - text: The official is correct because the penalty alone satisfies the exception.
+    rationale: |
+      The exception requires strong evidence of guilt as well as the stated penalty.
+  - text: The accused must first confess before the right to bail can apply.
+    rationale: |
+      A confession is not a condition for the constitutional right to bail.
+  - text: Release on bail would establish that the accused is innocent.
+    rationale: |
+      Bail concerns release and required appearance. It does not decide innocence or guilt.
+  - text: The stated exception is not met because strong evidence of guilt is absent.
+    correct: true
+  explanation: |
+    Both conditions must be present for the stated exception to apply.
+    The penalty alone is not enough. Bail does not decide the accused person's guilt.
+  approved: false
+- id: q-philippine-constitution-bill-of-rights-0032
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The privilege of the writ of habeas corpus is suspended. An accused who otherwise has a right to bail is told that the suspension permits officials to deny bail or require excessive bail. Which statement correctly applies the Constitution?
+  choices:
+  - text: Suspension does not impair the right to bail, and excessive bail remains prohibited.
+    correct: true
+  - text: Suspension automatically removes the right to bail for every detained person.
+    rationale: |
+      The Constitution expressly preserves the right to bail even during suspension of the privilege.
+  - text: The right to bail remains, but suspension permits excessive bail.
+    rationale: |
+      The ban on excessive bail still applies. Suspension does not create an exception to that ban.
+  - text: The right to bail depends entirely on whether the accused agrees to answer investigators' questions.
+    rationale: |
+      Agreeing to custodial questioning is not a condition for keeping the constitutional right to bail.
+  explanation: |
+    Suspension of the privilege does not impair the right to bail.
+    Excessive bail is still forbidden. The suspension alone supports neither action.
+  approved: false
