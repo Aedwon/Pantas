@@ -323,3 +323,199 @@ questions:
   explanation: 'The practice must be authorized by the Constitution or law. It must also not conflict or tend to conflict with official functions. Both conditions are needed.
 
     '
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
+  type: single_choice
+  difficulty: easy
+  stem: |
+    An employee asks a company licensed by the employee's agency to pay for a
+    personal vacation. The company refuses, and the employee receives nothing.
+    Which statement correctly applies the gift rule?
+  choices:
+  - text: The rule applies only if the company pays for the vacation.
+    rationale: |
+      The rule covers asking for a benefit as well as accepting one. Payment
+      is not needed for the request to be prohibited.
+  - text: The request itself is prohibited even though the company refuses.
+    correct: true
+  - text: The request is allowed if the vacation would occur during approved leave.
+    rationale: |
+      Approved leave does not allow an employee to seek a personal benefit
+      from a company licensed by the employee's agency.
+  - text: The request is allowed because a vacation is a service instead of cash.
+    rationale: |
+      The ban covers valuable benefits, not just cash. Payment for a personal
+      vacation is a valuable benefit.
+  explanation: |
+    Solicitation means asking for a benefit. The employee asked a licensed
+    company for a personal benefit. The company's refusal does not make that
+    request proper.
+  approved: false
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A foreign government offers a public employee a fellowship grant for
+    research. Which statement correctly identifies the relevant exception
+    under Section 7?
+  choices:
+  - text: The grant qualifies only if it can be treated as a nominal courtesy souvenir.
+    rationale: |
+      A fellowship grant is listed separately from courtesy souvenirs. The
+      nominal-value condition for souvenirs does not define this exception.
+  - text: The grant is excluded because only medical treatment is listed.
+    rationale: |
+      Medical treatment is one listed benefit. Scholarships and fellowship
+      grants from foreign governments are also listed.
+  - text: The grant is a listed foreign-government benefit separate from courtesy souvenirs.
+    correct: true
+  - text: The grant is excluded because a fellowship must come from a private organization.
+    rationale: |
+      The stated exception expressly includes fellowship grants from foreign
+      governments. It does not require a private donor.
+  explanation: |
+    A fellowship supports study, training, or research. Foreign-government
+    fellowship grants are listed separately. They do not have to be treated
+    as nominal courtesy souvenirs.
+  approved: false
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023
+  type: single_choice
+  difficulty: medium
+  stem: |
+    At a family celebration, an employee receives a gift from the mother of
+    the employee's son-in-law. No money, financial benefit, or official favor
+    is expected. How should the relationship be treated under the Code?
+  choices:
+  - text: The donor is a balae, a relationship expressly included among relatives.
+    correct: true
+  - text: The donor is excluded because only blood relatives can give family-celebration gifts.
+    rationale: |
+      The Code does not limit relatives to blood relationships. It expressly
+      includes balae, which covers the stated relationship.
+  - text: The donor is an inso because both families are connected by marriage.
+    rationale: |
+      Inso means the wife of an elder brother or male cousin. The parent of
+      a son-in-law is a balae.
+  - text: The donor qualifies only if the employee treats the donor as an unmarried minor child.
+    rationale: |
+      The Code defines family and relatives separately. The donor is a
+      named relative and does not need to meet the definition of a child.
+  explanation: |
+    The parent of a son-in-law or daughter-in-law is a balae. The Code
+    expressly includes this relative. The family celebration and lack of
+    expected financial benefit meet the stated gift conditions.
+  approved: false
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A government placement officer's assigned duties require referring
+    qualified job seekers to employers. The officer makes such a referral to
+    a private firm with a pending transaction before the office. Which fact
+    supports the referral exception in the implementing rules?
+  choices:
+  - text: The firm has not yet received a decision on its pending transaction.
+    rationale: |
+      A pending transaction is part of the general restriction. The lack of
+      a final decision does not create an exception.
+  - text: The job seeker is qualified, which by itself removes the restriction.
+    rationale: |
+      Qualifications alone do not remove the recommendation ban. The
+      referral's connection to assigned public duties supports the exception.
+  - text: The officer sends the referral from a personal email account.
+    rationale: |
+      The account used does not determine whether a recommendation is
+      allowed. The rule examines the office dealings and any valid exception.
+  - text: The referral is required by the officer's assigned public duties.
+    correct: true
+  explanation: |
+    The implementing rules allow referrals required by assigned public
+    duties. This referral meets that condition. A pending transaction alone
+    does not defeat this exception.
+  approved: false
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A person offers an agency a nominal donation. The donor has no regular
+    or pending transaction with the agency but expects to submit an
+    application to it soon. No money or financial benefit is expected from
+    the donation. Does this meet the nominal-donation exception for persons?
+  choices:
+  - text: Yes, because only transactions already pending must be checked.
+    rationale: |
+      This exception also checks regular and expected transactions. An
+      application the donor expects to submit cannot be ignored.
+  - text: No, because the donor has an expected transaction with the agency.
+    correct: true
+  - text: Yes, because nominal value removes every condition about agency transactions.
+    rationale: |
+      Nominal value is not enough. The donor must also have no regular,
+      pending, or expected transaction with the agency.
+  - text: No, because every nominal donation from a person is prohibited.
+    rationale: |
+      The rules list an exception for nominal donations from persons. This
+      donation fails a specific condition, not a total ban on such donations.
+  explanation: |
+    This exception requires no regular, pending, or expected agency
+    transaction. The planned application is an expected transaction.
+    Small value and lack of expected financial benefit do not remove that condition.
+  approved: false
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A foreign public agency donates equipment directly to a Philippine
+    government agency for its public work. The equipment is accepted as a
+    government-to-government donation. Which conclusion follows from this
+    exception?
+  choices:
+  - text: The receiving officer may keep the equipment as a personal courtesy gift.
+    rationale: |
+      The donation is to the agency. Accepting it for the government does
+      not make it the receiving officer's personal property.
+  - text: The equipment must have nominal value because every foreign-government benefit has that limit.
+    rationale: |
+      The nominal-value condition belongs to the personal courtesy-souvenir
+      exception. It is not a condition stated for government-to-government donations.
+  - text: The donation fits the listed exception for transfers between government entities.
+    correct: true
+  - text: The donation must qualify as a nominal donation from a private person.
+    rationale: |
+      The donor is a government entity, not a private person. The rules
+      list government-to-government donations separately.
+  explanation: |
+    The donation passes from one government entity to another. That is a
+    listed exception. The equipment belongs to the receiving agency, not
+    to the officer who accepts it.
+  approved: false
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A private organization with a pending agency license application offers
+    supplies for families displaced by a fire. The agency reviews and accepts
+    the donation for humanitarian and altruistic purposes. All supplies go
+    to the displaced families. No officer receives a personal benefit, and
+    the donor seeks no special treatment. Which analysis correctly applies
+    the organization-donation exception?
+  choices:
+  - text: The donation can meet this exception because its purpose and acceptance satisfy its own conditions.
+    correct: true
+  - text: The pending application automatically defeats this exception under the rule for nominal donations from persons.
+    rationale: |
+      This imports a condition from a different exception. The organization
+      exception requires its stated helping purpose and acceptance for that mission.
+  - text: The donation can meet this exception only if each supply item is a nominal courtesy souvenir.
+    rationale: |
+      Courtesy souvenirs from foreign governments have a separate test.
+      Relief supplies from a private organization do not need that label.
+  - text: Acceptance of the donation permits the agency to favor the donor's license application.
+    rationale: |
+      A relief donation does not buy favorable official action. The agency
+      must still decide the license application fairly.
+  explanation: |
+    The supplies help people in need. They are reviewed and accepted for
+    that purpose without a sought private gain. The organization-donation
+    exception does not state the no-transaction condition used for nominal
+    donations from persons. The pending application alone does not defeat it.
+  approved: false
