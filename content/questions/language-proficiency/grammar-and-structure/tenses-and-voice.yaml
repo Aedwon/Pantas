@@ -331,3 +331,84 @@ questions:
     explanation: |
       Present progressive can describe a project in progress around the present. "This month" sets that wider period, so the writer need not be writing at the exact moment of speaking.
     approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0021"
+    type: "correct-usage"
+    difficulty: "easy"
+    stem: |
+      Which sentence correctly states the assistant's present ability?
+    choices:
+      - text: "The assistant can prepares the minutes without help."
+        rationale: |
+          "Prepares" adds -s after "can." A modal takes the base form, even with a singular subject.
+      - text: "The assistant can prepare the minutes without help."
+        correct: true
+      - text: "The assistant can prepared the minutes without help."
+        rationale: |
+          "Prepared" is not the base form. Use "prepare" after "can" to state present ability.
+      - text: "The assistant can preparing the minutes without help."
+        rationale: |
+          The -ing form cannot directly follow "can." The modal needs the base form "prepare."
+    explanation: |
+      "Can" states present ability and takes the base form "prepare." Do not add -s, -ed, or -ing after this modal.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0022"
+    type: "tense"
+    difficulty: "medium"
+    stem: |
+      An employee is describing her current knowledge, not the process of learning. Which sentence uses the usual verb form for this state?
+    choices:
+      - text: "I am knowing how to use the filing system."
+        rationale: |
+          "Know" describes a state here. Present progressive is not the usual form for this meaning.
+      - text: "I knew how to use the filing system."
+        rationale: |
+          "Knew" places the knowledge in the past. It does not directly state the employee's current knowledge.
+      - text: "I will know how to use the filing system."
+        rationale: |
+          "Will know" places the knowledge in the future. The employee is describing a state that is true now.
+      - text: "I know how to use the filing system."
+        correct: true
+    explanation: |
+      "Know" describes a state, so the simple present is the usual choice. "Am knowing" does not fit this ordinary use.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0023"
+    type: "correct-usage"
+    difficulty: "hard"
+    stem: |
+      A formal notice must say that a change to the access codes is complete and matters now. The writer does not know who made the change. Which sentence uses present perfect passive voice and avoids inventing an agent?
+    choices:
+      - text: "The access codes were changed."
+        rationale: |
+          This is passive, but "were changed" is simple past. The task specifically calls for present perfect.
+      - text: "The administrator has changed the access codes."
+        rationale: |
+          This invents an agent by naming the administrator. It also uses active voice, not the requested passive voice.
+      - text: "The access codes have been changed."
+        correct: true
+      - text: "The access codes have changed the administrator."
+        rationale: |
+          This makes the access codes do the action to the administrator. The intended meaning is that the codes received the change.
+    explanation: |
+      "Have been changed" is present perfect passive. It connects the completed change to now. Passive voice lets the writer leave out the unknown doer.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0024"
+    type: "correct-usage"
+    difficulty: "exam"
+    stem: |
+      Read the exchange: "Could I use the meeting room?" "The reservation sheet is signed and the lights are on, so someone must be using it."
+      What do "could" in the request and "must" in the reply express, respectively?
+    choices:
+      - text: "A polite request for permission; a strong conclusion from evidence"
+        correct: true
+      - text: "General ability in the past; a strong conclusion from evidence"
+        rationale: |
+          "Could" can express past ability, but this speaker is asking permission to use the room. No past ability is being described.
+      - text: "A polite request for permission; an obligation to use the room"
+        rationale: |
+          The reply uses the signed sheet and the lights as evidence. It does not state a rule requiring someone to use the room.
+      - text: "A statement of possibility; advice to use the room"
+        rationale: |
+          The question asks permission rather than stating that an event is possible. In the reply, "must" expresses a conclusion, not advice.
+    explanation: |
+      "Could I" makes the permission request polite. The reply uses evidence to reach a strong conclusion. "Must" does not give an order here.
+    approved: false
