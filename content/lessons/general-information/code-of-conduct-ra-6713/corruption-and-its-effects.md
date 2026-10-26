@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 12
 isActive: true
 ---
-<!-- Audit: RW-118; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: assignment-supplied verification for Constitution Article XI Sections 1, 2, 3, 4, 17; RA 7080 Sections 1(d) and 2; RA 7659 Section 12; RA 11032 Sections 4 and 9; RA 6713 Sections 3(c), 7(c), 7(d); RA 6770 Section 13; BP 881 Section 261(a). RA 3019 Section 3(b), (e), (g), (h), (k) checked at https://lawphil.net/statutes/repacts/ra1960/ra_3019_1960.html on 2026-10-26. Source conflict: RD-121 attributes a private-benefit/public-prejudice purpose condition to Section 3(k), but that condition is in RA 6713 Section 7(c); the accessed RA 3019 text does not state it. The lesson distinguishes the provisions and includes the requested purpose condition under the correct law. RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative possible cause-and-effect explanations, not measured claims. All case facts are hypothetical. -->
+<!-- Audit: RW-120; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Recognize corruption and explain its social, economic, and political effects. No prerequisite teaching is assumed. Source ledger: assignment-supplied verification for Constitution Article XI Sections 1, 2, 3, 4, 17; RA 7080 Sections 1(d) and 2; RA 7659 Section 12; RA 11032 Sections 4 and 9; RA 6713 Sections 3(c), 7(c), 7(d); RA 6770 Section 13; BP 881 Section 261(a). Earlier supplied lesson records RA 3019 Section 3(b), (e), (g), (h), (k) checked at https://lawphil.net/statutes/repacts/ra1960/ra_3019_1960.html on 2026-10-26. Source conflict: RD-121 attributes a private-benefit/public-prejudice purpose condition to Section 3(k), but that condition is in RA 6713 Section 7(c); the recorded RA 3019 text does not state it. The lesson distinguishes the provisions and includes the purpose condition under the correct law. RA 7659's amended fifty-million threshold supersedes RA 7080's original seventy-five-million threshold. No penalty taught. Effects are qualitative possible cause-and-effect explanations, not measured claims. All case facts are hypothetical. RD-123 correction: payment starts the processing clock only when a fee applies; complete fee-free requests also have processing deadlines. -->
 ## Core Concept
 
 ### What corruption is
@@ -41,7 +41,9 @@ A **kickback** is a payment returned to an officer for arranging a deal. Section
 
 **Red tape** means ineffective rules or processes that cause poor service. A **fixer** uses access to government workers to speed transactions for money or another benefit.
 
-Under Section $9$ of RA $9485$, as amended by RA $11032$, processing generally takes at most $3$ working days for simple requests and $7$ for complex ones. Highly technical requests generally have a $20$-working-day limit. Processing starts with complete requirements and payment.
+Under Section $9$ of RA $9485$, as amended by RA $11032$, processing generally takes at most $3$ working days for simple requests and $7$ for complex ones. Highly technical requests generally have a $20$-working-day limit.
+
+Processing starts when the requirements are complete and any applicable fee is paid. If no fee applies, complete requirements start the processing period. A fee-free request still has a deadline.
 
 An extension is allowed once for the same length and must appear in the Citizen's Charter, the office's posted service guide. Before time runs out, written notice must give the reason and final release date. The applicant signs as proof of notice.
 
