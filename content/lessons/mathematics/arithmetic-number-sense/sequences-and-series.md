@@ -35,7 +35,8 @@ Try these checks:
 
 - Subtract neighboring terms. A constant difference means the pattern is arithmetic.
 - Divide neighboring nonzero terms. A constant ratio means the pattern is geometric.
-- If neither works, check whether operations alternate, such as adding and then multiplying.
+- Check whether each term is the sum of the two before it.
+- If these checks do not work, see whether operations alternate, such as adding and then multiplying.
 - Check whether the differences form their own simple pattern.
 - Check separate patterns in the odd and even positions, or in repeating groups.
 
@@ -309,7 +310,7 @@ For $5,10,15,20,25$, the middle term is $15$ and there are $5$ terms, so the sum
 
 ### Pattern Check
 
-If a sequence is not arithmetic or geometric, write the differences between terms first. If those do not help, check alternating operations and separate odd-position and even-position terms.
+If a sequence is not arithmetic or geometric, write the differences between terms first. If those do not help, check the sum of the two terms before each term. Then check alternating operations and separate odd-position and even-position terms.
 
 ## Traps to Watch For
 
