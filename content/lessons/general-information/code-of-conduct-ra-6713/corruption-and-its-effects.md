@@ -18,7 +18,7 @@ Public interest means putting people's needs before personal gain. Simple living
 
 ### Forms
 
-**Direct bribery** involves a benefit offered or accepted to influence official action. Paying an officer to skip a required check is an example.
+**Direct bribery**, under the Revised Penal Code, Article $210$, involves a benefit offered or accepted to influence official action. Paying an officer to skip a required check is an example.
 
 **Graft and corrupt practices** include acts under RA $3019$, Section $3$:
 

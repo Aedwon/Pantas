@@ -211,14 +211,14 @@ A public employee repeatedly delays a duty required by law without a proper reas
 2. It may direct the employee to perform and speed up the required duty.
 3. The complaint falls within the kinds of matters the office may address.
 
-### #14: A Cabinet Secretary
+### #14: The One-Year Bar
 
-Is a Cabinet Secretary subject to removal by impeachment under Article XI, Section $2$?
+Impeachment proceedings have already been initiated against an official. May a second impeachment proceeding be initiated against the same official within the same one-year period?
 
 **Solution:**
 
-1. A Cabinet Secretary is not among the officers listed in Section $2$.
-2. The Secretary may face other lawful removal processes, but not impeachment.
+1. Article XI, Section $3(5)$ bars initiating impeachment proceedings against the same official more than once within one year.
+2. No. The second proceeding would break this one-year rule.
 
 ## Traps to Watch For
 

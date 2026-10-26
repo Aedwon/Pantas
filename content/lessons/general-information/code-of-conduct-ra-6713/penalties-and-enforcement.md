@@ -130,13 +130,13 @@ An officer and a consultant agree to sell confidential agency records for privat
 
 ### #5: Helpful but Nonessential Aid
 
-A businessperson knows an officer's unlawful purpose and supplies useful records before the offense. The records are not essential. The person neither directly performs nor causes the offense. Which role fits?
+A businessperson knows of an officer's plan to violate the Code. The person agrees with the officer to carry it out, then supplies useful records before the offense. The records are not essential. The person neither directly performs nor causes the offense. Which role fits?
 
 **Solution:**
 
-1. The person knowingly helps before the offense.
+1. The person and officer agreed to carry out the unlawful plan. This meets the agreement required for conspiracy.
 2. The help is nonessential, and no basis for principal responsibility is shown. The role is accomplice.
-3. Section $11(c)$ includes private accomplices among those subject to the same penal liabilities and joint trial with public workers.
+3. The person took part in the conspiracy by knowingly helping before the offense. Section $11(c)$ applies, with the same penal liabilities and joint trial with the officer.
 
 ### #6: Destroying a Tool Afterward
 
