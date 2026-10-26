@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-environment-management-species-resources-and-environmental-decisions"
+ ],
+ "topic": "general-information/environment-management",
+ "rewrites": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "b14f525ba79dafa06904b71c08d8724f574a7423"
+ },
+ "sha256": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "27c0d6145a9a45e02e30f3f1ca9838a09a75f0ccff846de01e648513c703ae2e"
+ },
+ "paths": {
+  "lesson-environment-management-species-resources-and-environmental-decisions": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md"
+ },
+ "id": "RD-091",
+ "type": "read",
+ "created": "2026-10-26T04:24:46+00:00"
+}
