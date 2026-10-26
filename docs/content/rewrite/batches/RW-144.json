@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-clerical-ability-numeric-and-chronological-filing"
+ ],
+ "topic": "reasoning/clerical-ability",
+ "round": 5,
+ "paths": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "content/lessons/reasoning/clerical-ability/numeric-and-chronological-filing.md"
+ },
+ "extra_brief": {
+  "lesson-clerical-ability-numeric-and-chronological-filing": "## Left open by the earlier read (RD-159)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Brief items not fixed\n\n1. Item `lesson-clerical-ability-numeric-and-chronological-filing|L03|0`: The exam verb \"Arrange\" is used as an instruction before the lesson gives the required one-line explanation of what that verb asks the student to do. Reason: \"Arrange\" is a common word and needs no gloss.\n   Reader's note: Arrange remains unglossed. The brief explicitly rules that this everyday instruction needs no definition."
+ },
+ "id": "RW-144",
+ "type": "rewrite",
+ "created": "2026-10-26T19:09:52+00:00"
+}

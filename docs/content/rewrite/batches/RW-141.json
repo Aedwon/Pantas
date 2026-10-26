@@ -1,0 +1,16 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 8,
+ "paths": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "extra_brief": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "## Left open by the earlier read (RD-166)\n\nAn independent reader judged the previous rewrite of this lesson. Fix everything below as well. Each item is as serious as an item under \"Fix these\".\n\n### Findings\n\n1. Rule L22a (Minor). Problem: This paragraph exceeds the limit of three short sentences. Separate the term rule, constitutional quotation and explanation into shorter paragraphs.\n   > Representatives serve $3$ years, with at most $3$ consecutive terms (Section $7$). Consecutive means in a row, not a lifetime total. For both Houses, Article VI, Sections $4$ and $7$ state: \"Voluntary renunciation of the office for any length of time shall not be considered as an interruption in the continuity of his service for the full term for which he was elected.\" This means choosing to give up the office does not break the term count."
+ },
+ "id": "RW-141",
+ "type": "rewrite",
+ "created": "2026-10-26T19:09:52+00:00"
+}
