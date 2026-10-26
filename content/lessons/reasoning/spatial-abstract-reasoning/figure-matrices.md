@@ -45,7 +45,9 @@ A plain square looks unchanged after this turn. The thick side and the dot make 
 
 ### #2: Increasing Dot Counts
 
-A $3 \times 3$ matrix shows circles with dot counts. Row $1$ has $1$, $2$, and $3$ dots. Row $2$ has $2$, $3$, and $4$ dots. Row $3$ has $3$, $4$, and a blank. How many dots should the blank cell have?
+A $3 \times 3$ matrix shows circles with dot counts. Row $1$ has $1$, $2$, and $3$ dots. Row $2$ has $2$, $3$, and $4$ dots.
+
+Row $3$ has $3$, $4$, and a blank. How many dots should the blank cell have?
 
 <!-- ILLUSTRATION: a 3 by 3 grid of equal circles, row 1 containing 1, 2, and 3 dots, row 2 containing 2, 3, and 4 dots, row 3 containing 3 dots, 4 dots, and a blank bottom-right cell -->
 
@@ -69,7 +71,9 @@ $$3 \to 4 \to 5$$
 
 ### #3: Different Rules in Rows and Columns
 
-A $3 \times 3$ matrix uses squares. The top row shows small black, white, and black squares. The middle row shows medium black, white, and black squares. The bottom row shows a large black square, a large white square, and a blank. What should the blank show?
+A $3 \times 3$ matrix uses squares. The top row shows small black, white, and black squares. The middle row shows medium black, white, and black squares.
+
+The bottom row shows a large black square, a large white square, and a blank. What should the blank show?
 
 <!-- ILLUSTRATION: a 3 by 3 grid, top row small black square, small white square, small black square; middle row medium black square, medium white square, medium black square; bottom row large black square, large white square, blank; white squares have visible black outlines -->
 
@@ -95,11 +99,15 @@ The bottom row shows a square with a diagonal from top-left to bottom-right, a s
 
 ### #5: Keeping Only Shared Features
 
-A $3 \times 3$ matrix uses squares with lines inside. In row $1$, the first square has a horizontal and a vertical line. The second has the same horizontal line and a diagonal from top-left to bottom-right. The third has only the horizontal line.
+A $3 \times 3$ matrix uses squares with lines inside. In row $1$, the first square has a horizontal and a vertical line.
+
+The second has the same horizontal line and a diagonal from top-left to bottom-right. The third has only the horizontal line.
 
 In row $2$, the first square has a vertical line and a diagonal from bottom-left to top-right. The second has the same vertical line and a horizontal line. The third has only the vertical line.
 
-In row $3$, the first square has both diagonals. The second has a horizontal line and the diagonal from top-left to bottom-right. The third cell is blank. What should it show?
+In row $3$, the first square has both diagonals. The second has a horizontal line and the diagonal from top-left to bottom-right.
+
+The third cell is blank. What should it show?
 
 <!-- ILLUSTRATION: a 3 by 3 grid of equal squares with all internal lines crossing the center; row 1 horizontal plus vertical, horizontal plus top-left to bottom-right diagonal, horizontal only; row 2 vertical plus bottom-left to top-right diagonal, vertical plus horizontal, vertical only; row 3 both diagonals, horizontal plus top-left to bottom-right diagonal, blank -->
 

@@ -83,7 +83,9 @@ The exact line arrangement gives the fourth circle $3$ regions. Missing the cent
 
 ### #5: Grouping by an Inside Detail
 
-Five figures have different outlines: a square, a triangle, a circle, a pentagon, and a hexagon. Each of the first four contains one shaded dot. The hexagon contains two shaded dots. Which figure does not belong?
+Five figures have different outlines: a square, a triangle, a circle, a pentagon, and a hexagon. Each of the first four contains one shaded dot. The hexagon contains two shaded dots.
+
+Which figure does not belong?
 
 <!-- ILLUSTRATION: five figures in one row, a square with 1 shaded dot, a triangle with 1 shaded dot, a circle with 1 shaded dot, a pentagon with 1 shaded dot, and a hexagon with 2 shaded dots -->
 
@@ -95,7 +97,11 @@ Five figures have different outlines: a square, a triangle, a circle, a pentagon
 
 ### #6: Testing a First Guess
 
-Five figures are labeled A to E. A is a small square with one dot. B is a large circle with one dot. C is a small triangle with one dot. D is a large pentagon with one dot. E is a small hexagon with two dots. Which figure does not belong?
+Five figures are labeled A to E. A is a small square with one dot. B is a large circle with one dot.
+
+C is a small triangle with one dot. D is a large pentagon with one dot. E is a small hexagon with two dots.
+
+Which figure does not belong?
 
 <!-- ILLUSTRATION: five labeled figures in one row, A small square with 1 dot, B circle twice A's height with 1 dot, C small triangle with 1 dot, D pentagon twice A's height with 1 dot, E small hexagon with 2 dots; A C and E have equal heights, B and D have equal heights -->
 
