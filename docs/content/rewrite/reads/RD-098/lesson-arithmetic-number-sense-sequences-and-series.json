@@ -1,0 +1,257 @@
+{
+ "batch": "RD-098",
+ "lesson_id": "lesson-arithmetic-number-sense-sequences-and-series",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md",
+ "lesson_sha256": "a06f8d35aeab79ba10c171174e8f184658d22dee2bb436440f4c3c0e5b588cb8",
+ "rewrite_commit": "6e8faac1bc9c821502e25170d74f4ebab0b6f36a",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-sequences-and-series",
+  "role": "A",
+  "lesson_sha256": "a06f8d35aeab79ba10c171174e8f184658d22dee2bb436440f4c3c0e5b588cb8",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked constant-difference and constant-ratio definitions, Fibonacci addition and both starting conventions, reciprocal/harmonic definitions, and the requirement of nonzero harmonic terms.",
+     "Verified arithmetic term/sum/count formulas and geometric term/finite/infinite formulas algebraically. Checked r=1, nonzero first-term convergence condition |r|<1, the all-zero exception, and odd-length arithmetic middle-term averaging. No external exam-content claims are made."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "#1: differences 3,5,7,9 imply 37. #2: alternating +3 and ×2 implies 37. #3: odd terms 2,5,8 imply 11. These are reasonable simple completions, as requested, rather than uniquely forced rules.",
+     "#4: 4+24×3=76. #5: last row 76, so 15×(20+76)/2=720. #6: 3×(-2)^7=-384. #7: 3+6+12+24+48+96=189.",
+     "#8: 18/(1-1/3)=27. #9: reciprocal terms 2,5,8,11,14,17 give 1/17. #10: (2a+1)+(3a-2)=5a-1. #11: 8×5=40. #12: no finite sum, since positive partial sums grow without bound."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All questions are numerical or verbal and need no figure; no additional outline was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Pattern checks, recurrence, reciprocals, and convergence are explained in short plain sentences. The running-total example makes the advanced word converges accessible; the coefficient vocabulary gap is recorded under L25."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is defined in Core Concept before Example 8. Find is an everyday instruction and requires no gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no tutor analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each named-sequence stem supplies initial terms and the requested position or sum length. The theater problem gives the row increment and count. Pattern-discovery stems ask for the most reasonable completion, consistent with the warning that short lists admit more than one rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam-motivation openers or unsupported claims about a named exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. Sentence openings vary and none of the listed stock phrases occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "#1-3 apply the difference, alternating-operation, and odd/even-position methods introduced under Finding a Number Pattern. #4 uses a_n=a_1+(n-1)d and #5 uses S_n=n[2a_1+(n-1)d]/2, both in The Formulas You Need.",
+     "#6 uses a_n=a_1r^(n-1); #7 the finite geometric sum; #8 S_infinity=a_1/(1-r); #9 the reciprocal definition plus arithmetic-term formula; #10 z=x+y; #11 S_n=na_1; #12 the |r| criterion. Each is introduced in Core Concept before use; #10 then performs ordinary algebraic addition rather than introducing a new sequence formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Subtract the first term from the last term. Divide by the nonzero common difference, then add $1$ to count the first term.",
+      "problem": "The lesson explicitly teaches finding the number of arithmetic terms from endpoints and a difference, including a separate formula and shortcut. None of the twelve worked examples solves for that count. This is a distinct application, not another set of numbers for finding a term or sum."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All twelve worked solutions use numbered steps. The term formulas, sums, differences, reciprocals, and substitutions have display equations. Example 12 needs no computation beyond reading the ratio and applying the condition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each displayed equation for width; computations are split into short lines without wide derivations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences. Bullets serve choices or a short checklist rather than replacing the prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Add the coefficients of $a$ and add the plain numbers.",
+      "problem": "Coefficient is needed to follow Example 10 but is never defined in this lesson. No prerequisite lesson is supplied or identified for this term. Explain that it is the number multiplying a variable before asking students to add coefficients."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Sequence/series distinctions and all four sequence types receive operational explanations. General patterns get explicit checks and three examples. Arithmetic formulas are explained by steps or averaging; geometric sums by cancellation; convergence by running totals; harmonic terms by taking reciprocals twice."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked nonzero divisors in ratio/reciprocal work, nonzero harmonic terms, positive whole-number endpoint counts, r≠1 versus r=1 finite sums, |r|<1 for nonzero infinite series, the all-zero exception, and odd-length restriction for middle-term averaging. The text also warns that multiple rules may fit a short list."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|0": {
+    "status": "fixed",
+    "quote": "Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\\dots$.",
+    "note": "Example 7 now works a finite geometric sum to 189."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L03|1": {
+    "status": "fixed",
+    "quote": "In exam questions, **evaluate** means find the final number answer.",
+    "note": "The instruction is explained before the infinite-series question."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L25|0": {
+    "status": "fixed",
+    "quote": "The **reciprocal** of a nonzero number $x$ is $\\dfrac{1}{x}$.",
+    "note": "The reciprocal definition and fraction-swapping method precede harmonic teaching."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L25|1": {
+    "status": "fixed",
+    "quote": "It **converges** if the running total gets closer and closer to one finite number.",
+    "note": "The meaning appears before convergence conditions or examples rely on it."
+   },
+   "mathematics-arithmetic-number-sense#80": {
+    "status": "fixed",
+    "quote": "Check whether the differences form their own simple pattern.",
+    "note": "The lesson teaches and works changing differences, alternating operations, and interleaved odd/even patterns."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L03|0": {
+    "status": "fixed",
+    "quote": "Find the $8^{\\text{th}}$ term of the geometric sequence $3,-6,12,-24,\\dots$.",
+    "note": "Find remains unglossed correctly because it is an everyday verb; there is no remaining rule breach."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L17|0": {
+    "status": "fixed",
+    "quote": "$$z=x+y$$",
+    "note": "Core Concept now writes the Fibonacci-type recurrence explicitly before Example 10."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|1": {
+    "status": "fixed",
+    "quote": "A geometric series has $8$ terms, and every term is $5$. What is the sum?",
+    "note": "Example 11 recognizes ratio 1 and calculates the finite sum."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L18|2": {
+    "status": "fixed",
+    "quote": "Does the infinite geometric series $3+6+12+24+\\dots$ have a finite sum?",
+    "note": "Example 12 applies the divergent case and rejects a finite sum."
+   },
+   "lesson-arithmetic-number-sense-sequences-and-series|L26|0": {
+    "status": "fixed",
+    "quote": "For example, $1+\\dfrac{1}{2}+\\dfrac{1}{4}+\\dots$ has running totals $1,\\dfrac{3}{2},\\dfrac{7}{4},\\dots$, which approach $2$.",
+    "note": "The running totals now explain how infinitely many additions can approach a finite value."
+   }
+  }
+ }
+}

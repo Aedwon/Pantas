@@ -1,0 +1,238 @@
+{
+ "batch": "RD-098",
+ "lesson_id": "lesson-arithmetic-number-sense-divisibility-rules",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/divisibility-rules.md",
+ "lesson_sha256": "53add460b2e75702b0b8d7f0c1587e98265c548457cde72977c29f396f5b0633",
+ "rewrite_commit": "6e8faac1bc9c821502e25170d74f4ebab0b6f36a",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-divisibility-rules",
+  "role": "A",
+  "lesson_sha256": "53add460b2e75702b0b8d7f0c1587e98265c548457cde72977c29f396f5b0633",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Verified the tests for 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11 arithmetically. The 7 test preserves divisibility because the original number and ten times the reduced number differ by 21 times the last digit.",
+     "Verified the coprime-product condition, the counterexample 12 with factors 4 and 6, the negative-number convention, and divisibility of zero by every nonzero integer. These are elementary mathematical claims; no historical or exam-format facts require external verification."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "#1: both 735 and 740 divide by 5; only 740 divides by 10. #2: yes, 5116/4=1279. #3: yes, 203=7×29.",
+     "#4: x=6 gives digit sum 27. #5: B, 24534, is the only multiple of 6. #6: b=1 gives equal alternating sums of 8. #7: Y=4 and X=2, so X+Y=6; 52344/72=727."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All questions are numerical or verbal and need no figure; no additional outline was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the digit-test instructions, coprime explanation, and cast-out-nines paragraph. Technical ideas use short explanations; modulo and congruent have been removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use everyday find, which, and is; no exam-specific instruction verb needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no tutor analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All seven stems supply their numbers, digit constraints, or packing rate. None gives the divisibility method being tested. Solutions use direct digit checks and short arithmetic steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam-motivation openers or unsupported claims about a named exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. Sentence openings vary and none of the listed stock phrases occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "#1 uses the 5 and 10 end-digit rules from Core Concept; #2 uses its last-two-digits test for 4; #3 uses its double-and-subtract test for 7.",
+     "#4 uses the digit-sum rule for 9; #5 uses the combined 2-and-3 rule for 6; #6 uses the alternating-total rule for 11; #7 uses the coprime-product rule and the tests for 8 and 9. All are introduced in Core Concept before Examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the seven examples to last-digit 5/10 checks, last-two-digit testing, the special 7 procedure, a missing digit for 9, composite 6 selection, zero alternating difference for 11, and the combined 8/9 missing-digit case. The 2 and 3 tests are applied in #5; the 8 test in #7. Cases progress from direct tests to joint constraints."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every multi-step solution uses numbered steps. Digit sums in #5 are now displayed individually; the subtraction, alternating totals, and missing-digit equations in #3, #4, #6, and #7 are displayed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each displayed equation for width; computations are split into short lines without wide derivations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences. Bullets serve choices or a short checklist rather than replacing the prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Divisible, factor, and multiple are defined at the start. Even digits are enumerated. Relatively prime/coprime and the notation ab are explained before the product test. Neither modulo nor congruent remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept tells students which digits to use and how to perform each test. The coprime section explains the shared-factor problem, reinforced by 12 passing 4 and 6 without passing 24. Cast-out-nines explains why removing a multiple of 9 preserves both tests."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked nonzero divisors, positive-value testing for negatives, short numbers for end-digit tests, zero and negative results for 7, zero differences for 11, and the coprime restriction on product splits."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-divisibility-rules|L17|0": {
+    "status": "fixed",
+    "quote": "For $9$, the digit sum must be divisible by $9$.",
+    "note": "The rules for divisors 2 through 11 now appear in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L02|0": {
+    "status": "fixed",
+    "quote": "Removing it does not change whether the digit sum passes either test.",
+    "note": "The shortcut now uses plain words without modulo."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L02|1": {
+    "status": "fixed",
+    "quote": "Since $1$ is divisible by neither $3$ nor $9$, the original number passes neither test.",
+    "note": "The conclusion is direct and contains no congruence jargon."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L17|1": {
+    "status": "fixed",
+    "quote": "If $a$ and $b$ are coprime, a number is divisible by $ab$ exactly when it is divisible by both $a$ and $b$.",
+    "note": "The combined test appears before the worked example in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L25|0": {
+    "status": "fixed",
+    "quote": "Two positive integers are **relatively prime**, or **coprime**, when their only common positive factor is $1$.",
+    "note": "Both terms are defined before the product-split method."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L25|1": {
+    "status": "fixed",
+    "quote": "Only $1$ remains.",
+    "note": "The former undefined terms have been removed from the shortcut."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L18|0": {
+    "status": "fixed",
+    "quote": "Which of $735$ and $740$ is divisible by $5$? Which is divisible by $10$?",
+    "note": "Example 1 now applies both last-digit tests."
+   },
+   "lesson-arithmetic-number-sense-divisibility-rules|L19|0": {
+    "status": "fixed",
+    "quote": "$$2+4+5+3+2=16$$",
+    "note": "The composite-choice solution now has numbered steps and displayed digit sums."
+   }
+  }
+ }
+}

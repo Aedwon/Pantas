@@ -1,0 +1,260 @@
+{
+ "batch": "RD-098",
+ "lesson_id": "lesson-arithmetic-number-sense-properties-of-real-numbers",
+ "path": "content/lessons/mathematics/arithmetic-number-sense/properties-of-real-numbers.md",
+ "lesson_sha256": "9e394b17c8ede788a4df470e4e3c6f8da221832efa98e6f9d775e68e9af28ccf",
+ "rewrite_commit": "6e8faac1bc9c821502e25170d74f4ebab0b6f36a",
+ "form": {
+  "packet": "lesson-arithmetic-number-sense-properties-of-real-numbers",
+  "role": "A",
+  "lesson_sha256": "9e394b17c8ede788a4df470e4e3c6f8da221832efa98e6f9d775e68e9af28ccf",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the commutative and associative laws for addition/multiplication and their stated failure for subtraction/division in general. Checked distribution in both directions, identities 0 and 1, inverse signs, and the nonzero restriction.",
+     "Verified like-term matching by variable and exponent, lone-variable coefficient 1, and the negative-distribution counterexample. All claims are elementary algebra rather than source-dependent exam claims."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "#1: B. #2: 73. #3: 1700. #4: reciprocal -3/2, then additive inverse +3/2, choice A.",
+     "#5: 5x²+5x-5. #6: 8x-12y-2x-10y=6x-22y, A. #7: 847×100=84700, A. #8: C, zero has no multiplicative inverse."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. All questions are numerical or verbal and need no figure; no additional outline was supplied."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read each property explanation and the like-term method. Terms such as coefficient and factor out receive short definitions and concrete operations; solutions use simple instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Simplify and evaluate are each defined in Core Concept before the first worked stem uses them. Identify/which needs no special gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no tutor analogies in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The identification items test property knowledge without defining the answer in the stem. Calculation items give complete expressions and no prescribed method. Solutions use plain explanations of the selected operations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam-motivation openers or unsupported claims about a named exam."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson and contains no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly. Sentence openings vary and none of the listed stock phrases occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "#1 maps to the Core commutative product law; #2 to additive/multiplicative identity; #3 to associative multiplication; #4 to both inverse formulas.",
+     "#5 uses the signed-coefficient like-term formula taught under Like Terms; #6 uses distribution and that same combining rule; #7 uses ab+ac=a(b+c); #8 uses the Core nonzero inverse restriction and zero-product explanation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover property recognition, both identities in calculation, associative regrouping, successive inverses, signed like terms with unlike powers and constants, negative distribution, reverse distribution, and zero without an inverse. Added cases fill identity, collection, and zero gaps without repeated numerical variants."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 2 through 7 use numbered steps and display their key arithmetic or algebra. Examples 1 and 8 are direct conceptual identifications; their short prose solutions need no calculation list."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Checked each displayed equation for width; computations are split into short lines without wide derivations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences. Bullets serve choices or a short checklist rather than replacing the prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Core introduces real numbers, factor and ab notation, grouping parentheses, common factor/factor out, identities and inverses, variable, exponent, signed term, coefficient, and like terms before their worked uses."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Each property states what changes or stays the same. Reverse distribution explains moving the shared factor outside; like-term teaching explains adding signed coefficients while retaining the variable part and shows 8x-3x=5x."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson limits commutation and association to addition/multiplication, limits multiplicative inverses to nonzero values, excludes division by zero, requires matching exponents for like terms, and keeps signs attached during rearrangement."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L18|0": {
+    "status": "fixed",
+    "quote": "Simplify $(48+0)\\times1+25$.",
+    "note": "Example 2 applies both identities to reach 73."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L03|0": {
+    "status": "fixed",
+    "quote": "In exam questions, **simplify** means write an equal expression in a simpler form.",
+    "note": "The instruction is explained before its first example use."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L03|1": {
+    "status": "fixed",
+    "quote": "**Evaluate** means find the final number answer.",
+    "note": "Evaluate now has a short meaning before the examples."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L25|0": {
+    "status": "fixed",
+    "quote": "**Like terms** have the same variable part with the same exponents.",
+    "note": "The variable-part test and coefficient definition precede collection."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L25|1": {
+    "status": "fixed",
+    "quote": "To **factor out** that factor, write it once outside parentheses and put the remaining parts inside.",
+    "note": "Common factor and reverse distribution are now taught in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L26|0": {
+    "status": "fixed",
+    "quote": "To combine like terms, add their signed coefficients and keep the variable part unchanged.",
+    "note": "The lesson teaches the action and explains why reverse distribution supports it."
+   },
+   "mathematics-arithmetic-number-sense#52": {
+    "status": "fixed",
+    "quote": "Simplify $7x^2-3x+4-2x^2+8x-9$.",
+    "note": "A full example separates powers, linear terms, and constants and combines signed coefficients."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|B08|0": {
+    "status": "fixed",
+    "quote": "The **commutative property** lets you swap the order of numbers in addition and multiplication.",
+    "note": "Property headings are now unnumbered; the offending prose labels are gone."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L01|0": {
+    "status": "fixed",
+    "quote": "Simplify $(48+0)\\times1+25$.",
+    "note": "The cited content mismatch is repaired by a worked identity calculation; audit goals cannot be inspected here."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L17|1": {
+    "status": "fixed",
+    "quote": "$$ab+ac=a(b+c)$$",
+    "note": "Reverse distribution is explicitly shown in Core Concept."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L18|1": {
+    "status": "fixed",
+    "quote": "The number $0$ has no multiplicative inverse.",
+    "note": "Example 8 directly tests the zero exception and explains the zero product."
+   },
+   "lesson-arithmetic-number-sense-properties-of-real-numbers|L19|0": {
+    "status": "fixed",
+    "quote": "$$-\\dfrac{3}{2}+\\dfrac{3}{2}=0$$",
+    "note": "Both inverse checks are displayed within numbered steps."
+   }
+  }
+ }
+}
