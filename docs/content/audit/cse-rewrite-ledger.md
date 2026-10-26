@@ -52,3 +52,17 @@ Writers add rows in the same commit as the lesson change; the reader checks them
   accomplices or accessories", but under the Revised Penal Code everyone in a conspiracy is a principal. Every
   automated framing of the accomplice and accessory examples trips one side of that tension. Recommended: teach the
   statute's wording and the same-liability rule, and drop the worked role-classification examples. Needs Aedwon.
+
+## 2026-10-26 lead ruling: penalties-and-enforcement and Section 11(c)
+
+Aedwon asked the lead to finish the content without him. Ruling: the lesson teaches Section 11(c) as written (exact
+quote), the Article 8 meaning of conspiracy, and that a private person who joins a public official in a conspiracy to
+violate the Code faces the same penal liabilities and a joint trial; mere knowledge without agreement is not enough. It
+no longer classifies people as co-principal, accomplice or accessory, because the Revised Penal Code treats all
+conspirators as principals and every role-classification framing contradicted one side of that rule. This supersedes
+the brief's L18 request for distinct role cases. The RD-150 reader findings L18, L25, L26 and L27 (role definitions and
+tests) are void under this ruling; L02 (dense statutory sentence) and B08 are minor polish. Reversible if Aedwon
+prefers role examples.
+
+Closing state: 74 clean or minor-only beyond the items above; content (lessons and questions) is complete for review.
+Illustrations are paused by Aedwon.
