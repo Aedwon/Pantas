@@ -1,0 +1,217 @@
+{
+ "batch": "RD-161",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "2d21d13e8b321b00213efc3360dde333b4bb53af5d76adb706f9ac1fe57a21c1",
+ "rewrite_commit": "af68c3c2861c7e7f386afe6d91c12bd08000908a",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "2d21d13e8b321b00213efc3360dde333b4bb53af5d76adb706f9ac1fe57a21c1",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the four citizenship groups, historical maternal election, natural-born classification, marriage rule, and voting thresholds/protections with the supplied constitutional outline. The paternal route correctly avoids requiring election in the 1970 birth-abroad case.",
+     "Checked the stated RA 9225 oath and candidacy renunciation, RA 8171 eligible groups, separate CA 473 and RA 9139 age/residence paths, and election-day qualifications against the identified source provisions and supplied brief. No contrary fact is evident from the supplied material; source pages were not independently opened."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1: citizen from birth; 2: no election, already Filipino through father; 3: deemed natural-born after valid election; 4: Ana; 5: citizenship retained; 6: reacquisition oath plus separate sworn foreign-citizenship renunciation and office qualifications; 7: no dual allegiance from the stated facts; 8: eligible; 9: first person only; 10: neither test allowed; 11: ballot secrecy/sanctity, overseas voting, independent voting procedure with interim secrecy protections. Each agrees with the solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The complete new lesson includes all four citizen groups, natural-born versus naturalized, marriage/loss/reacquisition, dual status, voting qualification and protection, all eleven requested example cases, and seven traps. Both requested helpful illustrations have specific placeholders."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the citizenship and voting prose: citizenship, election, majority age, alien, naturalization, renunciation, repatriation, suffrage, literacy, and COMELEC are explained using short sentences. Statutory distinctions are divided into separate paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction verb requiring a definition appears in the questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy is used in the teaching or examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven examples ask direct legal qualification questions. Birth dates, parental citizenship, valid election, registration, absence of disqualification, and residence figures supply the case-specific facts needed. No stem states its tested legal answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repetitive exam claims or test-maker introductions appear. The questions themselves supply the application context."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Citizenship** means legal membership in a country.",
+      "problem": "This lesson is classified as Filipino, but its teaching prose is in English. It does not teach in simple Filipino."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the full lesson for hard Filipino grammar terms. None appears, so no first-use English grammar gloss is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A child was born in $2005$. The mother was a Filipino citizen when the child was born.",
+      "problem": "The lesson is classified as Filipino, but all eleven example questions and their solutions are in English instead of Filipino."
+     }
+    ]
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson is classified as Filipino. Filipino spelling and usage require an official KWF source check; this read does not confirm them.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the teaching prose for Taglish. The prose is entirely English, with no mixed Filipino-English sentences. The missing Filipino teaching is reported under L08."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a singled-out target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked summary and teaching for stock AI phrases and three repeated sentence openings. Summary describes the content plainly; no listed stock phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The permitted General Information layout is used without a Speed Tricks section. Examples compare qualification thresholds but introduce no mathematical formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover present maternal descent, historical paternal descent abroad, historical maternal election, office status, marriage, reacquisition/candidacy, dual citizenship, election-day age, local residence failure, prohibited voting tests, and ballot safeguards. The historical paternal case is distinct from the maternal-election case."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 6, 8, 9, and 11 number the separate required actions or qualification checks. The remaining examples give short direct classifications with reasons; no multi-stage computation is concealed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Checked paragraph lengths throughout citizenship, naturalization, voting, and traps: each has one to three sentences. The two short bullet lists efficiently enumerate constitutional categories and minimums."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The citizenship flow specifies paternal-first branching, the historical maternal-election route, naturalization, and qualifications to the exits. The domestic voter checklist specifies age, national/local residence, and the registration/disqualification footer. Each is a single drawable comment and the prose teaches independently."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Citizenship, elect, majority age, natural-born, alien, naturalization, renunciation, oath, repatriation, dual status, suffrage, registration, literacy, and absentee voting are explained before their example applications. The general majority-age change is distinguished from historical cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how parentage and historical election establish status, why naturalization differs, how loss/reacquisition and candidacy differ, and how independent age/residence/registration checks determine voting eligibility. Ballot protections include their purpose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked father-based exception to historical election, citizenship at birth, naturalization process differences, marriage renunciation exception, RA 9225 separate candidacy duties, RA 8171 conditions, dual citizenship versus allegiance, election-day minimums, registration/disqualifications, and overseas statutory conditions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B10": {
+    "verdict": "pass",
+    "checked": [
+     "The flagged word retention describes citizenship under RA 9225, not a study-memory measure. This is a subject-matter use allowed by the script-candidate instructions; no FSRS, retrievability, stability, or algorithm teaching appears."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
