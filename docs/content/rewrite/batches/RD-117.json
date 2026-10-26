@@ -1,0 +1,22 @@
+{
+ "lessons": [
+  "lesson-algebra-exponents-and-logarithms",
+  "lesson-algebra-types-of-functions"
+ ],
+ "topic": "mathematics/algebra",
+ "rewrites": {
+  "lesson-algebra-exponents-and-logarithms": "74d7c7983926c306a79538625f624b0b0dc44772",
+  "lesson-algebra-types-of-functions": "74d7c7983926c306a79538625f624b0b0dc44772"
+ },
+ "sha256": {
+  "lesson-algebra-exponents-and-logarithms": "6c46fea4d871a18fb1fd8b9d7f692872e4bca719ea8faf9f7ac6600a85741b52",
+  "lesson-algebra-types-of-functions": "2bebb2d00d492c792f6b83ef7011692e6f9d8f2c43b07448e4c44184eadc1537"
+ },
+ "paths": {
+  "lesson-algebra-exponents-and-logarithms": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "lesson-algebra-types-of-functions": "content/lessons/mathematics/algebra/types-of-functions.md"
+ },
+ "id": "RD-117",
+ "type": "read",
+ "created": "2026-10-26T05:52:34+00:00"
+}
