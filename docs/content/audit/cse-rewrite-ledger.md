@@ -31,3 +31,14 @@ Writers add rows in the same commit as the lesson change; the reader checks them
     the void Filipino classification.
 - Readers have no web access, so "not confirmed by the supplied sources" findings are leads, not errors. These four
   are left for Aedwon rather than another automated round.
+
+## 2026-10-26 last round (source-verified fixes, then reads)
+
+- Codex with web search verified the two unconfirmed rules (RA 3019 Section 3(e) case law; citizenship Section 40(d))
+  and added citations; defined forthwith, level of proof, substantial evidence and beyond reasonable doubt; split the
+  dense bullet. Final: 72 clean, 15 minor-only, 3 with items for Aedwon:
+  - corruption-and-its-effects: reader could not see a source for the direct-bribery definition (RPC Article 210);
+    unverified by the reader, not shown wrong.
+  - penalties-and-enforcement: Example 5 applies Section 11(c) to an accomplice without showing an agreement, while
+    11(c) says "participate in conspiracy". This is the statute's own wording tension; decide how to frame accomplices.
+  - accountability-and-impeachment: Example 14 repeats Example 2's reasoning (L18); replace with a distinct case.
