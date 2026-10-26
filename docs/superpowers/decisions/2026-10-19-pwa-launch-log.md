@@ -1836,3 +1836,18 @@ Not yet approved: deleting branches `cse-inbox/RD-003` and `cse-inbox/RD-006`.
 - Aedwon: "write up the changes for free vs pro, and also the roadmap. line it up for the engineering path, which will
   resume once we're done here in the content". Spec `docs/superpowers/specs/2026-10-26-prerequisite-roadmap-design.md`;
   STATUS rows R1, R2, E8; PWA plan After launch gains R3.
+
+## 2026-10-26/27 CSE content close-out
+
+- Questions: 243 new (all CSE files at 20+), two blind solves (1 key fixed, ng/nang per KWF), 54 files synced to the
+  rewritten lessons. Prerequisite map and wrong-choice gap tags done (E8).
+- Aedwon paused Sonnet figure work: "pause sonnet work for now, i'll need the usage for the beta signup website.
+  continue with codex work". Then: "i just want the content (except illustrations for now, on purpose) to be fully and
+  thoroughly done and ready for me to review". Figures: 58 of 86 committed; 28 wait for one fix round.
+- Astra audit of General Information: 27 findings, 26 verified and fixed by Codex with sources.
+- Lead rulings awaiting Aedwon's confirmation: RA 6713 penalties lesson teaches Section 11(c) as written without role
+  classification (all conspirators are principals under the RPC); citizenship lesson is English, so L08/L10 are void.
+  The Article 20 family exemption was removed earlier on Aedwon's decision ("ok then remove it").
+- Final: 86 clean, 4 minor-only, 0 Blocker or Major. Aedwon asked why the minors were not cleared; each fresh read
+  surfaces new minor notes, and minor items do not block under the checklist. The overnight /goal was cleared by
+  Aedwon.
