@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-parts-of-speech"
 title: "Parts of Speech / Bahagi ng Pananalita"
-summary: "Learn how to identify common English and Filipino word classes by the job they do in a sentence."
+summary: "Identify common English and Filipino word classes by the job they do in a sentence."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
@@ -11,14 +11,13 @@ isActive: true
 
 A **part of speech**, or **word class**, groups words by their job in a sentence. Traditional school grammar teaches eight English classes.
 
-- A **noun** names a person, place, thing, or idea: *Maria, city, book, freedom*.
-- A **pronoun** can take the place of a noun or name: *she, they, it, who*.
-- A **verb** shows an action, event, or state: *run, happen, is, become*.
-- An **adjective** describes a noun or pronoun: *red* in *red apple*.
-- An **adverb** adds information about a verb, adjective, another adverb, or a whole sentence. In *ran quickly*, *quickly* tells how someone ran. In *very tall*, *very* tells how tall.
-- A **preposition** begins a group of words that shows a relation, such as place, time, or direction: *under the desk, before dinner, toward home*.
-- A **conjunction** joins words or groups of words: *and, but, because*.
-- An **interjection** expresses a reaction: *Wow!* or *Ouch!*
+A **noun** names a person, place, thing, or idea: *Maria, city, book, freedom*. A **pronoun** can take the place of a noun or name: *she, they, it, who*. In “Maria left because she was tired,” *she* refers to Maria.
+
+A **verb** shows an action, event, or state: *run, happen, is, become*. An **adjective** describes a noun or pronoun: *red* in *red apple*.
+
+An **adverb** adds information about a verb, adjective, another adverb, or a whole sentence. In *ran quickly*, *quickly* tells how someone ran. In *very tall*, *very* tells how tall.
+
+A **preposition** begins a group of words that shows a relation, such as place, time, or direction: *under the desk, before dinner, toward home*. A **conjunction** joins words or groups of words: *and, but, because*. An **interjection** expresses a reaction: *Wow!* or *Ouch!*
 
 Some grammar books group words differently. Use the system named in the question. Within that system, check the word's job in its sentence.
 
@@ -32,11 +31,11 @@ A **phrase** is a group of words that works as one part of a sentence. “Before
 
 A **subordinate clause** needs another clause to complete its meaning. “Before it rained” leaves us waiting to learn what happened. A **subordinating conjunction** introduces such a clause, as *before* does here.
 
-Compare what follows *before*. A noun such as *dinner* gives “before dinner,” a prepositional phrase. A subject and verb such as *it rained* give “before it rained,” where *before* is a subordinating conjunction.
+Check what follows *before*. A noun such as *dinner* gives “before dinner,” a prepositional phrase. A subject and verb such as *it rained* give “before it rained,” where *before* is a subordinating conjunction in traditional school grammar.
 
 ### Sa Filipino: Mga Bahagi ng Pananalita
 
-Hindi laging magkatugma ang mga pangkat ng salita sa Filipino at English. Sundin ang paraan ng pag-uuri na binanggit sa tanong. Pagkatapos, suriin ang tungkulin ng salita sa pangungusap.
+Hindi laging magkatugma ang mga pangkat ng salita sa Filipino at Ingles. Sundin ang paraan ng pag-uuri na binanggit sa tanong. Pagkatapos, suriin ang tungkulin ng salita sa pangungusap.
 
 Ang **pantukoy** (marker/article) ay tumutukoy sa kasunod na pangngalan o pangalan. Hanapin ang salitang gaya ng *ang* sa *ang guro* o *si* sa *si Liza*. Hindi ito ang pangalan mismo.
 
@@ -66,7 +65,7 @@ Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o reaksiyon. Sa
 
 ### #1: Adjective and Adverb
 
-In “The **diligent** student finished her project **quickly**,” identify the parts of speech of the words in bold.
+Name the parts of speech of the words in bold: “The **diligent** student finished her project **quickly**.”
 
 **Solution:**
 
@@ -75,7 +74,7 @@ In “The **diligent** student finished her project **quickly**,” identify the
 
 ### #2: Same Word, Different Jobs
 
-Identify the part of speech of the word in bold in each sentence: “Turn on the **light**.” “Please **light** the candle.” “The bag felt **light**.”
+Name the part of speech of the word in bold in each sentence: “Turn on the **light**.” “Please **light** the candle.” “The bag felt **light**.”
 
 **Solution:**
 
@@ -85,7 +84,7 @@ Identify the part of speech of the word in bold in each sentence: “Turn on the
 
 ### #3: Pronoun and Interjection
 
-Identify the parts of speech of the words in bold: “**Wow!** Ana solved the puzzle, and **she** smiled.”
+Name the parts of speech of the words in bold: “**Wow!** Ana solved the puzzle, and **she** smiled.”
 
 **Solution:**
 
@@ -94,7 +93,7 @@ Identify the parts of speech of the words in bold: “**Wow!** Ana solved the pu
 
 ### #4: Preposition or Conjunction
 
-“Classify” means name the word class here. Classify the word in bold in each sentence: “We met **before** dinner.” “We left **before** it rained.”
+Using traditional school grammar, name the part of speech of the word in bold in each sentence: “We met **before** dinner.” “We left **before** it rained.”
 
 **Solution:**
 
@@ -157,7 +156,7 @@ Sa “Nagdala si Mina ng pagkain **para sa** bata,” ano ang bahagi ng pananali
 **Solution:**
 
 1. Ang *para sa* ay pang-ukol. Kasunod nito ang *bata*.
-2. Iniuugnay nito ang bata sa pagkain. Ipinapakita nitong ang bata ang tatanggap ng pagkain.
+2. Iniuugnay nito ang bata sa pagkain. Ipinapakita nitong para sa bata ang pagkain.
 
 ### #11: Pahayag ng Damdamin
 
@@ -194,7 +193,7 @@ Itanong ang “saan?” para sa lugar ng kilos. Maaaring isang salita o isang gr
 
 ### #3: Iisang Sistema para sa Lahat
 
-> Hindi kailangang magkatugma ang bawat kategorya sa Filipino at English.
+> Hindi kailangang magkatugma ang bawat pangkat ng salita sa Filipino at Ingles.
 
 Halimbawa, may pantukoy sa pag-uuring Filipino na itinuro rito. Sundin ang sistemang nasa tanong bago pumili ng katawagan.
 

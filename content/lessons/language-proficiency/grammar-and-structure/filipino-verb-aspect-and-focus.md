@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-### Aspekto ng Pandiwa
+### Kalagayan ng Kilos
 
 Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Ipinapakita ng **aspekto** (aspect) kung tapos na, nagpapatuloy, gagawin pa, o katatapos lamang ang kilos. Suriin ang anyo ng pandiwa at ang kahulugan ng pangungusap.
 
@@ -31,13 +31,13 @@ Piliin muna ang kahulugang kailangan. Pagkatapos, sundin ang pangkat ng ibinigay
 
 ### Mga Pahiwatig ng Oras
 
-Ang **pang-abay na pamanahon** (time adverb) ay nagsasabi kung kailan ang kilos. Maaaring gamitin ang *kahapon* para sa nakaraang araw, *ngayon* para sa kasalukuyan, at *bukas* para sa susunod na araw.
+Ang **pang-abay na pamanahon** (time adverb) ay nagsasabi kung kailan ang kilos. Maaaring gamitin ang *kahapon* para sa nakaraang araw, *ngayon* para sa kasalukuyan, at *bukas* para sa susunod na araw. Ang *tuwing Sabado* ay nagsasabi ng paulit-ulit na panahon ng gawain.
 
 Maaaring mauna o mahuli ang pahiwatig: *Kahapon ay nag-aral si Mia.* Maaari ring sabihin: *Nag-aral si Mia kahapon.* Pareho ang oras ng kilos.
 
 Hindi oras lamang ang batayan ng aspekto. Sa *Nagluluto si Ana nang dumating ako kahapon*, nagpapatuloy ang pagluluto noong dumating ang nagsasalita. Imperpektibo ang *nagluluto* kahit may *kahapon*.
 
-### Pokus ng Pandiwa
+### Ugnayan ng Pandiwa at Paksa
 
 Ang **pokus** (voice/focus) ay ugnayan ng pandiwa sa **paksa** (topic) ng pangungusap. Madalas may *ang, ang mga, si,* o *sina* ang paksa. Hanapin ito at itanong kung ano ang papel nito sa kilos.
 
@@ -53,7 +53,7 @@ Sa pokus sa **direksiyon** (direction), ang paksa ang pinuntahan: *Pinuntahan ni
 
 ### #1: Natapos na Kilos
 
-Sa “Naglinis ng silid si Carlo kahapon,” anong aspekto ng salitang nasa bold: **naglinis**?
+Sa “**Naglinis** ng silid si Carlo kahapon,” ano ang aspekto ng salitang nasa bold?
 
 **Solution:**
 
@@ -76,7 +76,7 @@ Sa “**Bibiyahe** kami bukas ng umaga,” ano ang aspekto ng salitang nasa bold
 **Solution:**
 
 1. Hindi pa nagsisimula ang biyahe.
-2. Ang anyong *bibiyahe* ay tumutukoy sa gagawin pa. Kontemplatibo ito.
+2. Ang pag-uulit ng *bi* sa *bibiyahe* ay nagpapakita rito ng gagawin pa. Kontemplatibo ito.
 
 ### #4: Katatapos Lamang
 
@@ -116,7 +116,16 @@ Ano ang aspekto ng salitang nasa bold sa “**Nagluluto** si Ana nang dumating a
 1. Ang pagluluto ay nagpapatuloy noong dumating ang nagsasalita.
 2. Imperpektibo ang *nagluluto*. Hindi ito nagiging perpektibo dahil lamang sa *kahapon*.
 
-### #8: Tagaganap at Layon
+### #8: Paulit-ulit na Gawain
+
+Ano ang aspekto ng salitang nasa bold sa “**Naglilinis** siya tuwing Sabado”?
+
+**Solution:**
+
+1. Ang *tuwing Sabado* ay nagpapakita ng gawaing inuulit.
+2. Imperpektibo ang *naglilinis*. Hindi nito kailangang sabihing naglilinis siya sa mismong sandali ng pagsasalita.
+
+### #9: Tagaganap at Layon
 
 Tukuyin ang pokus sa bawat pangungusap: “Nagluto ng sopas si Ramon.” “Niluto ni Ramon ang sopas.”
 
@@ -125,7 +134,7 @@ Tukuyin ang pokus sa bawat pangungusap: “Nagluto ng sopas si Ramon.” “Nilu
 1. Sa una, paksa si Ramon. Siya ang gumawa, kaya pokus sa tagaganap.
 2. Sa ikalawa, paksa ang sopas. Ito ang niluto, kaya pokus sa layon.
 
-### #9: Ganapan at Direksiyon
+### #10: Ganapan at Direksiyon
 
 Tukuyin ang pokus: “Pinagtaniman nila ng gulay ang bakuran.” “Pinuntahan ni Ana ang munisipyo.”
 
@@ -134,7 +143,7 @@ Tukuyin ang pokus: “Pinagtaniman nila ng gulay ang bakuran.” “Pinuntahan n
 1. Ang bakuran ang paksa sa una. Doon ginawa ang pagtatanim, kaya pokus sa ganapan.
 2. Ang munisipyo ang paksa sa ikalawa. Ito ang pinuntahan, kaya pokus sa direksiyon.
 
-### #10: Tagatanggap, Kagamitan, at Sanhi
+### #11: Tagatanggap, Kagamitan, at Sanhi
 
 Tukuyin ang pokus: “Ipinagluto ni Ana ng sopas ang bata.” “Ipinangsulat ni Ana ang lapis.” “Ikinatuwa ni Ana ang balita.”
 
