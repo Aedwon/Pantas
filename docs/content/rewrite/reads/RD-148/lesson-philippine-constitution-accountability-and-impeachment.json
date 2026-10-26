@@ -1,0 +1,312 @@
+{
+ "batch": "RD-148",
+ "lesson_id": "lesson-philippine-constitution-accountability-and-impeachment",
+ "path": "content/lessons/general-information/philippine-constitution/accountability-and-impeachment.md",
+ "lesson_sha256": "d9802c76400a5ff20b8c3a03e54eded6bec2406b38963ab8e152b4a84704125b",
+ "rewrite_commit": "5208c3fba320683aebdb02a5388506f36d09c66f",
+ "form": {
+  "packet": "lesson-philippine-constitution-accountability-and-impeachment",
+  "role": "A",
+  "lesson_sha256": "d9802c76400a5ff20b8c3a03e54eded6bec2406b38963ab8e152b4a84704125b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the officer list with the constitutional provisions identified in the supplied source audit: President, Vice-President, Supreme Court Members, Constitutional Commission Members, and Ombudsman; the stated exclusions agree.",
+     "Checked the six ground names and the distinction between a possible ground and proof. The lesson attributes willfulness and the gravity/bad-faith reading to interpretive sources rather than claiming the Constitution defines every ground.",
+     "Checked the stated criminal-law illustrations: wartime enemy assistance for treason, money tied to official action for bribery, and improper contract advantage for graft. They are presented as illustrations, not exhaustive statutory definitions.",
+     "Checked House initiation, endorsed citizen complaints, regular and direct one-third routes, Senate trial, two-thirds conviction, Chief Justice presiding in a presidential trial without voting, judgment limits, separate criminal liability, and the one-year bar against the constitutional text identified in the audit.",
+     "Checked the Ombudsman account: investigation on complaint or initiative, directions concerning duties and abuse, records and assistance, recommended sanctions, and study of administrative problems match the identified Article XI powers."
+    ],
+    "note": "Prompt-only review. The audit identifies sources, but their linked contents were not independently opened; no unsupported factual correction is asserted.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers from the stems: #1 yes, the President is covered; #2 no, a Regional Trial Court judge is not covered; #3 no, inefficiency is not a separately named ground.",
+     "#4 bribery; #5 culpable violation of the Constitution; #6 treason; #7 graft and corruption; #8 no separate naming is necessary under other high crimes, but gravity and proof still matter; #9 betrayal of public trust may apply.",
+     "#10 no, the endorsed citizen filing alone does not become the articles; #11 no regular committee route is required for the qualifying direct filing; #12 Senate, with at least two-thirds of all Senators agreeing to convict.",
+     "#13 yes, the Ombudsman may investigate the improper delay and direct performance; #14 no, a second initiation within the stated one-year period is barred. All fourteen answers agree with the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information does not require Speed Tricks under the supplied subject exception. All eight requested teaching additions appear, including procedure and Ombudsman powers. No question depends on a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the public-trust explanation, six ground explanations, procedural teaching, Ombudsman paragraphs, and solutions for sentence length and plain meaning. Necessary formal legal labels are followed by explanations or concrete conduct. The former long public-trust sentence has become short sentences."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special tested meaning appears. Find, compare, and check are ordinary instructions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all fourteen stems: each supplies the relevant office, alleged conduct, filing circumstances, or procedural question without giving away the tested officer list, ground definition, or voting rule. Solutions use short statements. The facts distinguish the six conduct applications and the two filing routes."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam-name opener or unsupported claim about exam frequency, choices, or format appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino-language teaching or Filipino example sentences.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino-language teaching or Filipino example sentences.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino-language teaching or Filipino example sentences.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino-language teaching or Filipino example sentences.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson. It contains no Filipino-language teaching or Filipino example sentences.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to underlining or bold type.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary, paragraph openings, and traps for stock phrasing and repeated sentence starts. No listed stock phrase or three identical consecutive sentence openings appear. The summary directly names the lesson coverage."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout uses Core Concept, Examples, and Traps; no optional shortcut section is needed. There are no calculation formulas. The one-third House filing/voting threshold is introduced in House Charge and Senate Trial before Examples #10 and #11; the two-thirds Senate threshold appears there before #12."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped examples to cases: #1 listed President, #2 excluded trial judge, #3 unlisted ground, #4 bribery, #5 deliberate constitutional breach, #6 wartime treason, #7 graft, #8 scope of other high crimes, #9 betrayal, #10 regular filing, #11 direct filing, #12 Senate and conviction threshold, #13 Ombudsman delay remedy, and #14 one-year bar.",
+     "The progression moves from simple list membership to conduct and procedural application. Each example tests a different decision. The brief specifically requests the outside-list ground case, now #3. Other officer exclusions are taught explicitly without requiring one worked example for every title."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All fourteen solutions place their reasoning inside numbered steps. No unnumbered instruction precedes those steps. No arithmetic or key computation requires a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations. The voting fractions appear as short inline expressions.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student-facing paragraphs contain at most three short sentences. The single officer list groups the covered offices; it is not excessive bullet use. Numbered lists are reserved for the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder or existing figure appears. None of the verbal legal examples requires a visual.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Impeachment and conviction are defined before use in the officer teaching. The six grounds are explained before their examples. Verified complaint, Articles of Impeachment, forthwith, and censure receive local definitions. House and Senate roles and threshold denominators are stated before the procedural examples. No prerequisite explanation is assumed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Public trust is explained as answering to and serving the public. Ground teaching gives meanings and conduct applications for all six grounds. The regular and direct House routes explain how charges reach Senate trial. Ombudsman teaching explains investigations, directions, recommended sanctions, and action on delay rather than merely naming the office."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked explicit limits: only listed officers are impeachable; deliberate constitutional breach differs from honest error; criminal-law descriptions do not decide impeachment; other high crimes does not include every offense automatically; betrayal requires gravity and bad faith under the attributed reading.",
+     "The lesson separates matching a ground from proof and legal sufficiency. It states the different filing routes and denominators, Senate conviction threshold, presidential presiding rule, judgment limits, possible later prosecution, one-year limit, disputed-filing caution, and that an Ombudsman complaint alone proves nothing."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-accountability-and-impeachment|B03|0": {
+    "status": "fixed",
+    "quote": "Cabinet Secretaries, legislators, and trial court judges are not impeachable officers. Supreme Court Members are on the list.",
+    "note": "The added traps section supplies the required General Information closing section. Speed Tricks is optional under the approved ruling."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L18|0": {
+    "status": "fixed",
+    "quote": "Inefficiency is not a separately named ground.",
+    "note": "Example #3 now directly checks an outside-list ground. Example #1 also checks presidential eligibility."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|0": {
+    "status": "fixed",
+    "quote": "Article XI, Section $1$ says that public office is a public trust.",
+    "note": "The Section 1 numeral is now wrapped in inline math."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|1": {
+    "status": "fixed",
+    "quote": "Article XI, Section $2$ lists the officers covered:",
+    "note": "The officer-list section number now uses inline math."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|2": {
+    "status": "fixed",
+    "quote": "Section $2$ names $6$ grounds.",
+    "note": "The grounds introduction wraps both prose numerals in inline math."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|B08|3": {
+    "status": "fixed",
+    "quote": "Section $2$ includes the President.",
+    "note": "The replacement list-check solution wraps the section numeral in inline math."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L02|0": {
+    "status": "fixed",
+    "quote": "Public officers and employees must answer to the people. They must do their work honestly, responsibly, and well.",
+    "note": "The former dense public-trust sentence is split and explained in plain language."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L19|0": {
+    "status": "fixed",
+    "quote": "1. Section $2$ includes the President.",
+    "note": "The officer-list check is inside the numbered solution, with no unnumbered preliminary step."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L19|1": {
+    "status": "fixed",
+    "quote": "1. Compare it with the constitutional list.",
+    "note": "The ground-list comparison is now numbered as the first step in Example #3."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L19|2": {
+    "status": "fixed",
+    "quote": "1. The judicial officers on the impeachment list are Members of the Supreme Court.",
+    "note": "The title comparison starts within the numbered solution in Example #2. No preliminary instruction sits outside it."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L27|0": {
+    "status": "fixed",
+    "quote": "Matching conduct to a ground only shows why that ground may be raised. It does not prove the facts, that the charge meets legal requirements, or guilt.",
+    "note": "The added caution separates the ground check from factual proof, legal sufficiency, and guilt; the next sentence names House and Senate decision-making."
+   },
+   "general-information-philippine-constitution#9": {
+    "status": "fixed",
+    "quote": "This reading separates deliberate disobedience from an honest mistake.",
+    "note": "The lesson explains intentional breach and gives a deliberate-disobedience application in Example #5."
+   },
+   "general-information-philippine-constitution#10": {
+    "status": "fixed",
+    "quote": "Under criminal law, it includes levying war against the Philippines or siding with its enemies and giving them aid or comfort.",
+    "note": "The lesson explains both forms and applies enemy assistance during wartime in Example #6."
+   },
+   "general-information-philippine-constitution#11": {
+    "status": "fixed",
+    "quote": "Accepting money in return for an official favor may raise this ground.",
+    "note": "The lesson explains the benefit-duty connection and tests money for an official act in Example #4."
+   },
+   "general-information-philippine-constitution#12": {
+    "status": "fixed",
+    "quote": "Giving a favored company an unlawful contract advantage may raise this ground.",
+    "note": "The lesson explains misuse for improper benefit and applies the contract-advantage case in Example #7."
+   },
+   "general-information-philippine-constitution#13": {
+    "status": "fixed",
+    "quote": "Do not assume every crime qualifies because it is illegal.",
+    "note": "The lesson gives seriousness and fitness-for-office limits, identifies interpretive uncertainty, and applies the open-ended phrase in Example #8."
+   },
+   "general-information-philippine-constitution#14": {
+    "status": "fixed",
+    "quote": "For example, repeatedly using official power in bad faith to favor allies at the public's expense may raise this ground.",
+    "note": "The lesson gives actual conduct, bad faith, and seriousness rather than repeating the label alone. Example #9 applies it."
+   },
+   "general-information-philippine-constitution#15": {
+    "status": "fixed",
+    "quote": "Conviction requires agreement by at least $\\dfrac{2}{3}$ of all Senators.",
+    "note": "The lesson adds House initiation, both one-third routes, Senate trial, conviction threshold, judgment consequences, and the one-year bar."
+   },
+   "general-information-philippine-constitution#16": {
+    "status": "fixed",
+    "quote": "It may direct officials to perform and speed up duties required by law.",
+    "note": "The lesson adds investigation, complaint access, corrective directions, records, recommended sanctions, and a delay-remedy application."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L01|0": {
+    "status": "fixed",
+    "quote": "The House and Senate must still decide the case through the proper process.",
+    "note": "The goal-related caution now separates list membership and possible grounds from proof and adjudication."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L15|0": {
+    "status": "fixed",
+    "quote": "May a Regional Trial Court judge be removed through impeachment under Article XI?",
+    "note": "The rewritten stems do not use capital NOT for emphasis. The exclusion example uses an ordinary positive question."
+   },
+   "lesson-philippine-constitution-accountability-and-impeachment|L22a|0": {
+    "status": "fixed",
+    "quote": "They must be loyal to the country and act fairly. They must also lead modest lives. Their office exists to serve the public.",
+    "note": "The public-trust teaching now uses short sentences in paragraphs of no more than three sentences."
+   }
+  }
+ }
+}
