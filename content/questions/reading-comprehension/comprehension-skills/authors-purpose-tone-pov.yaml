@@ -60,7 +60,7 @@ questions:
         rationale: |
           This turns the economic contrast into a cost study. Tourism and financial gain both appear. Check whether the text actually compares costs.
     explanation: |
-      The writer calls for leaders to act and names measures to protect the houses. Those calls make persuasion the main purpose.
+      Most details criticize demolition and support protecting the houses. The call for leaders to act reinforces persuasion as the main purpose.
   - id: "rc-cs-ap-0002"
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
@@ -86,7 +86,7 @@ questions:
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
     stem: |
-      Which point of view is used in the Vigan architectural passage?
+      Which voice does the writer use in the Vigan architectural passage?
     choices:
       - text: "First person plural, speaking as part of the community"
         correct: true
