@@ -278,3 +278,228 @@ questions:
   explanation: 'Keeping streams apart preserves source separation. This helps suitable materials remain available for their proper recovery or handling route.
 
     '
+- id: q-environment-management-environmental-concepts-0022
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'Which group consists entirely of special waste as described in the lesson?
+
+    '
+  choices:
+  - text: Food scraps, garden leaves, and grass cuttings
+    rationale: 'These are organic materials suited to composting. They belong in the compostable category.
+
+      '
+  - text: Paint, thinner, and used household batteries
+    correct: true
+  - text: Clean paper, glass bottles, and metal cans accepted for recycling
+    rationale: 'These materials can be recovered through recycling. Being recyclable does not make them special waste.
+
+      '
+  - text: Non-recyclable wrappers, food scraps, and clean paper
+    rationale: 'This group mixes non-recyclable, compostable, and recyclable waste. It is not a group of special waste.
+
+      '
+  explanation: 'Paint, thinner, and household batteries are special waste. They need to be kept apart from ordinary waste. Food scraps and garden waste belong with compostable materials.
+
+    '
+- id: q-environment-management-environmental-concepts-0023
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'A discarded wrapper cannot be recovered through the available recycling or composting process. It is not special waste. Which category fits it?
+
+    '
+  choices:
+  - text: Recyclable waste
+    rationale: 'Recyclable waste has a recovery route through recycling. The wrapper has no such route in this situation.
+
+      '
+  - text: Compostable waste
+    rationale: 'Compostable material can break down through composting. The stem rules out that route for this wrapper.
+
+      '
+  - text: Special waste
+    rationale: 'Failure to recycle an item does not make it special waste. The stem states that this wrapper is not special waste.
+
+      '
+  - text: Non-recyclable waste
+    correct: true
+  explanation: 'Non-recyclable waste cannot be recovered through the available recycling or composting process and is not special waste. The wrapper meets those conditions.
+
+    '
+- id: q-environment-management-environmental-concepts-0024
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A barangay describes its composting process in a public notice. Which description is accurate?
+
+    '
+  choices:
+  - text: Microorganisms break down organic matter under controlled conditions into a soil-like product.
+    correct: true
+  - text: Workers separate organic matter from other waste, completing composting as soon as sorting ends.
+    rationale: 'Sorting prepares materials for composting. Composting also requires the controlled breakdown of organic matter.
+
+      '
+  - text: Residents use intact containers again without changing their basic form.
+    rationale: 'Using intact items again describes reuse. It does not describe the breakdown of organic matter.
+
+      '
+  - text: A facility processes clean glass and metal into new products.
+    rationale: 'Processing glass and metal into new products describes recycling. Composting uses organic matter.
+
+      '
+  explanation: 'Composting uses microorganisms to break down organic matter in a controlled process. The result is a soil-like product. Sorting scraps is only a preparation step.
+
+    '
+- id: q-environment-management-environmental-concepts-0025
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'An office puts clean recyclable paper in a container with food scraps. Why can this make recovery harder?
+
+    '
+  choices:
+  - text: Contact with food scraps automatically turns paper into special waste.
+    rationale: 'Contamination can make recovery harder. It does not automatically place paper in the special-waste category.
+
+      '
+  - text: Paper must be mixed with food scraps before it can be recycled.
+    rationale: 'The lesson explains that keeping recyclable materials separate helps recovery. Mixing is not a required recycling step.
+
+      '
+  - text: Mixing can contaminate materials that could otherwise be recovered.
+    correct: true
+  - text: Once waste enters a container, it can no longer be used for diversion.
+    rationale: 'Containers can hold separated materials for recycling or composting. Storage in a container does not prevent diversion.
+
+      '
+  explanation: 'Food scraps can contaminate clean paper when they are mixed. Contaminated materials can be harder to recover. Keeping the streams separate helps protect useful materials.
+
+    '
+- id: q-environment-management-environmental-concepts-0026
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'A clerk writes draft notes on the unused sides of old office sheets. Another office sends old sheets to be processed into new paper. How should the actions be classified, respectively?
+
+    '
+  choices:
+  - text: Recycling and reuse
+    rationale: 'This reverses the methods. Writing on an existing sheet is reuse. Processing old paper into new paper is recycling.
+
+      '
+  - text: Reuse and recycling
+    correct: true
+  - text: Reuse and composting
+    rationale: 'The first action is reuse. The second makes new paper through processing, not compost through controlled decomposition.
+
+      '
+  - text: Segregation at source and reuse
+    rationale: 'Writing on a sheet is not waste sorting. Processing sheets into new paper changes the material instead of using each sheet again as it is.
+
+      '
+  explanation: 'The clerk uses the same sheets again without changing their basic form. That is reuse. The other office has old paper processed into new paper. That is recycling.
+
+    '
+- id: q-environment-management-environmental-concepts-0027
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'A buyer says that choosing goods with less unnecessary packaging and recycling packaging after use are both source reduction. Which correction is most accurate?
+
+    '
+  choices:
+  - text: Both actions are recycling because both involve packaging.
+    rationale: 'The material involved does not determine the method. Avoiding unnecessary packaging prevents waste from being created.
+
+      '
+  - text: Neither action supports diversion because packaging is involved.
+    rationale: 'Reduction and recycling can both keep packaging waste out of final disposal. Packaging is not excluded from diversion.
+
+      '
+  - text: Recycling is source reduction, while choosing less packaging is reuse.
+    rationale: 'Recycling processes waste that already exists. Choosing less packaging reduces waste generation and does not use an item again.
+
+      '
+  - text: Choosing less packaging is source reduction, while recycling recovers material after use.
+    correct: true
+  explanation: 'Source reduction creates less waste in the first place. Recycling processes material after use. Both can support diversion, but they act at different stages.
+
+    '
+- id: q-environment-management-environmental-concepts-0028
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'A school hires a contractor to sort its waste. Which arrangement meets the meaning of segregation at source?
+
+    '
+  choices:
+  - text: The contractor sorts the waste at the school before collection.
+    correct: true
+  - text: The contractor sorts the mixed waste after delivery to a disposal facility.
+    rationale: 'Sorting at the disposal facility happens away from the school where the waste was produced.
+
+      '
+  - text: The contractor sorts the mixed waste at an off-site warehouse after collection.
+    rationale: 'An off-site warehouse is not the source of the school waste. The sorting occurs after collection.
+
+      '
+  - text: The contractor separates the mixed waste while the collection vehicle travels away from the school.
+    rationale: 'Sorting during transport happens after collection. Source segregation takes place where the waste is produced.
+
+      '
+  explanation: 'The place and timing of sorting matter. The contractor can separate waste at the school before collection. Hiring a contractor does not move the source of the waste.
+
+    '
+- id: q-environment-management-environmental-concepts-0029
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An employee argues that a discarded consumer electronic device should go in the ordinary recyclable bin because it contains useful metal. Which response best follows the lesson?
+
+    '
+  choices:
+  - text: Any item containing metal belongs with ordinary recyclables, regardless of its waste category.
+    rationale: 'This uses only one material to classify the whole item. The lesson specifically places discarded consumer electronics in special waste.
+
+      '
+  - text: It belongs with non-recyclable waste because special waste cannot contain recoverable material.
+    rationale: 'The lesson does not define special waste by the absence of useful material. It specifically includes discarded consumer electronics.
+
+      '
+  - text: It belongs in special waste even though it may contain recoverable material.
+    correct: true
+  - text: It becomes ordinary recyclable waste as soon as it is separated from food scraps.
+    rationale: 'Separating an electronic device from food scraps does not change its classification as special waste.
+
+      '
+  explanation: 'The lesson places discarded consumer electronics in special waste. Useful metal inside a device does not remove that classification. Keep the device apart from ordinary waste for proper handling.
+
+    '
+- id: q-environment-management-environmental-concepts-0030
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An office starts buying supplies with less packaging, uses empty jars for storage, and sends garden waste for controlled breakdown into compost. Which sequence correctly names these actions?
+
+    '
+  choices:
+  - text: Reuse, recycling, and composting
+    rationale: 'Using less packaging is reduction, not reuse. Using an intact jar again is reuse, not recycling.
+
+      '
+  - text: Reduction, reuse, and composting
+    correct: true
+  - text: Reduction, recycling, and segregation at source
+    rationale: 'Using intact jars again does not process them into new material. Controlled breakdown into compost is composting, not merely sorting.
+
+      '
+  - text: Segregation at source, reuse, and recycling
+    rationale: 'Buying less packaging prevents waste instead of sorting it. Turning garden waste into compost is composting.
+
+      '
+  explanation: 'Less packaging means less waste is created. That is reduction. The same jars get another use, so that is reuse. Controlled breakdown of garden waste into compost is composting.
+
+    '
