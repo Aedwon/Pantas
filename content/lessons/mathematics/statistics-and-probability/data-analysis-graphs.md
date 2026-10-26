@@ -4,50 +4,68 @@ title: "Data Analysis and Graph Interpretation (Pie Charts, Bar Graphs, Scatter 
 summary: "How to read pie charts, bar graphs, scatter plots, and graph scales and compute values from them."
 subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
-estimatedMinutes: 13
+estimatedMinutes: 15
 isActive: true
 ---
 ## Core Concept
 
-Graph questions mix careful reading with arithmetic. Before calculating, check what each axis, label, scale, or sector means.
+Graph questions mix careful reading with arithmetic. Check the title, labels, units, and scale before calculating.
 
-**Pie charts** show parts of a whole. A full circle is $360^\circ$ and represents $100\%$ of the total.
+### Pie Charts
 
-$$\text{percent of total}=\dfrac{\text{sector angle}}{360^\circ}\times100\%$$
+**Pie charts** show parts of a whole. A **sector** is one slice. The full circle is $360^\circ$ and represents $100\%$ of the total.
 
-$$\text{sector angle}=\text{proportion of whole}\times360^\circ$$
+Let $a$ be the sector angle in degrees. Let $p$ be its share written as a decimal, such as $0.25$ for $25\%$.
+
+$$p=\dfrac{a}{360^\circ}$$
+
+$$\text{percent}=p\times100\%$$
+
+$$a=p\times360^\circ$$
+
+To find the amount in a sector, multiply its share by the whole amount.
+
+$$\text{amount}=p\times\text{total}$$
 
 A sector of $90^\circ$ is one quarter of the whole. A sector of $180^\circ$ is one half.
 
 <!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Food (90°)", "Rent (126°)", "Transport (72°)", "Savings (72°)"], "values": [90, 126, 72, 72], "semanticsLabel": "A pie chart of a monthly budget with food at 90 degrees, rent at 126 degrees, transport at 72 degrees, and savings at 72 degrees."} -->
 
-**Bar graphs** compare values by bar height or length. Read the axis labels, units, and tick marks before reading a bar.
+### Bar Graphs and Scales
 
-To find the value of one small step on an axis, find the difference between two labeled values and divide by the number of equal spaces between them.
+**Bar graphs** compare values by bar height or length. An **axis** is a numbered line along a graph. Its tick marks divide the scale into steps.
 
-A **truncated axis** is an axis that leaves out part of the scale, often by starting above $0$. This can make two bars look more different than their numbers really are. Read the numbers, not only the bar heights.
+To find one small step, subtract two labeled values. Divide that difference by the number of equal spaces between them.
 
-The **mean** is the sum of the values divided by the number of values.
+$$\text{step size}=\dfrac{\text{difference}}{\text{spaces}}$$
+
+A **truncated axis** leaves out part of the scale, often by starting above $0$. This can make bars look more different than their values are. Read the numbers as well as the heights.
+
+The **mean** is the average. Add the values, then divide by how many values there are.
 
 $$\text{mean}=\dfrac{\text{sum of values}}{\text{number of values}}$$
 
-For percent change, compare the change with the original value.
+For **percent change**, compare the change with the starting value. Let $N$ be the new value and $S$ be the starting value.
 
-$$\text{percent change}=\dfrac{\text{new value}-\text{original value}}{\text{original value}}\times100\%$$
+$$\text{change}=N-S$$
 
-For a percent increase, the new value is larger than the original value. The original value stays in the denominator.
+$$\text{percent change}=\dfrac{N-S}{S}\times100\%$$
 
-**Scatter plots** show pairs of numbers as dots. A roughly straight pattern is called a **linear association**.
+The starting value must be greater than $0$ for the usual percent-change comparison. A positive result shows an increase. A negative result shows a decrease.
 
-- An upward straight pattern shows a **positive linear association**.
-- A downward straight pattern shows a **negative linear association**.
-- If there is no clear straight pattern, there may be little or no linear association.
+### Scatter Plots
 
-The dots can still make a clear curved pattern even when there is little straight-line pattern. Look at the whole shape before saying there is no relationship.
+**Scatter plots** show pairs of numbers as dots. Each dot gives both values for one person or item. A roughly straight pattern is called a **linear association**.
+
+- An upward straight pattern shows a **positive linear association**: larger values of one tend to go with larger values of the other.
+- A downward straight pattern shows a **negative linear association**: larger values of one tend to go with smaller values of the other.
+- No clear straight pattern may mean little or no linear association.
+
+Dots may still form a clear curve when they do not follow a straight line. Look at the whole shape before saying there is no relationship.
 
 <!-- FIGURE: {"kind": "chart", "type": "scatter", "plots": ["upward", "downward", "random"], "semanticsLabel": "Three scatter plots side by side showing an upward linear trend, a downward linear trend, and a random cloud of points."} -->
 
-**Correlation** means two values show a pattern together. **Causation** means a change in one thing causes a change in another. A scatter plot by itself can show a pattern, but it does not prove cause.
+**Correlation** means two values show a pattern together. **Causation** means a change in one thing causes a change in another. A scatter plot alone does not prove cause.
 
 ## Examples
 
@@ -58,11 +76,11 @@ A family's monthly budget of $12{,}000$ pesos is shown in a pie chart. The food 
 <!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Food (90°)", "Other (270°)"], "values": [90, 270], "semanticsLabel": "A pie chart of a monthly budget with the food sector marked as a 90-degree slice."} -->
 
 **Solution:**
-1. Find the fraction of the circle.
+1. Find food's share of the circle.
 
-$$\dfrac{90}{360}=\dfrac14$$
+$$p=\dfrac{90}{360}=\dfrac14$$
 
-2. Apply that fraction to the total budget.
+2. Multiply by the total budget.
 
 $$\dfrac14(12000)=3000$$
 
@@ -75,11 +93,12 @@ A survey shows that $35\%$ of students walk to school. In a pie chart of the sur
 <!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Walkers (35%, ?°)", "Other (65%)"], "values": [35, 65], "semanticsLabel": "A pie chart with the walkers sector labeled 35 percent and its central angle marked with a question mark."} -->
 
 **Solution:**
-1. Change $35\%$ to $0.35$ and multiply by a full circle.
+1. Write $35\%$ as the decimal $0.35$.
+2. Multiply by the angle of a full circle.
 
 $$0.35(360^\circ)=126^\circ$$
 
-2. The sector measures $126^\circ$.
+3. The sector measures $126^\circ$.
 
 ### #3: Bar Graph Comparison
 
@@ -90,42 +109,42 @@ A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $
 **Solution:**
 1. Find the mean of Monday through Thursday.
 
-$$\dfrac{40+55+35+60}{4}=47.5$$
+$$40+55+35+60=190$$
 
-2. Subtract the mean from Friday's value.
+$$\dfrac{190}{4}=47.5$$
+
+2. Subtract that mean from Friday's value.
 
 $$85-47.5=37.5$$
 
-3. The graph uses thousands of pesos, so the difference is $37{,}500$ pesos.
+3. The unit is thousands of pesos. The difference is $37{,}500$ pesos.
 
 ### #4: Read an Axis Scale
 
-A bar graph has labeled y-axis values at $0,10,20,30,$ and $40$. There is one small tick halfway between each pair of labeled values.
+A bar graph shows the number of requests handled by an office. The vertical axis is labeled $0,10,20,30,$ and $40$, with one small tick halfway between each pair of labels. The bar ends at the small tick between $20$ and $30$. How many requests were handled?
 
-A bar reaches the small tick between $20$ and $30$. What value does the bar show?
-
-<!-- ILLUSTRATION: bar graph with y-axis labels 0, 10, 20, 30, and 40, one halfway tick between each pair, and one unlabeled bar reaching the halfway tick between 20 and 30 -->
+<!-- ILLUSTRATION: bar graph titled Requests Handled, vertical axis labeled Requests at 0, 10, 20, 30, and 40 with one halfway tick between each pair, horizontal axis labeled Office with one bar labeled A ending at the halfway tick between 20 and 30, no value printed on the bar -->
 
 **Solution:**
-1. From $20$ to $30$ is a difference of $10$. One halfway tick makes $2$ equal spaces.
+1. The gap from $20$ to $30$ contains $2$ equal spaces.
 
-$$\dfrac{10}{2}=5$$
+$$\text{step size}=\dfrac{30-20}{2}=5$$
 
-2. Each small step is $5$. The halfway tick above $20$ is:
+2. The bar ends one step above $20$.
 
 $$20+5=25$$
 
-3. The bar shows $25$.
+3. The office handled $25$ requests.
 
 ### #5: Reading a Scatter Plot
 
-A scatter plot pairs each student's hours of sleep with the number of mistakes on a quiz. The dots make a roughly straight downward pattern from upper left to lower right. What association is shown, and what can be concluded?
+A scatter plot pairs each student's hours of sleep with the number of mistakes on a quiz. Its dots form a roughly straight downward pattern from upper left to lower right. What association is shown, and does the graph prove that more sleep causes fewer mistakes?
 
 <!-- FIGURE: {"kind": "chart", "type": "scatter", "trend": "downward", "xLabel": "Hours of sleep", "yLabel": "Mistakes", "semanticsLabel": "A scatter plot showing hours of sleep against mistakes with points trending downward from left to right."} -->
 
 **Solution:**
-1. The downward straight pattern shows a negative linear association. In this data set, students with more sleep tended to make fewer mistakes.
-2. The graph does not prove that more sleep caused fewer mistakes. Something else could affect both sleep and mistakes.
+1. The downward pattern shows a negative linear association. Students with more sleep tended to make fewer mistakes in this data set.
+2. The graph does not prove that sleep caused the change. Other things, such as time spent studying, could affect the results.
 
 ### #6: Percent Change from a Graph
 
@@ -138,21 +157,39 @@ A bar graph shows a school's enrollment: $1{,}500$ students in $2023$ and $1{,}8
 
 $$1800-1500=300$$
 
-2. Divide the increase by the original value.
+2. Divide by the starting enrollment and change to a percent.
 
-$$\dfrac{300}{1500}=0.20$$
+$$\dfrac{300}{1500}\times100\%=20\%$$
 
-3. Change the decimal to a percent. The enrollment increased by $20\%$.
+3. Enrollment increased by $20\%$.
+
+### #7: The Same Values on Different Scales
+
+Two bar graphs show $100$ requests in April and $110$ in May. Graph A has a vertical axis from $0$ to $120$. Graph B has a vertical axis from $90$ to $120$. Which graph makes the increase look larger, and what is the actual percent increase?
+
+<!-- ILLUSTRATION: two side-by-side bar graphs of Requests with April at 100 and May at 110; Graph A has vertical labels 0 through 120 in steps of 10; Graph B has vertical labels 90, 100, 110, 120 and a clearly shown axis break below 90; print 100 and 110 above their respective bars in both graphs -->
+
+**Solution:**
+1. Graph B makes the increase look larger. Above its starting line of $90$, the bars have visible lengths of $10$ and $20$. The second looks twice as long.
+2. The request counts are still $100$ and $110$. Find the actual increase.
+
+$$110-100=10$$
+
+3. Compare the increase with April's count.
+
+$$\dfrac{10}{100}\times100\%=10\%$$
+
+4. Both graphs show a $10\%$ increase. Changing the axis does not change the counts.
 
 ## Speed Tricks & Shortcuts
 
-Useful pie-chart anchors are $36^\circ=10\%$, $90^\circ=25\%$, $120^\circ=\dfrac13$ of a circle, and $180^\circ=50\%$.
+Useful pie-chart anchors are $36^\circ=10\%$, $90^\circ=25\%$, and $180^\circ=50\%$. A $120^\circ$ sector is $\dfrac13$ of a circle.
 
-For graph questions, read the prompt first. Then record the needed values and units before calculating.
+Read the prompt first. Record the needed values and units before calculating.
 
-On an axis, count spaces, not tick marks. Equal spaces represent equal changes in value.
+Count spaces on an axis, not tick marks. Equal spaces represent equal changes in value.
 
-For a scatter plot, ask whether there is a pattern and whether it is roughly straight. Then ask whether the graph alone proves that one thing caused the other. These are different questions.
+For a scatter plot, check the direction and shape. Then check whether the question asks about a pattern or a cause.
 
 ## Traps to Watch For
 
@@ -160,28 +197,28 @@ For a scatter plot, ask whether there is a pattern and whether it is roughly str
 
 > A pie-chart percent is a percent of the whole chart.
 
-If one sector is $25\%$ and another is $35\%$, the second is $10$ percentage points larger. It is $40\%$ larger compared with the first sector, which is a different question.
+Sectors of $25\%$ and $35\%$ differ by $10$ percentage points. Compared with the smaller sector, the increase is $\dfrac{10}{25}\times100\%=40\%$. These answer different questions.
 
 ### #2: Truncated Axes
 
-> An axis that starts above $0$ can make differences look larger.
+> An axis starting above $0$ can make differences look larger.
 
-A truncated axis is not always wrong. Check whether the labels and scale let you read the values correctly.
+A bar that looks twice as long may not show twice the value. Check the starting label before making that claim.
 
 ### #3: Correlation and Causation
 
 > A pattern in a scatter plot does not by itself prove cause.
 
-Use words such as "tends to" when the graph only shows a pattern. Do not say one thing caused another unless the problem gives enough evidence.
+Use "tends to" when the graph only shows a pattern. A claim that one thing caused another needs more evidence.
 
 ### #4: Curved Patterns
 
 > No straight-line pattern does not always mean no relationship.
 
-The dots may follow a curve. Look at the shape of the points before deciding there is no pattern.
+Dots may follow a curve. Saying "no relationship" without checking the shape can miss that pattern.
 
 ### #5: Percent Change Uses the Starting Value
 
 > Divide the change by the original value.
 
-Going from $1500$ to $1800$ is a $20\%$ increase. Going back uses $1800$ as the starting value, so the percent decrease is different.
+Going from $1500$ to $1800$ is a $20\%$ increase. Going back starts at $1800$, so it gives a different percent decrease.
