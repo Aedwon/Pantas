@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-language-application-error-identification"
+ ],
+ "topic": "language-proficiency/language-application",
+ "rewrites": {
+  "lesson-language-application-error-identification": "a352426c6d74e4eb28f3d26ad6d3a2e196850cba"
+ },
+ "sha256": {
+  "lesson-language-application-error-identification": "1afe53aad0429c547f35181d189f3f4764afac006669794b295205ec9a45a5bc"
+ },
+ "paths": {
+  "lesson-language-application-error-identification": "content/lessons/language-proficiency/language-application/error-identification.md"
+ },
+ "id": "RD-115",
+ "type": "read",
+ "created": "2026-10-26T05:49:23+00:00"
+}
