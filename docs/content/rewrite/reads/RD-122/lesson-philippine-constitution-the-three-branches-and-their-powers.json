@@ -1,0 +1,203 @@
+{
+ "batch": "RD-122",
+ "lesson_id": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+ "path": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+ "lesson_sha256": "6aa3d8838e42f68b8a333b25119a617d724011190b9cd6e5c1c70547e2b0eafa",
+ "rewrite_commit": "a42fc76a97efbcb7b8b75049148615612faa64d5",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "role": "A",
+  "lesson_sha256": "6aa3d8838e42f68b8a333b25119a617d724011190b9cd6e5c1c70547e2b0eafa",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the branch powers and cited article/section numbers with the legal provisions described in the supplied brief: House origination, budget limit, inquiries, war, veto, appointments, martial law, clemency and treaties. No conflicting statement identified from the supplied material.",
+     "Checked Senate 24/6/2, House 250 subject to law/20 percent/3/3, President 6, Supreme Court 1+14 and divisions 3/5/7, judicial retirement 70, JBC minimum 3, and qualification ages and experience against the supplied outline. The judicial-power quotation matches the constitutional wording reproduced here. External source verification was excluded by the assignment."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 Congress, President, courts; 2 Senate 6 years/2 consecutive terms, House 3/3; 3 revenue must originate in House, education only if in a reserved category; 4 House 200, Senate 16.",
+     "5 Ambassador needs consent, Supreme Court Justice does not; 6 all three acts invalid: 90 exceeds initial 60, impeachment cannot be pardoned, election pardon needs COMELEC recommendation; 7 16 Senators.",
+     "8 15 Members, divisions 3/5/7, judicial branch; 9 Ana Representative, Ben Representative and Senator, Cara all three; 10 no, only 14 years, and lower courts have additional requirements; 11 no commission appointment after immediately preceding candidacy, and 35 is below Ombudsman age 40; 12 legislative override followed by judicial review. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, real voting/age shortcuts and Traps are present. All four outline facets appear: legislative, executive, judicial and non-CSC officer qualifications.",
+     "Twelve examples use the expressly allowed merges of emergency/clemency and composition/review. Branch columns, martial-law timeline, qualification ladder and checks arrows each have an illustration placeholder. Amnesty application coverage is assessed separately under L18."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The difficult constitutional quotation is immediately restated in simple sentences. At large, consecutive, originate, concurrence, en banc, CPA, auditing, probity and natural-born receive plain explanations. Other teaching paragraphs are short and direct."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No instruction verb with a special exam meaning occurs in the questions.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "There are no teaching analogies; the maximum of one is respected."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Reviewed all 12 stems: hypothetical membership, ages, experience and prior candidacy are supplied where needed. The stems ask students to select legal rules, without printing the answers as givens. Solutions explain the legal results directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or unsupported claims about exam frequency."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino-language teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning of a target word in bold.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject directly. Teaching uses varied openings and none of the listed stock phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information permits the four sections used, including genuine age and voting shortcuts. The mathematics-only formula-before-example requirement does not apply. Examples 4 and 7 calculate two-thirds times membership; Core Concept already states the corresponding two-thirds legal thresholds."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Amnesty is separate and needs congressional concurrence, plus COMELEC's favorable recommendation if it covers election offenses.",
+      "problem": "The brief requires a worked amnesty-concurrence case, allowing its merger with martial law and pardon. Example 6 asks only about martial law and two pardons. Its added amnesty sentence gives a rule but never applies it to a question. Add an amnesty decision to that merged example."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4 and 7 number the fraction calculations and display both multiplications. Examples 6, 8, 10 and 11 number their separate decisions. Other examples give direct recall or classification answers without hidden computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The three displayed computations are short: two-thirds times 300 equals 200, and two-thirds times 24 equals 16 twice."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs have one to three sentences. The single four-item bill-category list groups necessary categories. Numbered lists are reserved for worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All four placeholders are single-line drawing instructions. Columns name each branch and role, the timeline identifies 48 hours and 60 days, the ladder names offices at each age, and arrow labels state each check. Text independently teaches all four concepts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Bill, originate, veto, override, all Members, martial law, habeas corpus, pardon, amnesty, concurrence, treaty, judicial review, en banc, natural-born, Bar membership, CPA and impeachment receive meanings before examples require them. Judicial power is explained immediately after its exact quotation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Congress teaching explains how bills start and vetoes are overridden. Executive teaching explains appointments, emergency powers, clemency and treaties. Courts settle actual disputes and check abuse; the qualification comparisons explain age, citizenship, residence and professional requirements."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked House-only bill categories and Senate amendments; all-members voting; invasion/rebellion plus public safety; initial emergency duration, report, revocation, extension and review; pardon limits; appointment exceptions; party-list residence exception; and additional lower-court qualifications. Shortcuts explicitly warn age alone is insufficient."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
