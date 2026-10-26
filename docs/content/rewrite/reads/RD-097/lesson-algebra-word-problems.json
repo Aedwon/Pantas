@@ -1,0 +1,267 @@
+{
+ "batch": "RD-097",
+ "lesson_id": "lesson-algebra-word-problems",
+ "path": "content/lessons/mathematics/algebra/word-problems.md",
+ "lesson_sha256": "8668201c527c888d402b3d3d74ebb8a3f61e044dba2808ba091e5493947914b3",
+ "rewrite_commit": "a6992842cd86b9460d2c24a4e1c2507081c731bc",
+ "form": {
+  "packet": "lesson-algebra-word-problems",
+  "role": "A",
+  "lesson_sha256": "8668201c527c888d402b3d3d74ebb8a3f61e044dba2808ba091e5493947914b3",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Verified same-time age changes, relative-speed addition/subtraction under straight-path steady-speed conditions, summed work rates, mixture conservation, coin value/count, and decimal digit place values. Unsupported claims about exam scope and answer choices are absent."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 Ana 18 and Ben 6; #2 350/(60+80)=2.5 hours; #3 270/(50+40)=3 hours; #4 40/(90-70)=2 hours; #5 1/(1/6+1/3)=2 hours; #6 16 liters; #7 eight 5-peso coins; #8 original 36, reversed 63. The shortcut also gives 18/9=2 hours. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All six title families and the three requested motion cases appear. Required core, examples, shortcuts, and traps are present. No question depends on an unseen figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Work time is explained as dividing one job by its rate. Units, concentration, and percentages are explained with simple sentences. No reciprocal terminology remains."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Find is an everyday command and needs no definition; the lesson nevertheless explains it. No unexplained specialized exam instruction appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each stem supplies necessary ages, gaps, speeds, job times, concentrations, counts, or digit relationships. Motion directions and steady rates are explicit; mixture volume conservation is explicit. Solutions use simple numbered instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about exam frequency or repeated exam openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic plainly; sentence openings vary and no listed stock phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Age shifts and unchanged age differences are taught before #1. Core states d=rt and relative speeds before #2-4, rate=1/time in words, summed rates, t=1/r and ab/(a+b) before #5, percent/100 and pure amount=concentration times total before #6, count and coin-count times value before #7, and 10t+u plus 10u+t before #8."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples retain age, work, mixture, coin, and digit cases and now separately work moving apart, moving toward, and same-direction chase. These motion cases use different gap relationships, not mere number substitutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step examples use numbered solution lists and show their key computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display equations are short enough for a phone screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs contain at most three short sentences; lists serve steps or distinct cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No placeholders occur; all questions supply complete numerical and verbal information.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Rate, distance/time symbols, kph, km, relative speed, work rate, concentration, percent, and digit/place value meanings are supplied before use. Percent-to-decimal conversion is explicitly shown before the mixture solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Age teaching explains why both ages change equally. Relative speed explains changing gaps. Work rates explain joint work and inverse time. Pure-part conservation explains mixtures; separate count/value and tens/units relationships explain coin and digit equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Motion shortcuts require steady speeds and the same straight path; chase requires the faster object behind. Work shortcut requires positive steady rates on the same whole job for the full shared interval. Mixtures assume conserved contents and additive volumes; digit restrictions exclude leading zero."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-algebra-word-problems|L18|0": {
+    "status": "fixed",
+    "quote": "Two towns are $270$ km apart on a straight road.",
+    "note": "Examples 3 and 4 add toward-each-other and chase solutions."
+   },
+   "lesson-algebra-word-problems|B01|0": {
+    "status": "fixed",
+    "quote": "Word problems give relationships in sentences.",
+    "note": "The opening now describes word problems without an exam-scope assertion."
+   },
+   "lesson-algebra-word-problems|B01|1": {
+    "status": "fixed",
+    "quote": "Reporting $6$ would answer a different question.",
+    "note": "The trap explains the mistaken answer without claiming it always appears among choices."
+   },
+   "lesson-algebra-word-problems|L02|0": {
+    "status": "fixed",
+    "quote": "3. Divide $1$ job by the combined rate to find the time in hours.",
+    "note": "The work solution replaces reciprocal with a plain division instruction."
+   },
+   "lesson-algebra-word-problems|L27|0": {
+    "status": "fixed",
+    "quote": "Each must keep a steady positive rate on the same job.",
+    "note": "Core Concept states same job, full shared interval, and steady positive rates."
+   },
+   "lesson-algebra-word-problems|L27|1": {
+    "status": "fixed",
+    "quote": "When objects move at steady speeds along the same straight path, **relative speed** tells how fast the gap changes.",
+    "note": "The speed shortcut now states its steady-speed and path conditions."
+   },
+   "lesson-algebra-word-problems|L03|0": {
+    "status": "fixed",
+    "quote": "When a question says **find**, give the value it asks for.",
+    "note": "The everyday command is explicitly explained, although not required."
+   },
+   "lesson-algebra-word-problems|L05|0": {
+    "status": "fixed",
+    "quote": "3. Divide $1$ job by the combined rate to find the time in hours.",
+    "note": "The worked solution now uses simple language without reciprocal."
+   },
+   "lesson-algebra-word-problems|L17|0": {
+    "status": "fixed",
+    "quote": "$$t=\\dfrac{1}{r}$$",
+    "note": "Core Concept states inverse time before the work example uses it."
+   },
+   "lesson-algebra-word-problems|L19|0": {
+    "status": "fixed",
+    "quote": "1. Let $b$ be Ben's age now. Ana's age now is $3b$.",
+    "note": "The age variable setup is now inside the numbered solution."
+   },
+   "lesson-algebra-word-problems|L19|1": {
+    "status": "fixed",
+    "quote": "$$3(6)=18$$",
+    "note": "The requested age computation is now a separate display equation."
+   },
+   "lesson-algebra-word-problems|L21|0": {
+    "status": "fixed",
+    "quote": "$$r_{\\text{together}}=\\dfrac{1}{2}$$",
+    "note": "The long combined rate computation is split into short display lines."
+   },
+   "lesson-algebra-word-problems|L25|0": {
+    "status": "fixed",
+    "quote": "divide $1$ by that rate to find the hours for $1$ job:",
+    "note": "The unexplained reciprocal term is removed and the operation is taught."
+   },
+   "lesson-algebra-word-problems|L25|1": {
+    "status": "fixed",
+    "quote": "Divide a percent number by $100$ to write it as a decimal:",
+    "note": "Core Concept teaches conversion and the example repeats it for all concentrations."
+   }
+  }
+ }
+}

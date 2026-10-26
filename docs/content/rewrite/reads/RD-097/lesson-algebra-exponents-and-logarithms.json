@@ -1,0 +1,262 @@
+{
+ "batch": "RD-097",
+ "lesson_id": "lesson-algebra-exponents-and-logarithms",
+ "path": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+ "lesson_sha256": "0a482a9c104bcac571048d385e88c38d338ed85615c72b09a1ef1ab738387b06",
+ "rewrite_commit": "a6992842cd86b9460d2c24a4e1c2507081c731bc",
+ "form": {
+  "packet": "lesson-algebra-exponents-and-logarithms",
+  "role": "A",
+  "lesson_sha256": "0a482a9c104bcac571048d385e88c38d338ed85615c72b09a1ef1ab738387b06",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked exponent laws algebraically, including the negative-base counterexample: sqrt((-1)^2)=1 but (-1)^1=-1. Log laws and inverse identities have valid positive-argument and base restrictions. No unsupported exam claims remain."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 4; #2 x^5/y^2; #3 1/4; #4 4; #5 x=9 with positive argument 8; #6 log(x^2 y/z^3); #7 x=5; #8 2a+b. All agree with the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, genuine law reminders, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. Zero powers and all cases specified in the brief are included; none needs a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions and explanations use short sentences; integer, root, and logarithm receive plain meanings. The negative-base warning is demonstrated with small numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Simplify, Evaluate, Express, and Solve are defined in Core Concept before their first question use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eight stems specify the expression or equation and needed domain restrictions. No stem supplies a solution method. Numbered solutions use simple instructions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claims about exam frequency or repeated exam openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in a passage.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic plainly; sentence openings vary and no listed stock phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept introduces zero-power identity (#1), same-base product/quotient and negative powers (#2), reciprocal and root rules (#3), log-to-power equivalence (#4 and #5), log power/product/quotient rules (#6 and #8), and power-of-power plus equal-base exponent equality (#7). No example introduces a new general formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover zero powers, combined same-base operations, negative fractional powers, direct logarithm evaluation, unknown argument with domain check, log condensation, exponential equations, and given-log substitution. The zero-power case precedes combined manipulations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step examples use numbered solution lists and show their key computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display equations are short enough for a phone screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs contain at most three short sentences; lists serve steps or distinct cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No illustration placeholder is present or needed for these symbolic examples.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Base and exponent are tied to repeated multiplication; integer and nth root are defined; common logarithm is defined before #6. Equal-base uniqueness is stated without unexplained one-to-one terminology."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "1. The argument must be positive.",
+      "problem": "Argument is used as a technical logarithm term without explaining that it is the expression inside the logarithm. No prerequisite explanation is supplied."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Repeated multiplication explains positive powers; division by the same nonzero power explains zero powers. Negative powers, roots, logarithms as unknown exponents, and product-log addition are explained before use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked nonzero restrictions for zero and negative powers, positive bases for real exponent laws, integer-only extension to negative bases, the fractional negative-base counterexample, and positive arguments with valid log bases."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-algebra-exponents-and-logarithms|L18|0": {
+    "status": "fixed",
+    "quote": "Evaluate $7^0+3$.",
+    "note": "Example 1 explicitly works the missing zero-exponent case."
+   },
+   "lesson-algebra-exponents-and-logarithms|L03|0": {
+    "status": "fixed",
+    "quote": "**Simplify** means rewrite an expression in a shorter equivalent form.",
+    "note": "The command is defined before the simplifying question."
+   },
+   "lesson-algebra-exponents-and-logarithms|L03|1": {
+    "status": "fixed",
+    "quote": "**Evaluate** means find the final number answer.",
+    "note": "The command is defined before the first evaluation question."
+   },
+   "lesson-algebra-exponents-and-logarithms|L03|2": {
+    "status": "fixed",
+    "quote": "**Express** means write the answer in the form the question asks for.",
+    "note": "The command is defined before log condensation."
+   },
+   "lesson-algebra-exponents-and-logarithms|L19|0": {
+    "status": "fixed",
+    "quote": "1. Let $x$ be the logarithm's value. Rewrite it as a power equation.",
+    "note": "The direct logarithm example now uses three numbered steps."
+   },
+   "lesson-algebra-exponents-and-logarithms|L25|0": {
+    "status": "fixed",
+    "quote": "Thus, if $b^u=b^v$, then $u=v$.",
+    "note": "Equal-base exponent equality is taught before the equation example."
+   },
+   "lesson-algebra-exponents-and-logarithms|L25|1": {
+    "status": "fixed",
+    "quote": "A logarithm written as $\\log(x)$ with no base shown is the **common logarithm**, with base $10$ in this lesson.",
+    "note": "Common logarithm is explained in Core Concept before use."
+   },
+   "lesson-algebra-exponents-and-logarithms|L26|0": {
+    "status": "fixed",
+    "quote": "Dividing a nonzero power by itself explains why:",
+    "note": "The zero-power law now has a division-based explanation."
+   },
+   "lesson-algebra-exponents-and-logarithms|L27|0": {
+    "status": "fixed",
+    "quote": "This rule also holds for a positive base and real exponents.",
+    "note": "Conditions distinguish positive real bases from negative integer-base cases."
+   },
+   "lesson-algebra-exponents-and-logarithms|B01|0": {
+    "status": "fixed",
+    "quote": "With a negative base and fractional exponents, the shortcut can fail even when both sides have real values:",
+    "note": "The formerly false blanket statement is restricted and a counterexample is shown."
+   },
+   "lesson-algebra-exponents-and-logarithms|L03|3": {
+    "status": "fixed",
+    "quote": "**Solve** means find all values that make an equation true.",
+    "note": "Solve now has a definition before the equation questions."
+   },
+   "lesson-algebra-exponents-and-logarithms|L18|1": {
+    "status": "fixed",
+    "quote": "Solve $\\log_2(x-1)=3$.",
+    "note": "Example 5 works an unknown log argument and checks its domain."
+   }
+  }
+ }
+}
