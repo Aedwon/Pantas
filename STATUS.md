@@ -108,3 +108,14 @@ Requeue batch RW-007 holds the three RA 6713 lessons whose reads found Major pro
 - Time: rewrites 15:34 to 18:31, reads 15:56 to 19:03 (two accounts, part-time pasting).
 - Length: the 15 lessons went from 9,965 to 20,996 words (about 1,400 per lesson, within the
   1,700 ceiling).
+
+## Final state (October 27)
+
+| Phase | State | Evidence |
+|---|---|---|
+| P1/P2 lesson rewrite and reads | done: 90 lessons (78 scope + 8 split parts + 4 new lessons); 86 clean, 4 minor-only, 0 Blocker or Major | `docs/content/audit/cse-rewrite-ledger.md` (lead rulings, final state) |
+| P4 questions | done: 243 new questions (all CSE files at 20+); blind solves of 1,343 questions (1 key fixed); 94 figure questions checked (2 fixed, 11 need Aedwon's visual check); 54 files synced to rewritten lessons | `docs/content/audit/cse-blind-solve-r1.md` |
+| P5 Astra audit | done: 27 findings on General Information, 26 verified and fixed | `docs/content/audit/cse-astra-audit.md`, `cse-astra-verdicts.md` |
+| Roadmap inputs (E8) | done: `content/lesson-prerequisites.json` (4 required, 60 helpful), `content/question-gap-tags.json` (116 tags) | spec on main `docs/superpowers/specs/2026-10-26-prerequisite-roadmap-design.md` |
+| P3 figures | paused by Aedwon: 86 drawn from briefs; 58 committed; 28 in 6 lessons wait for one fix round; visual media keeps its PNGs | `docs/content/rewrite/figure-briefs/`, review notes in session scratchpad |
+| Open for Aedwon | confirm two lead rulings (penalties Section 11(c) framing; citizenship treated as English); review content; visual check of 11 figure questions; figures when resumed; build and upload (E7) | ledger |
