@@ -61,7 +61,9 @@ Basahin muna ang buong pangungusap. Piliin ang salitang akma sa kahulugan, wasto
 
 Ang **pang-ugnay** (connector) ay nagdurugtong ng mga salita o ideya. Ang *dahil* ay maaaring magpakita ng dahilan; ang *kaya* ay nagpapakita ng bunga. Ang *ngunit* ay nagpapakita ng pagsalungat.
 
-May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking tulong* at *matinding ulan*. Dapat ding akma ang buong parirala sa sinasabi ng pangungusap.
+May mga salitang karaniwang magkasama sa gamit. Halimbawa, likas ang *malaking tulong* at *matinding ulan*. Ang **parirala** (phrase) ay pangkat ng mga salitang magkakaugnay.
+
+Dapat ding akma ang buong parirala sa sinasabi ng pangungusap.
 
 ## Examples
 
