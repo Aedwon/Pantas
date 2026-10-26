@@ -491,7 +491,7 @@ questions:
           This confuses opposite with overlapping. A and C have one square between them in the strip. Track their directions after two folds.
       - text: "B and D overlap."
         rationale: |
-          This treats separated row positions as the same face. B and D face across the cube. Check whether their normals point toward or away from each other.
+          This treats separated row positions as the same face. B and D face across the cube. Track where each face lands after folding.
       - text: "The row cannot form four side faces."
         rationale: |
           This treats the strip itself as invalid. Four faces in a row can wrap around a cube. Check the end squares for the actual conflict.
