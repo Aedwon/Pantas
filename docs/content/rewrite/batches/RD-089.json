@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement"
+ ],
+ "topic": "general-information/code-of-conduct-ra-6713",
+ "rewrites": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "354d003762468f1e1fb1c7a383a70596586db9bb"
+ },
+ "sha256": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "c29145721b634e4aa751f6718caed0aa904441eb699e28e39eb08be8408c4ec3"
+ },
+ "paths": {
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": "content/lessons/general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md"
+ },
+ "id": "RD-089",
+ "type": "read",
+ "created": "2026-10-26T03:26:41+00:00"
+}
