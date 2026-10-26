@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-vocabulary-idioms-and-figures-of-speech"
+ ],
+ "topic": "language-proficiency/vocabulary",
+ "rewrites": {
+  "lesson-vocabulary-idioms-and-figures-of-speech": "277bc88e87d8d09e3538c96763fd18b65421467c"
+ },
+ "sha256": {
+  "lesson-vocabulary-idioms-and-figures-of-speech": "77e8224982884c0b0b576ea2cc451ecf9a7ce042890aeb49dd6100dc21a4bc6c"
+ },
+ "paths": {
+  "lesson-vocabulary-idioms-and-figures-of-speech": "content/lessons/language-proficiency/vocabulary/idioms-and-figures-of-speech.md"
+ },
+ "id": "RD-116",
+ "type": "read",
+ "created": "2026-10-26T05:50:13+00:00"
+}
