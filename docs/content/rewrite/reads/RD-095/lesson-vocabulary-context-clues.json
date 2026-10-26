@@ -1,0 +1,265 @@
+{
+ "batch": "RD-095",
+ "lesson_id": "lesson-vocabulary-context-clues",
+ "path": "content/lessons/language-proficiency/vocabulary/context-clues.md",
+ "lesson_sha256": "23af9955aea5ff794250e78b2c6112feb6584ad80cb95200b9c3cbb8b973890e",
+ "rewrite_commit": "b31bc8fcf5026753c837f0531b0f10f84989ec06",
+ "form": {
+  "packet": "lesson-vocabulary-context-clues",
+  "role": "A",
+  "lesson_sha256": "23af9955aea5ff794250e78b2c6112feb6584ad80cb95200b9c3cbb8b973890e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the five clue types, file a complaint, slim/scrawny, formal request/ask for, and the meanings edict, nocturnal, courteous, gregarious, platitudes, ikinubli, and furnish. No factual error is apparent from the supplied text; external source verification is outside this packet."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 C official order; #2 C active at night; #3 B respectful; #4 A sociable; #5 C clichéd statements; #6 B itinago; #7 C provide. Each matches the solution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps are present. All five original clue scenarios remain; synonym and formal-word cases are added. The brief requires no figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Advanced finer-clue terms are followed by plain explanations and concrete word pairs. Solutions use short sentences, including a plain definition of clichéd statements."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "No special exam instruction verb is used without a gloss; ordinary choose, find, and identify need none."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is added outside Core Concept or repeated across the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All seven questions supply sentences and four choices. They ask for contextual meaning without giving a solving method. Definition clues are legitimate material for this task, not leaked classification rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or stock exam introductions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino example explains the action in two short Filipino steps: turning away hides the tears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the Filipino question and solution in Example #6. No hard Filipino grammar term is introduced, so no English gloss is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "Example #6 has a Filipino sentence, question, choices, and solution; English examples serve the English vocabulary goal."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino text is present. Official KWF usage cannot be confirmed from the supplied packet alone.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino solution uses Filipino prose; naka-bold is the common formatting term in the question."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #1–#5 and #7 bold the target and explicitly ask about the word in bold; #6 uses the Filipino equivalent salitang naka-bold."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the content directly; teaching avoids the listed stock phrases and varies openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language Proficiency layout uses Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For. No example uses a mathematical formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked coverage: restatement #1, examples plus description #2, nearby synonym #3, contrast #4, situational inference #5–#6, and formal register with word partners and substitution #7. Added cases serve distinct checks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Every worked solution has a separate Solution label and numbered steps; there are no computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this vocabulary lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three short sentences; lists organize clue types or steps rather than replacing paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustrations or placeholders; these verbal examples do not depend on figures.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Context clue, each clue type, inference, word partners, connotation, register, and grammar are explained before use. Clichéd is explained in the worked solution before it supports the answer."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how nearby definitions, examples, contrasts, situations, tone, word partners, and grammar constrain meaning; #7 demonstrates combining clues and substitution."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "It says clues may only narrow choices, signals alone prove nothing, formality alone cannot settle meaning, and short sentences may leave meanings unresolved."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-vocabulary-context-clues|L19|0": {
+    "status": "fixed",
+    "quote": "1. The words *or official command* explain **edict**.",
+    "note": "All seven solutions now use numbered steps."
+   },
+   "lesson-vocabulary-context-clues|L02|0": {
+    "status": "fixed",
+    "quote": "Similar spelling may come from a shared word origin, or the words may only happen to look alike.",
+    "note": "The difficult etymology wording is replaced with plain words."
+   },
+   "lesson-vocabulary-context-clues|L02|1": {
+    "status": "fixed",
+    "quote": "When two choices still seem possible, check smaller clues:",
+    "note": "The stacked terms are replaced by separate explained clues."
+   },
+   "lesson-vocabulary-context-clues|L05|0": {
+    "status": "fixed",
+    "quote": "What does the word in bold most likely mean?",
+    "note": "Each English example now has a direct meaning question."
+   },
+   "lesson-vocabulary-context-clues|L14|0": {
+    "status": "fixed",
+    "quote": "The forest contains many **nocturnal** animals",
+    "note": "The target nocturnal now has bold formatting."
+   },
+   "lesson-vocabulary-context-clues|L14|1": {
+    "status": "fixed",
+    "quote": "What does the word in bold most likely mean?",
+    "note": "The prompt explicitly points to bold words throughout."
+   },
+   "lesson-vocabulary-context-clues|L25|0": {
+    "status": "fixed",
+    "quote": "**Register:** wording can be formal or casual.",
+    "note": "Word partners, connotation, register, and grammar receive meanings before use."
+   },
+   "lesson-vocabulary-context-clues|L26|0": {
+    "status": "fixed",
+    "quote": "**Word partners:** some words often appear together.",
+    "note": "Each finer clue now includes an explanation and an application or check."
+   },
+   "language-proficiency-vocabulary#28": {
+    "status": "fixed",
+    "quote": "This use of *furnish* fits the formal letter.",
+    "note": "Register is defined and applied with other meaning clues in example seven."
+   },
+   "lesson-vocabulary-context-clues|L18|0": {
+    "status": "fixed",
+    "quote": "The nearby word *polite* describes the clerk's behavior again.",
+    "note": "Example three works a distinct nearby-synonym clue."
+   },
+   "lesson-vocabulary-context-clues|L18|1": {
+    "status": "fixed",
+    "quote": "*Provide* fits after *to* and keeps the meaning.",
+    "note": "Example seven explicitly checks substitution and grammar."
+   },
+   "lesson-vocabulary-context-clues|L18|2": {
+    "status": "fixed",
+    "quote": "*Furnish* can mean put furniture in a room or provide something.",
+    "note": "Example seven resolves competing senses through word partners and formal context."
+   }
+  }
+ }
+}
