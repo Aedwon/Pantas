@@ -239,7 +239,7 @@ questions:
     type: classify
     difficulty: medium
     stem: |
-      Two soundings place the tropopause near $7$ km at a polar site and near $19$ km at an equatorial site. Which interpretation fits atmospheric layers?
+      Two soundings place the tropopause near $6$ km at a polar site and near $19$ km at an equatorial site. Which interpretation fits atmospheric layers?
     choices:
       - text: 'The troposphere''s upper boundary varies with latitude.'
         correct: true
@@ -253,7 +253,7 @@ questions:
         rationale: |
           This assigns low atmospheric heights to the outermost fringe. Both are boundaries. Check the layer and scale.
     explanation: |
-      The troposphere is generally shallower near the poles and deeper near the equator. Its upper boundary is not at one fixed altitude worldwide. Both reported heights fit the lesson's ranges.
+      The troposphere is generally shallower near the poles and deeper near the equator. Its upper boundary is not at one fixed altitude worldwide. Both reported heights fit the lesson's approximate heights.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0013
