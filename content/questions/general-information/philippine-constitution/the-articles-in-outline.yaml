@@ -470,24 +470,24 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'What does knowing the article outline establish about future CSC exam questions?
+  stem: 'What does knowing the article outline establish about the rules inside each article?
 
     '
   choices:
-  - text: It helps locate topics, not predict specific questions.
+  - text: It helps locate topics, but the exact rules must still be read or recalled.
     correct: true
-  - text: It proves CSC has published the exact questions that will appear on the next exam.
-    rationale: 'This treats subject coverage as a released test. The exam includes the Constitution. Check published scope versus advance questions.
+  - text: It proves each department can use its power without constitutional limits.
+    rationale: 'This treats a department title as unlimited power. The departments have constitutional limits. Check the exact rule.
 
       '
-  - text: It guarantees every article receives the same number of questions in every examination.
-    rationale: 'This invents a question distribution. The outline lists articles equally. Check whether the lesson gives a blueprint.
+  - text: It guarantees every article contains the same number of rules.
+    rationale: 'This assumes that major divisions contain equal numbers of rules. The outline lists topics. It does not give a rule count.
 
       '
   - text: It guarantees a student can omit all understanding because titles alone answer every item.
     rationale: 'This treats an index as complete teaching. Titles help recall. Check locating material versus understanding it.
 
       '
-  explanation: 'The lesson says the outline helps locate major topics. It does not imply that CSC publishes specific questions in advance.
+  explanation: 'The outline helps locate major topics. A title does not state every rule, power, requirement, or exception. Read or recall the exact rule too.
 
     '
