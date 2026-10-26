@@ -36,7 +36,7 @@ A riot, brief disturbance, or isolated violent act does not automatically meet t
 
 HRL and IHL are **complementary**, meaning they help protect people together. In armed conflict, IHL supplies rules made for fighting. HRL continues to protect people against unlawful government action.
 
-The right to life forbids **arbitrary killing**, taking life without a lawful basis. During battlefield fighting, specific IHL rules help decide whether a killing violates that protection. This does not cancel other human-rights duties.
+The right to life forbids **arbitrary killing**. A killing can be arbitrary even if national law allows it. The test also checks fairness and proper legal steps. It asks whether force was needed, reasonable, and not excessive. During battlefield fighting, specific IHL rules help decide whether a killing violates that protection. This does not cancel other human-rights duties.
 
 An attack on an active opposing combatant in an IAC is not automatically unlawful because it takes life. The target's status and the applicable attack rules matter. A person held in custody is not an active battlefield target merely because war continues nearby.
 
