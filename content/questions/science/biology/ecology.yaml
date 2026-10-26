@@ -248,12 +248,12 @@ questions:
           This confuses fixation with denitrification. Both change nitrogen between gas and soil compounds. Check whether the process makes nitrogen available or sends it back to the air.
       - text: 'It converts ammonium directly into nitrate.'
         rationale: |
-          This confuses fixation with nitrification. Nitrate is useful to plants, so this later step seems like fixation. Check whether the starting material is nitrogen gas or ammonium.
+          This confuses fixation with nitrification, which changes ammonium into nitrite and then nitrate. Nitrate is useful to plants, so this later process seems like fixation. Check whether the starting material is nitrogen gas or ammonium.
       - text: 'It converts carbon dioxide into plant sugar.'
         rationale: |
           This confuses nitrogen supply with food production. Plants need both nitrogen and sugar to grow. Check which element the named process changes.
     explanation: |
-      Most plants cannot use nitrogen gas directly because its atoms are joined by a strong bond. Nitrogen-fixing microbes change it into ammonia. This nitrogen can enter plants or undergo further changes in soil.
+      Most plants cannot use nitrogen gas directly because they lack a way to break it apart and change it into usable compounds. Nitrogen-fixing microbes change it into ammonia. This nitrogen can enter plants or undergo further changes in soil.
     approved: true
 
   - id: q-biology-ecology-0013
@@ -316,7 +316,7 @@ questions:
         rationale: |
           This assumes sharing space means competing. The bird and tree occur in the same place. Check whether both seek the same limited resource.
     explanation: |
-      Commensalism describes a relationship where one species benefits (the bird gains shelter) while the other is unaffected (the tree is neither helped nor harmed).
+      Commensalism describes a relationship where one species benefits while the other has no clear net effect. Under the stated conditions, the bird gains shelter and the tree is neither helped nor harmed.
     approved: true
 
   - id: q-biology-ecology-0016
