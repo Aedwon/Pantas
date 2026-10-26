@@ -1,0 +1,268 @@
+{
+ "batch": "RD-165",
+ "lesson_id": "lesson-geometry-logic-and-reasoning",
+ "path": "content/lessons/mathematics/geometry/logic-and-reasoning.md",
+ "lesson_sha256": "205efbc2e361356439173fd50fa3c9a0e000a912287347fff7fbb789266803bf",
+ "rewrite_commit": "1ea56efe31cbdabbbc91122819e3f26c53f46574",
+ "form": {
+  "packet": "lesson-geometry-logic-and-reasoning",
+  "role": "A",
+  "lesson_sha256": "205efbc2e361356439173fd50fa3c9a0e000a912287347fff7fbb789266803bf",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the formal claims by their truth conditions: a conditional excludes only true hypothesis with false conclusion; swapping and negating preserves its truth value; converse and inverse agree with each other.",
+     "Detachment requires a true conditional and true hypothesis. Syllogism requires two true conditionals with the same middle statement. Biconditional truth requires both directions.",
+     "Checked the elementary facts: multiples of 6 are divisible by 3; squares have four sides; nonsquare rectangles exist; 2 is prime and even; 9 is not prime. No specific exam-content claims occur."
+    ],
+    "note": "Review uses only the supplied text and the OpenStax rule described in the brief. No external source check was performed.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Example 1: hypothesis is divisibility by 6; conclusion is divisibility by 3. The conditional is true because 6 is a multiple of 3.",
+     "Example 2: converse is wet ground implies rain; inverse is no rain implies ground not wet; contrapositive is ground not wet implies no rain.",
+     "Example 3: sprinkler-wet ground without rain gives a true hypothesis and false conclusion. The claim is false.",
+     "Example 4: C is the contrapositive. A and D assert the converse; B asserts the inverse. They are not equivalent to the given conditional.",
+     "Example 5: permission to enter implies having a pass. A pass alone does not establish permission. No pass implies no permission.",
+     "Example 6: Rico’s application is sent for review and receives a tracking number. The stated final answer follows.",
+     "Example 7: the biconditional is true for integers. Even integers are multiples of 2, and integers divisible by 2 are even.",
+     "Trap examples: 2 disproves prime implies odd; 9 does not. A nonsquare rectangle disproves rectangle implies square."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Mnemonics & Memory Aids, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present.",
+     "All cases named in the supplied brief remain: three transformed forms, counterexample, equivalent statement, detachment, chaining, and biconditional proof. The only-if case adds a distinct direction-reading exercise.",
+     "No question requires a missing figure. Each of the three optional diagram comments has the corresponding complete verbal problem."
+    ],
+    "note": "No independent outline was supplied; coverage is checked against the supplied brief and standards.",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions: short sentences explain the logical terms in plain words; formal vocabulary is defined when introduced.",
+     "The former most-important-fact lead-in is absent. Each strategy and trap gives a concrete operation, condition, or mistake."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The stems use find, write, rewrite, check, and logically equivalent. The first are ordinary directions; logically equivalent is defined in Core Concept. No unexplained specialized exam instruction appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy occurs. The domino comparison is absent; the chain discussion directly describes matching statements."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–4 ask for parts, transformations, a counterexample, and an equivalent statement without giving away their methods in the stems.",
+     "Example 5 supplies the office rule; Example 6 supplies both conditionals and Rico’s fact; Example 7 restricts n to integers. Each contains enough information for its task.",
+     "The solutions use simple explanatory sentences. The four alternatives in Example 4 represent the converse, inverse, contrapositive, and a converse expressed with only if."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or claims about exam frequency. Strategies address the tasks directly without stock exam openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson, not Filipino teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar terms appear in this English lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino-language examples or quiz items are required here.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no Filipino text to check against KWF.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There is no Filipino teaching prose or Taglish in this lesson.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or refers to an underlined word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary plainly names rewriting statements, testing claims, and drawing conclusions. None of the listed stock phrases appears.",
+     "Paragraphs vary their openings with definitions, conditions, commands, and concrete cases. No three consecutive teaching sentences begin the same way."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept introduces p implies q, converse q implies p, inverse not p implies not q, and contrapositive not q implies not p before Examples 2 and 4.",
+     "Only-if direction p implies q is taught before Example 5. Both-direction biconditional construction is taught in Biconditionals before Example 7.",
+     "Drawing Conclusions states detachment (p implies q and p, therefore q) and syllogism (p implies q and q implies r, therefore p implies r) before Example 6.",
+     "Example 1 uses 6 = 3 times 2 as a specific arithmetic justification, not a newly introduced general formula. The mathematics layout includes a natural flip-and-negate memory aid."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped the distinct cases to examples: naming parts (1), all three transformations (2), valid counterexample (3), equivalent choice (4), only-if direction and its limitation (5), syllogism followed by detachment (6), two-direction biconditional proof (7).",
+     "The sequence moves from recognition to transformations and then multi-premise reasoning. Traps also address false-hypothesis non-counterexamples, affirming the conclusion, and a false biconditional. No brief-required case is missing or replaced by a noun-only duplicate."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All seven multi-step solutions use numbered lists. No reasoning step appears before those lists.",
+     "The solutions are verbal logic operations, with no multi-line numerical calculation. Example 1’s short supporting equality 6 = 3 times 2 may remain inline under the short-side-result exception."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The detachment display is a short symbolic line. The syllogism premises and conclusion are split into two narrow displays."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs have one to three short sentences. The three-item transformation list is the only teaching bullet list; worked solutions use numbered lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Example 5 specifies a one-way arrow with both endpoint statements and hypothesis/conclusion labels.",
+     "Example 6 specifies the three application states and Rico’s starting fact. Example 7 specifies the two statements and arrows in both directions.",
+     "Each comment is one line and drawable. The prose independently supplies all statements and teaches the relationship, so none substitutes for missing problem information."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Conditional, hypothesis, conclusion, negate, converse, inverse, contrapositive, truth value, logical equivalence, and counterexample are explained before the examples need them.",
+     "Biconditional is defined before its proof. Drawing Conclusions defines deduction, the implication arrow, therefore, and the third statement r before the symbolic rules.",
+     "The examples introduce p and q with their concrete meanings. No unexplained units or prerequisite reference is needed for the logical methods."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains each transformation as swapping, negating, or both; equivalence means agreement in every possible case.",
+     "Counterexamples are explained through a true hypothesis and false conclusion. Only-if direction is illustrated with a square and its number of sides.",
+     "Biconditionals require both directions. Detachment derives a conclusion from a true hypothesis; syllogism links the matching middle statement. Worked examples demonstrate each method."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The text states that converse and inverse need not match the original, and the original alone cannot prove its converse.",
+     "Counterexamples require a true hypothesis and false conclusion; a false hypothesis does not disprove the claim.",
+     "Detachment explicitly requires a true conditional and true hypothesis and rejects using the conclusion alone. Syllogism requires two true conditionals and matching middle statements; an actual final event additionally needs the initial fact.",
+     "Biconditional construction requires both directions to be true. Example 5 explains that possession of a pass alone does not grant entry."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-geometry-logic-and-reasoning|L17|0": {
+    "status": "fixed",
+    "quote": "The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals.",
+    "note": "The general chaining rule now appears in Core Concept before Example 6 uses it."
+   },
+   "lesson-geometry-logic-and-reasoning|B01|0": {
+    "status": "fixed",
+    "quote": "The **Law of Detachment** needs a true conditional and its true hypothesis:",
+    "note": "The definition now specifies both required true premises instead of a vaguely matching fact."
+   },
+   "lesson-geometry-logic-and-reasoning|B02|0": {
+    "status": "fixed",
+    "quote": "Consider a sprinkler watering the ground on a day with no rain.",
+    "note": "The counterexample now makes the same ground wet while rain is absent. It does not switch to a floor."
+   },
+   "lesson-geometry-logic-and-reasoning|L02|0": {
+    "status": "fixed",
+    "quote": "A conditional and its contrapositive always have the same **truth value**: they are true or false together.",
+    "note": "The filler lead-in is removed. This sentence directly teaches the equivalence relationship."
+   },
+   "lesson-geometry-logic-and-reasoning|L04|0": {
+    "status": "fixed",
+    "quote": "The first conclusion matches the second hypothesis: the application is sent for review.",
+    "note": "The example explains the matching statements directly. The domino analogy is removed."
+   },
+   "lesson-geometry-logic-and-reasoning|L27|0": {
+    "status": "fixed",
+    "quote": "If \"If $p$, then $q$\" is true and $p$ is true, you may conclude $q$.",
+    "note": "Both applicability conditions are now explicit, and the following sentence rejects concluding p from q alone."
+   },
+   "lesson-geometry-logic-and-reasoning|L03|0": {
+    "status": "fixed",
+    "quote": "Find the hypothesis and conclusion: \"If a number is divisible by $6$, then it is divisible by $3$.\"",
+    "note": "The former Identify instruction is replaced with Find. Both are everyday words and need no gloss."
+   },
+   "lesson-geometry-logic-and-reasoning|L19|0": {
+    "status": "fixed",
+    "quote": "1. The first conclusion matches the second hypothesis: the application is sent for review.",
+    "note": "The chaining solution starts directly with numbered reasoning. No unnumbered solution lead-in remains."
+   }
+  }
+ }
+}
