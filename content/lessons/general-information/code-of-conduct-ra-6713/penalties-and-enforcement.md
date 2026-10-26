@@ -46,19 +46,13 @@ Under Section $11(b)$, a Code violation proved in a proper administrative case i
 
 ### Private People Who Take Part
 
-Section $11(c)$ covers private individuals "who participate in conspiracy as co-principals, accomplices or accessories" with public officials or employees in a violation of the Code. The three roles below describe how a private person can take part.
+Section $11(c)$ covers private individuals "who participate in conspiracy as co-principals, accomplices or accessories" with public officials or employees in a violation of the Code.
 
 Under the Revised Penal Code (Article 8), a conspiracy exists when two or more persons agree to commit a crime and decide to commit it.
 
-They face the same **penal liabilities** as the public workers. This means criminal responsibility and penalties under this provision. They are tried together with the public workers.
+A private person who joins a public official or employee in a conspiracy to violate the Code faces the same **penal liabilities** as that public worker. This means criminal responsibility and penalties under Section $11(c)$. They are tried together.
 
-A **co-principal** may directly carry out the offense. Another way is to force someone to do it or directly cause it through persuasion. A person can also be a principal by giving essential help without which the offense could not happen.
-
-An **accomplice** knows the unlawful purpose and helps before or during the offense. The help supports the offense but does not make the helper a principal. Useful but nonessential help can fit this role when the other conditions are met.
-
-An **accessory** knows an offense was committed and helps only afterward, without having taken part as a principal or accomplice. Examples include profiting from the offense or hiding or destroying its evidence or tools to prevent discovery.
-
-Knowing about an offense is not enough by itself. Look for an actual act of participation. Someone who planned and directly carried out the offense remains a principal even if that person also helps afterward.
+Knowing about an offense is not enough by itself. The private person and public worker must agree to commit the crime and decide to commit it.
 
 ### Misuse of Filed Statements
 
@@ -119,36 +113,25 @@ A court finds an officer guilty of a Section $7$ violation. What maximum crimina
 1. The court may impose up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both.
 2. It may also bar the officer from public office. That added penalty is the court's choice.
 
-### #4: A Private Co-Principal
+### #4: An Agreement to Violate the Code
 
-An officer and a consultant agree to sell confidential agency records for private gain. The officer gets them through work. The consultant knowingly makes the agreed sale. Which role fits the consultant?
-
-**Solution:**
-
-1. The consultant agreed to the unlawful plan and directly carried out the sale.
-2. This makes the consultant a co-principal. Section $11(c)$ makes private participants subject to the same penal liabilities as the officer and tried jointly with the officer.
-
-### #5: Helpful but Nonessential Aid
-
-A businessperson knows of an officer's plan to violate the Code. The person agrees with the officer to carry it out, then supplies useful records before the offense. The records are not essential. The person neither directly performs nor causes the offense. Which role fits?
+An officer and a private consultant agree to sell confidential agency records for private gain. They decide to carry out the plan and make the sale. Does the consultant share the officer's penal liability?
 
 **Solution:**
 
-1. The person and officer agreed to carry out the unlawful plan. This meets the agreement required for conspiracy.
-2. The help is nonessential, and no basis for principal responsibility is shown. The role is accomplice.
-3. The person took part in the conspiracy by knowingly helping before the offense. Section $11(c)$ applies, with the same penal liabilities and joint trial with the officer.
+1. Yes. The consultant and officer agreed to commit the crime and decided to commit it. This is a conspiracy.
+2. Under Section $11(c)$, the consultant faces the same penal liabilities as the officer. They are tried together.
 
-### #6: Destroying a Tool Afterward
+### #5: Knowledge Without an Agreement
 
-An unrelated private person did not plan, assist, or carry out an officer's offense. After learning of it, the person destroys its tool to prevent discovery. Which role fits?
+A private person learns that an officer plans to sell confidential agency records for private gain. The person does not agree to the plan or take part in it. Does this knowledge alone show a conspiracy under Section $11(c)$?
 
 **Solution:**
 
-1. The person knows of the offense and takes part only afterward.
-2. Destroying the tool to prevent discovery is an accessory act described in Article $19$ of the Revised Penal Code.
-3. Section $11(c)$ also requires participation in a conspiracy with the officer. The facts do not show that the person and officer agreed to commit the crime and decided to commit it. The same penal liabilities and joint trial cannot be assumed.
+1. No. Knowing about the plan does not show an agreement to commit the crime.
+2. These facts do not show a conspiracy. Knowledge alone is not enough to make the person share the officer's penal liabilities under Section $11(c)$.
 
-### #7: Disputed Disclosure
+### #6: Disputed Disclosure
 
 <!-- Source check, 2026-10-26: The following case is hypothetical. Suyat v. Court of Appeals, G.R. Nos. 251978-80, January 24, 2023, confirms the separate proof standards and effect of acquittal for insufficient evidence: https://lawphil.net/judjuris/juri2023/jan2023/gr_251978-80_2023.html. RA 6713 Sections 7(c) and 11(a) supply the offense and penalty: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html. -->
 An officer admits sending a file obtained through work to a business owner. The officer says it was already public. The office's release log shows it was still confidential then.
@@ -166,7 +149,7 @@ After a fair hearing, the administrative body accepts the log and messages as re
 5. A criminal penalty requires proof beyond reasonable doubt of every fact needed for the offense. Only then may Section $11(a)$ bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both. Disqualification is up to the court.
 6. The criminal result does not by itself cancel the administrative finding. That case uses the lower substantial-evidence standard and its own fair process.
 
-### #8: Marketing From a SALN
+### #7: Marketing From a SALN
 
 A company uses an employee's filed SALN to build and sell a marketing list. It is not a media organization informing the public. Is this allowed, and what remedy does Section $11$ give?
 
@@ -175,7 +158,7 @@ A company uses an employee's filed SALN to build and sell a marketing list. It i
 1. This is commercial use without the media exception. Section $8(D)$ prohibits it.
 2. The employee may bring an action under Section $11(d)$. The court may assess up to ₱$25{,}000$, subject to the heavier-sanction rule.
 
-### #9: A Heavier Penalty
+### #8: A Heavier Penalty
 
 The same violation is punishable under RA $6713$ and another law. The other law gives a heavier penalty. Under which law should prosecution proceed?
 
@@ -183,7 +166,7 @@ The same violation is punishable under RA $6713$ and another law. The other law 
 
 Section $11$ directs prosecution under the other law because it gives the heavier penalty.
 
-### #10: Removal Without a Criminal Case
+### #9: Removal Without a Criminal Case
 
 A proper administrative case proves an officer's Code violation. No criminal case has been filed. May the officer still be removed?
 
@@ -192,7 +175,7 @@ A proper administrative case proves an officer's Code violation. No criminal cas
 1. Under Section $11(b)$, a violation proved in a proper administrative case is enough cause for removal or dismissal.
 2. A criminal case need not come first. The required administrative process still applies.
 
-### #11: Routing a Complaint
+### #10: Routing a Complaint
 
 The CSC receives evidence of a possible Code offense requiring prosecution. What is its role, and does referral establish guilt?
 
@@ -201,7 +184,7 @@ The CSC receives evidence of a possible Code offense requiring prosecution. What
 1. The CSC refers the case to the proper authorities and may start administrative action within its powers.
 2. Referral is not conviction. The receiving body must follow its required process.
 
-### #12: Protection for a Reporter
+### #11: Protection for a Reporter
 
 A citizen reports a possible Code violation and fears retaliation. Which institution does Section $12$ direct to take protective steps?
 
@@ -209,7 +192,7 @@ A citizen reports a possible Code violation and fears retaliation. Which institu
 
 The Ombudsman must take steps to protect citizens who report Code violations by public officials or employees.
 
-### #13: Checking Review Rules
+### #12: Checking Review Rules
 
 An employee wants an agency decision reviewed. A coworker says every Code case goes straight to the same court. Is that a safe rule?
 
@@ -232,19 +215,13 @@ The general sanction depends on the offense's seriousness. Notice and hearing mu
 
 A proper administrative case can support removal. It still needs evidence and a fair chance to answer.
 
-### #3: Choosing a Role From Timing Alone
-
-> Check knowledge, agreement, acts, and the importance of the help.
-
-Earlier direct participation can make a person a principal. An accessory must knowingly take a covered part only afterward. Mere knowledge does not establish participation. For Section $11(c)$, the private person and public worker must agree to commit a crime and decide to commit it.
-
-### #4: Mixing Fine Ceilings
+### #3: Mixing Fine Ceilings
 
 > Match the amount to the kind of case.
 
 The general fine uses months of salary. The special criminal fine is up to ₱$5{,}000$. Prohibited statement use has a separate court-assessed ceiling of ₱$25{,}000$.
 
-### #5: Confusing Agency Roles
+### #4: Confusing Agency Roles
 
 > Enforcement, prosecution, and protection are different tasks.
 
