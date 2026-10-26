@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
 ---
-<!-- Audit: RW-075; branch content/cse-rewrite-r1 (assigned, not inspected); standards base c38ca13c (supplied); accessed 2026-10-26. Goal: Apply Section 7 prohibitions and distinguish each gift exception's donor, purpose, and permission conditions in CSE cases. No prerequisite is assumed. Sources checked: RA 6713 Sections 3 and 7, Supreme Court E-Library document 6474; Rules Implementing RA 6713, Rule X Section 1(a)-(f), National Council on Disability Affairs official publication; Department of Agrarian Reform MC 06, 2022, guidelines governing SALN filing, Section 2.1.5 and relationship footnotes, official media.dar.gov.ph publication dated 2022/11/22. DAR's official guidance confirms inso as the wife of an elder brother or male cousin, bilas as a brother-in-law's wife or sister-in-law's husband, and balae as a parent of a son-in-law or daughter-in-law; it also lists the relationship degrees used below. No source conflict identified. Hypothetical cases are givens, not claims about actual events. -->
+<!-- Audit: RW-084; branch content/cse-rewrite-r1 (assigned, not inspected); standards base 59184e4b (supplied); access date 2026-10-26. Goal: Apply Section 7 prohibitions and distinguish each gift exception's donor, purpose, and permission conditions in CSE cases. No prerequisite is assumed. Source ledger carried from the supplied lesson: RA 6713 Sections 3 and 7, Supreme Court E-Library document 6474, supports interests, outside work, recommendations, separation, information, gifts, family definitions, and foreign-government benefits; Rules Implementing RA 6713, Rule X Section 1(a)-(f), official NCDA publication, supports the separate gift and donation exceptions. DAR MC 06, 2022, SALN guidelines Section 2.1.5 and relationship footnotes, official media.dar.gov.ph publication dated 2022/11/22, supports the relationship terms and degrees. No source conflict reported in the supplied audit. Hypothetical examples supply their own case facts. -->
 ## Core Concept
 
 Section $7$ of RA $6713$ lists acts that public officials and employees must avoid. These rules keep private gain from affecting public duties. Check the link between the act and the worker's own office.
@@ -34,7 +34,7 @@ Express permission means a law clearly allows the arrangement. A supervisor's ve
 
 **Private professional practice** means serving private clients in a profession, such as law or medicine. During public service, the Act requires authority under the Constitution or law. The implementing rules also refer to authority under regulation.
 
-Implementing rules explain how to carry out a law. The private work must also not conflict, or tend to conflict, with public duties. Both authority and absence of conflict are needed.
+**Implementing rules** explain how to carry out a law. The private work must also not conflict, or tend to conflict, with public duties. Both authority and absence of conflict are needed.
 
 A **conflict** exists when private work pulls against the person's public duty. A government lawyer cannot rely only on permission if a client seeks help opposing the lawyer's public work.
 
@@ -138,7 +138,7 @@ A government lawyer has legal authority to take some private clients. A proposed
 
 ### #5: Work After Leaving Office
 
-A former official left government $6$ months ago. No law allows an exception. The person wants a consultant job at a company regulated by the former office and wants to handle a private client's matter before that office. How do the rules apply?
+A former official left government $6$ months ago, and no law allows an exception. The person wants a consultant job at a company regulated by the former office and wants to handle a private client's matter before that office. How do the rules apply?
 
 **Solution:**
 
@@ -184,7 +184,9 @@ An employee asks a business regulated by the employee's agency for an expensive 
 
 ### #10: A Small Gift With No Favor Expected
 
-A visitor gives a worker a single low-value souvenir without being asked. No official favor is expected or being rewarded. The surrounding facts support treating its value as insignificant. Which exception fits?
+A visitor gives a worker a single low-value souvenir without being asked. No official favor is expected or being rewarded.
+
+The surrounding facts support treating its value as insignificant. Which exception fits?
 
 **Solution:**
 
@@ -220,7 +222,9 @@ A person offers a nominal donation with no expected financial benefit and no reg
 
 ### #14: Relief Donation With Office Dealings
 
-An organization has a pending license renewal. It offers food for flood victims through the agency's relief program. The donation is reviewed and accepted for that mission, goes only to victims, and brings no personal benefit or request for favorable license action. Does the renewal alone defeat the organization-donation exception?
+An organization has a pending license renewal and offers food for flood victims through the agency's relief program. The donation is reviewed and accepted for that mission, goes only to victims, and brings no personal benefit or request for favorable license action.
+
+Does the renewal alone defeat the organization-donation exception?
 
 **Solution:**
 

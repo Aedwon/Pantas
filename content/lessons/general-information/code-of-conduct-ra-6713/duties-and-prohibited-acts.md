@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
 ---
-<!-- Audit: RW-075; branch content/cse-rewrite-r1 (assigned, not inspected); standards base c38ca13c (supplied); accessed 2026-10-26. Goal: Apply Code coverage, service duties, lawful access limits, and prohibited-act rules to CSE cases. No prerequisite is assumed. Sources checked: RA 6713, Sections 3, 5, 7, 11, Supreme Court E-Library, document 6474; Rules Implementing RA 6713, Rules I, IV, VI, X, XI, XII, National Council on Disability Affairs official publication and CSC Code of Conduct and Ethical Standards compilation. Rule XII Section 1(d)-(e) expressly confirms conduct coverage and the separate free-volunteer SALN and financial-disclosure exemption. Hypothetical examples apply those rules; their facts are givens, not reported events. -->
+<!-- Audit: RW-084; branch content/cse-rewrite-r1 (assigned, not inspected); standards base 59184e4b (supplied); access date 2026-10-26. Goal: Apply Code coverage, service duties, lawful access limits, and prohibited-act rules to CSE cases. No prerequisite is assumed. Source ledger carried from the supplied lesson: RA 6713, Sections 3, 5, 7, 11, Supreme Court E-Library document 6474; Rules Implementing RA 6713, Rules I, IV, VI, X, XI, XII, official NCDA publication and CSC compilation. These sources support the coverage, service, access, discipline, and prohibited-act rules below. Rule XII Section 1(d)-(e) supports volunteer conduct coverage and the separate SALN exemption. No source conflict reported in the supplied audit. Hypothetical examples supply their own case facts. -->
 ## Core Concept
 
 Section $5$ of RA $6713$ states duties of public officials and employees. Section $7$ lists acts they must avoid. Both protect the public from poor service and misuse of office.
@@ -16,9 +16,7 @@ Section $5$ of RA $6713$ states duties of public officials and employees. Sectio
 
 **Public officials and employees** include people elected or appointed to government posts. Voters choose elected officials. An authorized person appoints a worker to a government post.
 
-The Code covers permanent and temporary workers. Permanent workers hold posts under permanent appointments. Temporary workers serve under temporary appointments.
-
-It covers **career service** and **non-career service**. Career service generally uses merit and fitness to select workers and offers a path for advancement. Non-career service includes elected posts and posts tied to a term or project.
+The Code covers permanent and temporary workers. It covers **career service**, which generally uses merit and fitness to select workers and offers a path for advancement. **Non-career service** includes elected posts and posts tied to a term or project.
 
 Military and police personnel are included. Government includes national and local offices, other government bodies, and government-owned or controlled corporations and their subsidiaries. A subsidiary is a company controlled by another company.
 
@@ -28,7 +26,7 @@ Rules against improper appointments of relatives also apply. Volunteers remain s
 
 The **SALN**, or Statement of Assets, Liabilities and Net Worth, has separate filing rules. Assets are things owned, such as money and property. Liabilities are debts, and net worth is assets minus debts.
 
-Rule XII of the Code's implementing rules exempts free-service volunteers from SALN filing and financial disclosures. Implementing rules explain how to carry out a law. This filing exemption does not remove the Code's duties and bans.
+Rule XII of the Code's implementing rules exempts free-service volunteers from SALN filing and financial disclosures. **Implementing rules** explain how to carry out a law. This filing exemption does not remove the Code's duties and bans.
 
 ### Letters, Reports, and People at the Counter
 
@@ -117,7 +115,9 @@ A citizen sends a written request to a government office. What response does Sec
 
 ### #2: A Complex Request and a Complaint
 
-A request needs a review of old files. Within $15$ working days, the office explains the review underway and why more time is needed. The citizen later claims there was no response because the review remains unfinished. What evidence matters?
+A request needs a review of old files. Within $15$ working days, the office explains the review underway and why more time is needed.
+
+The citizen later claims there was no response because the review remains unfinished. What evidence matters?
 
 **Solution:**
 
@@ -145,7 +145,7 @@ During office hours, a worker has no waiting tasks but tells a visitor to return
 
 ### #5: Court Order and Required Signatures
 
-No law sets a document's completion deadline. A court order prevents action for now. Another regulation requires $4$ signatures. Must the office ignore these conditions to follow the usual $3$-signature guideline?
+No law sets a document's completion deadline. A court order prevents action for now, and another regulation requires $4$ signatures. Must the office ignore these conditions to follow the usual $3$-signature guideline?
 
 **Solution:**
 
@@ -247,7 +247,7 @@ A regulated business offers an employee an expensive gift for favorable treatmen
 
 ### #16: Outside Work After Resignation
 
-A former officer resigned $6$ months ago. A company licensed by the former office offers a consultant job. No law expressly permits the arrangement. Does resignation make the job allowed now?
+A former officer resigned $6$ months ago. A company licensed by the former office offers a consultant job, and no law expressly permits the arrangement. Does resignation make the job allowed now?
 
 **Solution:**
 
@@ -256,7 +256,7 @@ A former officer resigned $6$ months ago. A company licensed by the former offic
 
 ### #17: A Recommendation After Retirement
 
-An officer retired $4$ months ago. The officer recommends a friend for a job at a business with a pending transaction before the former office. No law, agreement, or assigned duty requires it. Does retirement end the ban?
+An officer retired $4$ months ago and recommends a friend for a job at a business with a pending transaction before the former office. No law, agreement, or assigned duty requires it. Does retirement end the ban?
 
 **Solution:**
 
@@ -265,7 +265,7 @@ An officer retired $4$ months ago. The officer recommends a friend for a job at 
 
 ### #18: Private Practice Before the Former Office
 
-A lawyer left an agency $6$ months ago. The lawyer proposes handling a private client's matter before that agency. The lawyer also claims that all private legal work is banned during this period. Are both statements correct?
+A lawyer left an agency $6$ months ago and proposes handling a private client's matter before that agency. The lawyer also claims that all private legal work is banned during this period. Are both positions correct?
 
 **Solution:**
 
