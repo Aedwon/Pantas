@@ -199,7 +199,7 @@ An office requiring natural-born status needs more than citizenship alone.
 
 > Dual citizenship alone is not dual allegiance.
 
-RA $9225$ allows retention under conditions. Running for office requires a separate sworn renunciation.
+RA $9225$ allows retention under conditions. Candidates covered by this law must make a separate sworn renunciation of foreign citizenship. For dual citizens by birth, filing the certificate of candidacy counts as renouncing foreign citizenship.
 
 ### #6: Voting Minimums
 

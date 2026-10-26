@@ -19,10 +19,12 @@ questions:
   - text: All persons born in the Philippines, regardless of their parents' citizenship
     rationale: Philippine birthplace alone does not grant citizenship.
   - text: All aliens who marry Philippine citizens
-    rationale: Marriage to a Filipino does not by itself make an alien a Philippine citizen.
+    rationale: This does not cover all aliens. Under Commonwealth Act 473, Section 15, an alien woman who marries a Filipino becomes Filipino if no Section 4 disqualification applies.
   explanation: |
     Article IV, Section 1 includes persons naturalized according to law.
-    Residence, birthplace, and marriage alone do not grant citizenship.
+    Residence or birthplace alone does not grant citizenship. Marriage does
+    not grant citizenship to every alien. Section 15 of Commonwealth Act 473
+    covers an alien wife with no Section 4 disqualification.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0002
   type: natural-born-definition
