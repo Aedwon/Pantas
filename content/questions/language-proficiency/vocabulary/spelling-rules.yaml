@@ -14,7 +14,7 @@ questions:
         correct: true
       - text: "Beleif"
         rationale: |
-          This reverses the i and e. The unstressed sound does not clearly show their order. Check the spelling family "believe" and "belief."
+          This reverses the i and e. The vowel sound does not clearly show their order. Check the spelling family "believe" and "belief."
       - text: "Belieff"
         rationale: |
           This doubles the final f. Some English words end in -ff, so that pattern may look familiar. Check the ending of "belief."
@@ -38,7 +38,7 @@ questions:
           This applies a keep-the-e rule to a lexical exception. "Argue" visibly ends in e. Check the established spelling "argument."
       - text: "Believable"
         rationale: |
-          This assumes every final e must disappear before a vowel-starting suffix. That shortcut works for some words. Check the actual spelling of "believable."
+          This treats dropping the final e of "believe" as an error. The suffix -able starts with a vowel. Check the standard spelling "believable."
       - text: "Truly"
         rationale: |
           This assumes the e of "true" stays before -ly. That often happens before consonant-starting suffixes. Check the exception "truly."
