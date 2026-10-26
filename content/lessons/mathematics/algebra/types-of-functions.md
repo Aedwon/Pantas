@@ -9,17 +9,21 @@ isActive: true
 ---
 ## Core Concept
 
-A **function** gives one output for each allowed input. The **domain** is the set of allowed inputs. Functions can be grouped into families by their formulas and graph shapes.
+A **function** gives one output for each allowed input. The **domain** is the set of allowed inputs. The notation $f(x)$ means the output of function $f$ at input $x$.
 
 **Classify** means name the group something belongs to. **Evaluate** means find the final number value.
 
-**Linear:** $f(x)=mx+b$. Its graph is a straight nonvertical line. A vertical line is not a function of $x$ because one input has many outputs.
+**Linear:** $f(x)=mx+b$. Here $m$ and $b$ are fixed numbers. Its graph is a straight nonvertical line.
 
-A **polynomial** is a sum of terms with nonnegative whole-number powers of $x$, such as $x^2+3x-1$. A **power function** has the form $kx^p$, where $k$ and $p$ are constants. For example, $x^5$ is both a polynomial and a power function.
+A vertical line is not a function of $x$. One input on that line has many outputs.
 
-**Quadratic:** $f(x)=ax^2+bx+c$ with $a\ne0$. Its graph is a parabola.
+A **polynomial** is a sum of terms with nonnegative whole-number powers of $x$, such as $x^2+3x-1$. A **power function** has the form $kx^p$, where $k$ and $p$ are fixed numbers. For example, $x^5$ is both a polynomial and a power function.
 
-It opens upward when $a>0$ and downward when $a<0$. The **vertex** is its turning point. An upward-opening parabola has its lowest value there; a downward-opening one has its highest value there.
+### Quadratic Functions
+
+A **quadratic** has the form $f(x)=ax^2+bx+c$, where $a\ne0$. Its graph is a curved shape called a **parabola**.
+
+It opens upward when $a>0$ and downward when $a<0$. The **vertex** is its turning point. It is the lowest point when the graph opens upward, or the highest point when it opens downward.
 
 The vertex has $x$-coordinate:
 
@@ -27,21 +31,23 @@ $$x=-\dfrac{b}{2a}$$
 
 Put this input into the function to find the vertex's $y$-coordinate.
 
-**Rational:** a function written as one polynomial divided by another:
+### Rational Functions
+
+A **rational function** is one polynomial divided by another:
 
 $$f(x)=\dfrac{P(x)}{Q(x)},\qquad Q(x)\ne0$$
 
-The domain leaves out every value that makes the original denominator $0$. The **degree** of a nonzero polynomial is its highest exponent. Its **leading coefficient** is the number multiplying its highest-power term.
+The domain leaves out every input that makes the original denominator $0$. The **degree** of a nonzero polynomial is its highest exponent. Its **leading coefficient** is the number multiplying its highest-power term.
 
-An **asymptote** is a line that a graph approaches in a certain direction. First cancel common factors to study the simpler graph shape. One useful factoring rule is:
+An **asymptote** is a line a graph gets closer to in a certain direction. First cancel common factors to study the simpler graph shape. One useful factoring rule is:
 
 $$a^2-b^2=(a-b)(a+b)$$
 
-If a denominator factor cancels completely, its excluded input can leave a **removable discontinuity**, or hole. The simpler formula gives the height of the missing point. The input stays outside the original domain.
+If a denominator factor cancels completely, its excluded input can leave a **removable discontinuity**, or hole. Use the simpler formula to find the missing point's height. That input stays outside the original domain.
 
-If a factor remains in the denominator after all common factors cancel, its real zero gives a **vertical asymptote**. Near that input, the graph rises or falls without bound. A partly canceled factor can therefore still give a vertical asymptote.
+If a factor remains in the denominator after cancellation, its real zero gives a **vertical asymptote**. Near that input, the graph rises or falls without bound. A partly canceled factor can still give a vertical asymptote.
 
-Compare degrees after cancellation to find the graph's behavior far to the left and right:
+Compare degrees after cancellation to find what happens far to the left and right:
 
 - A lower numerator degree gives the horizontal asymptote $y=0$.
 - Equal degrees give a horizontal asymptote at the ratio of the leading coefficients.
@@ -52,11 +58,13 @@ Polynomial division separates a rational function into a polynomial part and a s
 
 $$\dfrac{P(x)}{Q(x)}=q(x)+\dfrac{r(x)}{Q(x)}$$
 
-Here $q(x)$ is the quotient and $r(x)$ is the remainder, whose degree is below the denominator's degree. Far to the left or right, the fraction gets close to $0$. If $q(x)$ is linear, $y=q(x)$ is the slant asymptote.
+Here $q(x)$ is the quotient, or division result. The remainder $r(x)$ has degree below the denominator's degree, or is $0$. Far to the left or right, the smaller fraction gets close to $0$.
 
-A graph can cross a horizontal or slant asymptote. These lines describe what happens far away, not a boundary the graph cannot touch.
+If $q(x)$ is linear, $y=q(x)$ is the slant asymptote. A graph can cross a horizontal or slant asymptote. These lines describe what happens far away.
 
-**Absolute value:** $|x|$ means the distance of $x$ from $0$. The bars tell you to take that distance, so the result cannot be negative.
+### Absolute-Value Functions
+
+**Absolute value**, written $|x|$, means the distance of $x$ from $0$. The bars tell you to take that distance, so the result cannot be negative.
 
 $$|x|=\begin{cases}x,&x\ge0\\-x,&x<0\end{cases}$$
 
@@ -68,21 +76,23 @@ A transformed absolute-value function has the form:
 
 $$f(x)=a|x-h|+k,\qquad a\ne0$$
 
-Its vertex is $(h,k)$. Replacing $x$ with $x-h$ moves the vertex to input $h$. Adding $k$ moves every output up by $k$ when $k>0$, or down when $k<0$.
+Its vertex is $(h,k)$. Replacing $x$ with $x-h$ moves the vertex to input $h$. Adding $k$ moves every output up when $k>0$, or down when $k<0$.
 
-Multiplying by $a$ changes the outputs' distances from the vertex height. If $|a|>1$, the V stretches vertically and becomes narrower. If $0<|a|<1$, it compresses vertically and becomes wider.
+The size $|a|$ changes how far outputs lie from the vertex height. If $|a|>1$, the V stretches vertically and becomes narrower. If $0<|a|<1$, it compresses vertically and becomes wider.
 
 A negative $a$ also reflects the V across the $x$-axis before the vertical shift. The V then opens downward.
 
-**Exponential:** $f(x)=a^x$ for $a>0$ and $a\ne1$. The variable is in the exponent. Each increase of $1$ in $x$ multiplies the output by $a$.
+### Exponential, Logarithmic, and Piecewise Functions
+
+An **exponential function** has the form $f(x)=a^x$ for $a>0$ and $a\ne1$. The variable is in the exponent. Each increase of $1$ in $x$ multiplies the output by $a$.
 
 If $a>1$, the outputs grow as $x$ increases. If $0<a<1$, they shrink toward $0$. Equal powers of the same allowed base have equal exponents.
 
-**Logarithmic:** $f(x)=\log_a x$ for $a>0$, $a\ne1$, and $x>0$. A logarithm asks which exponent gives the input:
+A **logarithmic function** has the form $f(x)=\log_a x$ for $a>0$, $a\ne1$, and $x>0$. A logarithm asks which exponent gives the input:
 
 $$\log_a x=y\quad\Longleftrightarrow\quad a^y=x$$
 
-**Piecewise:** a function that uses different formulas for different input ranges. At a boundary, use the rule whose condition includes that input.
+A **piecewise function** uses different formulas for different input ranges. At a boundary, use the rule whose condition includes that input.
 
 <!-- ILLUSTRATION: seven labeled coordinate panels: y=x on -3<=x<=3; y=x^2 on -3<=x<=3; y=1/x on -3<=x<=3 excluding 0 with asymptotes x=0 and y=0; y=|x| on -3<=x<=3; y=2^x on -3<=x<=3; y=log_2(x) on 0<x<=4 with asymptote x=0; and y=x for x<0, y=2 for x>=0 on -3<=x<=3 with open point (0,0) and filled point (0,2); label each family and both axes -->
 
@@ -122,8 +132,11 @@ Find the vertical and horizontal asymptotes of $f(x)=\dfrac{x+1}{x-2}$.
 
 **Solution:**
 
-1. No factor cancels. The denominator is $0$ at $x=2$, so the vertical asymptote is $x=2$.
-2. The degrees are equal. Divide the leading coefficients.
+1. No factor cancels. Find the denominator's zero.
+
+$$x-2=0\quad\Rightarrow\quad x=2$$
+
+2. The vertical asymptote is $x=2$. The degrees are equal, so divide the leading coefficients.
 
 $$y=\dfrac{1}{1}=1$$
 
@@ -146,15 +159,17 @@ Find the slant asymptote of $f(x)=\dfrac{x^2+1}{x-1}$.
 
 **Solution:**
 
-1. The numerator degree is exactly $1$ greater. Divide using this identity:
+1. The numerator degree is exactly $1$ greater. Division gives this identity:
 
 $$x^2+1=(x-1)(x+1)+2$$
 
-2. Rewrite the function.
+2. Divide each part by $x-1$.
 
 $$f(x)=x+1+\dfrac{2}{x-1}$$
 
 3. Far to the left or right, the fraction gets close to $0$. The slant asymptote is $y=x+1$.
+
+<!-- ILLUSTRATION: coordinate graph of y=(x^2+1)/(x-1) with dashed slant asymptote y=x+1 and vertical asymptote x=1, label points (0,-1), (2,5), and both axes -->
 
 ### #6: Removable Hole
 
@@ -170,7 +185,11 @@ $$x^2-1=(x-1)(x+1)$$
 
 $$f(x)=x+1,\qquad x\ne1$$
 
-3. The simpler line gives $1+1=2$. The graph has a hole at $(1,2)$, not a vertical asymptote.
+3. Use the simpler line to find the missing height.
+
+$$y=1+1=2$$
+
+4. The graph has a hole at $(1,2)$. The denominator factor canceled completely, so there is no vertical asymptote there.
 
 <!-- ILLUSTRATION: coordinate graph of y=(x^2-1)/(x-1), showing line y=x+1 with an open circle at (1,2) -->
 
@@ -180,7 +199,7 @@ Solve $|2x-5|=7$.
 
 **Solution:**
 
-1. The inside can be $7$ or $-7$ because both have distance $7$ from $0$.
+1. The inside can be $7$ or $-7$. Both have distance $7$ from $0$.
 
 $$2x-5=7\quad\text{or}\quad2x-5=-7$$
 
@@ -192,7 +211,11 @@ $$2x=12\quad\text{or}\quad2x=-2$$
 
 $$x=6\quad\text{or}\quad x=-1$$
 
-4. Substitution gives $|7|=7$ or $|-7|=7$. Both answers work.
+4. Check both values in the original equation.
+
+$$|2(6)-5|=|7|=7$$
+
+$$|2(-1)-5|=|-7|=7$$
 
 ### #8: Absolute-Value Transformation
 
@@ -251,7 +274,9 @@ $$x=4$$
 
 $$3^4=81$$
 
-4. Therefore, $\log_3 81=4$.
+4. Write the logarithm's value.
+
+$$\log_3 81=4$$
 
 ### #12: Evaluating a Piecewise Function
 
@@ -303,7 +328,7 @@ For rational functions, cancel common factors before deciding between a hole and
 
 > Absolute value cannot equal a negative number.
 
-The equation $|u|=-3$ has no real solution. Distance from $0$ cannot be negative, so changing it into two equations would give false answers.
+The equation $|u|=-3$ has no real solution. Distance from $0$ cannot be negative, so splitting it into two equations would give false answers.
 
 ### #2: Piecewise Boundary
 

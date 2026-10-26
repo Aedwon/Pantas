@@ -18,6 +18,8 @@ Use this plan:
 3. Solve the equation.
 4. Read the question again and answer what it asks.
 
+When a question says **find**, give the value it asks for.
+
 ### Age Problems
 
 Time passes for everyone. If Ana is $x$ years old now, she is $x+6$ in $6$ years. Every other person's age also increases by $6$ in that time.
@@ -46,7 +48,7 @@ For one whole job, the rate is $1$ divided by the time. When people work on the 
 
 $$r_{\text{together}}=r_1+r_2$$
 
-If the combined rate is $r$ jobs per hour, the time for $1$ job is:
+If the combined rate is $r$ jobs per hour, divide $1$ by that rate to find the hours for $1$ job:
 
 $$t=\dfrac{1}{r}$$
 
@@ -109,7 +111,9 @@ $$b=6$$
 
 $$3(6)=18$$
 
-6. Ana is $18$ years old now. In $6$ years, their ages will be $24$ and $12$. This checks because $24=2(12)$.
+6. Ana is $18$ years old now. In $6$ years, their ages will be $24$ and $12$. Check the future relationship.
+
+$$24=2(12)$$
 
 ### #2: Motion Problem, Moving Apart
 
@@ -260,7 +264,7 @@ $$4y=32$$
 
 $$y=8$$
 
-6. There are $8$ five-peso coins. The other $12$ coins are one-peso coins. Check their total value:
+6. There are $8$ five-peso coins. The other $12$ coins are one-peso coins. Check their total value.
 
 $$12+5(8)=52$$
 
@@ -317,6 +321,8 @@ $$t=\dfrac{6(3)}{6+3}=2$$
 
 For motion at steady speeds along the same straight path, use relative speed. Add speeds for opposite-direction separation or for moving toward each other. In a same-direction chase, subtract the slower speed from the faster speed.
 
+The faster object must start behind to catch the slower one. Use the gap at the start of the chase, not a distance traveled before it starts.
+
 Before solving a mixture problem, check which amount should be larger. Here $30\%$ is closer to $20\%$ than to $50\%$. The mixture therefore needs more of the weaker solution than of the stronger one.
 
 ## Traps to Watch For
@@ -337,7 +343,7 @@ In the age example, $b=6$ gives Ben's age. The question asks for Ana's age, whic
 
 > Add work rates, not solo work times.
 
-For the work example, averaging gives $\dfrac{6+3}{2}=4.5$ hours. Together they must finish faster than Liza's solo time of $3$ hours, so $4.5$ cannot be right.
+For the work example, averaging gives $\dfrac{6+3}{2}=4.5$ hours. Together they must finish faster than Liza's solo time of $3$ hours. The answer $4.5$ cannot be right.
 
 ### #4: Mixing Up a Digit and Its Value
 
