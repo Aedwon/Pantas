@@ -23,11 +23,16 @@ The proper authority first checks the complaint and supporting facts. If a charg
 
 The authority must consider the evidence and explain its decision. The chance to answer may include written submissions under the applicable rules. It does not always require the same courtroom steps as a criminal trial.
 
-An unsupported accusation is not enough.
+**Level of proof** means how strong the evidence must be to support a finding.
+
+<!-- Source check, 2026-10-26: Rules of Court, Rule 133, Sections 2 and 6, as amended by A.M. No. 19-08-15-SC: https://lawphil.net/courts/rules/am_19-08-15-sc_2019.html. -->
+An administrative finding needs **substantial evidence** under Rule $133$, Section $6$ of the Rules of Court. This means evidence about the charge that a reasonable person would accept as enough to show the violation. An unsupported accusation is not enough.
 
 ### Criminal Penalties and Separate Cases
 
 A **criminal case** asks a court to decide whether someone committed a crime. **Prosecution** means bringing and pursuing that case.
+
+A criminal conviction needs **proof beyond reasonable doubt** under Rule $133$, Section $2$ of the Rules of Court. This means the evidence leaves a fair judge with no reasonable doubt that the accused committed the crime. This is a higher level of proof than substantial evidence.
 
 Violations of Sections $7$, $8$, or $9$ may lead to imprisonment of up to $5$ years, a fine of up to ₱$5{,}000$, or both. The court may also order **disqualification**, which bars the person from holding public office. That added penalty is up to the court.
 
@@ -145,14 +150,21 @@ An unrelated private person did not plan, assist, or carry out an officer's offe
 
 ### #7: Disputed Disclosure
 
-An officer denies wrongdoing after sending a file to a business owner. Records show it was confidential, not public, and learned through work. Messages show the purpose was to give the owner an unfair advantage. Which rule and penalty path should be examined?
+<!-- Source check, 2026-10-26: The following case is hypothetical. Suyat v. Court of Appeals, G.R. Nos. 251978-80, January 24, 2023, confirms the separate proof standards and effect of acquittal for insufficient evidence: https://lawphil.net/judjuris/juri2023/jan2023/gr_251978-80_2023.html. RA 6713 Sections 7(c) and 11(a) supply the offense and penalty: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html. -->
+An officer admits sending a file obtained through work to a business owner. The officer says it was already public. The office's release log shows it was still confidential then.
+
+Messages from the officer's account describe a plan to give the owner an unfair advantage. The officer says a coworker wrote them. The officer offers evidence that they shared access to the account.
+
+After a fair hearing, the administrative body accepts the log and messages as reliable evidence against the officer. The criminal court later finds a reasonable doubt about who wrote the messages. How do the proof rules affect each case?
 
 **Solution:**
 
-1. The records and messages support the information and purpose conditions of Section $7$'s disclosure ban.
-2. The officer must have a fair chance to answer. A complaint alone proves no violation.
-3. A proved Section $7$ crime can bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both, with possible disqualification.
-4. Administrative discipline is separately possible under its own process and level of proof.
+1. Section $7(c)$ requires protected work information and a prohibited purpose. The log supports the claim that the file was not public. The messages support the claim that it was sent to give an unfair advantage.
+2. The officer has offered a different account of who wrote the messages. Both bodies must consider that evidence and give the officer a fair chance to answer.
+3. The administrative body accepts the log and messages as reliable despite that answer. A reasonable person could accept them as enough to show the violation. This meets the substantial-evidence standard and can support administrative discipline.
+4. The criminal court still has a reasonable doubt about who wrote the messages. The officer's prohibited purpose has not been proved beyond reasonable doubt. The court must acquit on this charge, meaning find the officer not guilty.
+5. A criminal penalty requires proof beyond reasonable doubt of every fact needed for the offense. Only then may Section $11(a)$ bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both. Disqualification is up to the court.
+6. The criminal result does not by itself cancel the administrative finding. That case uses the lower substantial-evidence standard and its own fair process.
 
 ### #8: Marketing From a SALN
 

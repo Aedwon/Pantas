@@ -44,7 +44,9 @@ Article IV, Section $4$, keeps citizenship after marriage to an alien unless an 
 
 Section $3$ leaves loss and reacquisition to law. Under RA $9225$, Section $3$, natural-born Filipinos who lost citizenship through foreign naturalization reacquire it by the required oath of allegiance. Those naturalized abroad after the law took effect retain Philippine citizenship upon taking that oath.
 
-An **oath of allegiance** is a sworn promise of loyalty to the Philippines and obedience to its Constitution and laws. Under Section $5(2)$, an election candidate must also personally renounce all foreign citizenship under oath before an authorized officer when filing the certificate of candidacy. Other office qualifications still apply.
+An **oath of allegiance** is a sworn promise of loyalty to the Philippines and obedience to its Constitution and laws. Under Section $5(2)$, a candidate covered by RA $9225$ must also renounce all foreign citizenship. This must be done personally under oath before an authorized officer when filing the certificate of candidacy.
+
+Other office qualifications still apply.
 
 **Repatriation** means restoring former Philippine citizenship. RA $8171$ covers Filipino women who lost it through marriage to aliens and natural-born Filipinos who lost it through political or economic necessity, including their minor children. Its conditions include an oath and registration with the proper civil registry and Bureau of Immigration.
 
@@ -72,7 +74,9 @@ No literacy, property, or other substantive requirement may be added. Literacy m
 
 Article V, Section $2$, requires secrecy and sanctity of the ballot. This protects the voter's private choice and keeps the vote free from interference.
 
-Congress must provide absentee voting for qualified Filipinos abroad. RA $9189$, as amended by RA $10590$, sets overseas voting rules, including registration and qualifications.
+Congress must provide **absentee voting** for qualified Filipinos abroad. Absentee voting means voting while away from the place where you would normally vote.
+
+RA $9189$, as amended by RA $10590$, sets overseas voting rules, including registration and qualifications.
 
 Congress must also design voting without assistance for voters with disabilities and those who cannot read. Until then, voting follows existing laws and COMELEC rules that protect ballot secrecy.
 
@@ -199,7 +203,12 @@ An office requiring natural-born status needs more than citizenship alone.
 
 > Dual citizenship alone is not dual allegiance.
 
-RA $9225$ allows retention under conditions. Candidates covered by this law must make a separate sworn renunciation of foreign citizenship. For dual citizens by birth, filing the certificate of candidacy counts as renouncing foreign citizenship.
+RA $9225$ allows retention under conditions. Under Section $5(2)$, candidates covered by this law must make a separate sworn renunciation of foreign citizenship.
+
+<!-- Source check, 2026-10-26: Cordora v. COMELEC, G.R. No. 176947, February 19, 2009, applying Local Government Code Section 40(d): https://lawphil.net/judjuris/juri2009/feb2009/gr_176947_2009.html. The rule requires the certificate's oath and concerns Philippine candidacy, not loss of citizenship under foreign law. Gana-Carait v. COMELEC, G.R. No. 257453, August 9, 2022, confirms that RA 9225 Sections 3 and 5(2) do not cover citizenship acquired by birth: https://lawphil.net/judjuris/juri2022/aug2022/gr_257453_2022.html. -->
+In Cordora v. COMELEC, the Court applied Local Government Code Section $40(d)$ to a dual citizen by birth. Filing the certificate of candidacy with its oath of allegiance was enough for Philippine candidacy. This rule concerns someone who never lost Philippine citizenship through foreign naturalization.
+
+For this purpose, filing the certificate counts as giving up foreign citizenship under Philippine law. It does not decide citizenship status under the other country's law. Other office qualifications still apply.
 
 ### #6: Voting Minimums
 

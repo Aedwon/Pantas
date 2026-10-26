@@ -23,13 +23,18 @@ Public interest means putting people's needs before personal gain. Simple living
 **Graft and corrupt practices** include acts under RA $3019$, Section $3$:
 
 - Section $3(b)$: seeking or receiving benefits tied to a government contract or transaction the officer must handle under law.
-- Section $3(e)$: causing undue injury or giving unwarranted private benefits through manifest partiality, evident bad faith, or gross inexcusable negligence while carrying out official duties.
+- Section $3(e)$ covers causing actual loss or giving a private party a benefit with no proper basis. The act must happen while doing official duties. It must involve clear favoritism, clearly dishonest intent, or extreme carelessness with no excuse.
 - Section $3(h)$: holding a money interest in a transaction the officer officially handles, or an interest forbidden by law.
 - Section $3(k)$: sharing valuable confidential information gained through office with unauthorized people, or releasing it before its authorized release date.
 
 **Confidential information** is information kept from public release. RA $6713$, Section $7(c)$ also prohibits disclosing or misusing such office information to benefit private interests or harm the public interest. This purpose condition belongs to that provision.
 
-In Section $3(e)$, **undue injury** means actual loss or damage. The loss and its amount must be stated and proved beyond reasonable doubt. This means proof that leaves no reasonable doubt about guilt in the mind of a fair judge. Wrongdoing alone does not prove this loss. **Unwarranted benefits** are advantages with no proper basis. This separate ground does not require proof of that loss. The clause covers loss to any party, including the government, or such benefits given to a private party.
+<!-- Source check, 2026-10-26: Renales v. People, G.R. Nos. 231530-33, June 16, 2021, on RA 3019 Section 3(e): https://lawphil.net/judjuris/juri2021/jun2021/gr_231530-33_2021.html. The Court requires undue injury to be specified, quantified, and proved beyond reasonable doubt. -->
+In Section $3(e)$, **undue injury** means actual loss or damage. For this ground under RA $3019$, Section $3(e)$, the loss and its amount must be stated and proved beyond reasonable doubt. This means proof that leaves no reasonable doubt about guilt in the mind of a fair judge.
+
+The Supreme Court confirmed this proof rule in Renales v. People. Wrongdoing alone does not prove this loss.
+
+**Unwarranted benefits** are advantages with no proper basis. This separate ground does not require proof of that loss. The clause covers loss to any party, including the government, or such benefits given to a private party.
 
 **Manifest partiality** means clear favoritism. **Evident bad faith** means clearly dishonest intent. **Gross inexcusable negligence** means extreme carelessness with no excuse.
 
