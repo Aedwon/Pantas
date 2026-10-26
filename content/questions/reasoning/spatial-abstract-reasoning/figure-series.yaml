@@ -415,7 +415,7 @@ questions:
           line: 90
         - form: "triangle"
           size: "small"
-          edgeLines: 1
+          edgeLines: 3
           line: 180
       blank: true
     stem: |
