@@ -13,7 +13,7 @@ A **conditional statement** is an if-then sentence: "If $p$, then $q$." The lett
 
 The **hypothesis** ($p$) is the "if" part. The **conclusion** ($q$) is the "then" part. A conditional rules out a true hypothesis with a false conclusion.
 
-The words **only if** also form a conditional. "$p$ only if $q$" means "If $p$, then $q$." The part after "only if" is the conclusion, even when the sentence does not use "then."
+The words **only if** also form a conditional. "$p$ only if $q$" means "If $p$, then $q$." The part after "only if" is the conclusion.
 
 For example, "A figure is a square only if it has $4$ sides" means "If a figure is a square, then it has $4$ sides." It does not say that every figure with $4$ sides is a square.
 
@@ -39,13 +39,11 @@ To prove a biconditional, check both directions. Proving only one direction is n
 
 For these rules, accept the given statements as true. A **deduction** is a conclusion that must follow from them.
 
-The **Law of Detachment** needs a true conditional and its true hypothesis:
+The arrow ($\Rightarrow$) means "if ... then." The symbol $\therefore$ means "therefore." The **Law of Detachment** needs a true conditional and its true hypothesis:
 
 $$p \Rightarrow q,\quad p\quad\therefore q$$
 
-The arrow ($\Rightarrow$) means "if ... then." The symbol $\therefore$ means "therefore." If "If $p$, then $q$" is true and $p$ is true, you may conclude $q$.
-
-Knowing only that $q$ is true does not let you conclude $p$. There may be another reason for $q$ to be true.
+If "If $p$, then $q$" is true and $p$ is true, you may conclude $q$. Knowing only that $q$ is true does not let you conclude $p$. There may be another reason for $q$ to be true.
 
 The **Law of Syllogism**, also called hypothetical syllogism, joins two true conditionals:
 
@@ -73,7 +71,7 @@ Identify the hypothesis and conclusion: "If a number is divisible by $6$, then i
 
 1. The hypothesis follows "if": a number is divisible by $6$.
 2. The conclusion follows "then": it is divisible by $3$.
-3. The conditional is true. Every multiple of $6$, such as $6$, $12$, or $18$, is also a multiple of $3$.
+3. The conditional is true. A multiple of $6$ is also a multiple of $3$ because $6=3\times2$.
 
 ### #2: Writing All Three Forms
 
@@ -114,7 +112,6 @@ D) A figure has $4$ sides only if it is a square.
 1. Swap the hypothesis and conclusion, then negate both.
 2. The contrapositive is "If a figure does not have $4$ sides, then it is not a square."
 3. The answer is C. It has the same truth value as the original in every case.
-4. Choice D means "If a figure has $4$ sides, then it is a square." This is the converse, just like choice A.
 
 ### #5: Chaining Statements and Using a Fact
 
@@ -137,8 +134,8 @@ For an integer $n$, check this statement: "$n$ is even if and only if $n$ is div
 
 **Solution:**
 
-1. Check the forward direction. An even integer can be divided into pairs with nothing left over. So it is divisible by $2$.
-2. Check the reverse direction. An integer divisible by $2$ has no remainder when split into pairs. So it is even.
+1. Check the forward direction. An even integer is a multiple of $2$. So it is divisible by $2$ with no remainder.
+2. Check the reverse direction. An integer divisible by $2$ with no remainder is a multiple of $2$. So it is even.
 3. Both directions are true. The biconditional is true.
 
 ## Speed Tricks & Shortcuts
@@ -175,7 +172,7 @@ To disprove "If a number is prime, then it is odd," use $2$. It is prime but not
 
 > Detachment starts with a true hypothesis, not just a true conclusion.
 
-"If it rains, then the ground is wet" and "the ground is wet" do not prove that it rains. A sprinkler could have wet the ground. That conclusion would require the converse, which was not given.
+"If it rains, then the ground is wet" and "the ground is wet" do not prove that it rains. A sprinkler could have wet the ground. The wet ground alone does not tell you its cause.
 
 ### #5: Checking Only Half a Biconditional
 

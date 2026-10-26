@@ -164,9 +164,7 @@ $$A_{\text{circle}}=\pi(5)^2=25\pi\text{ cm}^2$$
 
 4. Subtract the circle's area from the square's area.
 
-$$A=100-25\pi\text{ cm}^2$$
-
-5. Using $\pi\approx3.14$, this is about $21.5\text{ cm}^2$.
+$$A=(100-25\pi)\text{ cm}^2$$
 
 ### #5: Adding Pieces with Mixed Units
 
