@@ -4,16 +4,20 @@ You draw static SVG figures for lessons in Pantas, a study app that prepares Fil
 Service Exam (CSE). Each figure replaces one `<!-- ILLUSTRATION: ... -->` marker in a lesson. A student sees it
 inside the lesson on a phone, in light or dark mode, and must learn from it. Read this whole file before drawing.
 
+You receive one brief per figure, written from the lesson: its file name, purpose, layout, every label and value
+verbatim, the one focus to emphasize, what must not appear, and a suggested height. The brief is your only
+source. Do not open the lesson or any other file; everything you need is in the brief and this file.
+
 ## 1. What a good figure does
 
-- It teaches the one idea its marker describes, using the lesson's exact labels, numbers, units, names and
-  wording. Never invent a value, label, date, law section or example that is not in the marker or the lesson.
+- It teaches the one idea its brief describes, using the brief's exact labels, numbers, units, names and
+  wording. Never invent a value, label, date, law section or example that is not in the brief.
 - It is readable at a glance on a phone: few elements, large text, clear grouping, an obvious reading order
   (top to bottom or left to right).
-- It is accurate. A wrong arrow, a mislabeled region or a value that disagrees with the lesson is worse than no
-  figure. When the marker and the lesson disagree, follow the lesson and say so in your report.
-- It does not give away the answer to a worked example that the lesson asks the student to solve, unless the
-  marker asks for the solved figure.
+- It is accurate. A wrong arrow, a mislabeled region or a value that disagrees with the brief is worse than no
+  figure. If the brief seems contradictory or impossible to draw clearly, draw the closest faithful version and
+  say so in your report.
+- It shows nothing the brief lists under "Must not show", such as the answer to an exercise the student solves.
 - Prefer a diagram, flow, comparison, timeline, table-like grid or labeled picture over decoration. No clip art,
   no people's faces, no logos, no flags or seals of real agencies, no copyrighted characters.
 
@@ -21,9 +25,8 @@ inside the lesson on a phone, in light or dark mode, and must learn from it. Rea
 
 - Folder: `content/illustrations/<subject>/<topic>/<lesson-slug>/`, where the three parts come from the lesson
   path `content/lessons/<subject>/<topic>/<lesson-slug>.md`.
-- One file per marker, numbered in marker order: `01-<slug>.svg`, `02-<slug>.svg`, ... The slug is up to five
-  lowercase words from the marker, joined by hyphens, letters and digits only. The lead gives you the exact file
-  names; use them.
+- One file per marker, numbered in marker order: `01-<slug>.svg`, `02-<slug>.svg`, ... Each brief gives the
+  exact folder and file name; use them.
 - Create only those files. Do not edit the lesson or any other file. Do not run git.
 
 ## 3. Canvas and size
@@ -99,19 +102,19 @@ reports 0 failures:
 
 ```sh
 cd /Users/aedwon/Documents/Projects/Pantas-wt-svg-check
-python3 tools/check_lesson_svgs.py /Users/aedwon/Documents/Projects/Pantas-wt-cse-rewrite-r1/content/illustrations --validate-only
+python3 tools/check_lesson_svgs.py <your worktree>/content/illustrations --validate-only
 ```
 
-Then reread each SVG against its marker and the lesson, and confirm:
+Then reread each SVG against its brief, and confirm:
 
-1. Every label, number and name matches the lesson exactly; nothing is invented.
+1. Every label, number and name matches the brief exactly; nothing is invented.
 2. No text overlaps another element or runs past the panel margin. Estimate text width as about 0.55 times the
    font size per character.
 3. All text is 14 units or larger, and the reading order is obvious.
-4. Only one warm accent focus, and it marks the thing the marker is about.
-5. The figure does not reveal the answer to an exercise the lesson poses.
+4. Only one warm accent focus, and it marks the brief's focus.
+5. Nothing from the brief's "Must not show" list appears.
 
 ## 7. Report
 
-Report in under 120 words: the files written per lesson, the checker result, and any marker you could not draw
-faithfully (with the reason, such as a marker that disagrees with the lesson).
+Report in under 120 words: the files written, the checker result, and any brief you could not draw faithfully
+(with the reason).
