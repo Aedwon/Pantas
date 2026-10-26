@@ -18,7 +18,7 @@ Public interest means putting people's needs before personal gain. Simple living
 
 ### Forms
 
-**Direct bribery** involves a benefit offered or accepted to influence official action. Paying an officer to skip a required check is an example. **Indirect bribery** under Article $211$ of the Revised Penal Code involves an officer accepting a gift offered because of the officer's public office. No particular official act or promise is needed. A gift's purpose matters.
+**Direct bribery** involves a benefit offered or accepted to influence official action. Paying an officer to skip a required check is an example.
 
 **Graft and corrupt practices** include acts under RA $3019$, Section $3$:
 
@@ -29,7 +29,7 @@ Public interest means putting people's needs before personal gain. Simple living
 
 **Confidential information** is information kept from public release. RA $6713$, Section $7(c)$ also prohibits disclosing or misusing such office information to benefit private interests or harm the public interest. This purpose condition belongs to that provision.
 
-In Section $3(e)$, **undue injury** means actual loss or damage. The loss and its amount must be stated and proved beyond reasonable doubt. Wrongdoing alone does not prove this loss. **Unwarranted benefits** are advantages with no proper basis. This separate ground does not require proof of that loss. The clause covers loss to any party, including the government, or such benefits given to a private party.
+In Section $3(e)$, **undue injury** means actual loss or damage. The loss and its amount must be stated and proved beyond reasonable doubt. This means proof that leaves no reasonable doubt about guilt in the mind of a fair judge. Wrongdoing alone does not prove this loss. **Unwarranted benefits** are advantages with no proper basis. This separate ground does not require proof of that loss. The clause covers loss to any party, including the government, or such benefits given to a private party.
 
 **Manifest partiality** means clear favoritism. **Evident bad faith** means clearly dishonest intent. **Gross inexcusable negligence** means extreme carelessness with no excuse.
 
