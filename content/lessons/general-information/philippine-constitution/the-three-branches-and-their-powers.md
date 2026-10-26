@@ -25,7 +25,9 @@ Congress has two Houses. The Senate has $24$ Senators elected **at large**, mean
 
 The House has district and party-list representatives. Section $5(1)$ sets not more than $250$ Members, unless law fixes otherwise. Section $5(2)$ sets the party-list share at $20\%$ of all representatives, including party-list representatives.
 
-Representatives serve $3$ years, with at most $3$ consecutive terms (Section $7$). Consecutive means in a row, not a lifetime total. For both Houses, Article VI, Sections $4$ and $7$ state: "Voluntary renunciation of the office for any length of time shall not be considered as an interruption in the continuity of his service for the full term for which he was elected." This means choosing to give up the office does not break the term count.
+Representatives serve $3$ years, with at most $3$ consecutive terms (Section $7$). Consecutive means in a row, not a lifetime total.
+
+Article VI, Sections $4$ and $7$ also cover giving up office by choice. Doing so does not interrupt service for the full term to which the person was elected. It does not break the term count.
 
 A **bill** is a proposed law. To **originate** means to start. Section $24$ requires these bills to start in the House:
 
@@ -114,7 +116,9 @@ The **Commission on Elections (COMELEC)** enforces election laws. It has a Chair
 
 A majority, including the Chair, must be lawyers with at least $10$ years of law practice (Article IX-C, Section $1$). This does not require every Commissioner to be a lawyer.
 
-The **Commission on Audit (COA)** checks government accounts. It has a Chair and $2$ Commissioners. Members must be natural-born and at least $35$ at appointment. They must also be "of proven probity and independence" (Article IX-D, Section $1(1)$). This means they must have shown honest conduct and freedom from improper influence.
+The **Commission on Audit (COA)** checks government accounts. It has a Chair and $2$ Commissioners. Members must be natural-born and at least $35$ at appointment.
+
+They must also be "of proven probity and independence" (Article IX-D, Section $1(1)$). This means they must have shown honest conduct and freedom from improper influence.
 
 A member must be a certified public accountant, or **CPA**, with at least $10$ years of auditing experience, or a lawyer with at least $10$ years of practice. CPAs are licensed accounting professionals; auditing means checking financial records. All Members cannot belong to the same profession (Article IX-D, Section $1$).
 
