@@ -1,0 +1,271 @@
+{
+ "batch": "RD-155",
+ "lesson_id": "lesson-vocabulary-spelling-rules",
+ "path": "content/lessons/language-proficiency/vocabulary/spelling-rules.md",
+ "lesson_sha256": "0f334aaca9568220511a61e01df23d0bd45c313a6fb61dd777a44bc439b96fbb",
+ "rewrite_commit": "fd9901af69a227beb645682aef0061fb5ed4f644",
+ "form": {
+  "packet": "lesson-vocabulary-spelling-rules",
+  "role": "A",
+  "lesson_sha256": "0f334aaca9568220511a61e01df23d0bd45c313a6fb61dd777a44bc439b96fbb",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Checked chief, conceive, neighbor, seize; managing, noticeable, truly, argument; running, beginning, visiting, occurrence, fixing and playing against ordinary standard spellings. The specific KWF image claim remains unconfirmed."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Sa isang larawan sa gabay, magkakasamang ipinakita ang *cuento*, *kwento*, at *kuwento*.",
+      "problem": "The claim about the contents and purpose of a specific KWF illustration cannot be confirmed from the supplied material. No illustration or source excerpt is supplied. The rule requires leaving out unconfirmed facts."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 B conceive; #2 B managing; #3 B noticeable; #4 C truly; #5 C argument; #6 B running; #7 A beginning; #8 C visiting; #9 A occurrence; #10 A kwento at kuwento, conditional on the image description in Core Concept; #11 D fixing and playing. All match the solutions. The external truth of #10 is flagged under B01."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?",
+      "problem": "Example #10 asks about a particular picture, but neither that picture nor an illustration placeholder is supplied. Its contents are the material the question asks the student to inspect."
+     }
+    ]
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the letter, stress, suffix, doubling and syllable explanations. The former dense doubling sentence is split into short statements. Lexical and morphological-family jargon has been removed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Only everyday instructions such as choose and which appear; no specialized exam command needs a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used; syllable as a beat is a direct explanation of pronunciation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?",
+      "problem": "Example #10 tests recall of the contents of a named picture without supplying it. This is neither a standard-spelling selection nor an application of a spelling rule; the necessary referenced material is absent."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated claims about what named exams test and no repeated exam-motivation openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "pass",
+    "checked": [
+     "Read the Filipino borrowing section, example #10, Filipino shortcut and trap #6. They use short Filipino sentences to explain reading a spelling guide."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No hard Filipino grammar category is introduced; Ortograpiyang Pambansa is the title of the named guide.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino example #10 has a Filipino question, choices joined with at, and Filipino solution steps. The English examples test English spelling."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "Filipino prose and claims about KWF spelling guidance need an official-source check. That source is not supplied here.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino teaching passages use Filipino throughout; the Spanish borrowed forms are the subject being discussed, not Taglish prose."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Questions select whole spellings or pairs; none asks for the meaning of a target word in a sentence.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names patterns, exceptions and syllable clues. No listed stock AI phrase appears; sentence openings vary across teaching paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Language layout uses Core Concept, Examples, Speed Tricks & Shortcuts and Traps to Watch For. No example uses a mathematical formula; the formula-before-example requirement has no instances."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Sa Filipino, basahin ang paliwanag sa gabay. Huwag gumawa ng pangkalahatang tuntunin mula sa iisang hiram na salita.",
+      "problem": "The lesson promises checking Filipino spellings, but its sole Filipino example asks which forms appeared in a picture. No worked case chooses a standard Filipino spelling or applies a stated borrowing rule. The English cases are covered by #1 through #9 and #11."
+     }
+    ]
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven solutions use numbered lists, including vowel-order reasoning, each suffix case, stress and long-word checks. There are no numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this spelling lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three sentences. The five-item numbered process is a usable procedure; there are no excessive bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders to assess. The missing picture for example #10 is recorded under B03.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Vowel and consonant are explained before doubling; syllable and stress before longer words; suffix and base before suffix changes; soft c is explained through its s sound. The consonant-vowel-consonant pattern is spelled out with run. Related forms replace the undefined morphological-family term."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Tingnan ang tuntunin at ang hinihingi ng tanong.",
+      "problem": "The Filipino section tells students to consult a rule but never teaches any actual Filipino borrowing or spelling rule. Describing a picture and warning against overgeneralizing do not explain how to check a Filipino spelling, which the summary includes in this lesson's scope."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The rhyme is explicitly limited by weird, seize, science and height. Silent-e retention and truly/argument exceptions are explained. Doubling includes final-letter conditions, stress, the w/x/y exclusions and suffix limitations. Syllable checking explicitly cannot predict every letter."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [
+   {
+    "kind": "exact_exam_figure",
+    "method": "library",
+    "priority": "high",
+    "status": "missing",
+    "position_quote": "Aling pares ng mga anyo ang kapuwa ipinakita kasama ng *cuento* sa larawan sa Ortograpiyang Pambansa?",
+    "description": "Reproduce the verified KWF illustration showing cuento, kwento and kuwento, with the original labels and arrangement.",
+    "why": "The question asks students which forms the particular illustration shows; they need the referenced material."
+   }
+  ],
+  "accuracy_concerns": [
+   {
+    "quote": "Ipinapakita nito ang pagbabago sa baybay ng salitang mula sa Espanyol.",
+    "concern": "The supplied material does not establish what the named KWF picture actually says or whether its purpose is historical spelling change. Verify against the original before treating it as a sourced fact."
+   }
+  ],
+  "brief_items": {
+   "lesson-vocabulary-spelling-rules|L18|0": {
+    "status": "fixed",
+    "quote": "Drop the final *e* to form **managing**. Answer: **B**.",
+    "note": "Examples #2 and #3 now separately work dropping and keeping silent e; #4 works truly."
+   },
+   "lesson-vocabulary-spelling-rules|L02|0": {
+    "status": "fixed",
+    "quote": "In a longer word, the last syllable must also be stressed for this pattern.",
+    "note": "The long sentence was split. Stress, syllable and vowel letters are explained before the rule."
+   },
+   "lesson-vocabulary-spelling-rules|L19|0": {
+    "status": "fixed",
+    "quote": "1. The standard spelling is **conceive**, with *ei* after *c*.",
+    "note": "Example #1 now presents its reasoning as numbered solution steps."
+   },
+   "lesson-vocabulary-spelling-rules|L25|0": {
+    "status": "fixed",
+    "quote": "Spelling has patterns, but some words must be learned one by one.",
+    "note": "The unexplained word lexical was replaced with a plain explanation."
+   },
+   "lesson-vocabulary-spelling-rules|L25|1": {
+    "status": "fixed",
+    "quote": "In *run*, *r* is a consonant, *u* is a vowel, and *n* is a consonant.",
+    "note": "The ending pattern is spelled out and each letter in run is identified."
+   },
+   "lesson-vocabulary-spelling-rules|L25|2": {
+    "status": "fixed",
+    "quote": "Compare related forms such as *begin/beginning* and *refer/referred*.",
+    "note": "The shortcut now says related forms and gives pairs instead of unexplained morphological family."
+   },
+   "language-proficiency-vocabulary#77": {
+    "status": "fixed",
+    "quote": "1. Say the word and listen for each syllable.",
+    "note": "The five-step procedure connects spoken syllables, known bases, sound-letter patterns, stress and suffix changes. Beginning and occurrence demonstrate it."
+   },
+   "lesson-vocabulary-spelling-rules|L03|0": {
+    "status": "not_fixed",
+    "quote": "Choose the standard spelling.",
+    "note": "Choose remains unglossed. It is an everyday instruction and does not need a definition."
+   }
+  }
+ }
+}
