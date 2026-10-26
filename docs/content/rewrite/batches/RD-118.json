@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-arithmetic-number-sense-sequences-and-series"
+ ],
+ "topic": "mathematics/arithmetic-number-sense",
+ "rewrites": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "1f557a7320b2fa29e5f2c4cf1a27a8202c155a2b"
+ },
+ "sha256": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "3ab752eaa0d0328cac7622d245db70a38ef2498b6814dca44f818cad242e9a2a"
+ },
+ "paths": {
+  "lesson-arithmetic-number-sense-sequences-and-series": "content/lessons/mathematics/arithmetic-number-sense/sequences-and-series.md"
+ },
+ "id": "RD-118",
+ "type": "read",
+ "created": "2026-10-26T05:53:45+00:00"
+}
