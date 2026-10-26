@@ -1,0 +1,221 @@
+{
+ "batch": "RD-135",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "a84e5563ff9a1a5d24b97fe4a344ba16e3e0f6d18b9bc7010c33073fbf18481e",
+ "rewrite_commit": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "a84e5563ff9a1a5d24b97fe4a344ba16e3e0f6d18b9bc7010c33073fbf18481e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [
+     "Compared the constitutional public-trust rule, listed RA 3019 clauses, amended plunder threshold, processing periods, and institutional roles with the supplied brief. Added legal propositions lack supplied verification as detailed in findings."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Indirect bribery** under Article $211$ of the Revised Penal Code involves an officer accepting a gift offered because of the officer's public office.",
+      "problem": "This adds a hard-to-remember legal rule from Revised Penal Code Article 211, but the supplied verified-source list and audit do not verify that provision. Under B01 an unconfirmed fact must be left out. I cannot confirm it from the permitted packet; this is a verification concern, not a finding that the proposition is false."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 demand for payment, not typo; 2 bribery; 3 Section 3(b); 4 repeated kickbacks and exactly ₱50 million meet the stated means and threshold; 5 social; 6 excess bills consume money that could fund classrooms; 7 political; 8 social, economic, political respectively; 9 Ombudsman; 10 posted rules expose invented fees and delays; 11 false, services and accountability also suffer. These match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, all eleven requested example scenarios, and five traps are present. Effects map, cause chain, and complaint/court placeholders are supplied. No Speed Tricks section is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [
+     "Read definitions and solutions for short plain explanations. Most terms are glossed, but the injury/proof paragraph contains the difficulty identified below."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The loss and its amount must be stated and proved beyond reasonable doubt.",
+      "problem": "The lesson introduces a criminal proof standard without a plain meaning. The surrounding statutory paragraph combines this unexplained standard with alternative legal grounds, which a Grade 5 reader cannot follow from the explanation supplied."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate and classify are each explained before example prompts use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven questions provide the needed hypothetical circumstances. Contract handling and repeated kickbacks are stated facts, not supplied legal answers. Solutions identify the relevant rule or harm in plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported claims about the CSE's actual question coverage or repeated exam openers appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word in the lesson.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names corruption and its effects; sentence openings vary across definitions, effects, examples, and traps. No listed stock phrases appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses Core Concept, Examples, and Traps. No example uses a mathematical formula; the ₱50 million threshold is a legal condition introduced under Forms."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–4 cover identifying misuse, bribery, contract benefits, and plunder; 5–8 cover each effects group and mixed classification; 9–11 cover complaint routing, prevention, and evaluating budget-only claims. These match the brief's distinct requested cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [
+     "Examples 4, 6, 8, and 11 have numbered reasoning. Several other two-part answers remain unnumbered as identified below. There are no arithmetic computations requiring display equations."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The demand uses office for private gain. The typo alone does not show that misuse.",
+      "problem": "Example 1 gives two separate reasoning steps without a numbered list. Example 9 likewise identifies the institution and then gives a distinct complaint-versus-guilt check. This is a formatting finding, not a skipped-step finding."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equations occur in this conceptual lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student paragraphs contain at most three sentences. The single four-item list groups distinct statutory clauses. The audit comment is invisible metadata, not a student paragraph."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All three placeholders specify labels, nodes, or arrows an artist can draw. Surrounding prose already explains social/economic/political harms and separates the Ombudsman from the court."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "fail",
+    "checked": [
+     "Corruption, private gain, public trust, forms, confidential information, culpability terms, plunder, kickback, red tape, fixer, accountability, institutions, SALN, evaluate, and classify receive local meanings before examples need them."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "The loss and its amount must be stated and proved beyond reasonable doubt.",
+      "problem": "Beyond reasonable doubt is necessary to understand the asserted injury-proof rule but is never explained here. No supplied prerequisite teaches it and no later explanation is signposted."
+     }
+    ]
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson connects misuse to private gain, explains form-specific behavior, traces harms to services/resources/accountability, and explains complaint handling and prevention. It teaches the stated goal locally without assuming missing prerequisite text."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked amended ₱50 million threshold and series of covered acts; gift no-favor exception; actual loss versus unwarranted benefits; public information conditions; fee-free processing, extension and pause exceptions; and limited institutional authority. The remaining proof-condition verification concern is recorded under B01."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "**Indirect bribery** under Article $211$ of the Revised Penal Code involves an officer accepting a gift offered because of the officer's public office.",
+    "concern": "This adds a hard-to-remember legal rule from Revised Penal Code Article 211, but the supplied verified-source list and audit do not verify that provision. Under B01 an unconfirmed fact must be left out. I cannot confirm it from the permitted packet; this is a verification concern, not a finding that the proposition is false."
+   }
+  ],
+  "brief_items": {}
+ }
+}
