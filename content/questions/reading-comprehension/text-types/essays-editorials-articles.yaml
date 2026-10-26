@@ -74,9 +74,9 @@ questions:
     type: "feature-of-form"
     difficulty: "medium"
     stem: |
-      Which structural feature characteristic of a news article is present in paragraph 1?
+      Which feature of news reporting is present in paragraph 1?
     choices:
-      - text: "A dateline and factual lead"
+      - text: "An announcement attributed to an agency"
         correct: true
       - text: "A byline announcing the writer's personal argument"
         rationale: |
@@ -88,7 +88,7 @@ questions:
         rationale: |
           This confuses a reported plan with an institutional recommendation. An agency speaks about the next phase. Check whose position the lead presents.
     explanation: |
-      The opening identifies Cavite City and reports the inauguration with a source. This dateline and lead establish a news-report structure.
+      The opening reports the inauguration and names the agency press release as its source. This attribution tells readers where the information came from.
   - id: "rc-tt-eea-0003"
     passage: "rc-tt-eea-p1"
     type: "feature-of-form"
@@ -114,7 +114,7 @@ questions:
     type: "feature-of-form"
     difficulty: "hard"
     stem: |
-      What evidence from paragraph 2 demonstrates the objective reporting style of the passage?
+      What evidence from paragraph 2 tells readers where the reported claims came from?
     choices:
       - text: "Attribution to the engineer and disaster records"
         correct: true
@@ -176,7 +176,7 @@ questions:
     stem: |
       Which feature of form in paragraph 1 signals that the text is an editorial?
     choices:
-      - text: "Open criticism of the subsidy policy"
+      - text: "Criticism identified as the editorial board's position"
         correct: true
       - text: "Attribution of all judgments to quoted interviewees"
         rationale: |
