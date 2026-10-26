@@ -1,0 +1,466 @@
+{
+ "version": 1,
+ "date": "2026-10-26",
+ "rule": "required: the lesson cannot be followed without an idea the other teaches and it does not; helpful: easier with it. Authored order is never a reason. Drafted by Codex GPT 6.1 Sol from the current lessons and the audit's map; every required link reviewed by the Claude lead.",
+ "lessons": {
+  "lesson-algebra-algebraic-expressions": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "strength": "helpful",
+    "reason": "Signed-number practice makes substitution easier. This lesson repeats the evaluation order and explains negative-base parentheses."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
+   }
+  ],
+  "lesson-algebra-exponents-and-logarithms": [
+   {
+    "lesson": "lesson-algebra-algebraic-expressions",
+    "strength": "helpful",
+    "reason": "Expression simplification and equation practice make the symbolic exponent examples easier. Their worked steps provide enough local guidance."
+   }
+  ],
+  "lesson-algebra-linear-equations-inequalities": [
+   {
+    "lesson": "lesson-algebra-algebraic-expressions",
+    "strength": "helpful",
+    "reason": "Distribution and like-term practice help with solving. The earlier required coordinate-geometry link is rejected because this lesson teaches its graphing ideas."
+   }
+  ],
+  "lesson-algebra-polynomials": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+    "strength": "helpful",
+    "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
+   }
+  ],
+  "lesson-algebra-types-of-functions": [
+   {
+    "lesson": "lesson-algebra-functions-and-relations",
+    "strength": "helpful",
+    "reason": "Downgraded from the earlier required link. This lesson now defines functions, domain, and function notation itself."
+   },
+   {
+    "lesson": "lesson-algebra-polynomials",
+    "strength": "helpful",
+    "reason": "Polynomial division and factoring practice help with rational graphs. This lesson explains its needed division steps and factoring identity."
+   }
+  ],
+  "lesson-algebra-word-problems": [
+   {
+    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "strength": "helpful",
+    "reason": "Equation-solving practice reduces the work after translation. This lesson shows the needed solving steps in its examples."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "required",
+    "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
+   }
+  ],
+  "lesson-arithmetic-number-sense-business-math": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "required",
+    "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
+   }
+  ],
+  "lesson-arithmetic-number-sense-divisibility-rules": [],
+  "lesson-arithmetic-number-sense-fractions-decimals-percentages": [],
+  "lesson-arithmetic-number-sense-order-of-operations": [],
+  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-divisibility-rules",
+    "strength": "helpful",
+    "reason": "Digit tests make finding prime divisors faster. Prime factorization still works through the repeated division taught here."
+   }
+  ],
+  "lesson-arithmetic-number-sense-properties-of-real-numbers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "strength": "helpful",
+    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
+   }
+  ],
+  "lesson-arithmetic-number-sense-ratio-and-proportion": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
+   }
+  ],
+  "lesson-arithmetic-number-sense-real-imaginary-numbers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "strength": "helpful",
+    "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
+   }
+  ],
+  "lesson-arithmetic-number-sense-sequences-and-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "required",
+    "reason": "The infinite-series example assumes fraction subtraction and reciprocal division without explaining those rules."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "strength": "helpful",
+    "reason": "Formula evaluation benefits from powers and signed-arithmetic practice. The earlier required exponent-laws link is unnecessary for the examples used."
+   }
+  ],
+  "lesson-biology-ecology": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
+   },
+   {
+    "lesson": "lesson-biology-cellular-metabolism",
+    "strength": "helpful",
+    "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
+   }
+  ],
+  "lesson-clerical-ability-alphabetic-filing-rules": [],
+  "lesson-clerical-ability-numeric-and-chronological-filing": [],
+  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": [],
+  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": [],
+  "lesson-code-of-conduct-ra-6713-norms-of-conduct": [],
+  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
+    "strength": "helpful",
+    "reason": "Knowing Section 7 violations makes matching offenses to penalties easier. This lesson restates the disclosure offense used in its examples."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+    "strength": "helpful",
+    "reason": "Understanding permitted SALN access and use helps distinguish public disclosure from punishable misuse. This lesson supplies the essential misuse rules."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": [],
+  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": [],
+  "lesson-comprehension-skills-authors-purpose-tone-pov": [],
+  "lesson-comprehension-skills-choosing-a-title": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea",
+    "strength": "helpful",
+    "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
+   }
+  ],
+  "lesson-comprehension-skills-context-clues-in-passages": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
+   }
+  ],
+  "lesson-comprehension-skills-fact-vs-opinion": [],
+  "lesson-comprehension-skills-inferencing-and-conclusions": [],
+  "lesson-comprehension-skills-main-idea": [],
+  "lesson-comprehension-skills-noting-specific-details": [],
+  "lesson-comprehension-skills-sequencing-of-events": [],
+  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
+   }
+  ],
+  "lesson-data-interpretation-tables-and-charts": [],
+  "lesson-earth-science-astronomy-weather-and-climate": [
+   {
+    "lesson": "lesson-physics-thermodynamics",
+    "strength": "helpful",
+    "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
+   }
+  ],
+  "lesson-environment-management-disaster-risk-reduction-and-management": [],
+  "lesson-environment-management-environmental-concepts": [],
+  "lesson-environment-management-environmental-problems-and-climate-change": [
+   {
+    "lesson": "lesson-environment-management-environmental-concepts",
+    "strength": "helpful",
+    "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
+   }
+  ],
+  "lesson-environment-management-species-resources-and-environmental-decisions": [],
+  "lesson-environment-management-the-environmental-laws": [
+   {
+    "lesson": "lesson-environment-management-environmental-concepts",
+    "strength": "helpful",
+    "reason": "The detailed distinction between sorting and diversion makes the waste-law cases easier. This lesson gives enough definitions to stand alone."
+   },
+   {
+    "lesson": "lesson-environment-management-disaster-risk-reduction-and-management",
+    "strength": "helpful",
+    "reason": "Knowing the four DRRM areas makes matching disaster actions to the law easier. This lesson briefly explains the areas itself."
+   }
+  ],
+  "lesson-geometry-logic-and-reasoning": [],
+  "lesson-geometry-measurement": [
+   {
+    "lesson": "lesson-algebra-algebraic-expressions",
+    "strength": "helpful",
+    "reason": "Substitution and simple equation practice make measurement formulas easier. The examples show their required calculations step by step."
+   }
+  ],
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
+  "lesson-grammar-and-structure-modifiers": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
+   }
+  ],
+  "lesson-grammar-and-structure-parallelism": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Understanding infinitive and -ing groups makes comparisons between grammatical forms easier. The lesson supplies its own matching-form rules."
+   }
+  ],
+  "lesson-grammar-and-structure-parts-of-speech": [],
+  "lesson-grammar-and-structure-phrases-and-clauses": [],
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": [],
+  "lesson-grammar-and-structure-punctuation-and-capitalization": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Practice distinguishing independent and dependent clauses makes comma and semicolon choices easier. The lesson repeats the necessary definitions."
+   }
+  ],
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
+  "lesson-grammar-and-structure-sentence-structure": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
+   }
+  ],
+  "lesson-grammar-and-structure-subject-verb-agreement": [
+   {
+    "lesson": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+    "strength": "helpful",
+    "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
+   }
+  ],
+  "lesson-grammar-and-structure-tenses-and-voice": [
+   {
+    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "strength": "helpful",
+    "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
+   }
+  ],
+  "lesson-language-application-error-identification": [
+   {
+    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "strength": "helpful",
+    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-sentence-structure",
+    "strength": "helpful",
+    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
+   }
+  ],
+  "lesson-language-application-paragraph-organization": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea",
+    "strength": "helpful",
+    "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+    "strength": "helpful",
+    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
+   }
+  ],
+  "lesson-language-application-sentence-completion": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-tenses-and-voice",
+    "strength": "helpful",
+    "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-number-and-letter-sequences": [],
+  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": [],
+  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": [],
+  "lesson-logical-verbal-reasoning-word-analogies": [
+   {
+    "lesson": "lesson-vocabulary-synonyms-and-antonyms",
+    "strength": "helpful",
+    "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
+   }
+  ],
+  "lesson-peace-and-human-rights-human-rights-fundamentals": [],
+  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": [
+   {
+    "lesson": "lesson-peace-and-human-rights-human-rights-fundamentals",
+    "strength": "helpful",
+    "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
+   }
+  ],
+  "lesson-philippine-constitution-accountability-and-impeachment": [],
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights": [],
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": [],
+  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+    "strength": "helpful",
+    "reason": "Understanding speedy-trial violations helps explain why certain requested dismissals bar another prosecution. This lesson states the exception without developing the delay assessment."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody",
+    "strength": "helpful",
+    "reason": "Knowing custodial silence helps distinguish it from protection against compelled testimony. This lesson gives a brief comparison sufficient to stand alone."
+   }
+  ],
+  "lesson-philippine-constitution-citizenship-and-suffrage": [],
+  "lesson-philippine-constitution-the-articles-in-outline": [],
+  "lesson-philippine-constitution-the-civil-service-commission": [],
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   },
+   {
+    "lesson": "lesson-philippine-constitution-citizenship-and-suffrage",
+    "strength": "helpful",
+    "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-grouping": [],
+  "lesson-spatial-abstract-reasoning-figure-matrices": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-series",
+    "strength": "helpful",
+    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-series": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+    "strength": "helpful",
+    "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": [],
+  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": [],
+  "lesson-statistics-and-probability-basic-probability": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "required",
+    "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
+   }
+  ],
+  "lesson-statistics-and-probability-data-analysis-graphs": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
+   },
+   {
+    "lesson": "lesson-data-interpretation-tables-and-charts",
+    "strength": "helpful",
+    "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
+   }
+  ],
+  "lesson-statistics-and-probability-measures-of-central-tendency": [],
+  "lesson-text-types-essays-editorials-articles": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+    "strength": "helpful",
+    "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-fact-vs-opinion",
+    "strength": "helpful",
+    "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
+   }
+  ],
+  "lesson-text-types-poetry": [
+   {
+    "lesson": "lesson-vocabulary-idioms-and-figures-of-speech",
+    "strength": "helpful",
+    "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
+   }
+  ],
+  "lesson-text-types-visual-media": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
+    "strength": "helpful",
+    "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   }
+  ],
+  "lesson-verbal-logic-assumptions-and-conclusions": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
+    "strength": "helpful",
+    "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+    "strength": "helpful",
+    "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
+   }
+  ],
+  "lesson-vocabulary-confusing-words": [
+   {
+    "lesson": "lesson-grammar-and-structure-parts-of-speech",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
+   }
+  ],
+  "lesson-vocabulary-context-clues": [],
+  "lesson-vocabulary-idioms-and-figures-of-speech": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Using surrounding events to infer meaning helps distinguish literal expressions from idioms. The lesson demonstrates that distinction independently."
+   }
+  ],
+  "lesson-vocabulary-root-words-prefixes-suffixes": [
+   {
+    "lesson": "lesson-grammar-and-structure-parts-of-speech",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs makes suffix-driven changes easier to understand. The lesson defines the word classes needed for its examples."
+   }
+  ],
+  "lesson-vocabulary-spelling-rules": [
+   {
+    "lesson": "lesson-vocabulary-root-words-prefixes-suffixes",
+    "strength": "helpful",
+    "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
+   }
+  ],
+  "lesson-vocabulary-synonyms-and-antonyms": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
+   }
+  ]
+ }
+}
