@@ -1,0 +1,18 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-the-three-branches-and-their-powers"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "rewrites": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "5541edce0dd6e95845c45e421a79500ec3ca89cf"
+ },
+ "sha256": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "baf37b992cb91bbb0165d7c23d28497ef4818de6d07b128f0e4d4e1bdb6e6add"
+ },
+ "paths": {
+  "lesson-philippine-constitution-the-three-branches-and-their-powers": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md"
+ },
+ "id": "RD-162",
+ "type": "read",
+ "created": "2026-10-26T16:46:43+00:00"
+}
