@@ -37,11 +37,13 @@ Check both the information and the purpose of its use. Sending a lawfully public
 
 If another law gives a heavier penalty for the violation, prosecution proceeds under that law. Do not choose the Code's penalty without checking this condition.
 
-A Code violation proved in a proper administrative case is enough cause for removal or dismissal. No criminal case has to be filed first. The administrative body must still follow a fair process.
+Under Section $11(b)$, a Code violation proved in a proper administrative case is enough cause for removal or dismissal. No criminal case has to be filed first. The administrative body must still follow a fair process.
 
 ### Private People Who Take Part
 
-A **conspiracy** exists when people agree to commit an offense and decide to carry it out. Section $11$ covers private participants with public workers as co-principals, accomplices, or accessories. They face the same **penal liabilities**, meaning criminal responsibility and penalties under this provision, and are tried together with the public workers.
+A **conspiracy** exists when people agree to commit an offense and decide to carry it out. Section $11(c)$ covers private individuals who participate with public workers as co-principals, accomplices, or accessories.
+
+They face the same **penal liabilities** as the public workers. This means criminal responsibility and penalties under this provision. They are tried together with the public workers.
 
 A **co-principal** may directly carry out the offense. Another way is to force someone to do it or directly cause it through persuasion. A person can also be a principal by giving essential help without which the offense could not happen.
 
@@ -49,15 +51,11 @@ An **accomplice** knows the unlawful purpose and helps before or during the offe
 
 An **accessory** knows the offense has happened and takes a legally covered part afterward. The person did not already take part as a principal or accomplice. Covered acts include profiting from the offense, helping the offender profit, or hiding or destroying its evidence or tools to prevent discovery.
 
-The Revised Penal Code also covers sheltering, hiding, or helping a principal escape, but only under stated conditions. The helper must misuse public duties, or the principal must fall within the law's listed serious-offender groups. Merely helping any offender escape does not by itself meet this accessory rule.
+The Revised Penal Code also describes sheltering, hiding, or helping a principal escape, but only under stated conditions. The helper must misuse public duties, or the principal must fall within the law's listed serious-offender groups. Merely helping any offender escape does not by itself meet this accessory rule.
 
 Those groups include a principal guilty of treason, parricide, murder, or an attempt on the Chief Executive's life. Treason is betrayal of the country by aiding its enemy under the law. Parricide is the unlawful killing of a close family member covered by that offense.
 
 The list also covers a principal known to be habitually guilty of another crime. Habitually means repeatedly. For a private helper who holds no public duties, check these conditions before assigning escape-related accessory responsibility.
-
-The family exemption covers an accessory's spouse, parents and other ancestors, children and other descendants, and legitimate, natural, or adopted brothers and sisters. It also covers relatives by marriage within those same degrees. It concerns accessory penalties, not a relative's direct participation as a principal or accomplice.
-
-The exemption does not cover an accessory who profits from the offense or helps the offender profit. For example, hiding evidence for a covered relative and helping that relative enjoy stolen proceeds fall under different parts of the rule. The profit-related act defeats this family exemption.
 
 Knowing about an offense is not enough by itself. Look for an actual act of participation. Someone who planned and directly carried out the offense remains a principal even if that person also helps afterward.
 
@@ -69,7 +67,7 @@ Section $8(D)$ bans obtaining or using filed statements for purposes contrary to
 
 News and communications media have an exception to the commercial-use ban when they use statements to inform the general public. Public access does not allow every possible use.
 
-The official or employee concerned may bring an action against someone who obtains or uses a statement for a prohibited purpose. The court may assess a penalty of up to ₱$25{,}000$. If another applicable sanction is heavier, that heavier sanction applies.
+Under Section $11(d)$, the official or employee concerned may bring an action against someone who obtains or uses a statement for a prohibited purpose. The court may assess a penalty of up to ₱$25{,}000$. If another applicable sanction is heavier, that heavier sanction applies.
 
 ### Enforcement, Referrals, and Review
 
@@ -127,7 +125,7 @@ An officer and a consultant agree to sell confidential agency records for privat
 **Solution:**
 
 1. The consultant agreed to the unlawful plan and directly carried out the sale.
-2. This makes the consultant a co-principal. Section $11$ allows criminal responsibility and trial with the officer.
+2. This makes the consultant a co-principal. Section $11(c)$ makes private participants subject to the same penal liabilities as the officer and tried jointly with the officer.
 
 ### #5: Helpful but Nonessential Aid
 
@@ -137,6 +135,7 @@ A businessperson knows an officer's unlawful purpose and supplies useful records
 
 1. The person knowingly helps before the offense.
 2. The help is nonessential, and no basis for principal responsibility is shown. The role is accomplice.
+3. Section $11(c)$ includes private accomplices among those subject to the same penal liabilities and joint trial with public workers.
 
 ### #6: Destroying a Tool Afterward
 
@@ -145,7 +144,8 @@ An unrelated private person did not plan, assist, or carry out an officer's offe
 **Solution:**
 
 1. The person knows of the offense and takes part only afterward.
-2. Destroying its tool to prevent discovery is a covered act. No family exemption is shown, so the role is accessory.
+2. Destroying its tool to prevent discovery is a covered act. The role is accessory.
+3. Section $11(c)$ includes private accessories among those subject to the same penal liabilities and joint trial with public workers.
 
 ### #7: Disputed Disclosure
 
@@ -156,7 +156,7 @@ An officer denies wrongdoing after sending a file to a business owner. Records s
 1. The records and messages support the information and purpose conditions of Section $7$'s disclosure ban.
 2. The officer must have a fair chance to answer. A complaint alone proves no violation.
 3. A proved Section $7$ crime can bring up to $5$ years in prison, a fine of up to ₱$5{,}000$, or both, with possible disqualification.
-4. Administrative discipline is separately possible under its own process and level of proof.
+4. Administrative discipline is separately possible under its own process and level of proof. The court must apply proof beyond reasonable doubt in the criminal case.
 
 ### #8: Marketing From a SALN
 
@@ -165,7 +165,7 @@ A company uses an employee's filed SALN to build and sell a marketing list. It i
 **Solution:**
 
 1. This is commercial use without the media exception. Section $8(D)$ prohibits it.
-2. The employee may bring an action. The court may assess up to ₱$25{,}000$, subject to the heavier-sanction rule.
+2. The employee may bring an action under Section $11(d)$. The court may assess up to ₱$25{,}000$, subject to the heavier-sanction rule.
 
 ### #9: A Heavier Penalty
 
@@ -181,7 +181,7 @@ A proper administrative case proves an officer's Code violation. No criminal cas
 
 **Solution:**
 
-1. A violation proved in a proper administrative case is enough cause for removal or dismissal.
+1. Under Section $11(b)$, a violation proved in a proper administrative case is enough cause for removal or dismissal.
 2. A criminal case need not come first. The required administrative process still applies.
 
 ### #11: Routing a Complaint
@@ -210,16 +210,7 @@ An employee wants an agency decision reviewed. A coworker says every Code case g
 1. The route depends on the deciding body and kind of decision.
 2. Check the applicable review rules, proper body, and deadline. The Code does not create one route for every case.
 
-### #14: A Relative Who Helps Afterward
-
-After an offense, an offender's sister, who had no earlier role, knowingly hides its tool to prevent discovery. In another case, she helps the offender sell and enjoy the proceeds. Does the accessory family exemption cover both acts?
-
-**Solution:**
-
-1. A sister is among the covered relatives. The exemption can cover her accessory act of hiding the tool.
-2. Helping the offender profit falls under the exception to that exemption. The family relationship does not exempt that profit-related act.
-
-### #15: Escape Help Alone
+### #14: Escape Help Alone
 
 An unrelated private person with no public duties helps an offender hide after a Code offense. The offender is not within any listed serious-offender group and is not known to be habitually guilty of another crime. Does hiding alone establish accessory responsibility under the escape provision?
 
@@ -246,7 +237,7 @@ A proper administrative case can support removal. It still needs evidence and a 
 
 > Check knowledge, agreement, acts, and the importance of the help.
 
-Earlier direct participation can make a person a principal. Later help must meet the accessory conditions. Family exemptions have a profit-related exception.
+Earlier direct participation can make a person a principal. Later help must meet the accessory conditions. Mere knowledge does not establish participation.
 
 ### #4: Mixing Fine Ceilings
 
