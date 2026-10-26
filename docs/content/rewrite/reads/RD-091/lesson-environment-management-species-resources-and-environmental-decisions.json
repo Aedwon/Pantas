@@ -1,0 +1,260 @@
+{
+ "batch": "RD-091",
+ "lesson_id": "lesson-environment-management-species-resources-and-environmental-decisions",
+ "path": "content/lessons/general-information/environment-management/species-resources-and-environmental-decisions.md",
+ "lesson_sha256": "27c0d6145a9a45e02e30f3f1ca9838a09a75f0ccff846de01e648513c703ae2e",
+ "rewrite_commit": "b14f525ba79dafa06904b71c08d8724f574a7423",
+ "form": {
+  "packet": "lesson-environment-management-species-resources-and-environmental-decisions",
+  "role": "A",
+  "lesson_sha256": "27c0d6145a9a45e02e30f3f1ca9838a09a75f0ccff846de01e648513c703ae2e",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the causal claims: habitat clearing removes shelter and breeding sites; roots hold soil; sediment reduces light and can cover habitat; overharvesting can reduce populations. These claims are consistent with the mechanisms described.",
+     "Checked the legal statements for internal consistency: RA 9147 critical habitats are outside existing protected areas; Section 24 connects conservation breeding with habitat recovery; NIPAS categories and management tools are distinguished from critical habitats. No specific factual error is apparent."
+    ],
+    "note": "This prompt supplies no official source excerpts. The legal details could not be independently source-verified under the prompt-only restriction.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Solved #1: take the longer route around the nesting area to reduce disturbance while retaining access.",
+     "Solved #2: repair leaks and reduce avoidable use now because demand exceeds recovery.",
+     "Solved #3: clearing exposes soil; runoff carries sediment into the river, reducing light and covering feeding or breeding sites.",
+     "Solved #4: critical-habitat designation under RA 9147 fits the threatened habitat outside NIPAS.",
+     "Solved #5: no; breeding needs habitat protection or rehabilitation so released animals can survive.",
+     "Solved #6: Route B avoids new habitat clearing while meeting the same access goal under the given conditions.",
+     "Solved #7: limit access and restore native plants under the approved plan to protect breeding habitat. All seven answers agree with the worked solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present, as required for General Information. The optional shortcut and mnemonic sections are unnecessary.",
+     "The ten brief facets are covered through decision comparison, ecosystem mechanisms, species and resource actions, RA 9147, and protected-area categories and management. No supplied example depends on a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read all teaching paragraphs and solutions: short sentences explain habitat, sediment, conservation, zoning, buffer zones, and tradeoffs in common words. Necessary legal names are paired with plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "The first instructional use of Evaluate is immediately explained as judging choices using evidence and reasons. Other question verbs, including choose and explain, need no exam-specific definition."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all seven stems: nesting and route conditions, water use, clearing and rainfall, threatened habitat location, release-site damage, route equivalence, and sanctuary management conditions are supplied.",
+     "The stems leave students to select conservation actions or explain mechanisms. They do not supply the tested definitions or methods. Solutions use short, direct explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or stock exam introductions. The lesson motivates decisions through realistic environmental cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English General Information lesson, not a Filipino-language lesson.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No Filipino grammar terms are taught in this English lesson.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no Filipino-language examples or quiz items to assess.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The supplied lesson contains no Filipino text requiring a KWF source check.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The teaching prose is English and contains no Filipino teaching passages.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to interpret a target word or refers to a marked word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the summary and paragraph openings: the summary names the coverage directly, prohibited stock phrases are absent, and no three consecutive teaching sentences share an opening."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout uses Core Concept, Examples, and Traps to Watch For. Omitting optional shortcuts is appropriate.",
+     "None of the seven examples uses a mathematical formula. Statute and section numbers identify laws, not computation rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped distinct cases to examples: #1 habitat-sensitive visitor access; #2 renewable-water conservation; #3 sediment impacts; #4 critical-habitat designation; #5 breeding linked to habitat; #6 route costs and environmental tradeoffs; #7 sanctuary access and rehabilitation.",
+     "Basic action choices precede legal application and multi-factor management cases. The brief asks for species/resource actions, causal impacts, protected-area classification or local action, and evidence-based alternatives; these are taught and applied without merely changing nouns or numbers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All seven solutions present every reasoning step as numbered lists. Each ends with the requested action, mechanism, legal tool, or judgment. There are no numerical computations requiring display equations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations to assess for screen width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain one to three short sentences. Example givens are split into brief paragraphs, and no bullet lists crowd the lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions in this lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Species, habitat, breeding place, ecosystem, sediment, pollution, species conservation, threatened species, critical habitats, and conservation breeding are explained before examples use them.",
+     "Natural resource, resource conservation, renewable resource, NIPAS, zoning, buffer zone, habitat rehabilitation, evaluate, and tradeoff receive local explanations before application. Legal acronyms are expanded. No prerequisite explanation is needed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The ecosystem section explains how clearing causes habitat loss and erosion, and how sediment affects aquatic life. Species protection connects each action to a threat.",
+     "Resource teaching explains recovery limits and concrete conservation actions. Protected-area teaching connects categories and management tools to protection needs. Decision teaching explains goal checks, environmental effects, tradeoffs, legal limits, and evidence needs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Renewable resources require time and suitable conditions; conservation use must fit the resource and law; some places need strict protection.",
+     "Breeding does not authorize collection or release and cannot replace habitat. Critical habitats are distinguished from NIPAS areas. Activities require applicable rules and permits.",
+     "Decision comparisons are limited to lawful, workable options and supplied evidence. The road example explicitly controls safety, access, legality, and other major environmental differences. The final trap warns that already cleared routes still need risk checks."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "general-information-environment-management#29": {
+    "status": "fixed",
+    "quote": "Among lawful, workable choices, prefer one that meets the goal with less avoidable harm.",
+    "note": "The lesson teaches goal and evidence checks, then applies them to the two road routes."
+   },
+   "general-information-environment-management#30": {
+    "status": "fixed",
+    "quote": "This soil, called **sediment**, can cloud water, block light, and cover feeding or breeding places.",
+    "note": "The local explanation traces clearing through erosion to effects on river life, with a worked case."
+   },
+   "general-information-environment-management#31": {
+    "status": "fixed",
+    "quote": "If habitat loss is the problem, protect or restore the habitat.",
+    "note": "Actions are matched to threats, and the nesting-area example applies habitat protection."
+   },
+   "general-information-environment-management#32": {
+    "status": "fixed",
+    "quote": "Repairing leaks saves water.",
+    "note": "Water, soil, forests, fish, and minerals receive resource-specific conservation teaching beyond waste sorting."
+   },
+   "general-information-environment-management#53": {
+    "status": "fixed",
+    "quote": "The same section calls for protecting or repairing the habitat where they will be released.",
+    "note": "RA 9147 teaching connects breeding to habitat repair and applies it to a damaged release site."
+   },
+   "general-information-environment-management#54": {
+    "status": "fixed",
+    "quote": "Clearing a forest removes food, shelter, and breeding places.",
+    "note": "Habitat protection is linked to survival and reproduction mechanisms, not only the law name."
+   },
+   "general-information-environment-management#56": {
+    "status": "fixed",
+    "quote": "Limiting access near the breeding site reduces disturbance.",
+    "note": "Protected-area categories are introduced, and the sanctuary example applies access limits and restoration under its plan."
+   },
+   "general-information-environment-management#64": {
+    "status": "fixed",
+    "quote": "Protecting plant cover conserves soil, while harvest limits can give forests or fish populations time to recover.",
+    "note": "Concrete species and resource actions include habitat care, pollution reduction, leak repair, and harvest limits."
+   },
+   "general-information-environment-management#65": {
+    "status": "fixed",
+    "quote": "Less light reaches underwater plants, and sediment can cover feeding or breeding places.",
+    "note": "The river example explains a causal human impact on an ecosystem step by step."
+   },
+   "general-information-environment-management#66": {
+    "status": "fixed",
+    "quote": "The tradeoff is added cost against added habitat damage.",
+    "note": "The route example compares cost and habitat harm using stated evidence and equal access, safety, and legality."
+   }
+  }
+ }
+}
