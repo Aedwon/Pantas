@@ -171,7 +171,7 @@ questions:
       sheet: "square"
       showUnfolded: false
     stem: |
-      The shown square is folded vertically. The marked triangular cut touches the folded edge at its midpoint and passes through both layers. On opening, how are the removed regions connected?
+      The shown square is folded vertically. The marked triangular notch has its base along the folded edge at its midpoint and passes through both layers. On opening, how are the removed regions connected?
     choices:
       - text: "One symmetric connected opening"
         correct: true
@@ -234,7 +234,7 @@ questions:
     stem: |
       The shown two-fold packet has a small cut centered on its vertical folded edge, away from the horizontal crease and all outer edges. It crosses every layer. How many connected openings appear after fully opening?
     choices:
-      - text: "Two joined openings"
+      - text: "Two separate connected openings"
         correct: true
       - text: "Four separate openings"
         rationale: |
@@ -293,7 +293,7 @@ questions:
       sheet: "square"
       showUnfolded: false
     stem: |
-      The shown three-fold packet has a small cut centered on its most recent vertical crease. It pierces all layers, touches no earlier crease, and creates no boundary notch. How many connected openings remain after all folds are opened?
+      The shown three-fold packet has a small cut centered on its most recent vertical crease. It pierces all layers and touches no earlier crease or outside edge. How many connected openings remain after all folds are opened?
     choices:
       - text: "Four connected openings"
         correct: true
