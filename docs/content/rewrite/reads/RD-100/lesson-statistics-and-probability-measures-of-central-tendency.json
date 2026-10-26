@@ -1,0 +1,262 @@
+{
+ "batch": "RD-100",
+ "lesson_id": "lesson-statistics-and-probability-measures-of-central-tendency",
+ "path": "content/lessons/mathematics/statistics-and-probability/measures-of-central-tendency.md",
+ "lesson_sha256": "83a1d8a7f3013e2ef1f9b3a77ce37b8486a027dbbbbeabdbab24927f8e83d386",
+ "rewrite_commit": "aade027563a9e2467f0052ebf17c7688069083ca",
+ "form": {
+  "packet": "lesson-statistics-and-probability-measures-of-central-tendency",
+  "role": "A",
+  "lesson_sha256": "83a1d8a7f3013e2ef1f9b3a77ce37b8486a027dbbbbeabdbab24927f8e83d386",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked sum/count mean, sorted odd and even medians, highest-frequency modes, explicitly scoped no-mode convention, backward mean total, and nonnegative weighted averaging.",
+     "Outlier effects and the deviation shortcut follow from sum/count arithmetic; equal weights yield the ordinary mean. No external source was consulted under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 40/5=8; #2 sorted first set 3,5,7,9,11,15 gives 8, second 4,7,9,12,20 gives 9; #3 modes 7, then 2 and 3, then none under the stated convention.",
+     "#4 4(85)-(80+88+90)=82 points; #5 (270+170+400)/(3+2+5)=84; #6 total 393, mean 78.6 pesos, median 25 pesos, median represents most amounts better. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. Weighted meaning and procedure, outlier choice, both median counts, and all mode cases appear. No question depends on a figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The outlier passage uses order and middle value in short sentences. The shortcut uses an easy number near the middle and explicitly defines deviation. Weighted language is concrete copies and counts."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use everyday find and how much instructions, with no exam-specific instruction verb.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Numerical sets and score totals are fully supplied. The weighted-grade stem supplies the school weighting policy, a needed problem-specific condition. The outlier task asks for computed centers and a justified choice without giving the method."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-name openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic directly; teaching openings vary and no listed stock AI phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept introduces sum/count for #1 and #6; middle selection and (a+b)/2 for #2; frequency for #3; mean times count and subtract-known-total for #4; weighted products summed as T divided by summed weights W for #5. Every example method is introduced before Examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Cases cover mean, sorting for even and odd medians, single/tied/no modes, missing score from a mean, unit-weighted average, and choosing a median after computing an outlier-affected mean. No case is merely changed numbers; examples move toward interpretation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step worked solutions use numbered steps; key calculations are displayed and no solving step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display equations are split into short arithmetic or single-formula lines suitable for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three sentences; there are no long bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders to assess in this lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Mean, median, mode, frequency, outlier, weight, weighted mean, T, W, and deviation are defined before their relevant methods. Subject units are identified as weights in the grade problem."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Mean is explained as equal-value averaging; median as sorted center; mode as most frequent, including categories. Weights act like copies, explaining larger influence. Outlier reasoning and the signed-deviation balance explain why each choice or shortcut works."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Median requires sorting and distinguishes odd/even counts; no-mode usage is explicitly scoped to the adopted convention. Weights are nonnegative with positive total; equal weights recover the mean. Median is recommended for a strong outlier rather than unconditionally."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-statistics-and-probability-measures-of-central-tendency|L18|2": {
+    "status": "fixed",
+    "quote": "Find the mean and median. Which better shows a typical amount for this group?",
+    "note": "Example #6 computes both centers and justifies the median for the outlier set."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L26|0": {
+    "status": "fixed",
+    "quote": "A weight of $3$ makes a value count like $3$ copies of that value.",
+    "note": "Core Concept explains why a larger weight has more influence."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L02|0": {
+    "status": "fixed",
+    "quote": "The median depends on the order.",
+    "note": "Simple order and middle-value language replaces exact magnitude."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L02|1": {
+    "status": "fixed",
+    "quote": "For nearby numbers, choose an easy number near the middle.",
+    "note": "The shortcut is introduced with plain concrete wording."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L17|0": {
+    "status": "fixed",
+    "quote": "Multiply each value by its weight, then add the products.",
+    "note": "The full weighted method and T/W formula precede Examples."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L18|1": {
+    "status": "fixed",
+    "quote": "In set (b), $2$ and $3$ each appear $2$ times.",
+    "note": "Example #3 works tied highest frequencies and returns both modes."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L22a|0": {
+    "status": "fixed",
+    "quote": "The mean uses every value.",
+    "note": "Choosing a Center is split into paragraphs of three or fewer short sentences."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L25|0": {
+    "status": "fixed",
+    "quote": "A **weight** tells how much a value counts in an average.",
+    "note": "Weight and weighted mean are defined before the grade example."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L25|1": {
+    "status": "fixed",
+    "quote": "A **deviation** means how far a value is above or below that chosen number.",
+    "note": "Deviation is defined before the signed differences are listed."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L03|0": {
+    "status": "fixed",
+    "quote": "Find the mode of each set:",
+    "note": "The former describe instruction has been replaced by everyday find."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L15|0": {
+    "status": "fixed",
+    "quote": "You can also work backward from a mean.",
+    "note": "Core Concept no longer has the cited three-paragraph run opening with The."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L18|0": {
+    "status": "fixed",
+    "quote": "Now sort the second set.",
+    "note": "Example #2 now sorts and selects the median of an odd-sized set."
+   },
+   "lesson-statistics-and-probability-measures-of-central-tendency|L19|0": {
+    "status": "fixed",
+    "quote": "4. The fourth score was $82$ points. Check the mean.",
+    "note": "The verification mean is now on its own display line after the numbered step."
+   }
+  }
+ }
+}

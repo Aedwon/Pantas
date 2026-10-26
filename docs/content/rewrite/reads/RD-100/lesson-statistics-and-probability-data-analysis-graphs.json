@@ -1,0 +1,252 @@
+{
+ "batch": "RD-100",
+ "lesson_id": "lesson-statistics-and-probability-data-analysis-graphs",
+ "path": "content/lessons/mathematics/statistics-and-probability/data-analysis-graphs.md",
+ "lesson_sha256": "4894aaf79607014e868e6281b960ac035cdf772f40bcee07b493d6f957ed1e6d",
+ "rewrite_commit": "aade027563a9e2467f0052ebf17c7688069083ca",
+ "form": {
+  "packet": "lesson-statistics-and-probability-data-analysis-graphs",
+  "role": "A",
+  "lesson_sha256": "4894aaf79607014e868e6281b960ac035cdf772f40bcee07b493d6f957ed1e6d",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked circle shares and angles, equal-space scale reading, arithmetic mean, starting-value percent change, truncated-axis visual effect, and distinction between association and cause. All are mathematically sound.",
+     "Pie anchors are 36/360=10%, 90/360=25%, 180/360=50%, 120/360=1/3; 35%-25%=10 percentage points and 10/25=40%. No external source was consulted under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 3000 pesos; #2 126 degrees; #3 other-day mean 47.5 thousand, excess 37.5 thousand=37500 pesos; #4 halfway from 20 to 30 is 25.",
+     "#5 negative linear association and no proof of cause; #6 (1800-1500)/1500=20%; #7 Graph B exaggerates the visible increase, actual change (110-100)/100=10%. All match."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "All four required mathematics sections are present. Each graph example has its own explicit figure marker; the two new scale cases have detailed illustration instructions. Text supplies sufficient values or positions to solve without a rendered figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "The former nonlinear-correlation sentence is replaced by short sentences about curves and straight lines. Definitions explain axis, mean, change, association, and cause in simple words."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use everyday find and how much instructions, with no exam-specific instruction verb.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Budget total and angle, survey percentage, sales with units, tick positions, scatter direction, enrollment counts, and both axis ranges are given. Tested formulas are left for students to select. Solutions use plain English, including the sleep example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-name openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic directly; teaching openings vary and no listed stock AI phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept supplies angle/360 and amount=share times total for #1; angle=share times 360 for #2; sum/count mean for #3; labeled difference/spaces for #4; downward association and no-cause rule for #5; (new-start)/start times 100% for #6 and #7. Subtraction in comparisons is basic arithmetic, not an unintroduced statistical formula."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover angle-to-amount, percent-to-angle, bar comparison against a mean, decoding an unlabeled halfway tick, interpreting scatter association without cause, percent increase, and comparing truncated and zero-based scales. The cases add distinct reasoning and reach multi-step interpretation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step worked solutions use numbered steps; key calculations are displayed and no solving step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display equations are split into short arithmetic or single-formula lines suitable for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three sentences; there are no long bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Every FIGURE marker is a one-line chart specification with labels or descriptive semantics. Both ILLUSTRATION markers specify axes, data, ticks, and bar endpoints; #7 includes the axis break. Text independently describes all required graph information."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Sector, share decimal, axis, tick steps, truncated axis, mean, percent-change symbols, scatter dots, linear association, correlation, and causation are explained before the examples. No prerequisite teaching is assumed for these methods."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains pie parts as fractions of a whole, bar height as values, step size from equal intervals, mean as sum divided by count, truncation as omitted scale, and scatter patterns without proof of cause."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Scale steps require equal spaces; percent change uses a positive starting value. Truncation affects appearance but not values; no straight pattern can still hide a curve; observed association does not establish causation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "Both flagged marks phrases refer to graph tick marks. Neither denotes scores; there are no app questions called cards."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-statistics-and-probability-data-analysis-graphs|L02|0": {
+    "status": "fixed",
+    "quote": "Dots may still form a clear curve when they do not follow a straight line.",
+    "note": "Short plain sentences replace the long technical sentence."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L05|0": {
+    "status": "fixed",
+    "quote": "Other things, such as time spent studying, could affect the results.",
+    "note": "The scatter solution explains the limit with common words and an example."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L17|1": {
+    "status": "fixed",
+    "quote": "For **percent change**, compare the change with the starting value.",
+    "note": "Core Concept now states and explains the percent-change formula."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L26|0": {
+    "status": "fixed",
+    "quote": "A **truncated axis** leaves out part of the scale, often by starting above $0$.",
+    "note": "The term is defined at its first teaching use."
+   },
+   "mathematics-statistics-and-probability#24": {
+    "status": "fixed",
+    "quote": "The bar ends at the small tick between $20$ and $30$.",
+    "note": "Example #4 decodes the unlabeled halfway tick as 25 using two equal spaces. Rendering availability cannot be tested from this prompt; the specific required figure instruction is present."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L17|0": {
+    "status": "fixed",
+    "quote": "The **mean** is the average. Add the values, then divide by how many values there are.",
+    "note": "Mean and its formula now appear in Core Concept before Example #3."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L18|0": {
+    "status": "fixed",
+    "quote": "The bar ends at the small tick between $20$ and $30$.",
+    "note": "Example #4 requires deriving an unstated bar value from axis spacing."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L18|1": {
+    "status": "fixed",
+    "quote": "Graph B has a vertical axis from $90$ to $120$.",
+    "note": "Example #7 compares identical counts on two scales and computes actual change."
+   },
+   "lesson-statistics-and-probability-data-analysis-graphs|L25|0": {
+    "status": "fixed",
+    "quote": "The **mean** is the average.",
+    "note": "Meaning and calculation are taught before the mean is requested."
+   }
+  }
+ }
+}

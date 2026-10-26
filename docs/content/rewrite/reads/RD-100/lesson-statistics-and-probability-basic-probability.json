@@ -1,0 +1,235 @@
+{
+ "batch": "RD-100",
+ "lesson_id": "lesson-statistics-and-probability-basic-probability",
+ "path": "content/lessons/mathematics/statistics-and-probability/basic-probability.md",
+ "lesson_sha256": "09fbf56b8a348f32037b39f965c6e5cb62c408e84df3935edaf7b99666c9c696",
+ "rewrite_commit": "aade027563a9e2467f0052ebf17c7688069083ca",
+ "form": {
+  "packet": "lesson-statistics-and-probability-basic-probability",
+  "role": "A",
+  "lesson_sha256": "09fbf56b8a348f32037b39f965c6e5cb62c408e84df3935edaf7b99666c9c696",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Verified equal-likelihood counting, complement, conditional multiplication, independent multiplication, inclusion-exclusion, and mutually exclusive addition algebraically.",
+     "Two independent fair dice have 36 equally likely ordered pairs. Standard-deck counts (52, four suits, 13 per suit, 26 per color, 12 face cards, four per rank) agree with the conventional deck. No external source was consulted under the prompt-only restriction."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independently solved #1: 2/6=1/3; #2: six ordered sums of seven out of 36=1/6; #3: (1/2)(1/6)=1/12.",
+     "#4: (5/8)(4/7)=5/14; #5: (5/8)^2=25/64; #6(a): 8/52=2/13, (b): 16/52=4/13; #7: 1-(1/2)^3=7/8. All agree with the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts, and Traps to Watch For are present. Replacement and nonreplacement, ordered dice, independent events, both union cases, and complement are included; no question requires an unseen figure."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Conditional notation is explained as a chance given an event; count changes and overlap use short concrete sentences. The former abstract defined-probability wording is gone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The questions use everyday find and how much instructions, with no exam-specific instruction verb.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Each stem supplies fair or random sampling, counts, replacement conditions, and independence where needed. No stem supplies the probability formula being tested; solutions explain counting and arithmetic in plain English."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam claims or exam-name openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English mathematics lesson with no Filipino text.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the topic directly; teaching openings vary and no listed stock AI phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept introduces favorable/total for #1 and #2, 6 times 6 ordered counting for #2, independent multiplication for #3 and #5, conditional multiplication for #4, union-minus-overlap and exclusive addition for #6, and complement plus independent multiplication for #7. The cube in #7 abbreviates three applications of the taught product rule."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Worked cases progress through single-event counting, ordered dice, independent unlike devices, dependent draws, replacement draws, exclusive and overlapping unions, and at-least-one complement. The two marble cases teach different count-reset conditions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "All multi-step worked solutions use numbered steps; key calculations are displayed and no solving step is omitted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "Display equations are split into short arithmetic or single-formula lines suitable for a phone."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching paragraphs contain at most three sentences; there are no long bullet lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders to assess in this lesson.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Outcome, event, probability, P(A), complement notation, conditional bar notation, independence, dependence, replacement, overlap, and ordered pairs are explained before use. R1 and R2 are explained alongside their draw-specific use."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains probability as likelihood, overlap subtraction as correcting double counts, replacement as restoring counts, and 36 dice outcomes as six possible second results for each first result. Examples apply these meanings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Equal-likelihood counting is conditional on equally likely outcomes; conditional multiplication requires positive P(A); independent multiplication is restricted to independence. Replacement includes return and mixing; union overlap and probability bounds are stated."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B09": {
+    "verdict": "pass",
+    "checked": [
+     "All flagged card occurrences refer to physical playing cards and deck counts, not app questions. No score is called marks."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-statistics-and-probability-basic-probability|L18|0": {
+    "status": "fixed",
+    "quote": "Returning the marble restores $5$ red marbles out of $8$.",
+    "note": "Example #5 now works a replacement draw and restores both counts."
+   },
+   "lesson-statistics-and-probability-basic-probability|L02|0": {
+    "status": "fixed",
+    "quote": "If $A$ has a chance greater than $0$:",
+    "note": "The abstract conditional-probability condition is replaced with plain language."
+   },
+   "lesson-statistics-and-probability-basic-probability|L25|0": {
+    "status": "fixed",
+    "quote": "The notation $P(B\\mid A)$ reads as \"the probability of $B$ given $A$.\"",
+    "note": "Conditional notation is read and explained before its formula."
+   },
+   "lesson-statistics-and-probability-basic-probability|L26|0": {
+    "status": "fixed",
+    "quote": "This gives $6\\times6=36$ ordered pairs.",
+    "note": "Core Concept develops the pair count and distinguishes the two die positions."
+   },
+   "lesson-statistics-and-probability-basic-probability|L27|0": {
+    "status": "fixed",
+    "quote": "The original counts return.",
+    "note": "Return, mixing, and unchanged next-draw chances are explicitly taught."
+   },
+   "lesson-statistics-and-probability-basic-probability|L19|0": {
+    "status": "fixed",
+    "quote": "2. Multiply because the events are independent.",
+    "note": "Example #3 now separates the two reasoning steps in a numbered list."
+   }
+  }
+ }
+}
