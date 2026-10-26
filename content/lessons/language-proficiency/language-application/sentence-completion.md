@@ -21,11 +21,15 @@ For two or more blanks, solve the blank with the clearest clue first. Then check
 
 ### Grammar Clues
 
+A **subject** is the person or thing the sentence says something about. A **verb** expresses an action or a state. In *The clerk works*, *the clerk* is the subject and *works* is the verb.
+
+A verb can also link the subject to a description. In *The clerk is helpful*, *is* is the verb. A verb may have several words, as in *was working* or *had finished*.
+
 **Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun.
 
 An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*. The blank's job helps you choose the form.
 
-**Subject-verb agreement** means matching the subject and verb. In the simple present, use *the clerk works* but *the clerks work*. With *be*, use *she is* and *they are*; in the past, use *she was* and *they were*.
+**Subject-verb agreement** means choosing a verb form that fits the subject. In the simple present, use *the clerk works* but *the clerks work*. With *be*, use *she is* and *they are*; in the past, use *she was* and *they were*.
 
 Check time too. Simple past describes a finished past action: *She sent it yesterday*. Past progressive uses *was* or *were* plus an *-ing* form for an ongoing past action: *She was writing when I called*.
 
@@ -33,9 +37,9 @@ Past perfect uses *had* plus a **past participle** to make an earlier past actio
 
 In *She had left when I arrived*, leaving happened before the arrival. Do not add *had* to every past verb. If you only report a finished event, simple past may be enough.
 
-Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Use *enjoy reading*, with an *-ing* form.
+Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
 
-Learn these patterns with the first verb. A pattern that fits *want* may not fit *enjoy*.
+Use *enjoy reading*, with an *-ing* form. Learn these patterns with the first verb. A pattern that fits *want* may not fit *enjoy*.
 
 ### Articles, Prepositions, and Lists
 
@@ -133,7 +137,7 @@ Choose the best completion: "Yesterday, the committee ______ the proposal after 
 
 **Solution:**
 
-1. The sentence needs a main verb after *the committee*.
+1. The sentence needs a verb to tell what *the committee* did.
 2. *Yesterday* places the completed decision in the past.
 3. Use **approved**, choice **(C)**.
 
@@ -151,7 +155,7 @@ Choose the best completion: "Every morning, the clerks ______ the request log."
 
 **Solution:**
 
-1. The subject *clerks* is plural. *Every morning* describes a routine.
+1. The subject *clerks* refers to more than one clerk. *Every morning* describes a routine.
 2. Use the simple-present form **check**, choice **(B)**.
 
 ### #6: Earlier Past and Ongoing Past
