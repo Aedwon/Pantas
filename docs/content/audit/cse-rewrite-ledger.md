@@ -42,3 +42,13 @@ Writers add rows in the same commit as the lesson change; the reader checks them
   - penalties-and-enforcement: Example 5 applies Section 11(c) to an accomplice without showing an agreement, while
     11(c) says "participate in conspiracy". This is the statute's own wording tension; decide how to frame accomplices.
   - accountability-and-impeachment: Example 14 repeats Example 2's reasoning (L18); replace with a distinct case.
+
+## 2026-10-26 closing state
+
+73 clean, 15 minor-only, 2 for Aedwon:
+- corruption-and-its-effects: the reader cannot see the source for the RA 3019 Section 3(e) case it cites
+  (G.R. 231530-33, 2021; Codex verified it on lawphil.net). A "cannot confirm" lead, not a shown error.
+- penalties-and-enforcement: Section 11(c) says private persons "participate in conspiracy as co-principals,
+  accomplices or accessories", but under the Revised Penal Code everyone in a conspiracy is a principal. Every
+  automated framing of the accomplice and accessory examples trips one side of that tension. Recommended: teach the
+  statute's wording and the same-liability rule, and drop the worked role-classification examples. Needs Aedwon.
