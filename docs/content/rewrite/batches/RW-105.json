@@ -1,0 +1,13 @@
+{
+ "lessons": [
+  "lesson-philippine-constitution-amending-and-revising-the-constitution"
+ ],
+ "topic": "general-information/philippine-constitution",
+ "round": 1,
+ "paths": {
+  "lesson-philippine-constitution-amending-and-revising-the-constitution": "content/lessons/general-information/philippine-constitution/amending-and-revising-the-constitution.md"
+ },
+ "id": "RW-105",
+ "type": "rewrite",
+ "created": "2026-10-26T04:29:38+00:00"
+}
