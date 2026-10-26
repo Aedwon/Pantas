@@ -129,7 +129,7 @@ questions:
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
   type: single_choice
   difficulty: easy
-  stem: 'What is another common name given to International Humanitarian Law?
+  stem: 'Which description matches International Humanitarian Law''s scope?
 
     '
   choices:
@@ -147,7 +147,7 @@ questions:
     rationale: 'This selects revenue law. States enforce both fields. Check the humanitarian subject.
 
       '
-  explanation: 'IHL is also called the law of armed conflict because it governs armed conflict and limits its effects.
+  explanation: 'IHL governs armed conflict and limits its effects. Some duties, such as teaching its rules, also require action in peace.
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
