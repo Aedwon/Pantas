@@ -5,4 +5,404 @@ meta:
   exams:
   - cse-pro
   - cse-sub
-questions: []
+questions:
+- id: q-environment-management-environmental-problems-and-climate-change-0001
+  type: single_choice
+  difficulty: easy
+  stem: |
+    Which observation describes weather rather than climate?
+  choices:
+  - text: A long-term shift in seasonal rainfall patterns
+    rationale: |
+      A long-term change in rainfall patterns concerns climate, not short-term weather.
+  - text: Heavy rain in the municipality this afternoon
+    correct: true
+  - text: A long-term change in average coastal conditions
+    rationale: |
+      The long-term pattern concerns climate. Weather describes conditions over a short period.
+  - text: A lasting change in the usual pattern of dry seasons
+    rationale: |
+      A lasting seasonal change concerns climate, not conditions on a particular day.
+  explanation: |
+    Weather describes conditions on a day or over a short period. Rain this afternoon is weather. Climate concerns long-term patterns.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0002
+  type: single_choice
+  difficulty: easy
+  stem: |
+    How do greenhouse gases contribute to warming?
+  choices:
+  - text: They prevent human activities from releasing heat-trapping gases.
+    rationale: |
+      Human activities can release greenhouse gases. The gases do not prevent those releases.
+  - text: They remove all heat from the atmosphere.
+    rationale: |
+      Greenhouse gases trap heat. Removing all heat describes the opposite effect.
+  - text: They turn daily weather into an unchanging climate.
+    rationale: |
+      Weather still changes. Greenhouse gases affect warming, not whether daily conditions can vary.
+  - text: They trap heat in the atmosphere.
+    correct: true
+  explanation: |
+    Greenhouse gases trap heat in the atmosphere. Human activities add these gases and contribute to warming.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0003
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A cleared woodland no longer provides birds with food, shelter, and space. Which local environmental problem is most directly described?
+  choices:
+  - text: Loss of wildlife habitat
+    correct: true
+  - text: Failure to separate household waste
+    rationale: |
+      The situation describes a lost living place. It does not describe household waste sorting.
+  - text: Water pollution from an identified discharge
+    rationale: |
+      No discharge or polluted water is described. The evidence concerns the birds' living place.
+  - text: Air pollution from smoke near homes
+    rationale: |
+      The situation gives no evidence of smoke. It describes the loss of resources birds need.
+  explanation: |
+    A habitat supplies food, water, shelter, and space. Clearing it can remove what birds need to live there.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0004
+  type: single_choice
+  difficulty: easy
+  stem: |
+    A municipality stores water so residents can use it during expected dry periods. What is the main climate purpose of this action?
+  choices:
+  - text: Mitigation, because all water projects remove greenhouse gases
+    rationale: |
+      Storing water does not by itself remove greenhouse gases. The stated goal is coping with dry periods.
+  - text: Monitoring, because storing water measures whether rainfall changed
+    rationale: |
+      Storage provides water. It does not itself measure rainfall or assess a trend.
+  - text: Adaptation, because it reduces harm from water shortages
+    correct: true
+  - text: Source segregation, because stored water is separated from waste
+    rationale: |
+      Source segregation means sorting waste where it is produced. This action addresses a water shortage.
+  explanation: |
+    Adaptation helps people cope with climate effects. Storing water prepares residents for dry periods. Mitigation focuses on greenhouse gas releases or removal.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0005
+  type: single_choice
+  difficulty: easy
+  stem: |
+    Which national body has major pollution-control duties identified in the lesson?
+  choices:
+  - text: The Climate Change Commission acting as a materials recovery facility
+    rationale: |
+      A materials recovery facility sorts and recovers waste materials. It is not the national pollution-control body identified in the lesson.
+  - text: The DENR through its Environmental Management Bureau
+    correct: true
+  - text: A barangay materials recovery facility acting as a national regulator
+    rationale: |
+      A local recovery facility handles materials. It does not replace the national pollution-control body.
+  - text: Local governments acting as the Environmental Management Bureau
+    rationale: |
+      Local governments have environmental duties, but they are not the DENR's Environmental Management Bureau.
+  explanation: |
+    The DENR has major pollution-control duties through its Environmental Management Bureau. Local governments also have duties under environmental laws.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0006
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Residents notice a bad smell in a stream beside several establishments. Which conclusion is justified before inspections or water tests?
+  choices:
+  - text: The nearest establishment must have caused the pollution.
+    rationale: |
+      Being nearby does not prove responsibility. Officials need evidence linking a source to the harm.
+  - text: The smell proves that climate change caused the problem.
+    rationale: |
+      A smell does not establish a climate cause. Possible local sources still need investigation.
+  - text: The absence of test results proves that the stream is safe.
+    rationale: |
+      Missing test results do not prove safety. They show that more evidence is needed.
+  - text: The report warrants investigation but does not identify the source.
+    correct: true
+  explanation: |
+    A bad smell can prompt an investigation. It does not identify who caused pollution. Inspections and suitable water tests can help establish the source.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0007
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A barangay opens a materials recovery facility. Which activity best matches the facility's purpose?
+  choices:
+  - text: Sorting waste and recovering materials for recycling or composting
+    correct: true
+  - text: Combining separated waste so every material follows the same disposal route
+    rationale: |
+      Mixing separated materials makes recovery harder. The facility should support sorting and useful recovery.
+  - text: Replacing household sorting with a rule that all waste must arrive mixed
+    rationale: |
+      A recovery facility supports waste management. It does not make segregation at source unnecessary.
+  - text: Storing mixed waste solely to delay its final disposal
+    rationale: |
+      Storage alone does not recover materials for reuse, recycling, or composting.
+  explanation: |
+    A materials recovery facility sorts waste and recovers useful materials. Collection should preserve the separation that households already made.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0008
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Flooding closes a public market and interrupts nearby classes. Which consequence is specifically an economic effect?
+  choices:
+  - text: Children lose access to their regular lessons.
+    rationale: |
+      Lost access to schooling is a social effect. The question asks about production, income, property, or costs.
+  - text: Families must leave their homes for temporary shelter.
+    rationale: |
+      Displacement concerns people's homes and living conditions. It is a social effect in this classification.
+  - text: Vendors lose earnings while their stalls remain closed.
+    correct: true
+  - text: Residents have difficulty reaching health services.
+    rationale: |
+      Access to health services is a social concern. The choice does not describe an income or cost effect.
+  explanation: |
+    Lost earnings are an economic effect. Lost classes and difficulty reaching health services are social effects. The same flood can cause both.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0009
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Which action most directly shows the political or policy aspect of climate change?
+  choices:
+  - text: A drought reduces the harvest sold by farmers.
+    rationale: |
+      This describes reduced production and income. It does not describe a public decision.
+  - text: A council assigns funds and coordinates agencies for climate projects.
+    correct: true
+  - text: Floodwater forces families to leave their homes.
+    rationale: |
+      This describes a social effect. It does not identify a government planning or budget decision.
+  - text: Changing conditions reduce the water available to plants.
+    rationale: |
+      This describes an environmental effect. A policy aspect concerns public choices about responding to such risks.
+  explanation: |
+    Budgets and agency coordination are public decisions. Climate policy includes these choices even when no political party is involved.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0010
+  type: single_choice
+  difficulty: medium
+  stem: |
+    A city protects a forest mainly to keep its stored carbon from being released. Which description best fits that stated climate goal?
+  choices:
+  - text: Adaptation, because every forest project mainly protects people from flooding
+    rationale: |
+      A forest project may have several benefits. This project's stated goal concerns carbon releases, not flood protection.
+  - text: Monitoring, because protection itself measures the project's results
+    rationale: |
+      Protecting a forest is an action. Measuring whether it works requires separate checks.
+  - text: Capability building, because retaining trees trains local staff
+    rationale: |
+      Capability building gives people training, skills, and tools. Forest protection alone does not describe that work.
+  - text: Mitigation, because it helps limit greenhouse gas releases
+    correct: true
+  explanation: |
+    Mitigation limits greenhouse gas releases or increases their removal. Protecting stored forest carbon supports this goal. Use the stated purpose to classify the action.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0011
+  type: single_choice
+  difficulty: medium
+  stem: |
+    Which activity is the clearest example of capability building for local climate action?
+  choices:
+  - text: Training municipal staff and giving them tools to map flood risk
+    correct: true
+  - text: Publishing a project title without preparing staff to carry it out
+    rationale: |
+      A title does not give staff the skills or tools needed to do the work.
+  - text: Recording damaged roads without teaching staff how to assess risk
+    rationale: |
+      Recording damage gathers information. It does not by itself build staff skills or provide training.
+  - text: Announcing a shelter project while leaving staff roles undefined
+    rationale: |
+      An announcement does not equip staff to carry out their duties. Capability building prepares people for the work.
+  explanation: |
+    Capability building gives people training, skills, and tools. Staff who can map flood risk are better prepared to support local planning.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0012
+  type: single_choice
+  difficulty: hard
+  stem: |
+    Coastal communities face similar flooding. One has weak homes and few nearby safe places. Another has stronger homes and accessible shelters. What best explains their different vulnerability?
+  choices:
+  - text: Similar flooding means both communities must have equal vulnerability.
+    rationale: |
+      This considers only what the communities face. Their ability to cope also matters.
+  - text: Shelter access matters only after recovery, so it cannot affect vulnerability.
+    rationale: |
+      Access to safe places helps people cope with flooding. It is relevant to vulnerability.
+  - text: Housing strength and the ability to reach safety affect how well residents can cope.
+    correct: true
+  - text: Vulnerability depends only on whether a community has a written plan.
+    rationale: |
+      A written plan does not establish actual protection. Conditions and the ability to respond must also be considered.
+  explanation: |
+    Vulnerability includes likely harm and the ability to cope. Similar flooding can cause different harm when homes and access to safety differ.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0013
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A town floods after heavy rain. Inspections also find blocked drains and recent land-use changes. Which assessment is most defensible?
+  choices:
+  - text: The flood alone establishes climate change as its only cause.
+    rationale: |
+      A single event does not establish sole responsibility. The evidence also identifies local conditions that can affect damage.
+  - text: Local conditions must be considered, and climate change's role needs more evidence.
+    correct: true
+  - text: Blocked drains prove that climate change could not have played any role.
+    rationale: |
+      A local cause does not rule out other contributing factors. More evidence is needed to assess climate's role.
+  - text: The presence of heavy rain makes drainage conditions irrelevant.
+    rationale: |
+      Blocked drainage can affect flood damage during heavy rain. Rain does not make local conditions irrelevant.
+  explanation: |
+    Flood damage can reflect rainfall, drainage, and land use. A single flood does not settle climate change's role. Officials need more evidence.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0014
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A city wants to evaluate a program intended to stop repeated waste dumping into waterways. Which evidence would best support a finding that the program works?
+  choices:
+  - text: The program received a new name and a widely attended launch.
+    rationale: |
+      A name and attendance show publicity. They do not show whether services work or dumping has declined.
+  - text: A rule was published, but officials did not check collection or dumping.
+    rationale: |
+      A rule on paper does not show that it was enforced or reduced harm.
+  - text: Officials removed waste once without checking what happened afterward.
+    rationale: |
+      A cleanup records an activity. Without follow-up, it does not show that repeated dumping has stopped.
+  - text: Before-and-after checks show less dumping, working collection, and enforcement against violations.
+    correct: true
+  explanation: |
+    Evaluation checks services, enforcement, and changes in harm. Comparing conditions helps show whether the response works. A launch alone cannot show success.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0015
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A shelter plan invites women and men to meetings. Later checks show that warnings fail to reach residents with certain work and care duties. What should planners do to apply gender mainstreaming?
+  choices:
+  - text: Consult affected residents and adjust warnings and shelter access to address their different needs.
+    correct: true
+  - text: Treat the meeting invitations as proof that everyone's needs are already met.
+    rationale: |
+      Invitations alone do not show fair access. The later checks identify needs the plan has missed.
+  - text: Consider different needs only after the plan has ended.
+    rationale: |
+      Gender mainstreaming applies throughout planning and action. Waiting until the end leaves current barriers unaddressed.
+  - text: Remove participation from the process and use one schedule without checking access.
+    rationale: |
+      This ignores different duties and experiences. Planners should use participation and evidence to address barriers.
+  explanation: |
+    Gender mainstreaming considers women's and men's needs throughout a plan. Both should help shape it. Planners must check whether warnings and shelters actually reach people.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0016
+  type: single_choice
+  difficulty: hard
+  stem: |
+    A proposed climate plan selects projects before studying likely harm or identifying residents who have difficulty coping. Which step would best correct this weakness?
+  choices:
+  - text: Keep the projects unchanged and use their launch dates as evidence of need.
+    rationale: |
+      Launch dates do not identify risks or people needing protection. They cannot replace a risk study.
+  - text: Select projects solely because another municipality uses them.
+    rationale: |
+      Another municipality may face different conditions. Local evidence should guide the choices.
+  - text: Conduct an impact and vulnerability assessment, then use the findings to set priorities.
+    correct: true
+  - text: Delay gathering risk evidence until all project funds have been spent.
+    rationale: |
+      Risk evidence should guide project selection. Gathering it only after spending cannot guide the initial priorities.
+  explanation: |
+    An impact and vulnerability assessment studies likely harm and who needs protection. Its findings help officials choose actions that fit local risks.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0017
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A municipal proposal claims that national climate planning concerns emission reduction alone. Which statement best corrects that claim under the National Strategic Framework on Climate Change described in the lesson?
+  choices:
+  - text: The framework covers adaptation alone and excludes research on emissions.
+    rationale: |
+      This substitutes another narrow purpose. The framework supports adaptation and ways to reduce emissions, using research and evidence.
+  - text: The framework connects climate planning with research, public education, and checks on progress.
+    correct: true
+  - text: The framework replaces local climate plans with public information campaigns alone.
+    rationale: |
+      Public information is one part of the framework. Local governments still lead local climate action planning.
+  - text: The framework requires projects to continue unchanged when local conditions change.
+    rationale: |
+      Useful local plans respond to changing social, economic, and environmental conditions. Fixed projects may stop fitting local needs.
+  explanation: |
+    The framework has several roles. It guides planning, research, public education, and checks on progress. It supports adaptation and ways to reduce emissions.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0018
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A municipality plans flood-safe public facilities and cleaner energy to reduce emissions. Which implementation approach best reflects the national climate framework?
+  choices:
+  - text: Assign project names now and decide later whether local risks justify them.
+    rationale: |
+      Project names do not establish need. Risk evidence should guide the choice of actions.
+  - text: Use a risk study to choose projects but omit funding and staff preparation.
+    rationale: |
+      Evidence helps select projects, but funding and capable staff are also needed to carry them out.
+  - text: Fund the projects and consider completion reports sufficient without checking whether harm falls.
+    rationale: |
+      Completion shows that work occurred. Evaluation must also judge whether the work reduced harm or met its purpose.
+  - text: Link risk evidence to actions, funding, trained staff, and checks on results.
+    correct: true
+  explanation: |
+    A useful plan connects evidence with action and the means to carry it out. Checks on results help officials judge what worked and what needs adjustment.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0019
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A public school raises classrooms above expected floodwater and installs efficient lighting to reduce energy use and related emissions. Flooding later disrupts classes and creates repair costs. Which analysis correctly distinguishes the actions and effects?
+  choices:
+  - text: Raising classrooms supports adaptation, efficient lighting supports mitigation, lost classes are social, and repair costs are economic.
+    correct: true
+  - text: Raising classrooms supports mitigation, efficient lighting supports adaptation, lost classes are social, and repair costs are economic.
+    rationale: |
+      This reverses the actions' purposes. Raising classrooms reduces flood harm. The lighting reduces energy use and related emissions.
+  - text: Raising classrooms supports adaptation, efficient lighting supports mitigation, lost classes are economic, and repair costs are social.
+    rationale: |
+      This reverses the effects. Lost schooling is a social effect. The cost of repairs is an economic effect.
+  - text: Both actions support only adaptation, and both effects are only economic because they involve a public building.
+    rationale: |
+      A shared location does not give all actions and effects the same label. The lighting targets emissions, and missed schooling is social.
+  explanation: |
+    Higher classrooms reduce flood harm. Efficient lighting reduces related emissions. Missed classes affect education, while repair costs concern money. One site can show several kinds of action and effect.
+  approved: false
+- id: q-environment-management-environmental-problems-and-climate-change-0020
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A city's climate plan used an earlier risk assessment. New housing, changing livelihoods, and altered environmental conditions now affect residents' ability to cope. Which response best follows the lesson's planning principles?
+  choices:
+  - text: Retain the original priorities because having an approved plan proves that current risks are covered.
+    rationale: |
+      Approval does not prove that a plan still fits changed conditions. Current risks and coping needs require review.
+  - text: Replace the risk assessment with a publicity campaign and leave the projects unchanged.
+    rationale: |
+      Public information helps people act, but it cannot replace evidence used to choose suitable projects.
+  - text: Update the risk evidence, review priorities with affected residents, and adjust actions and resources while tracking results.
+    correct: true
+  - text: Keep funding the original projects and postpone reviewing results until local conditions stop changing.
+    rationale: |
+      Plans should respond to change. Waiting for conditions to stop changing prevents timely review and adjustment.
+  explanation: |
+    Local climate plans should respond to changing conditions. Updated evidence helps officials adjust priorities, funding, and action. Tracking results shows whether the revised work helps residents.
+  approved: false
