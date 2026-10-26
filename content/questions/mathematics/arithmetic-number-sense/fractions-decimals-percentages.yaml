@@ -68,21 +68,21 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      Express $0.444...$ as a fraction in lowest terms, then add $\dfrac{2}{9}$. What is the simplified result?
+      Given $0.444\ldots=\dfrac{4}{9}$, add $\dfrac{2}{9}$ to this value. What is the simplified result?
     choices:
       - text: '$\dfrac{6}{9}$'
         rationale: |
           This leaves the result as six ninths instead of reducing it. The fraction has the correct value. Check that the result is in lowest terms.
       - text: '$\dfrac{4}{9}$'
         rationale: |
-          This stops after converting the repeating decimal. The conversion is a needed first step. Check whether another fraction must be added.
+          This reports only the given fraction. Check whether another fraction must be added.
       - text: '$\dfrac{2}{3}$'
         correct: true
       - text: '$\dfrac{44}{99}$'
         rationale: |
-          This writes two repeated digits over ninety-nine but omits the addition. That fraction does represent the decimal. Check every requested operation.
+          This is equal to the given decimal but omits the addition. Check every requested operation.
     explanation: |
-      Let $x=0.444\ldots$. Then $10x=4.444\ldots$. Subtract to get $9x=4$, so $x=\dfrac{4}{9}$. Add $\dfrac{2}{9}$: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$.
+      Use the given value $\dfrac{4}{9}$. Add $\dfrac{2}{9}$: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0005
     type: word-problem
@@ -160,7 +160,7 @@ questions:
           This uses the fraction remaining as the percentage increase. The remaining price is needed for the ratio. Check that the increase is the gain divided by the new price.
       - text: '$111\dfrac{1}{9}\%$'
         rationale: |
-          This uses the new-to-old ratio as the increase alone. The ratio does restore the original price. Check that the ratio includes the original one hundred percent.
+          This uses the original-to-reduced price ratio as the increase alone. The ratio does restore the original price. Check that the ratio includes the original one hundred percent.
     explanation: |
       After a $10\%$ decrease, $90\%$ of the original price remains. If the original price is $100$, it falls to $90$ and needs an increase of $10$. The required increase is $\dfrac{10}{90}(100\%)=11\dfrac{1}{9}\%$.
 
@@ -188,7 +188,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      An investor deposits $\text{₱}12,000$ in a savings account earning 5.5% simple annual interest. How much total interest is earned after 18 months?
+      An investor deposits $\text{₱}12,000$ in a savings account earning 5.5% simple annual interest. This means interest is earned at 5.5% of the original deposit per year, in proportion to the time in years. How much total interest is earned after 18 months?
     choices:
       - text: '$\text{₱}660$'
         rationale: |
@@ -202,7 +202,7 @@ questions:
         rationale: |
           This uses eighteen as years without converting the time. The stated duration is copied directly. Check that the time unit matches the annual rate.
     explanation: |
-      The annual rate is $0.055$, and $18$ months is $\dfrac{18}{12}=1.5$ years. Simple interest is $I=Prt=12000(0.055)(1.5)=990$ pesos.
+      The interest for one year is $12000(0.055)=660$ pesos. Since $18$ months is $\dfrac{18}{12}=1.5$ years, the total interest is $660(1.5)=990$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0011
     type: word-problem
