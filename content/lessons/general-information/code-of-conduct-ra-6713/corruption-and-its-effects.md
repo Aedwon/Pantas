@@ -18,7 +18,9 @@ Public interest means putting people's needs before personal gain. Simple living
 
 ### Forms
 
-**Direct bribery**, under the Revised Penal Code, Article $210$, involves a benefit offered or accepted to influence official action. Paying an officer to skip a required check is an example.
+**Direct bribery**, under the Revised Penal Code, Article $210$, is an offense by a public officer. The officer agrees to act for a benefit, accepts an offer or promise, or receives a gift or present in exchange for an act tied to official duties. The deal must be to commit a crime, do an unjust act, or skip a required duty.
+
+The officer's agreement, acceptance, or receipt completes the officer's offense. The officer need not carry out the agreed act first. An offer alone does not make the officer guilty if the officer does not agree or accept it.
 
 **Graft and corrupt practices** include acts under RA $3019$, Section $3$:
 
@@ -95,10 +97,10 @@ The demand uses office for private gain. The typo alone does not show that misus
 
 ### #2: Naming the Form
 
-An inspector accepts money to skip a required inspection. What form of corruption does this show?
+An inspector accepts money in exchange for skipping a required inspection. The inspector has not skipped it yet. What form of corruption does this show?
 
 **Solution:**
-It shows bribery: payment meant to change official action.
+It shows direct bribery. The inspector accepted money to skip an official duty. That acceptance completes the offense even before the inspector skips the check.
 
 ### #3: Contract Gift
 
