@@ -1,0 +1,205 @@
+{
+ "batch": "RD-124",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "50035c3563d811ad007d6d352d089bc4e3970c88335045909545a4823555d9d1",
+ "rewrite_commit": "f6df6b2d2253ceb56001f750bdb5a0d32b012dd8",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "50035c3563d811ad007d6d352d089bc4e3970c88335045909545a4823555d9d1",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the four citizenship groups, natural-born exception, marriage rule and dual-allegiance distinction against the Article IV summary supplied in the brief.",
+     "Compared oath-based reacquisition and separate candidacy renunciation with the supplied RA 9225 summary; checked constitutional voting minimums, ballot secrecy, overseas voting and unassisted voting provisions against the supplied Article V summary."
+    ],
+    "note": "Prompt-only review cannot independently verify RA 6809, RA 9139, naturalization exceptions or the newly asserted election-day registration rule. These additions need primary-source verification by the lead.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 citizen from birth; #2 foreign birthplace is no barrier; #3 natural-born after proper election; #4 Ana alone satisfies natural-born status; #5 marriage alone does not remove citizenship.",
+     "#6 prescribed oath for reacquisition, plus office qualifications and sworn foreign-citizenship renunciation for candidacy; #7 two citizenships alone do not prove dual allegiance.",
+     "#8 eligible on the stated election-day facts; #9 first person alone meets both residence periods; #10 neither reading nor property test is permitted; #11 secrecy, qualified overseas voting and access for illiterate voters must be protected. All match the supplied solutions, subject to the statutory verification limit noted under B01."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples and Traps are present with no unwanted shortcut section. All 11 outlined example cases appear.",
+     "Citizenship groups, natural-born status, marriage, statutory routes, dual allegiance, voting qualifications and ballot protections are covered. Both requested concept illustrations have placeholders."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Ang **pagkamamamayan** (citizenship) ay pagiging kasapi ng isang bansa ayon sa batas.",
+      "problem": "This is a General Information lesson, but the teaching is in Filipino throughout. L02 requires simple English. The Filipino-language exception is for lessons teaching Filipino grammar, vocabulary or reading; this lesson teaches constitutional law."
+     }
+    ]
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "Example prompts use ordinary questions; none introduces an exam-specific instruction verb requiring a gloss.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy is used in the core or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All 11 questions give the dates, parentage, status or residence facts needed for the requested decision. They do not supply the constitutional rule being tested. Solutions are direct Filipino explanations rather than new factual assumptions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No claim about CSE frequency or repeated exam-reference opener occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This teaches General Information, not Filipino grammar, vocabulary or reading; the subject-specific Filipino lesson rule does not apply.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This teaches General Information, not Filipino grammar, vocabulary or reading; the subject-specific Filipino lesson rule does not apply.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This teaches General Information, not Filipino grammar, vocabulary or reading; the subject-specific Filipino lesson rule does not apply.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "The lesson contains Filipino prose. Official KWF spelling and usage cannot be confirmed from this packet.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This teaches General Information, not Filipino grammar, vocabulary or reading; the subject-specific Filipino lesson rule does not apply.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No example refers to a target word whose bold formatting must be checked.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The Filipino summary states the subject plainly. Section openings and example answers vary, and no listed stock AI phrase appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information structure uses Core Concept, Examples and Traps and omits shortcuts as requested. Examples compare citizenship conditions and minimum ages/residence; none uses a computational formula requiring a prior formula statement."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped all required cases: mother citizen, foreign birth, pre-1973 election, office eligibility, marriage, reacquisition/candidacy, dual citizenship, election-day age, distinct residence periods, prohibited tests and ballot protections. The final example combines several constitutional duties."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples #6 and #11 number their separate actions or duties. The other solutions answer one legal classification each; there are no hidden computations or skipped numerical steps."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No display equation appears in this lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs remain within three sentences. One four-item list presents the constitutional citizenship categories; other prose is not fragmented into unnecessary lists."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Both placeholders are specific single lines: the citizenship decision branches and a voter checklist including registration/disqualification cautions. Prose explains the citizenship and voting tests without the figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Citizenship, alien, election of citizenship, age of majority, natural-born, naturalized, repatriation, dual citizenship, dual allegiance and suffrage are explained before their worked uses. Statutory numbers identify laws rather than unexplained mathematical symbols."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "May tuntunin din ang batas sa pagpapanatili ng pagkamamamayan sa ilalim ng mga kondisyon nito.",
+      "problem": "The brief requires teaching retention as well as reacquisition under RA 9225. This says only that retention has conditions. It does not explain that natural-born citizens who become foreign citizens after the Act retain Philippine citizenship upon the prescribed oath. The preceding paragraph explains reacquisition only."
+     }
+    ]
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the special pre-1973 election exception, parent citizenship at birth, lawful renunciation exception to marriage retention, separate candidacy requirements, judicial versus administrative naturalization routes, and election-day voting minimums.",
+     "The lesson distinguishes ordinary residence requirements from overseas voting’s own statutory system and explains that registration and statutory disqualifications still matter. It states the interim assistance protection until unassisted voting is available."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}

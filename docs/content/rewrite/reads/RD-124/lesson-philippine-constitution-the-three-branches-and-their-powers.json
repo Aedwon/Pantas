@@ -1,0 +1,205 @@
+{
+ "batch": "RD-124",
+ "lesson_id": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+ "path": "content/lessons/general-information/philippine-constitution/the-three-branches-and-their-powers.md",
+ "lesson_sha256": "f4adcdf915d5c1a0663f2e62c29b0b9a5fd52c30f713f1231df837f90fab638b",
+ "rewrite_commit": "f6df6b2d2253ceb56001f750bdb5a0d32b012dd8",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-three-branches-and-their-powers",
+  "role": "A",
+  "lesson_sha256": "f4adcdf915d5c1a0663f2e62c29b0b9a5fd52c30f713f1231df837f90fab638b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared legislative composition, terms, bill origination, budget limits, inquiries, war and veto rules with the Article VI provisions summarized in the supplied brief. The two-thirds war vote is expressly separate.",
+     "Compared presidential term, succession, appointments, emergency limits, clemency and treaties with the supplied Article VII outline. Initial emergency limits are distinguished from extensions.",
+     "Checked court composition, JBC nominations, tenure and the officer age/experience ladder against the supplied Article VIII and commission outlines. The judicial-power quotation includes both actual controversies and grave abuse of discretion."
+    ],
+    "note": "This is a prompt-only consistency check. The underlying legal pages were not opened; election-clemency details and other additions still require the lead’s primary-source verification.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 Congress, President, courts; #2 Senate 6 years/2 consecutive terms, House 3/3; #3 revenue starts in House, education need not unless in a reserved category.",
+     "#4 200 House votes and 16 Senate votes; #5 ambassador requires consent, Supreme Court Justice does not; #6 all four proposed acts are invalid for the stated period, impeachment, recommendation and concurrence defects.",
+     "#7 16 Senators; #8 15 Members, divisions of 3/5/7, judicial branch and constitutional conflict; #9 Ana qualifies by age for Representative, Ben for Representative/Senator, Cara for all three.",
+     "#10 insufficient Supreme Court experience and lower-court minimums are not exhaustive; #11 prior candidacy bars both commissions and age 35 fails Ombudsman; #12 congressional override followed by judicial review. These answers match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, Speed Tricks & Shortcuts and Traps to Watch For are present. The allowed merges produce 12 examples covering the 14 outlined slots.",
+     "All four suggested teaching figures have specific placeholders: branches, emergency timeline, qualification ladder and checks. Legislative, executive, judicial and non-CSC qualification content is present."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the explanations of branch powers, office qualifications and all solutions. Technical legal words are generally followed by plain explanations; the long judicial-power passage is an expressly identified constitutional quotation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction word such as infer or evaluate appears in an example prompt.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Checked all 12 stems: they ask students to recall or apply constitutional knowledge without giving the tested rule. Hypothetical membership, ages and experience are supplied where needed. Solutions explain the decisions directly."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam-promotional opener or unsupported claim about CSE question frequency appears."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language text to assess.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language text to assess.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language text to assess.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language text to assess.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This lesson contains English teaching and examples, with no Filipino-language text to assess.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the three powers and office eligibility; prose avoids listed stock phrases and varies openings across sections."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information keeps Core Concept, Examples and Traps, with a genuine voting-body shortcut. Example #4 uses two-thirds times each House’s membership, introduced by the override rule in Legislative power. Example #7 uses two-thirds times all Senators, introduced in the treaty paragraph of Executive power. No other computational formula is used."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Mapped #1 to branch matching; #2 terms; #3 bill origins; #4 override; #5 appointment consent; #6 emergency and clemency limits; #7 treaties; #8 court composition/review; #9 ages; #10 judicial qualifications; #11 commissions/Ombudsman; #12 mixed checks.",
+     "Basic branch recall precedes numerical thresholds and mixed constitutional application. The repeated judicial-review idea culminates in identifying two successive checks, a distinct mixed scenario."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Multi-step calculations in #4 and #7 use numbered steps and displayed computations. Multi-part decisions in #6, #8, #10 and #11 are numbered; other answers are direct parallel classifications with no omitted calculation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The three display equations contain only a fraction times 300 or 24 and its result; each fits a narrow screen."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Paragraphs contain at most three sentences; the single list groups the House-origin bill categories."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "Read all four one-line placeholders. Each specifies labels and relationships or timeline positions. None is needed to determine a worked answer, and the surrounding prose supplies the same substantive rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Checked definitions before application: legislative/executive power, at large, consecutive, bill, originate, veto, override, full membership, martial law, habeas corpus, pardon, amnesty, concurrence and treaty.",
+     "Judicial review, en banc, JBC, natural-born citizenship, Bar membership, CPA/auditing, commission names and impeachment receive explanations before examples use them."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson explains how bill origination, amendment, veto and override work; how appointments and emergency checks limit the President; how courts resolve disputes and review acts; and how age, citizenship, residence and professional experience combine for eligibility."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked initial versus extended martial law, invasion/rebellion and public safety, congressional revocation and judicial review; final-judgment and election-offense clemency limits; and proper-case limits on review.",
+     "Checked full membership versus attendance, separate House voting, consecutive versus lifetime terms, party-list residence exception, successor presidential bar, lower collegiate court citizenship, and age alone not establishing eligibility."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
