@@ -140,8 +140,8 @@ An unrelated private person did not plan, assist, or carry out an officer's offe
 **Solution:**
 
 1. The person knows of the offense and takes part only afterward.
-2. Destroying its tool to prevent discovery is a covered act. The role is accessory.
-3. Section $11(c)$ includes private accessories among those subject to the same penal liabilities and joint trial with public workers.
+2. Destroying the tool to prevent discovery is an accessory act described in Article $19$ of the Revised Penal Code.
+3. Section $11(c)$ also requires participation in a conspiracy with the officer. The facts do not show this. The same penal liabilities and joint trial cannot be assumed.
 
 ### #7: Disputed Disclosure
 
