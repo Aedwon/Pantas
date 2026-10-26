@@ -49,7 +49,7 @@ The President controls executive departments, bureaus, and offices and ensures t
 
 Section $16$ requires Commission on Appointments consent for department heads, ambassadors, other public ministers and consuls, and military officers from colonel or naval captain upward. It also covers other officers whose appointments the Constitution vests in the President. Other appointments follow their own rules.
 
-As Commander-in-Chief, the President heads the armed forces. **Martial law** places an area under military rule subject to constitutional limits. Section $18$ allows it only for invasion or rebellion when public safety requires it.
+As Commander-in-Chief, the President heads the armed forces. **Martial law** is emergency military rule subject to constitutional limits. Section $18$ allows it only for invasion or rebellion when public safety requires it.
 
 The President may also suspend the **privilege of the writ of habeas corpus** under those conditions. The writ normally lets a court require a detained person to be brought before it so the detention can be checked.
 
@@ -75,27 +75,35 @@ Courts settle real disputes over legal rights. They also check serious misuse of
 
 The Supreme Court has a Chief Justice and $14$ Associate Justices. It may sit **en banc**, as the full Court, or in divisions of $3$, $5$, or $7$ Members (Section $4$).
 
-The President appoints judges from at least $3$ nominees for each vacancy supplied by the Judicial and Bar Council. No Commission on Appointments confirmation is needed (Sections $8$ and $9$). Judges serve during good behavior until age $70$ or incapacity (Section $11$).
+The President appoints judges from at least $3$ nominees for each vacancy supplied by the Judicial and Bar Council. This council screens and recommends people for judicial office. No Commission on Appointments confirmation is needed (Sections $8$ and $9$).
+
+Judges serve during good behavior until age $70$ or incapacity (Section $11$).
 
 ### Who may hold each office
 
 A **natural-born citizen** is generally a citizen from birth without an act needed to gain citizenship. Articles IV and V: Citizenship and Suffrage explains the special election-of-citizenship rule.
 
-Representative: at least $25$, natural-born, and able to read and write. District representatives must be registered voters in their district and residents there for at least $1$ year immediately before election day. The district voter and residence rules except party-list representatives (Article VI, Section $6$).
+Representative: at least $25$, natural-born, and able to read and write. District representatives must be registered voters in their district and residents there for at least $1$ year immediately before election day. The district voter and residence rules do not apply to party-list representatives (Article VI, Section $6$).
 
 Senator: at least $35$, natural-born, able to read and write, and a registered voter. Philippine residence must cover at least $2$ years immediately before election day (Article VI, Section $3$).
 
 President and Vice-President: at least $40$, natural-born, registered voters, and able to read and write. Philippine residence must cover at least $10$ years immediately before election day (Article VII, Sections $2$ and $3$). These elected offices measure age on election day.
 
-Supreme Court Member: natural-born, at least $40$, with at least $15$ years as a lower-court judge or practicing lawyer in the Philippines. Lower-court judges must be Philippine citizens and Bar members, meaning admitted lawyers; lower collegiate courts also require natural-born status. Law sets further qualifications, and all judges need proven skill, honesty, and independence (Article VIII, Section $7$).
+Supreme Court Member: natural-born, at least $40$, with at least $15$ years as a lower-court judge or practicing lawyer in the Philippines. Lower-court judges must be Philippine citizens and Bar members, meaning admitted lawyers; lower collegiate courts also require natural-born status. These are courts where judges decide cases as a group.
+
+Law sets further qualifications. All judges need proven skill, honesty, and independence (Article VIII, Section $7$).
 
 <!-- ILLUSTRATION: age ladder with 25: Representative; 35: Senator, COMELEC, COA; 40: President, Vice-President, Supreme Court Member, Ombudsman; label Minimum ages only -->
 
-COMELEC has a Chair and $6$ Commissioners. Members must be natural-born, at least $35$ at appointment, and college graduates. A majority, including the Chair, must have practiced law for at least $10$ years (Article IX-C, Section $1$).
+The **Commission on Elections (COMELEC)** enforces election laws. It has a Chair and $6$ Commissioners. Members must be natural-born, at least $35$ at appointment, and college graduates.
 
-COA has a Chair and $2$ Commissioners. Members must be natural-born and at least $35$ at appointment. They must be CPAs with at least $10$ years of auditing experience or lawyers with at least $10$ years of practice. All Members cannot belong to the same profession (Article IX-D, Section $1$).
+A majority, including the Chair, must be Bar members who have practiced law for at least $10$ years (Article IX-C, Section $1$).
 
-The Ombudsman must be natural-born, at least $40$ at appointment, a lawyer, and known for honesty and independence. At least $10$ years as a judge or practicing lawyer in the Philippines is required (Article XI, Section $8$).
+The **Commission on Audit (COA)** checks government accounts. It has a Chair and $2$ Commissioners. Members must be natural-born and at least $35$ at appointment.
+
+They must be certified public accountants, or **CPAs**, with at least $10$ years of auditing experience, or lawyers with at least $10$ years of practice. A CPA is a licensed accounting professional; auditing means checking accounts and financial records. All Members cannot belong to the same profession (Article IX-D, Section $1$).
+
+The **Ombudsman** investigates complaints against public officials. The Ombudsman must be natural-born, at least $40$ at appointment, a lawyer, and known for honesty and independence. At least $10$ years as a judge or practicing lawyer in the Philippines is required (Article XI, Section $8$).
 
 These three offices bar candidates in the election immediately before appointment. See The Civil Service Commission for the CSC qualifications. Regular full terms for Constitutional Commission members and the Ombudsman are $7$ years without reappointment.
 
@@ -103,7 +111,7 @@ These three offices bar candidates in the election immediately before appointmen
 
 President → Congress: veto. Congress → President: veto override and consent to listed appointments through the Commission on Appointments.
 
-Congress → impeachable officers: the House starts impeachment cases; the Senate tries them. See Accountability and Impeachment for the process under Article XI, Section $3$.
+Congress → impeachable officers: the House starts impeachment cases; the Senate tries them. Impeachment is the process for charging and trying certain high officials for removal. See Accountability and Impeachment for the process under Article XI, Section $3$.
 
 Courts → government acts: judicial review.
 
@@ -141,13 +149,15 @@ A vetoed bill returns to Congress. Assume the House has $300$ Members and the Se
 
 **Solution:**
 
-1. Use all Members of each House.
+1. Find two-thirds of all House Members.
 
 $$\dfrac{2}{3}\times300=200$$
 
+2. Find two-thirds of all Senators.
+
 $$\dfrac{2}{3}\times24=16$$
 
-2. At least $200$ House votes and $16$ Senate votes are needed. Without a veto communicated within $30$ days of receipt, the bill becomes law as if signed.
+3. At least $200$ House votes and $16$ Senate votes are needed. Without a veto communicated within $30$ days of receipt, the bill becomes law as if signed.
 
 ### #5: Appointment Consent
 
@@ -163,7 +173,7 @@ During rebellion, the President proclaims martial law for $90$ days without an e
 
 **Solution:**
 
-1. The initial limit is $60$ days, with a report within $48$ hours. Congress may revoke; the Supreme Court may review the factual basis.
+1. The initial martial law period cannot exceed $60$ days. The President must report within $48$ hours; Congress may revoke and the Supreme Court may review the factual basis.
 2. A pardon cannot cover impeachment. Amnesty is separate and needs a majority of all Members of Congress to concur.
 
 ### #7: Treaty Votes
@@ -172,9 +182,9 @@ With $24$ Senators, how many must concur in a treaty?
 
 **Solution:**
 
-$$\dfrac{2}{3}\times24=16$$
+At least $16$ Senators must concur:
 
-At least $16$ Senators must concur.
+$$\dfrac{2}{3}\times24=16$$
 
 ### #8: Court Composition and Review
 
