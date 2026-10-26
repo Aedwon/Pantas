@@ -1,0 +1,269 @@
+{
+ "batch": "RD-128",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "54417ddb894e8853a664268d5a76a5a6d7dad467f3f02909f4d1136b502ae274",
+ "rewrite_commit": "8c725ee9f0f2f71751f5c4820fdc64323472761f",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "54417ddb894e8853a664268d5a76a5a6d7dad467f3f02909f4d1136b502ae274",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the four citizenship groups and natural-born exception with the Article IV provisions described in the supplied brief. Marriage, loss by law, and dual allegiance are consistent with those provisions.",
+     "Checked the RA 9225 oath and separate candidacy renunciation against the supplied Section 3 and Section 5 summary. Repatriation and the distinct judicial and administrative naturalization routes are stated with qualifications.",
+     "Checked voting minimums, the ban on literacy and property tests, ballot secrecy, overseas voting, and independent voting against the supplied Article V outline. No contrary fact is established by the packet."
+    ],
+    "note": "Primary-source text and ledgers are not supplied for independent verification of added statutory details. This verdict is limited to the supplied packet.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Blind answers: #1 yes, Filipino through the mother; #2 no, foreign birthplace does not defeat citizenship through Filipino parents; #3 yes, valid election under Section 1(3) is deemed natural-born.",
+     "#4 Ana alone meets the natural-born requirement; #5 no citizenship loss from marriage alone; #6 oath of allegiance, then the office qualifications and personal sworn renunciation of foreign citizenship for candidacy.",
+     "#7 no, citizenship under two laws alone is not dual allegiance; #8 yes, age 18 on election day and both residence minimums are met with registration and no disqualification.",
+     "#9 only the person with eight months locally meets both residence minimums; #10 no reading or landownership test; #11 ballot secrecy and sanctity, qualified overseas voting, and a procedure for independent voting with the stated interim safeguards. All match the supplied solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept covers the four citizen groups, election and majority, natural-born status, naturalization, marriage, loss and reacquisition, RA 9225, RA 8171, and dual status.",
+     "Voting teaching includes age and both residence minimums, disqualification, registration, prohibited tests, ballot protections, and the overseas statutes. All eleven requested examples and seven trap topics are present.",
+     "Both requested concept illustrations have specific placeholders. Required section layout is present, and there is no Speed Tricks section."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Read the citizenship and voting explanations for sentence length and vocabulary. Citizenship, election, majority, naturalization, alien, renunciation, oath, repatriation, dual status, suffrage, and literacy receive short explanations.",
+     "The statutory qualification sentences are denser than the surrounding prose but give concrete ages, residence periods, and actions. No sustained passage requires advanced reading to follow the central citizenship or voting tests."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special meaning appears. Elect is a legal concept and is explained locally.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1 to 7 supply parent status, birth date where needed, valid election, office qualification assumptions, marriage facts, foreign naturalization, or dual-citizenship circumstances without giving the legal answer.",
+     "Examples 8 to 10 supply age, residence, registration and disqualification facts where required or ask directly about prohibited qualifications. Example 11 tests recall of the constitutional protections. Solutions use plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "There are no repeated exam references or stock test-maker introductions. Examples use concrete citizenship and voting decisions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [
+     "**Citizenship** means legal membership in a country. Some rights and government offices depend on it.",
+     "**Naturalization** is the legal process by which an alien becomes Filipino. An **alien** is someone who is not a citizen of the country concerned. A naturalized citizen is not natural-born.",
+     "**Suffrage** means the right to vote. Article V, Section $1$, requires Philippine citizenship, no legal disqualification, and these minimums:"
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Citizenship** means legal membership in a country. Some rights and government offices depend on it.",
+      "problem": "L08: The teaching prose is in English. With this rule applicable as instructed, the lesson does not teach in simple Filipino at the Grade 5 standard."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "**Elect** here means formally choose citizenship under law, not vote. **Age of majority** means legal adulthood. RA $6809$ lowered the general age from $21$ to $18$; older cases require the law that applied then.",
+     "**Naturalization** is the legal process by which an alien becomes Filipino. An **alien** is someone who is not a citizen of the country concerned. A naturalized citizen is not natural-born.",
+     "**Dual citizenship** means citizenship in two countries. It can result from different citizenship laws or retention under RA $9225$. **Dual allegiance** involves voluntarily owing loyalty to two states."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "fail",
+    "checked": [
+     "A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?",
+     "Both parents were Filipino when their child was born abroad. Does birthplace prevent Philippine citizenship?",
+     "Lina was born in $1970$ to a Filipino mother and alien father. She validly elected Philippine citizenship upon majority. Is she natural-born?",
+     "Ana is natural-born. Ben is naturalized. Both meet all other Senate qualifications. Who meets the citizenship requirement?",
+     "A Filipino marries an alien without legally renouncing citizenship. Is citizenship lost?",
+     "A natural-born Filipino lost citizenship through foreign naturalization. What separate steps does RA $9225$ require to regain citizenship and seek elective office?",
+     "A child is Filipino through a parent and a foreign citizen through birthplace. Does this alone establish dual allegiance?",
+     "A registered Filipino turns $18$ on election day. By then, residence is $2$ years in the country and $8$ months locally. No disqualification applies. May this person vote?",
+     "Two adult Filipinos have each lived in the country for $10$ years. One has lived in the voting place for $8$ months, the other for $3$ months. Who meets both residence minimums?",
+     "May a law require voters to pass a reading test or own land?",
+     "What must Congress provide under Article V, Section $2$?"
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?",
+      "problem": "L10: All eleven examples are in English. With this rule applicable as instructed, the examples must be in Filipino. There are no separate quiz items."
+     }
+    ]
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [
+     "Those whose fathers or mothers are Filipino citizens.",
+     "A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?",
+     "Congress must provide absentee voting for qualified Filipinos abroad. RA $9189$, as amended by RA $10590$, sets overseas voting rules, including registration and qualifications."
+    ],
+    "note": "Filipino usage in this lesson needs checking against an authoritative source.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "pass",
+    "checked": [
+     "Check the parent's citizenship at the child's birth. Birth abroad does not prevent Philippine citizenship. Birth in the Philippines alone does not grant it.",
+     "**Dual citizenship** means citizenship in two countries. It can result from different citizenship laws or retention under RA $9225$. **Dual allegiance** involves voluntarily owing loyalty to two states.",
+     "No literacy, property, or other substantive requirement may be added. Literacy means the ability to read and write."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or an underlined or bold word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "No listed stock AI phrases appear. The summary names the citizenship and voting topics. Sentence openings vary across definitions, legal rules, and examples."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information layout uses Core Concept, Examples, and Traps to Watch For, without a forced mnemonic or shortcut section.",
+     "No example uses a mathematical formula. Ages and residence periods are legal thresholds introduced under Who may vote, not calculation formulas."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1 and 2 distinguish a Filipino mother and foreign birthplace; 3 covers pre-1973 election; 4 covers natural-born office eligibility; 5 marriage; 6 reacquisition and candidacy; 7 dual citizenship versus allegiance.",
+     "Examples 8 and 9 cover election-day age and independent local residence minimums; 10 covers forbidden reading/property tests; 11 covers the three ballot protections. These map to every requested worked case.",
+     "The sequence starts with direct citizenship identification and moves to election, office eligibility, separate oath requirements, and voting applications. The two parent examples address different misconceptions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [
+     "Examples 6 and 11 use numbered lists. The other direct legal recall answers are single-step applications."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Only the first. The second lacks the required $6$ months locally.",
+      "problem": "L19: Example 9 compares national residence and two local residence periods but presents the reasoning as an unnumbered answer. No decisive step is missing, so this is a minor solution-format finding. Number the comparisons for this multi-step solution."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson contains no display equations or computation lines.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [
+     "Core Concept paragraphs otherwise have at most three sentences. The two lists collect the citizen groups and voter minimums."
+    ],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A registered Filipino turns $18$ on election day. By then, residence is $2$ years in the country and $8$ months locally. No disqualification applies. May this person vote?",
+      "problem": "L22a: The Example 8 question is one paragraph with four sentences. The formatting rule allows only one to three short sentences per paragraph."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The citizenship placeholder specifies entry questions, yes/no branches, status endpoints, the special election route, and a warning that later loss is outside its scope. It can be drawn as a flowchart.",
+     "The voter placeholder specifies four labeled boxes, pass/fail logic, and a registration/disqualification footer. Both are single-line concept instructions, and the surrounding prose independently teaches the rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Definitions precede use for citizenship, elect, majority, natural-born, naturalization, alien, renunciation, oath of allegiance, repatriation, dual citizenship, dual allegiance, suffrage, and literacy.",
+     "The age and residence units are ordinary years and months. Article and section numbers function as legal references rather than unexplained mathematical symbols. No prerequisite explanation is needed to understand the central tests."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The parent rule explains why foreign birthplace does not prevent citizenship and why local birth alone is insufficient. Natural-born status is distinguished by acquisition at birth and the express election exception.",
+     "The lesson explains the practical effect of marriage, the oath to regain citizenship, the separate renunciation for candidacy, and the difference between two citizenships and voluntary dual loyalty.",
+     "Voting is taught through citizenship, age, both residence minimums, registration, legal disqualification, and prohibited tests. Ballot secrecy and independent voting are connected to private choice and protection from interference."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The election route is limited to the constitutional pre-1973 group; majority rules are qualified by the applicable historical law. Naturalization ages and residence periods are separated by legal process, with other qualifications explicitly retained.",
+     "Marriage protection has the legal-renunciation exception. RA 9225 is limited to natural-born Filipinos and foreign naturalization, with candidacy subject to a separate renunciation and other office qualifications.",
+     "Voting thresholds are minimums measured on election day. Registration and legal disqualifications remain necessary. Overseas voting is expressly subject to statutory rules, and independent voting includes the constitutional interim arrangement."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B10": {
+    "verdict": "pass",
+    "checked": [
+     "Both script candidates use retention to mean keeping Philippine citizenship under RA 9225. This is a subject-matter legal use, which the judging instructions explicitly exempt from keyword-only findings.",
+     "No FSRS, retrievability, stability, or algorithm appears in the student text."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {}
+ }
+}
