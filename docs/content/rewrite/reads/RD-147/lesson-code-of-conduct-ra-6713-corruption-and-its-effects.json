@@ -1,0 +1,207 @@
+{
+ "batch": "RD-147",
+ "lesson_id": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+ "path": "content/lessons/general-information/code-of-conduct-ra-6713/corruption-and-its-effects.md",
+ "lesson_sha256": "d831b395c7cabf2f187a27a73c91af0e7867a72c50be48c4748dde7fa2c2ec63",
+ "rewrite_commit": "da8f14a96aa0d8a93440bc180f32f9e39b528a2d",
+ "form": {
+  "packet": "lesson-code-of-conduct-ra-6713-corruption-and-its-effects",
+  "role": "A",
+  "lesson_sha256": "d831b395c7cabf2f187a27a73c91af0e7867a72c50be48c4748dde7fa2c2ec63",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Direct bribery**, under the Revised Penal Code, Article $210$, involves a benefit offered or accepted to influence official action.",
+      "problem": "This presents an overbroad legal definition. Article 210 requires the officer’s acceptance of an offer or promise, or receipt of a gift, in connection with its specified acts and conditions. A benefit merely offered by someone does not establish direct bribery by the officer. The supplied verified-source list does not include Article 210."
+     }
+    ]
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: 1 demand for payment; 2 bribery; 3 Section 3(b); 4 repeated project kickbacks and exactly fifty million meet the stated means and amount conditions; 5 social; 6 excess spending leaves fewer classrooms; 7 political; 8 social, economic, political in order; 9 Ombudsman; 10 posted rules expose invented fees and delays; 11 false because harm includes services and accountability. All agree with the worked answers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps are present. All eleven requested examples appear. Effects map, cost-to-classrooms chain, and complaint/court diagram each have a specific placeholder. No Speed Tricks section is required."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Public trust, corruption, effects, and accountability use short explanations. Difficult legal labels have adjacent plain meanings; the hypothetical solutions remain short."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "pass",
+    "checked": [
+     "Evaluate is explained as judging with reasons; classify is explained as sorting before either appears in an example."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No teaching analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All eleven questions provide their particular acts and outcomes without supplying the classification or legal clause being tested. Solutions explain the selected result in plain language."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No unsupported claim about CSE question frequency or format appears; there are no repeated exam openers."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, with no Filipino teaching or examples.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks students to identify or interpret a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary names the content directly; teaching avoids the listed stock phrases and varies sentence openings."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses its permitted three-section layout. No worked example uses a calculation formula; the plunder threshold is introduced in Core Concept before Example 4."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–4 cover mistake versus misuse, bribery, contract gift, and repeated acts at the plunder threshold. Examples 5–8 distinguish single and mixed effects. Examples 9–11 cover complaint routing, prevention, and evaluating an exclusive-budget claim. These match the brief’s distinct requested cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 4, 6, 8, and 11 number their reasoning. The other examples give direct one-step classifications or answers; there are no omitted computations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations in this qualitative lesson.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Student paragraphs have one to three short sentences. The single four-item list groups the main RA 3019 clauses; hidden audit comments are not teaching paragraphs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "All three placeholders are single-line drawing instructions naming boxes or branches and labels. Nearby prose explains effects and institutional roles without requiring the pictures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Locally defined before application: corruption, public interest, simple living, confidential information, undue injury, unwarranted benefits, the three Section 3(e) modes, plunder, kickback, red tape, fixer, accountability, impeachment, SALN, evaluate, and classify. The gift paragraph supplies a reminder and identifies Duties and Prohibited Acts for the exceptions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Corruption is tied to private gain and contrasted with an honest mistake. Effects have explicit chains from aid favoritism to lost food, inflated costs to fewer projects, and payers’ influence to weaker accountability. Prevention and complaint/court roles are explained."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Direct bribery**, under the Revised Penal Code, Article $210$, involves a benefit offered or accepted to influence official action.",
+      "problem": "The definition does not teach when an offer becomes the officer’s direct-bribery offense. It omits the officer’s agreement or acceptance and the specified official-act conditions, so students could classify an unaccepted offer as direct bribery."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "**Direct bribery**, under the Revised Penal Code, Article $210$, involves a benefit offered or accepted to influence official action.",
+    "concern": "This presents an overbroad legal definition. Article 210 requires the officer’s acceptance of an offer or promise, or receipt of a gift, in connection with its specified acts and conditions. A benefit merely offered by someone does not establish direct bribery by the officer. The supplied verified-source list does not include Article 210."
+   }
+  ],
+  "brief_items": {}
+ }
+}
