@@ -1,0 +1,262 @@
+{
+ "batch": "RD-138",
+ "lesson_id": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+ "path": "content/lessons/general-information/philippine-constitution/bill-of-rights-the-accused-and-the-trial.md",
+ "lesson_sha256": "1e86fe8c3a579f56a4ad9623d545fb4787bb91176a6ae533aa9711e009b2f273",
+ "rewrite_commit": "3971cfe2a7122ed4066107870c2c3902f0d1622f",
+ "form": {
+  "packet": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+  "role": "A",
+  "lesson_sha256": "1e86fe8c3a579f56a4ad9623d545fb4787bb91176a6ae533aa9711e009b2f273",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the constitutional safeguards as presented: Section 14 innocence, counsel, information, trial and witnesses; post-arraignment notified unjustified absence; Section 15 invasion or rebellion plus public safety; Sections 16 and 17 delay and testimonial compulsion. RA 7438 invitation coverage is consistent with the statutory rule named in the text. No conflicting factual assertion is apparent; no external sources were opened."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers: #1 presumption of innocence; #2 information about accusation and hearing through counsel; #3 impartial and public trial; #4 speedy trial; #5 confrontation and compulsory process; #6 yes after arraignment, notification, and unjustified absence; #7 no, both constitutional requirements absent; #8 speedy disposition; #9 compelled self-incrimination. All nine match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps to Watch For are present. General Information permits omitting Speed Tricks; the brief requires no figures."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Accused, due process, counsel, compulsory process, arraignment, habeas corpus, quasi-judicial and administrative bodies, and testimonial evidence are explained in plain words. Legal terms are accompanied by short functional explanations rather than a dense catalogue."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam-specific instruction term needs a first-use definition; questions ask which safeguard applies or whether stated conditions suffice.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No tutor analogy appears in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "The nine questions provide charge, court action, trial delay, witness, notice, emergency, administrative-delay, and forced-admission facts. They ask students to select and apply safeguards without giving away the safeguard names in the stems."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam references or unsupported exam-format promises appear."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "This is an English general-information lesson, not a Filipino-language lesson; it contains no Filipino prose.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks about a target word or its formatting.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "Summary describes the constitutional subject directly; teaching openings vary and contain none of the prohibited stock phrases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "General Information uses the permitted three-section layout. No worked example uses a calculation formula; the mathematical formula prerequisite does not apply."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover innocence, hearing and notice, impartial/public trial, harmful unjustified delay, both witness protections, trial in absence, suspension limits, administrative disposition, and compelled written testimony. Combined-right examples require identifying both distinct safeguards rather than repeating a prior task."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "Examined all 9 solutions: multistep reasoning is numbered throughout, with no unnumbered lead-in step or skipped calculation. No computation needs a display equation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess for screen width.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Section $12$ protects silence and counsel during **custodial investigation**. This is police questioning of a suspect who is held or whose freedom to act is greatly limited. Under RA 7438, it also includes police invitations to question someone about an offense they are suspected of committing. These safeguards do not apply to every general inquiry. Section $17$ separately protects against forced testimony against oneself.",
+      "problem": "The final trap explanation is one paragraph containing five sentences. L22a permits one to three short sentences per paragraph; this passage needs paragraph breaks."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Necessary legal vocabulary is defined locally before use in worked examples. Counsel means lawyer; arraignment includes charge and plea; compulsory process means court orders; body types and testimonial evidence are explained. No prerequisite is asserted."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Teaching connects innocence to the prosecution burden, accusation notice to preparation, counsel to answering, confrontation to testing testimony, compulsory process to obtaining proof, suspension to conditions, and self-incrimination to forced testimonial admissions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Checked justified versus unjustified delay, public-trial lawful limits, all three absent-trial conditions, invasion/rebellion plus public safety, lawful detention despite suspension, broader disposition coverage, physical versus testimonial evidence, and Section 12 versus Section 17 scope."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Under RA 7438, it also includes police invitations to question someone about an offense they are suspected of committing.",
+      "problem": "The statute number 7438 appears in prose without inline math delimiters. B08 requires prose numbers to be wrapped even when they identify a statute."
+     }
+    ]
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-bill-of-rights|L02|0": {
+    "status": "fixed",
+    "quote": "The accused may be heard personally and through **counsel**, a lawyer.",
+    "note": "The dense catalogue was replaced with short definitions and explanations of each trial right."
+   },
+   "lesson-philippine-constitution-bill-of-rights|L27|0": {
+    "status": "fixed",
+    "quote": "There must be invasion or rebellion, and public safety must require suspension.",
+    "note": "Both constitutional conditions for suspension are explicitly taught and applied."
+   },
+   "general-information-philippine-constitution#38": {
+    "status": "fixed",
+    "quote": "A charge is a claim that a crime was committed.",
+    "note": "Innocence is explained through the difference between a charge and proof and applied in example 1."
+   },
+   "general-information-philippine-constitution#39": {
+    "status": "fixed",
+    "quote": "This protects the chance to answer the charge and present a defense.",
+    "note": "Counsel and personal hearing are explained and applied to a court barring both responses."
+   },
+   "general-information-philippine-constitution#40": {
+    "status": "fixed",
+    "quote": "This means knowing the crime charged and the acts claimed to make up that crime.",
+    "note": "Notice of the accusation is explained and applied to a hidden-charge scenario."
+   },
+   "general-information-philippine-constitution#41": {
+    "status": "fixed",
+    "quote": "Speedy means it must move forward without unreasonable delay.",
+    "note": "Speed, impartiality, and public access receive meanings, limitations, and worked applications."
+   },
+   "general-information-philippine-constitution#42": {
+    "status": "fixed",
+    "quote": "This lets the defense question people who testify against the accused and test what they say.",
+    "note": "Confrontation is connected to questioning and applied to the blocked witness examination."
+   },
+   "general-information-philippine-constitution#43": {
+    "status": "fixed",
+    "quote": "It helps the defense obtain needed proof even when a witness will not attend willingly.",
+    "note": "Court orders for defense witnesses and records are explained and applied."
+   },
+   "general-information-philippine-constitution#44": {
+    "status": "fixed",
+    "quote": "An emergency label is not enough.",
+    "note": "Invasion or rebellion plus public safety is taught and convenience is rejected in a worked case."
+   },
+   "general-information-philippine-constitution#45": {
+    "status": "fixed",
+    "quote": "Speedy disposition is broader and also reaches cases before these other bodies.",
+    "note": "Judicial, quasi-judicial, and administrative coverage is explained with an agency-case application."
+   },
+   "general-information-philippine-constitution#46": {
+    "status": "fixed",
+    "quote": "A forced spoken answer or written admission can be testimonial evidence.",
+    "note": "Compelled self-incrimination is explained with scope limits and a forced-written-admission example."
+   }
+  }
+ }
+}
