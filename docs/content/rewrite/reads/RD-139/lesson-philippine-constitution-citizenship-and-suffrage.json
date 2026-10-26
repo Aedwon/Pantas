@@ -1,0 +1,235 @@
+{
+ "batch": "RD-139",
+ "lesson_id": "lesson-philippine-constitution-citizenship-and-suffrage",
+ "path": "content/lessons/general-information/philippine-constitution/citizenship-and-suffrage.md",
+ "lesson_sha256": "37e8af3a41fbc435dbd92e56e36b970637b91861b49aed64cbe56f5c2560c967",
+ "rewrite_commit": "8c725ee9f0f2f71751f5c4820fdc64323472761f",
+ "form": {
+  "packet": "lesson-philippine-constitution-citizenship-and-suffrage",
+  "role": "A",
+  "lesson_sha256": "37e8af3a41fbc435dbd92e56e36b970637b91861b49aed64cbe56f5c2560c967",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Compared the four citizenship groups, natural-born exception, marriage rule, loss/reacquisition, and voting minimums with the constitutional provisions reproduced in the supplied brief.",
+     "The naturalization discussion distinguishes CA 473 regular/reduced residence from RA 9139, instead of treating one age rule as universal. The RA 9225 discussion distinguishes the oath for citizenship from sworn foreign-citizenship renunciation for covered candidates.",
+     "The lesson identifies RA 8189 sections 9–11 for election-day qualifications, registration and disqualifications, and names the overseas-voting amendment."
+    ],
+    "note": "Prompt-only review. Statutory additions and the final dual-birth candidacy sentence were assessed for consistency, not independently verified against source pages.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?",
+      "problem": "The stem gives the mother’s current citizenship, not her citizenship at the child’s birth. A mother naturalized after 2005 fits the stem. The unconditional from-birth answer therefore needs a missing timing fact."
+     }
+    ]
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "The full lesson replaces the placeholder. All four citizen groups, natural-born status, naturalization routes, marriage, reacquisition, dual status, voting minimums, registration, disqualification, ballot protection and overseas voting appear. All 11 outlined examples and seven trap topics are present; both requested figure placeholders are included."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Citizenship, election, majority, naturalization, alien, renunciation, oath, repatriation and suffrage receive plain definitions. Statutory rules use short sentences and warn that different naturalization processes have different ages."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special tested meaning occurs.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No figurative analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "A child born in $2005$ has a Filipino mother and an alien father. Is the child Filipino from birth?",
+      "problem": "Example 1 omits the problem-specific fact that the mother was Filipino when the child was born. Its solution assumes that fact; add the birth-time condition to make the question determinate."
+     }
+    ]
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam-motivation opener or unsupported claim about exam frequency occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Citizenship** means legal membership in a country. Some rights and government offices depend on it.",
+      "problem": "This lesson is designated Filipino, but its teaching prose is in English. It does not teach in simple Filipino at the Grade 5 standard."
+     }
+    ]
+   },
+   "L09": {
+    "verdict": "pass",
+    "checked": [
+     "Checked the definitions and explanations throughout the lesson. No hard Filipino grammar term appears that needs an English gloss."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Both parents were Filipino when their child was born abroad. Does birthplace prevent Philippine citizenship?",
+      "problem": "This lesson is designated Filipino, but all 11 worked examples use English questions and solutions instead of Filipino."
+     }
+    ]
+   },
+   "L11": {
+    "verdict": "needs_source_check",
+    "checked": [],
+    "note": "This lesson is designated Filipino. Filipino spelling and usage require checking against the Komisyon sa Wikang Filipino source; this review does not independently confirm them.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "**Suffrage** means the right to vote. Article V, Section $1$, requires Philippine citizenship, no legal disqualification, and these minimums:",
+      "problem": "This lesson is designated Filipino, but its teaching uses whole English sentences, not just common English terms. The teaching prose must be in Filipino."
+     }
+    ]
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning of a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject plainly; the listed stock phrases do not occur; explanatory openings vary outside the necessary section catalogue."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "Core Concept, Examples, and Traps match General Information section fit. No worked example uses a mathematical formula; age and residence are threshold checks."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples 1–7 cover parent citizenship, foreign birth, pre-1973 election, natural-born office eligibility, marriage, reacquisition/candidacy and dual status. Examples 8–11 cover election-day age, contrasting local residence, banned voter tests and all three ballot safeguards. These match the requested distinct cases."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Only the first. The second lacks the required $6$ months locally.",
+      "problem": "Example 9 compares the national residence threshold and two local periods but compresses the multi-step qualification check into an unnumbered answer. This is a minor presentation issue; the final answer is correct."
+     }
+    ]
+   },
+   "L21": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no display equations to assess.",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "pass",
+    "checked": [
+     "Prose paragraphs have at most three sentences. The two short bullet lists organize the four citizen groups and three voting minimums; lists are not used to replace the teaching."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L23": {
+    "verdict": "pass",
+    "checked": [
+     "The acquisition flow gives ordered yes/no branches and outcomes, including the historical election exception and need to check another basis. The domestic-voter checklist specifies four checks and a registration/disqualification footer. Both are single-line, drawable instructions and the prose independently teaches their rules."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Citizenship, elect, age of majority, natural-born, naturalization, alien, renunciation, oath, repatriation, dual citizenship/allegiance, suffrage and literacy are defined before worked use. Age and residence units are ordinary years/months."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "Parentage versus birthplace, citizenship acquisition versus natural-born status, retention/reacquisition versus office candidacy, and dual citizenship versus allegiance are explained in prose and applied. Voting teaching separately explains citizenship, minimums, registration, disqualification and ballot safeguards."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "The lesson includes the pre-1973 election exception, naturalization age/residence differences, marriage renunciation condition, covered RA 9225 candidates, election-day measurement, both residence periods, registration, lawful disqualification and statutory overseas-voting conditions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B10": {
+    "verdict": "pass",
+    "checked": [
+     "Both flagged uses of retention concern the legal keeping of Philippine citizenship under RA 9225. They are subject-matter uses, not the reserved learning-system vocabulary; the supplied script-candidate instruction expressly permits subject-matter uses."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [
+   {
+    "quote": "Yes, under Article IV, Section $1(2)$, because the mother was Filipino at birth.",
+    "concern": "The solution inserts the birth-time citizenship fact that the question did not supply. Current maternal citizenship alone does not establish citizenship from birth."
+   }
+  ],
+  "brief_items": {}
+ }
+}
