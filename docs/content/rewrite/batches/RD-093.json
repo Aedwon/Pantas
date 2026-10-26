@@ -1,0 +1,26 @@
+{
+ "lessons": [
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives",
+  "lesson-grammar-and-structure-sentence-structure"
+ ],
+ "topic": "language-proficiency/grammar-and-structure",
+ "rewrites": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "9efe64b1007a3508e437f3f2b59b2d1d31297b33",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "9efe64b1007a3508e437f3f2b59b2d1d31297b33",
+  "lesson-grammar-and-structure-sentence-structure": "9efe64b1007a3508e437f3f2b59b2d1d31297b33"
+ },
+ "sha256": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "5bd66f0a28ee9426f23cb6355c76859b2911fafd689d2e91c2b3b822a4bb0c1f",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "c26f0583f956e81be770d86c6baa427069609ace9ccbb666623c5c42018067a6",
+  "lesson-grammar-and-structure-sentence-structure": "81868e5ab8fa7991ab912ada3467d35c83da4a33c2d57e95afb33bc2e7a6db20"
+ },
+ "paths": {
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": "content/lessons/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.md",
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": "content/lessons/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.md",
+  "lesson-grammar-and-structure-sentence-structure": "content/lessons/language-proficiency/grammar-and-structure/sentence-structure.md"
+ },
+ "id": "RD-093",
+ "type": "read",
+ "created": "2026-10-26T04:28:22+00:00"
+}
