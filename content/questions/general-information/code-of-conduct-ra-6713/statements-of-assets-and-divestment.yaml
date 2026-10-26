@@ -16,7 +16,7 @@ questions:
   - text: 30 days
     correct: true
   - text: 45 days
-    rationale: 'This uses the annual-report number. Another accountability duty uses forty-five working days. Check the duty and whether the period uses working days.
+    rationale: 'This gives too much time. Initial filing is due within thirty days after assumption of office.
 
       '
   - text: 60 days
@@ -40,11 +40,11 @@ questions:
   - text: April 30
     correct: true
   - text: December 31
-    rationale: 'This confuses the reporting date with the filing deadline. Financial records often refer to year-end. Check the duty and whether the period uses working days.
+    rationale: 'This uses year-end as the filing deadline. The annual SALN is due on or before April 30.
 
       '
   - text: June 30
-    rationale: 'This confuses filing by the official with later forwarding by an agency. Repositories also have submission procedures. Check the duty and whether the period uses working days.
+    rationale: 'This puts the deadline two months too late. The annual SALN is due on or before April 30.
 
       '
   - text: March 31
@@ -64,7 +64,7 @@ questions:
   - text: 30 days
     correct: true
   - text: 15 days
-    rationale: 'This uses the public-letter response number. Both duties require prompt action. Check the duty and whether the period uses working days.
+    rationale: 'This gives too little time. Filing is due within thirty days after separation from service.
 
       '
   - text: 60 days
@@ -116,7 +116,7 @@ questions:
 
       '
   - text: 45 days
-    rationale: 'This uses the annual-report number. Both involve accountability. Check the duty and whether the period uses working days.
+    rationale: 'This gives too little time. The divestment period is sixty days after assumption of office.
 
       '
   - text: 90 days
@@ -136,7 +136,7 @@ questions:
   - text: 30 days
     correct: true
   - text: 15 days
-    rationale: 'This uses the public-letter response number. Prompt action is needed in both cases. Check the duty and whether the period uses working days.
+    rationale: 'This gives too little time. Resignation is due within thirty days after assumption of office.
 
       '
   - text: 60 days
@@ -164,7 +164,7 @@ questions:
 
       '
   - text: 15 working days
-    rationale: 'This uses the public-letter response deadline. Both concern requests from the public. Check the duty and whether the period uses working days.
+    rationale: 'This makes the waiting period too long. Copies become available after ten working days from filing.
 
       '
   - text: 30 working days
@@ -188,7 +188,7 @@ questions:
 
       '
   - text: 15 years
-    rationale: 'This imports a response-deadline number into years. Fifteen appears in another RA 6713 duty. Keep response days separate from retention years.
+    rationale: 'This extends the required public-access period by five years. The stated period is ten years after receipt.
 
       '
   - text: 20 years
@@ -297,7 +297,7 @@ questions:
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
   type: single_choice
   difficulty: hard
-  stem: 'Where do Regional and local officials, as well as state university employees, file their SALN under RA 6713?
+  stem: 'Where do regional and local officials and employees file their SALN under RA 6713?
 
     '
   choices:
@@ -315,7 +315,7 @@ questions:
     rationale: 'This substitutes the judicial repository for regional administrative personnel. Both are public employees. Check the official category rather than government service alone.
 
       '
-  explanation: 'RA 6713 assigns regional and local officials and employees to the Deputy Ombudsman in their region. Regional state-university staff are also listed in CSC repository guidance. Senior university heads and personnel in other locations need their specific category checked.
+  explanation: 'RA 6713 assigns regional and local officials and employees to the Deputy Ombudsman in their region.
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
@@ -456,7 +456,7 @@ questions:
 
       '
   - text: Resign within 15 days; divest within 45 days
-    rationale: 'This uses public-response and annual-report numbers. Both appear in RA 6713. Check the Section 9 actions.
+    rationale: 'Both periods are too short. Section 9 gives thirty days for resignation and sixty days for divestment.
 
       '
   - text: Resign within 30 working days; divest within 60 working days
