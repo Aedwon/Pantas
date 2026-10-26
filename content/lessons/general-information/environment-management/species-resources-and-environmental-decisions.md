@@ -75,7 +75,9 @@ More evidence may be needed before deciding. A road beside a river needs checks 
 
 ### #1: Protecting a Nesting Area
 
-A threatened native bird nests in a forest patch. A viewing trail can cross the nesting area or take a slightly longer route around it. Both routes are safe and lawful. Which better protects the bird while allowing visitors?
+A threatened native bird nests in a forest patch. A viewing trail can cross the nesting area or take a slightly longer route around it.
+
+Both routes are safe and lawful. Which better protects the bird while allowing visitors?
 
 **Solution:**
 
@@ -126,7 +128,9 @@ An approved program breeds a threatened animal for release. Its planned release 
 
 ### #6: Comparing Road Routes
 
-A local government needs an access road. Route A is cheaper but clears intact wildlife habitat. Route B costs more and follows an already cleared corridor. Studies show both are lawful, safe, and provide the same access, with no other major difference in environmental effects. Which better supports conservation?
+A local government needs an access road. Route A is cheaper but clears intact wildlife habitat. Route B costs more and follows an already cleared corridor.
+
+Studies show both are lawful, safe, and provide the same access, with no other major difference in environmental effects. Which better supports conservation?
 
 **Solution:**
 
