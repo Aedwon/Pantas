@@ -1,0 +1,353 @@
+{
+ "batch": "RD-139",
+ "lesson_id": "lesson-philippine-constitution-the-civil-service-commission",
+ "path": "content/lessons/general-information/philippine-constitution/the-civil-service-commission.md",
+ "lesson_sha256": "096f3374bbdc5b5949ab6853ce6461537f00d5db0a62895977e83c340495482b",
+ "rewrite_commit": "6d3ab3d3b0a56350edf8967bb70bb79e7963ac27",
+ "form": {
+  "packet": "lesson-philippine-constitution-the-civil-service-commission",
+  "role": "A",
+  "lesson_sha256": "096f3374bbdc5b5949ab6853ce6461537f00d5db0a62895977e83c340495482b",
+  "standards_commit": "14a218d8dc6929374da6d0410e200d50725519e9",
+  "rules": {
+   "B01": {
+    "verdict": "pass",
+    "checked": [
+     "Checked Article IX-B membership, natural-born status, age 35, capacity, immediately preceding candidacy, appointment consent, regular/staggered/unexpired terms and acting-member ban against the constitutional requirements stated in the brief.",
+     "Checked the added functions, original-charter distinction, merit/fitness and examination exceptions, removal cause, partisan activity, and IX-A independence/conflict safeguards for internal legal consistency. The campaign paragraph expressly identifies political-office holders as an exception."
+    ],
+    "note": "Prompt-only review; primary-source pages were not opened. The brief supplies the appointment rules but not full primary text of the additional commission provisions.",
+    "findings": []
+   },
+   "B02": {
+    "verdict": "pass",
+    "checked": [
+     "Independent answers 1–6: three members, one Chairman and two Commissioners; Ana alone is old enough; Lina qualifies as natural-born; Rosa is deemed natural-born; management records support capacity; losing does not remove the immediately-preceding-candidacy bar.",
+     "Independent answers 7–12: President with Commission on Appointments consent; A alone has an original charter; merit-based selection and career training support CSC duties; merit/fitness still required for a highly technical post; lawful-cause tenure protection; partisan-electioneering restriction.",
+     "Independent answers 13–17: no reappointment after the completed term and replacement gets two remaining years; no acting membership; both second job and affected-business management barred; city contract indirect financial interest covered; fiscal autonomy and automatic regular release. All match the solutions."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "B03": {
+    "verdict": "pass",
+    "checked": [
+     "Required Core Concept, Examples, and Traps are present. Optional Speed Tricks is omitted under the General Information ruling. Appointment qualifications and all eleven CSE facets appear; no figure-dependent question or required illustration is listed."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L02": {
+    "verdict": "pass",
+    "checked": [
+     "Central personnel agency becomes managing government workers; capacity becomes shown ability to run government work. Career service, original charter, merit/fitness, tenure, fiscal autonomy and conflict rules receive short plain explanations."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L03": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No exam instruction verb with a special tested meaning occurs.",
+    "findings": []
+   },
+   "L04": {
+    "verdict": "pass",
+    "checked": [
+     "No figurative analogy occurs in Core Concept or elsewhere."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L05": {
+    "verdict": "pass",
+    "checked": [
+     "All 17 stems ask direct legal questions. Age is fixed at appointment; candidacy is expressly in the immediately preceding election; birth-time citizenship and the election exception are supplied; corporation creation and financial-interest facts make the added cases determinate."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L07": {
+    "verdict": "pass",
+    "checked": [
+     "No repeated exam-motivation opener or unsupported claim about exam frequency occurs."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L08": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English constitutional teaching, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L09": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English constitutional teaching, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L10": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English constitutional teaching, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L11": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English constitutional teaching, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L12": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "The lesson is English constitutional teaching, not Filipino-language teaching.",
+    "findings": []
+   },
+   "L14": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "No question asks for the meaning of a target word.",
+    "findings": []
+   },
+   "L15": {
+    "verdict": "pass",
+    "checked": [
+     "The summary names the subject plainly; the listed stock phrases do not occur; explanatory openings vary outside the necessary section catalogue."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L17": {
+    "verdict": "pass",
+    "checked": [
+     "The General Information three-section structure is followed. Example 1 uses only elementary counting, 1 + 2 = 3; the Core Concept states one Chairman and two Commissioners. The subject-specific requirement to introduce mathematical formulas in Core Concept does not impose a formula catalogue on this nonmathematical lesson."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L18": {
+    "verdict": "pass",
+    "checked": [
+     "Examples cover count, age boundary, ordinary and deemed natural-born citizenship, evidence of capacity, candidacy timing, appointment authorities, charter coverage, merit/career duties, examination exception, tenure, campaigning, full/vacancy terms, acting ban, second job/business, indirect city-contract interest and funding independence.",
+     "The basic appointment examples precede applied worker and independence cases. No example merely changes names or numbers to repeat an earlier reasoning task."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L19": {
+    "verdict": "pass",
+    "checked": [
+     "The membership computation is displayed as 1 + 2 = 3 between numbered steps. Multi-step applications use numbered reasoning; examples 3, 7, 12, 14 and 17 are direct rule-identification answers with no omitted computation."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L21": {
+    "verdict": "pass",
+    "checked": [
+     "The only display is the narrow equation 1 + 2 = 3."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L22a": {
+    "verdict": "fail",
+    "checked": [],
+    "note": "",
+    "findings": [
+     {
+      "quote": "Civil service officers and employees may not take part, directly or indirectly, in electioneering or a partisan political campaign.",
+      "problem": "This political-limits paragraph has five sentences. Split the political-office exception and the electioneering definition into separate paragraphs to meet the one-to-three-sentence rule."
+     }
+    ]
+   },
+   "L23": {
+    "verdict": "not_applicable",
+    "checked": [],
+    "note": "There are no illustration placeholders or figure-dependent questions.",
+    "findings": []
+   },
+   "L25": {
+    "verdict": "pass",
+    "checked": [
+     "Central personnel agency and career service are explained before their application; natural-born and its election exception precede citizenship examples. Capacity, unexpired term, original charter, merit/fitness, examination categories, tenure, electioneering, fiscal autonomy and subsidiary meanings are supplied locally."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L26": {
+    "verdict": "pass",
+    "checked": [
+     "The CSC role is developed through selection, rewards, training and accountable service. Capacity is connected to management evidence without inventing a mandatory degree. Charter coverage, merit/exam exceptions, tenure, political activity and independence each explain what the protection or restriction does."
+    ],
+    "note": "",
+    "findings": []
+   },
+   "L27": {
+    "verdict": "pass",
+    "checked": [
+     "Age is measured at appointment; candidacy is limited to the immediately preceding election. Regular terms are qualified by initial staggered terms and unexpired replacements; acting and temporary members are barred.",
+     "Coverage requires original charters for government corporations; merit survives exam exceptions; removal requires legal cause; political office holders are distinguished. Outside jobs, profession, affected-business management and government financial interests are separate tenure restrictions."
+    ],
+    "note": "",
+    "findings": []
+   }
+  },
+  "illustrations": [],
+  "accuracy_concerns": [],
+  "brief_items": {
+   "lesson-philippine-constitution-the-civil-service-commission|B03|0": {
+    "status": "fixed",
+    "quote": "The relevant election is the one immediately before appointment.",
+    "note": "Traps to Watch For is now present; Speed Tricks is optional under the supplied ruling."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L18|1": {
+    "status": "fixed",
+    "quote": "Ana is exactly $35$ years old on her appointment date.",
+    "note": "The age-boundary example contrasts exactly 35 with turning 35 tomorrow."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|B02|0": {
+    "status": "fixed",
+    "quote": "A CSC nominee ran for mayor in the election immediately preceding the planned appointment.",
+    "note": "The stem supplies the exact election timing required for the disqualification."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|B08|0": {
+    "status": "fixed",
+    "quote": "Article IX-B of the $1987$ Constitution covers the **Civil Service Commission**, or CSC.",
+    "note": "The year uses inline math and the citation is now Article IX-B."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|B08|1": {
+    "status": "fixed",
+    "quote": "Be at least $35$ years old at appointment.",
+    "note": "The age number is wrapped in inline math."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|B08|2": {
+    "status": "fixed",
+    "quote": "How many members make up the CSC, and what positions do they hold?",
+    "note": "The revised membership stem removes the unwrapped year and asks directly."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|B08|3": {
+    "status": "fixed",
+    "quote": "1 + 2 = 3",
+    "note": "The computation is now inside its own display-math block."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L02|0": {
+    "status": "fixed",
+    "quote": "means a person has shown the ability to run government work well.",
+    "note": "The formal capacity phrase now has a plain-English explanation."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L05|0": {
+    "status": "fixed",
+    "quote": "The nominee lost. Does losing remove the constitutional bar?",
+    "note": "The preceding stem explicitly names the election immediately preceding appointment."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L19|0": {
+    "status": "fixed",
+    "quote": "1 + 2 = 3",
+    "note": "The key arithmetic is now displayed separately from list text."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L25|0": {
+    "status": "fixed",
+    "quote": "A **natural-born citizen** is a Philippine citizen from birth who needs no act to acquire or complete that citizenship.",
+    "note": "Natural-born status is defined and its constitutional exception is also taught."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L26|0": {
+    "status": "fixed",
+    "quote": "This means it leads the system for managing government workers.",
+    "note": "The personnel-agency label is explained and followed by selection and career-development functions."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L27|0": {
+    "status": "fixed",
+    "quote": "The first appointees under the Constitution had staggered terms: $7$ years for the Chairman, $5$ for one Commissioner, and $3$ for the other.",
+    "note": "Both initial staggered terms and vacancy appointments for the unexpired term are included."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L27|1": {
+    "status": "fixed",
+    "quote": "No member may be appointed or designated in a temporary or acting capacity.",
+    "note": "The constitutional acting and temporary membership limitation is explicit."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|lead-add|0": {
+    "status": "fixed",
+    "quote": "Article IX-B of the $1987$ Constitution covers the **Civil Service Commission**, or CSC.",
+    "note": "The opening citation now correctly identifies Article IX-B."
+   },
+   "general-information-philippine-constitution#96": {
+    "status": "fixed",
+    "quote": "It strengthens the system for choosing qualified workers and rewarding good service.",
+    "note": "The CSC location, personnel role, and merit-based work are now explained."
+   },
+   "general-information-philippine-constitution#98": {
+    "status": "fixed",
+    "quote": "Becoming a citizen later through naturalization does not by itself make someone natural-born.",
+    "note": "Natural-born status has a definition, exception and application examples."
+   },
+   "general-information-philippine-constitution#100": {
+    "status": "fixed",
+    "quote": "The Constitution does not require one named degree, job, or test as the sole proof.",
+    "note": "Capacity has a plain meaning and possible evidence without an invented exclusive test."
+   },
+   "general-information-philippine-constitution#105": {
+    "status": "fixed",
+    "quote": "Appointments must be based on **merit and fitness**.",
+    "note": "Merit and fitness are defined and applied to skills and work records."
+   },
+   "general-information-philippine-constitution#106": {
+    "status": "fixed",
+    "quote": "The Commission brings together training programs for workers at different levels.",
+    "note": "Training and long-term career development now explain the CSC function."
+   },
+   "general-information-philippine-constitution#107": {
+    "status": "fixed",
+    "quote": "Coverage also includes government-owned or controlled corporations with **original charters**.",
+    "note": "All-government coverage and the original-charter corporation condition are taught."
+   },
+   "general-information-philippine-constitution#108": {
+    "status": "fixed",
+    "quote": "These are exceptions to the competitive-examination rule.",
+    "note": "All three examination exceptions are defined and merit/fitness is preserved."
+   },
+   "general-information-philippine-constitution#109": {
+    "status": "fixed",
+    "quote": "A civil service officer or employee may be removed or suspended only for a cause provided by law.",
+    "note": "Lawful-cause protection and a personal-dislike suspension case are included."
+   },
+   "general-information-philippine-constitution#110": {
+    "status": "fixed",
+    "quote": "Voting is different from campaigning for a candidate.",
+    "note": "Partisan activity is prohibited with electioneering explained and political-office exceptions distinguished."
+   },
+   "general-information-philippine-constitution#111": {
+    "status": "fixed",
+    "quote": "Its approved annual funding must be released automatically and regularly.",
+    "note": "Independence includes salary protection, fiscal autonomy and regular automatic funding."
+   },
+   "general-information-philippine-constitution#112": {
+    "status": "fixed",
+    "quote": "During their tenure, members cannot hold another office or job.",
+    "note": "Office, professional, business-management and financial-interest restrictions are separately taught and applied."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L18|0": {
+    "status": "fixed",
+    "quote": "Lina was a Philippine citizen from birth through her Filipino father.",
+    "note": "A dedicated citizenship example applies natural-born status; a second covers the deemed exception."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L18|2": {
+    "status": "fixed",
+    "quote": "A nominee presents records of successfully managing staff and public services in a government office.",
+    "note": "The capacity example compares evidence of management with friendship without inventing an exclusive test."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L25|1": {
+    "status": "fixed",
+    "quote": "means a person has shown the ability to run government work well.",
+    "note": "The necessary public-administration phrase has a plain meaning before examples."
+   },
+   "lesson-philippine-constitution-the-civil-service-commission|L26|1": {
+    "status": "fixed",
+    "quote": "A record of managing public staff, services, and resources can help show this ability.",
+    "note": "The lesson explains possible evidence while rejecting one mandatory degree or job test."
+   }
+  }
+ }
+}
