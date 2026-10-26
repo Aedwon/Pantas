@@ -52,7 +52,7 @@ In a **frustrated offense**, the person performs all the acts needed to cause th
 
 The rule also covers an offense that necessarily includes, or is included in, the first charge. An **included offense** has required parts that are all contained in the larger offense as charged. The larger offense requires an added part.
 
-For example, homicide involves an unlawful killing. Murder involves an unlawful killing plus a qualifying circumstance, such as treachery. **Treachery** involves a method of attack that prevents the victim from defending and protects the attacker from that defense.
+For example, homicide involves an unlawful killing. Murder involves an unlawful killing plus a qualifying circumstance, such as treachery. **Treachery** involves a method of attack that prevents the victim from defending and protects the attacker from that defense. The attacker must have chosen that method on purpose.
 
 Homicide is included in a murder charge that alleges the required facts. After a valid acquittal of that murder charge, the State generally cannot try the person for homicide for the same killing. Changing the charge's name does not avoid the protection.
 
