@@ -49,7 +49,7 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      When indexing business titles, prepositions and conjunctions like "and", "of", and "the" are treated in what manner?
+      A registry says to skip the words "and", "of", and "the" when indexing business titles. How are these words treated in this registry?
     choices:
       - text: "Disregarded in indexing"
         correct: true
@@ -169,7 +169,7 @@ questions:
     type: single_choice
     difficulty: medium
     stem: |
-      How is the name "St. Martin" indexed under standard alphabetic filing rules?
+      A registry expands "St." to "Saint" in its comparison key. How is the name "St. Martin" indexed under this rule?
     choices:
       - text: "Indexed as Saint Martin"
         correct: true
@@ -209,7 +209,7 @@ questions:
     type: single_choice
     difficulty: hard
     stem: |
-      When filing government agency names, what is indexed as the first unit?
+      A registry files government agency names under their country or location first, then the agency name. What is indexed as the first unit in this registry?
     choices:
       - text: "Country or location name"
         correct: true
